@@ -77,6 +77,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -714,10 +717,10 @@ export const deserializeAws_restJson1ConfigureLogsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.egressAccessLogs !== undefined && data.egressAccessLogs !== null) {
     contents.EgressAccessLogs = deserializeAws_restJson1EgressAccessLogs(data.egressAccessLogs, context);
@@ -726,7 +729,7 @@ export const deserializeAws_restJson1ConfigureLogsCommand = async (
     contents.HlsIngest = deserializeAws_restJson1HlsIngest(data.hlsIngest, context);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.Id = data.id;
+    contents.Id = __expectString(data.id);
   }
   if (data.ingressAccessLogs !== undefined && data.ingressAccessLogs !== null) {
     contents.IngressAccessLogs = deserializeAws_restJson1IngressAccessLogs(data.ingressAccessLogs, context);
@@ -833,10 +836,10 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.egressAccessLogs !== undefined && data.egressAccessLogs !== null) {
     contents.EgressAccessLogs = deserializeAws_restJson1EgressAccessLogs(data.egressAccessLogs, context);
@@ -845,7 +848,7 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
     contents.HlsIngest = deserializeAws_restJson1HlsIngest(data.hlsIngest, context);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.Id = data.id;
+    contents.Id = __expectString(data.id);
   }
   if (data.ingressAccessLogs !== undefined && data.ingressAccessLogs !== null) {
     contents.IngressAccessLogs = deserializeAws_restJson1IngressAccessLogs(data.ingressAccessLogs, context);
@@ -954,31 +957,31 @@ export const deserializeAws_restJson1CreateHarvestJobCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.channelId !== undefined && data.channelId !== null) {
-    contents.ChannelId = data.channelId;
+    contents.ChannelId = __expectString(data.channelId);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.CreatedAt = data.createdAt;
+    contents.CreatedAt = __expectString(data.createdAt);
   }
   if (data.endTime !== undefined && data.endTime !== null) {
-    contents.EndTime = data.endTime;
+    contents.EndTime = __expectString(data.endTime);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.Id = data.id;
+    contents.Id = __expectString(data.id);
   }
   if (data.originEndpointId !== undefined && data.originEndpointId !== null) {
-    contents.OriginEndpointId = data.originEndpointId;
+    contents.OriginEndpointId = __expectString(data.originEndpointId);
   }
   if (data.s3Destination !== undefined && data.s3Destination !== null) {
     contents.S3Destination = deserializeAws_restJson1S3Destination(data.s3Destination, context);
   }
   if (data.startTime !== undefined && data.startTime !== null) {
-    contents.StartTime = data.startTime;
+    contents.StartTime = __expectString(data.startTime);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -1088,13 +1091,13 @@ export const deserializeAws_restJson1CreateOriginEndpointCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.authorization !== undefined && data.authorization !== null) {
     contents.Authorization = deserializeAws_restJson1Authorization(data.authorization, context);
   }
   if (data.channelId !== undefined && data.channelId !== null) {
-    contents.ChannelId = data.channelId;
+    contents.ChannelId = __expectString(data.channelId);
   }
   if (data.cmafPackage !== undefined && data.cmafPackage !== null) {
     contents.CmafPackage = deserializeAws_restJson1CmafPackage(data.cmafPackage, context);
@@ -1103,34 +1106,34 @@ export const deserializeAws_restJson1CreateOriginEndpointCommand = async (
     contents.DashPackage = deserializeAws_restJson1DashPackage(data.dashPackage, context);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.hlsPackage !== undefined && data.hlsPackage !== null) {
     contents.HlsPackage = deserializeAws_restJson1HlsPackage(data.hlsPackage, context);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.Id = data.id;
+    contents.Id = __expectString(data.id);
   }
   if (data.manifestName !== undefined && data.manifestName !== null) {
-    contents.ManifestName = data.manifestName;
+    contents.ManifestName = __expectString(data.manifestName);
   }
   if (data.mssPackage !== undefined && data.mssPackage !== null) {
     contents.MssPackage = deserializeAws_restJson1MssPackage(data.mssPackage, context);
   }
   if (data.origination !== undefined && data.origination !== null) {
-    contents.Origination = data.origination;
+    contents.Origination = __expectString(data.origination);
   }
   if (data.startoverWindowSeconds !== undefined && data.startoverWindowSeconds !== null) {
-    contents.StartoverWindowSeconds = data.startoverWindowSeconds;
+    contents.StartoverWindowSeconds = __expectNumber(data.startoverWindowSeconds);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.timeDelaySeconds !== undefined && data.timeDelaySeconds !== null) {
-    contents.TimeDelaySeconds = data.timeDelaySeconds;
+    contents.TimeDelaySeconds = __expectNumber(data.timeDelaySeconds);
   }
   if (data.url !== undefined && data.url !== null) {
-    contents.Url = data.url;
+    contents.Url = __expectString(data.url);
   }
   if (data.whitelist !== undefined && data.whitelist !== null) {
     contents.Whitelist = deserializeAws_restJson1__listOf__string(data.whitelist, context);
@@ -1416,10 +1419,10 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.egressAccessLogs !== undefined && data.egressAccessLogs !== null) {
     contents.EgressAccessLogs = deserializeAws_restJson1EgressAccessLogs(data.egressAccessLogs, context);
@@ -1428,7 +1431,7 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
     contents.HlsIngest = deserializeAws_restJson1HlsIngest(data.hlsIngest, context);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.Id = data.id;
+    contents.Id = __expectString(data.id);
   }
   if (data.ingressAccessLogs !== undefined && data.ingressAccessLogs !== null) {
     contents.IngressAccessLogs = deserializeAws_restJson1IngressAccessLogs(data.ingressAccessLogs, context);
@@ -1537,31 +1540,31 @@ export const deserializeAws_restJson1DescribeHarvestJobCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.channelId !== undefined && data.channelId !== null) {
-    contents.ChannelId = data.channelId;
+    contents.ChannelId = __expectString(data.channelId);
   }
   if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.CreatedAt = data.createdAt;
+    contents.CreatedAt = __expectString(data.createdAt);
   }
   if (data.endTime !== undefined && data.endTime !== null) {
-    contents.EndTime = data.endTime;
+    contents.EndTime = __expectString(data.endTime);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.Id = data.id;
+    contents.Id = __expectString(data.id);
   }
   if (data.originEndpointId !== undefined && data.originEndpointId !== null) {
-    contents.OriginEndpointId = data.originEndpointId;
+    contents.OriginEndpointId = __expectString(data.originEndpointId);
   }
   if (data.s3Destination !== undefined && data.s3Destination !== null) {
     contents.S3Destination = deserializeAws_restJson1S3Destination(data.s3Destination, context);
   }
   if (data.startTime !== undefined && data.startTime !== null) {
-    contents.StartTime = data.startTime;
+    contents.StartTime = __expectString(data.startTime);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -1671,13 +1674,13 @@ export const deserializeAws_restJson1DescribeOriginEndpointCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.authorization !== undefined && data.authorization !== null) {
     contents.Authorization = deserializeAws_restJson1Authorization(data.authorization, context);
   }
   if (data.channelId !== undefined && data.channelId !== null) {
-    contents.ChannelId = data.channelId;
+    contents.ChannelId = __expectString(data.channelId);
   }
   if (data.cmafPackage !== undefined && data.cmafPackage !== null) {
     contents.CmafPackage = deserializeAws_restJson1CmafPackage(data.cmafPackage, context);
@@ -1686,34 +1689,34 @@ export const deserializeAws_restJson1DescribeOriginEndpointCommand = async (
     contents.DashPackage = deserializeAws_restJson1DashPackage(data.dashPackage, context);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.hlsPackage !== undefined && data.hlsPackage !== null) {
     contents.HlsPackage = deserializeAws_restJson1HlsPackage(data.hlsPackage, context);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.Id = data.id;
+    contents.Id = __expectString(data.id);
   }
   if (data.manifestName !== undefined && data.manifestName !== null) {
-    contents.ManifestName = data.manifestName;
+    contents.ManifestName = __expectString(data.manifestName);
   }
   if (data.mssPackage !== undefined && data.mssPackage !== null) {
     contents.MssPackage = deserializeAws_restJson1MssPackage(data.mssPackage, context);
   }
   if (data.origination !== undefined && data.origination !== null) {
-    contents.Origination = data.origination;
+    contents.Origination = __expectString(data.origination);
   }
   if (data.startoverWindowSeconds !== undefined && data.startoverWindowSeconds !== null) {
-    contents.StartoverWindowSeconds = data.startoverWindowSeconds;
+    contents.StartoverWindowSeconds = __expectNumber(data.startoverWindowSeconds);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.timeDelaySeconds !== undefined && data.timeDelaySeconds !== null) {
-    contents.TimeDelaySeconds = data.timeDelaySeconds;
+    contents.TimeDelaySeconds = __expectNumber(data.timeDelaySeconds);
   }
   if (data.url !== undefined && data.url !== null) {
-    contents.Url = data.url;
+    contents.Url = __expectString(data.url);
   }
   if (data.whitelist !== undefined && data.whitelist !== null) {
     contents.Whitelist = deserializeAws_restJson1__listOf__string(data.whitelist, context);
@@ -1815,7 +1818,7 @@ export const deserializeAws_restJson1ListChannelsCommand = async (
     contents.Channels = deserializeAws_restJson1__listOfChannel(data.channels, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1914,7 +1917,7 @@ export const deserializeAws_restJson1ListHarvestJobsCommand = async (
     contents.HarvestJobs = deserializeAws_restJson1__listOfHarvestJob(data.harvestJobs, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2010,7 +2013,7 @@ export const deserializeAws_restJson1ListOriginEndpointsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   if (data.originEndpoints !== undefined && data.originEndpoints !== null) {
     contents.OriginEndpoints = deserializeAws_restJson1__listOfOriginEndpoint(data.originEndpoints, context);
@@ -2161,10 +2164,10 @@ export const deserializeAws_restJson1RotateChannelCredentialsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.egressAccessLogs !== undefined && data.egressAccessLogs !== null) {
     contents.EgressAccessLogs = deserializeAws_restJson1EgressAccessLogs(data.egressAccessLogs, context);
@@ -2173,7 +2176,7 @@ export const deserializeAws_restJson1RotateChannelCredentialsCommand = async (
     contents.HlsIngest = deserializeAws_restJson1HlsIngest(data.hlsIngest, context);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.Id = data.id;
+    contents.Id = __expectString(data.id);
   }
   if (data.ingressAccessLogs !== undefined && data.ingressAccessLogs !== null) {
     contents.IngressAccessLogs = deserializeAws_restJson1IngressAccessLogs(data.ingressAccessLogs, context);
@@ -2280,10 +2283,10 @@ export const deserializeAws_restJson1RotateIngestEndpointCredentialsCommand = as
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.egressAccessLogs !== undefined && data.egressAccessLogs !== null) {
     contents.EgressAccessLogs = deserializeAws_restJson1EgressAccessLogs(data.egressAccessLogs, context);
@@ -2292,7 +2295,7 @@ export const deserializeAws_restJson1RotateIngestEndpointCredentialsCommand = as
     contents.HlsIngest = deserializeAws_restJson1HlsIngest(data.hlsIngest, context);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.Id = data.id;
+    contents.Id = __expectString(data.id);
   }
   if (data.ingressAccessLogs !== undefined && data.ingressAccessLogs !== null) {
     contents.IngressAccessLogs = deserializeAws_restJson1IngressAccessLogs(data.ingressAccessLogs, context);
@@ -2485,10 +2488,10 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.egressAccessLogs !== undefined && data.egressAccessLogs !== null) {
     contents.EgressAccessLogs = deserializeAws_restJson1EgressAccessLogs(data.egressAccessLogs, context);
@@ -2497,7 +2500,7 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
     contents.HlsIngest = deserializeAws_restJson1HlsIngest(data.hlsIngest, context);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.Id = data.id;
+    contents.Id = __expectString(data.id);
   }
   if (data.ingressAccessLogs !== undefined && data.ingressAccessLogs !== null) {
     contents.IngressAccessLogs = deserializeAws_restJson1IngressAccessLogs(data.ingressAccessLogs, context);
@@ -2613,13 +2616,13 @@ export const deserializeAws_restJson1UpdateOriginEndpointCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.authorization !== undefined && data.authorization !== null) {
     contents.Authorization = deserializeAws_restJson1Authorization(data.authorization, context);
   }
   if (data.channelId !== undefined && data.channelId !== null) {
-    contents.ChannelId = data.channelId;
+    contents.ChannelId = __expectString(data.channelId);
   }
   if (data.cmafPackage !== undefined && data.cmafPackage !== null) {
     contents.CmafPackage = deserializeAws_restJson1CmafPackage(data.cmafPackage, context);
@@ -2628,34 +2631,34 @@ export const deserializeAws_restJson1UpdateOriginEndpointCommand = async (
     contents.DashPackage = deserializeAws_restJson1DashPackage(data.dashPackage, context);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.hlsPackage !== undefined && data.hlsPackage !== null) {
     contents.HlsPackage = deserializeAws_restJson1HlsPackage(data.hlsPackage, context);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.Id = data.id;
+    contents.Id = __expectString(data.id);
   }
   if (data.manifestName !== undefined && data.manifestName !== null) {
-    contents.ManifestName = data.manifestName;
+    contents.ManifestName = __expectString(data.manifestName);
   }
   if (data.mssPackage !== undefined && data.mssPackage !== null) {
     contents.MssPackage = deserializeAws_restJson1MssPackage(data.mssPackage, context);
   }
   if (data.origination !== undefined && data.origination !== null) {
-    contents.Origination = data.origination;
+    contents.Origination = __expectString(data.origination);
   }
   if (data.startoverWindowSeconds !== undefined && data.startoverWindowSeconds !== null) {
-    contents.StartoverWindowSeconds = data.startoverWindowSeconds;
+    contents.StartoverWindowSeconds = __expectNumber(data.startoverWindowSeconds);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.timeDelaySeconds !== undefined && data.timeDelaySeconds !== null) {
-    contents.TimeDelaySeconds = data.timeDelaySeconds;
+    contents.TimeDelaySeconds = __expectNumber(data.timeDelaySeconds);
   }
   if (data.url !== undefined && data.url !== null) {
-    contents.Url = data.url;
+    contents.Url = __expectString(data.url);
   }
   if (data.whitelist !== undefined && data.whitelist !== null) {
     contents.Whitelist = deserializeAws_restJson1__listOf__string(data.whitelist, context);
@@ -2752,7 +2755,7 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -2769,7 +2772,7 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -2786,7 +2789,7 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -2803,7 +2806,7 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -2820,7 +2823,7 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -2837,7 +2840,7 @@ const deserializeAws_restJson1UnprocessableEntityExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -3176,7 +3179,7 @@ const deserializeAws_restJson1__listOf__PeriodTriggersElement = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3187,7 +3190,7 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3253,7 +3256,7 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -3265,25 +3268,21 @@ const deserializeAws_restJson1AdTriggers = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Authorization = (output: any, context: __SerdeContext): Authorization => {
   return {
-    CdnIdentifierSecret:
-      output.cdnIdentifierSecret !== undefined && output.cdnIdentifierSecret !== null
-        ? output.cdnIdentifierSecret
-        : undefined,
-    SecretsRoleArn:
-      output.secretsRoleArn !== undefined && output.secretsRoleArn !== null ? output.secretsRoleArn : undefined,
+    CdnIdentifierSecret: __expectString(output.cdnIdentifierSecret),
+    SecretsRoleArn: __expectString(output.secretsRoleArn),
   } as any;
 };
 
 const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
   return {
-    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    Arn: __expectString(output.arn),
+    Description: __expectString(output.description),
     EgressAccessLogs:
       output.egressAccessLogs !== undefined && output.egressAccessLogs !== null
         ? deserializeAws_restJson1EgressAccessLogs(output.egressAccessLogs, context)
@@ -3292,7 +3291,7 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
       output.hlsIngest !== undefined && output.hlsIngest !== null
         ? deserializeAws_restJson1HlsIngest(output.hlsIngest, context)
         : undefined,
-    Id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    Id: __expectString(output.id),
     IngressAccessLogs:
       output.ingressAccessLogs !== undefined && output.ingressAccessLogs !== null
         ? deserializeAws_restJson1IngressAccessLogs(output.ingressAccessLogs, context)
@@ -3306,14 +3305,8 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1CmafEncryption = (output: any, context: __SerdeContext): CmafEncryption => {
   return {
-    ConstantInitializationVector:
-      output.constantInitializationVector !== undefined && output.constantInitializationVector !== null
-        ? output.constantInitializationVector
-        : undefined,
-    KeyRotationIntervalSeconds:
-      output.keyRotationIntervalSeconds !== undefined && output.keyRotationIntervalSeconds !== null
-        ? output.keyRotationIntervalSeconds
-        : undefined,
+    ConstantInitializationVector: __expectString(output.constantInitializationVector),
+    KeyRotationIntervalSeconds: __expectNumber(output.keyRotationIntervalSeconds),
     SpekeKeyProvider:
       output.spekeKeyProvider !== undefined && output.spekeKeyProvider !== null
         ? deserializeAws_restJson1SpekeKeyProvider(output.spekeKeyProvider, context)
@@ -3331,12 +3324,8 @@ const deserializeAws_restJson1CmafPackage = (output: any, context: __SerdeContex
       output.hlsManifests !== undefined && output.hlsManifests !== null
         ? deserializeAws_restJson1__listOfHlsManifest(output.hlsManifests, context)
         : undefined,
-    SegmentDurationSeconds:
-      output.segmentDurationSeconds !== undefined && output.segmentDurationSeconds !== null
-        ? output.segmentDurationSeconds
-        : undefined,
-    SegmentPrefix:
-      output.segmentPrefix !== undefined && output.segmentPrefix !== null ? output.segmentPrefix : undefined,
+    SegmentDurationSeconds: __expectNumber(output.segmentDurationSeconds),
+    SegmentPrefix: __expectString(output.segmentPrefix),
     StreamSelection:
       output.streamSelection !== undefined && output.streamSelection !== null
         ? deserializeAws_restJson1StreamSelection(output.streamSelection, context)
@@ -3346,10 +3335,7 @@ const deserializeAws_restJson1CmafPackage = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1DashEncryption = (output: any, context: __SerdeContext): DashEncryption => {
   return {
-    KeyRotationIntervalSeconds:
-      output.keyRotationIntervalSeconds !== undefined && output.keyRotationIntervalSeconds !== null
-        ? output.keyRotationIntervalSeconds
-        : undefined,
+    KeyRotationIntervalSeconds: __expectNumber(output.keyRotationIntervalSeconds),
     SpekeKeyProvider:
       output.spekeKeyProvider !== undefined && output.spekeKeyProvider !== null
         ? deserializeAws_restJson1SpekeKeyProvider(output.spekeKeyProvider, context)
@@ -3363,57 +3349,35 @@ const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContex
       output.adTriggers !== undefined && output.adTriggers !== null
         ? deserializeAws_restJson1AdTriggers(output.adTriggers, context)
         : undefined,
-    AdsOnDeliveryRestrictions:
-      output.adsOnDeliveryRestrictions !== undefined && output.adsOnDeliveryRestrictions !== null
-        ? output.adsOnDeliveryRestrictions
-        : undefined,
+    AdsOnDeliveryRestrictions: __expectString(output.adsOnDeliveryRestrictions),
     Encryption:
       output.encryption !== undefined && output.encryption !== null
         ? deserializeAws_restJson1DashEncryption(output.encryption, context)
         : undefined,
-    ManifestLayout:
-      output.manifestLayout !== undefined && output.manifestLayout !== null ? output.manifestLayout : undefined,
-    ManifestWindowSeconds:
-      output.manifestWindowSeconds !== undefined && output.manifestWindowSeconds !== null
-        ? output.manifestWindowSeconds
-        : undefined,
-    MinBufferTimeSeconds:
-      output.minBufferTimeSeconds !== undefined && output.minBufferTimeSeconds !== null
-        ? output.minBufferTimeSeconds
-        : undefined,
-    MinUpdatePeriodSeconds:
-      output.minUpdatePeriodSeconds !== undefined && output.minUpdatePeriodSeconds !== null
-        ? output.minUpdatePeriodSeconds
-        : undefined,
+    ManifestLayout: __expectString(output.manifestLayout),
+    ManifestWindowSeconds: __expectNumber(output.manifestWindowSeconds),
+    MinBufferTimeSeconds: __expectNumber(output.minBufferTimeSeconds),
+    MinUpdatePeriodSeconds: __expectNumber(output.minUpdatePeriodSeconds),
     PeriodTriggers:
       output.periodTriggers !== undefined && output.periodTriggers !== null
         ? deserializeAws_restJson1__listOf__PeriodTriggersElement(output.periodTriggers, context)
         : undefined,
-    Profile: output.profile !== undefined && output.profile !== null ? output.profile : undefined,
-    SegmentDurationSeconds:
-      output.segmentDurationSeconds !== undefined && output.segmentDurationSeconds !== null
-        ? output.segmentDurationSeconds
-        : undefined,
-    SegmentTemplateFormat:
-      output.segmentTemplateFormat !== undefined && output.segmentTemplateFormat !== null
-        ? output.segmentTemplateFormat
-        : undefined,
+    Profile: __expectString(output.profile),
+    SegmentDurationSeconds: __expectNumber(output.segmentDurationSeconds),
+    SegmentTemplateFormat: __expectString(output.segmentTemplateFormat),
     StreamSelection:
       output.streamSelection !== undefined && output.streamSelection !== null
         ? deserializeAws_restJson1StreamSelection(output.streamSelection, context)
         : undefined,
-    SuggestedPresentationDelaySeconds:
-      output.suggestedPresentationDelaySeconds !== undefined && output.suggestedPresentationDelaySeconds !== null
-        ? output.suggestedPresentationDelaySeconds
-        : undefined,
-    UtcTiming: output.utcTiming !== undefined && output.utcTiming !== null ? output.utcTiming : undefined,
-    UtcTimingUri: output.utcTimingUri !== undefined && output.utcTimingUri !== null ? output.utcTimingUri : undefined,
+    SuggestedPresentationDelaySeconds: __expectNumber(output.suggestedPresentationDelaySeconds),
+    UtcTiming: __expectString(output.utcTiming),
+    UtcTimingUri: __expectString(output.utcTimingUri),
   } as any;
 };
 
 const deserializeAws_restJson1EgressAccessLogs = (output: any, context: __SerdeContext): EgressAccessLogs => {
   return {
-    LogGroupName: output.logGroupName !== undefined && output.logGroupName !== null ? output.logGroupName : undefined,
+    LogGroupName: __expectString(output.logGroupName),
   } as any;
 };
 
@@ -3422,49 +3386,34 @@ const deserializeAws_restJson1EncryptionContractConfiguration = (
   context: __SerdeContext
 ): EncryptionContractConfiguration => {
   return {
-    PresetSpeke20Audio:
-      output.presetSpeke20Audio !== undefined && output.presetSpeke20Audio !== null
-        ? output.presetSpeke20Audio
-        : undefined,
-    PresetSpeke20Video:
-      output.presetSpeke20Video !== undefined && output.presetSpeke20Video !== null
-        ? output.presetSpeke20Video
-        : undefined,
+    PresetSpeke20Audio: __expectString(output.presetSpeke20Audio),
+    PresetSpeke20Video: __expectString(output.presetSpeke20Video),
   } as any;
 };
 
 const deserializeAws_restJson1HarvestJob = (output: any, context: __SerdeContext): HarvestJob => {
   return {
-    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    ChannelId: output.channelId !== undefined && output.channelId !== null ? output.channelId : undefined,
-    CreatedAt: output.createdAt !== undefined && output.createdAt !== null ? output.createdAt : undefined,
-    EndTime: output.endTime !== undefined && output.endTime !== null ? output.endTime : undefined,
-    Id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    OriginEndpointId:
-      output.originEndpointId !== undefined && output.originEndpointId !== null ? output.originEndpointId : undefined,
+    Arn: __expectString(output.arn),
+    ChannelId: __expectString(output.channelId),
+    CreatedAt: __expectString(output.createdAt),
+    EndTime: __expectString(output.endTime),
+    Id: __expectString(output.id),
+    OriginEndpointId: __expectString(output.originEndpointId),
     S3Destination:
       output.s3Destination !== undefined && output.s3Destination !== null
         ? deserializeAws_restJson1S3Destination(output.s3Destination, context)
         : undefined,
-    StartTime: output.startTime !== undefined && output.startTime !== null ? output.startTime : undefined,
-    Status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    StartTime: __expectString(output.startTime),
+    Status: __expectString(output.status),
   } as any;
 };
 
 const deserializeAws_restJson1HlsEncryption = (output: any, context: __SerdeContext): HlsEncryption => {
   return {
-    ConstantInitializationVector:
-      output.constantInitializationVector !== undefined && output.constantInitializationVector !== null
-        ? output.constantInitializationVector
-        : undefined,
-    EncryptionMethod:
-      output.encryptionMethod !== undefined && output.encryptionMethod !== null ? output.encryptionMethod : undefined,
-    KeyRotationIntervalSeconds:
-      output.keyRotationIntervalSeconds !== undefined && output.keyRotationIntervalSeconds !== null
-        ? output.keyRotationIntervalSeconds
-        : undefined,
-    RepeatExtXKey:
-      output.repeatExtXKey !== undefined && output.repeatExtXKey !== null ? output.repeatExtXKey : undefined,
+    ConstantInitializationVector: __expectString(output.constantInitializationVector),
+    EncryptionMethod: __expectString(output.encryptionMethod),
+    KeyRotationIntervalSeconds: __expectNumber(output.keyRotationIntervalSeconds),
+    RepeatExtXKey: __expectBoolean(output.repeatExtXKey),
     SpekeKeyProvider:
       output.spekeKeyProvider !== undefined && output.spekeKeyProvider !== null
         ? deserializeAws_restJson1SpekeKeyProvider(output.spekeKeyProvider, context)
@@ -3483,81 +3432,54 @@ const deserializeAws_restJson1HlsIngest = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1HlsManifest = (output: any, context: __SerdeContext): HlsManifest => {
   return {
-    AdMarkers: output.adMarkers !== undefined && output.adMarkers !== null ? output.adMarkers : undefined,
-    Id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    IncludeIframeOnlyStream:
-      output.includeIframeOnlyStream !== undefined && output.includeIframeOnlyStream !== null
-        ? output.includeIframeOnlyStream
-        : undefined,
-    ManifestName: output.manifestName !== undefined && output.manifestName !== null ? output.manifestName : undefined,
-    PlaylistType: output.playlistType !== undefined && output.playlistType !== null ? output.playlistType : undefined,
-    PlaylistWindowSeconds:
-      output.playlistWindowSeconds !== undefined && output.playlistWindowSeconds !== null
-        ? output.playlistWindowSeconds
-        : undefined,
-    ProgramDateTimeIntervalSeconds:
-      output.programDateTimeIntervalSeconds !== undefined && output.programDateTimeIntervalSeconds !== null
-        ? output.programDateTimeIntervalSeconds
-        : undefined,
-    Url: output.url !== undefined && output.url !== null ? output.url : undefined,
+    AdMarkers: __expectString(output.adMarkers),
+    Id: __expectString(output.id),
+    IncludeIframeOnlyStream: __expectBoolean(output.includeIframeOnlyStream),
+    ManifestName: __expectString(output.manifestName),
+    PlaylistType: __expectString(output.playlistType),
+    PlaylistWindowSeconds: __expectNumber(output.playlistWindowSeconds),
+    ProgramDateTimeIntervalSeconds: __expectNumber(output.programDateTimeIntervalSeconds),
+    Url: __expectString(output.url),
   } as any;
 };
 
 const deserializeAws_restJson1HlsPackage = (output: any, context: __SerdeContext): HlsPackage => {
   return {
-    AdMarkers: output.adMarkers !== undefined && output.adMarkers !== null ? output.adMarkers : undefined,
+    AdMarkers: __expectString(output.adMarkers),
     AdTriggers:
       output.adTriggers !== undefined && output.adTriggers !== null
         ? deserializeAws_restJson1AdTriggers(output.adTriggers, context)
         : undefined,
-    AdsOnDeliveryRestrictions:
-      output.adsOnDeliveryRestrictions !== undefined && output.adsOnDeliveryRestrictions !== null
-        ? output.adsOnDeliveryRestrictions
-        : undefined,
+    AdsOnDeliveryRestrictions: __expectString(output.adsOnDeliveryRestrictions),
     Encryption:
       output.encryption !== undefined && output.encryption !== null
         ? deserializeAws_restJson1HlsEncryption(output.encryption, context)
         : undefined,
-    IncludeIframeOnlyStream:
-      output.includeIframeOnlyStream !== undefined && output.includeIframeOnlyStream !== null
-        ? output.includeIframeOnlyStream
-        : undefined,
-    PlaylistType: output.playlistType !== undefined && output.playlistType !== null ? output.playlistType : undefined,
-    PlaylistWindowSeconds:
-      output.playlistWindowSeconds !== undefined && output.playlistWindowSeconds !== null
-        ? output.playlistWindowSeconds
-        : undefined,
-    ProgramDateTimeIntervalSeconds:
-      output.programDateTimeIntervalSeconds !== undefined && output.programDateTimeIntervalSeconds !== null
-        ? output.programDateTimeIntervalSeconds
-        : undefined,
-    SegmentDurationSeconds:
-      output.segmentDurationSeconds !== undefined && output.segmentDurationSeconds !== null
-        ? output.segmentDurationSeconds
-        : undefined,
+    IncludeIframeOnlyStream: __expectBoolean(output.includeIframeOnlyStream),
+    PlaylistType: __expectString(output.playlistType),
+    PlaylistWindowSeconds: __expectNumber(output.playlistWindowSeconds),
+    ProgramDateTimeIntervalSeconds: __expectNumber(output.programDateTimeIntervalSeconds),
+    SegmentDurationSeconds: __expectNumber(output.segmentDurationSeconds),
     StreamSelection:
       output.streamSelection !== undefined && output.streamSelection !== null
         ? deserializeAws_restJson1StreamSelection(output.streamSelection, context)
         : undefined,
-    UseAudioRenditionGroup:
-      output.useAudioRenditionGroup !== undefined && output.useAudioRenditionGroup !== null
-        ? output.useAudioRenditionGroup
-        : undefined,
+    UseAudioRenditionGroup: __expectBoolean(output.useAudioRenditionGroup),
   } as any;
 };
 
 const deserializeAws_restJson1IngestEndpoint = (output: any, context: __SerdeContext): IngestEndpoint => {
   return {
-    Id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    Password: output.password !== undefined && output.password !== null ? output.password : undefined,
-    Url: output.url !== undefined && output.url !== null ? output.url : undefined,
-    Username: output.username !== undefined && output.username !== null ? output.username : undefined,
+    Id: __expectString(output.id),
+    Password: __expectString(output.password),
+    Url: __expectString(output.url),
+    Username: __expectString(output.username),
   } as any;
 };
 
 const deserializeAws_restJson1IngressAccessLogs = (output: any, context: __SerdeContext): IngressAccessLogs => {
   return {
-    LogGroupName: output.logGroupName !== undefined && output.logGroupName !== null ? output.logGroupName : undefined,
+    LogGroupName: __expectString(output.logGroupName),
   } as any;
 };
 
@@ -3576,14 +3498,8 @@ const deserializeAws_restJson1MssPackage = (output: any, context: __SerdeContext
       output.encryption !== undefined && output.encryption !== null
         ? deserializeAws_restJson1MssEncryption(output.encryption, context)
         : undefined,
-    ManifestWindowSeconds:
-      output.manifestWindowSeconds !== undefined && output.manifestWindowSeconds !== null
-        ? output.manifestWindowSeconds
-        : undefined,
-    SegmentDurationSeconds:
-      output.segmentDurationSeconds !== undefined && output.segmentDurationSeconds !== null
-        ? output.segmentDurationSeconds
-        : undefined,
+    ManifestWindowSeconds: __expectNumber(output.manifestWindowSeconds),
+    SegmentDurationSeconds: __expectNumber(output.segmentDurationSeconds),
     StreamSelection:
       output.streamSelection !== undefined && output.streamSelection !== null
         ? deserializeAws_restJson1StreamSelection(output.streamSelection, context)
@@ -3593,12 +3509,12 @@ const deserializeAws_restJson1MssPackage = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1OriginEndpoint = (output: any, context: __SerdeContext): OriginEndpoint => {
   return {
-    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Arn: __expectString(output.arn),
     Authorization:
       output.authorization !== undefined && output.authorization !== null
         ? deserializeAws_restJson1Authorization(output.authorization, context)
         : undefined,
-    ChannelId: output.channelId !== undefined && output.channelId !== null ? output.channelId : undefined,
+    ChannelId: __expectString(output.channelId),
     CmafPackage:
       output.cmafPackage !== undefined && output.cmafPackage !== null
         ? deserializeAws_restJson1CmafPackage(output.cmafPackage, context)
@@ -3607,29 +3523,25 @@ const deserializeAws_restJson1OriginEndpoint = (output: any, context: __SerdeCon
       output.dashPackage !== undefined && output.dashPackage !== null
         ? deserializeAws_restJson1DashPackage(output.dashPackage, context)
         : undefined,
-    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    Description: __expectString(output.description),
     HlsPackage:
       output.hlsPackage !== undefined && output.hlsPackage !== null
         ? deserializeAws_restJson1HlsPackage(output.hlsPackage, context)
         : undefined,
-    Id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    ManifestName: output.manifestName !== undefined && output.manifestName !== null ? output.manifestName : undefined,
+    Id: __expectString(output.id),
+    ManifestName: __expectString(output.manifestName),
     MssPackage:
       output.mssPackage !== undefined && output.mssPackage !== null
         ? deserializeAws_restJson1MssPackage(output.mssPackage, context)
         : undefined,
-    Origination: output.origination !== undefined && output.origination !== null ? output.origination : undefined,
-    StartoverWindowSeconds:
-      output.startoverWindowSeconds !== undefined && output.startoverWindowSeconds !== null
-        ? output.startoverWindowSeconds
-        : undefined,
+    Origination: __expectString(output.origination),
+    StartoverWindowSeconds: __expectNumber(output.startoverWindowSeconds),
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
-    TimeDelaySeconds:
-      output.timeDelaySeconds !== undefined && output.timeDelaySeconds !== null ? output.timeDelaySeconds : undefined,
-    Url: output.url !== undefined && output.url !== null ? output.url : undefined,
+    TimeDelaySeconds: __expectNumber(output.timeDelaySeconds),
+    Url: __expectString(output.url),
     Whitelist:
       output.whitelist !== undefined && output.whitelist !== null
         ? deserializeAws_restJson1__listOf__string(output.whitelist, context)
@@ -3639,41 +3551,34 @@ const deserializeAws_restJson1OriginEndpoint = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1S3Destination = (output: any, context: __SerdeContext): S3Destination => {
   return {
-    BucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
-    ManifestKey: output.manifestKey !== undefined && output.manifestKey !== null ? output.manifestKey : undefined,
-    RoleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    BucketName: __expectString(output.bucketName),
+    ManifestKey: __expectString(output.manifestKey),
+    RoleArn: __expectString(output.roleArn),
   } as any;
 };
 
 const deserializeAws_restJson1SpekeKeyProvider = (output: any, context: __SerdeContext): SpekeKeyProvider => {
   return {
-    CertificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
+    CertificateArn: __expectString(output.certificateArn),
     EncryptionContractConfiguration:
       output.encryptionContractConfiguration !== undefined && output.encryptionContractConfiguration !== null
         ? deserializeAws_restJson1EncryptionContractConfiguration(output.encryptionContractConfiguration, context)
         : undefined,
-    ResourceId: output.resourceId !== undefined && output.resourceId !== null ? output.resourceId : undefined,
-    RoleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    ResourceId: __expectString(output.resourceId),
+    RoleArn: __expectString(output.roleArn),
     SystemIds:
       output.systemIds !== undefined && output.systemIds !== null
         ? deserializeAws_restJson1__listOf__string(output.systemIds, context)
         : undefined,
-    Url: output.url !== undefined && output.url !== null ? output.url : undefined,
+    Url: __expectString(output.url),
   } as any;
 };
 
 const deserializeAws_restJson1StreamSelection = (output: any, context: __SerdeContext): StreamSelection => {
   return {
-    MaxVideoBitsPerSecond:
-      output.maxVideoBitsPerSecond !== undefined && output.maxVideoBitsPerSecond !== null
-        ? output.maxVideoBitsPerSecond
-        : undefined,
-    MinVideoBitsPerSecond:
-      output.minVideoBitsPerSecond !== undefined && output.minVideoBitsPerSecond !== null
-        ? output.minVideoBitsPerSecond
-        : undefined,
-    StreamOrder: output.streamOrder !== undefined && output.streamOrder !== null ? output.streamOrder : undefined,
+    MaxVideoBitsPerSecond: __expectNumber(output.maxVideoBitsPerSecond),
+    MinVideoBitsPerSecond: __expectNumber(output.minVideoBitsPerSecond),
+    StreamOrder: __expectString(output.streamOrder),
   } as any;
 };
 
@@ -3684,7 +3589,7 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

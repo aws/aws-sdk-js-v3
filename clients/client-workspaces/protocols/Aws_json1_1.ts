@@ -308,7 +308,12 @@ import {
   WorkspacesIpGroup,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -6088,26 +6093,17 @@ const serializeAws_json1_1WorkspaceRequestList = (input: WorkspaceRequest[], con
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1AccountModification = (output: any, context: __SerdeContext): AccountModification => {
   return {
-    DedicatedTenancyManagementCidrRange:
-      output.DedicatedTenancyManagementCidrRange !== undefined && output.DedicatedTenancyManagementCidrRange !== null
-        ? output.DedicatedTenancyManagementCidrRange
-        : undefined,
-    DedicatedTenancySupport:
-      output.DedicatedTenancySupport !== undefined && output.DedicatedTenancySupport !== null
-        ? output.DedicatedTenancySupport
-        : undefined,
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
-    ModificationState:
-      output.ModificationState !== undefined && output.ModificationState !== null
-        ? output.ModificationState
-        : undefined,
+    DedicatedTenancyManagementCidrRange: __expectString(output.DedicatedTenancyManagementCidrRange),
+    DedicatedTenancySupport: __expectString(output.DedicatedTenancySupport),
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    ModificationState: __expectString(output.ModificationState),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
@@ -6131,10 +6127,7 @@ const deserializeAws_json1_1AssociateConnectionAliasResult = (
   context: __SerdeContext
 ): AssociateConnectionAliasResult => {
   return {
-    ConnectionIdentifier:
-      output.ConnectionIdentifier !== undefined && output.ConnectionIdentifier !== null
-        ? output.ConnectionIdentifier
-        : undefined,
+    ConnectionIdentifier: __expectString(output.ConnectionIdentifier),
   } as any;
 };
 
@@ -6162,8 +6155,7 @@ const deserializeAws_json1_1BundleList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1ClientProperties = (output: any, context: __SerdeContext): ClientProperties => {
   return {
-    ReconnectEnabled:
-      output.ReconnectEnabled !== undefined && output.ReconnectEnabled !== null ? output.ReconnectEnabled : undefined,
+    ReconnectEnabled: __expectString(output.ReconnectEnabled),
   } as any;
 };
 
@@ -6184,28 +6176,26 @@ const deserializeAws_json1_1ClientPropertiesResult = (output: any, context: __Se
       output.ClientProperties !== undefined && output.ClientProperties !== null
         ? deserializeAws_json1_1ClientProperties(output.ClientProperties, context)
         : undefined,
-    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    ResourceId: __expectString(output.ResourceId),
   } as any;
 };
 
 const deserializeAws_json1_1ComputeType = (output: any, context: __SerdeContext): ComputeType => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
   } as any;
 };
 
 const deserializeAws_json1_1ConnectionAlias = (output: any, context: __SerdeContext): ConnectionAlias => {
   return {
-    AliasId: output.AliasId !== undefined && output.AliasId !== null ? output.AliasId : undefined,
+    AliasId: __expectString(output.AliasId),
     Associations:
       output.Associations !== undefined && output.Associations !== null
         ? deserializeAws_json1_1ConnectionAliasAssociationList(output.Associations, context)
         : undefined,
-    ConnectionString:
-      output.ConnectionString !== undefined && output.ConnectionString !== null ? output.ConnectionString : undefined,
-    OwnerAccountId:
-      output.OwnerAccountId !== undefined && output.OwnerAccountId !== null ? output.OwnerAccountId : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    ConnectionString: __expectString(output.ConnectionString),
+    OwnerAccountId: __expectString(output.OwnerAccountId),
+    State: __expectString(output.State),
   } as any;
 };
 
@@ -6214,19 +6204,10 @@ const deserializeAws_json1_1ConnectionAliasAssociation = (
   context: __SerdeContext
 ): ConnectionAliasAssociation => {
   return {
-    AssociatedAccountId:
-      output.AssociatedAccountId !== undefined && output.AssociatedAccountId !== null
-        ? output.AssociatedAccountId
-        : undefined,
-    AssociationStatus:
-      output.AssociationStatus !== undefined && output.AssociationStatus !== null
-        ? output.AssociationStatus
-        : undefined,
-    ConnectionIdentifier:
-      output.ConnectionIdentifier !== undefined && output.ConnectionIdentifier !== null
-        ? output.ConnectionIdentifier
-        : undefined,
-    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    AssociatedAccountId: __expectString(output.AssociatedAccountId),
+    AssociationStatus: __expectString(output.AssociationStatus),
+    ConnectionIdentifier: __expectString(output.ConnectionIdentifier),
+    ResourceId: __expectString(output.ResourceId),
   } as any;
 };
 
@@ -6260,10 +6241,8 @@ const deserializeAws_json1_1ConnectionAliasPermission = (
   context: __SerdeContext
 ): ConnectionAliasPermission => {
   return {
-    AllowAssociation:
-      output.AllowAssociation !== undefined && output.AllowAssociation !== null ? output.AllowAssociation : undefined,
-    SharedAccountId:
-      output.SharedAccountId !== undefined && output.SharedAccountId !== null ? output.SharedAccountId : undefined,
+    AllowAssociation: __expectBoolean(output.AllowAssociation),
+    SharedAccountId: __expectString(output.SharedAccountId),
   } as any;
 };
 
@@ -6286,7 +6265,7 @@ const deserializeAws_json1_1CopyWorkspaceImageResult = (
   context: __SerdeContext
 ): CopyWorkspaceImageResult => {
   return {
-    ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined,
+    ImageId: __expectString(output.ImageId),
   } as any;
 };
 
@@ -6295,13 +6274,13 @@ const deserializeAws_json1_1CreateConnectionAliasResult = (
   context: __SerdeContext
 ): CreateConnectionAliasResult => {
   return {
-    AliasId: output.AliasId !== undefined && output.AliasId !== null ? output.AliasId : undefined,
+    AliasId: __expectString(output.AliasId),
   } as any;
 };
 
 const deserializeAws_json1_1CreateIpGroupResult = (output: any, context: __SerdeContext): CreateIpGroupResult => {
   return {
-    GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined,
+    GroupId: __expectString(output.GroupId),
   } as any;
 };
 
@@ -6341,7 +6320,7 @@ const deserializeAws_json1_1DedicatedTenancyCidrRangeList = (output: any, contex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6350,25 +6329,12 @@ const deserializeAws_json1_1DefaultWorkspaceCreationProperties = (
   context: __SerdeContext
 ): DefaultWorkspaceCreationProperties => {
   return {
-    CustomSecurityGroupId:
-      output.CustomSecurityGroupId !== undefined && output.CustomSecurityGroupId !== null
-        ? output.CustomSecurityGroupId
-        : undefined,
-    DefaultOu: output.DefaultOu !== undefined && output.DefaultOu !== null ? output.DefaultOu : undefined,
-    EnableInternetAccess:
-      output.EnableInternetAccess !== undefined && output.EnableInternetAccess !== null
-        ? output.EnableInternetAccess
-        : undefined,
-    EnableMaintenanceMode:
-      output.EnableMaintenanceMode !== undefined && output.EnableMaintenanceMode !== null
-        ? output.EnableMaintenanceMode
-        : undefined,
-    EnableWorkDocs:
-      output.EnableWorkDocs !== undefined && output.EnableWorkDocs !== null ? output.EnableWorkDocs : undefined,
-    UserEnabledAsLocalAdministrator:
-      output.UserEnabledAsLocalAdministrator !== undefined && output.UserEnabledAsLocalAdministrator !== null
-        ? output.UserEnabledAsLocalAdministrator
-        : undefined,
+    CustomSecurityGroupId: __expectString(output.CustomSecurityGroupId),
+    DefaultOu: __expectString(output.DefaultOu),
+    EnableInternetAccess: __expectBoolean(output.EnableInternetAccess),
+    EnableMaintenanceMode: __expectBoolean(output.EnableMaintenanceMode),
+    EnableWorkDocs: __expectBoolean(output.EnableWorkDocs),
+    UserEnabledAsLocalAdministrator: __expectBoolean(output.UserEnabledAsLocalAdministrator),
   } as any;
 };
 
@@ -6417,20 +6383,14 @@ const deserializeAws_json1_1DescribeAccountModificationsResult = (
       output.AccountModifications !== undefined && output.AccountModifications !== null
         ? deserializeAws_json1_1AccountModificationList(output.AccountModifications, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1DescribeAccountResult = (output: any, context: __SerdeContext): DescribeAccountResult => {
   return {
-    DedicatedTenancyManagementCidrRange:
-      output.DedicatedTenancyManagementCidrRange !== undefined && output.DedicatedTenancyManagementCidrRange !== null
-        ? output.DedicatedTenancyManagementCidrRange
-        : undefined,
-    DedicatedTenancySupport:
-      output.DedicatedTenancySupport !== undefined && output.DedicatedTenancySupport !== null
-        ? output.DedicatedTenancySupport
-        : undefined,
+    DedicatedTenancyManagementCidrRange: __expectString(output.DedicatedTenancyManagementCidrRange),
+    DedicatedTenancySupport: __expectString(output.DedicatedTenancySupport),
   } as any;
 };
 
@@ -6455,7 +6415,7 @@ const deserializeAws_json1_1DescribeConnectionAliasesResult = (
       output.ConnectionAliases !== undefined && output.ConnectionAliases !== null
         ? deserializeAws_json1_1ConnectionAliasList(output.ConnectionAliases, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -6464,18 +6424,18 @@ const deserializeAws_json1_1DescribeConnectionAliasPermissionsResult = (
   context: __SerdeContext
 ): DescribeConnectionAliasPermissionsResult => {
   return {
-    AliasId: output.AliasId !== undefined && output.AliasId !== null ? output.AliasId : undefined,
+    AliasId: __expectString(output.AliasId),
     ConnectionAliasPermissions:
       output.ConnectionAliasPermissions !== undefined && output.ConnectionAliasPermissions !== null
         ? deserializeAws_json1_1ConnectionAliasPermissions(output.ConnectionAliasPermissions, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1DescribeIpGroupsResult = (output: any, context: __SerdeContext): DescribeIpGroupsResult => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Result:
       output.Result !== undefined && output.Result !== null
         ? deserializeAws_json1_1WorkspacesIpGroupsList(output.Result, context)
@@ -6501,7 +6461,7 @@ const deserializeAws_json1_1DescribeWorkspaceBundlesResult = (
       output.Bundles !== undefined && output.Bundles !== null
         ? deserializeAws_json1_1BundleList(output.Bundles, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -6514,7 +6474,7 @@ const deserializeAws_json1_1DescribeWorkspaceDirectoriesResult = (
       output.Directories !== undefined && output.Directories !== null
         ? deserializeAws_json1_1DirectoryList(output.Directories, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -6523,12 +6483,12 @@ const deserializeAws_json1_1DescribeWorkspaceImagePermissionsResult = (
   context: __SerdeContext
 ): DescribeWorkspaceImagePermissionsResult => {
   return {
-    ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined,
+    ImageId: __expectString(output.ImageId),
     ImagePermissions:
       output.ImagePermissions !== undefined && output.ImagePermissions !== null
         ? deserializeAws_json1_1ImagePermissions(output.ImagePermissions, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -6541,7 +6501,7 @@ const deserializeAws_json1_1DescribeWorkspaceImagesResult = (
       output.Images !== undefined && output.Images !== null
         ? deserializeAws_json1_1WorkspaceImageList(output.Images, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -6550,7 +6510,7 @@ const deserializeAws_json1_1DescribeWorkspacesConnectionStatusResult = (
   context: __SerdeContext
 ): DescribeWorkspacesConnectionStatusResult => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     WorkspacesConnectionStatus:
       output.WorkspacesConnectionStatus !== undefined && output.WorkspacesConnectionStatus !== null
         ? deserializeAws_json1_1WorkspaceConnectionStatusList(output.WorkspacesConnectionStatus, context)
@@ -6579,7 +6539,7 @@ const deserializeAws_json1_1DescribeWorkspacesResult = (
   context: __SerdeContext
 ): DescribeWorkspacesResult => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Workspaces:
       output.Workspaces !== undefined && output.Workspaces !== null
         ? deserializeAws_json1_1WorkspaceList(output.Workspaces, context)
@@ -6619,7 +6579,7 @@ const deserializeAws_json1_1DnsIpAddresses = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6628,8 +6588,8 @@ const deserializeAws_json1_1FailedCreateWorkspaceRequest = (
   context: __SerdeContext
 ): FailedCreateWorkspaceRequest => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
     WorkspaceRequest:
       output.WorkspaceRequest !== undefined && output.WorkspaceRequest !== null
         ? deserializeAws_json1_1WorkspaceRequest(output.WorkspaceRequest, context)
@@ -6726,16 +6686,15 @@ const deserializeAws_json1_1FailedWorkspaceChangeRequest = (
   context: __SerdeContext
 ): FailedWorkspaceChangeRequest => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
-    WorkspaceId: output.WorkspaceId !== undefined && output.WorkspaceId !== null ? output.WorkspaceId : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    WorkspaceId: __expectString(output.WorkspaceId),
   } as any;
 };
 
 const deserializeAws_json1_1ImagePermission = (output: any, context: __SerdeContext): ImagePermission => {
   return {
-    SharedAccountId:
-      output.SharedAccountId !== undefined && output.SharedAccountId !== null ? output.SharedAccountId : undefined,
+    SharedAccountId: __expectString(output.SharedAccountId),
   } as any;
 };
 
@@ -6755,7 +6714,7 @@ const deserializeAws_json1_1ImportWorkspaceImageResult = (
   context: __SerdeContext
 ): ImportWorkspaceImageResult => {
   return {
-    ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined,
+    ImageId: __expectString(output.ImageId),
   } as any;
 };
 
@@ -6764,7 +6723,7 @@ const deserializeAws_json1_1InvalidParameterValuesException = (
   context: __SerdeContext
 ): InvalidParameterValuesException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6773,7 +6732,7 @@ const deserializeAws_json1_1InvalidResourceStateException = (
   context: __SerdeContext
 ): InvalidResourceStateException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6784,14 +6743,14 @@ const deserializeAws_json1_1IpGroupIdList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1IpRuleItem = (output: any, context: __SerdeContext): IpRuleItem => {
   return {
-    ipRule: output.ipRule !== undefined && output.ipRule !== null ? output.ipRule : undefined,
-    ruleDesc: output.ruleDesc !== undefined && output.ruleDesc !== null ? output.ruleDesc : undefined,
+    ipRule: __expectString(output.ipRule),
+    ruleDesc: __expectString(output.ruleDesc),
   } as any;
 };
 
@@ -6815,27 +6774,21 @@ const deserializeAws_json1_1ListAvailableManagementCidrRangesResult = (
       output.ManagementCidrRanges !== undefined && output.ManagementCidrRanges !== null
         ? deserializeAws_json1_1DedicatedTenancyCidrRangeList(output.ManagementCidrRanges, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1MigrateWorkspaceResult = (output: any, context: __SerdeContext): MigrateWorkspaceResult => {
   return {
-    SourceWorkspaceId:
-      output.SourceWorkspaceId !== undefined && output.SourceWorkspaceId !== null
-        ? output.SourceWorkspaceId
-        : undefined,
-    TargetWorkspaceId:
-      output.TargetWorkspaceId !== undefined && output.TargetWorkspaceId !== null
-        ? output.TargetWorkspaceId
-        : undefined,
+    SourceWorkspaceId: __expectString(output.SourceWorkspaceId),
+    TargetWorkspaceId: __expectString(output.TargetWorkspaceId),
   } as any;
 };
 
 const deserializeAws_json1_1ModificationState = (output: any, context: __SerdeContext): ModificationState => {
   return {
-    Resource: output.Resource !== undefined && output.Resource !== null ? output.Resource : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Resource: __expectString(output.Resource),
+    State: __expectString(output.State),
   } as any;
 };
 
@@ -6898,7 +6851,7 @@ const deserializeAws_json1_1ModifyWorkspaceStateResult = (
 
 const deserializeAws_json1_1OperatingSystem = (output: any, context: __SerdeContext): OperatingSystem => {
   return {
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -6907,7 +6860,7 @@ const deserializeAws_json1_1OperationInProgressException = (
   context: __SerdeContext
 ): OperationInProgressException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6916,7 +6869,7 @@ const deserializeAws_json1_1OperationNotSupportedException = (
   context: __SerdeContext
 ): OperationNotSupportedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6953,7 +6906,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6962,7 +6915,7 @@ const deserializeAws_json1_1ResourceAssociatedException = (
   context: __SerdeContext
 ): ResourceAssociatedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6971,7 +6924,7 @@ const deserializeAws_json1_1ResourceCreationFailedException = (
   context: __SerdeContext
 ): ResourceCreationFailedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6980,7 +6933,7 @@ const deserializeAws_json1_1ResourceLimitExceededException = (
   context: __SerdeContext
 ): ResourceLimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6989,8 +6942,8 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    ResourceId: __expectString(output.ResourceId),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6999,8 +6952,8 @@ const deserializeAws_json1_1ResourceUnavailableException = (
   context: __SerdeContext
 ): ResourceUnavailableException => {
   return {
-    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    ResourceId: __expectString(output.ResourceId),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -7014,28 +6967,17 @@ const deserializeAws_json1_1RevokeIpRulesResult = (output: any, context: __Serde
 
 const deserializeAws_json1_1RootStorage = (output: any, context: __SerdeContext): RootStorage => {
   return {
-    Capacity: output.Capacity !== undefined && output.Capacity !== null ? output.Capacity : undefined,
+    Capacity: __expectString(output.Capacity),
   } as any;
 };
 
 const deserializeAws_json1_1SelfservicePermissions = (output: any, context: __SerdeContext): SelfservicePermissions => {
   return {
-    ChangeComputeType:
-      output.ChangeComputeType !== undefined && output.ChangeComputeType !== null
-        ? output.ChangeComputeType
-        : undefined,
-    IncreaseVolumeSize:
-      output.IncreaseVolumeSize !== undefined && output.IncreaseVolumeSize !== null
-        ? output.IncreaseVolumeSize
-        : undefined,
-    RebuildWorkspace:
-      output.RebuildWorkspace !== undefined && output.RebuildWorkspace !== null ? output.RebuildWorkspace : undefined,
-    RestartWorkspace:
-      output.RestartWorkspace !== undefined && output.RestartWorkspace !== null ? output.RestartWorkspace : undefined,
-    SwitchRunningMode:
-      output.SwitchRunningMode !== undefined && output.SwitchRunningMode !== null
-        ? output.SwitchRunningMode
-        : undefined,
+    ChangeComputeType: __expectString(output.ChangeComputeType),
+    IncreaseVolumeSize: __expectString(output.IncreaseVolumeSize),
+    RebuildWorkspace: __expectString(output.RebuildWorkspace),
+    RestartWorkspace: __expectString(output.RestartWorkspace),
+    SwitchRunningMode: __expectString(output.SwitchRunningMode),
   } as any;
 };
 
@@ -7084,14 +7026,14 @@ const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -7123,7 +7065,7 @@ const deserializeAws_json1_1UnsupportedNetworkConfigurationException = (
   context: __SerdeContext
 ): UnsupportedNetworkConfigurationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -7132,7 +7074,7 @@ const deserializeAws_json1_1UnsupportedWorkspaceConfigurationException = (
   context: __SerdeContext
 ): UnsupportedWorkspaceConfigurationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -7166,38 +7108,29 @@ const deserializeAws_json1_1UpdateWorkspaceImagePermissionResult = (
 
 const deserializeAws_json1_1UserStorage = (output: any, context: __SerdeContext): UserStorage => {
   return {
-    Capacity: output.Capacity !== undefined && output.Capacity !== null ? output.Capacity : undefined,
+    Capacity: __expectString(output.Capacity),
   } as any;
 };
 
 const deserializeAws_json1_1Workspace = (output: any, context: __SerdeContext): Workspace => {
   return {
-    BundleId: output.BundleId !== undefined && output.BundleId !== null ? output.BundleId : undefined,
-    ComputerName: output.ComputerName !== undefined && output.ComputerName !== null ? output.ComputerName : undefined,
-    DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
-    IpAddress: output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
+    BundleId: __expectString(output.BundleId),
+    ComputerName: __expectString(output.ComputerName),
+    DirectoryId: __expectString(output.DirectoryId),
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    IpAddress: __expectString(output.IpAddress),
     ModificationStates:
       output.ModificationStates !== undefined && output.ModificationStates !== null
         ? deserializeAws_json1_1ModificationStateList(output.ModificationStates, context)
         : undefined,
-    RootVolumeEncryptionEnabled:
-      output.RootVolumeEncryptionEnabled !== undefined && output.RootVolumeEncryptionEnabled !== null
-        ? output.RootVolumeEncryptionEnabled
-        : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    SubnetId: output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined,
-    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
-    UserVolumeEncryptionEnabled:
-      output.UserVolumeEncryptionEnabled !== undefined && output.UserVolumeEncryptionEnabled !== null
-        ? output.UserVolumeEncryptionEnabled
-        : undefined,
-    VolumeEncryptionKey:
-      output.VolumeEncryptionKey !== undefined && output.VolumeEncryptionKey !== null
-        ? output.VolumeEncryptionKey
-        : undefined,
-    WorkspaceId: output.WorkspaceId !== undefined && output.WorkspaceId !== null ? output.WorkspaceId : undefined,
+    RootVolumeEncryptionEnabled: __expectBoolean(output.RootVolumeEncryptionEnabled),
+    State: __expectString(output.State),
+    SubnetId: __expectString(output.SubnetId),
+    UserName: __expectString(output.UserName),
+    UserVolumeEncryptionEnabled: __expectBoolean(output.UserVolumeEncryptionEnabled),
+    VolumeEncryptionKey: __expectString(output.VolumeEncryptionKey),
+    WorkspaceId: __expectString(output.WorkspaceId),
     WorkspaceProperties:
       output.WorkspaceProperties !== undefined && output.WorkspaceProperties !== null
         ? deserializeAws_json1_1WorkspaceProperties(output.WorkspaceProperties, context)
@@ -7210,36 +7143,20 @@ const deserializeAws_json1_1WorkspaceAccessProperties = (
   context: __SerdeContext
 ): WorkspaceAccessProperties => {
   return {
-    DeviceTypeAndroid:
-      output.DeviceTypeAndroid !== undefined && output.DeviceTypeAndroid !== null
-        ? output.DeviceTypeAndroid
-        : undefined,
-    DeviceTypeChromeOs:
-      output.DeviceTypeChromeOs !== undefined && output.DeviceTypeChromeOs !== null
-        ? output.DeviceTypeChromeOs
-        : undefined,
-    DeviceTypeIos:
-      output.DeviceTypeIos !== undefined && output.DeviceTypeIos !== null ? output.DeviceTypeIos : undefined,
-    DeviceTypeLinux:
-      output.DeviceTypeLinux !== undefined && output.DeviceTypeLinux !== null ? output.DeviceTypeLinux : undefined,
-    DeviceTypeOsx:
-      output.DeviceTypeOsx !== undefined && output.DeviceTypeOsx !== null ? output.DeviceTypeOsx : undefined,
-    DeviceTypeWeb:
-      output.DeviceTypeWeb !== undefined && output.DeviceTypeWeb !== null ? output.DeviceTypeWeb : undefined,
-    DeviceTypeWindows:
-      output.DeviceTypeWindows !== undefined && output.DeviceTypeWindows !== null
-        ? output.DeviceTypeWindows
-        : undefined,
-    DeviceTypeZeroClient:
-      output.DeviceTypeZeroClient !== undefined && output.DeviceTypeZeroClient !== null
-        ? output.DeviceTypeZeroClient
-        : undefined,
+    DeviceTypeAndroid: __expectString(output.DeviceTypeAndroid),
+    DeviceTypeChromeOs: __expectString(output.DeviceTypeChromeOs),
+    DeviceTypeIos: __expectString(output.DeviceTypeIos),
+    DeviceTypeLinux: __expectString(output.DeviceTypeLinux),
+    DeviceTypeOsx: __expectString(output.DeviceTypeOsx),
+    DeviceTypeWeb: __expectString(output.DeviceTypeWeb),
+    DeviceTypeWindows: __expectString(output.DeviceTypeWindows),
+    DeviceTypeZeroClient: __expectString(output.DeviceTypeZeroClient),
   } as any;
 };
 
 const deserializeAws_json1_1WorkspaceBundle = (output: any, context: __SerdeContext): WorkspaceBundle => {
   return {
-    BundleId: output.BundleId !== undefined && output.BundleId !== null ? output.BundleId : undefined,
+    BundleId: __expectString(output.BundleId),
     ComputeType:
       output.ComputeType !== undefined && output.ComputeType !== null
         ? deserializeAws_json1_1ComputeType(output.ComputeType, context)
@@ -7248,14 +7165,14 @@ const deserializeAws_json1_1WorkspaceBundle = (output: any, context: __SerdeCont
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined,
+    Description: __expectString(output.Description),
+    ImageId: __expectString(output.ImageId),
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
+    Name: __expectString(output.Name),
+    Owner: __expectString(output.Owner),
     RootStorage:
       output.RootStorage !== undefined && output.RootStorage !== null
         ? deserializeAws_json1_1RootStorage(output.RootStorage, context)
@@ -7272,8 +7189,7 @@ const deserializeAws_json1_1WorkspaceConnectionStatus = (
   context: __SerdeContext
 ): WorkspaceConnectionStatus => {
   return {
-    ConnectionState:
-      output.ConnectionState !== undefined && output.ConnectionState !== null ? output.ConnectionState : undefined,
+    ConnectionState: __expectString(output.ConnectionState),
     ConnectionStateCheckTimestamp:
       output.ConnectionStateCheckTimestamp !== undefined && output.ConnectionStateCheckTimestamp !== null
         ? new Date(Math.round(output.ConnectionStateCheckTimestamp * 1000))
@@ -7282,7 +7198,7 @@ const deserializeAws_json1_1WorkspaceConnectionStatus = (
       output.LastKnownUserConnectionTimestamp !== undefined && output.LastKnownUserConnectionTimestamp !== null
         ? new Date(Math.round(output.LastKnownUserConnectionTimestamp * 1000))
         : undefined,
-    WorkspaceId: output.WorkspaceId !== undefined && output.WorkspaceId !== null ? output.WorkspaceId : undefined,
+    WorkspaceId: __expectString(output.WorkspaceId),
   } as any;
 };
 
@@ -7302,31 +7218,27 @@ const deserializeAws_json1_1WorkspaceConnectionStatusList = (
 
 const deserializeAws_json1_1WorkspaceDirectory = (output: any, context: __SerdeContext): WorkspaceDirectory => {
   return {
-    Alias: output.Alias !== undefined && output.Alias !== null ? output.Alias : undefined,
-    CustomerUserName:
-      output.CustomerUserName !== undefined && output.CustomerUserName !== null ? output.CustomerUserName : undefined,
-    DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
-    DirectoryName:
-      output.DirectoryName !== undefined && output.DirectoryName !== null ? output.DirectoryName : undefined,
-    DirectoryType:
-      output.DirectoryType !== undefined && output.DirectoryType !== null ? output.DirectoryType : undefined,
+    Alias: __expectString(output.Alias),
+    CustomerUserName: __expectString(output.CustomerUserName),
+    DirectoryId: __expectString(output.DirectoryId),
+    DirectoryName: __expectString(output.DirectoryName),
+    DirectoryType: __expectString(output.DirectoryType),
     DnsIpAddresses:
       output.DnsIpAddresses !== undefined && output.DnsIpAddresses !== null
         ? deserializeAws_json1_1DnsIpAddresses(output.DnsIpAddresses, context)
         : undefined,
-    IamRoleId: output.IamRoleId !== undefined && output.IamRoleId !== null ? output.IamRoleId : undefined,
-    RegistrationCode:
-      output.RegistrationCode !== undefined && output.RegistrationCode !== null ? output.RegistrationCode : undefined,
+    IamRoleId: __expectString(output.IamRoleId),
+    RegistrationCode: __expectString(output.RegistrationCode),
     SelfservicePermissions:
       output.SelfservicePermissions !== undefined && output.SelfservicePermissions !== null
         ? deserializeAws_json1_1SelfservicePermissions(output.SelfservicePermissions, context)
         : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    State: __expectString(output.State),
     SubnetIds:
       output.SubnetIds !== undefined && output.SubnetIds !== null
         ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context)
         : undefined,
-    Tenancy: output.Tenancy !== undefined && output.Tenancy !== null ? output.Tenancy : undefined,
+    Tenancy: __expectString(output.Tenancy),
     WorkspaceAccessProperties:
       output.WorkspaceAccessProperties !== undefined && output.WorkspaceAccessProperties !== null
         ? deserializeAws_json1_1WorkspaceAccessProperties(output.WorkspaceAccessProperties, context)
@@ -7335,10 +7247,7 @@ const deserializeAws_json1_1WorkspaceDirectory = (output: any, context: __SerdeC
       output.WorkspaceCreationProperties !== undefined && output.WorkspaceCreationProperties !== null
         ? deserializeAws_json1_1DefaultWorkspaceCreationProperties(output.WorkspaceCreationProperties, context)
         : undefined,
-    WorkspaceSecurityGroupId:
-      output.WorkspaceSecurityGroupId !== undefined && output.WorkspaceSecurityGroupId !== null
-        ? output.WorkspaceSecurityGroupId
-        : undefined,
+    WorkspaceSecurityGroupId: __expectString(output.WorkspaceSecurityGroupId),
     ipGroupIds:
       output.ipGroupIds !== undefined && output.ipGroupIds !== null
         ? deserializeAws_json1_1IpGroupIdList(output.ipGroupIds, context)
@@ -7350,20 +7259,18 @@ const deserializeAws_json1_1WorkspaceImage = (output: any, context: __SerdeConte
   return {
     Created:
       output.Created !== undefined && output.Created !== null ? new Date(Math.round(output.Created * 1000)) : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
-    ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Description: __expectString(output.Description),
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    ImageId: __expectString(output.ImageId),
+    Name: __expectString(output.Name),
     OperatingSystem:
       output.OperatingSystem !== undefined && output.OperatingSystem !== null
         ? deserializeAws_json1_1OperatingSystem(output.OperatingSystem, context)
         : undefined,
-    OwnerAccountId:
-      output.OwnerAccountId !== undefined && output.OwnerAccountId !== null ? output.OwnerAccountId : undefined,
-    RequiredTenancy:
-      output.RequiredTenancy !== undefined && output.RequiredTenancy !== null ? output.RequiredTenancy : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    OwnerAccountId: __expectString(output.OwnerAccountId),
+    RequiredTenancy: __expectString(output.RequiredTenancy),
+    State: __expectString(output.State),
   } as any;
 };
 
@@ -7391,45 +7298,26 @@ const deserializeAws_json1_1WorkspaceList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1WorkspaceProperties = (output: any, context: __SerdeContext): WorkspaceProperties => {
   return {
-    ComputeTypeName:
-      output.ComputeTypeName !== undefined && output.ComputeTypeName !== null ? output.ComputeTypeName : undefined,
-    RootVolumeSizeGib:
-      output.RootVolumeSizeGib !== undefined && output.RootVolumeSizeGib !== null
-        ? output.RootVolumeSizeGib
-        : undefined,
-    RunningMode: output.RunningMode !== undefined && output.RunningMode !== null ? output.RunningMode : undefined,
-    RunningModeAutoStopTimeoutInMinutes:
-      output.RunningModeAutoStopTimeoutInMinutes !== undefined && output.RunningModeAutoStopTimeoutInMinutes !== null
-        ? output.RunningModeAutoStopTimeoutInMinutes
-        : undefined,
-    UserVolumeSizeGib:
-      output.UserVolumeSizeGib !== undefined && output.UserVolumeSizeGib !== null
-        ? output.UserVolumeSizeGib
-        : undefined,
+    ComputeTypeName: __expectString(output.ComputeTypeName),
+    RootVolumeSizeGib: __expectNumber(output.RootVolumeSizeGib),
+    RunningMode: __expectString(output.RunningMode),
+    RunningModeAutoStopTimeoutInMinutes: __expectNumber(output.RunningModeAutoStopTimeoutInMinutes),
+    UserVolumeSizeGib: __expectNumber(output.UserVolumeSizeGib),
   } as any;
 };
 
 const deserializeAws_json1_1WorkspaceRequest = (output: any, context: __SerdeContext): WorkspaceRequest => {
   return {
-    BundleId: output.BundleId !== undefined && output.BundleId !== null ? output.BundleId : undefined,
-    DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
-    RootVolumeEncryptionEnabled:
-      output.RootVolumeEncryptionEnabled !== undefined && output.RootVolumeEncryptionEnabled !== null
-        ? output.RootVolumeEncryptionEnabled
-        : undefined,
+    BundleId: __expectString(output.BundleId),
+    DirectoryId: __expectString(output.DirectoryId),
+    RootVolumeEncryptionEnabled: __expectBoolean(output.RootVolumeEncryptionEnabled),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
         : undefined,
-    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
-    UserVolumeEncryptionEnabled:
-      output.UserVolumeEncryptionEnabled !== undefined && output.UserVolumeEncryptionEnabled !== null
-        ? output.UserVolumeEncryptionEnabled
-        : undefined,
-    VolumeEncryptionKey:
-      output.VolumeEncryptionKey !== undefined && output.VolumeEncryptionKey !== null
-        ? output.VolumeEncryptionKey
-        : undefined,
+    UserName: __expectString(output.UserName),
+    UserVolumeEncryptionEnabled: __expectBoolean(output.UserVolumeEncryptionEnabled),
+    VolumeEncryptionKey: __expectString(output.VolumeEncryptionKey),
     WorkspaceProperties:
       output.WorkspaceProperties !== undefined && output.WorkspaceProperties !== null
         ? deserializeAws_json1_1WorkspaceProperties(output.WorkspaceProperties, context)
@@ -7442,15 +7330,15 @@ const deserializeAws_json1_1WorkspacesDefaultRoleNotFoundException = (
   context: __SerdeContext
 ): WorkspacesDefaultRoleNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1WorkspacesIpGroup = (output: any, context: __SerdeContext): WorkspacesIpGroup => {
   return {
-    groupDesc: output.groupDesc !== undefined && output.groupDesc !== null ? output.groupDesc : undefined,
-    groupId: output.groupId !== undefined && output.groupId !== null ? output.groupId : undefined,
-    groupName: output.groupName !== undefined && output.groupName !== null ? output.groupName : undefined,
+    groupDesc: __expectString(output.groupDesc),
+    groupId: __expectString(output.groupId),
+    groupName: __expectString(output.groupName),
     userRules:
       output.userRules !== undefined && output.userRules !== null
         ? deserializeAws_json1_1IpRuleList(output.userRules, context)

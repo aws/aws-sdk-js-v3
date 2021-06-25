@@ -136,7 +136,11 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -2493,23 +2497,19 @@ const serializeAws_json1_1StopRxNormInferenceJobRequest = (
 
 const deserializeAws_json1_1Attribute = (output: any, context: __SerdeContext): Attribute => {
   return {
-    BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
-    Category: output.Category !== undefined && output.Category !== null ? output.Category : undefined,
-    EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    RelationshipScore:
-      output.RelationshipScore !== undefined && output.RelationshipScore !== null
-        ? output.RelationshipScore
-        : undefined,
-    RelationshipType:
-      output.RelationshipType !== undefined && output.RelationshipType !== null ? output.RelationshipType : undefined,
-    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
-    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
+    BeginOffset: __expectNumber(output.BeginOffset),
+    Category: __expectString(output.Category),
+    EndOffset: __expectNumber(output.EndOffset),
+    Id: __expectNumber(output.Id),
+    RelationshipScore: __expectNumber(output.RelationshipScore),
+    RelationshipType: __expectString(output.RelationshipType),
+    Score: __expectNumber(output.Score),
+    Text: __expectString(output.Text),
     Traits:
       output.Traits !== undefined && output.Traits !== null
         ? deserializeAws_json1_1TraitList(output.Traits, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -2529,10 +2529,7 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobProperties = (
   context: __SerdeContext
 ): ComprehendMedicalAsyncJobProperties => {
   return {
-    DataAccessRoleArn:
-      output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
-        ? output.DataAccessRoleArn
-        : undefined,
+    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
     ExpirationTime:
@@ -2543,15 +2540,14 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobProperties = (
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
-    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
-    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
-    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
-    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
-    ManifestFilePath:
-      output.ManifestFilePath !== undefined && output.ManifestFilePath !== null ? output.ManifestFilePath : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    ModelVersion: output.ModelVersion !== undefined && output.ModelVersion !== null ? output.ModelVersion : undefined,
+    JobId: __expectString(output.JobId),
+    JobName: __expectString(output.JobName),
+    JobStatus: __expectString(output.JobStatus),
+    KMSKey: __expectString(output.KMSKey),
+    LanguageCode: __expectString(output.LanguageCode),
+    ManifestFilePath: __expectString(output.ManifestFilePath),
+    Message: __expectString(output.Message),
+    ModelVersion: __expectString(output.ModelVersion),
     OutputDataConfig:
       output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
         ? deserializeAws_json1_1OutputDataConfig(output.OutputDataConfig, context)
@@ -2631,9 +2627,8 @@ const deserializeAws_json1_1DetectEntitiesResponse = (output: any, context: __Se
       output.Entities !== undefined && output.Entities !== null
         ? deserializeAws_json1_1EntityList(output.Entities, context)
         : undefined,
-    ModelVersion: output.ModelVersion !== undefined && output.ModelVersion !== null ? output.ModelVersion : undefined,
-    PaginationToken:
-      output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
+    ModelVersion: __expectString(output.ModelVersion),
+    PaginationToken: __expectString(output.PaginationToken),
     UnmappedAttributes:
       output.UnmappedAttributes !== undefined && output.UnmappedAttributes !== null
         ? deserializeAws_json1_1UnmappedAttributeList(output.UnmappedAttributes, context)
@@ -2650,9 +2645,8 @@ const deserializeAws_json1_1DetectEntitiesV2Response = (
       output.Entities !== undefined && output.Entities !== null
         ? deserializeAws_json1_1EntityList(output.Entities, context)
         : undefined,
-    ModelVersion: output.ModelVersion !== undefined && output.ModelVersion !== null ? output.ModelVersion : undefined,
-    PaginationToken:
-      output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
+    ModelVersion: __expectString(output.ModelVersion),
+    PaginationToken: __expectString(output.PaginationToken),
     UnmappedAttributes:
       output.UnmappedAttributes !== undefined && output.UnmappedAttributes !== null
         ? deserializeAws_json1_1UnmappedAttributeList(output.UnmappedAttributes, context)
@@ -2666,9 +2660,8 @@ const deserializeAws_json1_1DetectPHIResponse = (output: any, context: __SerdeCo
       output.Entities !== undefined && output.Entities !== null
         ? deserializeAws_json1_1EntityList(output.Entities, context)
         : undefined,
-    ModelVersion: output.ModelVersion !== undefined && output.ModelVersion !== null ? output.ModelVersion : undefined,
-    PaginationToken:
-      output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
+    ModelVersion: __expectString(output.ModelVersion),
+    PaginationToken: __expectString(output.PaginationToken),
   } as any;
 };
 
@@ -2678,17 +2671,17 @@ const deserializeAws_json1_1Entity = (output: any, context: __SerdeContext): Ent
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1AttributeList(output.Attributes, context)
         : undefined,
-    BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
-    Category: output.Category !== undefined && output.Category !== null ? output.Category : undefined,
-    EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
-    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
+    BeginOffset: __expectNumber(output.BeginOffset),
+    Category: __expectString(output.Category),
+    EndOffset: __expectNumber(output.EndOffset),
+    Id: __expectNumber(output.Id),
+    Score: __expectNumber(output.Score),
+    Text: __expectString(output.Text),
     Traits:
       output.Traits !== undefined && output.Traits !== null
         ? deserializeAws_json1_1TraitList(output.Traits, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -2705,23 +2698,19 @@ const deserializeAws_json1_1EntityList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1ICD10CMAttribute = (output: any, context: __SerdeContext): ICD10CMAttribute => {
   return {
-    BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
-    Category: output.Category !== undefined && output.Category !== null ? output.Category : undefined,
-    EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    RelationshipScore:
-      output.RelationshipScore !== undefined && output.RelationshipScore !== null
-        ? output.RelationshipScore
-        : undefined,
-    RelationshipType:
-      output.RelationshipType !== undefined && output.RelationshipType !== null ? output.RelationshipType : undefined,
-    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
-    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
+    BeginOffset: __expectNumber(output.BeginOffset),
+    Category: __expectString(output.Category),
+    EndOffset: __expectNumber(output.EndOffset),
+    Id: __expectNumber(output.Id),
+    RelationshipScore: __expectNumber(output.RelationshipScore),
+    RelationshipType: __expectString(output.RelationshipType),
+    Score: __expectNumber(output.Score),
+    Text: __expectString(output.Text),
     Traits:
       output.Traits !== undefined && output.Traits !== null
         ? deserializeAws_json1_1ICD10CMTraitList(output.Traits, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -2738,9 +2727,9 @@ const deserializeAws_json1_1ICD10CMAttributeList = (output: any, context: __Serd
 
 const deserializeAws_json1_1ICD10CMConcept = (output: any, context: __SerdeContext): ICD10CMConcept => {
   return {
-    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
+    Code: __expectString(output.Code),
+    Description: __expectString(output.Description),
+    Score: __expectNumber(output.Score),
   } as any;
 };
 
@@ -2761,21 +2750,21 @@ const deserializeAws_json1_1ICD10CMEntity = (output: any, context: __SerdeContex
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1ICD10CMAttributeList(output.Attributes, context)
         : undefined,
-    BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
-    Category: output.Category !== undefined && output.Category !== null ? output.Category : undefined,
-    EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
+    BeginOffset: __expectNumber(output.BeginOffset),
+    Category: __expectString(output.Category),
+    EndOffset: __expectNumber(output.EndOffset),
     ICD10CMConcepts:
       output.ICD10CMConcepts !== undefined && output.ICD10CMConcepts !== null
         ? deserializeAws_json1_1ICD10CMConceptList(output.ICD10CMConcepts, context)
         : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
-    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
+    Id: __expectNumber(output.Id),
+    Score: __expectNumber(output.Score),
+    Text: __expectString(output.Text),
     Traits:
       output.Traits !== undefined && output.Traits !== null
         ? deserializeAws_json1_1ICD10CMTraitList(output.Traits, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -2792,8 +2781,8 @@ const deserializeAws_json1_1ICD10CMEntityList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ICD10CMTrait = (output: any, context: __SerdeContext): ICD10CMTrait => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
+    Name: __expectString(output.Name),
+    Score: __expectNumber(output.Score),
   } as any;
 };
 
@@ -2814,9 +2803,8 @@ const deserializeAws_json1_1InferICD10CMResponse = (output: any, context: __Serd
       output.Entities !== undefined && output.Entities !== null
         ? deserializeAws_json1_1ICD10CMEntityList(output.Entities, context)
         : undefined,
-    ModelVersion: output.ModelVersion !== undefined && output.ModelVersion !== null ? output.ModelVersion : undefined,
-    PaginationToken:
-      output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
+    ModelVersion: __expectString(output.ModelVersion),
+    PaginationToken: __expectString(output.PaginationToken),
   } as any;
 };
 
@@ -2826,16 +2814,15 @@ const deserializeAws_json1_1InferRxNormResponse = (output: any, context: __Serde
       output.Entities !== undefined && output.Entities !== null
         ? deserializeAws_json1_1RxNormEntityList(output.Entities, context)
         : undefined,
-    ModelVersion: output.ModelVersion !== undefined && output.ModelVersion !== null ? output.ModelVersion : undefined,
-    PaginationToken:
-      output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
+    ModelVersion: __expectString(output.ModelVersion),
+    PaginationToken: __expectString(output.PaginationToken),
   } as any;
 };
 
 const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
   return {
-    S3Bucket: output.S3Bucket !== undefined && output.S3Bucket !== null ? output.S3Bucket : undefined,
-    S3Key: output.S3Key !== undefined && output.S3Key !== null ? output.S3Key : undefined,
+    S3Bucket: __expectString(output.S3Bucket),
+    S3Key: __expectString(output.S3Key),
   } as any;
 };
 
@@ -2844,7 +2831,7 @@ const deserializeAws_json1_1InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2853,7 +2840,7 @@ const deserializeAws_json1_1InvalidEncodingException = (
   context: __SerdeContext
 ): InvalidEncodingException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2862,7 +2849,7 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2879,7 +2866,7 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsResponse = (
             context
           )
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -2896,7 +2883,7 @@ const deserializeAws_json1_1ListICD10CMInferenceJobsResponse = (
             context
           )
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -2913,7 +2900,7 @@ const deserializeAws_json1_1ListPHIDetectionJobsResponse = (
             context
           )
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -2930,14 +2917,14 @@ const deserializeAws_json1_1ListRxNormInferenceJobsResponse = (
             context
           )
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
   return {
-    S3Bucket: output.S3Bucket !== undefined && output.S3Bucket !== null ? output.S3Bucket : undefined,
-    S3Key: output.S3Key !== undefined && output.S3Key !== null ? output.S3Key : undefined,
+    S3Bucket: __expectString(output.S3Bucket),
+    S3Key: __expectString(output.S3Key),
   } as any;
 };
 
@@ -2946,26 +2933,23 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1RxNormAttribute = (output: any, context: __SerdeContext): RxNormAttribute => {
   return {
-    BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
-    EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    RelationshipScore:
-      output.RelationshipScore !== undefined && output.RelationshipScore !== null
-        ? output.RelationshipScore
-        : undefined,
-    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
-    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
+    BeginOffset: __expectNumber(output.BeginOffset),
+    EndOffset: __expectNumber(output.EndOffset),
+    Id: __expectNumber(output.Id),
+    RelationshipScore: __expectNumber(output.RelationshipScore),
+    Score: __expectNumber(output.Score),
+    Text: __expectString(output.Text),
     Traits:
       output.Traits !== undefined && output.Traits !== null
         ? deserializeAws_json1_1RxNormTraitList(output.Traits, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -2982,9 +2966,9 @@ const deserializeAws_json1_1RxNormAttributeList = (output: any, context: __Serde
 
 const deserializeAws_json1_1RxNormConcept = (output: any, context: __SerdeContext): RxNormConcept => {
   return {
-    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
+    Code: __expectString(output.Code),
+    Description: __expectString(output.Description),
+    Score: __expectNumber(output.Score),
   } as any;
 };
 
@@ -3005,21 +2989,21 @@ const deserializeAws_json1_1RxNormEntity = (output: any, context: __SerdeContext
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1RxNormAttributeList(output.Attributes, context)
         : undefined,
-    BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
-    Category: output.Category !== undefined && output.Category !== null ? output.Category : undefined,
-    EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    BeginOffset: __expectNumber(output.BeginOffset),
+    Category: __expectString(output.Category),
+    EndOffset: __expectNumber(output.EndOffset),
+    Id: __expectNumber(output.Id),
     RxNormConcepts:
       output.RxNormConcepts !== undefined && output.RxNormConcepts !== null
         ? deserializeAws_json1_1RxNormConceptList(output.RxNormConcepts, context)
         : undefined,
-    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
-    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
+    Score: __expectNumber(output.Score),
+    Text: __expectString(output.Text),
     Traits:
       output.Traits !== undefined && output.Traits !== null
         ? deserializeAws_json1_1RxNormTraitList(output.Traits, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -3036,8 +3020,8 @@ const deserializeAws_json1_1RxNormEntityList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1RxNormTrait = (output: any, context: __SerdeContext): RxNormTrait => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
+    Name: __expectString(output.Name),
+    Score: __expectNumber(output.Score),
   } as any;
 };
 
@@ -3057,7 +3041,7 @@ const deserializeAws_json1_1ServiceUnavailableException = (
   context: __SerdeContext
 ): ServiceUnavailableException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3066,7 +3050,7 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobResponse = (
   context: __SerdeContext
 ): StartEntitiesDetectionV2JobResponse => {
   return {
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobId: __expectString(output.JobId),
   } as any;
 };
 
@@ -3075,7 +3059,7 @@ const deserializeAws_json1_1StartICD10CMInferenceJobResponse = (
   context: __SerdeContext
 ): StartICD10CMInferenceJobResponse => {
   return {
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobId: __expectString(output.JobId),
   } as any;
 };
 
@@ -3084,7 +3068,7 @@ const deserializeAws_json1_1StartPHIDetectionJobResponse = (
   context: __SerdeContext
 ): StartPHIDetectionJobResponse => {
   return {
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobId: __expectString(output.JobId),
   } as any;
 };
 
@@ -3093,7 +3077,7 @@ const deserializeAws_json1_1StartRxNormInferenceJobResponse = (
   context: __SerdeContext
 ): StartRxNormInferenceJobResponse => {
   return {
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobId: __expectString(output.JobId),
   } as any;
 };
 
@@ -3102,7 +3086,7 @@ const deserializeAws_json1_1StopEntitiesDetectionV2JobResponse = (
   context: __SerdeContext
 ): StopEntitiesDetectionV2JobResponse => {
   return {
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobId: __expectString(output.JobId),
   } as any;
 };
 
@@ -3111,7 +3095,7 @@ const deserializeAws_json1_1StopICD10CMInferenceJobResponse = (
   context: __SerdeContext
 ): StopICD10CMInferenceJobResponse => {
   return {
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobId: __expectString(output.JobId),
   } as any;
 };
 
@@ -3120,7 +3104,7 @@ const deserializeAws_json1_1StopPHIDetectionJobResponse = (
   context: __SerdeContext
 ): StopPHIDetectionJobResponse => {
   return {
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobId: __expectString(output.JobId),
   } as any;
 };
 
@@ -3129,7 +3113,7 @@ const deserializeAws_json1_1StopRxNormInferenceJobResponse = (
   context: __SerdeContext
 ): StopRxNormInferenceJobResponse => {
   return {
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobId: __expectString(output.JobId),
   } as any;
 };
 
@@ -3138,7 +3122,7 @@ const deserializeAws_json1_1TextSizeLimitExceededException = (
   context: __SerdeContext
 ): TextSizeLimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3147,14 +3131,14 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1Trait = (output: any, context: __SerdeContext): Trait => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
+    Name: __expectString(output.Name),
+    Score: __expectNumber(output.Score),
   } as any;
 };
 
@@ -3175,7 +3159,7 @@ const deserializeAws_json1_1UnmappedAttribute = (output: any, context: __SerdeCo
       output.Attribute !== undefined && output.Attribute !== null
         ? deserializeAws_json1_1Attribute(output.Attribute, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -3192,7 +3176,7 @@ const deserializeAws_json1_1UnmappedAttributeList = (output: any, context: __Ser
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 

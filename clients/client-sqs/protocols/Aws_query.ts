@@ -90,6 +90,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
@@ -2495,16 +2496,16 @@ const deserializeAws_queryBatchResultErrorEntry = (output: any, context: __Serde
     Message: undefined,
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id = __expectString(output["Id"]);
   }
   if (output["SenderFault"] !== undefined) {
     contents.SenderFault = __parseBoolean(output["SenderFault"]);
   }
   if (output["Code"] !== undefined) {
-    contents.Code = output["Code"];
+    contents.Code = __expectString(output["Code"]);
   }
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
@@ -2571,7 +2572,7 @@ const deserializeAws_queryChangeMessageVisibilityBatchResultEntry = (
     Id: undefined,
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id = __expectString(output["Id"]);
   }
   return contents;
 };
@@ -2595,7 +2596,7 @@ const deserializeAws_queryCreateQueueResult = (output: any, context: __SerdeCont
     QueueUrl: undefined,
   };
   if (output["QueueUrl"] !== undefined) {
-    contents.QueueUrl = output["QueueUrl"];
+    contents.QueueUrl = __expectString(output["QueueUrl"]);
   }
   return contents;
 };
@@ -2637,7 +2638,7 @@ const deserializeAws_queryDeleteMessageBatchResultEntry = (
     Id: undefined,
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id = __expectString(output["Id"]);
   }
   return contents;
 };
@@ -2682,7 +2683,7 @@ const deserializeAws_queryGetQueueUrlResult = (output: any, context: __SerdeCont
     QueueUrl: undefined,
   };
   if (output["QueueUrl"] !== undefined) {
-    contents.QueueUrl = output["QueueUrl"];
+    contents.QueueUrl = __expectString(output["QueueUrl"]);
   }
   return contents;
 };
@@ -2722,7 +2723,7 @@ const deserializeAws_queryListDeadLetterSourceQueuesResult = (
     contents.queueUrls = deserializeAws_queryQueueUrlList(__getArrayIfSingleItem(output["QueueUrl"]), context);
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   return contents;
 };
@@ -2733,7 +2734,7 @@ const deserializeAws_queryListQueuesResult = (output: any, context: __SerdeConte
     QueueUrls: undefined,
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   if (output.QueueUrl === "") {
     contents.QueueUrls = [];
@@ -2768,16 +2769,16 @@ const deserializeAws_queryMessage = (output: any, context: __SerdeContext): Mess
     MessageAttributes: undefined,
   };
   if (output["MessageId"] !== undefined) {
-    contents.MessageId = output["MessageId"];
+    contents.MessageId = __expectString(output["MessageId"]);
   }
   if (output["ReceiptHandle"] !== undefined) {
-    contents.ReceiptHandle = output["ReceiptHandle"];
+    contents.ReceiptHandle = __expectString(output["ReceiptHandle"]);
   }
   if (output["MD5OfBody"] !== undefined) {
-    contents.MD5OfBody = output["MD5OfBody"];
+    contents.MD5OfBody = __expectString(output["MD5OfBody"]);
   }
   if (output["Body"] !== undefined) {
-    contents.Body = output["Body"];
+    contents.Body = __expectString(output["Body"]);
   }
   if (output.Attribute === "") {
     contents.Attributes = {};
@@ -2789,7 +2790,7 @@ const deserializeAws_queryMessage = (output: any, context: __SerdeContext): Mess
     );
   }
   if (output["MD5OfMessageAttributes"] !== undefined) {
-    contents.MD5OfMessageAttributes = output["MD5OfMessageAttributes"];
+    contents.MD5OfMessageAttributes = __expectString(output["MD5OfMessageAttributes"]);
   }
   if (output.MessageAttribute === "") {
     contents.MessageAttributes = {};
@@ -2812,7 +2813,7 @@ const deserializeAws_queryMessageAttributeValue = (output: any, context: __Serde
     DataType: undefined,
   };
   if (output["StringValue"] !== undefined) {
-    contents.StringValue = output["StringValue"];
+    contents.StringValue = __expectString(output["StringValue"]);
   }
   if (output["BinaryValue"] !== undefined) {
     contents.BinaryValue = context.base64Decoder(output["BinaryValue"]);
@@ -2836,7 +2837,7 @@ const deserializeAws_queryMessageAttributeValue = (output: any, context: __Serde
     );
   }
   if (output["DataType"] !== undefined) {
-    contents.DataType = output["DataType"];
+    contents.DataType = __expectString(output["DataType"]);
   }
   return contents;
 };
@@ -2882,7 +2883,7 @@ const deserializeAws_queryMessageSystemAttributeMap = (
     }
     return {
       ...acc,
-      [pair["Name"]]: pair["Value"],
+      [pair["Name"]]: __expectString(pair["Value"]) as any,
     };
   }, {});
 };
@@ -2904,7 +2905,7 @@ const deserializeAws_queryQueueAttributeMap = (output: any, context: __SerdeCont
     }
     return {
       ...acc,
-      [pair["Name"]]: pair["Value"],
+      [pair["Name"]]: __expectString(pair["Value"]) as any,
     };
   }, {});
 };
@@ -2931,7 +2932,7 @@ const deserializeAws_queryQueueUrlList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2992,22 +2993,22 @@ const deserializeAws_querySendMessageBatchResultEntry = (
     SequenceNumber: undefined,
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id = __expectString(output["Id"]);
   }
   if (output["MessageId"] !== undefined) {
-    contents.MessageId = output["MessageId"];
+    contents.MessageId = __expectString(output["MessageId"]);
   }
   if (output["MD5OfMessageBody"] !== undefined) {
-    contents.MD5OfMessageBody = output["MD5OfMessageBody"];
+    contents.MD5OfMessageBody = __expectString(output["MD5OfMessageBody"]);
   }
   if (output["MD5OfMessageAttributes"] !== undefined) {
-    contents.MD5OfMessageAttributes = output["MD5OfMessageAttributes"];
+    contents.MD5OfMessageAttributes = __expectString(output["MD5OfMessageAttributes"]);
   }
   if (output["MD5OfMessageSystemAttributes"] !== undefined) {
-    contents.MD5OfMessageSystemAttributes = output["MD5OfMessageSystemAttributes"];
+    contents.MD5OfMessageSystemAttributes = __expectString(output["MD5OfMessageSystemAttributes"]);
   }
   if (output["SequenceNumber"] !== undefined) {
-    contents.SequenceNumber = output["SequenceNumber"];
+    contents.SequenceNumber = __expectString(output["SequenceNumber"]);
   }
   return contents;
 };
@@ -3035,19 +3036,19 @@ const deserializeAws_querySendMessageResult = (output: any, context: __SerdeCont
     SequenceNumber: undefined,
   };
   if (output["MD5OfMessageBody"] !== undefined) {
-    contents.MD5OfMessageBody = output["MD5OfMessageBody"];
+    contents.MD5OfMessageBody = __expectString(output["MD5OfMessageBody"]);
   }
   if (output["MD5OfMessageAttributes"] !== undefined) {
-    contents.MD5OfMessageAttributes = output["MD5OfMessageAttributes"];
+    contents.MD5OfMessageAttributes = __expectString(output["MD5OfMessageAttributes"]);
   }
   if (output["MD5OfMessageSystemAttributes"] !== undefined) {
-    contents.MD5OfMessageSystemAttributes = output["MD5OfMessageSystemAttributes"];
+    contents.MD5OfMessageSystemAttributes = __expectString(output["MD5OfMessageSystemAttributes"]);
   }
   if (output["MessageId"] !== undefined) {
-    contents.MessageId = output["MessageId"];
+    contents.MessageId = __expectString(output["MessageId"]);
   }
   if (output["SequenceNumber"] !== undefined) {
-    contents.SequenceNumber = output["SequenceNumber"];
+    contents.SequenceNumber = __expectString(output["SequenceNumber"]);
   }
   return contents;
 };
@@ -3059,7 +3060,7 @@ const deserializeAws_queryStringList = (output: any, context: __SerdeContext): s
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3070,7 +3071,7 @@ const deserializeAws_queryTagMap = (output: any, context: __SerdeContext): { [ke
     }
     return {
       ...acc,
-      [pair["Key"]]: pair["Value"],
+      [pair["Key"]]: __expectString(pair["Value"]) as any,
     };
   }, {});
 };

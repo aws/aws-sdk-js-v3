@@ -130,7 +130,11 @@ import {
   UpdateSubnetGroupResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3096,20 +3100,20 @@ const serializeAws_json1_1UpdateSubnetGroupRequest = (
 
 const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cluster => {
   return {
-    ActiveNodes: output.ActiveNodes !== undefined && output.ActiveNodes !== null ? output.ActiveNodes : undefined,
-    ClusterArn: output.ClusterArn !== undefined && output.ClusterArn !== null ? output.ClusterArn : undefined,
+    ActiveNodes: __expectNumber(output.ActiveNodes),
+    ClusterArn: __expectString(output.ClusterArn),
     ClusterDiscoveryEndpoint:
       output.ClusterDiscoveryEndpoint !== undefined && output.ClusterDiscoveryEndpoint !== null
         ? deserializeAws_json1_1Endpoint(output.ClusterDiscoveryEndpoint, context)
         : undefined,
-    ClusterName: output.ClusterName !== undefined && output.ClusterName !== null ? output.ClusterName : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    IamRoleArn: output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
+    ClusterName: __expectString(output.ClusterName),
+    Description: __expectString(output.Description),
+    IamRoleArn: __expectString(output.IamRoleArn),
     NodeIdsToRemove:
       output.NodeIdsToRemove !== undefined && output.NodeIdsToRemove !== null
         ? deserializeAws_json1_1NodeIdentifierList(output.NodeIdsToRemove, context)
         : undefined,
-    NodeType: output.NodeType !== undefined && output.NodeType !== null ? output.NodeType : undefined,
+    NodeType: __expectString(output.NodeType),
     Nodes:
       output.Nodes !== undefined && output.Nodes !== null
         ? deserializeAws_json1_1NodeList(output.Nodes, context)
@@ -3122,10 +3126,7 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
       output.ParameterGroup !== undefined && output.ParameterGroup !== null
         ? deserializeAws_json1_1ParameterGroupStatus(output.ParameterGroup, context)
         : undefined,
-    PreferredMaintenanceWindow:
-      output.PreferredMaintenanceWindow !== undefined && output.PreferredMaintenanceWindow !== null
-        ? output.PreferredMaintenanceWindow
-        : undefined,
+    PreferredMaintenanceWindow: __expectString(output.PreferredMaintenanceWindow),
     SSEDescription:
       output.SSEDescription !== undefined && output.SSEDescription !== null
         ? deserializeAws_json1_1SSEDescription(output.SSEDescription, context)
@@ -3134,9 +3135,9 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
       output.SecurityGroups !== undefined && output.SecurityGroups !== null
         ? deserializeAws_json1_1SecurityGroupMembershipList(output.SecurityGroups, context)
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    SubnetGroup: output.SubnetGroup !== undefined && output.SubnetGroup !== null ? output.SubnetGroup : undefined,
-    TotalNodes: output.TotalNodes !== undefined && output.TotalNodes !== null ? output.TotalNodes : undefined,
+    Status: __expectString(output.Status),
+    SubnetGroup: __expectString(output.SubnetGroup),
+    TotalNodes: __expectNumber(output.TotalNodes),
   } as any;
 };
 
@@ -3145,7 +3146,7 @@ const deserializeAws_json1_1ClusterAlreadyExistsFault = (
   context: __SerdeContext
 ): ClusterAlreadyExistsFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3162,7 +3163,7 @@ const deserializeAws_json1_1ClusterList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ClusterNotFoundFault = (output: any, context: __SerdeContext): ClusterNotFoundFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3171,7 +3172,7 @@ const deserializeAws_json1_1ClusterQuotaForCustomerExceededFault = (
   context: __SerdeContext
 ): ClusterQuotaForCustomerExceededFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3234,8 +3235,7 @@ const deserializeAws_json1_1DeleteParameterGroupResponse = (
   context: __SerdeContext
 ): DeleteParameterGroupResponse => {
   return {
-    DeletionMessage:
-      output.DeletionMessage !== undefined && output.DeletionMessage !== null ? output.DeletionMessage : undefined,
+    DeletionMessage: __expectString(output.DeletionMessage),
   } as any;
 };
 
@@ -3244,8 +3244,7 @@ const deserializeAws_json1_1DeleteSubnetGroupResponse = (
   context: __SerdeContext
 ): DeleteSubnetGroupResponse => {
   return {
-    DeletionMessage:
-      output.DeletionMessage !== undefined && output.DeletionMessage !== null ? output.DeletionMessage : undefined,
+    DeletionMessage: __expectString(output.DeletionMessage),
   } as any;
 };
 
@@ -3258,7 +3257,7 @@ const deserializeAws_json1_1DescribeClustersResponse = (
       output.Clusters !== undefined && output.Clusters !== null
         ? deserializeAws_json1_1ClusterList(output.Clusters, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3267,7 +3266,7 @@ const deserializeAws_json1_1DescribeDefaultParametersResponse = (
   context: __SerdeContext
 ): DescribeDefaultParametersResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1ParameterList(output.Parameters, context)
@@ -3281,7 +3280,7 @@ const deserializeAws_json1_1DescribeEventsResponse = (output: any, context: __Se
       output.Events !== undefined && output.Events !== null
         ? deserializeAws_json1_1EventList(output.Events, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3290,7 +3289,7 @@ const deserializeAws_json1_1DescribeParameterGroupsResponse = (
   context: __SerdeContext
 ): DescribeParameterGroupsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     ParameterGroups:
       output.ParameterGroups !== undefined && output.ParameterGroups !== null
         ? deserializeAws_json1_1ParameterGroupList(output.ParameterGroups, context)
@@ -3303,7 +3302,7 @@ const deserializeAws_json1_1DescribeParametersResponse = (
   context: __SerdeContext
 ): DescribeParametersResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1ParameterList(output.Parameters, context)
@@ -3316,7 +3315,7 @@ const deserializeAws_json1_1DescribeSubnetGroupsResponse = (
   context: __SerdeContext
 ): DescribeSubnetGroupsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     SubnetGroups:
       output.SubnetGroups !== undefined && output.SubnetGroups !== null
         ? deserializeAws_json1_1SubnetGroupList(output.SubnetGroups, context)
@@ -3326,17 +3325,17 @@ const deserializeAws_json1_1DescribeSubnetGroupsResponse = (
 
 const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
-    Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
-    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    Address: __expectString(output.Address),
+    Port: __expectNumber(output.Port),
   } as any;
 };
 
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
   return {
     Date: output.Date !== undefined && output.Date !== null ? new Date(Math.round(output.Date * 1000)) : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    SourceName: output.SourceName !== undefined && output.SourceName !== null ? output.SourceName : undefined,
-    SourceType: output.SourceType !== undefined && output.SourceType !== null ? output.SourceType : undefined,
+    Message: __expectString(output.Message),
+    SourceName: __expectString(output.SourceName),
+    SourceType: __expectString(output.SourceType),
   } as any;
 };
 
@@ -3368,13 +3367,13 @@ const deserializeAws_json1_1InsufficientClusterCapacityFault = (
   context: __SerdeContext
 ): InsufficientClusterCapacityFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidARNFault = (output: any, context: __SerdeContext): InvalidARNFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3383,7 +3382,7 @@ const deserializeAws_json1_1InvalidClusterStateFault = (
   context: __SerdeContext
 ): InvalidClusterStateFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3392,7 +3391,7 @@ const deserializeAws_json1_1InvalidParameterCombinationException = (
   context: __SerdeContext
 ): InvalidParameterCombinationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3401,7 +3400,7 @@ const deserializeAws_json1_1InvalidParameterGroupStateFault = (
   context: __SerdeContext
 ): InvalidParameterGroupStateFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3410,13 +3409,13 @@ const deserializeAws_json1_1InvalidParameterValueException = (
   context: __SerdeContext
 ): InvalidParameterValueException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3425,13 +3424,13 @@ const deserializeAws_json1_1InvalidVPCNetworkStateFault = (
   context: __SerdeContext
 ): InvalidVPCNetworkStateFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeContext): ListTagsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -3441,8 +3440,7 @@ const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Node = (output: any, context: __SerdeContext): Node => {
   return {
-    AvailabilityZone:
-      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
+    AvailabilityZone: __expectString(output.AvailabilityZone),
     Endpoint:
       output.Endpoint !== undefined && output.Endpoint !== null
         ? deserializeAws_json1_1Endpoint(output.Endpoint, context)
@@ -3451,12 +3449,9 @@ const deserializeAws_json1_1Node = (output: any, context: __SerdeContext): Node 
       output.NodeCreateTime !== undefined && output.NodeCreateTime !== null
         ? new Date(Math.round(output.NodeCreateTime * 1000))
         : undefined,
-    NodeId: output.NodeId !== undefined && output.NodeId !== null ? output.NodeId : undefined,
-    NodeStatus: output.NodeStatus !== undefined && output.NodeStatus !== null ? output.NodeStatus : undefined,
-    ParameterGroupStatus:
-      output.ParameterGroupStatus !== undefined && output.ParameterGroupStatus !== null
-        ? output.ParameterGroupStatus
-        : undefined,
+    NodeId: __expectString(output.NodeId),
+    NodeStatus: __expectString(output.NodeStatus),
+    ParameterGroupStatus: __expectString(output.ParameterGroupStatus),
   } as any;
 };
 
@@ -3467,7 +3462,7 @@ const deserializeAws_json1_1NodeIdentifierList = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3484,7 +3479,7 @@ const deserializeAws_json1_1NodeList = (output: any, context: __SerdeContext): N
 
 const deserializeAws_json1_1NodeNotFoundFault = (output: any, context: __SerdeContext): NodeNotFoundFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3493,7 +3488,7 @@ const deserializeAws_json1_1NodeQuotaForClusterExceededFault = (
   context: __SerdeContext
 ): NodeQuotaForClusterExceededFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3502,14 +3497,14 @@ const deserializeAws_json1_1NodeQuotaForCustomerExceededFault = (
   context: __SerdeContext
 ): NodeQuotaForCustomerExceededFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1NodeTypeSpecificValue = (output: any, context: __SerdeContext): NodeTypeSpecificValue => {
   return {
-    NodeType: output.NodeType !== undefined && output.NodeType !== null ? output.NodeType : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    NodeType: __expectString(output.NodeType),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -3532,40 +3527,33 @@ const deserializeAws_json1_1NotificationConfiguration = (
   context: __SerdeContext
 ): NotificationConfiguration => {
   return {
-    TopicArn: output.TopicArn !== undefined && output.TopicArn !== null ? output.TopicArn : undefined,
-    TopicStatus: output.TopicStatus !== undefined && output.TopicStatus !== null ? output.TopicStatus : undefined,
+    TopicArn: __expectString(output.TopicArn),
+    TopicStatus: __expectString(output.TopicStatus),
   } as any;
 };
 
 const deserializeAws_json1_1Parameter = (output: any, context: __SerdeContext): Parameter => {
   return {
-    AllowedValues:
-      output.AllowedValues !== undefined && output.AllowedValues !== null ? output.AllowedValues : undefined,
-    ChangeType: output.ChangeType !== undefined && output.ChangeType !== null ? output.ChangeType : undefined,
-    DataType: output.DataType !== undefined && output.DataType !== null ? output.DataType : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    IsModifiable: output.IsModifiable !== undefined && output.IsModifiable !== null ? output.IsModifiable : undefined,
+    AllowedValues: __expectString(output.AllowedValues),
+    ChangeType: __expectString(output.ChangeType),
+    DataType: __expectString(output.DataType),
+    Description: __expectString(output.Description),
+    IsModifiable: __expectString(output.IsModifiable),
     NodeTypeSpecificValues:
       output.NodeTypeSpecificValues !== undefined && output.NodeTypeSpecificValues !== null
         ? deserializeAws_json1_1NodeTypeSpecificValueList(output.NodeTypeSpecificValues, context)
         : undefined,
-    ParameterName:
-      output.ParameterName !== undefined && output.ParameterName !== null ? output.ParameterName : undefined,
-    ParameterType:
-      output.ParameterType !== undefined && output.ParameterType !== null ? output.ParameterType : undefined,
-    ParameterValue:
-      output.ParameterValue !== undefined && output.ParameterValue !== null ? output.ParameterValue : undefined,
-    Source: output.Source !== undefined && output.Source !== null ? output.Source : undefined,
+    ParameterName: __expectString(output.ParameterName),
+    ParameterType: __expectString(output.ParameterType),
+    ParameterValue: __expectString(output.ParameterValue),
+    Source: __expectString(output.Source),
   } as any;
 };
 
 const deserializeAws_json1_1ParameterGroup = (output: any, context: __SerdeContext): ParameterGroup => {
   return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    ParameterGroupName:
-      output.ParameterGroupName !== undefined && output.ParameterGroupName !== null
-        ? output.ParameterGroupName
-        : undefined,
+    Description: __expectString(output.Description),
+    ParameterGroupName: __expectString(output.ParameterGroupName),
   } as any;
 };
 
@@ -3574,7 +3562,7 @@ const deserializeAws_json1_1ParameterGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): ParameterGroupAlreadyExistsFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3594,7 +3582,7 @@ const deserializeAws_json1_1ParameterGroupNotFoundFault = (
   context: __SerdeContext
 ): ParameterGroupNotFoundFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3603,7 +3591,7 @@ const deserializeAws_json1_1ParameterGroupQuotaExceededFault = (
   context: __SerdeContext
 ): ParameterGroupQuotaExceededFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3613,14 +3601,8 @@ const deserializeAws_json1_1ParameterGroupStatus = (output: any, context: __Serd
       output.NodeIdsToReboot !== undefined && output.NodeIdsToReboot !== null
         ? deserializeAws_json1_1NodeIdentifierList(output.NodeIdsToReboot, context)
         : undefined,
-    ParameterApplyStatus:
-      output.ParameterApplyStatus !== undefined && output.ParameterApplyStatus !== null
-        ? output.ParameterApplyStatus
-        : undefined,
-    ParameterGroupName:
-      output.ParameterGroupName !== undefined && output.ParameterGroupName !== null
-        ? output.ParameterGroupName
-        : undefined,
+    ParameterApplyStatus: __expectString(output.ParameterApplyStatus),
+    ParameterGroupName: __expectString(output.ParameterGroupName),
   } as any;
 };
 
@@ -3649,11 +3631,8 @@ const deserializeAws_json1_1SecurityGroupMembership = (
   context: __SerdeContext
 ): SecurityGroupMembership => {
   return {
-    SecurityGroupIdentifier:
-      output.SecurityGroupIdentifier !== undefined && output.SecurityGroupIdentifier !== null
-        ? output.SecurityGroupIdentifier
-        : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    SecurityGroupIdentifier: __expectString(output.SecurityGroupIdentifier),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -3676,37 +3655,32 @@ const deserializeAws_json1_1ServiceLinkedRoleNotFoundFault = (
   context: __SerdeContext
 ): ServiceLinkedRoleNotFoundFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1SSEDescription = (output: any, context: __SerdeContext): SSEDescription => {
   return {
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
 const deserializeAws_json1_1Subnet = (output: any, context: __SerdeContext): Subnet => {
   return {
-    SubnetAvailabilityZone:
-      output.SubnetAvailabilityZone !== undefined && output.SubnetAvailabilityZone !== null
-        ? output.SubnetAvailabilityZone
-        : undefined,
-    SubnetIdentifier:
-      output.SubnetIdentifier !== undefined && output.SubnetIdentifier !== null ? output.SubnetIdentifier : undefined,
+    SubnetAvailabilityZone: __expectString(output.SubnetAvailabilityZone),
+    SubnetIdentifier: __expectString(output.SubnetIdentifier),
   } as any;
 };
 
 const deserializeAws_json1_1SubnetGroup = (output: any, context: __SerdeContext): SubnetGroup => {
   return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    SubnetGroupName:
-      output.SubnetGroupName !== undefined && output.SubnetGroupName !== null ? output.SubnetGroupName : undefined,
+    Description: __expectString(output.Description),
+    SubnetGroupName: __expectString(output.SubnetGroupName),
     Subnets:
       output.Subnets !== undefined && output.Subnets !== null
         ? deserializeAws_json1_1SubnetList(output.Subnets, context)
         : undefined,
-    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+    VpcId: __expectString(output.VpcId),
   } as any;
 };
 
@@ -3715,13 +3689,13 @@ const deserializeAws_json1_1SubnetGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): SubnetGroupAlreadyExistsFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1SubnetGroupInUseFault = (output: any, context: __SerdeContext): SubnetGroupInUseFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3741,7 +3715,7 @@ const deserializeAws_json1_1SubnetGroupNotFoundFault = (
   context: __SerdeContext
 ): SubnetGroupNotFoundFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3750,13 +3724,13 @@ const deserializeAws_json1_1SubnetGroupQuotaExceededFault = (
   context: __SerdeContext
 ): SubnetGroupQuotaExceededFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1SubnetInUse = (output: any, context: __SerdeContext): SubnetInUse => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3776,14 +3750,14 @@ const deserializeAws_json1_1SubnetQuotaExceededFault = (
   context: __SerdeContext
 ): SubnetQuotaExceededFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -3800,7 +3774,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TagNotFoundFault = (output: any, context: __SerdeContext): TagNotFoundFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3809,7 +3783,7 @@ const deserializeAws_json1_1TagQuotaPerResourceExceeded = (
   context: __SerdeContext
 ): TagQuotaPerResourceExceeded => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 

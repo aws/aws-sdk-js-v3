@@ -239,7 +239,12 @@ import {
   UpdateCampaignResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -4859,7 +4864,7 @@ const serializeAws_json1_1UpdateCampaignRequest = (input: UpdateCampaignRequest,
 
 const deserializeAws_json1_1Algorithm = (output: any, context: __SerdeContext): Algorithm => {
   return {
-    algorithmArn: output.algorithmArn !== undefined && output.algorithmArn !== null ? output.algorithmArn : undefined,
+    algorithmArn: __expectString(output.algorithmArn),
     algorithmImage:
       output.algorithmImage !== undefined && output.algorithmImage !== null
         ? deserializeAws_json1_1AlgorithmImage(output.algorithmImage, context)
@@ -4884,19 +4889,16 @@ const deserializeAws_json1_1Algorithm = (output: any, context: __SerdeContext): 
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    trainingInputMode:
-      output.trainingInputMode !== undefined && output.trainingInputMode !== null
-        ? output.trainingInputMode
-        : undefined,
+    name: __expectString(output.name),
+    roleArn: __expectString(output.roleArn),
+    trainingInputMode: __expectString(output.trainingInputMode),
   } as any;
 };
 
 const deserializeAws_json1_1AlgorithmImage = (output: any, context: __SerdeContext): AlgorithmImage => {
   return {
-    dockerURI: output.dockerURI !== undefined && output.dockerURI !== null ? output.dockerURI : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    dockerURI: __expectString(output.dockerURI),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -4907,13 +4909,13 @@ const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): st
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1AutoMLConfig = (output: any, context: __SerdeContext): AutoMLConfig => {
   return {
-    metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
+    metricName: __expectString(output.metricName),
     recipeList:
       output.recipeList !== undefined && output.recipeList !== null
         ? deserializeAws_json1_1ArnList(output.recipeList, context)
@@ -4923,17 +4925,13 @@ const deserializeAws_json1_1AutoMLConfig = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1AutoMLResult = (output: any, context: __SerdeContext): AutoMLResult => {
   return {
-    bestRecipeArn:
-      output.bestRecipeArn !== undefined && output.bestRecipeArn !== null ? output.bestRecipeArn : undefined,
+    bestRecipeArn: __expectString(output.bestRecipeArn),
   } as any;
 };
 
 const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeContext): BatchInferenceJob => {
   return {
-    batchInferenceJobArn:
-      output.batchInferenceJobArn !== undefined && output.batchInferenceJobArn !== null
-        ? output.batchInferenceJobArn
-        : undefined,
+    batchInferenceJobArn: __expectString(output.batchInferenceJobArn),
     batchInferenceJobConfig:
       output.batchInferenceJobConfig !== undefined && output.batchInferenceJobConfig !== null
         ? deserializeAws_json1_1BatchInferenceJobConfig(output.batchInferenceJobConfig, context)
@@ -4942,14 +4940,13 @@ const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeCo
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
-    filterArn: output.filterArn !== undefined && output.filterArn !== null ? output.filterArn : undefined,
+    failureReason: __expectString(output.failureReason),
+    filterArn: __expectString(output.filterArn),
     jobInput:
       output.jobInput !== undefined && output.jobInput !== null
         ? deserializeAws_json1_1BatchInferenceJobInput(output.jobInput, context)
         : undefined,
-    jobName: output.jobName !== undefined && output.jobName !== null ? output.jobName : undefined,
+    jobName: __expectString(output.jobName),
     jobOutput:
       output.jobOutput !== undefined && output.jobOutput !== null
         ? deserializeAws_json1_1BatchInferenceJobOutput(output.jobOutput, context)
@@ -4958,13 +4955,10 @@ const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeCo
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    numResults: output.numResults !== undefined && output.numResults !== null ? output.numResults : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    solutionVersionArn:
-      output.solutionVersionArn !== undefined && output.solutionVersionArn !== null
-        ? output.solutionVersionArn
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    numResults: __expectNumber(output.numResults),
+    roleArn: __expectString(output.roleArn),
+    solutionVersionArn: __expectString(output.solutionVersionArn),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5017,32 +5011,25 @@ const deserializeAws_json1_1BatchInferenceJobSummary = (
   context: __SerdeContext
 ): BatchInferenceJobSummary => {
   return {
-    batchInferenceJobArn:
-      output.batchInferenceJobArn !== undefined && output.batchInferenceJobArn !== null
-        ? output.batchInferenceJobArn
-        : undefined,
+    batchInferenceJobArn: __expectString(output.batchInferenceJobArn),
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
-    jobName: output.jobName !== undefined && output.jobName !== null ? output.jobName : undefined,
+    failureReason: __expectString(output.failureReason),
+    jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    solutionVersionArn:
-      output.solutionVersionArn !== undefined && output.solutionVersionArn !== null
-        ? output.solutionVersionArn
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    solutionVersionArn: __expectString(output.solutionVersionArn),
+    status: __expectString(output.status),
   } as any;
 };
 
 const deserializeAws_json1_1Campaign = (output: any, context: __SerdeContext): Campaign => {
   return {
-    campaignArn: output.campaignArn !== undefined && output.campaignArn !== null ? output.campaignArn : undefined,
+    campaignArn: __expectString(output.campaignArn),
     campaignConfig:
       output.campaignConfig !== undefined && output.campaignConfig !== null
         ? deserializeAws_json1_1CampaignConfig(output.campaignConfig, context)
@@ -5051,8 +5038,7 @@ const deserializeAws_json1_1Campaign = (output: any, context: __SerdeContext): C
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
@@ -5061,16 +5047,10 @@ const deserializeAws_json1_1Campaign = (output: any, context: __SerdeContext): C
       output.latestCampaignUpdate !== undefined && output.latestCampaignUpdate !== null
         ? deserializeAws_json1_1CampaignUpdateSummary(output.latestCampaignUpdate, context)
         : undefined,
-    minProvisionedTPS:
-      output.minProvisionedTPS !== undefined && output.minProvisionedTPS !== null
-        ? output.minProvisionedTPS
-        : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    solutionVersionArn:
-      output.solutionVersionArn !== undefined && output.solutionVersionArn !== null
-        ? output.solutionVersionArn
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    minProvisionedTPS: __expectNumber(output.minProvisionedTPS),
+    name: __expectString(output.name),
+    solutionVersionArn: __expectString(output.solutionVersionArn),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5096,19 +5076,18 @@ const deserializeAws_json1_1Campaigns = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1CampaignSummary = (output: any, context: __SerdeContext): CampaignSummary => {
   return {
-    campaignArn: output.campaignArn !== undefined && output.campaignArn !== null ? output.campaignArn : undefined,
+    campaignArn: __expectString(output.campaignArn),
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    name: __expectString(output.name),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5122,21 +5101,14 @@ const deserializeAws_json1_1CampaignUpdateSummary = (output: any, context: __Ser
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    minProvisionedTPS:
-      output.minProvisionedTPS !== undefined && output.minProvisionedTPS !== null
-        ? output.minProvisionedTPS
-        : undefined,
-    solutionVersionArn:
-      output.solutionVersionArn !== undefined && output.solutionVersionArn !== null
-        ? output.solutionVersionArn
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    minProvisionedTPS: __expectNumber(output.minProvisionedTPS),
+    solutionVersionArn: __expectString(output.solutionVersionArn),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5145,7 +5117,7 @@ const deserializeAws_json1_1CategoricalHyperParameterRange = (
   context: __SerdeContext
 ): CategoricalHyperParameterRange => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     values:
       output.values !== undefined && output.values !== null
         ? deserializeAws_json1_1CategoricalValues(output.values, context)
@@ -5174,7 +5146,7 @@ const deserializeAws_json1_1CategoricalValues = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5183,9 +5155,9 @@ const deserializeAws_json1_1ContinuousHyperParameterRange = (
   context: __SerdeContext
 ): ContinuousHyperParameterRange => {
   return {
-    maxValue: output.maxValue !== undefined && output.maxValue !== null ? output.maxValue : undefined,
-    minValue: output.minValue !== undefined && output.minValue !== null ? output.minValue : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    maxValue: __expectNumber(output.maxValue),
+    minValue: __expectNumber(output.minValue),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -5208,16 +5180,13 @@ const deserializeAws_json1_1CreateBatchInferenceJobResponse = (
   context: __SerdeContext
 ): CreateBatchInferenceJobResponse => {
   return {
-    batchInferenceJobArn:
-      output.batchInferenceJobArn !== undefined && output.batchInferenceJobArn !== null
-        ? output.batchInferenceJobArn
-        : undefined,
+    batchInferenceJobArn: __expectString(output.batchInferenceJobArn),
   } as any;
 };
 
 const deserializeAws_json1_1CreateCampaignResponse = (output: any, context: __SerdeContext): CreateCampaignResponse => {
   return {
-    campaignArn: output.campaignArn !== undefined && output.campaignArn !== null ? output.campaignArn : undefined,
+    campaignArn: __expectString(output.campaignArn),
   } as any;
 };
 
@@ -5226,10 +5195,7 @@ const deserializeAws_json1_1CreateDatasetExportJobResponse = (
   context: __SerdeContext
 ): CreateDatasetExportJobResponse => {
   return {
-    datasetExportJobArn:
-      output.datasetExportJobArn !== undefined && output.datasetExportJobArn !== null
-        ? output.datasetExportJobArn
-        : undefined,
+    datasetExportJobArn: __expectString(output.datasetExportJobArn),
   } as any;
 };
 
@@ -5238,8 +5204,7 @@ const deserializeAws_json1_1CreateDatasetGroupResponse = (
   context: __SerdeContext
 ): CreateDatasetGroupResponse => {
   return {
-    datasetGroupArn:
-      output.datasetGroupArn !== undefined && output.datasetGroupArn !== null ? output.datasetGroupArn : undefined,
+    datasetGroupArn: __expectString(output.datasetGroupArn),
   } as any;
 };
 
@@ -5248,16 +5213,13 @@ const deserializeAws_json1_1CreateDatasetImportJobResponse = (
   context: __SerdeContext
 ): CreateDatasetImportJobResponse => {
   return {
-    datasetImportJobArn:
-      output.datasetImportJobArn !== undefined && output.datasetImportJobArn !== null
-        ? output.datasetImportJobArn
-        : undefined,
+    datasetImportJobArn: __expectString(output.datasetImportJobArn),
   } as any;
 };
 
 const deserializeAws_json1_1CreateDatasetResponse = (output: any, context: __SerdeContext): CreateDatasetResponse => {
   return {
-    datasetArn: output.datasetArn !== undefined && output.datasetArn !== null ? output.datasetArn : undefined,
+    datasetArn: __expectString(output.datasetArn),
   } as any;
 };
 
@@ -5266,27 +5228,26 @@ const deserializeAws_json1_1CreateEventTrackerResponse = (
   context: __SerdeContext
 ): CreateEventTrackerResponse => {
   return {
-    eventTrackerArn:
-      output.eventTrackerArn !== undefined && output.eventTrackerArn !== null ? output.eventTrackerArn : undefined,
-    trackingId: output.trackingId !== undefined && output.trackingId !== null ? output.trackingId : undefined,
+    eventTrackerArn: __expectString(output.eventTrackerArn),
+    trackingId: __expectString(output.trackingId),
   } as any;
 };
 
 const deserializeAws_json1_1CreateFilterResponse = (output: any, context: __SerdeContext): CreateFilterResponse => {
   return {
-    filterArn: output.filterArn !== undefined && output.filterArn !== null ? output.filterArn : undefined,
+    filterArn: __expectString(output.filterArn),
   } as any;
 };
 
 const deserializeAws_json1_1CreateSchemaResponse = (output: any, context: __SerdeContext): CreateSchemaResponse => {
   return {
-    schemaArn: output.schemaArn !== undefined && output.schemaArn !== null ? output.schemaArn : undefined,
+    schemaArn: __expectString(output.schemaArn),
   } as any;
 };
 
 const deserializeAws_json1_1CreateSolutionResponse = (output: any, context: __SerdeContext): CreateSolutionResponse => {
   return {
-    solutionArn: output.solutionArn !== undefined && output.solutionArn !== null ? output.solutionArn : undefined,
+    solutionArn: __expectString(output.solutionArn),
   } as any;
 };
 
@@ -5295,10 +5256,7 @@ const deserializeAws_json1_1CreateSolutionVersionResponse = (
   context: __SerdeContext
 ): CreateSolutionVersionResponse => {
   return {
-    solutionVersionArn:
-      output.solutionVersionArn !== undefined && output.solutionVersionArn !== null
-        ? output.solutionVersionArn
-        : undefined,
+    solutionVersionArn: __expectString(output.solutionVersionArn),
   } as any;
 };
 
@@ -5308,17 +5266,16 @@ const deserializeAws_json1_1Dataset = (output: any, context: __SerdeContext): Da
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    datasetArn: output.datasetArn !== undefined && output.datasetArn !== null ? output.datasetArn : undefined,
-    datasetGroupArn:
-      output.datasetGroupArn !== undefined && output.datasetGroupArn !== null ? output.datasetGroupArn : undefined,
-    datasetType: output.datasetType !== undefined && output.datasetType !== null ? output.datasetType : undefined,
+    datasetArn: __expectString(output.datasetArn),
+    datasetGroupArn: __expectString(output.datasetGroupArn),
+    datasetType: __expectString(output.datasetType),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    schemaArn: output.schemaArn !== undefined && output.schemaArn !== null ? output.schemaArn : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    name: __expectString(output.name),
+    schemaArn: __expectString(output.schemaArn),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5328,16 +5285,11 @@ const deserializeAws_json1_1DatasetExportJob = (output: any, context: __SerdeCon
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    datasetArn: output.datasetArn !== undefined && output.datasetArn !== null ? output.datasetArn : undefined,
-    datasetExportJobArn:
-      output.datasetExportJobArn !== undefined && output.datasetExportJobArn !== null
-        ? output.datasetExportJobArn
-        : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
-    ingestionMode:
-      output.ingestionMode !== undefined && output.ingestionMode !== null ? output.ingestionMode : undefined,
-    jobName: output.jobName !== undefined && output.jobName !== null ? output.jobName : undefined,
+    datasetArn: __expectString(output.datasetArn),
+    datasetExportJobArn: __expectString(output.datasetExportJobArn),
+    failureReason: __expectString(output.failureReason),
+    ingestionMode: __expectString(output.ingestionMode),
+    jobName: __expectString(output.jobName),
     jobOutput:
       output.jobOutput !== undefined && output.jobOutput !== null
         ? deserializeAws_json1_1DatasetExportJobOutput(output.jobOutput, context)
@@ -5346,8 +5298,8 @@ const deserializeAws_json1_1DatasetExportJob = (output: any, context: __SerdeCon
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    roleArn: __expectString(output.roleArn),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5380,18 +5332,14 @@ const deserializeAws_json1_1DatasetExportJobSummary = (
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    datasetExportJobArn:
-      output.datasetExportJobArn !== undefined && output.datasetExportJobArn !== null
-        ? output.datasetExportJobArn
-        : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
-    jobName: output.jobName !== undefined && output.jobName !== null ? output.jobName : undefined,
+    datasetExportJobArn: __expectString(output.datasetExportJobArn),
+    failureReason: __expectString(output.failureReason),
+    jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5401,18 +5349,16 @@ const deserializeAws_json1_1DatasetGroup = (output: any, context: __SerdeContext
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    datasetGroupArn:
-      output.datasetGroupArn !== undefined && output.datasetGroupArn !== null ? output.datasetGroupArn : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
-    kmsKeyArn: output.kmsKeyArn !== undefined && output.kmsKeyArn !== null ? output.kmsKeyArn : undefined,
+    datasetGroupArn: __expectString(output.datasetGroupArn),
+    failureReason: __expectString(output.failureReason),
+    kmsKeyArn: __expectString(output.kmsKeyArn),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    name: __expectString(output.name),
+    roleArn: __expectString(output.roleArn),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5433,16 +5379,14 @@ const deserializeAws_json1_1DatasetGroupSummary = (output: any, context: __Serde
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    datasetGroupArn:
-      output.datasetGroupArn !== undefined && output.datasetGroupArn !== null ? output.datasetGroupArn : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    datasetGroupArn: __expectString(output.datasetGroupArn),
+    failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    name: __expectString(output.name),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5456,20 +5400,16 @@ const deserializeAws_json1_1DatasetImportJob = (output: any, context: __SerdeCon
       output.dataSource !== undefined && output.dataSource !== null
         ? deserializeAws_json1_1DataSource(output.dataSource, context)
         : undefined,
-    datasetArn: output.datasetArn !== undefined && output.datasetArn !== null ? output.datasetArn : undefined,
-    datasetImportJobArn:
-      output.datasetImportJobArn !== undefined && output.datasetImportJobArn !== null
-        ? output.datasetImportJobArn
-        : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
-    jobName: output.jobName !== undefined && output.jobName !== null ? output.jobName : undefined,
+    datasetArn: __expectString(output.datasetArn),
+    datasetImportJobArn: __expectString(output.datasetImportJobArn),
+    failureReason: __expectString(output.failureReason),
+    jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    roleArn: __expectString(output.roleArn),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5493,18 +5433,14 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    datasetImportJobArn:
-      output.datasetImportJobArn !== undefined && output.datasetImportJobArn !== null
-        ? output.datasetImportJobArn
-        : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
-    jobName: output.jobName !== undefined && output.jobName !== null ? output.jobName : undefined,
+    datasetImportJobArn: __expectString(output.datasetImportJobArn),
+    failureReason: __expectString(output.failureReason),
+    jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5529,9 +5465,9 @@ const deserializeAws_json1_1DatasetSchema = (output: any, context: __SerdeContex
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    schema: output.schema !== undefined && output.schema !== null ? output.schema : undefined,
-    schemaArn: output.schemaArn !== undefined && output.schemaArn !== null ? output.schemaArn : undefined,
+    name: __expectString(output.name),
+    schema: __expectString(output.schema),
+    schemaArn: __expectString(output.schemaArn),
   } as any;
 };
 
@@ -5545,8 +5481,8 @@ const deserializeAws_json1_1DatasetSchemaSummary = (output: any, context: __Serd
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    schemaArn: output.schemaArn !== undefined && output.schemaArn !== null ? output.schemaArn : undefined,
+    name: __expectString(output.name),
+    schemaArn: __expectString(output.schemaArn),
   } as any;
 };
 
@@ -5556,20 +5492,20 @@ const deserializeAws_json1_1DatasetSummary = (output: any, context: __SerdeConte
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    datasetArn: output.datasetArn !== undefined && output.datasetArn !== null ? output.datasetArn : undefined,
-    datasetType: output.datasetType !== undefined && output.datasetType !== null ? output.datasetType : undefined,
+    datasetArn: __expectString(output.datasetArn),
+    datasetType: __expectString(output.datasetType),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    name: __expectString(output.name),
+    status: __expectString(output.status),
   } as any;
 };
 
 const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext): DataSource => {
   return {
-    dataLocation: output.dataLocation !== undefined && output.dataLocation !== null ? output.dataLocation : undefined,
+    dataLocation: __expectString(output.dataLocation),
   } as any;
 };
 
@@ -5578,8 +5514,8 @@ const deserializeAws_json1_1DefaultCategoricalHyperParameterRange = (
   context: __SerdeContext
 ): DefaultCategoricalHyperParameterRange => {
   return {
-    isTunable: output.isTunable !== undefined && output.isTunable !== null ? output.isTunable : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    isTunable: __expectBoolean(output.isTunable),
+    name: __expectString(output.name),
     values:
       output.values !== undefined && output.values !== null
         ? deserializeAws_json1_1CategoricalValues(output.values, context)
@@ -5606,10 +5542,10 @@ const deserializeAws_json1_1DefaultContinuousHyperParameterRange = (
   context: __SerdeContext
 ): DefaultContinuousHyperParameterRange => {
   return {
-    isTunable: output.isTunable !== undefined && output.isTunable !== null ? output.isTunable : undefined,
-    maxValue: output.maxValue !== undefined && output.maxValue !== null ? output.maxValue : undefined,
-    minValue: output.minValue !== undefined && output.minValue !== null ? output.minValue : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    isTunable: __expectBoolean(output.isTunable),
+    maxValue: __expectNumber(output.maxValue),
+    minValue: __expectNumber(output.minValue),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -5652,10 +5588,10 @@ const deserializeAws_json1_1DefaultIntegerHyperParameterRange = (
   context: __SerdeContext
 ): DefaultIntegerHyperParameterRange => {
   return {
-    isTunable: output.isTunable !== undefined && output.isTunable !== null ? output.isTunable : undefined,
-    maxValue: output.maxValue !== undefined && output.maxValue !== null ? output.maxValue : undefined,
-    minValue: output.minValue !== undefined && output.minValue !== null ? output.minValue : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    isTunable: __expectBoolean(output.isTunable),
+    maxValue: __expectNumber(output.maxValue),
+    minValue: __expectNumber(output.minValue),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -5834,22 +5770,20 @@ const deserializeAws_json1_1DescribeSolutionVersionResponse = (
 
 const deserializeAws_json1_1EventTracker = (output: any, context: __SerdeContext): EventTracker => {
   return {
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
+    accountId: __expectString(output.accountId),
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    datasetGroupArn:
-      output.datasetGroupArn !== undefined && output.datasetGroupArn !== null ? output.datasetGroupArn : undefined,
-    eventTrackerArn:
-      output.eventTrackerArn !== undefined && output.eventTrackerArn !== null ? output.eventTrackerArn : undefined,
+    datasetGroupArn: __expectString(output.datasetGroupArn),
+    eventTrackerArn: __expectString(output.eventTrackerArn),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    trackingId: output.trackingId !== undefined && output.trackingId !== null ? output.trackingId : undefined,
+    name: __expectString(output.name),
+    status: __expectString(output.status),
+    trackingId: __expectString(output.trackingId),
   } as any;
 };
 
@@ -5870,14 +5804,13 @@ const deserializeAws_json1_1EventTrackerSummary = (output: any, context: __Serde
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    eventTrackerArn:
-      output.eventTrackerArn !== undefined && output.eventTrackerArn !== null ? output.eventTrackerArn : undefined,
+    eventTrackerArn: __expectString(output.eventTrackerArn),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    name: __expectString(output.name),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5891,16 +5824,13 @@ const deserializeAws_json1_1FeatureTransformation = (output: any, context: __Ser
       output.defaultParameters !== undefined && output.defaultParameters !== null
         ? deserializeAws_json1_1FeaturizationParameters(output.defaultParameters, context)
         : undefined,
-    featureTransformationArn:
-      output.featureTransformationArn !== undefined && output.featureTransformationArn !== null
-        ? output.featureTransformationArn
-        : undefined,
+    featureTransformationArn: __expectString(output.featureTransformationArn),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    name: __expectString(output.name),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5914,7 +5844,7 @@ const deserializeAws_json1_1FeatureTransformationParameters = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -5929,7 +5859,7 @@ const deserializeAws_json1_1FeaturizationParameters = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -5940,19 +5870,16 @@ const deserializeAws_json1_1Filter = (output: any, context: __SerdeContext): Fil
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    datasetGroupArn:
-      output.datasetGroupArn !== undefined && output.datasetGroupArn !== null ? output.datasetGroupArn : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
-    filterArn: output.filterArn !== undefined && output.filterArn !== null ? output.filterArn : undefined,
-    filterExpression:
-      output.filterExpression !== undefined && output.filterExpression !== null ? output.filterExpression : undefined,
+    datasetGroupArn: __expectString(output.datasetGroupArn),
+    failureReason: __expectString(output.failureReason),
+    filterArn: __expectString(output.filterArn),
+    filterExpression: __expectString(output.filterExpression),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    name: __expectString(output.name),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5973,17 +5900,15 @@ const deserializeAws_json1_1FilterSummary = (output: any, context: __SerdeContex
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    datasetGroupArn:
-      output.datasetGroupArn !== undefined && output.datasetGroupArn !== null ? output.datasetGroupArn : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
-    filterArn: output.filterArn !== undefined && output.filterArn !== null ? output.filterArn : undefined,
+    datasetGroupArn: __expectString(output.datasetGroupArn),
+    failureReason: __expectString(output.failureReason),
+    filterArn: __expectString(output.filterArn),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    name: __expectString(output.name),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5996,10 +5921,7 @@ const deserializeAws_json1_1GetSolutionMetricsResponse = (
       output.metrics !== undefined && output.metrics !== null
         ? deserializeAws_json1_1Metrics(output.metrics, context)
         : undefined,
-    solutionVersionArn:
-      output.solutionVersionArn !== undefined && output.solutionVersionArn !== null
-        ? output.solutionVersionArn
-        : undefined,
+    solutionVersionArn: __expectString(output.solutionVersionArn),
   } as any;
 };
 
@@ -6022,22 +5944,16 @@ const deserializeAws_json1_1HPOConfig = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1HPOObjective = (output: any, context: __SerdeContext): HPOObjective => {
   return {
-    metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
-    metricRegex: output.metricRegex !== undefined && output.metricRegex !== null ? output.metricRegex : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    metricName: __expectString(output.metricName),
+    metricRegex: __expectString(output.metricRegex),
+    type: __expectString(output.type),
   } as any;
 };
 
 const deserializeAws_json1_1HPOResourceConfig = (output: any, context: __SerdeContext): HPOResourceConfig => {
   return {
-    maxNumberOfTrainingJobs:
-      output.maxNumberOfTrainingJobs !== undefined && output.maxNumberOfTrainingJobs !== null
-        ? output.maxNumberOfTrainingJobs
-        : undefined,
-    maxParallelTrainingJobs:
-      output.maxParallelTrainingJobs !== undefined && output.maxParallelTrainingJobs !== null
-        ? output.maxParallelTrainingJobs
-        : undefined,
+    maxNumberOfTrainingJobs: __expectString(output.maxNumberOfTrainingJobs),
+    maxParallelTrainingJobs: __expectString(output.maxParallelTrainingJobs),
   } as any;
 };
 
@@ -6065,7 +5981,7 @@ const deserializeAws_json1_1HyperParameters = (output: any, context: __SerdeCont
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -6075,9 +5991,9 @@ const deserializeAws_json1_1IntegerHyperParameterRange = (
   context: __SerdeContext
 ): IntegerHyperParameterRange => {
   return {
-    maxValue: output.maxValue !== undefined && output.maxValue !== null ? output.maxValue : undefined,
-    minValue: output.minValue !== undefined && output.minValue !== null ? output.minValue : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    maxValue: __expectNumber(output.maxValue),
+    minValue: __expectNumber(output.minValue),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -6097,7 +6013,7 @@ const deserializeAws_json1_1IntegerHyperParameterRanges = (
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6106,13 +6022,13 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6125,7 +6041,7 @@ const deserializeAws_json1_1ListBatchInferenceJobsResponse = (
       output.batchInferenceJobs !== undefined && output.batchInferenceJobs !== null
         ? deserializeAws_json1_1BatchInferenceJobs(output.batchInferenceJobs, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6135,7 +6051,7 @@ const deserializeAws_json1_1ListCampaignsResponse = (output: any, context: __Ser
       output.campaigns !== undefined && output.campaigns !== null
         ? deserializeAws_json1_1Campaigns(output.campaigns, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6148,7 +6064,7 @@ const deserializeAws_json1_1ListDatasetExportJobsResponse = (
       output.datasetExportJobs !== undefined && output.datasetExportJobs !== null
         ? deserializeAws_json1_1DatasetExportJobs(output.datasetExportJobs, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6161,7 +6077,7 @@ const deserializeAws_json1_1ListDatasetGroupsResponse = (
       output.datasetGroups !== undefined && output.datasetGroups !== null
         ? deserializeAws_json1_1DatasetGroups(output.datasetGroups, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6174,7 +6090,7 @@ const deserializeAws_json1_1ListDatasetImportJobsResponse = (
       output.datasetImportJobs !== undefined && output.datasetImportJobs !== null
         ? deserializeAws_json1_1DatasetImportJobs(output.datasetImportJobs, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6184,7 +6100,7 @@ const deserializeAws_json1_1ListDatasetsResponse = (output: any, context: __Serd
       output.datasets !== undefined && output.datasets !== null
         ? deserializeAws_json1_1Datasets(output.datasets, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6197,7 +6113,7 @@ const deserializeAws_json1_1ListEventTrackersResponse = (
       output.eventTrackers !== undefined && output.eventTrackers !== null
         ? deserializeAws_json1_1EventTrackers(output.eventTrackers, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6207,13 +6123,13 @@ const deserializeAws_json1_1ListFiltersResponse = (output: any, context: __Serde
       output.Filters !== undefined && output.Filters !== null
         ? deserializeAws_json1_1Filters(output.Filters, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListRecipesResponse = (output: any, context: __SerdeContext): ListRecipesResponse => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     recipes:
       output.recipes !== undefined && output.recipes !== null
         ? deserializeAws_json1_1Recipes(output.recipes, context)
@@ -6223,7 +6139,7 @@ const deserializeAws_json1_1ListRecipesResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1ListSchemasResponse = (output: any, context: __SerdeContext): ListSchemasResponse => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     schemas:
       output.schemas !== undefined && output.schemas !== null
         ? deserializeAws_json1_1Schemas(output.schemas, context)
@@ -6233,7 +6149,7 @@ const deserializeAws_json1_1ListSchemasResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1ListSolutionsResponse = (output: any, context: __SerdeContext): ListSolutionsResponse => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     solutions:
       output.solutions !== undefined && output.solutions !== null
         ? deserializeAws_json1_1Solutions(output.solutions, context)
@@ -6246,7 +6162,7 @@ const deserializeAws_json1_1ListSolutionVersionsResponse = (
   context: __SerdeContext
 ): ListSolutionVersionsResponse => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     solutionVersions:
       output.solutionVersions !== undefined && output.solutionVersions !== null
         ? deserializeAws_json1_1SolutionVersions(output.solutionVersions, context)
@@ -6261,42 +6177,35 @@ const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): { 
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectNumber(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_json1_1OptimizationObjective = (output: any, context: __SerdeContext): OptimizationObjective => {
   return {
-    itemAttribute:
-      output.itemAttribute !== undefined && output.itemAttribute !== null ? output.itemAttribute : undefined,
-    objectiveSensitivity:
-      output.objectiveSensitivity !== undefined && output.objectiveSensitivity !== null
-        ? output.objectiveSensitivity
-        : undefined,
+    itemAttribute: __expectString(output.itemAttribute),
+    objectiveSensitivity: __expectString(output.objectiveSensitivity),
   } as any;
 };
 
 const deserializeAws_json1_1Recipe = (output: any, context: __SerdeContext): Recipe => {
   return {
-    algorithmArn: output.algorithmArn !== undefined && output.algorithmArn !== null ? output.algorithmArn : undefined,
+    algorithmArn: __expectString(output.algorithmArn),
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    featureTransformationArn:
-      output.featureTransformationArn !== undefined && output.featureTransformationArn !== null
-        ? output.featureTransformationArn
-        : undefined,
+    description: __expectString(output.description),
+    featureTransformationArn: __expectString(output.featureTransformationArn),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    recipeArn: output.recipeArn !== undefined && output.recipeArn !== null ? output.recipeArn : undefined,
-    recipeType: output.recipeType !== undefined && output.recipeType !== null ? output.recipeType : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    name: __expectString(output.name),
+    recipeArn: __expectString(output.recipeArn),
+    recipeType: __expectString(output.recipeType),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -6321,9 +6230,9 @@ const deserializeAws_json1_1RecipeSummary = (output: any, context: __SerdeContex
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    recipeArn: output.recipeArn !== undefined && output.recipeArn !== null ? output.recipeArn : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    name: __expectString(output.name),
+    recipeArn: __expectString(output.recipeArn),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -6332,7 +6241,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6343,14 +6252,14 @@ const deserializeAws_json1_1ResourceConfig = (output: any, context: __SerdeConte
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6359,14 +6268,14 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1S3DataConfig = (output: any, context: __SerdeContext): S3DataConfig => {
   return {
-    kmsKeyArn: output.kmsKeyArn !== undefined && output.kmsKeyArn !== null ? output.kmsKeyArn : undefined,
-    path: output.path !== undefined && output.path !== null ? output.path : undefined,
+    kmsKeyArn: __expectString(output.kmsKeyArn),
+    path: __expectString(output.path),
   } as any;
 };
 
@@ -6391,9 +6300,8 @@ const deserializeAws_json1_1Solution = (output: any, context: __SerdeContext): S
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    datasetGroupArn:
-      output.datasetGroupArn !== undefined && output.datasetGroupArn !== null ? output.datasetGroupArn : undefined,
-    eventType: output.eventType !== undefined && output.eventType !== null ? output.eventType : undefined,
+    datasetGroupArn: __expectString(output.datasetGroupArn),
+    eventType: __expectString(output.eventType),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
@@ -6402,17 +6310,16 @@ const deserializeAws_json1_1Solution = (output: any, context: __SerdeContext): S
       output.latestSolutionVersion !== undefined && output.latestSolutionVersion !== null
         ? deserializeAws_json1_1SolutionVersionSummary(output.latestSolutionVersion, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    performAutoML:
-      output.performAutoML !== undefined && output.performAutoML !== null ? output.performAutoML : undefined,
-    performHPO: output.performHPO !== undefined && output.performHPO !== null ? output.performHPO : undefined,
-    recipeArn: output.recipeArn !== undefined && output.recipeArn !== null ? output.recipeArn : undefined,
-    solutionArn: output.solutionArn !== undefined && output.solutionArn !== null ? output.solutionArn : undefined,
+    name: __expectString(output.name),
+    performAutoML: __expectBoolean(output.performAutoML),
+    performHPO: __expectBoolean(output.performHPO),
+    recipeArn: __expectString(output.recipeArn),
+    solutionArn: __expectString(output.solutionArn),
     solutionConfig:
       output.solutionConfig !== undefined && output.solutionConfig !== null
         ? deserializeAws_json1_1SolutionConfig(output.solutionConfig, context)
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -6426,10 +6333,7 @@ const deserializeAws_json1_1SolutionConfig = (output: any, context: __SerdeConte
       output.autoMLConfig !== undefined && output.autoMLConfig !== null
         ? deserializeAws_json1_1AutoMLConfig(output.autoMLConfig, context)
         : undefined,
-    eventValueThreshold:
-      output.eventValueThreshold !== undefined && output.eventValueThreshold !== null
-        ? output.eventValueThreshold
-        : undefined,
+    eventValueThreshold: __expectString(output.eventValueThreshold),
     featureTransformationParameters:
       output.featureTransformationParameters !== undefined && output.featureTransformationParameters !== null
         ? deserializeAws_json1_1FeatureTransformationParameters(output.featureTransformationParameters, context)
@@ -6466,9 +6370,9 @@ const deserializeAws_json1_1SolutionSummary = (output: any, context: __SerdeCont
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    solutionArn: output.solutionArn !== undefined && output.solutionArn !== null ? output.solutionArn : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    name: __expectString(output.name),
+    solutionArn: __expectString(output.solutionArn),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -6478,32 +6382,25 @@ const deserializeAws_json1_1SolutionVersion = (output: any, context: __SerdeCont
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    datasetGroupArn:
-      output.datasetGroupArn !== undefined && output.datasetGroupArn !== null ? output.datasetGroupArn : undefined,
-    eventType: output.eventType !== undefined && output.eventType !== null ? output.eventType : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    datasetGroupArn: __expectString(output.datasetGroupArn),
+    eventType: __expectString(output.eventType),
+    failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    performAutoML:
-      output.performAutoML !== undefined && output.performAutoML !== null ? output.performAutoML : undefined,
-    performHPO: output.performHPO !== undefined && output.performHPO !== null ? output.performHPO : undefined,
-    recipeArn: output.recipeArn !== undefined && output.recipeArn !== null ? output.recipeArn : undefined,
-    solutionArn: output.solutionArn !== undefined && output.solutionArn !== null ? output.solutionArn : undefined,
+    performAutoML: __expectBoolean(output.performAutoML),
+    performHPO: __expectBoolean(output.performHPO),
+    recipeArn: __expectString(output.recipeArn),
+    solutionArn: __expectString(output.solutionArn),
     solutionConfig:
       output.solutionConfig !== undefined && output.solutionConfig !== null
         ? deserializeAws_json1_1SolutionConfig(output.solutionConfig, context)
         : undefined,
-    solutionVersionArn:
-      output.solutionVersionArn !== undefined && output.solutionVersionArn !== null
-        ? output.solutionVersionArn
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    trainingHours:
-      output.trainingHours !== undefined && output.trainingHours !== null ? output.trainingHours : undefined,
-    trainingMode: output.trainingMode !== undefined && output.trainingMode !== null ? output.trainingMode : undefined,
+    solutionVersionArn: __expectString(output.solutionVersionArn),
+    status: __expectString(output.status),
+    trainingHours: __expectNumber(output.trainingHours),
+    trainingMode: __expectString(output.trainingMode),
     tunedHPOParams:
       output.tunedHPOParams !== undefined && output.tunedHPOParams !== null
         ? deserializeAws_json1_1TunedHPOParams(output.tunedHPOParams, context)
@@ -6528,17 +6425,13 @@ const deserializeAws_json1_1SolutionVersionSummary = (output: any, context: __Se
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
         : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
         : undefined,
-    solutionVersionArn:
-      output.solutionVersionArn !== undefined && output.solutionVersionArn !== null
-        ? output.solutionVersionArn
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    solutionVersionArn: __expectString(output.solutionVersionArn),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -6553,7 +6446,7 @@ const deserializeAws_json1_1TunedHPOParams = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1UpdateCampaignResponse = (output: any, context: __SerdeContext): UpdateCampaignResponse => {
   return {
-    campaignArn: output.campaignArn !== undefined && output.campaignArn !== null ? output.campaignArn : undefined,
+    campaignArn: __expectString(output.campaignArn),
   } as any;
 };
 

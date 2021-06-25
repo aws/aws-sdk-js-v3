@@ -106,6 +106,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -839,7 +841,7 @@ export const deserializeAws_restJson1AcceptResourceShareInvitationCommand = asyn
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined && data.clientToken !== null) {
-    contents.clientToken = data.clientToken;
+    contents.clientToken = __expectString(data.clientToken);
   }
   if (data.resourceShareInvitation !== undefined && data.resourceShareInvitation !== null) {
     contents.resourceShareInvitation = deserializeAws_restJson1ResourceShareInvitation(
@@ -979,7 +981,7 @@ export const deserializeAws_restJson1AssociateResourceShareCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined && data.clientToken !== null) {
-    contents.clientToken = data.clientToken;
+    contents.clientToken = __expectString(data.clientToken);
   }
   if (data.resourceShareAssociations !== undefined && data.resourceShareAssociations !== null) {
     contents.resourceShareAssociations = deserializeAws_restJson1ResourceShareAssociationList(
@@ -1113,10 +1115,10 @@ export const deserializeAws_restJson1AssociateResourceSharePermissionCommand = a
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined && data.clientToken !== null) {
-    contents.clientToken = data.clientToken;
+    contents.clientToken = __expectString(data.clientToken);
   }
   if (data.returnValue !== undefined && data.returnValue !== null) {
-    contents.returnValue = data.returnValue;
+    contents.returnValue = __expectBoolean(data.returnValue);
   }
   return Promise.resolve(contents);
 };
@@ -1220,7 +1222,7 @@ export const deserializeAws_restJson1CreateResourceShareCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined && data.clientToken !== null) {
-    contents.clientToken = data.clientToken;
+    contents.clientToken = __expectString(data.clientToken);
   }
   if (data.resourceShare !== undefined && data.resourceShare !== null) {
     contents.resourceShare = deserializeAws_restJson1ResourceShare(data.resourceShare, context);
@@ -1359,10 +1361,10 @@ export const deserializeAws_restJson1DeleteResourceShareCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined && data.clientToken !== null) {
-    contents.clientToken = data.clientToken;
+    contents.clientToken = __expectString(data.clientToken);
   }
   if (data.returnValue !== undefined && data.returnValue !== null) {
-    contents.returnValue = data.returnValue;
+    contents.returnValue = __expectBoolean(data.returnValue);
   }
   return Promise.resolve(contents);
 };
@@ -1482,7 +1484,7 @@ export const deserializeAws_restJson1DisassociateResourceShareCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined && data.clientToken !== null) {
-    contents.clientToken = data.clientToken;
+    contents.clientToken = __expectString(data.clientToken);
   }
   if (data.resourceShareAssociations !== undefined && data.resourceShareAssociations !== null) {
     contents.resourceShareAssociations = deserializeAws_restJson1ResourceShareAssociationList(
@@ -1616,10 +1618,10 @@ export const deserializeAws_restJson1DisassociateResourceSharePermissionCommand 
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined && data.clientToken !== null) {
-    contents.clientToken = data.clientToken;
+    contents.clientToken = __expectString(data.clientToken);
   }
   if (data.returnValue !== undefined && data.returnValue !== null) {
-    contents.returnValue = data.returnValue;
+    contents.returnValue = __expectBoolean(data.returnValue);
   }
   return Promise.resolve(contents);
 };
@@ -1730,7 +1732,7 @@ export const deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand = a
   };
   const data: any = await parseBody(output.body, context);
   if (data.returnValue !== undefined && data.returnValue !== null) {
-    contents.returnValue = data.returnValue;
+    contents.returnValue = __expectBoolean(data.returnValue);
   }
   return Promise.resolve(contents);
 };
@@ -1897,7 +1899,7 @@ export const deserializeAws_restJson1GetResourcePoliciesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.policies !== undefined && data.policies !== null) {
     contents.policies = deserializeAws_restJson1PolicyList(data.policies, context);
@@ -1996,7 +1998,7 @@ export const deserializeAws_restJson1GetResourceShareAssociationsCommand = async
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.resourceShareAssociations !== undefined && data.resourceShareAssociations !== null) {
     contents.resourceShareAssociations = deserializeAws_restJson1ResourceShareAssociationList(
@@ -2106,7 +2108,7 @@ export const deserializeAws_restJson1GetResourceShareInvitationsCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.resourceShareInvitations !== undefined && data.resourceShareInvitations !== null) {
     contents.resourceShareInvitations = deserializeAws_restJson1ResourceShareInvitationList(
@@ -2224,7 +2226,7 @@ export const deserializeAws_restJson1GetResourceSharesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.resourceShares !== undefined && data.resourceShares !== null) {
     contents.resourceShares = deserializeAws_restJson1ResourceShareList(data.resourceShares, context);
@@ -2323,7 +2325,7 @@ export const deserializeAws_restJson1ListPendingInvitationResourcesCommand = asy
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.resources !== undefined && data.resources !== null) {
     contents.resources = deserializeAws_restJson1ResourceList(data.resources, context);
@@ -2449,7 +2451,7 @@ export const deserializeAws_restJson1ListPermissionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.permissions !== undefined && data.permissions !== null) {
     contents.permissions = deserializeAws_restJson1ResourceSharePermissionList(data.permissions, context);
@@ -2540,7 +2542,7 @@ export const deserializeAws_restJson1ListPrincipalsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.principals !== undefined && data.principals !== null) {
     contents.principals = deserializeAws_restJson1PrincipalList(data.principals, context);
@@ -2639,7 +2641,7 @@ export const deserializeAws_restJson1ListResourcesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.resources !== undefined && data.resources !== null) {
     contents.resources = deserializeAws_restJson1ResourceList(data.resources, context);
@@ -2746,7 +2748,7 @@ export const deserializeAws_restJson1ListResourceSharePermissionsCommand = async
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.permissions !== undefined && data.permissions !== null) {
     contents.permissions = deserializeAws_restJson1ResourceSharePermissionList(data.permissions, context);
@@ -2853,7 +2855,7 @@ export const deserializeAws_restJson1ListResourceTypesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.resourceTypes !== undefined && data.resourceTypes !== null) {
     contents.resourceTypes = deserializeAws_restJson1ServiceNameAndResourceTypeList(data.resourceTypes, context);
@@ -2935,7 +2937,7 @@ export const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyComman
   };
   const data: any = await parseBody(output.body, context);
   if (data.returnValue !== undefined && data.returnValue !== null) {
-    contents.returnValue = data.returnValue;
+    contents.returnValue = __expectBoolean(data.returnValue);
   }
   return Promise.resolve(contents);
 };
@@ -3047,7 +3049,7 @@ export const deserializeAws_restJson1RejectResourceShareInvitationCommand = asyn
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined && data.clientToken !== null) {
-    contents.clientToken = data.clientToken;
+    contents.clientToken = __expectString(data.clientToken);
   }
   if (data.resourceShareInvitation !== undefined && data.resourceShareInvitation !== null) {
     contents.resourceShareInvitation = deserializeAws_restJson1ResourceShareInvitation(
@@ -3361,7 +3363,7 @@ export const deserializeAws_restJson1UpdateResourceShareCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined && data.clientToken !== null) {
-    contents.clientToken = data.clientToken;
+    contents.clientToken = __expectString(data.clientToken);
   }
   if (data.resourceShare !== undefined && data.resourceShare !== null) {
     contents.resourceShare = deserializeAws_restJson1ResourceShare(data.resourceShare, context);
@@ -3482,7 +3484,7 @@ const deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse = asy
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3499,7 +3501,7 @@ const deserializeAws_restJson1InvalidClientTokenExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3516,7 +3518,7 @@ const deserializeAws_restJson1InvalidMaxResultsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3533,7 +3535,7 @@ const deserializeAws_restJson1InvalidNextTokenExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3550,7 +3552,7 @@ const deserializeAws_restJson1InvalidParameterExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3567,7 +3569,7 @@ const deserializeAws_restJson1InvalidResourceTypeExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3584,7 +3586,7 @@ const deserializeAws_restJson1InvalidStateTransitionExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3601,7 +3603,7 @@ const deserializeAws_restJson1MalformedArnExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3618,7 +3620,7 @@ const deserializeAws_restJson1MissingRequiredParameterExceptionResponse = async 
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3635,7 +3637,7 @@ const deserializeAws_restJson1OperationNotPermittedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3652,7 +3654,7 @@ const deserializeAws_restJson1ResourceArnNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3669,7 +3671,7 @@ const deserializeAws_restJson1ResourceShareInvitationAlreadyAcceptedExceptionRes
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3686,7 +3688,7 @@ const deserializeAws_restJson1ResourceShareInvitationAlreadyRejectedExceptionRes
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3703,7 +3705,7 @@ const deserializeAws_restJson1ResourceShareInvitationArnNotFoundExceptionRespons
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3720,7 +3722,7 @@ const deserializeAws_restJson1ResourceShareInvitationExpiredExceptionResponse = 
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3737,7 +3739,7 @@ const deserializeAws_restJson1ResourceShareLimitExceededExceptionResponse = asyn
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3754,7 +3756,7 @@ const deserializeAws_restJson1ServerInternalExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3771,7 +3773,7 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3788,7 +3790,7 @@ const deserializeAws_restJson1TagLimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3805,7 +3807,7 @@ const deserializeAws_restJson1TagPolicyViolationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3822,7 +3824,7 @@ const deserializeAws_restJson1UnknownResourceExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3948,7 +3950,7 @@ const deserializeAws_restJson1PolicyList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3958,14 +3960,13 @@ const deserializeAws_restJson1Principal = (output: any, context: __SerdeContext)
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    external: output.external !== undefined && output.external !== null ? output.external : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    external: __expectBoolean(output.external),
+    id: __expectString(output.id),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? new Date(Math.round(output.lastUpdatedTime * 1000))
         : undefined,
-    resourceShareArn:
-      output.resourceShareArn !== undefined && output.resourceShareArn !== null ? output.resourceShareArn : undefined,
+    resourceShareArn: __expectString(output.resourceShareArn),
   } as any;
 };
 
@@ -3982,7 +3983,7 @@ const deserializeAws_restJson1PrincipalList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
@@ -3991,14 +3992,11 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? new Date(Math.round(output.lastUpdatedTime * 1000))
         : undefined,
-    resourceGroupArn:
-      output.resourceGroupArn !== undefined && output.resourceGroupArn !== null ? output.resourceGroupArn : undefined,
-    resourceShareArn:
-      output.resourceShareArn !== undefined && output.resourceShareArn !== null ? output.resourceShareArn : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    resourceGroupArn: __expectString(output.resourceGroupArn),
+    resourceShareArn: __expectString(output.resourceShareArn),
+    status: __expectString(output.status),
+    statusMessage: __expectString(output.statusMessage),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -4015,27 +4013,21 @@ const deserializeAws_restJson1ResourceList = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ResourceShare = (output: any, context: __SerdeContext): ResourceShare => {
   return {
-    allowExternalPrincipals:
-      output.allowExternalPrincipals !== undefined && output.allowExternalPrincipals !== null
-        ? output.allowExternalPrincipals
-        : undefined,
+    allowExternalPrincipals: __expectBoolean(output.allowExternalPrincipals),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    featureSet: output.featureSet !== undefined && output.featureSet !== null ? output.featureSet : undefined,
+    featureSet: __expectString(output.featureSet),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? new Date(Math.round(output.lastUpdatedTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    owningAccountId:
-      output.owningAccountId !== undefined && output.owningAccountId !== null ? output.owningAccountId : undefined,
-    resourceShareArn:
-      output.resourceShareArn !== undefined && output.resourceShareArn !== null ? output.resourceShareArn : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
+    name: __expectString(output.name),
+    owningAccountId: __expectString(output.owningAccountId),
+    resourceShareArn: __expectString(output.resourceShareArn),
+    status: __expectString(output.status),
+    statusMessage: __expectString(output.statusMessage),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagList(output.tags, context)
@@ -4048,28 +4040,21 @@ const deserializeAws_restJson1ResourceShareAssociation = (
   context: __SerdeContext
 ): ResourceShareAssociation => {
   return {
-    associatedEntity:
-      output.associatedEntity !== undefined && output.associatedEntity !== null ? output.associatedEntity : undefined,
-    associationType:
-      output.associationType !== undefined && output.associationType !== null ? output.associationType : undefined,
+    associatedEntity: __expectString(output.associatedEntity),
+    associationType: __expectString(output.associationType),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    external: output.external !== undefined && output.external !== null ? output.external : undefined,
+    external: __expectBoolean(output.external),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? new Date(Math.round(output.lastUpdatedTime * 1000))
         : undefined,
-    resourceShareArn:
-      output.resourceShareArn !== undefined && output.resourceShareArn !== null ? output.resourceShareArn : undefined,
-    resourceShareName:
-      output.resourceShareName !== undefined && output.resourceShareName !== null
-        ? output.resourceShareName
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
+    resourceShareArn: __expectString(output.resourceShareArn),
+    resourceShareName: __expectString(output.resourceShareName),
+    status: __expectString(output.status),
+    statusMessage: __expectString(output.statusMessage),
   } as any;
 };
 
@@ -4096,28 +4081,17 @@ const deserializeAws_restJson1ResourceShareInvitation = (
       output.invitationTimestamp !== undefined && output.invitationTimestamp !== null
         ? new Date(Math.round(output.invitationTimestamp * 1000))
         : undefined,
-    receiverAccountId:
-      output.receiverAccountId !== undefined && output.receiverAccountId !== null
-        ? output.receiverAccountId
-        : undefined,
-    receiverArn: output.receiverArn !== undefined && output.receiverArn !== null ? output.receiverArn : undefined,
-    resourceShareArn:
-      output.resourceShareArn !== undefined && output.resourceShareArn !== null ? output.resourceShareArn : undefined,
+    receiverAccountId: __expectString(output.receiverAccountId),
+    receiverArn: __expectString(output.receiverArn),
+    resourceShareArn: __expectString(output.resourceShareArn),
     resourceShareAssociations:
       output.resourceShareAssociations !== undefined && output.resourceShareAssociations !== null
         ? deserializeAws_restJson1ResourceShareAssociationList(output.resourceShareAssociations, context)
         : undefined,
-    resourceShareInvitationArn:
-      output.resourceShareInvitationArn !== undefined && output.resourceShareInvitationArn !== null
-        ? output.resourceShareInvitationArn
-        : undefined,
-    resourceShareName:
-      output.resourceShareName !== undefined && output.resourceShareName !== null
-        ? output.resourceShareName
-        : undefined,
-    senderAccountId:
-      output.senderAccountId !== undefined && output.senderAccountId !== null ? output.senderAccountId : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    resourceShareInvitationArn: __expectString(output.resourceShareInvitationArn),
+    resourceShareName: __expectString(output.resourceShareName),
+    senderAccountId: __expectString(output.senderAccountId),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -4151,25 +4125,21 @@ const deserializeAws_restJson1ResourceSharePermissionDetail = (
   context: __SerdeContext
 ): ResourceSharePermissionDetail => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    defaultVersion:
-      output.defaultVersion !== undefined && output.defaultVersion !== null ? output.defaultVersion : undefined,
-    isResourceTypeDefault:
-      output.isResourceTypeDefault !== undefined && output.isResourceTypeDefault !== null
-        ? output.isResourceTypeDefault
-        : undefined,
+    defaultVersion: __expectBoolean(output.defaultVersion),
+    isResourceTypeDefault: __expectBoolean(output.isResourceTypeDefault),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? new Date(Math.round(output.lastUpdatedTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    permission: output.permission !== undefined && output.permission !== null ? output.permission : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    name: __expectString(output.name),
+    permission: __expectString(output.permission),
+    resourceType: __expectString(output.resourceType),
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -4192,25 +4162,21 @@ const deserializeAws_restJson1ResourceSharePermissionSummary = (
   context: __SerdeContext
 ): ResourceSharePermissionSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    defaultVersion:
-      output.defaultVersion !== undefined && output.defaultVersion !== null ? output.defaultVersion : undefined,
-    isResourceTypeDefault:
-      output.isResourceTypeDefault !== undefined && output.isResourceTypeDefault !== null
-        ? output.isResourceTypeDefault
-        : undefined,
+    defaultVersion: __expectBoolean(output.defaultVersion),
+    isResourceTypeDefault: __expectBoolean(output.isResourceTypeDefault),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? new Date(Math.round(output.lastUpdatedTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    name: __expectString(output.name),
+    resourceType: __expectString(output.resourceType),
+    status: __expectString(output.status),
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -4219,8 +4185,8 @@ const deserializeAws_restJson1ServiceNameAndResourceType = (
   context: __SerdeContext
 ): ServiceNameAndResourceType => {
   return {
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    serviceName: output.serviceName !== undefined && output.serviceName !== null ? output.serviceName : undefined,
+    resourceType: __expectString(output.resourceType),
+    serviceName: __expectString(output.serviceName),
   } as any;
 };
 
@@ -4240,8 +4206,8 @@ const deserializeAws_restJson1ServiceNameAndResourceTypeList = (
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 

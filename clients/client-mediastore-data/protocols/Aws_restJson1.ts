@@ -13,6 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -473,7 +475,7 @@ export const deserializeAws_restJson1ListItemsCommand = async (
     contents.Items = deserializeAws_restJson1ItemList(data.Items, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -538,13 +540,13 @@ export const deserializeAws_restJson1PutObjectCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ContentSHA256 !== undefined && data.ContentSHA256 !== null) {
-    contents.ContentSHA256 = data.ContentSHA256;
+    contents.ContentSHA256 = __expectString(data.ContentSHA256);
   }
   if (data.ETag !== undefined && data.ETag !== null) {
-    contents.ETag = data.ETag;
+    contents.ETag = __expectString(data.ETag);
   }
   if (data.StorageClass !== undefined && data.StorageClass !== null) {
-    contents.StorageClass = data.StorageClass;
+    contents.StorageClass = __expectString(data.StorageClass);
   }
   return Promise.resolve(contents);
 };
@@ -606,7 +608,7 @@ const deserializeAws_restJson1ContainerNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -623,7 +625,7 @@ const deserializeAws_restJson1InternalServerErrorResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -640,7 +642,7 @@ const deserializeAws_restJson1ObjectNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -657,23 +659,22 @@ const deserializeAws_restJson1RequestedRangeNotSatisfiableExceptionResponse = as
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
 
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
-    ContentLength:
-      output.ContentLength !== undefined && output.ContentLength !== null ? output.ContentLength : undefined,
-    ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
-    ETag: output.ETag !== undefined && output.ETag !== null ? output.ETag : undefined,
+    ContentLength: __expectNumber(output.ContentLength),
+    ContentType: __expectString(output.ContentType),
+    ETag: __expectString(output.ETag),
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null
         ? new Date(Math.round(output.LastModified * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
   } as any;
 };
 

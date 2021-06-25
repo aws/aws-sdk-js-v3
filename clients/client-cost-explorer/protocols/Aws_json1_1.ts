@@ -246,7 +246,12 @@ import {
   UtilizationByTime,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3586,23 +3591,20 @@ const deserializeAws_json1_1Anomalies = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Anomaly = (output: any, context: __SerdeContext): Anomaly => {
   return {
-    AnomalyEndDate:
-      output.AnomalyEndDate !== undefined && output.AnomalyEndDate !== null ? output.AnomalyEndDate : undefined,
-    AnomalyId: output.AnomalyId !== undefined && output.AnomalyId !== null ? output.AnomalyId : undefined,
+    AnomalyEndDate: __expectString(output.AnomalyEndDate),
+    AnomalyId: __expectString(output.AnomalyId),
     AnomalyScore:
       output.AnomalyScore !== undefined && output.AnomalyScore !== null
         ? deserializeAws_json1_1AnomalyScore(output.AnomalyScore, context)
         : undefined,
-    AnomalyStartDate:
-      output.AnomalyStartDate !== undefined && output.AnomalyStartDate !== null ? output.AnomalyStartDate : undefined,
-    DimensionValue:
-      output.DimensionValue !== undefined && output.DimensionValue !== null ? output.DimensionValue : undefined,
-    Feedback: output.Feedback !== undefined && output.Feedback !== null ? output.Feedback : undefined,
+    AnomalyStartDate: __expectString(output.AnomalyStartDate),
+    DimensionValue: __expectString(output.DimensionValue),
+    Feedback: __expectString(output.Feedback),
     Impact:
       output.Impact !== undefined && output.Impact !== null
         ? deserializeAws_json1_1Impact(output.Impact, context)
         : undefined,
-    MonitorArn: output.MonitorArn !== undefined && output.MonitorArn !== null ? output.MonitorArn : undefined,
+    MonitorArn: __expectString(output.MonitorArn),
     RootCauses:
       output.RootCauses !== undefined && output.RootCauses !== null
         ? deserializeAws_json1_1RootCauses(output.RootCauses, context)
@@ -3612,26 +3614,18 @@ const deserializeAws_json1_1Anomaly = (output: any, context: __SerdeContext): An
 
 const deserializeAws_json1_1AnomalyMonitor = (output: any, context: __SerdeContext): AnomalyMonitor => {
   return {
-    CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
-    DimensionalValueCount:
-      output.DimensionalValueCount !== undefined && output.DimensionalValueCount !== null
-        ? output.DimensionalValueCount
-        : undefined,
-    LastEvaluatedDate:
-      output.LastEvaluatedDate !== undefined && output.LastEvaluatedDate !== null
-        ? output.LastEvaluatedDate
-        : undefined,
-    LastUpdatedDate:
-      output.LastUpdatedDate !== undefined && output.LastUpdatedDate !== null ? output.LastUpdatedDate : undefined,
-    MonitorArn: output.MonitorArn !== undefined && output.MonitorArn !== null ? output.MonitorArn : undefined,
-    MonitorDimension:
-      output.MonitorDimension !== undefined && output.MonitorDimension !== null ? output.MonitorDimension : undefined,
-    MonitorName: output.MonitorName !== undefined && output.MonitorName !== null ? output.MonitorName : undefined,
+    CreationDate: __expectString(output.CreationDate),
+    DimensionalValueCount: __expectNumber(output.DimensionalValueCount),
+    LastEvaluatedDate: __expectString(output.LastEvaluatedDate),
+    LastUpdatedDate: __expectString(output.LastUpdatedDate),
+    MonitorArn: __expectString(output.MonitorArn),
+    MonitorDimension: __expectString(output.MonitorDimension),
+    MonitorName: __expectString(output.MonitorName),
     MonitorSpecification:
       output.MonitorSpecification !== undefined && output.MonitorSpecification !== null
         ? deserializeAws_json1_1Expression(output.MonitorSpecification, context)
         : undefined,
-    MonitorType: output.MonitorType !== undefined && output.MonitorType !== null ? output.MonitorType : undefined,
+    MonitorType: __expectString(output.MonitorType),
   } as any;
 };
 
@@ -3648,15 +3642,15 @@ const deserializeAws_json1_1AnomalyMonitors = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1AnomalyScore = (output: any, context: __SerdeContext): AnomalyScore => {
   return {
-    CurrentScore: output.CurrentScore !== undefined && output.CurrentScore !== null ? output.CurrentScore : undefined,
-    MaxScore: output.MaxScore !== undefined && output.MaxScore !== null ? output.MaxScore : undefined,
+    CurrentScore: __expectNumber(output.CurrentScore),
+    MaxScore: __expectNumber(output.MaxScore),
   } as any;
 };
 
 const deserializeAws_json1_1AnomalySubscription = (output: any, context: __SerdeContext): AnomalySubscription => {
   return {
-    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
-    Frequency: output.Frequency !== undefined && output.Frequency !== null ? output.Frequency : undefined,
+    AccountId: __expectString(output.AccountId),
+    Frequency: __expectString(output.Frequency),
     MonitorArnList:
       output.MonitorArnList !== undefined && output.MonitorArnList !== null
         ? deserializeAws_json1_1MonitorArnList(output.MonitorArnList, context)
@@ -3665,11 +3659,9 @@ const deserializeAws_json1_1AnomalySubscription = (output: any, context: __Serde
       output.Subscribers !== undefined && output.Subscribers !== null
         ? deserializeAws_json1_1Subscribers(output.Subscribers, context)
         : undefined,
-    SubscriptionArn:
-      output.SubscriptionArn !== undefined && output.SubscriptionArn !== null ? output.SubscriptionArn : undefined,
-    SubscriptionName:
-      output.SubscriptionName !== undefined && output.SubscriptionName !== null ? output.SubscriptionName : undefined,
-    Threshold: output.Threshold !== undefined && output.Threshold !== null ? output.Threshold : undefined,
+    SubscriptionArn: __expectString(output.SubscriptionArn),
+    SubscriptionName: __expectString(output.SubscriptionName),
+    Threshold: __expectNumber(output.Threshold),
   } as any;
 };
 
@@ -3691,7 +3683,7 @@ const deserializeAws_json1_1Attributes = (output: any, context: __SerdeContext):
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -3701,24 +3693,22 @@ const deserializeAws_json1_1BillExpirationException = (
   context: __SerdeContext
 ): BillExpirationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1CostCategory = (output: any, context: __SerdeContext): CostCategory => {
   return {
-    CostCategoryArn:
-      output.CostCategoryArn !== undefined && output.CostCategoryArn !== null ? output.CostCategoryArn : undefined,
-    DefaultValue: output.DefaultValue !== undefined && output.DefaultValue !== null ? output.DefaultValue : undefined,
-    EffectiveEnd: output.EffectiveEnd !== undefined && output.EffectiveEnd !== null ? output.EffectiveEnd : undefined,
-    EffectiveStart:
-      output.EffectiveStart !== undefined && output.EffectiveStart !== null ? output.EffectiveStart : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    CostCategoryArn: __expectString(output.CostCategoryArn),
+    DefaultValue: __expectString(output.DefaultValue),
+    EffectiveEnd: __expectString(output.EffectiveEnd),
+    EffectiveStart: __expectString(output.EffectiveStart),
+    Name: __expectString(output.Name),
     ProcessingStatus:
       output.ProcessingStatus !== undefined && output.ProcessingStatus !== null
         ? deserializeAws_json1_1CostCategoryProcessingStatusList(output.ProcessingStatus, context)
         : undefined,
-    RuleVersion: output.RuleVersion !== undefined && output.RuleVersion !== null ? output.RuleVersion : undefined,
+    RuleVersion: __expectString(output.RuleVersion),
     Rules:
       output.Rules !== undefined && output.Rules !== null
         ? deserializeAws_json1_1CostCategoryRulesList(output.Rules, context)
@@ -3731,9 +3721,8 @@ const deserializeAws_json1_1CostCategoryInheritedValueDimension = (
   context: __SerdeContext
 ): CostCategoryInheritedValueDimension => {
   return {
-    DimensionKey: output.DimensionKey !== undefined && output.DimensionKey !== null ? output.DimensionKey : undefined,
-    DimensionName:
-      output.DimensionName !== undefined && output.DimensionName !== null ? output.DimensionName : undefined,
+    DimensionKey: __expectString(output.DimensionKey),
+    DimensionName: __expectString(output.DimensionName),
   } as any;
 };
 
@@ -3744,7 +3733,7 @@ const deserializeAws_json1_1CostCategoryNamesList = (output: any, context: __Ser
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3753,8 +3742,8 @@ const deserializeAws_json1_1CostCategoryProcessingStatus = (
   context: __SerdeContext
 ): CostCategoryProcessingStatus => {
   return {
-    Component: output.Component !== undefined && output.Component !== null ? output.Component : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Component: __expectString(output.Component),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -3774,15 +3763,12 @@ const deserializeAws_json1_1CostCategoryProcessingStatusList = (
 
 const deserializeAws_json1_1CostCategoryReference = (output: any, context: __SerdeContext): CostCategoryReference => {
   return {
-    CostCategoryArn:
-      output.CostCategoryArn !== undefined && output.CostCategoryArn !== null ? output.CostCategoryArn : undefined,
-    DefaultValue: output.DefaultValue !== undefined && output.DefaultValue !== null ? output.DefaultValue : undefined,
-    EffectiveEnd: output.EffectiveEnd !== undefined && output.EffectiveEnd !== null ? output.EffectiveEnd : undefined,
-    EffectiveStart:
-      output.EffectiveStart !== undefined && output.EffectiveStart !== null ? output.EffectiveStart : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    NumberOfRules:
-      output.NumberOfRules !== undefined && output.NumberOfRules !== null ? output.NumberOfRules : undefined,
+    CostCategoryArn: __expectString(output.CostCategoryArn),
+    DefaultValue: __expectString(output.DefaultValue),
+    EffectiveEnd: __expectString(output.EffectiveEnd),
+    EffectiveStart: __expectString(output.EffectiveStart),
+    Name: __expectString(output.Name),
+    NumberOfRules: __expectNumber(output.NumberOfRules),
     ProcessingStatus:
       output.ProcessingStatus !== undefined && output.ProcessingStatus !== null
         ? deserializeAws_json1_1CostCategoryProcessingStatusList(output.ProcessingStatus, context)
@@ -3818,8 +3804,8 @@ const deserializeAws_json1_1CostCategoryRule = (output: any, context: __SerdeCon
       output.Rule !== undefined && output.Rule !== null
         ? deserializeAws_json1_1Expression(output.Rule, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Type: __expectString(output.Type),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -3836,7 +3822,7 @@ const deserializeAws_json1_1CostCategoryRulesList = (output: any, context: __Ser
 
 const deserializeAws_json1_1CostCategoryValues = (output: any, context: __SerdeContext): CostCategoryValues => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Key: __expectString(output.Key),
     MatchOptions:
       output.MatchOptions !== undefined && output.MatchOptions !== null
         ? deserializeAws_json1_1MatchOptions(output.MatchOptions, context)
@@ -3855,7 +3841,7 @@ const deserializeAws_json1_1CostCategoryValuesList = (output: any, context: __Se
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3895,24 +3881,16 @@ const deserializeAws_json1_1CoverageByTime = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1CoverageCost = (output: any, context: __SerdeContext): CoverageCost => {
   return {
-    OnDemandCost: output.OnDemandCost !== undefined && output.OnDemandCost !== null ? output.OnDemandCost : undefined,
+    OnDemandCost: __expectString(output.OnDemandCost),
   } as any;
 };
 
 const deserializeAws_json1_1CoverageHours = (output: any, context: __SerdeContext): CoverageHours => {
   return {
-    CoverageHoursPercentage:
-      output.CoverageHoursPercentage !== undefined && output.CoverageHoursPercentage !== null
-        ? output.CoverageHoursPercentage
-        : undefined,
-    OnDemandHours:
-      output.OnDemandHours !== undefined && output.OnDemandHours !== null ? output.OnDemandHours : undefined,
-    ReservedHours:
-      output.ReservedHours !== undefined && output.ReservedHours !== null ? output.ReservedHours : undefined,
-    TotalRunningHours:
-      output.TotalRunningHours !== undefined && output.TotalRunningHours !== null
-        ? output.TotalRunningHours
-        : undefined,
+    CoverageHoursPercentage: __expectString(output.CoverageHoursPercentage),
+    OnDemandHours: __expectString(output.OnDemandHours),
+    ReservedHours: __expectString(output.ReservedHours),
+    TotalRunningHours: __expectString(output.TotalRunningHours),
   } as any;
 };
 
@@ -3921,22 +3899,10 @@ const deserializeAws_json1_1CoverageNormalizedUnits = (
   context: __SerdeContext
 ): CoverageNormalizedUnits => {
   return {
-    CoverageNormalizedUnitsPercentage:
-      output.CoverageNormalizedUnitsPercentage !== undefined && output.CoverageNormalizedUnitsPercentage !== null
-        ? output.CoverageNormalizedUnitsPercentage
-        : undefined,
-    OnDemandNormalizedUnits:
-      output.OnDemandNormalizedUnits !== undefined && output.OnDemandNormalizedUnits !== null
-        ? output.OnDemandNormalizedUnits
-        : undefined,
-    ReservedNormalizedUnits:
-      output.ReservedNormalizedUnits !== undefined && output.ReservedNormalizedUnits !== null
-        ? output.ReservedNormalizedUnits
-        : undefined,
-    TotalRunningNormalizedUnits:
-      output.TotalRunningNormalizedUnits !== undefined && output.TotalRunningNormalizedUnits !== null
-        ? output.TotalRunningNormalizedUnits
-        : undefined,
+    CoverageNormalizedUnitsPercentage: __expectString(output.CoverageNormalizedUnitsPercentage),
+    OnDemandNormalizedUnits: __expectString(output.OnDemandNormalizedUnits),
+    ReservedNormalizedUnits: __expectString(output.ReservedNormalizedUnits),
+    TotalRunningNormalizedUnits: __expectString(output.TotalRunningNormalizedUnits),
   } as any;
 };
 
@@ -3956,7 +3922,7 @@ const deserializeAws_json1_1CreateAnomalyMonitorResponse = (
   context: __SerdeContext
 ): CreateAnomalyMonitorResponse => {
   return {
-    MonitorArn: output.MonitorArn !== undefined && output.MonitorArn !== null ? output.MonitorArn : undefined,
+    MonitorArn: __expectString(output.MonitorArn),
   } as any;
 };
 
@@ -3965,8 +3931,7 @@ const deserializeAws_json1_1CreateAnomalySubscriptionResponse = (
   context: __SerdeContext
 ): CreateAnomalySubscriptionResponse => {
   return {
-    SubscriptionArn:
-      output.SubscriptionArn !== undefined && output.SubscriptionArn !== null ? output.SubscriptionArn : undefined,
+    SubscriptionArn: __expectString(output.SubscriptionArn),
   } as any;
 };
 
@@ -3975,49 +3940,33 @@ const deserializeAws_json1_1CreateCostCategoryDefinitionResponse = (
   context: __SerdeContext
 ): CreateCostCategoryDefinitionResponse => {
   return {
-    CostCategoryArn:
-      output.CostCategoryArn !== undefined && output.CostCategoryArn !== null ? output.CostCategoryArn : undefined,
-    EffectiveStart:
-      output.EffectiveStart !== undefined && output.EffectiveStart !== null ? output.EffectiveStart : undefined,
+    CostCategoryArn: __expectString(output.CostCategoryArn),
+    EffectiveStart: __expectString(output.EffectiveStart),
   } as any;
 };
 
 const deserializeAws_json1_1CurrentInstance = (output: any, context: __SerdeContext): CurrentInstance => {
   return {
-    CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
-    InstanceName: output.InstanceName !== undefined && output.InstanceName !== null ? output.InstanceName : undefined,
-    MonthlyCost: output.MonthlyCost !== undefined && output.MonthlyCost !== null ? output.MonthlyCost : undefined,
-    OnDemandHoursInLookbackPeriod:
-      output.OnDemandHoursInLookbackPeriod !== undefined && output.OnDemandHoursInLookbackPeriod !== null
-        ? output.OnDemandHoursInLookbackPeriod
-        : undefined,
-    ReservationCoveredHoursInLookbackPeriod:
-      output.ReservationCoveredHoursInLookbackPeriod !== undefined &&
-      output.ReservationCoveredHoursInLookbackPeriod !== null
-        ? output.ReservationCoveredHoursInLookbackPeriod
-        : undefined,
+    CurrencyCode: __expectString(output.CurrencyCode),
+    InstanceName: __expectString(output.InstanceName),
+    MonthlyCost: __expectString(output.MonthlyCost),
+    OnDemandHoursInLookbackPeriod: __expectString(output.OnDemandHoursInLookbackPeriod),
+    ReservationCoveredHoursInLookbackPeriod: __expectString(output.ReservationCoveredHoursInLookbackPeriod),
     ResourceDetails:
       output.ResourceDetails !== undefined && output.ResourceDetails !== null
         ? deserializeAws_json1_1ResourceDetails(output.ResourceDetails, context)
         : undefined,
-    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    ResourceId: __expectString(output.ResourceId),
     ResourceUtilization:
       output.ResourceUtilization !== undefined && output.ResourceUtilization !== null
         ? deserializeAws_json1_1ResourceUtilization(output.ResourceUtilization, context)
         : undefined,
-    SavingsPlansCoveredHoursInLookbackPeriod:
-      output.SavingsPlansCoveredHoursInLookbackPeriod !== undefined &&
-      output.SavingsPlansCoveredHoursInLookbackPeriod !== null
-        ? output.SavingsPlansCoveredHoursInLookbackPeriod
-        : undefined,
+    SavingsPlansCoveredHoursInLookbackPeriod: __expectString(output.SavingsPlansCoveredHoursInLookbackPeriod),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagValuesList(output.Tags, context)
         : undefined,
-    TotalRunningHoursInLookbackPeriod:
-      output.TotalRunningHoursInLookbackPeriod !== undefined && output.TotalRunningHoursInLookbackPeriod !== null
-        ? output.TotalRunningHoursInLookbackPeriod
-        : undefined,
+    TotalRunningHoursInLookbackPeriod: __expectString(output.TotalRunningHoursInLookbackPeriod),
   } as any;
 };
 
@@ -4026,14 +3975,14 @@ const deserializeAws_json1_1DataUnavailableException = (
   context: __SerdeContext
 ): DataUnavailableException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1DateInterval = (output: any, context: __SerdeContext): DateInterval => {
   return {
-    End: output.End !== undefined && output.End !== null ? output.End : undefined,
-    Start: output.Start !== undefined && output.Start !== null ? output.Start : undefined,
+    End: __expectString(output.End),
+    Start: __expectString(output.Start),
   } as any;
 };
 
@@ -4056,9 +4005,8 @@ const deserializeAws_json1_1DeleteCostCategoryDefinitionResponse = (
   context: __SerdeContext
 ): DeleteCostCategoryDefinitionResponse => {
   return {
-    CostCategoryArn:
-      output.CostCategoryArn !== undefined && output.CostCategoryArn !== null ? output.CostCategoryArn : undefined,
-    EffectiveEnd: output.EffectiveEnd !== undefined && output.EffectiveEnd !== null ? output.EffectiveEnd : undefined,
+    CostCategoryArn: __expectString(output.CostCategoryArn),
+    EffectiveEnd: __expectString(output.EffectiveEnd),
   } as any;
 };
 
@@ -4076,7 +4024,7 @@ const deserializeAws_json1_1DescribeCostCategoryDefinitionResponse = (
 
 const deserializeAws_json1_1DimensionValues = (output: any, context: __SerdeContext): DimensionValues => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Key: __expectString(output.Key),
     MatchOptions:
       output.MatchOptions !== undefined && output.MatchOptions !== null
         ? deserializeAws_json1_1MatchOptions(output.MatchOptions, context)
@@ -4097,7 +4045,7 @@ const deserializeAws_json1_1DimensionValuesWithAttributes = (
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1Attributes(output.Attributes, context)
         : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -4120,81 +4068,46 @@ const deserializeAws_json1_1DiskResourceUtilization = (
   context: __SerdeContext
 ): DiskResourceUtilization => {
   return {
-    DiskReadBytesPerSecond:
-      output.DiskReadBytesPerSecond !== undefined && output.DiskReadBytesPerSecond !== null
-        ? output.DiskReadBytesPerSecond
-        : undefined,
-    DiskReadOpsPerSecond:
-      output.DiskReadOpsPerSecond !== undefined && output.DiskReadOpsPerSecond !== null
-        ? output.DiskReadOpsPerSecond
-        : undefined,
-    DiskWriteBytesPerSecond:
-      output.DiskWriteBytesPerSecond !== undefined && output.DiskWriteBytesPerSecond !== null
-        ? output.DiskWriteBytesPerSecond
-        : undefined,
-    DiskWriteOpsPerSecond:
-      output.DiskWriteOpsPerSecond !== undefined && output.DiskWriteOpsPerSecond !== null
-        ? output.DiskWriteOpsPerSecond
-        : undefined,
+    DiskReadBytesPerSecond: __expectString(output.DiskReadBytesPerSecond),
+    DiskReadOpsPerSecond: __expectString(output.DiskReadOpsPerSecond),
+    DiskWriteBytesPerSecond: __expectString(output.DiskWriteBytesPerSecond),
+    DiskWriteOpsPerSecond: __expectString(output.DiskWriteOpsPerSecond),
   } as any;
 };
 
 const deserializeAws_json1_1EBSResourceUtilization = (output: any, context: __SerdeContext): EBSResourceUtilization => {
   return {
-    EbsReadBytesPerSecond:
-      output.EbsReadBytesPerSecond !== undefined && output.EbsReadBytesPerSecond !== null
-        ? output.EbsReadBytesPerSecond
-        : undefined,
-    EbsReadOpsPerSecond:
-      output.EbsReadOpsPerSecond !== undefined && output.EbsReadOpsPerSecond !== null
-        ? output.EbsReadOpsPerSecond
-        : undefined,
-    EbsWriteBytesPerSecond:
-      output.EbsWriteBytesPerSecond !== undefined && output.EbsWriteBytesPerSecond !== null
-        ? output.EbsWriteBytesPerSecond
-        : undefined,
-    EbsWriteOpsPerSecond:
-      output.EbsWriteOpsPerSecond !== undefined && output.EbsWriteOpsPerSecond !== null
-        ? output.EbsWriteOpsPerSecond
-        : undefined,
+    EbsReadBytesPerSecond: __expectString(output.EbsReadBytesPerSecond),
+    EbsReadOpsPerSecond: __expectString(output.EbsReadOpsPerSecond),
+    EbsWriteBytesPerSecond: __expectString(output.EbsWriteBytesPerSecond),
+    EbsWriteOpsPerSecond: __expectString(output.EbsWriteOpsPerSecond),
   } as any;
 };
 
 const deserializeAws_json1_1EC2InstanceDetails = (output: any, context: __SerdeContext): EC2InstanceDetails => {
   return {
-    AvailabilityZone:
-      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
-    CurrentGeneration:
-      output.CurrentGeneration !== undefined && output.CurrentGeneration !== null
-        ? output.CurrentGeneration
-        : undefined,
-    Family: output.Family !== undefined && output.Family !== null ? output.Family : undefined,
-    InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
-    Platform: output.Platform !== undefined && output.Platform !== null ? output.Platform : undefined,
-    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
-    SizeFlexEligible:
-      output.SizeFlexEligible !== undefined && output.SizeFlexEligible !== null ? output.SizeFlexEligible : undefined,
-    Tenancy: output.Tenancy !== undefined && output.Tenancy !== null ? output.Tenancy : undefined,
+    AvailabilityZone: __expectString(output.AvailabilityZone),
+    CurrentGeneration: __expectBoolean(output.CurrentGeneration),
+    Family: __expectString(output.Family),
+    InstanceType: __expectString(output.InstanceType),
+    Platform: __expectString(output.Platform),
+    Region: __expectString(output.Region),
+    SizeFlexEligible: __expectBoolean(output.SizeFlexEligible),
+    Tenancy: __expectString(output.Tenancy),
   } as any;
 };
 
 const deserializeAws_json1_1EC2ResourceDetails = (output: any, context: __SerdeContext): EC2ResourceDetails => {
   return {
-    HourlyOnDemandRate:
-      output.HourlyOnDemandRate !== undefined && output.HourlyOnDemandRate !== null
-        ? output.HourlyOnDemandRate
-        : undefined,
-    InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
-    Memory: output.Memory !== undefined && output.Memory !== null ? output.Memory : undefined,
-    NetworkPerformance:
-      output.NetworkPerformance !== undefined && output.NetworkPerformance !== null
-        ? output.NetworkPerformance
-        : undefined,
-    Platform: output.Platform !== undefined && output.Platform !== null ? output.Platform : undefined,
-    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
-    Sku: output.Sku !== undefined && output.Sku !== null ? output.Sku : undefined,
-    Storage: output.Storage !== undefined && output.Storage !== null ? output.Storage : undefined,
-    Vcpu: output.Vcpu !== undefined && output.Vcpu !== null ? output.Vcpu : undefined,
+    HourlyOnDemandRate: __expectString(output.HourlyOnDemandRate),
+    InstanceType: __expectString(output.InstanceType),
+    Memory: __expectString(output.Memory),
+    NetworkPerformance: __expectString(output.NetworkPerformance),
+    Platform: __expectString(output.Platform),
+    Region: __expectString(output.Region),
+    Sku: __expectString(output.Sku),
+    Storage: __expectString(output.Storage),
+    Vcpu: __expectString(output.Vcpu),
   } as any;
 };
 
@@ -4208,18 +4121,9 @@ const deserializeAws_json1_1EC2ResourceUtilization = (output: any, context: __Se
       output.EBSResourceUtilization !== undefined && output.EBSResourceUtilization !== null
         ? deserializeAws_json1_1EBSResourceUtilization(output.EBSResourceUtilization, context)
         : undefined,
-    MaxCpuUtilizationPercentage:
-      output.MaxCpuUtilizationPercentage !== undefined && output.MaxCpuUtilizationPercentage !== null
-        ? output.MaxCpuUtilizationPercentage
-        : undefined,
-    MaxMemoryUtilizationPercentage:
-      output.MaxMemoryUtilizationPercentage !== undefined && output.MaxMemoryUtilizationPercentage !== null
-        ? output.MaxMemoryUtilizationPercentage
-        : undefined,
-    MaxStorageUtilizationPercentage:
-      output.MaxStorageUtilizationPercentage !== undefined && output.MaxStorageUtilizationPercentage !== null
-        ? output.MaxStorageUtilizationPercentage
-        : undefined,
+    MaxCpuUtilizationPercentage: __expectString(output.MaxCpuUtilizationPercentage),
+    MaxMemoryUtilizationPercentage: __expectString(output.MaxMemoryUtilizationPercentage),
+    MaxStorageUtilizationPercentage: __expectString(output.MaxStorageUtilizationPercentage),
     NetworkResourceUtilization:
       output.NetworkResourceUtilization !== undefined && output.NetworkResourceUtilization !== null
         ? deserializeAws_json1_1NetworkResourceUtilization(output.NetworkResourceUtilization, context)
@@ -4229,8 +4133,7 @@ const deserializeAws_json1_1EC2ResourceUtilization = (output: any, context: __Se
 
 const deserializeAws_json1_1EC2Specification = (output: any, context: __SerdeContext): EC2Specification => {
   return {
-    OfferingClass:
-      output.OfferingClass !== undefined && output.OfferingClass !== null ? output.OfferingClass : undefined,
+    OfferingClass: __expectString(output.OfferingClass),
   } as any;
 };
 
@@ -4239,34 +4142,22 @@ const deserializeAws_json1_1ElastiCacheInstanceDetails = (
   context: __SerdeContext
 ): ElastiCacheInstanceDetails => {
   return {
-    CurrentGeneration:
-      output.CurrentGeneration !== undefined && output.CurrentGeneration !== null
-        ? output.CurrentGeneration
-        : undefined,
-    Family: output.Family !== undefined && output.Family !== null ? output.Family : undefined,
-    NodeType: output.NodeType !== undefined && output.NodeType !== null ? output.NodeType : undefined,
-    ProductDescription:
-      output.ProductDescription !== undefined && output.ProductDescription !== null
-        ? output.ProductDescription
-        : undefined,
-    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
-    SizeFlexEligible:
-      output.SizeFlexEligible !== undefined && output.SizeFlexEligible !== null ? output.SizeFlexEligible : undefined,
+    CurrentGeneration: __expectBoolean(output.CurrentGeneration),
+    Family: __expectString(output.Family),
+    NodeType: __expectString(output.NodeType),
+    ProductDescription: __expectString(output.ProductDescription),
+    Region: __expectString(output.Region),
+    SizeFlexEligible: __expectBoolean(output.SizeFlexEligible),
   } as any;
 };
 
 const deserializeAws_json1_1ESInstanceDetails = (output: any, context: __SerdeContext): ESInstanceDetails => {
   return {
-    CurrentGeneration:
-      output.CurrentGeneration !== undefined && output.CurrentGeneration !== null
-        ? output.CurrentGeneration
-        : undefined,
-    InstanceClass:
-      output.InstanceClass !== undefined && output.InstanceClass !== null ? output.InstanceClass : undefined,
-    InstanceSize: output.InstanceSize !== undefined && output.InstanceSize !== null ? output.InstanceSize : undefined,
-    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
-    SizeFlexEligible:
-      output.SizeFlexEligible !== undefined && output.SizeFlexEligible !== null ? output.SizeFlexEligible : undefined,
+    CurrentGeneration: __expectBoolean(output.CurrentGeneration),
+    InstanceClass: __expectString(output.InstanceClass),
+    InstanceSize: __expectString(output.InstanceSize),
+    Region: __expectString(output.Region),
+    SizeFlexEligible: __expectBoolean(output.SizeFlexEligible),
   } as any;
 };
 
@@ -4318,21 +4209,15 @@ const deserializeAws_json1_1FindingReasonCodes = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1ForecastResult = (output: any, context: __SerdeContext): ForecastResult => {
   return {
-    MeanValue: output.MeanValue !== undefined && output.MeanValue !== null ? output.MeanValue : undefined,
-    PredictionIntervalLowerBound:
-      output.PredictionIntervalLowerBound !== undefined && output.PredictionIntervalLowerBound !== null
-        ? output.PredictionIntervalLowerBound
-        : undefined,
-    PredictionIntervalUpperBound:
-      output.PredictionIntervalUpperBound !== undefined && output.PredictionIntervalUpperBound !== null
-        ? output.PredictionIntervalUpperBound
-        : undefined,
+    MeanValue: __expectString(output.MeanValue),
+    PredictionIntervalLowerBound: __expectString(output.PredictionIntervalLowerBound),
+    PredictionIntervalUpperBound: __expectString(output.PredictionIntervalUpperBound),
     TimePeriod:
       output.TimePeriod !== undefined && output.TimePeriod !== null
         ? deserializeAws_json1_1DateInterval(output.TimePeriod, context)
@@ -4357,8 +4242,7 @@ const deserializeAws_json1_1GetAnomaliesResponse = (output: any, context: __Serd
       output.Anomalies !== undefined && output.Anomalies !== null
         ? deserializeAws_json1_1Anomalies(output.Anomalies, context)
         : undefined,
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
   } as any;
 };
 
@@ -4371,8 +4255,7 @@ const deserializeAws_json1_1GetAnomalyMonitorsResponse = (
       output.AnomalyMonitors !== undefined && output.AnomalyMonitors !== null
         ? deserializeAws_json1_1AnomalyMonitors(output.AnomalyMonitors, context)
         : undefined,
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
   } as any;
 };
 
@@ -4385,8 +4268,7 @@ const deserializeAws_json1_1GetAnomalySubscriptionsResponse = (
       output.AnomalySubscriptions !== undefined && output.AnomalySubscriptions !== null
         ? deserializeAws_json1_1AnomalySubscriptions(output.AnomalySubscriptions, context)
         : undefined,
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
   } as any;
 };
 
@@ -4403,8 +4285,7 @@ const deserializeAws_json1_1GetCostAndUsageResponse = (
       output.GroupDefinitions !== undefined && output.GroupDefinitions !== null
         ? deserializeAws_json1_1GroupDefinitions(output.GroupDefinitions, context)
         : undefined,
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
     ResultsByTime:
       output.ResultsByTime !== undefined && output.ResultsByTime !== null
         ? deserializeAws_json1_1ResultsByTime(output.ResultsByTime, context)
@@ -4425,8 +4306,7 @@ const deserializeAws_json1_1GetCostAndUsageWithResourcesResponse = (
       output.GroupDefinitions !== undefined && output.GroupDefinitions !== null
         ? deserializeAws_json1_1GroupDefinitions(output.GroupDefinitions, context)
         : undefined,
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
     ResultsByTime:
       output.ResultsByTime !== undefined && output.ResultsByTime !== null
         ? deserializeAws_json1_1ResultsByTime(output.ResultsByTime, context)
@@ -4447,10 +4327,9 @@ const deserializeAws_json1_1GetCostCategoriesResponse = (
       output.CostCategoryValues !== undefined && output.CostCategoryValues !== null
         ? deserializeAws_json1_1CostCategoryValuesList(output.CostCategoryValues, context)
         : undefined,
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
-    ReturnSize: output.ReturnSize !== undefined && output.ReturnSize !== null ? output.ReturnSize : undefined,
-    TotalSize: output.TotalSize !== undefined && output.TotalSize !== null ? output.TotalSize : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
+    ReturnSize: __expectNumber(output.ReturnSize),
+    TotalSize: __expectNumber(output.TotalSize),
   } as any;
 };
 
@@ -4479,10 +4358,9 @@ const deserializeAws_json1_1GetDimensionValuesResponse = (
       output.DimensionValues !== undefined && output.DimensionValues !== null
         ? deserializeAws_json1_1DimensionValuesWithAttributesList(output.DimensionValues, context)
         : undefined,
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
-    ReturnSize: output.ReturnSize !== undefined && output.ReturnSize !== null ? output.ReturnSize : undefined,
-    TotalSize: output.TotalSize !== undefined && output.TotalSize !== null ? output.TotalSize : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
+    ReturnSize: __expectNumber(output.ReturnSize),
+    TotalSize: __expectNumber(output.TotalSize),
   } as any;
 };
 
@@ -4495,8 +4373,7 @@ const deserializeAws_json1_1GetReservationCoverageResponse = (
       output.CoveragesByTime !== undefined && output.CoveragesByTime !== null
         ? deserializeAws_json1_1CoveragesByTime(output.CoveragesByTime, context)
         : undefined,
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
     Total:
       output.Total !== undefined && output.Total !== null
         ? deserializeAws_json1_1Coverage(output.Total, context)
@@ -4513,8 +4390,7 @@ const deserializeAws_json1_1GetReservationPurchaseRecommendationResponse = (
       output.Metadata !== undefined && output.Metadata !== null
         ? deserializeAws_json1_1ReservationPurchaseRecommendationMetadata(output.Metadata, context)
         : undefined,
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
     Recommendations:
       output.Recommendations !== undefined && output.Recommendations !== null
         ? deserializeAws_json1_1ReservationPurchaseRecommendations(output.Recommendations, context)
@@ -4527,8 +4403,7 @@ const deserializeAws_json1_1GetReservationUtilizationResponse = (
   context: __SerdeContext
 ): GetReservationUtilizationResponse => {
   return {
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
     Total:
       output.Total !== undefined && output.Total !== null
         ? deserializeAws_json1_1ReservationAggregates(output.Total, context)
@@ -4553,8 +4428,7 @@ const deserializeAws_json1_1GetRightsizingRecommendationResponse = (
       output.Metadata !== undefined && output.Metadata !== null
         ? deserializeAws_json1_1RightsizingRecommendationMetadata(output.Metadata, context)
         : undefined,
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
     RightsizingRecommendations:
       output.RightsizingRecommendations !== undefined && output.RightsizingRecommendations !== null
         ? deserializeAws_json1_1RightsizingRecommendationList(output.RightsizingRecommendations, context)
@@ -4571,7 +4445,7 @@ const deserializeAws_json1_1GetSavingsPlansCoverageResponse = (
   context: __SerdeContext
 ): GetSavingsPlansCoverageResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     SavingsPlansCoverages:
       output.SavingsPlansCoverages !== undefined && output.SavingsPlansCoverages !== null
         ? deserializeAws_json1_1SavingsPlansCoverages(output.SavingsPlansCoverages, context)
@@ -4588,8 +4462,7 @@ const deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationResponse = (
       output.Metadata !== undefined && output.Metadata !== null
         ? deserializeAws_json1_1SavingsPlansPurchaseRecommendationMetadata(output.Metadata, context)
         : undefined,
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
     SavingsPlansPurchaseRecommendation:
       output.SavingsPlansPurchaseRecommendation !== undefined && output.SavingsPlansPurchaseRecommendation !== null
         ? deserializeAws_json1_1SavingsPlansPurchaseRecommendation(output.SavingsPlansPurchaseRecommendation, context)
@@ -4602,7 +4475,7 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationDetailsResponse = (
   context: __SerdeContext
 ): GetSavingsPlansUtilizationDetailsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     SavingsPlansUtilizationDetails:
       output.SavingsPlansUtilizationDetails !== undefined && output.SavingsPlansUtilizationDetails !== null
         ? deserializeAws_json1_1SavingsPlansUtilizationDetails(output.SavingsPlansUtilizationDetails, context)
@@ -4636,14 +4509,13 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationResponse = (
 
 const deserializeAws_json1_1GetTagsResponse = (output: any, context: __SerdeContext): GetTagsResponse => {
   return {
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
-    ReturnSize: output.ReturnSize !== undefined && output.ReturnSize !== null ? output.ReturnSize : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
+    ReturnSize: __expectNumber(output.ReturnSize),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
         : undefined,
-    TotalSize: output.TotalSize !== undefined && output.TotalSize !== null ? output.TotalSize : undefined,
+    TotalSize: __expectNumber(output.TotalSize),
   } as any;
 };
 
@@ -4676,8 +4548,8 @@ const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Grou
 
 const deserializeAws_json1_1GroupDefinition = (output: any, context: __SerdeContext): GroupDefinition => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Key: __expectString(output.Key),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -4705,8 +4577,8 @@ const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Gro
 
 const deserializeAws_json1_1Impact = (output: any, context: __SerdeContext): Impact => {
   return {
-    MaxImpact: output.MaxImpact !== undefined && output.MaxImpact !== null ? output.MaxImpact : undefined,
-    TotalImpact: output.TotalImpact !== undefined && output.TotalImpact !== null ? output.TotalImpact : undefined,
+    MaxImpact: __expectNumber(output.MaxImpact),
+    TotalImpact: __expectNumber(output.TotalImpact),
   } as any;
 };
 
@@ -4740,7 +4612,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4751,13 +4623,13 @@ const deserializeAws_json1_1Keys = (output: any, context: __SerdeContext): strin
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4770,7 +4642,7 @@ const deserializeAws_json1_1ListCostCategoryDefinitionsResponse = (
       output.CostCategoryReferences !== undefined && output.CostCategoryReferences !== null
         ? deserializeAws_json1_1CostCategoryReferencesList(output.CostCategoryReferences, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -4781,7 +4653,7 @@ const deserializeAws_json1_1MatchOptions = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4799,8 +4671,8 @@ const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): { 
 
 const deserializeAws_json1_1MetricValue = (output: any, context: __SerdeContext): MetricValue => {
   return {
-    Amount: output.Amount !== undefined && output.Amount !== null ? output.Amount : undefined,
-    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
+    Amount: __expectString(output.Amount),
+    Unit: __expectString(output.Unit),
   } as any;
 };
 
@@ -4823,7 +4695,7 @@ const deserializeAws_json1_1MonitorArnList = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4832,22 +4704,10 @@ const deserializeAws_json1_1NetworkResourceUtilization = (
   context: __SerdeContext
 ): NetworkResourceUtilization => {
   return {
-    NetworkInBytesPerSecond:
-      output.NetworkInBytesPerSecond !== undefined && output.NetworkInBytesPerSecond !== null
-        ? output.NetworkInBytesPerSecond
-        : undefined,
-    NetworkOutBytesPerSecond:
-      output.NetworkOutBytesPerSecond !== undefined && output.NetworkOutBytesPerSecond !== null
-        ? output.NetworkOutBytesPerSecond
-        : undefined,
-    NetworkPacketsInPerSecond:
-      output.NetworkPacketsInPerSecond !== undefined && output.NetworkPacketsInPerSecond !== null
-        ? output.NetworkPacketsInPerSecond
-        : undefined,
-    NetworkPacketsOutPerSecond:
-      output.NetworkPacketsOutPerSecond !== undefined && output.NetworkPacketsOutPerSecond !== null
-        ? output.NetworkPacketsOutPerSecond
-        : undefined,
+    NetworkInBytesPerSecond: __expectString(output.NetworkInBytesPerSecond),
+    NetworkOutBytesPerSecond: __expectString(output.NetworkOutBytesPerSecond),
+    NetworkPacketsInPerSecond: __expectString(output.NetworkPacketsInPerSecond),
+    NetworkPacketsOutPerSecond: __expectString(output.NetworkPacketsOutPerSecond),
   } as any;
 };
 
@@ -4861,7 +4721,7 @@ const deserializeAws_json1_1PlatformDifferences = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4870,28 +4730,21 @@ const deserializeAws_json1_1ProvideAnomalyFeedbackResponse = (
   context: __SerdeContext
 ): ProvideAnomalyFeedbackResponse => {
   return {
-    AnomalyId: output.AnomalyId !== undefined && output.AnomalyId !== null ? output.AnomalyId : undefined,
+    AnomalyId: __expectString(output.AnomalyId),
   } as any;
 };
 
 const deserializeAws_json1_1RDSInstanceDetails = (output: any, context: __SerdeContext): RDSInstanceDetails => {
   return {
-    CurrentGeneration:
-      output.CurrentGeneration !== undefined && output.CurrentGeneration !== null
-        ? output.CurrentGeneration
-        : undefined,
-    DatabaseEdition:
-      output.DatabaseEdition !== undefined && output.DatabaseEdition !== null ? output.DatabaseEdition : undefined,
-    DatabaseEngine:
-      output.DatabaseEngine !== undefined && output.DatabaseEngine !== null ? output.DatabaseEngine : undefined,
-    DeploymentOption:
-      output.DeploymentOption !== undefined && output.DeploymentOption !== null ? output.DeploymentOption : undefined,
-    Family: output.Family !== undefined && output.Family !== null ? output.Family : undefined,
-    InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
-    LicenseModel: output.LicenseModel !== undefined && output.LicenseModel !== null ? output.LicenseModel : undefined,
-    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
-    SizeFlexEligible:
-      output.SizeFlexEligible !== undefined && output.SizeFlexEligible !== null ? output.SizeFlexEligible : undefined,
+    CurrentGeneration: __expectBoolean(output.CurrentGeneration),
+    DatabaseEdition: __expectString(output.DatabaseEdition),
+    DatabaseEngine: __expectString(output.DatabaseEngine),
+    DeploymentOption: __expectString(output.DeploymentOption),
+    Family: __expectString(output.Family),
+    InstanceType: __expectString(output.InstanceType),
+    LicenseModel: __expectString(output.LicenseModel),
+    Region: __expectString(output.Region),
+    SizeFlexEligible: __expectBoolean(output.SizeFlexEligible),
   } as any;
 };
 
@@ -4900,15 +4753,11 @@ const deserializeAws_json1_1RedshiftInstanceDetails = (
   context: __SerdeContext
 ): RedshiftInstanceDetails => {
   return {
-    CurrentGeneration:
-      output.CurrentGeneration !== undefined && output.CurrentGeneration !== null
-        ? output.CurrentGeneration
-        : undefined,
-    Family: output.Family !== undefined && output.Family !== null ? output.Family : undefined,
-    NodeType: output.NodeType !== undefined && output.NodeType !== null ? output.NodeType : undefined,
-    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
-    SizeFlexEligible:
-      output.SizeFlexEligible !== undefined && output.SizeFlexEligible !== null ? output.SizeFlexEligible : undefined,
+    CurrentGeneration: __expectBoolean(output.CurrentGeneration),
+    Family: __expectString(output.Family),
+    NodeType: __expectString(output.NodeType),
+    Region: __expectString(output.Region),
+    SizeFlexEligible: __expectBoolean(output.SizeFlexEligible),
   } as any;
 };
 
@@ -4917,61 +4766,29 @@ const deserializeAws_json1_1RequestChangedException = (
   context: __SerdeContext
 ): RequestChangedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1ReservationAggregates = (output: any, context: __SerdeContext): ReservationAggregates => {
   return {
-    AmortizedRecurringFee:
-      output.AmortizedRecurringFee !== undefined && output.AmortizedRecurringFee !== null
-        ? output.AmortizedRecurringFee
-        : undefined,
-    AmortizedUpfrontFee:
-      output.AmortizedUpfrontFee !== undefined && output.AmortizedUpfrontFee !== null
-        ? output.AmortizedUpfrontFee
-        : undefined,
-    NetRISavings: output.NetRISavings !== undefined && output.NetRISavings !== null ? output.NetRISavings : undefined,
-    OnDemandCostOfRIHoursUsed:
-      output.OnDemandCostOfRIHoursUsed !== undefined && output.OnDemandCostOfRIHoursUsed !== null
-        ? output.OnDemandCostOfRIHoursUsed
-        : undefined,
-    PurchasedHours:
-      output.PurchasedHours !== undefined && output.PurchasedHours !== null ? output.PurchasedHours : undefined,
-    PurchasedUnits:
-      output.PurchasedUnits !== undefined && output.PurchasedUnits !== null ? output.PurchasedUnits : undefined,
-    RICostForUnusedHours:
-      output.RICostForUnusedHours !== undefined && output.RICostForUnusedHours !== null
-        ? output.RICostForUnusedHours
-        : undefined,
-    RealizedSavings:
-      output.RealizedSavings !== undefined && output.RealizedSavings !== null ? output.RealizedSavings : undefined,
-    TotalActualHours:
-      output.TotalActualHours !== undefined && output.TotalActualHours !== null ? output.TotalActualHours : undefined,
-    TotalActualUnits:
-      output.TotalActualUnits !== undefined && output.TotalActualUnits !== null ? output.TotalActualUnits : undefined,
-    TotalAmortizedFee:
-      output.TotalAmortizedFee !== undefined && output.TotalAmortizedFee !== null
-        ? output.TotalAmortizedFee
-        : undefined,
-    TotalPotentialRISavings:
-      output.TotalPotentialRISavings !== undefined && output.TotalPotentialRISavings !== null
-        ? output.TotalPotentialRISavings
-        : undefined,
-    UnrealizedSavings:
-      output.UnrealizedSavings !== undefined && output.UnrealizedSavings !== null
-        ? output.UnrealizedSavings
-        : undefined,
-    UnusedHours: output.UnusedHours !== undefined && output.UnusedHours !== null ? output.UnusedHours : undefined,
-    UnusedUnits: output.UnusedUnits !== undefined && output.UnusedUnits !== null ? output.UnusedUnits : undefined,
-    UtilizationPercentage:
-      output.UtilizationPercentage !== undefined && output.UtilizationPercentage !== null
-        ? output.UtilizationPercentage
-        : undefined,
-    UtilizationPercentageInUnits:
-      output.UtilizationPercentageInUnits !== undefined && output.UtilizationPercentageInUnits !== null
-        ? output.UtilizationPercentageInUnits
-        : undefined,
+    AmortizedRecurringFee: __expectString(output.AmortizedRecurringFee),
+    AmortizedUpfrontFee: __expectString(output.AmortizedUpfrontFee),
+    NetRISavings: __expectString(output.NetRISavings),
+    OnDemandCostOfRIHoursUsed: __expectString(output.OnDemandCostOfRIHoursUsed),
+    PurchasedHours: __expectString(output.PurchasedHours),
+    PurchasedUnits: __expectString(output.PurchasedUnits),
+    RICostForUnusedHours: __expectString(output.RICostForUnusedHours),
+    RealizedSavings: __expectString(output.RealizedSavings),
+    TotalActualHours: __expectString(output.TotalActualHours),
+    TotalActualUnits: __expectString(output.TotalActualUnits),
+    TotalAmortizedFee: __expectString(output.TotalAmortizedFee),
+    TotalPotentialRISavings: __expectString(output.TotalPotentialRISavings),
+    UnrealizedSavings: __expectString(output.UnrealizedSavings),
+    UnusedHours: __expectString(output.UnusedHours),
+    UnusedUnits: __expectString(output.UnusedUnits),
+    UtilizationPercentage: __expectString(output.UtilizationPercentage),
+    UtilizationPercentageInUnits: __expectString(output.UtilizationPercentageInUnits),
   } as any;
 };
 
@@ -5010,13 +4827,9 @@ const deserializeAws_json1_1ReservationPurchaseRecommendation = (
   context: __SerdeContext
 ): ReservationPurchaseRecommendation => {
   return {
-    AccountScope: output.AccountScope !== undefined && output.AccountScope !== null ? output.AccountScope : undefined,
-    LookbackPeriodInDays:
-      output.LookbackPeriodInDays !== undefined && output.LookbackPeriodInDays !== null
-        ? output.LookbackPeriodInDays
-        : undefined,
-    PaymentOption:
-      output.PaymentOption !== undefined && output.PaymentOption !== null ? output.PaymentOption : undefined,
+    AccountScope: __expectString(output.AccountScope),
+    LookbackPeriodInDays: __expectString(output.LookbackPeriodInDays),
+    PaymentOption: __expectString(output.PaymentOption),
     RecommendationDetails:
       output.RecommendationDetails !== undefined && output.RecommendationDetails !== null
         ? deserializeAws_json1_1ReservationPurchaseRecommendationDetails(output.RecommendationDetails, context)
@@ -5029,7 +4842,7 @@ const deserializeAws_json1_1ReservationPurchaseRecommendation = (
       output.ServiceSpecification !== undefined && output.ServiceSpecification !== null
         ? deserializeAws_json1_1ServiceSpecification(output.ServiceSpecification, context)
         : undefined,
-    TermInYears: output.TermInYears !== undefined && output.TermInYears !== null ? output.TermInYears : undefined,
+    TermInYears: __expectString(output.TermInYears),
   } as any;
 };
 
@@ -5038,75 +4851,28 @@ const deserializeAws_json1_1ReservationPurchaseRecommendationDetail = (
   context: __SerdeContext
 ): ReservationPurchaseRecommendationDetail => {
   return {
-    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
-    AverageNormalizedUnitsUsedPerHour:
-      output.AverageNormalizedUnitsUsedPerHour !== undefined && output.AverageNormalizedUnitsUsedPerHour !== null
-        ? output.AverageNormalizedUnitsUsedPerHour
-        : undefined,
-    AverageNumberOfInstancesUsedPerHour:
-      output.AverageNumberOfInstancesUsedPerHour !== undefined && output.AverageNumberOfInstancesUsedPerHour !== null
-        ? output.AverageNumberOfInstancesUsedPerHour
-        : undefined,
-    AverageUtilization:
-      output.AverageUtilization !== undefined && output.AverageUtilization !== null
-        ? output.AverageUtilization
-        : undefined,
-    CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
-    EstimatedBreakEvenInMonths:
-      output.EstimatedBreakEvenInMonths !== undefined && output.EstimatedBreakEvenInMonths !== null
-        ? output.EstimatedBreakEvenInMonths
-        : undefined,
-    EstimatedMonthlyOnDemandCost:
-      output.EstimatedMonthlyOnDemandCost !== undefined && output.EstimatedMonthlyOnDemandCost !== null
-        ? output.EstimatedMonthlyOnDemandCost
-        : undefined,
-    EstimatedMonthlySavingsAmount:
-      output.EstimatedMonthlySavingsAmount !== undefined && output.EstimatedMonthlySavingsAmount !== null
-        ? output.EstimatedMonthlySavingsAmount
-        : undefined,
-    EstimatedMonthlySavingsPercentage:
-      output.EstimatedMonthlySavingsPercentage !== undefined && output.EstimatedMonthlySavingsPercentage !== null
-        ? output.EstimatedMonthlySavingsPercentage
-        : undefined,
-    EstimatedReservationCostForLookbackPeriod:
-      output.EstimatedReservationCostForLookbackPeriod !== undefined &&
-      output.EstimatedReservationCostForLookbackPeriod !== null
-        ? output.EstimatedReservationCostForLookbackPeriod
-        : undefined,
+    AccountId: __expectString(output.AccountId),
+    AverageNormalizedUnitsUsedPerHour: __expectString(output.AverageNormalizedUnitsUsedPerHour),
+    AverageNumberOfInstancesUsedPerHour: __expectString(output.AverageNumberOfInstancesUsedPerHour),
+    AverageUtilization: __expectString(output.AverageUtilization),
+    CurrencyCode: __expectString(output.CurrencyCode),
+    EstimatedBreakEvenInMonths: __expectString(output.EstimatedBreakEvenInMonths),
+    EstimatedMonthlyOnDemandCost: __expectString(output.EstimatedMonthlyOnDemandCost),
+    EstimatedMonthlySavingsAmount: __expectString(output.EstimatedMonthlySavingsAmount),
+    EstimatedMonthlySavingsPercentage: __expectString(output.EstimatedMonthlySavingsPercentage),
+    EstimatedReservationCostForLookbackPeriod: __expectString(output.EstimatedReservationCostForLookbackPeriod),
     InstanceDetails:
       output.InstanceDetails !== undefined && output.InstanceDetails !== null
         ? deserializeAws_json1_1InstanceDetails(output.InstanceDetails, context)
         : undefined,
-    MaximumNormalizedUnitsUsedPerHour:
-      output.MaximumNormalizedUnitsUsedPerHour !== undefined && output.MaximumNormalizedUnitsUsedPerHour !== null
-        ? output.MaximumNormalizedUnitsUsedPerHour
-        : undefined,
-    MaximumNumberOfInstancesUsedPerHour:
-      output.MaximumNumberOfInstancesUsedPerHour !== undefined && output.MaximumNumberOfInstancesUsedPerHour !== null
-        ? output.MaximumNumberOfInstancesUsedPerHour
-        : undefined,
-    MinimumNormalizedUnitsUsedPerHour:
-      output.MinimumNormalizedUnitsUsedPerHour !== undefined && output.MinimumNormalizedUnitsUsedPerHour !== null
-        ? output.MinimumNormalizedUnitsUsedPerHour
-        : undefined,
-    MinimumNumberOfInstancesUsedPerHour:
-      output.MinimumNumberOfInstancesUsedPerHour !== undefined && output.MinimumNumberOfInstancesUsedPerHour !== null
-        ? output.MinimumNumberOfInstancesUsedPerHour
-        : undefined,
-    RecommendedNormalizedUnitsToPurchase:
-      output.RecommendedNormalizedUnitsToPurchase !== undefined && output.RecommendedNormalizedUnitsToPurchase !== null
-        ? output.RecommendedNormalizedUnitsToPurchase
-        : undefined,
-    RecommendedNumberOfInstancesToPurchase:
-      output.RecommendedNumberOfInstancesToPurchase !== undefined &&
-      output.RecommendedNumberOfInstancesToPurchase !== null
-        ? output.RecommendedNumberOfInstancesToPurchase
-        : undefined,
-    RecurringStandardMonthlyCost:
-      output.RecurringStandardMonthlyCost !== undefined && output.RecurringStandardMonthlyCost !== null
-        ? output.RecurringStandardMonthlyCost
-        : undefined,
-    UpfrontCost: output.UpfrontCost !== undefined && output.UpfrontCost !== null ? output.UpfrontCost : undefined,
+    MaximumNormalizedUnitsUsedPerHour: __expectString(output.MaximumNormalizedUnitsUsedPerHour),
+    MaximumNumberOfInstancesUsedPerHour: __expectString(output.MaximumNumberOfInstancesUsedPerHour),
+    MinimumNormalizedUnitsUsedPerHour: __expectString(output.MinimumNormalizedUnitsUsedPerHour),
+    MinimumNumberOfInstancesUsedPerHour: __expectString(output.MinimumNumberOfInstancesUsedPerHour),
+    RecommendedNormalizedUnitsToPurchase: __expectString(output.RecommendedNormalizedUnitsToPurchase),
+    RecommendedNumberOfInstancesToPurchase: __expectString(output.RecommendedNumberOfInstancesToPurchase),
+    RecurringStandardMonthlyCost: __expectString(output.RecurringStandardMonthlyCost),
+    UpfrontCost: __expectString(output.UpfrontCost),
   } as any;
 };
 
@@ -5129,12 +4895,8 @@ const deserializeAws_json1_1ReservationPurchaseRecommendationMetadata = (
   context: __SerdeContext
 ): ReservationPurchaseRecommendationMetadata => {
   return {
-    GenerationTimestamp:
-      output.GenerationTimestamp !== undefined && output.GenerationTimestamp !== null
-        ? output.GenerationTimestamp
-        : undefined,
-    RecommendationId:
-      output.RecommendationId !== undefined && output.RecommendationId !== null ? output.RecommendationId : undefined,
+    GenerationTimestamp: __expectString(output.GenerationTimestamp),
+    RecommendationId: __expectString(output.RecommendationId),
   } as any;
 };
 
@@ -5157,16 +4919,9 @@ const deserializeAws_json1_1ReservationPurchaseRecommendationSummary = (
   context: __SerdeContext
 ): ReservationPurchaseRecommendationSummary => {
   return {
-    CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
-    TotalEstimatedMonthlySavingsAmount:
-      output.TotalEstimatedMonthlySavingsAmount !== undefined && output.TotalEstimatedMonthlySavingsAmount !== null
-        ? output.TotalEstimatedMonthlySavingsAmount
-        : undefined,
-    TotalEstimatedMonthlySavingsPercentage:
-      output.TotalEstimatedMonthlySavingsPercentage !== undefined &&
-      output.TotalEstimatedMonthlySavingsPercentage !== null
-        ? output.TotalEstimatedMonthlySavingsPercentage
-        : undefined,
+    CurrencyCode: __expectString(output.CurrencyCode),
+    TotalEstimatedMonthlySavingsAmount: __expectString(output.TotalEstimatedMonthlySavingsAmount),
+    TotalEstimatedMonthlySavingsPercentage: __expectString(output.TotalEstimatedMonthlySavingsPercentage),
   } as any;
 };
 
@@ -5179,12 +4934,12 @@ const deserializeAws_json1_1ReservationUtilizationGroup = (
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1Attributes(output.Attributes, context)
         : undefined,
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Key: __expectString(output.Key),
     Utilization:
       output.Utilization !== undefined && output.Utilization !== null
         ? deserializeAws_json1_1ReservationAggregates(output.Utilization, context)
         : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -5216,7 +4971,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5231,7 +4986,7 @@ const deserializeAws_json1_1ResourceUtilization = (output: any, context: __Serde
 
 const deserializeAws_json1_1ResultByTime = (output: any, context: __SerdeContext): ResultByTime => {
   return {
-    Estimated: output.Estimated !== undefined && output.Estimated !== null ? output.Estimated : undefined,
+    Estimated: __expectBoolean(output.Estimated),
     Groups:
       output.Groups !== undefined && output.Groups !== null
         ? deserializeAws_json1_1Groups(output.Groups, context)
@@ -5263,7 +5018,7 @@ const deserializeAws_json1_1RightsizingRecommendation = (
   context: __SerdeContext
 ): RightsizingRecommendation => {
   return {
-    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    AccountId: __expectString(output.AccountId),
     CurrentInstance:
       output.CurrentInstance !== undefined && output.CurrentInstance !== null
         ? deserializeAws_json1_1CurrentInstance(output.CurrentInstance, context)
@@ -5276,8 +5031,7 @@ const deserializeAws_json1_1RightsizingRecommendation = (
       output.ModifyRecommendationDetail !== undefined && output.ModifyRecommendationDetail !== null
         ? deserializeAws_json1_1ModifyRecommendationDetail(output.ModifyRecommendationDetail, context)
         : undefined,
-    RightsizingType:
-      output.RightsizingType !== undefined && output.RightsizingType !== null ? output.RightsizingType : undefined,
+    RightsizingType: __expectString(output.RightsizingType),
     TerminateRecommendationDetail:
       output.TerminateRecommendationDetail !== undefined && output.TerminateRecommendationDetail !== null
         ? deserializeAws_json1_1TerminateRecommendationDetail(output.TerminateRecommendationDetail, context)
@@ -5290,14 +5044,8 @@ const deserializeAws_json1_1RightsizingRecommendationConfiguration = (
   context: __SerdeContext
 ): RightsizingRecommendationConfiguration => {
   return {
-    BenefitsConsidered:
-      output.BenefitsConsidered !== undefined && output.BenefitsConsidered !== null
-        ? output.BenefitsConsidered
-        : undefined,
-    RecommendationTarget:
-      output.RecommendationTarget !== undefined && output.RecommendationTarget !== null
-        ? output.RecommendationTarget
-        : undefined,
+    BenefitsConsidered: __expectBoolean(output.BenefitsConsidered),
+    RecommendationTarget: __expectString(output.RecommendationTarget),
   } as any;
 };
 
@@ -5320,20 +5068,10 @@ const deserializeAws_json1_1RightsizingRecommendationMetadata = (
   context: __SerdeContext
 ): RightsizingRecommendationMetadata => {
   return {
-    AdditionalMetadata:
-      output.AdditionalMetadata !== undefined && output.AdditionalMetadata !== null
-        ? output.AdditionalMetadata
-        : undefined,
-    GenerationTimestamp:
-      output.GenerationTimestamp !== undefined && output.GenerationTimestamp !== null
-        ? output.GenerationTimestamp
-        : undefined,
-    LookbackPeriodInDays:
-      output.LookbackPeriodInDays !== undefined && output.LookbackPeriodInDays !== null
-        ? output.LookbackPeriodInDays
-        : undefined,
-    RecommendationId:
-      output.RecommendationId !== undefined && output.RecommendationId !== null ? output.RecommendationId : undefined,
+    AdditionalMetadata: __expectString(output.AdditionalMetadata),
+    GenerationTimestamp: __expectString(output.GenerationTimestamp),
+    LookbackPeriodInDays: __expectString(output.LookbackPeriodInDays),
+    RecommendationId: __expectString(output.RecommendationId),
   } as any;
 };
 
@@ -5342,32 +5080,19 @@ const deserializeAws_json1_1RightsizingRecommendationSummary = (
   context: __SerdeContext
 ): RightsizingRecommendationSummary => {
   return {
-    EstimatedTotalMonthlySavingsAmount:
-      output.EstimatedTotalMonthlySavingsAmount !== undefined && output.EstimatedTotalMonthlySavingsAmount !== null
-        ? output.EstimatedTotalMonthlySavingsAmount
-        : undefined,
-    SavingsCurrencyCode:
-      output.SavingsCurrencyCode !== undefined && output.SavingsCurrencyCode !== null
-        ? output.SavingsCurrencyCode
-        : undefined,
-    SavingsPercentage:
-      output.SavingsPercentage !== undefined && output.SavingsPercentage !== null
-        ? output.SavingsPercentage
-        : undefined,
-    TotalRecommendationCount:
-      output.TotalRecommendationCount !== undefined && output.TotalRecommendationCount !== null
-        ? output.TotalRecommendationCount
-        : undefined,
+    EstimatedTotalMonthlySavingsAmount: __expectString(output.EstimatedTotalMonthlySavingsAmount),
+    SavingsCurrencyCode: __expectString(output.SavingsCurrencyCode),
+    SavingsPercentage: __expectString(output.SavingsPercentage),
+    TotalRecommendationCount: __expectString(output.TotalRecommendationCount),
   } as any;
 };
 
 const deserializeAws_json1_1RootCause = (output: any, context: __SerdeContext): RootCause => {
   return {
-    LinkedAccount:
-      output.LinkedAccount !== undefined && output.LinkedAccount !== null ? output.LinkedAccount : undefined,
-    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
-    Service: output.Service !== undefined && output.Service !== null ? output.Service : undefined,
-    UsageType: output.UsageType !== undefined && output.UsageType !== null ? output.UsageType : undefined,
+    LinkedAccount: __expectString(output.LinkedAccount),
+    Region: __expectString(output.Region),
+    Service: __expectString(output.Service),
+    UsageType: __expectString(output.UsageType),
   } as any;
 };
 
@@ -5387,18 +5112,9 @@ const deserializeAws_json1_1SavingsPlansAmortizedCommitment = (
   context: __SerdeContext
 ): SavingsPlansAmortizedCommitment => {
   return {
-    AmortizedRecurringCommitment:
-      output.AmortizedRecurringCommitment !== undefined && output.AmortizedRecurringCommitment !== null
-        ? output.AmortizedRecurringCommitment
-        : undefined,
-    AmortizedUpfrontCommitment:
-      output.AmortizedUpfrontCommitment !== undefined && output.AmortizedUpfrontCommitment !== null
-        ? output.AmortizedUpfrontCommitment
-        : undefined,
-    TotalAmortizedCommitment:
-      output.TotalAmortizedCommitment !== undefined && output.TotalAmortizedCommitment !== null
-        ? output.TotalAmortizedCommitment
-        : undefined,
+    AmortizedRecurringCommitment: __expectString(output.AmortizedRecurringCommitment),
+    AmortizedUpfrontCommitment: __expectString(output.AmortizedUpfrontCommitment),
+    TotalAmortizedCommitment: __expectString(output.TotalAmortizedCommitment),
   } as any;
 };
 
@@ -5424,16 +5140,10 @@ const deserializeAws_json1_1SavingsPlansCoverageData = (
   context: __SerdeContext
 ): SavingsPlansCoverageData => {
   return {
-    CoveragePercentage:
-      output.CoveragePercentage !== undefined && output.CoveragePercentage !== null
-        ? output.CoveragePercentage
-        : undefined,
-    OnDemandCost: output.OnDemandCost !== undefined && output.OnDemandCost !== null ? output.OnDemandCost : undefined,
-    SpendCoveredBySavingsPlans:
-      output.SpendCoveredBySavingsPlans !== undefined && output.SpendCoveredBySavingsPlans !== null
-        ? output.SpendCoveredBySavingsPlans
-        : undefined,
-    TotalCost: output.TotalCost !== undefined && output.TotalCost !== null ? output.TotalCost : undefined,
+    CoveragePercentage: __expectString(output.CoveragePercentage),
+    OnDemandCost: __expectString(output.OnDemandCost),
+    SpendCoveredBySavingsPlans: __expectString(output.SpendCoveredBySavingsPlans),
+    TotalCost: __expectString(output.TotalCost),
   } as any;
 };
 
@@ -5450,10 +5160,9 @@ const deserializeAws_json1_1SavingsPlansCoverages = (output: any, context: __Ser
 
 const deserializeAws_json1_1SavingsPlansDetails = (output: any, context: __SerdeContext): SavingsPlansDetails => {
   return {
-    InstanceFamily:
-      output.InstanceFamily !== undefined && output.InstanceFamily !== null ? output.InstanceFamily : undefined,
-    OfferingId: output.OfferingId !== undefined && output.OfferingId !== null ? output.OfferingId : undefined,
-    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
+    InstanceFamily: __expectString(output.InstanceFamily),
+    OfferingId: __expectString(output.OfferingId),
+    Region: __expectString(output.Region),
   } as any;
 };
 
@@ -5462,13 +5171,9 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendation = (
   context: __SerdeContext
 ): SavingsPlansPurchaseRecommendation => {
   return {
-    AccountScope: output.AccountScope !== undefined && output.AccountScope !== null ? output.AccountScope : undefined,
-    LookbackPeriodInDays:
-      output.LookbackPeriodInDays !== undefined && output.LookbackPeriodInDays !== null
-        ? output.LookbackPeriodInDays
-        : undefined,
-    PaymentOption:
-      output.PaymentOption !== undefined && output.PaymentOption !== null ? output.PaymentOption : undefined,
+    AccountScope: __expectString(output.AccountScope),
+    LookbackPeriodInDays: __expectString(output.LookbackPeriodInDays),
+    PaymentOption: __expectString(output.PaymentOption),
     SavingsPlansPurchaseRecommendationDetails:
       output.SavingsPlansPurchaseRecommendationDetails !== undefined &&
       output.SavingsPlansPurchaseRecommendationDetails !== null
@@ -5485,9 +5190,8 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendation = (
             context
           )
         : undefined,
-    SavingsPlansType:
-      output.SavingsPlansType !== undefined && output.SavingsPlansType !== null ? output.SavingsPlansType : undefined,
-    TermInYears: output.TermInYears !== undefined && output.TermInYears !== null ? output.TermInYears : undefined,
+    SavingsPlansType: __expectString(output.SavingsPlansType),
+    TermInYears: __expectString(output.TermInYears),
   } as any;
 };
 
@@ -5496,57 +5200,25 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendationDetail = (
   context: __SerdeContext
 ): SavingsPlansPurchaseRecommendationDetail => {
   return {
-    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
-    CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
-    CurrentAverageHourlyOnDemandSpend:
-      output.CurrentAverageHourlyOnDemandSpend !== undefined && output.CurrentAverageHourlyOnDemandSpend !== null
-        ? output.CurrentAverageHourlyOnDemandSpend
-        : undefined,
-    CurrentMaximumHourlyOnDemandSpend:
-      output.CurrentMaximumHourlyOnDemandSpend !== undefined && output.CurrentMaximumHourlyOnDemandSpend !== null
-        ? output.CurrentMaximumHourlyOnDemandSpend
-        : undefined,
-    CurrentMinimumHourlyOnDemandSpend:
-      output.CurrentMinimumHourlyOnDemandSpend !== undefined && output.CurrentMinimumHourlyOnDemandSpend !== null
-        ? output.CurrentMinimumHourlyOnDemandSpend
-        : undefined,
-    EstimatedAverageUtilization:
-      output.EstimatedAverageUtilization !== undefined && output.EstimatedAverageUtilization !== null
-        ? output.EstimatedAverageUtilization
-        : undefined,
-    EstimatedMonthlySavingsAmount:
-      output.EstimatedMonthlySavingsAmount !== undefined && output.EstimatedMonthlySavingsAmount !== null
-        ? output.EstimatedMonthlySavingsAmount
-        : undefined,
-    EstimatedOnDemandCost:
-      output.EstimatedOnDemandCost !== undefined && output.EstimatedOnDemandCost !== null
-        ? output.EstimatedOnDemandCost
-        : undefined,
-    EstimatedOnDemandCostWithCurrentCommitment:
-      output.EstimatedOnDemandCostWithCurrentCommitment !== undefined &&
-      output.EstimatedOnDemandCostWithCurrentCommitment !== null
-        ? output.EstimatedOnDemandCostWithCurrentCommitment
-        : undefined,
-    EstimatedROI: output.EstimatedROI !== undefined && output.EstimatedROI !== null ? output.EstimatedROI : undefined,
-    EstimatedSPCost:
-      output.EstimatedSPCost !== undefined && output.EstimatedSPCost !== null ? output.EstimatedSPCost : undefined,
-    EstimatedSavingsAmount:
-      output.EstimatedSavingsAmount !== undefined && output.EstimatedSavingsAmount !== null
-        ? output.EstimatedSavingsAmount
-        : undefined,
-    EstimatedSavingsPercentage:
-      output.EstimatedSavingsPercentage !== undefined && output.EstimatedSavingsPercentage !== null
-        ? output.EstimatedSavingsPercentage
-        : undefined,
-    HourlyCommitmentToPurchase:
-      output.HourlyCommitmentToPurchase !== undefined && output.HourlyCommitmentToPurchase !== null
-        ? output.HourlyCommitmentToPurchase
-        : undefined,
+    AccountId: __expectString(output.AccountId),
+    CurrencyCode: __expectString(output.CurrencyCode),
+    CurrentAverageHourlyOnDemandSpend: __expectString(output.CurrentAverageHourlyOnDemandSpend),
+    CurrentMaximumHourlyOnDemandSpend: __expectString(output.CurrentMaximumHourlyOnDemandSpend),
+    CurrentMinimumHourlyOnDemandSpend: __expectString(output.CurrentMinimumHourlyOnDemandSpend),
+    EstimatedAverageUtilization: __expectString(output.EstimatedAverageUtilization),
+    EstimatedMonthlySavingsAmount: __expectString(output.EstimatedMonthlySavingsAmount),
+    EstimatedOnDemandCost: __expectString(output.EstimatedOnDemandCost),
+    EstimatedOnDemandCostWithCurrentCommitment: __expectString(output.EstimatedOnDemandCostWithCurrentCommitment),
+    EstimatedROI: __expectString(output.EstimatedROI),
+    EstimatedSPCost: __expectString(output.EstimatedSPCost),
+    EstimatedSavingsAmount: __expectString(output.EstimatedSavingsAmount),
+    EstimatedSavingsPercentage: __expectString(output.EstimatedSavingsPercentage),
+    HourlyCommitmentToPurchase: __expectString(output.HourlyCommitmentToPurchase),
     SavingsPlansDetails:
       output.SavingsPlansDetails !== undefined && output.SavingsPlansDetails !== null
         ? deserializeAws_json1_1SavingsPlansDetails(output.SavingsPlansDetails, context)
         : undefined,
-    UpfrontCost: output.UpfrontCost !== undefined && output.UpfrontCost !== null ? output.UpfrontCost : undefined,
+    UpfrontCost: __expectString(output.UpfrontCost),
   } as any;
 };
 
@@ -5569,16 +5241,9 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendationMetadata = (
   context: __SerdeContext
 ): SavingsPlansPurchaseRecommendationMetadata => {
   return {
-    AdditionalMetadata:
-      output.AdditionalMetadata !== undefined && output.AdditionalMetadata !== null
-        ? output.AdditionalMetadata
-        : undefined,
-    GenerationTimestamp:
-      output.GenerationTimestamp !== undefined && output.GenerationTimestamp !== null
-        ? output.GenerationTimestamp
-        : undefined,
-    RecommendationId:
-      output.RecommendationId !== undefined && output.RecommendationId !== null ? output.RecommendationId : undefined,
+    AdditionalMetadata: __expectString(output.AdditionalMetadata),
+    GenerationTimestamp: __expectString(output.GenerationTimestamp),
+    RecommendationId: __expectString(output.RecommendationId),
   } as any;
 };
 
@@ -5587,55 +5252,24 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendationSummary = (
   context: __SerdeContext
 ): SavingsPlansPurchaseRecommendationSummary => {
   return {
-    CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
-    CurrentOnDemandSpend:
-      output.CurrentOnDemandSpend !== undefined && output.CurrentOnDemandSpend !== null
-        ? output.CurrentOnDemandSpend
-        : undefined,
-    DailyCommitmentToPurchase:
-      output.DailyCommitmentToPurchase !== undefined && output.DailyCommitmentToPurchase !== null
-        ? output.DailyCommitmentToPurchase
-        : undefined,
-    EstimatedMonthlySavingsAmount:
-      output.EstimatedMonthlySavingsAmount !== undefined && output.EstimatedMonthlySavingsAmount !== null
-        ? output.EstimatedMonthlySavingsAmount
-        : undefined,
-    EstimatedOnDemandCostWithCurrentCommitment:
-      output.EstimatedOnDemandCostWithCurrentCommitment !== undefined &&
-      output.EstimatedOnDemandCostWithCurrentCommitment !== null
-        ? output.EstimatedOnDemandCostWithCurrentCommitment
-        : undefined,
-    EstimatedROI: output.EstimatedROI !== undefined && output.EstimatedROI !== null ? output.EstimatedROI : undefined,
-    EstimatedSavingsAmount:
-      output.EstimatedSavingsAmount !== undefined && output.EstimatedSavingsAmount !== null
-        ? output.EstimatedSavingsAmount
-        : undefined,
-    EstimatedSavingsPercentage:
-      output.EstimatedSavingsPercentage !== undefined && output.EstimatedSavingsPercentage !== null
-        ? output.EstimatedSavingsPercentage
-        : undefined,
-    EstimatedTotalCost:
-      output.EstimatedTotalCost !== undefined && output.EstimatedTotalCost !== null
-        ? output.EstimatedTotalCost
-        : undefined,
-    HourlyCommitmentToPurchase:
-      output.HourlyCommitmentToPurchase !== undefined && output.HourlyCommitmentToPurchase !== null
-        ? output.HourlyCommitmentToPurchase
-        : undefined,
-    TotalRecommendationCount:
-      output.TotalRecommendationCount !== undefined && output.TotalRecommendationCount !== null
-        ? output.TotalRecommendationCount
-        : undefined,
+    CurrencyCode: __expectString(output.CurrencyCode),
+    CurrentOnDemandSpend: __expectString(output.CurrentOnDemandSpend),
+    DailyCommitmentToPurchase: __expectString(output.DailyCommitmentToPurchase),
+    EstimatedMonthlySavingsAmount: __expectString(output.EstimatedMonthlySavingsAmount),
+    EstimatedOnDemandCostWithCurrentCommitment: __expectString(output.EstimatedOnDemandCostWithCurrentCommitment),
+    EstimatedROI: __expectString(output.EstimatedROI),
+    EstimatedSavingsAmount: __expectString(output.EstimatedSavingsAmount),
+    EstimatedSavingsPercentage: __expectString(output.EstimatedSavingsPercentage),
+    EstimatedTotalCost: __expectString(output.EstimatedTotalCost),
+    HourlyCommitmentToPurchase: __expectString(output.HourlyCommitmentToPurchase),
+    TotalRecommendationCount: __expectString(output.TotalRecommendationCount),
   } as any;
 };
 
 const deserializeAws_json1_1SavingsPlansSavings = (output: any, context: __SerdeContext): SavingsPlansSavings => {
   return {
-    NetSavings: output.NetSavings !== undefined && output.NetSavings !== null ? output.NetSavings : undefined,
-    OnDemandCostEquivalent:
-      output.OnDemandCostEquivalent !== undefined && output.OnDemandCostEquivalent !== null
-        ? output.OnDemandCostEquivalent
-        : undefined,
+    NetSavings: __expectString(output.NetSavings),
+    OnDemandCostEquivalent: __expectString(output.OnDemandCostEquivalent),
   } as any;
 };
 
@@ -5644,16 +5278,10 @@ const deserializeAws_json1_1SavingsPlansUtilization = (
   context: __SerdeContext
 ): SavingsPlansUtilization => {
   return {
-    TotalCommitment:
-      output.TotalCommitment !== undefined && output.TotalCommitment !== null ? output.TotalCommitment : undefined,
-    UnusedCommitment:
-      output.UnusedCommitment !== undefined && output.UnusedCommitment !== null ? output.UnusedCommitment : undefined,
-    UsedCommitment:
-      output.UsedCommitment !== undefined && output.UsedCommitment !== null ? output.UsedCommitment : undefined,
-    UtilizationPercentage:
-      output.UtilizationPercentage !== undefined && output.UtilizationPercentage !== null
-        ? output.UtilizationPercentage
-        : undefined,
+    TotalCommitment: __expectString(output.TotalCommitment),
+    UnusedCommitment: __expectString(output.UnusedCommitment),
+    UsedCommitment: __expectString(output.UsedCommitment),
+    UtilizationPercentage: __expectString(output.UtilizationPercentage),
   } as any;
 };
 
@@ -5718,8 +5346,7 @@ const deserializeAws_json1_1SavingsPlansUtilizationDetail = (
       output.Savings !== undefined && output.Savings !== null
         ? deserializeAws_json1_1SavingsPlansSavings(output.Savings, context)
         : undefined,
-    SavingsPlanArn:
-      output.SavingsPlanArn !== undefined && output.SavingsPlanArn !== null ? output.SavingsPlanArn : undefined,
+    SavingsPlanArn: __expectString(output.SavingsPlanArn),
     Utilization:
       output.Utilization !== undefined && output.Utilization !== null
         ? deserializeAws_json1_1SavingsPlansUtilization(output.Utilization, context)
@@ -5760,7 +5387,7 @@ const deserializeAws_json1_1ServiceQuotaExceededException = (
   context: __SerdeContext
 ): ServiceQuotaExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5775,9 +5402,9 @@ const deserializeAws_json1_1ServiceSpecification = (output: any, context: __Serd
 
 const deserializeAws_json1_1Subscriber = (output: any, context: __SerdeContext): Subscriber => {
   return {
-    Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Address: __expectString(output.Address),
+    Status: __expectString(output.Status),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -5799,13 +5426,13 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): st
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1TagValues = (output: any, context: __SerdeContext): TagValues => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Key: __expectString(output.Key),
     MatchOptions:
       output.MatchOptions !== undefined && output.MatchOptions !== null
         ? deserializeAws_json1_1MatchOptions(output.MatchOptions, context)
@@ -5830,19 +5457,10 @@ const deserializeAws_json1_1TagValuesList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1TargetInstance = (output: any, context: __SerdeContext): TargetInstance => {
   return {
-    CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
-    DefaultTargetInstance:
-      output.DefaultTargetInstance !== undefined && output.DefaultTargetInstance !== null
-        ? output.DefaultTargetInstance
-        : undefined,
-    EstimatedMonthlyCost:
-      output.EstimatedMonthlyCost !== undefined && output.EstimatedMonthlyCost !== null
-        ? output.EstimatedMonthlyCost
-        : undefined,
-    EstimatedMonthlySavings:
-      output.EstimatedMonthlySavings !== undefined && output.EstimatedMonthlySavings !== null
-        ? output.EstimatedMonthlySavings
-        : undefined,
+    CurrencyCode: __expectString(output.CurrencyCode),
+    DefaultTargetInstance: __expectBoolean(output.DefaultTargetInstance),
+    EstimatedMonthlyCost: __expectString(output.EstimatedMonthlyCost),
+    EstimatedMonthlySavings: __expectString(output.EstimatedMonthlySavings),
     ExpectedResourceUtilization:
       output.ExpectedResourceUtilization !== undefined && output.ExpectedResourceUtilization !== null
         ? deserializeAws_json1_1ResourceUtilization(output.ExpectedResourceUtilization, context)
@@ -5874,11 +5492,8 @@ const deserializeAws_json1_1TerminateRecommendationDetail = (
   context: __SerdeContext
 ): TerminateRecommendationDetail => {
   return {
-    CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
-    EstimatedMonthlySavings:
-      output.EstimatedMonthlySavings !== undefined && output.EstimatedMonthlySavings !== null
-        ? output.EstimatedMonthlySavings
-        : undefined,
+    CurrencyCode: __expectString(output.CurrencyCode),
+    EstimatedMonthlySavings: __expectString(output.EstimatedMonthlySavings),
   } as any;
 };
 
@@ -5887,7 +5502,7 @@ const deserializeAws_json1_1UnknownMonitorException = (
   context: __SerdeContext
 ): UnknownMonitorException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5896,7 +5511,7 @@ const deserializeAws_json1_1UnknownSubscriptionException = (
   context: __SerdeContext
 ): UnknownSubscriptionException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5905,7 +5520,7 @@ const deserializeAws_json1_1UnresolvableUsageUnitException = (
   context: __SerdeContext
 ): UnresolvableUsageUnitException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5914,7 +5529,7 @@ const deserializeAws_json1_1UpdateAnomalyMonitorResponse = (
   context: __SerdeContext
 ): UpdateAnomalyMonitorResponse => {
   return {
-    MonitorArn: output.MonitorArn !== undefined && output.MonitorArn !== null ? output.MonitorArn : undefined,
+    MonitorArn: __expectString(output.MonitorArn),
   } as any;
 };
 
@@ -5923,8 +5538,7 @@ const deserializeAws_json1_1UpdateAnomalySubscriptionResponse = (
   context: __SerdeContext
 ): UpdateAnomalySubscriptionResponse => {
   return {
-    SubscriptionArn:
-      output.SubscriptionArn !== undefined && output.SubscriptionArn !== null ? output.SubscriptionArn : undefined,
+    SubscriptionArn: __expectString(output.SubscriptionArn),
   } as any;
 };
 
@@ -5933,10 +5547,8 @@ const deserializeAws_json1_1UpdateCostCategoryDefinitionResponse = (
   context: __SerdeContext
 ): UpdateCostCategoryDefinitionResponse => {
   return {
-    CostCategoryArn:
-      output.CostCategoryArn !== undefined && output.CostCategoryArn !== null ? output.CostCategoryArn : undefined,
-    EffectiveStart:
-      output.EffectiveStart !== undefined && output.EffectiveStart !== null ? output.EffectiveStart : undefined,
+    CostCategoryArn: __expectString(output.CostCategoryArn),
+    EffectiveStart: __expectString(output.EffectiveStart),
   } as any;
 };
 
@@ -5975,7 +5587,7 @@ const deserializeAws_json1_1Values = (output: any, context: __SerdeContext): str
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

@@ -262,7 +262,12 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -6515,15 +6520,15 @@ const serializeAws_json1_1UpdateServiceSettingsRequest = (
 
 const deserializeAws_json1_1AcceptGrantResponse = (output: any, context: __SerdeContext): AcceptGrantResponse => {
   return {
-    GrantArn: output.GrantArn !== undefined && output.GrantArn !== null ? output.GrantArn : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    GrantArn: __expectString(output.GrantArn),
+    Status: __expectString(output.Status),
+    Version: __expectString(output.Version),
   } as any;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -6537,7 +6542,7 @@ const deserializeAws_json1_1AllowedOperationList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6548,13 +6553,13 @@ const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): st
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1AuthorizationException = (output: any, context: __SerdeContext): AuthorizationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -6572,14 +6577,8 @@ const deserializeAws_json1_1AutomatedDiscoveryInformation = (
 
 const deserializeAws_json1_1BorrowConfiguration = (output: any, context: __SerdeContext): BorrowConfiguration => {
   return {
-    AllowEarlyCheckIn:
-      output.AllowEarlyCheckIn !== undefined && output.AllowEarlyCheckIn !== null
-        ? output.AllowEarlyCheckIn
-        : undefined,
-    MaxTimeToLiveInMinutes:
-      output.MaxTimeToLiveInMinutes !== undefined && output.MaxTimeToLiveInMinutes !== null
-        ? output.MaxTimeToLiveInMinutes
-        : undefined,
+    AllowEarlyCheckIn: __expectBoolean(output.AllowEarlyCheckIn),
+    MaxTimeToLiveInMinutes: __expectNumber(output.MaxTimeToLiveInMinutes),
   } as any;
 };
 
@@ -6600,15 +6599,12 @@ const deserializeAws_json1_1CheckoutBorrowLicenseResponse = (
       output.EntitlementsAllowed !== undefined && output.EntitlementsAllowed !== null
         ? deserializeAws_json1_1EntitlementDataList(output.EntitlementsAllowed, context)
         : undefined,
-    Expiration: output.Expiration !== undefined && output.Expiration !== null ? output.Expiration : undefined,
-    IssuedAt: output.IssuedAt !== undefined && output.IssuedAt !== null ? output.IssuedAt : undefined,
-    LicenseArn: output.LicenseArn !== undefined && output.LicenseArn !== null ? output.LicenseArn : undefined,
-    LicenseConsumptionToken:
-      output.LicenseConsumptionToken !== undefined && output.LicenseConsumptionToken !== null
-        ? output.LicenseConsumptionToken
-        : undefined,
-    NodeId: output.NodeId !== undefined && output.NodeId !== null ? output.NodeId : undefined,
-    SignedToken: output.SignedToken !== undefined && output.SignedToken !== null ? output.SignedToken : undefined,
+    Expiration: __expectString(output.Expiration),
+    IssuedAt: __expectString(output.IssuedAt),
+    LicenseArn: __expectString(output.LicenseArn),
+    LicenseConsumptionToken: __expectString(output.LicenseConsumptionToken),
+    NodeId: __expectString(output.NodeId),
+    SignedToken: __expectString(output.SignedToken),
   } as any;
 };
 
@@ -6617,33 +6613,29 @@ const deserializeAws_json1_1CheckoutLicenseResponse = (
   context: __SerdeContext
 ): CheckoutLicenseResponse => {
   return {
-    CheckoutType: output.CheckoutType !== undefined && output.CheckoutType !== null ? output.CheckoutType : undefined,
+    CheckoutType: __expectString(output.CheckoutType),
     EntitlementsAllowed:
       output.EntitlementsAllowed !== undefined && output.EntitlementsAllowed !== null
         ? deserializeAws_json1_1EntitlementDataList(output.EntitlementsAllowed, context)
         : undefined,
-    Expiration: output.Expiration !== undefined && output.Expiration !== null ? output.Expiration : undefined,
-    IssuedAt: output.IssuedAt !== undefined && output.IssuedAt !== null ? output.IssuedAt : undefined,
-    LicenseConsumptionToken:
-      output.LicenseConsumptionToken !== undefined && output.LicenseConsumptionToken !== null
-        ? output.LicenseConsumptionToken
-        : undefined,
-    NodeId: output.NodeId !== undefined && output.NodeId !== null ? output.NodeId : undefined,
-    SignedToken: output.SignedToken !== undefined && output.SignedToken !== null ? output.SignedToken : undefined,
+    Expiration: __expectString(output.Expiration),
+    IssuedAt: __expectString(output.IssuedAt),
+    LicenseConsumptionToken: __expectString(output.LicenseConsumptionToken),
+    NodeId: __expectString(output.NodeId),
+    SignedToken: __expectString(output.SignedToken),
   } as any;
 };
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1ConsumedLicenseSummary = (output: any, context: __SerdeContext): ConsumedLicenseSummary => {
   return {
-    ConsumedLicenses:
-      output.ConsumedLicenses !== undefined && output.ConsumedLicenses !== null ? output.ConsumedLicenses : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    ConsumedLicenses: __expectNumber(output.ConsumedLicenses),
+    ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
@@ -6674,15 +6666,15 @@ const deserializeAws_json1_1ConsumptionConfiguration = (
       output.ProvisionalConfiguration !== undefined && output.ProvisionalConfiguration !== null
         ? deserializeAws_json1_1ProvisionalConfiguration(output.ProvisionalConfiguration, context)
         : undefined,
-    RenewType: output.RenewType !== undefined && output.RenewType !== null ? output.RenewType : undefined,
+    RenewType: __expectString(output.RenewType),
   } as any;
 };
 
 const deserializeAws_json1_1CreateGrantResponse = (output: any, context: __SerdeContext): CreateGrantResponse => {
   return {
-    GrantArn: output.GrantArn !== undefined && output.GrantArn !== null ? output.GrantArn : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    GrantArn: __expectString(output.GrantArn),
+    Status: __expectString(output.Status),
+    Version: __expectString(output.Version),
   } as any;
 };
 
@@ -6691,9 +6683,9 @@ const deserializeAws_json1_1CreateGrantVersionResponse = (
   context: __SerdeContext
 ): CreateGrantVersionResponse => {
   return {
-    GrantArn: output.GrantArn !== undefined && output.GrantArn !== null ? output.GrantArn : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    GrantArn: __expectString(output.GrantArn),
+    Status: __expectString(output.Status),
+    Version: __expectString(output.Version),
   } as any;
 };
 
@@ -6702,10 +6694,7 @@ const deserializeAws_json1_1CreateLicenseConfigurationResponse = (
   context: __SerdeContext
 ): CreateLicenseConfigurationResponse => {
   return {
-    LicenseConfigurationArn:
-      output.LicenseConfigurationArn !== undefined && output.LicenseConfigurationArn !== null
-        ? output.LicenseConfigurationArn
-        : undefined,
+    LicenseConfigurationArn: __expectString(output.LicenseConfigurationArn),
   } as any;
 };
 
@@ -6714,18 +6703,15 @@ const deserializeAws_json1_1CreateLicenseManagerReportGeneratorResponse = (
   context: __SerdeContext
 ): CreateLicenseManagerReportGeneratorResponse => {
   return {
-    LicenseManagerReportGeneratorArn:
-      output.LicenseManagerReportGeneratorArn !== undefined && output.LicenseManagerReportGeneratorArn !== null
-        ? output.LicenseManagerReportGeneratorArn
-        : undefined,
+    LicenseManagerReportGeneratorArn: __expectString(output.LicenseManagerReportGeneratorArn),
   } as any;
 };
 
 const deserializeAws_json1_1CreateLicenseResponse = (output: any, context: __SerdeContext): CreateLicenseResponse => {
   return {
-    LicenseArn: output.LicenseArn !== undefined && output.LicenseArn !== null ? output.LicenseArn : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    LicenseArn: __expectString(output.LicenseArn),
+    Status: __expectString(output.Status),
+    Version: __expectString(output.Version),
   } as any;
 };
 
@@ -6734,32 +6720,32 @@ const deserializeAws_json1_1CreateLicenseVersionResponse = (
   context: __SerdeContext
 ): CreateLicenseVersionResponse => {
   return {
-    LicenseArn: output.LicenseArn !== undefined && output.LicenseArn !== null ? output.LicenseArn : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    LicenseArn: __expectString(output.LicenseArn),
+    Status: __expectString(output.Status),
+    Version: __expectString(output.Version),
   } as any;
 };
 
 const deserializeAws_json1_1CreateTokenResponse = (output: any, context: __SerdeContext): CreateTokenResponse => {
   return {
-    Token: output.Token !== undefined && output.Token !== null ? output.Token : undefined,
-    TokenId: output.TokenId !== undefined && output.TokenId !== null ? output.TokenId : undefined,
-    TokenType: output.TokenType !== undefined && output.TokenType !== null ? output.TokenType : undefined,
+    Token: __expectString(output.Token),
+    TokenId: __expectString(output.TokenId),
+    TokenType: __expectString(output.TokenType),
   } as any;
 };
 
 const deserializeAws_json1_1DatetimeRange = (output: any, context: __SerdeContext): DatetimeRange => {
   return {
-    Begin: output.Begin !== undefined && output.Begin !== null ? output.Begin : undefined,
-    End: output.End !== undefined && output.End !== null ? output.End : undefined,
+    Begin: __expectString(output.Begin),
+    End: __expectString(output.End),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteGrantResponse = (output: any, context: __SerdeContext): DeleteGrantResponse => {
   return {
-    GrantArn: output.GrantArn !== undefined && output.GrantArn !== null ? output.GrantArn : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    GrantArn: __expectString(output.GrantArn),
+    Status: __expectString(output.Status),
+    Version: __expectString(output.Version),
   } as any;
 };
 
@@ -6779,8 +6765,8 @@ const deserializeAws_json1_1DeleteLicenseManagerReportGeneratorResponse = (
 
 const deserializeAws_json1_1DeleteLicenseResponse = (output: any, context: __SerdeContext): DeleteLicenseResponse => {
   return {
-    DeletionDate: output.DeletionDate !== undefined && output.DeletionDate !== null ? output.DeletionDate : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    DeletionDate: __expectString(output.DeletionDate),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -6790,20 +6776,20 @@ const deserializeAws_json1_1DeleteTokenResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext): Entitlement => {
   return {
-    AllowCheckIn: output.AllowCheckIn !== undefined && output.AllowCheckIn !== null ? output.AllowCheckIn : undefined,
-    MaxCount: output.MaxCount !== undefined && output.MaxCount !== null ? output.MaxCount : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Overage: output.Overage !== undefined && output.Overage !== null ? output.Overage : undefined,
-    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    AllowCheckIn: __expectBoolean(output.AllowCheckIn),
+    MaxCount: __expectNumber(output.MaxCount),
+    Name: __expectString(output.Name),
+    Overage: __expectBoolean(output.Overage),
+    Unit: __expectString(output.Unit),
+    Value: __expectString(output.Value),
   } as any;
 };
 
 const deserializeAws_json1_1EntitlementData = (output: any, context: __SerdeContext): EntitlementData => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Name: __expectString(output.Name),
+    Unit: __expectString(output.Unit),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -6834,17 +6820,16 @@ const deserializeAws_json1_1EntitlementNotAllowedException = (
   context: __SerdeContext
 ): EntitlementNotAllowedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1EntitlementUsage = (output: any, context: __SerdeContext): EntitlementUsage => {
   return {
-    ConsumedValue:
-      output.ConsumedValue !== undefined && output.ConsumedValue !== null ? output.ConsumedValue : undefined,
-    MaxCount: output.MaxCount !== undefined && output.MaxCount !== null ? output.MaxCount : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
+    ConsumedValue: __expectString(output.ConsumedValue),
+    MaxCount: __expectString(output.MaxCount),
+    Name: __expectString(output.Name),
+    Unit: __expectString(output.Unit),
   } as any;
 };
 
@@ -6864,11 +6849,8 @@ const deserializeAws_json1_1ExtendLicenseConsumptionResponse = (
   context: __SerdeContext
 ): ExtendLicenseConsumptionResponse => {
   return {
-    Expiration: output.Expiration !== undefined && output.Expiration !== null ? output.Expiration : undefined,
-    LicenseConsumptionToken:
-      output.LicenseConsumptionToken !== undefined && output.LicenseConsumptionToken !== null
-        ? output.LicenseConsumptionToken
-        : undefined,
+    Expiration: __expectString(output.Expiration),
+    LicenseConsumptionToken: __expectString(output.LicenseConsumptionToken),
   } as any;
 };
 
@@ -6877,8 +6859,8 @@ const deserializeAws_json1_1FailedDependencyException = (
   context: __SerdeContext
 ): FailedDependencyException => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -6887,13 +6869,13 @@ const deserializeAws_json1_1FilterLimitExceededException = (
   context: __SerdeContext
 ): FilterLimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1GetAccessTokenResponse = (output: any, context: __SerdeContext): GetAccessTokenResponse => {
   return {
-    AccessToken: output.AccessToken !== undefined && output.AccessToken !== null ? output.AccessToken : undefined,
+    AccessToken: __expectString(output.AccessToken),
   } as any;
 };
 
@@ -6919,30 +6901,14 @@ const deserializeAws_json1_1GetLicenseConfigurationResponse = (
       output.ConsumedLicenseSummaryList !== undefined && output.ConsumedLicenseSummaryList !== null
         ? deserializeAws_json1_1ConsumedLicenseSummaryList(output.ConsumedLicenseSummaryList, context)
         : undefined,
-    ConsumedLicenses:
-      output.ConsumedLicenses !== undefined && output.ConsumedLicenses !== null ? output.ConsumedLicenses : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    DisassociateWhenNotFound:
-      output.DisassociateWhenNotFound !== undefined && output.DisassociateWhenNotFound !== null
-        ? output.DisassociateWhenNotFound
-        : undefined,
-    LicenseConfigurationArn:
-      output.LicenseConfigurationArn !== undefined && output.LicenseConfigurationArn !== null
-        ? output.LicenseConfigurationArn
-        : undefined,
-    LicenseConfigurationId:
-      output.LicenseConfigurationId !== undefined && output.LicenseConfigurationId !== null
-        ? output.LicenseConfigurationId
-        : undefined,
-    LicenseCount: output.LicenseCount !== undefined && output.LicenseCount !== null ? output.LicenseCount : undefined,
-    LicenseCountHardLimit:
-      output.LicenseCountHardLimit !== undefined && output.LicenseCountHardLimit !== null
-        ? output.LicenseCountHardLimit
-        : undefined,
-    LicenseCountingType:
-      output.LicenseCountingType !== undefined && output.LicenseCountingType !== null
-        ? output.LicenseCountingType
-        : undefined,
+    ConsumedLicenses: __expectNumber(output.ConsumedLicenses),
+    Description: __expectString(output.Description),
+    DisassociateWhenNotFound: __expectBoolean(output.DisassociateWhenNotFound),
+    LicenseConfigurationArn: __expectString(output.LicenseConfigurationArn),
+    LicenseConfigurationId: __expectString(output.LicenseConfigurationId),
+    LicenseCount: __expectNumber(output.LicenseCount),
+    LicenseCountHardLimit: __expectBoolean(output.LicenseCountHardLimit),
+    LicenseCountingType: __expectString(output.LicenseCountingType),
     LicenseRules:
       output.LicenseRules !== undefined && output.LicenseRules !== null
         ? deserializeAws_json1_1StringList(output.LicenseRules, context)
@@ -6951,14 +6917,13 @@ const deserializeAws_json1_1GetLicenseConfigurationResponse = (
       output.ManagedResourceSummaryList !== undefined && output.ManagedResourceSummaryList !== null
         ? deserializeAws_json1_1ManagedResourceSummaryList(output.ManagedResourceSummaryList, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    OwnerAccountId:
-      output.OwnerAccountId !== undefined && output.OwnerAccountId !== null ? output.OwnerAccountId : undefined,
+    Name: __expectString(output.Name),
+    OwnerAccountId: __expectString(output.OwnerAccountId),
     ProductInformationList:
       output.ProductInformationList !== undefined && output.ProductInformationList !== null
         ? deserializeAws_json1_1ProductInformationList(output.ProductInformationList, context)
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -7004,79 +6969,70 @@ const deserializeAws_json1_1GetServiceSettingsResponse = (
   context: __SerdeContext
 ): GetServiceSettingsResponse => {
   return {
-    EnableCrossAccountsDiscovery:
-      output.EnableCrossAccountsDiscovery !== undefined && output.EnableCrossAccountsDiscovery !== null
-        ? output.EnableCrossAccountsDiscovery
-        : undefined,
-    LicenseManagerResourceShareArn:
-      output.LicenseManagerResourceShareArn !== undefined && output.LicenseManagerResourceShareArn !== null
-        ? output.LicenseManagerResourceShareArn
-        : undefined,
+    EnableCrossAccountsDiscovery: __expectBoolean(output.EnableCrossAccountsDiscovery),
+    LicenseManagerResourceShareArn: __expectString(output.LicenseManagerResourceShareArn),
     OrganizationConfiguration:
       output.OrganizationConfiguration !== undefined && output.OrganizationConfiguration !== null
         ? deserializeAws_json1_1OrganizationConfiguration(output.OrganizationConfiguration, context)
         : undefined,
-    S3BucketArn: output.S3BucketArn !== undefined && output.S3BucketArn !== null ? output.S3BucketArn : undefined,
-    SnsTopicArn: output.SnsTopicArn !== undefined && output.SnsTopicArn !== null ? output.SnsTopicArn : undefined,
+    S3BucketArn: __expectString(output.S3BucketArn),
+    SnsTopicArn: __expectString(output.SnsTopicArn),
   } as any;
 };
 
 const deserializeAws_json1_1Grant = (output: any, context: __SerdeContext): Grant => {
   return {
-    GrantArn: output.GrantArn !== undefined && output.GrantArn !== null ? output.GrantArn : undefined,
-    GrantName: output.GrantName !== undefined && output.GrantName !== null ? output.GrantName : undefined,
-    GrantStatus: output.GrantStatus !== undefined && output.GrantStatus !== null ? output.GrantStatus : undefined,
+    GrantArn: __expectString(output.GrantArn),
+    GrantName: __expectString(output.GrantName),
+    GrantStatus: __expectString(output.GrantStatus),
     GrantedOperations:
       output.GrantedOperations !== undefined && output.GrantedOperations !== null
         ? deserializeAws_json1_1AllowedOperationList(output.GrantedOperations, context)
         : undefined,
-    GranteePrincipalArn:
-      output.GranteePrincipalArn !== undefined && output.GranteePrincipalArn !== null
-        ? output.GranteePrincipalArn
-        : undefined,
-    HomeRegion: output.HomeRegion !== undefined && output.HomeRegion !== null ? output.HomeRegion : undefined,
-    LicenseArn: output.LicenseArn !== undefined && output.LicenseArn !== null ? output.LicenseArn : undefined,
-    ParentArn: output.ParentArn !== undefined && output.ParentArn !== null ? output.ParentArn : undefined,
-    StatusReason: output.StatusReason !== undefined && output.StatusReason !== null ? output.StatusReason : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    GranteePrincipalArn: __expectString(output.GranteePrincipalArn),
+    HomeRegion: __expectString(output.HomeRegion),
+    LicenseArn: __expectString(output.LicenseArn),
+    ParentArn: __expectString(output.ParentArn),
+    StatusReason: __expectString(output.StatusReason),
+    Version: __expectString(output.Version),
   } as any;
 };
 
 const deserializeAws_json1_1GrantedLicense = (output: any, context: __SerdeContext): GrantedLicense => {
   return {
-    Beneficiary: output.Beneficiary !== undefined && output.Beneficiary !== null ? output.Beneficiary : undefined,
+    Beneficiary: __expectString(output.Beneficiary),
     ConsumptionConfiguration:
       output.ConsumptionConfiguration !== undefined && output.ConsumptionConfiguration !== null
         ? deserializeAws_json1_1ConsumptionConfiguration(output.ConsumptionConfiguration, context)
         : undefined,
-    CreateTime: output.CreateTime !== undefined && output.CreateTime !== null ? output.CreateTime : undefined,
+    CreateTime: __expectString(output.CreateTime),
     Entitlements:
       output.Entitlements !== undefined && output.Entitlements !== null
         ? deserializeAws_json1_1EntitlementList(output.Entitlements, context)
         : undefined,
-    HomeRegion: output.HomeRegion !== undefined && output.HomeRegion !== null ? output.HomeRegion : undefined,
+    HomeRegion: __expectString(output.HomeRegion),
     Issuer:
       output.Issuer !== undefined && output.Issuer !== null
         ? deserializeAws_json1_1IssuerDetails(output.Issuer, context)
         : undefined,
-    LicenseArn: output.LicenseArn !== undefined && output.LicenseArn !== null ? output.LicenseArn : undefined,
+    LicenseArn: __expectString(output.LicenseArn),
     LicenseMetadata:
       output.LicenseMetadata !== undefined && output.LicenseMetadata !== null
         ? deserializeAws_json1_1MetadataList(output.LicenseMetadata, context)
         : undefined,
-    LicenseName: output.LicenseName !== undefined && output.LicenseName !== null ? output.LicenseName : undefined,
-    ProductName: output.ProductName !== undefined && output.ProductName !== null ? output.ProductName : undefined,
-    ProductSKU: output.ProductSKU !== undefined && output.ProductSKU !== null ? output.ProductSKU : undefined,
+    LicenseName: __expectString(output.LicenseName),
+    ProductName: __expectString(output.ProductName),
+    ProductSKU: __expectString(output.ProductSKU),
     ReceivedMetadata:
       output.ReceivedMetadata !== undefined && output.ReceivedMetadata !== null
         ? deserializeAws_json1_1ReceivedMetadata(output.ReceivedMetadata, context)
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
     Validity:
       output.Validity !== undefined && output.Validity !== null
         ? deserializeAws_json1_1DatetimeRange(output.Validity, context)
         : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    Version: __expectString(output.Version),
   } as any;
 };
 
@@ -7107,7 +7063,7 @@ const deserializeAws_json1_1InvalidParameterValueException = (
   context: __SerdeContext
 ): InvalidParameterValueException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7116,50 +7072,49 @@ const deserializeAws_json1_1InvalidResourceStateException = (
   context: __SerdeContext
 ): InvalidResourceStateException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1IssuerDetails = (output: any, context: __SerdeContext): IssuerDetails => {
   return {
-    KeyFingerprint:
-      output.KeyFingerprint !== undefined && output.KeyFingerprint !== null ? output.KeyFingerprint : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    SignKey: output.SignKey !== undefined && output.SignKey !== null ? output.SignKey : undefined,
+    KeyFingerprint: __expectString(output.KeyFingerprint),
+    Name: __expectString(output.Name),
+    SignKey: __expectString(output.SignKey),
   } as any;
 };
 
 const deserializeAws_json1_1License = (output: any, context: __SerdeContext): License => {
   return {
-    Beneficiary: output.Beneficiary !== undefined && output.Beneficiary !== null ? output.Beneficiary : undefined,
+    Beneficiary: __expectString(output.Beneficiary),
     ConsumptionConfiguration:
       output.ConsumptionConfiguration !== undefined && output.ConsumptionConfiguration !== null
         ? deserializeAws_json1_1ConsumptionConfiguration(output.ConsumptionConfiguration, context)
         : undefined,
-    CreateTime: output.CreateTime !== undefined && output.CreateTime !== null ? output.CreateTime : undefined,
+    CreateTime: __expectString(output.CreateTime),
     Entitlements:
       output.Entitlements !== undefined && output.Entitlements !== null
         ? deserializeAws_json1_1EntitlementList(output.Entitlements, context)
         : undefined,
-    HomeRegion: output.HomeRegion !== undefined && output.HomeRegion !== null ? output.HomeRegion : undefined,
+    HomeRegion: __expectString(output.HomeRegion),
     Issuer:
       output.Issuer !== undefined && output.Issuer !== null
         ? deserializeAws_json1_1IssuerDetails(output.Issuer, context)
         : undefined,
-    LicenseArn: output.LicenseArn !== undefined && output.LicenseArn !== null ? output.LicenseArn : undefined,
+    LicenseArn: __expectString(output.LicenseArn),
     LicenseMetadata:
       output.LicenseMetadata !== undefined && output.LicenseMetadata !== null
         ? deserializeAws_json1_1MetadataList(output.LicenseMetadata, context)
         : undefined,
-    LicenseName: output.LicenseName !== undefined && output.LicenseName !== null ? output.LicenseName : undefined,
-    ProductName: output.ProductName !== undefined && output.ProductName !== null ? output.ProductName : undefined,
-    ProductSKU: output.ProductSKU !== undefined && output.ProductSKU !== null ? output.ProductSKU : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    LicenseName: __expectString(output.LicenseName),
+    ProductName: __expectString(output.ProductName),
+    ProductSKU: __expectString(output.ProductSKU),
+    Status: __expectString(output.Status),
     Validity:
       output.Validity !== undefined && output.Validity !== null
         ? deserializeAws_json1_1DatetimeRange(output.Validity, context)
         : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    Version: __expectString(output.Version),
   } as any;
 };
 
@@ -7173,30 +7128,14 @@ const deserializeAws_json1_1LicenseConfiguration = (output: any, context: __Serd
       output.ConsumedLicenseSummaryList !== undefined && output.ConsumedLicenseSummaryList !== null
         ? deserializeAws_json1_1ConsumedLicenseSummaryList(output.ConsumedLicenseSummaryList, context)
         : undefined,
-    ConsumedLicenses:
-      output.ConsumedLicenses !== undefined && output.ConsumedLicenses !== null ? output.ConsumedLicenses : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    DisassociateWhenNotFound:
-      output.DisassociateWhenNotFound !== undefined && output.DisassociateWhenNotFound !== null
-        ? output.DisassociateWhenNotFound
-        : undefined,
-    LicenseConfigurationArn:
-      output.LicenseConfigurationArn !== undefined && output.LicenseConfigurationArn !== null
-        ? output.LicenseConfigurationArn
-        : undefined,
-    LicenseConfigurationId:
-      output.LicenseConfigurationId !== undefined && output.LicenseConfigurationId !== null
-        ? output.LicenseConfigurationId
-        : undefined,
-    LicenseCount: output.LicenseCount !== undefined && output.LicenseCount !== null ? output.LicenseCount : undefined,
-    LicenseCountHardLimit:
-      output.LicenseCountHardLimit !== undefined && output.LicenseCountHardLimit !== null
-        ? output.LicenseCountHardLimit
-        : undefined,
-    LicenseCountingType:
-      output.LicenseCountingType !== undefined && output.LicenseCountingType !== null
-        ? output.LicenseCountingType
-        : undefined,
+    ConsumedLicenses: __expectNumber(output.ConsumedLicenses),
+    Description: __expectString(output.Description),
+    DisassociateWhenNotFound: __expectBoolean(output.DisassociateWhenNotFound),
+    LicenseConfigurationArn: __expectString(output.LicenseConfigurationArn),
+    LicenseConfigurationId: __expectString(output.LicenseConfigurationId),
+    LicenseCount: __expectNumber(output.LicenseCount),
+    LicenseCountHardLimit: __expectBoolean(output.LicenseCountHardLimit),
+    LicenseCountingType: __expectString(output.LicenseCountingType),
     LicenseRules:
       output.LicenseRules !== undefined && output.LicenseRules !== null
         ? deserializeAws_json1_1StringList(output.LicenseRules, context)
@@ -7205,14 +7144,13 @@ const deserializeAws_json1_1LicenseConfiguration = (output: any, context: __Serd
       output.ManagedResourceSummaryList !== undefined && output.ManagedResourceSummaryList !== null
         ? deserializeAws_json1_1ManagedResourceSummaryList(output.ManagedResourceSummaryList, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    OwnerAccountId:
-      output.OwnerAccountId !== undefined && output.OwnerAccountId !== null ? output.OwnerAccountId : undefined,
+    Name: __expectString(output.Name),
+    OwnerAccountId: __expectString(output.OwnerAccountId),
     ProductInformationList:
       output.ProductInformationList !== undefined && output.ProductInformationList !== null
         ? deserializeAws_json1_1ProductInformationList(output.ProductInformationList, context)
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -7221,18 +7159,14 @@ const deserializeAws_json1_1LicenseConfigurationAssociation = (
   context: __SerdeContext
 ): LicenseConfigurationAssociation => {
   return {
-    AmiAssociationScope:
-      output.AmiAssociationScope !== undefined && output.AmiAssociationScope !== null
-        ? output.AmiAssociationScope
-        : undefined,
+    AmiAssociationScope: __expectString(output.AmiAssociationScope),
     AssociationTime:
       output.AssociationTime !== undefined && output.AssociationTime !== null
         ? new Date(Math.round(output.AssociationTime * 1000))
         : undefined,
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
-    ResourceOwnerId:
-      output.ResourceOwnerId !== undefined && output.ResourceOwnerId !== null ? output.ResourceOwnerId : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    ResourceArn: __expectString(output.ResourceArn),
+    ResourceOwnerId: __expectString(output.ResourceOwnerId),
+    ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
@@ -7270,14 +7204,11 @@ const deserializeAws_json1_1LicenseConfigurationUsage = (
       output.AssociationTime !== undefined && output.AssociationTime !== null
         ? new Date(Math.round(output.AssociationTime * 1000))
         : undefined,
-    ConsumedLicenses:
-      output.ConsumedLicenses !== undefined && output.ConsumedLicenses !== null ? output.ConsumedLicenses : undefined,
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
-    ResourceOwnerId:
-      output.ResourceOwnerId !== undefined && output.ResourceOwnerId !== null ? output.ResourceOwnerId : undefined,
-    ResourceStatus:
-      output.ResourceStatus !== undefined && output.ResourceStatus !== null ? output.ResourceStatus : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    ConsumedLicenses: __expectNumber(output.ConsumedLicenses),
+    ResourceArn: __expectString(output.ResourceArn),
+    ResourceOwnerId: __expectString(output.ResourceOwnerId),
+    ResourceStatus: __expectString(output.ResourceStatus),
+    ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
@@ -7311,7 +7242,7 @@ const deserializeAws_json1_1LicenseOperationFailure = (
   context: __SerdeContext
 ): LicenseOperationFailure => {
   return {
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    ErrorMessage: __expectString(output.ErrorMessage),
     FailureTime:
       output.FailureTime !== undefined && output.FailureTime !== null
         ? new Date(Math.round(output.FailureTime * 1000))
@@ -7320,16 +7251,11 @@ const deserializeAws_json1_1LicenseOperationFailure = (
       output.MetadataList !== undefined && output.MetadataList !== null
         ? deserializeAws_json1_1MetadataList(output.MetadataList, context)
         : undefined,
-    OperationName:
-      output.OperationName !== undefined && output.OperationName !== null ? output.OperationName : undefined,
-    OperationRequestedBy:
-      output.OperationRequestedBy !== undefined && output.OperationRequestedBy !== null
-        ? output.OperationRequestedBy
-        : undefined,
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
-    ResourceOwnerId:
-      output.ResourceOwnerId !== undefined && output.ResourceOwnerId !== null ? output.ResourceOwnerId : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    OperationName: __expectString(output.OperationName),
+    OperationRequestedBy: __expectString(output.OperationRequestedBy),
+    ResourceArn: __expectString(output.ResourceArn),
+    ResourceOwnerId: __expectString(output.ResourceOwnerId),
+    ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
@@ -7349,14 +7275,8 @@ const deserializeAws_json1_1LicenseOperationFailureList = (
 
 const deserializeAws_json1_1LicenseSpecification = (output: any, context: __SerdeContext): LicenseSpecification => {
   return {
-    AmiAssociationScope:
-      output.AmiAssociationScope !== undefined && output.AmiAssociationScope !== null
-        ? output.AmiAssociationScope
-        : undefined,
-    LicenseConfigurationArn:
-      output.LicenseConfigurationArn !== undefined && output.LicenseConfigurationArn !== null
-        ? output.LicenseConfigurationArn
-        : undefined,
+    AmiAssociationScope: __expectString(output.AmiAssociationScope),
+    LicenseConfigurationArn: __expectString(output.LicenseConfigurationArn),
   } as any;
 };
 
@@ -7382,7 +7302,7 @@ const deserializeAws_json1_1LicenseUsage = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1LicenseUsageException = (output: any, context: __SerdeContext): LicenseUsageException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7395,7 +7315,7 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationResponse = (
       output.LicenseConfigurationAssociations !== undefined && output.LicenseConfigurationAssociations !== null
         ? deserializeAws_json1_1LicenseConfigurationAssociations(output.LicenseConfigurationAssociations, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -7408,7 +7328,7 @@ const deserializeAws_json1_1ListDistributedGrantsResponse = (
       output.Grants !== undefined && output.Grants !== null
         ? deserializeAws_json1_1GrantList(output.Grants, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -7421,7 +7341,7 @@ const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRespons
       output.LicenseOperationFailureList !== undefined && output.LicenseOperationFailureList !== null
         ? deserializeAws_json1_1LicenseOperationFailureList(output.LicenseOperationFailureList, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -7434,7 +7354,7 @@ const deserializeAws_json1_1ListLicenseConfigurationsResponse = (
       output.LicenseConfigurations !== undefined && output.LicenseConfigurations !== null
         ? deserializeAws_json1_1LicenseConfigurations(output.LicenseConfigurations, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -7443,7 +7363,7 @@ const deserializeAws_json1_1ListLicenseManagerReportGeneratorsResponse = (
   context: __SerdeContext
 ): ListLicenseManagerReportGeneratorsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     ReportGenerators:
       output.ReportGenerators !== undefined && output.ReportGenerators !== null
         ? deserializeAws_json1_1ReportGeneratorList(output.ReportGenerators, context)
@@ -7460,7 +7380,7 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceResponse = (
       output.LicenseSpecifications !== undefined && output.LicenseSpecifications !== null
         ? deserializeAws_json1_1LicenseSpecifications(output.LicenseSpecifications, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -7470,7 +7390,7 @@ const deserializeAws_json1_1ListLicensesResponse = (output: any, context: __Serd
       output.Licenses !== undefined && output.Licenses !== null
         ? deserializeAws_json1_1LicenseList(output.Licenses, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -7483,7 +7403,7 @@ const deserializeAws_json1_1ListLicenseVersionsResponse = (
       output.Licenses !== undefined && output.Licenses !== null
         ? deserializeAws_json1_1LicenseList(output.Licenses, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -7496,7 +7416,7 @@ const deserializeAws_json1_1ListReceivedGrantsResponse = (
       output.Grants !== undefined && output.Grants !== null
         ? deserializeAws_json1_1GrantList(output.Grants, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -7509,7 +7429,7 @@ const deserializeAws_json1_1ListReceivedLicensesResponse = (
       output.Licenses !== undefined && output.Licenses !== null
         ? deserializeAws_json1_1GrantedLicenseList(output.Licenses, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -7518,7 +7438,7 @@ const deserializeAws_json1_1ListResourceInventoryResponse = (
   context: __SerdeContext
 ): ListResourceInventoryResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     ResourceInventoryList:
       output.ResourceInventoryList !== undefined && output.ResourceInventoryList !== null
         ? deserializeAws_json1_1ResourceInventoryList(output.ResourceInventoryList, context)
@@ -7540,7 +7460,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1ListTokensResponse = (output: any, context: __SerdeContext): ListTokensResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Tokens:
       output.Tokens !== undefined && output.Tokens !== null
         ? deserializeAws_json1_1TokenList(output.Tokens, context)
@@ -7557,15 +7477,14 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationResponse = (
       output.LicenseConfigurationUsageList !== undefined && output.LicenseConfigurationUsageList !== null
         ? deserializeAws_json1_1LicenseConfigurationUsageList(output.LicenseConfigurationUsageList, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ManagedResourceSummary = (output: any, context: __SerdeContext): ManagedResourceSummary => {
   return {
-    AssociationCount:
-      output.AssociationCount !== undefined && output.AssociationCount !== null ? output.AssociationCount : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    AssociationCount: __expectNumber(output.AssociationCount),
+    ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
@@ -7590,14 +7509,14 @@ const deserializeAws_json1_1MaxSize3StringList = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1Metadata = (output: any, context: __SerdeContext): Metadata => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Name: __expectString(output.Name),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -7617,7 +7536,7 @@ const deserializeAws_json1_1NoEntitlementsAllowedException = (
   context: __SerdeContext
 ): NoEntitlementsAllowedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7626,10 +7545,7 @@ const deserializeAws_json1_1OrganizationConfiguration = (
   context: __SerdeContext
 ): OrganizationConfiguration => {
   return {
-    EnableIntegration:
-      output.EnableIntegration !== undefined && output.EnableIntegration !== null
-        ? output.EnableIntegration
-        : undefined,
+    EnableIntegration: __expectBoolean(output.EnableIntegration),
   } as any;
 };
 
@@ -7639,7 +7555,7 @@ const deserializeAws_json1_1ProductInformation = (output: any, context: __SerdeC
       output.ProductInformationFilterList !== undefined && output.ProductInformationFilterList !== null
         ? deserializeAws_json1_1ProductInformationFilterList(output.ProductInformationFilterList, context)
         : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
@@ -7648,14 +7564,8 @@ const deserializeAws_json1_1ProductInformationFilter = (
   context: __SerdeContext
 ): ProductInformationFilter => {
   return {
-    ProductInformationFilterComparator:
-      output.ProductInformationFilterComparator !== undefined && output.ProductInformationFilterComparator !== null
-        ? output.ProductInformationFilterComparator
-        : undefined,
-    ProductInformationFilterName:
-      output.ProductInformationFilterName !== undefined && output.ProductInformationFilterName !== null
-        ? output.ProductInformationFilterName
-        : undefined,
+    ProductInformationFilterComparator: __expectString(output.ProductInformationFilterComparator),
+    ProductInformationFilterName: __expectString(output.ProductInformationFilterName),
     ProductInformationFilterValue:
       output.ProductInformationFilterValue !== undefined && output.ProductInformationFilterValue !== null
         ? deserializeAws_json1_1StringList(output.ProductInformationFilterValue, context)
@@ -7693,10 +7603,7 @@ const deserializeAws_json1_1ProvisionalConfiguration = (
   context: __SerdeContext
 ): ProvisionalConfiguration => {
   return {
-    MaxTimeToLiveInMinutes:
-      output.MaxTimeToLiveInMinutes !== undefined && output.MaxTimeToLiveInMinutes !== null
-        ? output.MaxTimeToLiveInMinutes
-        : undefined,
+    MaxTimeToLiveInMinutes: __expectNumber(output.MaxTimeToLiveInMinutes),
   } as any;
 };
 
@@ -7705,7 +7612,7 @@ const deserializeAws_json1_1RateLimitExceededException = (
   context: __SerdeContext
 ): RateLimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7715,23 +7622,22 @@ const deserializeAws_json1_1ReceivedMetadata = (output: any, context: __SerdeCon
       output.AllowedOperations !== undefined && output.AllowedOperations !== null
         ? deserializeAws_json1_1AllowedOperationList(output.AllowedOperations, context)
         : undefined,
-    ReceivedStatus:
-      output.ReceivedStatus !== undefined && output.ReceivedStatus !== null ? output.ReceivedStatus : undefined,
+    ReceivedStatus: __expectString(output.ReceivedStatus),
   } as any;
 };
 
 const deserializeAws_json1_1RedirectException = (output: any, context: __SerdeContext): RedirectException => {
   return {
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Location: __expectString(output.Location),
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1RejectGrantResponse = (output: any, context: __SerdeContext): RejectGrantResponse => {
   return {
-    GrantArn: output.GrantArn !== undefined && output.GrantArn !== null ? output.GrantArn : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    GrantArn: __expectString(output.GrantArn),
+    Status: __expectString(output.Status),
+    Version: __expectString(output.Version),
   } as any;
 };
 
@@ -7746,45 +7652,29 @@ const deserializeAws_json1_1ReportContext = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ReportFrequency = (output: any, context: __SerdeContext): ReportFrequency => {
   return {
-    period: output.period !== undefined && output.period !== null ? output.period : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    period: __expectString(output.period),
+    value: __expectNumber(output.value),
   } as any;
 };
 
 const deserializeAws_json1_1ReportGenerator = (output: any, context: __SerdeContext): ReportGenerator => {
   return {
-    CreateTime: output.CreateTime !== undefined && output.CreateTime !== null ? output.CreateTime : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    LastReportGenerationTime:
-      output.LastReportGenerationTime !== undefined && output.LastReportGenerationTime !== null
-        ? output.LastReportGenerationTime
-        : undefined,
-    LastRunFailureReason:
-      output.LastRunFailureReason !== undefined && output.LastRunFailureReason !== null
-        ? output.LastRunFailureReason
-        : undefined,
-    LastRunStatus:
-      output.LastRunStatus !== undefined && output.LastRunStatus !== null ? output.LastRunStatus : undefined,
-    LicenseManagerReportGeneratorArn:
-      output.LicenseManagerReportGeneratorArn !== undefined && output.LicenseManagerReportGeneratorArn !== null
-        ? output.LicenseManagerReportGeneratorArn
-        : undefined,
+    CreateTime: __expectString(output.CreateTime),
+    Description: __expectString(output.Description),
+    LastReportGenerationTime: __expectString(output.LastReportGenerationTime),
+    LastRunFailureReason: __expectString(output.LastRunFailureReason),
+    LastRunStatus: __expectString(output.LastRunStatus),
+    LicenseManagerReportGeneratorArn: __expectString(output.LicenseManagerReportGeneratorArn),
     ReportContext:
       output.ReportContext !== undefined && output.ReportContext !== null
         ? deserializeAws_json1_1ReportContext(output.ReportContext, context)
         : undefined,
-    ReportCreatorAccount:
-      output.ReportCreatorAccount !== undefined && output.ReportCreatorAccount !== null
-        ? output.ReportCreatorAccount
-        : undefined,
+    ReportCreatorAccount: __expectString(output.ReportCreatorAccount),
     ReportFrequency:
       output.ReportFrequency !== undefined && output.ReportFrequency !== null
         ? deserializeAws_json1_1ReportFrequency(output.ReportFrequency, context)
         : undefined,
-    ReportGeneratorName:
-      output.ReportGeneratorName !== undefined && output.ReportGeneratorName !== null
-        ? output.ReportGeneratorName
-        : undefined,
+    ReportGeneratorName: __expectString(output.ReportGeneratorName),
     ReportType:
       output.ReportType !== undefined && output.ReportType !== null
         ? deserializeAws_json1_1ReportTypeList(output.ReportType, context)
@@ -7818,22 +7708,18 @@ const deserializeAws_json1_1ReportTypeList = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1ResourceInventory = (output: any, context: __SerdeContext): ResourceInventory => {
   return {
-    Platform: output.Platform !== undefined && output.Platform !== null ? output.Platform : undefined,
-    PlatformVersion:
-      output.PlatformVersion !== undefined && output.PlatformVersion !== null ? output.PlatformVersion : undefined,
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
-    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
-    ResourceOwningAccountId:
-      output.ResourceOwningAccountId !== undefined && output.ResourceOwningAccountId !== null
-        ? output.ResourceOwningAccountId
-        : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    Platform: __expectString(output.Platform),
+    PlatformVersion: __expectString(output.PlatformVersion),
+    ResourceArn: __expectString(output.ResourceArn),
+    ResourceId: __expectString(output.ResourceId),
+    ResourceOwningAccountId: __expectString(output.ResourceOwningAccountId),
+    ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
@@ -7853,7 +7739,7 @@ const deserializeAws_json1_1ResourceLimitExceededException = (
   context: __SerdeContext
 ): ResourceLimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7862,14 +7748,14 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
-    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
-    keyPrefix: output.keyPrefix !== undefined && output.keyPrefix !== null ? output.keyPrefix : undefined,
+    bucket: __expectString(output.bucket),
+    keyPrefix: __expectString(output.keyPrefix),
   } as any;
 };
 
@@ -7878,7 +7764,7 @@ const deserializeAws_json1_1ServerInternalException = (
   context: __SerdeContext
 ): ServerInternalException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7889,14 +7775,14 @@ const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -7917,20 +7803,19 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1TokenData = (output: any, context: __SerdeContext): TokenData => {
   return {
-    ExpirationTime:
-      output.ExpirationTime !== undefined && output.ExpirationTime !== null ? output.ExpirationTime : undefined,
-    LicenseArn: output.LicenseArn !== undefined && output.LicenseArn !== null ? output.LicenseArn : undefined,
+    ExpirationTime: __expectString(output.ExpirationTime),
+    LicenseArn: __expectString(output.LicenseArn),
     RoleArns:
       output.RoleArns !== undefined && output.RoleArns !== null
         ? deserializeAws_json1_1ArnList(output.RoleArns, context)
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    TokenId: output.TokenId !== undefined && output.TokenId !== null ? output.TokenId : undefined,
+    Status: __expectString(output.Status),
+    TokenId: __expectString(output.TokenId),
     TokenProperties:
       output.TokenProperties !== undefined && output.TokenProperties !== null
         ? deserializeAws_json1_1MaxSize3StringList(output.TokenProperties, context)
         : undefined,
-    TokenType: output.TokenType !== undefined && output.TokenType !== null ? output.TokenType : undefined,
+    TokenType: __expectString(output.TokenType),
   } as any;
 };
 
@@ -7950,7 +7835,7 @@ const deserializeAws_json1_1UnsupportedDigitalSignatureMethodException = (
   context: __SerdeContext
 ): UnsupportedDigitalSignatureMethodException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7988,7 +7873,7 @@ const deserializeAws_json1_1UpdateServiceSettingsResponse = (
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 

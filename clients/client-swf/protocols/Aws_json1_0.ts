@@ -273,7 +273,12 @@ import {
   WorkflowTypeInfos,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -4239,15 +4244,14 @@ const serializeAws_json1_0WorkflowTypeFilter = (input: WorkflowTypeFilter, conte
 
 const deserializeAws_json1_0ActivityTask = (output: any, context: __SerdeContext): ActivityTask => {
   return {
-    activityId: output.activityId !== undefined && output.activityId !== null ? output.activityId : undefined,
+    activityId: __expectString(output.activityId),
     activityType:
       output.activityType !== undefined && output.activityType !== null
         ? deserializeAws_json1_0ActivityType(output.activityType, context)
         : undefined,
-    input: output.input !== undefined && output.input !== null ? output.input : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
-    taskToken: output.taskToken !== undefined && output.taskToken !== null ? output.taskToken : undefined,
+    input: __expectString(output.input),
+    startedEventId: __expectNumber(output.startedEventId),
+    taskToken: __expectString(output.taskToken),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4260,15 +4264,10 @@ const deserializeAws_json1_0ActivityTaskCanceledEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskCanceledEventAttributes => {
   return {
-    details: output.details !== undefined && output.details !== null ? output.details : undefined,
-    latestCancelRequestedEventId:
-      output.latestCancelRequestedEventId !== undefined && output.latestCancelRequestedEventId !== null
-        ? output.latestCancelRequestedEventId
-        : undefined,
-    scheduledEventId:
-      output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
+    details: __expectString(output.details),
+    latestCancelRequestedEventId: __expectNumber(output.latestCancelRequestedEventId),
+    scheduledEventId: __expectNumber(output.scheduledEventId),
+    startedEventId: __expectNumber(output.startedEventId),
   } as any;
 };
 
@@ -4277,11 +4276,8 @@ const deserializeAws_json1_0ActivityTaskCancelRequestedEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskCancelRequestedEventAttributes => {
   return {
-    activityId: output.activityId !== undefined && output.activityId !== null ? output.activityId : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
+    activityId: __expectString(output.activityId),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -4290,11 +4286,9 @@ const deserializeAws_json1_0ActivityTaskCompletedEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskCompletedEventAttributes => {
   return {
-    result: output.result !== undefined && output.result !== null ? output.result : undefined,
-    scheduledEventId:
-      output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
+    result: __expectString(output.result),
+    scheduledEventId: __expectNumber(output.scheduledEventId),
+    startedEventId: __expectNumber(output.startedEventId),
   } as any;
 };
 
@@ -4303,12 +4297,10 @@ const deserializeAws_json1_0ActivityTaskFailedEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskFailedEventAttributes => {
   return {
-    details: output.details !== undefined && output.details !== null ? output.details : undefined,
-    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
-    scheduledEventId:
-      output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
+    details: __expectString(output.details),
+    reason: __expectString(output.reason),
+    scheduledEventId: __expectNumber(output.scheduledEventId),
+    startedEventId: __expectNumber(output.startedEventId),
   } as any;
 };
 
@@ -4317,36 +4309,23 @@ const deserializeAws_json1_0ActivityTaskScheduledEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskScheduledEventAttributes => {
   return {
-    activityId: output.activityId !== undefined && output.activityId !== null ? output.activityId : undefined,
+    activityId: __expectString(output.activityId),
     activityType:
       output.activityType !== undefined && output.activityType !== null
         ? deserializeAws_json1_0ActivityType(output.activityType, context)
         : undefined,
-    control: output.control !== undefined && output.control !== null ? output.control : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    heartbeatTimeout:
-      output.heartbeatTimeout !== undefined && output.heartbeatTimeout !== null ? output.heartbeatTimeout : undefined,
-    input: output.input !== undefined && output.input !== null ? output.input : undefined,
-    scheduleToCloseTimeout:
-      output.scheduleToCloseTimeout !== undefined && output.scheduleToCloseTimeout !== null
-        ? output.scheduleToCloseTimeout
-        : undefined,
-    scheduleToStartTimeout:
-      output.scheduleToStartTimeout !== undefined && output.scheduleToStartTimeout !== null
-        ? output.scheduleToStartTimeout
-        : undefined,
-    startToCloseTimeout:
-      output.startToCloseTimeout !== undefined && output.startToCloseTimeout !== null
-        ? output.startToCloseTimeout
-        : undefined,
+    control: __expectString(output.control),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    heartbeatTimeout: __expectString(output.heartbeatTimeout),
+    input: __expectString(output.input),
+    scheduleToCloseTimeout: __expectString(output.scheduleToCloseTimeout),
+    scheduleToStartTimeout: __expectString(output.scheduleToStartTimeout),
+    startToCloseTimeout: __expectString(output.startToCloseTimeout),
     taskList:
       output.taskList !== undefined && output.taskList !== null
         ? deserializeAws_json1_0TaskList(output.taskList, context)
         : undefined,
-    taskPriority: output.taskPriority !== undefined && output.taskPriority !== null ? output.taskPriority : undefined,
+    taskPriority: __expectString(output.taskPriority),
   } as any;
 };
 
@@ -4355,16 +4334,14 @@ const deserializeAws_json1_0ActivityTaskStartedEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskStartedEventAttributes => {
   return {
-    identity: output.identity !== undefined && output.identity !== null ? output.identity : undefined,
-    scheduledEventId:
-      output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
+    identity: __expectString(output.identity),
+    scheduledEventId: __expectNumber(output.scheduledEventId),
   } as any;
 };
 
 const deserializeAws_json1_0ActivityTaskStatus = (output: any, context: __SerdeContext): ActivityTaskStatus => {
   return {
-    cancelRequested:
-      output.cancelRequested !== undefined && output.cancelRequested !== null ? output.cancelRequested : undefined,
+    cancelRequested: __expectBoolean(output.cancelRequested),
   } as any;
 };
 
@@ -4373,19 +4350,17 @@ const deserializeAws_json1_0ActivityTaskTimedOutEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskTimedOutEventAttributes => {
   return {
-    details: output.details !== undefined && output.details !== null ? output.details : undefined,
-    scheduledEventId:
-      output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
-    timeoutType: output.timeoutType !== undefined && output.timeoutType !== null ? output.timeoutType : undefined,
+    details: __expectString(output.details),
+    scheduledEventId: __expectNumber(output.scheduledEventId),
+    startedEventId: __expectNumber(output.startedEventId),
+    timeoutType: __expectString(output.timeoutType),
   } as any;
 };
 
 const deserializeAws_json1_0ActivityType = (output: any, context: __SerdeContext): ActivityType => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    name: __expectString(output.name),
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -4394,30 +4369,15 @@ const deserializeAws_json1_0ActivityTypeConfiguration = (
   context: __SerdeContext
 ): ActivityTypeConfiguration => {
   return {
-    defaultTaskHeartbeatTimeout:
-      output.defaultTaskHeartbeatTimeout !== undefined && output.defaultTaskHeartbeatTimeout !== null
-        ? output.defaultTaskHeartbeatTimeout
-        : undefined,
+    defaultTaskHeartbeatTimeout: __expectString(output.defaultTaskHeartbeatTimeout),
     defaultTaskList:
       output.defaultTaskList !== undefined && output.defaultTaskList !== null
         ? deserializeAws_json1_0TaskList(output.defaultTaskList, context)
         : undefined,
-    defaultTaskPriority:
-      output.defaultTaskPriority !== undefined && output.defaultTaskPriority !== null
-        ? output.defaultTaskPriority
-        : undefined,
-    defaultTaskScheduleToCloseTimeout:
-      output.defaultTaskScheduleToCloseTimeout !== undefined && output.defaultTaskScheduleToCloseTimeout !== null
-        ? output.defaultTaskScheduleToCloseTimeout
-        : undefined,
-    defaultTaskScheduleToStartTimeout:
-      output.defaultTaskScheduleToStartTimeout !== undefined && output.defaultTaskScheduleToStartTimeout !== null
-        ? output.defaultTaskScheduleToStartTimeout
-        : undefined,
-    defaultTaskStartToCloseTimeout:
-      output.defaultTaskStartToCloseTimeout !== undefined && output.defaultTaskStartToCloseTimeout !== null
-        ? output.defaultTaskStartToCloseTimeout
-        : undefined,
+    defaultTaskPriority: __expectString(output.defaultTaskPriority),
+    defaultTaskScheduleToCloseTimeout: __expectString(output.defaultTaskScheduleToCloseTimeout),
+    defaultTaskScheduleToStartTimeout: __expectString(output.defaultTaskScheduleToStartTimeout),
+    defaultTaskStartToCloseTimeout: __expectString(output.defaultTaskStartToCloseTimeout),
   } as any;
 };
 
@@ -4448,8 +4408,8 @@ const deserializeAws_json1_0ActivityTypeInfo = (output: any, context: __SerdeCon
       output.deprecationDate !== undefined && output.deprecationDate !== null
         ? new Date(Math.round(output.deprecationDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    description: __expectString(output.description),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -4466,8 +4426,7 @@ const deserializeAws_json1_0ActivityTypeInfoList = (output: any, context: __Serd
 
 const deserializeAws_json1_0ActivityTypeInfos = (output: any, context: __SerdeContext): ActivityTypeInfos => {
   return {
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
     typeInfos:
       output.typeInfos !== undefined && output.typeInfos !== null
         ? deserializeAws_json1_0ActivityTypeInfoList(output.typeInfos, context)
@@ -4480,12 +4439,9 @@ const deserializeAws_json1_0CancelTimerFailedEventAttributes = (
   context: __SerdeContext
 ): CancelTimerFailedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    timerId: output.timerId !== undefined && output.timerId !== null ? output.timerId : undefined,
+    cause: __expectString(output.cause),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    timerId: __expectString(output.timerId),
   } as any;
 };
 
@@ -4494,11 +4450,8 @@ const deserializeAws_json1_0CancelWorkflowExecutionFailedEventAttributes = (
   context: __SerdeContext
 ): CancelWorkflowExecutionFailedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
+    cause: __expectString(output.cause),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -4507,11 +4460,9 @@ const deserializeAws_json1_0ChildWorkflowExecutionCanceledEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionCanceledEventAttributes => {
   return {
-    details: output.details !== undefined && output.details !== null ? output.details : undefined,
-    initiatedEventId:
-      output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
+    details: __expectString(output.details),
+    initiatedEventId: __expectNumber(output.initiatedEventId),
+    startedEventId: __expectNumber(output.startedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4528,11 +4479,9 @@ const deserializeAws_json1_0ChildWorkflowExecutionCompletedEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionCompletedEventAttributes => {
   return {
-    initiatedEventId:
-      output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
-    result: output.result !== undefined && output.result !== null ? output.result : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
+    initiatedEventId: __expectNumber(output.initiatedEventId),
+    result: __expectString(output.result),
+    startedEventId: __expectNumber(output.startedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4549,12 +4498,10 @@ const deserializeAws_json1_0ChildWorkflowExecutionFailedEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionFailedEventAttributes => {
   return {
-    details: output.details !== undefined && output.details !== null ? output.details : undefined,
-    initiatedEventId:
-      output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
-    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
+    details: __expectString(output.details),
+    initiatedEventId: __expectNumber(output.initiatedEventId),
+    reason: __expectString(output.reason),
+    startedEventId: __expectNumber(output.startedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4571,8 +4518,7 @@ const deserializeAws_json1_0ChildWorkflowExecutionStartedEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionStartedEventAttributes => {
   return {
-    initiatedEventId:
-      output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
+    initiatedEventId: __expectNumber(output.initiatedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4589,10 +4535,8 @@ const deserializeAws_json1_0ChildWorkflowExecutionTerminatedEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionTerminatedEventAttributes => {
   return {
-    initiatedEventId:
-      output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
+    initiatedEventId: __expectNumber(output.initiatedEventId),
+    startedEventId: __expectNumber(output.startedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4609,11 +4553,9 @@ const deserializeAws_json1_0ChildWorkflowExecutionTimedOutEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionTimedOutEventAttributes => {
   return {
-    initiatedEventId:
-      output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
-    timeoutType: output.timeoutType !== undefined && output.timeoutType !== null ? output.timeoutType : undefined,
+    initiatedEventId: __expectNumber(output.initiatedEventId),
+    startedEventId: __expectNumber(output.startedEventId),
+    timeoutType: __expectString(output.timeoutType),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4630,11 +4572,8 @@ const deserializeAws_json1_0CompleteWorkflowExecutionFailedEventAttributes = (
   context: __SerdeContext
 ): CompleteWorkflowExecutionFailedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
+    cause: __expectString(output.cause),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -4643,11 +4582,8 @@ const deserializeAws_json1_0ContinueAsNewWorkflowExecutionFailedEventAttributes 
   context: __SerdeContext
 ): ContinueAsNewWorkflowExecutionFailedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
+    cause: __expectString(output.cause),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -4657,15 +4593,10 @@ const deserializeAws_json1_0DecisionTask = (output: any, context: __SerdeContext
       output.events !== undefined && output.events !== null
         ? deserializeAws_json1_0HistoryEventList(output.events, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
-    previousStartedEventId:
-      output.previousStartedEventId !== undefined && output.previousStartedEventId !== null
-        ? output.previousStartedEventId
-        : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
-    taskToken: output.taskToken !== undefined && output.taskToken !== null ? output.taskToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
+    previousStartedEventId: __expectNumber(output.previousStartedEventId),
+    startedEventId: __expectNumber(output.startedEventId),
+    taskToken: __expectString(output.taskToken),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4682,12 +4613,9 @@ const deserializeAws_json1_0DecisionTaskCompletedEventAttributes = (
   context: __SerdeContext
 ): DecisionTaskCompletedEventAttributes => {
   return {
-    executionContext:
-      output.executionContext !== undefined && output.executionContext !== null ? output.executionContext : undefined,
-    scheduledEventId:
-      output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
+    executionContext: __expectString(output.executionContext),
+    scheduledEventId: __expectNumber(output.scheduledEventId),
+    startedEventId: __expectNumber(output.startedEventId),
   } as any;
 };
 
@@ -4696,15 +4624,12 @@ const deserializeAws_json1_0DecisionTaskScheduledEventAttributes = (
   context: __SerdeContext
 ): DecisionTaskScheduledEventAttributes => {
   return {
-    startToCloseTimeout:
-      output.startToCloseTimeout !== undefined && output.startToCloseTimeout !== null
-        ? output.startToCloseTimeout
-        : undefined,
+    startToCloseTimeout: __expectString(output.startToCloseTimeout),
     taskList:
       output.taskList !== undefined && output.taskList !== null
         ? deserializeAws_json1_0TaskList(output.taskList, context)
         : undefined,
-    taskPriority: output.taskPriority !== undefined && output.taskPriority !== null ? output.taskPriority : undefined,
+    taskPriority: __expectString(output.taskPriority),
   } as any;
 };
 
@@ -4713,9 +4638,8 @@ const deserializeAws_json1_0DecisionTaskStartedEventAttributes = (
   context: __SerdeContext
 ): DecisionTaskStartedEventAttributes => {
   return {
-    identity: output.identity !== undefined && output.identity !== null ? output.identity : undefined,
-    scheduledEventId:
-      output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
+    identity: __expectString(output.identity),
+    scheduledEventId: __expectNumber(output.scheduledEventId),
   } as any;
 };
 
@@ -4724,17 +4648,15 @@ const deserializeAws_json1_0DecisionTaskTimedOutEventAttributes = (
   context: __SerdeContext
 ): DecisionTaskTimedOutEventAttributes => {
   return {
-    scheduledEventId:
-      output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
-    timeoutType: output.timeoutType !== undefined && output.timeoutType !== null ? output.timeoutType : undefined,
+    scheduledEventId: __expectNumber(output.scheduledEventId),
+    startedEventId: __expectNumber(output.startedEventId),
+    timeoutType: __expectString(output.timeoutType),
   } as any;
 };
 
 const deserializeAws_json1_0DefaultUndefinedFault = (output: any, context: __SerdeContext): DefaultUndefinedFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -4743,23 +4665,19 @@ const deserializeAws_json1_0DomainAlreadyExistsFault = (
   context: __SerdeContext
 ): DomainAlreadyExistsFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_0DomainConfiguration = (output: any, context: __SerdeContext): DomainConfiguration => {
   return {
-    workflowExecutionRetentionPeriodInDays:
-      output.workflowExecutionRetentionPeriodInDays !== undefined &&
-      output.workflowExecutionRetentionPeriodInDays !== null
-        ? output.workflowExecutionRetentionPeriodInDays
-        : undefined,
+    workflowExecutionRetentionPeriodInDays: __expectString(output.workflowExecutionRetentionPeriodInDays),
   } as any;
 };
 
 const deserializeAws_json1_0DomainDeprecatedFault = (output: any, context: __SerdeContext): DomainDeprecatedFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -4778,10 +4696,10 @@ const deserializeAws_json1_0DomainDetail = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_0DomainInfo = (output: any, context: __SerdeContext): DomainInfo => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    arn: __expectString(output.arn),
+    description: __expectString(output.description),
+    name: __expectString(output.name),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -4802,8 +4720,7 @@ const deserializeAws_json1_0DomainInfos = (output: any, context: __SerdeContext)
       output.domainInfos !== undefined && output.domainInfos !== null
         ? deserializeAws_json1_0DomainInfoList(output.domainInfos, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -4812,8 +4729,7 @@ const deserializeAws_json1_0ExternalWorkflowExecutionCancelRequestedEventAttribu
   context: __SerdeContext
 ): ExternalWorkflowExecutionCancelRequestedEventAttributes => {
   return {
-    initiatedEventId:
-      output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
+    initiatedEventId: __expectNumber(output.initiatedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4826,8 +4742,7 @@ const deserializeAws_json1_0ExternalWorkflowExecutionSignaledEventAttributes = (
   context: __SerdeContext
 ): ExternalWorkflowExecutionSignaledEventAttributes => {
   return {
-    initiatedEventId:
-      output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
+    initiatedEventId: __expectNumber(output.initiatedEventId),
     workflowExecution:
       output.workflowExecution !== undefined && output.workflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
@@ -4840,11 +4755,8 @@ const deserializeAws_json1_0FailWorkflowExecutionFailedEventAttributes = (
   context: __SerdeContext
 ): FailWorkflowExecutionFailedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
+    cause: __expectString(output.cause),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -4854,8 +4766,7 @@ const deserializeAws_json1_0History = (output: any, context: __SerdeContext): Hi
       output.events !== undefined && output.events !== null
         ? deserializeAws_json1_0HistoryEventList(output.events, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -4997,12 +4908,12 @@ const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext
       output.decisionTaskTimedOutEventAttributes !== undefined && output.decisionTaskTimedOutEventAttributes !== null
         ? deserializeAws_json1_0DecisionTaskTimedOutEventAttributes(output.decisionTaskTimedOutEventAttributes, context)
         : undefined,
-    eventId: output.eventId !== undefined && output.eventId !== null ? output.eventId : undefined,
+    eventId: __expectNumber(output.eventId),
     eventTimestamp:
       output.eventTimestamp !== undefined && output.eventTimestamp !== null
         ? new Date(Math.round(output.eventTimestamp * 1000))
         : undefined,
-    eventType: output.eventType !== undefined && output.eventType !== null ? output.eventType : undefined,
+    eventType: __expectString(output.eventType),
     externalWorkflowExecutionCancelRequestedEventAttributes:
       output.externalWorkflowExecutionCancelRequestedEventAttributes !== undefined &&
       output.externalWorkflowExecutionCancelRequestedEventAttributes !== null
@@ -5257,11 +5168,9 @@ const deserializeAws_json1_0LambdaFunctionCompletedEventAttributes = (
   context: __SerdeContext
 ): LambdaFunctionCompletedEventAttributes => {
   return {
-    result: output.result !== undefined && output.result !== null ? output.result : undefined,
-    scheduledEventId:
-      output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
+    result: __expectString(output.result),
+    scheduledEventId: __expectNumber(output.scheduledEventId),
+    startedEventId: __expectNumber(output.startedEventId),
   } as any;
 };
 
@@ -5270,12 +5179,10 @@ const deserializeAws_json1_0LambdaFunctionFailedEventAttributes = (
   context: __SerdeContext
 ): LambdaFunctionFailedEventAttributes => {
   return {
-    details: output.details !== undefined && output.details !== null ? output.details : undefined,
-    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
-    scheduledEventId:
-      output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
+    details: __expectString(output.details),
+    reason: __expectString(output.reason),
+    scheduledEventId: __expectNumber(output.scheduledEventId),
+    startedEventId: __expectNumber(output.startedEventId),
   } as any;
 };
 
@@ -5284,18 +5191,12 @@ const deserializeAws_json1_0LambdaFunctionScheduledEventAttributes = (
   context: __SerdeContext
 ): LambdaFunctionScheduledEventAttributes => {
   return {
-    control: output.control !== undefined && output.control !== null ? output.control : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    input: output.input !== undefined && output.input !== null ? output.input : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    startToCloseTimeout:
-      output.startToCloseTimeout !== undefined && output.startToCloseTimeout !== null
-        ? output.startToCloseTimeout
-        : undefined,
+    control: __expectString(output.control),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    id: __expectString(output.id),
+    input: __expectString(output.input),
+    name: __expectString(output.name),
+    startToCloseTimeout: __expectString(output.startToCloseTimeout),
   } as any;
 };
 
@@ -5304,8 +5205,7 @@ const deserializeAws_json1_0LambdaFunctionStartedEventAttributes = (
   context: __SerdeContext
 ): LambdaFunctionStartedEventAttributes => {
   return {
-    scheduledEventId:
-      output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
+    scheduledEventId: __expectNumber(output.scheduledEventId),
   } as any;
 };
 
@@ -5314,17 +5214,15 @@ const deserializeAws_json1_0LambdaFunctionTimedOutEventAttributes = (
   context: __SerdeContext
 ): LambdaFunctionTimedOutEventAttributes => {
   return {
-    scheduledEventId:
-      output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
-    timeoutType: output.timeoutType !== undefined && output.timeoutType !== null ? output.timeoutType : undefined,
+    scheduledEventId: __expectNumber(output.scheduledEventId),
+    startedEventId: __expectNumber(output.startedEventId),
+    timeoutType: __expectString(output.timeoutType),
   } as any;
 };
 
 const deserializeAws_json1_0LimitExceededFault = (output: any, context: __SerdeContext): LimitExceededFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5345,12 +5243,9 @@ const deserializeAws_json1_0MarkerRecordedEventAttributes = (
   context: __SerdeContext
 ): MarkerRecordedEventAttributes => {
   return {
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    details: output.details !== undefined && output.details !== null ? output.details : undefined,
-    markerName: output.markerName !== undefined && output.markerName !== null ? output.markerName : undefined,
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    details: __expectString(output.details),
+    markerName: __expectString(output.markerName),
   } as any;
 };
 
@@ -5359,14 +5254,14 @@ const deserializeAws_json1_0OperationNotPermittedFault = (
   context: __SerdeContext
 ): OperationNotPermittedFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_0PendingTaskCount = (output: any, context: __SerdeContext): PendingTaskCount => {
   return {
-    count: output.count !== undefined && output.count !== null ? output.count : undefined,
-    truncated: output.truncated !== undefined && output.truncated !== null ? output.truncated : undefined,
+    count: __expectNumber(output.count),
+    truncated: __expectBoolean(output.truncated),
   } as any;
 };
 
@@ -5375,12 +5270,9 @@ const deserializeAws_json1_0RecordMarkerFailedEventAttributes = (
   context: __SerdeContext
 ): RecordMarkerFailedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    markerName: output.markerName !== undefined && output.markerName !== null ? output.markerName : undefined,
+    cause: __expectString(output.cause),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    markerName: __expectString(output.markerName),
   } as any;
 };
 
@@ -5389,12 +5281,9 @@ const deserializeAws_json1_0RequestCancelActivityTaskFailedEventAttributes = (
   context: __SerdeContext
 ): RequestCancelActivityTaskFailedEventAttributes => {
   return {
-    activityId: output.activityId !== undefined && output.activityId !== null ? output.activityId : undefined,
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
+    activityId: __expectString(output.activityId),
+    cause: __expectString(output.cause),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -5403,16 +5292,12 @@ const deserializeAws_json1_0RequestCancelExternalWorkflowExecutionFailedEventAtt
   context: __SerdeContext
 ): RequestCancelExternalWorkflowExecutionFailedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    control: output.control !== undefined && output.control !== null ? output.control : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    initiatedEventId:
-      output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
-    runId: output.runId !== undefined && output.runId !== null ? output.runId : undefined,
-    workflowId: output.workflowId !== undefined && output.workflowId !== null ? output.workflowId : undefined,
+    cause: __expectString(output.cause),
+    control: __expectString(output.control),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    initiatedEventId: __expectNumber(output.initiatedEventId),
+    runId: __expectString(output.runId),
+    workflowId: __expectString(output.workflowId),
   } as any;
 };
 
@@ -5421,20 +5306,17 @@ const deserializeAws_json1_0RequestCancelExternalWorkflowExecutionInitiatedEvent
   context: __SerdeContext
 ): RequestCancelExternalWorkflowExecutionInitiatedEventAttributes => {
   return {
-    control: output.control !== undefined && output.control !== null ? output.control : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    runId: output.runId !== undefined && output.runId !== null ? output.runId : undefined,
-    workflowId: output.workflowId !== undefined && output.workflowId !== null ? output.workflowId : undefined,
+    control: __expectString(output.control),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    runId: __expectString(output.runId),
+    workflowId: __expectString(output.workflowId),
   } as any;
 };
 
 const deserializeAws_json1_0ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
   return {
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -5451,7 +5333,7 @@ const deserializeAws_json1_0ResourceTagList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_0Run = (output: any, context: __SerdeContext): Run => {
   return {
-    runId: output.runId !== undefined && output.runId !== null ? output.runId : undefined,
+    runId: __expectString(output.runId),
   } as any;
 };
 
@@ -5460,16 +5342,13 @@ const deserializeAws_json1_0ScheduleActivityTaskFailedEventAttributes = (
   context: __SerdeContext
 ): ScheduleActivityTaskFailedEventAttributes => {
   return {
-    activityId: output.activityId !== undefined && output.activityId !== null ? output.activityId : undefined,
+    activityId: __expectString(output.activityId),
     activityType:
       output.activityType !== undefined && output.activityType !== null
         ? deserializeAws_json1_0ActivityType(output.activityType, context)
         : undefined,
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
+    cause: __expectString(output.cause),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
   } as any;
 };
 
@@ -5478,13 +5357,10 @@ const deserializeAws_json1_0ScheduleLambdaFunctionFailedEventAttributes = (
   context: __SerdeContext
 ): ScheduleLambdaFunctionFailedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    cause: __expectString(output.cause),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    id: __expectString(output.id),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -5493,16 +5369,12 @@ const deserializeAws_json1_0SignalExternalWorkflowExecutionFailedEventAttributes
   context: __SerdeContext
 ): SignalExternalWorkflowExecutionFailedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    control: output.control !== undefined && output.control !== null ? output.control : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    initiatedEventId:
-      output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
-    runId: output.runId !== undefined && output.runId !== null ? output.runId : undefined,
-    workflowId: output.workflowId !== undefined && output.workflowId !== null ? output.workflowId : undefined,
+    cause: __expectString(output.cause),
+    control: __expectString(output.control),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    initiatedEventId: __expectNumber(output.initiatedEventId),
+    runId: __expectString(output.runId),
+    workflowId: __expectString(output.workflowId),
   } as any;
 };
 
@@ -5511,15 +5383,12 @@ const deserializeAws_json1_0SignalExternalWorkflowExecutionInitiatedEventAttribu
   context: __SerdeContext
 ): SignalExternalWorkflowExecutionInitiatedEventAttributes => {
   return {
-    control: output.control !== undefined && output.control !== null ? output.control : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    input: output.input !== undefined && output.input !== null ? output.input : undefined,
-    runId: output.runId !== undefined && output.runId !== null ? output.runId : undefined,
-    signalName: output.signalName !== undefined && output.signalName !== null ? output.signalName : undefined,
-    workflowId: output.workflowId !== undefined && output.workflowId !== null ? output.workflowId : undefined,
+    control: __expectString(output.control),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    input: __expectString(output.input),
+    runId: __expectString(output.runId),
+    signalName: __expectString(output.signalName),
+    workflowId: __expectString(output.workflowId),
   } as any;
 };
 
@@ -5528,15 +5397,11 @@ const deserializeAws_json1_0StartChildWorkflowExecutionFailedEventAttributes = (
   context: __SerdeContext
 ): StartChildWorkflowExecutionFailedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    control: output.control !== undefined && output.control !== null ? output.control : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    initiatedEventId:
-      output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
-    workflowId: output.workflowId !== undefined && output.workflowId !== null ? output.workflowId : undefined,
+    cause: __expectString(output.cause),
+    control: __expectString(output.control),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    initiatedEventId: __expectNumber(output.initiatedEventId),
+    workflowId: __expectString(output.workflowId),
     workflowType:
       output.workflowType !== undefined && output.workflowType !== null
         ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
@@ -5549,18 +5414,12 @@ const deserializeAws_json1_0StartChildWorkflowExecutionInitiatedEventAttributes 
   context: __SerdeContext
 ): StartChildWorkflowExecutionInitiatedEventAttributes => {
   return {
-    childPolicy: output.childPolicy !== undefined && output.childPolicy !== null ? output.childPolicy : undefined,
-    control: output.control !== undefined && output.control !== null ? output.control : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    executionStartToCloseTimeout:
-      output.executionStartToCloseTimeout !== undefined && output.executionStartToCloseTimeout !== null
-        ? output.executionStartToCloseTimeout
-        : undefined,
-    input: output.input !== undefined && output.input !== null ? output.input : undefined,
-    lambdaRole: output.lambdaRole !== undefined && output.lambdaRole !== null ? output.lambdaRole : undefined,
+    childPolicy: __expectString(output.childPolicy),
+    control: __expectString(output.control),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    executionStartToCloseTimeout: __expectString(output.executionStartToCloseTimeout),
+    input: __expectString(output.input),
+    lambdaRole: __expectString(output.lambdaRole),
     tagList:
       output.tagList !== undefined && output.tagList !== null
         ? deserializeAws_json1_0TagList(output.tagList, context)
@@ -5569,12 +5428,9 @@ const deserializeAws_json1_0StartChildWorkflowExecutionInitiatedEventAttributes 
       output.taskList !== undefined && output.taskList !== null
         ? deserializeAws_json1_0TaskList(output.taskList, context)
         : undefined,
-    taskPriority: output.taskPriority !== undefined && output.taskPriority !== null ? output.taskPriority : undefined,
-    taskStartToCloseTimeout:
-      output.taskStartToCloseTimeout !== undefined && output.taskStartToCloseTimeout !== null
-        ? output.taskStartToCloseTimeout
-        : undefined,
-    workflowId: output.workflowId !== undefined && output.workflowId !== null ? output.workflowId : undefined,
+    taskPriority: __expectString(output.taskPriority),
+    taskStartToCloseTimeout: __expectString(output.taskStartToCloseTimeout),
+    workflowId: __expectString(output.workflowId),
     workflowType:
       output.workflowType !== undefined && output.workflowType !== null
         ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
@@ -5587,10 +5443,9 @@ const deserializeAws_json1_0StartLambdaFunctionFailedEventAttributes = (
   context: __SerdeContext
 ): StartLambdaFunctionFailedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    scheduledEventId:
-      output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
+    cause: __expectString(output.cause),
+    message: __expectString(output.message),
+    scheduledEventId: __expectNumber(output.scheduledEventId),
   } as any;
 };
 
@@ -5599,12 +5454,9 @@ const deserializeAws_json1_0StartTimerFailedEventAttributes = (
   context: __SerdeContext
 ): StartTimerFailedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    timerId: output.timerId !== undefined && output.timerId !== null ? output.timerId : undefined,
+    cause: __expectString(output.cause),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    timerId: __expectString(output.timerId),
   } as any;
 };
 
@@ -5615,13 +5467,13 @@ const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): st
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_0TaskList = (output: any, context: __SerdeContext): TaskList => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -5630,13 +5482,9 @@ const deserializeAws_json1_0TimerCanceledEventAttributes = (
   context: __SerdeContext
 ): TimerCanceledEventAttributes => {
   return {
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
-    timerId: output.timerId !== undefined && output.timerId !== null ? output.timerId : undefined,
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    startedEventId: __expectNumber(output.startedEventId),
+    timerId: __expectString(output.timerId),
   } as any;
 };
 
@@ -5645,9 +5493,8 @@ const deserializeAws_json1_0TimerFiredEventAttributes = (
   context: __SerdeContext
 ): TimerFiredEventAttributes => {
   return {
-    startedEventId:
-      output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
-    timerId: output.timerId !== undefined && output.timerId !== null ? output.timerId : undefined,
+    startedEventId: __expectNumber(output.startedEventId),
+    timerId: __expectString(output.timerId),
   } as any;
 };
 
@@ -5656,47 +5503,41 @@ const deserializeAws_json1_0TimerStartedEventAttributes = (
   context: __SerdeContext
 ): TimerStartedEventAttributes => {
   return {
-    control: output.control !== undefined && output.control !== null ? output.control : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    startToFireTimeout:
-      output.startToFireTimeout !== undefined && output.startToFireTimeout !== null
-        ? output.startToFireTimeout
-        : undefined,
-    timerId: output.timerId !== undefined && output.timerId !== null ? output.timerId : undefined,
+    control: __expectString(output.control),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    startToFireTimeout: __expectString(output.startToFireTimeout),
+    timerId: __expectString(output.timerId),
   } as any;
 };
 
 const deserializeAws_json1_0TooManyTagsFault = (output: any, context: __SerdeContext): TooManyTagsFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_0TypeAlreadyExistsFault = (output: any, context: __SerdeContext): TypeAlreadyExistsFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_0TypeDeprecatedFault = (output: any, context: __SerdeContext): TypeDeprecatedFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_0UnknownResourceFault = (output: any, context: __SerdeContext): UnknownResourceFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_0WorkflowExecution = (output: any, context: __SerdeContext): WorkflowExecution => {
   return {
-    runId: output.runId !== undefined && output.runId !== null ? output.runId : undefined,
-    workflowId: output.workflowId !== undefined && output.workflowId !== null ? output.workflowId : undefined,
+    runId: __expectString(output.runId),
+    workflowId: __expectString(output.workflowId),
   } as any;
 };
 
@@ -5705,7 +5546,7 @@ const deserializeAws_json1_0WorkflowExecutionAlreadyStartedFault = (
   context: __SerdeContext
 ): WorkflowExecutionAlreadyStartedFault => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5714,11 +5555,8 @@ const deserializeAws_json1_0WorkflowExecutionCanceledEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionCanceledEventAttributes => {
   return {
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    details: output.details !== undefined && output.details !== null ? output.details : undefined,
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    details: __expectString(output.details),
   } as any;
 };
 
@@ -5727,11 +5565,8 @@ const deserializeAws_json1_0WorkflowExecutionCancelRequestedEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionCancelRequestedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    externalInitiatedEventId:
-      output.externalInitiatedEventId !== undefined && output.externalInitiatedEventId !== null
-        ? output.externalInitiatedEventId
-        : undefined,
+    cause: __expectString(output.cause),
+    externalInitiatedEventId: __expectNumber(output.externalInitiatedEventId),
     externalWorkflowExecution:
       output.externalWorkflowExecution !== undefined && output.externalWorkflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.externalWorkflowExecution, context)
@@ -5744,11 +5579,8 @@ const deserializeAws_json1_0WorkflowExecutionCompletedEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionCompletedEventAttributes => {
   return {
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    result: output.result !== undefined && output.result !== null ? output.result : undefined,
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    result: __expectString(output.result),
   } as any;
 };
 
@@ -5757,21 +5589,15 @@ const deserializeAws_json1_0WorkflowExecutionConfiguration = (
   context: __SerdeContext
 ): WorkflowExecutionConfiguration => {
   return {
-    childPolicy: output.childPolicy !== undefined && output.childPolicy !== null ? output.childPolicy : undefined,
-    executionStartToCloseTimeout:
-      output.executionStartToCloseTimeout !== undefined && output.executionStartToCloseTimeout !== null
-        ? output.executionStartToCloseTimeout
-        : undefined,
-    lambdaRole: output.lambdaRole !== undefined && output.lambdaRole !== null ? output.lambdaRole : undefined,
+    childPolicy: __expectString(output.childPolicy),
+    executionStartToCloseTimeout: __expectString(output.executionStartToCloseTimeout),
+    lambdaRole: __expectString(output.lambdaRole),
     taskList:
       output.taskList !== undefined && output.taskList !== null
         ? deserializeAws_json1_0TaskList(output.taskList, context)
         : undefined,
-    taskPriority: output.taskPriority !== undefined && output.taskPriority !== null ? output.taskPriority : undefined,
-    taskStartToCloseTimeout:
-      output.taskStartToCloseTimeout !== undefined && output.taskStartToCloseTimeout !== null
-        ? output.taskStartToCloseTimeout
-        : undefined,
+    taskPriority: __expectString(output.taskPriority),
+    taskStartToCloseTimeout: __expectString(output.taskStartToCloseTimeout),
   } as any;
 };
 
@@ -5780,21 +5606,12 @@ const deserializeAws_json1_0WorkflowExecutionContinuedAsNewEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionContinuedAsNewEventAttributes => {
   return {
-    childPolicy: output.childPolicy !== undefined && output.childPolicy !== null ? output.childPolicy : undefined,
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    executionStartToCloseTimeout:
-      output.executionStartToCloseTimeout !== undefined && output.executionStartToCloseTimeout !== null
-        ? output.executionStartToCloseTimeout
-        : undefined,
-    input: output.input !== undefined && output.input !== null ? output.input : undefined,
-    lambdaRole: output.lambdaRole !== undefined && output.lambdaRole !== null ? output.lambdaRole : undefined,
-    newExecutionRunId:
-      output.newExecutionRunId !== undefined && output.newExecutionRunId !== null
-        ? output.newExecutionRunId
-        : undefined,
+    childPolicy: __expectString(output.childPolicy),
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    executionStartToCloseTimeout: __expectString(output.executionStartToCloseTimeout),
+    input: __expectString(output.input),
+    lambdaRole: __expectString(output.lambdaRole),
+    newExecutionRunId: __expectString(output.newExecutionRunId),
     tagList:
       output.tagList !== undefined && output.tagList !== null
         ? deserializeAws_json1_0TagList(output.tagList, context)
@@ -5803,11 +5620,8 @@ const deserializeAws_json1_0WorkflowExecutionContinuedAsNewEventAttributes = (
       output.taskList !== undefined && output.taskList !== null
         ? deserializeAws_json1_0TaskList(output.taskList, context)
         : undefined,
-    taskPriority: output.taskPriority !== undefined && output.taskPriority !== null ? output.taskPriority : undefined,
-    taskStartToCloseTimeout:
-      output.taskStartToCloseTimeout !== undefined && output.taskStartToCloseTimeout !== null
-        ? output.taskStartToCloseTimeout
-        : undefined,
+    taskPriority: __expectString(output.taskPriority),
+    taskStartToCloseTimeout: __expectString(output.taskStartToCloseTimeout),
     workflowType:
       output.workflowType !== undefined && output.workflowType !== null
         ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
@@ -5817,8 +5631,8 @@ const deserializeAws_json1_0WorkflowExecutionContinuedAsNewEventAttributes = (
 
 const deserializeAws_json1_0WorkflowExecutionCount = (output: any, context: __SerdeContext): WorkflowExecutionCount => {
   return {
-    count: output.count !== undefined && output.count !== null ? output.count : undefined,
-    truncated: output.truncated !== undefined && output.truncated !== null ? output.truncated : undefined,
+    count: __expectNumber(output.count),
+    truncated: __expectBoolean(output.truncated),
   } as any;
 };
 
@@ -5839,10 +5653,7 @@ const deserializeAws_json1_0WorkflowExecutionDetail = (
       output.latestActivityTaskTimestamp !== undefined && output.latestActivityTaskTimestamp !== null
         ? new Date(Math.round(output.latestActivityTaskTimestamp * 1000))
         : undefined,
-    latestExecutionContext:
-      output.latestExecutionContext !== undefined && output.latestExecutionContext !== null
-        ? output.latestExecutionContext
-        : undefined,
+    latestExecutionContext: __expectString(output.latestExecutionContext),
     openCounts:
       output.openCounts !== undefined && output.openCounts !== null
         ? deserializeAws_json1_0WorkflowExecutionOpenCounts(output.openCounts, context)
@@ -5855,20 +5666,16 @@ const deserializeAws_json1_0WorkflowExecutionFailedEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionFailedEventAttributes => {
   return {
-    decisionTaskCompletedEventId:
-      output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
-        ? output.decisionTaskCompletedEventId
-        : undefined,
-    details: output.details !== undefined && output.details !== null ? output.details : undefined,
-    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
+    decisionTaskCompletedEventId: __expectNumber(output.decisionTaskCompletedEventId),
+    details: __expectString(output.details),
+    reason: __expectString(output.reason),
   } as any;
 };
 
 const deserializeAws_json1_0WorkflowExecutionInfo = (output: any, context: __SerdeContext): WorkflowExecutionInfo => {
   return {
-    cancelRequested:
-      output.cancelRequested !== undefined && output.cancelRequested !== null ? output.cancelRequested : undefined,
-    closeStatus: output.closeStatus !== undefined && output.closeStatus !== null ? output.closeStatus : undefined,
+    cancelRequested: __expectBoolean(output.cancelRequested),
+    closeStatus: __expectString(output.closeStatus),
     closeTimestamp:
       output.closeTimestamp !== undefined && output.closeTimestamp !== null
         ? new Date(Math.round(output.closeTimestamp * 1000))
@@ -5877,8 +5684,7 @@ const deserializeAws_json1_0WorkflowExecutionInfo = (output: any, context: __Ser
       output.execution !== undefined && output.execution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.execution, context)
         : undefined,
-    executionStatus:
-      output.executionStatus !== undefined && output.executionStatus !== null ? output.executionStatus : undefined,
+    executionStatus: __expectString(output.executionStatus),
     parent:
       output.parent !== undefined && output.parent !== null
         ? deserializeAws_json1_0WorkflowExecution(output.parent, context)
@@ -5918,8 +5724,7 @@ const deserializeAws_json1_0WorkflowExecutionInfos = (output: any, context: __Se
       output.executionInfos !== undefined && output.executionInfos !== null
         ? deserializeAws_json1_0WorkflowExecutionInfoList(output.executionInfos, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -5928,23 +5733,11 @@ const deserializeAws_json1_0WorkflowExecutionOpenCounts = (
   context: __SerdeContext
 ): WorkflowExecutionOpenCounts => {
   return {
-    openActivityTasks:
-      output.openActivityTasks !== undefined && output.openActivityTasks !== null
-        ? output.openActivityTasks
-        : undefined,
-    openChildWorkflowExecutions:
-      output.openChildWorkflowExecutions !== undefined && output.openChildWorkflowExecutions !== null
-        ? output.openChildWorkflowExecutions
-        : undefined,
-    openDecisionTasks:
-      output.openDecisionTasks !== undefined && output.openDecisionTasks !== null
-        ? output.openDecisionTasks
-        : undefined,
-    openLambdaFunctions:
-      output.openLambdaFunctions !== undefined && output.openLambdaFunctions !== null
-        ? output.openLambdaFunctions
-        : undefined,
-    openTimers: output.openTimers !== undefined && output.openTimers !== null ? output.openTimers : undefined,
+    openActivityTasks: __expectNumber(output.openActivityTasks),
+    openChildWorkflowExecutions: __expectNumber(output.openChildWorkflowExecutions),
+    openDecisionTasks: __expectNumber(output.openDecisionTasks),
+    openLambdaFunctions: __expectNumber(output.openLambdaFunctions),
+    openTimers: __expectNumber(output.openTimers),
   } as any;
 };
 
@@ -5953,16 +5746,13 @@ const deserializeAws_json1_0WorkflowExecutionSignaledEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionSignaledEventAttributes => {
   return {
-    externalInitiatedEventId:
-      output.externalInitiatedEventId !== undefined && output.externalInitiatedEventId !== null
-        ? output.externalInitiatedEventId
-        : undefined,
+    externalInitiatedEventId: __expectNumber(output.externalInitiatedEventId),
     externalWorkflowExecution:
       output.externalWorkflowExecution !== undefined && output.externalWorkflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.externalWorkflowExecution, context)
         : undefined,
-    input: output.input !== undefined && output.input !== null ? output.input : undefined,
-    signalName: output.signalName !== undefined && output.signalName !== null ? output.signalName : undefined,
+    input: __expectString(output.input),
+    signalName: __expectString(output.signalName),
   } as any;
 };
 
@@ -5971,21 +5761,12 @@ const deserializeAws_json1_0WorkflowExecutionStartedEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionStartedEventAttributes => {
   return {
-    childPolicy: output.childPolicy !== undefined && output.childPolicy !== null ? output.childPolicy : undefined,
-    continuedExecutionRunId:
-      output.continuedExecutionRunId !== undefined && output.continuedExecutionRunId !== null
-        ? output.continuedExecutionRunId
-        : undefined,
-    executionStartToCloseTimeout:
-      output.executionStartToCloseTimeout !== undefined && output.executionStartToCloseTimeout !== null
-        ? output.executionStartToCloseTimeout
-        : undefined,
-    input: output.input !== undefined && output.input !== null ? output.input : undefined,
-    lambdaRole: output.lambdaRole !== undefined && output.lambdaRole !== null ? output.lambdaRole : undefined,
-    parentInitiatedEventId:
-      output.parentInitiatedEventId !== undefined && output.parentInitiatedEventId !== null
-        ? output.parentInitiatedEventId
-        : undefined,
+    childPolicy: __expectString(output.childPolicy),
+    continuedExecutionRunId: __expectString(output.continuedExecutionRunId),
+    executionStartToCloseTimeout: __expectString(output.executionStartToCloseTimeout),
+    input: __expectString(output.input),
+    lambdaRole: __expectString(output.lambdaRole),
+    parentInitiatedEventId: __expectNumber(output.parentInitiatedEventId),
     parentWorkflowExecution:
       output.parentWorkflowExecution !== undefined && output.parentWorkflowExecution !== null
         ? deserializeAws_json1_0WorkflowExecution(output.parentWorkflowExecution, context)
@@ -5998,11 +5779,8 @@ const deserializeAws_json1_0WorkflowExecutionStartedEventAttributes = (
       output.taskList !== undefined && output.taskList !== null
         ? deserializeAws_json1_0TaskList(output.taskList, context)
         : undefined,
-    taskPriority: output.taskPriority !== undefined && output.taskPriority !== null ? output.taskPriority : undefined,
-    taskStartToCloseTimeout:
-      output.taskStartToCloseTimeout !== undefined && output.taskStartToCloseTimeout !== null
-        ? output.taskStartToCloseTimeout
-        : undefined,
+    taskPriority: __expectString(output.taskPriority),
+    taskStartToCloseTimeout: __expectString(output.taskStartToCloseTimeout),
     workflowType:
       output.workflowType !== undefined && output.workflowType !== null
         ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
@@ -6015,10 +5793,10 @@ const deserializeAws_json1_0WorkflowExecutionTerminatedEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionTerminatedEventAttributes => {
   return {
-    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
-    childPolicy: output.childPolicy !== undefined && output.childPolicy !== null ? output.childPolicy : undefined,
-    details: output.details !== undefined && output.details !== null ? output.details : undefined,
-    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
+    cause: __expectString(output.cause),
+    childPolicy: __expectString(output.childPolicy),
+    details: __expectString(output.details),
+    reason: __expectString(output.reason),
   } as any;
 };
 
@@ -6027,15 +5805,15 @@ const deserializeAws_json1_0WorkflowExecutionTimedOutEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionTimedOutEventAttributes => {
   return {
-    childPolicy: output.childPolicy !== undefined && output.childPolicy !== null ? output.childPolicy : undefined,
-    timeoutType: output.timeoutType !== undefined && output.timeoutType !== null ? output.timeoutType : undefined,
+    childPolicy: __expectString(output.childPolicy),
+    timeoutType: __expectString(output.timeoutType),
   } as any;
 };
 
 const deserializeAws_json1_0WorkflowType = (output: any, context: __SerdeContext): WorkflowType => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    name: __expectString(output.name),
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -6044,30 +5822,15 @@ const deserializeAws_json1_0WorkflowTypeConfiguration = (
   context: __SerdeContext
 ): WorkflowTypeConfiguration => {
   return {
-    defaultChildPolicy:
-      output.defaultChildPolicy !== undefined && output.defaultChildPolicy !== null
-        ? output.defaultChildPolicy
-        : undefined,
-    defaultExecutionStartToCloseTimeout:
-      output.defaultExecutionStartToCloseTimeout !== undefined && output.defaultExecutionStartToCloseTimeout !== null
-        ? output.defaultExecutionStartToCloseTimeout
-        : undefined,
-    defaultLambdaRole:
-      output.defaultLambdaRole !== undefined && output.defaultLambdaRole !== null
-        ? output.defaultLambdaRole
-        : undefined,
+    defaultChildPolicy: __expectString(output.defaultChildPolicy),
+    defaultExecutionStartToCloseTimeout: __expectString(output.defaultExecutionStartToCloseTimeout),
+    defaultLambdaRole: __expectString(output.defaultLambdaRole),
     defaultTaskList:
       output.defaultTaskList !== undefined && output.defaultTaskList !== null
         ? deserializeAws_json1_0TaskList(output.defaultTaskList, context)
         : undefined,
-    defaultTaskPriority:
-      output.defaultTaskPriority !== undefined && output.defaultTaskPriority !== null
-        ? output.defaultTaskPriority
-        : undefined,
-    defaultTaskStartToCloseTimeout:
-      output.defaultTaskStartToCloseTimeout !== undefined && output.defaultTaskStartToCloseTimeout !== null
-        ? output.defaultTaskStartToCloseTimeout
-        : undefined,
+    defaultTaskPriority: __expectString(output.defaultTaskPriority),
+    defaultTaskStartToCloseTimeout: __expectString(output.defaultTaskStartToCloseTimeout),
   } as any;
 };
 
@@ -6094,8 +5857,8 @@ const deserializeAws_json1_0WorkflowTypeInfo = (output: any, context: __SerdeCon
       output.deprecationDate !== undefined && output.deprecationDate !== null
         ? new Date(Math.round(output.deprecationDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    description: __expectString(output.description),
+    status: __expectString(output.status),
     workflowType:
       output.workflowType !== undefined && output.workflowType !== null
         ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
@@ -6116,8 +5879,7 @@ const deserializeAws_json1_0WorkflowTypeInfoList = (output: any, context: __Serd
 
 const deserializeAws_json1_0WorkflowTypeInfos = (output: any, context: __SerdeContext): WorkflowTypeInfos => {
   return {
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
     typeInfos:
       output.typeInfos !== undefined && output.typeInfos !== null
         ? deserializeAws_json1_0WorkflowTypeInfoList(output.typeInfos, context)

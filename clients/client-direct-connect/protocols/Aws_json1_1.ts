@@ -307,7 +307,12 @@ import {
   VirtualInterfaces,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -5922,10 +5927,10 @@ const deserializeAws_json1_1AllocateTransitVirtualInterfaceResult = (
 
 const deserializeAws_json1_1AssociatedGateway = (output: any, context: __SerdeContext): AssociatedGateway => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    ownerAccount: output.ownerAccount !== undefined && output.ownerAccount !== null ? output.ownerAccount : undefined,
-    region: output.region !== undefined && output.region !== null ? output.region : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    id: __expectString(output.id),
+    ownerAccount: __expectString(output.ownerAccount),
+    region: __expectString(output.region),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -5934,7 +5939,7 @@ const deserializeAws_json1_1AssociateMacSecKeyResponse = (
   context: __SerdeContext
 ): AssociateMacSecKeyResponse => {
   return {
-    connectionId: output.connectionId !== undefined && output.connectionId !== null ? output.connectionId : undefined,
+    connectionId: __expectString(output.connectionId),
     macSecKeys:
       output.macSecKeys !== undefined && output.macSecKeys !== null
         ? deserializeAws_json1_1MacSecKeyList(output.macSecKeys, context)
@@ -5949,7 +5954,7 @@ const deserializeAws_json1_1AvailableMacSecPortSpeeds = (output: any, context: _
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5960,24 +5965,21 @@ const deserializeAws_json1_1AvailablePortSpeeds = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1BGPPeer = (output: any, context: __SerdeContext): BGPPeer => {
   return {
-    addressFamily:
-      output.addressFamily !== undefined && output.addressFamily !== null ? output.addressFamily : undefined,
-    amazonAddress:
-      output.amazonAddress !== undefined && output.amazonAddress !== null ? output.amazonAddress : undefined,
-    asn: output.asn !== undefined && output.asn !== null ? output.asn : undefined,
-    authKey: output.authKey !== undefined && output.authKey !== null ? output.authKey : undefined,
-    awsDeviceV2: output.awsDeviceV2 !== undefined && output.awsDeviceV2 !== null ? output.awsDeviceV2 : undefined,
-    bgpPeerId: output.bgpPeerId !== undefined && output.bgpPeerId !== null ? output.bgpPeerId : undefined,
-    bgpPeerState: output.bgpPeerState !== undefined && output.bgpPeerState !== null ? output.bgpPeerState : undefined,
-    bgpStatus: output.bgpStatus !== undefined && output.bgpStatus !== null ? output.bgpStatus : undefined,
-    customerAddress:
-      output.customerAddress !== undefined && output.customerAddress !== null ? output.customerAddress : undefined,
+    addressFamily: __expectString(output.addressFamily),
+    amazonAddress: __expectString(output.amazonAddress),
+    asn: __expectNumber(output.asn),
+    authKey: __expectString(output.authKey),
+    awsDeviceV2: __expectString(output.awsDeviceV2),
+    bgpPeerId: __expectString(output.bgpPeerId),
+    bgpPeerState: __expectString(output.bgpPeerState),
+    bgpStatus: __expectString(output.bgpStatus),
+    customerAddress: __expectString(output.customerAddress),
   } as any;
 };
 
@@ -5988,7 +5990,7 @@ const deserializeAws_json1_1BGPPeerIdList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6008,8 +6010,7 @@ const deserializeAws_json1_1ConfirmConnectionResponse = (
   context: __SerdeContext
 ): ConfirmConnectionResponse => {
   return {
-    connectionState:
-      output.connectionState !== undefined && output.connectionState !== null ? output.connectionState : undefined,
+    connectionState: __expectString(output.connectionState),
   } as any;
 };
 
@@ -6018,10 +6019,7 @@ const deserializeAws_json1_1ConfirmPrivateVirtualInterfaceResponse = (
   context: __SerdeContext
 ): ConfirmPrivateVirtualInterfaceResponse => {
   return {
-    virtualInterfaceState:
-      output.virtualInterfaceState !== undefined && output.virtualInterfaceState !== null
-        ? output.virtualInterfaceState
-        : undefined,
+    virtualInterfaceState: __expectString(output.virtualInterfaceState),
   } as any;
 };
 
@@ -6030,10 +6028,7 @@ const deserializeAws_json1_1ConfirmPublicVirtualInterfaceResponse = (
   context: __SerdeContext
 ): ConfirmPublicVirtualInterfaceResponse => {
   return {
-    virtualInterfaceState:
-      output.virtualInterfaceState !== undefined && output.virtualInterfaceState !== null
-        ? output.virtualInterfaceState
-        : undefined,
+    virtualInterfaceState: __expectString(output.virtualInterfaceState),
   } as any;
 };
 
@@ -6042,58 +6037,42 @@ const deserializeAws_json1_1ConfirmTransitVirtualInterfaceResponse = (
   context: __SerdeContext
 ): ConfirmTransitVirtualInterfaceResponse => {
   return {
-    virtualInterfaceState:
-      output.virtualInterfaceState !== undefined && output.virtualInterfaceState !== null
-        ? output.virtualInterfaceState
-        : undefined,
+    virtualInterfaceState: __expectString(output.virtualInterfaceState),
   } as any;
 };
 
 const deserializeAws_json1_1Connection = (output: any, context: __SerdeContext): Connection => {
   return {
-    awsDevice: output.awsDevice !== undefined && output.awsDevice !== null ? output.awsDevice : undefined,
-    awsDeviceV2: output.awsDeviceV2 !== undefined && output.awsDeviceV2 !== null ? output.awsDeviceV2 : undefined,
-    bandwidth: output.bandwidth !== undefined && output.bandwidth !== null ? output.bandwidth : undefined,
-    connectionId: output.connectionId !== undefined && output.connectionId !== null ? output.connectionId : undefined,
-    connectionName:
-      output.connectionName !== undefined && output.connectionName !== null ? output.connectionName : undefined,
-    connectionState:
-      output.connectionState !== undefined && output.connectionState !== null ? output.connectionState : undefined,
-    encryptionMode:
-      output.encryptionMode !== undefined && output.encryptionMode !== null ? output.encryptionMode : undefined,
-    hasLogicalRedundancy:
-      output.hasLogicalRedundancy !== undefined && output.hasLogicalRedundancy !== null
-        ? output.hasLogicalRedundancy
-        : undefined,
-    jumboFrameCapable:
-      output.jumboFrameCapable !== undefined && output.jumboFrameCapable !== null
-        ? output.jumboFrameCapable
-        : undefined,
-    lagId: output.lagId !== undefined && output.lagId !== null ? output.lagId : undefined,
+    awsDevice: __expectString(output.awsDevice),
+    awsDeviceV2: __expectString(output.awsDeviceV2),
+    bandwidth: __expectString(output.bandwidth),
+    connectionId: __expectString(output.connectionId),
+    connectionName: __expectString(output.connectionName),
+    connectionState: __expectString(output.connectionState),
+    encryptionMode: __expectString(output.encryptionMode),
+    hasLogicalRedundancy: __expectString(output.hasLogicalRedundancy),
+    jumboFrameCapable: __expectBoolean(output.jumboFrameCapable),
+    lagId: __expectString(output.lagId),
     loaIssueTime:
       output.loaIssueTime !== undefined && output.loaIssueTime !== null
         ? new Date(Math.round(output.loaIssueTime * 1000))
         : undefined,
-    location: output.location !== undefined && output.location !== null ? output.location : undefined,
-    macSecCapable:
-      output.macSecCapable !== undefined && output.macSecCapable !== null ? output.macSecCapable : undefined,
+    location: __expectString(output.location),
+    macSecCapable: __expectBoolean(output.macSecCapable),
     macSecKeys:
       output.macSecKeys !== undefined && output.macSecKeys !== null
         ? deserializeAws_json1_1MacSecKeyList(output.macSecKeys, context)
         : undefined,
-    ownerAccount: output.ownerAccount !== undefined && output.ownerAccount !== null ? output.ownerAccount : undefined,
-    partnerName: output.partnerName !== undefined && output.partnerName !== null ? output.partnerName : undefined,
-    portEncryptionStatus:
-      output.portEncryptionStatus !== undefined && output.portEncryptionStatus !== null
-        ? output.portEncryptionStatus
-        : undefined,
-    providerName: output.providerName !== undefined && output.providerName !== null ? output.providerName : undefined,
-    region: output.region !== undefined && output.region !== null ? output.region : undefined,
+    ownerAccount: __expectString(output.ownerAccount),
+    partnerName: __expectString(output.partnerName),
+    portEncryptionStatus: __expectString(output.portEncryptionStatus),
+    providerName: __expectString(output.providerName),
+    region: __expectString(output.region),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
         : undefined,
-    vlan: output.vlan !== undefined && output.vlan !== null ? output.vlan : undefined,
+    vlan: __expectNumber(output.vlan),
   } as any;
 };
 
@@ -6232,10 +6211,7 @@ const deserializeAws_json1_1DeleteInterconnectResponse = (
   context: __SerdeContext
 ): DeleteInterconnectResponse => {
   return {
-    interconnectState:
-      output.interconnectState !== undefined && output.interconnectState !== null
-        ? output.interconnectState
-        : undefined,
+    interconnectState: __expectString(output.interconnectState),
   } as any;
 };
 
@@ -6244,10 +6220,7 @@ const deserializeAws_json1_1DeleteVirtualInterfaceResponse = (
   context: __SerdeContext
 ): DeleteVirtualInterfaceResponse => {
   return {
-    virtualInterfaceState:
-      output.virtualInterfaceState !== undefined && output.virtualInterfaceState !== null
-        ? output.virtualInterfaceState
-        : undefined,
+    virtualInterfaceState: __expectString(output.virtualInterfaceState),
   } as any;
 };
 
@@ -6273,7 +6246,7 @@ const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsResu
             context
           )
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6286,7 +6259,7 @@ const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsResult = (
       output.directConnectGatewayAssociations !== undefined && output.directConnectGatewayAssociations !== null
         ? deserializeAws_json1_1DirectConnectGatewayAssociationList(output.directConnectGatewayAssociations, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6299,7 +6272,7 @@ const deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsResult = (
       output.directConnectGatewayAttachments !== undefined && output.directConnectGatewayAttachments !== null
         ? deserializeAws_json1_1DirectConnectGatewayAttachmentList(output.directConnectGatewayAttachments, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6312,7 +6285,7 @@ const deserializeAws_json1_1DescribeDirectConnectGatewaysResult = (
       output.directConnectGateways !== undefined && output.directConnectGateways !== null
         ? deserializeAws_json1_1DirectConnectGatewayList(output.directConnectGateways, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6339,29 +6312,18 @@ const deserializeAws_json1_1DirectConnectClientException = (
   context: __SerdeContext
 ): DirectConnectClientException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1DirectConnectGateway = (output: any, context: __SerdeContext): DirectConnectGateway => {
   return {
-    amazonSideAsn:
-      output.amazonSideAsn !== undefined && output.amazonSideAsn !== null ? output.amazonSideAsn : undefined,
-    directConnectGatewayId:
-      output.directConnectGatewayId !== undefined && output.directConnectGatewayId !== null
-        ? output.directConnectGatewayId
-        : undefined,
-    directConnectGatewayName:
-      output.directConnectGatewayName !== undefined && output.directConnectGatewayName !== null
-        ? output.directConnectGatewayName
-        : undefined,
-    directConnectGatewayState:
-      output.directConnectGatewayState !== undefined && output.directConnectGatewayState !== null
-        ? output.directConnectGatewayState
-        : undefined,
-    ownerAccount: output.ownerAccount !== undefined && output.ownerAccount !== null ? output.ownerAccount : undefined,
-    stateChangeError:
-      output.stateChangeError !== undefined && output.stateChangeError !== null ? output.stateChangeError : undefined,
+    amazonSideAsn: __expectNumber(output.amazonSideAsn),
+    directConnectGatewayId: __expectString(output.directConnectGatewayId),
+    directConnectGatewayName: __expectString(output.directConnectGatewayName),
+    directConnectGatewayState: __expectString(output.directConnectGatewayState),
+    ownerAccount: __expectString(output.ownerAccount),
+    stateChangeError: __expectString(output.stateChangeError),
   } as any;
 };
 
@@ -6379,30 +6341,14 @@ const deserializeAws_json1_1DirectConnectGatewayAssociation = (
       output.associatedGateway !== undefined && output.associatedGateway !== null
         ? deserializeAws_json1_1AssociatedGateway(output.associatedGateway, context)
         : undefined,
-    associationId:
-      output.associationId !== undefined && output.associationId !== null ? output.associationId : undefined,
-    associationState:
-      output.associationState !== undefined && output.associationState !== null ? output.associationState : undefined,
-    directConnectGatewayId:
-      output.directConnectGatewayId !== undefined && output.directConnectGatewayId !== null
-        ? output.directConnectGatewayId
-        : undefined,
-    directConnectGatewayOwnerAccount:
-      output.directConnectGatewayOwnerAccount !== undefined && output.directConnectGatewayOwnerAccount !== null
-        ? output.directConnectGatewayOwnerAccount
-        : undefined,
-    stateChangeError:
-      output.stateChangeError !== undefined && output.stateChangeError !== null ? output.stateChangeError : undefined,
-    virtualGatewayId:
-      output.virtualGatewayId !== undefined && output.virtualGatewayId !== null ? output.virtualGatewayId : undefined,
-    virtualGatewayOwnerAccount:
-      output.virtualGatewayOwnerAccount !== undefined && output.virtualGatewayOwnerAccount !== null
-        ? output.virtualGatewayOwnerAccount
-        : undefined,
-    virtualGatewayRegion:
-      output.virtualGatewayRegion !== undefined && output.virtualGatewayRegion !== null
-        ? output.virtualGatewayRegion
-        : undefined,
+    associationId: __expectString(output.associationId),
+    associationState: __expectString(output.associationState),
+    directConnectGatewayId: __expectString(output.directConnectGatewayId),
+    directConnectGatewayOwnerAccount: __expectString(output.directConnectGatewayOwnerAccount),
+    stateChangeError: __expectString(output.stateChangeError),
+    virtualGatewayId: __expectString(output.virtualGatewayId),
+    virtualGatewayOwnerAccount: __expectString(output.virtualGatewayOwnerAccount),
+    virtualGatewayRegion: __expectString(output.virtualGatewayRegion),
   } as any;
 };
 
@@ -6429,22 +6375,15 @@ const deserializeAws_json1_1DirectConnectGatewayAssociationProposal = (
       output.associatedGateway !== undefined && output.associatedGateway !== null
         ? deserializeAws_json1_1AssociatedGateway(output.associatedGateway, context)
         : undefined,
-    directConnectGatewayId:
-      output.directConnectGatewayId !== undefined && output.directConnectGatewayId !== null
-        ? output.directConnectGatewayId
-        : undefined,
-    directConnectGatewayOwnerAccount:
-      output.directConnectGatewayOwnerAccount !== undefined && output.directConnectGatewayOwnerAccount !== null
-        ? output.directConnectGatewayOwnerAccount
-        : undefined,
+    directConnectGatewayId: __expectString(output.directConnectGatewayId),
+    directConnectGatewayOwnerAccount: __expectString(output.directConnectGatewayOwnerAccount),
     existingAllowedPrefixesToDirectConnectGateway:
       output.existingAllowedPrefixesToDirectConnectGateway !== undefined &&
       output.existingAllowedPrefixesToDirectConnectGateway !== null
         ? deserializeAws_json1_1RouteFilterPrefixList(output.existingAllowedPrefixesToDirectConnectGateway, context)
         : undefined,
-    proposalId: output.proposalId !== undefined && output.proposalId !== null ? output.proposalId : undefined,
-    proposalState:
-      output.proposalState !== undefined && output.proposalState !== null ? output.proposalState : undefined,
+    proposalId: __expectString(output.proposalId),
+    proposalState: __expectString(output.proposalState),
     requestedAllowedPrefixesToDirectConnectGateway:
       output.requestedAllowedPrefixesToDirectConnectGateway !== undefined &&
       output.requestedAllowedPrefixesToDirectConnectGateway !== null
@@ -6472,28 +6411,13 @@ const deserializeAws_json1_1DirectConnectGatewayAttachment = (
   context: __SerdeContext
 ): DirectConnectGatewayAttachment => {
   return {
-    attachmentState:
-      output.attachmentState !== undefined && output.attachmentState !== null ? output.attachmentState : undefined,
-    attachmentType:
-      output.attachmentType !== undefined && output.attachmentType !== null ? output.attachmentType : undefined,
-    directConnectGatewayId:
-      output.directConnectGatewayId !== undefined && output.directConnectGatewayId !== null
-        ? output.directConnectGatewayId
-        : undefined,
-    stateChangeError:
-      output.stateChangeError !== undefined && output.stateChangeError !== null ? output.stateChangeError : undefined,
-    virtualInterfaceId:
-      output.virtualInterfaceId !== undefined && output.virtualInterfaceId !== null
-        ? output.virtualInterfaceId
-        : undefined,
-    virtualInterfaceOwnerAccount:
-      output.virtualInterfaceOwnerAccount !== undefined && output.virtualInterfaceOwnerAccount !== null
-        ? output.virtualInterfaceOwnerAccount
-        : undefined,
-    virtualInterfaceRegion:
-      output.virtualInterfaceRegion !== undefined && output.virtualInterfaceRegion !== null
-        ? output.virtualInterfaceRegion
-        : undefined,
+    attachmentState: __expectString(output.attachmentState),
+    attachmentType: __expectString(output.attachmentType),
+    directConnectGatewayId: __expectString(output.directConnectGatewayId),
+    stateChangeError: __expectString(output.stateChangeError),
+    virtualInterfaceId: __expectString(output.virtualInterfaceId),
+    virtualInterfaceOwnerAccount: __expectString(output.virtualInterfaceOwnerAccount),
+    virtualInterfaceRegion: __expectString(output.virtualInterfaceRegion),
   } as any;
 };
 
@@ -6530,7 +6454,7 @@ const deserializeAws_json1_1DirectConnectServerException = (
   context: __SerdeContext
 ): DirectConnectServerException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6539,7 +6463,7 @@ const deserializeAws_json1_1DisassociateMacSecKeyResponse = (
   context: __SerdeContext
 ): DisassociateMacSecKeyResponse => {
   return {
-    connectionId: output.connectionId !== undefined && output.connectionId !== null ? output.connectionId : undefined,
+    connectionId: __expectString(output.connectionId),
     macSecKeys:
       output.macSecKeys !== undefined && output.macSecKeys !== null
         ? deserializeAws_json1_1MacSecKeyList(output.macSecKeys, context)
@@ -6552,39 +6476,28 @@ const deserializeAws_json1_1DuplicateTagKeysException = (
   context: __SerdeContext
 ): DuplicateTagKeysException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1Interconnect = (output: any, context: __SerdeContext): Interconnect => {
   return {
-    awsDevice: output.awsDevice !== undefined && output.awsDevice !== null ? output.awsDevice : undefined,
-    awsDeviceV2: output.awsDeviceV2 !== undefined && output.awsDeviceV2 !== null ? output.awsDeviceV2 : undefined,
-    bandwidth: output.bandwidth !== undefined && output.bandwidth !== null ? output.bandwidth : undefined,
-    hasLogicalRedundancy:
-      output.hasLogicalRedundancy !== undefined && output.hasLogicalRedundancy !== null
-        ? output.hasLogicalRedundancy
-        : undefined,
-    interconnectId:
-      output.interconnectId !== undefined && output.interconnectId !== null ? output.interconnectId : undefined,
-    interconnectName:
-      output.interconnectName !== undefined && output.interconnectName !== null ? output.interconnectName : undefined,
-    interconnectState:
-      output.interconnectState !== undefined && output.interconnectState !== null
-        ? output.interconnectState
-        : undefined,
-    jumboFrameCapable:
-      output.jumboFrameCapable !== undefined && output.jumboFrameCapable !== null
-        ? output.jumboFrameCapable
-        : undefined,
-    lagId: output.lagId !== undefined && output.lagId !== null ? output.lagId : undefined,
+    awsDevice: __expectString(output.awsDevice),
+    awsDeviceV2: __expectString(output.awsDeviceV2),
+    bandwidth: __expectString(output.bandwidth),
+    hasLogicalRedundancy: __expectString(output.hasLogicalRedundancy),
+    interconnectId: __expectString(output.interconnectId),
+    interconnectName: __expectString(output.interconnectName),
+    interconnectState: __expectString(output.interconnectState),
+    jumboFrameCapable: __expectBoolean(output.jumboFrameCapable),
+    lagId: __expectString(output.lagId),
     loaIssueTime:
       output.loaIssueTime !== undefined && output.loaIssueTime !== null
         ? new Date(Math.round(output.loaIssueTime * 1000))
         : undefined,
-    location: output.location !== undefined && output.location !== null ? output.location : undefined,
-    providerName: output.providerName !== undefined && output.providerName !== null ? output.providerName : undefined,
-    region: output.region !== undefined && output.region !== null ? output.region : undefined,
+    location: __expectString(output.location),
+    providerName: __expectString(output.providerName),
+    region: __expectString(output.region),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -6614,48 +6527,31 @@ const deserializeAws_json1_1Interconnects = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Lag = (output: any, context: __SerdeContext): Lag => {
   return {
-    allowsHostedConnections:
-      output.allowsHostedConnections !== undefined && output.allowsHostedConnections !== null
-        ? output.allowsHostedConnections
-        : undefined,
-    awsDevice: output.awsDevice !== undefined && output.awsDevice !== null ? output.awsDevice : undefined,
-    awsDeviceV2: output.awsDeviceV2 !== undefined && output.awsDeviceV2 !== null ? output.awsDeviceV2 : undefined,
+    allowsHostedConnections: __expectBoolean(output.allowsHostedConnections),
+    awsDevice: __expectString(output.awsDevice),
+    awsDeviceV2: __expectString(output.awsDeviceV2),
     connections:
       output.connections !== undefined && output.connections !== null
         ? deserializeAws_json1_1ConnectionList(output.connections, context)
         : undefined,
-    connectionsBandwidth:
-      output.connectionsBandwidth !== undefined && output.connectionsBandwidth !== null
-        ? output.connectionsBandwidth
-        : undefined,
-    encryptionMode:
-      output.encryptionMode !== undefined && output.encryptionMode !== null ? output.encryptionMode : undefined,
-    hasLogicalRedundancy:
-      output.hasLogicalRedundancy !== undefined && output.hasLogicalRedundancy !== null
-        ? output.hasLogicalRedundancy
-        : undefined,
-    jumboFrameCapable:
-      output.jumboFrameCapable !== undefined && output.jumboFrameCapable !== null
-        ? output.jumboFrameCapable
-        : undefined,
-    lagId: output.lagId !== undefined && output.lagId !== null ? output.lagId : undefined,
-    lagName: output.lagName !== undefined && output.lagName !== null ? output.lagName : undefined,
-    lagState: output.lagState !== undefined && output.lagState !== null ? output.lagState : undefined,
-    location: output.location !== undefined && output.location !== null ? output.location : undefined,
-    macSecCapable:
-      output.macSecCapable !== undefined && output.macSecCapable !== null ? output.macSecCapable : undefined,
+    connectionsBandwidth: __expectString(output.connectionsBandwidth),
+    encryptionMode: __expectString(output.encryptionMode),
+    hasLogicalRedundancy: __expectString(output.hasLogicalRedundancy),
+    jumboFrameCapable: __expectBoolean(output.jumboFrameCapable),
+    lagId: __expectString(output.lagId),
+    lagName: __expectString(output.lagName),
+    lagState: __expectString(output.lagState),
+    location: __expectString(output.location),
+    macSecCapable: __expectBoolean(output.macSecCapable),
     macSecKeys:
       output.macSecKeys !== undefined && output.macSecKeys !== null
         ? deserializeAws_json1_1MacSecKeyList(output.macSecKeys, context)
         : undefined,
-    minimumLinks: output.minimumLinks !== undefined && output.minimumLinks !== null ? output.minimumLinks : undefined,
-    numberOfConnections:
-      output.numberOfConnections !== undefined && output.numberOfConnections !== null
-        ? output.numberOfConnections
-        : undefined,
-    ownerAccount: output.ownerAccount !== undefined && output.ownerAccount !== null ? output.ownerAccount : undefined,
-    providerName: output.providerName !== undefined && output.providerName !== null ? output.providerName : undefined,
-    region: output.region !== undefined && output.region !== null ? output.region : undefined,
+    minimumLinks: __expectNumber(output.minimumLinks),
+    numberOfConnections: __expectNumber(output.numberOfConnections),
+    ownerAccount: __expectString(output.ownerAccount),
+    providerName: __expectString(output.providerName),
+    region: __expectString(output.region),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -6688,7 +6584,7 @@ const deserializeAws_json1_1ListVirtualInterfaceTestHistoryResponse = (
   context: __SerdeContext
 ): ListVirtualInterfaceTestHistoryResponse => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     virtualInterfaceTestHistory:
       output.virtualInterfaceTestHistory !== undefined && output.virtualInterfaceTestHistory !== null
         ? deserializeAws_json1_1VirtualInterfaceTestHistoryList(output.virtualInterfaceTestHistory, context)
@@ -6702,8 +6598,7 @@ const deserializeAws_json1_1Loa = (output: any, context: __SerdeContext): Loa =>
       output.loaContent !== undefined && output.loaContent !== null
         ? context.base64Decoder(output.loaContent)
         : undefined,
-    loaContentType:
-      output.loaContentType !== undefined && output.loaContentType !== null ? output.loaContentType : undefined,
+    loaContentType: __expectString(output.loaContentType),
   } as any;
 };
 
@@ -6721,9 +6616,9 @@ const deserializeAws_json1_1Location = (output: any, context: __SerdeContext): L
       output.availableProviders !== undefined && output.availableProviders !== null
         ? deserializeAws_json1_1ProviderList(output.availableProviders, context)
         : undefined,
-    locationCode: output.locationCode !== undefined && output.locationCode !== null ? output.locationCode : undefined,
-    locationName: output.locationName !== undefined && output.locationName !== null ? output.locationName : undefined,
-    region: output.region !== undefined && output.region !== null ? output.region : undefined,
+    locationCode: __expectString(output.locationCode),
+    locationName: __expectString(output.locationName),
+    region: __expectString(output.region),
   } as any;
 };
 
@@ -6749,10 +6644,10 @@ const deserializeAws_json1_1Locations = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1MacSecKey = (output: any, context: __SerdeContext): MacSecKey => {
   return {
-    ckn: output.ckn !== undefined && output.ckn !== null ? output.ckn : undefined,
-    secretARN: output.secretARN !== undefined && output.secretARN !== null ? output.secretARN : undefined,
-    startOn: output.startOn !== undefined && output.startOn !== null ? output.startOn : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    ckn: __expectString(output.ckn),
+    secretARN: __expectString(output.secretARN),
+    startOn: __expectString(output.startOn),
+    state: __expectString(output.state),
   } as any;
 };
 
@@ -6774,13 +6669,13 @@ const deserializeAws_json1_1ProviderList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
   return {
-    resourceArn: output.resourceArn !== undefined && output.resourceArn !== null ? output.resourceArn : undefined,
+    resourceArn: __expectString(output.resourceArn),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -6801,7 +6696,7 @@ const deserializeAws_json1_1ResourceTagList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1RouteFilterPrefix = (output: any, context: __SerdeContext): RouteFilterPrefix => {
   return {
-    cidr: output.cidr !== undefined && output.cidr !== null ? output.cidr : undefined,
+    cidr: __expectString(output.cidr),
   } as any;
 };
 
@@ -6842,8 +6737,8 @@ const deserializeAws_json1_1StopBgpFailoverTestResponse = (
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -6864,7 +6759,7 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6886,12 +6781,8 @@ const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationResult = (
 
 const deserializeAws_json1_1VirtualGateway = (output: any, context: __SerdeContext): VirtualGateway => {
   return {
-    virtualGatewayId:
-      output.virtualGatewayId !== undefined && output.virtualGatewayId !== null ? output.virtualGatewayId : undefined,
-    virtualGatewayState:
-      output.virtualGatewayState !== undefined && output.virtualGatewayState !== null
-        ? output.virtualGatewayState
-        : undefined,
+    virtualGatewayId: __expectString(output.virtualGatewayId),
+    virtualGatewayState: __expectString(output.virtualGatewayState),
   } as any;
 };
 
@@ -6917,38 +6808,25 @@ const deserializeAws_json1_1VirtualGateways = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1VirtualInterface = (output: any, context: __SerdeContext): VirtualInterface => {
   return {
-    addressFamily:
-      output.addressFamily !== undefined && output.addressFamily !== null ? output.addressFamily : undefined,
-    amazonAddress:
-      output.amazonAddress !== undefined && output.amazonAddress !== null ? output.amazonAddress : undefined,
-    amazonSideAsn:
-      output.amazonSideAsn !== undefined && output.amazonSideAsn !== null ? output.amazonSideAsn : undefined,
-    asn: output.asn !== undefined && output.asn !== null ? output.asn : undefined,
-    authKey: output.authKey !== undefined && output.authKey !== null ? output.authKey : undefined,
-    awsDeviceV2: output.awsDeviceV2 !== undefined && output.awsDeviceV2 !== null ? output.awsDeviceV2 : undefined,
+    addressFamily: __expectString(output.addressFamily),
+    amazonAddress: __expectString(output.amazonAddress),
+    amazonSideAsn: __expectNumber(output.amazonSideAsn),
+    asn: __expectNumber(output.asn),
+    authKey: __expectString(output.authKey),
+    awsDeviceV2: __expectString(output.awsDeviceV2),
     bgpPeers:
       output.bgpPeers !== undefined && output.bgpPeers !== null
         ? deserializeAws_json1_1BGPPeerList(output.bgpPeers, context)
         : undefined,
-    connectionId: output.connectionId !== undefined && output.connectionId !== null ? output.connectionId : undefined,
-    customerAddress:
-      output.customerAddress !== undefined && output.customerAddress !== null ? output.customerAddress : undefined,
-    customerRouterConfig:
-      output.customerRouterConfig !== undefined && output.customerRouterConfig !== null
-        ? output.customerRouterConfig
-        : undefined,
-    directConnectGatewayId:
-      output.directConnectGatewayId !== undefined && output.directConnectGatewayId !== null
-        ? output.directConnectGatewayId
-        : undefined,
-    jumboFrameCapable:
-      output.jumboFrameCapable !== undefined && output.jumboFrameCapable !== null
-        ? output.jumboFrameCapable
-        : undefined,
-    location: output.location !== undefined && output.location !== null ? output.location : undefined,
-    mtu: output.mtu !== undefined && output.mtu !== null ? output.mtu : undefined,
-    ownerAccount: output.ownerAccount !== undefined && output.ownerAccount !== null ? output.ownerAccount : undefined,
-    region: output.region !== undefined && output.region !== null ? output.region : undefined,
+    connectionId: __expectString(output.connectionId),
+    customerAddress: __expectString(output.customerAddress),
+    customerRouterConfig: __expectString(output.customerRouterConfig),
+    directConnectGatewayId: __expectString(output.directConnectGatewayId),
+    jumboFrameCapable: __expectBoolean(output.jumboFrameCapable),
+    location: __expectString(output.location),
+    mtu: __expectNumber(output.mtu),
+    ownerAccount: __expectString(output.ownerAccount),
+    region: __expectString(output.region),
     routeFilterPrefixes:
       output.routeFilterPrefixes !== undefined && output.routeFilterPrefixes !== null
         ? deserializeAws_json1_1RouteFilterPrefixList(output.routeFilterPrefixes, context)
@@ -6957,25 +6835,12 @@ const deserializeAws_json1_1VirtualInterface = (output: any, context: __SerdeCon
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
         : undefined,
-    virtualGatewayId:
-      output.virtualGatewayId !== undefined && output.virtualGatewayId !== null ? output.virtualGatewayId : undefined,
-    virtualInterfaceId:
-      output.virtualInterfaceId !== undefined && output.virtualInterfaceId !== null
-        ? output.virtualInterfaceId
-        : undefined,
-    virtualInterfaceName:
-      output.virtualInterfaceName !== undefined && output.virtualInterfaceName !== null
-        ? output.virtualInterfaceName
-        : undefined,
-    virtualInterfaceState:
-      output.virtualInterfaceState !== undefined && output.virtualInterfaceState !== null
-        ? output.virtualInterfaceState
-        : undefined,
-    virtualInterfaceType:
-      output.virtualInterfaceType !== undefined && output.virtualInterfaceType !== null
-        ? output.virtualInterfaceType
-        : undefined,
-    vlan: output.vlan !== undefined && output.vlan !== null ? output.vlan : undefined,
+    virtualGatewayId: __expectString(output.virtualGatewayId),
+    virtualInterfaceId: __expectString(output.virtualInterfaceId),
+    virtualInterfaceName: __expectString(output.virtualInterfaceName),
+    virtualInterfaceState: __expectString(output.virtualInterfaceState),
+    virtualInterfaceType: __expectString(output.virtualInterfaceType),
+    vlan: __expectNumber(output.vlan),
   } as any;
 };
 
@@ -7010,21 +6875,15 @@ const deserializeAws_json1_1VirtualInterfaceTestHistory = (
         : undefined,
     endTime:
       output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
-    ownerAccount: output.ownerAccount !== undefined && output.ownerAccount !== null ? output.ownerAccount : undefined,
+    ownerAccount: __expectString(output.ownerAccount),
     startTime:
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    testDurationInMinutes:
-      output.testDurationInMinutes !== undefined && output.testDurationInMinutes !== null
-        ? output.testDurationInMinutes
-        : undefined,
-    testId: output.testId !== undefined && output.testId !== null ? output.testId : undefined,
-    virtualInterfaceId:
-      output.virtualInterfaceId !== undefined && output.virtualInterfaceId !== null
-        ? output.virtualInterfaceId
-        : undefined,
+    status: __expectString(output.status),
+    testDurationInMinutes: __expectNumber(output.testDurationInMinutes),
+    testId: __expectString(output.testId),
+    virtualInterfaceId: __expectString(output.virtualInterfaceId),
   } as any;
 };
 

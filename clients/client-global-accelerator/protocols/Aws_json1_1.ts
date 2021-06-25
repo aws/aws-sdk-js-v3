@@ -270,7 +270,12 @@ import {
   WithdrawByoipCidrResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -5596,16 +5601,14 @@ const serializeAws_json1_1WithdrawByoipCidrRequest = (
 
 const deserializeAws_json1_1Accelerator = (output: any, context: __SerdeContext): Accelerator => {
   return {
-    AcceleratorArn:
-      output.AcceleratorArn !== undefined && output.AcceleratorArn !== null ? output.AcceleratorArn : undefined,
+    AcceleratorArn: __expectString(output.AcceleratorArn),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DnsName: output.DnsName !== undefined && output.DnsName !== null ? output.DnsName : undefined,
-    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
-    IpAddressType:
-      output.IpAddressType !== undefined && output.IpAddressType !== null ? output.IpAddressType : undefined,
+    DnsName: __expectString(output.DnsName),
+    Enabled: __expectBoolean(output.Enabled),
+    IpAddressType: __expectString(output.IpAddressType),
     IpSets:
       output.IpSets !== undefined && output.IpSets !== null
         ? deserializeAws_json1_1IpSets(output.IpSets, context)
@@ -5614,19 +5617,16 @@ const deserializeAws_json1_1Accelerator = (output: any, context: __SerdeContext)
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
   } as any;
 };
 
 const deserializeAws_json1_1AcceleratorAttributes = (output: any, context: __SerdeContext): AcceleratorAttributes => {
   return {
-    FlowLogsEnabled:
-      output.FlowLogsEnabled !== undefined && output.FlowLogsEnabled !== null ? output.FlowLogsEnabled : undefined,
-    FlowLogsS3Bucket:
-      output.FlowLogsS3Bucket !== undefined && output.FlowLogsS3Bucket !== null ? output.FlowLogsS3Bucket : undefined,
-    FlowLogsS3Prefix:
-      output.FlowLogsS3Prefix !== undefined && output.FlowLogsS3Prefix !== null ? output.FlowLogsS3Prefix : undefined,
+    FlowLogsEnabled: __expectBoolean(output.FlowLogsEnabled),
+    FlowLogsS3Bucket: __expectString(output.FlowLogsS3Bucket),
+    FlowLogsS3Prefix: __expectString(output.FlowLogsS3Prefix),
   } as any;
 };
 
@@ -5635,7 +5635,7 @@ const deserializeAws_json1_1AcceleratorNotDisabledException = (
   context: __SerdeContext
 ): AcceleratorNotDisabledException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5644,7 +5644,7 @@ const deserializeAws_json1_1AcceleratorNotFoundException = (
   context: __SerdeContext
 ): AcceleratorNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5661,7 +5661,7 @@ const deserializeAws_json1_1Accelerators = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5674,8 +5674,7 @@ const deserializeAws_json1_1AddCustomRoutingEndpointsResponse = (
       output.EndpointDescriptions !== undefined && output.EndpointDescriptions !== null
         ? deserializeAws_json1_1CustomRoutingEndpointDescriptions(output.EndpointDescriptions, context)
         : undefined,
-    EndpointGroupArn:
-      output.EndpointGroupArn !== undefined && output.EndpointGroupArn !== null ? output.EndpointGroupArn : undefined,
+    EndpointGroupArn: __expectString(output.EndpointGroupArn),
   } as any;
 };
 
@@ -5696,7 +5695,7 @@ const deserializeAws_json1_1AssociatedEndpointGroupFoundException = (
   context: __SerdeContext
 ): AssociatedEndpointGroupFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5705,24 +5704,24 @@ const deserializeAws_json1_1AssociatedListenerFoundException = (
   context: __SerdeContext
 ): AssociatedListenerFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
   return {
-    Cidr: output.Cidr !== undefined && output.Cidr !== null ? output.Cidr : undefined,
+    Cidr: __expectString(output.Cidr),
     Events:
       output.Events !== undefined && output.Events !== null
         ? deserializeAws_json1_1ByoipCidrEvents(output.Events, context)
         : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    State: __expectString(output.State),
   } as any;
 };
 
 const deserializeAws_json1_1ByoipCidrEvent = (output: any, context: __SerdeContext): ByoipCidrEvent => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
@@ -5746,7 +5745,7 @@ const deserializeAws_json1_1ByoipCidrNotFoundException = (
   context: __SerdeContext
 ): ByoipCidrNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5763,7 +5762,7 @@ const deserializeAws_json1_1ByoipCidrs = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5841,16 +5840,14 @@ const deserializeAws_json1_1CustomRoutingAccelerator = (
   context: __SerdeContext
 ): CustomRoutingAccelerator => {
   return {
-    AcceleratorArn:
-      output.AcceleratorArn !== undefined && output.AcceleratorArn !== null ? output.AcceleratorArn : undefined,
+    AcceleratorArn: __expectString(output.AcceleratorArn),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DnsName: output.DnsName !== undefined && output.DnsName !== null ? output.DnsName : undefined,
-    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
-    IpAddressType:
-      output.IpAddressType !== undefined && output.IpAddressType !== null ? output.IpAddressType : undefined,
+    DnsName: __expectString(output.DnsName),
+    Enabled: __expectBoolean(output.Enabled),
+    IpAddressType: __expectString(output.IpAddressType),
     IpSets:
       output.IpSets !== undefined && output.IpSets !== null
         ? deserializeAws_json1_1IpSets(output.IpSets, context)
@@ -5859,8 +5856,8 @@ const deserializeAws_json1_1CustomRoutingAccelerator = (
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -5869,12 +5866,9 @@ const deserializeAws_json1_1CustomRoutingAcceleratorAttributes = (
   context: __SerdeContext
 ): CustomRoutingAcceleratorAttributes => {
   return {
-    FlowLogsEnabled:
-      output.FlowLogsEnabled !== undefined && output.FlowLogsEnabled !== null ? output.FlowLogsEnabled : undefined,
-    FlowLogsS3Bucket:
-      output.FlowLogsS3Bucket !== undefined && output.FlowLogsS3Bucket !== null ? output.FlowLogsS3Bucket : undefined,
-    FlowLogsS3Prefix:
-      output.FlowLogsS3Prefix !== undefined && output.FlowLogsS3Prefix !== null ? output.FlowLogsS3Prefix : undefined,
+    FlowLogsEnabled: __expectBoolean(output.FlowLogsEnabled),
+    FlowLogsS3Bucket: __expectString(output.FlowLogsS3Bucket),
+    FlowLogsS3Prefix: __expectString(output.FlowLogsS3Prefix),
   } as any;
 };
 
@@ -5897,12 +5891,12 @@ const deserializeAws_json1_1CustomRoutingDestinationDescription = (
   context: __SerdeContext
 ): CustomRoutingDestinationDescription => {
   return {
-    FromPort: output.FromPort !== undefined && output.FromPort !== null ? output.FromPort : undefined,
+    FromPort: __expectNumber(output.FromPort),
     Protocols:
       output.Protocols !== undefined && output.Protocols !== null
         ? deserializeAws_json1_1Protocols(output.Protocols, context)
         : undefined,
-    ToPort: output.ToPort !== undefined && output.ToPort !== null ? output.ToPort : undefined,
+    ToPort: __expectNumber(output.ToPort),
   } as any;
 };
 
@@ -5925,7 +5919,7 @@ const deserializeAws_json1_1CustomRoutingEndpointDescription = (
   context: __SerdeContext
 ): CustomRoutingEndpointDescription => {
   return {
-    EndpointId: output.EndpointId !== undefined && output.EndpointId !== null ? output.EndpointId : undefined,
+    EndpointId: __expectString(output.EndpointId),
   } as any;
 };
 
@@ -5956,12 +5950,8 @@ const deserializeAws_json1_1CustomRoutingEndpointGroup = (
       output.EndpointDescriptions !== undefined && output.EndpointDescriptions !== null
         ? deserializeAws_json1_1CustomRoutingEndpointDescriptions(output.EndpointDescriptions, context)
         : undefined,
-    EndpointGroupArn:
-      output.EndpointGroupArn !== undefined && output.EndpointGroupArn !== null ? output.EndpointGroupArn : undefined,
-    EndpointGroupRegion:
-      output.EndpointGroupRegion !== undefined && output.EndpointGroupRegion !== null
-        ? output.EndpointGroupRegion
-        : undefined,
+    EndpointGroupArn: __expectString(output.EndpointGroupArn),
+    EndpointGroupRegion: __expectString(output.EndpointGroupRegion),
   } as any;
 };
 
@@ -5981,7 +5971,7 @@ const deserializeAws_json1_1CustomRoutingEndpointGroups = (
 
 const deserializeAws_json1_1CustomRoutingListener = (output: any, context: __SerdeContext): CustomRoutingListener => {
   return {
-    ListenerArn: output.ListenerArn !== undefined && output.ListenerArn !== null ? output.ListenerArn : undefined,
+    ListenerArn: __expectString(output.ListenerArn),
     PortRanges:
       output.PortRanges !== undefined && output.PortRanges !== null
         ? deserializeAws_json1_1PortRanges(output.PortRanges, context)
@@ -6013,7 +6003,7 @@ const deserializeAws_json1_1CustomRoutingProtocols = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6127,8 +6117,7 @@ const deserializeAws_json1_1DescribeListenerResponse = (
 
 const deserializeAws_json1_1DestinationPortMapping = (output: any, context: __SerdeContext): DestinationPortMapping => {
   return {
-    AcceleratorArn:
-      output.AcceleratorArn !== undefined && output.AcceleratorArn !== null ? output.AcceleratorArn : undefined,
+    AcceleratorArn: __expectString(output.AcceleratorArn),
     AcceleratorSocketAddresses:
       output.AcceleratorSocketAddresses !== undefined && output.AcceleratorSocketAddresses !== null
         ? deserializeAws_json1_1SocketAddresses(output.AcceleratorSocketAddresses, context)
@@ -6137,19 +6126,11 @@ const deserializeAws_json1_1DestinationPortMapping = (output: any, context: __Se
       output.DestinationSocketAddress !== undefined && output.DestinationSocketAddress !== null
         ? deserializeAws_json1_1SocketAddress(output.DestinationSocketAddress, context)
         : undefined,
-    DestinationTrafficState:
-      output.DestinationTrafficState !== undefined && output.DestinationTrafficState !== null
-        ? output.DestinationTrafficState
-        : undefined,
-    EndpointGroupArn:
-      output.EndpointGroupArn !== undefined && output.EndpointGroupArn !== null ? output.EndpointGroupArn : undefined,
-    EndpointGroupRegion:
-      output.EndpointGroupRegion !== undefined && output.EndpointGroupRegion !== null
-        ? output.EndpointGroupRegion
-        : undefined,
-    EndpointId: output.EndpointId !== undefined && output.EndpointId !== null ? output.EndpointId : undefined,
-    IpAddressType:
-      output.IpAddressType !== undefined && output.IpAddressType !== null ? output.IpAddressType : undefined,
+    DestinationTrafficState: __expectString(output.DestinationTrafficState),
+    EndpointGroupArn: __expectString(output.EndpointGroupArn),
+    EndpointGroupRegion: __expectString(output.EndpointGroupRegion),
+    EndpointId: __expectString(output.EndpointId),
+    IpAddressType: __expectString(output.IpAddressType),
   } as any;
 };
 
@@ -6172,20 +6153,17 @@ const deserializeAws_json1_1EndpointAlreadyExistsException = (
   context: __SerdeContext
 ): EndpointAlreadyExistsException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1EndpointDescription = (output: any, context: __SerdeContext): EndpointDescription => {
   return {
-    ClientIPPreservationEnabled:
-      output.ClientIPPreservationEnabled !== undefined && output.ClientIPPreservationEnabled !== null
-        ? output.ClientIPPreservationEnabled
-        : undefined,
-    EndpointId: output.EndpointId !== undefined && output.EndpointId !== null ? output.EndpointId : undefined,
-    HealthReason: output.HealthReason !== undefined && output.HealthReason !== null ? output.HealthReason : undefined,
-    HealthState: output.HealthState !== undefined && output.HealthState !== null ? output.HealthState : undefined,
-    Weight: output.Weight !== undefined && output.Weight !== null ? output.Weight : undefined,
+    ClientIPPreservationEnabled: __expectBoolean(output.ClientIPPreservationEnabled),
+    EndpointId: __expectString(output.EndpointId),
+    HealthReason: __expectString(output.HealthReason),
+    HealthState: __expectString(output.HealthState),
+    Weight: __expectNumber(output.Weight),
   } as any;
 };
 
@@ -6206,34 +6184,18 @@ const deserializeAws_json1_1EndpointGroup = (output: any, context: __SerdeContex
       output.EndpointDescriptions !== undefined && output.EndpointDescriptions !== null
         ? deserializeAws_json1_1EndpointDescriptions(output.EndpointDescriptions, context)
         : undefined,
-    EndpointGroupArn:
-      output.EndpointGroupArn !== undefined && output.EndpointGroupArn !== null ? output.EndpointGroupArn : undefined,
-    EndpointGroupRegion:
-      output.EndpointGroupRegion !== undefined && output.EndpointGroupRegion !== null
-        ? output.EndpointGroupRegion
-        : undefined,
-    HealthCheckIntervalSeconds:
-      output.HealthCheckIntervalSeconds !== undefined && output.HealthCheckIntervalSeconds !== null
-        ? output.HealthCheckIntervalSeconds
-        : undefined,
-    HealthCheckPath:
-      output.HealthCheckPath !== undefined && output.HealthCheckPath !== null ? output.HealthCheckPath : undefined,
-    HealthCheckPort:
-      output.HealthCheckPort !== undefined && output.HealthCheckPort !== null ? output.HealthCheckPort : undefined,
-    HealthCheckProtocol:
-      output.HealthCheckProtocol !== undefined && output.HealthCheckProtocol !== null
-        ? output.HealthCheckProtocol
-        : undefined,
+    EndpointGroupArn: __expectString(output.EndpointGroupArn),
+    EndpointGroupRegion: __expectString(output.EndpointGroupRegion),
+    HealthCheckIntervalSeconds: __expectNumber(output.HealthCheckIntervalSeconds),
+    HealthCheckPath: __expectString(output.HealthCheckPath),
+    HealthCheckPort: __expectNumber(output.HealthCheckPort),
+    HealthCheckProtocol: __expectString(output.HealthCheckProtocol),
     PortOverrides:
       output.PortOverrides !== undefined && output.PortOverrides !== null
         ? deserializeAws_json1_1PortOverrides(output.PortOverrides, context)
         : undefined,
-    ThresholdCount:
-      output.ThresholdCount !== undefined && output.ThresholdCount !== null ? output.ThresholdCount : undefined,
-    TrafficDialPercentage:
-      output.TrafficDialPercentage !== undefined && output.TrafficDialPercentage !== null
-        ? output.TrafficDialPercentage
-        : undefined,
+    ThresholdCount: __expectNumber(output.ThresholdCount),
+    TrafficDialPercentage: __expectNumber(output.TrafficDialPercentage),
   } as any;
 };
 
@@ -6242,7 +6204,7 @@ const deserializeAws_json1_1EndpointGroupAlreadyExistsException = (
   context: __SerdeContext
 ): EndpointGroupAlreadyExistsException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -6251,7 +6213,7 @@ const deserializeAws_json1_1EndpointGroupNotFoundException = (
   context: __SerdeContext
 ): EndpointGroupNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -6271,7 +6233,7 @@ const deserializeAws_json1_1EndpointNotFoundException = (
   context: __SerdeContext
 ): EndpointNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -6280,7 +6242,7 @@ const deserializeAws_json1_1IncorrectCidrStateException = (
   context: __SerdeContext
 ): IncorrectCidrStateException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -6289,7 +6251,7 @@ const deserializeAws_json1_1InternalServiceErrorException = (
   context: __SerdeContext
 ): InternalServiceErrorException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -6298,7 +6260,7 @@ const deserializeAws_json1_1InvalidArgumentException = (
   context: __SerdeContext
 ): InvalidArgumentException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -6307,7 +6269,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -6316,7 +6278,7 @@ const deserializeAws_json1_1InvalidPortRangeException = (
   context: __SerdeContext
 ): InvalidPortRangeException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -6327,7 +6289,7 @@ const deserializeAws_json1_1IpAddresses = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6337,7 +6299,7 @@ const deserializeAws_json1_1IpSet = (output: any, context: __SerdeContext): IpSe
       output.IpAddresses !== undefined && output.IpAddresses !== null
         ? deserializeAws_json1_1IpAddresses(output.IpAddresses, context)
         : undefined,
-    IpFamily: output.IpFamily !== undefined && output.IpFamily !== null ? output.IpFamily : undefined,
+    IpFamily: __expectString(output.IpFamily),
   } as any;
 };
 
@@ -6354,7 +6316,7 @@ const deserializeAws_json1_1IpSets = (output: any, context: __SerdeContext): IpS
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -6367,7 +6329,7 @@ const deserializeAws_json1_1ListAcceleratorsResponse = (
       output.Accelerators !== undefined && output.Accelerators !== null
         ? deserializeAws_json1_1Accelerators(output.Accelerators, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -6377,7 +6339,7 @@ const deserializeAws_json1_1ListByoipCidrsResponse = (output: any, context: __Se
       output.ByoipCidrs !== undefined && output.ByoipCidrs !== null
         ? deserializeAws_json1_1ByoipCidrs(output.ByoipCidrs, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -6390,7 +6352,7 @@ const deserializeAws_json1_1ListCustomRoutingAcceleratorsResponse = (
       output.Accelerators !== undefined && output.Accelerators !== null
         ? deserializeAws_json1_1CustomRoutingAccelerators(output.Accelerators, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -6403,7 +6365,7 @@ const deserializeAws_json1_1ListCustomRoutingEndpointGroupsResponse = (
       output.EndpointGroups !== undefined && output.EndpointGroups !== null
         ? deserializeAws_json1_1CustomRoutingEndpointGroups(output.EndpointGroups, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -6416,7 +6378,7 @@ const deserializeAws_json1_1ListCustomRoutingListenersResponse = (
       output.Listeners !== undefined && output.Listeners !== null
         ? deserializeAws_json1_1CustomRoutingListeners(output.Listeners, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -6429,7 +6391,7 @@ const deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationResponse =
       output.DestinationPortMappings !== undefined && output.DestinationPortMappings !== null
         ? deserializeAws_json1_1DestinationPortMappings(output.DestinationPortMappings, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -6438,7 +6400,7 @@ const deserializeAws_json1_1ListCustomRoutingPortMappingsResponse = (
   context: __SerdeContext
 ): ListCustomRoutingPortMappingsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     PortMappings:
       output.PortMappings !== undefined && output.PortMappings !== null
         ? deserializeAws_json1_1PortMappings(output.PortMappings, context)
@@ -6455,20 +6417,19 @@ const deserializeAws_json1_1ListEndpointGroupsResponse = (
       output.EndpointGroups !== undefined && output.EndpointGroups !== null
         ? deserializeAws_json1_1EndpointGroups(output.EndpointGroups, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1Listener = (output: any, context: __SerdeContext): Listener => {
   return {
-    ClientAffinity:
-      output.ClientAffinity !== undefined && output.ClientAffinity !== null ? output.ClientAffinity : undefined,
-    ListenerArn: output.ListenerArn !== undefined && output.ListenerArn !== null ? output.ListenerArn : undefined,
+    ClientAffinity: __expectString(output.ClientAffinity),
+    ListenerArn: __expectString(output.ListenerArn),
     PortRanges:
       output.PortRanges !== undefined && output.PortRanges !== null
         ? deserializeAws_json1_1PortRanges(output.PortRanges, context)
         : undefined,
-    Protocol: output.Protocol !== undefined && output.Protocol !== null ? output.Protocol : undefined,
+    Protocol: __expectString(output.Protocol),
   } as any;
 };
 
@@ -6477,7 +6438,7 @@ const deserializeAws_json1_1ListenerNotFoundException = (
   context: __SerdeContext
 ): ListenerNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -6498,7 +6459,7 @@ const deserializeAws_json1_1ListListenersResponse = (output: any, context: __Ser
       output.Listeners !== undefined && output.Listeners !== null
         ? deserializeAws_json1_1Listeners(output.Listeners, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -6514,19 +6475,14 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1PortMapping = (output: any, context: __SerdeContext): PortMapping => {
   return {
-    AcceleratorPort:
-      output.AcceleratorPort !== undefined && output.AcceleratorPort !== null ? output.AcceleratorPort : undefined,
+    AcceleratorPort: __expectNumber(output.AcceleratorPort),
     DestinationSocketAddress:
       output.DestinationSocketAddress !== undefined && output.DestinationSocketAddress !== null
         ? deserializeAws_json1_1SocketAddress(output.DestinationSocketAddress, context)
         : undefined,
-    DestinationTrafficState:
-      output.DestinationTrafficState !== undefined && output.DestinationTrafficState !== null
-        ? output.DestinationTrafficState
-        : undefined,
-    EndpointGroupArn:
-      output.EndpointGroupArn !== undefined && output.EndpointGroupArn !== null ? output.EndpointGroupArn : undefined,
-    EndpointId: output.EndpointId !== undefined && output.EndpointId !== null ? output.EndpointId : undefined,
+    DestinationTrafficState: __expectString(output.DestinationTrafficState),
+    EndpointGroupArn: __expectString(output.EndpointGroupArn),
+    EndpointId: __expectString(output.EndpointId),
     Protocols:
       output.Protocols !== undefined && output.Protocols !== null
         ? deserializeAws_json1_1CustomRoutingProtocols(output.Protocols, context)
@@ -6547,8 +6503,8 @@ const deserializeAws_json1_1PortMappings = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1PortOverride = (output: any, context: __SerdeContext): PortOverride => {
   return {
-    EndpointPort: output.EndpointPort !== undefined && output.EndpointPort !== null ? output.EndpointPort : undefined,
-    ListenerPort: output.ListenerPort !== undefined && output.ListenerPort !== null ? output.ListenerPort : undefined,
+    EndpointPort: __expectNumber(output.EndpointPort),
+    ListenerPort: __expectNumber(output.ListenerPort),
   } as any;
 };
 
@@ -6565,8 +6521,8 @@ const deserializeAws_json1_1PortOverrides = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): PortRange => {
   return {
-    FromPort: output.FromPort !== undefined && output.FromPort !== null ? output.FromPort : undefined,
-    ToPort: output.ToPort !== undefined && output.ToPort !== null ? output.ToPort : undefined,
+    FromPort: __expectNumber(output.FromPort),
+    ToPort: __expectNumber(output.ToPort),
   } as any;
 };
 
@@ -6588,7 +6544,7 @@ const deserializeAws_json1_1Protocols = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6606,8 +6562,8 @@ const deserializeAws_json1_1ProvisionByoipCidrResponse = (
 
 const deserializeAws_json1_1SocketAddress = (output: any, context: __SerdeContext): SocketAddress => {
   return {
-    IpAddress: output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
-    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    IpAddress: __expectString(output.IpAddress),
+    Port: __expectNumber(output.Port),
   } as any;
 };
 
@@ -6624,8 +6580,8 @@ const deserializeAws_json1_1SocketAddresses = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 

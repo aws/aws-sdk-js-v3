@@ -24,6 +24,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -291,10 +293,10 @@ export const deserializeAws_restJson1CreateApplicationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.applicationArn !== undefined && data.applicationArn !== null) {
-    contents.applicationArn = data.applicationArn;
+    contents.applicationArn = __expectString(data.applicationArn);
   }
   if (data.applicationId !== undefined && data.applicationId !== null) {
-    contents.applicationId = data.applicationId;
+    contents.applicationId = __expectString(data.applicationId);
   }
   return Promise.resolve(contents);
 };
@@ -459,37 +461,37 @@ export const deserializeAws_restJson1DescribeApplicationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.applicationArn !== undefined && data.applicationArn !== null) {
-    contents.applicationArn = data.applicationArn;
+    contents.applicationArn = __expectString(data.applicationArn);
   }
   if (data.applicationCreationDate !== undefined && data.applicationCreationDate !== null) {
-    contents.applicationCreationDate = data.applicationCreationDate;
+    contents.applicationCreationDate = __expectNumber(data.applicationCreationDate);
   }
   if (data.applicationDescription !== undefined && data.applicationDescription !== null) {
-    contents.applicationDescription = data.applicationDescription;
+    contents.applicationDescription = __expectString(data.applicationDescription);
   }
   if (data.applicationId !== undefined && data.applicationId !== null) {
-    contents.applicationId = data.applicationId;
+    contents.applicationId = __expectString(data.applicationId);
   }
   if (data.applicationLastUpdateDate !== undefined && data.applicationLastUpdateDate !== null) {
-    contents.applicationLastUpdateDate = data.applicationLastUpdateDate;
+    contents.applicationLastUpdateDate = __expectNumber(data.applicationLastUpdateDate);
   }
   if (data.applicationName !== undefined && data.applicationName !== null) {
-    contents.applicationName = data.applicationName;
+    contents.applicationName = __expectString(data.applicationName);
   }
   if (data.applicationState !== undefined && data.applicationState !== null) {
-    contents.applicationState = data.applicationState;
+    contents.applicationState = __expectString(data.applicationState);
   }
   if (data.applicationUrl !== undefined && data.applicationUrl !== null) {
-    contents.applicationUrl = data.applicationUrl;
+    contents.applicationUrl = __expectString(data.applicationUrl);
   }
   if (data.errorMessage !== undefined && data.errorMessage !== null) {
-    contents.errorMessage = data.errorMessage;
+    contents.errorMessage = __expectString(data.errorMessage);
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
-    contents.roleArn = data.roleArn;
+    contents.roleArn = __expectString(data.roleArn);
   }
   if (data.ssoClientId !== undefined && data.ssoClientId !== null) {
-    contents.ssoClientId = data.ssoClientId;
+    contents.ssoClientId = __expectString(data.ssoClientId);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
@@ -575,7 +577,7 @@ export const deserializeAws_restJson1ListApplicationsCommand = async (
     contents.applicationSummaries = deserializeAws_restJson1ApplicationSummaries(data.applicationSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -933,7 +935,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -950,7 +952,7 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -967,7 +969,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -984,7 +986,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1001,7 +1003,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1018,7 +1020,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1048,26 +1050,13 @@ const deserializeAws_restJson1ApplicationSummaries = (output: any, context: __Se
 
 const deserializeAws_restJson1ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
   return {
-    applicationCreationDate:
-      output.applicationCreationDate !== undefined && output.applicationCreationDate !== null
-        ? output.applicationCreationDate
-        : undefined,
-    applicationDescription:
-      output.applicationDescription !== undefined && output.applicationDescription !== null
-        ? output.applicationDescription
-        : undefined,
-    applicationId:
-      output.applicationId !== undefined && output.applicationId !== null ? output.applicationId : undefined,
-    applicationLastUpdateDate:
-      output.applicationLastUpdateDate !== undefined && output.applicationLastUpdateDate !== null
-        ? output.applicationLastUpdateDate
-        : undefined,
-    applicationName:
-      output.applicationName !== undefined && output.applicationName !== null ? output.applicationName : undefined,
-    applicationState:
-      output.applicationState !== undefined && output.applicationState !== null ? output.applicationState : undefined,
-    applicationUrl:
-      output.applicationUrl !== undefined && output.applicationUrl !== null ? output.applicationUrl : undefined,
+    applicationCreationDate: __expectNumber(output.applicationCreationDate),
+    applicationDescription: __expectString(output.applicationDescription),
+    applicationId: __expectString(output.applicationId),
+    applicationLastUpdateDate: __expectNumber(output.applicationLastUpdateDate),
+    applicationName: __expectString(output.applicationName),
+    applicationState: __expectString(output.applicationState),
+    applicationUrl: __expectString(output.applicationUrl),
   } as any;
 };
 
@@ -1078,7 +1067,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

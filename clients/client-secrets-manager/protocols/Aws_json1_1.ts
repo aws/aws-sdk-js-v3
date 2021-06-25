@@ -106,7 +106,12 @@ import {
   ValidationErrorsEntry,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -2752,27 +2757,27 @@ const deserializeAws_json1_1CancelRotateSecretResponse = (
   context: __SerdeContext
 ): CancelRotateSecretResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
+    ARN: __expectString(output.ARN),
+    Name: __expectString(output.Name),
+    VersionId: __expectString(output.VersionId),
   } as any;
 };
 
 const deserializeAws_json1_1CreateSecretResponse = (output: any, context: __SerdeContext): CreateSecretResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ARN: __expectString(output.ARN),
+    Name: __expectString(output.Name),
     ReplicationStatus:
       output.ReplicationStatus !== undefined && output.ReplicationStatus !== null
         ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
         : undefined,
-    VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
+    VersionId: __expectString(output.VersionId),
   } as any;
 };
 
 const deserializeAws_json1_1DecryptionFailure = (output: any, context: __SerdeContext): DecryptionFailure => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2781,25 +2786,25 @@ const deserializeAws_json1_1DeleteResourcePolicyResponse = (
   context: __SerdeContext
 ): DeleteResourcePolicyResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ARN: __expectString(output.ARN),
+    Name: __expectString(output.Name),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteSecretResponse = (output: any, context: __SerdeContext): DeleteSecretResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    ARN: __expectString(output.ARN),
     DeletionDate:
       output.DeletionDate !== undefined && output.DeletionDate !== null
         ? new Date(Math.round(output.DeletionDate * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
   } as any;
 };
 
 const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __SerdeContext): DescribeSecretResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    ARN: __expectString(output.ARN),
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
@@ -2808,8 +2813,8 @@ const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __Se
       output.DeletedDate !== undefined && output.DeletedDate !== null
         ? new Date(Math.round(output.DeletedDate * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    Description: __expectString(output.Description),
+    KmsKeyId: __expectString(output.KmsKeyId),
     LastAccessedDate:
       output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
         ? new Date(Math.round(output.LastAccessedDate * 1000))
@@ -2822,21 +2827,15 @@ const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __Se
       output.LastRotatedDate !== undefined && output.LastRotatedDate !== null
         ? new Date(Math.round(output.LastRotatedDate * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    OwningService:
-      output.OwningService !== undefined && output.OwningService !== null ? output.OwningService : undefined,
-    PrimaryRegion:
-      output.PrimaryRegion !== undefined && output.PrimaryRegion !== null ? output.PrimaryRegion : undefined,
+    Name: __expectString(output.Name),
+    OwningService: __expectString(output.OwningService),
+    PrimaryRegion: __expectString(output.PrimaryRegion),
     ReplicationStatus:
       output.ReplicationStatus !== undefined && output.ReplicationStatus !== null
         ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
         : undefined,
-    RotationEnabled:
-      output.RotationEnabled !== undefined && output.RotationEnabled !== null ? output.RotationEnabled : undefined,
-    RotationLambdaARN:
-      output.RotationLambdaARN !== undefined && output.RotationLambdaARN !== null
-        ? output.RotationLambdaARN
-        : undefined,
+    RotationEnabled: __expectBoolean(output.RotationEnabled),
+    RotationLambdaARN: __expectString(output.RotationLambdaARN),
     RotationRules:
       output.RotationRules !== undefined && output.RotationRules !== null
         ? deserializeAws_json1_1RotationRulesType(output.RotationRules, context)
@@ -2854,7 +2853,7 @@ const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1EncryptionFailure = (output: any, context: __SerdeContext): EncryptionFailure => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2863,8 +2862,7 @@ const deserializeAws_json1_1GetRandomPasswordResponse = (
   context: __SerdeContext
 ): GetRandomPasswordResponse => {
   return {
-    RandomPassword:
-      output.RandomPassword !== undefined && output.RandomPassword !== null ? output.RandomPassword : undefined,
+    RandomPassword: __expectString(output.RandomPassword),
   } as any;
 };
 
@@ -2873,27 +2871,26 @@ const deserializeAws_json1_1GetResourcePolicyResponse = (
   context: __SerdeContext
 ): GetResourcePolicyResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    ResourcePolicy:
-      output.ResourcePolicy !== undefined && output.ResourcePolicy !== null ? output.ResourcePolicy : undefined,
+    ARN: __expectString(output.ARN),
+    Name: __expectString(output.Name),
+    ResourcePolicy: __expectString(output.ResourcePolicy),
   } as any;
 };
 
 const deserializeAws_json1_1GetSecretValueResponse = (output: any, context: __SerdeContext): GetSecretValueResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    ARN: __expectString(output.ARN),
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
     SecretBinary:
       output.SecretBinary !== undefined && output.SecretBinary !== null
         ? context.base64Decoder(output.SecretBinary)
         : undefined,
-    SecretString: output.SecretString !== undefined && output.SecretString !== null ? output.SecretString : undefined,
-    VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
+    SecretString: __expectString(output.SecretString),
+    VersionId: __expectString(output.VersionId),
     VersionStages:
       output.VersionStages !== undefined && output.VersionStages !== null
         ? deserializeAws_json1_1SecretVersionStagesType(output.VersionStages, context)
@@ -2903,7 +2900,7 @@ const deserializeAws_json1_1GetSecretValueResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2912,7 +2909,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2921,7 +2918,7 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2930,19 +2927,19 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1ListSecretsResponse = (output: any, context: __SerdeContext): ListSecretsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     SecretList:
       output.SecretList !== undefined && output.SecretList !== null
         ? deserializeAws_json1_1SecretListType(output.SecretList, context)
@@ -2955,9 +2952,9 @@ const deserializeAws_json1_1ListSecretVersionIdsResponse = (
   context: __SerdeContext
 ): ListSecretVersionIdsResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    ARN: __expectString(output.ARN),
+    Name: __expectString(output.Name),
+    NextToken: __expectString(output.NextToken),
     Versions:
       output.Versions !== undefined && output.Versions !== null
         ? deserializeAws_json1_1SecretVersionsListType(output.Versions, context)
@@ -2970,7 +2967,7 @@ const deserializeAws_json1_1MalformedPolicyDocumentException = (
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2979,13 +2976,13 @@ const deserializeAws_json1_1PreconditionNotMetException = (
   context: __SerdeContext
 ): PreconditionNotMetException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1PublicPolicyException = (output: any, context: __SerdeContext): PublicPolicyException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2994,16 +2991,16 @@ const deserializeAws_json1_1PutResourcePolicyResponse = (
   context: __SerdeContext
 ): PutResourcePolicyResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ARN: __expectString(output.ARN),
+    Name: __expectString(output.Name),
   } as any;
 };
 
 const deserializeAws_json1_1PutSecretValueResponse = (output: any, context: __SerdeContext): PutSecretValueResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
+    ARN: __expectString(output.ARN),
+    Name: __expectString(output.Name),
+    VersionId: __expectString(output.VersionId),
     VersionStages:
       output.VersionStages !== undefined && output.VersionStages !== null
         ? deserializeAws_json1_1SecretVersionStagesType(output.VersionStages, context)
@@ -3016,7 +3013,7 @@ const deserializeAws_json1_1RemoveRegionsFromReplicationResponse = (
   context: __SerdeContext
 ): RemoveRegionsFromReplicationResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    ARN: __expectString(output.ARN),
     ReplicationStatus:
       output.ReplicationStatus !== undefined && output.ReplicationStatus !== null
         ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
@@ -3029,7 +3026,7 @@ const deserializeAws_json1_1ReplicateSecretToRegionsResponse = (
   context: __SerdeContext
 ): ReplicateSecretToRegionsResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    ARN: __expectString(output.ARN),
     ReplicationStatus:
       output.ReplicationStatus !== undefined && output.ReplicationStatus !== null
         ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
@@ -3053,15 +3050,14 @@ const deserializeAws_json1_1ReplicationStatusListType = (
 
 const deserializeAws_json1_1ReplicationStatusType = (output: any, context: __SerdeContext): ReplicationStatusType => {
   return {
-    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    KmsKeyId: __expectString(output.KmsKeyId),
     LastAccessedDate:
       output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
         ? new Date(Math.round(output.LastAccessedDate * 1000))
         : undefined,
-    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    StatusMessage:
-      output.StatusMessage !== undefined && output.StatusMessage !== null ? output.StatusMessage : undefined,
+    Region: __expectString(output.Region),
+    Status: __expectString(output.Status),
+    StatusMessage: __expectString(output.StatusMessage),
   } as any;
 };
 
@@ -3070,7 +3066,7 @@ const deserializeAws_json1_1ResourceExistsException = (
   context: __SerdeContext
 ): ResourceExistsException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3079,37 +3075,34 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1RestoreSecretResponse = (output: any, context: __SerdeContext): RestoreSecretResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ARN: __expectString(output.ARN),
+    Name: __expectString(output.Name),
   } as any;
 };
 
 const deserializeAws_json1_1RotateSecretResponse = (output: any, context: __SerdeContext): RotateSecretResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
+    ARN: __expectString(output.ARN),
+    Name: __expectString(output.Name),
+    VersionId: __expectString(output.VersionId),
   } as any;
 };
 
 const deserializeAws_json1_1RotationRulesType = (output: any, context: __SerdeContext): RotationRulesType => {
   return {
-    AutomaticallyAfterDays:
-      output.AutomaticallyAfterDays !== undefined && output.AutomaticallyAfterDays !== null
-        ? output.AutomaticallyAfterDays
-        : undefined,
+    AutomaticallyAfterDays: __expectNumber(output.AutomaticallyAfterDays),
   } as any;
 };
 
 const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeContext): SecretListEntry => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    ARN: __expectString(output.ARN),
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
@@ -3118,8 +3111,8 @@ const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeCont
       output.DeletedDate !== undefined && output.DeletedDate !== null
         ? new Date(Math.round(output.DeletedDate * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    Description: __expectString(output.Description),
+    KmsKeyId: __expectString(output.KmsKeyId),
     LastAccessedDate:
       output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
         ? new Date(Math.round(output.LastAccessedDate * 1000))
@@ -3132,17 +3125,11 @@ const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeCont
       output.LastRotatedDate !== undefined && output.LastRotatedDate !== null
         ? new Date(Math.round(output.LastRotatedDate * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    OwningService:
-      output.OwningService !== undefined && output.OwningService !== null ? output.OwningService : undefined,
-    PrimaryRegion:
-      output.PrimaryRegion !== undefined && output.PrimaryRegion !== null ? output.PrimaryRegion : undefined,
-    RotationEnabled:
-      output.RotationEnabled !== undefined && output.RotationEnabled !== null ? output.RotationEnabled : undefined,
-    RotationLambdaARN:
-      output.RotationLambdaARN !== undefined && output.RotationLambdaARN !== null
-        ? output.RotationLambdaARN
-        : undefined,
+    Name: __expectString(output.Name),
+    OwningService: __expectString(output.OwningService),
+    PrimaryRegion: __expectString(output.PrimaryRegion),
+    RotationEnabled: __expectBoolean(output.RotationEnabled),
+    RotationLambdaARN: __expectString(output.RotationLambdaARN),
     RotationRules:
       output.RotationRules !== undefined && output.RotationRules !== null
         ? deserializeAws_json1_1RotationRulesType(output.RotationRules, context)
@@ -3182,7 +3169,7 @@ const deserializeAws_json1_1SecretVersionsListEntry = (
       output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
         ? new Date(Math.round(output.LastAccessedDate * 1000))
         : undefined,
-    VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
+    VersionId: __expectString(output.VersionId),
     VersionStages:
       output.VersionStages !== undefined && output.VersionStages !== null
         ? deserializeAws_json1_1SecretVersionStagesType(output.VersionStages, context)
@@ -3211,7 +3198,7 @@ const deserializeAws_json1_1SecretVersionStagesType = (output: any, context: __S
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3235,14 +3222,14 @@ const deserializeAws_json1_1StopReplicationToReplicaResponse = (
   context: __SerdeContext
 ): StopReplicationToReplicaResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    ARN: __expectString(output.ARN),
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -3259,9 +3246,9 @@ const deserializeAws_json1_1TagListType = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1UpdateSecretResponse = (output: any, context: __SerdeContext): UpdateSecretResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
+    ARN: __expectString(output.ARN),
+    Name: __expectString(output.Name),
+    VersionId: __expectString(output.VersionId),
   } as any;
 };
 
@@ -3270,8 +3257,8 @@ const deserializeAws_json1_1UpdateSecretVersionStageResponse = (
   context: __SerdeContext
 ): UpdateSecretVersionStageResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ARN: __expectString(output.ARN),
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -3280,10 +3267,7 @@ const deserializeAws_json1_1ValidateResourcePolicyResponse = (
   context: __SerdeContext
 ): ValidateResourcePolicyResponse => {
   return {
-    PolicyValidationPassed:
-      output.PolicyValidationPassed !== undefined && output.PolicyValidationPassed !== null
-        ? output.PolicyValidationPassed
-        : undefined,
+    PolicyValidationPassed: __expectBoolean(output.PolicyValidationPassed),
     ValidationErrors:
       output.ValidationErrors !== undefined && output.ValidationErrors !== null
         ? deserializeAws_json1_1ValidationErrorsType(output.ValidationErrors, context)
@@ -3293,8 +3277,8 @@ const deserializeAws_json1_1ValidateResourcePolicyResponse = (
 
 const deserializeAws_json1_1ValidationErrorsEntry = (output: any, context: __SerdeContext): ValidationErrorsEntry => {
   return {
-    CheckName: output.CheckName !== undefined && output.CheckName !== null ? output.CheckName : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    CheckName: __expectString(output.CheckName),
+    ErrorMessage: __expectString(output.ErrorMessage),
   } as any;
 };
 

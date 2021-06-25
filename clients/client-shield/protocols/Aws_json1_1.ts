@@ -198,7 +198,11 @@ import {
   ValidationExceptionField,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3720,7 +3724,7 @@ const serializeAws_json1_1UpdateSubscriptionRequest = (
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3729,7 +3733,7 @@ const deserializeAws_json1_1AccessDeniedForDependencyException = (
   context: __SerdeContext
 ): AccessDeniedForDependencyException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3767,7 +3771,7 @@ const deserializeAws_json1_1AttackDetail = (output: any, context: __SerdeContext
       output.AttackCounters !== undefined && output.AttackCounters !== null
         ? deserializeAws_json1_1SummarizedCounterList(output.AttackCounters, context)
         : undefined,
-    AttackId: output.AttackId !== undefined && output.AttackId !== null ? output.AttackId : undefined,
+    AttackId: __expectString(output.AttackId),
     AttackProperties:
       output.AttackProperties !== undefined && output.AttackProperties !== null
         ? deserializeAws_json1_1AttackProperties(output.AttackProperties, context)
@@ -3778,7 +3782,7 @@ const deserializeAws_json1_1AttackDetail = (output: any, context: __SerdeContext
       output.Mitigations !== undefined && output.Mitigations !== null
         ? deserializeAws_json1_1MitigationList(output.Mitigations, context)
         : undefined,
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
+    ResourceArn: __expectString(output.ResourceArn),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
@@ -3803,17 +3807,14 @@ const deserializeAws_json1_1AttackProperties = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1AttackProperty = (output: any, context: __SerdeContext): AttackProperty => {
   return {
-    AttackLayer: output.AttackLayer !== undefined && output.AttackLayer !== null ? output.AttackLayer : undefined,
-    AttackPropertyIdentifier:
-      output.AttackPropertyIdentifier !== undefined && output.AttackPropertyIdentifier !== null
-        ? output.AttackPropertyIdentifier
-        : undefined,
+    AttackLayer: __expectString(output.AttackLayer),
+    AttackPropertyIdentifier: __expectString(output.AttackPropertyIdentifier),
     TopContributors:
       output.TopContributors !== undefined && output.TopContributors !== null
         ? deserializeAws_json1_1TopContributors(output.TopContributors, context)
         : undefined,
-    Total: output.Total !== undefined && output.Total !== null ? output.Total : undefined,
-    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
+    Total: __expectNumber(output.Total),
+    Unit: __expectString(output.Unit),
   } as any;
 };
 
@@ -3822,7 +3823,7 @@ const deserializeAws_json1_1AttackStatisticsDataItem = (
   context: __SerdeContext
 ): AttackStatisticsDataItem => {
   return {
-    AttackCount: output.AttackCount !== undefined && output.AttackCount !== null ? output.AttackCount : undefined,
+    AttackCount: __expectNumber(output.AttackCount),
     AttackVolume:
       output.AttackVolume !== undefined && output.AttackVolume !== null
         ? deserializeAws_json1_1AttackVolume(output.AttackVolume, context)
@@ -3857,14 +3858,14 @@ const deserializeAws_json1_1AttackSummaries = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1AttackSummary = (output: any, context: __SerdeContext): AttackSummary => {
   return {
-    AttackId: output.AttackId !== undefined && output.AttackId !== null ? output.AttackId : undefined,
+    AttackId: __expectString(output.AttackId),
     AttackVectors:
       output.AttackVectors !== undefined && output.AttackVectors !== null
         ? deserializeAws_json1_1AttackVectorDescriptionList(output.AttackVectors, context)
         : undefined,
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
+    ResourceArn: __expectString(output.ResourceArn),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
@@ -3877,7 +3878,7 @@ const deserializeAws_json1_1AttackVectorDescription = (
   context: __SerdeContext
 ): AttackVectorDescription => {
   return {
-    VectorType: output.VectorType !== undefined && output.VectorType !== null ? output.VectorType : undefined,
+    VectorType: __expectString(output.VectorType),
   } as any;
 };
 
@@ -3914,14 +3915,14 @@ const deserializeAws_json1_1AttackVolume = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1AttackVolumeStatistics = (output: any, context: __SerdeContext): AttackVolumeStatistics => {
   return {
-    Max: output.Max !== undefined && output.Max !== null ? output.Max : undefined,
+    Max: __expectNumber(output.Max),
   } as any;
 };
 
 const deserializeAws_json1_1Contributor = (output: any, context: __SerdeContext): Contributor => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Name: __expectString(output.Name),
+    Value: __expectNumber(output.Value),
   } as any;
 };
 
@@ -3937,7 +3938,7 @@ const deserializeAws_json1_1CreateProtectionResponse = (
   context: __SerdeContext
 ): CreateProtectionResponse => {
   return {
-    ProtectionId: output.ProtectionId !== undefined && output.ProtectionId !== null ? output.ProtectionId : undefined,
+    ProtectionId: __expectString(output.ProtectionId),
   } as any;
 };
 
@@ -4003,7 +4004,7 @@ const deserializeAws_json1_1DescribeDRTAccessResponse = (
       output.LogBucketList !== undefined && output.LogBucketList !== null
         ? deserializeAws_json1_1LogBucketList(output.LogBucketList, context)
         : undefined,
-    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
+    RoleArn: __expectString(output.RoleArn),
   } as any;
 };
 
@@ -4085,9 +4086,9 @@ const deserializeAws_json1_1DisassociateHealthCheckResponse = (
 
 const deserializeAws_json1_1EmergencyContact = (output: any, context: __SerdeContext): EmergencyContact => {
   return {
-    ContactNotes: output.ContactNotes !== undefined && output.ContactNotes !== null ? output.ContactNotes : undefined,
-    EmailAddress: output.EmailAddress !== undefined && output.EmailAddress !== null ? output.EmailAddress : undefined,
-    PhoneNumber: output.PhoneNumber !== undefined && output.PhoneNumber !== null ? output.PhoneNumber : undefined,
+    ContactNotes: __expectString(output.ContactNotes),
+    EmailAddress: __expectString(output.EmailAddress),
+    PhoneNumber: __expectString(output.PhoneNumber),
   } as any;
 };
 
@@ -4114,10 +4115,7 @@ const deserializeAws_json1_1GetSubscriptionStateResponse = (
   context: __SerdeContext
 ): GetSubscriptionStateResponse => {
   return {
-    SubscriptionState:
-      output.SubscriptionState !== undefined && output.SubscriptionState !== null
-        ? output.SubscriptionState
-        : undefined,
+    SubscriptionState: __expectString(output.SubscriptionState),
   } as any;
 };
 
@@ -4128,13 +4126,13 @@ const deserializeAws_json1_1HealthCheckIds = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -4143,7 +4141,7 @@ const deserializeAws_json1_1InvalidOperationException = (
   context: __SerdeContext
 ): InvalidOperationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -4152,7 +4150,7 @@ const deserializeAws_json1_1InvalidPaginationTokenException = (
   context: __SerdeContext
 ): InvalidPaginationTokenException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -4165,8 +4163,8 @@ const deserializeAws_json1_1InvalidParameterException = (
       output.fields !== undefined && output.fields !== null
         ? deserializeAws_json1_1ValidationExceptionFieldList(output.fields, context)
         : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
+    message: __expectString(output.message),
+    reason: __expectString(output.reason),
   } as any;
 };
 
@@ -4175,14 +4173,14 @@ const deserializeAws_json1_1InvalidResourceException = (
   context: __SerdeContext
 ): InvalidResourceException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1Limit = (output: any, context: __SerdeContext): Limit => {
   return {
-    Max: output.Max !== undefined && output.Max !== null ? output.Max : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Max: __expectNumber(output.Max),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -4202,9 +4200,9 @@ const deserializeAws_json1_1LimitsExceededException = (
   context: __SerdeContext
 ): LimitsExceededException => {
   return {
-    Limit: output.Limit !== undefined && output.Limit !== null ? output.Limit : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    Limit: __expectNumber(output.Limit),
+    Type: __expectString(output.Type),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -4214,7 +4212,7 @@ const deserializeAws_json1_1ListAttacksResponse = (output: any, context: __Serde
       output.AttackSummaries !== undefined && output.AttackSummaries !== null
         ? deserializeAws_json1_1AttackSummaries(output.AttackSummaries, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -4223,7 +4221,7 @@ const deserializeAws_json1_1ListProtectionGroupsResponse = (
   context: __SerdeContext
 ): ListProtectionGroupsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     ProtectionGroups:
       output.ProtectionGroups !== undefined && output.ProtectionGroups !== null
         ? deserializeAws_json1_1ProtectionGroups(output.ProtectionGroups, context)
@@ -4236,7 +4234,7 @@ const deserializeAws_json1_1ListProtectionsResponse = (
   context: __SerdeContext
 ): ListProtectionsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Protections:
       output.Protections !== undefined && output.Protections !== null
         ? deserializeAws_json1_1Protections(output.Protections, context)
@@ -4249,7 +4247,7 @@ const deserializeAws_json1_1ListResourcesInProtectionGroupResponse = (
   context: __SerdeContext
 ): ListResourcesInProtectionGroupResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     ResourceArns:
       output.ResourceArns !== undefined && output.ResourceArns !== null
         ? deserializeAws_json1_1ResourceArnList(output.ResourceArns, context)
@@ -4274,7 +4272,7 @@ const deserializeAws_json1_1LockedSubscriptionException = (
   context: __SerdeContext
 ): LockedSubscriptionException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -4285,14 +4283,13 @@ const deserializeAws_json1_1LogBucketList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1Mitigation = (output: any, context: __SerdeContext): Mitigation => {
   return {
-    MitigationName:
-      output.MitigationName !== undefined && output.MitigationName !== null ? output.MitigationName : undefined,
+    MitigationName: __expectString(output.MitigationName),
   } as any;
 };
 
@@ -4312,7 +4309,7 @@ const deserializeAws_json1_1NoAssociatedRoleException = (
   context: __SerdeContext
 ): NoAssociatedRoleException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -4321,7 +4318,7 @@ const deserializeAws_json1_1OptimisticLockException = (
   context: __SerdeContext
 ): OptimisticLockException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -4331,31 +4328,24 @@ const deserializeAws_json1_1Protection = (output: any, context: __SerdeContext):
       output.HealthCheckIds !== undefined && output.HealthCheckIds !== null
         ? deserializeAws_json1_1HealthCheckIds(output.HealthCheckIds, context)
         : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    ProtectionArn:
-      output.ProtectionArn !== undefined && output.ProtectionArn !== null ? output.ProtectionArn : undefined,
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
+    ProtectionArn: __expectString(output.ProtectionArn),
+    ResourceArn: __expectString(output.ResourceArn),
   } as any;
 };
 
 const deserializeAws_json1_1ProtectionGroup = (output: any, context: __SerdeContext): ProtectionGroup => {
   return {
-    Aggregation: output.Aggregation !== undefined && output.Aggregation !== null ? output.Aggregation : undefined,
+    Aggregation: __expectString(output.Aggregation),
     Members:
       output.Members !== undefined && output.Members !== null
         ? deserializeAws_json1_1ProtectionGroupMembers(output.Members, context)
         : undefined,
-    Pattern: output.Pattern !== undefined && output.Pattern !== null ? output.Pattern : undefined,
-    ProtectionGroupArn:
-      output.ProtectionGroupArn !== undefined && output.ProtectionGroupArn !== null
-        ? output.ProtectionGroupArn
-        : undefined,
-    ProtectionGroupId:
-      output.ProtectionGroupId !== undefined && output.ProtectionGroupId !== null
-        ? output.ProtectionGroupId
-        : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    Pattern: __expectString(output.Pattern),
+    ProtectionGroupArn: __expectString(output.ProtectionGroupArn),
+    ProtectionGroupId: __expectString(output.ProtectionGroupId),
+    ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
@@ -4364,16 +4354,13 @@ const deserializeAws_json1_1ProtectionGroupArbitraryPatternLimits = (
   context: __SerdeContext
 ): ProtectionGroupArbitraryPatternLimits => {
   return {
-    MaxMembers: output.MaxMembers !== undefined && output.MaxMembers !== null ? output.MaxMembers : undefined,
+    MaxMembers: __expectNumber(output.MaxMembers),
   } as any;
 };
 
 const deserializeAws_json1_1ProtectionGroupLimits = (output: any, context: __SerdeContext): ProtectionGroupLimits => {
   return {
-    MaxProtectionGroups:
-      output.MaxProtectionGroups !== undefined && output.MaxProtectionGroups !== null
-        ? output.MaxProtectionGroups
-        : undefined,
+    MaxProtectionGroups: __expectNumber(output.MaxProtectionGroups),
     PatternTypeLimits:
       output.PatternTypeLimits !== undefined && output.PatternTypeLimits !== null
         ? deserializeAws_json1_1ProtectionGroupPatternTypeLimits(output.PatternTypeLimits, context)
@@ -4388,7 +4375,7 @@ const deserializeAws_json1_1ProtectionGroupMembers = (output: any, context: __Se
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4440,8 +4427,8 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    message: __expectString(output.message),
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
@@ -4452,7 +4439,7 @@ const deserializeAws_json1_1ResourceArnList = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4461,8 +4448,8 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    message: __expectString(output.message),
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
@@ -4476,8 +4463,8 @@ const deserializeAws_json1_1SubResourceSummary = (output: any, context: __SerdeC
       output.Counters !== undefined && output.Counters !== null
         ? deserializeAws_json1_1SummarizedCounterList(output.Counters, context)
         : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Id: __expectString(output.Id),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -4494,31 +4481,24 @@ const deserializeAws_json1_1SubResourceSummaryList = (output: any, context: __Se
 
 const deserializeAws_json1_1Subscription = (output: any, context: __SerdeContext): Subscription => {
   return {
-    AutoRenew: output.AutoRenew !== undefined && output.AutoRenew !== null ? output.AutoRenew : undefined,
+    AutoRenew: __expectString(output.AutoRenew),
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
     Limits:
       output.Limits !== undefined && output.Limits !== null
         ? deserializeAws_json1_1Limits(output.Limits, context)
         : undefined,
-    ProactiveEngagementStatus:
-      output.ProactiveEngagementStatus !== undefined && output.ProactiveEngagementStatus !== null
-        ? output.ProactiveEngagementStatus
-        : undefined,
+    ProactiveEngagementStatus: __expectString(output.ProactiveEngagementStatus),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
-    SubscriptionArn:
-      output.SubscriptionArn !== undefined && output.SubscriptionArn !== null ? output.SubscriptionArn : undefined,
+    SubscriptionArn: __expectString(output.SubscriptionArn),
     SubscriptionLimits:
       output.SubscriptionLimits !== undefined && output.SubscriptionLimits !== null
         ? deserializeAws_json1_1SubscriptionLimits(output.SubscriptionLimits, context)
         : undefined,
-    TimeCommitmentInSeconds:
-      output.TimeCommitmentInSeconds !== undefined && output.TimeCommitmentInSeconds !== null
-        ? output.TimeCommitmentInSeconds
-        : undefined,
+    TimeCommitmentInSeconds: __expectNumber(output.TimeCommitmentInSeconds),
   } as any;
 };
 
@@ -4541,7 +4521,7 @@ const deserializeAws_json1_1SummarizedAttackVector = (output: any, context: __Se
       output.VectorCounters !== undefined && output.VectorCounters !== null
         ? deserializeAws_json1_1SummarizedCounterList(output.VectorCounters, context)
         : undefined,
-    VectorType: output.VectorType !== undefined && output.VectorType !== null ? output.VectorType : undefined,
+    VectorType: __expectString(output.VectorType),
   } as any;
 };
 
@@ -4561,12 +4541,12 @@ const deserializeAws_json1_1SummarizedAttackVectorList = (
 
 const deserializeAws_json1_1SummarizedCounter = (output: any, context: __SerdeContext): SummarizedCounter => {
   return {
-    Average: output.Average !== undefined && output.Average !== null ? output.Average : undefined,
-    Max: output.Max !== undefined && output.Max !== null ? output.Max : undefined,
-    N: output.N !== undefined && output.N !== null ? output.N : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Sum: output.Sum !== undefined && output.Sum !== null ? output.Sum : undefined,
-    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
+    Average: __expectNumber(output.Average),
+    Max: __expectNumber(output.Max),
+    N: __expectNumber(output.N),
+    Name: __expectString(output.Name),
+    Sum: __expectNumber(output.Sum),
+    Unit: __expectString(output.Unit),
   } as any;
 };
 
@@ -4583,8 +4563,8 @@ const deserializeAws_json1_1SummarizedCounterList = (output: any, context: __Ser
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -4657,8 +4637,8 @@ const deserializeAws_json1_1ValidationExceptionField = (
   context: __SerdeContext
 ): ValidationExceptionField => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    message: __expectString(output.message),
+    name: __expectString(output.name),
   } as any;
 };
 

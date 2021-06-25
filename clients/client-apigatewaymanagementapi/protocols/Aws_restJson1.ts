@@ -11,6 +11,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -381,15 +382,15 @@ const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
 
 const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext): Identity => {
   return {
-    SourceIp: output.sourceIp !== undefined && output.sourceIp !== null ? output.sourceIp : undefined,
-    UserAgent: output.userAgent !== undefined && output.userAgent !== null ? output.userAgent : undefined,
+    SourceIp: __expectString(output.sourceIp),
+    UserAgent: __expectString(output.userAgent),
   } as any;
 };
 

@@ -133,7 +133,7 @@ import {
   UpdateResourceResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3001,7 +3001,7 @@ const serializeAws_json1_1UpdateResourceRequest = (input: UpdateResourceRequest,
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3019,7 +3019,7 @@ const deserializeAws_json1_1AddLFTagsToResourceResponse = (
 
 const deserializeAws_json1_1AlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3070,7 +3070,7 @@ const deserializeAws_json1_1BatchPermissionsRequestEntry = (
   context: __SerdeContext
 ): BatchPermissionsRequestEntry => {
   return {
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Id: __expectString(output.Id),
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
         ? deserializeAws_json1_1PermissionList(output.Permissions, context)
@@ -3112,7 +3112,7 @@ const deserializeAws_json1_1ColumnLFTag = (output: any, context: __SerdeContext)
       output.LFTags !== undefined && output.LFTags !== null
         ? deserializeAws_json1_1LFTagsList(output.LFTags, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -3134,7 +3134,7 @@ const deserializeAws_json1_1ColumnNames = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3152,7 +3152,7 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3173,17 +3173,14 @@ const deserializeAws_json1_1DatabaseLFTagsList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1DatabaseResource = (output: any, context: __SerdeContext): DatabaseResource => {
   return {
-    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    CatalogId: __expectString(output.CatalogId),
+    Name: __expectString(output.Name),
   } as any;
 };
 
 const deserializeAws_json1_1DataLakePrincipal = (output: any, context: __SerdeContext): DataLakePrincipal => {
   return {
-    DataLakePrincipalIdentifier:
-      output.DataLakePrincipalIdentifier !== undefined && output.DataLakePrincipalIdentifier !== null
-        ? output.DataLakePrincipalIdentifier
-        : undefined,
+    DataLakePrincipalIdentifier: __expectString(output.DataLakePrincipalIdentifier),
   } as any;
 };
 
@@ -3221,8 +3218,8 @@ const deserializeAws_json1_1DataLakeSettings = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1DataLocationResource = (output: any, context: __SerdeContext): DataLocationResource => {
   return {
-    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
+    CatalogId: __expectString(output.CatalogId),
+    ResourceArn: __expectString(output.ResourceArn),
   } as any;
 };
 
@@ -3263,14 +3260,14 @@ const deserializeAws_json1_1EntityNotFoundException = (
   context: __SerdeContext
 ): EntityNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
   } as any;
 };
 
@@ -3302,7 +3299,7 @@ const deserializeAws_json1_1GetEffectivePermissionsForPathResponse = (
   context: __SerdeContext
 ): GetEffectivePermissionsForPathResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
         ? deserializeAws_json1_1PrincipalResourcePermissionsList(output.Permissions, context)
@@ -3312,8 +3309,8 @@ const deserializeAws_json1_1GetEffectivePermissionsForPathResponse = (
 
 const deserializeAws_json1_1GetLFTagResponse = (output: any, context: __SerdeContext): GetLFTagResponse => {
   return {
-    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
-    TagKey: output.TagKey !== undefined && output.TagKey !== null ? output.TagKey : undefined,
+    CatalogId: __expectString(output.CatalogId),
+    TagKey: __expectString(output.TagKey),
     TagValues:
       output.TagValues !== undefined && output.TagValues !== null
         ? deserializeAws_json1_1TagValueList(output.TagValues, context)
@@ -3346,7 +3343,7 @@ const deserializeAws_json1_1GlueEncryptionException = (
   context: __SerdeContext
 ): GlueEncryptionException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3362,19 +3359,19 @@ const deserializeAws_json1_1InternalServiceException = (
   context: __SerdeContext
 ): InternalServiceException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1LFTag = (output: any, context: __SerdeContext): LFTag => {
   return {
-    TagKey: output.TagKey !== undefined && output.TagKey !== null ? output.TagKey : undefined,
+    TagKey: __expectString(output.TagKey),
     TagValues:
       output.TagValues !== undefined && output.TagValues !== null
         ? deserializeAws_json1_1TagValueList(output.TagValues, context)
@@ -3408,8 +3405,8 @@ const deserializeAws_json1_1LFTagErrors = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1LFTagKeyResource = (output: any, context: __SerdeContext): LFTagKeyResource => {
   return {
-    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
-    TagKey: output.TagKey !== undefined && output.TagKey !== null ? output.TagKey : undefined,
+    CatalogId: __expectString(output.CatalogId),
+    TagKey: __expectString(output.TagKey),
     TagValues:
       output.TagValues !== undefined && output.TagValues !== null
         ? deserializeAws_json1_1TagValueList(output.TagValues, context)
@@ -3419,8 +3416,8 @@ const deserializeAws_json1_1LFTagKeyResource = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1LFTagPair = (output: any, context: __SerdeContext): LFTagPair => {
   return {
-    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
-    TagKey: output.TagKey !== undefined && output.TagKey !== null ? output.TagKey : undefined,
+    CatalogId: __expectString(output.CatalogId),
+    TagKey: __expectString(output.TagKey),
     TagValues:
       output.TagValues !== undefined && output.TagValues !== null
         ? deserializeAws_json1_1TagValueList(output.TagValues, context)
@@ -3430,12 +3427,12 @@ const deserializeAws_json1_1LFTagPair = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1LFTagPolicyResource = (output: any, context: __SerdeContext): LFTagPolicyResource => {
   return {
-    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
+    CatalogId: __expectString(output.CatalogId),
     Expression:
       output.Expression !== undefined && output.Expression !== null
         ? deserializeAws_json1_1Expression(output.Expression, context)
         : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
@@ -3456,7 +3453,7 @@ const deserializeAws_json1_1ListLFTagsResponse = (output: any, context: __SerdeC
       output.LFTags !== undefined && output.LFTags !== null
         ? deserializeAws_json1_1LFTagsList(output.LFTags, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3465,7 +3462,7 @@ const deserializeAws_json1_1ListPermissionsResponse = (
   context: __SerdeContext
 ): ListPermissionsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     PrincipalResourcePermissions:
       output.PrincipalResourcePermissions !== undefined && output.PrincipalResourcePermissions !== null
         ? deserializeAws_json1_1PrincipalResourcePermissionsList(output.PrincipalResourcePermissions, context)
@@ -3475,7 +3472,7 @@ const deserializeAws_json1_1ListPermissionsResponse = (
 
 const deserializeAws_json1_1ListResourcesResponse = (output: any, context: __SerdeContext): ListResourcesResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     ResourceInfoList:
       output.ResourceInfoList !== undefined && output.ResourceInfoList !== null
         ? deserializeAws_json1_1ResourceInfoList(output.ResourceInfoList, context)
@@ -3488,7 +3485,7 @@ const deserializeAws_json1_1OperationTimeoutException = (
   context: __SerdeContext
 ): OperationTimeoutException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3499,7 +3496,7 @@ const deserializeAws_json1_1PermissionList = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3637,8 +3634,8 @@ const deserializeAws_json1_1ResourceInfo = (output: any, context: __SerdeContext
       output.LastModified !== undefined && output.LastModified !== null
         ? new Date(Math.round(output.LastModified * 1000))
         : undefined,
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
-    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
+    ResourceArn: __expectString(output.ResourceArn),
+    RoleArn: __expectString(output.RoleArn),
   } as any;
 };
 
@@ -3658,7 +3655,7 @@ const deserializeAws_json1_1ResourceNumberLimitExceededException = (
   context: __SerdeContext
 ): ResourceNumberLimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3669,7 +3666,7 @@ const deserializeAws_json1_1ResourceShareList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3689,7 +3686,7 @@ const deserializeAws_json1_1SearchDatabasesByLFTagsResponse = (
       output.DatabaseList !== undefined && output.DatabaseList !== null
         ? deserializeAws_json1_1DatabaseLFTagsList(output.DatabaseList, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3698,7 +3695,7 @@ const deserializeAws_json1_1SearchTablesByLFTagsResponse = (
   context: __SerdeContext
 ): SearchTablesByLFTagsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     TableList:
       output.TableList !== undefined && output.TableList !== null
         ? deserializeAws_json1_1TableLFTagsList(output.TableList, context)
@@ -3719,9 +3716,9 @@ const deserializeAws_json1_1TableLFTagsList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1TableResource = (output: any, context: __SerdeContext): TableResource => {
   return {
-    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
-    DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    CatalogId: __expectString(output.CatalogId),
+    DatabaseName: __expectString(output.DatabaseName),
+    Name: __expectString(output.Name),
     TableWildcard:
       output.TableWildcard !== undefined && output.TableWildcard !== null
         ? deserializeAws_json1_1TableWildcard(output.TableWildcard, context)
@@ -3738,7 +3735,7 @@ const deserializeAws_json1_1TableWithColumnsResource = (
   context: __SerdeContext
 ): TableWithColumnsResource => {
   return {
-    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
+    CatalogId: __expectString(output.CatalogId),
     ColumnNames:
       output.ColumnNames !== undefined && output.ColumnNames !== null
         ? deserializeAws_json1_1ColumnNames(output.ColumnNames, context)
@@ -3747,8 +3744,8 @@ const deserializeAws_json1_1TableWithColumnsResource = (
       output.ColumnWildcard !== undefined && output.ColumnWildcard !== null
         ? deserializeAws_json1_1ColumnWildcard(output.ColumnWildcard, context)
         : undefined,
-    DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    DatabaseName: __expectString(output.DatabaseName),
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -3793,7 +3790,7 @@ const deserializeAws_json1_1TagValueList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3804,7 +3801,7 @@ const deserializeAws_json1_1TrustedResourceOwners = (output: any, context: __Ser
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

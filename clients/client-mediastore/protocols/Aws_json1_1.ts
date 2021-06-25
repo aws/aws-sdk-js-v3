@@ -85,7 +85,12 @@ import {
   UntagResourceOutput,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -2257,7 +2262,7 @@ const deserializeAws_json1_1AllowedHeaders = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2268,7 +2273,7 @@ const deserializeAws_json1_1AllowedMethods = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2279,24 +2284,21 @@ const deserializeAws_json1_1AllowedOrigins = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1Container = (output: any, context: __SerdeContext): Container => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
-    AccessLoggingEnabled:
-      output.AccessLoggingEnabled !== undefined && output.AccessLoggingEnabled !== null
-        ? output.AccessLoggingEnabled
-        : undefined,
+    ARN: __expectString(output.ARN),
+    AccessLoggingEnabled: __expectBoolean(output.AccessLoggingEnabled),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Endpoint: output.Endpoint !== undefined && output.Endpoint !== null ? output.Endpoint : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Endpoint: __expectString(output.Endpoint),
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -2305,7 +2307,7 @@ const deserializeAws_json1_1ContainerInUseException = (
   context: __SerdeContext
 ): ContainerInUseException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2325,7 +2327,7 @@ const deserializeAws_json1_1ContainerNotFoundException = (
   context: __SerdeContext
 ): ContainerNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2345,7 +2347,7 @@ const deserializeAws_json1_1CorsPolicyNotFoundException = (
   context: __SerdeContext
 ): CorsPolicyNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2367,8 +2369,7 @@ const deserializeAws_json1_1CorsRule = (output: any, context: __SerdeContext): C
       output.ExposeHeaders !== undefined && output.ExposeHeaders !== null
         ? deserializeAws_json1_1ExposeHeaders(output.ExposeHeaders, context)
         : undefined,
-    MaxAgeSeconds:
-      output.MaxAgeSeconds !== undefined && output.MaxAgeSeconds !== null ? output.MaxAgeSeconds : undefined,
+    MaxAgeSeconds: __expectNumber(output.MaxAgeSeconds),
   } as any;
 };
 
@@ -2429,7 +2430,7 @@ const deserializeAws_json1_1ExposeHeaders = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2438,7 +2439,7 @@ const deserializeAws_json1_1GetContainerPolicyOutput = (
   context: __SerdeContext
 ): GetContainerPolicyOutput => {
   return {
-    Policy: output.Policy !== undefined && output.Policy !== null ? output.Policy : undefined,
+    Policy: __expectString(output.Policy),
   } as any;
 };
 
@@ -2456,8 +2457,7 @@ const deserializeAws_json1_1GetLifecyclePolicyOutput = (
   context: __SerdeContext
 ): GetLifecyclePolicyOutput => {
   return {
-    LifecyclePolicy:
-      output.LifecyclePolicy !== undefined && output.LifecyclePolicy !== null ? output.LifecyclePolicy : undefined,
+    LifecyclePolicy: __expectString(output.LifecyclePolicy),
   } as any;
 };
 
@@ -2472,13 +2472,13 @@ const deserializeAws_json1_1GetMetricPolicyOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2488,7 +2488,7 @@ const deserializeAws_json1_1ListContainersOutput = (output: any, context: __Serd
       output.Containers !== undefined && output.Containers !== null
         ? deserializeAws_json1_1ContainerList(output.Containers, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -2506,10 +2506,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
 
 const deserializeAws_json1_1MetricPolicy = (output: any, context: __SerdeContext): MetricPolicy => {
   return {
-    ContainerLevelMetrics:
-      output.ContainerLevelMetrics !== undefined && output.ContainerLevelMetrics !== null
-        ? output.ContainerLevelMetrics
-        : undefined,
+    ContainerLevelMetrics: __expectString(output.ContainerLevelMetrics),
     MetricPolicyRules:
       output.MetricPolicyRules !== undefined && output.MetricPolicyRules !== null
         ? deserializeAws_json1_1MetricPolicyRules(output.MetricPolicyRules, context)
@@ -2519,9 +2516,8 @@ const deserializeAws_json1_1MetricPolicy = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1MetricPolicyRule = (output: any, context: __SerdeContext): MetricPolicyRule => {
   return {
-    ObjectGroup: output.ObjectGroup !== undefined && output.ObjectGroup !== null ? output.ObjectGroup : undefined,
-    ObjectGroupName:
-      output.ObjectGroupName !== undefined && output.ObjectGroupName !== null ? output.ObjectGroupName : undefined,
+    ObjectGroup: __expectString(output.ObjectGroup),
+    ObjectGroupName: __expectString(output.ObjectGroupName),
   } as any;
 };
 
@@ -2541,7 +2537,7 @@ const deserializeAws_json1_1PolicyNotFoundException = (
   context: __SerdeContext
 ): PolicyNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2583,8 +2579,8 @@ const deserializeAws_json1_1StopAccessLoggingOutput = (
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 

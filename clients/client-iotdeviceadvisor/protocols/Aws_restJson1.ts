@@ -43,6 +43,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -494,13 +497,13 @@ export const deserializeAws_restJson1CreateSuiteDefinitionCommand = async (
     contents.createdAt = new Date(Math.round(data.createdAt * 1000));
   }
   if (data.suiteDefinitionArn !== undefined && data.suiteDefinitionArn !== null) {
-    contents.suiteDefinitionArn = data.suiteDefinitionArn;
+    contents.suiteDefinitionArn = __expectString(data.suiteDefinitionArn);
   }
   if (data.suiteDefinitionId !== undefined && data.suiteDefinitionId !== null) {
-    contents.suiteDefinitionId = data.suiteDefinitionId;
+    contents.suiteDefinitionId = __expectString(data.suiteDefinitionId);
   }
   if (data.suiteDefinitionName !== undefined && data.suiteDefinitionName !== null) {
-    contents.suiteDefinitionName = data.suiteDefinitionName;
+    contents.suiteDefinitionName = __expectString(data.suiteDefinitionName);
   }
   return Promise.resolve(contents);
 };
@@ -635,10 +638,10 @@ export const deserializeAws_restJson1GetSuiteDefinitionCommand = async (
     contents.lastModifiedAt = new Date(Math.round(data.lastModifiedAt * 1000));
   }
   if (data.latestVersion !== undefined && data.latestVersion !== null) {
-    contents.latestVersion = data.latestVersion;
+    contents.latestVersion = __expectString(data.latestVersion);
   }
   if (data.suiteDefinitionArn !== undefined && data.suiteDefinitionArn !== null) {
-    contents.suiteDefinitionArn = data.suiteDefinitionArn;
+    contents.suiteDefinitionArn = __expectString(data.suiteDefinitionArn);
   }
   if (data.suiteDefinitionConfiguration !== undefined && data.suiteDefinitionConfiguration !== null) {
     contents.suiteDefinitionConfiguration = deserializeAws_restJson1SuiteDefinitionConfiguration(
@@ -647,10 +650,10 @@ export const deserializeAws_restJson1GetSuiteDefinitionCommand = async (
     );
   }
   if (data.suiteDefinitionId !== undefined && data.suiteDefinitionId !== null) {
-    contents.suiteDefinitionId = data.suiteDefinitionId;
+    contents.suiteDefinitionId = __expectString(data.suiteDefinitionId);
   }
   if (data.suiteDefinitionVersion !== undefined && data.suiteDefinitionVersion !== null) {
-    contents.suiteDefinitionVersion = data.suiteDefinitionVersion;
+    contents.suiteDefinitionVersion = __expectString(data.suiteDefinitionVersion);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
@@ -737,28 +740,28 @@ export const deserializeAws_restJson1GetSuiteRunCommand = async (
     contents.endTime = new Date(Math.round(data.endTime * 1000));
   }
   if (data.errorReason !== undefined && data.errorReason !== null) {
-    contents.errorReason = data.errorReason;
+    contents.errorReason = __expectString(data.errorReason);
   }
   if (data.startTime !== undefined && data.startTime !== null) {
     contents.startTime = new Date(Math.round(data.startTime * 1000));
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = data.status;
+    contents.status = __expectString(data.status);
   }
   if (data.suiteDefinitionId !== undefined && data.suiteDefinitionId !== null) {
-    contents.suiteDefinitionId = data.suiteDefinitionId;
+    contents.suiteDefinitionId = __expectString(data.suiteDefinitionId);
   }
   if (data.suiteDefinitionVersion !== undefined && data.suiteDefinitionVersion !== null) {
-    contents.suiteDefinitionVersion = data.suiteDefinitionVersion;
+    contents.suiteDefinitionVersion = __expectString(data.suiteDefinitionVersion);
   }
   if (data.suiteRunArn !== undefined && data.suiteRunArn !== null) {
-    contents.suiteRunArn = data.suiteRunArn;
+    contents.suiteRunArn = __expectString(data.suiteRunArn);
   }
   if (data.suiteRunConfiguration !== undefined && data.suiteRunConfiguration !== null) {
     contents.suiteRunConfiguration = deserializeAws_restJson1SuiteRunConfiguration(data.suiteRunConfiguration, context);
   }
   if (data.suiteRunId !== undefined && data.suiteRunId !== null) {
-    contents.suiteRunId = data.suiteRunId;
+    contents.suiteRunId = __expectString(data.suiteRunId);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
@@ -835,7 +838,7 @@ export const deserializeAws_restJson1GetSuiteRunReportCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.qualificationReportDownloadUrl !== undefined && data.qualificationReportDownloadUrl !== null) {
-    contents.qualificationReportDownloadUrl = data.qualificationReportDownloadUrl;
+    contents.qualificationReportDownloadUrl = __expectString(data.qualificationReportDownloadUrl);
   }
   return Promise.resolve(contents);
 };
@@ -907,7 +910,7 @@ export const deserializeAws_restJson1ListSuiteDefinitionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.suiteDefinitionInformationList !== undefined && data.suiteDefinitionInformationList !== null) {
     contents.suiteDefinitionInformationList = deserializeAws_restJson1SuiteDefinitionInformationList(
@@ -977,7 +980,7 @@ export const deserializeAws_restJson1ListSuiteRunsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.suiteRunsList !== undefined && data.suiteRunsList !== null) {
     contents.suiteRunsList = deserializeAws_restJson1SuiteRunsList(data.suiteRunsList, context);
@@ -1119,10 +1122,10 @@ export const deserializeAws_restJson1StartSuiteRunCommand = async (
     contents.createdAt = new Date(Math.round(data.createdAt * 1000));
   }
   if (data.suiteRunArn !== undefined && data.suiteRunArn !== null) {
-    contents.suiteRunArn = data.suiteRunArn;
+    contents.suiteRunArn = __expectString(data.suiteRunArn);
   }
   if (data.suiteRunId !== undefined && data.suiteRunId !== null) {
-    contents.suiteRunId = data.suiteRunId;
+    contents.suiteRunId = __expectString(data.suiteRunId);
   }
   return Promise.resolve(contents);
 };
@@ -1405,16 +1408,16 @@ export const deserializeAws_restJson1UpdateSuiteDefinitionCommand = async (
     contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
   }
   if (data.suiteDefinitionArn !== undefined && data.suiteDefinitionArn !== null) {
-    contents.suiteDefinitionArn = data.suiteDefinitionArn;
+    contents.suiteDefinitionArn = __expectString(data.suiteDefinitionArn);
   }
   if (data.suiteDefinitionId !== undefined && data.suiteDefinitionId !== null) {
-    contents.suiteDefinitionId = data.suiteDefinitionId;
+    contents.suiteDefinitionId = __expectString(data.suiteDefinitionId);
   }
   if (data.suiteDefinitionName !== undefined && data.suiteDefinitionName !== null) {
-    contents.suiteDefinitionName = data.suiteDefinitionName;
+    contents.suiteDefinitionName = __expectString(data.suiteDefinitionName);
   }
   if (data.suiteDefinitionVersion !== undefined && data.suiteDefinitionVersion !== null) {
-    contents.suiteDefinitionVersion = data.suiteDefinitionVersion;
+    contents.suiteDefinitionVersion = __expectString(data.suiteDefinitionVersion);
   }
   return Promise.resolve(contents);
 };
@@ -1476,7 +1479,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1493,7 +1496,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1510,7 +1513,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1527,7 +1530,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1606,9 +1609,8 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 
 const deserializeAws_restJson1DeviceUnderTest = (output: any, context: __SerdeContext): DeviceUnderTest => {
   return {
-    certificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
-    thingArn: output.thingArn !== undefined && output.thingArn !== null ? output.thingArn : undefined,
+    certificateArn: __expectString(output.certificateArn),
+    thingArn: __expectString(output.thingArn),
   } as any;
 };
 
@@ -1625,8 +1627,8 @@ const deserializeAws_restJson1DeviceUnderTestList = (output: any, context: __Ser
 
 const deserializeAws_restJson1GroupResult = (output: any, context: __SerdeContext): GroupResult => {
   return {
-    groupId: output.groupId !== undefined && output.groupId !== null ? output.groupId : undefined,
-    groupName: output.groupName !== undefined && output.groupName !== null ? output.groupName : undefined,
+    groupId: __expectString(output.groupId),
+    groupName: __expectString(output.groupName),
     tests:
       output.tests !== undefined && output.tests !== null
         ? deserializeAws_restJson1TestCaseRuns(output.tests, context)
@@ -1652,7 +1654,7 @@ const deserializeAws_restJson1SelectedTestList = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1661,23 +1663,14 @@ const deserializeAws_restJson1SuiteDefinitionConfiguration = (
   context: __SerdeContext
 ): SuiteDefinitionConfiguration => {
   return {
-    devicePermissionRoleArn:
-      output.devicePermissionRoleArn !== undefined && output.devicePermissionRoleArn !== null
-        ? output.devicePermissionRoleArn
-        : undefined,
+    devicePermissionRoleArn: __expectString(output.devicePermissionRoleArn),
     devices:
       output.devices !== undefined && output.devices !== null
         ? deserializeAws_restJson1DeviceUnderTestList(output.devices, context)
         : undefined,
-    intendedForQualification:
-      output.intendedForQualification !== undefined && output.intendedForQualification !== null
-        ? output.intendedForQualification
-        : undefined,
-    rootGroup: output.rootGroup !== undefined && output.rootGroup !== null ? output.rootGroup : undefined,
-    suiteDefinitionName:
-      output.suiteDefinitionName !== undefined && output.suiteDefinitionName !== null
-        ? output.suiteDefinitionName
-        : undefined,
+    intendedForQualification: __expectBoolean(output.intendedForQualification),
+    rootGroup: __expectString(output.rootGroup),
+    suiteDefinitionName: __expectString(output.suiteDefinitionName),
   } as any;
 };
 
@@ -1694,18 +1687,9 @@ const deserializeAws_restJson1SuiteDefinitionInformation = (
       output.defaultDevices !== undefined && output.defaultDevices !== null
         ? deserializeAws_restJson1DeviceUnderTestList(output.defaultDevices, context)
         : undefined,
-    intendedForQualification:
-      output.intendedForQualification !== undefined && output.intendedForQualification !== null
-        ? output.intendedForQualification
-        : undefined,
-    suiteDefinitionId:
-      output.suiteDefinitionId !== undefined && output.suiteDefinitionId !== null
-        ? output.suiteDefinitionId
-        : undefined,
-    suiteDefinitionName:
-      output.suiteDefinitionName !== undefined && output.suiteDefinitionName !== null
-        ? output.suiteDefinitionName
-        : undefined,
+    intendedForQualification: __expectBoolean(output.intendedForQualification),
+    suiteDefinitionId: __expectString(output.suiteDefinitionId),
+    suiteDefinitionName: __expectString(output.suiteDefinitionName),
   } as any;
 };
 
@@ -1743,26 +1727,17 @@ const deserializeAws_restJson1SuiteRunInformation = (output: any, context: __Ser
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
     endAt: output.endAt !== undefined && output.endAt !== null ? new Date(Math.round(output.endAt * 1000)) : undefined,
-    failed: output.failed !== undefined && output.failed !== null ? output.failed : undefined,
-    passed: output.passed !== undefined && output.passed !== null ? output.passed : undefined,
+    failed: __expectNumber(output.failed),
+    passed: __expectNumber(output.passed),
     startedAt:
       output.startedAt !== undefined && output.startedAt !== null
         ? new Date(Math.round(output.startedAt * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    suiteDefinitionId:
-      output.suiteDefinitionId !== undefined && output.suiteDefinitionId !== null
-        ? output.suiteDefinitionId
-        : undefined,
-    suiteDefinitionName:
-      output.suiteDefinitionName !== undefined && output.suiteDefinitionName !== null
-        ? output.suiteDefinitionName
-        : undefined,
-    suiteDefinitionVersion:
-      output.suiteDefinitionVersion !== undefined && output.suiteDefinitionVersion !== null
-        ? output.suiteDefinitionVersion
-        : undefined,
-    suiteRunId: output.suiteRunId !== undefined && output.suiteRunId !== null ? output.suiteRunId : undefined,
+    status: __expectString(output.status),
+    suiteDefinitionId: __expectString(output.suiteDefinitionId),
+    suiteDefinitionName: __expectString(output.suiteDefinitionName),
+    suiteDefinitionVersion: __expectString(output.suiteDefinitionVersion),
+    suiteRunId: __expectString(output.suiteRunId),
   } as any;
 };
 
@@ -1784,7 +1759,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -1793,24 +1768,17 @@ const deserializeAws_restJson1TestCaseRun = (output: any, context: __SerdeContex
   return {
     endTime:
       output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
-    failure: output.failure !== undefined && output.failure !== null ? output.failure : undefined,
-    logUrl: output.logUrl !== undefined && output.logUrl !== null ? output.logUrl : undefined,
+    failure: __expectString(output.failure),
+    logUrl: __expectString(output.logUrl),
     startTime:
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    testCaseDefinitionId:
-      output.testCaseDefinitionId !== undefined && output.testCaseDefinitionId !== null
-        ? output.testCaseDefinitionId
-        : undefined,
-    testCaseDefinitionName:
-      output.testCaseDefinitionName !== undefined && output.testCaseDefinitionName !== null
-        ? output.testCaseDefinitionName
-        : undefined,
-    testCaseRunId:
-      output.testCaseRunId !== undefined && output.testCaseRunId !== null ? output.testCaseRunId : undefined,
-    warnings: output.warnings !== undefined && output.warnings !== null ? output.warnings : undefined,
+    status: __expectString(output.status),
+    testCaseDefinitionId: __expectString(output.testCaseDefinitionId),
+    testCaseDefinitionName: __expectString(output.testCaseDefinitionName),
+    testCaseRunId: __expectString(output.testCaseRunId),
+    warnings: __expectString(output.warnings),
   } as any;
 };
 

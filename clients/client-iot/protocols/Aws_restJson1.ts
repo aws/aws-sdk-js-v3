@@ -845,6 +845,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -8284,13 +8287,13 @@ export const deserializeAws_restJson1AssociateTargetsWithJobCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.jobArn !== undefined && data.jobArn !== null) {
-    contents.jobArn = data.jobArn;
+    contents.jobArn = __expectString(data.jobArn);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.jobId = data.jobId;
+    contents.jobId = __expectString(data.jobId);
   }
   return Promise.resolve(contents);
 };
@@ -9083,13 +9086,13 @@ export const deserializeAws_restJson1CancelJobCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.jobArn !== undefined && data.jobArn !== null) {
-    contents.jobArn = data.jobArn;
+    contents.jobArn = __expectString(data.jobArn);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.jobId = data.jobId;
+    contents.jobId = __expectString(data.jobId);
   }
   return Promise.resolve(contents);
 };
@@ -9517,10 +9520,10 @@ export const deserializeAws_restJson1CreateAuthorizerCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.authorizerArn !== undefined && data.authorizerArn !== null) {
-    contents.authorizerArn = data.authorizerArn;
+    contents.authorizerArn = __expectString(data.authorizerArn);
   }
   if (data.authorizerName !== undefined && data.authorizerName !== null) {
-    contents.authorizerName = data.authorizerName;
+    contents.authorizerName = __expectString(data.authorizerName);
   }
   return Promise.resolve(contents);
 };
@@ -9625,13 +9628,13 @@ export const deserializeAws_restJson1CreateBillingGroupCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.billingGroupArn !== undefined && data.billingGroupArn !== null) {
-    contents.billingGroupArn = data.billingGroupArn;
+    contents.billingGroupArn = __expectString(data.billingGroupArn);
   }
   if (data.billingGroupId !== undefined && data.billingGroupId !== null) {
-    contents.billingGroupId = data.billingGroupId;
+    contents.billingGroupId = __expectString(data.billingGroupId);
   }
   if (data.billingGroupName !== undefined && data.billingGroupName !== null) {
-    contents.billingGroupName = data.billingGroupName;
+    contents.billingGroupName = __expectString(data.billingGroupName);
   }
   return Promise.resolve(contents);
 };
@@ -9712,13 +9715,13 @@ export const deserializeAws_restJson1CreateCertificateFromCsrCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.certificateArn !== undefined && data.certificateArn !== null) {
-    contents.certificateArn = data.certificateArn;
+    contents.certificateArn = __expectString(data.certificateArn);
   }
   if (data.certificateId !== undefined && data.certificateId !== null) {
-    contents.certificateId = data.certificateId;
+    contents.certificateId = __expectString(data.certificateId);
   }
   if (data.certificatePem !== undefined && data.certificatePem !== null) {
-    contents.certificatePem = data.certificatePem;
+    contents.certificatePem = __expectString(data.certificatePem);
   }
   return Promise.resolve(contents);
 };
@@ -9806,10 +9809,10 @@ export const deserializeAws_restJson1CreateCustomMetricCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.metricArn !== undefined && data.metricArn !== null) {
-    contents.metricArn = data.metricArn;
+    contents.metricArn = __expectString(data.metricArn);
   }
   if (data.metricName !== undefined && data.metricName !== null) {
-    contents.metricName = data.metricName;
+    contents.metricName = __expectString(data.metricName);
   }
   return Promise.resolve(contents);
 };
@@ -9897,10 +9900,10 @@ export const deserializeAws_restJson1CreateDimensionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = data.arn;
+    contents.arn = __expectString(data.arn);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   return Promise.resolve(contents);
 };
@@ -9988,10 +9991,10 @@ export const deserializeAws_restJson1CreateDomainConfigurationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.domainConfigurationArn !== undefined && data.domainConfigurationArn !== null) {
-    contents.domainConfigurationArn = data.domainConfigurationArn;
+    contents.domainConfigurationArn = __expectString(data.domainConfigurationArn);
   }
   if (data.domainConfigurationName !== undefined && data.domainConfigurationName !== null) {
-    contents.domainConfigurationName = data.domainConfigurationName;
+    contents.domainConfigurationName = __expectString(data.domainConfigurationName);
   }
   return Promise.resolve(contents);
 };
@@ -10107,22 +10110,22 @@ export const deserializeAws_restJson1CreateDynamicThingGroupCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.indexName !== undefined && data.indexName !== null) {
-    contents.indexName = data.indexName;
+    contents.indexName = __expectString(data.indexName);
   }
   if (data.queryString !== undefined && data.queryString !== null) {
-    contents.queryString = data.queryString;
+    contents.queryString = __expectString(data.queryString);
   }
   if (data.queryVersion !== undefined && data.queryVersion !== null) {
-    contents.queryVersion = data.queryVersion;
+    contents.queryVersion = __expectString(data.queryVersion);
   }
   if (data.thingGroupArn !== undefined && data.thingGroupArn !== null) {
-    contents.thingGroupArn = data.thingGroupArn;
+    contents.thingGroupArn = __expectString(data.thingGroupArn);
   }
   if (data.thingGroupId !== undefined && data.thingGroupId !== null) {
-    contents.thingGroupId = data.thingGroupId;
+    contents.thingGroupId = __expectString(data.thingGroupId);
   }
   if (data.thingGroupName !== undefined && data.thingGroupName !== null) {
-    contents.thingGroupName = data.thingGroupName;
+    contents.thingGroupName = __expectString(data.thingGroupName);
   }
   return Promise.resolve(contents);
 };
@@ -10227,13 +10230,13 @@ export const deserializeAws_restJson1CreateJobCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.jobArn !== undefined && data.jobArn !== null) {
-    contents.jobArn = data.jobArn;
+    contents.jobArn = __expectString(data.jobArn);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.jobId = data.jobId;
+    contents.jobId = __expectString(data.jobId);
   }
   return Promise.resolve(contents);
 };
@@ -10329,10 +10332,10 @@ export const deserializeAws_restJson1CreateJobTemplateCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobTemplateArn !== undefined && data.jobTemplateArn !== null) {
-    contents.jobTemplateArn = data.jobTemplateArn;
+    contents.jobTemplateArn = __expectString(data.jobTemplateArn);
   }
   if (data.jobTemplateId !== undefined && data.jobTemplateId !== null) {
-    contents.jobTemplateId = data.jobTemplateId;
+    contents.jobTemplateId = __expectString(data.jobTemplateId);
   }
   return Promise.resolve(contents);
 };
@@ -10430,13 +10433,13 @@ export const deserializeAws_restJson1CreateKeysAndCertificateCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.certificateArn !== undefined && data.certificateArn !== null) {
-    contents.certificateArn = data.certificateArn;
+    contents.certificateArn = __expectString(data.certificateArn);
   }
   if (data.certificateId !== undefined && data.certificateId !== null) {
-    contents.certificateId = data.certificateId;
+    contents.certificateId = __expectString(data.certificateId);
   }
   if (data.certificatePem !== undefined && data.certificatePem !== null) {
-    contents.certificatePem = data.certificatePem;
+    contents.certificatePem = __expectString(data.certificatePem);
   }
   if (data.keyPair !== undefined && data.keyPair !== null) {
     contents.keyPair = deserializeAws_restJson1KeyPair(data.keyPair, context);
@@ -10527,10 +10530,10 @@ export const deserializeAws_restJson1CreateMitigationActionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.actionArn !== undefined && data.actionArn !== null) {
-    contents.actionArn = data.actionArn;
+    contents.actionArn = __expectString(data.actionArn);
   }
   if (data.actionId !== undefined && data.actionId !== null) {
-    contents.actionId = data.actionId;
+    contents.actionId = __expectString(data.actionId);
   }
   return Promise.resolve(contents);
 };
@@ -10621,19 +10624,19 @@ export const deserializeAws_restJson1CreateOTAUpdateCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.awsIotJobArn !== undefined && data.awsIotJobArn !== null) {
-    contents.awsIotJobArn = data.awsIotJobArn;
+    contents.awsIotJobArn = __expectString(data.awsIotJobArn);
   }
   if (data.awsIotJobId !== undefined && data.awsIotJobId !== null) {
-    contents.awsIotJobId = data.awsIotJobId;
+    contents.awsIotJobId = __expectString(data.awsIotJobId);
   }
   if (data.otaUpdateArn !== undefined && data.otaUpdateArn !== null) {
-    contents.otaUpdateArn = data.otaUpdateArn;
+    contents.otaUpdateArn = __expectString(data.otaUpdateArn);
   }
   if (data.otaUpdateId !== undefined && data.otaUpdateId !== null) {
-    contents.otaUpdateId = data.otaUpdateId;
+    contents.otaUpdateId = __expectString(data.otaUpdateId);
   }
   if (data.otaUpdateStatus !== undefined && data.otaUpdateStatus !== null) {
-    contents.otaUpdateStatus = data.otaUpdateStatus;
+    contents.otaUpdateStatus = __expectString(data.otaUpdateStatus);
   }
   return Promise.resolve(contents);
 };
@@ -10747,16 +10750,16 @@ export const deserializeAws_restJson1CreatePolicyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.policyArn !== undefined && data.policyArn !== null) {
-    contents.policyArn = data.policyArn;
+    contents.policyArn = __expectString(data.policyArn);
   }
   if (data.policyDocument !== undefined && data.policyDocument !== null) {
-    contents.policyDocument = data.policyDocument;
+    contents.policyDocument = __expectString(data.policyDocument);
   }
   if (data.policyName !== undefined && data.policyName !== null) {
-    contents.policyName = data.policyName;
+    contents.policyName = __expectString(data.policyName);
   }
   if (data.policyVersionId !== undefined && data.policyVersionId !== null) {
-    contents.policyVersionId = data.policyVersionId;
+    contents.policyVersionId = __expectString(data.policyVersionId);
   }
   return Promise.resolve(contents);
 };
@@ -10862,16 +10865,16 @@ export const deserializeAws_restJson1CreatePolicyVersionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.isDefaultVersion !== undefined && data.isDefaultVersion !== null) {
-    contents.isDefaultVersion = data.isDefaultVersion;
+    contents.isDefaultVersion = __expectBoolean(data.isDefaultVersion);
   }
   if (data.policyArn !== undefined && data.policyArn !== null) {
-    contents.policyArn = data.policyArn;
+    contents.policyArn = __expectString(data.policyArn);
   }
   if (data.policyDocument !== undefined && data.policyDocument !== null) {
-    contents.policyDocument = data.policyDocument;
+    contents.policyDocument = __expectString(data.policyDocument);
   }
   if (data.policyVersionId !== undefined && data.policyVersionId !== null) {
-    contents.policyVersionId = data.policyVersionId;
+    contents.policyVersionId = __expectString(data.policyVersionId);
   }
   return Promise.resolve(contents);
 };
@@ -10985,10 +10988,10 @@ export const deserializeAws_restJson1CreateProvisioningClaimCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.certificateId !== undefined && data.certificateId !== null) {
-    contents.certificateId = data.certificateId;
+    contents.certificateId = __expectString(data.certificateId);
   }
   if (data.certificatePem !== undefined && data.certificatePem !== null) {
-    contents.certificatePem = data.certificatePem;
+    contents.certificatePem = __expectString(data.certificatePem);
   }
   if (data.expiration !== undefined && data.expiration !== null) {
     contents.expiration = new Date(Math.round(data.expiration * 1000));
@@ -11091,13 +11094,13 @@ export const deserializeAws_restJson1CreateProvisioningTemplateCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.defaultVersionId !== undefined && data.defaultVersionId !== null) {
-    contents.defaultVersionId = data.defaultVersionId;
+    contents.defaultVersionId = __expectNumber(data.defaultVersionId);
   }
   if (data.templateArn !== undefined && data.templateArn !== null) {
-    contents.templateArn = data.templateArn;
+    contents.templateArn = __expectString(data.templateArn);
   }
   if (data.templateName !== undefined && data.templateName !== null) {
-    contents.templateName = data.templateName;
+    contents.templateName = __expectString(data.templateName);
   }
   return Promise.resolve(contents);
 };
@@ -11195,16 +11198,16 @@ export const deserializeAws_restJson1CreateProvisioningTemplateVersionCommand = 
   };
   const data: any = await parseBody(output.body, context);
   if (data.isDefaultVersion !== undefined && data.isDefaultVersion !== null) {
-    contents.isDefaultVersion = data.isDefaultVersion;
+    contents.isDefaultVersion = __expectBoolean(data.isDefaultVersion);
   }
   if (data.templateArn !== undefined && data.templateArn !== null) {
-    contents.templateArn = data.templateArn;
+    contents.templateArn = __expectString(data.templateArn);
   }
   if (data.templateName !== undefined && data.templateName !== null) {
-    contents.templateName = data.templateName;
+    contents.templateName = __expectString(data.templateName);
   }
   if (data.versionId !== undefined && data.versionId !== null) {
-    contents.versionId = data.versionId;
+    contents.versionId = __expectNumber(data.versionId);
   }
   return Promise.resolve(contents);
 };
@@ -11308,10 +11311,10 @@ export const deserializeAws_restJson1CreateRoleAliasCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.roleAlias !== undefined && data.roleAlias !== null) {
-    contents.roleAlias = data.roleAlias;
+    contents.roleAlias = __expectString(data.roleAlias);
   }
   if (data.roleAliasArn !== undefined && data.roleAliasArn !== null) {
-    contents.roleAliasArn = data.roleAliasArn;
+    contents.roleAliasArn = __expectString(data.roleAliasArn);
   }
   return Promise.resolve(contents);
 };
@@ -11414,7 +11417,7 @@ export const deserializeAws_restJson1CreateScheduledAuditCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.scheduledAuditArn !== undefined && data.scheduledAuditArn !== null) {
-    contents.scheduledAuditArn = data.scheduledAuditArn;
+    contents.scheduledAuditArn = __expectString(data.scheduledAuditArn);
   }
   return Promise.resolve(contents);
 };
@@ -11502,10 +11505,10 @@ export const deserializeAws_restJson1CreateSecurityProfileCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.securityProfileArn !== undefined && data.securityProfileArn !== null) {
-    contents.securityProfileArn = data.securityProfileArn;
+    contents.securityProfileArn = __expectString(data.securityProfileArn);
   }
   if (data.securityProfileName !== undefined && data.securityProfileName !== null) {
-    contents.securityProfileName = data.securityProfileName;
+    contents.securityProfileName = __expectString(data.securityProfileName);
   }
   return Promise.resolve(contents);
 };
@@ -11587,16 +11590,16 @@ export const deserializeAws_restJson1CreateStreamCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.streamArn !== undefined && data.streamArn !== null) {
-    contents.streamArn = data.streamArn;
+    contents.streamArn = __expectString(data.streamArn);
   }
   if (data.streamId !== undefined && data.streamId !== null) {
-    contents.streamId = data.streamId;
+    contents.streamId = __expectString(data.streamId);
   }
   if (data.streamVersion !== undefined && data.streamVersion !== null) {
-    contents.streamVersion = data.streamVersion;
+    contents.streamVersion = __expectNumber(data.streamVersion);
   }
   return Promise.resolve(contents);
 };
@@ -11709,13 +11712,13 @@ export const deserializeAws_restJson1CreateThingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.thingArn !== undefined && data.thingArn !== null) {
-    contents.thingArn = data.thingArn;
+    contents.thingArn = __expectString(data.thingArn);
   }
   if (data.thingId !== undefined && data.thingId !== null) {
-    contents.thingId = data.thingId;
+    contents.thingId = __expectString(data.thingId);
   }
   if (data.thingName !== undefined && data.thingName !== null) {
-    contents.thingName = data.thingName;
+    contents.thingName = __expectString(data.thingName);
   }
   return Promise.resolve(contents);
 };
@@ -11820,13 +11823,13 @@ export const deserializeAws_restJson1CreateThingGroupCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.thingGroupArn !== undefined && data.thingGroupArn !== null) {
-    contents.thingGroupArn = data.thingGroupArn;
+    contents.thingGroupArn = __expectString(data.thingGroupArn);
   }
   if (data.thingGroupId !== undefined && data.thingGroupId !== null) {
-    contents.thingGroupId = data.thingGroupId;
+    contents.thingGroupId = __expectString(data.thingGroupId);
   }
   if (data.thingGroupName !== undefined && data.thingGroupName !== null) {
-    contents.thingGroupName = data.thingGroupName;
+    contents.thingGroupName = __expectString(data.thingGroupName);
   }
   return Promise.resolve(contents);
 };
@@ -11907,13 +11910,13 @@ export const deserializeAws_restJson1CreateThingTypeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.thingTypeArn !== undefined && data.thingTypeArn !== null) {
-    contents.thingTypeArn = data.thingTypeArn;
+    contents.thingTypeArn = __expectString(data.thingTypeArn);
   }
   if (data.thingTypeId !== undefined && data.thingTypeId !== null) {
-    contents.thingTypeId = data.thingTypeId;
+    contents.thingTypeId = __expectString(data.thingTypeId);
   }
   if (data.thingTypeName !== undefined && data.thingTypeName !== null) {
-    contents.thingTypeName = data.thingTypeName;
+    contents.thingTypeName = __expectString(data.thingTypeName);
   }
   return Promise.resolve(contents);
 };
@@ -14853,7 +14856,7 @@ export const deserializeAws_restJson1DescribeAccountAuditConfigurationCommand = 
     );
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
-    contents.roleArn = data.roleArn;
+    contents.roleArn = __expectString(data.roleArn);
   }
   return Promise.resolve(contents);
 };
@@ -15025,7 +15028,7 @@ export const deserializeAws_restJson1DescribeAuditMitigationActionsTaskCommand =
     );
   }
   if (data.taskStatus !== undefined && data.taskStatus !== null) {
-    contents.taskStatus = data.taskStatus;
+    contents.taskStatus = __expectString(data.taskStatus);
   }
   return Promise.resolve(contents);
 };
@@ -15108,10 +15111,10 @@ export const deserializeAws_restJson1DescribeAuditSuppressionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.checkName !== undefined && data.checkName !== null) {
-    contents.checkName = data.checkName;
+    contents.checkName = __expectString(data.checkName);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.expirationDate !== undefined && data.expirationDate !== null) {
     contents.expirationDate = new Date(Math.round(data.expirationDate * 1000));
@@ -15120,7 +15123,7 @@ export const deserializeAws_restJson1DescribeAuditSuppressionCommand = async (
     contents.resourceIdentifier = deserializeAws_restJson1ResourceIdentifier(data.resourceIdentifier, context);
   }
   if (data.suppressIndefinitely !== undefined && data.suppressIndefinitely !== null) {
-    contents.suppressIndefinitely = data.suppressIndefinitely;
+    contents.suppressIndefinitely = __expectBoolean(data.suppressIndefinitely);
   }
   return Promise.resolve(contents);
 };
@@ -15207,7 +15210,7 @@ export const deserializeAws_restJson1DescribeAuditTaskCommand = async (
     contents.auditDetails = deserializeAws_restJson1AuditDetails(data.auditDetails, context);
   }
   if (data.scheduledAuditName !== undefined && data.scheduledAuditName !== null) {
-    contents.scheduledAuditName = data.scheduledAuditName;
+    contents.scheduledAuditName = __expectString(data.scheduledAuditName);
   }
   if (data.taskStartTime !== undefined && data.taskStartTime !== null) {
     contents.taskStartTime = new Date(Math.round(data.taskStartTime * 1000));
@@ -15216,10 +15219,10 @@ export const deserializeAws_restJson1DescribeAuditTaskCommand = async (
     contents.taskStatistics = deserializeAws_restJson1TaskStatistics(data.taskStatistics, context);
   }
   if (data.taskStatus !== undefined && data.taskStatus !== null) {
-    contents.taskStatus = data.taskStatus;
+    contents.taskStatus = __expectString(data.taskStatus);
   }
   if (data.taskType !== undefined && data.taskType !== null) {
-    contents.taskType = data.taskType;
+    contents.taskType = __expectString(data.taskType);
   }
   return Promise.resolve(contents);
 };
@@ -15398,16 +15401,16 @@ export const deserializeAws_restJson1DescribeBillingGroupCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.billingGroupArn !== undefined && data.billingGroupArn !== null) {
-    contents.billingGroupArn = data.billingGroupArn;
+    contents.billingGroupArn = __expectString(data.billingGroupArn);
   }
   if (data.billingGroupId !== undefined && data.billingGroupId !== null) {
-    contents.billingGroupId = data.billingGroupId;
+    contents.billingGroupId = __expectString(data.billingGroupId);
   }
   if (data.billingGroupMetadata !== undefined && data.billingGroupMetadata !== null) {
     contents.billingGroupMetadata = deserializeAws_restJson1BillingGroupMetadata(data.billingGroupMetadata, context);
   }
   if (data.billingGroupName !== undefined && data.billingGroupName !== null) {
-    contents.billingGroupName = data.billingGroupName;
+    contents.billingGroupName = __expectString(data.billingGroupName);
   }
   if (data.billingGroupProperties !== undefined && data.billingGroupProperties !== null) {
     contents.billingGroupProperties = deserializeAws_restJson1BillingGroupProperties(
@@ -15416,7 +15419,7 @@ export const deserializeAws_restJson1DescribeBillingGroupCommand = async (
     );
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectNumber(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -15703,19 +15706,19 @@ export const deserializeAws_restJson1DescribeCustomMetricCommand = async (
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
   if (data.displayName !== undefined && data.displayName !== null) {
-    contents.displayName = data.displayName;
+    contents.displayName = __expectString(data.displayName);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
     contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.metricArn !== undefined && data.metricArn !== null) {
-    contents.metricArn = data.metricArn;
+    contents.metricArn = __expectString(data.metricArn);
   }
   if (data.metricName !== undefined && data.metricName !== null) {
-    contents.metricName = data.metricName;
+    contents.metricName = __expectString(data.metricName);
   }
   if (data.metricType !== undefined && data.metricType !== null) {
-    contents.metricType = data.metricType;
+    contents.metricType = __expectString(data.metricType);
   }
   return Promise.resolve(contents);
 };
@@ -15973,7 +15976,7 @@ export const deserializeAws_restJson1DescribeDimensionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = data.arn;
+    contents.arn = __expectString(data.arn);
   }
   if (data.creationDate !== undefined && data.creationDate !== null) {
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
@@ -15982,13 +15985,13 @@ export const deserializeAws_restJson1DescribeDimensionCommand = async (
     contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.stringValues !== undefined && data.stringValues !== null) {
     contents.stringValues = deserializeAws_restJson1DimensionStringValues(data.stringValues, context);
   }
   if (data.type !== undefined && data.type !== null) {
-    contents.type = data.type;
+    contents.type = __expectString(data.type);
   }
   return Promise.resolve(contents);
 };
@@ -16078,19 +16081,19 @@ export const deserializeAws_restJson1DescribeDomainConfigurationCommand = async 
     contents.authorizerConfig = deserializeAws_restJson1AuthorizerConfig(data.authorizerConfig, context);
   }
   if (data.domainConfigurationArn !== undefined && data.domainConfigurationArn !== null) {
-    contents.domainConfigurationArn = data.domainConfigurationArn;
+    contents.domainConfigurationArn = __expectString(data.domainConfigurationArn);
   }
   if (data.domainConfigurationName !== undefined && data.domainConfigurationName !== null) {
-    contents.domainConfigurationName = data.domainConfigurationName;
+    contents.domainConfigurationName = __expectString(data.domainConfigurationName);
   }
   if (data.domainConfigurationStatus !== undefined && data.domainConfigurationStatus !== null) {
-    contents.domainConfigurationStatus = data.domainConfigurationStatus;
+    contents.domainConfigurationStatus = __expectString(data.domainConfigurationStatus);
   }
   if (data.domainName !== undefined && data.domainName !== null) {
-    contents.domainName = data.domainName;
+    contents.domainName = __expectString(data.domainName);
   }
   if (data.domainType !== undefined && data.domainType !== null) {
-    contents.domainType = data.domainType;
+    contents.domainType = __expectString(data.domainType);
   }
   if (data.lastStatusChangeDate !== undefined && data.lastStatusChangeDate !== null) {
     contents.lastStatusChangeDate = new Date(Math.round(data.lastStatusChangeDate * 1000));
@@ -16099,7 +16102,7 @@ export const deserializeAws_restJson1DescribeDomainConfigurationCommand = async 
     contents.serverCertificates = deserializeAws_restJson1ServerCertificates(data.serverCertificates, context);
   }
   if (data.serviceType !== undefined && data.serviceType !== null) {
-    contents.serviceType = data.serviceType;
+    contents.serviceType = __expectString(data.serviceType);
   }
   return Promise.resolve(contents);
 };
@@ -16194,7 +16197,7 @@ export const deserializeAws_restJson1DescribeEndpointCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.endpointAddress !== undefined && data.endpointAddress !== null) {
-    contents.endpointAddress = data.endpointAddress;
+    contents.endpointAddress = __expectString(data.endpointAddress);
   }
   return Promise.resolve(contents);
 };
@@ -16346,13 +16349,13 @@ export const deserializeAws_restJson1DescribeIndexCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.indexName !== undefined && data.indexName !== null) {
-    contents.indexName = data.indexName;
+    contents.indexName = __expectString(data.indexName);
   }
   if (data.indexStatus !== undefined && data.indexStatus !== null) {
-    contents.indexStatus = data.indexStatus;
+    contents.indexStatus = __expectString(data.indexStatus);
   }
   if (data.schema !== undefined && data.schema !== null) {
-    contents.schema = data.schema;
+    contents.schema = __expectString(data.schema);
   }
   return Promise.resolve(contents);
 };
@@ -16448,7 +16451,7 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.documentSource !== undefined && data.documentSource !== null) {
-    contents.documentSource = data.documentSource;
+    contents.documentSource = __expectString(data.documentSource);
   }
   if (data.job !== undefined && data.job !== null) {
     contents.job = deserializeAws_restJson1Job(data.job, context);
@@ -16624,13 +16627,13 @@ export const deserializeAws_restJson1DescribeJobTemplateCommand = async (
     contents.createdAt = new Date(Math.round(data.createdAt * 1000));
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.document !== undefined && data.document !== null) {
-    contents.document = data.document;
+    contents.document = __expectString(data.document);
   }
   if (data.documentSource !== undefined && data.documentSource !== null) {
-    contents.documentSource = data.documentSource;
+    contents.documentSource = __expectString(data.documentSource);
   }
   if (data.jobExecutionsRolloutConfig !== undefined && data.jobExecutionsRolloutConfig !== null) {
     contents.jobExecutionsRolloutConfig = deserializeAws_restJson1JobExecutionsRolloutConfig(
@@ -16639,10 +16642,10 @@ export const deserializeAws_restJson1DescribeJobTemplateCommand = async (
     );
   }
   if (data.jobTemplateArn !== undefined && data.jobTemplateArn !== null) {
-    contents.jobTemplateArn = data.jobTemplateArn;
+    contents.jobTemplateArn = __expectString(data.jobTemplateArn);
   }
   if (data.jobTemplateId !== undefined && data.jobTemplateId !== null) {
-    contents.jobTemplateId = data.jobTemplateId;
+    contents.jobTemplateId = __expectString(data.jobTemplateId);
   }
   if (data.presignedUrlConfig !== undefined && data.presignedUrlConfig !== null) {
     contents.presignedUrlConfig = deserializeAws_restJson1PresignedUrlConfig(data.presignedUrlConfig, context);
@@ -16734,19 +16737,19 @@ export const deserializeAws_restJson1DescribeMitigationActionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.actionArn !== undefined && data.actionArn !== null) {
-    contents.actionArn = data.actionArn;
+    contents.actionArn = __expectString(data.actionArn);
   }
   if (data.actionId !== undefined && data.actionId !== null) {
-    contents.actionId = data.actionId;
+    contents.actionId = __expectString(data.actionId);
   }
   if (data.actionName !== undefined && data.actionName !== null) {
-    contents.actionName = data.actionName;
+    contents.actionName = __expectString(data.actionName);
   }
   if (data.actionParams !== undefined && data.actionParams !== null) {
     contents.actionParams = deserializeAws_restJson1MitigationActionParams(data.actionParams, context);
   }
   if (data.actionType !== undefined && data.actionType !== null) {
-    contents.actionType = data.actionType;
+    contents.actionType = __expectString(data.actionType);
   }
   if (data.creationDate !== undefined && data.creationDate !== null) {
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
@@ -16755,7 +16758,7 @@ export const deserializeAws_restJson1DescribeMitigationActionCommand = async (
     contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
-    contents.roleArn = data.roleArn;
+    contents.roleArn = __expectString(data.roleArn);
   }
   return Promise.resolve(contents);
 };
@@ -16846,13 +16849,13 @@ export const deserializeAws_restJson1DescribeProvisioningTemplateCommand = async
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
   if (data.defaultVersionId !== undefined && data.defaultVersionId !== null) {
-    contents.defaultVersionId = data.defaultVersionId;
+    contents.defaultVersionId = __expectNumber(data.defaultVersionId);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.enabled !== undefined && data.enabled !== null) {
-    contents.enabled = data.enabled;
+    contents.enabled = __expectBoolean(data.enabled);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
     contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
@@ -16861,16 +16864,16 @@ export const deserializeAws_restJson1DescribeProvisioningTemplateCommand = async
     contents.preProvisioningHook = deserializeAws_restJson1ProvisioningHook(data.preProvisioningHook, context);
   }
   if (data.provisioningRoleArn !== undefined && data.provisioningRoleArn !== null) {
-    contents.provisioningRoleArn = data.provisioningRoleArn;
+    contents.provisioningRoleArn = __expectString(data.provisioningRoleArn);
   }
   if (data.templateArn !== undefined && data.templateArn !== null) {
-    contents.templateArn = data.templateArn;
+    contents.templateArn = __expectString(data.templateArn);
   }
   if (data.templateBody !== undefined && data.templateBody !== null) {
-    contents.templateBody = data.templateBody;
+    contents.templateBody = __expectString(data.templateBody);
   }
   if (data.templateName !== undefined && data.templateName !== null) {
-    contents.templateName = data.templateName;
+    contents.templateName = __expectString(data.templateName);
   }
   return Promise.resolve(contents);
 };
@@ -16963,13 +16966,13 @@ export const deserializeAws_restJson1DescribeProvisioningTemplateVersionCommand 
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
   if (data.isDefaultVersion !== undefined && data.isDefaultVersion !== null) {
-    contents.isDefaultVersion = data.isDefaultVersion;
+    contents.isDefaultVersion = __expectBoolean(data.isDefaultVersion);
   }
   if (data.templateBody !== undefined && data.templateBody !== null) {
-    contents.templateBody = data.templateBody;
+    contents.templateBody = __expectString(data.templateBody);
   }
   if (data.versionId !== undefined && data.versionId !== null) {
-    contents.versionId = data.versionId;
+    contents.versionId = __expectNumber(data.versionId);
   }
   return Promise.resolve(contents);
 };
@@ -17156,19 +17159,19 @@ export const deserializeAws_restJson1DescribeScheduledAuditCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.dayOfMonth !== undefined && data.dayOfMonth !== null) {
-    contents.dayOfMonth = data.dayOfMonth;
+    contents.dayOfMonth = __expectString(data.dayOfMonth);
   }
   if (data.dayOfWeek !== undefined && data.dayOfWeek !== null) {
-    contents.dayOfWeek = data.dayOfWeek;
+    contents.dayOfWeek = __expectString(data.dayOfWeek);
   }
   if (data.frequency !== undefined && data.frequency !== null) {
-    contents.frequency = data.frequency;
+    contents.frequency = __expectString(data.frequency);
   }
   if (data.scheduledAuditArn !== undefined && data.scheduledAuditArn !== null) {
-    contents.scheduledAuditArn = data.scheduledAuditArn;
+    contents.scheduledAuditArn = __expectString(data.scheduledAuditArn);
   }
   if (data.scheduledAuditName !== undefined && data.scheduledAuditName !== null) {
-    contents.scheduledAuditName = data.scheduledAuditName;
+    contents.scheduledAuditName = __expectString(data.scheduledAuditName);
   }
   if (data.targetCheckNames !== undefined && data.targetCheckNames !== null) {
     contents.targetCheckNames = deserializeAws_restJson1TargetAuditCheckNames(data.targetCheckNames, context);
@@ -17283,16 +17286,16 @@ export const deserializeAws_restJson1DescribeSecurityProfileCommand = async (
     contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.securityProfileArn !== undefined && data.securityProfileArn !== null) {
-    contents.securityProfileArn = data.securityProfileArn;
+    contents.securityProfileArn = __expectString(data.securityProfileArn);
   }
   if (data.securityProfileDescription !== undefined && data.securityProfileDescription !== null) {
-    contents.securityProfileDescription = data.securityProfileDescription;
+    contents.securityProfileDescription = __expectString(data.securityProfileDescription);
   }
   if (data.securityProfileName !== undefined && data.securityProfileName !== null) {
-    contents.securityProfileName = data.securityProfileName;
+    contents.securityProfileName = __expectString(data.securityProfileName);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectNumber(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -17476,25 +17479,25 @@ export const deserializeAws_restJson1DescribeThingCommand = async (
     contents.attributes = deserializeAws_restJson1Attributes(data.attributes, context);
   }
   if (data.billingGroupName !== undefined && data.billingGroupName !== null) {
-    contents.billingGroupName = data.billingGroupName;
+    contents.billingGroupName = __expectString(data.billingGroupName);
   }
   if (data.defaultClientId !== undefined && data.defaultClientId !== null) {
-    contents.defaultClientId = data.defaultClientId;
+    contents.defaultClientId = __expectString(data.defaultClientId);
   }
   if (data.thingArn !== undefined && data.thingArn !== null) {
-    contents.thingArn = data.thingArn;
+    contents.thingArn = __expectString(data.thingArn);
   }
   if (data.thingId !== undefined && data.thingId !== null) {
-    contents.thingId = data.thingId;
+    contents.thingId = __expectString(data.thingId);
   }
   if (data.thingName !== undefined && data.thingName !== null) {
-    contents.thingName = data.thingName;
+    contents.thingName = __expectString(data.thingName);
   }
   if (data.thingTypeName !== undefined && data.thingTypeName !== null) {
-    contents.thingTypeName = data.thingTypeName;
+    contents.thingTypeName = __expectString(data.thingTypeName);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectNumber(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -17598,34 +17601,34 @@ export const deserializeAws_restJson1DescribeThingGroupCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.indexName !== undefined && data.indexName !== null) {
-    contents.indexName = data.indexName;
+    contents.indexName = __expectString(data.indexName);
   }
   if (data.queryString !== undefined && data.queryString !== null) {
-    contents.queryString = data.queryString;
+    contents.queryString = __expectString(data.queryString);
   }
   if (data.queryVersion !== undefined && data.queryVersion !== null) {
-    contents.queryVersion = data.queryVersion;
+    contents.queryVersion = __expectString(data.queryVersion);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = data.status;
+    contents.status = __expectString(data.status);
   }
   if (data.thingGroupArn !== undefined && data.thingGroupArn !== null) {
-    contents.thingGroupArn = data.thingGroupArn;
+    contents.thingGroupArn = __expectString(data.thingGroupArn);
   }
   if (data.thingGroupId !== undefined && data.thingGroupId !== null) {
-    contents.thingGroupId = data.thingGroupId;
+    contents.thingGroupId = __expectString(data.thingGroupId);
   }
   if (data.thingGroupMetadata !== undefined && data.thingGroupMetadata !== null) {
     contents.thingGroupMetadata = deserializeAws_restJson1ThingGroupMetadata(data.thingGroupMetadata, context);
   }
   if (data.thingGroupName !== undefined && data.thingGroupName !== null) {
-    contents.thingGroupName = data.thingGroupName;
+    contents.thingGroupName = __expectString(data.thingGroupName);
   }
   if (data.thingGroupProperties !== undefined && data.thingGroupProperties !== null) {
     contents.thingGroupProperties = deserializeAws_restJson1ThingGroupProperties(data.thingGroupProperties, context);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectNumber(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -17718,37 +17721,37 @@ export const deserializeAws_restJson1DescribeThingRegistrationTaskCommand = asyn
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
   if (data.failureCount !== undefined && data.failureCount !== null) {
-    contents.failureCount = data.failureCount;
+    contents.failureCount = __expectNumber(data.failureCount);
   }
   if (data.inputFileBucket !== undefined && data.inputFileBucket !== null) {
-    contents.inputFileBucket = data.inputFileBucket;
+    contents.inputFileBucket = __expectString(data.inputFileBucket);
   }
   if (data.inputFileKey !== undefined && data.inputFileKey !== null) {
-    contents.inputFileKey = data.inputFileKey;
+    contents.inputFileKey = __expectString(data.inputFileKey);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
     contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.percentageProgress !== undefined && data.percentageProgress !== null) {
-    contents.percentageProgress = data.percentageProgress;
+    contents.percentageProgress = __expectNumber(data.percentageProgress);
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
-    contents.roleArn = data.roleArn;
+    contents.roleArn = __expectString(data.roleArn);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = data.status;
+    contents.status = __expectString(data.status);
   }
   if (data.successCount !== undefined && data.successCount !== null) {
-    contents.successCount = data.successCount;
+    contents.successCount = __expectNumber(data.successCount);
   }
   if (data.taskId !== undefined && data.taskId !== null) {
-    contents.taskId = data.taskId;
+    contents.taskId = __expectString(data.taskId);
   }
   if (data.templateBody !== undefined && data.templateBody !== null) {
-    contents.templateBody = data.templateBody;
+    contents.templateBody = __expectString(data.templateBody);
   }
   return Promise.resolve(contents);
 };
@@ -17839,16 +17842,16 @@ export const deserializeAws_restJson1DescribeThingTypeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.thingTypeArn !== undefined && data.thingTypeArn !== null) {
-    contents.thingTypeArn = data.thingTypeArn;
+    contents.thingTypeArn = __expectString(data.thingTypeArn);
   }
   if (data.thingTypeId !== undefined && data.thingTypeId !== null) {
-    contents.thingTypeId = data.thingTypeId;
+    contents.thingTypeId = __expectString(data.thingTypeId);
   }
   if (data.thingTypeMetadata !== undefined && data.thingTypeMetadata !== null) {
     contents.thingTypeMetadata = deserializeAws_restJson1ThingTypeMetadata(data.thingTypeMetadata, context);
   }
   if (data.thingTypeName !== undefined && data.thingTypeName !== null) {
-    contents.thingTypeName = data.thingTypeName;
+    contents.thingTypeName = __expectString(data.thingTypeName);
   }
   if (data.thingTypeProperties !== undefined && data.thingTypeProperties !== null) {
     contents.thingTypeProperties = deserializeAws_restJson1ThingTypeProperties(data.thingTypeProperties, context);
@@ -18461,7 +18464,7 @@ export const deserializeAws_restJson1GetBehaviorModelTrainingSummariesCommand = 
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.summaries !== undefined && data.summaries !== null) {
     contents.summaries = deserializeAws_restJson1BehaviorModelTrainingSummaries(data.summaries, context);
@@ -18543,7 +18546,7 @@ export const deserializeAws_restJson1GetCardinalityCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.cardinality !== undefined && data.cardinality !== null) {
-    contents.cardinality = data.cardinality;
+    contents.cardinality = __expectNumber(data.cardinality);
   }
   return Promise.resolve(contents);
 };
@@ -18862,7 +18865,7 @@ export const deserializeAws_restJson1GetJobDocumentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.document !== undefined && data.document !== null) {
-    contents.document = data.document;
+    contents.document = __expectString(data.document);
   }
   return Promise.resolve(contents);
 };
@@ -18942,10 +18945,10 @@ export const deserializeAws_restJson1GetLoggingOptionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.logLevel !== undefined && data.logLevel !== null) {
-    contents.logLevel = data.logLevel;
+    contents.logLevel = __expectString(data.logLevel);
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
-    contents.roleArn = data.roleArn;
+    contents.roleArn = __expectString(data.roleArn);
   }
   return Promise.resolve(contents);
 };
@@ -19239,22 +19242,22 @@ export const deserializeAws_restJson1GetPolicyCommand = async (
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
   if (data.defaultVersionId !== undefined && data.defaultVersionId !== null) {
-    contents.defaultVersionId = data.defaultVersionId;
+    contents.defaultVersionId = __expectString(data.defaultVersionId);
   }
   if (data.generationId !== undefined && data.generationId !== null) {
-    contents.generationId = data.generationId;
+    contents.generationId = __expectString(data.generationId);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
     contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.policyArn !== undefined && data.policyArn !== null) {
-    contents.policyArn = data.policyArn;
+    contents.policyArn = __expectString(data.policyArn);
   }
   if (data.policyDocument !== undefined && data.policyDocument !== null) {
-    contents.policyDocument = data.policyDocument;
+    contents.policyDocument = __expectString(data.policyDocument);
   }
   if (data.policyName !== undefined && data.policyName !== null) {
-    contents.policyName = data.policyName;
+    contents.policyName = __expectString(data.policyName);
   }
   return Promise.resolve(contents);
 };
@@ -19359,25 +19362,25 @@ export const deserializeAws_restJson1GetPolicyVersionCommand = async (
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
   if (data.generationId !== undefined && data.generationId !== null) {
-    contents.generationId = data.generationId;
+    contents.generationId = __expectString(data.generationId);
   }
   if (data.isDefaultVersion !== undefined && data.isDefaultVersion !== null) {
-    contents.isDefaultVersion = data.isDefaultVersion;
+    contents.isDefaultVersion = __expectBoolean(data.isDefaultVersion);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
     contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.policyArn !== undefined && data.policyArn !== null) {
-    contents.policyArn = data.policyArn;
+    contents.policyArn = __expectString(data.policyArn);
   }
   if (data.policyDocument !== undefined && data.policyDocument !== null) {
-    contents.policyDocument = data.policyDocument;
+    contents.policyDocument = __expectString(data.policyDocument);
   }
   if (data.policyName !== undefined && data.policyName !== null) {
-    contents.policyName = data.policyName;
+    contents.policyName = __expectString(data.policyName);
   }
   if (data.policyVersionId !== undefined && data.policyVersionId !== null) {
-    contents.policyVersionId = data.policyVersionId;
+    contents.policyVersionId = __expectString(data.policyVersionId);
   }
   return Promise.resolve(contents);
 };
@@ -19472,7 +19475,7 @@ export const deserializeAws_restJson1GetRegistrationCodeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.registrationCode !== undefined && data.registrationCode !== null) {
-    contents.registrationCode = data.registrationCode;
+    contents.registrationCode = __expectString(data.registrationCode);
   }
   return Promise.resolve(contents);
 };
@@ -19682,7 +19685,7 @@ export const deserializeAws_restJson1GetTopicRuleCommand = async (
     contents.rule = deserializeAws_restJson1TopicRule(data.rule, context);
   }
   if (data.ruleArn !== undefined && data.ruleArn !== null) {
-    contents.ruleArn = data.ruleArn;
+    contents.ruleArn = __expectString(data.ruleArn);
   }
   return Promise.resolve(contents);
 };
@@ -19842,13 +19845,13 @@ export const deserializeAws_restJson1GetV2LoggingOptionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.defaultLogLevel !== undefined && data.defaultLogLevel !== null) {
-    contents.defaultLogLevel = data.defaultLogLevel;
+    contents.defaultLogLevel = __expectString(data.defaultLogLevel);
   }
   if (data.disableAllLogs !== undefined && data.disableAllLogs !== null) {
-    contents.disableAllLogs = data.disableAllLogs;
+    contents.disableAllLogs = __expectBoolean(data.disableAllLogs);
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
-    contents.roleArn = data.roleArn;
+    contents.roleArn = __expectString(data.roleArn);
   }
   return Promise.resolve(contents);
 };
@@ -19923,7 +19926,7 @@ export const deserializeAws_restJson1ListActiveViolationsCommand = async (
     contents.activeViolations = deserializeAws_restJson1ActiveViolations(data.activeViolations, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -20003,7 +20006,7 @@ export const deserializeAws_restJson1ListAttachedPoliciesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
-    contents.nextMarker = data.nextMarker;
+    contents.nextMarker = __expectString(data.nextMarker);
   }
   if (data.policies !== undefined && data.policies !== null) {
     contents.policies = deserializeAws_restJson1Policies(data.policies, context);
@@ -20113,7 +20116,7 @@ export const deserializeAws_restJson1ListAuditFindingsCommand = async (
     contents.findings = deserializeAws_restJson1AuditFindings(data.findings, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -20191,7 +20194,7 @@ export const deserializeAws_restJson1ListAuditMitigationActionsExecutionsCommand
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -20263,7 +20266,7 @@ export const deserializeAws_restJson1ListAuditMitigationActionsTasksCommand = as
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.tasks !== undefined && data.tasks !== null) {
     contents.tasks = deserializeAws_restJson1AuditMitigationActionsTaskMetadataList(data.tasks, context);
@@ -20338,7 +20341,7 @@ export const deserializeAws_restJson1ListAuditSuppressionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.suppressions !== undefined && data.suppressions !== null) {
     contents.suppressions = deserializeAws_restJson1AuditSuppressionList(data.suppressions, context);
@@ -20413,7 +20416,7 @@ export const deserializeAws_restJson1ListAuditTasksCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.tasks !== undefined && data.tasks !== null) {
     contents.tasks = deserializeAws_restJson1AuditTaskMetadataList(data.tasks, context);
@@ -20491,7 +20494,7 @@ export const deserializeAws_restJson1ListAuthorizersCommand = async (
     contents.authorizers = deserializeAws_restJson1Authorizers(data.authorizers, context);
   }
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
-    contents.nextMarker = data.nextMarker;
+    contents.nextMarker = __expectString(data.nextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -20582,7 +20585,7 @@ export const deserializeAws_restJson1ListBillingGroupsCommand = async (
     contents.billingGroups = deserializeAws_restJson1BillingGroupNameAndArnList(data.billingGroups, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -20665,7 +20668,7 @@ export const deserializeAws_restJson1ListCACertificatesCommand = async (
     contents.certificates = deserializeAws_restJson1CACertificates(data.certificates, context);
   }
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
-    contents.nextMarker = data.nextMarker;
+    contents.nextMarker = __expectString(data.nextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -20756,7 +20759,7 @@ export const deserializeAws_restJson1ListCertificatesCommand = async (
     contents.certificates = deserializeAws_restJson1Certificates(data.certificates, context);
   }
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
-    contents.nextMarker = data.nextMarker;
+    contents.nextMarker = __expectString(data.nextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -20847,7 +20850,7 @@ export const deserializeAws_restJson1ListCertificatesByCACommand = async (
     contents.certificates = deserializeAws_restJson1Certificates(data.certificates, context);
   }
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
-    contents.nextMarker = data.nextMarker;
+    contents.nextMarker = __expectString(data.nextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -20938,7 +20941,7 @@ export const deserializeAws_restJson1ListCustomMetricsCommand = async (
     contents.metricNames = deserializeAws_restJson1MetricNames(data.metricNames, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -21016,7 +21019,7 @@ export const deserializeAws_restJson1ListDetectMitigationActionsExecutionsComman
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -21088,7 +21091,7 @@ export const deserializeAws_restJson1ListDetectMitigationActionsTasksCommand = a
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.tasks !== undefined && data.tasks !== null) {
     contents.tasks = deserializeAws_restJson1DetectMitigationActionsTaskSummaryList(data.tasks, context);
@@ -21166,7 +21169,7 @@ export const deserializeAws_restJson1ListDimensionsCommand = async (
     contents.dimensionNames = deserializeAws_restJson1DimensionNames(data.dimensionNames, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -21241,7 +21244,7 @@ export const deserializeAws_restJson1ListDomainConfigurationsCommand = async (
     contents.domainConfigurations = deserializeAws_restJson1DomainConfigurations(data.domainConfigurations, context);
   }
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
-    contents.nextMarker = data.nextMarker;
+    contents.nextMarker = __expectString(data.nextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -21332,7 +21335,7 @@ export const deserializeAws_restJson1ListIndicesCommand = async (
     contents.indexNames = deserializeAws_restJson1IndexNamesList(data.indexNames, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -21426,7 +21429,7 @@ export const deserializeAws_restJson1ListJobExecutionsForJobCommand = async (
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -21512,7 +21515,7 @@ export const deserializeAws_restJson1ListJobExecutionsForThingCommand = async (
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -21595,7 +21598,7 @@ export const deserializeAws_restJson1ListJobsCommand = async (
     contents.jobs = deserializeAws_restJson1JobSummaryList(data.jobs, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -21678,7 +21681,7 @@ export const deserializeAws_restJson1ListJobTemplatesCommand = async (
     contents.jobTemplates = deserializeAws_restJson1JobTemplateSummaryList(data.jobTemplates, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -21756,7 +21759,7 @@ export const deserializeAws_restJson1ListMitigationActionsCommand = async (
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -21828,7 +21831,7 @@ export const deserializeAws_restJson1ListOTAUpdatesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.otaUpdates !== undefined && data.otaUpdates !== null) {
     contents.otaUpdates = deserializeAws_restJson1OTAUpdatesSummary(data.otaUpdates, context);
@@ -21919,7 +21922,7 @@ export const deserializeAws_restJson1ListOutgoingCertificatesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
-    contents.nextMarker = data.nextMarker;
+    contents.nextMarker = __expectString(data.nextMarker);
   }
   if (data.outgoingCertificates !== undefined && data.outgoingCertificates !== null) {
     contents.outgoingCertificates = deserializeAws_restJson1OutgoingCertificates(data.outgoingCertificates, context);
@@ -22010,7 +22013,7 @@ export const deserializeAws_restJson1ListPoliciesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
-    contents.nextMarker = data.nextMarker;
+    contents.nextMarker = __expectString(data.nextMarker);
   }
   if (data.policies !== undefined && data.policies !== null) {
     contents.policies = deserializeAws_restJson1Policies(data.policies, context);
@@ -22101,7 +22104,7 @@ export const deserializeAws_restJson1ListPolicyPrincipalsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
-    contents.nextMarker = data.nextMarker;
+    contents.nextMarker = __expectString(data.nextMarker);
   }
   if (data.principals !== undefined && data.principals !== null) {
     contents.principals = deserializeAws_restJson1Principals(data.principals, context);
@@ -22295,7 +22298,7 @@ export const deserializeAws_restJson1ListPrincipalPoliciesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
-    contents.nextMarker = data.nextMarker;
+    contents.nextMarker = __expectString(data.nextMarker);
   }
   if (data.policies !== undefined && data.policies !== null) {
     contents.policies = deserializeAws_restJson1Policies(data.policies, context);
@@ -22394,7 +22397,7 @@ export const deserializeAws_restJson1ListPrincipalThingsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.things !== undefined && data.things !== null) {
     contents.things = deserializeAws_restJson1ThingNameList(data.things, context);
@@ -22493,7 +22496,7 @@ export const deserializeAws_restJson1ListProvisioningTemplatesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.templates !== undefined && data.templates !== null) {
     contents.templates = deserializeAws_restJson1ProvisioningTemplateListing(data.templates, context);
@@ -22576,7 +22579,7 @@ export const deserializeAws_restJson1ListProvisioningTemplateVersionsCommand = a
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.versions !== undefined && data.versions !== null) {
     contents.versions = deserializeAws_restJson1ProvisioningTemplateVersionListing(data.versions, context);
@@ -22667,7 +22670,7 @@ export const deserializeAws_restJson1ListRoleAliasesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
-    contents.nextMarker = data.nextMarker;
+    contents.nextMarker = __expectString(data.nextMarker);
   }
   if (data.roleAliases !== undefined && data.roleAliases !== null) {
     contents.roleAliases = deserializeAws_restJson1RoleAliases(data.roleAliases, context);
@@ -22758,7 +22761,7 @@ export const deserializeAws_restJson1ListScheduledAuditsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.scheduledAudits !== undefined && data.scheduledAudits !== null) {
     contents.scheduledAudits = deserializeAws_restJson1ScheduledAuditMetadataList(data.scheduledAudits, context);
@@ -22833,7 +22836,7 @@ export const deserializeAws_restJson1ListSecurityProfilesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.securityProfileIdentifiers !== undefined && data.securityProfileIdentifiers !== null) {
     contents.securityProfileIdentifiers = deserializeAws_restJson1SecurityProfileIdentifiers(
@@ -22919,7 +22922,7 @@ export const deserializeAws_restJson1ListSecurityProfilesForTargetCommand = asyn
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.securityProfileTargetMappings !== undefined && data.securityProfileTargetMappings !== null) {
     contents.securityProfileTargetMappings = deserializeAws_restJson1SecurityProfileTargetMappings(
@@ -23005,7 +23008,7 @@ export const deserializeAws_restJson1ListStreamsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.streams !== undefined && data.streams !== null) {
     contents.streams = deserializeAws_restJson1StreamsSummary(data.streams, context);
@@ -23096,7 +23099,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagList(data.tags, context);
@@ -23179,7 +23182,7 @@ export const deserializeAws_restJson1ListTargetsForPolicyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
-    contents.nextMarker = data.nextMarker;
+    contents.nextMarker = __expectString(data.nextMarker);
   }
   if (data.targets !== undefined && data.targets !== null) {
     contents.targets = deserializeAws_restJson1PolicyTargets(data.targets, context);
@@ -23286,7 +23289,7 @@ export const deserializeAws_restJson1ListTargetsForSecurityProfileCommand = asyn
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.securityProfileTargets !== undefined && data.securityProfileTargets !== null) {
     contents.securityProfileTargets = deserializeAws_restJson1SecurityProfileTargets(
@@ -23372,7 +23375,7 @@ export const deserializeAws_restJson1ListThingGroupsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.thingGroups !== undefined && data.thingGroups !== null) {
     contents.thingGroups = deserializeAws_restJson1ThingGroupNameAndArnList(data.thingGroups, context);
@@ -23455,7 +23458,7 @@ export const deserializeAws_restJson1ListThingGroupsForThingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.thingGroups !== undefined && data.thingGroups !== null) {
     contents.thingGroups = deserializeAws_restJson1ThingGroupNameAndArnList(data.thingGroups, context);
@@ -23538,7 +23541,7 @@ export const deserializeAws_restJson1ListThingPrincipalsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.principals !== undefined && data.principals !== null) {
     contents.principals = deserializeAws_restJson1Principals(data.principals, context);
@@ -23638,10 +23641,10 @@ export const deserializeAws_restJson1ListThingRegistrationTaskReportsCommand = a
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.reportType !== undefined && data.reportType !== null) {
-    contents.reportType = data.reportType;
+    contents.reportType = __expectString(data.reportType);
   }
   if (data.resourceLinks !== undefined && data.resourceLinks !== null) {
     contents.resourceLinks = deserializeAws_restJson1S3FileUrlList(data.resourceLinks, context);
@@ -23724,7 +23727,7 @@ export const deserializeAws_restJson1ListThingRegistrationTasksCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.taskIds !== undefined && data.taskIds !== null) {
     contents.taskIds = deserializeAws_restJson1TaskIdList(data.taskIds, context);
@@ -23807,7 +23810,7 @@ export const deserializeAws_restJson1ListThingsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.things !== undefined && data.things !== null) {
     contents.things = deserializeAws_restJson1ThingAttributeList(data.things, context);
@@ -23898,7 +23901,7 @@ export const deserializeAws_restJson1ListThingsInBillingGroupCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.things !== undefined && data.things !== null) {
     contents.things = deserializeAws_restJson1ThingNameList(data.things, context);
@@ -23981,7 +23984,7 @@ export const deserializeAws_restJson1ListThingsInThingGroupCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.things !== undefined && data.things !== null) {
     contents.things = deserializeAws_restJson1ThingNameList(data.things, context);
@@ -24064,7 +24067,7 @@ export const deserializeAws_restJson1ListThingTypesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.thingTypes !== undefined && data.thingTypes !== null) {
     contents.thingTypes = deserializeAws_restJson1ThingTypeList(data.thingTypes, context);
@@ -24161,7 +24164,7 @@ export const deserializeAws_restJson1ListTopicRuleDestinationsCommand = async (
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -24241,7 +24244,7 @@ export const deserializeAws_restJson1ListTopicRulesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.rules !== undefined && data.rules !== null) {
     contents.rules = deserializeAws_restJson1TopicRuleList(data.rules, context);
@@ -24322,7 +24325,7 @@ export const deserializeAws_restJson1ListV2LoggingLevelsCommand = async (
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -24402,7 +24405,7 @@ export const deserializeAws_restJson1ListViolationEventsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.violationEvents !== undefined && data.violationEvents !== null) {
     contents.violationEvents = deserializeAws_restJson1ViolationEvents(data.violationEvents, context);
@@ -24477,10 +24480,10 @@ export const deserializeAws_restJson1RegisterCACertificateCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.certificateArn !== undefined && data.certificateArn !== null) {
-    contents.certificateArn = data.certificateArn;
+    contents.certificateArn = __expectString(data.certificateArn);
   }
   if (data.certificateId !== undefined && data.certificateId !== null) {
-    contents.certificateId = data.certificateId;
+    contents.certificateId = __expectString(data.certificateId);
   }
   return Promise.resolve(contents);
 };
@@ -24600,10 +24603,10 @@ export const deserializeAws_restJson1RegisterCertificateCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.certificateArn !== undefined && data.certificateArn !== null) {
-    contents.certificateArn = data.certificateArn;
+    contents.certificateArn = __expectString(data.certificateArn);
   }
   if (data.certificateId !== undefined && data.certificateId !== null) {
-    contents.certificateId = data.certificateId;
+    contents.certificateId = __expectString(data.certificateId);
   }
   return Promise.resolve(contents);
 };
@@ -24723,10 +24726,10 @@ export const deserializeAws_restJson1RegisterCertificateWithoutCACommand = async
   };
   const data: any = await parseBody(output.body, context);
   if (data.certificateArn !== undefined && data.certificateArn !== null) {
-    contents.certificateArn = data.certificateArn;
+    contents.certificateArn = __expectString(data.certificateArn);
   }
   if (data.certificateId !== undefined && data.certificateId !== null) {
-    contents.certificateId = data.certificateId;
+    contents.certificateId = __expectString(data.certificateId);
   }
   return Promise.resolve(contents);
 };
@@ -24838,7 +24841,7 @@ export const deserializeAws_restJson1RegisterThingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.certificatePem !== undefined && data.certificatePem !== null) {
-    contents.certificatePem = data.certificatePem;
+    contents.certificatePem = __expectString(data.certificatePem);
   }
   if (data.resourceArns !== undefined && data.resourceArns !== null) {
     contents.resourceArns = deserializeAws_restJson1ResourceArns(data.resourceArns, context);
@@ -25286,7 +25289,7 @@ export const deserializeAws_restJson1SearchIndexCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.thingGroups !== undefined && data.thingGroups !== null) {
     contents.thingGroups = deserializeAws_restJson1ThingGroupDocumentList(data.thingGroups, context);
@@ -25404,10 +25407,10 @@ export const deserializeAws_restJson1SetDefaultAuthorizerCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.authorizerArn !== undefined && data.authorizerArn !== null) {
-    contents.authorizerArn = data.authorizerArn;
+    contents.authorizerArn = __expectString(data.authorizerArn);
   }
   if (data.authorizerName !== undefined && data.authorizerName !== null) {
-    contents.authorizerName = data.authorizerName;
+    contents.authorizerName = __expectString(data.authorizerName);
   }
   return Promise.resolve(contents);
 };
@@ -25818,7 +25821,7 @@ export const deserializeAws_restJson1StartAuditMitigationActionsTaskCommand = as
   };
   const data: any = await parseBody(output.body, context);
   if (data.taskId !== undefined && data.taskId !== null) {
-    contents.taskId = data.taskId;
+    contents.taskId = __expectString(data.taskId);
   }
   return Promise.resolve(contents);
 };
@@ -25905,7 +25908,7 @@ export const deserializeAws_restJson1StartDetectMitigationActionsTaskCommand = a
   };
   const data: any = await parseBody(output.body, context);
   if (data.taskId !== undefined && data.taskId !== null) {
-    contents.taskId = data.taskId;
+    contents.taskId = __expectString(data.taskId);
   }
   return Promise.resolve(contents);
 };
@@ -25992,7 +25995,7 @@ export const deserializeAws_restJson1StartOnDemandAuditTaskCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.taskId !== undefined && data.taskId !== null) {
-    contents.taskId = data.taskId;
+    contents.taskId = __expectString(data.taskId);
   }
   return Promise.resolve(contents);
 };
@@ -26071,7 +26074,7 @@ export const deserializeAws_restJson1StartThingRegistrationTaskCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.taskId !== undefined && data.taskId !== null) {
-    contents.taskId = data.taskId;
+    contents.taskId = __expectString(data.taskId);
   }
   return Promise.resolve(contents);
 };
@@ -26423,19 +26426,19 @@ export const deserializeAws_restJson1TestInvokeAuthorizerCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.disconnectAfterInSeconds !== undefined && data.disconnectAfterInSeconds !== null) {
-    contents.disconnectAfterInSeconds = data.disconnectAfterInSeconds;
+    contents.disconnectAfterInSeconds = __expectNumber(data.disconnectAfterInSeconds);
   }
   if (data.isAuthenticated !== undefined && data.isAuthenticated !== null) {
-    contents.isAuthenticated = data.isAuthenticated;
+    contents.isAuthenticated = __expectBoolean(data.isAuthenticated);
   }
   if (data.policyDocuments !== undefined && data.policyDocuments !== null) {
     contents.policyDocuments = deserializeAws_restJson1PolicyDocuments(data.policyDocuments, context);
   }
   if (data.principalId !== undefined && data.principalId !== null) {
-    contents.principalId = data.principalId;
+    contents.principalId = __expectString(data.principalId);
   }
   if (data.refreshAfterInSeconds !== undefined && data.refreshAfterInSeconds !== null) {
-    contents.refreshAfterInSeconds = data.refreshAfterInSeconds;
+    contents.refreshAfterInSeconds = __expectNumber(data.refreshAfterInSeconds);
   }
   return Promise.resolve(contents);
 };
@@ -26538,7 +26541,7 @@ export const deserializeAws_restJson1TransferCertificateCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.transferredCertificateArn !== undefined && data.transferredCertificateArn !== null) {
-    contents.transferredCertificateArn = data.transferredCertificateArn;
+    contents.transferredCertificateArn = __expectString(data.transferredCertificateArn);
   }
   return Promise.resolve(contents);
 };
@@ -26867,10 +26870,10 @@ export const deserializeAws_restJson1UpdateAuthorizerCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.authorizerArn !== undefined && data.authorizerArn !== null) {
-    contents.authorizerArn = data.authorizerArn;
+    contents.authorizerArn = __expectString(data.authorizerArn);
   }
   if (data.authorizerName !== undefined && data.authorizerName !== null) {
-    contents.authorizerName = data.authorizerName;
+    contents.authorizerName = __expectString(data.authorizerName);
   }
   return Promise.resolve(contents);
 };
@@ -26973,7 +26976,7 @@ export const deserializeAws_restJson1UpdateBillingGroupCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectNumber(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -27258,19 +27261,19 @@ export const deserializeAws_restJson1UpdateCustomMetricCommand = async (
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
   if (data.displayName !== undefined && data.displayName !== null) {
-    contents.displayName = data.displayName;
+    contents.displayName = __expectString(data.displayName);
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
     contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.metricArn !== undefined && data.metricArn !== null) {
-    contents.metricArn = data.metricArn;
+    contents.metricArn = __expectString(data.metricArn);
   }
   if (data.metricName !== undefined && data.metricName !== null) {
-    contents.metricName = data.metricName;
+    contents.metricName = __expectString(data.metricName);
   }
   if (data.metricType !== undefined && data.metricType !== null) {
-    contents.metricType = data.metricType;
+    contents.metricType = __expectString(data.metricType);
   }
   return Promise.resolve(contents);
 };
@@ -27354,7 +27357,7 @@ export const deserializeAws_restJson1UpdateDimensionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = data.arn;
+    contents.arn = __expectString(data.arn);
   }
   if (data.creationDate !== undefined && data.creationDate !== null) {
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
@@ -27363,13 +27366,13 @@ export const deserializeAws_restJson1UpdateDimensionCommand = async (
     contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.stringValues !== undefined && data.stringValues !== null) {
     contents.stringValues = deserializeAws_restJson1DimensionStringValues(data.stringValues, context);
   }
   if (data.type !== undefined && data.type !== null) {
-    contents.type = data.type;
+    contents.type = __expectString(data.type);
   }
   return Promise.resolve(contents);
 };
@@ -27449,10 +27452,10 @@ export const deserializeAws_restJson1UpdateDomainConfigurationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.domainConfigurationArn !== undefined && data.domainConfigurationArn !== null) {
-    contents.domainConfigurationArn = data.domainConfigurationArn;
+    contents.domainConfigurationArn = __expectString(data.domainConfigurationArn);
   }
   if (data.domainConfigurationName !== undefined && data.domainConfigurationName !== null) {
-    contents.domainConfigurationName = data.domainConfigurationName;
+    contents.domainConfigurationName = __expectString(data.domainConfigurationName);
   }
   return Promise.resolve(contents);
 };
@@ -27555,7 +27558,7 @@ export const deserializeAws_restJson1UpdateDynamicThingGroupCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectNumber(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -27876,10 +27879,10 @@ export const deserializeAws_restJson1UpdateMitigationActionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.actionArn !== undefined && data.actionArn !== null) {
-    contents.actionArn = data.actionArn;
+    contents.actionArn = __expectString(data.actionArn);
   }
   if (data.actionId !== undefined && data.actionId !== null) {
-    contents.actionId = data.actionId;
+    contents.actionId = __expectString(data.actionId);
   }
   return Promise.resolve(contents);
 };
@@ -28042,10 +28045,10 @@ export const deserializeAws_restJson1UpdateRoleAliasCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.roleAlias !== undefined && data.roleAlias !== null) {
-    contents.roleAlias = data.roleAlias;
+    contents.roleAlias = __expectString(data.roleAlias);
   }
   if (data.roleAliasArn !== undefined && data.roleAliasArn !== null) {
-    contents.roleAliasArn = data.roleAliasArn;
+    contents.roleAliasArn = __expectString(data.roleAliasArn);
   }
   return Promise.resolve(contents);
 };
@@ -28140,7 +28143,7 @@ export const deserializeAws_restJson1UpdateScheduledAuditCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.scheduledAuditArn !== undefined && data.scheduledAuditArn !== null) {
-    contents.scheduledAuditArn = data.scheduledAuditArn;
+    contents.scheduledAuditArn = __expectString(data.scheduledAuditArn);
   }
   return Promise.resolve(contents);
 };
@@ -28252,16 +28255,16 @@ export const deserializeAws_restJson1UpdateSecurityProfileCommand = async (
     contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.securityProfileArn !== undefined && data.securityProfileArn !== null) {
-    contents.securityProfileArn = data.securityProfileArn;
+    contents.securityProfileArn = __expectString(data.securityProfileArn);
   }
   if (data.securityProfileDescription !== undefined && data.securityProfileDescription !== null) {
-    contents.securityProfileDescription = data.securityProfileDescription;
+    contents.securityProfileDescription = __expectString(data.securityProfileDescription);
   }
   if (data.securityProfileName !== undefined && data.securityProfileName !== null) {
-    contents.securityProfileName = data.securityProfileName;
+    contents.securityProfileName = __expectString(data.securityProfileName);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectNumber(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -28351,16 +28354,16 @@ export const deserializeAws_restJson1UpdateStreamCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.streamArn !== undefined && data.streamArn !== null) {
-    contents.streamArn = data.streamArn;
+    contents.streamArn = __expectString(data.streamArn);
   }
   if (data.streamId !== undefined && data.streamId !== null) {
-    contents.streamId = data.streamId;
+    contents.streamId = __expectString(data.streamId);
   }
   if (data.streamVersion !== undefined && data.streamVersion !== null) {
-    contents.streamVersion = data.streamVersion;
+    contents.streamVersion = __expectNumber(data.streamVersion);
   }
   return Promise.resolve(contents);
 };
@@ -28554,7 +28557,7 @@ export const deserializeAws_restJson1UpdateThingGroupCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectNumber(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -28800,7 +28803,7 @@ export const deserializeAws_restJson1ValidateSecurityProfileBehaviorsCommand = a
   };
   const data: any = await parseBody(output.body, context);
   if (data.valid !== undefined && data.valid !== null) {
-    contents.valid = data.valid;
+    contents.valid = __expectBoolean(data.valid);
   }
   if (data.validationErrors !== undefined && data.validationErrors !== null) {
     contents.validationErrors = deserializeAws_restJson1ValidationErrors(data.validationErrors, context);
@@ -28873,7 +28876,7 @@ const deserializeAws_restJson1CertificateConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -28890,7 +28893,7 @@ const deserializeAws_restJson1CertificateStateExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -28907,7 +28910,7 @@ const deserializeAws_restJson1CertificateValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -28924,7 +28927,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -28941,7 +28944,7 @@ const deserializeAws_restJson1ConflictingResourceUpdateExceptionResponse = async
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -28958,7 +28961,7 @@ const deserializeAws_restJson1DeleteConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -28975,7 +28978,7 @@ const deserializeAws_restJson1IndexNotReadyExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -28992,7 +28995,7 @@ const deserializeAws_restJson1InternalExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29009,7 +29012,7 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29026,7 +29029,7 @@ const deserializeAws_restJson1InvalidAggregationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29043,7 +29046,7 @@ const deserializeAws_restJson1InvalidQueryExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29060,7 +29063,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29077,7 +29080,7 @@ const deserializeAws_restJson1InvalidResponseExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29094,7 +29097,7 @@ const deserializeAws_restJson1InvalidStateTransitionExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29111,7 +29114,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29128,7 +29131,7 @@ const deserializeAws_restJson1MalformedPolicyExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29145,7 +29148,7 @@ const deserializeAws_restJson1NotConfiguredExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29162,7 +29165,7 @@ const deserializeAws_restJson1RegistrationCodeValidationExceptionResponse = asyn
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29181,13 +29184,13 @@ const deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.resourceArn !== undefined && data.resourceArn !== null) {
-    contents.resourceArn = data.resourceArn;
+    contents.resourceArn = __expectString(data.resourceArn);
   }
   if (data.resourceId !== undefined && data.resourceId !== null) {
-    contents.resourceId = data.resourceId;
+    contents.resourceId = __expectString(data.resourceId);
   }
   return contents;
 };
@@ -29204,7 +29207,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29221,7 +29224,7 @@ const deserializeAws_restJson1ResourceRegistrationFailureExceptionResponse = asy
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29238,7 +29241,7 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29255,7 +29258,7 @@ const deserializeAws_restJson1SqlParseExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29272,7 +29275,7 @@ const deserializeAws_restJson1TaskAlreadyExistsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29289,7 +29292,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29306,7 +29309,7 @@ const deserializeAws_restJson1TransferAlreadyCompletedExceptionResponse = async 
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29323,7 +29326,7 @@ const deserializeAws_restJson1TransferConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29340,7 +29343,7 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29357,7 +29360,7 @@ const deserializeAws_restJson1VersionConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -29374,7 +29377,7 @@ const deserializeAws_restJson1VersionsLimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -31179,16 +31182,10 @@ const deserializeAws_restJson1AbortConfig = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1AbortCriteria = (output: any, context: __SerdeContext): AbortCriteria => {
   return {
-    action: output.action !== undefined && output.action !== null ? output.action : undefined,
-    failureType: output.failureType !== undefined && output.failureType !== null ? output.failureType : undefined,
-    minNumberOfExecutedThings:
-      output.minNumberOfExecutedThings !== undefined && output.minNumberOfExecutedThings !== null
-        ? output.minNumberOfExecutedThings
-        : undefined,
-    thresholdPercentage:
-      output.thresholdPercentage !== undefined && output.thresholdPercentage !== null
-        ? output.thresholdPercentage
-        : undefined,
+    action: __expectString(output.action),
+    failureType: __expectString(output.failureType),
+    minNumberOfExecutedThings: __expectNumber(output.minNumberOfExecutedThings),
+    thresholdPercentage: __expectNumber(output.thresholdPercentage),
   } as any;
 };
 
@@ -31315,16 +31312,13 @@ const deserializeAws_restJson1ActiveViolation = (output: any, context: __SerdeCo
       output.lastViolationValue !== undefined && output.lastViolationValue !== null
         ? deserializeAws_restJson1MetricValue(output.lastViolationValue, context)
         : undefined,
-    securityProfileName:
-      output.securityProfileName !== undefined && output.securityProfileName !== null
-        ? output.securityProfileName
-        : undefined,
-    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
+    securityProfileName: __expectString(output.securityProfileName),
+    thingName: __expectString(output.thingName),
     violationEventAdditionalInfo:
       output.violationEventAdditionalInfo !== undefined && output.violationEventAdditionalInfo !== null
         ? deserializeAws_restJson1ViolationEventAdditionalInfo(output.violationEventAdditionalInfo, context)
         : undefined,
-    violationId: output.violationId !== undefined && output.violationId !== null ? output.violationId : undefined,
+    violationId: __expectString(output.violationId),
     violationStartTime:
       output.violationStartTime !== undefined && output.violationStartTime !== null
         ? new Date(Math.round(output.violationStartTime * 1000))
@@ -31350,7 +31344,7 @@ const deserializeAws_restJson1AdditionalMetricsToRetainList = (output: any, cont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -31378,7 +31372,7 @@ const deserializeAws_restJson1AdditionalParameterMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -31388,10 +31382,7 @@ const deserializeAws_restJson1AddThingsToThingGroupParams = (
   context: __SerdeContext
 ): AddThingsToThingGroupParams => {
   return {
-    overrideDynamicGroups:
-      output.overrideDynamicGroups !== undefined && output.overrideDynamicGroups !== null
-        ? output.overrideDynamicGroups
-        : undefined,
+    overrideDynamicGroups: __expectBoolean(output.overrideDynamicGroups),
     thingGroupNames:
       output.thingGroupNames !== undefined && output.thingGroupNames !== null
         ? deserializeAws_restJson1ThingGroupNames(output.thingGroupNames, context)
@@ -31401,9 +31392,8 @@ const deserializeAws_restJson1AddThingsToThingGroupParams = (
 
 const deserializeAws_restJson1AlertTarget = (output: any, context: __SerdeContext): AlertTarget => {
   return {
-    alertTargetArn:
-      output.alertTargetArn !== undefined && output.alertTargetArn !== null ? output.alertTargetArn : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    alertTargetArn: __expectString(output.alertTargetArn),
+    roleArn: __expectString(output.roleArn),
   } as any;
 };
 
@@ -31436,16 +31426,14 @@ const deserializeAws_restJson1AssetPropertyTimestamp = (
   context: __SerdeContext
 ): AssetPropertyTimestamp => {
   return {
-    offsetInNanos:
-      output.offsetInNanos !== undefined && output.offsetInNanos !== null ? output.offsetInNanos : undefined,
-    timeInSeconds:
-      output.timeInSeconds !== undefined && output.timeInSeconds !== null ? output.timeInSeconds : undefined,
+    offsetInNanos: __expectString(output.offsetInNanos),
+    timeInSeconds: __expectString(output.timeInSeconds),
   } as any;
 };
 
 const deserializeAws_restJson1AssetPropertyValue = (output: any, context: __SerdeContext): AssetPropertyValue => {
   return {
-    quality: output.quality !== undefined && output.quality !== null ? output.quality : undefined,
+    quality: __expectString(output.quality),
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
         ? deserializeAws_restJson1AssetPropertyTimestamp(output.timestamp, context)
@@ -31469,25 +31457,17 @@ const deserializeAws_restJson1AssetPropertyValueList = (output: any, context: __
 };
 
 const deserializeAws_restJson1AssetPropertyVariant = (output: any, context: __SerdeContext): AssetPropertyVariant => {
-  if (output.booleanValue !== undefined && output.booleanValue !== null) {
-    return {
-      booleanValue: output.booleanValue,
-    };
+  if (__expectString(output.booleanValue) !== undefined) {
+    return { booleanValue: __expectString(output.booleanValue) as any };
   }
-  if (output.doubleValue !== undefined && output.doubleValue !== null) {
-    return {
-      doubleValue: output.doubleValue,
-    };
+  if (__expectString(output.doubleValue) !== undefined) {
+    return { doubleValue: __expectString(output.doubleValue) as any };
   }
-  if (output.integerValue !== undefined && output.integerValue !== null) {
-    return {
-      integerValue: output.integerValue,
-    };
+  if (__expectString(output.integerValue) !== undefined) {
+    return { integerValue: __expectString(output.integerValue) as any };
   }
-  if (output.stringValue !== undefined && output.stringValue !== null) {
-    return {
-      stringValue: output.stringValue,
-    };
+  if (__expectString(output.stringValue) !== undefined) {
+    return { stringValue: __expectString(output.stringValue) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };
@@ -31498,7 +31478,7 @@ const deserializeAws_restJson1AttributePayload = (output: any, context: __SerdeC
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1Attributes(output.attributes, context)
         : undefined,
-    merge: output.merge !== undefined && output.merge !== null ? output.merge : undefined,
+    merge: __expectBoolean(output.merge),
   } as any;
 };
 
@@ -31509,7 +31489,7 @@ const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -31521,7 +31501,7 @@ const deserializeAws_restJson1AttributesMap = (output: any, context: __SerdeCont
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -31531,7 +31511,7 @@ const deserializeAws_restJson1AuditCheckConfiguration = (
   context: __SerdeContext
 ): AuditCheckConfiguration => {
   return {
-    enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+    enabled: __expectBoolean(output.enabled),
   } as any;
 };
 
@@ -31555,24 +31535,13 @@ const deserializeAws_restJson1AuditCheckConfigurations = (
 
 const deserializeAws_restJson1AuditCheckDetails = (output: any, context: __SerdeContext): AuditCheckDetails => {
   return {
-    checkCompliant:
-      output.checkCompliant !== undefined && output.checkCompliant !== null ? output.checkCompliant : undefined,
-    checkRunStatus:
-      output.checkRunStatus !== undefined && output.checkRunStatus !== null ? output.checkRunStatus : undefined,
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    nonCompliantResourcesCount:
-      output.nonCompliantResourcesCount !== undefined && output.nonCompliantResourcesCount !== null
-        ? output.nonCompliantResourcesCount
-        : undefined,
-    suppressedNonCompliantResourcesCount:
-      output.suppressedNonCompliantResourcesCount !== undefined && output.suppressedNonCompliantResourcesCount !== null
-        ? output.suppressedNonCompliantResourcesCount
-        : undefined,
-    totalResourcesCount:
-      output.totalResourcesCount !== undefined && output.totalResourcesCount !== null
-        ? output.totalResourcesCount
-        : undefined,
+    checkCompliant: __expectBoolean(output.checkCompliant),
+    checkRunStatus: __expectString(output.checkRunStatus),
+    errorCode: __expectString(output.errorCode),
+    message: __expectString(output.message),
+    nonCompliantResourcesCount: __expectNumber(output.nonCompliantResourcesCount),
+    suppressedNonCompliantResourcesCount: __expectNumber(output.suppressedNonCompliantResourcesCount),
+    totalResourcesCount: __expectNumber(output.totalResourcesCount),
   } as any;
 };
 
@@ -31623,31 +31592,25 @@ const deserializeAws_restJson1AuditDetails = (
 
 const deserializeAws_restJson1AuditFinding = (output: any, context: __SerdeContext): AuditFinding => {
   return {
-    checkName: output.checkName !== undefined && output.checkName !== null ? output.checkName : undefined,
-    findingId: output.findingId !== undefined && output.findingId !== null ? output.findingId : undefined,
+    checkName: __expectString(output.checkName),
+    findingId: __expectString(output.findingId),
     findingTime:
       output.findingTime !== undefined && output.findingTime !== null
         ? new Date(Math.round(output.findingTime * 1000))
         : undefined,
-    isSuppressed: output.isSuppressed !== undefined && output.isSuppressed !== null ? output.isSuppressed : undefined,
+    isSuppressed: __expectBoolean(output.isSuppressed),
     nonCompliantResource:
       output.nonCompliantResource !== undefined && output.nonCompliantResource !== null
         ? deserializeAws_restJson1NonCompliantResource(output.nonCompliantResource, context)
         : undefined,
-    reasonForNonCompliance:
-      output.reasonForNonCompliance !== undefined && output.reasonForNonCompliance !== null
-        ? output.reasonForNonCompliance
-        : undefined,
-    reasonForNonComplianceCode:
-      output.reasonForNonComplianceCode !== undefined && output.reasonForNonComplianceCode !== null
-        ? output.reasonForNonComplianceCode
-        : undefined,
+    reasonForNonCompliance: __expectString(output.reasonForNonCompliance),
+    reasonForNonComplianceCode: __expectString(output.reasonForNonComplianceCode),
     relatedResources:
       output.relatedResources !== undefined && output.relatedResources !== null
         ? deserializeAws_restJson1RelatedResources(output.relatedResources, context)
         : undefined,
-    severity: output.severity !== undefined && output.severity !== null ? output.severity : undefined,
-    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
+    severity: __expectString(output.severity),
+    taskId: __expectString(output.taskId),
     taskStartTime:
       output.taskStartTime !== undefined && output.taskStartTime !== null
         ? new Date(Math.round(output.taskStartTime * 1000))
@@ -31671,19 +31634,19 @@ const deserializeAws_restJson1AuditMitigationActionExecutionMetadata = (
   context: __SerdeContext
 ): AuditMitigationActionExecutionMetadata => {
   return {
-    actionId: output.actionId !== undefined && output.actionId !== null ? output.actionId : undefined,
-    actionName: output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
+    actionId: __expectString(output.actionId),
+    actionName: __expectString(output.actionName),
     endTime:
       output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    findingId: output.findingId !== undefined && output.findingId !== null ? output.findingId : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    errorCode: __expectString(output.errorCode),
+    findingId: __expectString(output.findingId),
+    message: __expectString(output.message),
     startTime:
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
+    status: __expectString(output.status),
+    taskId: __expectString(output.taskId),
   } as any;
 };
 
@@ -31710,8 +31673,8 @@ const deserializeAws_restJson1AuditMitigationActionsTaskMetadata = (
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
-    taskStatus: output.taskStatus !== undefined && output.taskStatus !== null ? output.taskStatus : undefined,
+    taskId: __expectString(output.taskId),
+    taskStatus: __expectString(output.taskStatus),
   } as any;
 };
 
@@ -31756,7 +31719,7 @@ const deserializeAws_restJson1AuditMitigationActionsTaskTarget = (
       output.auditCheckToReasonCodeFilter !== undefined && output.auditCheckToReasonCodeFilter !== null
         ? deserializeAws_restJson1AuditCheckToReasonCodeFilter(output.auditCheckToReasonCodeFilter, context)
         : undefined,
-    auditTaskId: output.auditTaskId !== undefined && output.auditTaskId !== null ? output.auditTaskId : undefined,
+    auditTaskId: __expectString(output.auditTaskId),
     findingIds:
       output.findingIds !== undefined && output.findingIds !== null
         ? deserializeAws_restJson1FindingIds(output.findingIds, context)
@@ -31769,9 +31732,9 @@ const deserializeAws_restJson1AuditNotificationTarget = (
   context: __SerdeContext
 ): AuditNotificationTarget => {
   return {
-    enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    targetArn: output.targetArn !== undefined && output.targetArn !== null ? output.targetArn : undefined,
+    enabled: __expectBoolean(output.enabled),
+    roleArn: __expectString(output.roleArn),
+    targetArn: __expectString(output.targetArn),
   } as any;
 };
 
@@ -31795,8 +31758,8 @@ const deserializeAws_restJson1AuditNotificationTargetConfigurations = (
 
 const deserializeAws_restJson1AuditSuppression = (output: any, context: __SerdeContext): AuditSuppression => {
   return {
-    checkName: output.checkName !== undefined && output.checkName !== null ? output.checkName : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    checkName: __expectString(output.checkName),
+    description: __expectString(output.description),
     expirationDate:
       output.expirationDate !== undefined && output.expirationDate !== null
         ? new Date(Math.round(output.expirationDate * 1000))
@@ -31805,10 +31768,7 @@ const deserializeAws_restJson1AuditSuppression = (output: any, context: __SerdeC
       output.resourceIdentifier !== undefined && output.resourceIdentifier !== null
         ? deserializeAws_restJson1ResourceIdentifier(output.resourceIdentifier, context)
         : undefined,
-    suppressIndefinitely:
-      output.suppressIndefinitely !== undefined && output.suppressIndefinitely !== null
-        ? output.suppressIndefinitely
-        : undefined,
+    suppressIndefinitely: __expectBoolean(output.suppressIndefinitely),
   } as any;
 };
 
@@ -31825,9 +31785,9 @@ const deserializeAws_restJson1AuditSuppressionList = (output: any, context: __Se
 
 const deserializeAws_restJson1AuditTaskMetadata = (output: any, context: __SerdeContext): AuditTaskMetadata => {
   return {
-    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
-    taskStatus: output.taskStatus !== undefined && output.taskStatus !== null ? output.taskStatus : undefined,
-    taskType: output.taskType !== undefined && output.taskType !== null ? output.taskType : undefined,
+    taskId: __expectString(output.taskId),
+    taskStatus: __expectString(output.taskStatus),
+    taskType: __expectString(output.taskType),
   } as any;
 };
 
@@ -31844,7 +31804,7 @@ const deserializeAws_restJson1AuditTaskMetadataList = (output: any, context: __S
 
 const deserializeAws_restJson1AuthInfo = (output: any, context: __SerdeContext): AuthInfo => {
   return {
-    actionType: output.actionType !== undefined && output.actionType !== null ? output.actionType : undefined,
+    actionType: __expectString(output.actionType),
     resources:
       output.resources !== undefined && output.resources !== null
         ? deserializeAws_restJson1Resources(output.resources, context)
@@ -31854,27 +31814,16 @@ const deserializeAws_restJson1AuthInfo = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1AuthorizerConfig = (output: any, context: __SerdeContext): AuthorizerConfig => {
   return {
-    allowAuthorizerOverride:
-      output.allowAuthorizerOverride !== undefined && output.allowAuthorizerOverride !== null
-        ? output.allowAuthorizerOverride
-        : undefined,
-    defaultAuthorizerName:
-      output.defaultAuthorizerName !== undefined && output.defaultAuthorizerName !== null
-        ? output.defaultAuthorizerName
-        : undefined,
+    allowAuthorizerOverride: __expectBoolean(output.allowAuthorizerOverride),
+    defaultAuthorizerName: __expectString(output.defaultAuthorizerName),
   } as any;
 };
 
 const deserializeAws_restJson1AuthorizerDescription = (output: any, context: __SerdeContext): AuthorizerDescription => {
   return {
-    authorizerArn:
-      output.authorizerArn !== undefined && output.authorizerArn !== null ? output.authorizerArn : undefined,
-    authorizerFunctionArn:
-      output.authorizerFunctionArn !== undefined && output.authorizerFunctionArn !== null
-        ? output.authorizerFunctionArn
-        : undefined,
-    authorizerName:
-      output.authorizerName !== undefined && output.authorizerName !== null ? output.authorizerName : undefined,
+    authorizerArn: __expectString(output.authorizerArn),
+    authorizerFunctionArn: __expectString(output.authorizerFunctionArn),
+    authorizerName: __expectString(output.authorizerName),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -31883,10 +31832,9 @@ const deserializeAws_restJson1AuthorizerDescription = (output: any, context: __S
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
         : undefined,
-    signingDisabled:
-      output.signingDisabled !== undefined && output.signingDisabled !== null ? output.signingDisabled : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    tokenKeyName: output.tokenKeyName !== undefined && output.tokenKeyName !== null ? output.tokenKeyName : undefined,
+    signingDisabled: __expectBoolean(output.signingDisabled),
+    status: __expectString(output.status),
+    tokenKeyName: __expectString(output.tokenKeyName),
     tokenSigningPublicKeys:
       output.tokenSigningPublicKeys !== undefined && output.tokenSigningPublicKeys !== null
         ? deserializeAws_restJson1PublicKeyMap(output.tokenSigningPublicKeys, context)
@@ -31907,10 +31855,8 @@ const deserializeAws_restJson1Authorizers = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1AuthorizerSummary = (output: any, context: __SerdeContext): AuthorizerSummary => {
   return {
-    authorizerArn:
-      output.authorizerArn !== undefined && output.authorizerArn !== null ? output.authorizerArn : undefined,
-    authorizerName:
-      output.authorizerName !== undefined && output.authorizerName !== null ? output.authorizerName : undefined,
+    authorizerArn: __expectString(output.authorizerArn),
+    authorizerName: __expectString(output.authorizerName),
   } as any;
 };
 
@@ -31920,7 +31866,7 @@ const deserializeAws_restJson1AuthResult = (output: any, context: __SerdeContext
       output.allowed !== undefined && output.allowed !== null
         ? deserializeAws_restJson1Allowed(output.allowed, context)
         : undefined,
-    authDecision: output.authDecision !== undefined && output.authDecision !== null ? output.authDecision : undefined,
+    authDecision: __expectString(output.authDecision),
     authInfo:
       output.authInfo !== undefined && output.authInfo !== null
         ? deserializeAws_restJson1AuthInfo(output.authInfo, context)
@@ -31956,8 +31902,7 @@ const deserializeAws_restJson1AwsJobExecutionsRolloutConfig = (
       output.exponentialRate !== undefined && output.exponentialRate !== null
         ? deserializeAws_restJson1AwsJobExponentialRolloutRate(output.exponentialRate, context)
         : undefined,
-    maximumPerMinute:
-      output.maximumPerMinute !== undefined && output.maximumPerMinute !== null ? output.maximumPerMinute : undefined,
+    maximumPerMinute: __expectNumber(output.maximumPerMinute),
   } as any;
 };
 
@@ -31966,12 +31911,8 @@ const deserializeAws_restJson1AwsJobExponentialRolloutRate = (
   context: __SerdeContext
 ): AwsJobExponentialRolloutRate => {
   return {
-    baseRatePerMinute:
-      output.baseRatePerMinute !== undefined && output.baseRatePerMinute !== null
-        ? output.baseRatePerMinute
-        : undefined,
-    incrementFactor:
-      output.incrementFactor !== undefined && output.incrementFactor !== null ? output.incrementFactor : undefined,
+    baseRatePerMinute: __expectNumber(output.baseRatePerMinute),
+    incrementFactor: __expectNumber(output.incrementFactor),
     rateIncreaseCriteria:
       output.rateIncreaseCriteria !== undefined && output.rateIncreaseCriteria !== null
         ? deserializeAws_restJson1AwsJobRateIncreaseCriteria(output.rateIncreaseCriteria, context)
@@ -31984,7 +31925,7 @@ const deserializeAws_restJson1AwsJobPresignedUrlConfig = (
   context: __SerdeContext
 ): AwsJobPresignedUrlConfig => {
   return {
-    expiresInSec: output.expiresInSec !== undefined && output.expiresInSec !== null ? output.expiresInSec : undefined,
+    expiresInSec: __expectNumber(output.expiresInSec),
   } as any;
 };
 
@@ -31993,14 +31934,8 @@ const deserializeAws_restJson1AwsJobRateIncreaseCriteria = (
   context: __SerdeContext
 ): AwsJobRateIncreaseCriteria => {
   return {
-    numberOfNotifiedThings:
-      output.numberOfNotifiedThings !== undefined && output.numberOfNotifiedThings !== null
-        ? output.numberOfNotifiedThings
-        : undefined,
-    numberOfSucceededThings:
-      output.numberOfSucceededThings !== undefined && output.numberOfSucceededThings !== null
-        ? output.numberOfSucceededThings
-        : undefined,
+    numberOfNotifiedThings: __expectNumber(output.numberOfNotifiedThings),
+    numberOfSucceededThings: __expectNumber(output.numberOfSucceededThings),
   } as any;
 };
 
@@ -32010,33 +31945,22 @@ const deserializeAws_restJson1Behavior = (output: any, context: __SerdeContext):
       output.criteria !== undefined && output.criteria !== null
         ? deserializeAws_restJson1BehaviorCriteria(output.criteria, context)
         : undefined,
-    metric: output.metric !== undefined && output.metric !== null ? output.metric : undefined,
+    metric: __expectString(output.metric),
     metricDimension:
       output.metricDimension !== undefined && output.metricDimension !== null
         ? deserializeAws_restJson1MetricDimension(output.metricDimension, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    suppressAlerts:
-      output.suppressAlerts !== undefined && output.suppressAlerts !== null ? output.suppressAlerts : undefined,
+    name: __expectString(output.name),
+    suppressAlerts: __expectBoolean(output.suppressAlerts),
   } as any;
 };
 
 const deserializeAws_restJson1BehaviorCriteria = (output: any, context: __SerdeContext): BehaviorCriteria => {
   return {
-    comparisonOperator:
-      output.comparisonOperator !== undefined && output.comparisonOperator !== null
-        ? output.comparisonOperator
-        : undefined,
-    consecutiveDatapointsToAlarm:
-      output.consecutiveDatapointsToAlarm !== undefined && output.consecutiveDatapointsToAlarm !== null
-        ? output.consecutiveDatapointsToAlarm
-        : undefined,
-    consecutiveDatapointsToClear:
-      output.consecutiveDatapointsToClear !== undefined && output.consecutiveDatapointsToClear !== null
-        ? output.consecutiveDatapointsToClear
-        : undefined,
-    durationSeconds:
-      output.durationSeconds !== undefined && output.durationSeconds !== null ? output.durationSeconds : undefined,
+    comparisonOperator: __expectString(output.comparisonOperator),
+    consecutiveDatapointsToAlarm: __expectNumber(output.consecutiveDatapointsToAlarm),
+    consecutiveDatapointsToClear: __expectNumber(output.consecutiveDatapointsToClear),
+    durationSeconds: __expectNumber(output.durationSeconds),
     mlDetectionConfig:
       output.mlDetectionConfig !== undefined && output.mlDetectionConfig !== null
         ? deserializeAws_restJson1MachineLearningDetectionConfig(output.mlDetectionConfig, context)
@@ -32071,20 +31995,14 @@ const deserializeAws_restJson1BehaviorModelTrainingSummary = (
   context: __SerdeContext
 ): BehaviorModelTrainingSummary => {
   return {
-    behaviorName: output.behaviorName !== undefined && output.behaviorName !== null ? output.behaviorName : undefined,
-    datapointsCollectionPercentage:
-      output.datapointsCollectionPercentage !== undefined && output.datapointsCollectionPercentage !== null
-        ? output.datapointsCollectionPercentage
-        : undefined,
+    behaviorName: __expectString(output.behaviorName),
+    datapointsCollectionPercentage: __expectNumber(output.datapointsCollectionPercentage),
     lastModelRefreshDate:
       output.lastModelRefreshDate !== undefined && output.lastModelRefreshDate !== null
         ? new Date(Math.round(output.lastModelRefreshDate * 1000))
         : undefined,
-    modelStatus: output.modelStatus !== undefined && output.modelStatus !== null ? output.modelStatus : undefined,
-    securityProfileName:
-      output.securityProfileName !== undefined && output.securityProfileName !== null
-        ? output.securityProfileName
-        : undefined,
+    modelStatus: __expectString(output.modelStatus),
+    securityProfileName: __expectString(output.securityProfileName),
     trainingDataCollectionStartDate:
       output.trainingDataCollectionStartDate !== undefined && output.trainingDataCollectionStartDate !== null
         ? new Date(Math.round(output.trainingDataCollectionStartDate * 1000))
@@ -32131,24 +32049,19 @@ const deserializeAws_restJson1BillingGroupProperties = (
   context: __SerdeContext
 ): BillingGroupProperties => {
   return {
-    billingGroupDescription:
-      output.billingGroupDescription !== undefined && output.billingGroupDescription !== null
-        ? output.billingGroupDescription
-        : undefined,
+    billingGroupDescription: __expectString(output.billingGroupDescription),
   } as any;
 };
 
 const deserializeAws_restJson1CACertificate = (output: any, context: __SerdeContext): CACertificate => {
   return {
-    certificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
-    certificateId:
-      output.certificateId !== undefined && output.certificateId !== null ? output.certificateId : undefined,
+    certificateArn: __expectString(output.certificateArn),
+    certificateId: __expectString(output.certificateId),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -32157,29 +32070,22 @@ const deserializeAws_restJson1CACertificateDescription = (
   context: __SerdeContext
 ): CACertificateDescription => {
   return {
-    autoRegistrationStatus:
-      output.autoRegistrationStatus !== undefined && output.autoRegistrationStatus !== null
-        ? output.autoRegistrationStatus
-        : undefined,
-    certificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
-    certificateId:
-      output.certificateId !== undefined && output.certificateId !== null ? output.certificateId : undefined,
-    certificatePem:
-      output.certificatePem !== undefined && output.certificatePem !== null ? output.certificatePem : undefined,
+    autoRegistrationStatus: __expectString(output.autoRegistrationStatus),
+    certificateArn: __expectString(output.certificateArn),
+    certificateId: __expectString(output.certificateId),
+    certificatePem: __expectString(output.certificatePem),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    customerVersion:
-      output.customerVersion !== undefined && output.customerVersion !== null ? output.customerVersion : undefined,
-    generationId: output.generationId !== undefined && output.generationId !== null ? output.generationId : undefined,
+    customerVersion: __expectNumber(output.customerVersion),
+    generationId: __expectString(output.generationId),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
         : undefined,
-    ownedBy: output.ownedBy !== undefined && output.ownedBy !== null ? output.ownedBy : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    ownedBy: __expectString(output.ownedBy),
+    status: __expectString(output.status),
     validity:
       output.validity !== undefined && output.validity !== null
         ? deserializeAws_restJson1CertificateValidity(output.validity, context)
@@ -32200,17 +32106,14 @@ const deserializeAws_restJson1CACertificates = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Certificate = (output: any, context: __SerdeContext): Certificate => {
   return {
-    certificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
-    certificateId:
-      output.certificateId !== undefined && output.certificateId !== null ? output.certificateId : undefined,
-    certificateMode:
-      output.certificateMode !== undefined && output.certificateMode !== null ? output.certificateMode : undefined,
+    certificateArn: __expectString(output.certificateArn),
+    certificateId: __expectString(output.certificateId),
+    certificateMode: __expectString(output.certificateMode),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -32219,31 +32122,24 @@ const deserializeAws_restJson1CertificateDescription = (
   context: __SerdeContext
 ): CertificateDescription => {
   return {
-    caCertificateId:
-      output.caCertificateId !== undefined && output.caCertificateId !== null ? output.caCertificateId : undefined,
-    certificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
-    certificateId:
-      output.certificateId !== undefined && output.certificateId !== null ? output.certificateId : undefined,
-    certificateMode:
-      output.certificateMode !== undefined && output.certificateMode !== null ? output.certificateMode : undefined,
-    certificatePem:
-      output.certificatePem !== undefined && output.certificatePem !== null ? output.certificatePem : undefined,
+    caCertificateId: __expectString(output.caCertificateId),
+    certificateArn: __expectString(output.certificateArn),
+    certificateId: __expectString(output.certificateId),
+    certificateMode: __expectString(output.certificateMode),
+    certificatePem: __expectString(output.certificatePem),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    customerVersion:
-      output.customerVersion !== undefined && output.customerVersion !== null ? output.customerVersion : undefined,
-    generationId: output.generationId !== undefined && output.generationId !== null ? output.generationId : undefined,
+    customerVersion: __expectNumber(output.customerVersion),
+    generationId: __expectString(output.generationId),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
         : undefined,
-    ownedBy: output.ownedBy !== undefined && output.ownedBy !== null ? output.ownedBy : undefined,
-    previousOwnedBy:
-      output.previousOwnedBy !== undefined && output.previousOwnedBy !== null ? output.previousOwnedBy : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    ownedBy: __expectString(output.ownedBy),
+    previousOwnedBy: __expectString(output.previousOwnedBy),
+    status: __expectString(output.status),
     transferData:
       output.transferData !== undefined && output.transferData !== null
         ? deserializeAws_restJson1TransferData(output.transferData, context)
@@ -32286,7 +32182,7 @@ const deserializeAws_restJson1Cidrs = (output: any, context: __SerdeContext): st
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -32297,24 +32193,24 @@ const deserializeAws_restJson1ClientProperties = (output: any, context: __SerdeC
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1CloudwatchAlarmAction = (output: any, context: __SerdeContext): CloudwatchAlarmAction => {
   return {
-    alarmName: output.alarmName !== undefined && output.alarmName !== null ? output.alarmName : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    stateReason: output.stateReason !== undefined && output.stateReason !== null ? output.stateReason : undefined,
-    stateValue: output.stateValue !== undefined && output.stateValue !== null ? output.stateValue : undefined,
+    alarmName: __expectString(output.alarmName),
+    roleArn: __expectString(output.roleArn),
+    stateReason: __expectString(output.stateReason),
+    stateValue: __expectString(output.stateValue),
   } as any;
 };
 
 const deserializeAws_restJson1CloudwatchLogsAction = (output: any, context: __SerdeContext): CloudwatchLogsAction => {
   return {
-    logGroupName: output.logGroupName !== undefined && output.logGroupName !== null ? output.logGroupName : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    logGroupName: __expectString(output.logGroupName),
+    roleArn: __expectString(output.roleArn),
   } as any;
 };
 
@@ -32323,21 +32219,18 @@ const deserializeAws_restJson1CloudwatchMetricAction = (
   context: __SerdeContext
 ): CloudwatchMetricAction => {
   return {
-    metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
-    metricNamespace:
-      output.metricNamespace !== undefined && output.metricNamespace !== null ? output.metricNamespace : undefined,
-    metricTimestamp:
-      output.metricTimestamp !== undefined && output.metricTimestamp !== null ? output.metricTimestamp : undefined,
-    metricUnit: output.metricUnit !== undefined && output.metricUnit !== null ? output.metricUnit : undefined,
-    metricValue: output.metricValue !== undefined && output.metricValue !== null ? output.metricValue : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    metricName: __expectString(output.metricName),
+    metricNamespace: __expectString(output.metricNamespace),
+    metricTimestamp: __expectString(output.metricTimestamp),
+    metricUnit: __expectString(output.metricUnit),
+    metricValue: __expectString(output.metricValue),
+    roleArn: __expectString(output.roleArn),
   } as any;
 };
 
 const deserializeAws_restJson1CodeSigning = (output: any, context: __SerdeContext): CodeSigning => {
   return {
-    awsSignerJobId:
-      output.awsSignerJobId !== undefined && output.awsSignerJobId !== null ? output.awsSignerJobId : undefined,
+    awsSignerJobId: __expectString(output.awsSignerJobId),
     customCodeSigning:
       output.customCodeSigning !== undefined && output.customCodeSigning !== null
         ? deserializeAws_restJson1CustomCodeSigning(output.customCodeSigning, context)
@@ -32354,10 +32247,8 @@ const deserializeAws_restJson1CodeSigningCertificateChain = (
   context: __SerdeContext
 ): CodeSigningCertificateChain => {
   return {
-    certificateName:
-      output.certificateName !== undefined && output.certificateName !== null ? output.certificateName : undefined,
-    inlineDocument:
-      output.inlineDocument !== undefined && output.inlineDocument !== null ? output.inlineDocument : undefined,
+    certificateName: __expectString(output.certificateName),
+    inlineDocument: __expectString(output.inlineDocument),
   } as any;
 };
 
@@ -32372,7 +32263,7 @@ const deserializeAws_restJson1CodeSigningSignature = (output: any, context: __Se
 
 const deserializeAws_restJson1Configuration = (output: any, context: __SerdeContext): Configuration => {
   return {
-    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+    Enabled: __expectBoolean(output.Enabled),
   } as any;
 };
 
@@ -32382,16 +32273,12 @@ const deserializeAws_restJson1CustomCodeSigning = (output: any, context: __Serde
       output.certificateChain !== undefined && output.certificateChain !== null
         ? deserializeAws_restJson1CodeSigningCertificateChain(output.certificateChain, context)
         : undefined,
-    hashAlgorithm:
-      output.hashAlgorithm !== undefined && output.hashAlgorithm !== null ? output.hashAlgorithm : undefined,
+    hashAlgorithm: __expectString(output.hashAlgorithm),
     signature:
       output.signature !== undefined && output.signature !== null
         ? deserializeAws_restJson1CodeSigningSignature(output.signature, context)
         : undefined,
-    signatureAlgorithm:
-      output.signatureAlgorithm !== undefined && output.signatureAlgorithm !== null
-        ? output.signatureAlgorithm
-        : undefined,
+    signatureAlgorithm: __expectString(output.signatureAlgorithm),
   } as any;
 };
 
@@ -32424,7 +32311,7 @@ const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -32434,8 +32321,8 @@ const deserializeAws_restJson1DetectMitigationActionExecution = (
   context: __SerdeContext
 ): DetectMitigationActionExecution => {
   return {
-    actionName: output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
+    actionName: __expectString(output.actionName),
+    errorCode: __expectString(output.errorCode),
     executionEndDate:
       output.executionEndDate !== undefined && output.executionEndDate !== null
         ? new Date(Math.round(output.executionEndDate * 1000))
@@ -32444,11 +32331,11 @@ const deserializeAws_restJson1DetectMitigationActionExecution = (
       output.executionStartDate !== undefined && output.executionStartDate !== null
         ? new Date(Math.round(output.executionStartDate * 1000))
         : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
-    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
-    violationId: output.violationId !== undefined && output.violationId !== null ? output.violationId : undefined,
+    message: __expectString(output.message),
+    status: __expectString(output.status),
+    taskId: __expectString(output.taskId),
+    thingName: __expectString(output.thingName),
+    violationId: __expectString(output.violationId),
   } as any;
 };
 
@@ -32471,12 +32358,9 @@ const deserializeAws_restJson1DetectMitigationActionsTaskStatistics = (
   context: __SerdeContext
 ): DetectMitigationActionsTaskStatistics => {
   return {
-    actionsExecuted:
-      output.actionsExecuted !== undefined && output.actionsExecuted !== null ? output.actionsExecuted : undefined,
-    actionsFailed:
-      output.actionsFailed !== undefined && output.actionsFailed !== null ? output.actionsFailed : undefined,
-    actionsSkipped:
-      output.actionsSkipped !== undefined && output.actionsSkipped !== null ? output.actionsSkipped : undefined,
+    actionsExecuted: __expectNumber(output.actionsExecuted),
+    actionsFailed: __expectNumber(output.actionsFailed),
+    actionsSkipped: __expectNumber(output.actionsSkipped),
   } as any;
 };
 
@@ -32489,14 +32373,8 @@ const deserializeAws_restJson1DetectMitigationActionsTaskSummary = (
       output.actionsDefinition !== undefined && output.actionsDefinition !== null
         ? deserializeAws_restJson1MitigationActionList(output.actionsDefinition, context)
         : undefined,
-    onlyActiveViolationsIncluded:
-      output.onlyActiveViolationsIncluded !== undefined && output.onlyActiveViolationsIncluded !== null
-        ? output.onlyActiveViolationsIncluded
-        : undefined,
-    suppressedAlertsIncluded:
-      output.suppressedAlertsIncluded !== undefined && output.suppressedAlertsIncluded !== null
-        ? output.suppressedAlertsIncluded
-        : undefined,
+    onlyActiveViolationsIncluded: __expectBoolean(output.onlyActiveViolationsIncluded),
+    suppressedAlertsIncluded: __expectBoolean(output.suppressedAlertsIncluded),
     target:
       output.target !== undefined && output.target !== null
         ? deserializeAws_restJson1DetectMitigationActionsTaskTarget(output.target, context)
@@ -32505,7 +32383,7 @@ const deserializeAws_restJson1DetectMitigationActionsTaskSummary = (
       output.taskEndTime !== undefined && output.taskEndTime !== null
         ? new Date(Math.round(output.taskEndTime * 1000))
         : undefined,
-    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
+    taskId: __expectString(output.taskId),
     taskStartTime:
       output.taskStartTime !== undefined && output.taskStartTime !== null
         ? new Date(Math.round(output.taskStartTime * 1000))
@@ -32514,7 +32392,7 @@ const deserializeAws_restJson1DetectMitigationActionsTaskSummary = (
       output.taskStatistics !== undefined && output.taskStatistics !== null
         ? deserializeAws_restJson1DetectMitigationActionsTaskStatistics(output.taskStatistics, context)
         : undefined,
-    taskStatus: output.taskStatus !== undefined && output.taskStatus !== null ? output.taskStatus : undefined,
+    taskStatus: __expectString(output.taskStatus),
     violationEventOccurrenceRange:
       output.violationEventOccurrenceRange !== undefined && output.violationEventOccurrenceRange !== null
         ? deserializeAws_restJson1ViolationEventOccurrenceRange(output.violationEventOccurrenceRange, context)
@@ -32541,11 +32419,8 @@ const deserializeAws_restJson1DetectMitigationActionsTaskTarget = (
   context: __SerdeContext
 ): DetectMitigationActionsTaskTarget => {
   return {
-    behaviorName: output.behaviorName !== undefined && output.behaviorName !== null ? output.behaviorName : undefined,
-    securityProfileName:
-      output.securityProfileName !== undefined && output.securityProfileName !== null
-        ? output.securityProfileName
-        : undefined,
+    behaviorName: __expectString(output.behaviorName),
+    securityProfileName: __expectString(output.securityProfileName),
     violationIds:
       output.violationIds !== undefined && output.violationIds !== null
         ? deserializeAws_restJson1TargetViolationIdsForDetectMitigationActions(output.violationIds, context)
@@ -32560,7 +32435,7 @@ const deserializeAws_restJson1DimensionNames = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -32571,7 +32446,7 @@ const deserializeAws_restJson1DimensionStringValues = (output: any, context: __S
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -32594,32 +32469,24 @@ const deserializeAws_restJson1DomainConfigurationSummary = (
   context: __SerdeContext
 ): DomainConfigurationSummary => {
   return {
-    domainConfigurationArn:
-      output.domainConfigurationArn !== undefined && output.domainConfigurationArn !== null
-        ? output.domainConfigurationArn
-        : undefined,
-    domainConfigurationName:
-      output.domainConfigurationName !== undefined && output.domainConfigurationName !== null
-        ? output.domainConfigurationName
-        : undefined,
-    serviceType: output.serviceType !== undefined && output.serviceType !== null ? output.serviceType : undefined,
+    domainConfigurationArn: __expectString(output.domainConfigurationArn),
+    domainConfigurationName: __expectString(output.domainConfigurationName),
+    serviceType: __expectString(output.serviceType),
   } as any;
 };
 
 const deserializeAws_restJson1DynamoDBAction = (output: any, context: __SerdeContext): DynamoDBAction => {
   return {
-    hashKeyField: output.hashKeyField !== undefined && output.hashKeyField !== null ? output.hashKeyField : undefined,
-    hashKeyType: output.hashKeyType !== undefined && output.hashKeyType !== null ? output.hashKeyType : undefined,
-    hashKeyValue: output.hashKeyValue !== undefined && output.hashKeyValue !== null ? output.hashKeyValue : undefined,
-    operation: output.operation !== undefined && output.operation !== null ? output.operation : undefined,
-    payloadField: output.payloadField !== undefined && output.payloadField !== null ? output.payloadField : undefined,
-    rangeKeyField:
-      output.rangeKeyField !== undefined && output.rangeKeyField !== null ? output.rangeKeyField : undefined,
-    rangeKeyType: output.rangeKeyType !== undefined && output.rangeKeyType !== null ? output.rangeKeyType : undefined,
-    rangeKeyValue:
-      output.rangeKeyValue !== undefined && output.rangeKeyValue !== null ? output.rangeKeyValue : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    tableName: output.tableName !== undefined && output.tableName !== null ? output.tableName : undefined,
+    hashKeyField: __expectString(output.hashKeyField),
+    hashKeyType: __expectString(output.hashKeyType),
+    hashKeyValue: __expectString(output.hashKeyValue),
+    operation: __expectString(output.operation),
+    payloadField: __expectString(output.payloadField),
+    rangeKeyField: __expectString(output.rangeKeyField),
+    rangeKeyType: __expectString(output.rangeKeyType),
+    rangeKeyValue: __expectString(output.rangeKeyValue),
+    roleArn: __expectString(output.roleArn),
+    tableName: __expectString(output.tableName),
   } as any;
 };
 
@@ -32629,7 +32496,7 @@ const deserializeAws_restJson1DynamoDBv2Action = (output: any, context: __SerdeC
       output.putItem !== undefined && output.putItem !== null
         ? deserializeAws_restJson1PutItemInput(output.putItem, context)
         : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    roleArn: __expectString(output.roleArn),
   } as any;
 };
 
@@ -32646,20 +32513,19 @@ const deserializeAws_restJson1EffectivePolicies = (output: any, context: __Serde
 
 const deserializeAws_restJson1EffectivePolicy = (output: any, context: __SerdeContext): EffectivePolicy => {
   return {
-    policyArn: output.policyArn !== undefined && output.policyArn !== null ? output.policyArn : undefined,
-    policyDocument:
-      output.policyDocument !== undefined && output.policyDocument !== null ? output.policyDocument : undefined,
-    policyName: output.policyName !== undefined && output.policyName !== null ? output.policyName : undefined,
+    policyArn: __expectString(output.policyArn),
+    policyDocument: __expectString(output.policyDocument),
+    policyName: __expectString(output.policyName),
   } as any;
 };
 
 const deserializeAws_restJson1ElasticsearchAction = (output: any, context: __SerdeContext): ElasticsearchAction => {
   return {
-    endpoint: output.endpoint !== undefined && output.endpoint !== null ? output.endpoint : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    index: output.index !== undefined && output.index !== null ? output.index : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    endpoint: __expectString(output.endpoint),
+    id: __expectString(output.id),
+    index: __expectString(output.index),
+    roleArn: __expectString(output.roleArn),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -32668,18 +32534,15 @@ const deserializeAws_restJson1EnableIoTLoggingParams = (
   context: __SerdeContext
 ): EnableIoTLoggingParams => {
   return {
-    logLevel: output.logLevel !== undefined && output.logLevel !== null ? output.logLevel : undefined,
-    roleArnForLogging:
-      output.roleArnForLogging !== undefined && output.roleArnForLogging !== null
-        ? output.roleArnForLogging
-        : undefined,
+    logLevel: __expectString(output.logLevel),
+    roleArnForLogging: __expectString(output.roleArnForLogging),
   } as any;
 };
 
 const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext): ErrorInfo => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    code: __expectString(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -32715,12 +32578,8 @@ const deserializeAws_restJson1ExponentialRolloutRate = (
   context: __SerdeContext
 ): ExponentialRolloutRate => {
   return {
-    baseRatePerMinute:
-      output.baseRatePerMinute !== undefined && output.baseRatePerMinute !== null
-        ? output.baseRatePerMinute
-        : undefined,
-    incrementFactor:
-      output.incrementFactor !== undefined && output.incrementFactor !== null ? output.incrementFactor : undefined,
+    baseRatePerMinute: __expectNumber(output.baseRatePerMinute),
+    incrementFactor: __expectNumber(output.incrementFactor),
     rateIncreaseCriteria:
       output.rateIncreaseCriteria !== undefined && output.rateIncreaseCriteria !== null
         ? deserializeAws_restJson1RateIncreaseCriteria(output.rateIncreaseCriteria, context)
@@ -32730,8 +32589,8 @@ const deserializeAws_restJson1ExponentialRolloutRate = (
 
 const deserializeAws_restJson1Field = (output: any, context: __SerdeContext): Field => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    name: __expectString(output.name),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -32766,26 +32625,23 @@ const deserializeAws_restJson1FindingIds = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1FirehoseAction = (output: any, context: __SerdeContext): FirehoseAction => {
   return {
-    batchMode: output.batchMode !== undefined && output.batchMode !== null ? output.batchMode : undefined,
-    deliveryStreamName:
-      output.deliveryStreamName !== undefined && output.deliveryStreamName !== null
-        ? output.deliveryStreamName
-        : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    separator: output.separator !== undefined && output.separator !== null ? output.separator : undefined,
+    batchMode: __expectBoolean(output.batchMode),
+    deliveryStreamName: __expectString(output.deliveryStreamName),
+    roleArn: __expectString(output.roleArn),
+    separator: __expectString(output.separator),
   } as any;
 };
 
 const deserializeAws_restJson1GroupNameAndArn = (output: any, context: __SerdeContext): GroupNameAndArn => {
   return {
-    groupArn: output.groupArn !== undefined && output.groupArn !== null ? output.groupArn : undefined,
-    groupName: output.groupName !== undefined && output.groupName !== null ? output.groupName : undefined,
+    groupArn: __expectString(output.groupArn),
+    groupName: __expectString(output.groupName),
   } as any;
 };
 
@@ -32806,20 +32662,19 @@ const deserializeAws_restJson1HttpAction = (output: any, context: __SerdeContext
       output.auth !== undefined && output.auth !== null
         ? deserializeAws_restJson1HttpAuthorization(output.auth, context)
         : undefined,
-    confirmationUrl:
-      output.confirmationUrl !== undefined && output.confirmationUrl !== null ? output.confirmationUrl : undefined,
+    confirmationUrl: __expectString(output.confirmationUrl),
     headers:
       output.headers !== undefined && output.headers !== null
         ? deserializeAws_restJson1HeaderList(output.headers, context)
         : undefined,
-    url: output.url !== undefined && output.url !== null ? output.url : undefined,
+    url: __expectString(output.url),
   } as any;
 };
 
 const deserializeAws_restJson1HttpActionHeader = (output: any, context: __SerdeContext): HttpActionHeader => {
   return {
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -32837,8 +32692,7 @@ const deserializeAws_restJson1HttpUrlDestinationProperties = (
   context: __SerdeContext
 ): HttpUrlDestinationProperties => {
   return {
-    confirmationUrl:
-      output.confirmationUrl !== undefined && output.confirmationUrl !== null ? output.confirmationUrl : undefined,
+    confirmationUrl: __expectString(output.confirmationUrl),
   } as any;
 };
 
@@ -32847,8 +32701,7 @@ const deserializeAws_restJson1HttpUrlDestinationSummary = (
   context: __SerdeContext
 ): HttpUrlDestinationSummary => {
   return {
-    confirmationUrl:
-      output.confirmationUrl !== undefined && output.confirmationUrl !== null ? output.confirmationUrl : undefined,
+    confirmationUrl: __expectString(output.confirmationUrl),
   } as any;
 };
 
@@ -32868,25 +32721,25 @@ const deserializeAws_restJson1IndexNamesList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1IotAnalyticsAction = (output: any, context: __SerdeContext): IotAnalyticsAction => {
   return {
-    batchMode: output.batchMode !== undefined && output.batchMode !== null ? output.batchMode : undefined,
-    channelArn: output.channelArn !== undefined && output.channelArn !== null ? output.channelArn : undefined,
-    channelName: output.channelName !== undefined && output.channelName !== null ? output.channelName : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    batchMode: __expectBoolean(output.batchMode),
+    channelArn: __expectString(output.channelArn),
+    channelName: __expectString(output.channelName),
+    roleArn: __expectString(output.roleArn),
   } as any;
 };
 
 const deserializeAws_restJson1IotEventsAction = (output: any, context: __SerdeContext): IotEventsAction => {
   return {
-    batchMode: output.batchMode !== undefined && output.batchMode !== null ? output.batchMode : undefined,
-    inputName: output.inputName !== undefined && output.inputName !== null ? output.inputName : undefined,
-    messageId: output.messageId !== undefined && output.messageId !== null ? output.messageId : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    batchMode: __expectBoolean(output.batchMode),
+    inputName: __expectString(output.inputName),
+    messageId: __expectString(output.messageId),
+    roleArn: __expectString(output.roleArn),
   } as any;
 };
 
@@ -32896,7 +32749,7 @@ const deserializeAws_restJson1IotSiteWiseAction = (output: any, context: __Serde
       output.putAssetPropertyValueEntries !== undefined && output.putAssetPropertyValueEntries !== null
         ? deserializeAws_restJson1PutAssetPropertyValueEntryList(output.putAssetPropertyValueEntries, context)
         : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    roleArn: __expectString(output.roleArn),
   } as any;
 };
 
@@ -32906,7 +32759,7 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
       output.abortConfig !== undefined && output.abortConfig !== null
         ? deserializeAws_restJson1AbortConfig(output.abortConfig, context)
         : undefined,
-    comment: output.comment !== undefined && output.comment !== null ? output.comment : undefined,
+    comment: __expectString(output.comment),
     completedAt:
       output.completedAt !== undefined && output.completedAt !== null
         ? new Date(Math.round(output.completedAt * 1000))
@@ -32915,34 +32768,31 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    forceCanceled:
-      output.forceCanceled !== undefined && output.forceCanceled !== null ? output.forceCanceled : undefined,
-    jobArn: output.jobArn !== undefined && output.jobArn !== null ? output.jobArn : undefined,
+    description: __expectString(output.description),
+    forceCanceled: __expectBoolean(output.forceCanceled),
+    jobArn: __expectString(output.jobArn),
     jobExecutionsRolloutConfig:
       output.jobExecutionsRolloutConfig !== undefined && output.jobExecutionsRolloutConfig !== null
         ? deserializeAws_restJson1JobExecutionsRolloutConfig(output.jobExecutionsRolloutConfig, context)
         : undefined,
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    jobId: __expectString(output.jobId),
     jobProcessDetails:
       output.jobProcessDetails !== undefined && output.jobProcessDetails !== null
         ? deserializeAws_restJson1JobProcessDetails(output.jobProcessDetails, context)
         : undefined,
-    jobTemplateArn:
-      output.jobTemplateArn !== undefined && output.jobTemplateArn !== null ? output.jobTemplateArn : undefined,
+    jobTemplateArn: __expectString(output.jobTemplateArn),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
-    namespaceId: output.namespaceId !== undefined && output.namespaceId !== null ? output.namespaceId : undefined,
+    namespaceId: __expectString(output.namespaceId),
     presignedUrlConfig:
       output.presignedUrlConfig !== undefined && output.presignedUrlConfig !== null
         ? deserializeAws_restJson1PresignedUrlConfig(output.presignedUrlConfig, context)
         : undefined,
-    reasonCode: output.reasonCode !== undefined && output.reasonCode !== null ? output.reasonCode : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    targetSelection:
-      output.targetSelection !== undefined && output.targetSelection !== null ? output.targetSelection : undefined,
+    reasonCode: __expectString(output.reasonCode),
+    status: __expectString(output.status),
+    targetSelection: __expectString(output.targetSelection),
     targets:
       output.targets !== undefined && output.targets !== null
         ? deserializeAws_restJson1JobTargets(output.targets, context)
@@ -32956,15 +32806,10 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
 
 const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeContext): JobExecution => {
   return {
-    approximateSecondsBeforeTimedOut:
-      output.approximateSecondsBeforeTimedOut !== undefined && output.approximateSecondsBeforeTimedOut !== null
-        ? output.approximateSecondsBeforeTimedOut
-        : undefined,
-    executionNumber:
-      output.executionNumber !== undefined && output.executionNumber !== null ? output.executionNumber : undefined,
-    forceCanceled:
-      output.forceCanceled !== undefined && output.forceCanceled !== null ? output.forceCanceled : undefined,
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    approximateSecondsBeforeTimedOut: __expectNumber(output.approximateSecondsBeforeTimedOut),
+    executionNumber: __expectNumber(output.executionNumber),
+    forceCanceled: __expectBoolean(output.forceCanceled),
+    jobId: __expectString(output.jobId),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
@@ -32977,14 +32822,13 @@ const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeConte
       output.startedAt !== undefined && output.startedAt !== null
         ? new Date(Math.round(output.startedAt * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
     statusDetails:
       output.statusDetails !== undefined && output.statusDetails !== null
         ? deserializeAws_restJson1JobExecutionStatusDetails(output.statusDetails, context)
         : undefined,
-    thingArn: output.thingArn !== undefined && output.thingArn !== null ? output.thingArn : undefined,
-    versionNumber:
-      output.versionNumber !== undefined && output.versionNumber !== null ? output.versionNumber : undefined,
+    thingArn: __expectString(output.thingArn),
+    versionNumber: __expectNumber(output.versionNumber),
   } as any;
 };
 
@@ -32997,8 +32841,7 @@ const deserializeAws_restJson1JobExecutionsRolloutConfig = (
       output.exponentialRate !== undefined && output.exponentialRate !== null
         ? deserializeAws_restJson1ExponentialRolloutRate(output.exponentialRate, context)
         : undefined,
-    maximumPerMinute:
-      output.maximumPerMinute !== undefined && output.maximumPerMinute !== null ? output.maximumPerMinute : undefined,
+    maximumPerMinute: __expectNumber(output.maximumPerMinute),
   } as any;
 };
 
@@ -33016,8 +32859,7 @@ const deserializeAws_restJson1JobExecutionStatusDetails = (
 
 const deserializeAws_restJson1JobExecutionSummary = (output: any, context: __SerdeContext): JobExecutionSummary => {
   return {
-    executionNumber:
-      output.executionNumber !== undefined && output.executionNumber !== null ? output.executionNumber : undefined,
+    executionNumber: __expectNumber(output.executionNumber),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
@@ -33030,7 +32872,7 @@ const deserializeAws_restJson1JobExecutionSummary = (output: any, context: __Ser
       output.startedAt !== undefined && output.startedAt !== null
         ? new Date(Math.round(output.startedAt * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -33043,7 +32885,7 @@ const deserializeAws_restJson1JobExecutionSummaryForJob = (
       output.jobExecutionSummary !== undefined && output.jobExecutionSummary !== null
         ? deserializeAws_restJson1JobExecutionSummary(output.jobExecutionSummary, context)
         : undefined,
-    thingArn: output.thingArn !== undefined && output.thingArn !== null ? output.thingArn : undefined,
+    thingArn: __expectString(output.thingArn),
   } as any;
 };
 
@@ -33070,7 +32912,7 @@ const deserializeAws_restJson1JobExecutionSummaryForThing = (
       output.jobExecutionSummary !== undefined && output.jobExecutionSummary !== null
         ? deserializeAws_restJson1JobExecutionSummary(output.jobExecutionSummary, context)
         : undefined,
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    jobId: __expectString(output.jobId),
   } as any;
 };
 
@@ -33090,38 +32932,14 @@ const deserializeAws_restJson1JobExecutionSummaryForThingList = (
 
 const deserializeAws_restJson1JobProcessDetails = (output: any, context: __SerdeContext): JobProcessDetails => {
   return {
-    numberOfCanceledThings:
-      output.numberOfCanceledThings !== undefined && output.numberOfCanceledThings !== null
-        ? output.numberOfCanceledThings
-        : undefined,
-    numberOfFailedThings:
-      output.numberOfFailedThings !== undefined && output.numberOfFailedThings !== null
-        ? output.numberOfFailedThings
-        : undefined,
-    numberOfInProgressThings:
-      output.numberOfInProgressThings !== undefined && output.numberOfInProgressThings !== null
-        ? output.numberOfInProgressThings
-        : undefined,
-    numberOfQueuedThings:
-      output.numberOfQueuedThings !== undefined && output.numberOfQueuedThings !== null
-        ? output.numberOfQueuedThings
-        : undefined,
-    numberOfRejectedThings:
-      output.numberOfRejectedThings !== undefined && output.numberOfRejectedThings !== null
-        ? output.numberOfRejectedThings
-        : undefined,
-    numberOfRemovedThings:
-      output.numberOfRemovedThings !== undefined && output.numberOfRemovedThings !== null
-        ? output.numberOfRemovedThings
-        : undefined,
-    numberOfSucceededThings:
-      output.numberOfSucceededThings !== undefined && output.numberOfSucceededThings !== null
-        ? output.numberOfSucceededThings
-        : undefined,
-    numberOfTimedOutThings:
-      output.numberOfTimedOutThings !== undefined && output.numberOfTimedOutThings !== null
-        ? output.numberOfTimedOutThings
-        : undefined,
+    numberOfCanceledThings: __expectNumber(output.numberOfCanceledThings),
+    numberOfFailedThings: __expectNumber(output.numberOfFailedThings),
+    numberOfInProgressThings: __expectNumber(output.numberOfInProgressThings),
+    numberOfQueuedThings: __expectNumber(output.numberOfQueuedThings),
+    numberOfRejectedThings: __expectNumber(output.numberOfRejectedThings),
+    numberOfRemovedThings: __expectNumber(output.numberOfRemovedThings),
+    numberOfSucceededThings: __expectNumber(output.numberOfSucceededThings),
+    numberOfTimedOutThings: __expectNumber(output.numberOfTimedOutThings),
     processingTargets:
       output.processingTargets !== undefined && output.processingTargets !== null
         ? deserializeAws_restJson1ProcessingTargetNameList(output.processingTargets, context)
@@ -33139,16 +32957,15 @@ const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    jobArn: output.jobArn !== undefined && output.jobArn !== null ? output.jobArn : undefined,
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    jobArn: __expectString(output.jobArn),
+    jobId: __expectString(output.jobId),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    targetSelection:
-      output.targetSelection !== undefined && output.targetSelection !== null ? output.targetSelection : undefined,
-    thingGroupId: output.thingGroupId !== undefined && output.thingGroupId !== null ? output.thingGroupId : undefined,
+    status: __expectString(output.status),
+    targetSelection: __expectString(output.targetSelection),
+    thingGroupId: __expectString(output.thingGroupId),
   } as any;
 };
 
@@ -33170,7 +32987,7 @@ const deserializeAws_restJson1JobTargets = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -33180,11 +32997,9 @@ const deserializeAws_restJson1JobTemplateSummary = (output: any, context: __Serd
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    jobTemplateArn:
-      output.jobTemplateArn !== undefined && output.jobTemplateArn !== null ? output.jobTemplateArn : undefined,
-    jobTemplateId:
-      output.jobTemplateId !== undefined && output.jobTemplateId !== null ? output.jobTemplateId : undefined,
+    description: __expectString(output.description),
+    jobTemplateArn: __expectString(output.jobTemplateArn),
+    jobTemplateId: __expectString(output.jobTemplateId),
   } as any;
 };
 
@@ -33205,39 +33020,38 @@ const deserializeAws_restJson1KafkaAction = (output: any, context: __SerdeContex
       output.clientProperties !== undefined && output.clientProperties !== null
         ? deserializeAws_restJson1ClientProperties(output.clientProperties, context)
         : undefined,
-    destinationArn:
-      output.destinationArn !== undefined && output.destinationArn !== null ? output.destinationArn : undefined,
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    partition: output.partition !== undefined && output.partition !== null ? output.partition : undefined,
-    topic: output.topic !== undefined && output.topic !== null ? output.topic : undefined,
+    destinationArn: __expectString(output.destinationArn),
+    key: __expectString(output.key),
+    partition: __expectString(output.partition),
+    topic: __expectString(output.topic),
   } as any;
 };
 
 const deserializeAws_restJson1KeyPair = (output: any, context: __SerdeContext): KeyPair => {
   return {
-    PrivateKey: output.PrivateKey !== undefined && output.PrivateKey !== null ? output.PrivateKey : undefined,
-    PublicKey: output.PublicKey !== undefined && output.PublicKey !== null ? output.PublicKey : undefined,
+    PrivateKey: __expectString(output.PrivateKey),
+    PublicKey: __expectString(output.PublicKey),
   } as any;
 };
 
 const deserializeAws_restJson1KinesisAction = (output: any, context: __SerdeContext): KinesisAction => {
   return {
-    partitionKey: output.partitionKey !== undefined && output.partitionKey !== null ? output.partitionKey : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    streamName: output.streamName !== undefined && output.streamName !== null ? output.streamName : undefined,
+    partitionKey: __expectString(output.partitionKey),
+    roleArn: __expectString(output.roleArn),
+    streamName: __expectString(output.streamName),
   } as any;
 };
 
 const deserializeAws_restJson1LambdaAction = (output: any, context: __SerdeContext): LambdaAction => {
   return {
-    functionArn: output.functionArn !== undefined && output.functionArn !== null ? output.functionArn : undefined,
+    functionArn: __expectString(output.functionArn),
   } as any;
 };
 
 const deserializeAws_restJson1LogTarget = (output: any, context: __SerdeContext): LogTarget => {
   return {
-    targetName: output.targetName !== undefined && output.targetName !== null ? output.targetName : undefined,
-    targetType: output.targetType !== undefined && output.targetType !== null ? output.targetType : undefined,
+    targetName: __expectString(output.targetName),
+    targetType: __expectString(output.targetType),
   } as any;
 };
 
@@ -33246,7 +33060,7 @@ const deserializeAws_restJson1LogTargetConfiguration = (
   context: __SerdeContext
 ): LogTargetConfiguration => {
   return {
-    logLevel: output.logLevel !== undefined && output.logLevel !== null ? output.logLevel : undefined,
+    logLevel: __expectString(output.logLevel),
     logTarget:
       output.logTarget !== undefined && output.logTarget !== null
         ? deserializeAws_restJson1LogTarget(output.logTarget, context)
@@ -33273,16 +33087,14 @@ const deserializeAws_restJson1MachineLearningDetectionConfig = (
   context: __SerdeContext
 ): MachineLearningDetectionConfig => {
   return {
-    confidenceLevel:
-      output.confidenceLevel !== undefined && output.confidenceLevel !== null ? output.confidenceLevel : undefined,
+    confidenceLevel: __expectString(output.confidenceLevel),
   } as any;
 };
 
 const deserializeAws_restJson1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   return {
-    dimensionName:
-      output.dimensionName !== undefined && output.dimensionName !== null ? output.dimensionName : undefined,
-    operator: output.operator !== undefined && output.operator !== null ? output.operator : undefined,
+    dimensionName: __expectString(output.dimensionName),
+    operator: __expectString(output.operator),
   } as any;
 };
 
@@ -33293,13 +33105,13 @@ const deserializeAws_restJson1MetricNames = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1MetricToRetain = (output: any, context: __SerdeContext): MetricToRetain => {
   return {
-    metric: output.metric !== undefined && output.metric !== null ? output.metric : undefined,
+    metric: __expectString(output.metric),
     metricDimension:
       output.metricDimension !== undefined && output.metricDimension !== null
         ? deserializeAws_restJson1MetricDimension(output.metricDimension, context)
@@ -33313,8 +33125,8 @@ const deserializeAws_restJson1MetricValue = (output: any, context: __SerdeContex
       output.cidrs !== undefined && output.cidrs !== null
         ? deserializeAws_restJson1Cidrs(output.cidrs, context)
         : undefined,
-    count: output.count !== undefined && output.count !== null ? output.count : undefined,
-    number: output.number !== undefined && output.number !== null ? output.number : undefined,
+    count: __expectNumber(output.count),
+    number: __expectNumber(output.number),
     numbers:
       output.numbers !== undefined && output.numbers !== null
         ? deserializeAws_restJson1NumberList(output.numbers, context)
@@ -33337,7 +33149,7 @@ const deserializeAws_restJson1MissingContextValues = (output: any, context: __Se
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -33347,9 +33159,9 @@ const deserializeAws_restJson1MitigationAction = (output: any, context: __SerdeC
       output.actionParams !== undefined && output.actionParams !== null
         ? deserializeAws_restJson1MitigationActionParams(output.actionParams, context)
         : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+    roleArn: __expectString(output.roleArn),
   } as any;
 };
 
@@ -33358,8 +33170,8 @@ const deserializeAws_restJson1MitigationActionIdentifier = (
   context: __SerdeContext
 ): MitigationActionIdentifier => {
   return {
-    actionArn: output.actionArn !== undefined && output.actionArn !== null ? output.actionArn : undefined,
-    actionName: output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
+    actionArn: __expectString(output.actionArn),
+    actionName: __expectString(output.actionName),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -33399,7 +33211,7 @@ const deserializeAws_restJson1MitigationActionNameList = (output: any, context: 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -33445,7 +33257,7 @@ const deserializeAws_restJson1NonCompliantResource = (output: any, context: __Se
       output.resourceIdentifier !== undefined && output.resourceIdentifier !== null
         ? deserializeAws_restJson1ResourceIdentifier(output.resourceIdentifier, context)
         : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
@@ -33456,7 +33268,7 @@ const deserializeAws_restJson1NumberList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
@@ -33474,9 +33286,9 @@ const deserializeAws_restJson1OTAUpdateFile = (output: any, context: __SerdeCont
       output.fileLocation !== undefined && output.fileLocation !== null
         ? deserializeAws_restJson1FileLocation(output.fileLocation, context)
         : undefined,
-    fileName: output.fileName !== undefined && output.fileName !== null ? output.fileName : undefined,
-    fileType: output.fileType !== undefined && output.fileType !== null ? output.fileType : undefined,
-    fileVersion: output.fileVersion !== undefined && output.fileVersion !== null ? output.fileVersion : undefined,
+    fileName: __expectString(output.fileName),
+    fileType: __expectNumber(output.fileType),
+    fileVersion: __expectString(output.fileVersion),
   } as any;
 };
 
@@ -33497,8 +33309,8 @@ const deserializeAws_restJson1OTAUpdateInfo = (output: any, context: __SerdeCont
       output.additionalParameters !== undefined && output.additionalParameters !== null
         ? deserializeAws_restJson1AdditionalParameterMap(output.additionalParameters, context)
         : undefined,
-    awsIotJobArn: output.awsIotJobArn !== undefined && output.awsIotJobArn !== null ? output.awsIotJobArn : undefined,
-    awsIotJobId: output.awsIotJobId !== undefined && output.awsIotJobId !== null ? output.awsIotJobId : undefined,
+    awsIotJobArn: __expectString(output.awsIotJobArn),
+    awsIotJobId: __expectString(output.awsIotJobId),
     awsJobExecutionsRolloutConfig:
       output.awsJobExecutionsRolloutConfig !== undefined && output.awsJobExecutionsRolloutConfig !== null
         ? deserializeAws_restJson1AwsJobExecutionsRolloutConfig(output.awsJobExecutionsRolloutConfig, context)
@@ -33511,7 +33323,7 @@ const deserializeAws_restJson1OTAUpdateInfo = (output: any, context: __SerdeCont
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     errorInfo:
       output.errorInfo !== undefined && output.errorInfo !== null
         ? deserializeAws_restJson1ErrorInfo(output.errorInfo, context)
@@ -33520,20 +33332,18 @@ const deserializeAws_restJson1OTAUpdateInfo = (output: any, context: __SerdeCont
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
         : undefined,
-    otaUpdateArn: output.otaUpdateArn !== undefined && output.otaUpdateArn !== null ? output.otaUpdateArn : undefined,
+    otaUpdateArn: __expectString(output.otaUpdateArn),
     otaUpdateFiles:
       output.otaUpdateFiles !== undefined && output.otaUpdateFiles !== null
         ? deserializeAws_restJson1OTAUpdateFiles(output.otaUpdateFiles, context)
         : undefined,
-    otaUpdateId: output.otaUpdateId !== undefined && output.otaUpdateId !== null ? output.otaUpdateId : undefined,
-    otaUpdateStatus:
-      output.otaUpdateStatus !== undefined && output.otaUpdateStatus !== null ? output.otaUpdateStatus : undefined,
+    otaUpdateId: __expectString(output.otaUpdateId),
+    otaUpdateStatus: __expectString(output.otaUpdateStatus),
     protocols:
       output.protocols !== undefined && output.protocols !== null
         ? deserializeAws_restJson1Protocols(output.protocols, context)
         : undefined,
-    targetSelection:
-      output.targetSelection !== undefined && output.targetSelection !== null ? output.targetSelection : undefined,
+    targetSelection: __expectString(output.targetSelection),
     targets:
       output.targets !== undefined && output.targets !== null
         ? deserializeAws_restJson1Targets(output.targets, context)
@@ -33558,17 +33368,15 @@ const deserializeAws_restJson1OTAUpdateSummary = (output: any, context: __SerdeC
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    otaUpdateArn: output.otaUpdateArn !== undefined && output.otaUpdateArn !== null ? output.otaUpdateArn : undefined,
-    otaUpdateId: output.otaUpdateId !== undefined && output.otaUpdateId !== null ? output.otaUpdateId : undefined,
+    otaUpdateArn: __expectString(output.otaUpdateArn),
+    otaUpdateId: __expectString(output.otaUpdateId),
   } as any;
 };
 
 const deserializeAws_restJson1OutgoingCertificate = (output: any, context: __SerdeContext): OutgoingCertificate => {
   return {
-    certificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
-    certificateId:
-      output.certificateId !== undefined && output.certificateId !== null ? output.certificateId : undefined,
+    certificateArn: __expectString(output.certificateArn),
+    certificateId: __expectString(output.certificateId),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -33577,10 +33385,8 @@ const deserializeAws_restJson1OutgoingCertificate = (output: any, context: __Ser
       output.transferDate !== undefined && output.transferDate !== null
         ? new Date(Math.round(output.transferDate * 1000))
         : undefined,
-    transferMessage:
-      output.transferMessage !== undefined && output.transferMessage !== null ? output.transferMessage : undefined,
-    transferredTo:
-      output.transferredTo !== undefined && output.transferredTo !== null ? output.transferredTo : undefined,
+    transferMessage: __expectString(output.transferMessage),
+    transferredTo: __expectString(output.transferredTo),
   } as any;
 };
 
@@ -33608,8 +33414,8 @@ const deserializeAws_restJson1Percentiles = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1PercentPair = (output: any, context: __SerdeContext): PercentPair => {
   return {
-    percent: output.percent !== undefined && output.percent !== null ? output.percent : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    percent: __expectNumber(output.percent),
+    value: __expectNumber(output.value),
   } as any;
 };
 
@@ -33626,8 +33432,8 @@ const deserializeAws_restJson1Policies = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Policy = (output: any, context: __SerdeContext): Policy => {
   return {
-    policyArn: output.policyArn !== undefined && output.policyArn !== null ? output.policyArn : undefined,
-    policyName: output.policyName !== undefined && output.policyName !== null ? output.policyName : undefined,
+    policyArn: __expectString(output.policyArn),
+    policyName: __expectString(output.policyName),
   } as any;
 };
 
@@ -33638,7 +33444,7 @@ const deserializeAws_restJson1PolicyDocuments = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -33649,7 +33455,7 @@ const deserializeAws_restJson1PolicyTargets = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -33659,9 +33465,8 @@ const deserializeAws_restJson1PolicyVersion = (output: any, context: __SerdeCont
       output.createDate !== undefined && output.createDate !== null
         ? new Date(Math.round(output.createDate * 1000))
         : undefined,
-    isDefaultVersion:
-      output.isDefaultVersion !== undefined && output.isDefaultVersion !== null ? output.isDefaultVersion : undefined,
-    versionId: output.versionId !== undefined && output.versionId !== null ? output.versionId : undefined,
+    isDefaultVersion: __expectBoolean(output.isDefaultVersion),
+    versionId: __expectString(output.versionId),
   } as any;
 };
 
@@ -33670,9 +33475,8 @@ const deserializeAws_restJson1PolicyVersionIdentifier = (
   context: __SerdeContext
 ): PolicyVersionIdentifier => {
   return {
-    policyName: output.policyName !== undefined && output.policyName !== null ? output.policyName : undefined,
-    policyVersionId:
-      output.policyVersionId !== undefined && output.policyVersionId !== null ? output.policyVersionId : undefined,
+    policyName: __expectString(output.policyName),
+    policyVersionId: __expectString(output.policyVersionId),
   } as any;
 };
 
@@ -33694,14 +33498,14 @@ const deserializeAws_restJson1Ports = (output: any, context: __SerdeContext): nu
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
 const deserializeAws_restJson1PresignedUrlConfig = (output: any, context: __SerdeContext): PresignedUrlConfig => {
   return {
-    expiresInSec: output.expiresInSec !== undefined && output.expiresInSec !== null ? output.expiresInSec : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    expiresInSec: __expectNumber(output.expiresInSec),
+    roleArn: __expectString(output.roleArn),
   } as any;
 };
 
@@ -33712,7 +33516,7 @@ const deserializeAws_restJson1Principals = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -33723,7 +33527,7 @@ const deserializeAws_restJson1ProcessingTargetNameList = (output: any, context: 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -33734,15 +33538,14 @@ const deserializeAws_restJson1Protocols = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1ProvisioningHook = (output: any, context: __SerdeContext): ProvisioningHook => {
   return {
-    payloadVersion:
-      output.payloadVersion !== undefined && output.payloadVersion !== null ? output.payloadVersion : undefined,
-    targetArn: output.targetArn !== undefined && output.targetArn !== null ? output.targetArn : undefined,
+    payloadVersion: __expectString(output.payloadVersion),
+    targetArn: __expectString(output.targetArn),
   } as any;
 };
 
@@ -33769,14 +33572,14 @@ const deserializeAws_restJson1ProvisioningTemplateSummary = (
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+    description: __expectString(output.description),
+    enabled: __expectBoolean(output.enabled),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
         : undefined,
-    templateArn: output.templateArn !== undefined && output.templateArn !== null ? output.templateArn : undefined,
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    templateArn: __expectString(output.templateArn),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
@@ -33803,9 +33606,8 @@ const deserializeAws_restJson1ProvisioningTemplateVersionSummary = (
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    isDefaultVersion:
-      output.isDefaultVersion !== undefined && output.isDefaultVersion !== null ? output.isDefaultVersion : undefined,
-    versionId: output.versionId !== undefined && output.versionId !== null ? output.versionId : undefined,
+    isDefaultVersion: __expectBoolean(output.isDefaultVersion),
+    versionId: __expectNumber(output.versionId),
   } as any;
 };
 
@@ -33816,7 +33618,7 @@ const deserializeAws_restJson1PublicKeyMap = (output: any, context: __SerdeConte
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -33826,7 +33628,7 @@ const deserializeAws_restJson1PublishFindingToSnsParams = (
   context: __SerdeContext
 ): PublishFindingToSnsParams => {
   return {
-    topicArn: output.topicArn !== undefined && output.topicArn !== null ? output.topicArn : undefined,
+    topicArn: __expectString(output.topicArn),
   } as any;
 };
 
@@ -33835,11 +33637,10 @@ const deserializeAws_restJson1PutAssetPropertyValueEntry = (
   context: __SerdeContext
 ): PutAssetPropertyValueEntry => {
   return {
-    assetId: output.assetId !== undefined && output.assetId !== null ? output.assetId : undefined,
-    entryId: output.entryId !== undefined && output.entryId !== null ? output.entryId : undefined,
-    propertyAlias:
-      output.propertyAlias !== undefined && output.propertyAlias !== null ? output.propertyAlias : undefined,
-    propertyId: output.propertyId !== undefined && output.propertyId !== null ? output.propertyId : undefined,
+    assetId: __expectString(output.assetId),
+    entryId: __expectString(output.entryId),
+    propertyAlias: __expectString(output.propertyAlias),
+    propertyId: __expectString(output.propertyId),
     propertyValues:
       output.propertyValues !== undefined && output.propertyValues !== null
         ? deserializeAws_restJson1AssetPropertyValueList(output.propertyValues, context)
@@ -33863,20 +33664,14 @@ const deserializeAws_restJson1PutAssetPropertyValueEntryList = (
 
 const deserializeAws_restJson1PutItemInput = (output: any, context: __SerdeContext): PutItemInput => {
   return {
-    tableName: output.tableName !== undefined && output.tableName !== null ? output.tableName : undefined,
+    tableName: __expectString(output.tableName),
   } as any;
 };
 
 const deserializeAws_restJson1RateIncreaseCriteria = (output: any, context: __SerdeContext): RateIncreaseCriteria => {
   return {
-    numberOfNotifiedThings:
-      output.numberOfNotifiedThings !== undefined && output.numberOfNotifiedThings !== null
-        ? output.numberOfNotifiedThings
-        : undefined,
-    numberOfSucceededThings:
-      output.numberOfSucceededThings !== undefined && output.numberOfSucceededThings !== null
-        ? output.numberOfSucceededThings
-        : undefined,
+    numberOfNotifiedThings: __expectNumber(output.numberOfNotifiedThings),
+    numberOfSucceededThings: __expectNumber(output.numberOfSucceededThings),
   } as any;
 };
 
@@ -33887,14 +33682,14 @@ const deserializeAws_restJson1ReasonForNonComplianceCodes = (output: any, contex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1RegistrationConfig = (output: any, context: __SerdeContext): RegistrationConfig => {
   return {
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    templateBody: output.templateBody !== undefined && output.templateBody !== null ? output.templateBody : undefined,
+    roleArn: __expectString(output.roleArn),
+    templateBody: __expectString(output.templateBody),
   } as any;
 };
 
@@ -33908,7 +33703,7 @@ const deserializeAws_restJson1RelatedResource = (output: any, context: __SerdeCo
       output.resourceIdentifier !== undefined && output.resourceIdentifier !== null
         ? deserializeAws_restJson1ResourceIdentifier(output.resourceIdentifier, context)
         : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
@@ -33928,15 +33723,15 @@ const deserializeAws_restJson1ReplaceDefaultPolicyVersionParams = (
   context: __SerdeContext
 ): ReplaceDefaultPolicyVersionParams => {
   return {
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
 const deserializeAws_restJson1RepublishAction = (output: any, context: __SerdeContext): RepublishAction => {
   return {
-    qos: output.qos !== undefined && output.qos !== null ? output.qos : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    topic: output.topic !== undefined && output.topic !== null ? output.topic : undefined,
+    qos: __expectNumber(output.qos),
+    roleArn: __expectString(output.roleArn),
+    topic: __expectString(output.topic),
   } as any;
 };
 
@@ -33947,31 +33742,24 @@ const deserializeAws_restJson1ResourceArns = (output: any, context: __SerdeConte
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1ResourceIdentifier = (output: any, context: __SerdeContext): ResourceIdentifier => {
   return {
-    account: output.account !== undefined && output.account !== null ? output.account : undefined,
-    caCertificateId:
-      output.caCertificateId !== undefined && output.caCertificateId !== null ? output.caCertificateId : undefined,
-    clientId: output.clientId !== undefined && output.clientId !== null ? output.clientId : undefined,
-    cognitoIdentityPoolId:
-      output.cognitoIdentityPoolId !== undefined && output.cognitoIdentityPoolId !== null
-        ? output.cognitoIdentityPoolId
-        : undefined,
-    deviceCertificateId:
-      output.deviceCertificateId !== undefined && output.deviceCertificateId !== null
-        ? output.deviceCertificateId
-        : undefined,
-    iamRoleArn: output.iamRoleArn !== undefined && output.iamRoleArn !== null ? output.iamRoleArn : undefined,
+    account: __expectString(output.account),
+    caCertificateId: __expectString(output.caCertificateId),
+    clientId: __expectString(output.clientId),
+    cognitoIdentityPoolId: __expectString(output.cognitoIdentityPoolId),
+    deviceCertificateId: __expectString(output.deviceCertificateId),
+    iamRoleArn: __expectString(output.iamRoleArn),
     policyVersionIdentifier:
       output.policyVersionIdentifier !== undefined && output.policyVersionIdentifier !== null
         ? deserializeAws_restJson1PolicyVersionIdentifier(output.policyVersionIdentifier, context)
         : undefined,
-    roleAliasArn: output.roleAliasArn !== undefined && output.roleAliasArn !== null ? output.roleAliasArn : undefined,
+    roleAliasArn: __expectString(output.roleAliasArn),
   } as any;
 };
 
@@ -33982,7 +33770,7 @@ const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -33992,18 +33780,15 @@ const deserializeAws_restJson1RoleAliasDescription = (output: any, context: __Se
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    credentialDurationSeconds:
-      output.credentialDurationSeconds !== undefined && output.credentialDurationSeconds !== null
-        ? output.credentialDurationSeconds
-        : undefined,
+    credentialDurationSeconds: __expectNumber(output.credentialDurationSeconds),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
         : undefined,
-    owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
-    roleAlias: output.roleAlias !== undefined && output.roleAlias !== null ? output.roleAlias : undefined,
-    roleAliasArn: output.roleAliasArn !== undefined && output.roleAliasArn !== null ? output.roleAliasArn : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    owner: __expectString(output.owner),
+    roleAlias: __expectString(output.roleAlias),
+    roleAliasArn: __expectString(output.roleAliasArn),
+    roleArn: __expectString(output.roleArn),
   } as any;
 };
 
@@ -34014,23 +33799,23 @@ const deserializeAws_restJson1RoleAliases = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1S3Action = (output: any, context: __SerdeContext): S3Action => {
   return {
-    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
-    cannedAcl: output.cannedAcl !== undefined && output.cannedAcl !== null ? output.cannedAcl : undefined,
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    bucketName: __expectString(output.bucketName),
+    cannedAcl: __expectString(output.cannedAcl),
+    key: __expectString(output.key),
+    roleArn: __expectString(output.roleArn),
   } as any;
 };
 
 const deserializeAws_restJson1S3Destination = (output: any, context: __SerdeContext): S3Destination => {
   return {
-    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
-    prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
+    bucket: __expectString(output.bucket),
+    prefix: __expectString(output.prefix),
   } as any;
 };
 
@@ -34041,22 +33826,22 @@ const deserializeAws_restJson1S3FileUrlList = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
-    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    bucket: __expectString(output.bucket),
+    key: __expectString(output.key),
+    version: __expectString(output.version),
   } as any;
 };
 
 const deserializeAws_restJson1SalesforceAction = (output: any, context: __SerdeContext): SalesforceAction => {
   return {
-    token: output.token !== undefined && output.token !== null ? output.token : undefined,
-    url: output.url !== undefined && output.url !== null ? output.url : undefined,
+    token: __expectString(output.token),
+    url: __expectString(output.url),
   } as any;
 };
 
@@ -34065,17 +33850,11 @@ const deserializeAws_restJson1ScheduledAuditMetadata = (
   context: __SerdeContext
 ): ScheduledAuditMetadata => {
   return {
-    dayOfMonth: output.dayOfMonth !== undefined && output.dayOfMonth !== null ? output.dayOfMonth : undefined,
-    dayOfWeek: output.dayOfWeek !== undefined && output.dayOfWeek !== null ? output.dayOfWeek : undefined,
-    frequency: output.frequency !== undefined && output.frequency !== null ? output.frequency : undefined,
-    scheduledAuditArn:
-      output.scheduledAuditArn !== undefined && output.scheduledAuditArn !== null
-        ? output.scheduledAuditArn
-        : undefined,
-    scheduledAuditName:
-      output.scheduledAuditName !== undefined && output.scheduledAuditName !== null
-        ? output.scheduledAuditName
-        : undefined,
+    dayOfMonth: __expectString(output.dayOfMonth),
+    dayOfWeek: __expectString(output.dayOfWeek),
+    frequency: __expectString(output.frequency),
+    scheduledAuditArn: __expectString(output.scheduledAuditArn),
+    scheduledAuditName: __expectString(output.scheduledAuditName),
   } as any;
 };
 
@@ -34100,7 +33879,7 @@ const deserializeAws_restJson1SearchableAttributes = (output: any, context: __Se
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -34111,7 +33890,7 @@ const deserializeAws_restJson1SecurityGroupList = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -34120,8 +33899,8 @@ const deserializeAws_restJson1SecurityProfileIdentifier = (
   context: __SerdeContext
 ): SecurityProfileIdentifier => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    arn: __expectString(output.arn),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -34141,7 +33920,7 @@ const deserializeAws_restJson1SecurityProfileIdentifiers = (
 
 const deserializeAws_restJson1SecurityProfileTarget = (output: any, context: __SerdeContext): SecurityProfileTarget => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
   } as any;
 };
 
@@ -34208,18 +33987,9 @@ const deserializeAws_restJson1ServerCertificateSummary = (
   context: __SerdeContext
 ): ServerCertificateSummary => {
   return {
-    serverCertificateArn:
-      output.serverCertificateArn !== undefined && output.serverCertificateArn !== null
-        ? output.serverCertificateArn
-        : undefined,
-    serverCertificateStatus:
-      output.serverCertificateStatus !== undefined && output.serverCertificateStatus !== null
-        ? output.serverCertificateStatus
-        : undefined,
-    serverCertificateStatusDetail:
-      output.serverCertificateStatusDetail !== undefined && output.serverCertificateStatusDetail !== null
-        ? output.serverCertificateStatusDetail
-        : undefined,
+    serverCertificateArn: __expectString(output.serverCertificateArn),
+    serverCertificateStatus: __expectString(output.serverCertificateStatus),
+    serverCertificateStatusDetail: __expectString(output.serverCertificateStatusDetail),
   } as any;
 };
 
@@ -34228,39 +33998,33 @@ const deserializeAws_restJson1SigningProfileParameter = (
   context: __SerdeContext
 ): SigningProfileParameter => {
   return {
-    certificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
-    certificatePathOnDevice:
-      output.certificatePathOnDevice !== undefined && output.certificatePathOnDevice !== null
-        ? output.certificatePathOnDevice
-        : undefined,
-    platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
+    certificateArn: __expectString(output.certificateArn),
+    certificatePathOnDevice: __expectString(output.certificatePathOnDevice),
+    platform: __expectString(output.platform),
   } as any;
 };
 
 const deserializeAws_restJson1SigV4Authorization = (output: any, context: __SerdeContext): SigV4Authorization => {
   return {
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    serviceName: output.serviceName !== undefined && output.serviceName !== null ? output.serviceName : undefined,
-    signingRegion:
-      output.signingRegion !== undefined && output.signingRegion !== null ? output.signingRegion : undefined,
+    roleArn: __expectString(output.roleArn),
+    serviceName: __expectString(output.serviceName),
+    signingRegion: __expectString(output.signingRegion),
   } as any;
 };
 
 const deserializeAws_restJson1SnsAction = (output: any, context: __SerdeContext): SnsAction => {
   return {
-    messageFormat:
-      output.messageFormat !== undefined && output.messageFormat !== null ? output.messageFormat : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    targetArn: output.targetArn !== undefined && output.targetArn !== null ? output.targetArn : undefined,
+    messageFormat: __expectString(output.messageFormat),
+    roleArn: __expectString(output.roleArn),
+    targetArn: __expectString(output.targetArn),
   } as any;
 };
 
 const deserializeAws_restJson1SqsAction = (output: any, context: __SerdeContext): SqsAction => {
   return {
-    queueUrl: output.queueUrl !== undefined && output.queueUrl !== null ? output.queueUrl : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    useBase64: output.useBase64 !== undefined && output.useBase64 !== null ? output.useBase64 : undefined,
+    queueUrl: __expectString(output.queueUrl),
+    roleArn: __expectString(output.roleArn),
+    useBase64: __expectBoolean(output.useBase64),
   } as any;
 };
 
@@ -34273,10 +34037,7 @@ const deserializeAws_restJson1StartSigningJobParameter = (
       output.destination !== undefined && output.destination !== null
         ? deserializeAws_restJson1Destination(output.destination, context)
         : undefined,
-    signingProfileName:
-      output.signingProfileName !== undefined && output.signingProfileName !== null
-        ? output.signingProfileName
-        : undefined,
+    signingProfileName: __expectString(output.signingProfileName),
     signingProfileParameter:
       output.signingProfileParameter !== undefined && output.signingProfileParameter !== null
         ? deserializeAws_restJson1SigningProfileParameter(output.signingProfileParameter, context)
@@ -34286,45 +34047,41 @@ const deserializeAws_restJson1StartSigningJobParameter = (
 
 const deserializeAws_restJson1StatisticalThreshold = (output: any, context: __SerdeContext): StatisticalThreshold => {
   return {
-    statistic: output.statistic !== undefined && output.statistic !== null ? output.statistic : undefined,
+    statistic: __expectString(output.statistic),
   } as any;
 };
 
 const deserializeAws_restJson1Statistics = (output: any, context: __SerdeContext): Statistics => {
   return {
-    average: output.average !== undefined && output.average !== null ? output.average : undefined,
-    count: output.count !== undefined && output.count !== null ? output.count : undefined,
-    maximum: output.maximum !== undefined && output.maximum !== null ? output.maximum : undefined,
-    minimum: output.minimum !== undefined && output.minimum !== null ? output.minimum : undefined,
-    stdDeviation: output.stdDeviation !== undefined && output.stdDeviation !== null ? output.stdDeviation : undefined,
-    sum: output.sum !== undefined && output.sum !== null ? output.sum : undefined,
-    sumOfSquares: output.sumOfSquares !== undefined && output.sumOfSquares !== null ? output.sumOfSquares : undefined,
-    variance: output.variance !== undefined && output.variance !== null ? output.variance : undefined,
+    average: __expectNumber(output.average),
+    count: __expectNumber(output.count),
+    maximum: __expectNumber(output.maximum),
+    minimum: __expectNumber(output.minimum),
+    stdDeviation: __expectNumber(output.stdDeviation),
+    sum: __expectNumber(output.sum),
+    sumOfSquares: __expectNumber(output.sumOfSquares),
+    variance: __expectNumber(output.variance),
   } as any;
 };
 
 const deserializeAws_restJson1StepFunctionsAction = (output: any, context: __SerdeContext): StepFunctionsAction => {
   return {
-    executionNamePrefix:
-      output.executionNamePrefix !== undefined && output.executionNamePrefix !== null
-        ? output.executionNamePrefix
-        : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    stateMachineName:
-      output.stateMachineName !== undefined && output.stateMachineName !== null ? output.stateMachineName : undefined,
+    executionNamePrefix: __expectString(output.executionNamePrefix),
+    roleArn: __expectString(output.roleArn),
+    stateMachineName: __expectString(output.stateMachineName),
   } as any;
 };
 
 const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): _Stream => {
   return {
-    fileId: output.fileId !== undefined && output.fileId !== null ? output.fileId : undefined,
-    streamId: output.streamId !== undefined && output.streamId !== null ? output.streamId : undefined,
+    fileId: __expectNumber(output.fileId),
+    streamId: __expectString(output.streamId),
   } as any;
 };
 
 const deserializeAws_restJson1StreamFile = (output: any, context: __SerdeContext): StreamFile => {
   return {
-    fileId: output.fileId !== undefined && output.fileId !== null ? output.fileId : undefined,
+    fileId: __expectNumber(output.fileId),
     s3Location:
       output.s3Location !== undefined && output.s3Location !== null
         ? deserializeAws_restJson1S3Location(output.s3Location, context)
@@ -34349,7 +34106,7 @@ const deserializeAws_restJson1StreamInfo = (output: any, context: __SerdeContext
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     files:
       output.files !== undefined && output.files !== null
         ? deserializeAws_restJson1StreamFiles(output.files, context)
@@ -34358,11 +34115,10 @@ const deserializeAws_restJson1StreamInfo = (output: any, context: __SerdeContext
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    streamArn: output.streamArn !== undefined && output.streamArn !== null ? output.streamArn : undefined,
-    streamId: output.streamId !== undefined && output.streamId !== null ? output.streamId : undefined,
-    streamVersion:
-      output.streamVersion !== undefined && output.streamVersion !== null ? output.streamVersion : undefined,
+    roleArn: __expectString(output.roleArn),
+    streamArn: __expectString(output.streamArn),
+    streamId: __expectString(output.streamId),
+    streamVersion: __expectNumber(output.streamVersion),
   } as any;
 };
 
@@ -34379,11 +34135,10 @@ const deserializeAws_restJson1StreamsSummary = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeContext): StreamSummary => {
   return {
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    streamArn: output.streamArn !== undefined && output.streamArn !== null ? output.streamArn : undefined,
-    streamId: output.streamId !== undefined && output.streamId !== null ? output.streamId : undefined,
-    streamVersion:
-      output.streamVersion !== undefined && output.streamVersion !== null ? output.streamVersion : undefined,
+    description: __expectString(output.description),
+    streamArn: __expectString(output.streamArn),
+    streamId: __expectString(output.streamId),
+    streamVersion: __expectNumber(output.streamVersion),
   } as any;
 };
 
@@ -34394,7 +34149,7 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -34405,7 +34160,7 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -34417,14 +34172,14 @@ const deserializeAws_restJson1SubnetIdList = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -34446,7 +34201,7 @@ const deserializeAws_restJson1TargetAuditCheckNames = (output: any, context: __S
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -34457,7 +34212,7 @@ const deserializeAws_restJson1Targets = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -34471,7 +34226,7 @@ const deserializeAws_restJson1TargetViolationIdsForDetectMitigationActions = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -34482,28 +34237,19 @@ const deserializeAws_restJson1TaskIdList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1TaskStatistics = (output: any, context: __SerdeContext): TaskStatistics => {
   return {
-    canceledChecks:
-      output.canceledChecks !== undefined && output.canceledChecks !== null ? output.canceledChecks : undefined,
-    compliantChecks:
-      output.compliantChecks !== undefined && output.compliantChecks !== null ? output.compliantChecks : undefined,
-    failedChecks: output.failedChecks !== undefined && output.failedChecks !== null ? output.failedChecks : undefined,
-    inProgressChecks:
-      output.inProgressChecks !== undefined && output.inProgressChecks !== null ? output.inProgressChecks : undefined,
-    nonCompliantChecks:
-      output.nonCompliantChecks !== undefined && output.nonCompliantChecks !== null
-        ? output.nonCompliantChecks
-        : undefined,
-    totalChecks: output.totalChecks !== undefined && output.totalChecks !== null ? output.totalChecks : undefined,
-    waitingForDataCollectionChecks:
-      output.waitingForDataCollectionChecks !== undefined && output.waitingForDataCollectionChecks !== null
-        ? output.waitingForDataCollectionChecks
-        : undefined,
+    canceledChecks: __expectNumber(output.canceledChecks),
+    compliantChecks: __expectNumber(output.compliantChecks),
+    failedChecks: __expectNumber(output.failedChecks),
+    inProgressChecks: __expectNumber(output.inProgressChecks),
+    nonCompliantChecks: __expectNumber(output.nonCompliantChecks),
+    totalChecks: __expectNumber(output.totalChecks),
+    waitingForDataCollectionChecks: __expectNumber(output.waitingForDataCollectionChecks),
   } as any;
 };
 
@@ -34512,26 +34258,11 @@ const deserializeAws_restJson1TaskStatisticsForAuditCheck = (
   context: __SerdeContext
 ): TaskStatisticsForAuditCheck => {
   return {
-    canceledFindingsCount:
-      output.canceledFindingsCount !== undefined && output.canceledFindingsCount !== null
-        ? output.canceledFindingsCount
-        : undefined,
-    failedFindingsCount:
-      output.failedFindingsCount !== undefined && output.failedFindingsCount !== null
-        ? output.failedFindingsCount
-        : undefined,
-    skippedFindingsCount:
-      output.skippedFindingsCount !== undefined && output.skippedFindingsCount !== null
-        ? output.skippedFindingsCount
-        : undefined,
-    succeededFindingsCount:
-      output.succeededFindingsCount !== undefined && output.succeededFindingsCount !== null
-        ? output.succeededFindingsCount
-        : undefined,
-    totalFindingsCount:
-      output.totalFindingsCount !== undefined && output.totalFindingsCount !== null
-        ? output.totalFindingsCount
-        : undefined,
+    canceledFindingsCount: __expectNumber(output.canceledFindingsCount),
+    failedFindingsCount: __expectNumber(output.failedFindingsCount),
+    skippedFindingsCount: __expectNumber(output.skippedFindingsCount),
+    succeededFindingsCount: __expectNumber(output.succeededFindingsCount),
+    totalFindingsCount: __expectNumber(output.totalFindingsCount),
   } as any;
 };
 
@@ -34541,11 +34272,10 @@ const deserializeAws_restJson1ThingAttribute = (output: any, context: __SerdeCon
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1Attributes(output.attributes, context)
         : undefined,
-    thingArn: output.thingArn !== undefined && output.thingArn !== null ? output.thingArn : undefined,
-    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
-    thingTypeName:
-      output.thingTypeName !== undefined && output.thingTypeName !== null ? output.thingTypeName : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    thingArn: __expectString(output.thingArn),
+    thingName: __expectString(output.thingName),
+    thingTypeName: __expectString(output.thingTypeName),
+    version: __expectNumber(output.version),
   } as any;
 };
 
@@ -34562,8 +34292,8 @@ const deserializeAws_restJson1ThingAttributeList = (output: any, context: __Serd
 
 const deserializeAws_restJson1ThingConnectivity = (output: any, context: __SerdeContext): ThingConnectivity => {
   return {
-    connected: output.connected !== undefined && output.connected !== null ? output.connected : undefined,
-    timestamp: output.timestamp !== undefined && output.timestamp !== null ? output.timestamp : undefined,
+    connected: __expectBoolean(output.connected),
+    timestamp: __expectNumber(output.timestamp),
   } as any;
 };
 
@@ -34577,15 +34307,14 @@ const deserializeAws_restJson1ThingDocument = (output: any, context: __SerdeCont
       output.connectivity !== undefined && output.connectivity !== null
         ? deserializeAws_restJson1ThingConnectivity(output.connectivity, context)
         : undefined,
-    shadow: output.shadow !== undefined && output.shadow !== null ? output.shadow : undefined,
+    shadow: __expectString(output.shadow),
     thingGroupNames:
       output.thingGroupNames !== undefined && output.thingGroupNames !== null
         ? deserializeAws_restJson1ThingGroupNameList(output.thingGroupNames, context)
         : undefined,
-    thingId: output.thingId !== undefined && output.thingId !== null ? output.thingId : undefined,
-    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
-    thingTypeName:
-      output.thingTypeName !== undefined && output.thingTypeName !== null ? output.thingTypeName : undefined,
+    thingId: __expectString(output.thingId),
+    thingName: __expectString(output.thingName),
+    thingTypeName: __expectString(output.thingTypeName),
   } as any;
 };
 
@@ -34610,13 +34339,9 @@ const deserializeAws_restJson1ThingGroupDocument = (output: any, context: __Serd
       output.parentGroupNames !== undefined && output.parentGroupNames !== null
         ? deserializeAws_restJson1ThingGroupNameList(output.parentGroupNames, context)
         : undefined,
-    thingGroupDescription:
-      output.thingGroupDescription !== undefined && output.thingGroupDescription !== null
-        ? output.thingGroupDescription
-        : undefined,
-    thingGroupId: output.thingGroupId !== undefined && output.thingGroupId !== null ? output.thingGroupId : undefined,
-    thingGroupName:
-      output.thingGroupName !== undefined && output.thingGroupName !== null ? output.thingGroupName : undefined,
+    thingGroupDescription: __expectString(output.thingGroupDescription),
+    thingGroupId: __expectString(output.thingGroupId),
+    thingGroupName: __expectString(output.thingGroupName),
   } as any;
 };
 
@@ -34644,10 +34369,7 @@ const deserializeAws_restJson1ThingGroupIndexingConfiguration = (
       output.managedFields !== undefined && output.managedFields !== null
         ? deserializeAws_restJson1Fields(output.managedFields, context)
         : undefined,
-    thingGroupIndexingMode:
-      output.thingGroupIndexingMode !== undefined && output.thingGroupIndexingMode !== null
-        ? output.thingGroupIndexingMode
-        : undefined,
+    thingGroupIndexingMode: __expectString(output.thingGroupIndexingMode),
   } as any;
 };
 
@@ -34657,8 +34379,7 @@ const deserializeAws_restJson1ThingGroupMetadata = (output: any, context: __Serd
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    parentGroupName:
-      output.parentGroupName !== undefined && output.parentGroupName !== null ? output.parentGroupName : undefined,
+    parentGroupName: __expectString(output.parentGroupName),
     rootToParentThingGroups:
       output.rootToParentThingGroups !== undefined && output.rootToParentThingGroups !== null
         ? deserializeAws_restJson1ThingGroupNameAndArnList(output.rootToParentThingGroups, context)
@@ -34684,7 +34405,7 @@ const deserializeAws_restJson1ThingGroupNameList = (output: any, context: __Serd
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -34695,7 +34416,7 @@ const deserializeAws_restJson1ThingGroupNames = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -34705,10 +34426,7 @@ const deserializeAws_restJson1ThingGroupProperties = (output: any, context: __Se
       output.attributePayload !== undefined && output.attributePayload !== null
         ? deserializeAws_restJson1AttributePayload(output.attributePayload, context)
         : undefined,
-    thingGroupDescription:
-      output.thingGroupDescription !== undefined && output.thingGroupDescription !== null
-        ? output.thingGroupDescription
-        : undefined,
+    thingGroupDescription: __expectString(output.thingGroupDescription),
   } as any;
 };
 
@@ -34725,14 +34443,8 @@ const deserializeAws_restJson1ThingIndexingConfiguration = (
       output.managedFields !== undefined && output.managedFields !== null
         ? deserializeAws_restJson1Fields(output.managedFields, context)
         : undefined,
-    thingConnectivityIndexingMode:
-      output.thingConnectivityIndexingMode !== undefined && output.thingConnectivityIndexingMode !== null
-        ? output.thingConnectivityIndexingMode
-        : undefined,
-    thingIndexingMode:
-      output.thingIndexingMode !== undefined && output.thingIndexingMode !== null
-        ? output.thingIndexingMode
-        : undefined,
+    thingConnectivityIndexingMode: __expectString(output.thingConnectivityIndexingMode),
+    thingIndexingMode: __expectString(output.thingIndexingMode),
   } as any;
 };
 
@@ -34743,19 +34455,18 @@ const deserializeAws_restJson1ThingNameList = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1ThingTypeDefinition = (output: any, context: __SerdeContext): ThingTypeDefinition => {
   return {
-    thingTypeArn: output.thingTypeArn !== undefined && output.thingTypeArn !== null ? output.thingTypeArn : undefined,
+    thingTypeArn: __expectString(output.thingTypeArn),
     thingTypeMetadata:
       output.thingTypeMetadata !== undefined && output.thingTypeMetadata !== null
         ? deserializeAws_restJson1ThingTypeMetadata(output.thingTypeMetadata, context)
         : undefined,
-    thingTypeName:
-      output.thingTypeName !== undefined && output.thingTypeName !== null ? output.thingTypeName : undefined,
+    thingTypeName: __expectString(output.thingTypeName),
     thingTypeProperties:
       output.thingTypeProperties !== undefined && output.thingTypeProperties !== null
         ? deserializeAws_restJson1ThingTypeProperties(output.thingTypeProperties, context)
@@ -34780,7 +34491,7 @@ const deserializeAws_restJson1ThingTypeMetadata = (output: any, context: __Serde
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    deprecated: output.deprecated !== undefined && output.deprecated !== null ? output.deprecated : undefined,
+    deprecated: __expectBoolean(output.deprecated),
     deprecationDate:
       output.deprecationDate !== undefined && output.deprecationDate !== null
         ? new Date(Math.round(output.deprecationDate * 1000))
@@ -34794,31 +34505,25 @@ const deserializeAws_restJson1ThingTypeProperties = (output: any, context: __Ser
       output.searchableAttributes !== undefined && output.searchableAttributes !== null
         ? deserializeAws_restJson1SearchableAttributes(output.searchableAttributes, context)
         : undefined,
-    thingTypeDescription:
-      output.thingTypeDescription !== undefined && output.thingTypeDescription !== null
-        ? output.thingTypeDescription
-        : undefined,
+    thingTypeDescription: __expectString(output.thingTypeDescription),
   } as any;
 };
 
 const deserializeAws_restJson1TimeoutConfig = (output: any, context: __SerdeContext): TimeoutConfig => {
   return {
-    inProgressTimeoutInMinutes:
-      output.inProgressTimeoutInMinutes !== undefined && output.inProgressTimeoutInMinutes !== null
-        ? output.inProgressTimeoutInMinutes
-        : undefined,
+    inProgressTimeoutInMinutes: __expectNumber(output.inProgressTimeoutInMinutes),
   } as any;
 };
 
 const deserializeAws_restJson1TimestreamAction = (output: any, context: __SerdeContext): TimestreamAction => {
   return {
-    databaseName: output.databaseName !== undefined && output.databaseName !== null ? output.databaseName : undefined,
+    databaseName: __expectString(output.databaseName),
     dimensions:
       output.dimensions !== undefined && output.dimensions !== null
         ? deserializeAws_restJson1TimestreamDimensionList(output.dimensions, context)
         : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    tableName: output.tableName !== undefined && output.tableName !== null ? output.tableName : undefined,
+    roleArn: __expectString(output.roleArn),
+    tableName: __expectString(output.tableName),
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
         ? deserializeAws_restJson1TimestreamTimestamp(output.timestamp, context)
@@ -34828,8 +34533,8 @@ const deserializeAws_restJson1TimestreamAction = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1TimestreamDimension = (output: any, context: __SerdeContext): TimestreamDimension => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    name: __expectString(output.name),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -34849,8 +34554,8 @@ const deserializeAws_restJson1TimestreamDimensionList = (
 
 const deserializeAws_restJson1TimestreamTimestamp = (output: any, context: __SerdeContext): TimestreamTimestamp => {
   return {
-    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    unit: __expectString(output.unit),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -34860,26 +34565,25 @@ const deserializeAws_restJson1TopicRule = (output: any, context: __SerdeContext)
       output.actions !== undefined && output.actions !== null
         ? deserializeAws_restJson1ActionList(output.actions, context)
         : undefined,
-    awsIotSqlVersion:
-      output.awsIotSqlVersion !== undefined && output.awsIotSqlVersion !== null ? output.awsIotSqlVersion : undefined,
+    awsIotSqlVersion: __expectString(output.awsIotSqlVersion),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     errorAction:
       output.errorAction !== undefined && output.errorAction !== null
         ? deserializeAws_restJson1Action(output.errorAction, context)
         : undefined,
-    ruleDisabled: output.ruleDisabled !== undefined && output.ruleDisabled !== null ? output.ruleDisabled : undefined,
-    ruleName: output.ruleName !== undefined && output.ruleName !== null ? output.ruleName : undefined,
-    sql: output.sql !== undefined && output.sql !== null ? output.sql : undefined,
+    ruleDisabled: __expectBoolean(output.ruleDisabled),
+    ruleName: __expectString(output.ruleName),
+    sql: __expectString(output.sql),
   } as any;
 };
 
 const deserializeAws_restJson1TopicRuleDestination = (output: any, context: __SerdeContext): TopicRuleDestination => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -34892,8 +34596,8 @@ const deserializeAws_restJson1TopicRuleDestination = (output: any, context: __Se
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined,
+    status: __expectString(output.status),
+    statusReason: __expectString(output.statusReason),
     vpcProperties:
       output.vpcProperties !== undefined && output.vpcProperties !== null
         ? deserializeAws_restJson1VpcDestinationProperties(output.vpcProperties, context)
@@ -34920,7 +34624,7 @@ const deserializeAws_restJson1TopicRuleDestinationSummary = (
   context: __SerdeContext
 ): TopicRuleDestinationSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -34933,8 +34637,8 @@ const deserializeAws_restJson1TopicRuleDestinationSummary = (
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined,
+    status: __expectString(output.status),
+    statusReason: __expectString(output.statusReason),
     vpcDestinationSummary:
       output.vpcDestinationSummary !== undefined && output.vpcDestinationSummary !== null
         ? deserializeAws_restJson1VpcDestinationSummary(output.vpcDestinationSummary, context)
@@ -34959,10 +34663,10 @@ const deserializeAws_restJson1TopicRuleListItem = (output: any, context: __Serde
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    ruleArn: output.ruleArn !== undefined && output.ruleArn !== null ? output.ruleArn : undefined,
-    ruleDisabled: output.ruleDisabled !== undefined && output.ruleDisabled !== null ? output.ruleDisabled : undefined,
-    ruleName: output.ruleName !== undefined && output.ruleName !== null ? output.ruleName : undefined,
-    topicPattern: output.topicPattern !== undefined && output.topicPattern !== null ? output.topicPattern : undefined,
+    ruleArn: __expectString(output.ruleArn),
+    ruleDisabled: __expectBoolean(output.ruleDisabled),
+    ruleName: __expectString(output.ruleName),
+    topicPattern: __expectString(output.topicPattern),
   } as any;
 };
 
@@ -34976,13 +34680,12 @@ const deserializeAws_restJson1TransferData = (output: any, context: __SerdeConte
       output.rejectDate !== undefined && output.rejectDate !== null
         ? new Date(Math.round(output.rejectDate * 1000))
         : undefined,
-    rejectReason: output.rejectReason !== undefined && output.rejectReason !== null ? output.rejectReason : undefined,
+    rejectReason: __expectString(output.rejectReason),
     transferDate:
       output.transferDate !== undefined && output.transferDate !== null
         ? new Date(Math.round(output.transferDate * 1000))
         : undefined,
-    transferMessage:
-      output.transferMessage !== undefined && output.transferMessage !== null ? output.transferMessage : undefined,
+    transferMessage: __expectString(output.transferMessage),
   } as any;
 };
 
@@ -34991,7 +34694,7 @@ const deserializeAws_restJson1UpdateCACertificateParams = (
   context: __SerdeContext
 ): UpdateCACertificateParams => {
   return {
-    action: output.action !== undefined && output.action !== null ? output.action : undefined,
+    action: __expectString(output.action),
   } as any;
 };
 
@@ -35000,13 +34703,13 @@ const deserializeAws_restJson1UpdateDeviceCertificateParams = (
   context: __SerdeContext
 ): UpdateDeviceCertificateParams => {
   return {
-    action: output.action !== undefined && output.action !== null ? output.action : undefined,
+    action: __expectString(output.action),
   } as any;
 };
 
 const deserializeAws_restJson1ValidationError = (output: any, context: __SerdeContext): ValidationError => {
   return {
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
+    errorMessage: __expectString(output.errorMessage),
   } as any;
 };
 
@@ -35031,11 +34734,8 @@ const deserializeAws_restJson1ViolationEvent = (output: any, context: __SerdeCon
       output.metricValue !== undefined && output.metricValue !== null
         ? deserializeAws_restJson1MetricValue(output.metricValue, context)
         : undefined,
-    securityProfileName:
-      output.securityProfileName !== undefined && output.securityProfileName !== null
-        ? output.securityProfileName
-        : undefined,
-    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
+    securityProfileName: __expectString(output.securityProfileName),
+    thingName: __expectString(output.thingName),
     violationEventAdditionalInfo:
       output.violationEventAdditionalInfo !== undefined && output.violationEventAdditionalInfo !== null
         ? deserializeAws_restJson1ViolationEventAdditionalInfo(output.violationEventAdditionalInfo, context)
@@ -35044,11 +34744,8 @@ const deserializeAws_restJson1ViolationEvent = (output: any, context: __SerdeCon
       output.violationEventTime !== undefined && output.violationEventTime !== null
         ? new Date(Math.round(output.violationEventTime * 1000))
         : undefined,
-    violationEventType:
-      output.violationEventType !== undefined && output.violationEventType !== null
-        ? output.violationEventType
-        : undefined,
-    violationId: output.violationId !== undefined && output.violationId !== null ? output.violationId : undefined,
+    violationEventType: __expectString(output.violationEventType),
+    violationId: __expectString(output.violationId),
   } as any;
 };
 
@@ -35057,8 +34754,7 @@ const deserializeAws_restJson1ViolationEventAdditionalInfo = (
   context: __SerdeContext
 ): ViolationEventAdditionalInfo => {
   return {
-    confidenceLevel:
-      output.confidenceLevel !== undefined && output.confidenceLevel !== null ? output.confidenceLevel : undefined,
+    confidenceLevel: __expectString(output.confidenceLevel),
   } as any;
 };
 
@@ -35092,7 +34788,7 @@ const deserializeAws_restJson1VpcDestinationProperties = (
   context: __SerdeContext
 ): VpcDestinationProperties => {
   return {
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    roleArn: __expectString(output.roleArn),
     securityGroups:
       output.securityGroups !== undefined && output.securityGroups !== null
         ? deserializeAws_restJson1SecurityGroupList(output.securityGroups, context)
@@ -35101,13 +34797,13 @@ const deserializeAws_restJson1VpcDestinationProperties = (
       output.subnetIds !== undefined && output.subnetIds !== null
         ? deserializeAws_restJson1SubnetIdList(output.subnetIds, context)
         : undefined,
-    vpcId: output.vpcId !== undefined && output.vpcId !== null ? output.vpcId : undefined,
+    vpcId: __expectString(output.vpcId),
   } as any;
 };
 
 const deserializeAws_restJson1VpcDestinationSummary = (output: any, context: __SerdeContext): VpcDestinationSummary => {
   return {
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    roleArn: __expectString(output.roleArn),
     securityGroups:
       output.securityGroups !== undefined && output.securityGroups !== null
         ? deserializeAws_restJson1SecurityGroupList(output.securityGroups, context)
@@ -35116,7 +34812,7 @@ const deserializeAws_restJson1VpcDestinationSummary = (output: any, context: __S
       output.subnetIds !== undefined && output.subnetIds !== null
         ? deserializeAws_restJson1SubnetIdList(output.subnetIds, context)
         : undefined,
-    vpcId: output.vpcId !== undefined && output.vpcId !== null ? output.vpcId : undefined,
+    vpcId: __expectString(output.vpcId),
   } as any;
 };
 

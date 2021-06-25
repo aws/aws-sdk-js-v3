@@ -96,6 +96,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1225,7 +1228,7 @@ export const deserializeAws_restJson1AddProfileKeyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.KeyName !== undefined && data.KeyName !== null) {
-    contents.KeyName = data.KeyName;
+    contents.KeyName = __expectString(data.KeyName);
   }
   if (data.Values !== undefined && data.Values !== null) {
     contents.Values = deserializeAws_restJson1requestValueList(data.Values, context);
@@ -1325,16 +1328,16 @@ export const deserializeAws_restJson1CreateDomainCommand = async (
     contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
   }
   if (data.DeadLetterQueueUrl !== undefined && data.DeadLetterQueueUrl !== null) {
-    contents.DeadLetterQueueUrl = data.DeadLetterQueueUrl;
+    contents.DeadLetterQueueUrl = __expectString(data.DeadLetterQueueUrl);
   }
   if (data.DefaultEncryptionKey !== undefined && data.DefaultEncryptionKey !== null) {
-    contents.DefaultEncryptionKey = data.DefaultEncryptionKey;
+    contents.DefaultEncryptionKey = __expectString(data.DefaultEncryptionKey);
   }
   if (data.DefaultExpirationDays !== undefined && data.DefaultExpirationDays !== null) {
-    contents.DefaultExpirationDays = data.DefaultExpirationDays;
+    contents.DefaultExpirationDays = __expectNumber(data.DefaultExpirationDays);
   }
   if (data.DomainName !== undefined && data.DomainName !== null) {
-    contents.DomainName = data.DomainName;
+    contents.DomainName = __expectString(data.DomainName);
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
     contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
@@ -1430,7 +1433,7 @@ export const deserializeAws_restJson1CreateProfileCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ProfileId !== undefined && data.ProfileId !== null) {
-    contents.ProfileId = data.ProfileId;
+    contents.ProfileId = __expectString(data.ProfileId);
   }
   return Promise.resolve(contents);
 };
@@ -1517,7 +1520,7 @@ export const deserializeAws_restJson1DeleteDomainCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return Promise.resolve(contents);
 };
@@ -1604,7 +1607,7 @@ export const deserializeAws_restJson1DeleteIntegrationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return Promise.resolve(contents);
 };
@@ -1691,7 +1694,7 @@ export const deserializeAws_restJson1DeleteProfileCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return Promise.resolve(contents);
 };
@@ -1778,7 +1781,7 @@ export const deserializeAws_restJson1DeleteProfileKeyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return Promise.resolve(contents);
 };
@@ -1865,7 +1868,7 @@ export const deserializeAws_restJson1DeleteProfileObjectCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return Promise.resolve(contents);
 };
@@ -1952,7 +1955,7 @@ export const deserializeAws_restJson1DeleteProfileObjectTypeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return Promise.resolve(contents);
 };
@@ -2050,16 +2053,16 @@ export const deserializeAws_restJson1GetDomainCommand = async (
     contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
   }
   if (data.DeadLetterQueueUrl !== undefined && data.DeadLetterQueueUrl !== null) {
-    contents.DeadLetterQueueUrl = data.DeadLetterQueueUrl;
+    contents.DeadLetterQueueUrl = __expectString(data.DeadLetterQueueUrl);
   }
   if (data.DefaultEncryptionKey !== undefined && data.DefaultEncryptionKey !== null) {
-    contents.DefaultEncryptionKey = data.DefaultEncryptionKey;
+    contents.DefaultEncryptionKey = __expectString(data.DefaultEncryptionKey);
   }
   if (data.DefaultExpirationDays !== undefined && data.DefaultExpirationDays !== null) {
-    contents.DefaultExpirationDays = data.DefaultExpirationDays;
+    contents.DefaultExpirationDays = __expectNumber(data.DefaultExpirationDays);
   }
   if (data.DomainName !== undefined && data.DomainName !== null) {
-    contents.DomainName = data.DomainName;
+    contents.DomainName = __expectString(data.DomainName);
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
     contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
@@ -2166,19 +2169,19 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
     contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
   }
   if (data.DomainName !== undefined && data.DomainName !== null) {
-    contents.DomainName = data.DomainName;
+    contents.DomainName = __expectString(data.DomainName);
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
     contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
   }
   if (data.ObjectTypeName !== undefined && data.ObjectTypeName !== null) {
-    contents.ObjectTypeName = data.ObjectTypeName;
+    contents.ObjectTypeName = __expectString(data.ObjectTypeName);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
   if (data.Uri !== undefined && data.Uri !== null) {
-    contents.Uri = data.Uri;
+    contents.Uri = __expectString(data.Uri);
   }
   return Promise.resolve(contents);
 };
@@ -2274,10 +2277,10 @@ export const deserializeAws_restJson1GetMatchesCommand = async (
     contents.Matches = deserializeAws_restJson1MatchesList(data.Matches, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.PotentialMatches !== undefined && data.PotentialMatches !== null) {
-    contents.PotentialMatches = data.PotentialMatches;
+    contents.PotentialMatches = __expectNumber(data.PotentialMatches);
   }
   return Promise.resolve(contents);
 };
@@ -2374,19 +2377,19 @@ export const deserializeAws_restJson1GetProfileObjectTypeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AllowProfileCreation !== undefined && data.AllowProfileCreation !== null) {
-    contents.AllowProfileCreation = data.AllowProfileCreation;
+    contents.AllowProfileCreation = __expectBoolean(data.AllowProfileCreation);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.EncryptionKey !== undefined && data.EncryptionKey !== null) {
-    contents.EncryptionKey = data.EncryptionKey;
+    contents.EncryptionKey = __expectString(data.EncryptionKey);
   }
   if (data.ExpirationDays !== undefined && data.ExpirationDays !== null) {
-    contents.ExpirationDays = data.ExpirationDays;
+    contents.ExpirationDays = __expectNumber(data.ExpirationDays);
   }
   if (data.Fields !== undefined && data.Fields !== null) {
     contents.Fields = deserializeAws_restJson1FieldMap(data.Fields, context);
@@ -2398,13 +2401,13 @@ export const deserializeAws_restJson1GetProfileObjectTypeCommand = async (
     contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
   }
   if (data.ObjectTypeName !== undefined && data.ObjectTypeName !== null) {
-    contents.ObjectTypeName = data.ObjectTypeName;
+    contents.ObjectTypeName = __expectString(data.ObjectTypeName);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
   if (data.TemplateId !== undefined && data.TemplateId !== null) {
-    contents.TemplateId = data.TemplateId;
+    contents.TemplateId = __expectString(data.TemplateId);
   }
   return Promise.resolve(contents);
 };
@@ -2496,7 +2499,7 @@ export const deserializeAws_restJson1GetProfileObjectTypeTemplateCommand = async
   };
   const data: any = await parseBody(output.body, context);
   if (data.AllowProfileCreation !== undefined && data.AllowProfileCreation !== null) {
-    contents.AllowProfileCreation = data.AllowProfileCreation;
+    contents.AllowProfileCreation = __expectBoolean(data.AllowProfileCreation);
   }
   if (data.Fields !== undefined && data.Fields !== null) {
     contents.Fields = deserializeAws_restJson1FieldMap(data.Fields, context);
@@ -2505,13 +2508,13 @@ export const deserializeAws_restJson1GetProfileObjectTypeTemplateCommand = async
     contents.Keys = deserializeAws_restJson1KeyMap(data.Keys, context);
   }
   if (data.SourceName !== undefined && data.SourceName !== null) {
-    contents.SourceName = data.SourceName;
+    contents.SourceName = __expectString(data.SourceName);
   }
   if (data.SourceObject !== undefined && data.SourceObject !== null) {
-    contents.SourceObject = data.SourceObject;
+    contents.SourceObject = __expectString(data.SourceObject);
   }
   if (data.TemplateId !== undefined && data.TemplateId !== null) {
-    contents.TemplateId = data.TemplateId;
+    contents.TemplateId = __expectString(data.TemplateId);
   }
   return Promise.resolve(contents);
 };
@@ -2602,7 +2605,7 @@ export const deserializeAws_restJson1ListAccountIntegrationsCommand = async (
     contents.Items = deserializeAws_restJson1IntegrationList(data.Items, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2693,7 +2696,7 @@ export const deserializeAws_restJson1ListDomainsCommand = async (
     contents.Items = deserializeAws_restJson1DomainList(data.Items, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2784,7 +2787,7 @@ export const deserializeAws_restJson1ListIntegrationsCommand = async (
     contents.Items = deserializeAws_restJson1IntegrationList(data.Items, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2875,7 +2878,7 @@ export const deserializeAws_restJson1ListProfileObjectsCommand = async (
     contents.Items = deserializeAws_restJson1ProfileObjectList(data.Items, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2966,7 +2969,7 @@ export const deserializeAws_restJson1ListProfileObjectTypesCommand = async (
     contents.Items = deserializeAws_restJson1ProfileObjectTypeList(data.Items, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3057,7 +3060,7 @@ export const deserializeAws_restJson1ListProfileObjectTypeTemplatesCommand = asy
     contents.Items = deserializeAws_restJson1ProfileObjectTypeTemplateList(data.Items, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3215,7 +3218,7 @@ export const deserializeAws_restJson1MergeProfilesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return Promise.resolve(contents);
 };
@@ -3302,19 +3305,19 @@ export const deserializeAws_restJson1PutIntegrationCommand = async (
     contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
   }
   if (data.DomainName !== undefined && data.DomainName !== null) {
-    contents.DomainName = data.DomainName;
+    contents.DomainName = __expectString(data.DomainName);
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
     contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
   }
   if (data.ObjectTypeName !== undefined && data.ObjectTypeName !== null) {
-    contents.ObjectTypeName = data.ObjectTypeName;
+    contents.ObjectTypeName = __expectString(data.ObjectTypeName);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
   if (data.Uri !== undefined && data.Uri !== null) {
-    contents.Uri = data.Uri;
+    contents.Uri = __expectString(data.Uri);
   }
   return Promise.resolve(contents);
 };
@@ -3401,7 +3404,7 @@ export const deserializeAws_restJson1PutProfileObjectCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ProfileObjectUniqueKey !== undefined && data.ProfileObjectUniqueKey !== null) {
-    contents.ProfileObjectUniqueKey = data.ProfileObjectUniqueKey;
+    contents.ProfileObjectUniqueKey = __expectString(data.ProfileObjectUniqueKey);
   }
   return Promise.resolve(contents);
 };
@@ -3498,19 +3501,19 @@ export const deserializeAws_restJson1PutProfileObjectTypeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AllowProfileCreation !== undefined && data.AllowProfileCreation !== null) {
-    contents.AllowProfileCreation = data.AllowProfileCreation;
+    contents.AllowProfileCreation = __expectBoolean(data.AllowProfileCreation);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.EncryptionKey !== undefined && data.EncryptionKey !== null) {
-    contents.EncryptionKey = data.EncryptionKey;
+    contents.EncryptionKey = __expectString(data.EncryptionKey);
   }
   if (data.ExpirationDays !== undefined && data.ExpirationDays !== null) {
-    contents.ExpirationDays = data.ExpirationDays;
+    contents.ExpirationDays = __expectNumber(data.ExpirationDays);
   }
   if (data.Fields !== undefined && data.Fields !== null) {
     contents.Fields = deserializeAws_restJson1FieldMap(data.Fields, context);
@@ -3522,13 +3525,13 @@ export const deserializeAws_restJson1PutProfileObjectTypeCommand = async (
     contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
   }
   if (data.ObjectTypeName !== undefined && data.ObjectTypeName !== null) {
-    contents.ObjectTypeName = data.ObjectTypeName;
+    contents.ObjectTypeName = __expectString(data.ObjectTypeName);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
   }
   if (data.TemplateId !== undefined && data.TemplateId !== null) {
-    contents.TemplateId = data.TemplateId;
+    contents.TemplateId = __expectString(data.TemplateId);
   }
   return Promise.resolve(contents);
 };
@@ -3619,7 +3622,7 @@ export const deserializeAws_restJson1SearchProfilesCommand = async (
     contents.Items = deserializeAws_restJson1ProfileList(data.Items, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3850,16 +3853,16 @@ export const deserializeAws_restJson1UpdateDomainCommand = async (
     contents.CreatedAt = new Date(Math.round(data.CreatedAt * 1000));
   }
   if (data.DeadLetterQueueUrl !== undefined && data.DeadLetterQueueUrl !== null) {
-    contents.DeadLetterQueueUrl = data.DeadLetterQueueUrl;
+    contents.DeadLetterQueueUrl = __expectString(data.DeadLetterQueueUrl);
   }
   if (data.DefaultEncryptionKey !== undefined && data.DefaultEncryptionKey !== null) {
-    contents.DefaultEncryptionKey = data.DefaultEncryptionKey;
+    contents.DefaultEncryptionKey = __expectString(data.DefaultEncryptionKey);
   }
   if (data.DefaultExpirationDays !== undefined && data.DefaultExpirationDays !== null) {
-    contents.DefaultExpirationDays = data.DefaultExpirationDays;
+    contents.DefaultExpirationDays = __expectNumber(data.DefaultExpirationDays);
   }
   if (data.DomainName !== undefined && data.DomainName !== null) {
-    contents.DomainName = data.DomainName;
+    contents.DomainName = __expectString(data.DomainName);
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
     contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
@@ -3955,7 +3958,7 @@ export const deserializeAws_restJson1UpdateProfileCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ProfileId !== undefined && data.ProfileId !== null) {
-    contents.ProfileId = data.ProfileId;
+    contents.ProfileId = __expectString(data.ProfileId);
   }
   return Promise.resolve(contents);
 };
@@ -4041,7 +4044,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4058,7 +4061,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4075,7 +4078,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4092,7 +4095,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4109,7 +4112,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4558,16 +4561,16 @@ const serializeAws_restJson1ZendeskSourceProperties = (
 
 const deserializeAws_restJson1Address = (output: any, context: __SerdeContext): Address => {
   return {
-    Address1: output.Address1 !== undefined && output.Address1 !== null ? output.Address1 : undefined,
-    Address2: output.Address2 !== undefined && output.Address2 !== null ? output.Address2 : undefined,
-    Address3: output.Address3 !== undefined && output.Address3 !== null ? output.Address3 : undefined,
-    Address4: output.Address4 !== undefined && output.Address4 !== null ? output.Address4 : undefined,
-    City: output.City !== undefined && output.City !== null ? output.City : undefined,
-    Country: output.Country !== undefined && output.Country !== null ? output.Country : undefined,
-    County: output.County !== undefined && output.County !== null ? output.County : undefined,
-    PostalCode: output.PostalCode !== undefined && output.PostalCode !== null ? output.PostalCode : undefined,
-    Province: output.Province !== undefined && output.Province !== null ? output.Province : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Address1: __expectString(output.Address1),
+    Address2: __expectString(output.Address2),
+    Address3: __expectString(output.Address3),
+    Address4: __expectString(output.Address4),
+    City: __expectString(output.City),
+    Country: __expectString(output.Country),
+    County: __expectString(output.County),
+    PostalCode: __expectString(output.PostalCode),
+    Province: __expectString(output.Province),
+    State: __expectString(output.State),
   } as any;
 };
 
@@ -4578,7 +4581,7 @@ const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4596,13 +4599,10 @@ const deserializeAws_restJson1DomainList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1DomainStats = (output: any, context: __SerdeContext): DomainStats => {
   return {
-    MeteringProfileCount:
-      output.MeteringProfileCount !== undefined && output.MeteringProfileCount !== null
-        ? output.MeteringProfileCount
-        : undefined,
-    ObjectCount: output.ObjectCount !== undefined && output.ObjectCount !== null ? output.ObjectCount : undefined,
-    ProfileCount: output.ProfileCount !== undefined && output.ProfileCount !== null ? output.ProfileCount : undefined,
-    TotalSize: output.TotalSize !== undefined && output.TotalSize !== null ? output.TotalSize : undefined,
+    MeteringProfileCount: __expectNumber(output.MeteringProfileCount),
+    ObjectCount: __expectNumber(output.ObjectCount),
+    ProfileCount: __expectNumber(output.ProfileCount),
+    TotalSize: __expectNumber(output.TotalSize),
   } as any;
 };
 
@@ -4625,7 +4625,7 @@ const deserializeAws_restJson1FieldNameList = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4658,7 +4658,7 @@ const deserializeAws_restJson1ListDomainItem = (output: any, context: __SerdeCon
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    DomainName: __expectString(output.DomainName),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
@@ -4676,18 +4676,17 @@ const deserializeAws_restJson1ListIntegrationItem = (output: any, context: __Ser
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    DomainName: __expectString(output.DomainName),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
-    ObjectTypeName:
-      output.ObjectTypeName !== undefined && output.ObjectTypeName !== null ? output.ObjectTypeName : undefined,
+    ObjectTypeName: __expectString(output.ObjectTypeName),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagMap(output.Tags, context)
         : undefined,
-    Uri: output.Uri !== undefined && output.Uri !== null ? output.Uri : undefined,
+    Uri: __expectString(output.Uri),
   } as any;
 };
 
@@ -4696,13 +4695,9 @@ const deserializeAws_restJson1ListProfileObjectsItem = (
   context: __SerdeContext
 ): ListProfileObjectsItem => {
   return {
-    Object: output.Object !== undefined && output.Object !== null ? output.Object : undefined,
-    ObjectTypeName:
-      output.ObjectTypeName !== undefined && output.ObjectTypeName !== null ? output.ObjectTypeName : undefined,
-    ProfileObjectUniqueKey:
-      output.ProfileObjectUniqueKey !== undefined && output.ProfileObjectUniqueKey !== null
-        ? output.ProfileObjectUniqueKey
-        : undefined,
+    Object: __expectString(output.Object),
+    ObjectTypeName: __expectString(output.ObjectTypeName),
+    ProfileObjectUniqueKey: __expectString(output.ProfileObjectUniqueKey),
   } as any;
 };
 
@@ -4715,13 +4710,12 @@ const deserializeAws_restJson1ListProfileObjectTypeItem = (
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Description: __expectString(output.Description),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
-    ObjectTypeName:
-      output.ObjectTypeName !== undefined && output.ObjectTypeName !== null ? output.ObjectTypeName : undefined,
+    ObjectTypeName: __expectString(output.ObjectTypeName),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagMap(output.Tags, context)
@@ -4734,9 +4728,9 @@ const deserializeAws_restJson1ListProfileObjectTypeTemplateItem = (
   context: __SerdeContext
 ): ListProfileObjectTypeTemplateItem => {
   return {
-    SourceName: output.SourceName !== undefined && output.SourceName !== null ? output.SourceName : undefined,
-    SourceObject: output.SourceObject !== undefined && output.SourceObject !== null ? output.SourceObject : undefined,
-    TemplateId: output.TemplateId !== undefined && output.TemplateId !== null ? output.TemplateId : undefined,
+    SourceName: __expectString(output.SourceName),
+    SourceObject: __expectString(output.SourceObject),
+    TemplateId: __expectString(output.TemplateId),
   } as any;
 };
 
@@ -4753,13 +4747,13 @@ const deserializeAws_restJson1MatchesList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1MatchingResponse = (output: any, context: __SerdeContext): MatchingResponse => {
   return {
-    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+    Enabled: __expectBoolean(output.Enabled),
   } as any;
 };
 
 const deserializeAws_restJson1MatchItem = (output: any, context: __SerdeContext): MatchItem => {
   return {
-    MatchId: output.MatchId !== undefined && output.MatchId !== null ? output.MatchId : undefined,
+    MatchId: __expectString(output.MatchId),
     ProfileIds:
       output.ProfileIds !== undefined && output.ProfileIds !== null
         ? deserializeAws_restJson1ProfileIdList(output.ProfileIds, context)
@@ -4769,9 +4763,9 @@ const deserializeAws_restJson1MatchItem = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1ObjectTypeField = (output: any, context: __SerdeContext): ObjectTypeField => {
   return {
-    ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
-    Source: output.Source !== undefined && output.Source !== null ? output.Source : undefined,
-    Target: output.Target !== undefined && output.Target !== null ? output.Target : undefined,
+    ContentType: __expectString(output.ContentType),
+    Source: __expectString(output.Source),
+    Target: __expectString(output.Target),
   } as any;
 };
 
@@ -4801,12 +4795,8 @@ const deserializeAws_restJson1ObjectTypeKeyList = (output: any, context: __Serde
 
 const deserializeAws_restJson1Profile = (output: any, context: __SerdeContext): Profile => {
   return {
-    AccountNumber:
-      output.AccountNumber !== undefined && output.AccountNumber !== null ? output.AccountNumber : undefined,
-    AdditionalInformation:
-      output.AdditionalInformation !== undefined && output.AdditionalInformation !== null
-        ? output.AdditionalInformation
-        : undefined,
+    AccountNumber: __expectString(output.AccountNumber),
+    AdditionalInformation: __expectString(output.AdditionalInformation),
     Address:
       output.Address !== undefined && output.Address !== null
         ? deserializeAws_restJson1Address(output.Address, context)
@@ -4819,38 +4809,25 @@ const deserializeAws_restJson1Profile = (output: any, context: __SerdeContext): 
       output.BillingAddress !== undefined && output.BillingAddress !== null
         ? deserializeAws_restJson1Address(output.BillingAddress, context)
         : undefined,
-    BirthDate: output.BirthDate !== undefined && output.BirthDate !== null ? output.BirthDate : undefined,
-    BusinessEmailAddress:
-      output.BusinessEmailAddress !== undefined && output.BusinessEmailAddress !== null
-        ? output.BusinessEmailAddress
-        : undefined,
-    BusinessName: output.BusinessName !== undefined && output.BusinessName !== null ? output.BusinessName : undefined,
-    BusinessPhoneNumber:
-      output.BusinessPhoneNumber !== undefined && output.BusinessPhoneNumber !== null
-        ? output.BusinessPhoneNumber
-        : undefined,
-    EmailAddress: output.EmailAddress !== undefined && output.EmailAddress !== null ? output.EmailAddress : undefined,
-    FirstName: output.FirstName !== undefined && output.FirstName !== null ? output.FirstName : undefined,
-    Gender: output.Gender !== undefined && output.Gender !== null ? output.Gender : undefined,
-    HomePhoneNumber:
-      output.HomePhoneNumber !== undefined && output.HomePhoneNumber !== null ? output.HomePhoneNumber : undefined,
-    LastName: output.LastName !== undefined && output.LastName !== null ? output.LastName : undefined,
+    BirthDate: __expectString(output.BirthDate),
+    BusinessEmailAddress: __expectString(output.BusinessEmailAddress),
+    BusinessName: __expectString(output.BusinessName),
+    BusinessPhoneNumber: __expectString(output.BusinessPhoneNumber),
+    EmailAddress: __expectString(output.EmailAddress),
+    FirstName: __expectString(output.FirstName),
+    Gender: __expectString(output.Gender),
+    HomePhoneNumber: __expectString(output.HomePhoneNumber),
+    LastName: __expectString(output.LastName),
     MailingAddress:
       output.MailingAddress !== undefined && output.MailingAddress !== null
         ? deserializeAws_restJson1Address(output.MailingAddress, context)
         : undefined,
-    MiddleName: output.MiddleName !== undefined && output.MiddleName !== null ? output.MiddleName : undefined,
-    MobilePhoneNumber:
-      output.MobilePhoneNumber !== undefined && output.MobilePhoneNumber !== null
-        ? output.MobilePhoneNumber
-        : undefined,
-    PartyType: output.PartyType !== undefined && output.PartyType !== null ? output.PartyType : undefined,
-    PersonalEmailAddress:
-      output.PersonalEmailAddress !== undefined && output.PersonalEmailAddress !== null
-        ? output.PersonalEmailAddress
-        : undefined,
-    PhoneNumber: output.PhoneNumber !== undefined && output.PhoneNumber !== null ? output.PhoneNumber : undefined,
-    ProfileId: output.ProfileId !== undefined && output.ProfileId !== null ? output.ProfileId : undefined,
+    MiddleName: __expectString(output.MiddleName),
+    MobilePhoneNumber: __expectString(output.MobilePhoneNumber),
+    PartyType: __expectString(output.PartyType),
+    PersonalEmailAddress: __expectString(output.PersonalEmailAddress),
+    PhoneNumber: __expectString(output.PhoneNumber),
+    ProfileId: __expectString(output.ProfileId),
     ShippingAddress:
       output.ShippingAddress !== undefined && output.ShippingAddress !== null
         ? deserializeAws_restJson1Address(output.ShippingAddress, context)
@@ -4865,7 +4842,7 @@ const deserializeAws_restJson1ProfileIdList = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4926,7 +4903,7 @@ const deserializeAws_restJson1requestValueList = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4940,7 +4917,7 @@ const deserializeAws_restJson1StandardIdentifierList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4951,7 +4928,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

@@ -32,7 +32,11 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -514,7 +518,7 @@ const deserializeAws_json1_1AdditionalArtifactList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -523,8 +527,7 @@ const deserializeAws_json1_1DeleteReportDefinitionResponse = (
   context: __SerdeContext
 ): DeleteReportDefinitionResponse => {
   return {
-    ResponseMessage:
-      output.ResponseMessage !== undefined && output.ResponseMessage !== null ? output.ResponseMessage : undefined,
+    ResponseMessage: __expectString(output.ResponseMessage),
   } as any;
 };
 
@@ -533,7 +536,7 @@ const deserializeAws_json1_1DescribeReportDefinitionsResponse = (
   context: __SerdeContext
 ): DescribeReportDefinitionsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     ReportDefinitions:
       output.ReportDefinitions !== undefined && output.ReportDefinitions !== null
         ? deserializeAws_json1_1ReportDefinitionList(output.ReportDefinitions, context)
@@ -546,13 +549,13 @@ const deserializeAws_json1_1DuplicateReportNameException = (
   context: __SerdeContext
 ): DuplicateReportNameException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -580,21 +583,16 @@ const deserializeAws_json1_1ReportDefinition = (output: any, context: __SerdeCon
       output.AdditionalSchemaElements !== undefined && output.AdditionalSchemaElements !== null
         ? deserializeAws_json1_1SchemaElementList(output.AdditionalSchemaElements, context)
         : undefined,
-    BillingViewArn:
-      output.BillingViewArn !== undefined && output.BillingViewArn !== null ? output.BillingViewArn : undefined,
-    Compression: output.Compression !== undefined && output.Compression !== null ? output.Compression : undefined,
-    Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
-    RefreshClosedReports:
-      output.RefreshClosedReports !== undefined && output.RefreshClosedReports !== null
-        ? output.RefreshClosedReports
-        : undefined,
-    ReportName: output.ReportName !== undefined && output.ReportName !== null ? output.ReportName : undefined,
-    ReportVersioning:
-      output.ReportVersioning !== undefined && output.ReportVersioning !== null ? output.ReportVersioning : undefined,
-    S3Bucket: output.S3Bucket !== undefined && output.S3Bucket !== null ? output.S3Bucket : undefined,
-    S3Prefix: output.S3Prefix !== undefined && output.S3Prefix !== null ? output.S3Prefix : undefined,
-    S3Region: output.S3Region !== undefined && output.S3Region !== null ? output.S3Region : undefined,
-    TimeUnit: output.TimeUnit !== undefined && output.TimeUnit !== null ? output.TimeUnit : undefined,
+    BillingViewArn: __expectString(output.BillingViewArn),
+    Compression: __expectString(output.Compression),
+    Format: __expectString(output.Format),
+    RefreshClosedReports: __expectBoolean(output.RefreshClosedReports),
+    ReportName: __expectString(output.ReportName),
+    ReportVersioning: __expectString(output.ReportVersioning),
+    S3Bucket: __expectString(output.S3Bucket),
+    S3Prefix: __expectString(output.S3Prefix),
+    S3Region: __expectString(output.S3Region),
+    TimeUnit: __expectString(output.TimeUnit),
   } as any;
 };
 
@@ -614,7 +612,7 @@ const deserializeAws_json1_1ReportLimitReachedException = (
   context: __SerdeContext
 ): ReportLimitReachedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -625,13 +623,13 @@ const deserializeAws_json1_1SchemaElementList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 

@@ -3,6 +3,8 @@ import { InternalFailure, ModelError, ServiceUnavailable, ValidationError } from
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -157,7 +159,7 @@ const deserializeAws_restJson1InternalFailureResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -177,16 +179,16 @@ const deserializeAws_restJson1ModelErrorResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.LogStreamArn !== undefined && data.LogStreamArn !== null) {
-    contents.LogStreamArn = data.LogStreamArn;
+    contents.LogStreamArn = __expectString(data.LogStreamArn);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.OriginalMessage !== undefined && data.OriginalMessage !== null) {
-    contents.OriginalMessage = data.OriginalMessage;
+    contents.OriginalMessage = __expectString(data.OriginalMessage);
   }
   if (data.OriginalStatusCode !== undefined && data.OriginalStatusCode !== null) {
-    contents.OriginalStatusCode = data.OriginalStatusCode;
+    contents.OriginalStatusCode = __expectNumber(data.OriginalStatusCode);
   }
   return contents;
 };
@@ -203,7 +205,7 @@ const deserializeAws_restJson1ServiceUnavailableResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -220,7 +222,7 @@ const deserializeAws_restJson1ValidationErrorResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };

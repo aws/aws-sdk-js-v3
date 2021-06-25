@@ -168,6 +168,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -720,7 +723,7 @@ export const deserializeAws_restJson1CreateConnectorProfileCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.connectorProfileArn !== undefined && data.connectorProfileArn !== null) {
-    contents.connectorProfileArn = data.connectorProfileArn;
+    contents.connectorProfileArn = __expectString(data.connectorProfileArn);
   }
   return Promise.resolve(contents);
 };
@@ -808,10 +811,10 @@ export const deserializeAws_restJson1CreateFlowCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.flowArn !== undefined && data.flowArn !== null) {
-    contents.flowArn = data.flowArn;
+    contents.flowArn = __expectString(data.flowArn);
   }
   if (data.flowStatus !== undefined && data.flowStatus !== null) {
-    contents.flowStatus = data.flowStatus;
+    contents.flowStatus = __expectString(data.flowStatus);
   }
   return Promise.resolve(contents);
 };
@@ -1145,7 +1148,7 @@ export const deserializeAws_restJson1DescribeConnectorProfilesCommand = async (
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1215,7 +1218,7 @@ export const deserializeAws_restJson1DescribeConnectorsCommand = async (
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1296,10 +1299,10 @@ export const deserializeAws_restJson1DescribeFlowCommand = async (
     contents.createdAt = new Date(Math.round(data.createdAt * 1000));
   }
   if (data.createdBy !== undefined && data.createdBy !== null) {
-    contents.createdBy = data.createdBy;
+    contents.createdBy = __expectString(data.createdBy);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.destinationFlowConfigList !== undefined && data.destinationFlowConfigList !== null) {
     contents.destinationFlowConfigList = deserializeAws_restJson1DestinationFlowConfigList(
@@ -1308,19 +1311,19 @@ export const deserializeAws_restJson1DescribeFlowCommand = async (
     );
   }
   if (data.flowArn !== undefined && data.flowArn !== null) {
-    contents.flowArn = data.flowArn;
+    contents.flowArn = __expectString(data.flowArn);
   }
   if (data.flowName !== undefined && data.flowName !== null) {
-    contents.flowName = data.flowName;
+    contents.flowName = __expectString(data.flowName);
   }
   if (data.flowStatus !== undefined && data.flowStatus !== null) {
-    contents.flowStatus = data.flowStatus;
+    contents.flowStatus = __expectString(data.flowStatus);
   }
   if (data.flowStatusMessage !== undefined && data.flowStatusMessage !== null) {
-    contents.flowStatusMessage = data.flowStatusMessage;
+    contents.flowStatusMessage = __expectString(data.flowStatusMessage);
   }
   if (data.kmsArn !== undefined && data.kmsArn !== null) {
-    contents.kmsArn = data.kmsArn;
+    contents.kmsArn = __expectString(data.kmsArn);
   }
   if (data.lastRunExecutionDetails !== undefined && data.lastRunExecutionDetails !== null) {
     contents.lastRunExecutionDetails = deserializeAws_restJson1ExecutionDetails(data.lastRunExecutionDetails, context);
@@ -1329,7 +1332,7 @@ export const deserializeAws_restJson1DescribeFlowCommand = async (
     contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
   }
   if (data.lastUpdatedBy !== undefined && data.lastUpdatedBy !== null) {
-    contents.lastUpdatedBy = data.lastUpdatedBy;
+    contents.lastUpdatedBy = __expectString(data.lastUpdatedBy);
   }
   if (data.sourceFlowConfig !== undefined && data.sourceFlowConfig !== null) {
     contents.sourceFlowConfig = deserializeAws_restJson1SourceFlowConfig(data.sourceFlowConfig, context);
@@ -1408,7 +1411,7 @@ export const deserializeAws_restJson1DescribeFlowExecutionRecordsCommand = async
     contents.flowExecutions = deserializeAws_restJson1FlowExecutionList(data.flowExecutions, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1570,7 +1573,7 @@ export const deserializeAws_restJson1ListFlowsCommand = async (
     contents.flows = deserializeAws_restJson1FlowList(data.flows, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1706,13 +1709,13 @@ export const deserializeAws_restJson1StartFlowCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.executionId !== undefined && data.executionId !== null) {
-    contents.executionId = data.executionId;
+    contents.executionId = __expectString(data.executionId);
   }
   if (data.flowArn !== undefined && data.flowArn !== null) {
-    contents.flowArn = data.flowArn;
+    contents.flowArn = __expectString(data.flowArn);
   }
   if (data.flowStatus !== undefined && data.flowStatus !== null) {
-    contents.flowStatus = data.flowStatus;
+    contents.flowStatus = __expectString(data.flowStatus);
   }
   return Promise.resolve(contents);
 };
@@ -1792,10 +1795,10 @@ export const deserializeAws_restJson1StopFlowCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.flowArn !== undefined && data.flowArn !== null) {
-    contents.flowArn = data.flowArn;
+    contents.flowArn = __expectString(data.flowArn);
   }
   if (data.flowStatus !== undefined && data.flowStatus !== null) {
-    contents.flowStatus = data.flowStatus;
+    contents.flowStatus = __expectString(data.flowStatus);
   }
   return Promise.resolve(contents);
 };
@@ -2008,7 +2011,7 @@ export const deserializeAws_restJson1UpdateConnectorProfileCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.connectorProfileArn !== undefined && data.connectorProfileArn !== null) {
-    contents.connectorProfileArn = data.connectorProfileArn;
+    contents.connectorProfileArn = __expectString(data.connectorProfileArn);
   }
   return Promise.resolve(contents);
 };
@@ -2095,7 +2098,7 @@ export const deserializeAws_restJson1UpdateFlowCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.flowStatus !== undefined && data.flowStatus !== null) {
-    contents.flowStatus = data.flowStatus;
+    contents.flowStatus = __expectString(data.flowStatus);
   }
   return Promise.resolve(contents);
 };
@@ -2197,7 +2200,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2214,7 +2217,7 @@ const deserializeAws_restJson1ConnectorAuthenticationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2231,7 +2234,7 @@ const deserializeAws_restJson1ConnectorServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2248,7 +2251,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2265,7 +2268,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2282,7 +2285,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2299,7 +2302,7 @@ const deserializeAws_restJson1UnsupportedOperationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2316,7 +2319,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3455,8 +3458,7 @@ const serializeAws_restJson1ZendeskSourceProperties = (
 
 const deserializeAws_restJson1AggregationConfig = (output: any, context: __SerdeContext): AggregationConfig => {
   return {
-    aggregationType:
-      output.aggregationType !== undefined && output.aggregationType !== null ? output.aggregationType : undefined,
+    aggregationType: __expectString(output.aggregationType),
   } as any;
 };
 
@@ -3476,7 +3478,7 @@ const deserializeAws_restJson1AmplitudeSourceProperties = (
   context: __SerdeContext
 ): AmplitudeSourceProperties => {
   return {
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -3485,24 +3487,14 @@ const deserializeAws_restJson1ConnectorConfiguration = (
   context: __SerdeContext
 ): ConnectorConfiguration => {
   return {
-    canUseAsDestination:
-      output.canUseAsDestination !== undefined && output.canUseAsDestination !== null
-        ? output.canUseAsDestination
-        : undefined,
-    canUseAsSource:
-      output.canUseAsSource !== undefined && output.canUseAsSource !== null ? output.canUseAsSource : undefined,
+    canUseAsDestination: __expectBoolean(output.canUseAsDestination),
+    canUseAsSource: __expectBoolean(output.canUseAsSource),
     connectorMetadata:
       output.connectorMetadata !== undefined && output.connectorMetadata !== null
         ? deserializeAws_restJson1ConnectorMetadata(output.connectorMetadata, context)
         : undefined,
-    isPrivateLinkEnabled:
-      output.isPrivateLinkEnabled !== undefined && output.isPrivateLinkEnabled !== null
-        ? output.isPrivateLinkEnabled
-        : undefined,
-    isPrivateLinkEndpointUrlRequired:
-      output.isPrivateLinkEndpointUrlRequired !== undefined && output.isPrivateLinkEndpointUrlRequired !== null
-        ? output.isPrivateLinkEndpointUrlRequired
-        : undefined,
+    isPrivateLinkEnabled: __expectBoolean(output.isPrivateLinkEnabled),
+    isPrivateLinkEndpointUrlRequired: __expectBoolean(output.isPrivateLinkEndpointUrlRequired),
     supportedDestinationConnectors:
       output.supportedDestinationConnectors !== undefined && output.supportedDestinationConnectors !== null
         ? deserializeAws_restJson1ConnectorTypeList(output.supportedDestinationConnectors, context)
@@ -3538,24 +3530,21 @@ const deserializeAws_restJson1ConnectorConfigurationsMap = (
 
 const deserializeAws_restJson1ConnectorEntity = (output: any, context: __SerdeContext): ConnectorEntity => {
   return {
-    hasNestedEntities:
-      output.hasNestedEntities !== undefined && output.hasNestedEntities !== null
-        ? output.hasNestedEntities
-        : undefined,
-    label: output.label !== undefined && output.label !== null ? output.label : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    hasNestedEntities: __expectBoolean(output.hasNestedEntities),
+    label: __expectString(output.label),
+    name: __expectString(output.name),
   } as any;
 };
 
 const deserializeAws_restJson1ConnectorEntityField = (output: any, context: __SerdeContext): ConnectorEntityField => {
   return {
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     destinationProperties:
       output.destinationProperties !== undefined && output.destinationProperties !== null
         ? deserializeAws_restJson1DestinationFieldProperties(output.destinationProperties, context)
         : undefined,
-    identifier: output.identifier !== undefined && output.identifier !== null ? output.identifier : undefined,
-    label: output.label !== undefined && output.label !== null ? output.label : undefined,
+    identifier: __expectString(output.identifier),
+    label: __expectString(output.label),
     sourceProperties:
       output.sourceProperties !== undefined && output.sourceProperties !== null
         ? deserializeAws_restJson1SourceFieldProperties(output.sourceProperties, context)
@@ -3694,48 +3683,38 @@ const deserializeAws_restJson1ConnectorMetadata = (output: any, context: __Serde
 
 const deserializeAws_restJson1ConnectorOperator = (output: any, context: __SerdeContext): ConnectorOperator => {
   return {
-    Amplitude: output.Amplitude !== undefined && output.Amplitude !== null ? output.Amplitude : undefined,
-    Datadog: output.Datadog !== undefined && output.Datadog !== null ? output.Datadog : undefined,
-    Dynatrace: output.Dynatrace !== undefined && output.Dynatrace !== null ? output.Dynatrace : undefined,
-    GoogleAnalytics:
-      output.GoogleAnalytics !== undefined && output.GoogleAnalytics !== null ? output.GoogleAnalytics : undefined,
-    InforNexus: output.InforNexus !== undefined && output.InforNexus !== null ? output.InforNexus : undefined,
-    Marketo: output.Marketo !== undefined && output.Marketo !== null ? output.Marketo : undefined,
-    S3: output.S3 !== undefined && output.S3 !== null ? output.S3 : undefined,
-    Salesforce: output.Salesforce !== undefined && output.Salesforce !== null ? output.Salesforce : undefined,
-    ServiceNow: output.ServiceNow !== undefined && output.ServiceNow !== null ? output.ServiceNow : undefined,
-    Singular: output.Singular !== undefined && output.Singular !== null ? output.Singular : undefined,
-    Slack: output.Slack !== undefined && output.Slack !== null ? output.Slack : undefined,
-    Trendmicro: output.Trendmicro !== undefined && output.Trendmicro !== null ? output.Trendmicro : undefined,
-    Veeva: output.Veeva !== undefined && output.Veeva !== null ? output.Veeva : undefined,
-    Zendesk: output.Zendesk !== undefined && output.Zendesk !== null ? output.Zendesk : undefined,
+    Amplitude: __expectString(output.Amplitude),
+    Datadog: __expectString(output.Datadog),
+    Dynatrace: __expectString(output.Dynatrace),
+    GoogleAnalytics: __expectString(output.GoogleAnalytics),
+    InforNexus: __expectString(output.InforNexus),
+    Marketo: __expectString(output.Marketo),
+    S3: __expectString(output.S3),
+    Salesforce: __expectString(output.Salesforce),
+    ServiceNow: __expectString(output.ServiceNow),
+    Singular: __expectString(output.Singular),
+    Slack: __expectString(output.Slack),
+    Trendmicro: __expectString(output.Trendmicro),
+    Veeva: __expectString(output.Veeva),
+    Zendesk: __expectString(output.Zendesk),
   } as any;
 };
 
 const deserializeAws_restJson1ConnectorProfile = (output: any, context: __SerdeContext): ConnectorProfile => {
   return {
-    connectionMode:
-      output.connectionMode !== undefined && output.connectionMode !== null ? output.connectionMode : undefined,
-    connectorProfileArn:
-      output.connectorProfileArn !== undefined && output.connectorProfileArn !== null
-        ? output.connectorProfileArn
-        : undefined,
-    connectorProfileName:
-      output.connectorProfileName !== undefined && output.connectorProfileName !== null
-        ? output.connectorProfileName
-        : undefined,
+    connectionMode: __expectString(output.connectionMode),
+    connectorProfileArn: __expectString(output.connectorProfileArn),
+    connectorProfileName: __expectString(output.connectorProfileName),
     connectorProfileProperties:
       output.connectorProfileProperties !== undefined && output.connectorProfileProperties !== null
         ? deserializeAws_restJson1ConnectorProfileProperties(output.connectorProfileProperties, context)
         : undefined,
-    connectorType:
-      output.connectorType !== undefined && output.connectorType !== null ? output.connectorType : undefined,
+    connectorType: __expectString(output.connectorType),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    credentialsArn:
-      output.credentialsArn !== undefined && output.credentialsArn !== null ? output.credentialsArn : undefined,
+    credentialsArn: __expectString(output.credentialsArn),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
@@ -3839,7 +3818,7 @@ const deserializeAws_restJson1ConnectorTypeList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3848,9 +3827,8 @@ const deserializeAws_restJson1CustomerProfilesDestinationProperties = (
   context: __SerdeContext
 ): CustomerProfilesDestinationProperties => {
   return {
-    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
-    objectTypeName:
-      output.objectTypeName !== undefined && output.objectTypeName !== null ? output.objectTypeName : undefined,
+    domainName: __expectString(output.domainName),
+    objectTypeName: __expectString(output.objectTypeName),
   } as any;
 };
 
@@ -3866,7 +3844,7 @@ const deserializeAws_restJson1DatadogConnectorProfileProperties = (
   context: __SerdeContext
 ): DatadogConnectorProfileProperties => {
   return {
-    instanceUrl: output.instanceUrl !== undefined && output.instanceUrl !== null ? output.instanceUrl : undefined,
+    instanceUrl: __expectString(output.instanceUrl),
   } as any;
 };
 
@@ -3879,7 +3857,7 @@ const deserializeAws_restJson1DatadogSourceProperties = (
   context: __SerdeContext
 ): DatadogSourceProperties => {
   return {
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -3936,10 +3914,10 @@ const deserializeAws_restJson1DestinationFieldProperties = (
   context: __SerdeContext
 ): DestinationFieldProperties => {
   return {
-    isCreatable: output.isCreatable !== undefined && output.isCreatable !== null ? output.isCreatable : undefined,
-    isNullable: output.isNullable !== undefined && output.isNullable !== null ? output.isNullable : undefined,
-    isUpdatable: output.isUpdatable !== undefined && output.isUpdatable !== null ? output.isUpdatable : undefined,
-    isUpsertable: output.isUpsertable !== undefined && output.isUpsertable !== null ? output.isUpsertable : undefined,
+    isCreatable: __expectBoolean(output.isCreatable),
+    isNullable: __expectBoolean(output.isNullable),
+    isUpdatable: __expectBoolean(output.isUpdatable),
+    isUpsertable: __expectBoolean(output.isUpsertable),
     supportedWriteOperations:
       output.supportedWriteOperations !== undefined && output.supportedWriteOperations !== null
         ? deserializeAws_restJson1SupportedWriteOperationList(output.supportedWriteOperations, context)
@@ -3949,12 +3927,8 @@ const deserializeAws_restJson1DestinationFieldProperties = (
 
 const deserializeAws_restJson1DestinationFlowConfig = (output: any, context: __SerdeContext): DestinationFlowConfig => {
   return {
-    connectorProfileName:
-      output.connectorProfileName !== undefined && output.connectorProfileName !== null
-        ? output.connectorProfileName
-        : undefined,
-    connectorType:
-      output.connectorType !== undefined && output.connectorType !== null ? output.connectorType : undefined,
+    connectorProfileName: __expectString(output.connectorProfileName),
+    connectorType: __expectString(output.connectorType),
     destinationConnectorProperties:
       output.destinationConnectorProperties !== undefined && output.destinationConnectorProperties !== null
         ? deserializeAws_restJson1DestinationConnectorProperties(output.destinationConnectorProperties, context)
@@ -3981,7 +3955,7 @@ const deserializeAws_restJson1DynatraceConnectorProfileProperties = (
   context: __SerdeContext
 ): DynatraceConnectorProfileProperties => {
   return {
-    instanceUrl: output.instanceUrl !== undefined && output.instanceUrl !== null ? output.instanceUrl : undefined,
+    instanceUrl: __expectString(output.instanceUrl),
   } as any;
 };
 
@@ -3994,27 +3968,22 @@ const deserializeAws_restJson1DynatraceSourceProperties = (
   context: __SerdeContext
 ): DynatraceSourceProperties => {
   return {
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 
 const deserializeAws_restJson1ErrorHandlingConfig = (output: any, context: __SerdeContext): ErrorHandlingConfig => {
   return {
-    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
-    bucketPrefix: output.bucketPrefix !== undefined && output.bucketPrefix !== null ? output.bucketPrefix : undefined,
-    failOnFirstDestinationError:
-      output.failOnFirstDestinationError !== undefined && output.failOnFirstDestinationError !== null
-        ? output.failOnFirstDestinationError
-        : undefined,
+    bucketName: __expectString(output.bucketName),
+    bucketPrefix: __expectString(output.bucketPrefix),
+    failOnFirstDestinationError: __expectBoolean(output.failOnFirstDestinationError),
   } as any;
 };
 
 const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext): ErrorInfo => {
   return {
-    executionMessage:
-      output.executionMessage !== undefined && output.executionMessage !== null ? output.executionMessage : undefined,
-    putFailuresCount:
-      output.putFailuresCount !== undefined && output.putFailuresCount !== null ? output.putFailuresCount : undefined,
+    executionMessage: __expectString(output.executionMessage),
+    putFailuresCount: __expectNumber(output.putFailuresCount),
   } as any;
 };
 
@@ -4027,7 +3996,7 @@ const deserializeAws_restJson1EventBridgeDestinationProperties = (
       output.errorHandlingConfig !== undefined && output.errorHandlingConfig !== null
         ? deserializeAws_restJson1ErrorHandlingConfig(output.errorHandlingConfig, context)
         : undefined,
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -4037,14 +4006,8 @@ const deserializeAws_restJson1EventBridgeMetadata = (output: any, context: __Ser
 
 const deserializeAws_restJson1ExecutionDetails = (output: any, context: __SerdeContext): ExecutionDetails => {
   return {
-    mostRecentExecutionMessage:
-      output.mostRecentExecutionMessage !== undefined && output.mostRecentExecutionMessage !== null
-        ? output.mostRecentExecutionMessage
-        : undefined,
-    mostRecentExecutionStatus:
-      output.mostRecentExecutionStatus !== undefined && output.mostRecentExecutionStatus !== null
-        ? output.mostRecentExecutionStatus
-        : undefined,
+    mostRecentExecutionMessage: __expectString(output.mostRecentExecutionMessage),
+    mostRecentExecutionStatus: __expectString(output.mostRecentExecutionStatus),
     mostRecentExecutionTime:
       output.mostRecentExecutionTime !== undefined && output.mostRecentExecutionTime !== null
         ? new Date(Math.round(output.mostRecentExecutionTime * 1000))
@@ -4062,13 +4025,12 @@ const deserializeAws_restJson1ExecutionRecord = (output: any, context: __SerdeCo
       output.dataPullStartTime !== undefined && output.dataPullStartTime !== null
         ? new Date(Math.round(output.dataPullStartTime * 1000))
         : undefined,
-    executionId: output.executionId !== undefined && output.executionId !== null ? output.executionId : undefined,
+    executionId: __expectString(output.executionId),
     executionResult:
       output.executionResult !== undefined && output.executionResult !== null
         ? deserializeAws_restJson1ExecutionResult(output.executionResult, context)
         : undefined,
-    executionStatus:
-      output.executionStatus !== undefined && output.executionStatus !== null ? output.executionStatus : undefined,
+    executionStatus: __expectString(output.executionStatus),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
@@ -4082,21 +4044,19 @@ const deserializeAws_restJson1ExecutionRecord = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ExecutionResult = (output: any, context: __SerdeContext): ExecutionResult => {
   return {
-    bytesProcessed:
-      output.bytesProcessed !== undefined && output.bytesProcessed !== null ? output.bytesProcessed : undefined,
-    bytesWritten: output.bytesWritten !== undefined && output.bytesWritten !== null ? output.bytesWritten : undefined,
+    bytesProcessed: __expectNumber(output.bytesProcessed),
+    bytesWritten: __expectNumber(output.bytesWritten),
     errorInfo:
       output.errorInfo !== undefined && output.errorInfo !== null
         ? deserializeAws_restJson1ErrorInfo(output.errorInfo, context)
         : undefined,
-    recordsProcessed:
-      output.recordsProcessed !== undefined && output.recordsProcessed !== null ? output.recordsProcessed : undefined,
+    recordsProcessed: __expectNumber(output.recordsProcessed),
   } as any;
 };
 
 const deserializeAws_restJson1FieldTypeDetails = (output: any, context: __SerdeContext): FieldTypeDetails => {
   return {
-    fieldType: output.fieldType !== undefined && output.fieldType !== null ? output.fieldType : undefined,
+    fieldType: __expectString(output.fieldType),
     filterOperators:
       output.filterOperators !== undefined && output.filterOperators !== null
         ? deserializeAws_restJson1FilterOperatorList(output.filterOperators, context)
@@ -4115,7 +4075,7 @@ const deserializeAws_restJson1FilterOperatorList = (output: any, context: __Serd
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4125,15 +4085,12 @@ const deserializeAws_restJson1FlowDefinition = (output: any, context: __SerdeCon
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    createdBy: output.createdBy !== undefined && output.createdBy !== null ? output.createdBy : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    destinationConnectorType:
-      output.destinationConnectorType !== undefined && output.destinationConnectorType !== null
-        ? output.destinationConnectorType
-        : undefined,
-    flowArn: output.flowArn !== undefined && output.flowArn !== null ? output.flowArn : undefined,
-    flowName: output.flowName !== undefined && output.flowName !== null ? output.flowName : undefined,
-    flowStatus: output.flowStatus !== undefined && output.flowStatus !== null ? output.flowStatus : undefined,
+    createdBy: __expectString(output.createdBy),
+    description: __expectString(output.description),
+    destinationConnectorType: __expectString(output.destinationConnectorType),
+    flowArn: __expectString(output.flowArn),
+    flowName: __expectString(output.flowName),
+    flowStatus: __expectString(output.flowStatus),
     lastRunExecutionDetails:
       output.lastRunExecutionDetails !== undefined && output.lastRunExecutionDetails !== null
         ? deserializeAws_restJson1ExecutionDetails(output.lastRunExecutionDetails, context)
@@ -4142,17 +4099,13 @@ const deserializeAws_restJson1FlowDefinition = (output: any, context: __SerdeCon
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
-    lastUpdatedBy:
-      output.lastUpdatedBy !== undefined && output.lastUpdatedBy !== null ? output.lastUpdatedBy : undefined,
-    sourceConnectorType:
-      output.sourceConnectorType !== undefined && output.sourceConnectorType !== null
-        ? output.sourceConnectorType
-        : undefined,
+    lastUpdatedBy: __expectString(output.lastUpdatedBy),
+    sourceConnectorType: __expectString(output.sourceConnectorType),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
-    triggerType: output.triggerType !== undefined && output.triggerType !== null ? output.triggerType : undefined,
+    triggerType: __expectString(output.triggerType),
   } as any;
 };
 
@@ -4202,7 +4155,7 @@ const deserializeAws_restJson1GoogleAnalyticsSourceProperties = (
   context: __SerdeContext
 ): GoogleAnalyticsSourceProperties => {
   return {
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -4222,7 +4175,7 @@ const deserializeAws_restJson1HoneycodeDestinationProperties = (
       output.errorHandlingConfig !== undefined && output.errorHandlingConfig !== null
         ? deserializeAws_restJson1ErrorHandlingConfig(output.errorHandlingConfig, context)
         : undefined,
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -4242,16 +4195,13 @@ const deserializeAws_restJson1IdFieldNameList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1IncrementalPullConfig = (output: any, context: __SerdeContext): IncrementalPullConfig => {
   return {
-    datetimeTypeFieldName:
-      output.datetimeTypeFieldName !== undefined && output.datetimeTypeFieldName !== null
-        ? output.datetimeTypeFieldName
-        : undefined,
+    datetimeTypeFieldName: __expectString(output.datetimeTypeFieldName),
   } as any;
 };
 
@@ -4260,7 +4210,7 @@ const deserializeAws_restJson1InforNexusConnectorProfileProperties = (
   context: __SerdeContext
 ): InforNexusConnectorProfileProperties => {
   return {
-    instanceUrl: output.instanceUrl !== undefined && output.instanceUrl !== null ? output.instanceUrl : undefined,
+    instanceUrl: __expectString(output.instanceUrl),
   } as any;
 };
 
@@ -4273,7 +4223,7 @@ const deserializeAws_restJson1InforNexusSourceProperties = (
   context: __SerdeContext
 ): InforNexusSourceProperties => {
   return {
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -4289,7 +4239,7 @@ const deserializeAws_restJson1MarketoConnectorProfileProperties = (
   context: __SerdeContext
 ): MarketoConnectorProfileProperties => {
   return {
-    instanceUrl: output.instanceUrl !== undefined && output.instanceUrl !== null ? output.instanceUrl : undefined,
+    instanceUrl: __expectString(output.instanceUrl),
   } as any;
 };
 
@@ -4302,7 +4252,7 @@ const deserializeAws_restJson1MarketoSourceProperties = (
   context: __SerdeContext
 ): MarketoSourceProperties => {
   return {
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -4313,14 +4263,14 @@ const deserializeAws_restJson1OAuthScopeList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1PrefixConfig = (output: any, context: __SerdeContext): PrefixConfig => {
   return {
-    prefixFormat: output.prefixFormat !== undefined && output.prefixFormat !== null ? output.prefixFormat : undefined,
-    prefixType: output.prefixType !== undefined && output.prefixType !== null ? output.prefixType : undefined,
+    prefixFormat: __expectString(output.prefixFormat),
+    prefixType: __expectString(output.prefixType),
   } as any;
 };
 
@@ -4329,10 +4279,10 @@ const deserializeAws_restJson1RedshiftConnectorProfileProperties = (
   context: __SerdeContext
 ): RedshiftConnectorProfileProperties => {
   return {
-    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
-    bucketPrefix: output.bucketPrefix !== undefined && output.bucketPrefix !== null ? output.bucketPrefix : undefined,
-    databaseUrl: output.databaseUrl !== undefined && output.databaseUrl !== null ? output.databaseUrl : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    bucketName: __expectString(output.bucketName),
+    bucketPrefix: __expectString(output.bucketPrefix),
+    databaseUrl: __expectString(output.databaseUrl),
+    roleArn: __expectString(output.roleArn),
   } as any;
 };
 
@@ -4341,16 +4291,13 @@ const deserializeAws_restJson1RedshiftDestinationProperties = (
   context: __SerdeContext
 ): RedshiftDestinationProperties => {
   return {
-    bucketPrefix: output.bucketPrefix !== undefined && output.bucketPrefix !== null ? output.bucketPrefix : undefined,
+    bucketPrefix: __expectString(output.bucketPrefix),
     errorHandlingConfig:
       output.errorHandlingConfig !== undefined && output.errorHandlingConfig !== null
         ? deserializeAws_restJson1ErrorHandlingConfig(output.errorHandlingConfig, context)
         : undefined,
-    intermediateBucketName:
-      output.intermediateBucketName !== undefined && output.intermediateBucketName !== null
-        ? output.intermediateBucketName
-        : undefined,
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    intermediateBucketName: __expectString(output.intermediateBucketName),
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -4365,7 +4312,7 @@ const deserializeAws_restJson1RegionList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4374,8 +4321,8 @@ const deserializeAws_restJson1S3DestinationProperties = (
   context: __SerdeContext
 ): S3DestinationProperties => {
   return {
-    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
-    bucketPrefix: output.bucketPrefix !== undefined && output.bucketPrefix !== null ? output.bucketPrefix : undefined,
+    bucketName: __expectString(output.bucketName),
+    bucketPrefix: __expectString(output.bucketPrefix),
     s3OutputFormatConfig:
       output.s3OutputFormatConfig !== undefined && output.s3OutputFormatConfig !== null
         ? deserializeAws_restJson1S3OutputFormatConfig(output.s3OutputFormatConfig, context)
@@ -4393,7 +4340,7 @@ const deserializeAws_restJson1S3OutputFormatConfig = (output: any, context: __Se
       output.aggregationConfig !== undefined && output.aggregationConfig !== null
         ? deserializeAws_restJson1AggregationConfig(output.aggregationConfig, context)
         : undefined,
-    fileType: output.fileType !== undefined && output.fileType !== null ? output.fileType : undefined,
+    fileType: __expectString(output.fileType),
     prefixConfig:
       output.prefixConfig !== undefined && output.prefixConfig !== null
         ? deserializeAws_restJson1PrefixConfig(output.prefixConfig, context)
@@ -4403,8 +4350,8 @@ const deserializeAws_restJson1S3OutputFormatConfig = (output: any, context: __Se
 
 const deserializeAws_restJson1S3SourceProperties = (output: any, context: __SerdeContext): S3SourceProperties => {
   return {
-    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
-    bucketPrefix: output.bucketPrefix !== undefined && output.bucketPrefix !== null ? output.bucketPrefix : undefined,
+    bucketName: __expectString(output.bucketName),
+    bucketPrefix: __expectString(output.bucketPrefix),
   } as any;
 };
 
@@ -4413,11 +4360,8 @@ const deserializeAws_restJson1SalesforceConnectorProfileProperties = (
   context: __SerdeContext
 ): SalesforceConnectorProfileProperties => {
   return {
-    instanceUrl: output.instanceUrl !== undefined && output.instanceUrl !== null ? output.instanceUrl : undefined,
-    isSandboxEnvironment:
-      output.isSandboxEnvironment !== undefined && output.isSandboxEnvironment !== null
-        ? output.isSandboxEnvironment
-        : undefined,
+    instanceUrl: __expectString(output.instanceUrl),
+    isSandboxEnvironment: __expectBoolean(output.isSandboxEnvironment),
   } as any;
 };
 
@@ -4434,11 +4378,8 @@ const deserializeAws_restJson1SalesforceDestinationProperties = (
       output.idFieldNames !== undefined && output.idFieldNames !== null
         ? deserializeAws_restJson1IdFieldNameList(output.idFieldNames, context)
         : undefined,
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
-    writeOperationType:
-      output.writeOperationType !== undefined && output.writeOperationType !== null
-        ? output.writeOperationType
-        : undefined,
+    object: __expectString(output.object),
+    writeOperationType: __expectString(output.writeOperationType),
   } as any;
 };
 
@@ -4456,15 +4397,9 @@ const deserializeAws_restJson1SalesforceSourceProperties = (
   context: __SerdeContext
 ): SalesforceSourceProperties => {
   return {
-    enableDynamicFieldUpdate:
-      output.enableDynamicFieldUpdate !== undefined && output.enableDynamicFieldUpdate !== null
-        ? output.enableDynamicFieldUpdate
-        : undefined,
-    includeDeletedRecords:
-      output.includeDeletedRecords !== undefined && output.includeDeletedRecords !== null
-        ? output.includeDeletedRecords
-        : undefined,
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    enableDynamicFieldUpdate: __expectBoolean(output.enableDynamicFieldUpdate),
+    includeDeletedRecords: __expectBoolean(output.includeDeletedRecords),
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -4473,7 +4408,7 @@ const deserializeAws_restJson1ScheduledTriggerProperties = (
   context: __SerdeContext
 ): ScheduledTriggerProperties => {
   return {
-    dataPullMode: output.dataPullMode !== undefined && output.dataPullMode !== null ? output.dataPullMode : undefined,
+    dataPullMode: __expectString(output.dataPullMode),
     firstExecutionFrom:
       output.firstExecutionFrom !== undefined && output.firstExecutionFrom !== null
         ? new Date(Math.round(output.firstExecutionFrom * 1000))
@@ -4482,17 +4417,13 @@ const deserializeAws_restJson1ScheduledTriggerProperties = (
       output.scheduleEndTime !== undefined && output.scheduleEndTime !== null
         ? new Date(Math.round(output.scheduleEndTime * 1000))
         : undefined,
-    scheduleExpression:
-      output.scheduleExpression !== undefined && output.scheduleExpression !== null
-        ? output.scheduleExpression
-        : undefined,
-    scheduleOffset:
-      output.scheduleOffset !== undefined && output.scheduleOffset !== null ? output.scheduleOffset : undefined,
+    scheduleExpression: __expectString(output.scheduleExpression),
+    scheduleOffset: __expectNumber(output.scheduleOffset),
     scheduleStartTime:
       output.scheduleStartTime !== undefined && output.scheduleStartTime !== null
         ? new Date(Math.round(output.scheduleStartTime * 1000))
         : undefined,
-    timezone: output.timezone !== undefined && output.timezone !== null ? output.timezone : undefined,
+    timezone: __expectString(output.timezone),
   } as any;
 };
 
@@ -4506,7 +4437,7 @@ const deserializeAws_restJson1SchedulingFrequencyTypeList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4515,7 +4446,7 @@ const deserializeAws_restJson1ServiceNowConnectorProfileProperties = (
   context: __SerdeContext
 ): ServiceNowConnectorProfileProperties => {
   return {
-    instanceUrl: output.instanceUrl !== undefined && output.instanceUrl !== null ? output.instanceUrl : undefined,
+    instanceUrl: __expectString(output.instanceUrl),
   } as any;
 };
 
@@ -4528,7 +4459,7 @@ const deserializeAws_restJson1ServiceNowSourceProperties = (
   context: __SerdeContext
 ): ServiceNowSourceProperties => {
   return {
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -4548,7 +4479,7 @@ const deserializeAws_restJson1SingularSourceProperties = (
   context: __SerdeContext
 ): SingularSourceProperties => {
   return {
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -4557,7 +4488,7 @@ const deserializeAws_restJson1SlackConnectorProfileProperties = (
   context: __SerdeContext
 ): SlackConnectorProfileProperties => {
   return {
-    instanceUrl: output.instanceUrl !== undefined && output.instanceUrl !== null ? output.instanceUrl : undefined,
+    instanceUrl: __expectString(output.instanceUrl),
   } as any;
 };
 
@@ -4572,7 +4503,7 @@ const deserializeAws_restJson1SlackMetadata = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1SlackSourceProperties = (output: any, context: __SerdeContext): SlackSourceProperties => {
   return {
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -4581,16 +4512,13 @@ const deserializeAws_restJson1SnowflakeConnectorProfileProperties = (
   context: __SerdeContext
 ): SnowflakeConnectorProfileProperties => {
   return {
-    accountName: output.accountName !== undefined && output.accountName !== null ? output.accountName : undefined,
-    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
-    bucketPrefix: output.bucketPrefix !== undefined && output.bucketPrefix !== null ? output.bucketPrefix : undefined,
-    privateLinkServiceName:
-      output.privateLinkServiceName !== undefined && output.privateLinkServiceName !== null
-        ? output.privateLinkServiceName
-        : undefined,
-    region: output.region !== undefined && output.region !== null ? output.region : undefined,
-    stage: output.stage !== undefined && output.stage !== null ? output.stage : undefined,
-    warehouse: output.warehouse !== undefined && output.warehouse !== null ? output.warehouse : undefined,
+    accountName: __expectString(output.accountName),
+    bucketName: __expectString(output.bucketName),
+    bucketPrefix: __expectString(output.bucketPrefix),
+    privateLinkServiceName: __expectString(output.privateLinkServiceName),
+    region: __expectString(output.region),
+    stage: __expectString(output.stage),
+    warehouse: __expectString(output.warehouse),
   } as any;
 };
 
@@ -4599,16 +4527,13 @@ const deserializeAws_restJson1SnowflakeDestinationProperties = (
   context: __SerdeContext
 ): SnowflakeDestinationProperties => {
   return {
-    bucketPrefix: output.bucketPrefix !== undefined && output.bucketPrefix !== null ? output.bucketPrefix : undefined,
+    bucketPrefix: __expectString(output.bucketPrefix),
     errorHandlingConfig:
       output.errorHandlingConfig !== undefined && output.errorHandlingConfig !== null
         ? deserializeAws_restJson1ErrorHandlingConfig(output.errorHandlingConfig, context)
         : undefined,
-    intermediateBucketName:
-      output.intermediateBucketName !== undefined && output.intermediateBucketName !== null
-        ? output.intermediateBucketName
-        : undefined,
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    intermediateBucketName: __expectString(output.intermediateBucketName),
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -4687,9 +4612,8 @@ const deserializeAws_restJson1SourceConnectorProperties = (
 
 const deserializeAws_restJson1SourceFieldProperties = (output: any, context: __SerdeContext): SourceFieldProperties => {
   return {
-    isQueryable: output.isQueryable !== undefined && output.isQueryable !== null ? output.isQueryable : undefined,
-    isRetrievable:
-      output.isRetrievable !== undefined && output.isRetrievable !== null ? output.isRetrievable : undefined,
+    isQueryable: __expectBoolean(output.isQueryable),
+    isRetrievable: __expectBoolean(output.isRetrievable),
   } as any;
 };
 
@@ -4700,18 +4624,14 @@ const deserializeAws_restJson1SourceFields = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1SourceFlowConfig = (output: any, context: __SerdeContext): SourceFlowConfig => {
   return {
-    connectorProfileName:
-      output.connectorProfileName !== undefined && output.connectorProfileName !== null
-        ? output.connectorProfileName
-        : undefined,
-    connectorType:
-      output.connectorType !== undefined && output.connectorType !== null ? output.connectorType : undefined,
+    connectorProfileName: __expectString(output.connectorProfileName),
+    connectorType: __expectString(output.connectorType),
     incrementalPullConfig:
       output.incrementalPullConfig !== undefined && output.incrementalPullConfig !== null
         ? deserializeAws_restJson1IncrementalPullConfig(output.incrementalPullConfig, context)
@@ -4742,7 +4662,7 @@ const deserializeAws_restJson1SupportedValueList = (output: any, context: __Serd
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4756,7 +4676,7 @@ const deserializeAws_restJson1SupportedWriteOperationList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4767,7 +4687,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4778,8 +4698,7 @@ const deserializeAws_restJson1Task = (output: any, context: __SerdeContext): Tas
       output.connectorOperator !== undefined && output.connectorOperator !== null
         ? deserializeAws_restJson1ConnectorOperator(output.connectorOperator, context)
         : undefined,
-    destinationField:
-      output.destinationField !== undefined && output.destinationField !== null ? output.destinationField : undefined,
+    destinationField: __expectString(output.destinationField),
     sourceFields:
       output.sourceFields !== undefined && output.sourceFields !== null
         ? deserializeAws_restJson1SourceFields(output.sourceFields, context)
@@ -4788,7 +4707,7 @@ const deserializeAws_restJson1Task = (output: any, context: __SerdeContext): Tas
       output.taskProperties !== undefined && output.taskProperties !== null
         ? deserializeAws_restJson1TaskPropertiesMap(output.taskProperties, context)
         : undefined,
-    taskType: output.taskType !== undefined && output.taskType !== null ? output.taskType : undefined,
+    taskType: __expectString(output.taskType),
   } as any;
 };
 
@@ -4800,7 +4719,7 @@ const deserializeAws_restJson1TaskPropertiesMap = (output: any, context: __Serde
       }
       return {
         ...acc,
-        [key]: value,
+        [key]: __expectString(value) as any,
       };
     },
     {}
@@ -4834,7 +4753,7 @@ const deserializeAws_restJson1TrendmicroSourceProperties = (
   context: __SerdeContext
 ): TrendmicroSourceProperties => {
   return {
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -4844,7 +4763,7 @@ const deserializeAws_restJson1TriggerConfig = (output: any, context: __SerdeCont
       output.triggerProperties !== undefined && output.triggerProperties !== null
         ? deserializeAws_restJson1TriggerProperties(output.triggerProperties, context)
         : undefined,
-    triggerType: output.triggerType !== undefined && output.triggerType !== null ? output.triggerType : undefined,
+    triggerType: __expectString(output.triggerType),
   } as any;
 };
 
@@ -4864,7 +4783,7 @@ const deserializeAws_restJson1TriggerTypeList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4873,8 +4792,8 @@ const deserializeAws_restJson1UpsolverDestinationProperties = (
   context: __SerdeContext
 ): UpsolverDestinationProperties => {
   return {
-    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
-    bucketPrefix: output.bucketPrefix !== undefined && output.bucketPrefix !== null ? output.bucketPrefix : undefined,
+    bucketName: __expectString(output.bucketName),
+    bucketPrefix: __expectString(output.bucketPrefix),
     s3OutputFormatConfig:
       output.s3OutputFormatConfig !== undefined && output.s3OutputFormatConfig !== null
         ? deserializeAws_restJson1UpsolverS3OutputFormatConfig(output.s3OutputFormatConfig, context)
@@ -4895,7 +4814,7 @@ const deserializeAws_restJson1UpsolverS3OutputFormatConfig = (
       output.aggregationConfig !== undefined && output.aggregationConfig !== null
         ? deserializeAws_restJson1AggregationConfig(output.aggregationConfig, context)
         : undefined,
-    fileType: output.fileType !== undefined && output.fileType !== null ? output.fileType : undefined,
+    fileType: __expectString(output.fileType),
     prefixConfig:
       output.prefixConfig !== undefined && output.prefixConfig !== null
         ? deserializeAws_restJson1PrefixConfig(output.prefixConfig, context)
@@ -4908,7 +4827,7 @@ const deserializeAws_restJson1VeevaConnectorProfileProperties = (
   context: __SerdeContext
 ): VeevaConnectorProfileProperties => {
   return {
-    instanceUrl: output.instanceUrl !== undefined && output.instanceUrl !== null ? output.instanceUrl : undefined,
+    instanceUrl: __expectString(output.instanceUrl),
   } as any;
 };
 
@@ -4918,7 +4837,7 @@ const deserializeAws_restJson1VeevaMetadata = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1VeevaSourceProperties = (output: any, context: __SerdeContext): VeevaSourceProperties => {
   return {
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 
@@ -4927,7 +4846,7 @@ const deserializeAws_restJson1ZendeskConnectorProfileProperties = (
   context: __SerdeContext
 ): ZendeskConnectorProfileProperties => {
   return {
-    instanceUrl: output.instanceUrl !== undefined && output.instanceUrl !== null ? output.instanceUrl : undefined,
+    instanceUrl: __expectString(output.instanceUrl),
   } as any;
 };
 
@@ -4944,11 +4863,8 @@ const deserializeAws_restJson1ZendeskDestinationProperties = (
       output.idFieldNames !== undefined && output.idFieldNames !== null
         ? deserializeAws_restJson1IdFieldNameList(output.idFieldNames, context)
         : undefined,
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
-    writeOperationType:
-      output.writeOperationType !== undefined && output.writeOperationType !== null
-        ? output.writeOperationType
-        : undefined,
+    object: __expectString(output.object),
+    writeOperationType: __expectString(output.writeOperationType),
   } as any;
 };
 
@@ -4966,7 +4882,7 @@ const deserializeAws_restJson1ZendeskSourceProperties = (
   context: __SerdeContext
 ): ZendeskSourceProperties => {
   return {
-    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 

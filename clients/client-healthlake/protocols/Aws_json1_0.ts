@@ -53,7 +53,7 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1032,13 +1032,13 @@ const serializeAws_json1_0StartFHIRImportJobRequest = (
 
 const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1047,14 +1047,10 @@ const deserializeAws_json1_0CreateFHIRDatastoreResponse = (
   context: __SerdeContext
 ): CreateFHIRDatastoreResponse => {
   return {
-    DatastoreArn: output.DatastoreArn !== undefined && output.DatastoreArn !== null ? output.DatastoreArn : undefined,
-    DatastoreEndpoint:
-      output.DatastoreEndpoint !== undefined && output.DatastoreEndpoint !== null
-        ? output.DatastoreEndpoint
-        : undefined,
-    DatastoreId: output.DatastoreId !== undefined && output.DatastoreId !== null ? output.DatastoreId : undefined,
-    DatastoreStatus:
-      output.DatastoreStatus !== undefined && output.DatastoreStatus !== null ? output.DatastoreStatus : undefined,
+    DatastoreArn: __expectString(output.DatastoreArn),
+    DatastoreEndpoint: __expectString(output.DatastoreEndpoint),
+    DatastoreId: __expectString(output.DatastoreId),
+    DatastoreStatus: __expectString(output.DatastoreStatus),
   } as any;
 };
 
@@ -1064,20 +1060,12 @@ const deserializeAws_json1_0DatastoreProperties = (output: any, context: __Serde
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    DatastoreArn: output.DatastoreArn !== undefined && output.DatastoreArn !== null ? output.DatastoreArn : undefined,
-    DatastoreEndpoint:
-      output.DatastoreEndpoint !== undefined && output.DatastoreEndpoint !== null
-        ? output.DatastoreEndpoint
-        : undefined,
-    DatastoreId: output.DatastoreId !== undefined && output.DatastoreId !== null ? output.DatastoreId : undefined,
-    DatastoreName:
-      output.DatastoreName !== undefined && output.DatastoreName !== null ? output.DatastoreName : undefined,
-    DatastoreStatus:
-      output.DatastoreStatus !== undefined && output.DatastoreStatus !== null ? output.DatastoreStatus : undefined,
-    DatastoreTypeVersion:
-      output.DatastoreTypeVersion !== undefined && output.DatastoreTypeVersion !== null
-        ? output.DatastoreTypeVersion
-        : undefined,
+    DatastoreArn: __expectString(output.DatastoreArn),
+    DatastoreEndpoint: __expectString(output.DatastoreEndpoint),
+    DatastoreId: __expectString(output.DatastoreId),
+    DatastoreName: __expectString(output.DatastoreName),
+    DatastoreStatus: __expectString(output.DatastoreStatus),
+    DatastoreTypeVersion: __expectString(output.DatastoreTypeVersion),
     PreloadDataConfig:
       output.PreloadDataConfig !== undefined && output.PreloadDataConfig !== null
         ? deserializeAws_json1_0PreloadDataConfig(output.PreloadDataConfig, context)
@@ -1101,14 +1089,10 @@ const deserializeAws_json1_0DeleteFHIRDatastoreResponse = (
   context: __SerdeContext
 ): DeleteFHIRDatastoreResponse => {
   return {
-    DatastoreArn: output.DatastoreArn !== undefined && output.DatastoreArn !== null ? output.DatastoreArn : undefined,
-    DatastoreEndpoint:
-      output.DatastoreEndpoint !== undefined && output.DatastoreEndpoint !== null
-        ? output.DatastoreEndpoint
-        : undefined,
-    DatastoreId: output.DatastoreId !== undefined && output.DatastoreId !== null ? output.DatastoreId : undefined,
-    DatastoreStatus:
-      output.DatastoreStatus !== undefined && output.DatastoreStatus !== null ? output.DatastoreStatus : undefined,
+    DatastoreArn: __expectString(output.DatastoreArn),
+    DatastoreEndpoint: __expectString(output.DatastoreEndpoint),
+    DatastoreId: __expectString(output.DatastoreId),
+    DatastoreStatus: __expectString(output.DatastoreStatus),
   } as any;
 };
 
@@ -1150,17 +1134,14 @@ const deserializeAws_json1_0DescribeFHIRImportJobResponse = (
 
 const deserializeAws_json1_0ExportJobProperties = (output: any, context: __SerdeContext): ExportJobProperties => {
   return {
-    DataAccessRoleArn:
-      output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
-        ? output.DataAccessRoleArn
-        : undefined,
-    DatastoreId: output.DatastoreId !== undefined && output.DatastoreId !== null ? output.DatastoreId : undefined,
+    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
+    DatastoreId: __expectString(output.DatastoreId),
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
-    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
-    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    JobId: __expectString(output.JobId),
+    JobName: __expectString(output.JobName),
+    JobStatus: __expectString(output.JobStatus),
+    Message: __expectString(output.Message),
     OutputDataConfig:
       output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
         ? deserializeAws_json1_0OutputDataConfig(output.OutputDataConfig, context)
@@ -1174,21 +1155,18 @@ const deserializeAws_json1_0ExportJobProperties = (output: any, context: __Serde
 
 const deserializeAws_json1_0ImportJobProperties = (output: any, context: __SerdeContext): ImportJobProperties => {
   return {
-    DataAccessRoleArn:
-      output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
-        ? output.DataAccessRoleArn
-        : undefined,
-    DatastoreId: output.DatastoreId !== undefined && output.DatastoreId !== null ? output.DatastoreId : undefined,
+    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
+    DatastoreId: __expectString(output.DatastoreId),
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
     InputDataConfig:
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_0InputDataConfig(output.InputDataConfig, context)
         : undefined,
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
-    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
-    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    JobId: __expectString(output.JobId),
+    JobName: __expectString(output.JobName),
+    JobStatus: __expectString(output.JobStatus),
+    Message: __expectString(output.Message),
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
         ? new Date(Math.round(output.SubmitTime * 1000))
@@ -1197,10 +1175,8 @@ const deserializeAws_json1_0ImportJobProperties = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_0InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
-  if (output.S3Uri !== undefined && output.S3Uri !== null) {
-    return {
-      S3Uri: output.S3Uri,
-    };
+  if (__expectString(output.S3Uri) !== undefined) {
+    return { S3Uri: __expectString(output.S3Uri) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };
@@ -1210,7 +1186,7 @@ const deserializeAws_json1_0InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1223,23 +1199,20 @@ const deserializeAws_json1_0ListFHIRDatastoresResponse = (
       output.DatastorePropertiesList !== undefined && output.DatastorePropertiesList !== null
         ? deserializeAws_json1_0DatastorePropertiesList(output.DatastorePropertiesList, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_0OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
-  if (output.S3Uri !== undefined && output.S3Uri !== null) {
-    return {
-      S3Uri: output.S3Uri,
-    };
+  if (__expectString(output.S3Uri) !== undefined) {
+    return { S3Uri: __expectString(output.S3Uri) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_json1_0PreloadDataConfig = (output: any, context: __SerdeContext): PreloadDataConfig => {
   return {
-    PreloadDataType:
-      output.PreloadDataType !== undefined && output.PreloadDataType !== null ? output.PreloadDataType : undefined,
+    PreloadDataType: __expectString(output.PreloadDataType),
   } as any;
 };
 
@@ -1248,7 +1221,7 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1257,9 +1230,9 @@ const deserializeAws_json1_0StartFHIRExportJobResponse = (
   context: __SerdeContext
 ): StartFHIRExportJobResponse => {
   return {
-    DatastoreId: output.DatastoreId !== undefined && output.DatastoreId !== null ? output.DatastoreId : undefined,
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
-    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
+    DatastoreId: __expectString(output.DatastoreId),
+    JobId: __expectString(output.JobId),
+    JobStatus: __expectString(output.JobStatus),
   } as any;
 };
 
@@ -1268,21 +1241,21 @@ const deserializeAws_json1_0StartFHIRImportJobResponse = (
   context: __SerdeContext
 ): StartFHIRImportJobResponse => {
   return {
-    DatastoreId: output.DatastoreId !== undefined && output.DatastoreId !== null ? output.DatastoreId : undefined,
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
-    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
+    DatastoreId: __expectString(output.DatastoreId),
+    JobId: __expectString(output.JobId),
+    JobStatus: __expectString(output.JobStatus),
   } as any;
 };
 
 const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 

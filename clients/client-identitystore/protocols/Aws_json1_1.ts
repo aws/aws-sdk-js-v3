@@ -21,7 +21,7 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -560,29 +560,29 @@ const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: 
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
+    Message: __expectString(output.Message),
+    RequestId: __expectString(output.RequestId),
   } as any;
 };
 
 const deserializeAws_json1_1DescribeGroupResponse = (output: any, context: __SerdeContext): DescribeGroupResponse => {
   return {
-    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
-    GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined,
+    DisplayName: __expectString(output.DisplayName),
+    GroupId: __expectString(output.GroupId),
   } as any;
 };
 
 const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
   return {
-    UserId: output.UserId !== undefined && output.UserId !== null ? output.UserId : undefined,
-    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
+    UserId: __expectString(output.UserId),
+    UserName: __expectString(output.UserName),
   } as any;
 };
 
 const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Group => {
   return {
-    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
-    GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined,
+    DisplayName: __expectString(output.DisplayName),
+    GroupId: __expectString(output.GroupId),
   } as any;
 };
 
@@ -602,8 +602,8 @@ const deserializeAws_json1_1InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
+    Message: __expectString(output.Message),
+    RequestId: __expectString(output.RequestId),
   } as any;
 };
 
@@ -613,13 +613,13 @@ const deserializeAws_json1_1ListGroupsResponse = (output: any, context: __SerdeC
       output.Groups !== undefined && output.Groups !== null
         ? deserializeAws_json1_1Groups(output.Groups, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Users:
       output.Users !== undefined && output.Users !== null
         ? deserializeAws_json1_1Users(output.Users, context)
@@ -632,24 +632,24 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
-    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    Message: __expectString(output.Message),
+    RequestId: __expectString(output.RequestId),
+    ResourceId: __expectString(output.ResourceId),
+    ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
+    Message: __expectString(output.Message),
+    RequestId: __expectString(output.RequestId),
   } as any;
 };
 
 const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User => {
   return {
-    UserId: output.UserId !== undefined && output.UserId !== null ? output.UserId : undefined,
-    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
+    UserId: __expectString(output.UserId),
+    UserName: __expectString(output.UserName),
   } as any;
 };
 
@@ -666,8 +666,8 @@ const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): User
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
+    Message: __expectString(output.Message),
+    RequestId: __expectString(output.RequestId),
   } as any;
 };
 

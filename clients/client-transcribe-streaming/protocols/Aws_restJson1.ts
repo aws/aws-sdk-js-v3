@@ -29,7 +29,13 @@ import {
   TranscriptResultStream,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException, parseBoolean as __parseBoolean } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseBoolean as __parseBoolean,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   EventStreamSerdeContext as __EventStreamSerdeContext,
@@ -645,7 +651,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -662,7 +668,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -679,7 +685,7 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -696,7 +702,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -713,7 +719,7 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -738,7 +744,7 @@ const deserializeAws_restJson1Alternative = (output: any, context: __SerdeContex
       output.Items !== undefined && output.Items !== null
         ? deserializeAws_restJson1ItemList(output.Items, context)
         : undefined,
-    Transcript: output.Transcript !== undefined && output.Transcript !== null ? output.Transcript : undefined,
+    Transcript: __expectString(output.Transcript),
   } as any;
 };
 
@@ -755,13 +761,13 @@ const deserializeAws_restJson1AlternativeList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_restJson1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -770,23 +776,20 @@ const deserializeAws_restJson1InternalFailureException = (
   context: __SerdeContext
 ): InternalFailureException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
-    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
-    Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
-    EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
-    Speaker: output.Speaker !== undefined && output.Speaker !== null ? output.Speaker : undefined,
-    Stable: output.Stable !== undefined && output.Stable !== null ? output.Stable : undefined,
-    StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
-    VocabularyFilterMatch:
-      output.VocabularyFilterMatch !== undefined && output.VocabularyFilterMatch !== null
-        ? output.VocabularyFilterMatch
-        : undefined,
+    Confidence: __expectNumber(output.Confidence),
+    Content: __expectString(output.Content),
+    EndTime: __expectNumber(output.EndTime),
+    Speaker: __expectString(output.Speaker),
+    Stable: __expectBoolean(output.Stable),
+    StartTime: __expectNumber(output.StartTime),
+    Type: __expectString(output.Type),
+    VocabularyFilterMatch: __expectBoolean(output.VocabularyFilterMatch),
   } as any;
 };
 
@@ -806,7 +809,7 @@ const deserializeAws_restJson1LimitExceededException = (
   context: __SerdeContext
 ): LimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -820,7 +823,7 @@ const deserializeAws_restJson1MedicalAlternative = (output: any, context: __Serd
       output.Items !== undefined && output.Items !== null
         ? deserializeAws_restJson1MedicalItemList(output.Items, context)
         : undefined,
-    Transcript: output.Transcript !== undefined && output.Transcript !== null ? output.Transcript : undefined,
+    Transcript: __expectString(output.Transcript),
   } as any;
 };
 
@@ -837,11 +840,11 @@ const deserializeAws_restJson1MedicalAlternativeList = (output: any, context: __
 
 const deserializeAws_restJson1MedicalEntity = (output: any, context: __SerdeContext): MedicalEntity => {
   return {
-    Category: output.Category !== undefined && output.Category !== null ? output.Category : undefined,
-    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
-    Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
-    EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
-    StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
+    Category: __expectString(output.Category),
+    Confidence: __expectNumber(output.Confidence),
+    Content: __expectString(output.Content),
+    EndTime: __expectNumber(output.EndTime),
+    StartTime: __expectNumber(output.StartTime),
   } as any;
 };
 
@@ -858,12 +861,12 @@ const deserializeAws_restJson1MedicalEntityList = (output: any, context: __Serde
 
 const deserializeAws_restJson1MedicalItem = (output: any, context: __SerdeContext): MedicalItem => {
   return {
-    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
-    Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
-    EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
-    Speaker: output.Speaker !== undefined && output.Speaker !== null ? output.Speaker : undefined,
-    StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Confidence: __expectNumber(output.Confidence),
+    Content: __expectString(output.Content),
+    EndTime: __expectNumber(output.EndTime),
+    Speaker: __expectString(output.Speaker),
+    StartTime: __expectNumber(output.StartTime),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -884,11 +887,11 @@ const deserializeAws_restJson1MedicalResult = (output: any, context: __SerdeCont
       output.Alternatives !== undefined && output.Alternatives !== null
         ? deserializeAws_restJson1MedicalAlternativeList(output.Alternatives, context)
         : undefined,
-    ChannelId: output.ChannelId !== undefined && output.ChannelId !== null ? output.ChannelId : undefined,
-    EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
-    IsPartial: output.IsPartial !== undefined && output.IsPartial !== null ? output.IsPartial : undefined,
-    ResultId: output.ResultId !== undefined && output.ResultId !== null ? output.ResultId : undefined,
-    StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
+    ChannelId: __expectString(output.ChannelId),
+    EndTime: __expectNumber(output.EndTime),
+    IsPartial: __expectBoolean(output.IsPartial),
+    ResultId: __expectString(output.ResultId),
+    StartTime: __expectNumber(output.StartTime),
   } as any;
 };
 
@@ -973,11 +976,11 @@ const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): R
       output.Alternatives !== undefined && output.Alternatives !== null
         ? deserializeAws_restJson1AlternativeList(output.Alternatives, context)
         : undefined,
-    ChannelId: output.ChannelId !== undefined && output.ChannelId !== null ? output.ChannelId : undefined,
-    EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
-    IsPartial: output.IsPartial !== undefined && output.IsPartial !== null ? output.IsPartial : undefined,
-    ResultId: output.ResultId !== undefined && output.ResultId !== null ? output.ResultId : undefined,
-    StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
+    ChannelId: __expectString(output.ChannelId),
+    EndTime: __expectNumber(output.EndTime),
+    IsPartial: __expectBoolean(output.IsPartial),
+    ResultId: __expectString(output.ResultId),
+    StartTime: __expectNumber(output.StartTime),
   } as any;
 };
 
@@ -997,7 +1000,7 @@ const deserializeAws_restJson1ServiceUnavailableException = (
   context: __SerdeContext
 ): ServiceUnavailableException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 

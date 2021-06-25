@@ -94,7 +94,11 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1970,23 +1974,19 @@ const serializeAws_json1_1UpdateCertificateOptionsRequest = (
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1CertificateDetail = (output: any, context: __SerdeContext): CertificateDetail => {
   return {
-    CertificateArn:
-      output.CertificateArn !== undefined && output.CertificateArn !== null ? output.CertificateArn : undefined,
-    CertificateAuthorityArn:
-      output.CertificateAuthorityArn !== undefined && output.CertificateAuthorityArn !== null
-        ? output.CertificateAuthorityArn
-        : undefined,
+    CertificateArn: __expectString(output.CertificateArn),
+    CertificateAuthorityArn: __expectString(output.CertificateAuthorityArn),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    DomainName: __expectString(output.DomainName),
     DomainValidationOptions:
       output.DomainValidationOptions !== undefined && output.DomainValidationOptions !== null
         ? deserializeAws_json1_1DomainValidationList(output.DomainValidationOptions, context)
@@ -1995,8 +1995,7 @@ const deserializeAws_json1_1CertificateDetail = (output: any, context: __SerdeCo
       output.ExtendedKeyUsages !== undefined && output.ExtendedKeyUsages !== null
         ? deserializeAws_json1_1ExtendedKeyUsageList(output.ExtendedKeyUsages, context)
         : undefined,
-    FailureReason:
-      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    FailureReason: __expectString(output.FailureReason),
     ImportedAt:
       output.ImportedAt !== undefined && output.ImportedAt !== null
         ? new Date(Math.round(output.ImportedAt * 1000))
@@ -2009,8 +2008,8 @@ const deserializeAws_json1_1CertificateDetail = (output: any, context: __SerdeCo
       output.IssuedAt !== undefined && output.IssuedAt !== null
         ? new Date(Math.round(output.IssuedAt * 1000))
         : undefined,
-    Issuer: output.Issuer !== undefined && output.Issuer !== null ? output.Issuer : undefined,
-    KeyAlgorithm: output.KeyAlgorithm !== undefined && output.KeyAlgorithm !== null ? output.KeyAlgorithm : undefined,
+    Issuer: __expectString(output.Issuer),
+    KeyAlgorithm: __expectString(output.KeyAlgorithm),
     KeyUsages:
       output.KeyUsages !== undefined && output.KeyUsages !== null
         ? deserializeAws_json1_1KeyUsageList(output.KeyUsages, context)
@@ -2027,50 +2026,38 @@ const deserializeAws_json1_1CertificateDetail = (output: any, context: __SerdeCo
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_json1_1CertificateOptions(output.Options, context)
         : undefined,
-    RenewalEligibility:
-      output.RenewalEligibility !== undefined && output.RenewalEligibility !== null
-        ? output.RenewalEligibility
-        : undefined,
+    RenewalEligibility: __expectString(output.RenewalEligibility),
     RenewalSummary:
       output.RenewalSummary !== undefined && output.RenewalSummary !== null
         ? deserializeAws_json1_1RenewalSummary(output.RenewalSummary, context)
         : undefined,
-    RevocationReason:
-      output.RevocationReason !== undefined && output.RevocationReason !== null ? output.RevocationReason : undefined,
+    RevocationReason: __expectString(output.RevocationReason),
     RevokedAt:
       output.RevokedAt !== undefined && output.RevokedAt !== null
         ? new Date(Math.round(output.RevokedAt * 1000))
         : undefined,
-    Serial: output.Serial !== undefined && output.Serial !== null ? output.Serial : undefined,
-    SignatureAlgorithm:
-      output.SignatureAlgorithm !== undefined && output.SignatureAlgorithm !== null
-        ? output.SignatureAlgorithm
-        : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Subject: output.Subject !== undefined && output.Subject !== null ? output.Subject : undefined,
+    Serial: __expectString(output.Serial),
+    SignatureAlgorithm: __expectString(output.SignatureAlgorithm),
+    Status: __expectString(output.Status),
+    Subject: __expectString(output.Subject),
     SubjectAlternativeNames:
       output.SubjectAlternativeNames !== undefined && output.SubjectAlternativeNames !== null
         ? deserializeAws_json1_1DomainList(output.SubjectAlternativeNames, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_json1_1CertificateOptions = (output: any, context: __SerdeContext): CertificateOptions => {
   return {
-    CertificateTransparencyLoggingPreference:
-      output.CertificateTransparencyLoggingPreference !== undefined &&
-      output.CertificateTransparencyLoggingPreference !== null
-        ? output.CertificateTransparencyLoggingPreference
-        : undefined,
+    CertificateTransparencyLoggingPreference: __expectString(output.CertificateTransparencyLoggingPreference),
   } as any;
 };
 
 const deserializeAws_json1_1CertificateSummary = (output: any, context: __SerdeContext): CertificateSummary => {
   return {
-    CertificateArn:
-      output.CertificateArn !== undefined && output.CertificateArn !== null ? output.CertificateArn : undefined,
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    CertificateArn: __expectString(output.CertificateArn),
+    DomainName: __expectString(output.DomainName),
   } as any;
 };
 
@@ -2087,7 +2074,7 @@ const deserializeAws_json1_1CertificateSummaryList = (output: any, context: __Se
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2110,27 +2097,24 @@ const deserializeAws_json1_1DomainList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1DomainValidation = (output: any, context: __SerdeContext): DomainValidation => {
   return {
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    DomainName: __expectString(output.DomainName),
     ResourceRecord:
       output.ResourceRecord !== undefined && output.ResourceRecord !== null
         ? deserializeAws_json1_1ResourceRecord(output.ResourceRecord, context)
         : undefined,
-    ValidationDomain:
-      output.ValidationDomain !== undefined && output.ValidationDomain !== null ? output.ValidationDomain : undefined,
+    ValidationDomain: __expectString(output.ValidationDomain),
     ValidationEmails:
       output.ValidationEmails !== undefined && output.ValidationEmails !== null
         ? deserializeAws_json1_1ValidationEmailList(output.ValidationEmails, context)
         : undefined,
-    ValidationMethod:
-      output.ValidationMethod !== undefined && output.ValidationMethod !== null ? output.ValidationMethod : undefined,
-    ValidationStatus:
-      output.ValidationStatus !== undefined && output.ValidationStatus !== null ? output.ValidationStatus : undefined,
+    ValidationMethod: __expectString(output.ValidationMethod),
+    ValidationStatus: __expectString(output.ValidationStatus),
   } as any;
 };
 
@@ -2150,8 +2134,7 @@ const deserializeAws_json1_1ExpiryEventsConfiguration = (
   context: __SerdeContext
 ): ExpiryEventsConfiguration => {
   return {
-    DaysBeforeExpiry:
-      output.DaysBeforeExpiry !== undefined && output.DaysBeforeExpiry !== null ? output.DaysBeforeExpiry : undefined,
+    DaysBeforeExpiry: __expectNumber(output.DaysBeforeExpiry),
   } as any;
 };
 
@@ -2160,17 +2143,16 @@ const deserializeAws_json1_1ExportCertificateResponse = (
   context: __SerdeContext
 ): ExportCertificateResponse => {
   return {
-    Certificate: output.Certificate !== undefined && output.Certificate !== null ? output.Certificate : undefined,
-    CertificateChain:
-      output.CertificateChain !== undefined && output.CertificateChain !== null ? output.CertificateChain : undefined,
-    PrivateKey: output.PrivateKey !== undefined && output.PrivateKey !== null ? output.PrivateKey : undefined,
+    Certificate: __expectString(output.Certificate),
+    CertificateChain: __expectString(output.CertificateChain),
+    PrivateKey: __expectString(output.PrivateKey),
   } as any;
 };
 
 const deserializeAws_json1_1ExtendedKeyUsage = (output: any, context: __SerdeContext): ExtendedKeyUsage => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    OID: output.OID !== undefined && output.OID !== null ? output.OID : undefined,
+    Name: __expectString(output.Name),
+    OID: __expectString(output.OID),
   } as any;
 };
 
@@ -2199,9 +2181,8 @@ const deserializeAws_json1_1GetAccountConfigurationResponse = (
 
 const deserializeAws_json1_1GetCertificateResponse = (output: any, context: __SerdeContext): GetCertificateResponse => {
   return {
-    Certificate: output.Certificate !== undefined && output.Certificate !== null ? output.Certificate : undefined,
-    CertificateChain:
-      output.CertificateChain !== undefined && output.CertificateChain !== null ? output.CertificateChain : undefined,
+    Certificate: __expectString(output.Certificate),
+    CertificateChain: __expectString(output.CertificateChain),
   } as any;
 };
 
@@ -2210,8 +2191,7 @@ const deserializeAws_json1_1ImportCertificateResponse = (
   context: __SerdeContext
 ): ImportCertificateResponse => {
   return {
-    CertificateArn:
-      output.CertificateArn !== undefined && output.CertificateArn !== null ? output.CertificateArn : undefined,
+    CertificateArn: __expectString(output.CertificateArn),
   } as any;
 };
 
@@ -2222,19 +2202,19 @@ const deserializeAws_json1_1InUseList = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1InvalidArgsException = (output: any, context: __SerdeContext): InvalidArgsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidArnException = (output: any, context: __SerdeContext): InvalidArnException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2243,7 +2223,7 @@ const deserializeAws_json1_1InvalidDomainValidationOptionsException = (
   context: __SerdeContext
 ): InvalidDomainValidationOptionsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2252,25 +2232,25 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1KeyUsage = (output: any, context: __SerdeContext): KeyUsage => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -2287,7 +2267,7 @@ const deserializeAws_json1_1KeyUsageList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2300,7 +2280,7 @@ const deserializeAws_json1_1ListCertificatesResponse = (
       output.CertificateSummaryList !== undefined && output.CertificateSummaryList !== null
         ? deserializeAws_json1_1CertificateSummaryList(output.CertificateSummaryList, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -2322,12 +2302,8 @@ const deserializeAws_json1_1RenewalSummary = (output: any, context: __SerdeConte
       output.DomainValidationOptions !== undefined && output.DomainValidationOptions !== null
         ? deserializeAws_json1_1DomainValidationList(output.DomainValidationOptions, context)
         : undefined,
-    RenewalStatus:
-      output.RenewalStatus !== undefined && output.RenewalStatus !== null ? output.RenewalStatus : undefined,
-    RenewalStatusReason:
-      output.RenewalStatusReason !== undefined && output.RenewalStatusReason !== null
-        ? output.RenewalStatusReason
-        : undefined,
+    RenewalStatus: __expectString(output.RenewalStatus),
+    RenewalStatusReason: __expectString(output.RenewalStatusReason),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
         ? new Date(Math.round(output.UpdatedAt * 1000))
@@ -2340,8 +2316,7 @@ const deserializeAws_json1_1RequestCertificateResponse = (
   context: __SerdeContext
 ): RequestCertificateResponse => {
   return {
-    CertificateArn:
-      output.CertificateArn !== undefined && output.CertificateArn !== null ? output.CertificateArn : undefined,
+    CertificateArn: __expectString(output.CertificateArn),
   } as any;
 };
 
@@ -2350,13 +2325,13 @@ const deserializeAws_json1_1RequestInProgressException = (
   context: __SerdeContext
 ): RequestInProgressException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2365,22 +2340,22 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ResourceRecord = (output: any, context: __SerdeContext): ResourceRecord => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
+    Value: __expectString(output.Value),
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -2397,19 +2372,19 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2420,13 +2395,13 @@ const deserializeAws_json1_1ValidationEmailList = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 

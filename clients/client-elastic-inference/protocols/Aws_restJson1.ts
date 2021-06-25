@@ -31,6 +31,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -305,7 +307,7 @@ export const deserializeAws_restJson1DescribeAcceleratorsCommand = async (
     contents.acceleratorSet = deserializeAws_restJson1ElasticInferenceAcceleratorSet(data.acceleratorSet, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -635,7 +637,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -652,7 +654,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -669,7 +671,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -740,10 +742,7 @@ const serializeAws_restJson1ValueStringList = (input: string[], context: __Serde
 
 const deserializeAws_restJson1AcceleratorType = (output: any, context: __SerdeContext): AcceleratorType => {
   return {
-    acceleratorTypeName:
-      output.acceleratorTypeName !== undefined && output.acceleratorTypeName !== null
-        ? output.acceleratorTypeName
-        : undefined,
+    acceleratorTypeName: __expectString(output.acceleratorTypeName),
     memoryInfo:
       output.memoryInfo !== undefined && output.memoryInfo !== null
         ? deserializeAws_restJson1MemoryInfo(output.memoryInfo, context)
@@ -771,10 +770,9 @@ const deserializeAws_restJson1AcceleratorTypeOffering = (
   context: __SerdeContext
 ): AcceleratorTypeOffering => {
   return {
-    acceleratorType:
-      output.acceleratorType !== undefined && output.acceleratorType !== null ? output.acceleratorType : undefined,
-    location: output.location !== undefined && output.location !== null ? output.location : undefined,
-    locationType: output.locationType !== undefined && output.locationType !== null ? output.locationType : undefined,
+    acceleratorType: __expectString(output.acceleratorType),
+    location: __expectString(output.location),
+    locationType: __expectString(output.locationType),
   } as any;
 };
 
@@ -801,14 +799,10 @@ const deserializeAws_restJson1ElasticInferenceAccelerator = (
       output.acceleratorHealth !== undefined && output.acceleratorHealth !== null
         ? deserializeAws_restJson1ElasticInferenceAcceleratorHealth(output.acceleratorHealth, context)
         : undefined,
-    acceleratorId:
-      output.acceleratorId !== undefined && output.acceleratorId !== null ? output.acceleratorId : undefined,
-    acceleratorType:
-      output.acceleratorType !== undefined && output.acceleratorType !== null ? output.acceleratorType : undefined,
-    attachedResource:
-      output.attachedResource !== undefined && output.attachedResource !== null ? output.attachedResource : undefined,
-    availabilityZone:
-      output.availabilityZone !== undefined && output.availabilityZone !== null ? output.availabilityZone : undefined,
+    acceleratorId: __expectString(output.acceleratorId),
+    acceleratorType: __expectString(output.acceleratorType),
+    attachedResource: __expectString(output.attachedResource),
+    availabilityZone: __expectString(output.availabilityZone),
   } as any;
 };
 
@@ -817,7 +811,7 @@ const deserializeAws_restJson1ElasticInferenceAcceleratorHealth = (
   context: __SerdeContext
 ): ElasticInferenceAcceleratorHealth => {
   return {
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -837,14 +831,14 @@ const deserializeAws_restJson1ElasticInferenceAcceleratorSet = (
 
 const deserializeAws_restJson1KeyValuePair = (output: any, context: __SerdeContext): KeyValuePair => {
   return {
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    key: __expectString(output.key),
+    value: __expectNumber(output.value),
   } as any;
 };
 
 const deserializeAws_restJson1MemoryInfo = (output: any, context: __SerdeContext): MemoryInfo => {
   return {
-    sizeInMiB: output.sizeInMiB !== undefined && output.sizeInMiB !== null ? output.sizeInMiB : undefined,
+    sizeInMiB: __expectNumber(output.sizeInMiB),
   } as any;
 };
 
@@ -855,7 +849,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

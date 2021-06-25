@@ -33,7 +33,11 @@ import {
   UnsupportedStreamMediaTypeException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -340,7 +344,7 @@ export const deserializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DASHStreamingSessionURL !== undefined && data.DASHStreamingSessionURL !== null) {
-    contents.DASHStreamingSessionURL = data.DASHStreamingSessionURL;
+    contents.DASHStreamingSessionURL = __expectString(data.DASHStreamingSessionURL);
   }
   return Promise.resolve(contents);
 };
@@ -451,7 +455,7 @@ export const deserializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.HLSStreamingSessionURL !== undefined && data.HLSStreamingSessionURL !== null) {
-    contents.HLSStreamingSessionURL = data.HLSStreamingSessionURL;
+    contents.HLSStreamingSessionURL = __expectString(data.HLSStreamingSessionURL);
   }
   return Promise.resolve(contents);
 };
@@ -647,7 +651,7 @@ export const deserializeAws_restJson1ListFragmentsCommand = async (
     contents.Fragments = deserializeAws_restJson1FragmentList(data.Fragments, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -725,7 +729,7 @@ const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -742,7 +746,7 @@ const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -759,7 +763,7 @@ const deserializeAws_restJson1InvalidCodecPrivateDataExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -776,7 +780,7 @@ const deserializeAws_restJson1InvalidMediaFrameExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -793,7 +797,7 @@ const deserializeAws_restJson1MissingCodecPrivateDataExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -810,7 +814,7 @@ const deserializeAws_restJson1NoDataRetentionExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -827,7 +831,7 @@ const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -844,7 +848,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -861,7 +865,7 @@ const deserializeAws_restJson1UnsupportedStreamMediaTypeExceptionResponse = asyn
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -959,16 +963,9 @@ const serializeAws_restJson1TimestampRange = (input: TimestampRange, context: __
 
 const deserializeAws_restJson1Fragment = (output: any, context: __SerdeContext): Fragment => {
   return {
-    FragmentLengthInMilliseconds:
-      output.FragmentLengthInMilliseconds !== undefined && output.FragmentLengthInMilliseconds !== null
-        ? output.FragmentLengthInMilliseconds
-        : undefined,
-    FragmentNumber:
-      output.FragmentNumber !== undefined && output.FragmentNumber !== null ? output.FragmentNumber : undefined,
-    FragmentSizeInBytes:
-      output.FragmentSizeInBytes !== undefined && output.FragmentSizeInBytes !== null
-        ? output.FragmentSizeInBytes
-        : undefined,
+    FragmentLengthInMilliseconds: __expectNumber(output.FragmentLengthInMilliseconds),
+    FragmentNumber: __expectString(output.FragmentNumber),
+    FragmentSizeInBytes: __expectNumber(output.FragmentSizeInBytes),
     ProducerTimestamp:
       output.ProducerTimestamp !== undefined && output.ProducerTimestamp !== null
         ? new Date(Math.round(output.ProducerTimestamp * 1000))

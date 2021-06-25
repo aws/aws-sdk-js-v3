@@ -46,6 +46,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getValueFromTextNode as __getValueFromTextNode,
 } from "@aws-sdk/smithy-client";
@@ -1103,10 +1104,10 @@ const deserializeAws_queryAssumedRoleUser = (output: any, context: __SerdeContex
     Arn: undefined,
   };
   if (output["AssumedRoleId"] !== undefined) {
-    contents.AssumedRoleId = output["AssumedRoleId"];
+    contents.AssumedRoleId = __expectString(output["AssumedRoleId"]);
   }
   if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
+    contents.Arn = __expectString(output["Arn"]);
   }
   return contents;
 };
@@ -1128,7 +1129,7 @@ const deserializeAws_queryAssumeRoleResponse = (output: any, context: __SerdeCon
     contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
   }
   if (output["SourceIdentity"] !== undefined) {
-    contents.SourceIdentity = output["SourceIdentity"];
+    contents.SourceIdentity = __expectString(output["SourceIdentity"]);
   }
   return contents;
 };
@@ -1158,22 +1159,22 @@ const deserializeAws_queryAssumeRoleWithSAMLResponse = (
     contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
   }
   if (output["Subject"] !== undefined) {
-    contents.Subject = output["Subject"];
+    contents.Subject = __expectString(output["Subject"]);
   }
   if (output["SubjectType"] !== undefined) {
-    contents.SubjectType = output["SubjectType"];
+    contents.SubjectType = __expectString(output["SubjectType"]);
   }
   if (output["Issuer"] !== undefined) {
-    contents.Issuer = output["Issuer"];
+    contents.Issuer = __expectString(output["Issuer"]);
   }
   if (output["Audience"] !== undefined) {
-    contents.Audience = output["Audience"];
+    contents.Audience = __expectString(output["Audience"]);
   }
   if (output["NameQualifier"] !== undefined) {
-    contents.NameQualifier = output["NameQualifier"];
+    contents.NameQualifier = __expectString(output["NameQualifier"]);
   }
   if (output["SourceIdentity"] !== undefined) {
-    contents.SourceIdentity = output["SourceIdentity"];
+    contents.SourceIdentity = __expectString(output["SourceIdentity"]);
   }
   return contents;
 };
@@ -1195,7 +1196,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
     contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
   if (output["SubjectFromWebIdentityToken"] !== undefined) {
-    contents.SubjectFromWebIdentityToken = output["SubjectFromWebIdentityToken"];
+    contents.SubjectFromWebIdentityToken = __expectString(output["SubjectFromWebIdentityToken"]);
   }
   if (output["AssumedRoleUser"] !== undefined) {
     contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
@@ -1204,13 +1205,13 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
     contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
   }
   if (output["Provider"] !== undefined) {
-    contents.Provider = output["Provider"];
+    contents.Provider = __expectString(output["Provider"]);
   }
   if (output["Audience"] !== undefined) {
-    contents.Audience = output["Audience"];
+    contents.Audience = __expectString(output["Audience"]);
   }
   if (output["SourceIdentity"] !== undefined) {
-    contents.SourceIdentity = output["SourceIdentity"];
+    contents.SourceIdentity = __expectString(output["SourceIdentity"]);
   }
   return contents;
 };
@@ -1223,13 +1224,13 @@ const deserializeAws_queryCredentials = (output: any, context: __SerdeContext): 
     Expiration: undefined,
   };
   if (output["AccessKeyId"] !== undefined) {
-    contents.AccessKeyId = output["AccessKeyId"];
+    contents.AccessKeyId = __expectString(output["AccessKeyId"]);
   }
   if (output["SecretAccessKey"] !== undefined) {
-    contents.SecretAccessKey = output["SecretAccessKey"];
+    contents.SecretAccessKey = __expectString(output["SecretAccessKey"]);
   }
   if (output["SessionToken"] !== undefined) {
-    contents.SessionToken = output["SessionToken"];
+    contents.SessionToken = __expectString(output["SessionToken"]);
   }
   if (output["Expiration"] !== undefined) {
     contents.Expiration = new Date(output["Expiration"]);
@@ -1245,7 +1246,7 @@ const deserializeAws_queryDecodeAuthorizationMessageResponse = (
     DecodedMessage: undefined,
   };
   if (output["DecodedMessage"] !== undefined) {
-    contents.DecodedMessage = output["DecodedMessage"];
+    contents.DecodedMessage = __expectString(output["DecodedMessage"]);
   }
   return contents;
 };
@@ -1255,7 +1256,7 @@ const deserializeAws_queryExpiredTokenException = (output: any, context: __Serde
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -1266,10 +1267,10 @@ const deserializeAws_queryFederatedUser = (output: any, context: __SerdeContext)
     Arn: undefined,
   };
   if (output["FederatedUserId"] !== undefined) {
-    contents.FederatedUserId = output["FederatedUserId"];
+    contents.FederatedUserId = __expectString(output["FederatedUserId"]);
   }
   if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
+    contents.Arn = __expectString(output["Arn"]);
   }
   return contents;
 };
@@ -1282,7 +1283,7 @@ const deserializeAws_queryGetAccessKeyInfoResponse = (
     Account: undefined,
   };
   if (output["Account"] !== undefined) {
-    contents.Account = output["Account"];
+    contents.Account = __expectString(output["Account"]);
   }
   return contents;
 };
@@ -1297,13 +1298,13 @@ const deserializeAws_queryGetCallerIdentityResponse = (
     Arn: undefined,
   };
   if (output["UserId"] !== undefined) {
-    contents.UserId = output["UserId"];
+    contents.UserId = __expectString(output["UserId"]);
   }
   if (output["Account"] !== undefined) {
-    contents.Account = output["Account"];
+    contents.Account = __expectString(output["Account"]);
   }
   if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
+    contents.Arn = __expectString(output["Arn"]);
   }
   return contents;
 };
@@ -1347,7 +1348,7 @@ const deserializeAws_queryIDPCommunicationErrorException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -1360,7 +1361,7 @@ const deserializeAws_queryIDPRejectedClaimException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -1373,7 +1374,7 @@ const deserializeAws_queryInvalidAuthorizationMessageException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -1386,7 +1387,7 @@ const deserializeAws_queryInvalidIdentityTokenException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -1399,7 +1400,7 @@ const deserializeAws_queryMalformedPolicyDocumentException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -1412,7 +1413,7 @@ const deserializeAws_queryPackedPolicyTooLargeException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -1422,7 +1423,7 @@ const deserializeAws_queryRegionDisabledException = (output: any, context: __Ser
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };

@@ -10,7 +10,12 @@ import {
   ThrottlingException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -188,16 +193,13 @@ const serializeAws_json1_1GetEntitlementsRequest = (input: GetEntitlementsReques
 
 const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext): Entitlement => {
   return {
-    CustomerIdentifier:
-      output.CustomerIdentifier !== undefined && output.CustomerIdentifier !== null
-        ? output.CustomerIdentifier
-        : undefined,
-    Dimension: output.Dimension !== undefined && output.Dimension !== null ? output.Dimension : undefined,
+    CustomerIdentifier: __expectString(output.CustomerIdentifier),
+    Dimension: __expectString(output.Dimension),
     ExpirationDate:
       output.ExpirationDate !== undefined && output.ExpirationDate !== null
         ? new Date(Math.round(output.ExpirationDate * 1000))
         : undefined,
-    ProductCode: output.ProductCode !== undefined && output.ProductCode !== null ? output.ProductCode : undefined,
+    ProductCode: __expectString(output.ProductCode),
     Value:
       output.Value !== undefined && output.Value !== null
         ? deserializeAws_json1_1EntitlementValue(output.Value, context)
@@ -217,25 +219,17 @@ const deserializeAws_json1_1EntitlementList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1EntitlementValue = (output: any, context: __SerdeContext): EntitlementValue => {
-  if (output.BooleanValue !== undefined && output.BooleanValue !== null) {
-    return {
-      BooleanValue: output.BooleanValue,
-    };
+  if (__expectBoolean(output.BooleanValue) !== undefined) {
+    return { BooleanValue: __expectBoolean(output.BooleanValue) as any };
   }
-  if (output.DoubleValue !== undefined && output.DoubleValue !== null) {
-    return {
-      DoubleValue: output.DoubleValue,
-    };
+  if (__expectNumber(output.DoubleValue) !== undefined) {
+    return { DoubleValue: __expectNumber(output.DoubleValue) as any };
   }
-  if (output.IntegerValue !== undefined && output.IntegerValue !== null) {
-    return {
-      IntegerValue: output.IntegerValue,
-    };
+  if (__expectNumber(output.IntegerValue) !== undefined) {
+    return { IntegerValue: __expectNumber(output.IntegerValue) as any };
   }
-  if (output.StringValue !== undefined && output.StringValue !== null) {
-    return {
-      StringValue: output.StringValue,
-    };
+  if (__expectString(output.StringValue) !== undefined) {
+    return { StringValue: __expectString(output.StringValue) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };
@@ -246,7 +240,7 @@ const deserializeAws_json1_1GetEntitlementsResult = (output: any, context: __Ser
       output.Entitlements !== undefined && output.Entitlements !== null
         ? deserializeAws_json1_1EntitlementList(output.Entitlements, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -255,7 +249,7 @@ const deserializeAws_json1_1InternalServiceErrorException = (
   context: __SerdeContext
 ): InternalServiceErrorException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -264,13 +258,13 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 

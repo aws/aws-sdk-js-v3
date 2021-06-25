@@ -45,6 +45,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -622,7 +625,7 @@ export const deserializeAws_restJson1DescribeCanariesCommand = async (
     contents.Canaries = deserializeAws_restJson1Canaries(data.Canaries, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -689,7 +692,7 @@ export const deserializeAws_restJson1DescribeCanariesLastRunCommand = async (
     contents.CanariesLastRun = deserializeAws_restJson1CanariesLastRun(data.CanariesLastRun, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -753,7 +756,7 @@ export const deserializeAws_restJson1DescribeRuntimeVersionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.RuntimeVersions !== undefined && data.RuntimeVersions !== null) {
     contents.RuntimeVersions = deserializeAws_restJson1RuntimeVersionList(data.RuntimeVersions, context);
@@ -886,7 +889,7 @@ export const deserializeAws_restJson1GetCanaryRunsCommand = async (
     contents.CanaryRuns = deserializeAws_restJson1CanaryRuns(data.CanaryRuns, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1386,7 +1389,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1403,7 +1406,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1420,7 +1423,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1437,7 +1440,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1557,29 +1560,21 @@ const deserializeAws_restJson1CanariesLastRun = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): Canary => {
   return {
-    ArtifactS3Location:
-      output.ArtifactS3Location !== undefined && output.ArtifactS3Location !== null
-        ? output.ArtifactS3Location
-        : undefined,
+    ArtifactS3Location: __expectString(output.ArtifactS3Location),
     Code:
       output.Code !== undefined && output.Code !== null
         ? deserializeAws_restJson1CanaryCodeOutput(output.Code, context)
         : undefined,
-    EngineArn: output.EngineArn !== undefined && output.EngineArn !== null ? output.EngineArn : undefined,
-    ExecutionRoleArn:
-      output.ExecutionRoleArn !== undefined && output.ExecutionRoleArn !== null ? output.ExecutionRoleArn : undefined,
-    FailureRetentionPeriodInDays:
-      output.FailureRetentionPeriodInDays !== undefined && output.FailureRetentionPeriodInDays !== null
-        ? output.FailureRetentionPeriodInDays
-        : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    EngineArn: __expectString(output.EngineArn),
+    ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
+    FailureRetentionPeriodInDays: __expectNumber(output.FailureRetentionPeriodInDays),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
     RunConfig:
       output.RunConfig !== undefined && output.RunConfig !== null
         ? deserializeAws_restJson1CanaryRunConfigOutput(output.RunConfig, context)
         : undefined,
-    RuntimeVersion:
-      output.RuntimeVersion !== undefined && output.RuntimeVersion !== null ? output.RuntimeVersion : undefined,
+    RuntimeVersion: __expectString(output.RuntimeVersion),
     Schedule:
       output.Schedule !== undefined && output.Schedule !== null
         ? deserializeAws_restJson1CanaryScheduleOutput(output.Schedule, context)
@@ -1588,10 +1583,7 @@ const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): C
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_restJson1CanaryStatus(output.Status, context)
         : undefined,
-    SuccessRetentionPeriodInDays:
-      output.SuccessRetentionPeriodInDays !== undefined && output.SuccessRetentionPeriodInDays !== null
-        ? output.SuccessRetentionPeriodInDays
-        : undefined,
+    SuccessRetentionPeriodInDays: __expectNumber(output.SuccessRetentionPeriodInDays),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagMap(output.Tags, context)
@@ -1609,17 +1601,14 @@ const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): C
 
 const deserializeAws_restJson1CanaryCodeOutput = (output: any, context: __SerdeContext): CanaryCodeOutput => {
   return {
-    Handler: output.Handler !== undefined && output.Handler !== null ? output.Handler : undefined,
-    SourceLocationArn:
-      output.SourceLocationArn !== undefined && output.SourceLocationArn !== null
-        ? output.SourceLocationArn
-        : undefined,
+    Handler: __expectString(output.Handler),
+    SourceLocationArn: __expectString(output.SourceLocationArn),
   } as any;
 };
 
 const deserializeAws_restJson1CanaryLastRun = (output: any, context: __SerdeContext): CanaryLastRun => {
   return {
-    CanaryName: output.CanaryName !== undefined && output.CanaryName !== null ? output.CanaryName : undefined,
+    CanaryName: __expectString(output.CanaryName),
     LastRun:
       output.LastRun !== undefined && output.LastRun !== null
         ? deserializeAws_restJson1CanaryRun(output.LastRun, context)
@@ -1629,12 +1618,9 @@ const deserializeAws_restJson1CanaryLastRun = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1CanaryRun = (output: any, context: __SerdeContext): CanaryRun => {
   return {
-    ArtifactS3Location:
-      output.ArtifactS3Location !== undefined && output.ArtifactS3Location !== null
-        ? output.ArtifactS3Location
-        : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ArtifactS3Location: __expectString(output.ArtifactS3Location),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
     Status:
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_restJson1CanaryRunStatus(output.Status, context)
@@ -1648,11 +1634,9 @@ const deserializeAws_restJson1CanaryRun = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1CanaryRunConfigOutput = (output: any, context: __SerdeContext): CanaryRunConfigOutput => {
   return {
-    ActiveTracing:
-      output.ActiveTracing !== undefined && output.ActiveTracing !== null ? output.ActiveTracing : undefined,
-    MemoryInMB: output.MemoryInMB !== undefined && output.MemoryInMB !== null ? output.MemoryInMB : undefined,
-    TimeoutInSeconds:
-      output.TimeoutInSeconds !== undefined && output.TimeoutInSeconds !== null ? output.TimeoutInSeconds : undefined,
+    ActiveTracing: __expectBoolean(output.ActiveTracing),
+    MemoryInMB: __expectNumber(output.MemoryInMB),
+    TimeoutInSeconds: __expectNumber(output.TimeoutInSeconds),
   } as any;
 };
 
@@ -1669,10 +1653,9 @@ const deserializeAws_restJson1CanaryRuns = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1CanaryRunStatus = (output: any, context: __SerdeContext): CanaryRunStatus => {
   return {
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
-    StateReasonCode:
-      output.StateReasonCode !== undefined && output.StateReasonCode !== null ? output.StateReasonCode : undefined,
+    State: __expectString(output.State),
+    StateReason: __expectString(output.StateReason),
+    StateReasonCode: __expectString(output.StateReasonCode),
   } as any;
 };
 
@@ -1689,20 +1672,16 @@ const deserializeAws_restJson1CanaryRunTimeline = (output: any, context: __Serde
 
 const deserializeAws_restJson1CanaryScheduleOutput = (output: any, context: __SerdeContext): CanaryScheduleOutput => {
   return {
-    DurationInSeconds:
-      output.DurationInSeconds !== undefined && output.DurationInSeconds !== null
-        ? output.DurationInSeconds
-        : undefined,
-    Expression: output.Expression !== undefined && output.Expression !== null ? output.Expression : undefined,
+    DurationInSeconds: __expectNumber(output.DurationInSeconds),
+    Expression: __expectString(output.Expression),
   } as any;
 };
 
 const deserializeAws_restJson1CanaryStatus = (output: any, context: __SerdeContext): CanaryStatus => {
   return {
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
-    StateReasonCode:
-      output.StateReasonCode !== undefined && output.StateReasonCode !== null ? output.StateReasonCode : undefined,
+    State: __expectString(output.State),
+    StateReason: __expectString(output.StateReason),
+    StateReasonCode: __expectString(output.StateReasonCode),
   } as any;
 };
 
@@ -1731,12 +1710,12 @@ const deserializeAws_restJson1RuntimeVersion = (output: any, context: __SerdeCon
       output.DeprecationDate !== undefined && output.DeprecationDate !== null
         ? new Date(Math.round(output.DeprecationDate * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Description: __expectString(output.Description),
     ReleaseDate:
       output.ReleaseDate !== undefined && output.ReleaseDate !== null
         ? new Date(Math.round(output.ReleaseDate * 1000))
         : undefined,
-    VersionName: output.VersionName !== undefined && output.VersionName !== null ? output.VersionName : undefined,
+    VersionName: __expectString(output.VersionName),
   } as any;
 };
 
@@ -1758,7 +1737,7 @@ const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1769,7 +1748,7 @@ const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1780,7 +1759,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -1795,7 +1774,7 @@ const deserializeAws_restJson1VpcConfigOutput = (output: any, context: __SerdeCo
       output.SubnetIds !== undefined && output.SubnetIds !== null
         ? deserializeAws_restJson1SubnetIds(output.SubnetIds, context)
         : undefined,
-    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+    VpcId: __expectString(output.VpcId),
   } as any;
 };
 

@@ -43,7 +43,7 @@ import {
   UpdateS3ResourcesResult,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -853,8 +853,8 @@ const serializeAws_json1_1UpdateS3ResourcesRequest = (
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    message: __expectString(output.message),
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
@@ -872,8 +872,8 @@ const deserializeAws_json1_1AssociateS3ResourcesResult = (
 
 const deserializeAws_json1_1ClassificationType = (output: any, context: __SerdeContext): ClassificationType => {
   return {
-    continuous: output.continuous !== undefined && output.continuous !== null ? output.continuous : undefined,
-    oneTime: output.oneTime !== undefined && output.oneTime !== null ? output.oneTime : undefined,
+    continuous: __expectString(output.continuous),
+    oneTime: __expectString(output.oneTime),
   } as any;
 };
 
@@ -891,8 +891,8 @@ const deserializeAws_json1_1DisassociateS3ResourcesResult = (
 
 const deserializeAws_json1_1FailedS3Resource = (output: any, context: __SerdeContext): FailedS3Resource => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
     failedItem:
       output.failedItem !== undefined && output.failedItem !== null
         ? deserializeAws_json1_1S3Resource(output.failedItem, context)
@@ -913,24 +913,24 @@ const deserializeAws_json1_1FailedS3Resources = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1InternalException = (output: any, context: __SerdeContext): InternalException => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    errorCode: __expectString(output.errorCode),
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    fieldName: output.fieldName !== undefined && output.fieldName !== null ? output.fieldName : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    errorCode: __expectString(output.errorCode),
+    fieldName: __expectString(output.fieldName),
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    errorCode: __expectString(output.errorCode),
+    message: __expectString(output.message),
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
@@ -943,13 +943,13 @@ const deserializeAws_json1_1ListMemberAccountsResult = (
       output.memberAccounts !== undefined && output.memberAccounts !== null
         ? deserializeAws_json1_1MemberAccounts(output.memberAccounts, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListS3ResourcesResult = (output: any, context: __SerdeContext): ListS3ResourcesResult => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     s3Resources:
       output.s3Resources !== undefined && output.s3Resources !== null
         ? deserializeAws_json1_1S3ResourcesClassification(output.s3Resources, context)
@@ -959,7 +959,7 @@ const deserializeAws_json1_1ListS3ResourcesResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1MemberAccount = (output: any, context: __SerdeContext): MemberAccount => {
   return {
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
+    accountId: __expectString(output.accountId),
   } as any;
 };
 
@@ -976,8 +976,8 @@ const deserializeAws_json1_1MemberAccounts = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1S3Resource = (output: any, context: __SerdeContext): S3Resource => {
   return {
-    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
-    prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
+    bucketName: __expectString(output.bucketName),
+    prefix: __expectString(output.prefix),
   } as any;
 };
 
@@ -986,12 +986,12 @@ const deserializeAws_json1_1S3ResourceClassification = (
   context: __SerdeContext
 ): S3ResourceClassification => {
   return {
-    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
+    bucketName: __expectString(output.bucketName),
     classificationType:
       output.classificationType !== undefined && output.classificationType !== null
         ? deserializeAws_json1_1ClassificationType(output.classificationType, context)
         : undefined,
-    prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
+    prefix: __expectString(output.prefix),
   } as any;
 };
 

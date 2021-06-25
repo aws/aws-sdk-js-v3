@@ -31,7 +31,12 @@ import {
   _Record,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -320,7 +325,7 @@ export const deserializeAws_restJson1BeginTransactionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.transactionId !== undefined && data.transactionId !== null) {
-    contents.transactionId = data.transactionId;
+    contents.transactionId = __expectString(data.transactionId);
   }
   return Promise.resolve(contents);
 };
@@ -407,7 +412,7 @@ export const deserializeAws_restJson1CommitTransactionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.transactionStatus !== undefined && data.transactionStatus !== null) {
-    contents.transactionStatus = data.transactionStatus;
+    contents.transactionStatus = __expectString(data.transactionStatus);
   }
   return Promise.resolve(contents);
 };
@@ -590,7 +595,7 @@ export const deserializeAws_restJson1ExecuteStatementCommand = async (
     contents.generatedFields = deserializeAws_restJson1FieldList(data.generatedFields, context);
   }
   if (data.numberOfRecordsUpdated !== undefined && data.numberOfRecordsUpdated !== null) {
-    contents.numberOfRecordsUpdated = data.numberOfRecordsUpdated;
+    contents.numberOfRecordsUpdated = __expectNumber(data.numberOfRecordsUpdated);
   }
   if (data.records !== undefined && data.records !== null) {
     contents.records = deserializeAws_restJson1SqlRecords(data.records, context);
@@ -680,7 +685,7 @@ export const deserializeAws_restJson1RollbackTransactionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.transactionStatus !== undefined && data.transactionStatus !== null) {
-    contents.transactionStatus = data.transactionStatus;
+    contents.transactionStatus = __expectString(data.transactionStatus);
   }
   return Promise.resolve(contents);
 };
@@ -774,7 +779,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -791,7 +796,7 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -821,7 +826,7 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -852,10 +857,10 @@ const deserializeAws_restJson1StatementTimeoutExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.dbConnectionId !== undefined && data.dbConnectionId !== null) {
-    contents.dbConnectionId = data.dbConnectionId;
+    contents.dbConnectionId = __expectNumber(data.dbConnectionId);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1035,31 +1040,26 @@ const deserializeAws_restJson1BooleanArray = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectBoolean(entry) as any;
     });
 };
 
 const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
   return {
-    arrayBaseColumnType:
-      output.arrayBaseColumnType !== undefined && output.arrayBaseColumnType !== null
-        ? output.arrayBaseColumnType
-        : undefined,
-    isAutoIncrement:
-      output.isAutoIncrement !== undefined && output.isAutoIncrement !== null ? output.isAutoIncrement : undefined,
-    isCaseSensitive:
-      output.isCaseSensitive !== undefined && output.isCaseSensitive !== null ? output.isCaseSensitive : undefined,
-    isCurrency: output.isCurrency !== undefined && output.isCurrency !== null ? output.isCurrency : undefined,
-    isSigned: output.isSigned !== undefined && output.isSigned !== null ? output.isSigned : undefined,
-    label: output.label !== undefined && output.label !== null ? output.label : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    nullable: output.nullable !== undefined && output.nullable !== null ? output.nullable : undefined,
-    precision: output.precision !== undefined && output.precision !== null ? output.precision : undefined,
-    scale: output.scale !== undefined && output.scale !== null ? output.scale : undefined,
-    schemaName: output.schemaName !== undefined && output.schemaName !== null ? output.schemaName : undefined,
-    tableName: output.tableName !== undefined && output.tableName !== null ? output.tableName : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
-    typeName: output.typeName !== undefined && output.typeName !== null ? output.typeName : undefined,
+    arrayBaseColumnType: __expectNumber(output.arrayBaseColumnType),
+    isAutoIncrement: __expectBoolean(output.isAutoIncrement),
+    isCaseSensitive: __expectBoolean(output.isCaseSensitive),
+    isCurrency: __expectBoolean(output.isCurrency),
+    isSigned: __expectBoolean(output.isSigned),
+    label: __expectString(output.label),
+    name: __expectString(output.name),
+    nullable: __expectNumber(output.nullable),
+    precision: __expectNumber(output.precision),
+    scale: __expectNumber(output.scale),
+    schemaName: __expectString(output.schemaName),
+    tableName: __expectString(output.tableName),
+    type: __expectNumber(output.type),
+    typeName: __expectString(output.typeName),
   } as any;
 };
 
@@ -1070,7 +1070,7 @@ const deserializeAws_restJson1DoubleArray = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
@@ -1085,30 +1085,20 @@ const deserializeAws_restJson1Field = (output: any, context: __SerdeContext): Fi
       blobValue: context.base64Decoder(output.blobValue),
     };
   }
-  if (output.booleanValue !== undefined && output.booleanValue !== null) {
-    return {
-      booleanValue: output.booleanValue,
-    };
+  if (__expectBoolean(output.booleanValue) !== undefined) {
+    return { booleanValue: __expectBoolean(output.booleanValue) as any };
   }
-  if (output.doubleValue !== undefined && output.doubleValue !== null) {
-    return {
-      doubleValue: output.doubleValue,
-    };
+  if (__expectNumber(output.doubleValue) !== undefined) {
+    return { doubleValue: __expectNumber(output.doubleValue) as any };
   }
-  if (output.isNull !== undefined && output.isNull !== null) {
-    return {
-      isNull: output.isNull,
-    };
+  if (__expectBoolean(output.isNull) !== undefined) {
+    return { isNull: __expectBoolean(output.isNull) as any };
   }
-  if (output.longValue !== undefined && output.longValue !== null) {
-    return {
-      longValue: output.longValue,
-    };
+  if (__expectNumber(output.longValue) !== undefined) {
+    return { longValue: __expectNumber(output.longValue) as any };
   }
-  if (output.stringValue !== undefined && output.stringValue !== null) {
-    return {
-      stringValue: output.stringValue,
-    };
+  if (__expectString(output.stringValue) !== undefined) {
+    return { stringValue: __expectString(output.stringValue) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };
@@ -1131,7 +1121,7 @@ const deserializeAws_restJson1LongArray = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
@@ -1181,7 +1171,7 @@ const deserializeAws_restJson1ResultFrame = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1ResultSetMetadata = (output: any, context: __SerdeContext): ResultSetMetadata => {
   return {
-    columnCount: output.columnCount !== undefined && output.columnCount !== null ? output.columnCount : undefined,
+    columnCount: __expectNumber(output.columnCount),
     columnMetadata:
       output.columnMetadata !== undefined && output.columnMetadata !== null
         ? deserializeAws_restJson1Metadata(output.columnMetadata, context)
@@ -1213,10 +1203,7 @@ const deserializeAws_restJson1SqlRecords = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1SqlStatementResult = (output: any, context: __SerdeContext): SqlStatementResult => {
   return {
-    numberOfRecordsUpdated:
-      output.numberOfRecordsUpdated !== undefined && output.numberOfRecordsUpdated !== null
-        ? output.numberOfRecordsUpdated
-        : undefined,
+    numberOfRecordsUpdated: __expectNumber(output.numberOfRecordsUpdated),
     resultFrame:
       output.resultFrame !== undefined && output.resultFrame !== null
         ? deserializeAws_restJson1ResultFrame(output.resultFrame, context)
@@ -1242,7 +1229,7 @@ const deserializeAws_restJson1StringArray = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1281,45 +1268,31 @@ const deserializeAws_restJson1Value = (output: any, context: __SerdeContext): Va
       arrayValues: deserializeAws_restJson1ArrayValueList(output.arrayValues, context),
     };
   }
-  if (output.bigIntValue !== undefined && output.bigIntValue !== null) {
-    return {
-      bigIntValue: output.bigIntValue,
-    };
+  if (__expectNumber(output.bigIntValue) !== undefined) {
+    return { bigIntValue: __expectNumber(output.bigIntValue) as any };
   }
-  if (output.bitValue !== undefined && output.bitValue !== null) {
-    return {
-      bitValue: output.bitValue,
-    };
+  if (__expectBoolean(output.bitValue) !== undefined) {
+    return { bitValue: __expectBoolean(output.bitValue) as any };
   }
   if (output.blobValue !== undefined && output.blobValue !== null) {
     return {
       blobValue: context.base64Decoder(output.blobValue),
     };
   }
-  if (output.doubleValue !== undefined && output.doubleValue !== null) {
-    return {
-      doubleValue: output.doubleValue,
-    };
+  if (__expectNumber(output.doubleValue) !== undefined) {
+    return { doubleValue: __expectNumber(output.doubleValue) as any };
   }
-  if (output.intValue !== undefined && output.intValue !== null) {
-    return {
-      intValue: output.intValue,
-    };
+  if (__expectNumber(output.intValue) !== undefined) {
+    return { intValue: __expectNumber(output.intValue) as any };
   }
-  if (output.isNull !== undefined && output.isNull !== null) {
-    return {
-      isNull: output.isNull,
-    };
+  if (__expectBoolean(output.isNull) !== undefined) {
+    return { isNull: __expectBoolean(output.isNull) as any };
   }
-  if (output.realValue !== undefined && output.realValue !== null) {
-    return {
-      realValue: output.realValue,
-    };
+  if (__expectNumber(output.realValue) !== undefined) {
+    return { realValue: __expectNumber(output.realValue) as any };
   }
-  if (output.stringValue !== undefined && output.stringValue !== null) {
-    return {
-      stringValue: output.stringValue,
-    };
+  if (__expectString(output.stringValue) !== undefined) {
+    return { stringValue: __expectString(output.stringValue) as any };
   }
   if (output.structValue !== undefined && output.structValue !== null) {
     return {

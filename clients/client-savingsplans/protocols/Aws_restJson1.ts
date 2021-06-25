@@ -50,7 +50,11 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -386,7 +390,7 @@ export const deserializeAws_restJson1CreateSavingsPlanCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.savingsPlanId !== undefined && data.savingsPlanId !== null) {
-    contents.savingsPlanId = data.savingsPlanId;
+    contents.savingsPlanId = __expectString(data.savingsPlanId);
   }
   return Promise.resolve(contents);
 };
@@ -542,10 +546,10 @@ export const deserializeAws_restJson1DescribeSavingsPlanRatesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.savingsPlanId !== undefined && data.savingsPlanId !== null) {
-    contents.savingsPlanId = data.savingsPlanId;
+    contents.savingsPlanId = __expectString(data.savingsPlanId);
   }
   if (data.searchResults !== undefined && data.searchResults !== null) {
     contents.searchResults = deserializeAws_restJson1SavingsPlanRateList(data.searchResults, context);
@@ -612,7 +616,7 @@ export const deserializeAws_restJson1DescribeSavingsPlansCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.savingsPlans !== undefined && data.savingsPlans !== null) {
     contents.savingsPlans = deserializeAws_restJson1SavingsPlanList(data.savingsPlans, context);
@@ -679,7 +683,7 @@ export const deserializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand = 
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.searchResults !== undefined && data.searchResults !== null) {
     contents.searchResults = deserializeAws_restJson1SavingsPlanOfferingRatesList(data.searchResults, context);
@@ -746,7 +750,7 @@ export const deserializeAws_restJson1DescribeSavingsPlansOfferingsCommand = asyn
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.searchResults !== undefined && data.searchResults !== null) {
     contents.searchResults = deserializeAws_restJson1SavingsPlanOfferingsList(data.searchResults, context);
@@ -1024,7 +1028,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1041,7 +1045,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1058,7 +1062,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1075,7 +1079,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1412,60 +1416,41 @@ const deserializeAws_restJson1ParentSavingsPlanOffering = (
   context: __SerdeContext
 ): ParentSavingsPlanOffering => {
   return {
-    currency: output.currency !== undefined && output.currency !== null ? output.currency : undefined,
-    durationSeconds:
-      output.durationSeconds !== undefined && output.durationSeconds !== null ? output.durationSeconds : undefined,
-    offeringId: output.offeringId !== undefined && output.offeringId !== null ? output.offeringId : undefined,
-    paymentOption:
-      output.paymentOption !== undefined && output.paymentOption !== null ? output.paymentOption : undefined,
-    planDescription:
-      output.planDescription !== undefined && output.planDescription !== null ? output.planDescription : undefined,
-    planType: output.planType !== undefined && output.planType !== null ? output.planType : undefined,
+    currency: __expectString(output.currency),
+    durationSeconds: __expectNumber(output.durationSeconds),
+    offeringId: __expectString(output.offeringId),
+    paymentOption: __expectString(output.paymentOption),
+    planDescription: __expectString(output.planDescription),
+    planType: __expectString(output.planType),
   } as any;
 };
 
 const deserializeAws_restJson1SavingsPlan = (output: any, context: __SerdeContext): SavingsPlan => {
   return {
-    commitment: output.commitment !== undefined && output.commitment !== null ? output.commitment : undefined,
-    currency: output.currency !== undefined && output.currency !== null ? output.currency : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    ec2InstanceFamily:
-      output.ec2InstanceFamily !== undefined && output.ec2InstanceFamily !== null
-        ? output.ec2InstanceFamily
-        : undefined,
-    end: output.end !== undefined && output.end !== null ? output.end : undefined,
-    offeringId: output.offeringId !== undefined && output.offeringId !== null ? output.offeringId : undefined,
-    paymentOption:
-      output.paymentOption !== undefined && output.paymentOption !== null ? output.paymentOption : undefined,
+    commitment: __expectString(output.commitment),
+    currency: __expectString(output.currency),
+    description: __expectString(output.description),
+    ec2InstanceFamily: __expectString(output.ec2InstanceFamily),
+    end: __expectString(output.end),
+    offeringId: __expectString(output.offeringId),
+    paymentOption: __expectString(output.paymentOption),
     productTypes:
       output.productTypes !== undefined && output.productTypes !== null
         ? deserializeAws_restJson1SavingsPlanProductTypeList(output.productTypes, context)
         : undefined,
-    recurringPaymentAmount:
-      output.recurringPaymentAmount !== undefined && output.recurringPaymentAmount !== null
-        ? output.recurringPaymentAmount
-        : undefined,
-    region: output.region !== undefined && output.region !== null ? output.region : undefined,
-    savingsPlanArn:
-      output.savingsPlanArn !== undefined && output.savingsPlanArn !== null ? output.savingsPlanArn : undefined,
-    savingsPlanId:
-      output.savingsPlanId !== undefined && output.savingsPlanId !== null ? output.savingsPlanId : undefined,
-    savingsPlanType:
-      output.savingsPlanType !== undefined && output.savingsPlanType !== null ? output.savingsPlanType : undefined,
-    start: output.start !== undefined && output.start !== null ? output.start : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    recurringPaymentAmount: __expectString(output.recurringPaymentAmount),
+    region: __expectString(output.region),
+    savingsPlanArn: __expectString(output.savingsPlanArn),
+    savingsPlanId: __expectString(output.savingsPlanId),
+    savingsPlanType: __expectString(output.savingsPlanType),
+    start: __expectString(output.start),
+    state: __expectString(output.state),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
-    termDurationInSeconds:
-      output.termDurationInSeconds !== undefined && output.termDurationInSeconds !== null
-        ? output.termDurationInSeconds
-        : undefined,
-    upfrontPaymentAmount:
-      output.upfrontPaymentAmount !== undefined && output.upfrontPaymentAmount !== null
-        ? output.upfrontPaymentAmount
-        : undefined,
+    termDurationInSeconds: __expectNumber(output.termDurationInSeconds),
+    upfrontPaymentAmount: __expectString(output.upfrontPaymentAmount),
   } as any;
 };
 
@@ -1482,15 +1467,13 @@ const deserializeAws_restJson1SavingsPlanList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1SavingsPlanOffering = (output: any, context: __SerdeContext): SavingsPlanOffering => {
   return {
-    currency: output.currency !== undefined && output.currency !== null ? output.currency : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    durationSeconds:
-      output.durationSeconds !== undefined && output.durationSeconds !== null ? output.durationSeconds : undefined,
-    offeringId: output.offeringId !== undefined && output.offeringId !== null ? output.offeringId : undefined,
-    operation: output.operation !== undefined && output.operation !== null ? output.operation : undefined,
-    paymentOption:
-      output.paymentOption !== undefined && output.paymentOption !== null ? output.paymentOption : undefined,
-    planType: output.planType !== undefined && output.planType !== null ? output.planType : undefined,
+    currency: __expectString(output.currency),
+    description: __expectString(output.description),
+    durationSeconds: __expectNumber(output.durationSeconds),
+    offeringId: __expectString(output.offeringId),
+    operation: __expectString(output.operation),
+    paymentOption: __expectString(output.paymentOption),
+    planType: __expectString(output.planType),
     productTypes:
       output.productTypes !== undefined && output.productTypes !== null
         ? deserializeAws_restJson1SavingsPlanProductTypeList(output.productTypes, context)
@@ -1499,8 +1482,8 @@ const deserializeAws_restJson1SavingsPlanOffering = (output: any, context: __Ser
       output.properties !== undefined && output.properties !== null
         ? deserializeAws_restJson1SavingsPlanOfferingPropertyList(output.properties, context)
         : undefined,
-    serviceCode: output.serviceCode !== undefined && output.serviceCode !== null ? output.serviceCode : undefined,
-    usageType: output.usageType !== undefined && output.usageType !== null ? output.usageType : undefined,
+    serviceCode: __expectString(output.serviceCode),
+    usageType: __expectString(output.usageType),
   } as any;
 };
 
@@ -1509,8 +1492,8 @@ const deserializeAws_restJson1SavingsPlanOfferingProperty = (
   context: __SerdeContext
 ): SavingsPlanOfferingProperty => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    name: __expectString(output.name),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -1533,20 +1516,20 @@ const deserializeAws_restJson1SavingsPlanOfferingRate = (
   context: __SerdeContext
 ): SavingsPlanOfferingRate => {
   return {
-    operation: output.operation !== undefined && output.operation !== null ? output.operation : undefined,
-    productType: output.productType !== undefined && output.productType !== null ? output.productType : undefined,
+    operation: __expectString(output.operation),
+    productType: __expectString(output.productType),
     properties:
       output.properties !== undefined && output.properties !== null
         ? deserializeAws_restJson1SavingsPlanOfferingRatePropertyList(output.properties, context)
         : undefined,
-    rate: output.rate !== undefined && output.rate !== null ? output.rate : undefined,
+    rate: __expectString(output.rate),
     savingsPlanOffering:
       output.savingsPlanOffering !== undefined && output.savingsPlanOffering !== null
         ? deserializeAws_restJson1ParentSavingsPlanOffering(output.savingsPlanOffering, context)
         : undefined,
-    serviceCode: output.serviceCode !== undefined && output.serviceCode !== null ? output.serviceCode : undefined,
-    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
-    usageType: output.usageType !== undefined && output.usageType !== null ? output.usageType : undefined,
+    serviceCode: __expectString(output.serviceCode),
+    unit: __expectString(output.unit),
+    usageType: __expectString(output.usageType),
   } as any;
 };
 
@@ -1555,8 +1538,8 @@ const deserializeAws_restJson1SavingsPlanOfferingRateProperty = (
   context: __SerdeContext
 ): SavingsPlanOfferingRateProperty => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    name: __expectString(output.name),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -1612,23 +1595,23 @@ const deserializeAws_restJson1SavingsPlanProductTypeList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1SavingsPlanRate = (output: any, context: __SerdeContext): SavingsPlanRate => {
   return {
-    currency: output.currency !== undefined && output.currency !== null ? output.currency : undefined,
-    operation: output.operation !== undefined && output.operation !== null ? output.operation : undefined,
-    productType: output.productType !== undefined && output.productType !== null ? output.productType : undefined,
+    currency: __expectString(output.currency),
+    operation: __expectString(output.operation),
+    productType: __expectString(output.productType),
     properties:
       output.properties !== undefined && output.properties !== null
         ? deserializeAws_restJson1SavingsPlanRatePropertyList(output.properties, context)
         : undefined,
-    rate: output.rate !== undefined && output.rate !== null ? output.rate : undefined,
-    serviceCode: output.serviceCode !== undefined && output.serviceCode !== null ? output.serviceCode : undefined,
-    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
-    usageType: output.usageType !== undefined && output.usageType !== null ? output.usageType : undefined,
+    rate: __expectString(output.rate),
+    serviceCode: __expectString(output.serviceCode),
+    unit: __expectString(output.unit),
+    usageType: __expectString(output.usageType),
   } as any;
 };
 
@@ -1648,8 +1631,8 @@ const deserializeAws_restJson1SavingsPlanRateProperty = (
   context: __SerdeContext
 ): SavingsPlanRateProperty => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    name: __expectString(output.name),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -1674,7 +1657,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

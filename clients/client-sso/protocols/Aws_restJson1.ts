@@ -14,6 +14,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -216,7 +218,7 @@ export const deserializeAws_restJson1ListAccountRolesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.roleList !== undefined && data.roleList !== null) {
     contents.roleList = deserializeAws_restJson1RoleListType(data.roleList, context);
@@ -302,7 +304,7 @@ export const deserializeAws_restJson1ListAccountsCommand = async (
     contents.accountList = deserializeAws_restJson1AccountListType(data.accountList, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -447,7 +449,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -464,7 +466,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -481,7 +483,7 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -498,16 +500,16 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
 
 const deserializeAws_restJson1AccountInfo = (output: any, context: __SerdeContext): AccountInfo => {
   return {
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
-    accountName: output.accountName !== undefined && output.accountName !== null ? output.accountName : undefined,
-    emailAddress: output.emailAddress !== undefined && output.emailAddress !== null ? output.emailAddress : undefined,
+    accountId: __expectString(output.accountId),
+    accountName: __expectString(output.accountName),
+    emailAddress: __expectString(output.emailAddress),
   } as any;
 };
 
@@ -524,18 +526,17 @@ const deserializeAws_restJson1AccountListType = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1RoleCredentials = (output: any, context: __SerdeContext): RoleCredentials => {
   return {
-    accessKeyId: output.accessKeyId !== undefined && output.accessKeyId !== null ? output.accessKeyId : undefined,
-    expiration: output.expiration !== undefined && output.expiration !== null ? output.expiration : undefined,
-    secretAccessKey:
-      output.secretAccessKey !== undefined && output.secretAccessKey !== null ? output.secretAccessKey : undefined,
-    sessionToken: output.sessionToken !== undefined && output.sessionToken !== null ? output.sessionToken : undefined,
+    accessKeyId: __expectString(output.accessKeyId),
+    expiration: __expectNumber(output.expiration),
+    secretAccessKey: __expectString(output.secretAccessKey),
+    sessionToken: __expectString(output.sessionToken),
   } as any;
 };
 
 const deserializeAws_restJson1RoleInfo = (output: any, context: __SerdeContext): RoleInfo => {
   return {
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
-    roleName: output.roleName !== undefined && output.roleName !== null ? output.roleName : undefined,
+    accountId: __expectString(output.accountId),
+    roleName: __expectString(output.roleName),
   } as any;
 };
 

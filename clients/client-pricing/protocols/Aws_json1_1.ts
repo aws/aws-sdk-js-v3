@@ -18,7 +18,11 @@ import {
   Service,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { LazyJsonString as __LazyJsonString, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  LazyJsonString as __LazyJsonString,
+  SmithyException as __SmithyException,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -457,13 +461,13 @@ const deserializeAws_json1_1AttributeNameList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   return {
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -483,9 +487,8 @@ const deserializeAws_json1_1DescribeServicesResponse = (
   context: __SerdeContext
 ): DescribeServicesResponse => {
   return {
-    FormatVersion:
-      output.FormatVersion !== undefined && output.FormatVersion !== null ? output.FormatVersion : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    FormatVersion: __expectString(output.FormatVersion),
+    NextToken: __expectString(output.NextToken),
     Services:
       output.Services !== undefined && output.Services !== null
         ? deserializeAws_json1_1ServiceList(output.Services, context)
@@ -498,7 +501,7 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
   context: __SerdeContext
 ): ExpiredNextTokenException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -511,15 +514,14 @@ const deserializeAws_json1_1GetAttributeValuesResponse = (
       output.AttributeValues !== undefined && output.AttributeValues !== null
         ? deserializeAws_json1_1AttributeValueList(output.AttributeValues, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1GetProductsResponse = (output: any, context: __SerdeContext): GetProductsResponse => {
   return {
-    FormatVersion:
-      output.FormatVersion !== undefined && output.FormatVersion !== null ? output.FormatVersion : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    FormatVersion: __expectString(output.FormatVersion),
+    NextToken: __expectString(output.NextToken),
     PriceList:
       output.PriceList !== undefined && output.PriceList !== null
         ? deserializeAws_json1_1PriceList(output.PriceList, context)
@@ -529,7 +531,7 @@ const deserializeAws_json1_1GetProductsResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -538,7 +540,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -547,13 +549,13 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -574,7 +576,7 @@ const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Se
       output.AttributeNames !== undefined && output.AttributeNames !== null
         ? deserializeAws_json1_1AttributeNameList(output.AttributeNames, context)
         : undefined,
-    ServiceCode: output.ServiceCode !== undefined && output.ServiceCode !== null ? output.ServiceCode : undefined,
+    ServiceCode: __expectString(output.ServiceCode),
   } as any;
 };
 

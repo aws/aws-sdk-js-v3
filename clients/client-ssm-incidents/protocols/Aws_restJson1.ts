@@ -109,6 +109,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -957,7 +960,7 @@ export const deserializeAws_restJson1CreateReplicationSetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = data.arn;
+    contents.arn = __expectString(data.arn);
   }
   return Promise.resolve(contents);
 };
@@ -1052,7 +1055,7 @@ export const deserializeAws_restJson1CreateResponsePlanCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = data.arn;
+    contents.arn = __expectString(data.arn);
   }
   return Promise.resolve(contents);
 };
@@ -1148,10 +1151,10 @@ export const deserializeAws_restJson1CreateTimelineEventCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.eventId !== undefined && data.eventId !== null) {
-    contents.eventId = data.eventId;
+    contents.eventId = __expectString(data.eventId);
   }
   if (data.incidentRecordArn !== undefined && data.incidentRecordArn !== null) {
-    contents.incidentRecordArn = data.incidentRecordArn;
+    contents.incidentRecordArn = __expectString(data.incidentRecordArn);
   }
   return Promise.resolve(contents);
 };
@@ -1812,7 +1815,7 @@ export const deserializeAws_restJson1GetResourcePoliciesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.resourcePolicies !== undefined && data.resourcePolicies !== null) {
     contents.resourcePolicies = deserializeAws_restJson1ResourcePolicyList(data.resourcePolicies, context);
@@ -1911,13 +1914,13 @@ export const deserializeAws_restJson1GetResponsePlanCommand = async (
     contents.actions = deserializeAws_restJson1ActionsList(data.actions, context);
   }
   if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = data.arn;
+    contents.arn = __expectString(data.arn);
   }
   if (data.chatChannel !== undefined && data.chatChannel !== null) {
     contents.chatChannel = deserializeAws_restJson1ChatChannel(data.chatChannel, context);
   }
   if (data.displayName !== undefined && data.displayName !== null) {
-    contents.displayName = data.displayName;
+    contents.displayName = __expectString(data.displayName);
   }
   if (data.engagements !== undefined && data.engagements !== null) {
     contents.engagements = deserializeAws_restJson1EngagementSet(data.engagements, context);
@@ -1926,7 +1929,7 @@ export const deserializeAws_restJson1GetResponsePlanCommand = async (
     contents.incidentTemplate = deserializeAws_restJson1IncidentTemplate(data.incidentTemplate, context);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   return Promise.resolve(contents);
 };
@@ -2107,7 +2110,7 @@ export const deserializeAws_restJson1ListIncidentRecordsCommand = async (
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2187,7 +2190,7 @@ export const deserializeAws_restJson1ListRelatedItemsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.relatedItems !== undefined && data.relatedItems !== null) {
     contents.relatedItems = deserializeAws_restJson1RelatedItemList(data.relatedItems, context);
@@ -2270,7 +2273,7 @@ export const deserializeAws_restJson1ListReplicationSetsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.replicationSetArns !== undefined && data.replicationSetArns !== null) {
     contents.replicationSetArns = deserializeAws_restJson1ReplicationSetArnList(data.replicationSetArns, context);
@@ -2353,7 +2356,7 @@ export const deserializeAws_restJson1ListResponsePlansCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.responsePlanSummaries !== undefined && data.responsePlanSummaries !== null) {
     contents.responsePlanSummaries = deserializeAws_restJson1ResponsePlanSummaryList(
@@ -2529,7 +2532,7 @@ export const deserializeAws_restJson1ListTimelineEventsCommand = async (
     contents.eventSummaries = deserializeAws_restJson1EventSummaryList(data.eventSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2608,7 +2611,7 @@ export const deserializeAws_restJson1PutResourcePolicyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.policyId !== undefined && data.policyId !== null) {
-    contents.policyId = data.policyId;
+    contents.policyId = __expectString(data.policyId);
   }
   return Promise.resolve(contents);
 };
@@ -2695,7 +2698,7 @@ export const deserializeAws_restJson1StartIncidentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.incidentRecordArn !== undefined && data.incidentRecordArn !== null) {
-    contents.incidentRecordArn = data.incidentRecordArn;
+    contents.incidentRecordArn = __expectString(data.incidentRecordArn);
   }
   return Promise.resolve(contents);
 };
@@ -3509,7 +3512,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3528,13 +3531,13 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.resourceIdentifier !== undefined && data.resourceIdentifier !== null) {
-    contents.resourceIdentifier = data.resourceIdentifier;
+    contents.resourceIdentifier = __expectString(data.resourceIdentifier);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = data.resourceType;
+    contents.resourceType = __expectString(data.resourceType);
   }
   return contents;
 };
@@ -3551,7 +3554,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3570,13 +3573,13 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.resourceIdentifier !== undefined && data.resourceIdentifier !== null) {
-    contents.resourceIdentifier = data.resourceIdentifier;
+    contents.resourceIdentifier = __expectString(data.resourceIdentifier);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = data.resourceType;
+    contents.resourceType = __expectString(data.resourceType);
   }
   return contents;
 };
@@ -3597,19 +3600,19 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.quotaCode !== undefined && data.quotaCode !== null) {
-    contents.quotaCode = data.quotaCode;
+    contents.quotaCode = __expectString(data.quotaCode);
   }
   if (data.resourceIdentifier !== undefined && data.resourceIdentifier !== null) {
-    contents.resourceIdentifier = data.resourceIdentifier;
+    contents.resourceIdentifier = __expectString(data.resourceIdentifier);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = data.resourceType;
+    contents.resourceType = __expectString(data.resourceType);
   }
   if (data.serviceCode !== undefined && data.serviceCode !== null) {
-    contents.serviceCode = data.serviceCode;
+    contents.serviceCode = __expectString(data.serviceCode);
   }
   return contents;
 };
@@ -3628,13 +3631,13 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.quotaCode !== undefined && data.quotaCode !== null) {
-    contents.quotaCode = data.quotaCode;
+    contents.quotaCode = __expectString(data.quotaCode);
   }
   if (data.serviceCode !== undefined && data.serviceCode !== null) {
-    contents.serviceCode = data.serviceCode;
+    contents.serviceCode = __expectString(data.serviceCode);
   }
   return contents;
 };
@@ -3651,7 +3654,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -3975,10 +3978,8 @@ const deserializeAws_restJson1ActionsList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1AutomationExecution = (output: any, context: __SerdeContext): AutomationExecution => {
-  if (output.ssmExecutionArn !== undefined && output.ssmExecutionArn !== null) {
-    return {
-      ssmExecutionArn: output.ssmExecutionArn,
-    };
+  if (__expectString(output.ssmExecutionArn) !== undefined) {
+    return { ssmExecutionArn: __expectString(output.ssmExecutionArn) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };
@@ -4004,7 +4005,7 @@ const deserializeAws_restJson1ChatbotSnsConfigurationSet = (output: any, context
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4033,26 +4034,23 @@ const deserializeAws_restJson1EngagementSet = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1EventSummary = (output: any, context: __SerdeContext): EventSummary => {
   return {
-    eventId: output.eventId !== undefined && output.eventId !== null ? output.eventId : undefined,
+    eventId: __expectString(output.eventId),
     eventTime:
       output.eventTime !== undefined && output.eventTime !== null
         ? new Date(Math.round(output.eventTime * 1000))
         : undefined,
-    eventType: output.eventType !== undefined && output.eventType !== null ? output.eventType : undefined,
+    eventType: __expectString(output.eventType),
     eventUpdatedTime:
       output.eventUpdatedTime !== undefined && output.eventUpdatedTime !== null
         ? new Date(Math.round(output.eventUpdatedTime * 1000))
         : undefined,
-    incidentRecordArn:
-      output.incidentRecordArn !== undefined && output.incidentRecordArn !== null
-        ? output.incidentRecordArn
-        : undefined,
+    incidentRecordArn: __expectString(output.incidentRecordArn),
   } as any;
 };
 
@@ -4069,7 +4067,7 @@ const deserializeAws_restJson1EventSummaryList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1IncidentRecord = (output: any, context: __SerdeContext): IncidentRecord => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     automationExecutions:
       output.automationExecutions !== undefined && output.automationExecutions !== null
         ? deserializeAws_restJson1AutomationExecutionSet(output.automationExecutions, context)
@@ -4082,14 +4080,13 @@ const deserializeAws_restJson1IncidentRecord = (output: any, context: __SerdeCon
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    dedupeString: output.dedupeString !== undefined && output.dedupeString !== null ? output.dedupeString : undefined,
-    impact: output.impact !== undefined && output.impact !== null ? output.impact : undefined,
+    dedupeString: __expectString(output.dedupeString),
+    impact: __expectNumber(output.impact),
     incidentRecordSource:
       output.incidentRecordSource !== undefined && output.incidentRecordSource !== null
         ? deserializeAws_restJson1IncidentRecordSource(output.incidentRecordSource, context)
         : undefined,
-    lastModifiedBy:
-      output.lastModifiedBy !== undefined && output.lastModifiedBy !== null ? output.lastModifiedBy : undefined,
+    lastModifiedBy: __expectString(output.lastModifiedBy),
     lastModifiedTime:
       output.lastModifiedTime !== undefined && output.lastModifiedTime !== null
         ? new Date(Math.round(output.lastModifiedTime * 1000))
@@ -4102,29 +4099,29 @@ const deserializeAws_restJson1IncidentRecord = (output: any, context: __SerdeCon
       output.resolvedTime !== undefined && output.resolvedTime !== null
         ? new Date(Math.round(output.resolvedTime * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    summary: output.summary !== undefined && output.summary !== null ? output.summary : undefined,
-    title: output.title !== undefined && output.title !== null ? output.title : undefined,
+    status: __expectString(output.status),
+    summary: __expectString(output.summary),
+    title: __expectString(output.title),
   } as any;
 };
 
 const deserializeAws_restJson1IncidentRecordSource = (output: any, context: __SerdeContext): IncidentRecordSource => {
   return {
-    createdBy: output.createdBy !== undefined && output.createdBy !== null ? output.createdBy : undefined,
-    invokedBy: output.invokedBy !== undefined && output.invokedBy !== null ? output.invokedBy : undefined,
-    resourceArn: output.resourceArn !== undefined && output.resourceArn !== null ? output.resourceArn : undefined,
-    source: output.source !== undefined && output.source !== null ? output.source : undefined,
+    createdBy: __expectString(output.createdBy),
+    invokedBy: __expectString(output.invokedBy),
+    resourceArn: __expectString(output.resourceArn),
+    source: __expectString(output.source),
   } as any;
 };
 
 const deserializeAws_restJson1IncidentRecordSummary = (output: any, context: __SerdeContext): IncidentRecordSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    impact: output.impact !== undefined && output.impact !== null ? output.impact : undefined,
+    impact: __expectNumber(output.impact),
     incidentRecordSource:
       output.incidentRecordSource !== undefined && output.incidentRecordSource !== null
         ? deserializeAws_restJson1IncidentRecordSource(output.incidentRecordSource, context)
@@ -4133,8 +4130,8 @@ const deserializeAws_restJson1IncidentRecordSummary = (output: any, context: __S
       output.resolvedTime !== undefined && output.resolvedTime !== null
         ? new Date(Math.round(output.resolvedTime * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    title: output.title !== undefined && output.title !== null ? output.title : undefined,
+    status: __expectString(output.status),
+    title: __expectString(output.title),
   } as any;
 };
 
@@ -4154,20 +4151,20 @@ const deserializeAws_restJson1IncidentRecordSummaryList = (
 
 const deserializeAws_restJson1IncidentTemplate = (output: any, context: __SerdeContext): IncidentTemplate => {
   return {
-    dedupeString: output.dedupeString !== undefined && output.dedupeString !== null ? output.dedupeString : undefined,
-    impact: output.impact !== undefined && output.impact !== null ? output.impact : undefined,
+    dedupeString: __expectString(output.dedupeString),
+    impact: __expectNumber(output.impact),
     notificationTargets:
       output.notificationTargets !== undefined && output.notificationTargets !== null
         ? deserializeAws_restJson1NotificationTargetSet(output.notificationTargets, context)
         : undefined,
-    summary: output.summary !== undefined && output.summary !== null ? output.summary : undefined,
-    title: output.title !== undefined && output.title !== null ? output.title : undefined,
+    summary: __expectString(output.summary),
+    title: __expectString(output.title),
   } as any;
 };
 
 const deserializeAws_restJson1ItemIdentifier = (output: any, context: __SerdeContext): ItemIdentifier => {
   return {
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    type: __expectString(output.type),
     value:
       output.value !== undefined && output.value !== null
         ? deserializeAws_restJson1ItemValue(output.value, context)
@@ -4176,20 +4173,14 @@ const deserializeAws_restJson1ItemIdentifier = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1ItemValue = (output: any, context: __SerdeContext): ItemValue => {
-  if (output.arn !== undefined && output.arn !== null) {
-    return {
-      arn: output.arn,
-    };
+  if (__expectString(output.arn) !== undefined) {
+    return { arn: __expectString(output.arn) as any };
   }
-  if (output.metricDefinition !== undefined && output.metricDefinition !== null) {
-    return {
-      metricDefinition: output.metricDefinition,
-    };
+  if (__expectString(output.metricDefinition) !== undefined) {
+    return { metricDefinition: __expectString(output.metricDefinition) as any };
   }
-  if (output.url !== undefined && output.url !== null) {
-    return {
-      url: output.url,
-    };
+  if (__expectString(output.url) !== undefined) {
+    return { url: __expectString(output.url) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };
@@ -4198,10 +4189,8 @@ const deserializeAws_restJson1NotificationTargetItem = (
   output: any,
   context: __SerdeContext
 ): NotificationTargetItem => {
-  if (output.snsTopicArn !== undefined && output.snsTopicArn !== null) {
-    return {
-      snsTopicArn: output.snsTopicArn,
-    };
+  if (__expectString(output.snsTopicArn) !== undefined) {
+    return { snsTopicArn: __expectString(output.snsTopicArn) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };
@@ -4222,10 +4211,9 @@ const deserializeAws_restJson1NotificationTargetSet = (
 
 const deserializeAws_restJson1RegionInfo = (output: any, context: __SerdeContext): RegionInfo => {
   return {
-    sseKmsKeyId: output.sseKmsKeyId !== undefined && output.sseKmsKeyId !== null ? output.sseKmsKeyId : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
+    sseKmsKeyId: __expectString(output.sseKmsKeyId),
+    status: __expectString(output.status),
+    statusMessage: __expectString(output.statusMessage),
     statusUpdateDateTime:
       output.statusUpdateDateTime !== undefined && output.statusUpdateDateTime !== null
         ? new Date(Math.round(output.statusUpdateDateTime * 1000))
@@ -4251,7 +4239,7 @@ const deserializeAws_restJson1RelatedItem = (output: any, context: __SerdeContex
       output.identifier !== undefined && output.identifier !== null
         ? deserializeAws_restJson1ItemIdentifier(output.identifier, context)
         : undefined,
-    title: output.title !== undefined && output.title !== null ? output.title : undefined,
+    title: __expectString(output.title),
   } as any;
 };
 
@@ -4268,17 +4256,13 @@ const deserializeAws_restJson1RelatedItemList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ReplicationSet = (output: any, context: __SerdeContext): ReplicationSet => {
   return {
-    createdBy: output.createdBy !== undefined && output.createdBy !== null ? output.createdBy : undefined,
+    createdBy: __expectString(output.createdBy),
     createdTime:
       output.createdTime !== undefined && output.createdTime !== null
         ? new Date(Math.round(output.createdTime * 1000))
         : undefined,
-    deletionProtected:
-      output.deletionProtected !== undefined && output.deletionProtected !== null
-        ? output.deletionProtected
-        : undefined,
-    lastModifiedBy:
-      output.lastModifiedBy !== undefined && output.lastModifiedBy !== null ? output.lastModifiedBy : undefined,
+    deletionProtected: __expectBoolean(output.deletionProtected),
+    lastModifiedBy: __expectString(output.lastModifiedBy),
     lastModifiedTime:
       output.lastModifiedTime !== undefined && output.lastModifiedTime !== null
         ? new Date(Math.round(output.lastModifiedTime * 1000))
@@ -4287,7 +4271,7 @@ const deserializeAws_restJson1ReplicationSet = (output: any, context: __SerdeCon
       output.regionMap !== undefined && output.regionMap !== null
         ? deserializeAws_restJson1RegionInfoMap(output.regionMap, context)
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -4298,19 +4282,15 @@ const deserializeAws_restJson1ReplicationSetArnList = (output: any, context: __S
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
   return {
-    policyDocument:
-      output.policyDocument !== undefined && output.policyDocument !== null ? output.policyDocument : undefined,
-    policyId: output.policyId !== undefined && output.policyId !== null ? output.policyId : undefined,
-    ramResourceShareRegion:
-      output.ramResourceShareRegion !== undefined && output.ramResourceShareRegion !== null
-        ? output.ramResourceShareRegion
-        : undefined,
+    policyDocument: __expectString(output.policyDocument),
+    policyId: __expectString(output.policyId),
+    ramResourceShareRegion: __expectString(output.ramResourceShareRegion),
   } as any;
 };
 
@@ -4327,9 +4307,9 @@ const deserializeAws_restJson1ResourcePolicyList = (output: any, context: __Serd
 
 const deserializeAws_restJson1ResponsePlanSummary = (output: any, context: __SerdeContext): ResponsePlanSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    arn: __expectString(output.arn),
+    displayName: __expectString(output.displayName),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -4349,16 +4329,14 @@ const deserializeAws_restJson1ResponsePlanSummaryList = (
 
 const deserializeAws_restJson1SsmAutomation = (output: any, context: __SerdeContext): SsmAutomation => {
   return {
-    documentName: output.documentName !== undefined && output.documentName !== null ? output.documentName : undefined,
-    documentVersion:
-      output.documentVersion !== undefined && output.documentVersion !== null ? output.documentVersion : undefined,
+    documentName: __expectString(output.documentName),
+    documentVersion: __expectString(output.documentVersion),
     parameters:
       output.parameters !== undefined && output.parameters !== null
         ? deserializeAws_restJson1SsmParameters(output.parameters, context)
         : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    targetAccount:
-      output.targetAccount !== undefined && output.targetAccount !== null ? output.targetAccount : undefined,
+    roleArn: __expectString(output.roleArn),
+    targetAccount: __expectString(output.targetAccount),
   } as any;
 };
 
@@ -4381,7 +4359,7 @@ const deserializeAws_restJson1SsmParameterValues = (output: any, context: __Serd
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4392,28 +4370,25 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1TimelineEvent = (output: any, context: __SerdeContext): TimelineEvent => {
   return {
-    eventData: output.eventData !== undefined && output.eventData !== null ? output.eventData : undefined,
-    eventId: output.eventId !== undefined && output.eventId !== null ? output.eventId : undefined,
+    eventData: __expectString(output.eventData),
+    eventId: __expectString(output.eventId),
     eventTime:
       output.eventTime !== undefined && output.eventTime !== null
         ? new Date(Math.round(output.eventTime * 1000))
         : undefined,
-    eventType: output.eventType !== undefined && output.eventType !== null ? output.eventType : undefined,
+    eventType: __expectString(output.eventType),
     eventUpdatedTime:
       output.eventUpdatedTime !== undefined && output.eventUpdatedTime !== null
         ? new Date(Math.round(output.eventUpdatedTime * 1000))
         : undefined,
-    incidentRecordArn:
-      output.incidentRecordArn !== undefined && output.incidentRecordArn !== null
-        ? output.incidentRecordArn
-        : undefined,
+    incidentRecordArn: __expectString(output.incidentRecordArn),
   } as any;
 };
 

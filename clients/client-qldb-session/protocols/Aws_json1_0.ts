@@ -28,7 +28,11 @@ import {
   ValueHolder,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -339,8 +343,8 @@ const deserializeAws_json1_0AbortTransactionResult = (output: any, context: __Se
 
 const deserializeAws_json1_0BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
   return {
-    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Code: __expectString(output.Code),
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -349,7 +353,7 @@ const deserializeAws_json1_0CapacityExceededException = (
   context: __SerdeContext
 ): CapacityExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -370,8 +374,7 @@ const deserializeAws_json1_0CommitTransactionResult = (
       output.TimingInformation !== undefined && output.TimingInformation !== null
         ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
         : undefined,
-    TransactionId:
-      output.TransactionId !== undefined && output.TransactionId !== null ? output.TransactionId : undefined,
+    TransactionId: __expectString(output.TransactionId),
   } as any;
 };
 
@@ -421,34 +424,33 @@ const deserializeAws_json1_0InvalidSessionException = (
   context: __SerdeContext
 ): InvalidSessionException => {
   return {
-    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Code: __expectString(output.Code),
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_0IOUsage = (output: any, context: __SerdeContext): IOUsage => {
   return {
-    ReadIOs: output.ReadIOs !== undefined && output.ReadIOs !== null ? output.ReadIOs : undefined,
-    WriteIOs: output.WriteIOs !== undefined && output.WriteIOs !== null ? output.WriteIOs : undefined,
+    ReadIOs: __expectNumber(output.ReadIOs),
+    WriteIOs: __expectNumber(output.WriteIOs),
   } as any;
 };
 
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_0OccConflictException = (output: any, context: __SerdeContext): OccConflictException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_0Page = (output: any, context: __SerdeContext): Page => {
   return {
-    NextPageToken:
-      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    NextPageToken: __expectString(output.NextPageToken),
     Values:
       output.Values !== undefined && output.Values !== null
         ? deserializeAws_json1_0ValueHolders(output.Values, context)
@@ -458,7 +460,7 @@ const deserializeAws_json1_0Page = (output: any, context: __SerdeContext): Page 
 
 const deserializeAws_json1_0RateExceededException = (output: any, context: __SerdeContext): RateExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -497,7 +499,7 @@ const deserializeAws_json1_0SendCommandResult = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_0StartSessionResult = (output: any, context: __SerdeContext): StartSessionResult => {
   return {
-    SessionToken: output.SessionToken !== undefined && output.SessionToken !== null ? output.SessionToken : undefined,
+    SessionToken: __expectString(output.SessionToken),
     TimingInformation:
       output.TimingInformation !== undefined && output.TimingInformation !== null
         ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
@@ -511,17 +513,13 @@ const deserializeAws_json1_0StartTransactionResult = (output: any, context: __Se
       output.TimingInformation !== undefined && output.TimingInformation !== null
         ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
         : undefined,
-    TransactionId:
-      output.TransactionId !== undefined && output.TransactionId !== null ? output.TransactionId : undefined,
+    TransactionId: __expectString(output.TransactionId),
   } as any;
 };
 
 const deserializeAws_json1_0TimingInformation = (output: any, context: __SerdeContext): TimingInformation => {
   return {
-    ProcessingTimeMilliseconds:
-      output.ProcessingTimeMilliseconds !== undefined && output.ProcessingTimeMilliseconds !== null
-        ? output.ProcessingTimeMilliseconds
-        : undefined,
+    ProcessingTimeMilliseconds: __expectNumber(output.ProcessingTimeMilliseconds),
   } as any;
 };
 
@@ -529,7 +527,7 @@ const deserializeAws_json1_0ValueHolder = (output: any, context: __SerdeContext)
   return {
     IonBinary:
       output.IonBinary !== undefined && output.IonBinary !== null ? context.base64Decoder(output.IonBinary) : undefined,
-    IonText: output.IonText !== undefined && output.IonText !== null ? output.IonText : undefined,
+    IonText: __expectString(output.IonText),
   } as any;
 };
 

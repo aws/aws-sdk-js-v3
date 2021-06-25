@@ -141,7 +141,12 @@ import {
   _Record,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3295,7 +3300,7 @@ const deserializeAws_json1_1ChildShard = (output: any, context: __SerdeContext):
       output.ParentShards !== undefined && output.ParentShards !== null
         ? deserializeAws_json1_1ShardIdList(output.ParentShards, context)
         : undefined,
-    ShardId: output.ShardId !== undefined && output.ShardId !== null ? output.ShardId : undefined,
+    ShardId: __expectString(output.ShardId),
   } as any;
 };
 
@@ -3312,28 +3317,26 @@ const deserializeAws_json1_1ChildShardList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Consumer = (output: any, context: __SerdeContext): Consumer => {
   return {
-    ConsumerARN: output.ConsumerARN !== undefined && output.ConsumerARN !== null ? output.ConsumerARN : undefined,
+    ConsumerARN: __expectString(output.ConsumerARN),
     ConsumerCreationTimestamp:
       output.ConsumerCreationTimestamp !== undefined && output.ConsumerCreationTimestamp !== null
         ? new Date(Math.round(output.ConsumerCreationTimestamp * 1000))
         : undefined,
-    ConsumerName: output.ConsumerName !== undefined && output.ConsumerName !== null ? output.ConsumerName : undefined,
-    ConsumerStatus:
-      output.ConsumerStatus !== undefined && output.ConsumerStatus !== null ? output.ConsumerStatus : undefined,
+    ConsumerName: __expectString(output.ConsumerName),
+    ConsumerStatus: __expectString(output.ConsumerStatus),
   } as any;
 };
 
 const deserializeAws_json1_1ConsumerDescription = (output: any, context: __SerdeContext): ConsumerDescription => {
   return {
-    ConsumerARN: output.ConsumerARN !== undefined && output.ConsumerARN !== null ? output.ConsumerARN : undefined,
+    ConsumerARN: __expectString(output.ConsumerARN),
     ConsumerCreationTimestamp:
       output.ConsumerCreationTimestamp !== undefined && output.ConsumerCreationTimestamp !== null
         ? new Date(Math.round(output.ConsumerCreationTimestamp * 1000))
         : undefined,
-    ConsumerName: output.ConsumerName !== undefined && output.ConsumerName !== null ? output.ConsumerName : undefined,
-    ConsumerStatus:
-      output.ConsumerStatus !== undefined && output.ConsumerStatus !== null ? output.ConsumerStatus : undefined,
-    StreamARN: output.StreamARN !== undefined && output.StreamARN !== null ? output.StreamARN : undefined,
+    ConsumerName: __expectString(output.ConsumerName),
+    ConsumerStatus: __expectString(output.ConsumerStatus),
+    StreamARN: __expectString(output.StreamARN),
   } as any;
 };
 
@@ -3350,9 +3353,8 @@ const deserializeAws_json1_1ConsumerList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1DescribeLimitsOutput = (output: any, context: __SerdeContext): DescribeLimitsOutput => {
   return {
-    OpenShardCount:
-      output.OpenShardCount !== undefined && output.OpenShardCount !== null ? output.OpenShardCount : undefined,
-    ShardLimit: output.ShardLimit !== undefined && output.ShardLimit !== null ? output.ShardLimit : undefined,
+    OpenShardCount: __expectNumber(output.OpenShardCount),
+    ShardLimit: __expectNumber(output.ShardLimit),
   } as any;
 };
 
@@ -3422,7 +3424,7 @@ const deserializeAws_json1_1EnhancedMonitoringOutput = (
       output.DesiredShardLevelMetrics !== undefined && output.DesiredShardLevelMetrics !== null
         ? deserializeAws_json1_1MetricsNameList(output.DesiredShardLevelMetrics, context)
         : undefined,
-    StreamName: output.StreamName !== undefined && output.StreamName !== null ? output.StreamName : undefined,
+    StreamName: __expectString(output.StreamName),
   } as any;
 };
 
@@ -3431,7 +3433,7 @@ const deserializeAws_json1_1ExpiredIteratorException = (
   context: __SerdeContext
 ): ExpiredIteratorException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3440,7 +3442,7 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
   context: __SerdeContext
 ): ExpiredNextTokenException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3450,14 +3452,8 @@ const deserializeAws_json1_1GetRecordsOutput = (output: any, context: __SerdeCon
       output.ChildShards !== undefined && output.ChildShards !== null
         ? deserializeAws_json1_1ChildShardList(output.ChildShards, context)
         : undefined,
-    MillisBehindLatest:
-      output.MillisBehindLatest !== undefined && output.MillisBehindLatest !== null
-        ? output.MillisBehindLatest
-        : undefined,
-    NextShardIterator:
-      output.NextShardIterator !== undefined && output.NextShardIterator !== null
-        ? output.NextShardIterator
-        : undefined,
+    MillisBehindLatest: __expectNumber(output.MillisBehindLatest),
+    NextShardIterator: __expectString(output.NextShardIterator),
     Records:
       output.Records !== undefined && output.Records !== null
         ? deserializeAws_json1_1RecordList(output.Records, context)
@@ -3467,17 +3463,14 @@ const deserializeAws_json1_1GetRecordsOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1GetShardIteratorOutput = (output: any, context: __SerdeContext): GetShardIteratorOutput => {
   return {
-    ShardIterator:
-      output.ShardIterator !== undefined && output.ShardIterator !== null ? output.ShardIterator : undefined,
+    ShardIterator: __expectString(output.ShardIterator),
   } as any;
 };
 
 const deserializeAws_json1_1HashKeyRange = (output: any, context: __SerdeContext): HashKeyRange => {
   return {
-    EndingHashKey:
-      output.EndingHashKey !== undefined && output.EndingHashKey !== null ? output.EndingHashKey : undefined,
-    StartingHashKey:
-      output.StartingHashKey !== undefined && output.StartingHashKey !== null ? output.StartingHashKey : undefined,
+    EndingHashKey: __expectString(output.EndingHashKey),
+    StartingHashKey: __expectString(output.StartingHashKey),
   } as any;
 };
 
@@ -3486,7 +3479,7 @@ const deserializeAws_json1_1InternalFailureException = (
   context: __SerdeContext
 ): InternalFailureException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3495,7 +3488,7 @@ const deserializeAws_json1_1InvalidArgumentException = (
   context: __SerdeContext
 ): InvalidArgumentException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3504,13 +3497,13 @@ const deserializeAws_json1_1KMSAccessDeniedException = (
   context: __SerdeContext
 ): KMSAccessDeniedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1KMSDisabledException = (output: any, context: __SerdeContext): KMSDisabledException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3519,37 +3512,37 @@ const deserializeAws_json1_1KMSInvalidStateException = (
   context: __SerdeContext
 ): KMSInvalidStateException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1KMSNotFoundException = (output: any, context: __SerdeContext): KMSNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1KMSOptInRequired = (output: any, context: __SerdeContext): KMSOptInRequired => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1KMSThrottlingException = (output: any, context: __SerdeContext): KMSThrottlingException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ListShardsOutput = (output: any, context: __SerdeContext): ListShardsOutput => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Shards:
       output.Shards !== undefined && output.Shards !== null
         ? deserializeAws_json1_1ShardList(output.Shards, context)
@@ -3566,14 +3559,13 @@ const deserializeAws_json1_1ListStreamConsumersOutput = (
       output.Consumers !== undefined && output.Consumers !== null
         ? deserializeAws_json1_1ConsumerList(output.Consumers, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListStreamsOutput = (output: any, context: __SerdeContext): ListStreamsOutput => {
   return {
-    HasMoreStreams:
-      output.HasMoreStreams !== undefined && output.HasMoreStreams !== null ? output.HasMoreStreams : undefined,
+    HasMoreStreams: __expectBoolean(output.HasMoreStreams),
     StreamNames:
       output.StreamNames !== undefined && output.StreamNames !== null
         ? deserializeAws_json1_1StreamNameList(output.StreamNames, context)
@@ -3586,7 +3578,7 @@ const deserializeAws_json1_1ListTagsForStreamOutput = (
   context: __SerdeContext
 ): ListTagsForStreamOutput => {
   return {
-    HasMoreTags: output.HasMoreTags !== undefined && output.HasMoreTags !== null ? output.HasMoreTags : undefined,
+    HasMoreTags: __expectBoolean(output.HasMoreTags),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -3601,7 +3593,7 @@ const deserializeAws_json1_1MetricsNameList = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3610,28 +3602,22 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
   context: __SerdeContext
 ): ProvisionedThroughputExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1PutRecordOutput = (output: any, context: __SerdeContext): PutRecordOutput => {
   return {
-    EncryptionType:
-      output.EncryptionType !== undefined && output.EncryptionType !== null ? output.EncryptionType : undefined,
-    SequenceNumber:
-      output.SequenceNumber !== undefined && output.SequenceNumber !== null ? output.SequenceNumber : undefined,
-    ShardId: output.ShardId !== undefined && output.ShardId !== null ? output.ShardId : undefined,
+    EncryptionType: __expectString(output.EncryptionType),
+    SequenceNumber: __expectString(output.SequenceNumber),
+    ShardId: __expectString(output.ShardId),
   } as any;
 };
 
 const deserializeAws_json1_1PutRecordsOutput = (output: any, context: __SerdeContext): PutRecordsOutput => {
   return {
-    EncryptionType:
-      output.EncryptionType !== undefined && output.EncryptionType !== null ? output.EncryptionType : undefined,
-    FailedRecordCount:
-      output.FailedRecordCount !== undefined && output.FailedRecordCount !== null
-        ? output.FailedRecordCount
-        : undefined,
+    EncryptionType: __expectString(output.EncryptionType),
+    FailedRecordCount: __expectNumber(output.FailedRecordCount),
     Records:
       output.Records !== undefined && output.Records !== null
         ? deserializeAws_json1_1PutRecordsResultEntryList(output.Records, context)
@@ -3641,11 +3627,10 @@ const deserializeAws_json1_1PutRecordsOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1PutRecordsResultEntry = (output: any, context: __SerdeContext): PutRecordsResultEntry => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
-    SequenceNumber:
-      output.SequenceNumber !== undefined && output.SequenceNumber !== null ? output.SequenceNumber : undefined,
-    ShardId: output.ShardId !== undefined && output.ShardId !== null ? output.ShardId : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    SequenceNumber: __expectString(output.SequenceNumber),
+    ShardId: __expectString(output.ShardId),
   } as any;
 };
 
@@ -3670,11 +3655,9 @@ const deserializeAws_json1_1_Record = (output: any, context: __SerdeContext): _R
         ? new Date(Math.round(output.ApproximateArrivalTimestamp * 1000))
         : undefined,
     Data: output.Data !== undefined && output.Data !== null ? context.base64Decoder(output.Data) : undefined,
-    EncryptionType:
-      output.EncryptionType !== undefined && output.EncryptionType !== null ? output.EncryptionType : undefined,
-    PartitionKey: output.PartitionKey !== undefined && output.PartitionKey !== null ? output.PartitionKey : undefined,
-    SequenceNumber:
-      output.SequenceNumber !== undefined && output.SequenceNumber !== null ? output.SequenceNumber : undefined,
+    EncryptionType: __expectString(output.EncryptionType),
+    PartitionKey: __expectString(output.PartitionKey),
+    SequenceNumber: __expectString(output.SequenceNumber),
   } as any;
 };
 
@@ -3703,7 +3686,7 @@ const deserializeAws_json1_1RegisterStreamConsumerOutput = (
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3712,40 +3695,30 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1SequenceNumberRange = (output: any, context: __SerdeContext): SequenceNumberRange => {
   return {
-    EndingSequenceNumber:
-      output.EndingSequenceNumber !== undefined && output.EndingSequenceNumber !== null
-        ? output.EndingSequenceNumber
-        : undefined,
-    StartingSequenceNumber:
-      output.StartingSequenceNumber !== undefined && output.StartingSequenceNumber !== null
-        ? output.StartingSequenceNumber
-        : undefined,
+    EndingSequenceNumber: __expectString(output.EndingSequenceNumber),
+    StartingSequenceNumber: __expectString(output.StartingSequenceNumber),
   } as any;
 };
 
 const deserializeAws_json1_1Shard = (output: any, context: __SerdeContext): Shard => {
   return {
-    AdjacentParentShardId:
-      output.AdjacentParentShardId !== undefined && output.AdjacentParentShardId !== null
-        ? output.AdjacentParentShardId
-        : undefined,
+    AdjacentParentShardId: __expectString(output.AdjacentParentShardId),
     HashKeyRange:
       output.HashKeyRange !== undefined && output.HashKeyRange !== null
         ? deserializeAws_json1_1HashKeyRange(output.HashKeyRange, context)
         : undefined,
-    ParentShardId:
-      output.ParentShardId !== undefined && output.ParentShardId !== null ? output.ParentShardId : undefined,
+    ParentShardId: __expectString(output.ParentShardId),
     SequenceNumberRange:
       output.SequenceNumberRange !== undefined && output.SequenceNumberRange !== null
         ? deserializeAws_json1_1SequenceNumberRange(output.SequenceNumberRange, context)
         : undefined,
-    ShardId: output.ShardId !== undefined && output.ShardId !== null ? output.ShardId : undefined,
+    ShardId: __expectString(output.ShardId),
   } as any;
 };
 
@@ -3756,7 +3729,7 @@ const deserializeAws_json1_1ShardIdList = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3773,30 +3746,25 @@ const deserializeAws_json1_1ShardList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1StreamDescription = (output: any, context: __SerdeContext): StreamDescription => {
   return {
-    EncryptionType:
-      output.EncryptionType !== undefined && output.EncryptionType !== null ? output.EncryptionType : undefined,
+    EncryptionType: __expectString(output.EncryptionType),
     EnhancedMonitoring:
       output.EnhancedMonitoring !== undefined && output.EnhancedMonitoring !== null
         ? deserializeAws_json1_1EnhancedMonitoringList(output.EnhancedMonitoring, context)
         : undefined,
-    HasMoreShards:
-      output.HasMoreShards !== undefined && output.HasMoreShards !== null ? output.HasMoreShards : undefined,
-    KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
-    RetentionPeriodHours:
-      output.RetentionPeriodHours !== undefined && output.RetentionPeriodHours !== null
-        ? output.RetentionPeriodHours
-        : undefined,
+    HasMoreShards: __expectBoolean(output.HasMoreShards),
+    KeyId: __expectString(output.KeyId),
+    RetentionPeriodHours: __expectNumber(output.RetentionPeriodHours),
     Shards:
       output.Shards !== undefined && output.Shards !== null
         ? deserializeAws_json1_1ShardList(output.Shards, context)
         : undefined,
-    StreamARN: output.StreamARN !== undefined && output.StreamARN !== null ? output.StreamARN : undefined,
+    StreamARN: __expectString(output.StreamARN),
     StreamCreationTimestamp:
       output.StreamCreationTimestamp !== undefined && output.StreamCreationTimestamp !== null
         ? new Date(Math.round(output.StreamCreationTimestamp * 1000))
         : undefined,
-    StreamName: output.StreamName !== undefined && output.StreamName !== null ? output.StreamName : undefined,
-    StreamStatus: output.StreamStatus !== undefined && output.StreamStatus !== null ? output.StreamStatus : undefined,
+    StreamName: __expectString(output.StreamName),
+    StreamStatus: __expectString(output.StreamStatus),
   } as any;
 };
 
@@ -3805,28 +3773,22 @@ const deserializeAws_json1_1StreamDescriptionSummary = (
   context: __SerdeContext
 ): StreamDescriptionSummary => {
   return {
-    ConsumerCount:
-      output.ConsumerCount !== undefined && output.ConsumerCount !== null ? output.ConsumerCount : undefined,
-    EncryptionType:
-      output.EncryptionType !== undefined && output.EncryptionType !== null ? output.EncryptionType : undefined,
+    ConsumerCount: __expectNumber(output.ConsumerCount),
+    EncryptionType: __expectString(output.EncryptionType),
     EnhancedMonitoring:
       output.EnhancedMonitoring !== undefined && output.EnhancedMonitoring !== null
         ? deserializeAws_json1_1EnhancedMonitoringList(output.EnhancedMonitoring, context)
         : undefined,
-    KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
-    OpenShardCount:
-      output.OpenShardCount !== undefined && output.OpenShardCount !== null ? output.OpenShardCount : undefined,
-    RetentionPeriodHours:
-      output.RetentionPeriodHours !== undefined && output.RetentionPeriodHours !== null
-        ? output.RetentionPeriodHours
-        : undefined,
-    StreamARN: output.StreamARN !== undefined && output.StreamARN !== null ? output.StreamARN : undefined,
+    KeyId: __expectString(output.KeyId),
+    OpenShardCount: __expectNumber(output.OpenShardCount),
+    RetentionPeriodHours: __expectNumber(output.RetentionPeriodHours),
+    StreamARN: __expectString(output.StreamARN),
     StreamCreationTimestamp:
       output.StreamCreationTimestamp !== undefined && output.StreamCreationTimestamp !== null
         ? new Date(Math.round(output.StreamCreationTimestamp * 1000))
         : undefined,
-    StreamName: output.StreamName !== undefined && output.StreamName !== null ? output.StreamName : undefined,
-    StreamStatus: output.StreamStatus !== undefined && output.StreamStatus !== null ? output.StreamStatus : undefined,
+    StreamName: __expectString(output.StreamName),
+    StreamStatus: __expectString(output.StreamStatus),
   } as any;
 };
 
@@ -3837,7 +3799,7 @@ const deserializeAws_json1_1StreamNameList = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3847,14 +3809,8 @@ const deserializeAws_json1_1SubscribeToShardEvent = (output: any, context: __Ser
       output.ChildShards !== undefined && output.ChildShards !== null
         ? deserializeAws_json1_1ChildShardList(output.ChildShards, context)
         : undefined,
-    ContinuationSequenceNumber:
-      output.ContinuationSequenceNumber !== undefined && output.ContinuationSequenceNumber !== null
-        ? output.ContinuationSequenceNumber
-        : undefined,
-    MillisBehindLatest:
-      output.MillisBehindLatest !== undefined && output.MillisBehindLatest !== null
-        ? output.MillisBehindLatest
-        : undefined,
+    ContinuationSequenceNumber: __expectString(output.ContinuationSequenceNumber),
+    MillisBehindLatest: __expectNumber(output.MillisBehindLatest),
     Records:
       output.Records !== undefined && output.Records !== null
         ? deserializeAws_json1_1RecordList(output.Records, context)
@@ -3942,8 +3898,8 @@ const deserializeAws_json1_1SubscribeToShardOutput = (output: any, context: __Se
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -3960,13 +3916,9 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1UpdateShardCountOutput = (output: any, context: __SerdeContext): UpdateShardCountOutput => {
   return {
-    CurrentShardCount:
-      output.CurrentShardCount !== undefined && output.CurrentShardCount !== null
-        ? output.CurrentShardCount
-        : undefined,
-    StreamName: output.StreamName !== undefined && output.StreamName !== null ? output.StreamName : undefined,
-    TargetShardCount:
-      output.TargetShardCount !== undefined && output.TargetShardCount !== null ? output.TargetShardCount : undefined,
+    CurrentShardCount: __expectNumber(output.CurrentShardCount),
+    StreamName: __expectString(output.StreamName),
+    TargetShardCount: __expectNumber(output.TargetShardCount),
   } as any;
 };
 

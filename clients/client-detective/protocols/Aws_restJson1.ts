@@ -36,6 +36,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -528,7 +530,7 @@ export const deserializeAws_restJson1CreateGraphCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.GraphArn !== undefined && data.GraphArn !== null) {
-    contents.GraphArn = data.GraphArn;
+    contents.GraphArn = __expectString(data.GraphArn);
   }
   return Promise.resolve(contents);
 };
@@ -986,7 +988,7 @@ export const deserializeAws_restJson1ListGraphsCommand = async (
     contents.GraphList = deserializeAws_restJson1GraphList(data.GraphList, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1053,7 +1055,7 @@ export const deserializeAws_restJson1ListInvitationsCommand = async (
     contents.Invitations = deserializeAws_restJson1MemberDetailList(data.Invitations, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1120,7 +1122,7 @@ export const deserializeAws_restJson1ListMembersCommand = async (
     contents.MemberDetails = deserializeAws_restJson1MemberDetailList(data.MemberDetails, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1553,7 +1555,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1570,7 +1572,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1587,7 +1589,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1604,7 +1606,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1621,7 +1623,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1674,13 +1676,13 @@ const deserializeAws_restJson1AccountIdList = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Graph = (output: any, context: __SerdeContext): Graph => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: __expectString(output.Arn),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null ? new Date(output.CreatedTime) : undefined,
   } as any;
@@ -1699,31 +1701,23 @@ const deserializeAws_restJson1GraphList = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeContext): MemberDetail => {
   return {
-    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
-    AdministratorId:
-      output.AdministratorId !== undefined && output.AdministratorId !== null ? output.AdministratorId : undefined,
-    DisabledReason:
-      output.DisabledReason !== undefined && output.DisabledReason !== null ? output.DisabledReason : undefined,
-    EmailAddress: output.EmailAddress !== undefined && output.EmailAddress !== null ? output.EmailAddress : undefined,
-    GraphArn: output.GraphArn !== undefined && output.GraphArn !== null ? output.GraphArn : undefined,
+    AccountId: __expectString(output.AccountId),
+    AdministratorId: __expectString(output.AdministratorId),
+    DisabledReason: __expectString(output.DisabledReason),
+    EmailAddress: __expectString(output.EmailAddress),
+    GraphArn: __expectString(output.GraphArn),
     InvitedTime:
       output.InvitedTime !== undefined && output.InvitedTime !== null ? new Date(output.InvitedTime) : undefined,
-    MasterId: output.MasterId !== undefined && output.MasterId !== null ? output.MasterId : undefined,
-    PercentOfGraphUtilization:
-      output.PercentOfGraphUtilization !== undefined && output.PercentOfGraphUtilization !== null
-        ? output.PercentOfGraphUtilization
-        : undefined,
+    MasterId: __expectString(output.MasterId),
+    PercentOfGraphUtilization: __expectNumber(output.PercentOfGraphUtilization),
     PercentOfGraphUtilizationUpdatedTime:
       output.PercentOfGraphUtilizationUpdatedTime !== undefined && output.PercentOfGraphUtilizationUpdatedTime !== null
         ? new Date(output.PercentOfGraphUtilizationUpdatedTime)
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
     UpdatedTime:
       output.UpdatedTime !== undefined && output.UpdatedTime !== null ? new Date(output.UpdatedTime) : undefined,
-    VolumeUsageInBytes:
-      output.VolumeUsageInBytes !== undefined && output.VolumeUsageInBytes !== null
-        ? output.VolumeUsageInBytes
-        : undefined,
+    VolumeUsageInBytes: __expectNumber(output.VolumeUsageInBytes),
     VolumeUsageUpdatedTime:
       output.VolumeUsageUpdatedTime !== undefined && output.VolumeUsageUpdatedTime !== null
         ? new Date(output.VolumeUsageUpdatedTime)
@@ -1749,15 +1743,15 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1UnprocessedAccount = (output: any, context: __SerdeContext): UnprocessedAccount => {
   return {
-    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
-    Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
+    AccountId: __expectString(output.AccountId),
+    Reason: __expectString(output.Reason),
   } as any;
 };
 

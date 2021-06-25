@@ -19,7 +19,11 @@ import {
   UnsupportedGrantTypeException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -129,19 +133,19 @@ export const deserializeAws_restJson1CreateTokenCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.accessToken !== undefined && data.accessToken !== null) {
-    contents.accessToken = data.accessToken;
+    contents.accessToken = __expectString(data.accessToken);
   }
   if (data.expiresIn !== undefined && data.expiresIn !== null) {
-    contents.expiresIn = data.expiresIn;
+    contents.expiresIn = __expectNumber(data.expiresIn);
   }
   if (data.idToken !== undefined && data.idToken !== null) {
-    contents.idToken = data.idToken;
+    contents.idToken = __expectString(data.idToken);
   }
   if (data.refreshToken !== undefined && data.refreshToken !== null) {
-    contents.refreshToken = data.refreshToken;
+    contents.refreshToken = __expectString(data.refreshToken);
   }
   if (data.tokenType !== undefined && data.tokenType !== null) {
-    contents.tokenType = data.tokenType;
+    contents.tokenType = __expectString(data.tokenType);
   }
   return Promise.resolve(contents);
 };
@@ -281,22 +285,22 @@ export const deserializeAws_restJson1RegisterClientCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.authorizationEndpoint !== undefined && data.authorizationEndpoint !== null) {
-    contents.authorizationEndpoint = data.authorizationEndpoint;
+    contents.authorizationEndpoint = __expectString(data.authorizationEndpoint);
   }
   if (data.clientId !== undefined && data.clientId !== null) {
-    contents.clientId = data.clientId;
+    contents.clientId = __expectString(data.clientId);
   }
   if (data.clientIdIssuedAt !== undefined && data.clientIdIssuedAt !== null) {
-    contents.clientIdIssuedAt = data.clientIdIssuedAt;
+    contents.clientIdIssuedAt = __expectNumber(data.clientIdIssuedAt);
   }
   if (data.clientSecret !== undefined && data.clientSecret !== null) {
-    contents.clientSecret = data.clientSecret;
+    contents.clientSecret = __expectString(data.clientSecret);
   }
   if (data.clientSecretExpiresAt !== undefined && data.clientSecretExpiresAt !== null) {
-    contents.clientSecretExpiresAt = data.clientSecretExpiresAt;
+    contents.clientSecretExpiresAt = __expectNumber(data.clientSecretExpiresAt);
   }
   if (data.tokenEndpoint !== undefined && data.tokenEndpoint !== null) {
-    contents.tokenEndpoint = data.tokenEndpoint;
+    contents.tokenEndpoint = __expectString(data.tokenEndpoint);
   }
   return Promise.resolve(contents);
 };
@@ -380,22 +384,22 @@ export const deserializeAws_restJson1StartDeviceAuthorizationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.deviceCode !== undefined && data.deviceCode !== null) {
-    contents.deviceCode = data.deviceCode;
+    contents.deviceCode = __expectString(data.deviceCode);
   }
   if (data.expiresIn !== undefined && data.expiresIn !== null) {
-    contents.expiresIn = data.expiresIn;
+    contents.expiresIn = __expectNumber(data.expiresIn);
   }
   if (data.interval !== undefined && data.interval !== null) {
-    contents.interval = data.interval;
+    contents.interval = __expectNumber(data.interval);
   }
   if (data.userCode !== undefined && data.userCode !== null) {
-    contents.userCode = data.userCode;
+    contents.userCode = __expectString(data.userCode);
   }
   if (data.verificationUri !== undefined && data.verificationUri !== null) {
-    contents.verificationUri = data.verificationUri;
+    contents.verificationUri = __expectString(data.verificationUri);
   }
   if (data.verificationUriComplete !== undefined && data.verificationUriComplete !== null) {
-    contents.verificationUriComplete = data.verificationUriComplete;
+    contents.verificationUriComplete = __expectString(data.verificationUriComplete);
   }
   return Promise.resolve(contents);
 };
@@ -482,10 +486,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.error !== undefined && data.error !== null) {
-    contents.error = data.error;
+    contents.error = __expectString(data.error);
   }
   if (data.error_description !== undefined && data.error_description !== null) {
-    contents.error_description = data.error_description;
+    contents.error_description = __expectString(data.error_description);
   }
   return contents;
 };
@@ -503,10 +507,10 @@ const deserializeAws_restJson1AuthorizationPendingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.error !== undefined && data.error !== null) {
-    contents.error = data.error;
+    contents.error = __expectString(data.error);
   }
   if (data.error_description !== undefined && data.error_description !== null) {
-    contents.error_description = data.error_description;
+    contents.error_description = __expectString(data.error_description);
   }
   return contents;
 };
@@ -524,10 +528,10 @@ const deserializeAws_restJson1ExpiredTokenExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.error !== undefined && data.error !== null) {
-    contents.error = data.error;
+    contents.error = __expectString(data.error);
   }
   if (data.error_description !== undefined && data.error_description !== null) {
-    contents.error_description = data.error_description;
+    contents.error_description = __expectString(data.error_description);
   }
   return contents;
 };
@@ -545,10 +549,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.error !== undefined && data.error !== null) {
-    contents.error = data.error;
+    contents.error = __expectString(data.error);
   }
   if (data.error_description !== undefined && data.error_description !== null) {
-    contents.error_description = data.error_description;
+    contents.error_description = __expectString(data.error_description);
   }
   return contents;
 };
@@ -566,10 +570,10 @@ const deserializeAws_restJson1InvalidClientExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.error !== undefined && data.error !== null) {
-    contents.error = data.error;
+    contents.error = __expectString(data.error);
   }
   if (data.error_description !== undefined && data.error_description !== null) {
-    contents.error_description = data.error_description;
+    contents.error_description = __expectString(data.error_description);
   }
   return contents;
 };
@@ -587,10 +591,10 @@ const deserializeAws_restJson1InvalidClientMetadataExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.error !== undefined && data.error !== null) {
-    contents.error = data.error;
+    contents.error = __expectString(data.error);
   }
   if (data.error_description !== undefined && data.error_description !== null) {
-    contents.error_description = data.error_description;
+    contents.error_description = __expectString(data.error_description);
   }
   return contents;
 };
@@ -608,10 +612,10 @@ const deserializeAws_restJson1InvalidGrantExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.error !== undefined && data.error !== null) {
-    contents.error = data.error;
+    contents.error = __expectString(data.error);
   }
   if (data.error_description !== undefined && data.error_description !== null) {
-    contents.error_description = data.error_description;
+    contents.error_description = __expectString(data.error_description);
   }
   return contents;
 };
@@ -629,10 +633,10 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.error !== undefined && data.error !== null) {
-    contents.error = data.error;
+    contents.error = __expectString(data.error);
   }
   if (data.error_description !== undefined && data.error_description !== null) {
-    contents.error_description = data.error_description;
+    contents.error_description = __expectString(data.error_description);
   }
   return contents;
 };
@@ -650,10 +654,10 @@ const deserializeAws_restJson1InvalidScopeExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.error !== undefined && data.error !== null) {
-    contents.error = data.error;
+    contents.error = __expectString(data.error);
   }
   if (data.error_description !== undefined && data.error_description !== null) {
-    contents.error_description = data.error_description;
+    contents.error_description = __expectString(data.error_description);
   }
   return contents;
 };
@@ -671,10 +675,10 @@ const deserializeAws_restJson1SlowDownExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.error !== undefined && data.error !== null) {
-    contents.error = data.error;
+    contents.error = __expectString(data.error);
   }
   if (data.error_description !== undefined && data.error_description !== null) {
-    contents.error_description = data.error_description;
+    contents.error_description = __expectString(data.error_description);
   }
   return contents;
 };
@@ -692,10 +696,10 @@ const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.error !== undefined && data.error !== null) {
-    contents.error = data.error;
+    contents.error = __expectString(data.error);
   }
   if (data.error_description !== undefined && data.error_description !== null) {
-    contents.error_description = data.error_description;
+    contents.error_description = __expectString(data.error_description);
   }
   return contents;
 };
@@ -713,10 +717,10 @@ const deserializeAws_restJson1UnsupportedGrantTypeExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.error !== undefined && data.error !== null) {
-    contents.error = data.error;
+    contents.error = __expectString(data.error);
   }
   if (data.error_description !== undefined && data.error_description !== null) {
-    contents.error_description = data.error_description;
+    contents.error_description = __expectString(data.error_description);
   }
   return contents;
 };

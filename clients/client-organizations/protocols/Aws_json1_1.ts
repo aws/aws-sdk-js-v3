@@ -277,7 +277,11 @@ import {
   UpdatePolicyResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -7703,7 +7707,7 @@ const deserializeAws_json1_1AcceptHandshakeResponse = (
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7712,23 +7716,23 @@ const deserializeAws_json1_1AccessDeniedForDependencyException = (
   context: __SerdeContext
 ): AccessDeniedForDependencyException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
+    Message: __expectString(output.Message),
+    Reason: __expectString(output.Reason),
   } as any;
 };
 
 const deserializeAws_json1_1Account = (output: any, context: __SerdeContext): Account => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    JoinedMethod: output.JoinedMethod !== undefined && output.JoinedMethod !== null ? output.JoinedMethod : undefined,
+    Arn: __expectString(output.Arn),
+    Email: __expectString(output.Email),
+    Id: __expectString(output.Id),
+    JoinedMethod: __expectString(output.JoinedMethod),
     JoinedTimestamp:
       output.JoinedTimestamp !== undefined && output.JoinedTimestamp !== null
         ? new Date(Math.round(output.JoinedTimestamp * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -7737,7 +7741,7 @@ const deserializeAws_json1_1AccountAlreadyRegisteredException = (
   context: __SerdeContext
 ): AccountAlreadyRegisteredException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7746,7 +7750,7 @@ const deserializeAws_json1_1AccountNotFoundException = (
   context: __SerdeContext
 ): AccountNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7755,7 +7759,7 @@ const deserializeAws_json1_1AccountNotRegisteredException = (
   context: __SerdeContext
 ): AccountNotRegisteredException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7764,7 +7768,7 @@ const deserializeAws_json1_1AccountOwnerNotVerifiedException = (
   context: __SerdeContext
 ): AccountOwnerNotVerifiedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7784,7 +7788,7 @@ const deserializeAws_json1_1AlreadyInOrganizationException = (
   context: __SerdeContext
 ): AlreadyInOrganizationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7793,7 +7797,7 @@ const deserializeAws_json1_1AWSOrganizationsNotInUseException = (
   context: __SerdeContext
 ): AWSOrganizationsNotInUseException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7811,14 +7815,14 @@ const deserializeAws_json1_1CancelHandshakeResponse = (
 
 const deserializeAws_json1_1Child = (output: any, context: __SerdeContext): Child => {
   return {
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Id: __expectString(output.Id),
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_json1_1ChildNotFoundException = (output: any, context: __SerdeContext): ChildNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7838,7 +7842,7 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7847,8 +7851,8 @@ const deserializeAws_json1_1ConstraintViolationException = (
   context: __SerdeContext
 ): ConstraintViolationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
+    Message: __expectString(output.Message),
+    Reason: __expectString(output.Reason),
   } as any;
 };
 
@@ -7863,24 +7867,20 @@ const deserializeAws_json1_1CreateAccountResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1CreateAccountStatus = (output: any, context: __SerdeContext): CreateAccountStatus => {
   return {
-    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
-    AccountName: output.AccountName !== undefined && output.AccountName !== null ? output.AccountName : undefined,
+    AccountId: __expectString(output.AccountId),
+    AccountName: __expectString(output.AccountName),
     CompletedTimestamp:
       output.CompletedTimestamp !== undefined && output.CompletedTimestamp !== null
         ? new Date(Math.round(output.CompletedTimestamp * 1000))
         : undefined,
-    FailureReason:
-      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
-    GovCloudAccountId:
-      output.GovCloudAccountId !== undefined && output.GovCloudAccountId !== null
-        ? output.GovCloudAccountId
-        : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    FailureReason: __expectString(output.FailureReason),
+    GovCloudAccountId: __expectString(output.GovCloudAccountId),
+    Id: __expectString(output.Id),
     RequestedTimestamp:
       output.RequestedTimestamp !== undefined && output.RequestedTimestamp !== null
         ? new Date(Math.round(output.RequestedTimestamp * 1000))
         : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    State: __expectString(output.State),
   } as any;
 };
 
@@ -7900,7 +7900,7 @@ const deserializeAws_json1_1CreateAccountStatusNotFoundException = (
   context: __SerdeContext
 ): CreateAccountStatusNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -7963,20 +7963,20 @@ const deserializeAws_json1_1DeclineHandshakeResponse = (
 
 const deserializeAws_json1_1DelegatedAdministrator = (output: any, context: __SerdeContext): DelegatedAdministrator => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: __expectString(output.Arn),
     DelegationEnabledDate:
       output.DelegationEnabledDate !== undefined && output.DelegationEnabledDate !== null
         ? new Date(Math.round(output.DelegationEnabledDate * 1000))
         : undefined,
-    Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    JoinedMethod: output.JoinedMethod !== undefined && output.JoinedMethod !== null ? output.JoinedMethod : undefined,
+    Email: __expectString(output.Email),
+    Id: __expectString(output.Id),
+    JoinedMethod: __expectString(output.JoinedMethod),
     JoinedTimestamp:
       output.JoinedTimestamp !== undefined && output.JoinedTimestamp !== null
         ? new Date(Math.round(output.JoinedTimestamp * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -8000,8 +8000,7 @@ const deserializeAws_json1_1DelegatedService = (output: any, context: __SerdeCon
       output.DelegationEnabledDate !== undefined && output.DelegationEnabledDate !== null
         ? new Date(Math.round(output.DelegationEnabledDate * 1000))
         : undefined,
-    ServicePrincipal:
-      output.ServicePrincipal !== undefined && output.ServicePrincipal !== null ? output.ServicePrincipal : undefined,
+    ServicePrincipal: __expectString(output.ServicePrincipal),
   } as any;
 };
 
@@ -8102,7 +8101,7 @@ const deserializeAws_json1_1DestinationParentNotFoundException = (
   context: __SerdeContext
 ): DestinationParentNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8121,7 +8120,7 @@ const deserializeAws_json1_1DuplicateAccountException = (
   context: __SerdeContext
 ): DuplicateAccountException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8130,7 +8129,7 @@ const deserializeAws_json1_1DuplicateHandshakeException = (
   context: __SerdeContext
 ): DuplicateHandshakeException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8139,7 +8138,7 @@ const deserializeAws_json1_1DuplicateOrganizationalUnitException = (
   context: __SerdeContext
 ): DuplicateOrganizationalUnitException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8148,7 +8147,7 @@ const deserializeAws_json1_1DuplicatePolicyAttachmentException = (
   context: __SerdeContext
 ): DuplicatePolicyAttachmentException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8157,7 +8156,7 @@ const deserializeAws_json1_1DuplicatePolicyException = (
   context: __SerdeContext
 ): DuplicatePolicyException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8167,10 +8166,9 @@ const deserializeAws_json1_1EffectivePolicy = (output: any, context: __SerdeCont
       output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
         ? new Date(Math.round(output.LastUpdatedTimestamp * 1000))
         : undefined,
-    PolicyContent:
-      output.PolicyContent !== undefined && output.PolicyContent !== null ? output.PolicyContent : undefined,
-    PolicyType: output.PolicyType !== undefined && output.PolicyType !== null ? output.PolicyType : undefined,
-    TargetId: output.TargetId !== undefined && output.TargetId !== null ? output.TargetId : undefined,
+    PolicyContent: __expectString(output.PolicyContent),
+    PolicyType: __expectString(output.PolicyType),
+    TargetId: __expectString(output.TargetId),
   } as any;
 };
 
@@ -8179,7 +8177,7 @@ const deserializeAws_json1_1EffectivePolicyNotFoundException = (
   context: __SerdeContext
 ): EffectivePolicyNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8204,8 +8202,7 @@ const deserializeAws_json1_1EnabledServicePrincipal = (
       output.DateEnabled !== undefined && output.DateEnabled !== null
         ? new Date(Math.round(output.DateEnabled * 1000))
         : undefined,
-    ServicePrincipal:
-      output.ServicePrincipal !== undefined && output.ServicePrincipal !== null ? output.ServicePrincipal : undefined,
+    ServicePrincipal: __expectString(output.ServicePrincipal),
   } as any;
 };
 
@@ -8238,19 +8235,19 @@ const deserializeAws_json1_1FinalizingOrganizationException = (
   context: __SerdeContext
 ): FinalizingOrganizationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1Handshake = (output: any, context: __SerdeContext): Handshake => {
   return {
-    Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Action: __expectString(output.Action),
+    Arn: __expectString(output.Arn),
     ExpirationTimestamp:
       output.ExpirationTimestamp !== undefined && output.ExpirationTimestamp !== null
         ? new Date(Math.round(output.ExpirationTimestamp * 1000))
         : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Id: __expectString(output.Id),
     Parties:
       output.Parties !== undefined && output.Parties !== null
         ? deserializeAws_json1_1HandshakeParties(output.Parties, context)
@@ -8263,7 +8260,7 @@ const deserializeAws_json1_1Handshake = (output: any, context: __SerdeContext): 
       output.Resources !== undefined && output.Resources !== null
         ? deserializeAws_json1_1HandshakeResources(output.Resources, context)
         : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    State: __expectString(output.State),
   } as any;
 };
 
@@ -8272,7 +8269,7 @@ const deserializeAws_json1_1HandshakeAlreadyInStateException = (
   context: __SerdeContext
 ): HandshakeAlreadyInStateException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8281,8 +8278,8 @@ const deserializeAws_json1_1HandshakeConstraintViolationException = (
   context: __SerdeContext
 ): HandshakeConstraintViolationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
+    Message: __expectString(output.Message),
+    Reason: __expectString(output.Reason),
   } as any;
 };
 
@@ -8291,7 +8288,7 @@ const deserializeAws_json1_1HandshakeNotFoundException = (
   context: __SerdeContext
 ): HandshakeNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8308,8 +8305,8 @@ const deserializeAws_json1_1HandshakeParties = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1HandshakeParty = (output: any, context: __SerdeContext): HandshakeParty => {
   return {
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Id: __expectString(output.Id),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -8319,8 +8316,8 @@ const deserializeAws_json1_1HandshakeResource = (output: any, context: __SerdeCo
       output.Resources !== undefined && output.Resources !== null
         ? deserializeAws_json1_1HandshakeResources(output.Resources, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Type: __expectString(output.Type),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -8351,14 +8348,14 @@ const deserializeAws_json1_1InvalidHandshakeTransitionException = (
   context: __SerdeContext
 ): InvalidHandshakeTransitionException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
+    Message: __expectString(output.Message),
+    Reason: __expectString(output.Reason),
   } as any;
 };
 
@@ -8383,7 +8380,7 @@ const deserializeAws_json1_1ListAccountsForParentResponse = (
       output.Accounts !== undefined && output.Accounts !== null
         ? deserializeAws_json1_1Accounts(output.Accounts, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -8393,7 +8390,7 @@ const deserializeAws_json1_1ListAccountsResponse = (output: any, context: __Serd
       output.Accounts !== undefined && output.Accounts !== null
         ? deserializeAws_json1_1Accounts(output.Accounts, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -8406,7 +8403,7 @@ const deserializeAws_json1_1ListAWSServiceAccessForOrganizationResponse = (
       output.EnabledServicePrincipals !== undefined && output.EnabledServicePrincipals !== null
         ? deserializeAws_json1_1EnabledServicePrincipals(output.EnabledServicePrincipals, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -8416,7 +8413,7 @@ const deserializeAws_json1_1ListChildrenResponse = (output: any, context: __Serd
       output.Children !== undefined && output.Children !== null
         ? deserializeAws_json1_1Children(output.Children, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -8429,7 +8426,7 @@ const deserializeAws_json1_1ListCreateAccountStatusResponse = (
       output.CreateAccountStatuses !== undefined && output.CreateAccountStatuses !== null
         ? deserializeAws_json1_1CreateAccountStatuses(output.CreateAccountStatuses, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -8442,7 +8439,7 @@ const deserializeAws_json1_1ListDelegatedAdministratorsResponse = (
       output.DelegatedAdministrators !== undefined && output.DelegatedAdministrators !== null
         ? deserializeAws_json1_1DelegatedAdministrators(output.DelegatedAdministrators, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -8455,7 +8452,7 @@ const deserializeAws_json1_1ListDelegatedServicesForAccountResponse = (
       output.DelegatedServices !== undefined && output.DelegatedServices !== null
         ? deserializeAws_json1_1DelegatedServices(output.DelegatedServices, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -8468,7 +8465,7 @@ const deserializeAws_json1_1ListHandshakesForAccountResponse = (
       output.Handshakes !== undefined && output.Handshakes !== null
         ? deserializeAws_json1_1Handshakes(output.Handshakes, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -8481,7 +8478,7 @@ const deserializeAws_json1_1ListHandshakesForOrganizationResponse = (
       output.Handshakes !== undefined && output.Handshakes !== null
         ? deserializeAws_json1_1Handshakes(output.Handshakes, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -8490,7 +8487,7 @@ const deserializeAws_json1_1ListOrganizationalUnitsForParentResponse = (
   context: __SerdeContext
 ): ListOrganizationalUnitsForParentResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     OrganizationalUnits:
       output.OrganizationalUnits !== undefined && output.OrganizationalUnits !== null
         ? deserializeAws_json1_1OrganizationalUnits(output.OrganizationalUnits, context)
@@ -8500,7 +8497,7 @@ const deserializeAws_json1_1ListOrganizationalUnitsForParentResponse = (
 
 const deserializeAws_json1_1ListParentsResponse = (output: any, context: __SerdeContext): ListParentsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Parents:
       output.Parents !== undefined && output.Parents !== null
         ? deserializeAws_json1_1Parents(output.Parents, context)
@@ -8513,7 +8510,7 @@ const deserializeAws_json1_1ListPoliciesForTargetResponse = (
   context: __SerdeContext
 ): ListPoliciesForTargetResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Policies:
       output.Policies !== undefined && output.Policies !== null
         ? deserializeAws_json1_1Policies(output.Policies, context)
@@ -8523,7 +8520,7 @@ const deserializeAws_json1_1ListPoliciesForTargetResponse = (
 
 const deserializeAws_json1_1ListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Policies:
       output.Policies !== undefined && output.Policies !== null
         ? deserializeAws_json1_1Policies(output.Policies, context)
@@ -8533,7 +8530,7 @@ const deserializeAws_json1_1ListPoliciesResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1ListRootsResponse = (output: any, context: __SerdeContext): ListRootsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Roots:
       output.Roots !== undefined && output.Roots !== null
         ? deserializeAws_json1_1Roots(output.Roots, context)
@@ -8546,7 +8543,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
@@ -8557,7 +8554,7 @@ const deserializeAws_json1_1ListTargetsForPolicyResponse = (
   context: __SerdeContext
 ): ListTargetsForPolicyResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Targets:
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1PolicyTargets(output.Targets, context)
@@ -8570,7 +8567,7 @@ const deserializeAws_json1_1MalformedPolicyDocumentException = (
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8579,35 +8576,30 @@ const deserializeAws_json1_1MasterCannotLeaveOrganizationException = (
   context: __SerdeContext
 ): MasterCannotLeaveOrganizationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1Organization = (output: any, context: __SerdeContext): Organization => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: __expectString(output.Arn),
     AvailablePolicyTypes:
       output.AvailablePolicyTypes !== undefined && output.AvailablePolicyTypes !== null
         ? deserializeAws_json1_1PolicyTypes(output.AvailablePolicyTypes, context)
         : undefined,
-    FeatureSet: output.FeatureSet !== undefined && output.FeatureSet !== null ? output.FeatureSet : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    MasterAccountArn:
-      output.MasterAccountArn !== undefined && output.MasterAccountArn !== null ? output.MasterAccountArn : undefined,
-    MasterAccountEmail:
-      output.MasterAccountEmail !== undefined && output.MasterAccountEmail !== null
-        ? output.MasterAccountEmail
-        : undefined,
-    MasterAccountId:
-      output.MasterAccountId !== undefined && output.MasterAccountId !== null ? output.MasterAccountId : undefined,
+    FeatureSet: __expectString(output.FeatureSet),
+    Id: __expectString(output.Id),
+    MasterAccountArn: __expectString(output.MasterAccountArn),
+    MasterAccountEmail: __expectString(output.MasterAccountEmail),
+    MasterAccountId: __expectString(output.MasterAccountId),
   } as any;
 };
 
 const deserializeAws_json1_1OrganizationalUnit = (output: any, context: __SerdeContext): OrganizationalUnit => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Arn: __expectString(output.Arn),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -8616,7 +8608,7 @@ const deserializeAws_json1_1OrganizationalUnitNotEmptyException = (
   context: __SerdeContext
 ): OrganizationalUnitNotEmptyException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8625,7 +8617,7 @@ const deserializeAws_json1_1OrganizationalUnitNotFoundException = (
   context: __SerdeContext
 ): OrganizationalUnitNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8645,14 +8637,14 @@ const deserializeAws_json1_1OrganizationNotEmptyException = (
   context: __SerdeContext
 ): OrganizationNotEmptyException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1Parent = (output: any, context: __SerdeContext): Parent => {
   return {
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Id: __expectString(output.Id),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -8661,7 +8653,7 @@ const deserializeAws_json1_1ParentNotFoundException = (
   context: __SerdeContext
 ): ParentNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8689,7 +8681,7 @@ const deserializeAws_json1_1Policies = (output: any, context: __SerdeContext): P
 
 const deserializeAws_json1_1Policy = (output: any, context: __SerdeContext): Policy => {
   return {
-    Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
+    Content: __expectString(output.Content),
     PolicySummary:
       output.PolicySummary !== undefined && output.PolicySummary !== null
         ? deserializeAws_json1_1PolicySummary(output.PolicySummary, context)
@@ -8702,13 +8694,13 @@ const deserializeAws_json1_1PolicyChangesInProgressException = (
   context: __SerdeContext
 ): PolicyChangesInProgressException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1PolicyInUseException = (output: any, context: __SerdeContext): PolicyInUseException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8717,7 +8709,7 @@ const deserializeAws_json1_1PolicyNotAttachedException = (
   context: __SerdeContext
 ): PolicyNotAttachedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8726,18 +8718,18 @@ const deserializeAws_json1_1PolicyNotFoundException = (
   context: __SerdeContext
 ): PolicyNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1PolicySummary = (output: any, context: __SerdeContext): PolicySummary => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    AwsManaged: output.AwsManaged !== undefined && output.AwsManaged !== null ? output.AwsManaged : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Arn: __expectString(output.Arn),
+    AwsManaged: __expectBoolean(output.AwsManaged),
+    Description: __expectString(output.Description),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -8754,10 +8746,10 @@ const deserializeAws_json1_1PolicyTargets = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1PolicyTargetSummary = (output: any, context: __SerdeContext): PolicyTargetSummary => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    TargetId: output.TargetId !== undefined && output.TargetId !== null ? output.TargetId : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Arn: __expectString(output.Arn),
+    Name: __expectString(output.Name),
+    TargetId: __expectString(output.TargetId),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -8766,7 +8758,7 @@ const deserializeAws_json1_1PolicyTypeAlreadyEnabledException = (
   context: __SerdeContext
 ): PolicyTypeAlreadyEnabledException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8775,7 +8767,7 @@ const deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationException = (
   context: __SerdeContext
 ): PolicyTypeNotAvailableForOrganizationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8784,7 +8776,7 @@ const deserializeAws_json1_1PolicyTypeNotEnabledException = (
   context: __SerdeContext
 ): PolicyTypeNotEnabledException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8801,16 +8793,16 @@ const deserializeAws_json1_1PolicyTypes = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1PolicyTypeSummary = (output: any, context: __SerdeContext): PolicyTypeSummary => {
   return {
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Status: __expectString(output.Status),
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_json1_1Root = (output: any, context: __SerdeContext): Root => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Arn: __expectString(output.Arn),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
     PolicyTypes:
       output.PolicyTypes !== undefined && output.PolicyTypes !== null
         ? deserializeAws_json1_1PolicyTypes(output.PolicyTypes, context)
@@ -8820,7 +8812,7 @@ const deserializeAws_json1_1Root = (output: any, context: __SerdeContext): Root 
 
 const deserializeAws_json1_1RootNotFoundException = (output: any, context: __SerdeContext): RootNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8837,7 +8829,7 @@ const deserializeAws_json1_1Roots = (output: any, context: __SerdeContext): Root
 
 const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8846,14 +8838,14 @@ const deserializeAws_json1_1SourceParentNotFoundException = (
   context: __SerdeContext
 ): SourceParentNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -8873,7 +8865,7 @@ const deserializeAws_json1_1TargetNotFoundException = (
   context: __SerdeContext
 ): TargetNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -8882,8 +8874,8 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Message: __expectString(output.Message),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -8892,7 +8884,7 @@ const deserializeAws_json1_1UnsupportedAPIEndpointException = (
   context: __SerdeContext
 ): UnsupportedAPIEndpointException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 

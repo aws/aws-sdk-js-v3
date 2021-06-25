@@ -449,7 +449,12 @@ import {
   VolumeiSCSIAttributes,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -8468,13 +8473,13 @@ const serializeAws_json1_1VTLDeviceARNs = (input: string[], context: __SerdeCont
 
 const deserializeAws_json1_1ActivateGatewayOutput = (output: any, context: __SerdeContext): ActivateGatewayOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
 const deserializeAws_json1_1AddCacheOutput = (output: any, context: __SerdeContext): AddCacheOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -8483,13 +8488,13 @@ const deserializeAws_json1_1AddTagsToResourceOutput = (
   context: __SerdeContext
 ): AddTagsToResourceOutput => {
   return {
-    ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
+    ResourceARN: __expectString(output.ResourceARN),
   } as any;
 };
 
 const deserializeAws_json1_1AddUploadBufferOutput = (output: any, context: __SerdeContext): AddUploadBufferOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -8498,13 +8503,13 @@ const deserializeAws_json1_1AddWorkingStorageOutput = (
   context: __SerdeContext
 ): AddWorkingStorageOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
 const deserializeAws_json1_1AssignTapePoolOutput = (output: any, context: __SerdeContext): AssignTapePoolOutput => {
   return {
-    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
+    TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
@@ -8513,17 +8518,14 @@ const deserializeAws_json1_1AssociateFileSystemOutput = (
   context: __SerdeContext
 ): AssociateFileSystemOutput => {
   return {
-    FileSystemAssociationARN:
-      output.FileSystemAssociationARN !== undefined && output.FileSystemAssociationARN !== null
-        ? output.FileSystemAssociationARN
-        : undefined,
+    FileSystemAssociationARN: __expectString(output.FileSystemAssociationARN),
   } as any;
 };
 
 const deserializeAws_json1_1AttachVolumeOutput = (output: any, context: __SerdeContext): AttachVolumeOutput => {
   return {
-    TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
+    TargetARN: __expectString(output.TargetARN),
+    VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
@@ -8536,7 +8538,7 @@ const deserializeAws_json1_1AutomaticTapeCreationPolicyInfo = (
       output.AutomaticTapeCreationRules !== undefined && output.AutomaticTapeCreationRules !== null
         ? deserializeAws_json1_1AutomaticTapeCreationRules(output.AutomaticTapeCreationRules, context)
         : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -8559,16 +8561,11 @@ const deserializeAws_json1_1AutomaticTapeCreationRule = (
   context: __SerdeContext
 ): AutomaticTapeCreationRule => {
   return {
-    MinimumNumTapes:
-      output.MinimumNumTapes !== undefined && output.MinimumNumTapes !== null ? output.MinimumNumTapes : undefined,
-    PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
-    TapeBarcodePrefix:
-      output.TapeBarcodePrefix !== undefined && output.TapeBarcodePrefix !== null
-        ? output.TapeBarcodePrefix
-        : undefined,
-    TapeSizeInBytes:
-      output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null ? output.TapeSizeInBytes : undefined,
-    Worm: output.Worm !== undefined && output.Worm !== null ? output.Worm : undefined,
+    MinimumNumTapes: __expectNumber(output.MinimumNumTapes),
+    PoolId: __expectString(output.PoolId),
+    TapeBarcodePrefix: __expectString(output.TapeBarcodePrefix),
+    TapeSizeInBytes: __expectNumber(output.TapeSizeInBytes),
+    Worm: __expectBoolean(output.Worm),
   } as any;
 };
 
@@ -8591,27 +8588,16 @@ const deserializeAws_json1_1BandwidthRateLimitInterval = (
   context: __SerdeContext
 ): BandwidthRateLimitInterval => {
   return {
-    AverageDownloadRateLimitInBitsPerSec:
-      output.AverageDownloadRateLimitInBitsPerSec !== undefined && output.AverageDownloadRateLimitInBitsPerSec !== null
-        ? output.AverageDownloadRateLimitInBitsPerSec
-        : undefined,
-    AverageUploadRateLimitInBitsPerSec:
-      output.AverageUploadRateLimitInBitsPerSec !== undefined && output.AverageUploadRateLimitInBitsPerSec !== null
-        ? output.AverageUploadRateLimitInBitsPerSec
-        : undefined,
+    AverageDownloadRateLimitInBitsPerSec: __expectNumber(output.AverageDownloadRateLimitInBitsPerSec),
+    AverageUploadRateLimitInBitsPerSec: __expectNumber(output.AverageUploadRateLimitInBitsPerSec),
     DaysOfWeek:
       output.DaysOfWeek !== undefined && output.DaysOfWeek !== null
         ? deserializeAws_json1_1DaysOfWeek(output.DaysOfWeek, context)
         : undefined,
-    EndHourOfDay: output.EndHourOfDay !== undefined && output.EndHourOfDay !== null ? output.EndHourOfDay : undefined,
-    EndMinuteOfHour:
-      output.EndMinuteOfHour !== undefined && output.EndMinuteOfHour !== null ? output.EndMinuteOfHour : undefined,
-    StartHourOfDay:
-      output.StartHourOfDay !== undefined && output.StartHourOfDay !== null ? output.StartHourOfDay : undefined,
-    StartMinuteOfHour:
-      output.StartMinuteOfHour !== undefined && output.StartMinuteOfHour !== null
-        ? output.StartMinuteOfHour
-        : undefined,
+    EndHourOfDay: __expectNumber(output.EndHourOfDay),
+    EndMinuteOfHour: __expectNumber(output.EndMinuteOfHour),
+    StartHourOfDay: __expectNumber(output.StartHourOfDay),
+    StartMinuteOfHour: __expectNumber(output.StartMinuteOfHour),
   } as any;
 };
 
@@ -8631,10 +8617,7 @@ const deserializeAws_json1_1BandwidthRateLimitIntervals = (
 
 const deserializeAws_json1_1CacheAttributes = (output: any, context: __SerdeContext): CacheAttributes => {
   return {
-    CacheStaleTimeoutInSeconds:
-      output.CacheStaleTimeoutInSeconds !== undefined && output.CacheStaleTimeoutInSeconds !== null
-        ? output.CacheStaleTimeoutInSeconds
-        : undefined,
+    CacheStaleTimeoutInSeconds: __expectNumber(output.CacheStaleTimeoutInSeconds),
   } as any;
 };
 
@@ -8644,28 +8627,17 @@ const deserializeAws_json1_1CachediSCSIVolume = (output: any, context: __SerdeCo
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
         : undefined,
-    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
-    SourceSnapshotId:
-      output.SourceSnapshotId !== undefined && output.SourceSnapshotId !== null ? output.SourceSnapshotId : undefined,
-    TargetName: output.TargetName !== undefined && output.TargetName !== null ? output.TargetName : undefined,
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
-    VolumeAttachmentStatus:
-      output.VolumeAttachmentStatus !== undefined && output.VolumeAttachmentStatus !== null
-        ? output.VolumeAttachmentStatus
-        : undefined,
-    VolumeId: output.VolumeId !== undefined && output.VolumeId !== null ? output.VolumeId : undefined,
-    VolumeProgress:
-      output.VolumeProgress !== undefined && output.VolumeProgress !== null ? output.VolumeProgress : undefined,
-    VolumeSizeInBytes:
-      output.VolumeSizeInBytes !== undefined && output.VolumeSizeInBytes !== null
-        ? output.VolumeSizeInBytes
-        : undefined,
-    VolumeStatus: output.VolumeStatus !== undefined && output.VolumeStatus !== null ? output.VolumeStatus : undefined,
-    VolumeType: output.VolumeType !== undefined && output.VolumeType !== null ? output.VolumeType : undefined,
-    VolumeUsedInBytes:
-      output.VolumeUsedInBytes !== undefined && output.VolumeUsedInBytes !== null
-        ? output.VolumeUsedInBytes
-        : undefined,
+    KMSKey: __expectString(output.KMSKey),
+    SourceSnapshotId: __expectString(output.SourceSnapshotId),
+    TargetName: __expectString(output.TargetName),
+    VolumeARN: __expectString(output.VolumeARN),
+    VolumeAttachmentStatus: __expectString(output.VolumeAttachmentStatus),
+    VolumeId: __expectString(output.VolumeId),
+    VolumeProgress: __expectNumber(output.VolumeProgress),
+    VolumeSizeInBytes: __expectNumber(output.VolumeSizeInBytes),
+    VolumeStatus: __expectString(output.VolumeStatus),
+    VolumeType: __expectString(output.VolumeType),
+    VolumeUsedInBytes: __expectNumber(output.VolumeUsedInBytes),
     VolumeiSCSIAttributes:
       output.VolumeiSCSIAttributes !== undefined && output.VolumeiSCSIAttributes !== null
         ? deserializeAws_json1_1VolumeiSCSIAttributes(output.VolumeiSCSIAttributes, context)
@@ -8686,13 +8658,13 @@ const deserializeAws_json1_1CachediSCSIVolumes = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1CancelArchivalOutput = (output: any, context: __SerdeContext): CancelArchivalOutput => {
   return {
-    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
+    TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
 const deserializeAws_json1_1CancelRetrievalOutput = (output: any, context: __SerdeContext): CancelRetrievalOutput => {
   return {
-    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
+    TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
@@ -8709,17 +8681,10 @@ const deserializeAws_json1_1ChapCredentials = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ChapInfo = (output: any, context: __SerdeContext): ChapInfo => {
   return {
-    InitiatorName:
-      output.InitiatorName !== undefined && output.InitiatorName !== null ? output.InitiatorName : undefined,
-    SecretToAuthenticateInitiator:
-      output.SecretToAuthenticateInitiator !== undefined && output.SecretToAuthenticateInitiator !== null
-        ? output.SecretToAuthenticateInitiator
-        : undefined,
-    SecretToAuthenticateTarget:
-      output.SecretToAuthenticateTarget !== undefined && output.SecretToAuthenticateTarget !== null
-        ? output.SecretToAuthenticateTarget
-        : undefined,
-    TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
+    InitiatorName: __expectString(output.InitiatorName),
+    SecretToAuthenticateInitiator: __expectString(output.SecretToAuthenticateInitiator),
+    SecretToAuthenticateTarget: __expectString(output.SecretToAuthenticateTarget),
+    TargetARN: __expectString(output.TargetARN),
   } as any;
 };
 
@@ -8728,8 +8693,8 @@ const deserializeAws_json1_1CreateCachediSCSIVolumeOutput = (
   context: __SerdeContext
 ): CreateCachediSCSIVolumeOutput => {
   return {
-    TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
+    TargetARN: __expectString(output.TargetARN),
+    VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
@@ -8738,7 +8703,7 @@ const deserializeAws_json1_1CreateNFSFileShareOutput = (
   context: __SerdeContext
 ): CreateNFSFileShareOutput => {
   return {
-    FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
+    FileShareARN: __expectString(output.FileShareARN),
   } as any;
 };
 
@@ -8747,7 +8712,7 @@ const deserializeAws_json1_1CreateSMBFileShareOutput = (
   context: __SerdeContext
 ): CreateSMBFileShareOutput => {
   return {
-    FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
+    FileShareARN: __expectString(output.FileShareARN),
   } as any;
 };
 
@@ -8756,19 +8721,16 @@ const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointOutput = (
   context: __SerdeContext
 ): CreateSnapshotFromVolumeRecoveryPointOutput => {
   return {
-    SnapshotId: output.SnapshotId !== undefined && output.SnapshotId !== null ? output.SnapshotId : undefined,
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
-    VolumeRecoveryPointTime:
-      output.VolumeRecoveryPointTime !== undefined && output.VolumeRecoveryPointTime !== null
-        ? output.VolumeRecoveryPointTime
-        : undefined,
+    SnapshotId: __expectString(output.SnapshotId),
+    VolumeARN: __expectString(output.VolumeARN),
+    VolumeRecoveryPointTime: __expectString(output.VolumeRecoveryPointTime),
   } as any;
 };
 
 const deserializeAws_json1_1CreateSnapshotOutput = (output: any, context: __SerdeContext): CreateSnapshotOutput => {
   return {
-    SnapshotId: output.SnapshotId !== undefined && output.SnapshotId !== null ? output.SnapshotId : undefined,
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
+    SnapshotId: __expectString(output.SnapshotId),
+    VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
@@ -8777,18 +8739,15 @@ const deserializeAws_json1_1CreateStorediSCSIVolumeOutput = (
   context: __SerdeContext
 ): CreateStorediSCSIVolumeOutput => {
   return {
-    TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
-    VolumeSizeInBytes:
-      output.VolumeSizeInBytes !== undefined && output.VolumeSizeInBytes !== null
-        ? output.VolumeSizeInBytes
-        : undefined,
+    TargetARN: __expectString(output.TargetARN),
+    VolumeARN: __expectString(output.VolumeARN),
+    VolumeSizeInBytes: __expectNumber(output.VolumeSizeInBytes),
   } as any;
 };
 
 const deserializeAws_json1_1CreateTapePoolOutput = (output: any, context: __SerdeContext): CreateTapePoolOutput => {
   return {
-    PoolARN: output.PoolARN !== undefined && output.PoolARN !== null ? output.PoolARN : undefined,
+    PoolARN: __expectString(output.PoolARN),
   } as any;
 };
 
@@ -8806,7 +8765,7 @@ const deserializeAws_json1_1CreateTapeWithBarcodeOutput = (
   context: __SerdeContext
 ): CreateTapeWithBarcodeOutput => {
   return {
-    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
+    TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
@@ -8817,7 +8776,7 @@ const deserializeAws_json1_1DaysOfWeek = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
@@ -8826,7 +8785,7 @@ const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyOutput = (
   context: __SerdeContext
 ): DeleteAutomaticTapeCreationPolicyOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -8835,7 +8794,7 @@ const deserializeAws_json1_1DeleteBandwidthRateLimitOutput = (
   context: __SerdeContext
 ): DeleteBandwidthRateLimitOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -8844,21 +8803,20 @@ const deserializeAws_json1_1DeleteChapCredentialsOutput = (
   context: __SerdeContext
 ): DeleteChapCredentialsOutput => {
   return {
-    InitiatorName:
-      output.InitiatorName !== undefined && output.InitiatorName !== null ? output.InitiatorName : undefined,
-    TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
+    InitiatorName: __expectString(output.InitiatorName),
+    TargetARN: __expectString(output.TargetARN),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteFileShareOutput = (output: any, context: __SerdeContext): DeleteFileShareOutput => {
   return {
-    FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
+    FileShareARN: __expectString(output.FileShareARN),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteGatewayOutput = (output: any, context: __SerdeContext): DeleteGatewayOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -8867,7 +8825,7 @@ const deserializeAws_json1_1DeleteSnapshotScheduleOutput = (
   context: __SerdeContext
 ): DeleteSnapshotScheduleOutput => {
   return {
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
+    VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
@@ -8876,25 +8834,25 @@ const deserializeAws_json1_1DeleteTapeArchiveOutput = (
   context: __SerdeContext
 ): DeleteTapeArchiveOutput => {
   return {
-    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
+    TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteTapeOutput = (output: any, context: __SerdeContext): DeleteTapeOutput => {
   return {
-    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
+    TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteTapePoolOutput = (output: any, context: __SerdeContext): DeleteTapePoolOutput => {
   return {
-    PoolARN: output.PoolARN !== undefined && output.PoolARN !== null ? output.PoolARN : undefined,
+    PoolARN: __expectString(output.PoolARN),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteVolumeOutput = (output: any, context: __SerdeContext): DeleteVolumeOutput => {
   return {
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
+    VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
@@ -8903,12 +8861,12 @@ const deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput = (
   context: __SerdeContext
 ): DescribeAvailabilityMonitorTestOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -8917,15 +8875,9 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitOutput = (
   context: __SerdeContext
 ): DescribeBandwidthRateLimitOutput => {
   return {
-    AverageDownloadRateLimitInBitsPerSec:
-      output.AverageDownloadRateLimitInBitsPerSec !== undefined && output.AverageDownloadRateLimitInBitsPerSec !== null
-        ? output.AverageDownloadRateLimitInBitsPerSec
-        : undefined,
-    AverageUploadRateLimitInBitsPerSec:
-      output.AverageUploadRateLimitInBitsPerSec !== undefined && output.AverageUploadRateLimitInBitsPerSec !== null
-        ? output.AverageUploadRateLimitInBitsPerSec
-        : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    AverageDownloadRateLimitInBitsPerSec: __expectNumber(output.AverageDownloadRateLimitInBitsPerSec),
+    AverageUploadRateLimitInBitsPerSec: __expectNumber(output.AverageUploadRateLimitInBitsPerSec),
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -8938,7 +8890,7 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitScheduleOutput = (
       output.BandwidthRateLimitIntervals !== undefined && output.BandwidthRateLimitIntervals !== null
         ? deserializeAws_json1_1BandwidthRateLimitIntervals(output.BandwidthRateLimitIntervals, context)
         : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -8956,31 +8908,16 @@ const deserializeAws_json1_1DescribeCachediSCSIVolumesOutput = (
 
 const deserializeAws_json1_1DescribeCacheOutput = (output: any, context: __SerdeContext): DescribeCacheOutput => {
   return {
-    CacheAllocatedInBytes:
-      output.CacheAllocatedInBytes !== undefined && output.CacheAllocatedInBytes !== null
-        ? output.CacheAllocatedInBytes
-        : undefined,
-    CacheDirtyPercentage:
-      output.CacheDirtyPercentage !== undefined && output.CacheDirtyPercentage !== null
-        ? output.CacheDirtyPercentage
-        : undefined,
-    CacheHitPercentage:
-      output.CacheHitPercentage !== undefined && output.CacheHitPercentage !== null
-        ? output.CacheHitPercentage
-        : undefined,
-    CacheMissPercentage:
-      output.CacheMissPercentage !== undefined && output.CacheMissPercentage !== null
-        ? output.CacheMissPercentage
-        : undefined,
-    CacheUsedPercentage:
-      output.CacheUsedPercentage !== undefined && output.CacheUsedPercentage !== null
-        ? output.CacheUsedPercentage
-        : undefined,
+    CacheAllocatedInBytes: __expectNumber(output.CacheAllocatedInBytes),
+    CacheDirtyPercentage: __expectNumber(output.CacheDirtyPercentage),
+    CacheHitPercentage: __expectNumber(output.CacheHitPercentage),
+    CacheMissPercentage: __expectNumber(output.CacheMissPercentage),
+    CacheUsedPercentage: __expectNumber(output.CacheUsedPercentage),
     DiskIds:
       output.DiskIds !== undefined && output.DiskIds !== null
         ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
         : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -9013,47 +8950,28 @@ const deserializeAws_json1_1DescribeGatewayInformationOutput = (
   context: __SerdeContext
 ): DescribeGatewayInformationOutput => {
   return {
-    CloudWatchLogGroupARN:
-      output.CloudWatchLogGroupARN !== undefined && output.CloudWatchLogGroupARN !== null
-        ? output.CloudWatchLogGroupARN
-        : undefined,
-    DeprecationDate:
-      output.DeprecationDate !== undefined && output.DeprecationDate !== null ? output.DeprecationDate : undefined,
-    Ec2InstanceId:
-      output.Ec2InstanceId !== undefined && output.Ec2InstanceId !== null ? output.Ec2InstanceId : undefined,
-    Ec2InstanceRegion:
-      output.Ec2InstanceRegion !== undefined && output.Ec2InstanceRegion !== null
-        ? output.Ec2InstanceRegion
-        : undefined,
-    EndpointType: output.EndpointType !== undefined && output.EndpointType !== null ? output.EndpointType : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    GatewayId: output.GatewayId !== undefined && output.GatewayId !== null ? output.GatewayId : undefined,
-    GatewayName: output.GatewayName !== undefined && output.GatewayName !== null ? output.GatewayName : undefined,
+    CloudWatchLogGroupARN: __expectString(output.CloudWatchLogGroupARN),
+    DeprecationDate: __expectString(output.DeprecationDate),
+    Ec2InstanceId: __expectString(output.Ec2InstanceId),
+    Ec2InstanceRegion: __expectString(output.Ec2InstanceRegion),
+    EndpointType: __expectString(output.EndpointType),
+    GatewayARN: __expectString(output.GatewayARN),
+    GatewayId: __expectString(output.GatewayId),
+    GatewayName: __expectString(output.GatewayName),
     GatewayNetworkInterfaces:
       output.GatewayNetworkInterfaces !== undefined && output.GatewayNetworkInterfaces !== null
         ? deserializeAws_json1_1GatewayNetworkInterfaces(output.GatewayNetworkInterfaces, context)
         : undefined,
-    GatewayState: output.GatewayState !== undefined && output.GatewayState !== null ? output.GatewayState : undefined,
-    GatewayTimezone:
-      output.GatewayTimezone !== undefined && output.GatewayTimezone !== null ? output.GatewayTimezone : undefined,
-    GatewayType: output.GatewayType !== undefined && output.GatewayType !== null ? output.GatewayType : undefined,
-    HostEnvironment:
-      output.HostEnvironment !== undefined && output.HostEnvironment !== null ? output.HostEnvironment : undefined,
-    LastSoftwareUpdate:
-      output.LastSoftwareUpdate !== undefined && output.LastSoftwareUpdate !== null
-        ? output.LastSoftwareUpdate
-        : undefined,
-    NextUpdateAvailabilityDate:
-      output.NextUpdateAvailabilityDate !== undefined && output.NextUpdateAvailabilityDate !== null
-        ? output.NextUpdateAvailabilityDate
-        : undefined,
-    SoftwareUpdatesEndDate:
-      output.SoftwareUpdatesEndDate !== undefined && output.SoftwareUpdatesEndDate !== null
-        ? output.SoftwareUpdatesEndDate
-        : undefined,
+    GatewayState: __expectString(output.GatewayState),
+    GatewayTimezone: __expectString(output.GatewayTimezone),
+    GatewayType: __expectString(output.GatewayType),
+    HostEnvironment: __expectString(output.HostEnvironment),
+    LastSoftwareUpdate: __expectString(output.LastSoftwareUpdate),
+    NextUpdateAvailabilityDate: __expectString(output.NextUpdateAvailabilityDate),
+    SoftwareUpdatesEndDate: __expectString(output.SoftwareUpdatesEndDate),
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
-    VPCEndpoint: output.VPCEndpoint !== undefined && output.VPCEndpoint !== null ? output.VPCEndpoint : undefined,
+    VPCEndpoint: __expectString(output.VPCEndpoint),
   } as any;
 };
 
@@ -9062,12 +8980,12 @@ const deserializeAws_json1_1DescribeMaintenanceStartTimeOutput = (
   context: __SerdeContext
 ): DescribeMaintenanceStartTimeOutput => {
   return {
-    DayOfMonth: output.DayOfMonth !== undefined && output.DayOfMonth !== null ? output.DayOfMonth : undefined,
-    DayOfWeek: output.DayOfWeek !== undefined && output.DayOfWeek !== null ? output.DayOfWeek : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    HourOfDay: output.HourOfDay !== undefined && output.HourOfDay !== null ? output.HourOfDay : undefined,
-    MinuteOfHour: output.MinuteOfHour !== undefined && output.MinuteOfHour !== null ? output.MinuteOfHour : undefined,
-    Timezone: output.Timezone !== undefined && output.Timezone !== null ? output.Timezone : undefined,
+    DayOfMonth: __expectNumber(output.DayOfMonth),
+    DayOfWeek: __expectNumber(output.DayOfWeek),
+    GatewayARN: __expectString(output.GatewayARN),
+    HourOfDay: __expectNumber(output.HourOfDay),
+    MinuteOfHour: __expectNumber(output.MinuteOfHour),
+    Timezone: __expectString(output.Timezone),
   } as any;
 };
 
@@ -9100,24 +9018,12 @@ const deserializeAws_json1_1DescribeSMBSettingsOutput = (
   context: __SerdeContext
 ): DescribeSMBSettingsOutput => {
   return {
-    ActiveDirectoryStatus:
-      output.ActiveDirectoryStatus !== undefined && output.ActiveDirectoryStatus !== null
-        ? output.ActiveDirectoryStatus
-        : undefined,
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
-    FileSharesVisible:
-      output.FileSharesVisible !== undefined && output.FileSharesVisible !== null
-        ? output.FileSharesVisible
-        : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    SMBGuestPasswordSet:
-      output.SMBGuestPasswordSet !== undefined && output.SMBGuestPasswordSet !== null
-        ? output.SMBGuestPasswordSet
-        : undefined,
-    SMBSecurityStrategy:
-      output.SMBSecurityStrategy !== undefined && output.SMBSecurityStrategy !== null
-        ? output.SMBSecurityStrategy
-        : undefined,
+    ActiveDirectoryStatus: __expectString(output.ActiveDirectoryStatus),
+    DomainName: __expectString(output.DomainName),
+    FileSharesVisible: __expectBoolean(output.FileSharesVisible),
+    GatewayARN: __expectString(output.GatewayARN),
+    SMBGuestPasswordSet: __expectBoolean(output.SMBGuestPasswordSet),
+    SMBSecurityStrategy: __expectString(output.SMBSecurityStrategy),
   } as any;
 };
 
@@ -9126,16 +9032,13 @@ const deserializeAws_json1_1DescribeSnapshotScheduleOutput = (
   context: __SerdeContext
 ): DescribeSnapshotScheduleOutput => {
   return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    RecurrenceInHours:
-      output.RecurrenceInHours !== undefined && output.RecurrenceInHours !== null
-        ? output.RecurrenceInHours
-        : undefined,
-    StartAt: output.StartAt !== undefined && output.StartAt !== null ? output.StartAt : undefined,
+    Description: __expectString(output.Description),
+    RecurrenceInHours: __expectNumber(output.RecurrenceInHours),
+    StartAt: __expectNumber(output.StartAt),
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
-    Timezone: output.Timezone !== undefined && output.Timezone !== null ? output.Timezone : undefined,
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
+    Timezone: __expectString(output.Timezone),
+    VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
@@ -9156,7 +9059,7 @@ const deserializeAws_json1_1DescribeTapeArchivesOutput = (
   context: __SerdeContext
 ): DescribeTapeArchivesOutput => {
   return {
-    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
+    Marker: __expectString(output.Marker),
     TapeArchives:
       output.TapeArchives !== undefined && output.TapeArchives !== null
         ? deserializeAws_json1_1TapeArchives(output.TapeArchives, context)
@@ -9169,8 +9072,8 @@ const deserializeAws_json1_1DescribeTapeRecoveryPointsOutput = (
   context: __SerdeContext
 ): DescribeTapeRecoveryPointsOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
+    Marker: __expectString(output.Marker),
     TapeRecoveryPointInfos:
       output.TapeRecoveryPointInfos !== undefined && output.TapeRecoveryPointInfos !== null
         ? deserializeAws_json1_1TapeRecoveryPointInfos(output.TapeRecoveryPointInfos, context)
@@ -9180,7 +9083,7 @@ const deserializeAws_json1_1DescribeTapeRecoveryPointsOutput = (
 
 const deserializeAws_json1_1DescribeTapesOutput = (output: any, context: __SerdeContext): DescribeTapesOutput => {
   return {
-    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
+    Marker: __expectString(output.Marker),
     Tapes:
       output.Tapes !== undefined && output.Tapes !== null
         ? deserializeAws_json1_1Tapes(output.Tapes, context)
@@ -9197,15 +9100,9 @@ const deserializeAws_json1_1DescribeUploadBufferOutput = (
       output.DiskIds !== undefined && output.DiskIds !== null
         ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
         : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    UploadBufferAllocatedInBytes:
-      output.UploadBufferAllocatedInBytes !== undefined && output.UploadBufferAllocatedInBytes !== null
-        ? output.UploadBufferAllocatedInBytes
-        : undefined,
-    UploadBufferUsedInBytes:
-      output.UploadBufferUsedInBytes !== undefined && output.UploadBufferUsedInBytes !== null
-        ? output.UploadBufferUsedInBytes
-        : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
+    UploadBufferAllocatedInBytes: __expectNumber(output.UploadBufferAllocatedInBytes),
+    UploadBufferUsedInBytes: __expectNumber(output.UploadBufferUsedInBytes),
   } as any;
 };
 
@@ -9214,8 +9111,8 @@ const deserializeAws_json1_1DescribeVTLDevicesOutput = (
   context: __SerdeContext
 ): DescribeVTLDevicesOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
+    Marker: __expectString(output.Marker),
     VTLDevices:
       output.VTLDevices !== undefined && output.VTLDevices !== null
         ? deserializeAws_json1_1VTLDevices(output.VTLDevices, context)
@@ -9232,42 +9129,30 @@ const deserializeAws_json1_1DescribeWorkingStorageOutput = (
       output.DiskIds !== undefined && output.DiskIds !== null
         ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
         : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    WorkingStorageAllocatedInBytes:
-      output.WorkingStorageAllocatedInBytes !== undefined && output.WorkingStorageAllocatedInBytes !== null
-        ? output.WorkingStorageAllocatedInBytes
-        : undefined,
-    WorkingStorageUsedInBytes:
-      output.WorkingStorageUsedInBytes !== undefined && output.WorkingStorageUsedInBytes !== null
-        ? output.WorkingStorageUsedInBytes
-        : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
+    WorkingStorageAllocatedInBytes: __expectNumber(output.WorkingStorageAllocatedInBytes),
+    WorkingStorageUsedInBytes: __expectNumber(output.WorkingStorageUsedInBytes),
   } as any;
 };
 
 const deserializeAws_json1_1DetachVolumeOutput = (output: any, context: __SerdeContext): DetachVolumeOutput => {
   return {
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
+    VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
 const deserializeAws_json1_1DeviceiSCSIAttributes = (output: any, context: __SerdeContext): DeviceiSCSIAttributes => {
   return {
-    ChapEnabled: output.ChapEnabled !== undefined && output.ChapEnabled !== null ? output.ChapEnabled : undefined,
-    NetworkInterfaceId:
-      output.NetworkInterfaceId !== undefined && output.NetworkInterfaceId !== null
-        ? output.NetworkInterfaceId
-        : undefined,
-    NetworkInterfacePort:
-      output.NetworkInterfacePort !== undefined && output.NetworkInterfacePort !== null
-        ? output.NetworkInterfacePort
-        : undefined,
-    TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
+    ChapEnabled: __expectBoolean(output.ChapEnabled),
+    NetworkInterfaceId: __expectString(output.NetworkInterfaceId),
+    NetworkInterfacePort: __expectNumber(output.NetworkInterfacePort),
+    TargetARN: __expectString(output.TargetARN),
   } as any;
 };
 
 const deserializeAws_json1_1DisableGatewayOutput = (output: any, context: __SerdeContext): DisableGatewayOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -9276,33 +9161,23 @@ const deserializeAws_json1_1DisassociateFileSystemOutput = (
   context: __SerdeContext
 ): DisassociateFileSystemOutput => {
   return {
-    FileSystemAssociationARN:
-      output.FileSystemAssociationARN !== undefined && output.FileSystemAssociationARN !== null
-        ? output.FileSystemAssociationARN
-        : undefined,
+    FileSystemAssociationARN: __expectString(output.FileSystemAssociationARN),
   } as any;
 };
 
 const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk => {
   return {
-    DiskAllocationResource:
-      output.DiskAllocationResource !== undefined && output.DiskAllocationResource !== null
-        ? output.DiskAllocationResource
-        : undefined,
-    DiskAllocationType:
-      output.DiskAllocationType !== undefined && output.DiskAllocationType !== null
-        ? output.DiskAllocationType
-        : undefined,
+    DiskAllocationResource: __expectString(output.DiskAllocationResource),
+    DiskAllocationType: __expectString(output.DiskAllocationType),
     DiskAttributeList:
       output.DiskAttributeList !== undefined && output.DiskAttributeList !== null
         ? deserializeAws_json1_1DiskAttributeList(output.DiskAttributeList, context)
         : undefined,
-    DiskId: output.DiskId !== undefined && output.DiskId !== null ? output.DiskId : undefined,
-    DiskNode: output.DiskNode !== undefined && output.DiskNode !== null ? output.DiskNode : undefined,
-    DiskPath: output.DiskPath !== undefined && output.DiskPath !== null ? output.DiskPath : undefined,
-    DiskSizeInBytes:
-      output.DiskSizeInBytes !== undefined && output.DiskSizeInBytes !== null ? output.DiskSizeInBytes : undefined,
-    DiskStatus: output.DiskStatus !== undefined && output.DiskStatus !== null ? output.DiskStatus : undefined,
+    DiskId: __expectString(output.DiskId),
+    DiskNode: __expectString(output.DiskNode),
+    DiskPath: __expectString(output.DiskPath),
+    DiskSizeInBytes: __expectNumber(output.DiskSizeInBytes),
+    DiskStatus: __expectString(output.DiskStatus),
   } as any;
 };
 
@@ -9313,7 +9188,7 @@ const deserializeAws_json1_1DiskAttributeList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -9324,7 +9199,7 @@ const deserializeAws_json1_1DiskIds = (output: any, context: __SerdeContext): st
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -9346,7 +9221,7 @@ const deserializeAws_json1_1errorDetails = (output: any, context: __SerdeContext
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -9358,19 +9233,17 @@ const deserializeAws_json1_1FileShareClientList = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1FileShareInfo = (output: any, context: __SerdeContext): FileShareInfo => {
   return {
-    FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
-    FileShareId: output.FileShareId !== undefined && output.FileShareId !== null ? output.FileShareId : undefined,
-    FileShareStatus:
-      output.FileShareStatus !== undefined && output.FileShareStatus !== null ? output.FileShareStatus : undefined,
-    FileShareType:
-      output.FileShareType !== undefined && output.FileShareType !== null ? output.FileShareType : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    FileShareARN: __expectString(output.FileShareARN),
+    FileShareId: __expectString(output.FileShareId),
+    FileShareStatus: __expectString(output.FileShareStatus),
+    FileShareType: __expectString(output.FileShareType),
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -9390,24 +9263,15 @@ const deserializeAws_json1_1FileSystemAssociationInfo = (
   context: __SerdeContext
 ): FileSystemAssociationInfo => {
   return {
-    AuditDestinationARN:
-      output.AuditDestinationARN !== undefined && output.AuditDestinationARN !== null
-        ? output.AuditDestinationARN
-        : undefined,
+    AuditDestinationARN: __expectString(output.AuditDestinationARN),
     CacheAttributes:
       output.CacheAttributes !== undefined && output.CacheAttributes !== null
         ? deserializeAws_json1_1CacheAttributes(output.CacheAttributes, context)
         : undefined,
-    FileSystemAssociationARN:
-      output.FileSystemAssociationARN !== undefined && output.FileSystemAssociationARN !== null
-        ? output.FileSystemAssociationARN
-        : undefined,
-    FileSystemAssociationStatus:
-      output.FileSystemAssociationStatus !== undefined && output.FileSystemAssociationStatus !== null
-        ? output.FileSystemAssociationStatus
-        : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    LocationARN: output.LocationARN !== undefined && output.LocationARN !== null ? output.LocationARN : undefined,
+    FileSystemAssociationARN: __expectString(output.FileSystemAssociationARN),
+    FileSystemAssociationStatus: __expectString(output.FileSystemAssociationStatus),
+    GatewayARN: __expectString(output.GatewayARN),
+    LocationARN: __expectString(output.LocationARN),
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
@@ -9432,19 +9296,10 @@ const deserializeAws_json1_1FileSystemAssociationSummary = (
   context: __SerdeContext
 ): FileSystemAssociationSummary => {
   return {
-    FileSystemAssociationARN:
-      output.FileSystemAssociationARN !== undefined && output.FileSystemAssociationARN !== null
-        ? output.FileSystemAssociationARN
-        : undefined,
-    FileSystemAssociationId:
-      output.FileSystemAssociationId !== undefined && output.FileSystemAssociationId !== null
-        ? output.FileSystemAssociationId
-        : undefined,
-    FileSystemAssociationStatus:
-      output.FileSystemAssociationStatus !== undefined && output.FileSystemAssociationStatus !== null
-        ? output.FileSystemAssociationStatus
-        : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    FileSystemAssociationARN: __expectString(output.FileSystemAssociationARN),
+    FileSystemAssociationId: __expectString(output.FileSystemAssociationId),
+    FileSystemAssociationStatus: __expectString(output.FileSystemAssociationStatus),
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -9464,20 +9319,13 @@ const deserializeAws_json1_1FileSystemAssociationSummaryList = (
 
 const deserializeAws_json1_1GatewayInfo = (output: any, context: __SerdeContext): GatewayInfo => {
   return {
-    Ec2InstanceId:
-      output.Ec2InstanceId !== undefined && output.Ec2InstanceId !== null ? output.Ec2InstanceId : undefined,
-    Ec2InstanceRegion:
-      output.Ec2InstanceRegion !== undefined && output.Ec2InstanceRegion !== null
-        ? output.Ec2InstanceRegion
-        : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    GatewayId: output.GatewayId !== undefined && output.GatewayId !== null ? output.GatewayId : undefined,
-    GatewayName: output.GatewayName !== undefined && output.GatewayName !== null ? output.GatewayName : undefined,
-    GatewayOperationalState:
-      output.GatewayOperationalState !== undefined && output.GatewayOperationalState !== null
-        ? output.GatewayOperationalState
-        : undefined,
-    GatewayType: output.GatewayType !== undefined && output.GatewayType !== null ? output.GatewayType : undefined,
+    Ec2InstanceId: __expectString(output.Ec2InstanceId),
+    Ec2InstanceRegion: __expectString(output.Ec2InstanceRegion),
+    GatewayARN: __expectString(output.GatewayARN),
+    GatewayId: __expectString(output.GatewayId),
+    GatewayName: __expectString(output.GatewayName),
+    GatewayOperationalState: __expectString(output.GatewayOperationalState),
+    GatewayType: __expectString(output.GatewayType),
   } as any;
 };
 
@@ -9510,7 +9358,7 @@ const deserializeAws_json1_1Initiators = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -9520,7 +9368,7 @@ const deserializeAws_json1_1InternalServerError = (output: any, context: __Serde
       output.error !== undefined && output.error !== null
         ? deserializeAws_json1_1StorageGatewayError(output.error, context)
         : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -9533,17 +9381,14 @@ const deserializeAws_json1_1InvalidGatewayRequestException = (
       output.error !== undefined && output.error !== null
         ? deserializeAws_json1_1StorageGatewayError(output.error, context)
         : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1JoinDomainOutput = (output: any, context: __SerdeContext): JoinDomainOutput => {
   return {
-    ActiveDirectoryStatus:
-      output.ActiveDirectoryStatus !== undefined && output.ActiveDirectoryStatus !== null
-        ? output.ActiveDirectoryStatus
-        : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    ActiveDirectoryStatus: __expectString(output.ActiveDirectoryStatus),
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -9565,8 +9410,8 @@ const deserializeAws_json1_1ListFileSharesOutput = (output: any, context: __Serd
       output.FileShareInfoList !== undefined && output.FileShareInfoList !== null
         ? deserializeAws_json1_1FileShareInfoList(output.FileShareInfoList, context)
         : undefined,
-    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    Marker: __expectString(output.Marker),
+    NextMarker: __expectString(output.NextMarker),
   } as any;
 };
 
@@ -9579,8 +9424,8 @@ const deserializeAws_json1_1ListFileSystemAssociationsOutput = (
       output.FileSystemAssociationSummaryList !== undefined && output.FileSystemAssociationSummaryList !== null
         ? deserializeAws_json1_1FileSystemAssociationSummaryList(output.FileSystemAssociationSummaryList, context)
         : undefined,
-    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    Marker: __expectString(output.Marker),
+    NextMarker: __expectString(output.NextMarker),
   } as any;
 };
 
@@ -9590,7 +9435,7 @@ const deserializeAws_json1_1ListGatewaysOutput = (output: any, context: __SerdeC
       output.Gateways !== undefined && output.Gateways !== null
         ? deserializeAws_json1_1Gateways(output.Gateways, context)
         : undefined,
-    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
+    Marker: __expectString(output.Marker),
   } as any;
 };
 
@@ -9600,7 +9445,7 @@ const deserializeAws_json1_1ListLocalDisksOutput = (output: any, context: __Serd
       output.Disks !== undefined && output.Disks !== null
         ? deserializeAws_json1_1Disks(output.Disks, context)
         : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -9609,8 +9454,8 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   return {
-    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
-    ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
+    Marker: __expectString(output.Marker),
+    ResourceARN: __expectString(output.ResourceARN),
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
@@ -9618,7 +9463,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
 
 const deserializeAws_json1_1ListTapePoolsOutput = (output: any, context: __SerdeContext): ListTapePoolsOutput => {
   return {
-    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
+    Marker: __expectString(output.Marker),
     PoolInfos:
       output.PoolInfos !== undefined && output.PoolInfos !== null
         ? deserializeAws_json1_1PoolInfos(output.PoolInfos, context)
@@ -9628,7 +9473,7 @@ const deserializeAws_json1_1ListTapePoolsOutput = (output: any, context: __Serde
 
 const deserializeAws_json1_1ListTapesOutput = (output: any, context: __SerdeContext): ListTapesOutput => {
   return {
-    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
+    Marker: __expectString(output.Marker),
     TapeInfos:
       output.TapeInfos !== undefined && output.TapeInfos !== null
         ? deserializeAws_json1_1TapeInfos(output.TapeInfos, context)
@@ -9653,7 +9498,7 @@ const deserializeAws_json1_1ListVolumeRecoveryPointsOutput = (
   context: __SerdeContext
 ): ListVolumeRecoveryPointsOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
     VolumeRecoveryPointInfos:
       output.VolumeRecoveryPointInfos !== undefined && output.VolumeRecoveryPointInfos !== null
         ? deserializeAws_json1_1VolumeRecoveryPointInfos(output.VolumeRecoveryPointInfos, context)
@@ -9663,8 +9508,8 @@ const deserializeAws_json1_1ListVolumeRecoveryPointsOutput = (
 
 const deserializeAws_json1_1ListVolumesOutput = (output: any, context: __SerdeContext): ListVolumesOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
+    Marker: __expectString(output.Marker),
     VolumeInfos:
       output.VolumeInfos !== undefined && output.VolumeInfos !== null
         ? deserializeAws_json1_1VolumeInfos(output.VolumeInfos, context)
@@ -9674,19 +9519,18 @@ const deserializeAws_json1_1ListVolumesOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
   return {
-    Ipv4Address: output.Ipv4Address !== undefined && output.Ipv4Address !== null ? output.Ipv4Address : undefined,
-    Ipv6Address: output.Ipv6Address !== undefined && output.Ipv6Address !== null ? output.Ipv6Address : undefined,
-    MacAddress: output.MacAddress !== undefined && output.MacAddress !== null ? output.MacAddress : undefined,
+    Ipv4Address: __expectString(output.Ipv4Address),
+    Ipv6Address: __expectString(output.Ipv6Address),
+    MacAddress: __expectString(output.MacAddress),
   } as any;
 };
 
 const deserializeAws_json1_1NFSFileShareDefaults = (output: any, context: __SerdeContext): NFSFileShareDefaults => {
   return {
-    DirectoryMode:
-      output.DirectoryMode !== undefined && output.DirectoryMode !== null ? output.DirectoryMode : undefined,
-    FileMode: output.FileMode !== undefined && output.FileMode !== null ? output.FileMode : undefined,
-    GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined,
-    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
+    DirectoryMode: __expectString(output.DirectoryMode),
+    FileMode: __expectString(output.FileMode),
+    GroupId: __expectNumber(output.GroupId),
+    OwnerId: __expectNumber(output.OwnerId),
   } as any;
 };
 
@@ -9700,39 +9544,27 @@ const deserializeAws_json1_1NFSFileShareInfo = (output: any, context: __SerdeCon
       output.ClientList !== undefined && output.ClientList !== null
         ? deserializeAws_json1_1FileShareClientList(output.ClientList, context)
         : undefined,
-    DefaultStorageClass:
-      output.DefaultStorageClass !== undefined && output.DefaultStorageClass !== null
-        ? output.DefaultStorageClass
-        : undefined,
-    FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
-    FileShareId: output.FileShareId !== undefined && output.FileShareId !== null ? output.FileShareId : undefined,
-    FileShareName:
-      output.FileShareName !== undefined && output.FileShareName !== null ? output.FileShareName : undefined,
-    FileShareStatus:
-      output.FileShareStatus !== undefined && output.FileShareStatus !== null ? output.FileShareStatus : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    GuessMIMETypeEnabled:
-      output.GuessMIMETypeEnabled !== undefined && output.GuessMIMETypeEnabled !== null
-        ? output.GuessMIMETypeEnabled
-        : undefined,
-    KMSEncrypted: output.KMSEncrypted !== undefined && output.KMSEncrypted !== null ? output.KMSEncrypted : undefined,
-    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
-    LocationARN: output.LocationARN !== undefined && output.LocationARN !== null ? output.LocationARN : undefined,
+    DefaultStorageClass: __expectString(output.DefaultStorageClass),
+    FileShareARN: __expectString(output.FileShareARN),
+    FileShareId: __expectString(output.FileShareId),
+    FileShareName: __expectString(output.FileShareName),
+    FileShareStatus: __expectString(output.FileShareStatus),
+    GatewayARN: __expectString(output.GatewayARN),
+    GuessMIMETypeEnabled: __expectBoolean(output.GuessMIMETypeEnabled),
+    KMSEncrypted: __expectBoolean(output.KMSEncrypted),
+    KMSKey: __expectString(output.KMSKey),
+    LocationARN: __expectString(output.LocationARN),
     NFSFileShareDefaults:
       output.NFSFileShareDefaults !== undefined && output.NFSFileShareDefaults !== null
         ? deserializeAws_json1_1NFSFileShareDefaults(output.NFSFileShareDefaults, context)
         : undefined,
-    NotificationPolicy:
-      output.NotificationPolicy !== undefined && output.NotificationPolicy !== null
-        ? output.NotificationPolicy
-        : undefined,
-    ObjectACL: output.ObjectACL !== undefined && output.ObjectACL !== null ? output.ObjectACL : undefined,
-    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
-    ReadOnly: output.ReadOnly !== undefined && output.ReadOnly !== null ? output.ReadOnly : undefined,
-    RequesterPays:
-      output.RequesterPays !== undefined && output.RequesterPays !== null ? output.RequesterPays : undefined,
-    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
-    Squash: output.Squash !== undefined && output.Squash !== null ? output.Squash : undefined,
+    NotificationPolicy: __expectString(output.NotificationPolicy),
+    ObjectACL: __expectString(output.ObjectACL),
+    Path: __expectString(output.Path),
+    ReadOnly: __expectBoolean(output.ReadOnly),
+    RequesterPays: __expectBoolean(output.RequesterPays),
+    Role: __expectString(output.Role),
+    Squash: __expectString(output.Squash),
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
@@ -9754,26 +9586,19 @@ const deserializeAws_json1_1NotifyWhenUploadedOutput = (
   context: __SerdeContext
 ): NotifyWhenUploadedOutput => {
   return {
-    FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
-    NotificationId:
-      output.NotificationId !== undefined && output.NotificationId !== null ? output.NotificationId : undefined,
+    FileShareARN: __expectString(output.FileShareARN),
+    NotificationId: __expectString(output.NotificationId),
   } as any;
 };
 
 const deserializeAws_json1_1PoolInfo = (output: any, context: __SerdeContext): PoolInfo => {
   return {
-    PoolARN: output.PoolARN !== undefined && output.PoolARN !== null ? output.PoolARN : undefined,
-    PoolName: output.PoolName !== undefined && output.PoolName !== null ? output.PoolName : undefined,
-    PoolStatus: output.PoolStatus !== undefined && output.PoolStatus !== null ? output.PoolStatus : undefined,
-    RetentionLockTimeInDays:
-      output.RetentionLockTimeInDays !== undefined && output.RetentionLockTimeInDays !== null
-        ? output.RetentionLockTimeInDays
-        : undefined,
-    RetentionLockType:
-      output.RetentionLockType !== undefined && output.RetentionLockType !== null
-        ? output.RetentionLockType
-        : undefined,
-    StorageClass: output.StorageClass !== undefined && output.StorageClass !== null ? output.StorageClass : undefined,
+    PoolARN: __expectString(output.PoolARN),
+    PoolName: __expectString(output.PoolName),
+    PoolStatus: __expectString(output.PoolStatus),
+    RetentionLockTimeInDays: __expectNumber(output.RetentionLockTimeInDays),
+    RetentionLockType: __expectString(output.RetentionLockType),
+    StorageClass: __expectString(output.StorageClass),
   } as any;
 };
 
@@ -9790,9 +9615,8 @@ const deserializeAws_json1_1PoolInfos = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1RefreshCacheOutput = (output: any, context: __SerdeContext): RefreshCacheOutput => {
   return {
-    FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
-    NotificationId:
-      output.NotificationId !== undefined && output.NotificationId !== null ? output.NotificationId : undefined,
+    FileShareARN: __expectString(output.FileShareARN),
+    NotificationId: __expectString(output.NotificationId),
   } as any;
 };
 
@@ -9801,13 +9625,13 @@ const deserializeAws_json1_1RemoveTagsFromResourceOutput = (
   context: __SerdeContext
 ): RemoveTagsFromResourceOutput => {
   return {
-    ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
+    ResourceARN: __expectString(output.ResourceARN),
   } as any;
 };
 
 const deserializeAws_json1_1ResetCacheOutput = (output: any, context: __SerdeContext): ResetCacheOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -9816,7 +9640,7 @@ const deserializeAws_json1_1RetrieveTapeArchiveOutput = (
   context: __SerdeContext
 ): RetrieveTapeArchiveOutput => {
   return {
-    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
+    TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
@@ -9825,7 +9649,7 @@ const deserializeAws_json1_1RetrieveTapeRecoveryPointOutput = (
   context: __SerdeContext
 ): RetrieveTapeRecoveryPointOutput => {
   return {
-    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
+    TapeARN: __expectString(output.TapeARN),
   } as any;
 };
 
@@ -9838,7 +9662,7 @@ const deserializeAws_json1_1ServiceUnavailableError = (
       output.error !== undefined && output.error !== null
         ? deserializeAws_json1_1StorageGatewayError(output.error, context)
         : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -9847,7 +9671,7 @@ const deserializeAws_json1_1SetLocalConsolePasswordOutput = (
   context: __SerdeContext
 ): SetLocalConsolePasswordOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -9856,72 +9680,51 @@ const deserializeAws_json1_1SetSMBGuestPasswordOutput = (
   context: __SerdeContext
 ): SetSMBGuestPasswordOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
 const deserializeAws_json1_1ShutdownGatewayOutput = (output: any, context: __SerdeContext): ShutdownGatewayOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
 const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeContext): SMBFileShareInfo => {
   return {
-    AccessBasedEnumeration:
-      output.AccessBasedEnumeration !== undefined && output.AccessBasedEnumeration !== null
-        ? output.AccessBasedEnumeration
-        : undefined,
+    AccessBasedEnumeration: __expectBoolean(output.AccessBasedEnumeration),
     AdminUserList:
       output.AdminUserList !== undefined && output.AdminUserList !== null
         ? deserializeAws_json1_1UserList(output.AdminUserList, context)
         : undefined,
-    AuditDestinationARN:
-      output.AuditDestinationARN !== undefined && output.AuditDestinationARN !== null
-        ? output.AuditDestinationARN
-        : undefined,
-    Authentication:
-      output.Authentication !== undefined && output.Authentication !== null ? output.Authentication : undefined,
+    AuditDestinationARN: __expectString(output.AuditDestinationARN),
+    Authentication: __expectString(output.Authentication),
     CacheAttributes:
       output.CacheAttributes !== undefined && output.CacheAttributes !== null
         ? deserializeAws_json1_1CacheAttributes(output.CacheAttributes, context)
         : undefined,
-    CaseSensitivity:
-      output.CaseSensitivity !== undefined && output.CaseSensitivity !== null ? output.CaseSensitivity : undefined,
-    DefaultStorageClass:
-      output.DefaultStorageClass !== undefined && output.DefaultStorageClass !== null
-        ? output.DefaultStorageClass
-        : undefined,
-    FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
-    FileShareId: output.FileShareId !== undefined && output.FileShareId !== null ? output.FileShareId : undefined,
-    FileShareName:
-      output.FileShareName !== undefined && output.FileShareName !== null ? output.FileShareName : undefined,
-    FileShareStatus:
-      output.FileShareStatus !== undefined && output.FileShareStatus !== null ? output.FileShareStatus : undefined,
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    GuessMIMETypeEnabled:
-      output.GuessMIMETypeEnabled !== undefined && output.GuessMIMETypeEnabled !== null
-        ? output.GuessMIMETypeEnabled
-        : undefined,
+    CaseSensitivity: __expectString(output.CaseSensitivity),
+    DefaultStorageClass: __expectString(output.DefaultStorageClass),
+    FileShareARN: __expectString(output.FileShareARN),
+    FileShareId: __expectString(output.FileShareId),
+    FileShareName: __expectString(output.FileShareName),
+    FileShareStatus: __expectString(output.FileShareStatus),
+    GatewayARN: __expectString(output.GatewayARN),
+    GuessMIMETypeEnabled: __expectBoolean(output.GuessMIMETypeEnabled),
     InvalidUserList:
       output.InvalidUserList !== undefined && output.InvalidUserList !== null
         ? deserializeAws_json1_1UserList(output.InvalidUserList, context)
         : undefined,
-    KMSEncrypted: output.KMSEncrypted !== undefined && output.KMSEncrypted !== null ? output.KMSEncrypted : undefined,
-    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
-    LocationARN: output.LocationARN !== undefined && output.LocationARN !== null ? output.LocationARN : undefined,
-    NotificationPolicy:
-      output.NotificationPolicy !== undefined && output.NotificationPolicy !== null
-        ? output.NotificationPolicy
-        : undefined,
-    ObjectACL: output.ObjectACL !== undefined && output.ObjectACL !== null ? output.ObjectACL : undefined,
-    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
-    ReadOnly: output.ReadOnly !== undefined && output.ReadOnly !== null ? output.ReadOnly : undefined,
-    RequesterPays:
-      output.RequesterPays !== undefined && output.RequesterPays !== null ? output.RequesterPays : undefined,
-    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
-    SMBACLEnabled:
-      output.SMBACLEnabled !== undefined && output.SMBACLEnabled !== null ? output.SMBACLEnabled : undefined,
+    KMSEncrypted: __expectBoolean(output.KMSEncrypted),
+    KMSKey: __expectString(output.KMSKey),
+    LocationARN: __expectString(output.LocationARN),
+    NotificationPolicy: __expectString(output.NotificationPolicy),
+    ObjectACL: __expectString(output.ObjectACL),
+    Path: __expectString(output.Path),
+    ReadOnly: __expectBoolean(output.ReadOnly),
+    RequesterPays: __expectBoolean(output.RequesterPays),
+    Role: __expectString(output.Role),
+    SMBACLEnabled: __expectBoolean(output.SMBACLEnabled),
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     ValidUserList:
@@ -9947,19 +9750,19 @@ const deserializeAws_json1_1StartAvailabilityMonitorTestOutput = (
   context: __SerdeContext
 ): StartAvailabilityMonitorTestOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
 const deserializeAws_json1_1StartGatewayOutput = (output: any, context: __SerdeContext): StartGatewayOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
 const deserializeAws_json1_1StorageGatewayError = (output: any, context: __SerdeContext): StorageGatewayError => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
+    errorCode: __expectString(output.errorCode),
     errorDetails:
       output.errorDetails !== undefined && output.errorDetails !== null
         ? deserializeAws_json1_1errorDetails(output.errorDetails, context)
@@ -9973,33 +9776,19 @@ const deserializeAws_json1_1StorediSCSIVolume = (output: any, context: __SerdeCo
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
         : undefined,
-    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
-    PreservedExistingData:
-      output.PreservedExistingData !== undefined && output.PreservedExistingData !== null
-        ? output.PreservedExistingData
-        : undefined,
-    SourceSnapshotId:
-      output.SourceSnapshotId !== undefined && output.SourceSnapshotId !== null ? output.SourceSnapshotId : undefined,
-    TargetName: output.TargetName !== undefined && output.TargetName !== null ? output.TargetName : undefined,
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
-    VolumeAttachmentStatus:
-      output.VolumeAttachmentStatus !== undefined && output.VolumeAttachmentStatus !== null
-        ? output.VolumeAttachmentStatus
-        : undefined,
-    VolumeDiskId: output.VolumeDiskId !== undefined && output.VolumeDiskId !== null ? output.VolumeDiskId : undefined,
-    VolumeId: output.VolumeId !== undefined && output.VolumeId !== null ? output.VolumeId : undefined,
-    VolumeProgress:
-      output.VolumeProgress !== undefined && output.VolumeProgress !== null ? output.VolumeProgress : undefined,
-    VolumeSizeInBytes:
-      output.VolumeSizeInBytes !== undefined && output.VolumeSizeInBytes !== null
-        ? output.VolumeSizeInBytes
-        : undefined,
-    VolumeStatus: output.VolumeStatus !== undefined && output.VolumeStatus !== null ? output.VolumeStatus : undefined,
-    VolumeType: output.VolumeType !== undefined && output.VolumeType !== null ? output.VolumeType : undefined,
-    VolumeUsedInBytes:
-      output.VolumeUsedInBytes !== undefined && output.VolumeUsedInBytes !== null
-        ? output.VolumeUsedInBytes
-        : undefined,
+    KMSKey: __expectString(output.KMSKey),
+    PreservedExistingData: __expectBoolean(output.PreservedExistingData),
+    SourceSnapshotId: __expectString(output.SourceSnapshotId),
+    TargetName: __expectString(output.TargetName),
+    VolumeARN: __expectString(output.VolumeARN),
+    VolumeAttachmentStatus: __expectString(output.VolumeAttachmentStatus),
+    VolumeDiskId: __expectString(output.VolumeDiskId),
+    VolumeId: __expectString(output.VolumeId),
+    VolumeProgress: __expectNumber(output.VolumeProgress),
+    VolumeSizeInBytes: __expectNumber(output.VolumeSizeInBytes),
+    VolumeStatus: __expectString(output.VolumeStatus),
+    VolumeType: __expectString(output.VolumeType),
+    VolumeUsedInBytes: __expectNumber(output.VolumeUsedInBytes),
     VolumeiSCSIAttributes:
       output.VolumeiSCSIAttributes !== undefined && output.VolumeiSCSIAttributes !== null
         ? deserializeAws_json1_1VolumeiSCSIAttributes(output.VolumeiSCSIAttributes, context)
@@ -10020,8 +9809,8 @@ const deserializeAws_json1_1StorediSCSIVolumes = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -10038,30 +9827,28 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
 
 const deserializeAws_json1_1Tape = (output: any, context: __SerdeContext): Tape => {
   return {
-    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
+    KMSKey: __expectString(output.KMSKey),
     PoolEntryDate:
       output.PoolEntryDate !== undefined && output.PoolEntryDate !== null
         ? new Date(Math.round(output.PoolEntryDate * 1000))
         : undefined,
-    PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
-    Progress: output.Progress !== undefined && output.Progress !== null ? output.Progress : undefined,
+    PoolId: __expectString(output.PoolId),
+    Progress: __expectNumber(output.Progress),
     RetentionStartDate:
       output.RetentionStartDate !== undefined && output.RetentionStartDate !== null
         ? new Date(Math.round(output.RetentionStartDate * 1000))
         : undefined,
-    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
-    TapeBarcode: output.TapeBarcode !== undefined && output.TapeBarcode !== null ? output.TapeBarcode : undefined,
+    TapeARN: __expectString(output.TapeARN),
+    TapeBarcode: __expectString(output.TapeBarcode),
     TapeCreatedDate:
       output.TapeCreatedDate !== undefined && output.TapeCreatedDate !== null
         ? new Date(Math.round(output.TapeCreatedDate * 1000))
         : undefined,
-    TapeSizeInBytes:
-      output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null ? output.TapeSizeInBytes : undefined,
-    TapeStatus: output.TapeStatus !== undefined && output.TapeStatus !== null ? output.TapeStatus : undefined,
-    TapeUsedInBytes:
-      output.TapeUsedInBytes !== undefined && output.TapeUsedInBytes !== null ? output.TapeUsedInBytes : undefined,
-    VTLDevice: output.VTLDevice !== undefined && output.VTLDevice !== null ? output.VTLDevice : undefined,
-    Worm: output.Worm !== undefined && output.Worm !== null ? output.Worm : undefined,
+    TapeSizeInBytes: __expectNumber(output.TapeSizeInBytes),
+    TapeStatus: __expectString(output.TapeStatus),
+    TapeUsedInBytes: __expectNumber(output.TapeUsedInBytes),
+    VTLDevice: __expectString(output.VTLDevice),
+    Worm: __expectBoolean(output.Worm),
   } as any;
 };
 
@@ -10071,29 +9858,27 @@ const deserializeAws_json1_1TapeArchive = (output: any, context: __SerdeContext)
       output.CompletionTime !== undefined && output.CompletionTime !== null
         ? new Date(Math.round(output.CompletionTime * 1000))
         : undefined,
-    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
+    KMSKey: __expectString(output.KMSKey),
     PoolEntryDate:
       output.PoolEntryDate !== undefined && output.PoolEntryDate !== null
         ? new Date(Math.round(output.PoolEntryDate * 1000))
         : undefined,
-    PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
+    PoolId: __expectString(output.PoolId),
     RetentionStartDate:
       output.RetentionStartDate !== undefined && output.RetentionStartDate !== null
         ? new Date(Math.round(output.RetentionStartDate * 1000))
         : undefined,
-    RetrievedTo: output.RetrievedTo !== undefined && output.RetrievedTo !== null ? output.RetrievedTo : undefined,
-    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
-    TapeBarcode: output.TapeBarcode !== undefined && output.TapeBarcode !== null ? output.TapeBarcode : undefined,
+    RetrievedTo: __expectString(output.RetrievedTo),
+    TapeARN: __expectString(output.TapeARN),
+    TapeBarcode: __expectString(output.TapeBarcode),
     TapeCreatedDate:
       output.TapeCreatedDate !== undefined && output.TapeCreatedDate !== null
         ? new Date(Math.round(output.TapeCreatedDate * 1000))
         : undefined,
-    TapeSizeInBytes:
-      output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null ? output.TapeSizeInBytes : undefined,
-    TapeStatus: output.TapeStatus !== undefined && output.TapeStatus !== null ? output.TapeStatus : undefined,
-    TapeUsedInBytes:
-      output.TapeUsedInBytes !== undefined && output.TapeUsedInBytes !== null ? output.TapeUsedInBytes : undefined,
-    Worm: output.Worm !== undefined && output.Worm !== null ? output.Worm : undefined,
+    TapeSizeInBytes: __expectNumber(output.TapeSizeInBytes),
+    TapeStatus: __expectString(output.TapeStatus),
+    TapeUsedInBytes: __expectNumber(output.TapeUsedInBytes),
+    Worm: __expectBoolean(output.Worm),
   } as any;
 };
 
@@ -10115,27 +9900,26 @@ const deserializeAws_json1_1TapeARNs = (output: any, context: __SerdeContext): s
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1TapeInfo = (output: any, context: __SerdeContext): TapeInfo => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
     PoolEntryDate:
       output.PoolEntryDate !== undefined && output.PoolEntryDate !== null
         ? new Date(Math.round(output.PoolEntryDate * 1000))
         : undefined,
-    PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
+    PoolId: __expectString(output.PoolId),
     RetentionStartDate:
       output.RetentionStartDate !== undefined && output.RetentionStartDate !== null
         ? new Date(Math.round(output.RetentionStartDate * 1000))
         : undefined,
-    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
-    TapeBarcode: output.TapeBarcode !== undefined && output.TapeBarcode !== null ? output.TapeBarcode : undefined,
-    TapeSizeInBytes:
-      output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null ? output.TapeSizeInBytes : undefined,
-    TapeStatus: output.TapeStatus !== undefined && output.TapeStatus !== null ? output.TapeStatus : undefined,
+    TapeARN: __expectString(output.TapeARN),
+    TapeBarcode: __expectString(output.TapeBarcode),
+    TapeSizeInBytes: __expectNumber(output.TapeSizeInBytes),
+    TapeStatus: __expectString(output.TapeStatus),
   } as any;
 };
 
@@ -10152,14 +9936,13 @@ const deserializeAws_json1_1TapeInfos = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1TapeRecoveryPointInfo = (output: any, context: __SerdeContext): TapeRecoveryPointInfo => {
   return {
-    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
+    TapeARN: __expectString(output.TapeARN),
     TapeRecoveryPointTime:
       output.TapeRecoveryPointTime !== undefined && output.TapeRecoveryPointTime !== null
         ? new Date(Math.round(output.TapeRecoveryPointTime * 1000))
         : undefined,
-    TapeSizeInBytes:
-      output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null ? output.TapeSizeInBytes : undefined,
-    TapeStatus: output.TapeStatus !== undefined && output.TapeStatus !== null ? output.TapeStatus : undefined,
+    TapeSizeInBytes: __expectNumber(output.TapeSizeInBytes),
+    TapeStatus: __expectString(output.TapeStatus),
   } as any;
 };
 
@@ -10193,7 +9976,7 @@ const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyOutput = (
   context: __SerdeContext
 ): UpdateAutomaticTapeCreationPolicyOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -10202,7 +9985,7 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitOutput = (
   context: __SerdeContext
 ): UpdateBandwidthRateLimitOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -10211,7 +9994,7 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleOutput = (
   context: __SerdeContext
 ): UpdateBandwidthRateLimitScheduleOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -10220,9 +10003,8 @@ const deserializeAws_json1_1UpdateChapCredentialsOutput = (
   context: __SerdeContext
 ): UpdateChapCredentialsOutput => {
   return {
-    InitiatorName:
-      output.InitiatorName !== undefined && output.InitiatorName !== null ? output.InitiatorName : undefined,
-    TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
+    InitiatorName: __expectString(output.InitiatorName),
+    TargetARN: __expectString(output.TargetARN),
   } as any;
 };
 
@@ -10231,10 +10013,7 @@ const deserializeAws_json1_1UpdateFileSystemAssociationOutput = (
   context: __SerdeContext
 ): UpdateFileSystemAssociationOutput => {
   return {
-    FileSystemAssociationARN:
-      output.FileSystemAssociationARN !== undefined && output.FileSystemAssociationARN !== null
-        ? output.FileSystemAssociationARN
-        : undefined,
+    FileSystemAssociationARN: __expectString(output.FileSystemAssociationARN),
   } as any;
 };
 
@@ -10243,8 +10022,8 @@ const deserializeAws_json1_1UpdateGatewayInformationOutput = (
   context: __SerdeContext
 ): UpdateGatewayInformationOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    GatewayName: output.GatewayName !== undefined && output.GatewayName !== null ? output.GatewayName : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
+    GatewayName: __expectString(output.GatewayName),
   } as any;
 };
 
@@ -10253,7 +10032,7 @@ const deserializeAws_json1_1UpdateGatewaySoftwareNowOutput = (
   context: __SerdeContext
 ): UpdateGatewaySoftwareNowOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -10262,7 +10041,7 @@ const deserializeAws_json1_1UpdateMaintenanceStartTimeOutput = (
   context: __SerdeContext
 ): UpdateMaintenanceStartTimeOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -10271,7 +10050,7 @@ const deserializeAws_json1_1UpdateNFSFileShareOutput = (
   context: __SerdeContext
 ): UpdateNFSFileShareOutput => {
   return {
-    FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
+    FileShareARN: __expectString(output.FileShareARN),
   } as any;
 };
 
@@ -10280,7 +10059,7 @@ const deserializeAws_json1_1UpdateSMBFileShareOutput = (
   context: __SerdeContext
 ): UpdateSMBFileShareOutput => {
   return {
-    FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
+    FileShareARN: __expectString(output.FileShareARN),
   } as any;
 };
 
@@ -10289,7 +10068,7 @@ const deserializeAws_json1_1UpdateSMBFileShareVisibilityOutput = (
   context: __SerdeContext
 ): UpdateSMBFileShareVisibilityOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -10298,7 +10077,7 @@ const deserializeAws_json1_1UpdateSMBSecurityStrategyOutput = (
   context: __SerdeContext
 ): UpdateSMBSecurityStrategyOutput => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
   } as any;
 };
 
@@ -10307,7 +10086,7 @@ const deserializeAws_json1_1UpdateSnapshotScheduleOutput = (
   context: __SerdeContext
 ): UpdateSnapshotScheduleOutput => {
   return {
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
+    VolumeARN: __expectString(output.VolumeARN),
   } as any;
 };
 
@@ -10316,7 +10095,7 @@ const deserializeAws_json1_1UpdateVTLDeviceTypeOutput = (
   context: __SerdeContext
 ): UpdateVTLDeviceTypeOutput => {
   return {
-    VTLDeviceARN: output.VTLDeviceARN !== undefined && output.VTLDeviceARN !== null ? output.VTLDeviceARN : undefined,
+    VTLDeviceARN: __expectString(output.VTLDeviceARN),
   } as any;
 };
 
@@ -10327,25 +10106,19 @@ const deserializeAws_json1_1UserList = (output: any, context: __SerdeContext): s
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1VolumeInfo = (output: any, context: __SerdeContext): VolumeInfo => {
   return {
-    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
-    GatewayId: output.GatewayId !== undefined && output.GatewayId !== null ? output.GatewayId : undefined,
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
-    VolumeAttachmentStatus:
-      output.VolumeAttachmentStatus !== undefined && output.VolumeAttachmentStatus !== null
-        ? output.VolumeAttachmentStatus
-        : undefined,
-    VolumeId: output.VolumeId !== undefined && output.VolumeId !== null ? output.VolumeId : undefined,
-    VolumeSizeInBytes:
-      output.VolumeSizeInBytes !== undefined && output.VolumeSizeInBytes !== null
-        ? output.VolumeSizeInBytes
-        : undefined,
-    VolumeType: output.VolumeType !== undefined && output.VolumeType !== null ? output.VolumeType : undefined,
+    GatewayARN: __expectString(output.GatewayARN),
+    GatewayId: __expectString(output.GatewayId),
+    VolumeARN: __expectString(output.VolumeARN),
+    VolumeAttachmentStatus: __expectString(output.VolumeAttachmentStatus),
+    VolumeId: __expectString(output.VolumeId),
+    VolumeSizeInBytes: __expectNumber(output.VolumeSizeInBytes),
+    VolumeType: __expectString(output.VolumeType),
   } as any;
 };
 
@@ -10362,17 +10135,11 @@ const deserializeAws_json1_1VolumeInfos = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1VolumeiSCSIAttributes = (output: any, context: __SerdeContext): VolumeiSCSIAttributes => {
   return {
-    ChapEnabled: output.ChapEnabled !== undefined && output.ChapEnabled !== null ? output.ChapEnabled : undefined,
-    LunNumber: output.LunNumber !== undefined && output.LunNumber !== null ? output.LunNumber : undefined,
-    NetworkInterfaceId:
-      output.NetworkInterfaceId !== undefined && output.NetworkInterfaceId !== null
-        ? output.NetworkInterfaceId
-        : undefined,
-    NetworkInterfacePort:
-      output.NetworkInterfacePort !== undefined && output.NetworkInterfacePort !== null
-        ? output.NetworkInterfacePort
-        : undefined,
-    TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
+    ChapEnabled: __expectBoolean(output.ChapEnabled),
+    LunNumber: __expectNumber(output.LunNumber),
+    NetworkInterfaceId: __expectString(output.NetworkInterfaceId),
+    NetworkInterfacePort: __expectNumber(output.NetworkInterfacePort),
+    TargetARN: __expectString(output.TargetARN),
   } as any;
 };
 
@@ -10381,19 +10148,10 @@ const deserializeAws_json1_1VolumeRecoveryPointInfo = (
   context: __SerdeContext
 ): VolumeRecoveryPointInfo => {
   return {
-    VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
-    VolumeRecoveryPointTime:
-      output.VolumeRecoveryPointTime !== undefined && output.VolumeRecoveryPointTime !== null
-        ? output.VolumeRecoveryPointTime
-        : undefined,
-    VolumeSizeInBytes:
-      output.VolumeSizeInBytes !== undefined && output.VolumeSizeInBytes !== null
-        ? output.VolumeSizeInBytes
-        : undefined,
-    VolumeUsageInBytes:
-      output.VolumeUsageInBytes !== undefined && output.VolumeUsageInBytes !== null
-        ? output.VolumeUsageInBytes
-        : undefined,
+    VolumeARN: __expectString(output.VolumeARN),
+    VolumeRecoveryPointTime: __expectString(output.VolumeRecoveryPointTime),
+    VolumeSizeInBytes: __expectNumber(output.VolumeSizeInBytes),
+    VolumeUsageInBytes: __expectNumber(output.VolumeUsageInBytes),
   } as any;
 };
 
@@ -10417,15 +10175,10 @@ const deserializeAws_json1_1VTLDevice = (output: any, context: __SerdeContext): 
       output.DeviceiSCSIAttributes !== undefined && output.DeviceiSCSIAttributes !== null
         ? deserializeAws_json1_1DeviceiSCSIAttributes(output.DeviceiSCSIAttributes, context)
         : undefined,
-    VTLDeviceARN: output.VTLDeviceARN !== undefined && output.VTLDeviceARN !== null ? output.VTLDeviceARN : undefined,
-    VTLDeviceProductIdentifier:
-      output.VTLDeviceProductIdentifier !== undefined && output.VTLDeviceProductIdentifier !== null
-        ? output.VTLDeviceProductIdentifier
-        : undefined,
-    VTLDeviceType:
-      output.VTLDeviceType !== undefined && output.VTLDeviceType !== null ? output.VTLDeviceType : undefined,
-    VTLDeviceVendor:
-      output.VTLDeviceVendor !== undefined && output.VTLDeviceVendor !== null ? output.VTLDeviceVendor : undefined,
+    VTLDeviceARN: __expectString(output.VTLDeviceARN),
+    VTLDeviceProductIdentifier: __expectString(output.VTLDeviceProductIdentifier),
+    VTLDeviceType: __expectString(output.VTLDeviceType),
+    VTLDeviceVendor: __expectString(output.VTLDeviceVendor),
   } as any;
 };
 

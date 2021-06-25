@@ -47,7 +47,12 @@ import {
   UntagResourcesOutput,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1103,8 +1108,7 @@ const serializeAws_json1_1UntagResourcesInput = (input: UntagResourcesInput, con
 
 const deserializeAws_json1_1ComplianceDetails = (output: any, context: __SerdeContext): ComplianceDetails => {
   return {
-    ComplianceStatus:
-      output.ComplianceStatus !== undefined && output.ComplianceStatus !== null ? output.ComplianceStatus : undefined,
+    ComplianceStatus: __expectBoolean(output.ComplianceStatus),
     KeysWithNoncompliantValues:
       output.KeysWithNoncompliantValues !== undefined && output.KeysWithNoncompliantValues !== null
         ? deserializeAws_json1_1TagKeyList(output.KeysWithNoncompliantValues, context)
@@ -1121,7 +1125,7 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1130,7 +1134,7 @@ const deserializeAws_json1_1ConstraintViolationException = (
   context: __SerdeContext
 ): ConstraintViolationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1139,10 +1143,10 @@ const deserializeAws_json1_1DescribeReportCreationOutput = (
   context: __SerdeContext
 ): DescribeReportCreationOutput => {
   return {
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
-    S3Location: output.S3Location !== undefined && output.S3Location !== null ? output.S3Location : undefined,
-    StartDate: output.StartDate !== undefined && output.StartDate !== null ? output.StartDate : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    ErrorMessage: __expectString(output.ErrorMessage),
+    S3Location: __expectString(output.S3Location),
+    StartDate: __expectString(output.StartDate),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -1163,9 +1167,9 @@ const deserializeAws_json1_1FailedResourcesMap = (
 
 const deserializeAws_json1_1FailureInfo = (output: any, context: __SerdeContext): FailureInfo => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
-    StatusCode: output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    StatusCode: __expectNumber(output.StatusCode),
   } as any;
 };
 
@@ -1174,8 +1178,7 @@ const deserializeAws_json1_1GetComplianceSummaryOutput = (
   context: __SerdeContext
 ): GetComplianceSummaryOutput => {
   return {
-    PaginationToken:
-      output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
+    PaginationToken: __expectString(output.PaginationToken),
     SummaryList:
       output.SummaryList !== undefined && output.SummaryList !== null
         ? deserializeAws_json1_1SummaryList(output.SummaryList, context)
@@ -1185,8 +1188,7 @@ const deserializeAws_json1_1GetComplianceSummaryOutput = (
 
 const deserializeAws_json1_1GetResourcesOutput = (output: any, context: __SerdeContext): GetResourcesOutput => {
   return {
-    PaginationToken:
-      output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
+    PaginationToken: __expectString(output.PaginationToken),
     ResourceTagMappingList:
       output.ResourceTagMappingList !== undefined && output.ResourceTagMappingList !== null
         ? deserializeAws_json1_1ResourceTagMappingList(output.ResourceTagMappingList, context)
@@ -1196,8 +1198,7 @@ const deserializeAws_json1_1GetResourcesOutput = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1GetTagKeysOutput = (output: any, context: __SerdeContext): GetTagKeysOutput => {
   return {
-    PaginationToken:
-      output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
+    PaginationToken: __expectString(output.PaginationToken),
     TagKeys:
       output.TagKeys !== undefined && output.TagKeys !== null
         ? deserializeAws_json1_1TagKeyList(output.TagKeys, context)
@@ -1207,8 +1208,7 @@ const deserializeAws_json1_1GetTagKeysOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1GetTagValuesOutput = (output: any, context: __SerdeContext): GetTagValuesOutput => {
   return {
-    PaginationToken:
-      output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
+    PaginationToken: __expectString(output.PaginationToken),
     TagValues:
       output.TagValues !== undefined && output.TagValues !== null
         ? deserializeAws_json1_1TagValuesOutputList(output.TagValues, context)
@@ -1221,7 +1221,7 @@ const deserializeAws_json1_1InternalServiceException = (
   context: __SerdeContext
 ): InternalServiceException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1230,7 +1230,7 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1239,7 +1239,7 @@ const deserializeAws_json1_1PaginationTokenExpiredException = (
   context: __SerdeContext
 ): PaginationTokenExpiredException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1249,7 +1249,7 @@ const deserializeAws_json1_1ResourceTagMapping = (output: any, context: __SerdeC
       output.ComplianceDetails !== undefined && output.ComplianceDetails !== null
         ? deserializeAws_json1_1ComplianceDetails(output.ComplianceDetails, context)
         : undefined,
-    ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
+    ResourceARN: __expectString(output.ResourceARN),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -1277,15 +1277,12 @@ const deserializeAws_json1_1StartReportCreationOutput = (
 
 const deserializeAws_json1_1Summary = (output: any, context: __SerdeContext): Summary => {
   return {
-    LastUpdated: output.LastUpdated !== undefined && output.LastUpdated !== null ? output.LastUpdated : undefined,
-    NonCompliantResources:
-      output.NonCompliantResources !== undefined && output.NonCompliantResources !== null
-        ? output.NonCompliantResources
-        : undefined,
-    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
-    TargetId: output.TargetId !== undefined && output.TargetId !== null ? output.TargetId : undefined,
-    TargetIdType: output.TargetIdType !== undefined && output.TargetIdType !== null ? output.TargetIdType : undefined,
+    LastUpdated: __expectString(output.LastUpdated),
+    NonCompliantResources: __expectNumber(output.NonCompliantResources),
+    Region: __expectString(output.Region),
+    ResourceType: __expectString(output.ResourceType),
+    TargetId: __expectString(output.TargetId),
+    TargetIdType: __expectString(output.TargetIdType),
   } as any;
 };
 
@@ -1302,8 +1299,8 @@ const deserializeAws_json1_1SummaryList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -1314,7 +1311,7 @@ const deserializeAws_json1_1TagKeyList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1345,13 +1342,13 @@ const deserializeAws_json1_1TagValuesOutputList = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1ThrottledException = (output: any, context: __SerdeContext): ThrottledException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 

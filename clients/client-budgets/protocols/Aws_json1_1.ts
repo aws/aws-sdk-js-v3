@@ -118,7 +118,12 @@ import {
   UpdateSubscriberResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3000,30 +3005,27 @@ const serializeAws_json1_1Users = (input: string[], context: __SerdeContext): an
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1Action = (output: any, context: __SerdeContext): Action => {
   return {
-    ActionId: output.ActionId !== undefined && output.ActionId !== null ? output.ActionId : undefined,
+    ActionId: __expectString(output.ActionId),
     ActionThreshold:
       output.ActionThreshold !== undefined && output.ActionThreshold !== null
         ? deserializeAws_json1_1ActionThreshold(output.ActionThreshold, context)
         : undefined,
-    ActionType: output.ActionType !== undefined && output.ActionType !== null ? output.ActionType : undefined,
-    ApprovalModel:
-      output.ApprovalModel !== undefined && output.ApprovalModel !== null ? output.ApprovalModel : undefined,
-    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
+    ActionType: __expectString(output.ActionType),
+    ApprovalModel: __expectString(output.ApprovalModel),
+    BudgetName: __expectString(output.BudgetName),
     Definition:
       output.Definition !== undefined && output.Definition !== null
         ? deserializeAws_json1_1Definition(output.Definition, context)
         : undefined,
-    ExecutionRoleArn:
-      output.ExecutionRoleArn !== undefined && output.ExecutionRoleArn !== null ? output.ExecutionRoleArn : undefined,
-    NotificationType:
-      output.NotificationType !== undefined && output.NotificationType !== null ? output.NotificationType : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
+    NotificationType: __expectString(output.NotificationType),
+    Status: __expectString(output.Status),
     Subscribers:
       output.Subscribers !== undefined && output.Subscribers !== null
         ? deserializeAws_json1_1Subscribers(output.Subscribers, context)
@@ -3048,8 +3050,8 @@ const deserializeAws_json1_1ActionHistory = (output: any, context: __SerdeContex
       output.ActionHistoryDetails !== undefined && output.ActionHistoryDetails !== null
         ? deserializeAws_json1_1ActionHistoryDetails(output.ActionHistoryDetails, context)
         : undefined,
-    EventType: output.EventType !== undefined && output.EventType !== null ? output.EventType : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    EventType: __expectString(output.EventType),
+    Status: __expectString(output.Status),
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
@@ -3063,7 +3065,7 @@ const deserializeAws_json1_1ActionHistoryDetails = (output: any, context: __Serd
       output.Action !== undefined && output.Action !== null
         ? deserializeAws_json1_1Action(output.Action, context)
         : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3080,14 +3082,8 @@ const deserializeAws_json1_1Actions = (output: any, context: __SerdeContext): Ac
 
 const deserializeAws_json1_1ActionThreshold = (output: any, context: __SerdeContext): ActionThreshold => {
   return {
-    ActionThresholdType:
-      output.ActionThresholdType !== undefined && output.ActionThresholdType !== null
-        ? output.ActionThresholdType
-        : undefined,
-    ActionThresholdValue:
-      output.ActionThresholdValue !== undefined && output.ActionThresholdValue !== null
-        ? output.ActionThresholdValue
-        : undefined,
+    ActionThresholdType: __expectString(output.ActionThresholdType),
+    ActionThresholdValue: __expectNumber(output.ActionThresholdValue),
   } as any;
 };
 
@@ -3097,8 +3093,8 @@ const deserializeAws_json1_1Budget = (output: any, context: __SerdeContext): Bud
       output.BudgetLimit !== undefined && output.BudgetLimit !== null
         ? deserializeAws_json1_1Spend(output.BudgetLimit, context)
         : undefined,
-    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
-    BudgetType: output.BudgetType !== undefined && output.BudgetType !== null ? output.BudgetType : undefined,
+    BudgetName: __expectString(output.BudgetName),
+    BudgetType: __expectString(output.BudgetType),
     CalculatedSpend:
       output.CalculatedSpend !== undefined && output.CalculatedSpend !== null
         ? deserializeAws_json1_1CalculatedSpend(output.CalculatedSpend, context)
@@ -3123,7 +3119,7 @@ const deserializeAws_json1_1Budget = (output: any, context: __SerdeContext): Bud
       output.TimePeriod !== undefined && output.TimePeriod !== null
         ? deserializeAws_json1_1TimePeriod(output.TimePeriod, context)
         : undefined,
-    TimeUnit: output.TimeUnit !== undefined && output.TimeUnit !== null ? output.TimeUnit : undefined,
+    TimeUnit: __expectString(output.TimeUnit),
   } as any;
 };
 
@@ -3166,8 +3162,8 @@ const deserializeAws_json1_1BudgetPerformanceHistory = (
   context: __SerdeContext
 ): BudgetPerformanceHistory => {
   return {
-    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
-    BudgetType: output.BudgetType !== undefined && output.BudgetType !== null ? output.BudgetType : undefined,
+    BudgetName: __expectString(output.BudgetName),
+    BudgetType: __expectString(output.BudgetType),
     BudgetedAndActualAmountsList:
       output.BudgetedAndActualAmountsList !== undefined && output.BudgetedAndActualAmountsList !== null
         ? deserializeAws_json1_1BudgetedAndActualAmountsList(output.BudgetedAndActualAmountsList, context)
@@ -3180,7 +3176,7 @@ const deserializeAws_json1_1BudgetPerformanceHistory = (
       output.CostTypes !== undefined && output.CostTypes !== null
         ? deserializeAws_json1_1CostTypes(output.CostTypes, context)
         : undefined,
-    TimeUnit: output.TimeUnit !== undefined && output.TimeUnit !== null ? output.TimeUnit : undefined,
+    TimeUnit: __expectString(output.TimeUnit),
   } as any;
 };
 
@@ -3222,29 +3218,17 @@ const deserializeAws_json1_1CostFilters = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1CostTypes = (output: any, context: __SerdeContext): CostTypes => {
   return {
-    IncludeCredit:
-      output.IncludeCredit !== undefined && output.IncludeCredit !== null ? output.IncludeCredit : undefined,
-    IncludeDiscount:
-      output.IncludeDiscount !== undefined && output.IncludeDiscount !== null ? output.IncludeDiscount : undefined,
-    IncludeOtherSubscription:
-      output.IncludeOtherSubscription !== undefined && output.IncludeOtherSubscription !== null
-        ? output.IncludeOtherSubscription
-        : undefined,
-    IncludeRecurring:
-      output.IncludeRecurring !== undefined && output.IncludeRecurring !== null ? output.IncludeRecurring : undefined,
-    IncludeRefund:
-      output.IncludeRefund !== undefined && output.IncludeRefund !== null ? output.IncludeRefund : undefined,
-    IncludeSubscription:
-      output.IncludeSubscription !== undefined && output.IncludeSubscription !== null
-        ? output.IncludeSubscription
-        : undefined,
-    IncludeSupport:
-      output.IncludeSupport !== undefined && output.IncludeSupport !== null ? output.IncludeSupport : undefined,
-    IncludeTax: output.IncludeTax !== undefined && output.IncludeTax !== null ? output.IncludeTax : undefined,
-    IncludeUpfront:
-      output.IncludeUpfront !== undefined && output.IncludeUpfront !== null ? output.IncludeUpfront : undefined,
-    UseAmortized: output.UseAmortized !== undefined && output.UseAmortized !== null ? output.UseAmortized : undefined,
-    UseBlended: output.UseBlended !== undefined && output.UseBlended !== null ? output.UseBlended : undefined,
+    IncludeCredit: __expectBoolean(output.IncludeCredit),
+    IncludeDiscount: __expectBoolean(output.IncludeDiscount),
+    IncludeOtherSubscription: __expectBoolean(output.IncludeOtherSubscription),
+    IncludeRecurring: __expectBoolean(output.IncludeRecurring),
+    IncludeRefund: __expectBoolean(output.IncludeRefund),
+    IncludeSubscription: __expectBoolean(output.IncludeSubscription),
+    IncludeSupport: __expectBoolean(output.IncludeSupport),
+    IncludeTax: __expectBoolean(output.IncludeTax),
+    IncludeUpfront: __expectBoolean(output.IncludeUpfront),
+    UseAmortized: __expectBoolean(output.UseAmortized),
+    UseBlended: __expectBoolean(output.UseBlended),
   } as any;
 };
 
@@ -3253,9 +3237,9 @@ const deserializeAws_json1_1CreateBudgetActionResponse = (
   context: __SerdeContext
 ): CreateBudgetActionResponse => {
   return {
-    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
-    ActionId: output.ActionId !== undefined && output.ActionId !== null ? output.ActionId : undefined,
-    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
+    AccountId: __expectString(output.AccountId),
+    ActionId: __expectString(output.ActionId),
+    BudgetName: __expectString(output.BudgetName),
   } as any;
 };
 
@@ -3282,7 +3266,7 @@ const deserializeAws_json1_1CreationLimitExceededException = (
   context: __SerdeContext
 ): CreationLimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3308,12 +3292,12 @@ const deserializeAws_json1_1DeleteBudgetActionResponse = (
   context: __SerdeContext
 ): DeleteBudgetActionResponse => {
   return {
-    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    AccountId: __expectString(output.AccountId),
     Action:
       output.Action !== undefined && output.Action !== null
         ? deserializeAws_json1_1Action(output.Action, context)
         : undefined,
-    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
+    BudgetName: __expectString(output.BudgetName),
   } as any;
 };
 
@@ -3344,7 +3328,7 @@ const deserializeAws_json1_1DescribeBudgetActionHistoriesResponse = (
       output.ActionHistories !== undefined && output.ActionHistories !== null
         ? deserializeAws_json1_1ActionHistories(output.ActionHistories, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3353,12 +3337,12 @@ const deserializeAws_json1_1DescribeBudgetActionResponse = (
   context: __SerdeContext
 ): DescribeBudgetActionResponse => {
   return {
-    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    AccountId: __expectString(output.AccountId),
     Action:
       output.Action !== undefined && output.Action !== null
         ? deserializeAws_json1_1Action(output.Action, context)
         : undefined,
-    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
+    BudgetName: __expectString(output.BudgetName),
   } as any;
 };
 
@@ -3371,7 +3355,7 @@ const deserializeAws_json1_1DescribeBudgetActionsForAccountResponse = (
       output.Actions !== undefined && output.Actions !== null
         ? deserializeAws_json1_1Actions(output.Actions, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3384,7 +3368,7 @@ const deserializeAws_json1_1DescribeBudgetActionsForBudgetResponse = (
       output.Actions !== undefined && output.Actions !== null
         ? deserializeAws_json1_1Actions(output.Actions, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3397,7 +3381,7 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryResponse = (
       output.BudgetPerformanceHistory !== undefined && output.BudgetPerformanceHistory !== null
         ? deserializeAws_json1_1BudgetPerformanceHistory(output.BudgetPerformanceHistory, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3419,7 +3403,7 @@ const deserializeAws_json1_1DescribeBudgetsResponse = (
       output.Budgets !== undefined && output.Budgets !== null
         ? deserializeAws_json1_1Budgets(output.Budgets, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3428,7 +3412,7 @@ const deserializeAws_json1_1DescribeNotificationsForBudgetResponse = (
   context: __SerdeContext
 ): DescribeNotificationsForBudgetResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Notifications:
       output.Notifications !== undefined && output.Notifications !== null
         ? deserializeAws_json1_1Notifications(output.Notifications, context)
@@ -3441,7 +3425,7 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationResponse = (
   context: __SerdeContext
 ): DescribeSubscribersForNotificationResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Subscribers:
       output.Subscribers !== undefined && output.Subscribers !== null
         ? deserializeAws_json1_1Subscribers(output.Subscribers, context)
@@ -3456,7 +3440,7 @@ const deserializeAws_json1_1DimensionValues = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3465,7 +3449,7 @@ const deserializeAws_json1_1DuplicateRecordException = (
   context: __SerdeContext
 ): DuplicateRecordException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3474,11 +3458,10 @@ const deserializeAws_json1_1ExecuteBudgetActionResponse = (
   context: __SerdeContext
 ): ExecuteBudgetActionResponse => {
   return {
-    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
-    ActionId: output.ActionId !== undefined && output.ActionId !== null ? output.ActionId : undefined,
-    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
-    ExecutionType:
-      output.ExecutionType !== undefined && output.ExecutionType !== null ? output.ExecutionType : undefined,
+    AccountId: __expectString(output.AccountId),
+    ActionId: __expectString(output.ActionId),
+    BudgetName: __expectString(output.BudgetName),
+    ExecutionType: __expectString(output.ExecutionType),
   } as any;
 };
 
@@ -3487,7 +3470,7 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
   context: __SerdeContext
 ): ExpiredNextTokenException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3498,7 +3481,7 @@ const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): str
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3508,7 +3491,7 @@ const deserializeAws_json1_1IamActionDefinition = (output: any, context: __Serde
       output.Groups !== undefined && output.Groups !== null
         ? deserializeAws_json1_1Groups(output.Groups, context)
         : undefined,
-    PolicyArn: output.PolicyArn !== undefined && output.PolicyArn !== null ? output.PolicyArn : undefined,
+    PolicyArn: __expectString(output.PolicyArn),
     Roles:
       output.Roles !== undefined && output.Roles !== null
         ? deserializeAws_json1_1Roles(output.Roles, context)
@@ -3527,13 +3510,13 @@ const deserializeAws_json1_1InstanceIds = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3542,7 +3525,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3551,31 +3534,23 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1Notification = (output: any, context: __SerdeContext): Notification => {
   return {
-    ComparisonOperator:
-      output.ComparisonOperator !== undefined && output.ComparisonOperator !== null
-        ? output.ComparisonOperator
-        : undefined,
-    NotificationState:
-      output.NotificationState !== undefined && output.NotificationState !== null
-        ? output.NotificationState
-        : undefined,
-    NotificationType:
-      output.NotificationType !== undefined && output.NotificationType !== null ? output.NotificationType : undefined,
-    Threshold: output.Threshold !== undefined && output.Threshold !== null ? output.Threshold : undefined,
-    ThresholdType:
-      output.ThresholdType !== undefined && output.ThresholdType !== null ? output.ThresholdType : undefined,
+    ComparisonOperator: __expectString(output.ComparisonOperator),
+    NotificationState: __expectString(output.NotificationState),
+    NotificationType: __expectString(output.NotificationType),
+    Threshold: __expectNumber(output.Threshold),
+    ThresholdType: __expectString(output.ThresholdType),
   } as any;
 };
 
@@ -3607,7 +3582,7 @@ const deserializeAws_json1_1ResourceLockedException = (
   context: __SerdeContext
 ): ResourceLockedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3618,13 +3593,13 @@ const deserializeAws_json1_1Roles = (output: any, context: __SerdeContext): stri
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1ScpActionDefinition = (output: any, context: __SerdeContext): ScpActionDefinition => {
   return {
-    PolicyId: output.PolicyId !== undefined && output.PolicyId !== null ? output.PolicyId : undefined,
+    PolicyId: __expectString(output.PolicyId),
     TargetIds:
       output.TargetIds !== undefined && output.TargetIds !== null
         ? deserializeAws_json1_1TargetIds(output.TargetIds, context)
@@ -3634,28 +3609,26 @@ const deserializeAws_json1_1ScpActionDefinition = (output: any, context: __Serde
 
 const deserializeAws_json1_1Spend = (output: any, context: __SerdeContext): Spend => {
   return {
-    Amount: output.Amount !== undefined && output.Amount !== null ? output.Amount : undefined,
-    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
+    Amount: __expectString(output.Amount),
+    Unit: __expectString(output.Unit),
   } as any;
 };
 
 const deserializeAws_json1_1SsmActionDefinition = (output: any, context: __SerdeContext): SsmActionDefinition => {
   return {
-    ActionSubType:
-      output.ActionSubType !== undefined && output.ActionSubType !== null ? output.ActionSubType : undefined,
+    ActionSubType: __expectString(output.ActionSubType),
     InstanceIds:
       output.InstanceIds !== undefined && output.InstanceIds !== null
         ? deserializeAws_json1_1InstanceIds(output.InstanceIds, context)
         : undefined,
-    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
+    Region: __expectString(output.Region),
   } as any;
 };
 
 const deserializeAws_json1_1Subscriber = (output: any, context: __SerdeContext): Subscriber => {
   return {
-    Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
-    SubscriptionType:
-      output.SubscriptionType !== undefined && output.SubscriptionType !== null ? output.SubscriptionType : undefined,
+    Address: __expectString(output.Address),
+    SubscriptionType: __expectString(output.SubscriptionType),
   } as any;
 };
 
@@ -3677,7 +3650,7 @@ const deserializeAws_json1_1TargetIds = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3693,8 +3666,8 @@ const deserializeAws_json1_1UpdateBudgetActionResponse = (
   context: __SerdeContext
 ): UpdateBudgetActionResponse => {
   return {
-    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
-    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
+    AccountId: __expectString(output.AccountId),
+    BudgetName: __expectString(output.BudgetName),
     NewAction:
       output.NewAction !== undefined && output.NewAction !== null
         ? deserializeAws_json1_1Action(output.NewAction, context)
@@ -3731,7 +3704,7 @@ const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): stri
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

@@ -124,7 +124,12 @@ import {
   VolumeRecommendationOption,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -2272,7 +2277,7 @@ const serializeAws_json1_0VolumeArns = (input: string[], context: __SerdeContext
 
 const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2281,11 +2286,10 @@ const deserializeAws_json1_0AutoScalingGroupConfiguration = (
   context: __SerdeContext
 ): AutoScalingGroupConfiguration => {
   return {
-    desiredCapacity:
-      output.desiredCapacity !== undefined && output.desiredCapacity !== null ? output.desiredCapacity : undefined,
-    instanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
-    maxSize: output.maxSize !== undefined && output.maxSize !== null ? output.maxSize : undefined,
-    minSize: output.minSize !== undefined && output.minSize !== null ? output.minSize : undefined,
+    desiredCapacity: __expectNumber(output.desiredCapacity),
+    instanceType: __expectString(output.instanceType),
+    maxSize: __expectNumber(output.maxSize),
+    minSize: __expectNumber(output.minSize),
   } as any;
 };
 
@@ -2294,28 +2298,19 @@ const deserializeAws_json1_0AutoScalingGroupRecommendation = (
   context: __SerdeContext
 ): AutoScalingGroupRecommendation => {
   return {
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
-    autoScalingGroupArn:
-      output.autoScalingGroupArn !== undefined && output.autoScalingGroupArn !== null
-        ? output.autoScalingGroupArn
-        : undefined,
-    autoScalingGroupName:
-      output.autoScalingGroupName !== undefined && output.autoScalingGroupName !== null
-        ? output.autoScalingGroupName
-        : undefined,
+    accountId: __expectString(output.accountId),
+    autoScalingGroupArn: __expectString(output.autoScalingGroupArn),
+    autoScalingGroupName: __expectString(output.autoScalingGroupName),
     currentConfiguration:
       output.currentConfiguration !== undefined && output.currentConfiguration !== null
         ? deserializeAws_json1_0AutoScalingGroupConfiguration(output.currentConfiguration, context)
         : undefined,
-    finding: output.finding !== undefined && output.finding !== null ? output.finding : undefined,
+    finding: __expectString(output.finding),
     lastRefreshTimestamp:
       output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
         ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
         : undefined,
-    lookBackPeriodInDays:
-      output.lookBackPeriodInDays !== undefined && output.lookBackPeriodInDays !== null
-        ? output.lookBackPeriodInDays
-        : undefined,
+    lookBackPeriodInDays: __expectNumber(output.lookBackPeriodInDays),
     recommendationOptions:
       output.recommendationOptions !== undefined && output.recommendationOptions !== null
         ? deserializeAws_json1_0AutoScalingGroupRecommendationOptions(output.recommendationOptions, context)
@@ -2336,13 +2331,12 @@ const deserializeAws_json1_0AutoScalingGroupRecommendationOption = (
       output.configuration !== undefined && output.configuration !== null
         ? deserializeAws_json1_0AutoScalingGroupConfiguration(output.configuration, context)
         : undefined,
-    performanceRisk:
-      output.performanceRisk !== undefined && output.performanceRisk !== null ? output.performanceRisk : undefined,
+    performanceRisk: __expectNumber(output.performanceRisk),
     projectedUtilizationMetrics:
       output.projectedUtilizationMetrics !== undefined && output.projectedUtilizationMetrics !== null
         ? deserializeAws_json1_0ProjectedUtilizationMetrics(output.projectedUtilizationMetrics, context)
         : undefined,
-    rank: output.rank !== undefined && output.rank !== null ? output.rank : undefined,
+    rank: __expectNumber(output.rank),
   } as any;
 };
 
@@ -2379,7 +2373,7 @@ const deserializeAws_json1_0DescribeRecommendationExportJobsResponse = (
   context: __SerdeContext
 ): DescribeRecommendationExportJobsResponse => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     recommendationExportJobs:
       output.recommendationExportJobs !== undefined && output.recommendationExportJobs !== null
         ? deserializeAws_json1_0RecommendationExportJobs(output.recommendationExportJobs, context)
@@ -2389,9 +2383,9 @@ const deserializeAws_json1_0DescribeRecommendationExportJobsResponse = (
 
 const deserializeAws_json1_0EBSUtilizationMetric = (output: any, context: __SerdeContext): EBSUtilizationMetric => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    statistic: output.statistic !== undefined && output.statistic !== null ? output.statistic : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    name: __expectString(output.name),
+    statistic: __expectString(output.statistic),
+    value: __expectNumber(output.value),
   } as any;
 };
 
@@ -2411,7 +2405,7 @@ const deserializeAws_json1_0ExportAutoScalingGroupRecommendationsResponse = (
   context: __SerdeContext
 ): ExportAutoScalingGroupRecommendationsResponse => {
   return {
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    jobId: __expectString(output.jobId),
     s3Destination:
       output.s3Destination !== undefined && output.s3Destination !== null
         ? deserializeAws_json1_0S3Destination(output.s3Destination, context)
@@ -2433,7 +2427,7 @@ const deserializeAws_json1_0ExportEBSVolumeRecommendationsResponse = (
   context: __SerdeContext
 ): ExportEBSVolumeRecommendationsResponse => {
   return {
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    jobId: __expectString(output.jobId),
     s3Destination:
       output.s3Destination !== undefined && output.s3Destination !== null
         ? deserializeAws_json1_0S3Destination(output.s3Destination, context)
@@ -2446,7 +2440,7 @@ const deserializeAws_json1_0ExportEC2InstanceRecommendationsResponse = (
   context: __SerdeContext
 ): ExportEC2InstanceRecommendationsResponse => {
   return {
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    jobId: __expectString(output.jobId),
     s3Destination:
       output.s3Destination !== undefined && output.s3Destination !== null
         ? deserializeAws_json1_0S3Destination(output.s3Destination, context)
@@ -2459,7 +2453,7 @@ const deserializeAws_json1_0ExportLambdaFunctionRecommendationsResponse = (
   context: __SerdeContext
 ): ExportLambdaFunctionRecommendationsResponse => {
   return {
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    jobId: __expectString(output.jobId),
     s3Destination:
       output.s3Destination !== undefined && output.s3Destination !== null
         ? deserializeAws_json1_0S3Destination(output.s3Destination, context)
@@ -2480,7 +2474,7 @@ const deserializeAws_json1_0GetAutoScalingGroupRecommendationsResponse = (
       output.errors !== undefined && output.errors !== null
         ? deserializeAws_json1_0GetRecommendationErrors(output.errors, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -2493,7 +2487,7 @@ const deserializeAws_json1_0GetEBSVolumeRecommendationsResponse = (
       output.errors !== undefined && output.errors !== null
         ? deserializeAws_json1_0GetRecommendationErrors(output.errors, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     volumeRecommendations:
       output.volumeRecommendations !== undefined && output.volumeRecommendations !== null
         ? deserializeAws_json1_0VolumeRecommendations(output.volumeRecommendations, context)
@@ -2514,7 +2508,7 @@ const deserializeAws_json1_0GetEC2InstanceRecommendationsResponse = (
       output.instanceRecommendations !== undefined && output.instanceRecommendations !== null
         ? deserializeAws_json1_0InstanceRecommendations(output.instanceRecommendations, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -2535,12 +2529,9 @@ const deserializeAws_json1_0GetEnrollmentStatusResponse = (
   context: __SerdeContext
 ): GetEnrollmentStatusResponse => {
   return {
-    memberAccountsEnrolled:
-      output.memberAccountsEnrolled !== undefined && output.memberAccountsEnrolled !== null
-        ? output.memberAccountsEnrolled
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined,
+    memberAccountsEnrolled: __expectBoolean(output.memberAccountsEnrolled),
+    status: __expectString(output.status),
+    statusReason: __expectString(output.statusReason),
   } as any;
 };
 
@@ -2553,15 +2544,15 @@ const deserializeAws_json1_0GetLambdaFunctionRecommendationsResponse = (
       output.lambdaFunctionRecommendations !== undefined && output.lambdaFunctionRecommendations !== null
         ? deserializeAws_json1_0LambdaFunctionRecommendations(output.lambdaFunctionRecommendations, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
 const deserializeAws_json1_0GetRecommendationError = (output: any, context: __SerdeContext): GetRecommendationError => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    identifier: output.identifier !== undefined && output.identifier !== null ? output.identifier : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    code: __expectString(output.code),
+    identifier: __expectString(output.identifier),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2584,7 +2575,7 @@ const deserializeAws_json1_0GetRecommendationSummariesResponse = (
   context: __SerdeContext
 ): GetRecommendationSummariesResponse => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     recommendationSummaries:
       output.recommendationSummaries !== undefined && output.recommendationSummaries !== null
         ? deserializeAws_json1_0RecommendationSummaries(output.recommendationSummaries, context)
@@ -2594,26 +2585,20 @@ const deserializeAws_json1_0GetRecommendationSummariesResponse = (
 
 const deserializeAws_json1_0InstanceRecommendation = (output: any, context: __SerdeContext): InstanceRecommendation => {
   return {
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
-    currentInstanceType:
-      output.currentInstanceType !== undefined && output.currentInstanceType !== null
-        ? output.currentInstanceType
-        : undefined,
-    finding: output.finding !== undefined && output.finding !== null ? output.finding : undefined,
+    accountId: __expectString(output.accountId),
+    currentInstanceType: __expectString(output.currentInstanceType),
+    finding: __expectString(output.finding),
     findingReasonCodes:
       output.findingReasonCodes !== undefined && output.findingReasonCodes !== null
         ? deserializeAws_json1_0InstanceRecommendationFindingReasonCodes(output.findingReasonCodes, context)
         : undefined,
-    instanceArn: output.instanceArn !== undefined && output.instanceArn !== null ? output.instanceArn : undefined,
-    instanceName: output.instanceName !== undefined && output.instanceName !== null ? output.instanceName : undefined,
+    instanceArn: __expectString(output.instanceArn),
+    instanceName: __expectString(output.instanceName),
     lastRefreshTimestamp:
       output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
         ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
         : undefined,
-    lookBackPeriodInDays:
-      output.lookBackPeriodInDays !== undefined && output.lookBackPeriodInDays !== null
-        ? output.lookBackPeriodInDays
-        : undefined,
+    lookBackPeriodInDays: __expectNumber(output.lookBackPeriodInDays),
     recommendationOptions:
       output.recommendationOptions !== undefined && output.recommendationOptions !== null
         ? deserializeAws_json1_0RecommendationOptions(output.recommendationOptions, context)
@@ -2639,7 +2624,7 @@ const deserializeAws_json1_0InstanceRecommendationFindingReasonCodes = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2648,9 +2633,8 @@ const deserializeAws_json1_0InstanceRecommendationOption = (
   context: __SerdeContext
 ): InstanceRecommendationOption => {
   return {
-    instanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
-    performanceRisk:
-      output.performanceRisk !== undefined && output.performanceRisk !== null ? output.performanceRisk : undefined,
+    instanceType: __expectString(output.instanceType),
+    performanceRisk: __expectNumber(output.performanceRisk),
     platformDifferences:
       output.platformDifferences !== undefined && output.platformDifferences !== null
         ? deserializeAws_json1_0PlatformDifferences(output.platformDifferences, context)
@@ -2659,7 +2643,7 @@ const deserializeAws_json1_0InstanceRecommendationOption = (
       output.projectedUtilizationMetrics !== undefined && output.projectedUtilizationMetrics !== null
         ? deserializeAws_json1_0ProjectedUtilizationMetrics(output.projectedUtilizationMetrics, context)
         : undefined,
-    rank: output.rank !== undefined && output.rank !== null ? output.rank : undefined,
+    rank: __expectNumber(output.rank),
   } as any;
 };
 
@@ -2682,7 +2666,7 @@ const deserializeAws_json1_0InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2691,7 +2675,7 @@ const deserializeAws_json1_0InvalidParameterValueException = (
   context: __SerdeContext
 ): InvalidParameterValueException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2700,9 +2684,9 @@ const deserializeAws_json1_0LambdaFunctionMemoryProjectedMetric = (
   context: __SerdeContext
 ): LambdaFunctionMemoryProjectedMetric => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    statistic: output.statistic !== undefined && output.statistic !== null ? output.statistic : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    name: __expectString(output.name),
+    statistic: __expectString(output.statistic),
+    value: __expectNumber(output.value),
   } as any;
 };
 
@@ -2725,12 +2709,12 @@ const deserializeAws_json1_0LambdaFunctionMemoryRecommendationOption = (
   context: __SerdeContext
 ): LambdaFunctionMemoryRecommendationOption => {
   return {
-    memorySize: output.memorySize !== undefined && output.memorySize !== null ? output.memorySize : undefined,
+    memorySize: __expectNumber(output.memorySize),
     projectedUtilizationMetrics:
       output.projectedUtilizationMetrics !== undefined && output.projectedUtilizationMetrics !== null
         ? deserializeAws_json1_0LambdaFunctionMemoryProjectedMetrics(output.projectedUtilizationMetrics, context)
         : undefined,
-    rank: output.rank !== undefined && output.rank !== null ? output.rank : undefined,
+    rank: __expectNumber(output.rank),
   } as any;
 };
 
@@ -2753,27 +2737,20 @@ const deserializeAws_json1_0LambdaFunctionRecommendation = (
   context: __SerdeContext
 ): LambdaFunctionRecommendation => {
   return {
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
-    currentMemorySize:
-      output.currentMemorySize !== undefined && output.currentMemorySize !== null
-        ? output.currentMemorySize
-        : undefined,
-    finding: output.finding !== undefined && output.finding !== null ? output.finding : undefined,
+    accountId: __expectString(output.accountId),
+    currentMemorySize: __expectNumber(output.currentMemorySize),
+    finding: __expectString(output.finding),
     findingReasonCodes:
       output.findingReasonCodes !== undefined && output.findingReasonCodes !== null
         ? deserializeAws_json1_0LambdaFunctionRecommendationFindingReasonCodes(output.findingReasonCodes, context)
         : undefined,
-    functionArn: output.functionArn !== undefined && output.functionArn !== null ? output.functionArn : undefined,
-    functionVersion:
-      output.functionVersion !== undefined && output.functionVersion !== null ? output.functionVersion : undefined,
+    functionArn: __expectString(output.functionArn),
+    functionVersion: __expectString(output.functionVersion),
     lastRefreshTimestamp:
       output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
         ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
         : undefined,
-    lookbackPeriodInDays:
-      output.lookbackPeriodInDays !== undefined && output.lookbackPeriodInDays !== null
-        ? output.lookbackPeriodInDays
-        : undefined,
+    lookbackPeriodInDays: __expectNumber(output.lookbackPeriodInDays),
     memorySizeRecommendationOptions:
       output.memorySizeRecommendationOptions !== undefined && output.memorySizeRecommendationOptions !== null
         ? deserializeAws_json1_0LambdaFunctionMemoryRecommendationOptions(
@@ -2781,10 +2758,7 @@ const deserializeAws_json1_0LambdaFunctionRecommendation = (
             context
           )
         : undefined,
-    numberOfInvocations:
-      output.numberOfInvocations !== undefined && output.numberOfInvocations !== null
-        ? output.numberOfInvocations
-        : undefined,
+    numberOfInvocations: __expectNumber(output.numberOfInvocations),
     utilizationMetrics:
       output.utilizationMetrics !== undefined && output.utilizationMetrics !== null
         ? deserializeAws_json1_0LambdaFunctionUtilizationMetrics(output.utilizationMetrics, context)
@@ -2802,7 +2776,7 @@ const deserializeAws_json1_0LambdaFunctionRecommendationFindingReasonCodes = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2825,9 +2799,9 @@ const deserializeAws_json1_0LambdaFunctionUtilizationMetric = (
   context: __SerdeContext
 ): LambdaFunctionUtilizationMetric => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    statistic: output.statistic !== undefined && output.statistic !== null ? output.statistic : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    name: __expectString(output.name),
+    statistic: __expectString(output.statistic),
+    value: __expectNumber(output.value),
   } as any;
 };
 
@@ -2847,7 +2821,7 @@ const deserializeAws_json1_0LambdaFunctionUtilizationMetrics = (
 
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2858,7 +2832,7 @@ const deserializeAws_json1_0MetricValues = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
@@ -2867,13 +2841,13 @@ const deserializeAws_json1_0MissingAuthenticationToken = (
   context: __SerdeContext
 ): MissingAuthenticationToken => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_0OptInRequiredException = (output: any, context: __SerdeContext): OptInRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2887,13 +2861,13 @@ const deserializeAws_json1_0PlatformDifferences = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_0ProjectedMetric = (output: any, context: __SerdeContext): ProjectedMetric => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     timestamps:
       output.timestamps !== undefined && output.timestamps !== null
         ? deserializeAws_json1_0Timestamps(output.timestamps, context)
@@ -2943,8 +2917,8 @@ const deserializeAws_json1_0ReasonCodeSummaries = (output: any, context: __Serde
 
 const deserializeAws_json1_0ReasonCodeSummary = (output: any, context: __SerdeContext): ReasonCodeSummary => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    name: __expectString(output.name),
+    value: __expectNumber(output.value),
   } as any;
 };
 
@@ -2961,15 +2935,14 @@ const deserializeAws_json1_0RecommendationExportJob = (
       output.destination !== undefined && output.destination !== null
         ? deserializeAws_json1_0ExportDestination(output.destination, context)
         : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    failureReason: __expectString(output.failureReason),
+    jobId: __expectString(output.jobId),
     lastUpdatedTimestamp:
       output.lastUpdatedTimestamp !== undefined && output.lastUpdatedTimestamp !== null
         ? new Date(Math.round(output.lastUpdatedTimestamp * 1000))
         : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    resourceType: __expectString(output.resourceType),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -3003,14 +2976,8 @@ const deserializeAws_json1_0RecommendationOptions = (
 
 const deserializeAws_json1_0RecommendationSource = (output: any, context: __SerdeContext): RecommendationSource => {
   return {
-    recommendationSourceArn:
-      output.recommendationSourceArn !== undefined && output.recommendationSourceArn !== null
-        ? output.recommendationSourceArn
-        : undefined,
-    recommendationSourceType:
-      output.recommendationSourceType !== undefined && output.recommendationSourceType !== null
-        ? output.recommendationSourceType
-        : undefined,
+    recommendationSourceArn: __expectString(output.recommendationSourceArn),
+    recommendationSourceType: __expectString(output.recommendationSourceType),
   } as any;
 };
 
@@ -3041,11 +3008,8 @@ const deserializeAws_json1_0RecommendationSummaries = (
 
 const deserializeAws_json1_0RecommendationSummary = (output: any, context: __SerdeContext): RecommendationSummary => {
   return {
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
-    recommendationResourceType:
-      output.recommendationResourceType !== undefined && output.recommendationResourceType !== null
-        ? output.recommendationResourceType
-        : undefined,
+    accountId: __expectString(output.accountId),
+    recommendationResourceType: __expectString(output.recommendationResourceType),
     summaries:
       output.summaries !== undefined && output.summaries !== null
         ? deserializeAws_json1_0Summaries(output.summaries, context)
@@ -3062,11 +3026,8 @@ const deserializeAws_json1_0RecommendedOptionProjectedMetric = (
       output.projectedMetrics !== undefined && output.projectedMetrics !== null
         ? deserializeAws_json1_0ProjectedMetrics(output.projectedMetrics, context)
         : undefined,
-    rank: output.rank !== undefined && output.rank !== null ? output.rank : undefined,
-    recommendedInstanceType:
-      output.recommendedInstanceType !== undefined && output.recommendedInstanceType !== null
-        ? output.recommendedInstanceType
-        : undefined,
+    rank: __expectNumber(output.rank),
+    recommendedInstanceType: __expectString(output.recommendedInstanceType),
   } as any;
 };
 
@@ -3089,15 +3050,15 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_0S3Destination = (output: any, context: __SerdeContext): S3Destination => {
   return {
-    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    metadataKey: output.metadataKey !== undefined && output.metadataKey !== null ? output.metadataKey : undefined,
+    bucket: __expectString(output.bucket),
+    key: __expectString(output.key),
+    metadataKey: __expectString(output.metadataKey),
   } as any;
 };
 
@@ -3106,7 +3067,7 @@ const deserializeAws_json1_0ServiceUnavailableException = (
   context: __SerdeContext
 ): ServiceUnavailableException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3123,18 +3084,18 @@ const deserializeAws_json1_0Summaries = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_0Summary = (output: any, context: __SerdeContext): Summary => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     reasonCodeSummaries:
       output.reasonCodeSummaries !== undefined && output.reasonCodeSummaries !== null
         ? deserializeAws_json1_0ReasonCodeSummaries(output.reasonCodeSummaries, context)
         : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    value: __expectNumber(output.value),
   } as any;
 };
 
 const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3154,16 +3115,16 @@ const deserializeAws_json1_0UpdateEnrollmentStatusResponse = (
   context: __SerdeContext
 ): UpdateEnrollmentStatusResponse => {
   return {
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined,
+    status: __expectString(output.status),
+    statusReason: __expectString(output.statusReason),
   } as any;
 };
 
 const deserializeAws_json1_0UtilizationMetric = (output: any, context: __SerdeContext): UtilizationMetric => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    statistic: output.statistic !== undefined && output.statistic !== null ? output.statistic : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    name: __expectString(output.name),
+    statistic: __expectString(output.statistic),
+    value: __expectNumber(output.value),
   } as any;
 };
 
@@ -3180,46 +3141,33 @@ const deserializeAws_json1_0UtilizationMetrics = (output: any, context: __SerdeC
 
 const deserializeAws_json1_0VolumeConfiguration = (output: any, context: __SerdeContext): VolumeConfiguration => {
   return {
-    volumeBaselineIOPS:
-      output.volumeBaselineIOPS !== undefined && output.volumeBaselineIOPS !== null
-        ? output.volumeBaselineIOPS
-        : undefined,
-    volumeBaselineThroughput:
-      output.volumeBaselineThroughput !== undefined && output.volumeBaselineThroughput !== null
-        ? output.volumeBaselineThroughput
-        : undefined,
-    volumeBurstIOPS:
-      output.volumeBurstIOPS !== undefined && output.volumeBurstIOPS !== null ? output.volumeBurstIOPS : undefined,
-    volumeBurstThroughput:
-      output.volumeBurstThroughput !== undefined && output.volumeBurstThroughput !== null
-        ? output.volumeBurstThroughput
-        : undefined,
-    volumeSize: output.volumeSize !== undefined && output.volumeSize !== null ? output.volumeSize : undefined,
-    volumeType: output.volumeType !== undefined && output.volumeType !== null ? output.volumeType : undefined,
+    volumeBaselineIOPS: __expectNumber(output.volumeBaselineIOPS),
+    volumeBaselineThroughput: __expectNumber(output.volumeBaselineThroughput),
+    volumeBurstIOPS: __expectNumber(output.volumeBurstIOPS),
+    volumeBurstThroughput: __expectNumber(output.volumeBurstThroughput),
+    volumeSize: __expectNumber(output.volumeSize),
+    volumeType: __expectString(output.volumeType),
   } as any;
 };
 
 const deserializeAws_json1_0VolumeRecommendation = (output: any, context: __SerdeContext): VolumeRecommendation => {
   return {
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
+    accountId: __expectString(output.accountId),
     currentConfiguration:
       output.currentConfiguration !== undefined && output.currentConfiguration !== null
         ? deserializeAws_json1_0VolumeConfiguration(output.currentConfiguration, context)
         : undefined,
-    finding: output.finding !== undefined && output.finding !== null ? output.finding : undefined,
+    finding: __expectString(output.finding),
     lastRefreshTimestamp:
       output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
         ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
         : undefined,
-    lookBackPeriodInDays:
-      output.lookBackPeriodInDays !== undefined && output.lookBackPeriodInDays !== null
-        ? output.lookBackPeriodInDays
-        : undefined,
+    lookBackPeriodInDays: __expectNumber(output.lookBackPeriodInDays),
     utilizationMetrics:
       output.utilizationMetrics !== undefined && output.utilizationMetrics !== null
         ? deserializeAws_json1_0EBSUtilizationMetrics(output.utilizationMetrics, context)
         : undefined,
-    volumeArn: output.volumeArn !== undefined && output.volumeArn !== null ? output.volumeArn : undefined,
+    volumeArn: __expectString(output.volumeArn),
     volumeRecommendationOptions:
       output.volumeRecommendationOptions !== undefined && output.volumeRecommendationOptions !== null
         ? deserializeAws_json1_0VolumeRecommendationOptions(output.volumeRecommendationOptions, context)
@@ -3236,9 +3184,8 @@ const deserializeAws_json1_0VolumeRecommendationOption = (
       output.configuration !== undefined && output.configuration !== null
         ? deserializeAws_json1_0VolumeConfiguration(output.configuration, context)
         : undefined,
-    performanceRisk:
-      output.performanceRisk !== undefined && output.performanceRisk !== null ? output.performanceRisk : undefined,
-    rank: output.rank !== undefined && output.rank !== null ? output.rank : undefined,
+    performanceRisk: __expectNumber(output.performanceRisk),
+    rank: __expectNumber(output.rank),
   } as any;
 };
 

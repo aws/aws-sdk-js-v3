@@ -187,7 +187,12 @@ import {
   UpdateSubnetChangeProtectionResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -4118,10 +4123,7 @@ const deserializeAws_json1_0ActionDefinition = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_0Address = (output: any, context: __SerdeContext): Address => {
   return {
-    AddressDefinition:
-      output.AddressDefinition !== undefined && output.AddressDefinition !== null
-        ? output.AddressDefinition
-        : undefined,
+    AddressDefinition: __expectString(output.AddressDefinition),
   } as any;
 };
 
@@ -4141,13 +4143,10 @@ const deserializeAws_json1_0AssociateFirewallPolicyResponse = (
   context: __SerdeContext
 ): AssociateFirewallPolicyResponse => {
   return {
-    FirewallArn: output.FirewallArn !== undefined && output.FirewallArn !== null ? output.FirewallArn : undefined,
-    FirewallName: output.FirewallName !== undefined && output.FirewallName !== null ? output.FirewallName : undefined,
-    FirewallPolicyArn:
-      output.FirewallPolicyArn !== undefined && output.FirewallPolicyArn !== null
-        ? output.FirewallPolicyArn
-        : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    FirewallArn: __expectString(output.FirewallArn),
+    FirewallName: __expectString(output.FirewallName),
+    FirewallPolicyArn: __expectString(output.FirewallPolicyArn),
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
@@ -4156,21 +4155,21 @@ const deserializeAws_json1_0AssociateSubnetsResponse = (
   context: __SerdeContext
 ): AssociateSubnetsResponse => {
   return {
-    FirewallArn: output.FirewallArn !== undefined && output.FirewallArn !== null ? output.FirewallArn : undefined,
-    FirewallName: output.FirewallName !== undefined && output.FirewallName !== null ? output.FirewallName : undefined,
+    FirewallArn: __expectString(output.FirewallArn),
+    FirewallName: __expectString(output.FirewallName),
     SubnetMappings:
       output.SubnetMappings !== undefined && output.SubnetMappings !== null
         ? deserializeAws_json1_0SubnetMappings(output.SubnetMappings, context)
         : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
 const deserializeAws_json1_0Attachment = (output: any, context: __SerdeContext): Attachment => {
   return {
-    EndpointId: output.EndpointId !== undefined && output.EndpointId !== null ? output.EndpointId : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    SubnetId: output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined,
+    EndpointId: __expectString(output.EndpointId),
+    Status: __expectString(output.Status),
+    SubnetId: __expectString(output.SubnetId),
   } as any;
 };
 
@@ -4183,7 +4182,7 @@ const deserializeAws_json1_0CreateFirewallPolicyResponse = (
       output.FirewallPolicyResponse !== undefined && output.FirewallPolicyResponse !== null
         ? deserializeAws_json1_0FirewallPolicyResponse(output.FirewallPolicyResponse, context)
         : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
@@ -4209,7 +4208,7 @@ const deserializeAws_json1_0CreateRuleGroupResponse = (
       output.RuleGroupResponse !== undefined && output.RuleGroupResponse !== null
         ? deserializeAws_json1_0RuleGroupResponse(output.RuleGroupResponse, context)
         : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
@@ -4219,7 +4218,7 @@ const deserializeAws_json1_0CustomAction = (output: any, context: __SerdeContext
       output.ActionDefinition !== undefined && output.ActionDefinition !== null
         ? deserializeAws_json1_0ActionDefinition(output.ActionDefinition, context)
         : undefined,
-    ActionName: output.ActionName !== undefined && output.ActionName !== null ? output.ActionName : undefined,
+    ActionName: __expectString(output.ActionName),
   } as any;
 };
 
@@ -4291,7 +4290,7 @@ const deserializeAws_json1_0DescribeFirewallPolicyResponse = (
       output.FirewallPolicyResponse !== undefined && output.FirewallPolicyResponse !== null
         ? deserializeAws_json1_0FirewallPolicyResponse(output.FirewallPolicyResponse, context)
         : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
@@ -4308,7 +4307,7 @@ const deserializeAws_json1_0DescribeFirewallResponse = (
       output.FirewallStatus !== undefined && output.FirewallStatus !== null
         ? deserializeAws_json1_0FirewallStatus(output.FirewallStatus, context)
         : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
@@ -4317,7 +4316,7 @@ const deserializeAws_json1_0DescribeLoggingConfigurationResponse = (
   context: __SerdeContext
 ): DescribeLoggingConfigurationResponse => {
   return {
-    FirewallArn: output.FirewallArn !== undefined && output.FirewallArn !== null ? output.FirewallArn : undefined,
+    FirewallArn: __expectString(output.FirewallArn),
     LoggingConfiguration:
       output.LoggingConfiguration !== undefined && output.LoggingConfiguration !== null
         ? deserializeAws_json1_0LoggingConfiguration(output.LoggingConfiguration, context)
@@ -4330,7 +4329,7 @@ const deserializeAws_json1_0DescribeResourcePolicyResponse = (
   context: __SerdeContext
 ): DescribeResourcePolicyResponse => {
   return {
-    Policy: output.Policy !== undefined && output.Policy !== null ? output.Policy : undefined,
+    Policy: __expectString(output.Policy),
   } as any;
 };
 
@@ -4347,13 +4346,13 @@ const deserializeAws_json1_0DescribeRuleGroupResponse = (
       output.RuleGroupResponse !== undefined && output.RuleGroupResponse !== null
         ? deserializeAws_json1_0RuleGroupResponse(output.RuleGroupResponse, context)
         : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
 const deserializeAws_json1_0Dimension = (output: any, context: __SerdeContext): Dimension => {
   return {
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -4373,36 +4372,26 @@ const deserializeAws_json1_0DisassociateSubnetsResponse = (
   context: __SerdeContext
 ): DisassociateSubnetsResponse => {
   return {
-    FirewallArn: output.FirewallArn !== undefined && output.FirewallArn !== null ? output.FirewallArn : undefined,
-    FirewallName: output.FirewallName !== undefined && output.FirewallName !== null ? output.FirewallName : undefined,
+    FirewallArn: __expectString(output.FirewallArn),
+    FirewallName: __expectString(output.FirewallName),
     SubnetMappings:
       output.SubnetMappings !== undefined && output.SubnetMappings !== null
         ? deserializeAws_json1_0SubnetMappings(output.SubnetMappings, context)
         : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
 const deserializeAws_json1_0Firewall = (output: any, context: __SerdeContext): Firewall => {
   return {
-    DeleteProtection:
-      output.DeleteProtection !== undefined && output.DeleteProtection !== null ? output.DeleteProtection : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    FirewallArn: output.FirewallArn !== undefined && output.FirewallArn !== null ? output.FirewallArn : undefined,
-    FirewallId: output.FirewallId !== undefined && output.FirewallId !== null ? output.FirewallId : undefined,
-    FirewallName: output.FirewallName !== undefined && output.FirewallName !== null ? output.FirewallName : undefined,
-    FirewallPolicyArn:
-      output.FirewallPolicyArn !== undefined && output.FirewallPolicyArn !== null
-        ? output.FirewallPolicyArn
-        : undefined,
-    FirewallPolicyChangeProtection:
-      output.FirewallPolicyChangeProtection !== undefined && output.FirewallPolicyChangeProtection !== null
-        ? output.FirewallPolicyChangeProtection
-        : undefined,
-    SubnetChangeProtection:
-      output.SubnetChangeProtection !== undefined && output.SubnetChangeProtection !== null
-        ? output.SubnetChangeProtection
-        : undefined,
+    DeleteProtection: __expectBoolean(output.DeleteProtection),
+    Description: __expectString(output.Description),
+    FirewallArn: __expectString(output.FirewallArn),
+    FirewallId: __expectString(output.FirewallId),
+    FirewallName: __expectString(output.FirewallName),
+    FirewallPolicyArn: __expectString(output.FirewallPolicyArn),
+    FirewallPolicyChangeProtection: __expectBoolean(output.FirewallPolicyChangeProtection),
+    SubnetChangeProtection: __expectBoolean(output.SubnetChangeProtection),
     SubnetMappings:
       output.SubnetMappings !== undefined && output.SubnetMappings !== null
         ? deserializeAws_json1_0SubnetMappings(output.SubnetMappings, context)
@@ -4411,14 +4400,14 @@ const deserializeAws_json1_0Firewall = (output: any, context: __SerdeContext): F
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_0TagList(output.Tags, context)
         : undefined,
-    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+    VpcId: __expectString(output.VpcId),
   } as any;
 };
 
 const deserializeAws_json1_0FirewallMetadata = (output: any, context: __SerdeContext): FirewallMetadata => {
   return {
-    FirewallArn: output.FirewallArn !== undefined && output.FirewallArn !== null ? output.FirewallArn : undefined,
-    FirewallName: output.FirewallName !== undefined && output.FirewallName !== null ? output.FirewallName : undefined,
+    FirewallArn: __expectString(output.FirewallArn),
+    FirewallName: __expectString(output.FirewallName),
   } as any;
 };
 
@@ -4460,28 +4449,18 @@ const deserializeAws_json1_0FirewallPolicy = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_0FirewallPolicyMetadata = (output: any, context: __SerdeContext): FirewallPolicyMetadata => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Arn: __expectString(output.Arn),
+    Name: __expectString(output.Name),
   } as any;
 };
 
 const deserializeAws_json1_0FirewallPolicyResponse = (output: any, context: __SerdeContext): FirewallPolicyResponse => {
   return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    FirewallPolicyArn:
-      output.FirewallPolicyArn !== undefined && output.FirewallPolicyArn !== null
-        ? output.FirewallPolicyArn
-        : undefined,
-    FirewallPolicyId:
-      output.FirewallPolicyId !== undefined && output.FirewallPolicyId !== null ? output.FirewallPolicyId : undefined,
-    FirewallPolicyName:
-      output.FirewallPolicyName !== undefined && output.FirewallPolicyName !== null
-        ? output.FirewallPolicyName
-        : undefined,
-    FirewallPolicyStatus:
-      output.FirewallPolicyStatus !== undefined && output.FirewallPolicyStatus !== null
-        ? output.FirewallPolicyStatus
-        : undefined,
+    Description: __expectString(output.Description),
+    FirewallPolicyArn: __expectString(output.FirewallPolicyArn),
+    FirewallPolicyId: __expectString(output.FirewallPolicyId),
+    FirewallPolicyName: __expectString(output.FirewallPolicyName),
+    FirewallPolicyStatus: __expectString(output.FirewallPolicyStatus),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_0TagList(output.Tags, context)
@@ -4502,11 +4481,8 @@ const deserializeAws_json1_0Firewalls = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_0FirewallStatus = (output: any, context: __SerdeContext): FirewallStatus => {
   return {
-    ConfigurationSyncStateSummary:
-      output.ConfigurationSyncStateSummary !== undefined && output.ConfigurationSyncStateSummary !== null
-        ? output.ConfigurationSyncStateSummary
-        : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    ConfigurationSyncStateSummary: __expectString(output.ConfigurationSyncStateSummary),
+    Status: __expectString(output.Status),
     SyncStates:
       output.SyncStates !== undefined && output.SyncStates !== null
         ? deserializeAws_json1_0SyncStates(output.SyncStates, context)
@@ -4521,19 +4497,18 @@ const deserializeAws_json1_0Flags = (output: any, context: __SerdeContext): (TCP
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_0Header = (output: any, context: __SerdeContext): Header => {
   return {
-    Destination: output.Destination !== undefined && output.Destination !== null ? output.Destination : undefined,
-    DestinationPort:
-      output.DestinationPort !== undefined && output.DestinationPort !== null ? output.DestinationPort : undefined,
-    Direction: output.Direction !== undefined && output.Direction !== null ? output.Direction : undefined,
-    Protocol: output.Protocol !== undefined && output.Protocol !== null ? output.Protocol : undefined,
-    Source: output.Source !== undefined && output.Source !== null ? output.Source : undefined,
-    SourcePort: output.SourcePort !== undefined && output.SourcePort !== null ? output.SourcePort : undefined,
+    Destination: __expectString(output.Destination),
+    DestinationPort: __expectString(output.DestinationPort),
+    Direction: __expectString(output.Direction),
+    Protocol: __expectString(output.Protocol),
+    Source: __expectString(output.Source),
+    SourcePort: __expectString(output.SourcePort),
   } as any;
 };
 
@@ -4542,13 +4517,13 @@ const deserializeAws_json1_0InsufficientCapacityException = (
   context: __SerdeContext
 ): InsufficientCapacityException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_0InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4557,7 +4532,7 @@ const deserializeAws_json1_0InvalidOperationException = (
   context: __SerdeContext
 ): InvalidOperationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4566,7 +4541,7 @@ const deserializeAws_json1_0InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4575,13 +4550,13 @@ const deserializeAws_json1_0InvalidResourcePolicyException = (
   context: __SerdeContext
 ): InvalidResourcePolicyException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_0InvalidTokenException = (output: any, context: __SerdeContext): InvalidTokenException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4608,7 +4583,7 @@ const deserializeAws_json1_0IPSets = (output: any, context: __SerdeContext): { [
 
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4621,7 +4596,7 @@ const deserializeAws_json1_0ListFirewallPoliciesResponse = (
       output.FirewallPolicies !== undefined && output.FirewallPolicies !== null
         ? deserializeAws_json1_0FirewallPolicies(output.FirewallPolicies, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -4631,13 +4606,13 @@ const deserializeAws_json1_0ListFirewallsResponse = (output: any, context: __Ser
       output.Firewalls !== undefined && output.Firewalls !== null
         ? deserializeAws_json1_0Firewalls(output.Firewalls, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_0ListRuleGroupsResponse = (output: any, context: __SerdeContext): ListRuleGroupsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     RuleGroups:
       output.RuleGroups !== undefined && output.RuleGroups !== null
         ? deserializeAws_json1_0RuleGroups(output.RuleGroups, context)
@@ -4650,7 +4625,7 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_0TagList(output.Tags, context)
@@ -4664,11 +4639,8 @@ const deserializeAws_json1_0LogDestinationConfig = (output: any, context: __Serd
       output.LogDestination !== undefined && output.LogDestination !== null
         ? deserializeAws_json1_0LogDestinationMap(output.LogDestination, context)
         : undefined,
-    LogDestinationType:
-      output.LogDestinationType !== undefined && output.LogDestinationType !== null
-        ? output.LogDestinationType
-        : undefined,
-    LogType: output.LogType !== undefined && output.LogType !== null ? output.LogType : undefined,
+    LogDestinationType: __expectString(output.LogDestinationType),
+    LogType: __expectString(output.LogType),
   } as any;
 };
 
@@ -4690,7 +4662,7 @@ const deserializeAws_json1_0LogDestinationMap = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4700,7 +4672,7 @@ const deserializeAws_json1_0LogDestinationPermissionException = (
   context: __SerdeContext
 ): LogDestinationPermissionException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4744,15 +4716,15 @@ const deserializeAws_json1_0MatchAttributes = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_0PerObjectStatus = (output: any, context: __SerdeContext): PerObjectStatus => {
   return {
-    SyncStatus: output.SyncStatus !== undefined && output.SyncStatus !== null ? output.SyncStatus : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    SyncStatus: __expectString(output.SyncStatus),
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
 const deserializeAws_json1_0PortRange = (output: any, context: __SerdeContext): PortRange => {
   return {
-    FromPort: output.FromPort !== undefined && output.FromPort !== null ? output.FromPort : undefined,
-    ToPort: output.ToPort !== undefined && output.ToPort !== null ? output.ToPort : undefined,
+    FromPort: __expectNumber(output.FromPort),
+    ToPort: __expectNumber(output.ToPort),
   } as any;
 };
 
@@ -4795,7 +4767,7 @@ const deserializeAws_json1_0ProtocolNumbers = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
@@ -4820,7 +4792,7 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4829,7 +4801,7 @@ const deserializeAws_json1_0ResourceOwnerCheckException = (
   context: __SerdeContext
 ): ResourceOwnerCheckException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4861,26 +4833,24 @@ const deserializeAws_json1_0RuleGroup = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_0RuleGroupMetadata = (output: any, context: __SerdeContext): RuleGroupMetadata => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Arn: __expectString(output.Arn),
+    Name: __expectString(output.Name),
   } as any;
 };
 
 const deserializeAws_json1_0RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupResponse => {
   return {
-    Capacity: output.Capacity !== undefined && output.Capacity !== null ? output.Capacity : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    RuleGroupArn: output.RuleGroupArn !== undefined && output.RuleGroupArn !== null ? output.RuleGroupArn : undefined,
-    RuleGroupId: output.RuleGroupId !== undefined && output.RuleGroupId !== null ? output.RuleGroupId : undefined,
-    RuleGroupName:
-      output.RuleGroupName !== undefined && output.RuleGroupName !== null ? output.RuleGroupName : undefined,
-    RuleGroupStatus:
-      output.RuleGroupStatus !== undefined && output.RuleGroupStatus !== null ? output.RuleGroupStatus : undefined,
+    Capacity: __expectNumber(output.Capacity),
+    Description: __expectString(output.Description),
+    RuleGroupArn: __expectString(output.RuleGroupArn),
+    RuleGroupId: __expectString(output.RuleGroupId),
+    RuleGroupName: __expectString(output.RuleGroupName),
+    RuleGroupStatus: __expectString(output.RuleGroupStatus),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_0TagList(output.Tags, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -4897,7 +4867,7 @@ const deserializeAws_json1_0RuleGroups = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_0RuleOption = (output: any, context: __SerdeContext): RuleOption => {
   return {
-    Keyword: output.Keyword !== undefined && output.Keyword !== null ? output.Keyword : undefined,
+    Keyword: __expectString(output.Keyword),
     Settings:
       output.Settings !== undefined && output.Settings !== null
         ? deserializeAws_json1_0Settings(output.Settings, context)
@@ -4922,7 +4892,7 @@ const deserializeAws_json1_0RulesSource = (output: any, context: __SerdeContext)
       output.RulesSourceList !== undefined && output.RulesSourceList !== null
         ? deserializeAws_json1_0RulesSourceList(output.RulesSourceList, context)
         : undefined,
-    RulesString: output.RulesString !== undefined && output.RulesString !== null ? output.RulesString : undefined,
+    RulesString: __expectString(output.RulesString),
     StatefulRules:
       output.StatefulRules !== undefined && output.StatefulRules !== null
         ? deserializeAws_json1_0StatefulRules(output.StatefulRules, context)
@@ -4936,10 +4906,7 @@ const deserializeAws_json1_0RulesSource = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_0RulesSourceList = (output: any, context: __SerdeContext): RulesSourceList => {
   return {
-    GeneratedRulesType:
-      output.GeneratedRulesType !== undefined && output.GeneratedRulesType !== null
-        ? output.GeneratedRulesType
-        : undefined,
+    GeneratedRulesType: __expectString(output.GeneratedRulesType),
     TargetTypes:
       output.TargetTypes !== undefined && output.TargetTypes !== null
         ? deserializeAws_json1_0TargetTypes(output.TargetTypes, context)
@@ -4958,7 +4925,7 @@ const deserializeAws_json1_0RuleTargets = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4982,13 +4949,13 @@ const deserializeAws_json1_0Settings = (output: any, context: __SerdeContext): s
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_0StatefulRule = (output: any, context: __SerdeContext): StatefulRule => {
   return {
-    Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
+    Action: __expectString(output.Action),
     Header:
       output.Header !== undefined && output.Header !== null
         ? deserializeAws_json1_0Header(output.Header, context)
@@ -5005,7 +4972,7 @@ const deserializeAws_json1_0StatefulRuleGroupReference = (
   context: __SerdeContext
 ): StatefulRuleGroupReference => {
   return {
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
+    ResourceArn: __expectString(output.ResourceArn),
   } as any;
 };
 
@@ -5041,13 +5008,13 @@ const deserializeAws_json1_0StatelessActions = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_0StatelessRule = (output: any, context: __SerdeContext): StatelessRule => {
   return {
-    Priority: output.Priority !== undefined && output.Priority !== null ? output.Priority : undefined,
+    Priority: __expectNumber(output.Priority),
     RuleDefinition:
       output.RuleDefinition !== undefined && output.RuleDefinition !== null
         ? deserializeAws_json1_0RuleDefinition(output.RuleDefinition, context)
@@ -5060,8 +5027,8 @@ const deserializeAws_json1_0StatelessRuleGroupReference = (
   context: __SerdeContext
 ): StatelessRuleGroupReference => {
   return {
-    Priority: output.Priority !== undefined && output.Priority !== null ? output.Priority : undefined,
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
+    Priority: __expectNumber(output.Priority),
+    ResourceArn: __expectString(output.ResourceArn),
   } as any;
 };
 
@@ -5108,7 +5075,7 @@ const deserializeAws_json1_0StatelessRulesAndCustomActions = (
 
 const deserializeAws_json1_0SubnetMapping = (output: any, context: __SerdeContext): SubnetMapping => {
   return {
-    SubnetId: output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined,
+    SubnetId: __expectString(output.SubnetId),
   } as any;
 };
 
@@ -5165,8 +5132,8 @@ const deserializeAws_json1_0SyncStates = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -5192,7 +5159,7 @@ const deserializeAws_json1_0TargetTypes = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5222,7 +5189,7 @@ const deserializeAws_json1_0TCPFlags = (output: any, context: __SerdeContext): T
 
 const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5231,7 +5198,7 @@ const deserializeAws_json1_0UnsupportedOperationException = (
   context: __SerdeContext
 ): UnsupportedOperationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5244,11 +5211,10 @@ const deserializeAws_json1_0UpdateFirewallDeleteProtectionResponse = (
   context: __SerdeContext
 ): UpdateFirewallDeleteProtectionResponse => {
   return {
-    DeleteProtection:
-      output.DeleteProtection !== undefined && output.DeleteProtection !== null ? output.DeleteProtection : undefined,
-    FirewallArn: output.FirewallArn !== undefined && output.FirewallArn !== null ? output.FirewallArn : undefined,
-    FirewallName: output.FirewallName !== undefined && output.FirewallName !== null ? output.FirewallName : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    DeleteProtection: __expectBoolean(output.DeleteProtection),
+    FirewallArn: __expectString(output.FirewallArn),
+    FirewallName: __expectString(output.FirewallName),
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
@@ -5257,10 +5223,10 @@ const deserializeAws_json1_0UpdateFirewallDescriptionResponse = (
   context: __SerdeContext
 ): UpdateFirewallDescriptionResponse => {
   return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    FirewallArn: output.FirewallArn !== undefined && output.FirewallArn !== null ? output.FirewallArn : undefined,
-    FirewallName: output.FirewallName !== undefined && output.FirewallName !== null ? output.FirewallName : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    Description: __expectString(output.Description),
+    FirewallArn: __expectString(output.FirewallArn),
+    FirewallName: __expectString(output.FirewallName),
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
@@ -5269,13 +5235,10 @@ const deserializeAws_json1_0UpdateFirewallPolicyChangeProtectionResponse = (
   context: __SerdeContext
 ): UpdateFirewallPolicyChangeProtectionResponse => {
   return {
-    FirewallArn: output.FirewallArn !== undefined && output.FirewallArn !== null ? output.FirewallArn : undefined,
-    FirewallName: output.FirewallName !== undefined && output.FirewallName !== null ? output.FirewallName : undefined,
-    FirewallPolicyChangeProtection:
-      output.FirewallPolicyChangeProtection !== undefined && output.FirewallPolicyChangeProtection !== null
-        ? output.FirewallPolicyChangeProtection
-        : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    FirewallArn: __expectString(output.FirewallArn),
+    FirewallName: __expectString(output.FirewallName),
+    FirewallPolicyChangeProtection: __expectBoolean(output.FirewallPolicyChangeProtection),
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
@@ -5288,7 +5251,7 @@ const deserializeAws_json1_0UpdateFirewallPolicyResponse = (
       output.FirewallPolicyResponse !== undefined && output.FirewallPolicyResponse !== null
         ? deserializeAws_json1_0FirewallPolicyResponse(output.FirewallPolicyResponse, context)
         : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
@@ -5297,8 +5260,8 @@ const deserializeAws_json1_0UpdateLoggingConfigurationResponse = (
   context: __SerdeContext
 ): UpdateLoggingConfigurationResponse => {
   return {
-    FirewallArn: output.FirewallArn !== undefined && output.FirewallArn !== null ? output.FirewallArn : undefined,
-    FirewallName: output.FirewallName !== undefined && output.FirewallName !== null ? output.FirewallName : undefined,
+    FirewallArn: __expectString(output.FirewallArn),
+    FirewallName: __expectString(output.FirewallName),
     LoggingConfiguration:
       output.LoggingConfiguration !== undefined && output.LoggingConfiguration !== null
         ? deserializeAws_json1_0LoggingConfiguration(output.LoggingConfiguration, context)
@@ -5315,7 +5278,7 @@ const deserializeAws_json1_0UpdateRuleGroupResponse = (
       output.RuleGroupResponse !== undefined && output.RuleGroupResponse !== null
         ? deserializeAws_json1_0RuleGroupResponse(output.RuleGroupResponse, context)
         : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
@@ -5324,13 +5287,10 @@ const deserializeAws_json1_0UpdateSubnetChangeProtectionResponse = (
   context: __SerdeContext
 ): UpdateSubnetChangeProtectionResponse => {
   return {
-    FirewallArn: output.FirewallArn !== undefined && output.FirewallArn !== null ? output.FirewallArn : undefined,
-    FirewallName: output.FirewallName !== undefined && output.FirewallName !== null ? output.FirewallName : undefined,
-    SubnetChangeProtection:
-      output.SubnetChangeProtection !== undefined && output.SubnetChangeProtection !== null
-        ? output.SubnetChangeProtection
-        : undefined,
-    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
+    FirewallArn: __expectString(output.FirewallArn),
+    FirewallName: __expectString(output.FirewallName),
+    SubnetChangeProtection: __expectBoolean(output.SubnetChangeProtection),
+    UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
 
@@ -5341,7 +5301,7 @@ const deserializeAws_json1_0VariableDefinitionList = (output: any, context: __Se
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

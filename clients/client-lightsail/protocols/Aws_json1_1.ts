@@ -743,7 +743,12 @@ import {
   UpdateRelationalDatabaseResult,
 } from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -18775,10 +18780,10 @@ const serializeAws_json1_1UpdateRelationalDatabaseRequest = (
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    tip: output.tip !== undefined && output.tip !== null ? output.tip : undefined,
+    code: __expectString(output.code),
+    docs: __expectString(output.docs),
+    message: __expectString(output.message),
+    tip: __expectString(output.tip),
   } as any;
 };
 
@@ -18787,25 +18792,19 @@ const deserializeAws_json1_1AccountSetupInProgressException = (
   context: __SerdeContext
 ): AccountSetupInProgressException => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    tip: output.tip !== undefined && output.tip !== null ? output.tip : undefined,
+    code: __expectString(output.code),
+    docs: __expectString(output.docs),
+    message: __expectString(output.message),
+    tip: __expectString(output.tip),
   } as any;
 };
 
 const deserializeAws_json1_1AddOn = (output: any, context: __SerdeContext): AddOn => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    nextSnapshotTimeOfDay:
-      output.nextSnapshotTimeOfDay !== undefined && output.nextSnapshotTimeOfDay !== null
-        ? output.nextSnapshotTimeOfDay
-        : undefined,
-    snapshotTimeOfDay:
-      output.snapshotTimeOfDay !== undefined && output.snapshotTimeOfDay !== null
-        ? output.snapshotTimeOfDay
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    name: __expectString(output.name),
+    nextSnapshotTimeOfDay: __expectString(output.nextSnapshotTimeOfDay),
+    snapshotTimeOfDay: __expectString(output.snapshotTimeOfDay),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -18822,11 +18821,8 @@ const deserializeAws_json1_1AddOnList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alarm => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    comparisonOperator:
-      output.comparisonOperator !== undefined && output.comparisonOperator !== null
-        ? output.comparisonOperator
-        : undefined,
+    arn: __expectString(output.arn),
+    comparisonOperator: __expectString(output.comparisonOperator),
     contactProtocols:
       output.contactProtocols !== undefined && output.contactProtocols !== null
         ? deserializeAws_json1_1ContactProtocolsList(output.contactProtocols, context)
@@ -18835,41 +18831,31 @@ const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alar
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    datapointsToAlarm:
-      output.datapointsToAlarm !== undefined && output.datapointsToAlarm !== null
-        ? output.datapointsToAlarm
-        : undefined,
-    evaluationPeriods:
-      output.evaluationPeriods !== undefined && output.evaluationPeriods !== null
-        ? output.evaluationPeriods
-        : undefined,
+    datapointsToAlarm: __expectNumber(output.datapointsToAlarm),
+    evaluationPeriods: __expectNumber(output.evaluationPeriods),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
+    metricName: __expectString(output.metricName),
     monitoredResourceInfo:
       output.monitoredResourceInfo !== undefined && output.monitoredResourceInfo !== null
         ? deserializeAws_json1_1MonitoredResourceInfo(output.monitoredResourceInfo, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    notificationEnabled:
-      output.notificationEnabled !== undefined && output.notificationEnabled !== null
-        ? output.notificationEnabled
-        : undefined,
+    name: __expectString(output.name),
+    notificationEnabled: __expectBoolean(output.notificationEnabled),
     notificationTriggers:
       output.notificationTriggers !== undefined && output.notificationTriggers !== null
         ? deserializeAws_json1_1NotificationTriggerList(output.notificationTriggers, context)
         : undefined,
-    period: output.period !== undefined && output.period !== null ? output.period : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    statistic: output.statistic !== undefined && output.statistic !== null ? output.statistic : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
-    threshold: output.threshold !== undefined && output.threshold !== null ? output.threshold : undefined,
-    treatMissingData:
-      output.treatMissingData !== undefined && output.treatMissingData !== null ? output.treatMissingData : undefined,
-    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
+    period: __expectNumber(output.period),
+    resourceType: __expectString(output.resourceType),
+    state: __expectString(output.state),
+    statistic: __expectString(output.statistic),
+    supportCode: __expectString(output.supportCode),
+    threshold: __expectNumber(output.threshold),
+    treatMissingData: __expectString(output.treatMissingData),
+    unit: __expectString(output.unit),
   } as any;
 };
 
@@ -18916,8 +18902,8 @@ const deserializeAws_json1_1AttachDiskResult = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1AttachedDisk = (output: any, context: __SerdeContext): AttachedDisk => {
   return {
-    path: output.path !== undefined && output.path !== null ? output.path : undefined,
-    sizeInGb: output.sizeInGb !== undefined && output.sizeInGb !== null ? output.sizeInGb : undefined,
+    path: __expectString(output.path),
+    sizeInGb: __expectNumber(output.sizeInGb),
   } as any;
 };
 
@@ -18971,12 +18957,12 @@ const deserializeAws_json1_1AutoSnapshotDetails = (output: any, context: __Serde
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    date: output.date !== undefined && output.date !== null ? output.date : undefined,
+    date: __expectString(output.date),
     fromAttachedDisks:
       output.fromAttachedDisks !== undefined && output.fromAttachedDisks !== null
         ? deserializeAws_json1_1AttachedDiskList(output.fromAttachedDisks, context)
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -18993,8 +18979,8 @@ const deserializeAws_json1_1AutoSnapshotDetailsList = (output: any, context: __S
 
 const deserializeAws_json1_1AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   return {
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    zoneName: output.zoneName !== undefined && output.zoneName !== null ? output.zoneName : undefined,
+    state: __expectString(output.state),
+    zoneName: __expectString(output.zoneName),
   } as any;
 };
 
@@ -19011,18 +18997,18 @@ const deserializeAws_json1_1AvailabilityZoneList = (output: any, context: __Serd
 
 const deserializeAws_json1_1Blueprint = (output: any, context: __SerdeContext): Blueprint => {
   return {
-    blueprintId: output.blueprintId !== undefined && output.blueprintId !== null ? output.blueprintId : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    group: output.group !== undefined && output.group !== null ? output.group : undefined,
-    isActive: output.isActive !== undefined && output.isActive !== null ? output.isActive : undefined,
-    licenseUrl: output.licenseUrl !== undefined && output.licenseUrl !== null ? output.licenseUrl : undefined,
-    minPower: output.minPower !== undefined && output.minPower !== null ? output.minPower : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
-    productUrl: output.productUrl !== undefined && output.productUrl !== null ? output.productUrl : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
-    versionCode: output.versionCode !== undefined && output.versionCode !== null ? output.versionCode : undefined,
+    blueprintId: __expectString(output.blueprintId),
+    description: __expectString(output.description),
+    group: __expectString(output.group),
+    isActive: __expectBoolean(output.isActive),
+    licenseUrl: __expectString(output.licenseUrl),
+    minPower: __expectNumber(output.minPower),
+    name: __expectString(output.name),
+    platform: __expectString(output.platform),
+    productUrl: __expectString(output.productUrl),
+    type: __expectString(output.type),
+    version: __expectString(output.version),
+    versionCode: __expectString(output.versionCode),
   } as any;
 };
 
@@ -19039,23 +19025,20 @@ const deserializeAws_json1_1BlueprintList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Bundle = (output: any, context: __SerdeContext): Bundle => {
   return {
-    bundleId: output.bundleId !== undefined && output.bundleId !== null ? output.bundleId : undefined,
-    cpuCount: output.cpuCount !== undefined && output.cpuCount !== null ? output.cpuCount : undefined,
-    diskSizeInGb: output.diskSizeInGb !== undefined && output.diskSizeInGb !== null ? output.diskSizeInGb : undefined,
-    instanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
-    isActive: output.isActive !== undefined && output.isActive !== null ? output.isActive : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    power: output.power !== undefined && output.power !== null ? output.power : undefined,
-    price: output.price !== undefined && output.price !== null ? output.price : undefined,
-    ramSizeInGb: output.ramSizeInGb !== undefined && output.ramSizeInGb !== null ? output.ramSizeInGb : undefined,
+    bundleId: __expectString(output.bundleId),
+    cpuCount: __expectNumber(output.cpuCount),
+    diskSizeInGb: __expectNumber(output.diskSizeInGb),
+    instanceType: __expectString(output.instanceType),
+    isActive: __expectBoolean(output.isActive),
+    name: __expectString(output.name),
+    power: __expectNumber(output.power),
+    price: __expectNumber(output.price),
+    ramSizeInGb: __expectNumber(output.ramSizeInGb),
     supportedPlatforms:
       output.supportedPlatforms !== undefined && output.supportedPlatforms !== null
         ? deserializeAws_json1_1InstancePlatformList(output.supportedPlatforms, context)
         : undefined,
-    transferPerMonthInGb:
-      output.transferPerMonthInGb !== undefined && output.transferPerMonthInGb !== null
-        ? output.transferPerMonthInGb
-        : undefined,
+    transferPerMonthInGb: __expectNumber(output.transferPerMonthInGb),
   } as any;
 };
 
@@ -19072,7 +19055,7 @@ const deserializeAws_json1_1BundleList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1CacheBehavior = (output: any, context: __SerdeContext): CacheBehavior => {
   return {
-    behavior: output.behavior !== undefined && output.behavior !== null ? output.behavior : undefined,
+    behavior: __expectString(output.behavior),
   } as any;
 };
 
@@ -19089,22 +19072,16 @@ const deserializeAws_json1_1CacheBehaviorList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1CacheBehaviorPerPath = (output: any, context: __SerdeContext): CacheBehaviorPerPath => {
   return {
-    behavior: output.behavior !== undefined && output.behavior !== null ? output.behavior : undefined,
-    path: output.path !== undefined && output.path !== null ? output.path : undefined,
+    behavior: __expectString(output.behavior),
+    path: __expectString(output.path),
   } as any;
 };
 
 const deserializeAws_json1_1CacheSettings = (output: any, context: __SerdeContext): CacheSettings => {
   return {
-    allowedHTTPMethods:
-      output.allowedHTTPMethods !== undefined && output.allowedHTTPMethods !== null
-        ? output.allowedHTTPMethods
-        : undefined,
-    cachedHTTPMethods:
-      output.cachedHTTPMethods !== undefined && output.cachedHTTPMethods !== null
-        ? output.cachedHTTPMethods
-        : undefined,
-    defaultTTL: output.defaultTTL !== undefined && output.defaultTTL !== null ? output.defaultTTL : undefined,
+    allowedHTTPMethods: __expectString(output.allowedHTTPMethods),
+    cachedHTTPMethods: __expectString(output.cachedHTTPMethods),
+    defaultTTL: __expectNumber(output.defaultTTL),
     forwardedCookies:
       output.forwardedCookies !== undefined && output.forwardedCookies !== null
         ? deserializeAws_json1_1CookieObject(output.forwardedCookies, context)
@@ -19117,36 +19094,32 @@ const deserializeAws_json1_1CacheSettings = (output: any, context: __SerdeContex
       output.forwardedQueryStrings !== undefined && output.forwardedQueryStrings !== null
         ? deserializeAws_json1_1QueryStringObject(output.forwardedQueryStrings, context)
         : undefined,
-    maximumTTL: output.maximumTTL !== undefined && output.maximumTTL !== null ? output.maximumTTL : undefined,
-    minimumTTL: output.minimumTTL !== undefined && output.minimumTTL !== null ? output.minimumTTL : undefined,
+    maximumTTL: __expectNumber(output.maximumTTL),
+    minimumTTL: __expectNumber(output.minimumTTL),
   } as any;
 };
 
 const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext): Certificate => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    domainName: __expectString(output.domainName),
     domainValidationRecords:
       output.domainValidationRecords !== undefined && output.domainValidationRecords !== null
         ? deserializeAws_json1_1DomainValidationRecordList(output.domainValidationRecords, context)
         : undefined,
-    eligibleToRenew:
-      output.eligibleToRenew !== undefined && output.eligibleToRenew !== null ? output.eligibleToRenew : undefined,
-    inUseResourceCount:
-      output.inUseResourceCount !== undefined && output.inUseResourceCount !== null
-        ? output.inUseResourceCount
-        : undefined,
+    eligibleToRenew: __expectString(output.eligibleToRenew),
+    inUseResourceCount: __expectNumber(output.inUseResourceCount),
     issuedAt:
       output.issuedAt !== undefined && output.issuedAt !== null
         ? new Date(Math.round(output.issuedAt * 1000))
         : undefined,
-    issuerCA: output.issuerCA !== undefined && output.issuerCA !== null ? output.issuerCA : undefined,
-    keyAlgorithm: output.keyAlgorithm !== undefined && output.keyAlgorithm !== null ? output.keyAlgorithm : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    issuerCA: __expectString(output.issuerCA),
+    keyAlgorithm: __expectString(output.keyAlgorithm),
+    name: __expectString(output.name),
     notAfter:
       output.notAfter !== undefined && output.notAfter !== null
         ? new Date(Math.round(output.notAfter * 1000))
@@ -19159,23 +19132,19 @@ const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext)
       output.renewalSummary !== undefined && output.renewalSummary !== null
         ? deserializeAws_json1_1RenewalSummary(output.renewalSummary, context)
         : undefined,
-    requestFailureReason:
-      output.requestFailureReason !== undefined && output.requestFailureReason !== null
-        ? output.requestFailureReason
-        : undefined,
-    revocationReason:
-      output.revocationReason !== undefined && output.revocationReason !== null ? output.revocationReason : undefined,
+    requestFailureReason: __expectString(output.requestFailureReason),
+    revocationReason: __expectString(output.revocationReason),
     revokedAt:
       output.revokedAt !== undefined && output.revokedAt !== null
         ? new Date(Math.round(output.revokedAt * 1000))
         : undefined,
-    serialNumber: output.serialNumber !== undefined && output.serialNumber !== null ? output.serialNumber : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    serialNumber: __expectString(output.serialNumber),
+    status: __expectString(output.status),
     subjectAlternativeNames:
       output.subjectAlternativeNames !== undefined && output.subjectAlternativeNames !== null
         ? deserializeAws_json1_1SubjectAlternativeNameList(output.subjectAlternativeNames, context)
         : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    supportCode: __expectString(output.supportCode),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -19185,15 +19154,13 @@ const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1CertificateSummary = (output: any, context: __SerdeContext): CertificateSummary => {
   return {
-    certificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
+    certificateArn: __expectString(output.certificateArn),
     certificateDetail:
       output.certificateDetail !== undefined && output.certificateDetail !== null
         ? deserializeAws_json1_1Certificate(output.certificateDetail, context)
         : undefined,
-    certificateName:
-      output.certificateName !== undefined && output.certificateName !== null ? output.certificateName : undefined,
-    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    certificateName: __expectString(output.certificateName),
+    domainName: __expectString(output.domainName),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -19229,7 +19196,7 @@ const deserializeAws_json1_1CloudFormationStackRecord = (
   context: __SerdeContext
 ): CloudFormationStackRecord => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -19242,13 +19209,13 @@ const deserializeAws_json1_1CloudFormationStackRecord = (
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    name: __expectString(output.name),
+    resourceType: __expectString(output.resourceType),
     sourceInfo:
       output.sourceInfo !== undefined && output.sourceInfo !== null
         ? deserializeAws_json1_1CloudFormationStackRecordSourceInfoList(output.sourceInfo, context)
         : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    state: __expectString(output.state),
   } as any;
 };
 
@@ -19271,9 +19238,9 @@ const deserializeAws_json1_1CloudFormationStackRecordSourceInfo = (
   context: __SerdeContext
 ): CloudFormationStackRecordSourceInfo => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    arn: __expectString(output.arn),
+    name: __expectString(output.name),
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
@@ -19293,9 +19260,8 @@ const deserializeAws_json1_1CloudFormationStackRecordSourceInfoList = (
 
 const deserializeAws_json1_1ContactMethod = (output: any, context: __SerdeContext): ContactMethod => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    contactEndpoint:
-      output.contactEndpoint !== undefined && output.contactEndpoint !== null ? output.contactEndpoint : undefined,
+    arn: __expectString(output.arn),
+    contactEndpoint: __expectString(output.contactEndpoint),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -19304,11 +19270,11 @@ const deserializeAws_json1_1ContactMethod = (output: any, context: __SerdeContex
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    name: __expectString(output.name),
+    protocol: __expectString(output.protocol),
+    resourceType: __expectString(output.resourceType),
+    status: __expectString(output.status),
+    supportCode: __expectString(output.supportCode),
   } as any;
 };
 
@@ -19333,7 +19299,7 @@ const deserializeAws_json1_1ContactProtocolsList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -19347,7 +19313,7 @@ const deserializeAws_json1_1Container = (output: any, context: __SerdeContext): 
       output.environment !== undefined && output.environment !== null
         ? deserializeAws_json1_1Environment(output.environment, context)
         : undefined,
-    image: output.image !== undefined && output.image !== null ? output.image : undefined,
+    image: __expectString(output.image),
     ports:
       output.ports !== undefined && output.ports !== null
         ? deserializeAws_json1_1PortMap(output.ports, context)
@@ -19361,8 +19327,8 @@ const deserializeAws_json1_1ContainerImage = (output: any, context: __SerdeConte
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    digest: output.digest !== undefined && output.digest !== null ? output.digest : undefined,
-    image: output.image !== undefined && output.image !== null ? output.image : undefined,
+    digest: __expectString(output.digest),
+    image: __expectString(output.image),
   } as any;
 };
 
@@ -19391,11 +19357,8 @@ const deserializeAws_json1_1ContainerMap = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ContainerService = (output: any, context: __SerdeContext): ContainerService => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    containerServiceName:
-      output.containerServiceName !== undefined && output.containerServiceName !== null
-        ? output.containerServiceName
-        : undefined,
+    arn: __expectString(output.arn),
+    containerServiceName: __expectString(output.containerServiceName),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -19404,7 +19367,7 @@ const deserializeAws_json1_1ContainerService = (output: any, context: __SerdeCon
       output.currentDeployment !== undefined && output.currentDeployment !== null
         ? deserializeAws_json1_1ContainerServiceDeployment(output.currentDeployment, context)
         : undefined,
-    isDisabled: output.isDisabled !== undefined && output.isDisabled !== null ? output.isDisabled : undefined,
+    isDisabled: __expectBoolean(output.isDisabled),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
@@ -19413,20 +19376,17 @@ const deserializeAws_json1_1ContainerService = (output: any, context: __SerdeCon
       output.nextDeployment !== undefined && output.nextDeployment !== null
         ? deserializeAws_json1_1ContainerServiceDeployment(output.nextDeployment, context)
         : undefined,
-    power: output.power !== undefined && output.power !== null ? output.power : undefined,
-    powerId: output.powerId !== undefined && output.powerId !== null ? output.powerId : undefined,
-    principalArn: output.principalArn !== undefined && output.principalArn !== null ? output.principalArn : undefined,
-    privateDomainName:
-      output.privateDomainName !== undefined && output.privateDomainName !== null
-        ? output.privateDomainName
-        : undefined,
+    power: __expectString(output.power),
+    powerId: __expectString(output.powerId),
+    principalArn: __expectString(output.principalArn),
+    privateDomainName: __expectString(output.privateDomainName),
     publicDomainNames:
       output.publicDomainNames !== undefined && output.publicDomainNames !== null
         ? deserializeAws_json1_1ContainerServicePublicDomains(output.publicDomainNames, context)
         : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    scale: output.scale !== undefined && output.scale !== null ? output.scale : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    resourceType: __expectString(output.resourceType),
+    scale: __expectNumber(output.scale),
+    state: __expectString(output.state),
     stateDetail:
       output.stateDetail !== undefined && output.stateDetail !== null
         ? deserializeAws_json1_1ContainerServiceStateDetail(output.stateDetail, context)
@@ -19435,7 +19395,7 @@ const deserializeAws_json1_1ContainerService = (output: any, context: __SerdeCon
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
         : undefined,
-    url: output.url !== undefined && output.url !== null ? output.url : undefined,
+    url: __expectString(output.url),
   } as any;
 };
 
@@ -19456,8 +19416,8 @@ const deserializeAws_json1_1ContainerServiceDeployment = (
       output.publicEndpoint !== undefined && output.publicEndpoint !== null
         ? deserializeAws_json1_1ContainerServiceEndpoint(output.publicEndpoint, context)
         : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    state: __expectString(output.state),
+    version: __expectNumber(output.version),
   } as any;
 };
 
@@ -19480,10 +19440,8 @@ const deserializeAws_json1_1ContainerServiceEndpoint = (
   context: __SerdeContext
 ): ContainerServiceEndpoint => {
   return {
-    containerName:
-      output.containerName !== undefined && output.containerName !== null ? output.containerName : undefined,
-    containerPort:
-      output.containerPort !== undefined && output.containerPort !== null ? output.containerPort : undefined,
+    containerName: __expectString(output.containerName),
+    containerPort: __expectNumber(output.containerPort),
     healthCheck:
       output.healthCheck !== undefined && output.healthCheck !== null
         ? deserializeAws_json1_1ContainerServiceHealthCheckConfig(output.healthCheck, context)
@@ -19496,18 +19454,12 @@ const deserializeAws_json1_1ContainerServiceHealthCheckConfig = (
   context: __SerdeContext
 ): ContainerServiceHealthCheckConfig => {
   return {
-    healthyThreshold:
-      output.healthyThreshold !== undefined && output.healthyThreshold !== null ? output.healthyThreshold : undefined,
-    intervalSeconds:
-      output.intervalSeconds !== undefined && output.intervalSeconds !== null ? output.intervalSeconds : undefined,
-    path: output.path !== undefined && output.path !== null ? output.path : undefined,
-    successCodes: output.successCodes !== undefined && output.successCodes !== null ? output.successCodes : undefined,
-    timeoutSeconds:
-      output.timeoutSeconds !== undefined && output.timeoutSeconds !== null ? output.timeoutSeconds : undefined,
-    unhealthyThreshold:
-      output.unhealthyThreshold !== undefined && output.unhealthyThreshold !== null
-        ? output.unhealthyThreshold
-        : undefined,
+    healthyThreshold: __expectNumber(output.healthyThreshold),
+    intervalSeconds: __expectNumber(output.intervalSeconds),
+    path: __expectString(output.path),
+    successCodes: __expectString(output.successCodes),
+    timeoutSeconds: __expectNumber(output.timeoutSeconds),
+    unhealthyThreshold: __expectNumber(output.unhealthyThreshold),
   } as any;
 };
 
@@ -19531,7 +19483,7 @@ const deserializeAws_json1_1ContainerServiceLogEvent = (
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19559,7 +19511,7 @@ const deserializeAws_json1_1ContainerServiceMetadataEntry = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -19580,12 +19532,12 @@ const deserializeAws_json1_1ContainerServiceMetadataEntryList = (
 
 const deserializeAws_json1_1ContainerServicePower = (output: any, context: __SerdeContext): ContainerServicePower => {
   return {
-    cpuCount: output.cpuCount !== undefined && output.cpuCount !== null ? output.cpuCount : undefined,
-    isActive: output.isActive !== undefined && output.isActive !== null ? output.isActive : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    powerId: output.powerId !== undefined && output.powerId !== null ? output.powerId : undefined,
-    price: output.price !== undefined && output.price !== null ? output.price : undefined,
-    ramSizeInGb: output.ramSizeInGb !== undefined && output.ramSizeInGb !== null ? output.ramSizeInGb : undefined,
+    cpuCount: __expectNumber(output.cpuCount),
+    isActive: __expectBoolean(output.isActive),
+    name: __expectString(output.name),
+    powerId: __expectString(output.powerId),
+    price: __expectNumber(output.price),
+    ramSizeInGb: __expectNumber(output.ramSizeInGb),
   } as any;
 };
 
@@ -19625,7 +19577,7 @@ const deserializeAws_json1_1ContainerServicePublicDomainsList = (output: any, co
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -19638,9 +19590,9 @@ const deserializeAws_json1_1ContainerServiceRegistryLogin = (
       output.expiresAt !== undefined && output.expiresAt !== null
         ? new Date(Math.round(output.expiresAt * 1000))
         : undefined,
-    password: output.password !== undefined && output.password !== null ? output.password : undefined,
-    registry: output.registry !== undefined && output.registry !== null ? output.registry : undefined,
-    username: output.username !== undefined && output.username !== null ? output.username : undefined,
+    password: __expectString(output.password),
+    registry: __expectString(output.registry),
+    username: __expectString(output.username),
   } as any;
 };
 
@@ -19661,8 +19613,8 @@ const deserializeAws_json1_1ContainerServiceStateDetail = (
   context: __SerdeContext
 ): ContainerServiceStateDetail => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    code: __expectString(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19672,7 +19624,7 @@ const deserializeAws_json1_1CookieObject = (output: any, context: __SerdeContext
       output.cookiesAllowList !== undefined && output.cookiesAllowList !== null
         ? deserializeAws_json1_1StringList(output.cookiesAllowList, context)
         : undefined,
-    option: output.option !== undefined && output.option !== null ? output.option : undefined,
+    option: __expectString(output.option),
   } as any;
 };
 
@@ -19874,10 +19826,8 @@ const deserializeAws_json1_1CreateKeyPairResult = (output: any, context: __Serde
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
         : undefined,
-    privateKeyBase64:
-      output.privateKeyBase64 !== undefined && output.privateKeyBase64 !== null ? output.privateKeyBase64 : undefined,
-    publicKeyBase64:
-      output.publicKeyBase64 !== undefined && output.publicKeyBase64 !== null ? output.publicKeyBase64 : undefined,
+    privateKeyBase64: __expectString(output.privateKeyBase64),
+    publicKeyBase64: __expectString(output.publicKeyBase64),
   } as any;
 };
 
@@ -20146,8 +20096,8 @@ const deserializeAws_json1_1DeleteRelationalDatabaseSnapshotResult = (
 
 const deserializeAws_json1_1DestinationInfo = (output: any, context: __SerdeContext): DestinationInfo => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    service: output.service !== undefined && output.service !== null ? output.service : undefined,
+    id: __expectString(output.id),
+    service: __expectString(output.service),
   } as any;
 };
 
@@ -20208,28 +20158,27 @@ const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk 
       output.addOns !== undefined && output.addOns !== null
         ? deserializeAws_json1_1AddOnList(output.addOns, context)
         : undefined,
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    attachedTo: output.attachedTo !== undefined && output.attachedTo !== null ? output.attachedTo : undefined,
-    attachmentState:
-      output.attachmentState !== undefined && output.attachmentState !== null ? output.attachmentState : undefined,
+    arn: __expectString(output.arn),
+    attachedTo: __expectString(output.attachedTo),
+    attachmentState: __expectString(output.attachmentState),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    gbInUse: output.gbInUse !== undefined && output.gbInUse !== null ? output.gbInUse : undefined,
-    iops: output.iops !== undefined && output.iops !== null ? output.iops : undefined,
-    isAttached: output.isAttached !== undefined && output.isAttached !== null ? output.isAttached : undefined,
-    isSystemDisk: output.isSystemDisk !== undefined && output.isSystemDisk !== null ? output.isSystemDisk : undefined,
+    gbInUse: __expectNumber(output.gbInUse),
+    iops: __expectNumber(output.iops),
+    isAttached: __expectBoolean(output.isAttached),
+    isSystemDisk: __expectBoolean(output.isSystemDisk),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    path: output.path !== undefined && output.path !== null ? output.path : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    sizeInGb: output.sizeInGb !== undefined && output.sizeInGb !== null ? output.sizeInGb : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    name: __expectString(output.name),
+    path: __expectString(output.path),
+    resourceType: __expectString(output.resourceType),
+    sizeInGb: __expectNumber(output.sizeInGb),
+    state: __expectString(output.state),
+    supportCode: __expectString(output.supportCode),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -20239,10 +20188,10 @@ const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk 
 
 const deserializeAws_json1_1DiskInfo = (output: any, context: __SerdeContext): DiskInfo => {
   return {
-    isSystemDisk: output.isSystemDisk !== undefined && output.isSystemDisk !== null ? output.isSystemDisk : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    path: output.path !== undefined && output.path !== null ? output.path : undefined,
-    sizeInGb: output.sizeInGb !== undefined && output.sizeInGb !== null ? output.sizeInGb : undefined,
+    isSystemDisk: __expectBoolean(output.isSystemDisk),
+    name: __expectString(output.name),
+    path: __expectString(output.path),
+    sizeInGb: __expectNumber(output.sizeInGb),
   } as any;
 };
 
@@ -20270,31 +20219,26 @@ const deserializeAws_json1_1DiskList = (output: any, context: __SerdeContext): D
 
 const deserializeAws_json1_1DiskSnapshot = (output: any, context: __SerdeContext): DiskSnapshot => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    fromDiskArn: output.fromDiskArn !== undefined && output.fromDiskArn !== null ? output.fromDiskArn : undefined,
-    fromDiskName: output.fromDiskName !== undefined && output.fromDiskName !== null ? output.fromDiskName : undefined,
-    fromInstanceArn:
-      output.fromInstanceArn !== undefined && output.fromInstanceArn !== null ? output.fromInstanceArn : undefined,
-    fromInstanceName:
-      output.fromInstanceName !== undefined && output.fromInstanceName !== null ? output.fromInstanceName : undefined,
-    isFromAutoSnapshot:
-      output.isFromAutoSnapshot !== undefined && output.isFromAutoSnapshot !== null
-        ? output.isFromAutoSnapshot
-        : undefined,
+    fromDiskArn: __expectString(output.fromDiskArn),
+    fromDiskName: __expectString(output.fromDiskName),
+    fromInstanceArn: __expectString(output.fromInstanceArn),
+    fromInstanceName: __expectString(output.fromInstanceName),
+    isFromAutoSnapshot: __expectBoolean(output.isFromAutoSnapshot),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    progress: output.progress !== undefined && output.progress !== null ? output.progress : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    sizeInGb: output.sizeInGb !== undefined && output.sizeInGb !== null ? output.sizeInGb : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    name: __expectString(output.name),
+    progress: __expectString(output.progress),
+    resourceType: __expectString(output.resourceType),
+    sizeInGb: __expectNumber(output.sizeInGb),
+    state: __expectString(output.state),
+    supportCode: __expectString(output.supportCode),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -20304,7 +20248,7 @@ const deserializeAws_json1_1DiskSnapshot = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1DiskSnapshotInfo = (output: any, context: __SerdeContext): DiskSnapshotInfo => {
   return {
-    sizeInGb: output.sizeInGb !== undefined && output.sizeInGb !== null ? output.sizeInGb : undefined,
+    sizeInGb: __expectNumber(output.sizeInGb),
   } as any;
 };
 
@@ -20321,14 +20265,11 @@ const deserializeAws_json1_1DiskSnapshotList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1DistributionBundle = (output: any, context: __SerdeContext): DistributionBundle => {
   return {
-    bundleId: output.bundleId !== undefined && output.bundleId !== null ? output.bundleId : undefined,
-    isActive: output.isActive !== undefined && output.isActive !== null ? output.isActive : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    price: output.price !== undefined && output.price !== null ? output.price : undefined,
-    transferPerMonthInGb:
-      output.transferPerMonthInGb !== undefined && output.transferPerMonthInGb !== null
-        ? output.transferPerMonthInGb
-        : undefined,
+    bundleId: __expectString(output.bundleId),
+    isActive: __expectBoolean(output.isActive),
+    name: __expectString(output.name),
+    price: __expectNumber(output.price),
+    transferPerMonthInGb: __expectNumber(output.transferPerMonthInGb),
   } as any;
 };
 
@@ -20356,7 +20297,7 @@ const deserializeAws_json1_1DistributionList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Domain = (output: any, context: __SerdeContext): Domain => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -20369,9 +20310,9 @@ const deserializeAws_json1_1Domain = (output: any, context: __SerdeContext): Dom
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    name: __expectString(output.name),
+    resourceType: __expectString(output.resourceType),
+    supportCode: __expectString(output.supportCode),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -20381,15 +20322,15 @@ const deserializeAws_json1_1Domain = (output: any, context: __SerdeContext): Dom
 
 const deserializeAws_json1_1DomainEntry = (output: any, context: __SerdeContext): DomainEntry => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    isAlias: output.isAlias !== undefined && output.isAlias !== null ? output.isAlias : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    id: __expectString(output.id),
+    isAlias: __expectBoolean(output.isAlias),
+    name: __expectString(output.name),
     options:
       output.options !== undefined && output.options !== null
         ? deserializeAws_json1_1DomainEntryOptions(output.options, context)
         : undefined,
-    target: output.target !== undefined && output.target !== null ? output.target : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    target: __expectString(output.target),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -20411,7 +20352,7 @@ const deserializeAws_json1_1DomainEntryOptions = (output: any, context: __SerdeC
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -20429,7 +20370,7 @@ const deserializeAws_json1_1DomainList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1DomainValidationRecord = (output: any, context: __SerdeContext): DomainValidationRecord => {
   return {
-    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    domainName: __expectString(output.domainName),
     resourceRecord:
       output.resourceRecord !== undefined && output.resourceRecord !== null
         ? deserializeAws_json1_1ResourceRecord(output.resourceRecord, context)
@@ -20456,10 +20397,8 @@ const deserializeAws_json1_1DownloadDefaultKeyPairResult = (
   context: __SerdeContext
 ): DownloadDefaultKeyPairResult => {
   return {
-    privateKeyBase64:
-      output.privateKeyBase64 !== undefined && output.privateKeyBase64 !== null ? output.privateKeyBase64 : undefined,
-    publicKeyBase64:
-      output.publicKeyBase64 !== undefined && output.publicKeyBase64 !== null ? output.publicKeyBase64 : undefined,
+    privateKeyBase64: __expectString(output.privateKeyBase64),
+    publicKeyBase64: __expectString(output.publicKeyBase64),
   } as any;
 };
 
@@ -20479,14 +20418,14 @@ const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext)
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_json1_1ExportSnapshotRecord = (output: any, context: __SerdeContext): ExportSnapshotRecord => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -20499,13 +20438,13 @@ const deserializeAws_json1_1ExportSnapshotRecord = (output: any, context: __Serd
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    name: __expectString(output.name),
+    resourceType: __expectString(output.resourceType),
     sourceInfo:
       output.sourceInfo !== undefined && output.sourceInfo !== null
         ? deserializeAws_json1_1ExportSnapshotRecordSourceInfo(output.sourceInfo, context)
         : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    state: __expectString(output.state),
   } as any;
 };
 
@@ -20528,7 +20467,7 @@ const deserializeAws_json1_1ExportSnapshotRecordSourceInfo = (
   context: __SerdeContext
 ): ExportSnapshotRecordSourceInfo => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -20537,16 +20476,14 @@ const deserializeAws_json1_1ExportSnapshotRecordSourceInfo = (
       output.diskSnapshotInfo !== undefined && output.diskSnapshotInfo !== null
         ? deserializeAws_json1_1DiskSnapshotInfo(output.diskSnapshotInfo, context)
         : undefined,
-    fromResourceArn:
-      output.fromResourceArn !== undefined && output.fromResourceArn !== null ? output.fromResourceArn : undefined,
-    fromResourceName:
-      output.fromResourceName !== undefined && output.fromResourceName !== null ? output.fromResourceName : undefined,
+    fromResourceArn: __expectString(output.fromResourceArn),
+    fromResourceName: __expectString(output.fromResourceName),
     instanceSnapshotInfo:
       output.instanceSnapshotInfo !== undefined && output.instanceSnapshotInfo !== null
         ? deserializeAws_json1_1InstanceSnapshotInfo(output.instanceSnapshotInfo, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    name: __expectString(output.name),
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
@@ -20565,8 +20502,7 @@ const deserializeAws_json1_1GetActiveNamesResult = (output: any, context: __Serd
       output.activeNames !== undefined && output.activeNames !== null
         ? deserializeAws_json1_1StringList(output.activeNames, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20576,8 +20512,7 @@ const deserializeAws_json1_1GetAlarmsResult = (output: any, context: __SerdeCont
       output.alarms !== undefined && output.alarms !== null
         ? deserializeAws_json1_1AlarmsList(output.alarms, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20587,8 +20522,8 @@ const deserializeAws_json1_1GetAutoSnapshotsResult = (output: any, context: __Se
       output.autoSnapshots !== undefined && output.autoSnapshots !== null
         ? deserializeAws_json1_1AutoSnapshotDetailsList(output.autoSnapshots, context)
         : undefined,
-    resourceName: output.resourceName !== undefined && output.resourceName !== null ? output.resourceName : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    resourceName: __expectString(output.resourceName),
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
@@ -20598,8 +20533,7 @@ const deserializeAws_json1_1GetBlueprintsResult = (output: any, context: __Serde
       output.blueprints !== undefined && output.blueprints !== null
         ? deserializeAws_json1_1BlueprintList(output.blueprints, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20609,8 +20543,7 @@ const deserializeAws_json1_1GetBundlesResult = (output: any, context: __SerdeCon
       output.bundles !== undefined && output.bundles !== null
         ? deserializeAws_json1_1BundleList(output.bundles, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20632,8 +20565,7 @@ const deserializeAws_json1_1GetCloudFormationStackRecordsResult = (
       output.cloudFormationStackRecords !== undefined && output.cloudFormationStackRecords !== null
         ? deserializeAws_json1_1CloudFormationStackRecordList(output.cloudFormationStackRecords, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20679,8 +20611,7 @@ const deserializeAws_json1_1GetContainerLogResult = (output: any, context: __Ser
       output.logEvents !== undefined && output.logEvents !== null
         ? deserializeAws_json1_1ContainerServiceLogEventList(output.logEvents, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20705,7 +20636,7 @@ const deserializeAws_json1_1GetContainerServiceMetricDataResult = (
       output.metricData !== undefined && output.metricData !== null
         ? deserializeAws_json1_1MetricDatapointList(output.metricData, context)
         : undefined,
-    metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
+    metricName: __expectString(output.metricName),
   } as any;
 };
 
@@ -20743,8 +20674,7 @@ const deserializeAws_json1_1GetDiskSnapshotsResult = (output: any, context: __Se
       output.diskSnapshots !== undefined && output.diskSnapshots !== null
         ? deserializeAws_json1_1DiskSnapshotList(output.diskSnapshots, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20754,8 +20684,7 @@ const deserializeAws_json1_1GetDisksResult = (output: any, context: __SerdeConte
       output.disks !== undefined && output.disks !== null
         ? deserializeAws_json1_1DiskList(output.disks, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20780,7 +20709,7 @@ const deserializeAws_json1_1GetDistributionLatestCacheResetResult = (
       output.createTime !== undefined && output.createTime !== null
         ? new Date(Math.round(output.createTime * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -20793,7 +20722,7 @@ const deserializeAws_json1_1GetDistributionMetricDataResult = (
       output.metricData !== undefined && output.metricData !== null
         ? deserializeAws_json1_1MetricDatapointList(output.metricData, context)
         : undefined,
-    metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
+    metricName: __expectString(output.metricName),
   } as any;
 };
 
@@ -20803,8 +20732,7 @@ const deserializeAws_json1_1GetDistributionsResult = (output: any, context: __Se
       output.distributions !== undefined && output.distributions !== null
         ? deserializeAws_json1_1DistributionList(output.distributions, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20823,8 +20751,7 @@ const deserializeAws_json1_1GetDomainsResult = (output: any, context: __SerdeCon
       output.domains !== undefined && output.domains !== null
         ? deserializeAws_json1_1DomainList(output.domains, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20837,8 +20764,7 @@ const deserializeAws_json1_1GetExportSnapshotRecordsResult = (
       output.exportSnapshotRecords !== undefined && output.exportSnapshotRecords !== null
         ? deserializeAws_json1_1ExportSnapshotRecordList(output.exportSnapshotRecords, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20863,7 +20789,7 @@ const deserializeAws_json1_1GetInstanceMetricDataResult = (
       output.metricData !== undefined && output.metricData !== null
         ? deserializeAws_json1_1MetricDatapointList(output.metricData, context)
         : undefined,
-    metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
+    metricName: __expectString(output.metricName),
   } as any;
 };
 
@@ -20909,8 +20835,7 @@ const deserializeAws_json1_1GetInstanceSnapshotsResult = (
       output.instanceSnapshots !== undefined && output.instanceSnapshots !== null
         ? deserializeAws_json1_1InstanceSnapshotList(output.instanceSnapshots, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20920,8 +20845,7 @@ const deserializeAws_json1_1GetInstancesResult = (output: any, context: __SerdeC
       output.instances !== undefined && output.instances !== null
         ? deserializeAws_json1_1InstanceList(output.instances, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20949,8 +20873,7 @@ const deserializeAws_json1_1GetKeyPairsResult = (output: any, context: __SerdeCo
       output.keyPairs !== undefined && output.keyPairs !== null
         ? deserializeAws_json1_1KeyPairList(output.keyPairs, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -20963,7 +20886,7 @@ const deserializeAws_json1_1GetLoadBalancerMetricDataResult = (
       output.metricData !== undefined && output.metricData !== null
         ? deserializeAws_json1_1MetricDatapointList(output.metricData, context)
         : undefined,
-    metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
+    metricName: __expectString(output.metricName),
   } as any;
 };
 
@@ -20982,8 +20905,7 @@ const deserializeAws_json1_1GetLoadBalancersResult = (output: any, context: __Se
       output.loadBalancers !== undefined && output.loadBalancers !== null
         ? deserializeAws_json1_1LoadBalancerList(output.loadBalancers, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -21013,10 +20935,8 @@ const deserializeAws_json1_1GetOperationsForResourceResult = (
   context: __SerdeContext
 ): GetOperationsForResourceResult => {
   return {
-    nextPageCount:
-      output.nextPageCount !== undefined && output.nextPageCount !== null ? output.nextPageCount : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageCount: __expectString(output.nextPageCount),
+    nextPageToken: __expectString(output.nextPageToken),
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -21026,8 +20946,7 @@ const deserializeAws_json1_1GetOperationsForResourceResult = (
 
 const deserializeAws_json1_1GetOperationsResult = (output: any, context: __SerdeContext): GetOperationsResult => {
   return {
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -21053,8 +20972,7 @@ const deserializeAws_json1_1GetRelationalDatabaseBlueprintsResult = (
       output.blueprints !== undefined && output.blueprints !== null
         ? deserializeAws_json1_1RelationalDatabaseBlueprintList(output.blueprints, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -21067,8 +20985,7 @@ const deserializeAws_json1_1GetRelationalDatabaseBundlesResult = (
       output.bundles !== undefined && output.bundles !== null
         ? deserializeAws_json1_1RelationalDatabaseBundleList(output.bundles, context)
         : undefined,
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
 
@@ -21077,8 +20994,7 @@ const deserializeAws_json1_1GetRelationalDatabaseEventsResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseEventsResult => {
   return {
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
     relationalDatabaseEvents:
       output.relationalDatabaseEvents !== undefined && output.relationalDatabaseEvents !== null
         ? deserializeAws_json1_1RelationalDatabaseEventList(output.relationalDatabaseEvents, context)
@@ -21091,12 +21007,8 @@ const deserializeAws_json1_1GetRelationalDatabaseLogEventsResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseLogEventsResult => {
   return {
-    nextBackwardToken:
-      output.nextBackwardToken !== undefined && output.nextBackwardToken !== null
-        ? output.nextBackwardToken
-        : undefined,
-    nextForwardToken:
-      output.nextForwardToken !== undefined && output.nextForwardToken !== null ? output.nextForwardToken : undefined,
+    nextBackwardToken: __expectString(output.nextBackwardToken),
+    nextForwardToken: __expectString(output.nextForwardToken),
     resourceLogEvents:
       output.resourceLogEvents !== undefined && output.resourceLogEvents !== null
         ? deserializeAws_json1_1LogEventList(output.resourceLogEvents, context)
@@ -21125,10 +21037,7 @@ const deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordResult = (
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    masterUserPassword:
-      output.masterUserPassword !== undefined && output.masterUserPassword !== null
-        ? output.masterUserPassword
-        : undefined,
+    masterUserPassword: __expectString(output.masterUserPassword),
   } as any;
 };
 
@@ -21141,7 +21050,7 @@ const deserializeAws_json1_1GetRelationalDatabaseMetricDataResult = (
       output.metricData !== undefined && output.metricData !== null
         ? deserializeAws_json1_1MetricDatapointList(output.metricData, context)
         : undefined,
-    metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
+    metricName: __expectString(output.metricName),
   } as any;
 };
 
@@ -21150,8 +21059,7 @@ const deserializeAws_json1_1GetRelationalDatabaseParametersResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseParametersResult => {
   return {
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
     parameters:
       output.parameters !== undefined && output.parameters !== null
         ? deserializeAws_json1_1RelationalDatabaseParameterList(output.parameters, context)
@@ -21188,8 +21096,7 @@ const deserializeAws_json1_1GetRelationalDatabaseSnapshotsResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseSnapshotsResult => {
   return {
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
     relationalDatabaseSnapshots:
       output.relationalDatabaseSnapshots !== undefined && output.relationalDatabaseSnapshots !== null
         ? deserializeAws_json1_1RelationalDatabaseSnapshotList(output.relationalDatabaseSnapshots, context)
@@ -21202,8 +21109,7 @@ const deserializeAws_json1_1GetRelationalDatabasesResult = (
   context: __SerdeContext
 ): GetRelationalDatabasesResult => {
   return {
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
     relationalDatabases:
       output.relationalDatabases !== undefined && output.relationalDatabases !== null
         ? deserializeAws_json1_1RelationalDatabaseList(output.relationalDatabases, context)
@@ -21222,8 +21128,7 @@ const deserializeAws_json1_1GetStaticIpResult = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1GetStaticIpsResult = (output: any, context: __SerdeContext): GetStaticIpsResult => {
   return {
-    nextPageToken:
-      output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
+    nextPageToken: __expectString(output.nextPageToken),
     staticIps:
       output.staticIps !== undefined && output.staticIps !== null
         ? deserializeAws_json1_1StaticIpList(output.staticIps, context)
@@ -21238,7 +21143,7 @@ const deserializeAws_json1_1HeaderForwardList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -21248,19 +21153,15 @@ const deserializeAws_json1_1HeaderObject = (output: any, context: __SerdeContext
       output.headersAllowList !== undefined && output.headersAllowList !== null
         ? deserializeAws_json1_1HeaderForwardList(output.headersAllowList, context)
         : undefined,
-    option: output.option !== undefined && output.option !== null ? output.option : undefined,
+    option: __expectString(output.option),
   } as any;
 };
 
 const deserializeAws_json1_1HostKeyAttributes = (output: any, context: __SerdeContext): HostKeyAttributes => {
   return {
-    algorithm: output.algorithm !== undefined && output.algorithm !== null ? output.algorithm : undefined,
-    fingerprintSHA1:
-      output.fingerprintSHA1 !== undefined && output.fingerprintSHA1 !== null ? output.fingerprintSHA1 : undefined,
-    fingerprintSHA256:
-      output.fingerprintSHA256 !== undefined && output.fingerprintSHA256 !== null
-        ? output.fingerprintSHA256
-        : undefined,
+    algorithm: __expectString(output.algorithm),
+    fingerprintSHA1: __expectString(output.fingerprintSHA1),
+    fingerprintSHA256: __expectString(output.fingerprintSHA256),
     notValidAfter:
       output.notValidAfter !== undefined && output.notValidAfter !== null
         ? new Date(Math.round(output.notValidAfter * 1000))
@@ -21269,7 +21170,7 @@ const deserializeAws_json1_1HostKeyAttributes = (output: any, context: __SerdeCo
       output.notValidBefore !== undefined && output.notValidBefore !== null
         ? new Date(Math.round(output.notValidBefore * 1000))
         : undefined,
-    publicKey: output.publicKey !== undefined && output.publicKey !== null ? output.publicKey : undefined,
+    publicKey: __expectString(output.publicKey),
     witnessedAt:
       output.witnessedAt !== undefined && output.witnessedAt !== null
         ? new Date(Math.round(output.witnessedAt * 1000))
@@ -21303,11 +21204,10 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
       output.addOns !== undefined && output.addOns !== null
         ? deserializeAws_json1_1AddOnList(output.addOns, context)
         : undefined,
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    blueprintId: output.blueprintId !== undefined && output.blueprintId !== null ? output.blueprintId : undefined,
-    blueprintName:
-      output.blueprintName !== undefined && output.blueprintName !== null ? output.blueprintName : undefined,
-    bundleId: output.bundleId !== undefined && output.bundleId !== null ? output.bundleId : undefined,
+    arn: __expectString(output.arn),
+    blueprintId: __expectString(output.blueprintId),
+    blueprintName: __expectString(output.blueprintName),
+    bundleId: __expectString(output.bundleId),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -21316,44 +21216,41 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
       output.hardware !== undefined && output.hardware !== null
         ? deserializeAws_json1_1InstanceHardware(output.hardware, context)
         : undefined,
-    ipAddressType:
-      output.ipAddressType !== undefined && output.ipAddressType !== null ? output.ipAddressType : undefined,
+    ipAddressType: __expectString(output.ipAddressType),
     ipv6Addresses:
       output.ipv6Addresses !== undefined && output.ipv6Addresses !== null
         ? deserializeAws_json1_1Ipv6AddressList(output.ipv6Addresses, context)
         : undefined,
-    isStaticIp: output.isStaticIp !== undefined && output.isStaticIp !== null ? output.isStaticIp : undefined,
+    isStaticIp: __expectBoolean(output.isStaticIp),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     networking:
       output.networking !== undefined && output.networking !== null
         ? deserializeAws_json1_1InstanceNetworking(output.networking, context)
         : undefined,
-    privateIpAddress:
-      output.privateIpAddress !== undefined && output.privateIpAddress !== null ? output.privateIpAddress : undefined,
-    publicIpAddress:
-      output.publicIpAddress !== undefined && output.publicIpAddress !== null ? output.publicIpAddress : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    sshKeyName: output.sshKeyName !== undefined && output.sshKeyName !== null ? output.sshKeyName : undefined,
+    privateIpAddress: __expectString(output.privateIpAddress),
+    publicIpAddress: __expectString(output.publicIpAddress),
+    resourceType: __expectString(output.resourceType),
+    sshKeyName: __expectString(output.sshKeyName),
     state:
       output.state !== undefined && output.state !== null
         ? deserializeAws_json1_1InstanceState(output.state, context)
         : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    supportCode: __expectString(output.supportCode),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
         : undefined,
-    username: output.username !== undefined && output.username !== null ? output.username : undefined,
+    username: __expectString(output.username),
   } as any;
 };
 
 const deserializeAws_json1_1InstanceAccessDetails = (output: any, context: __SerdeContext): InstanceAccessDetails => {
   return {
-    certKey: output.certKey !== undefined && output.certKey !== null ? output.certKey : undefined,
+    certKey: __expectString(output.certKey),
     expiresAt:
       output.expiresAt !== undefined && output.expiresAt !== null
         ? new Date(Math.round(output.expiresAt * 1000))
@@ -21362,39 +21259,35 @@ const deserializeAws_json1_1InstanceAccessDetails = (output: any, context: __Ser
       output.hostKeys !== undefined && output.hostKeys !== null
         ? deserializeAws_json1_1HostKeysList(output.hostKeys, context)
         : undefined,
-    instanceName: output.instanceName !== undefined && output.instanceName !== null ? output.instanceName : undefined,
-    ipAddress: output.ipAddress !== undefined && output.ipAddress !== null ? output.ipAddress : undefined,
-    password: output.password !== undefined && output.password !== null ? output.password : undefined,
+    instanceName: __expectString(output.instanceName),
+    ipAddress: __expectString(output.ipAddress),
+    password: __expectString(output.password),
     passwordData:
       output.passwordData !== undefined && output.passwordData !== null
         ? deserializeAws_json1_1PasswordData(output.passwordData, context)
         : undefined,
-    privateKey: output.privateKey !== undefined && output.privateKey !== null ? output.privateKey : undefined,
-    protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
-    username: output.username !== undefined && output.username !== null ? output.username : undefined,
+    privateKey: __expectString(output.privateKey),
+    protocol: __expectString(output.protocol),
+    username: __expectString(output.username),
   } as any;
 };
 
 const deserializeAws_json1_1InstanceHardware = (output: any, context: __SerdeContext): InstanceHardware => {
   return {
-    cpuCount: output.cpuCount !== undefined && output.cpuCount !== null ? output.cpuCount : undefined,
+    cpuCount: __expectNumber(output.cpuCount),
     disks:
       output.disks !== undefined && output.disks !== null
         ? deserializeAws_json1_1DiskList(output.disks, context)
         : undefined,
-    ramSizeInGb: output.ramSizeInGb !== undefined && output.ramSizeInGb !== null ? output.ramSizeInGb : undefined,
+    ramSizeInGb: __expectNumber(output.ramSizeInGb),
   } as any;
 };
 
 const deserializeAws_json1_1InstanceHealthSummary = (output: any, context: __SerdeContext): InstanceHealthSummary => {
   return {
-    instanceHealth:
-      output.instanceHealth !== undefined && output.instanceHealth !== null ? output.instanceHealth : undefined,
-    instanceHealthReason:
-      output.instanceHealthReason !== undefined && output.instanceHealthReason !== null
-        ? output.instanceHealthReason
-        : undefined,
-    instanceName: output.instanceName !== undefined && output.instanceName !== null ? output.instanceName : undefined,
+    instanceHealth: __expectString(output.instanceHealth),
+    instanceHealthReason: __expectString(output.instanceHealthReason),
+    instanceName: __expectString(output.instanceName),
   } as any;
 };
 
@@ -21446,16 +21339,15 @@ const deserializeAws_json1_1InstancePlatformList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1InstancePortInfo = (output: any, context: __SerdeContext): InstancePortInfo => {
   return {
-    accessDirection:
-      output.accessDirection !== undefined && output.accessDirection !== null ? output.accessDirection : undefined,
-    accessFrom: output.accessFrom !== undefined && output.accessFrom !== null ? output.accessFrom : undefined,
-    accessType: output.accessType !== undefined && output.accessType !== null ? output.accessType : undefined,
+    accessDirection: __expectString(output.accessDirection),
+    accessFrom: __expectString(output.accessFrom),
+    accessType: __expectString(output.accessType),
     cidrListAliases:
       output.cidrListAliases !== undefined && output.cidrListAliases !== null
         ? deserializeAws_json1_1StringList(output.cidrListAliases, context)
@@ -21464,14 +21356,14 @@ const deserializeAws_json1_1InstancePortInfo = (output: any, context: __SerdeCon
       output.cidrs !== undefined && output.cidrs !== null
         ? deserializeAws_json1_1StringList(output.cidrs, context)
         : undefined,
-    commonName: output.commonName !== undefined && output.commonName !== null ? output.commonName : undefined,
-    fromPort: output.fromPort !== undefined && output.fromPort !== null ? output.fromPort : undefined,
+    commonName: __expectString(output.commonName),
+    fromPort: __expectNumber(output.fromPort),
     ipv6Cidrs:
       output.ipv6Cidrs !== undefined && output.ipv6Cidrs !== null
         ? deserializeAws_json1_1StringList(output.ipv6Cidrs, context)
         : undefined,
-    protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
-    toPort: output.toPort !== undefined && output.toPort !== null ? output.toPort : undefined,
+    protocol: __expectString(output.protocol),
+    toPort: __expectNumber(output.toPort),
   } as any;
 };
 
@@ -21496,14 +21388,14 @@ const deserializeAws_json1_1InstancePortState = (output: any, context: __SerdeCo
       output.cidrs !== undefined && output.cidrs !== null
         ? deserializeAws_json1_1StringList(output.cidrs, context)
         : undefined,
-    fromPort: output.fromPort !== undefined && output.fromPort !== null ? output.fromPort : undefined,
+    fromPort: __expectNumber(output.fromPort),
     ipv6Cidrs:
       output.ipv6Cidrs !== undefined && output.ipv6Cidrs !== null
         ? deserializeAws_json1_1StringList(output.ipv6Cidrs, context)
         : undefined,
-    protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    toPort: output.toPort !== undefined && output.toPort !== null ? output.toPort : undefined,
+    protocol: __expectString(output.protocol),
+    state: __expectString(output.state),
+    toPort: __expectNumber(output.toPort),
   } as any;
 };
 
@@ -21520,7 +21412,7 @@ const deserializeAws_json1_1InstancePortStateList = (output: any, context: __Ser
 
 const deserializeAws_json1_1InstanceSnapshot = (output: any, context: __SerdeContext): InstanceSnapshot => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -21529,27 +21421,21 @@ const deserializeAws_json1_1InstanceSnapshot = (output: any, context: __SerdeCon
       output.fromAttachedDisks !== undefined && output.fromAttachedDisks !== null
         ? deserializeAws_json1_1DiskList(output.fromAttachedDisks, context)
         : undefined,
-    fromBlueprintId:
-      output.fromBlueprintId !== undefined && output.fromBlueprintId !== null ? output.fromBlueprintId : undefined,
-    fromBundleId: output.fromBundleId !== undefined && output.fromBundleId !== null ? output.fromBundleId : undefined,
-    fromInstanceArn:
-      output.fromInstanceArn !== undefined && output.fromInstanceArn !== null ? output.fromInstanceArn : undefined,
-    fromInstanceName:
-      output.fromInstanceName !== undefined && output.fromInstanceName !== null ? output.fromInstanceName : undefined,
-    isFromAutoSnapshot:
-      output.isFromAutoSnapshot !== undefined && output.isFromAutoSnapshot !== null
-        ? output.isFromAutoSnapshot
-        : undefined,
+    fromBlueprintId: __expectString(output.fromBlueprintId),
+    fromBundleId: __expectString(output.fromBundleId),
+    fromInstanceArn: __expectString(output.fromInstanceArn),
+    fromInstanceName: __expectString(output.fromInstanceName),
+    isFromAutoSnapshot: __expectBoolean(output.isFromAutoSnapshot),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    progress: output.progress !== undefined && output.progress !== null ? output.progress : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    sizeInGb: output.sizeInGb !== undefined && output.sizeInGb !== null ? output.sizeInGb : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    name: __expectString(output.name),
+    progress: __expectString(output.progress),
+    resourceType: __expectString(output.resourceType),
+    sizeInGb: __expectNumber(output.sizeInGb),
+    state: __expectString(output.state),
+    supportCode: __expectString(output.supportCode),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -21559,9 +21445,8 @@ const deserializeAws_json1_1InstanceSnapshot = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1InstanceSnapshotInfo = (output: any, context: __SerdeContext): InstanceSnapshotInfo => {
   return {
-    fromBlueprintId:
-      output.fromBlueprintId !== undefined && output.fromBlueprintId !== null ? output.fromBlueprintId : undefined,
-    fromBundleId: output.fromBundleId !== undefined && output.fromBundleId !== null ? output.fromBundleId : undefined,
+    fromBlueprintId: __expectString(output.fromBlueprintId),
+    fromBundleId: __expectString(output.fromBundleId),
     fromDiskInfo:
       output.fromDiskInfo !== undefined && output.fromDiskInfo !== null
         ? deserializeAws_json1_1DiskInfoList(output.fromDiskInfo, context)
@@ -21582,17 +21467,17 @@ const deserializeAws_json1_1InstanceSnapshotList = (output: any, context: __Serd
 
 const deserializeAws_json1_1InstanceState = (output: any, context: __SerdeContext): InstanceState => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    code: __expectNumber(output.code),
+    name: __expectString(output.name),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    tip: output.tip !== undefined && output.tip !== null ? output.tip : undefined,
+    code: __expectString(output.code),
+    docs: __expectString(output.docs),
+    message: __expectString(output.message),
+    tip: __expectString(output.tip),
   } as any;
 };
 
@@ -21603,31 +21488,31 @@ const deserializeAws_json1_1Ipv6AddressList = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1IsVpcPeeredResult = (output: any, context: __SerdeContext): IsVpcPeeredResult => {
   return {
-    isPeered: output.isPeered !== undefined && output.isPeered !== null ? output.isPeered : undefined,
+    isPeered: __expectBoolean(output.isPeered),
   } as any;
 };
 
 const deserializeAws_json1_1KeyPair = (output: any, context: __SerdeContext): KeyPair => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    fingerprint: output.fingerprint !== undefined && output.fingerprint !== null ? output.fingerprint : undefined,
+    fingerprint: __expectString(output.fingerprint),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    name: __expectString(output.name),
+    resourceType: __expectString(output.resourceType),
+    supportCode: __expectString(output.supportCode),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -21648,16 +21533,13 @@ const deserializeAws_json1_1KeyPairList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1LightsailDistribution = (output: any, context: __SerdeContext): LightsailDistribution => {
   return {
-    ableToUpdateBundle:
-      output.ableToUpdateBundle !== undefined && output.ableToUpdateBundle !== null
-        ? output.ableToUpdateBundle
-        : undefined,
+    ableToUpdateBundle: __expectBoolean(output.ableToUpdateBundle),
     alternativeDomainNames:
       output.alternativeDomainNames !== undefined && output.alternativeDomainNames !== null
         ? deserializeAws_json1_1StringList(output.alternativeDomainNames, context)
         : undefined,
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    bundleId: output.bundleId !== undefined && output.bundleId !== null ? output.bundleId : undefined,
+    arn: __expectString(output.arn),
+    bundleId: __expectString(output.bundleId),
     cacheBehaviorSettings:
       output.cacheBehaviorSettings !== undefined && output.cacheBehaviorSettings !== null
         ? deserializeAws_json1_1CacheSettings(output.cacheBehaviorSettings, context)
@@ -21666,8 +21548,7 @@ const deserializeAws_json1_1LightsailDistribution = (output: any, context: __Ser
       output.cacheBehaviors !== undefined && output.cacheBehaviors !== null
         ? deserializeAws_json1_1CacheBehaviorList(output.cacheBehaviors, context)
         : undefined,
-    certificateName:
-      output.certificateName !== undefined && output.certificateName !== null ? output.certificateName : undefined,
+    certificateName: __expectString(output.certificateName),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -21676,24 +21557,22 @@ const deserializeAws_json1_1LightsailDistribution = (output: any, context: __Ser
       output.defaultCacheBehavior !== undefined && output.defaultCacheBehavior !== null
         ? deserializeAws_json1_1CacheBehavior(output.defaultCacheBehavior, context)
         : undefined,
-    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
-    ipAddressType:
-      output.ipAddressType !== undefined && output.ipAddressType !== null ? output.ipAddressType : undefined,
-    isEnabled: output.isEnabled !== undefined && output.isEnabled !== null ? output.isEnabled : undefined,
+    domainName: __expectString(output.domainName),
+    ipAddressType: __expectString(output.ipAddressType),
+    isEnabled: __expectBoolean(output.isEnabled),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     origin:
       output.origin !== undefined && output.origin !== null
         ? deserializeAws_json1_1Origin(output.origin, context)
         : undefined,
-    originPublicDNS:
-      output.originPublicDNS !== undefined && output.originPublicDNS !== null ? output.originPublicDNS : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    originPublicDNS: __expectString(output.originPublicDNS),
+    resourceType: __expectString(output.resourceType),
+    status: __expectString(output.status),
+    supportCode: __expectString(output.supportCode),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -21703,7 +21582,7 @@ const deserializeAws_json1_1LightsailDistribution = (output: any, context: __Ser
 
 const deserializeAws_json1_1LoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     configurationOptions:
       output.configurationOptions !== undefined && output.configurationOptions !== null
         ? deserializeAws_json1_1LoadBalancerConfigurationOptions(output.configurationOptions, context)
@@ -21712,29 +21591,27 @@ const deserializeAws_json1_1LoadBalancer = (output: any, context: __SerdeContext
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    dnsName: output.dnsName !== undefined && output.dnsName !== null ? output.dnsName : undefined,
-    healthCheckPath:
-      output.healthCheckPath !== undefined && output.healthCheckPath !== null ? output.healthCheckPath : undefined,
+    dnsName: __expectString(output.dnsName),
+    healthCheckPath: __expectString(output.healthCheckPath),
     instanceHealthSummary:
       output.instanceHealthSummary !== undefined && output.instanceHealthSummary !== null
         ? deserializeAws_json1_1InstanceHealthSummaryList(output.instanceHealthSummary, context)
         : undefined,
-    instancePort: output.instancePort !== undefined && output.instancePort !== null ? output.instancePort : undefined,
-    ipAddressType:
-      output.ipAddressType !== undefined && output.ipAddressType !== null ? output.ipAddressType : undefined,
+    instancePort: __expectNumber(output.instancePort),
+    ipAddressType: __expectString(output.ipAddressType),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
+    name: __expectString(output.name),
+    protocol: __expectString(output.protocol),
     publicPorts:
       output.publicPorts !== undefined && output.publicPorts !== null
         ? deserializeAws_json1_1PortList(output.publicPorts, context)
         : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    resourceType: __expectString(output.resourceType),
+    state: __expectString(output.state),
+    supportCode: __expectString(output.supportCode),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -21757,7 +21634,7 @@ const deserializeAws_json1_1LoadBalancerConfigurationOptions = (
       }
       return {
         ...acc,
-        [key]: value,
+        [key]: __expectString(value) as any,
       };
     },
     {}
@@ -21780,12 +21657,12 @@ const deserializeAws_json1_1LoadBalancerTlsCertificate = (
   context: __SerdeContext
 ): LoadBalancerTlsCertificate => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    domainName: __expectString(output.domainName),
     domainValidationRecords:
       output.domainValidationRecords !== undefined && output.domainValidationRecords !== null
         ? deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationRecordList(
@@ -21793,22 +21670,20 @@ const deserializeAws_json1_1LoadBalancerTlsCertificate = (
             context
           )
         : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
-    isAttached: output.isAttached !== undefined && output.isAttached !== null ? output.isAttached : undefined,
+    failureReason: __expectString(output.failureReason),
+    isAttached: __expectBoolean(output.isAttached),
     issuedAt:
       output.issuedAt !== undefined && output.issuedAt !== null
         ? new Date(Math.round(output.issuedAt * 1000))
         : undefined,
-    issuer: output.issuer !== undefined && output.issuer !== null ? output.issuer : undefined,
-    keyAlgorithm: output.keyAlgorithm !== undefined && output.keyAlgorithm !== null ? output.keyAlgorithm : undefined,
-    loadBalancerName:
-      output.loadBalancerName !== undefined && output.loadBalancerName !== null ? output.loadBalancerName : undefined,
+    issuer: __expectString(output.issuer),
+    keyAlgorithm: __expectString(output.keyAlgorithm),
+    loadBalancerName: __expectString(output.loadBalancerName),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     notAfter:
       output.notAfter !== undefined && output.notAfter !== null
         ? new Date(Math.round(output.notAfter * 1000))
@@ -21821,25 +21696,21 @@ const deserializeAws_json1_1LoadBalancerTlsCertificate = (
       output.renewalSummary !== undefined && output.renewalSummary !== null
         ? deserializeAws_json1_1LoadBalancerTlsCertificateRenewalSummary(output.renewalSummary, context)
         : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    revocationReason:
-      output.revocationReason !== undefined && output.revocationReason !== null ? output.revocationReason : undefined,
+    resourceType: __expectString(output.resourceType),
+    revocationReason: __expectString(output.revocationReason),
     revokedAt:
       output.revokedAt !== undefined && output.revokedAt !== null
         ? new Date(Math.round(output.revokedAt * 1000))
         : undefined,
-    serial: output.serial !== undefined && output.serial !== null ? output.serial : undefined,
-    signatureAlgorithm:
-      output.signatureAlgorithm !== undefined && output.signatureAlgorithm !== null
-        ? output.signatureAlgorithm
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    subject: output.subject !== undefined && output.subject !== null ? output.subject : undefined,
+    serial: __expectString(output.serial),
+    signatureAlgorithm: __expectString(output.signatureAlgorithm),
+    status: __expectString(output.status),
+    subject: __expectString(output.subject),
     subjectAlternativeNames:
       output.subjectAlternativeNames !== undefined && output.subjectAlternativeNames !== null
         ? deserializeAws_json1_1StringList(output.subjectAlternativeNames, context)
         : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    supportCode: __expectString(output.supportCode),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -21852,9 +21723,8 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationOption = (
   context: __SerdeContext
 ): LoadBalancerTlsCertificateDomainValidationOption => {
   return {
-    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
-    validationStatus:
-      output.validationStatus !== undefined && output.validationStatus !== null ? output.validationStatus : undefined,
+    domainName: __expectString(output.domainName),
+    validationStatus: __expectString(output.validationStatus),
   } as any;
 };
 
@@ -21877,12 +21747,11 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationRecord = (
   context: __SerdeContext
 ): LoadBalancerTlsCertificateDomainValidationRecord => {
   return {
-    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
-    validationStatus:
-      output.validationStatus !== undefined && output.validationStatus !== null ? output.validationStatus : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    domainName: __expectString(output.domainName),
+    name: __expectString(output.name),
+    type: __expectString(output.type),
+    validationStatus: __expectString(output.validationStatus),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -21926,8 +21795,7 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateRenewalSummary = (
             context
           )
         : undefined,
-    renewalStatus:
-      output.renewalStatus !== undefined && output.renewalStatus !== null ? output.renewalStatus : undefined,
+    renewalStatus: __expectString(output.renewalStatus),
   } as any;
 };
 
@@ -21936,8 +21804,8 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateSummary = (
   context: __SerdeContext
 ): LoadBalancerTlsCertificateSummary => {
   return {
-    isAttached: output.isAttached !== undefined && output.isAttached !== null ? output.isAttached : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    isAttached: __expectBoolean(output.isAttached),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -21961,7 +21829,7 @@ const deserializeAws_json1_1LogEvent = (output: any, context: __SerdeContext): L
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21978,16 +21846,16 @@ const deserializeAws_json1_1LogEventList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1MetricDatapoint = (output: any, context: __SerdeContext): MetricDatapoint => {
   return {
-    average: output.average !== undefined && output.average !== null ? output.average : undefined,
-    maximum: output.maximum !== undefined && output.maximum !== null ? output.maximum : undefined,
-    minimum: output.minimum !== undefined && output.minimum !== null ? output.minimum : undefined,
-    sampleCount: output.sampleCount !== undefined && output.sampleCount !== null ? output.sampleCount : undefined,
-    sum: output.sum !== undefined && output.sum !== null ? output.sum : undefined,
+    average: __expectNumber(output.average),
+    maximum: __expectNumber(output.maximum),
+    minimum: __expectNumber(output.minimum),
+    sampleCount: __expectNumber(output.sampleCount),
+    sum: __expectNumber(output.sum),
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
         ? new Date(Math.round(output.timestamp * 1000))
         : undefined,
-    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
+    unit: __expectString(output.unit),
   } as any;
 };
 
@@ -22004,27 +21872,24 @@ const deserializeAws_json1_1MetricDatapointList = (output: any, context: __Serde
 
 const deserializeAws_json1_1MonitoredResourceInfo = (output: any, context: __SerdeContext): MonitoredResourceInfo => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    arn: __expectString(output.arn),
+    name: __expectString(output.name),
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
 const deserializeAws_json1_1MonthlyTransfer = (output: any, context: __SerdeContext): MonthlyTransfer => {
   return {
-    gbPerMonthAllocated:
-      output.gbPerMonthAllocated !== undefined && output.gbPerMonthAllocated !== null
-        ? output.gbPerMonthAllocated
-        : undefined,
+    gbPerMonthAllocated: __expectNumber(output.gbPerMonthAllocated),
   } as any;
 };
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    tip: output.tip !== undefined && output.tip !== null ? output.tip : undefined,
+    code: __expectString(output.code),
+    docs: __expectString(output.docs),
+    message: __expectString(output.message),
+    tip: __expectString(output.tip),
   } as any;
 };
 
@@ -22038,7 +21903,7 @@ const deserializeAws_json1_1NotificationTriggerList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -22060,21 +21925,19 @@ const deserializeAws_json1_1Operation = (output: any, context: __SerdeContext): 
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    errorDetails: output.errorDetails !== undefined && output.errorDetails !== null ? output.errorDetails : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    isTerminal: output.isTerminal !== undefined && output.isTerminal !== null ? output.isTerminal : undefined,
+    errorCode: __expectString(output.errorCode),
+    errorDetails: __expectString(output.errorDetails),
+    id: __expectString(output.id),
+    isTerminal: __expectBoolean(output.isTerminal),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    operationDetails:
-      output.operationDetails !== undefined && output.operationDetails !== null ? output.operationDetails : undefined,
-    operationType:
-      output.operationType !== undefined && output.operationType !== null ? output.operationType : undefined,
-    resourceName: output.resourceName !== undefined && output.resourceName !== null ? output.resourceName : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    operationDetails: __expectString(output.operationDetails),
+    operationType: __expectString(output.operationType),
+    resourceName: __expectString(output.resourceName),
+    resourceType: __expectString(output.resourceType),
+    status: __expectString(output.status),
     statusChangedAt:
       output.statusChangedAt !== undefined && output.statusChangedAt !== null
         ? new Date(Math.round(output.statusChangedAt * 1000))
@@ -22087,10 +21950,10 @@ const deserializeAws_json1_1OperationFailureException = (
   context: __SerdeContext
 ): OperationFailureException => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    tip: output.tip !== undefined && output.tip !== null ? output.tip : undefined,
+    code: __expectString(output.code),
+    docs: __expectString(output.docs),
+    message: __expectString(output.message),
+    tip: __expectString(output.tip),
   } as any;
 };
 
@@ -22107,18 +21970,17 @@ const deserializeAws_json1_1OperationList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Origin = (output: any, context: __SerdeContext): Origin => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    protocolPolicy:
-      output.protocolPolicy !== undefined && output.protocolPolicy !== null ? output.protocolPolicy : undefined,
-    regionName: output.regionName !== undefined && output.regionName !== null ? output.regionName : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    name: __expectString(output.name),
+    protocolPolicy: __expectString(output.protocolPolicy),
+    regionName: __expectString(output.regionName),
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
 const deserializeAws_json1_1PasswordData = (output: any, context: __SerdeContext): PasswordData => {
   return {
-    ciphertext: output.ciphertext !== undefined && output.ciphertext !== null ? output.ciphertext : undefined,
-    keyPairName: output.keyPairName !== undefined && output.keyPairName !== null ? output.keyPairName : undefined,
+    ciphertext: __expectString(output.ciphertext),
+    keyPairName: __expectString(output.keyPairName),
   } as any;
 };
 
@@ -22136,12 +21998,12 @@ const deserializeAws_json1_1PendingMaintenanceAction = (
   context: __SerdeContext
 ): PendingMaintenanceAction => {
   return {
-    action: output.action !== undefined && output.action !== null ? output.action : undefined,
+    action: __expectString(output.action),
     currentApplyDate:
       output.currentApplyDate !== undefined && output.currentApplyDate !== null
         ? new Date(Math.round(output.currentApplyDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
   } as any;
 };
 
@@ -22164,16 +22026,9 @@ const deserializeAws_json1_1PendingModifiedRelationalDatabaseValues = (
   context: __SerdeContext
 ): PendingModifiedRelationalDatabaseValues => {
   return {
-    backupRetentionEnabled:
-      output.backupRetentionEnabled !== undefined && output.backupRetentionEnabled !== null
-        ? output.backupRetentionEnabled
-        : undefined,
-    engineVersion:
-      output.engineVersion !== undefined && output.engineVersion !== null ? output.engineVersion : undefined,
-    masterUserPassword:
-      output.masterUserPassword !== undefined && output.masterUserPassword !== null
-        ? output.masterUserPassword
-        : undefined,
+    backupRetentionEnabled: __expectBoolean(output.backupRetentionEnabled),
+    engineVersion: __expectString(output.engineVersion),
+    masterUserPassword: __expectString(output.masterUserPassword),
   } as any;
 };
 
@@ -22184,7 +22039,7 @@ const deserializeAws_json1_1PortList = (output: any, context: __SerdeContext): n
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
@@ -22199,7 +22054,7 @@ const deserializeAws_json1_1PortMap = (
       }
       return {
         ...acc,
-        [key]: value,
+        [key]: __expectString(value) as any,
       };
     },
     {}
@@ -22229,7 +22084,7 @@ const deserializeAws_json1_1PutInstancePublicPortsResult = (
 
 const deserializeAws_json1_1QueryStringObject = (output: any, context: __SerdeContext): QueryStringObject => {
   return {
-    option: output.option !== undefined && output.option !== null ? output.option : undefined,
+    option: __expectBoolean(output.option),
     queryStringsAllowList:
       output.queryStringsAllowList !== undefined && output.queryStringsAllowList !== null
         ? deserializeAws_json1_1StringList(output.queryStringsAllowList, context)
@@ -22264,11 +22119,10 @@ const deserializeAws_json1_1Region = (output: any, context: __SerdeContext): Reg
       output.availabilityZones !== undefined && output.availabilityZones !== null
         ? deserializeAws_json1_1AvailabilityZoneList(output.availabilityZones, context)
         : undefined,
-    continentCode:
-      output.continentCode !== undefined && output.continentCode !== null ? output.continentCode : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    continentCode: __expectString(output.continentCode),
+    description: __expectString(output.description),
+    displayName: __expectString(output.displayName),
+    name: __expectString(output.name),
     relationalDatabaseAvailabilityZones:
       output.relationalDatabaseAvailabilityZones !== undefined && output.relationalDatabaseAvailabilityZones !== null
         ? deserializeAws_json1_1AvailabilityZoneList(output.relationalDatabaseAvailabilityZones, context)
@@ -22301,22 +22155,15 @@ const deserializeAws_json1_1RegisterContainerImageResult = (
 
 const deserializeAws_json1_1RelationalDatabase = (output: any, context: __SerdeContext): RelationalDatabase => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    backupRetentionEnabled:
-      output.backupRetentionEnabled !== undefined && output.backupRetentionEnabled !== null
-        ? output.backupRetentionEnabled
-        : undefined,
-    caCertificateIdentifier:
-      output.caCertificateIdentifier !== undefined && output.caCertificateIdentifier !== null
-        ? output.caCertificateIdentifier
-        : undefined,
+    arn: __expectString(output.arn),
+    backupRetentionEnabled: __expectBoolean(output.backupRetentionEnabled),
+    caCertificateIdentifier: __expectString(output.caCertificateIdentifier),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    engine: output.engine !== undefined && output.engine !== null ? output.engine : undefined,
-    engineVersion:
-      output.engineVersion !== undefined && output.engineVersion !== null ? output.engineVersion : undefined,
+    engine: __expectString(output.engine),
+    engineVersion: __expectString(output.engineVersion),
     hardware:
       output.hardware !== undefined && output.hardware !== null
         ? deserializeAws_json1_1RelationalDatabaseHardware(output.hardware, context)
@@ -22329,21 +22176,14 @@ const deserializeAws_json1_1RelationalDatabase = (output: any, context: __SerdeC
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    masterDatabaseName:
-      output.masterDatabaseName !== undefined && output.masterDatabaseName !== null
-        ? output.masterDatabaseName
-        : undefined,
+    masterDatabaseName: __expectString(output.masterDatabaseName),
     masterEndpoint:
       output.masterEndpoint !== undefined && output.masterEndpoint !== null
         ? deserializeAws_json1_1RelationalDatabaseEndpoint(output.masterEndpoint, context)
         : undefined,
-    masterUsername:
-      output.masterUsername !== undefined && output.masterUsername !== null ? output.masterUsername : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    parameterApplyStatus:
-      output.parameterApplyStatus !== undefined && output.parameterApplyStatus !== null
-        ? output.parameterApplyStatus
-        : undefined,
+    masterUsername: __expectString(output.masterUsername),
+    name: __expectString(output.name),
+    parameterApplyStatus: __expectString(output.parameterApplyStatus),
     pendingMaintenanceActions:
       output.pendingMaintenanceActions !== undefined && output.pendingMaintenanceActions !== null
         ? deserializeAws_json1_1PendingMaintenanceActionList(output.pendingMaintenanceActions, context)
@@ -22352,33 +22192,15 @@ const deserializeAws_json1_1RelationalDatabase = (output: any, context: __SerdeC
       output.pendingModifiedValues !== undefined && output.pendingModifiedValues !== null
         ? deserializeAws_json1_1PendingModifiedRelationalDatabaseValues(output.pendingModifiedValues, context)
         : undefined,
-    preferredBackupWindow:
-      output.preferredBackupWindow !== undefined && output.preferredBackupWindow !== null
-        ? output.preferredBackupWindow
-        : undefined,
-    preferredMaintenanceWindow:
-      output.preferredMaintenanceWindow !== undefined && output.preferredMaintenanceWindow !== null
-        ? output.preferredMaintenanceWindow
-        : undefined,
-    publiclyAccessible:
-      output.publiclyAccessible !== undefined && output.publiclyAccessible !== null
-        ? output.publiclyAccessible
-        : undefined,
-    relationalDatabaseBlueprintId:
-      output.relationalDatabaseBlueprintId !== undefined && output.relationalDatabaseBlueprintId !== null
-        ? output.relationalDatabaseBlueprintId
-        : undefined,
-    relationalDatabaseBundleId:
-      output.relationalDatabaseBundleId !== undefined && output.relationalDatabaseBundleId !== null
-        ? output.relationalDatabaseBundleId
-        : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    secondaryAvailabilityZone:
-      output.secondaryAvailabilityZone !== undefined && output.secondaryAvailabilityZone !== null
-        ? output.secondaryAvailabilityZone
-        : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    preferredBackupWindow: __expectString(output.preferredBackupWindow),
+    preferredMaintenanceWindow: __expectString(output.preferredMaintenanceWindow),
+    publiclyAccessible: __expectBoolean(output.publiclyAccessible),
+    relationalDatabaseBlueprintId: __expectString(output.relationalDatabaseBlueprintId),
+    relationalDatabaseBundleId: __expectString(output.relationalDatabaseBundleId),
+    resourceType: __expectString(output.resourceType),
+    secondaryAvailabilityZone: __expectString(output.secondaryAvailabilityZone),
+    state: __expectString(output.state),
+    supportCode: __expectString(output.supportCode),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -22391,20 +22213,12 @@ const deserializeAws_json1_1RelationalDatabaseBlueprint = (
   context: __SerdeContext
 ): RelationalDatabaseBlueprint => {
   return {
-    blueprintId: output.blueprintId !== undefined && output.blueprintId !== null ? output.blueprintId : undefined,
-    engine: output.engine !== undefined && output.engine !== null ? output.engine : undefined,
-    engineDescription:
-      output.engineDescription !== undefined && output.engineDescription !== null
-        ? output.engineDescription
-        : undefined,
-    engineVersion:
-      output.engineVersion !== undefined && output.engineVersion !== null ? output.engineVersion : undefined,
-    engineVersionDescription:
-      output.engineVersionDescription !== undefined && output.engineVersionDescription !== null
-        ? output.engineVersionDescription
-        : undefined,
-    isEngineDefault:
-      output.isEngineDefault !== undefined && output.isEngineDefault !== null ? output.isEngineDefault : undefined,
+    blueprintId: __expectString(output.blueprintId),
+    engine: __expectString(output.engine),
+    engineDescription: __expectString(output.engineDescription),
+    engineVersion: __expectString(output.engineVersion),
+    engineVersionDescription: __expectString(output.engineVersionDescription),
+    isEngineDefault: __expectBoolean(output.isEngineDefault),
   } as any;
 };
 
@@ -22427,18 +22241,15 @@ const deserializeAws_json1_1RelationalDatabaseBundle = (
   context: __SerdeContext
 ): RelationalDatabaseBundle => {
   return {
-    bundleId: output.bundleId !== undefined && output.bundleId !== null ? output.bundleId : undefined,
-    cpuCount: output.cpuCount !== undefined && output.cpuCount !== null ? output.cpuCount : undefined,
-    diskSizeInGb: output.diskSizeInGb !== undefined && output.diskSizeInGb !== null ? output.diskSizeInGb : undefined,
-    isActive: output.isActive !== undefined && output.isActive !== null ? output.isActive : undefined,
-    isEncrypted: output.isEncrypted !== undefined && output.isEncrypted !== null ? output.isEncrypted : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    price: output.price !== undefined && output.price !== null ? output.price : undefined,
-    ramSizeInGb: output.ramSizeInGb !== undefined && output.ramSizeInGb !== null ? output.ramSizeInGb : undefined,
-    transferPerMonthInGb:
-      output.transferPerMonthInGb !== undefined && output.transferPerMonthInGb !== null
-        ? output.transferPerMonthInGb
-        : undefined,
+    bundleId: __expectString(output.bundleId),
+    cpuCount: __expectNumber(output.cpuCount),
+    diskSizeInGb: __expectNumber(output.diskSizeInGb),
+    isActive: __expectBoolean(output.isActive),
+    isEncrypted: __expectBoolean(output.isEncrypted),
+    name: __expectString(output.name),
+    price: __expectNumber(output.price),
+    ramSizeInGb: __expectNumber(output.ramSizeInGb),
+    transferPerMonthInGb: __expectNumber(output.transferPerMonthInGb),
   } as any;
 };
 
@@ -22461,8 +22272,8 @@ const deserializeAws_json1_1RelationalDatabaseEndpoint = (
   context: __SerdeContext
 ): RelationalDatabaseEndpoint => {
   return {
-    address: output.address !== undefined && output.address !== null ? output.address : undefined,
-    port: output.port !== undefined && output.port !== null ? output.port : undefined,
+    address: __expectString(output.address),
+    port: __expectNumber(output.port),
   } as any;
 };
 
@@ -22479,8 +22290,8 @@ const deserializeAws_json1_1RelationalDatabaseEvent = (
       output.eventCategories !== undefined && output.eventCategories !== null
         ? deserializeAws_json1_1StringList(output.eventCategories, context)
         : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
+    message: __expectString(output.message),
+    resource: __expectString(output.resource),
   } as any;
 };
 
@@ -22503,9 +22314,9 @@ const deserializeAws_json1_1RelationalDatabaseHardware = (
   context: __SerdeContext
 ): RelationalDatabaseHardware => {
   return {
-    cpuCount: output.cpuCount !== undefined && output.cpuCount !== null ? output.cpuCount : undefined,
-    diskSizeInGb: output.diskSizeInGb !== undefined && output.diskSizeInGb !== null ? output.diskSizeInGb : undefined,
-    ramSizeInGb: output.ramSizeInGb !== undefined && output.ramSizeInGb !== null ? output.ramSizeInGb : undefined,
+    cpuCount: __expectNumber(output.cpuCount),
+    diskSizeInGb: __expectNumber(output.diskSizeInGb),
+    ramSizeInGb: __expectNumber(output.ramSizeInGb),
   } as any;
 };
 
@@ -22525,17 +22336,14 @@ const deserializeAws_json1_1RelationalDatabaseParameter = (
   context: __SerdeContext
 ): RelationalDatabaseParameter => {
   return {
-    allowedValues:
-      output.allowedValues !== undefined && output.allowedValues !== null ? output.allowedValues : undefined,
-    applyMethod: output.applyMethod !== undefined && output.applyMethod !== null ? output.applyMethod : undefined,
-    applyType: output.applyType !== undefined && output.applyType !== null ? output.applyType : undefined,
-    dataType: output.dataType !== undefined && output.dataType !== null ? output.dataType : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    isModifiable: output.isModifiable !== undefined && output.isModifiable !== null ? output.isModifiable : undefined,
-    parameterName:
-      output.parameterName !== undefined && output.parameterName !== null ? output.parameterName : undefined,
-    parameterValue:
-      output.parameterValue !== undefined && output.parameterValue !== null ? output.parameterValue : undefined,
+    allowedValues: __expectString(output.allowedValues),
+    applyMethod: __expectString(output.applyMethod),
+    applyType: __expectString(output.applyType),
+    dataType: __expectString(output.dataType),
+    description: __expectString(output.description),
+    isModifiable: __expectBoolean(output.isModifiable),
+    parameterName: __expectString(output.parameterName),
+    parameterValue: __expectString(output.parameterValue),
   } as any;
 };
 
@@ -22558,39 +22366,26 @@ const deserializeAws_json1_1RelationalDatabaseSnapshot = (
   context: __SerdeContext
 ): RelationalDatabaseSnapshot => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    engine: output.engine !== undefined && output.engine !== null ? output.engine : undefined,
-    engineVersion:
-      output.engineVersion !== undefined && output.engineVersion !== null ? output.engineVersion : undefined,
-    fromRelationalDatabaseArn:
-      output.fromRelationalDatabaseArn !== undefined && output.fromRelationalDatabaseArn !== null
-        ? output.fromRelationalDatabaseArn
-        : undefined,
-    fromRelationalDatabaseBlueprintId:
-      output.fromRelationalDatabaseBlueprintId !== undefined && output.fromRelationalDatabaseBlueprintId !== null
-        ? output.fromRelationalDatabaseBlueprintId
-        : undefined,
-    fromRelationalDatabaseBundleId:
-      output.fromRelationalDatabaseBundleId !== undefined && output.fromRelationalDatabaseBundleId !== null
-        ? output.fromRelationalDatabaseBundleId
-        : undefined,
-    fromRelationalDatabaseName:
-      output.fromRelationalDatabaseName !== undefined && output.fromRelationalDatabaseName !== null
-        ? output.fromRelationalDatabaseName
-        : undefined,
+    engine: __expectString(output.engine),
+    engineVersion: __expectString(output.engineVersion),
+    fromRelationalDatabaseArn: __expectString(output.fromRelationalDatabaseArn),
+    fromRelationalDatabaseBlueprintId: __expectString(output.fromRelationalDatabaseBlueprintId),
+    fromRelationalDatabaseBundleId: __expectString(output.fromRelationalDatabaseBundleId),
+    fromRelationalDatabaseName: __expectString(output.fromRelationalDatabaseName),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    sizeInGb: output.sizeInGb !== undefined && output.sizeInGb !== null ? output.sizeInGb : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    name: __expectString(output.name),
+    resourceType: __expectString(output.resourceType),
+    sizeInGb: __expectNumber(output.sizeInGb),
+    state: __expectString(output.state),
+    supportCode: __expectString(output.supportCode),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -22627,12 +22422,8 @@ const deserializeAws_json1_1RenewalSummary = (output: any, context: __SerdeConte
       output.domainValidationRecords !== undefined && output.domainValidationRecords !== null
         ? deserializeAws_json1_1DomainValidationRecordList(output.domainValidationRecords, context)
         : undefined,
-    renewalStatus:
-      output.renewalStatus !== undefined && output.renewalStatus !== null ? output.renewalStatus : undefined,
-    renewalStatusReason:
-      output.renewalStatusReason !== undefined && output.renewalStatusReason !== null
-        ? output.renewalStatusReason
-        : undefined,
+    renewalStatus: __expectString(output.renewalStatus),
+    renewalStatusReason: __expectString(output.renewalStatusReason),
     updatedAt:
       output.updatedAt !== undefined && output.updatedAt !== null
         ? new Date(Math.round(output.updatedAt * 1000))
@@ -22653,23 +22444,22 @@ const deserializeAws_json1_1ResetDistributionCacheResult = (
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
 const deserializeAws_json1_1ResourceLocation = (output: any, context: __SerdeContext): ResourceLocation => {
   return {
-    availabilityZone:
-      output.availabilityZone !== undefined && output.availabilityZone !== null ? output.availabilityZone : undefined,
-    regionName: output.regionName !== undefined && output.regionName !== null ? output.regionName : undefined,
+    availabilityZone: __expectString(output.availabilityZone),
+    regionName: __expectString(output.regionName),
   } as any;
 };
 
 const deserializeAws_json1_1ResourceRecord = (output: any, context: __SerdeContext): ResourceRecord => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    name: __expectString(output.name),
+    type: __expectString(output.type),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -22687,10 +22477,10 @@ const deserializeAws_json1_1SendContactMethodVerificationResult = (
 
 const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    tip: output.tip !== undefined && output.tip !== null ? output.tip : undefined,
+    code: __expectString(output.code),
+    docs: __expectString(output.docs),
+    message: __expectString(output.message),
+    tip: __expectString(output.tip),
   } as any;
 };
 
@@ -22726,21 +22516,21 @@ const deserializeAws_json1_1StartRelationalDatabaseResult = (
 
 const deserializeAws_json1_1StaticIp = (output: any, context: __SerdeContext): StaticIp => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    attachedTo: output.attachedTo !== undefined && output.attachedTo !== null ? output.attachedTo : undefined,
+    arn: __expectString(output.arn),
+    attachedTo: __expectString(output.attachedTo),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    ipAddress: output.ipAddress !== undefined && output.ipAddress !== null ? output.ipAddress : undefined,
-    isAttached: output.isAttached !== undefined && output.isAttached !== null ? output.isAttached : undefined,
+    ipAddress: __expectString(output.ipAddress),
+    isAttached: __expectBoolean(output.isAttached),
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    supportCode: output.supportCode !== undefined && output.supportCode !== null ? output.supportCode : undefined,
+    name: __expectString(output.name),
+    resourceType: __expectString(output.resourceType),
+    supportCode: __expectString(output.supportCode),
   } as any;
 };
 
@@ -22783,7 +22573,7 @@ const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -22794,14 +22584,14 @@ const deserializeAws_json1_1SubjectAlternativeNameList = (output: any, context: 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -22839,10 +22629,10 @@ const deserializeAws_json1_1UnauthenticatedException = (
   context: __SerdeContext
 ): UnauthenticatedException => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    tip: output.tip !== undefined && output.tip !== null ? output.tip : undefined,
+    code: __expectString(output.code),
+    docs: __expectString(output.docs),
+    message: __expectString(output.message),
+    tip: __expectString(output.tip),
   } as any;
 };
 

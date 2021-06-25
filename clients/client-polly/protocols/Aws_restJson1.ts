@@ -50,6 +50,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -406,7 +408,7 @@ export const deserializeAws_restJson1DescribeVoicesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Voices !== undefined && data.Voices !== null) {
     contents.Voices = deserializeAws_restJson1VoiceList(data.Voices, context);
@@ -614,7 +616,7 @@ export const deserializeAws_restJson1ListLexiconsCommand = async (
     contents.Lexicons = deserializeAws_restJson1LexiconDescriptionList(data.Lexicons, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -678,7 +680,7 @@ export const deserializeAws_restJson1ListSpeechSynthesisTasksCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.SynthesisTasks !== undefined && data.SynthesisTasks !== null) {
     contents.SynthesisTasks = deserializeAws_restJson1SynthesisTasks(data.SynthesisTasks, context);
@@ -1110,7 +1112,7 @@ const deserializeAws_restJson1EngineNotSupportedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1127,7 +1129,7 @@ const deserializeAws_restJson1InvalidLexiconExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1144,7 +1146,7 @@ const deserializeAws_restJson1InvalidNextTokenExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1161,7 +1163,7 @@ const deserializeAws_restJson1InvalidS3BucketExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1178,7 +1180,7 @@ const deserializeAws_restJson1InvalidS3KeyExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1195,7 +1197,7 @@ const deserializeAws_restJson1InvalidSampleRateExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1212,7 +1214,7 @@ const deserializeAws_restJson1InvalidSnsTopicArnExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1229,7 +1231,7 @@ const deserializeAws_restJson1InvalidSsmlExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1246,7 +1248,7 @@ const deserializeAws_restJson1InvalidTaskIdExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1263,7 +1265,7 @@ const deserializeAws_restJson1LanguageNotSupportedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1280,7 +1282,7 @@ const deserializeAws_restJson1LexiconNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1297,7 +1299,7 @@ const deserializeAws_restJson1LexiconSizeExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1314,7 +1316,7 @@ const deserializeAws_restJson1MarksNotSupportedForFormatExceptionResponse = asyn
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1331,7 +1333,7 @@ const deserializeAws_restJson1MaxLexemeLengthExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1348,7 +1350,7 @@ const deserializeAws_restJson1MaxLexiconsNumberExceededExceptionResponse = async
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1365,7 +1367,7 @@ const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1382,7 +1384,7 @@ const deserializeAws_restJson1SsmlMarksNotSupportedForTextTypeExceptionResponse 
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1399,7 +1401,7 @@ const deserializeAws_restJson1SynthesisTaskNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1416,7 +1418,7 @@ const deserializeAws_restJson1TextLengthExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1433,7 +1435,7 @@ const deserializeAws_restJson1UnsupportedPlsAlphabetExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1450,7 +1452,7 @@ const deserializeAws_restJson1UnsupportedPlsLanguageExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1484,7 +1486,7 @@ const deserializeAws_restJson1EngineList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1495,28 +1497,28 @@ const deserializeAws_restJson1LanguageCodeList = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Lexicon = (output: any, context: __SerdeContext): Lexicon => {
   return {
-    Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Content: __expectString(output.Content),
+    Name: __expectString(output.Name),
   } as any;
 };
 
 const deserializeAws_restJson1LexiconAttributes = (output: any, context: __SerdeContext): LexiconAttributes => {
   return {
-    Alphabet: output.Alphabet !== undefined && output.Alphabet !== null ? output.Alphabet : undefined,
-    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
+    Alphabet: __expectString(output.Alphabet),
+    LanguageCode: __expectString(output.LanguageCode),
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null
         ? new Date(Math.round(output.LastModified * 1000))
         : undefined,
-    LexemesCount: output.LexemesCount !== undefined && output.LexemesCount !== null ? output.LexemesCount : undefined,
-    LexiconArn: output.LexiconArn !== undefined && output.LexiconArn !== null ? output.LexiconArn : undefined,
-    Size: output.Size !== undefined && output.Size !== null ? output.Size : undefined,
+    LexemesCount: __expectNumber(output.LexemesCount),
+    LexiconArn: __expectString(output.LexiconArn),
+    Size: __expectNumber(output.Size),
   } as any;
 };
 
@@ -1526,7 +1528,7 @@ const deserializeAws_restJson1LexiconDescription = (output: any, context: __Serd
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_restJson1LexiconAttributes(output.Attributes, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -1548,7 +1550,7 @@ const deserializeAws_restJson1LexiconNameList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1562,7 +1564,7 @@ const deserializeAws_restJson1SpeechMarkTypeList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1572,30 +1574,26 @@ const deserializeAws_restJson1SynthesisTask = (output: any, context: __SerdeCont
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Engine: output.Engine !== undefined && output.Engine !== null ? output.Engine : undefined,
-    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
+    Engine: __expectString(output.Engine),
+    LanguageCode: __expectString(output.LanguageCode),
     LexiconNames:
       output.LexiconNames !== undefined && output.LexiconNames !== null
         ? deserializeAws_restJson1LexiconNameList(output.LexiconNames, context)
         : undefined,
-    OutputFormat: output.OutputFormat !== undefined && output.OutputFormat !== null ? output.OutputFormat : undefined,
-    OutputUri: output.OutputUri !== undefined && output.OutputUri !== null ? output.OutputUri : undefined,
-    RequestCharacters:
-      output.RequestCharacters !== undefined && output.RequestCharacters !== null
-        ? output.RequestCharacters
-        : undefined,
-    SampleRate: output.SampleRate !== undefined && output.SampleRate !== null ? output.SampleRate : undefined,
-    SnsTopicArn: output.SnsTopicArn !== undefined && output.SnsTopicArn !== null ? output.SnsTopicArn : undefined,
+    OutputFormat: __expectString(output.OutputFormat),
+    OutputUri: __expectString(output.OutputUri),
+    RequestCharacters: __expectNumber(output.RequestCharacters),
+    SampleRate: __expectString(output.SampleRate),
+    SnsTopicArn: __expectString(output.SnsTopicArn),
     SpeechMarkTypes:
       output.SpeechMarkTypes !== undefined && output.SpeechMarkTypes !== null
         ? deserializeAws_restJson1SpeechMarkTypeList(output.SpeechMarkTypes, context)
         : undefined,
-    TaskId: output.TaskId !== undefined && output.TaskId !== null ? output.TaskId : undefined,
-    TaskStatus: output.TaskStatus !== undefined && output.TaskStatus !== null ? output.TaskStatus : undefined,
-    TaskStatusReason:
-      output.TaskStatusReason !== undefined && output.TaskStatusReason !== null ? output.TaskStatusReason : undefined,
-    TextType: output.TextType !== undefined && output.TextType !== null ? output.TextType : undefined,
-    VoiceId: output.VoiceId !== undefined && output.VoiceId !== null ? output.VoiceId : undefined,
+    TaskId: __expectString(output.TaskId),
+    TaskStatus: __expectString(output.TaskStatus),
+    TaskStatusReason: __expectString(output.TaskStatusReason),
+    TextType: __expectString(output.TextType),
+    VoiceId: __expectString(output.VoiceId),
   } as any;
 };
 
@@ -1616,11 +1614,11 @@ const deserializeAws_restJson1Voice = (output: any, context: __SerdeContext): Vo
       output.AdditionalLanguageCodes !== undefined && output.AdditionalLanguageCodes !== null
         ? deserializeAws_restJson1LanguageCodeList(output.AdditionalLanguageCodes, context)
         : undefined,
-    Gender: output.Gender !== undefined && output.Gender !== null ? output.Gender : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
-    LanguageName: output.LanguageName !== undefined && output.LanguageName !== null ? output.LanguageName : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Gender: __expectString(output.Gender),
+    Id: __expectString(output.Id),
+    LanguageCode: __expectString(output.LanguageCode),
+    LanguageName: __expectString(output.LanguageName),
+    Name: __expectString(output.Name),
     SupportedEngines:
       output.SupportedEngines !== undefined && output.SupportedEngines !== null
         ? deserializeAws_restJson1EngineList(output.SupportedEngines, context)

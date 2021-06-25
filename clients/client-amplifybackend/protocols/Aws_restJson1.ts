@@ -76,6 +76,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1057,22 +1060,22 @@ export const deserializeAws_restJson1CloneBackendCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.operation !== undefined && data.operation !== null) {
-    contents.Operation = data.operation;
+    contents.Operation = __expectString(data.operation);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -1156,22 +1159,22 @@ export const deserializeAws_restJson1CreateBackendCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.operation !== undefined && data.operation !== null) {
-    contents.Operation = data.operation;
+    contents.Operation = __expectString(data.operation);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -1255,22 +1258,22 @@ export const deserializeAws_restJson1CreateBackendAPICommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.operation !== undefined && data.operation !== null) {
-    contents.Operation = data.operation;
+    contents.Operation = __expectString(data.operation);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -1354,22 +1357,22 @@ export const deserializeAws_restJson1CreateBackendAuthCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.operation !== undefined && data.operation !== null) {
-    contents.Operation = data.operation;
+    contents.Operation = __expectString(data.operation);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -1451,16 +1454,16 @@ export const deserializeAws_restJson1CreateBackendConfigCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -1542,16 +1545,16 @@ export const deserializeAws_restJson1CreateTokenCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.challengeCode !== undefined && data.challengeCode !== null) {
-    contents.ChallengeCode = data.challengeCode;
+    contents.ChallengeCode = __expectString(data.challengeCode);
   }
   if (data.sessionId !== undefined && data.sessionId !== null) {
-    contents.SessionId = data.sessionId;
+    contents.SessionId = __expectString(data.sessionId);
   }
   if (data.ttl !== undefined && data.ttl !== null) {
-    contents.Ttl = data.ttl;
+    contents.Ttl = __expectString(data.ttl);
   }
   return Promise.resolve(contents);
 };
@@ -1635,22 +1638,22 @@ export const deserializeAws_restJson1DeleteBackendCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.operation !== undefined && data.operation !== null) {
-    contents.Operation = data.operation;
+    contents.Operation = __expectString(data.operation);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -1734,22 +1737,22 @@ export const deserializeAws_restJson1DeleteBackendAPICommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.operation !== undefined && data.operation !== null) {
-    contents.Operation = data.operation;
+    contents.Operation = __expectString(data.operation);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -1833,22 +1836,22 @@ export const deserializeAws_restJson1DeleteBackendAuthCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.operation !== undefined && data.operation !== null) {
-    contents.Operation = data.operation;
+    contents.Operation = __expectString(data.operation);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -1927,7 +1930,7 @@ export const deserializeAws_restJson1DeleteTokenCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.isSuccess !== undefined && data.isSuccess !== null) {
-    contents.IsSuccess = data.isSuccess;
+    contents.IsSuccess = __expectBoolean(data.isSuccess);
   }
   return Promise.resolve(contents);
 };
@@ -2011,22 +2014,22 @@ export const deserializeAws_restJson1GenerateBackendAPIModelsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.operation !== undefined && data.operation !== null) {
-    contents.Operation = data.operation;
+    contents.Operation = __expectString(data.operation);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -2110,22 +2113,22 @@ export const deserializeAws_restJson1GetBackendCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.amplifyMetaConfig !== undefined && data.amplifyMetaConfig !== null) {
-    contents.AmplifyMetaConfig = data.amplifyMetaConfig;
+    contents.AmplifyMetaConfig = __expectString(data.amplifyMetaConfig);
   }
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.appName !== undefined && data.appName !== null) {
-    contents.AppName = data.appName;
+    contents.AppName = __expectString(data.appName);
   }
   if (data.backendEnvironmentList !== undefined && data.backendEnvironmentList !== null) {
     contents.BackendEnvironmentList = deserializeAws_restJson1ListOf__string(data.backendEnvironmentList, context);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   return Promise.resolve(contents);
 };
@@ -2208,19 +2211,19 @@ export const deserializeAws_restJson1GetBackendAPICommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.resourceConfig !== undefined && data.resourceConfig !== null) {
     contents.ResourceConfig = deserializeAws_restJson1BackendAPIResourceConfig(data.resourceConfig, context);
   }
   if (data.resourceName !== undefined && data.resourceName !== null) {
-    contents.ResourceName = data.resourceName;
+    contents.ResourceName = __expectString(data.resourceName);
   }
   return Promise.resolve(contents);
 };
@@ -2300,10 +2303,10 @@ export const deserializeAws_restJson1GetBackendAPIModelsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.models !== undefined && data.models !== null) {
-    contents.Models = data.models;
+    contents.Models = __expectString(data.models);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -2386,19 +2389,19 @@ export const deserializeAws_restJson1GetBackendAuthCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.resourceConfig !== undefined && data.resourceConfig !== null) {
     contents.ResourceConfig = deserializeAws_restJson1CreateBackendAuthResourceConfig(data.resourceConfig, context);
   }
   if (data.resourceName !== undefined && data.resourceName !== null) {
-    contents.ResourceName = data.resourceName;
+    contents.ResourceName = __expectString(data.resourceName);
   }
   return Promise.resolve(contents);
 };
@@ -2484,28 +2487,28 @@ export const deserializeAws_restJson1GetBackendJobCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.createTime !== undefined && data.createTime !== null) {
-    contents.CreateTime = data.createTime;
+    contents.CreateTime = __expectString(data.createTime);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.operation !== undefined && data.operation !== null) {
-    contents.Operation = data.operation;
+    contents.Operation = __expectString(data.operation);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   if (data.updateTime !== undefined && data.updateTime !== null) {
-    contents.UpdateTime = data.updateTime;
+    contents.UpdateTime = __expectString(data.updateTime);
   }
   return Promise.resolve(contents);
 };
@@ -2587,16 +2590,16 @@ export const deserializeAws_restJson1GetTokenCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.challengeCode !== undefined && data.challengeCode !== null) {
-    contents.ChallengeCode = data.challengeCode;
+    contents.ChallengeCode = __expectString(data.challengeCode);
   }
   if (data.sessionId !== undefined && data.sessionId !== null) {
-    contents.SessionId = data.sessionId;
+    contents.SessionId = __expectString(data.sessionId);
   }
   if (data.ttl !== undefined && data.ttl !== null) {
-    contents.Ttl = data.ttl;
+    contents.Ttl = __expectString(data.ttl);
   }
   return Promise.resolve(contents);
 };
@@ -2679,7 +2682,7 @@ export const deserializeAws_restJson1ListBackendJobsCommand = async (
     contents.Jobs = deserializeAws_restJson1ListOfBackendJobRespObj(data.jobs, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2762,19 +2765,19 @@ export const deserializeAws_restJson1RemoveAllBackendsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.operation !== undefined && data.operation !== null) {
-    contents.Operation = data.operation;
+    contents.Operation = __expectString(data.operation);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -2853,7 +2856,7 @@ export const deserializeAws_restJson1RemoveBackendConfigCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   return Promise.resolve(contents);
 };
@@ -2937,22 +2940,22 @@ export const deserializeAws_restJson1UpdateBackendAPICommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.operation !== undefined && data.operation !== null) {
-    contents.Operation = data.operation;
+    contents.Operation = __expectString(data.operation);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -3036,22 +3039,22 @@ export const deserializeAws_restJson1UpdateBackendAuthCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.operation !== undefined && data.operation !== null) {
-    contents.Operation = data.operation;
+    contents.Operation = __expectString(data.operation);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   return Promise.resolve(contents);
 };
@@ -3133,13 +3136,13 @@ export const deserializeAws_restJson1UpdateBackendConfigCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendManagerAppId !== undefined && data.backendManagerAppId !== null) {
-    contents.BackendManagerAppId = data.backendManagerAppId;
+    contents.BackendManagerAppId = __expectString(data.backendManagerAppId);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.loginAuthConfig !== undefined && data.loginAuthConfig !== null) {
     contents.LoginAuthConfig = deserializeAws_restJson1LoginAuthConfigReqObj(data.loginAuthConfig, context);
@@ -3228,28 +3231,28 @@ export const deserializeAws_restJson1UpdateBackendJobCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.appId !== undefined && data.appId !== null) {
-    contents.AppId = data.appId;
+    contents.AppId = __expectString(data.appId);
   }
   if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
-    contents.BackendEnvironmentName = data.backendEnvironmentName;
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
   }
   if (data.createTime !== undefined && data.createTime !== null) {
-    contents.CreateTime = data.createTime;
+    contents.CreateTime = __expectString(data.createTime);
   }
   if (data.error !== undefined && data.error !== null) {
-    contents.Error = data.error;
+    contents.Error = __expectString(data.error);
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.JobId = data.jobId;
+    contents.JobId = __expectString(data.jobId);
   }
   if (data.operation !== undefined && data.operation !== null) {
-    contents.Operation = data.operation;
+    contents.Operation = __expectString(data.operation);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.Status = data.status;
+    contents.Status = __expectString(data.status);
   }
   if (data.updateTime !== undefined && data.updateTime !== null) {
-    contents.UpdateTime = data.updateTime;
+    contents.UpdateTime = __expectString(data.updateTime);
   }
   return Promise.resolve(contents);
 };
@@ -3327,7 +3330,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -3344,7 +3347,7 @@ const deserializeAws_restJson1GatewayTimeoutExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -3362,10 +3365,10 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.ResourceType = data.resourceType;
+    contents.ResourceType = __expectString(data.resourceType);
   }
   return contents;
 };
@@ -3383,10 +3386,10 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.limitType !== undefined && data.limitType !== null) {
-    contents.LimitType = data.limitType;
+    contents.LimitType = __expectString(data.limitType);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -3857,30 +3860,20 @@ const deserializeAws_restJson1BackendAPIAppSyncAuthSettings = (
   context: __SerdeContext
 ): BackendAPIAppSyncAuthSettings => {
   return {
-    CognitoUserPoolId:
-      output.cognitoUserPoolId !== undefined && output.cognitoUserPoolId !== null
-        ? output.cognitoUserPoolId
-        : undefined,
-    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    ExpirationTime:
-      output.expirationTime !== undefined && output.expirationTime !== null ? output.expirationTime : undefined,
-    OpenIDAuthTTL:
-      output.openIDAuthTTL !== undefined && output.openIDAuthTTL !== null ? output.openIDAuthTTL : undefined,
-    OpenIDClientId:
-      output.openIDClientId !== undefined && output.openIDClientId !== null ? output.openIDClientId : undefined,
-    OpenIDIatTTL: output.openIDIatTTL !== undefined && output.openIDIatTTL !== null ? output.openIDIatTTL : undefined,
-    OpenIDIssueURL:
-      output.openIDIssueURL !== undefined && output.openIDIssueURL !== null ? output.openIDIssueURL : undefined,
-    OpenIDProviderName:
-      output.openIDProviderName !== undefined && output.openIDProviderName !== null
-        ? output.openIDProviderName
-        : undefined,
+    CognitoUserPoolId: __expectString(output.cognitoUserPoolId),
+    Description: __expectString(output.description),
+    ExpirationTime: __expectNumber(output.expirationTime),
+    OpenIDAuthTTL: __expectString(output.openIDAuthTTL),
+    OpenIDClientId: __expectString(output.openIDClientId),
+    OpenIDIatTTL: __expectString(output.openIDIatTTL),
+    OpenIDIssueURL: __expectString(output.openIDIssueURL),
+    OpenIDProviderName: __expectString(output.openIDProviderName),
   } as any;
 };
 
 const deserializeAws_restJson1BackendAPIAuthType = (output: any, context: __SerdeContext): BackendAPIAuthType => {
   return {
-    Mode: output.mode !== undefined && output.mode !== null ? output.mode : undefined,
+    Mode: __expectString(output.mode),
     Settings:
       output.settings !== undefined && output.settings !== null
         ? deserializeAws_restJson1BackendAPIAppSyncAuthSettings(output.settings, context)
@@ -3893,10 +3886,7 @@ const deserializeAws_restJson1BackendAPIConflictResolution = (
   context: __SerdeContext
 ): BackendAPIConflictResolution => {
   return {
-    ResolutionStrategy:
-      output.resolutionStrategy !== undefined && output.resolutionStrategy !== null
-        ? output.resolutionStrategy
-        : undefined,
+    ResolutionStrategy: __expectString(output.resolutionStrategy),
   } as any;
 };
 
@@ -3909,7 +3899,7 @@ const deserializeAws_restJson1BackendAPIResourceConfig = (
       output.additionalAuthTypes !== undefined && output.additionalAuthTypes !== null
         ? deserializeAws_restJson1ListOfBackendAPIAuthType(output.additionalAuthTypes, context)
         : undefined,
-    ApiName: output.apiName !== undefined && output.apiName !== null ? output.apiName : undefined,
+    ApiName: __expectString(output.apiName),
     ConflictResolution:
       output.conflictResolution !== undefined && output.conflictResolution !== null
         ? deserializeAws_restJson1BackendAPIConflictResolution(output.conflictResolution, context)
@@ -3918,9 +3908,8 @@ const deserializeAws_restJson1BackendAPIResourceConfig = (
       output.defaultAuthType !== undefined && output.defaultAuthType !== null
         ? deserializeAws_restJson1BackendAPIAuthType(output.defaultAuthType, context)
         : undefined,
-    Service: output.service !== undefined && output.service !== null ? output.service : undefined,
-    TransformSchema:
-      output.transformSchema !== undefined && output.transformSchema !== null ? output.transformSchema : undefined,
+    Service: __expectString(output.service),
+    TransformSchema: __expectString(output.transformSchema),
   } as any;
 };
 
@@ -3929,25 +3918,21 @@ const deserializeAws_restJson1BackendAuthSocialProviderConfig = (
   context: __SerdeContext
 ): BackendAuthSocialProviderConfig => {
   return {
-    ClientId: output.client_id !== undefined && output.client_id !== null ? output.client_id : undefined,
-    ClientSecret:
-      output.client_secret !== undefined && output.client_secret !== null ? output.client_secret : undefined,
+    ClientId: __expectString(output.client_id),
+    ClientSecret: __expectString(output.client_secret),
   } as any;
 };
 
 const deserializeAws_restJson1BackendJobRespObj = (output: any, context: __SerdeContext): BackendJobRespObj => {
   return {
-    AppId: output.appId !== undefined && output.appId !== null ? output.appId : undefined,
-    BackendEnvironmentName:
-      output.backendEnvironmentName !== undefined && output.backendEnvironmentName !== null
-        ? output.backendEnvironmentName
-        : undefined,
-    CreateTime: output.createTime !== undefined && output.createTime !== null ? output.createTime : undefined,
-    Error: output.error !== undefined && output.error !== null ? output.error : undefined,
-    JobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
-    Operation: output.operation !== undefined && output.operation !== null ? output.operation : undefined,
-    Status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    UpdateTime: output.updateTime !== undefined && output.updateTime !== null ? output.updateTime : undefined,
+    AppId: __expectString(output.appId),
+    BackendEnvironmentName: __expectString(output.backendEnvironmentName),
+    CreateTime: __expectString(output.createTime),
+    Error: __expectString(output.error),
+    JobId: __expectString(output.jobId),
+    Operation: __expectString(output.operation),
+    Status: __expectString(output.status),
+    UpdateTime: __expectString(output.updateTime),
   } as any;
 };
 
@@ -3956,8 +3941,7 @@ const deserializeAws_restJson1CreateBackendAuthForgotPasswordConfig = (
   context: __SerdeContext
 ): CreateBackendAuthForgotPasswordConfig => {
   return {
-    DeliveryMethod:
-      output.deliveryMethod !== undefined && output.deliveryMethod !== null ? output.deliveryMethod : undefined,
+    DeliveryMethod: __expectString(output.deliveryMethod),
     EmailSettings:
       output.emailSettings !== undefined && output.emailSettings !== null
         ? deserializeAws_restJson1EmailSettings(output.emailSettings, context)
@@ -3974,12 +3958,8 @@ const deserializeAws_restJson1CreateBackendAuthIdentityPoolConfig = (
   context: __SerdeContext
 ): CreateBackendAuthIdentityPoolConfig => {
   return {
-    IdentityPoolName:
-      output.identityPoolName !== undefined && output.identityPoolName !== null ? output.identityPoolName : undefined,
-    UnauthenticatedLogin:
-      output.unauthenticatedLogin !== undefined && output.unauthenticatedLogin !== null
-        ? output.unauthenticatedLogin
-        : undefined,
+    IdentityPoolName: __expectString(output.identityPoolName),
+    UnauthenticatedLogin: __expectBoolean(output.unauthenticatedLogin),
   } as any;
 };
 
@@ -3988,7 +3968,7 @@ const deserializeAws_restJson1CreateBackendAuthMFAConfig = (
   context: __SerdeContext
 ): CreateBackendAuthMFAConfig => {
   return {
-    MFAMode: output.MFAMode !== undefined && output.MFAMode !== null ? output.MFAMode : undefined,
+    MFAMode: __expectString(output.MFAMode),
     Settings:
       output.settings !== undefined && output.settings !== null
         ? deserializeAws_restJson1Settings(output.settings, context)
@@ -4001,9 +3981,8 @@ const deserializeAws_restJson1CreateBackendAuthOAuthConfig = (
   context: __SerdeContext
 ): CreateBackendAuthOAuthConfig => {
   return {
-    DomainPrefix: output.domainPrefix !== undefined && output.domainPrefix !== null ? output.domainPrefix : undefined,
-    OAuthGrantType:
-      output.oAuthGrantType !== undefined && output.oAuthGrantType !== null ? output.oAuthGrantType : undefined,
+    DomainPrefix: __expectString(output.domainPrefix),
+    OAuthGrantType: __expectString(output.oAuthGrantType),
     OAuthScopes:
       output.oAuthScopes !== undefined && output.oAuthScopes !== null
         ? deserializeAws_restJson1ListOfOAuthScopesElement(output.oAuthScopes, context)
@@ -4032,8 +4011,7 @@ const deserializeAws_restJson1CreateBackendAuthPasswordPolicyConfig = (
       output.additionalConstraints !== undefined && output.additionalConstraints !== null
         ? deserializeAws_restJson1ListOfAdditionalConstraintsElement(output.additionalConstraints, context)
         : undefined,
-    MinimumLength:
-      output.minimumLength !== undefined && output.minimumLength !== null ? output.minimumLength : undefined,
+    MinimumLength: __expectNumber(output.minimumLength),
   } as any;
 };
 
@@ -4042,13 +4020,12 @@ const deserializeAws_restJson1CreateBackendAuthResourceConfig = (
   context: __SerdeContext
 ): CreateBackendAuthResourceConfig => {
   return {
-    AuthResources:
-      output.authResources !== undefined && output.authResources !== null ? output.authResources : undefined,
+    AuthResources: __expectString(output.authResources),
     IdentityPoolConfigs:
       output.identityPoolConfigs !== undefined && output.identityPoolConfigs !== null
         ? deserializeAws_restJson1CreateBackendAuthIdentityPoolConfig(output.identityPoolConfigs, context)
         : undefined,
-    Service: output.service !== undefined && output.service !== null ? output.service : undefined,
+    Service: __expectString(output.service),
     UserPoolConfigs:
       output.userPoolConfigs !== undefined && output.userPoolConfigs !== null
         ? deserializeAws_restJson1CreateBackendAuthUserPoolConfig(output.userPoolConfigs, context)
@@ -4081,15 +4058,15 @@ const deserializeAws_restJson1CreateBackendAuthUserPoolConfig = (
       output.requiredSignUpAttributes !== undefined && output.requiredSignUpAttributes !== null
         ? deserializeAws_restJson1ListOfRequiredSignUpAttributesElement(output.requiredSignUpAttributes, context)
         : undefined,
-    SignInMethod: output.signInMethod !== undefined && output.signInMethod !== null ? output.signInMethod : undefined,
-    UserPoolName: output.userPoolName !== undefined && output.userPoolName !== null ? output.userPoolName : undefined,
+    SignInMethod: __expectString(output.signInMethod),
+    UserPoolName: __expectString(output.userPoolName),
   } as any;
 };
 
 const deserializeAws_restJson1EmailSettings = (output: any, context: __SerdeContext): EmailSettings => {
   return {
-    EmailMessage: output.emailMessage !== undefined && output.emailMessage !== null ? output.emailMessage : undefined,
-    EmailSubject: output.emailSubject !== undefined && output.emailSubject !== null ? output.emailSubject : undefined,
+    EmailMessage: __expectString(output.emailMessage),
+    EmailSubject: __expectString(output.emailSubject),
   } as any;
 };
 
@@ -4100,7 +4077,7 @@ const deserializeAws_restJson1ListOf__string = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4114,7 +4091,7 @@ const deserializeAws_restJson1ListOfAdditionalConstraintsElement = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4153,7 +4130,7 @@ const deserializeAws_restJson1ListOfMfaTypesElement = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4167,7 +4144,7 @@ const deserializeAws_restJson1ListOfOAuthScopesElement = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4181,28 +4158,16 @@ const deserializeAws_restJson1ListOfRequiredSignUpAttributesElement = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1LoginAuthConfigReqObj = (output: any, context: __SerdeContext): LoginAuthConfigReqObj => {
   return {
-    AwsCognitoIdentityPoolId:
-      output.aws_cognito_identity_pool_id !== undefined && output.aws_cognito_identity_pool_id !== null
-        ? output.aws_cognito_identity_pool_id
-        : undefined,
-    AwsCognitoRegion:
-      output.aws_cognito_region !== undefined && output.aws_cognito_region !== null
-        ? output.aws_cognito_region
-        : undefined,
-    AwsUserPoolsId:
-      output.aws_user_pools_id !== undefined && output.aws_user_pools_id !== null
-        ? output.aws_user_pools_id
-        : undefined,
-    AwsUserPoolsWebClientId:
-      output.aws_user_pools_web_client_id !== undefined && output.aws_user_pools_web_client_id !== null
-        ? output.aws_user_pools_web_client_id
-        : undefined,
+    AwsCognitoIdentityPoolId: __expectString(output.aws_cognito_identity_pool_id),
+    AwsCognitoRegion: __expectString(output.aws_cognito_region),
+    AwsUserPoolsId: __expectString(output.aws_user_pools_id),
+    AwsUserPoolsWebClientId: __expectString(output.aws_user_pools_web_client_id),
   } as any;
 };
 
@@ -4212,13 +4177,13 @@ const deserializeAws_restJson1Settings = (output: any, context: __SerdeContext):
       output.mfaTypes !== undefined && output.mfaTypes !== null
         ? deserializeAws_restJson1ListOfMfaTypesElement(output.mfaTypes, context)
         : undefined,
-    SmsMessage: output.smsMessage !== undefined && output.smsMessage !== null ? output.smsMessage : undefined,
+    SmsMessage: __expectString(output.smsMessage),
   } as any;
 };
 
 const deserializeAws_restJson1SmsSettings = (output: any, context: __SerdeContext): SmsSettings => {
   return {
-    SmsMessage: output.smsMessage !== undefined && output.smsMessage !== null ? output.smsMessage : undefined,
+    SmsMessage: __expectString(output.smsMessage),
   } as any;
 };
 

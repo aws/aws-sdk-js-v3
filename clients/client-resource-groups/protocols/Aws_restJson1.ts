@@ -47,6 +47,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1004,7 +1005,7 @@ export const deserializeAws_restJson1GetTagsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
@@ -1208,7 +1209,7 @@ export const deserializeAws_restJson1ListGroupResourcesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.QueryErrors !== undefined && data.QueryErrors !== null) {
     contents.QueryErrors = deserializeAws_restJson1QueryErrorList(data.QueryErrors, context);
@@ -1328,7 +1329,7 @@ export const deserializeAws_restJson1ListGroupsCommand = async (
     contents.Groups = deserializeAws_restJson1GroupList(data.Groups, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1508,7 +1509,7 @@ export const deserializeAws_restJson1SearchResourcesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.QueryErrors !== undefined && data.QueryErrors !== null) {
     contents.QueryErrors = deserializeAws_restJson1QueryErrorList(data.QueryErrors, context);
@@ -1610,7 +1611,7 @@ export const deserializeAws_restJson1TagCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
@@ -1812,7 +1813,7 @@ export const deserializeAws_restJson1UntagCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Keys !== undefined && data.Keys !== null) {
     contents.Keys = deserializeAws_restJson1TagKeyList(data.Keys, context);
@@ -2099,7 +2100,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -2116,7 +2117,7 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -2133,7 +2134,7 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -2150,7 +2151,7 @@ const deserializeAws_restJson1MethodNotAllowedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -2167,7 +2168,7 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -2184,7 +2185,7 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -2201,7 +2202,7 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -2369,9 +2370,9 @@ const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: _
 
 const deserializeAws_restJson1FailedResource = (output: any, context: __SerdeContext): FailedResource => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    ResourceArn: __expectString(output.ResourceArn),
   } as any;
 };
 
@@ -2388,9 +2389,9 @@ const deserializeAws_restJson1FailedResourceList = (output: any, context: __Serd
 
 const deserializeAws_restJson1Group = (output: any, context: __SerdeContext): Group => {
   return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    GroupArn: output.GroupArn !== undefined && output.GroupArn !== null ? output.GroupArn : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Description: __expectString(output.Description),
+    GroupArn: __expectString(output.GroupArn),
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -2400,13 +2401,12 @@ const deserializeAws_restJson1GroupConfiguration = (output: any, context: __Serd
       output.Configuration !== undefined && output.Configuration !== null
         ? deserializeAws_restJson1GroupConfigurationList(output.Configuration, context)
         : undefined,
-    FailureReason:
-      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    FailureReason: __expectString(output.FailureReason),
     ProposedConfiguration:
       output.ProposedConfiguration !== undefined && output.ProposedConfiguration !== null
         ? deserializeAws_restJson1GroupConfigurationList(output.ProposedConfiguration, context)
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -2419,7 +2419,7 @@ const deserializeAws_restJson1GroupConfigurationItem = (
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_restJson1GroupParameterList(output.Parameters, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -2442,7 +2442,7 @@ const deserializeAws_restJson1GroupConfigurationParameter = (
   context: __SerdeContext
 ): GroupConfigurationParameter => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
     Values:
       output.Values !== undefined && output.Values !== null
         ? deserializeAws_restJson1GroupConfigurationParameterValueList(output.Values, context)
@@ -2460,14 +2460,14 @@ const deserializeAws_restJson1GroupConfigurationParameterValueList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1GroupIdentifier = (output: any, context: __SerdeContext): GroupIdentifier => {
   return {
-    GroupArn: output.GroupArn !== undefined && output.GroupArn !== null ? output.GroupArn : undefined,
-    GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
+    GroupArn: __expectString(output.GroupArn),
+    GroupName: __expectString(output.GroupName),
   } as any;
 };
 
@@ -2509,7 +2509,7 @@ const deserializeAws_restJson1GroupParameterList = (
 
 const deserializeAws_restJson1GroupQuery = (output: any, context: __SerdeContext): GroupQuery => {
   return {
-    GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
+    GroupName: __expectString(output.GroupName),
     ResourceQuery:
       output.ResourceQuery !== undefined && output.ResourceQuery !== null
         ? deserializeAws_restJson1ResourceQuery(output.ResourceQuery, context)
@@ -2549,7 +2549,7 @@ const deserializeAws_restJson1ListGroupResourcesItemList = (
 
 const deserializeAws_restJson1PendingResource = (output: any, context: __SerdeContext): PendingResource => {
   return {
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
+    ResourceArn: __expectString(output.ResourceArn),
   } as any;
 };
 
@@ -2566,8 +2566,8 @@ const deserializeAws_restJson1PendingResourceList = (output: any, context: __Ser
 
 const deserializeAws_restJson1QueryError = (output: any, context: __SerdeContext): QueryError => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2589,14 +2589,14 @@ const deserializeAws_restJson1ResourceArnList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1ResourceIdentifier = (output: any, context: __SerdeContext): ResourceIdentifier => {
   return {
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    ResourceArn: __expectString(output.ResourceArn),
+    ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
@@ -2613,14 +2613,14 @@ const deserializeAws_restJson1ResourceIdentifierList = (output: any, context: __
 
 const deserializeAws_restJson1ResourceQuery = (output: any, context: __SerdeContext): ResourceQuery => {
   return {
-    Query: output.Query !== undefined && output.Query !== null ? output.Query : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Query: __expectString(output.Query),
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_restJson1ResourceStatus = (output: any, context: __SerdeContext): ResourceStatus => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -2631,7 +2631,7 @@ const deserializeAws_restJson1TagKeyList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2642,7 +2642,7 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

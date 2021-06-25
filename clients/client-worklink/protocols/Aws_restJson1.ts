@@ -107,6 +107,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1087,7 +1089,7 @@ export const deserializeAws_restJson1AssociateWebsiteAuthorizationProviderComman
   };
   const data: any = await parseBody(output.body, context);
   if (data.AuthorizationProviderId !== undefined && data.AuthorizationProviderId !== null) {
-    contents.AuthorizationProviderId = data.AuthorizationProviderId;
+    contents.AuthorizationProviderId = __expectString(data.AuthorizationProviderId);
   }
   return Promise.resolve(contents);
 };
@@ -1182,7 +1184,7 @@ export const deserializeAws_restJson1AssociateWebsiteCertificateAuthorityCommand
   };
   const data: any = await parseBody(output.body, context);
   if (data.WebsiteCaId !== undefined && data.WebsiteCaId !== null) {
-    contents.WebsiteCaId = data.WebsiteCaId;
+    contents.WebsiteCaId = __expectString(data.WebsiteCaId);
   }
   return Promise.resolve(contents);
 };
@@ -1277,7 +1279,7 @@ export const deserializeAws_restJson1CreateFleetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.FleetArn !== undefined && data.FleetArn !== null) {
-    contents.FleetArn = data.FleetArn;
+    contents.FleetArn = __expectString(data.FleetArn);
   }
   return Promise.resolve(contents);
 };
@@ -1455,7 +1457,7 @@ export const deserializeAws_restJson1DescribeAuditStreamConfigurationCommand = a
   };
   const data: any = await parseBody(output.body, context);
   if (data.AuditStreamArn !== undefined && data.AuditStreamArn !== null) {
-    contents.AuditStreamArn = data.AuditStreamArn;
+    contents.AuditStreamArn = __expectString(data.AuditStreamArn);
   }
   return Promise.resolve(contents);
 };
@@ -1550,7 +1552,7 @@ export const deserializeAws_restJson1DescribeCompanyNetworkConfigurationCommand 
     contents.SubnetIds = deserializeAws_restJson1SubnetIds(data.SubnetIds, context);
   }
   if (data.VpcId !== undefined && data.VpcId !== null) {
-    contents.VpcId = data.VpcId;
+    contents.VpcId = __expectString(data.VpcId);
   }
   return Promise.resolve(contents);
 };
@@ -1651,25 +1653,25 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
     contents.LastAccessedTime = new Date(Math.round(data.LastAccessedTime * 1000));
   }
   if (data.Manufacturer !== undefined && data.Manufacturer !== null) {
-    contents.Manufacturer = data.Manufacturer;
+    contents.Manufacturer = __expectString(data.Manufacturer);
   }
   if (data.Model !== undefined && data.Model !== null) {
-    contents.Model = data.Model;
+    contents.Model = __expectString(data.Model);
   }
   if (data.OperatingSystem !== undefined && data.OperatingSystem !== null) {
-    contents.OperatingSystem = data.OperatingSystem;
+    contents.OperatingSystem = __expectString(data.OperatingSystem);
   }
   if (data.OperatingSystemVersion !== undefined && data.OperatingSystemVersion !== null) {
-    contents.OperatingSystemVersion = data.OperatingSystemVersion;
+    contents.OperatingSystemVersion = __expectString(data.OperatingSystemVersion);
   }
   if (data.PatchLevel !== undefined && data.PatchLevel !== null) {
-    contents.PatchLevel = data.PatchLevel;
+    contents.PatchLevel = __expectString(data.PatchLevel);
   }
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = data.Status;
+    contents.Status = __expectString(data.Status);
   }
   if (data.Username !== undefined && data.Username !== null) {
-    contents.Username = data.Username;
+    contents.Username = __expectString(data.Username);
   }
   return Promise.resolve(contents);
 };
@@ -1756,7 +1758,7 @@ export const deserializeAws_restJson1DescribeDevicePolicyConfigurationCommand = 
   };
   const data: any = await parseBody(output.body, context);
   if (data.DeviceCaCertificate !== undefined && data.DeviceCaCertificate !== null) {
-    contents.DeviceCaCertificate = data.DeviceCaCertificate;
+    contents.DeviceCaCertificate = __expectString(data.DeviceCaCertificate);
   }
   return Promise.resolve(contents);
 };
@@ -1847,19 +1849,19 @@ export const deserializeAws_restJson1DescribeDomainCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AcmCertificateArn !== undefined && data.AcmCertificateArn !== null) {
-    contents.AcmCertificateArn = data.AcmCertificateArn;
+    contents.AcmCertificateArn = __expectString(data.AcmCertificateArn);
   }
   if (data.CreatedTime !== undefined && data.CreatedTime !== null) {
     contents.CreatedTime = new Date(Math.round(data.CreatedTime * 1000));
   }
   if (data.DisplayName !== undefined && data.DisplayName !== null) {
-    contents.DisplayName = data.DisplayName;
+    contents.DisplayName = __expectString(data.DisplayName);
   }
   if (data.DomainName !== undefined && data.DomainName !== null) {
-    contents.DomainName = data.DomainName;
+    contents.DomainName = __expectString(data.DomainName);
   }
   if (data.DomainStatus !== undefined && data.DomainStatus !== null) {
-    contents.DomainStatus = data.DomainStatus;
+    contents.DomainStatus = __expectString(data.DomainStatus);
   }
   return Promise.resolve(contents);
 };
@@ -1953,25 +1955,25 @@ export const deserializeAws_restJson1DescribeFleetMetadataCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.CompanyCode !== undefined && data.CompanyCode !== null) {
-    contents.CompanyCode = data.CompanyCode;
+    contents.CompanyCode = __expectString(data.CompanyCode);
   }
   if (data.CreatedTime !== undefined && data.CreatedTime !== null) {
     contents.CreatedTime = new Date(Math.round(data.CreatedTime * 1000));
   }
   if (data.DisplayName !== undefined && data.DisplayName !== null) {
-    contents.DisplayName = data.DisplayName;
+    contents.DisplayName = __expectString(data.DisplayName);
   }
   if (data.FleetName !== undefined && data.FleetName !== null) {
-    contents.FleetName = data.FleetName;
+    contents.FleetName = __expectString(data.FleetName);
   }
   if (data.FleetStatus !== undefined && data.FleetStatus !== null) {
-    contents.FleetStatus = data.FleetStatus;
+    contents.FleetStatus = __expectString(data.FleetStatus);
   }
   if (data.LastUpdatedTime !== undefined && data.LastUpdatedTime !== null) {
     contents.LastUpdatedTime = new Date(Math.round(data.LastUpdatedTime * 1000));
   }
   if (data.OptimizeForEndUserLocation !== undefined && data.OptimizeForEndUserLocation !== null) {
-    contents.OptimizeForEndUserLocation = data.OptimizeForEndUserLocation;
+    contents.OptimizeForEndUserLocation = __expectBoolean(data.OptimizeForEndUserLocation);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
@@ -2063,13 +2065,13 @@ export const deserializeAws_restJson1DescribeIdentityProviderConfigurationComman
   };
   const data: any = await parseBody(output.body, context);
   if (data.IdentityProviderSamlMetadata !== undefined && data.IdentityProviderSamlMetadata !== null) {
-    contents.IdentityProviderSamlMetadata = data.IdentityProviderSamlMetadata;
+    contents.IdentityProviderSamlMetadata = __expectString(data.IdentityProviderSamlMetadata);
   }
   if (data.IdentityProviderType !== undefined && data.IdentityProviderType !== null) {
-    contents.IdentityProviderType = data.IdentityProviderType;
+    contents.IdentityProviderType = __expectString(data.IdentityProviderType);
   }
   if (data.ServiceProviderSamlMetadata !== undefined && data.ServiceProviderSamlMetadata !== null) {
-    contents.ServiceProviderSamlMetadata = data.ServiceProviderSamlMetadata;
+    contents.ServiceProviderSamlMetadata = __expectString(data.ServiceProviderSamlMetadata);
   }
   return Promise.resolve(contents);
 };
@@ -2158,13 +2160,13 @@ export const deserializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand 
   };
   const data: any = await parseBody(output.body, context);
   if (data.Certificate !== undefined && data.Certificate !== null) {
-    contents.Certificate = data.Certificate;
+    contents.Certificate = __expectString(data.Certificate);
   }
   if (data.CreatedTime !== undefined && data.CreatedTime !== null) {
     contents.CreatedTime = new Date(Math.round(data.CreatedTime * 1000));
   }
   if (data.DisplayName !== undefined && data.DisplayName !== null) {
-    contents.DisplayName = data.DisplayName;
+    contents.DisplayName = __expectString(data.DisplayName);
   }
   return Promise.resolve(contents);
 };
@@ -2512,7 +2514,7 @@ export const deserializeAws_restJson1ListDevicesCommand = async (
     contents.Devices = deserializeAws_restJson1DeviceSummaryList(data.Devices, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2603,7 +2605,7 @@ export const deserializeAws_restJson1ListDomainsCommand = async (
     contents.Domains = deserializeAws_restJson1DomainSummaryList(data.Domains, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2694,7 +2696,7 @@ export const deserializeAws_restJson1ListFleetsCommand = async (
     contents.FleetSummaryList = deserializeAws_restJson1FleetSummaryList(data.FleetSummaryList, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2829,7 +2831,7 @@ export const deserializeAws_restJson1ListWebsiteAuthorizationProvidersCommand = 
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.WebsiteAuthorizationProviders !== undefined && data.WebsiteAuthorizationProviders !== null) {
     contents.WebsiteAuthorizationProviders = deserializeAws_restJson1WebsiteAuthorizationProvidersSummaryList(
@@ -2923,7 +2925,7 @@ export const deserializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand = 
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.WebsiteCertificateAuthorities !== undefined && data.WebsiteCertificateAuthorities !== null) {
     contents.WebsiteCertificateAuthorities = deserializeAws_restJson1WebsiteCaSummaryList(
@@ -3856,7 +3858,7 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3873,7 +3875,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3890,7 +3892,7 @@ const deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3907,7 +3909,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3924,7 +3926,7 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3941,7 +3943,7 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3982,8 +3984,8 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 
 const deserializeAws_restJson1DeviceSummary = (output: any, context: __SerdeContext): DeviceSummary => {
   return {
-    DeviceId: output.DeviceId !== undefined && output.DeviceId !== null ? output.DeviceId : undefined,
-    DeviceStatus: output.DeviceStatus !== undefined && output.DeviceStatus !== null ? output.DeviceStatus : undefined,
+    DeviceId: __expectString(output.DeviceId),
+    DeviceStatus: __expectString(output.DeviceStatus),
   } as any;
 };
 
@@ -4004,9 +4006,9 @@ const deserializeAws_restJson1DomainSummary = (output: any, context: __SerdeCont
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
-    DomainStatus: output.DomainStatus !== undefined && output.DomainStatus !== null ? output.DomainStatus : undefined,
+    DisplayName: __expectString(output.DisplayName),
+    DomainName: __expectString(output.DomainName),
+    DomainStatus: __expectString(output.DomainStatus),
   } as any;
 };
 
@@ -4023,15 +4025,15 @@ const deserializeAws_restJson1DomainSummaryList = (output: any, context: __Serde
 
 const deserializeAws_restJson1FleetSummary = (output: any, context: __SerdeContext): FleetSummary => {
   return {
-    CompanyCode: output.CompanyCode !== undefined && output.CompanyCode !== null ? output.CompanyCode : undefined,
+    CompanyCode: __expectString(output.CompanyCode),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetName: output.FleetName !== undefined && output.FleetName !== null ? output.FleetName : undefined,
-    FleetStatus: output.FleetStatus !== undefined && output.FleetStatus !== null ? output.FleetStatus : undefined,
+    DisplayName: __expectString(output.DisplayName),
+    FleetArn: __expectString(output.FleetArn),
+    FleetName: __expectString(output.FleetName),
+    FleetStatus: __expectString(output.FleetStatus),
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
@@ -4061,7 +4063,7 @@ const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4072,7 +4074,7 @@ const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4083,7 +4085,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4107,19 +4109,13 @@ const deserializeAws_restJson1WebsiteAuthorizationProviderSummary = (
   context: __SerdeContext
 ): WebsiteAuthorizationProviderSummary => {
   return {
-    AuthorizationProviderId:
-      output.AuthorizationProviderId !== undefined && output.AuthorizationProviderId !== null
-        ? output.AuthorizationProviderId
-        : undefined,
-    AuthorizationProviderType:
-      output.AuthorizationProviderType !== undefined && output.AuthorizationProviderType !== null
-        ? output.AuthorizationProviderType
-        : undefined,
+    AuthorizationProviderId: __expectString(output.AuthorizationProviderId),
+    AuthorizationProviderType: __expectString(output.AuthorizationProviderType),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    DomainName: __expectString(output.DomainName),
   } as any;
 };
 
@@ -4129,8 +4125,8 @@ const deserializeAws_restJson1WebsiteCaSummary = (output: any, context: __SerdeC
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
-    WebsiteCaId: output.WebsiteCaId !== undefined && output.WebsiteCaId !== null ? output.WebsiteCaId : undefined,
+    DisplayName: __expectString(output.DisplayName),
+    WebsiteCaId: __expectString(output.WebsiteCaId),
   } as any;
 };
 

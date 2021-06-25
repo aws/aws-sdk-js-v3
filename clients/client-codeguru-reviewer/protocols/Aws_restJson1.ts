@@ -70,6 +70,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1076,7 +1078,7 @@ export const deserializeAws_restJson1ListCodeReviewsCommand = async (
     contents.CodeReviewSummaries = deserializeAws_restJson1CodeReviewSummaries(data.CodeReviewSummaries, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1156,7 +1158,7 @@ export const deserializeAws_restJson1ListRecommendationFeedbackCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.RecommendationFeedbackSummaries !== undefined && data.RecommendationFeedbackSummaries !== null) {
     contents.RecommendationFeedbackSummaries = deserializeAws_restJson1RecommendationFeedbackSummaries(
@@ -1250,7 +1252,7 @@ export const deserializeAws_restJson1ListRecommendationsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.RecommendationSummaries !== undefined && data.RecommendationSummaries !== null) {
     contents.RecommendationSummaries = deserializeAws_restJson1RecommendationSummaries(
@@ -1344,7 +1346,7 @@ export const deserializeAws_restJson1ListRepositoryAssociationsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.RepositoryAssociationSummaries !== undefined && data.RepositoryAssociationSummaries !== null) {
     contents.RepositoryAssociationSummaries = deserializeAws_restJson1RepositoryAssociationSummaries(
@@ -1708,7 +1710,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1725,7 +1727,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1742,7 +1744,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1759,7 +1761,7 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1776,7 +1778,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1793,7 +1795,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1810,7 +1812,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1909,10 +1911,8 @@ const serializeAws_restJson1ThirdPartySourceRepository = (
 
 const deserializeAws_restJson1CodeReview = (output: any, context: __SerdeContext): CodeReview => {
   return {
-    AssociationArn:
-      output.AssociationArn !== undefined && output.AssociationArn !== null ? output.AssociationArn : undefined,
-    CodeReviewArn:
-      output.CodeReviewArn !== undefined && output.CodeReviewArn !== null ? output.CodeReviewArn : undefined,
+    AssociationArn: __expectString(output.AssociationArn),
+    CodeReviewArn: __expectString(output.CodeReviewArn),
     CreatedTimeStamp:
       output.CreatedTimeStamp !== undefined && output.CreatedTimeStamp !== null
         ? new Date(Math.round(output.CreatedTimeStamp * 1000))
@@ -1925,20 +1925,18 @@ const deserializeAws_restJson1CodeReview = (output: any, context: __SerdeContext
       output.Metrics !== undefined && output.Metrics !== null
         ? deserializeAws_restJson1Metrics(output.Metrics, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
-    ProviderType: output.ProviderType !== undefined && output.ProviderType !== null ? output.ProviderType : undefined,
-    PullRequestId:
-      output.PullRequestId !== undefined && output.PullRequestId !== null ? output.PullRequestId : undefined,
-    RepositoryName:
-      output.RepositoryName !== undefined && output.RepositoryName !== null ? output.RepositoryName : undefined,
+    Name: __expectString(output.Name),
+    Owner: __expectString(output.Owner),
+    ProviderType: __expectString(output.ProviderType),
+    PullRequestId: __expectString(output.PullRequestId),
+    RepositoryName: __expectString(output.RepositoryName),
     SourceCodeType:
       output.SourceCodeType !== undefined && output.SourceCodeType !== null
         ? deserializeAws_restJson1SourceCodeType(output.SourceCodeType, context)
         : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    State: __expectString(output.State),
+    StateReason: __expectString(output.StateReason),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -1955,8 +1953,7 @@ const deserializeAws_restJson1CodeReviewSummaries = (output: any, context: __Ser
 
 const deserializeAws_restJson1CodeReviewSummary = (output: any, context: __SerdeContext): CodeReviewSummary => {
   return {
-    CodeReviewArn:
-      output.CodeReviewArn !== undefined && output.CodeReviewArn !== null ? output.CodeReviewArn : undefined,
+    CodeReviewArn: __expectString(output.CodeReviewArn),
     CreatedTimeStamp:
       output.CreatedTimeStamp !== undefined && output.CreatedTimeStamp !== null
         ? new Date(Math.round(output.CreatedTimeStamp * 1000))
@@ -1969,15 +1966,13 @@ const deserializeAws_restJson1CodeReviewSummary = (output: any, context: __Serde
       output.MetricsSummary !== undefined && output.MetricsSummary !== null
         ? deserializeAws_restJson1MetricsSummary(output.MetricsSummary, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
-    ProviderType: output.ProviderType !== undefined && output.ProviderType !== null ? output.ProviderType : undefined,
-    PullRequestId:
-      output.PullRequestId !== undefined && output.PullRequestId !== null ? output.PullRequestId : undefined,
-    RepositoryName:
-      output.RepositoryName !== undefined && output.RepositoryName !== null ? output.RepositoryName : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Name: __expectString(output.Name),
+    Owner: __expectString(output.Owner),
+    ProviderType: __expectString(output.ProviderType),
+    PullRequestId: __expectString(output.PullRequestId),
+    RepositoryName: __expectString(output.RepositoryName),
+    State: __expectString(output.State),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -1986,41 +1981,29 @@ const deserializeAws_restJson1CommitDiffSourceCodeType = (
   context: __SerdeContext
 ): CommitDiffSourceCodeType => {
   return {
-    DestinationCommit:
-      output.DestinationCommit !== undefined && output.DestinationCommit !== null
-        ? output.DestinationCommit
-        : undefined,
-    SourceCommit: output.SourceCommit !== undefined && output.SourceCommit !== null ? output.SourceCommit : undefined,
+    DestinationCommit: __expectString(output.DestinationCommit),
+    SourceCommit: __expectString(output.SourceCommit),
   } as any;
 };
 
 const deserializeAws_restJson1KMSKeyDetails = (output: any, context: __SerdeContext): KMSKeyDetails => {
   return {
-    EncryptionOption:
-      output.EncryptionOption !== undefined && output.EncryptionOption !== null ? output.EncryptionOption : undefined,
-    KMSKeyId: output.KMSKeyId !== undefined && output.KMSKeyId !== null ? output.KMSKeyId : undefined,
+    EncryptionOption: __expectString(output.EncryptionOption),
+    KMSKeyId: __expectString(output.KMSKeyId),
   } as any;
 };
 
 const deserializeAws_restJson1Metrics = (output: any, context: __SerdeContext): Metrics => {
   return {
-    FindingsCount:
-      output.FindingsCount !== undefined && output.FindingsCount !== null ? output.FindingsCount : undefined,
-    MeteredLinesOfCodeCount:
-      output.MeteredLinesOfCodeCount !== undefined && output.MeteredLinesOfCodeCount !== null
-        ? output.MeteredLinesOfCodeCount
-        : undefined,
+    FindingsCount: __expectNumber(output.FindingsCount),
+    MeteredLinesOfCodeCount: __expectNumber(output.MeteredLinesOfCodeCount),
   } as any;
 };
 
 const deserializeAws_restJson1MetricsSummary = (output: any, context: __SerdeContext): MetricsSummary => {
   return {
-    FindingsCount:
-      output.FindingsCount !== undefined && output.FindingsCount !== null ? output.FindingsCount : undefined,
-    MeteredLinesOfCodeCount:
-      output.MeteredLinesOfCodeCount !== undefined && output.MeteredLinesOfCodeCount !== null
-        ? output.MeteredLinesOfCodeCount
-        : undefined,
+    FindingsCount: __expectNumber(output.FindingsCount),
+    MeteredLinesOfCodeCount: __expectNumber(output.MeteredLinesOfCodeCount),
   } as any;
 };
 
@@ -2031,7 +2014,7 @@ const deserializeAws_restJson1Reactions = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2040,8 +2023,7 @@ const deserializeAws_restJson1RecommendationFeedback = (
   context: __SerdeContext
 ): RecommendationFeedback => {
   return {
-    CodeReviewArn:
-      output.CodeReviewArn !== undefined && output.CodeReviewArn !== null ? output.CodeReviewArn : undefined,
+    CodeReviewArn: __expectString(output.CodeReviewArn),
     CreatedTimeStamp:
       output.CreatedTimeStamp !== undefined && output.CreatedTimeStamp !== null
         ? new Date(Math.round(output.CreatedTimeStamp * 1000))
@@ -2054,9 +2036,8 @@ const deserializeAws_restJson1RecommendationFeedback = (
       output.Reactions !== undefined && output.Reactions !== null
         ? deserializeAws_restJson1Reactions(output.Reactions, context)
         : undefined,
-    RecommendationId:
-      output.RecommendationId !== undefined && output.RecommendationId !== null ? output.RecommendationId : undefined,
-    UserId: output.UserId !== undefined && output.UserId !== null ? output.UserId : undefined,
+    RecommendationId: __expectString(output.RecommendationId),
+    UserId: __expectString(output.UserId),
   } as any;
 };
 
@@ -2083,9 +2064,8 @@ const deserializeAws_restJson1RecommendationFeedbackSummary = (
       output.Reactions !== undefined && output.Reactions !== null
         ? deserializeAws_restJson1Reactions(output.Reactions, context)
         : undefined,
-    RecommendationId:
-      output.RecommendationId !== undefined && output.RecommendationId !== null ? output.RecommendationId : undefined,
-    UserId: output.UserId !== undefined && output.UserId !== null ? output.UserId : undefined,
+    RecommendationId: __expectString(output.RecommendationId),
+    UserId: __expectString(output.UserId),
   } as any;
 };
 
@@ -2105,23 +2085,19 @@ const deserializeAws_restJson1RecommendationSummaries = (
 
 const deserializeAws_restJson1RecommendationSummary = (output: any, context: __SerdeContext): RecommendationSummary => {
   return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    EndLine: output.EndLine !== undefined && output.EndLine !== null ? output.EndLine : undefined,
-    FilePath: output.FilePath !== undefined && output.FilePath !== null ? output.FilePath : undefined,
-    RecommendationId:
-      output.RecommendationId !== undefined && output.RecommendationId !== null ? output.RecommendationId : undefined,
-    StartLine: output.StartLine !== undefined && output.StartLine !== null ? output.StartLine : undefined,
+    Description: __expectString(output.Description),
+    EndLine: __expectNumber(output.EndLine),
+    FilePath: __expectString(output.FilePath),
+    RecommendationId: __expectString(output.RecommendationId),
+    StartLine: __expectNumber(output.StartLine),
   } as any;
 };
 
 const deserializeAws_restJson1RepositoryAssociation = (output: any, context: __SerdeContext): RepositoryAssociation => {
   return {
-    AssociationArn:
-      output.AssociationArn !== undefined && output.AssociationArn !== null ? output.AssociationArn : undefined,
-    AssociationId:
-      output.AssociationId !== undefined && output.AssociationId !== null ? output.AssociationId : undefined,
-    ConnectionArn:
-      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
+    AssociationArn: __expectString(output.AssociationArn),
+    AssociationId: __expectString(output.AssociationId),
+    ConnectionArn: __expectString(output.ConnectionArn),
     CreatedTimeStamp:
       output.CreatedTimeStamp !== undefined && output.CreatedTimeStamp !== null
         ? new Date(Math.round(output.CreatedTimeStamp * 1000))
@@ -2134,11 +2110,11 @@ const deserializeAws_restJson1RepositoryAssociation = (output: any, context: __S
       output.LastUpdatedTimeStamp !== undefined && output.LastUpdatedTimeStamp !== null
         ? new Date(Math.round(output.LastUpdatedTimeStamp * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
-    ProviderType: output.ProviderType !== undefined && output.ProviderType !== null ? output.ProviderType : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
+    Name: __expectString(output.Name),
+    Owner: __expectString(output.Owner),
+    ProviderType: __expectString(output.ProviderType),
+    State: __expectString(output.State),
+    StateReason: __expectString(output.StateReason),
   } as any;
 };
 
@@ -2161,20 +2137,17 @@ const deserializeAws_restJson1RepositoryAssociationSummary = (
   context: __SerdeContext
 ): RepositoryAssociationSummary => {
   return {
-    AssociationArn:
-      output.AssociationArn !== undefined && output.AssociationArn !== null ? output.AssociationArn : undefined,
-    AssociationId:
-      output.AssociationId !== undefined && output.AssociationId !== null ? output.AssociationId : undefined,
-    ConnectionArn:
-      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
+    AssociationArn: __expectString(output.AssociationArn),
+    AssociationId: __expectString(output.AssociationId),
+    ConnectionArn: __expectString(output.ConnectionArn),
     LastUpdatedTimeStamp:
       output.LastUpdatedTimeStamp !== undefined && output.LastUpdatedTimeStamp !== null
         ? new Date(Math.round(output.LastUpdatedTimeStamp * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
-    ProviderType: output.ProviderType !== undefined && output.ProviderType !== null ? output.ProviderType : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Name: __expectString(output.Name),
+    Owner: __expectString(output.Owner),
+    ProviderType: __expectString(output.ProviderType),
+    State: __expectString(output.State),
   } as any;
 };
 
@@ -2183,7 +2156,7 @@ const deserializeAws_restJson1RepositoryHeadSourceCodeType = (
   context: __SerdeContext
 ): RepositoryHeadSourceCodeType => {
   return {
-    BranchName: output.BranchName !== undefined && output.BranchName !== null ? output.BranchName : undefined,
+    BranchName: __expectString(output.BranchName),
   } as any;
 };
 
@@ -2207,7 +2180,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

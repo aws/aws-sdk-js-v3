@@ -47,7 +47,7 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -418,7 +418,7 @@ export const deserializeAws_restJson1CreateNotificationRuleCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   return Promise.resolve(contents);
 };
@@ -513,7 +513,7 @@ export const deserializeAws_restJson1DeleteNotificationRuleCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   return Promise.resolve(contents);
 };
@@ -645,16 +645,16 @@ export const deserializeAws_restJson1DescribeNotificationRuleCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.CreatedBy !== undefined && data.CreatedBy !== null) {
-    contents.CreatedBy = data.CreatedBy;
+    contents.CreatedBy = __expectString(data.CreatedBy);
   }
   if (data.CreatedTimestamp !== undefined && data.CreatedTimestamp !== null) {
     contents.CreatedTimestamp = new Date(Math.round(data.CreatedTimestamp * 1000));
   }
   if (data.DetailType !== undefined && data.DetailType !== null) {
-    contents.DetailType = data.DetailType;
+    contents.DetailType = __expectString(data.DetailType);
   }
   if (data.EventTypes !== undefined && data.EventTypes !== null) {
     contents.EventTypes = deserializeAws_restJson1EventTypeBatch(data.EventTypes, context);
@@ -663,13 +663,13 @@ export const deserializeAws_restJson1DescribeNotificationRuleCommand = async (
     contents.LastModifiedTimestamp = new Date(Math.round(data.LastModifiedTimestamp * 1000));
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.Resource !== undefined && data.Resource !== null) {
-    contents.Resource = data.Resource;
+    contents.Resource = __expectString(data.Resource);
   }
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = data.Status;
+    contents.Status = __expectString(data.Status);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
@@ -742,7 +742,7 @@ export const deserializeAws_restJson1ListEventTypesCommand = async (
     contents.EventTypes = deserializeAws_restJson1EventTypeBatch(data.EventTypes, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -806,7 +806,7 @@ export const deserializeAws_restJson1ListNotificationRulesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.NotificationRules !== undefined && data.NotificationRules !== null) {
     contents.NotificationRules = deserializeAws_restJson1NotificationRuleBatch(data.NotificationRules, context);
@@ -936,7 +936,7 @@ export const deserializeAws_restJson1ListTargetsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Targets !== undefined && data.Targets !== null) {
     contents.Targets = deserializeAws_restJson1TargetsBatch(data.Targets, context);
@@ -1002,7 +1002,7 @@ export const deserializeAws_restJson1SubscribeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   return Promise.resolve(contents);
 };
@@ -1136,7 +1136,7 @@ export const deserializeAws_restJson1UnsubscribeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   return Promise.resolve(contents);
 };
@@ -1316,7 +1316,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1333,7 +1333,7 @@ const deserializeAws_restJson1ConcurrentModificationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1350,7 +1350,7 @@ const deserializeAws_restJson1ConfigurationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1367,7 +1367,7 @@ const deserializeAws_restJson1InvalidNextTokenExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1384,7 +1384,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1401,7 +1401,7 @@ const deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1418,7 +1418,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1435,7 +1435,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1565,11 +1565,10 @@ const deserializeAws_restJson1EventTypeBatch = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1EventTypeSummary = (output: any, context: __SerdeContext): EventTypeSummary => {
   return {
-    EventTypeId: output.EventTypeId !== undefined && output.EventTypeId !== null ? output.EventTypeId : undefined,
-    EventTypeName:
-      output.EventTypeName !== undefined && output.EventTypeName !== null ? output.EventTypeName : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
-    ServiceName: output.ServiceName !== undefined && output.ServiceName !== null ? output.ServiceName : undefined,
+    EventTypeId: __expectString(output.EventTypeId),
+    EventTypeName: __expectString(output.EventTypeName),
+    ResourceType: __expectString(output.ResourceType),
+    ServiceName: __expectString(output.ServiceName),
   } as any;
 };
 
@@ -1592,8 +1591,8 @@ const deserializeAws_restJson1NotificationRuleSummary = (
   context: __SerdeContext
 ): NotificationRuleSummary => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Arn: __expectString(output.Arn),
+    Id: __expectString(output.Id),
   } as any;
 };
 
@@ -1604,7 +1603,7 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -1622,10 +1621,9 @@ const deserializeAws_restJson1TargetsBatch = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1TargetSummary = (output: any, context: __SerdeContext): TargetSummary => {
   return {
-    TargetAddress:
-      output.TargetAddress !== undefined && output.TargetAddress !== null ? output.TargetAddress : undefined,
-    TargetStatus: output.TargetStatus !== undefined && output.TargetStatus !== null ? output.TargetStatus : undefined,
-    TargetType: output.TargetType !== undefined && output.TargetType !== null ? output.TargetType : undefined,
+    TargetAddress: __expectString(output.TargetAddress),
+    TargetStatus: __expectString(output.TargetStatus),
+    TargetType: __expectString(output.TargetType),
   } as any;
 };
 

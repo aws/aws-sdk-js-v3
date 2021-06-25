@@ -449,6 +449,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
@@ -10766,7 +10767,7 @@ const deserializeAws_queryAPICallRateForCustomerExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -10777,7 +10778,7 @@ const deserializeAws_queryAuthentication = (output: any, context: __SerdeContext
     PasswordCount: undefined,
   };
   if (output["Type"] !== undefined) {
-    contents.Type = output["Type"];
+    contents.Type = __expectString(output["Type"]);
   }
   if (output["PasswordCount"] !== undefined) {
     contents.PasswordCount = parseInt(output["PasswordCount"]);
@@ -10793,7 +10794,7 @@ const deserializeAws_queryAuthorizationAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -10806,7 +10807,7 @@ const deserializeAws_queryAuthorizationNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -10829,7 +10830,7 @@ const deserializeAws_queryAvailabilityZone = (output: any, context: __SerdeConte
     Name: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   return contents;
 };
@@ -10841,7 +10842,7 @@ const deserializeAws_queryAvailabilityZonesList = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10879,40 +10880,40 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     LogDeliveryConfigurations: undefined,
   };
   if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = output["CacheClusterId"];
+    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
   }
   if (output["ConfigurationEndpoint"] !== undefined) {
     contents.ConfigurationEndpoint = deserializeAws_queryEndpoint(output["ConfigurationEndpoint"], context);
   }
   if (output["ClientDownloadLandingPage"] !== undefined) {
-    contents.ClientDownloadLandingPage = output["ClientDownloadLandingPage"];
+    contents.ClientDownloadLandingPage = __expectString(output["ClientDownloadLandingPage"]);
   }
   if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = output["CacheNodeType"];
+    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
   }
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["CacheClusterStatus"] !== undefined) {
-    contents.CacheClusterStatus = output["CacheClusterStatus"];
+    contents.CacheClusterStatus = __expectString(output["CacheClusterStatus"]);
   }
   if (output["NumCacheNodes"] !== undefined) {
     contents.NumCacheNodes = parseInt(output["NumCacheNodes"]);
   }
   if (output["PreferredAvailabilityZone"] !== undefined) {
-    contents.PreferredAvailabilityZone = output["PreferredAvailabilityZone"];
+    contents.PreferredAvailabilityZone = __expectString(output["PreferredAvailabilityZone"]);
   }
   if (output["PreferredOutpostArn"] !== undefined) {
-    contents.PreferredOutpostArn = output["PreferredOutpostArn"];
+    contents.PreferredOutpostArn = __expectString(output["PreferredOutpostArn"]);
   }
   if (output["CacheClusterCreateTime"] !== undefined) {
     contents.CacheClusterCreateTime = new Date(output["CacheClusterCreateTime"]);
   }
   if (output["PreferredMaintenanceWindow"] !== undefined) {
-    contents.PreferredMaintenanceWindow = output["PreferredMaintenanceWindow"];
+    contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
   }
   if (output["PendingModifiedValues"] !== undefined) {
     contents.PendingModifiedValues = deserializeAws_queryPendingModifiedValues(
@@ -10945,7 +10946,7 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     );
   }
   if (output["CacheSubnetGroupName"] !== undefined) {
-    contents.CacheSubnetGroupName = output["CacheSubnetGroupName"];
+    contents.CacheSubnetGroupName = __expectString(output["CacheSubnetGroupName"]);
   }
   if (output.CacheNodes === "") {
     contents.CacheNodes = [];
@@ -10969,13 +10970,13 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     );
   }
   if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = output["ReplicationGroupId"];
+    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
   }
   if (output["SnapshotRetentionLimit"] !== undefined) {
     contents.SnapshotRetentionLimit = parseInt(output["SnapshotRetentionLimit"]);
   }
   if (output["SnapshotWindow"] !== undefined) {
-    contents.SnapshotWindow = output["SnapshotWindow"];
+    contents.SnapshotWindow = __expectString(output["SnapshotWindow"]);
   }
   if (output["AuthTokenEnabled"] !== undefined) {
     contents.AuthTokenEnabled = __parseBoolean(output["AuthTokenEnabled"]);
@@ -10990,7 +10991,7 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     contents.AtRestEncryptionEnabled = __parseBoolean(output["AtRestEncryptionEnabled"]);
   }
   if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
+    contents.ARN = __expectString(output["ARN"]);
   }
   if (output["ReplicationGroupLogDeliveryEnabled"] !== undefined) {
     contents.ReplicationGroupLogDeliveryEnabled = __parseBoolean(output["ReplicationGroupLogDeliveryEnabled"]);
@@ -11018,7 +11019,7 @@ const deserializeAws_queryCacheClusterAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11040,7 +11041,7 @@ const deserializeAws_queryCacheClusterMessage = (output: any, context: __SerdeCo
     CacheClusters: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.CacheClusters === "") {
     contents.CacheClusters = [];
@@ -11062,7 +11063,7 @@ const deserializeAws_queryCacheClusterNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11076,19 +11077,19 @@ const deserializeAws_queryCacheEngineVersion = (output: any, context: __SerdeCon
     CacheEngineVersionDescription: undefined,
   };
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["CacheParameterGroupFamily"] !== undefined) {
-    contents.CacheParameterGroupFamily = output["CacheParameterGroupFamily"];
+    contents.CacheParameterGroupFamily = __expectString(output["CacheParameterGroupFamily"]);
   }
   if (output["CacheEngineDescription"] !== undefined) {
-    contents.CacheEngineDescription = output["CacheEngineDescription"];
+    contents.CacheEngineDescription = __expectString(output["CacheEngineDescription"]);
   }
   if (output["CacheEngineVersionDescription"] !== undefined) {
-    contents.CacheEngineVersionDescription = output["CacheEngineVersionDescription"];
+    contents.CacheEngineVersionDescription = __expectString(output["CacheEngineVersionDescription"]);
   }
   return contents;
 };
@@ -11113,7 +11114,7 @@ const deserializeAws_queryCacheEngineVersionMessage = (
     CacheEngineVersions: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.CacheEngineVersions === "") {
     contents.CacheEngineVersions = [];
@@ -11142,10 +11143,10 @@ const deserializeAws_queryCacheNode = (output: any, context: __SerdeContext): Ca
     CustomerOutpostArn: undefined,
   };
   if (output["CacheNodeId"] !== undefined) {
-    contents.CacheNodeId = output["CacheNodeId"];
+    contents.CacheNodeId = __expectString(output["CacheNodeId"]);
   }
   if (output["CacheNodeStatus"] !== undefined) {
-    contents.CacheNodeStatus = output["CacheNodeStatus"];
+    contents.CacheNodeStatus = __expectString(output["CacheNodeStatus"]);
   }
   if (output["CacheNodeCreateTime"] !== undefined) {
     contents.CacheNodeCreateTime = new Date(output["CacheNodeCreateTime"]);
@@ -11154,16 +11155,16 @@ const deserializeAws_queryCacheNode = (output: any, context: __SerdeContext): Ca
     contents.Endpoint = deserializeAws_queryEndpoint(output["Endpoint"], context);
   }
   if (output["ParameterGroupStatus"] !== undefined) {
-    contents.ParameterGroupStatus = output["ParameterGroupStatus"];
+    contents.ParameterGroupStatus = __expectString(output["ParameterGroupStatus"]);
   }
   if (output["SourceCacheNodeId"] !== undefined) {
-    contents.SourceCacheNodeId = output["SourceCacheNodeId"];
+    contents.SourceCacheNodeId = __expectString(output["SourceCacheNodeId"]);
   }
   if (output["CustomerAvailabilityZone"] !== undefined) {
-    contents.CustomerAvailabilityZone = output["CustomerAvailabilityZone"];
+    contents.CustomerAvailabilityZone = __expectString(output["CustomerAvailabilityZone"]);
   }
   if (output["CustomerOutpostArn"] !== undefined) {
-    contents.CustomerOutpostArn = output["CustomerOutpostArn"];
+    contents.CustomerOutpostArn = __expectString(output["CustomerOutpostArn"]);
   }
   return contents;
 };
@@ -11175,7 +11176,7 @@ const deserializeAws_queryCacheNodeIdsList = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -11206,25 +11207,25 @@ const deserializeAws_queryCacheNodeTypeSpecificParameter = (
     ChangeType: undefined,
   };
   if (output["ParameterName"] !== undefined) {
-    contents.ParameterName = output["ParameterName"];
+    contents.ParameterName = __expectString(output["ParameterName"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+    contents.Description = __expectString(output["Description"]);
   }
   if (output["Source"] !== undefined) {
-    contents.Source = output["Source"];
+    contents.Source = __expectString(output["Source"]);
   }
   if (output["DataType"] !== undefined) {
-    contents.DataType = output["DataType"];
+    contents.DataType = __expectString(output["DataType"]);
   }
   if (output["AllowedValues"] !== undefined) {
-    contents.AllowedValues = output["AllowedValues"];
+    contents.AllowedValues = __expectString(output["AllowedValues"]);
   }
   if (output["IsModifiable"] !== undefined) {
     contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
   }
   if (output["MinimumEngineVersion"] !== undefined) {
-    contents.MinimumEngineVersion = output["MinimumEngineVersion"];
+    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
   }
   if (output.CacheNodeTypeSpecificValues === "") {
     contents.CacheNodeTypeSpecificValues = [];
@@ -11239,7 +11240,7 @@ const deserializeAws_queryCacheNodeTypeSpecificParameter = (
     );
   }
   if (output["ChangeType"] !== undefined) {
-    contents.ChangeType = output["ChangeType"];
+    contents.ChangeType = __expectString(output["ChangeType"]);
   }
   return contents;
 };
@@ -11267,10 +11268,10 @@ const deserializeAws_queryCacheNodeTypeSpecificValue = (
     Value: undefined,
   };
   if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = output["CacheNodeType"];
+    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
   }
   if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
+    contents.Value = __expectString(output["Value"]);
   }
   return contents;
 };
@@ -11301,10 +11302,10 @@ const deserializeAws_queryCacheNodeUpdateStatus = (output: any, context: __Serde
     NodeUpdateStatusModifiedDate: undefined,
   };
   if (output["CacheNodeId"] !== undefined) {
-    contents.CacheNodeId = output["CacheNodeId"];
+    contents.CacheNodeId = __expectString(output["CacheNodeId"]);
   }
   if (output["NodeUpdateStatus"] !== undefined) {
-    contents.NodeUpdateStatus = output["NodeUpdateStatus"];
+    contents.NodeUpdateStatus = __expectString(output["NodeUpdateStatus"]);
   }
   if (output["NodeDeletionDate"] !== undefined) {
     contents.NodeDeletionDate = new Date(output["NodeDeletionDate"]);
@@ -11316,7 +11317,7 @@ const deserializeAws_queryCacheNodeUpdateStatus = (output: any, context: __Serde
     contents.NodeUpdateEndDate = new Date(output["NodeUpdateEndDate"]);
   }
   if (output["NodeUpdateInitiatedBy"] !== undefined) {
-    contents.NodeUpdateInitiatedBy = output["NodeUpdateInitiatedBy"];
+    contents.NodeUpdateInitiatedBy = __expectString(output["NodeUpdateInitiatedBy"]);
   }
   if (output["NodeUpdateInitiatedDate"] !== undefined) {
     contents.NodeUpdateInitiatedDate = new Date(output["NodeUpdateInitiatedDate"]);
@@ -11350,19 +11351,19 @@ const deserializeAws_queryCacheParameterGroup = (output: any, context: __SerdeCo
     ARN: undefined,
   };
   if (output["CacheParameterGroupName"] !== undefined) {
-    contents.CacheParameterGroupName = output["CacheParameterGroupName"];
+    contents.CacheParameterGroupName = __expectString(output["CacheParameterGroupName"]);
   }
   if (output["CacheParameterGroupFamily"] !== undefined) {
-    contents.CacheParameterGroupFamily = output["CacheParameterGroupFamily"];
+    contents.CacheParameterGroupFamily = __expectString(output["CacheParameterGroupFamily"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+    contents.Description = __expectString(output["Description"]);
   }
   if (output["IsGlobal"] !== undefined) {
     contents.IsGlobal = __parseBoolean(output["IsGlobal"]);
   }
   if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
+    contents.ARN = __expectString(output["ARN"]);
   }
   return contents;
 };
@@ -11375,7 +11376,7 @@ const deserializeAws_queryCacheParameterGroupAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11390,7 +11391,7 @@ const deserializeAws_queryCacheParameterGroupDetails = (
     CacheNodeTypeSpecificParameters: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
@@ -11435,7 +11436,7 @@ const deserializeAws_queryCacheParameterGroupNameMessage = (
     CacheParameterGroupName: undefined,
   };
   if (output["CacheParameterGroupName"] !== undefined) {
-    contents.CacheParameterGroupName = output["CacheParameterGroupName"];
+    contents.CacheParameterGroupName = __expectString(output["CacheParameterGroupName"]);
   }
   return contents;
 };
@@ -11448,7 +11449,7 @@ const deserializeAws_queryCacheParameterGroupNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11461,7 +11462,7 @@ const deserializeAws_queryCacheParameterGroupQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11475,7 +11476,7 @@ const deserializeAws_queryCacheParameterGroupsMessage = (
     CacheParameterGroups: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.CacheParameterGroups === "") {
     contents.CacheParameterGroups = [];
@@ -11502,10 +11503,10 @@ const deserializeAws_queryCacheParameterGroupStatus = (
     CacheNodeIdsToReboot: undefined,
   };
   if (output["CacheParameterGroupName"] !== undefined) {
-    contents.CacheParameterGroupName = output["CacheParameterGroupName"];
+    contents.CacheParameterGroupName = __expectString(output["CacheParameterGroupName"]);
   }
   if (output["ParameterApplyStatus"] !== undefined) {
-    contents.ParameterApplyStatus = output["ParameterApplyStatus"];
+    contents.ParameterApplyStatus = __expectString(output["ParameterApplyStatus"]);
   }
   if (output.CacheNodeIdsToReboot === "") {
     contents.CacheNodeIdsToReboot = [];
@@ -11528,13 +11529,13 @@ const deserializeAws_queryCacheSecurityGroup = (output: any, context: __SerdeCon
     ARN: undefined,
   };
   if (output["OwnerId"] !== undefined) {
-    contents.OwnerId = output["OwnerId"];
+    contents.OwnerId = __expectString(output["OwnerId"]);
   }
   if (output["CacheSecurityGroupName"] !== undefined) {
-    contents.CacheSecurityGroupName = output["CacheSecurityGroupName"];
+    contents.CacheSecurityGroupName = __expectString(output["CacheSecurityGroupName"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+    contents.Description = __expectString(output["Description"]);
   }
   if (output.EC2SecurityGroups === "") {
     contents.EC2SecurityGroups = [];
@@ -11546,7 +11547,7 @@ const deserializeAws_queryCacheSecurityGroup = (output: any, context: __SerdeCon
     );
   }
   if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
+    contents.ARN = __expectString(output["ARN"]);
   }
   return contents;
 };
@@ -11559,7 +11560,7 @@ const deserializeAws_queryCacheSecurityGroupAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11573,10 +11574,10 @@ const deserializeAws_queryCacheSecurityGroupMembership = (
     Status: undefined,
   };
   if (output["CacheSecurityGroupName"] !== undefined) {
-    contents.CacheSecurityGroupName = output["CacheSecurityGroupName"];
+    contents.CacheSecurityGroupName = __expectString(output["CacheSecurityGroupName"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };
@@ -11604,7 +11605,7 @@ const deserializeAws_queryCacheSecurityGroupMessage = (
     CacheSecurityGroups: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.CacheSecurityGroups === "") {
     contents.CacheSecurityGroups = [];
@@ -11629,7 +11630,7 @@ const deserializeAws_queryCacheSecurityGroupNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11642,7 +11643,7 @@ const deserializeAws_queryCacheSecurityGroupQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11667,13 +11668,13 @@ const deserializeAws_queryCacheSubnetGroup = (output: any, context: __SerdeConte
     ARN: undefined,
   };
   if (output["CacheSubnetGroupName"] !== undefined) {
-    contents.CacheSubnetGroupName = output["CacheSubnetGroupName"];
+    contents.CacheSubnetGroupName = __expectString(output["CacheSubnetGroupName"]);
   }
   if (output["CacheSubnetGroupDescription"] !== undefined) {
-    contents.CacheSubnetGroupDescription = output["CacheSubnetGroupDescription"];
+    contents.CacheSubnetGroupDescription = __expectString(output["CacheSubnetGroupDescription"]);
   }
   if (output["VpcId"] !== undefined) {
-    contents.VpcId = output["VpcId"];
+    contents.VpcId = __expectString(output["VpcId"]);
   }
   if (output.Subnets === "") {
     contents.Subnets = [];
@@ -11682,7 +11683,7 @@ const deserializeAws_queryCacheSubnetGroup = (output: any, context: __SerdeConte
     contents.Subnets = deserializeAws_querySubnetList(__getArrayIfSingleItem(output["Subnets"]["Subnet"]), context);
   }
   if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
+    contents.ARN = __expectString(output["ARN"]);
   }
   return contents;
 };
@@ -11695,7 +11696,7 @@ const deserializeAws_queryCacheSubnetGroupAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11705,7 +11706,7 @@ const deserializeAws_queryCacheSubnetGroupInUse = (output: any, context: __Serde
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11716,7 +11717,7 @@ const deserializeAws_queryCacheSubnetGroupMessage = (output: any, context: __Ser
     CacheSubnetGroups: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.CacheSubnetGroups === "") {
     contents.CacheSubnetGroups = [];
@@ -11738,7 +11739,7 @@ const deserializeAws_queryCacheSubnetGroupNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11751,7 +11752,7 @@ const deserializeAws_queryCacheSubnetGroupQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11775,7 +11776,7 @@ const deserializeAws_queryCacheSubnetQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11788,7 +11789,7 @@ const deserializeAws_queryCloudWatchLogsDestinationDetails = (
     LogGroup: undefined,
   };
   if (output["LogGroup"] !== undefined) {
-    contents.LogGroup = output["LogGroup"];
+    contents.LogGroup = __expectString(output["LogGroup"]);
   }
   return contents;
 };
@@ -11800,7 +11801,7 @@ const deserializeAws_queryClusterIdList = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -11812,7 +11813,7 @@ const deserializeAws_queryClusterQuotaForCustomerExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11968,7 +11969,7 @@ const deserializeAws_queryDefaultUserAssociatedToUserGroupFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -11978,7 +11979,7 @@ const deserializeAws_queryDefaultUserRequired = (output: any, context: __SerdeCo
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12057,7 +12058,7 @@ const deserializeAws_queryDescribeGlobalReplicationGroupsResult = (
     GlobalReplicationGroups: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.GlobalReplicationGroups === "") {
     contents.GlobalReplicationGroups = [];
@@ -12083,7 +12084,7 @@ const deserializeAws_queryDescribeSnapshotsListMessage = (
     Snapshots: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.Snapshots === "") {
     contents.Snapshots = [];
@@ -12115,7 +12116,7 @@ const deserializeAws_queryDescribeUserGroupsResult = (
     );
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   return contents;
 };
@@ -12132,7 +12133,7 @@ const deserializeAws_queryDescribeUsersResult = (output: any, context: __SerdeCo
     contents.Users = deserializeAws_queryUserList(__getArrayIfSingleItem(output["Users"]["member"]), context);
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   return contents;
 };
@@ -12178,7 +12179,7 @@ const deserializeAws_queryDuplicateUserNameFault = (output: any, context: __Serd
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12190,13 +12191,13 @@ const deserializeAws_queryEC2SecurityGroup = (output: any, context: __SerdeConte
     EC2SecurityGroupOwnerId: undefined,
   };
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["EC2SecurityGroupName"] !== undefined) {
-    contents.EC2SecurityGroupName = output["EC2SecurityGroupName"];
+    contents.EC2SecurityGroupName = __expectString(output["EC2SecurityGroupName"]);
   }
   if (output["EC2SecurityGroupOwnerId"] !== undefined) {
-    contents.EC2SecurityGroupOwnerId = output["EC2SecurityGroupOwnerId"];
+    contents.EC2SecurityGroupOwnerId = __expectString(output["EC2SecurityGroupOwnerId"]);
   }
   return contents;
 };
@@ -12218,7 +12219,7 @@ const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): End
     Port: undefined,
   };
   if (output["Address"] !== undefined) {
-    contents.Address = output["Address"];
+    contents.Address = __expectString(output["Address"]);
   }
   if (output["Port"] !== undefined) {
     contents.Port = parseInt(output["Port"]);
@@ -12234,10 +12235,10 @@ const deserializeAws_queryEngineDefaults = (output: any, context: __SerdeContext
     CacheNodeTypeSpecificParameters: undefined,
   };
   if (output["CacheParameterGroupFamily"] !== undefined) {
-    contents.CacheParameterGroupFamily = output["CacheParameterGroupFamily"];
+    contents.CacheParameterGroupFamily = __expectString(output["CacheParameterGroupFamily"]);
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
@@ -12271,13 +12272,13 @@ const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event 
     Date: undefined,
   };
   if (output["SourceIdentifier"] !== undefined) {
-    contents.SourceIdentifier = output["SourceIdentifier"];
+    contents.SourceIdentifier = __expectString(output["SourceIdentifier"]);
   }
   if (output["SourceType"] !== undefined) {
-    contents.SourceType = output["SourceType"];
+    contents.SourceType = __expectString(output["SourceType"]);
   }
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message = __expectString(output["Message"]);
   }
   if (output["Date"] !== undefined) {
     contents.Date = new Date(output["Date"]);
@@ -12302,7 +12303,7 @@ const deserializeAws_queryEventsMessage = (output: any, context: __SerdeContext)
     Events: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.Events === "") {
     contents.Events = [];
@@ -12335,10 +12336,10 @@ const deserializeAws_queryGlobalNodeGroup = (output: any, context: __SerdeContex
     Slots: undefined,
   };
   if (output["GlobalNodeGroupId"] !== undefined) {
-    contents.GlobalNodeGroupId = output["GlobalNodeGroupId"];
+    contents.GlobalNodeGroupId = __expectString(output["GlobalNodeGroupId"]);
   }
   if (output["Slots"] !== undefined) {
-    contents.Slots = output["Slots"];
+    contents.Slots = __expectString(output["Slots"]);
   }
   return contents;
 };
@@ -12371,22 +12372,22 @@ const deserializeAws_queryGlobalReplicationGroup = (output: any, context: __Serd
     ARN: undefined,
   };
   if (output["GlobalReplicationGroupId"] !== undefined) {
-    contents.GlobalReplicationGroupId = output["GlobalReplicationGroupId"];
+    contents.GlobalReplicationGroupId = __expectString(output["GlobalReplicationGroupId"]);
   }
   if (output["GlobalReplicationGroupDescription"] !== undefined) {
-    contents.GlobalReplicationGroupDescription = output["GlobalReplicationGroupDescription"];
+    contents.GlobalReplicationGroupDescription = __expectString(output["GlobalReplicationGroupDescription"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = output["CacheNodeType"];
+    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
   }
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output.Members === "") {
     contents.Members = [];
@@ -12419,7 +12420,7 @@ const deserializeAws_queryGlobalReplicationGroup = (output: any, context: __Serd
     contents.AtRestEncryptionEnabled = __parseBoolean(output["AtRestEncryptionEnabled"]);
   }
   if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
+    contents.ARN = __expectString(output["ARN"]);
   }
   return contents;
 };
@@ -12432,7 +12433,7 @@ const deserializeAws_queryGlobalReplicationGroupAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12446,10 +12447,10 @@ const deserializeAws_queryGlobalReplicationGroupInfo = (
     GlobalReplicationGroupMemberRole: undefined,
   };
   if (output["GlobalReplicationGroupId"] !== undefined) {
-    contents.GlobalReplicationGroupId = output["GlobalReplicationGroupId"];
+    contents.GlobalReplicationGroupId = __expectString(output["GlobalReplicationGroupId"]);
   }
   if (output["GlobalReplicationGroupMemberRole"] !== undefined) {
-    contents.GlobalReplicationGroupMemberRole = output["GlobalReplicationGroupMemberRole"];
+    contents.GlobalReplicationGroupMemberRole = __expectString(output["GlobalReplicationGroupMemberRole"]);
   }
   return contents;
 };
@@ -12480,19 +12481,19 @@ const deserializeAws_queryGlobalReplicationGroupMember = (
     Status: undefined,
   };
   if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = output["ReplicationGroupId"];
+    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
   }
   if (output["ReplicationGroupRegion"] !== undefined) {
-    contents.ReplicationGroupRegion = output["ReplicationGroupRegion"];
+    contents.ReplicationGroupRegion = __expectString(output["ReplicationGroupRegion"]);
   }
   if (output["Role"] !== undefined) {
-    contents.Role = output["Role"];
+    contents.Role = __expectString(output["Role"]);
   }
   if (output["AutomaticFailover"] !== undefined) {
-    contents.AutomaticFailover = output["AutomaticFailover"];
+    contents.AutomaticFailover = __expectString(output["AutomaticFailover"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };
@@ -12519,7 +12520,7 @@ const deserializeAws_queryGlobalReplicationGroupNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12561,7 +12562,7 @@ const deserializeAws_queryInsufficientCacheClusterCapacityFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12571,7 +12572,7 @@ const deserializeAws_queryInvalidARNFault = (output: any, context: __SerdeContex
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12584,7 +12585,7 @@ const deserializeAws_queryInvalidCacheClusterStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12597,7 +12598,7 @@ const deserializeAws_queryInvalidCacheParameterGroupStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12610,7 +12611,7 @@ const deserializeAws_queryInvalidCacheSecurityGroupStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12623,7 +12624,7 @@ const deserializeAws_queryInvalidGlobalReplicationGroupStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12633,7 +12634,7 @@ const deserializeAws_queryInvalidKMSKeyFault = (output: any, context: __SerdeCon
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12646,7 +12647,7 @@ const deserializeAws_queryInvalidParameterCombinationException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12659,7 +12660,7 @@ const deserializeAws_queryInvalidParameterValueException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12672,7 +12673,7 @@ const deserializeAws_queryInvalidReplicationGroupStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12685,7 +12686,7 @@ const deserializeAws_queryInvalidSnapshotStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12695,7 +12696,7 @@ const deserializeAws_queryInvalidSubnet = (output: any, context: __SerdeContext)
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12708,7 +12709,7 @@ const deserializeAws_queryInvalidUserGroupStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12718,7 +12719,7 @@ const deserializeAws_queryInvalidUserStateFault = (output: any, context: __Serde
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12731,7 +12732,7 @@ const deserializeAws_queryInvalidVPCNetworkStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -12744,7 +12745,7 @@ const deserializeAws_queryKinesisFirehoseDestinationDetails = (
     DeliveryStream: undefined,
   };
   if (output["DeliveryStream"] !== undefined) {
-    contents.DeliveryStream = output["DeliveryStream"];
+    contents.DeliveryStream = __expectString(output["DeliveryStream"]);
   }
   return contents;
 };
@@ -12762,22 +12763,22 @@ const deserializeAws_queryLogDeliveryConfiguration = (
     Message: undefined,
   };
   if (output["LogType"] !== undefined) {
-    contents.LogType = output["LogType"];
+    contents.LogType = __expectString(output["LogType"]);
   }
   if (output["DestinationType"] !== undefined) {
-    contents.DestinationType = output["DestinationType"];
+    contents.DestinationType = __expectString(output["DestinationType"]);
   }
   if (output["DestinationDetails"] !== undefined) {
     contents.DestinationDetails = deserializeAws_queryDestinationDetails(output["DestinationDetails"], context);
   }
   if (output["LogFormat"] !== undefined) {
-    contents.LogFormat = output["LogFormat"];
+    contents.LogFormat = __expectString(output["LogFormat"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
@@ -12874,10 +12875,10 @@ const deserializeAws_queryNodeGroup = (output: any, context: __SerdeContext): No
     NodeGroupMembers: undefined,
   };
   if (output["NodeGroupId"] !== undefined) {
-    contents.NodeGroupId = output["NodeGroupId"];
+    contents.NodeGroupId = __expectString(output["NodeGroupId"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["PrimaryEndpoint"] !== undefined) {
     contents.PrimaryEndpoint = deserializeAws_queryEndpoint(output["PrimaryEndpoint"], context);
@@ -12886,7 +12887,7 @@ const deserializeAws_queryNodeGroup = (output: any, context: __SerdeContext): No
     contents.ReaderEndpoint = deserializeAws_queryEndpoint(output["ReaderEndpoint"], context);
   }
   if (output["Slots"] !== undefined) {
-    contents.Slots = output["Slots"];
+    contents.Slots = __expectString(output["Slots"]);
   }
   if (output.NodeGroupMembers === "") {
     contents.NodeGroupMembers = [];
@@ -12911,16 +12912,16 @@ const deserializeAws_queryNodeGroupConfiguration = (output: any, context: __Serd
     ReplicaOutpostArns: undefined,
   };
   if (output["NodeGroupId"] !== undefined) {
-    contents.NodeGroupId = output["NodeGroupId"];
+    contents.NodeGroupId = __expectString(output["NodeGroupId"]);
   }
   if (output["Slots"] !== undefined) {
-    contents.Slots = output["Slots"];
+    contents.Slots = __expectString(output["Slots"]);
   }
   if (output["ReplicaCount"] !== undefined) {
     contents.ReplicaCount = parseInt(output["ReplicaCount"]);
   }
   if (output["PrimaryAvailabilityZone"] !== undefined) {
-    contents.PrimaryAvailabilityZone = output["PrimaryAvailabilityZone"];
+    contents.PrimaryAvailabilityZone = __expectString(output["PrimaryAvailabilityZone"]);
   }
   if (output.ReplicaAvailabilityZones === "") {
     contents.ReplicaAvailabilityZones = [];
@@ -12935,7 +12936,7 @@ const deserializeAws_queryNodeGroupConfiguration = (output: any, context: __Serd
     );
   }
   if (output["PrimaryOutpostArn"] !== undefined) {
-    contents.PrimaryOutpostArn = output["PrimaryOutpostArn"];
+    contents.PrimaryOutpostArn = __expectString(output["PrimaryOutpostArn"]);
   }
   if (output.ReplicaOutpostArns === "") {
     contents.ReplicaOutpostArns = [];
@@ -12970,22 +12971,22 @@ const deserializeAws_queryNodeGroupMember = (output: any, context: __SerdeContex
     CurrentRole: undefined,
   };
   if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = output["CacheClusterId"];
+    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
   }
   if (output["CacheNodeId"] !== undefined) {
-    contents.CacheNodeId = output["CacheNodeId"];
+    contents.CacheNodeId = __expectString(output["CacheNodeId"]);
   }
   if (output["ReadEndpoint"] !== undefined) {
     contents.ReadEndpoint = deserializeAws_queryEndpoint(output["ReadEndpoint"], context);
   }
   if (output["PreferredAvailabilityZone"] !== undefined) {
-    contents.PreferredAvailabilityZone = output["PreferredAvailabilityZone"];
+    contents.PreferredAvailabilityZone = __expectString(output["PreferredAvailabilityZone"]);
   }
   if (output["PreferredOutpostArn"] !== undefined) {
-    contents.PreferredOutpostArn = output["PreferredOutpostArn"];
+    contents.PreferredOutpostArn = __expectString(output["PreferredOutpostArn"]);
   }
   if (output["CurrentRole"] !== undefined) {
-    contents.CurrentRole = output["CurrentRole"];
+    contents.CurrentRole = __expectString(output["CurrentRole"]);
   }
   return contents;
 };
@@ -13017,13 +13018,13 @@ const deserializeAws_queryNodeGroupMemberUpdateStatus = (
     NodeUpdateStatusModifiedDate: undefined,
   };
   if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = output["CacheClusterId"];
+    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
   }
   if (output["CacheNodeId"] !== undefined) {
-    contents.CacheNodeId = output["CacheNodeId"];
+    contents.CacheNodeId = __expectString(output["CacheNodeId"]);
   }
   if (output["NodeUpdateStatus"] !== undefined) {
-    contents.NodeUpdateStatus = output["NodeUpdateStatus"];
+    contents.NodeUpdateStatus = __expectString(output["NodeUpdateStatus"]);
   }
   if (output["NodeDeletionDate"] !== undefined) {
     contents.NodeDeletionDate = new Date(output["NodeDeletionDate"]);
@@ -13035,7 +13036,7 @@ const deserializeAws_queryNodeGroupMemberUpdateStatus = (
     contents.NodeUpdateEndDate = new Date(output["NodeUpdateEndDate"]);
   }
   if (output["NodeUpdateInitiatedBy"] !== undefined) {
-    contents.NodeUpdateInitiatedBy = output["NodeUpdateInitiatedBy"];
+    contents.NodeUpdateInitiatedBy = __expectString(output["NodeUpdateInitiatedBy"]);
   }
   if (output["NodeUpdateInitiatedDate"] !== undefined) {
     contents.NodeUpdateInitiatedDate = new Date(output["NodeUpdateInitiatedDate"]);
@@ -13065,7 +13066,7 @@ const deserializeAws_queryNodeGroupNotFoundFault = (output: any, context: __Serd
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -13078,7 +13079,7 @@ const deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -13089,7 +13090,7 @@ const deserializeAws_queryNodeGroupUpdateStatus = (output: any, context: __Serde
     NodeGroupMemberUpdateStatus: undefined,
   };
   if (output["NodeGroupId"] !== undefined) {
-    contents.NodeGroupId = output["NodeGroupId"];
+    contents.NodeGroupId = __expectString(output["NodeGroupId"]);
   }
   if (output.NodeGroupMemberUpdateStatus === "") {
     contents.NodeGroupMemberUpdateStatus = [];
@@ -13128,7 +13129,7 @@ const deserializeAws_queryNodeQuotaForClusterExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -13141,7 +13142,7 @@ const deserializeAws_queryNodeQuotaForCustomerExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -13157,13 +13158,13 @@ const deserializeAws_queryNodeSnapshot = (output: any, context: __SerdeContext):
     SnapshotCreateTime: undefined,
   };
   if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = output["CacheClusterId"];
+    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
   }
   if (output["NodeGroupId"] !== undefined) {
-    contents.NodeGroupId = output["NodeGroupId"];
+    contents.NodeGroupId = __expectString(output["NodeGroupId"]);
   }
   if (output["CacheNodeId"] !== undefined) {
-    contents.CacheNodeId = output["CacheNodeId"];
+    contents.CacheNodeId = __expectString(output["CacheNodeId"]);
   }
   if (output["NodeGroupConfiguration"] !== undefined) {
     contents.NodeGroupConfiguration = deserializeAws_queryNodeGroupConfiguration(
@@ -13172,7 +13173,7 @@ const deserializeAws_queryNodeSnapshot = (output: any, context: __SerdeContext):
     );
   }
   if (output["CacheSize"] !== undefined) {
-    contents.CacheSize = output["CacheSize"];
+    contents.CacheSize = __expectString(output["CacheSize"]);
   }
   if (output["CacheNodeCreateTime"] !== undefined) {
     contents.CacheNodeCreateTime = new Date(output["CacheNodeCreateTime"]);
@@ -13201,7 +13202,7 @@ const deserializeAws_queryNodeTypeList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -13210,7 +13211,7 @@ const deserializeAws_queryNoOperationFault = (output: any, context: __SerdeConte
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -13224,10 +13225,10 @@ const deserializeAws_queryNotificationConfiguration = (
     TopicStatus: undefined,
   };
   if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = output["TopicArn"];
+    contents.TopicArn = __expectString(output["TopicArn"]);
   }
   if (output["TopicStatus"] !== undefined) {
-    contents.TopicStatus = output["TopicStatus"];
+    contents.TopicStatus = __expectString(output["TopicStatus"]);
   }
   return contents;
 };
@@ -13239,7 +13240,7 @@ const deserializeAws_queryOutpostArnsList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -13256,31 +13257,31 @@ const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Pa
     ChangeType: undefined,
   };
   if (output["ParameterName"] !== undefined) {
-    contents.ParameterName = output["ParameterName"];
+    contents.ParameterName = __expectString(output["ParameterName"]);
   }
   if (output["ParameterValue"] !== undefined) {
-    contents.ParameterValue = output["ParameterValue"];
+    contents.ParameterValue = __expectString(output["ParameterValue"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+    contents.Description = __expectString(output["Description"]);
   }
   if (output["Source"] !== undefined) {
-    contents.Source = output["Source"];
+    contents.Source = __expectString(output["Source"]);
   }
   if (output["DataType"] !== undefined) {
-    contents.DataType = output["DataType"];
+    contents.DataType = __expectString(output["DataType"]);
   }
   if (output["AllowedValues"] !== undefined) {
-    contents.AllowedValues = output["AllowedValues"];
+    contents.AllowedValues = __expectString(output["AllowedValues"]);
   }
   if (output["IsModifiable"] !== undefined) {
     contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
   }
   if (output["MinimumEngineVersion"] !== undefined) {
-    contents.MinimumEngineVersion = output["MinimumEngineVersion"];
+    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
   }
   if (output["ChangeType"] !== undefined) {
-    contents.ChangeType = output["ChangeType"];
+    contents.ChangeType = __expectString(output["ChangeType"]);
   }
   return contents;
 };
@@ -13307,16 +13308,16 @@ const deserializeAws_queryPendingLogDeliveryConfiguration = (
     LogFormat: undefined,
   };
   if (output["LogType"] !== undefined) {
-    contents.LogType = output["LogType"];
+    contents.LogType = __expectString(output["LogType"]);
   }
   if (output["DestinationType"] !== undefined) {
-    contents.DestinationType = output["DestinationType"];
+    contents.DestinationType = __expectString(output["DestinationType"]);
   }
   if (output["DestinationDetails"] !== undefined) {
     contents.DestinationDetails = deserializeAws_queryDestinationDetails(output["DestinationDetails"], context);
   }
   if (output["LogFormat"] !== undefined) {
-    contents.LogFormat = output["LogFormat"];
+    contents.LogFormat = __expectString(output["LogFormat"]);
   }
   return contents;
 };
@@ -13357,13 +13358,13 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     );
   }
   if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = output["CacheNodeType"];
+    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
   }
   if (output["AuthTokenStatus"] !== undefined) {
-    contents.AuthTokenStatus = output["AuthTokenStatus"];
+    contents.AuthTokenStatus = __expectString(output["AuthTokenStatus"]);
   }
   if (output.LogDeliveryConfigurations === "") {
     contents.LogDeliveryConfigurations = [];
@@ -13388,16 +13389,16 @@ const deserializeAws_queryProcessedUpdateAction = (output: any, context: __Serde
     UpdateActionStatus: undefined,
   };
   if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = output["ReplicationGroupId"];
+    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
   }
   if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = output["CacheClusterId"];
+    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
   }
   if (output["ServiceUpdateName"] !== undefined) {
-    contents.ServiceUpdateName = output["ServiceUpdateName"];
+    contents.ServiceUpdateName = __expectString(output["ServiceUpdateName"]);
   }
   if (output["UpdateActionStatus"] !== undefined) {
-    contents.UpdateActionStatus = output["UpdateActionStatus"];
+    contents.UpdateActionStatus = __expectString(output["UpdateActionStatus"]);
   }
   return contents;
 };
@@ -13467,7 +13468,7 @@ const deserializeAws_queryRecurringCharge = (output: any, context: __SerdeContex
     contents.RecurringChargeAmount = parseFloat(output["RecurringChargeAmount"]);
   }
   if (output["RecurringChargeFrequency"] !== undefined) {
-    contents.RecurringChargeFrequency = output["RecurringChargeFrequency"];
+    contents.RecurringChargeFrequency = __expectString(output["RecurringChargeFrequency"]);
   }
   return contents;
 };
@@ -13511,10 +13512,10 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     LogDeliveryConfigurations: undefined,
   };
   if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = output["ReplicationGroupId"];
+    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+    contents.Description = __expectString(output["Description"]);
   }
   if (output["GlobalReplicationGroupInfo"] !== undefined) {
     contents.GlobalReplicationGroupInfo = deserializeAws_queryGlobalReplicationGroupInfo(
@@ -13523,7 +13524,7 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     );
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["PendingModifiedValues"] !== undefined) {
     contents.PendingModifiedValues = deserializeAws_queryReplicationGroupPendingModifiedValues(
@@ -13550,13 +13551,13 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     );
   }
   if (output["SnapshottingClusterId"] !== undefined) {
-    contents.SnapshottingClusterId = output["SnapshottingClusterId"];
+    contents.SnapshottingClusterId = __expectString(output["SnapshottingClusterId"]);
   }
   if (output["AutomaticFailover"] !== undefined) {
-    contents.AutomaticFailover = output["AutomaticFailover"];
+    contents.AutomaticFailover = __expectString(output["AutomaticFailover"]);
   }
   if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = output["MultiAZ"];
+    contents.MultiAZ = __expectString(output["MultiAZ"]);
   }
   if (output["ConfigurationEndpoint"] !== undefined) {
     contents.ConfigurationEndpoint = deserializeAws_queryEndpoint(output["ConfigurationEndpoint"], context);
@@ -13565,13 +13566,13 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     contents.SnapshotRetentionLimit = parseInt(output["SnapshotRetentionLimit"]);
   }
   if (output["SnapshotWindow"] !== undefined) {
-    contents.SnapshotWindow = output["SnapshotWindow"];
+    contents.SnapshotWindow = __expectString(output["SnapshotWindow"]);
   }
   if (output["ClusterEnabled"] !== undefined) {
     contents.ClusterEnabled = __parseBoolean(output["ClusterEnabled"]);
   }
   if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = output["CacheNodeType"];
+    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
   }
   if (output["AuthTokenEnabled"] !== undefined) {
     contents.AuthTokenEnabled = __parseBoolean(output["AuthTokenEnabled"]);
@@ -13598,10 +13599,10 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     );
   }
   if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = output["KmsKeyId"];
+    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
   }
   if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
+    contents.ARN = __expectString(output["ARN"]);
   }
   if (output.UserGroupIds === "") {
     contents.UserGroupIds = [];
@@ -13635,7 +13636,7 @@ const deserializeAws_queryReplicationGroupAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -13648,7 +13649,7 @@ const deserializeAws_queryReplicationGroupAlreadyUnderMigrationFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -13670,7 +13671,7 @@ const deserializeAws_queryReplicationGroupMessage = (output: any, context: __Ser
     ReplicationGroups: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.ReplicationGroups === "") {
     contents.ReplicationGroups = [];
@@ -13692,7 +13693,7 @@ const deserializeAws_queryReplicationGroupNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -13705,7 +13706,7 @@ const deserializeAws_queryReplicationGroupNotUnderMigrationFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -13717,7 +13718,7 @@ const deserializeAws_queryReplicationGroupOutpostArnList = (output: any, context
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -13734,16 +13735,16 @@ const deserializeAws_queryReplicationGroupPendingModifiedValues = (
     LogDeliveryConfigurations: undefined,
   };
   if (output["PrimaryClusterId"] !== undefined) {
-    contents.PrimaryClusterId = output["PrimaryClusterId"];
+    contents.PrimaryClusterId = __expectString(output["PrimaryClusterId"]);
   }
   if (output["AutomaticFailoverStatus"] !== undefined) {
-    contents.AutomaticFailoverStatus = output["AutomaticFailoverStatus"];
+    contents.AutomaticFailoverStatus = __expectString(output["AutomaticFailoverStatus"]);
   }
   if (output["Resharding"] !== undefined) {
     contents.Resharding = deserializeAws_queryReshardingStatus(output["Resharding"], context);
   }
   if (output["AuthTokenStatus"] !== undefined) {
-    contents.AuthTokenStatus = output["AuthTokenStatus"];
+    contents.AuthTokenStatus = __expectString(output["AuthTokenStatus"]);
   }
   if (output["UserGroups"] !== undefined) {
     contents.UserGroups = deserializeAws_queryUserGroupsUpdateStatus(output["UserGroups"], context);
@@ -13780,13 +13781,13 @@ const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeCont
     ReservationARN: undefined,
   };
   if (output["ReservedCacheNodeId"] !== undefined) {
-    contents.ReservedCacheNodeId = output["ReservedCacheNodeId"];
+    contents.ReservedCacheNodeId = __expectString(output["ReservedCacheNodeId"]);
   }
   if (output["ReservedCacheNodesOfferingId"] !== undefined) {
-    contents.ReservedCacheNodesOfferingId = output["ReservedCacheNodesOfferingId"];
+    contents.ReservedCacheNodesOfferingId = __expectString(output["ReservedCacheNodesOfferingId"]);
   }
   if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = output["CacheNodeType"];
+    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
   }
   if (output["StartTime"] !== undefined) {
     contents.StartTime = new Date(output["StartTime"]);
@@ -13804,13 +13805,13 @@ const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeCont
     contents.CacheNodeCount = parseInt(output["CacheNodeCount"]);
   }
   if (output["ProductDescription"] !== undefined) {
-    contents.ProductDescription = output["ProductDescription"];
+    contents.ProductDescription = __expectString(output["ProductDescription"]);
   }
   if (output["OfferingType"] !== undefined) {
-    contents.OfferingType = output["OfferingType"];
+    contents.OfferingType = __expectString(output["OfferingType"]);
   }
   if (output["State"] !== undefined) {
-    contents.State = output["State"];
+    contents.State = __expectString(output["State"]);
   }
   if (output.RecurringCharges === "") {
     contents.RecurringCharges = [];
@@ -13822,7 +13823,7 @@ const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeCont
     );
   }
   if (output["ReservationARN"] !== undefined) {
-    contents.ReservationARN = output["ReservationARN"];
+    contents.ReservationARN = __expectString(output["ReservationARN"]);
   }
   return contents;
 };
@@ -13835,7 +13836,7 @@ const deserializeAws_queryReservedCacheNodeAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -13860,7 +13861,7 @@ const deserializeAws_queryReservedCacheNodeMessage = (
     ReservedCacheNodes: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.ReservedCacheNodes === "") {
     contents.ReservedCacheNodes = [];
@@ -13882,7 +13883,7 @@ const deserializeAws_queryReservedCacheNodeNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -13895,7 +13896,7 @@ const deserializeAws_queryReservedCacheNodeQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -13915,10 +13916,10 @@ const deserializeAws_queryReservedCacheNodesOffering = (
     RecurringCharges: undefined,
   };
   if (output["ReservedCacheNodesOfferingId"] !== undefined) {
-    contents.ReservedCacheNodesOfferingId = output["ReservedCacheNodesOfferingId"];
+    contents.ReservedCacheNodesOfferingId = __expectString(output["ReservedCacheNodesOfferingId"]);
   }
   if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = output["CacheNodeType"];
+    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
   }
   if (output["Duration"] !== undefined) {
     contents.Duration = parseInt(output["Duration"]);
@@ -13930,10 +13931,10 @@ const deserializeAws_queryReservedCacheNodesOffering = (
     contents.UsagePrice = parseFloat(output["UsagePrice"]);
   }
   if (output["ProductDescription"] !== undefined) {
-    contents.ProductDescription = output["ProductDescription"];
+    contents.ProductDescription = __expectString(output["ProductDescription"]);
   }
   if (output["OfferingType"] !== undefined) {
-    contents.OfferingType = output["OfferingType"];
+    contents.OfferingType = __expectString(output["OfferingType"]);
   }
   if (output.RecurringCharges === "") {
     contents.RecurringCharges = [];
@@ -13970,7 +13971,7 @@ const deserializeAws_queryReservedCacheNodesOfferingMessage = (
     ReservedCacheNodesOfferings: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.ReservedCacheNodesOfferings === "") {
     contents.ReservedCacheNodesOfferings = [];
@@ -13995,7 +13996,7 @@ const deserializeAws_queryReservedCacheNodesOfferingNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14029,10 +14030,10 @@ const deserializeAws_querySecurityGroupMembership = (output: any, context: __Ser
     Status: undefined,
   };
   if (output["SecurityGroupId"] !== undefined) {
-    contents.SecurityGroupId = output["SecurityGroupId"];
+    contents.SecurityGroupId = __expectString(output["SecurityGroupId"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };
@@ -14059,7 +14060,7 @@ const deserializeAws_queryServiceLinkedRoleNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14080,7 +14081,7 @@ const deserializeAws_queryServiceUpdate = (output: any, context: __SerdeContext)
     EstimatedUpdateTime: undefined,
   };
   if (output["ServiceUpdateName"] !== undefined) {
-    contents.ServiceUpdateName = output["ServiceUpdateName"];
+    contents.ServiceUpdateName = __expectString(output["ServiceUpdateName"]);
   }
   if (output["ServiceUpdateReleaseDate"] !== undefined) {
     contents.ServiceUpdateReleaseDate = new Date(output["ServiceUpdateReleaseDate"]);
@@ -14089,31 +14090,31 @@ const deserializeAws_queryServiceUpdate = (output: any, context: __SerdeContext)
     contents.ServiceUpdateEndDate = new Date(output["ServiceUpdateEndDate"]);
   }
   if (output["ServiceUpdateSeverity"] !== undefined) {
-    contents.ServiceUpdateSeverity = output["ServiceUpdateSeverity"];
+    contents.ServiceUpdateSeverity = __expectString(output["ServiceUpdateSeverity"]);
   }
   if (output["ServiceUpdateRecommendedApplyByDate"] !== undefined) {
     contents.ServiceUpdateRecommendedApplyByDate = new Date(output["ServiceUpdateRecommendedApplyByDate"]);
   }
   if (output["ServiceUpdateStatus"] !== undefined) {
-    contents.ServiceUpdateStatus = output["ServiceUpdateStatus"];
+    contents.ServiceUpdateStatus = __expectString(output["ServiceUpdateStatus"]);
   }
   if (output["ServiceUpdateDescription"] !== undefined) {
-    contents.ServiceUpdateDescription = output["ServiceUpdateDescription"];
+    contents.ServiceUpdateDescription = __expectString(output["ServiceUpdateDescription"]);
   }
   if (output["ServiceUpdateType"] !== undefined) {
-    contents.ServiceUpdateType = output["ServiceUpdateType"];
+    contents.ServiceUpdateType = __expectString(output["ServiceUpdateType"]);
   }
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["AutoUpdateAfterRecommendedApplyByDate"] !== undefined) {
     contents.AutoUpdateAfterRecommendedApplyByDate = __parseBoolean(output["AutoUpdateAfterRecommendedApplyByDate"]);
   }
   if (output["EstimatedUpdateTime"] !== undefined) {
-    contents.EstimatedUpdateTime = output["EstimatedUpdateTime"];
+    contents.EstimatedUpdateTime = __expectString(output["EstimatedUpdateTime"]);
   }
   return contents;
 };
@@ -14137,7 +14138,7 @@ const deserializeAws_queryServiceUpdateNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14148,7 +14149,7 @@ const deserializeAws_queryServiceUpdatesMessage = (output: any, context: __Serde
     ServiceUpdates: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.ServiceUpdates === "") {
     contents.ServiceUpdates = [];
@@ -14203,61 +14204,61 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     ARN: undefined,
   };
   if (output["SnapshotName"] !== undefined) {
-    contents.SnapshotName = output["SnapshotName"];
+    contents.SnapshotName = __expectString(output["SnapshotName"]);
   }
   if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = output["ReplicationGroupId"];
+    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
   }
   if (output["ReplicationGroupDescription"] !== undefined) {
-    contents.ReplicationGroupDescription = output["ReplicationGroupDescription"];
+    contents.ReplicationGroupDescription = __expectString(output["ReplicationGroupDescription"]);
   }
   if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = output["CacheClusterId"];
+    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
   }
   if (output["SnapshotStatus"] !== undefined) {
-    contents.SnapshotStatus = output["SnapshotStatus"];
+    contents.SnapshotStatus = __expectString(output["SnapshotStatus"]);
   }
   if (output["SnapshotSource"] !== undefined) {
-    contents.SnapshotSource = output["SnapshotSource"];
+    contents.SnapshotSource = __expectString(output["SnapshotSource"]);
   }
   if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = output["CacheNodeType"];
+    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
   }
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["NumCacheNodes"] !== undefined) {
     contents.NumCacheNodes = parseInt(output["NumCacheNodes"]);
   }
   if (output["PreferredAvailabilityZone"] !== undefined) {
-    contents.PreferredAvailabilityZone = output["PreferredAvailabilityZone"];
+    contents.PreferredAvailabilityZone = __expectString(output["PreferredAvailabilityZone"]);
   }
   if (output["PreferredOutpostArn"] !== undefined) {
-    contents.PreferredOutpostArn = output["PreferredOutpostArn"];
+    contents.PreferredOutpostArn = __expectString(output["PreferredOutpostArn"]);
   }
   if (output["CacheClusterCreateTime"] !== undefined) {
     contents.CacheClusterCreateTime = new Date(output["CacheClusterCreateTime"]);
   }
   if (output["PreferredMaintenanceWindow"] !== undefined) {
-    contents.PreferredMaintenanceWindow = output["PreferredMaintenanceWindow"];
+    contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
   }
   if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = output["TopicArn"];
+    contents.TopicArn = __expectString(output["TopicArn"]);
   }
   if (output["Port"] !== undefined) {
     contents.Port = parseInt(output["Port"]);
   }
   if (output["CacheParameterGroupName"] !== undefined) {
-    contents.CacheParameterGroupName = output["CacheParameterGroupName"];
+    contents.CacheParameterGroupName = __expectString(output["CacheParameterGroupName"]);
   }
   if (output["CacheSubnetGroupName"] !== undefined) {
-    contents.CacheSubnetGroupName = output["CacheSubnetGroupName"];
+    contents.CacheSubnetGroupName = __expectString(output["CacheSubnetGroupName"]);
   }
   if (output["VpcId"] !== undefined) {
-    contents.VpcId = output["VpcId"];
+    contents.VpcId = __expectString(output["VpcId"]);
   }
   if (output["AutoMinorVersionUpgrade"] !== undefined) {
     contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
@@ -14266,13 +14267,13 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.SnapshotRetentionLimit = parseInt(output["SnapshotRetentionLimit"]);
   }
   if (output["SnapshotWindow"] !== undefined) {
-    contents.SnapshotWindow = output["SnapshotWindow"];
+    contents.SnapshotWindow = __expectString(output["SnapshotWindow"]);
   }
   if (output["NumNodeGroups"] !== undefined) {
     contents.NumNodeGroups = parseInt(output["NumNodeGroups"]);
   }
   if (output["AutomaticFailover"] !== undefined) {
-    contents.AutomaticFailover = output["AutomaticFailover"];
+    contents.AutomaticFailover = __expectString(output["AutomaticFailover"]);
   }
   if (output.NodeSnapshots === "") {
     contents.NodeSnapshots = [];
@@ -14284,10 +14285,10 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     );
   }
   if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = output["KmsKeyId"];
+    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
   }
   if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
+    contents.ARN = __expectString(output["ARN"]);
   }
   return contents;
 };
@@ -14300,7 +14301,7 @@ const deserializeAws_querySnapshotAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14313,7 +14314,7 @@ const deserializeAws_querySnapshotFeatureNotSupportedFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14334,7 +14335,7 @@ const deserializeAws_querySnapshotNotFoundFault = (output: any, context: __Serde
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14347,7 +14348,7 @@ const deserializeAws_querySnapshotQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14369,7 +14370,7 @@ const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subne
     SubnetOutpost: undefined,
   };
   if (output["SubnetIdentifier"] !== undefined) {
-    contents.SubnetIdentifier = output["SubnetIdentifier"];
+    contents.SubnetIdentifier = __expectString(output["SubnetIdentifier"]);
   }
   if (output["SubnetAvailabilityZone"] !== undefined) {
     contents.SubnetAvailabilityZone = deserializeAws_queryAvailabilityZone(output["SubnetAvailabilityZone"], context);
@@ -14385,7 +14386,7 @@ const deserializeAws_querySubnetInUse = (output: any, context: __SerdeContext): 
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14406,7 +14407,7 @@ const deserializeAws_querySubnetNotAllowedFault = (output: any, context: __Serde
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14416,7 +14417,7 @@ const deserializeAws_querySubnetOutpost = (output: any, context: __SerdeContext)
     SubnetOutpostArn: undefined,
   };
   if (output["SubnetOutpostArn"] !== undefined) {
-    contents.SubnetOutpostArn = output["SubnetOutpostArn"];
+    contents.SubnetOutpostArn = __expectString(output["SubnetOutpostArn"]);
   }
   return contents;
 };
@@ -14427,10 +14428,10 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
     Value: undefined,
   };
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key = __expectString(output["Key"]);
   }
   if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
+    contents.Value = __expectString(output["Value"]);
   }
   return contents;
 };
@@ -14464,7 +14465,7 @@ const deserializeAws_queryTagNotFoundFault = (output: any, context: __SerdeConte
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14477,7 +14478,7 @@ const deserializeAws_queryTagQuotaPerResourceExceeded = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14490,7 +14491,7 @@ const deserializeAws_queryTestFailoverNotAvailableFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14512,7 +14513,7 @@ const deserializeAws_queryUGReplicationGroupIdList = (output: any, context: __Se
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -14525,19 +14526,19 @@ const deserializeAws_queryUnprocessedUpdateAction = (output: any, context: __Ser
     ErrorMessage: undefined,
   };
   if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = output["ReplicationGroupId"];
+    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
   }
   if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = output["CacheClusterId"];
+    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
   }
   if (output["ServiceUpdateName"] !== undefined) {
-    contents.ServiceUpdateName = output["ServiceUpdateName"];
+    contents.ServiceUpdateName = __expectString(output["ServiceUpdateName"]);
   }
   if (output["ErrorType"] !== undefined) {
-    contents.ErrorType = output["ErrorType"];
+    contents.ErrorType = __expectString(output["ErrorType"]);
   }
   if (output["ErrorMessage"] !== undefined) {
-    contents.ErrorMessage = output["ErrorMessage"];
+    contents.ErrorMessage = __expectString(output["ErrorMessage"]);
   }
   return contents;
 };
@@ -14577,43 +14578,43 @@ const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext):
     Engine: undefined,
   };
   if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = output["ReplicationGroupId"];
+    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
   }
   if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = output["CacheClusterId"];
+    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
   }
   if (output["ServiceUpdateName"] !== undefined) {
-    contents.ServiceUpdateName = output["ServiceUpdateName"];
+    contents.ServiceUpdateName = __expectString(output["ServiceUpdateName"]);
   }
   if (output["ServiceUpdateReleaseDate"] !== undefined) {
     contents.ServiceUpdateReleaseDate = new Date(output["ServiceUpdateReleaseDate"]);
   }
   if (output["ServiceUpdateSeverity"] !== undefined) {
-    contents.ServiceUpdateSeverity = output["ServiceUpdateSeverity"];
+    contents.ServiceUpdateSeverity = __expectString(output["ServiceUpdateSeverity"]);
   }
   if (output["ServiceUpdateStatus"] !== undefined) {
-    contents.ServiceUpdateStatus = output["ServiceUpdateStatus"];
+    contents.ServiceUpdateStatus = __expectString(output["ServiceUpdateStatus"]);
   }
   if (output["ServiceUpdateRecommendedApplyByDate"] !== undefined) {
     contents.ServiceUpdateRecommendedApplyByDate = new Date(output["ServiceUpdateRecommendedApplyByDate"]);
   }
   if (output["ServiceUpdateType"] !== undefined) {
-    contents.ServiceUpdateType = output["ServiceUpdateType"];
+    contents.ServiceUpdateType = __expectString(output["ServiceUpdateType"]);
   }
   if (output["UpdateActionAvailableDate"] !== undefined) {
     contents.UpdateActionAvailableDate = new Date(output["UpdateActionAvailableDate"]);
   }
   if (output["UpdateActionStatus"] !== undefined) {
-    contents.UpdateActionStatus = output["UpdateActionStatus"];
+    contents.UpdateActionStatus = __expectString(output["UpdateActionStatus"]);
   }
   if (output["NodesUpdated"] !== undefined) {
-    contents.NodesUpdated = output["NodesUpdated"];
+    contents.NodesUpdated = __expectString(output["NodesUpdated"]);
   }
   if (output["UpdateActionStatusModifiedDate"] !== undefined) {
     contents.UpdateActionStatusModifiedDate = new Date(output["UpdateActionStatusModifiedDate"]);
   }
   if (output["SlaMet"] !== undefined) {
-    contents.SlaMet = output["SlaMet"];
+    contents.SlaMet = __expectString(output["SlaMet"]);
   }
   if (output.NodeGroupUpdateStatus === "") {
     contents.NodeGroupUpdateStatus = [];
@@ -14640,10 +14641,10 @@ const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext):
     );
   }
   if (output["EstimatedUpdateTime"] !== undefined) {
-    contents.EstimatedUpdateTime = output["EstimatedUpdateTime"];
+    contents.EstimatedUpdateTime = __expectString(output["EstimatedUpdateTime"]);
   }
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   return contents;
 };
@@ -14700,7 +14701,7 @@ const deserializeAws_queryUpdateActionsMessage = (output: any, context: __SerdeC
     UpdateActions: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.UpdateActions === "") {
     contents.UpdateActions = [];
@@ -14726,19 +14727,19 @@ const deserializeAws_queryUser = (output: any, context: __SerdeContext): User =>
     ARN: undefined,
   };
   if (output["UserId"] !== undefined) {
-    contents.UserId = output["UserId"];
+    contents.UserId = __expectString(output["UserId"]);
   }
   if (output["UserName"] !== undefined) {
-    contents.UserName = output["UserName"];
+    contents.UserName = __expectString(output["UserName"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   if (output["AccessString"] !== undefined) {
-    contents.AccessString = output["AccessString"];
+    contents.AccessString = __expectString(output["AccessString"]);
   }
   if (output.UserGroupIds === "") {
     contents.UserGroupIds = [];
@@ -14753,7 +14754,7 @@ const deserializeAws_queryUser = (output: any, context: __SerdeContext): User =>
     contents.Authentication = deserializeAws_queryAuthentication(output["Authentication"], context);
   }
   if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
+    contents.ARN = __expectString(output["ARN"]);
   }
   return contents;
 };
@@ -14763,7 +14764,7 @@ const deserializeAws_queryUserAlreadyExistsFault = (output: any, context: __Serd
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14779,13 +14780,13 @@ const deserializeAws_queryUserGroup = (output: any, context: __SerdeContext): Us
     ARN: undefined,
   };
   if (output["UserGroupId"] !== undefined) {
-    contents.UserGroupId = output["UserGroupId"];
+    contents.UserGroupId = __expectString(output["UserGroupId"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   if (output.UserIds === "") {
     contents.UserIds = [];
@@ -14806,7 +14807,7 @@ const deserializeAws_queryUserGroup = (output: any, context: __SerdeContext): Us
     );
   }
   if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
+    contents.ARN = __expectString(output["ARN"]);
   }
   return contents;
 };
@@ -14819,7 +14820,7 @@ const deserializeAws_queryUserGroupAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14831,7 +14832,7 @@ const deserializeAws_queryUserGroupIdList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -14851,7 +14852,7 @@ const deserializeAws_queryUserGroupNotFoundFault = (output: any, context: __Serd
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14890,7 +14891,7 @@ const deserializeAws_queryUserGroupQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14928,7 +14929,7 @@ const deserializeAws_queryUserIdList = (output: any, context: __SerdeContext): s
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -14948,7 +14949,7 @@ const deserializeAws_queryUserNotFoundFault = (output: any, context: __SerdeCont
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -14958,7 +14959,7 @@ const deserializeAws_queryUserQuotaExceededFault = (output: any, context: __Serd
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };

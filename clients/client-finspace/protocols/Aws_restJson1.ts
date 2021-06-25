@@ -24,6 +24,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -294,13 +295,13 @@ export const deserializeAws_restJson1CreateEnvironmentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.environmentArn !== undefined && data.environmentArn !== null) {
-    contents.environmentArn = data.environmentArn;
+    contents.environmentArn = __expectString(data.environmentArn);
   }
   if (data.environmentId !== undefined && data.environmentId !== null) {
-    contents.environmentId = data.environmentId;
+    contents.environmentId = __expectString(data.environmentId);
   }
   if (data.environmentUrl !== undefined && data.environmentUrl !== null) {
-    contents.environmentUrl = data.environmentUrl;
+    contents.environmentUrl = __expectString(data.environmentUrl);
   }
   return Promise.resolve(contents);
 };
@@ -561,7 +562,7 @@ export const deserializeAws_restJson1ListEnvironmentsCommand = async (
     contents.environments = deserializeAws_restJson1EnvironmentList(data.environments, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -928,7 +929,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -945,7 +946,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -962,7 +963,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -979,7 +980,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -996,7 +997,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1026,7 +1027,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1078,38 +1079,28 @@ const deserializeAws_restJson1AttributeMap = (output: any, context: __SerdeConte
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1Environment = (output: any, context: __SerdeContext): Environment => {
   return {
-    awsAccountId: output.awsAccountId !== undefined && output.awsAccountId !== null ? output.awsAccountId : undefined,
-    dedicatedServiceAccountId:
-      output.dedicatedServiceAccountId !== undefined && output.dedicatedServiceAccountId !== null
-        ? output.dedicatedServiceAccountId
-        : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    environmentArn:
-      output.environmentArn !== undefined && output.environmentArn !== null ? output.environmentArn : undefined,
-    environmentId:
-      output.environmentId !== undefined && output.environmentId !== null ? output.environmentId : undefined,
-    environmentUrl:
-      output.environmentUrl !== undefined && output.environmentUrl !== null ? output.environmentUrl : undefined,
-    federationMode:
-      output.federationMode !== undefined && output.federationMode !== null ? output.federationMode : undefined,
+    awsAccountId: __expectString(output.awsAccountId),
+    dedicatedServiceAccountId: __expectString(output.dedicatedServiceAccountId),
+    description: __expectString(output.description),
+    environmentArn: __expectString(output.environmentArn),
+    environmentId: __expectString(output.environmentId),
+    environmentUrl: __expectString(output.environmentUrl),
+    federationMode: __expectString(output.federationMode),
     federationParameters:
       output.federationParameters !== undefined && output.federationParameters !== null
         ? deserializeAws_restJson1FederationParameters(output.federationParameters, context)
         : undefined,
-    kmsKeyId: output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    sageMakerStudioDomainUrl:
-      output.sageMakerStudioDomainUrl !== undefined && output.sageMakerStudioDomainUrl !== null
-        ? output.sageMakerStudioDomainUrl
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    kmsKeyId: __expectString(output.kmsKeyId),
+    name: __expectString(output.name),
+    sageMakerStudioDomainUrl: __expectString(output.sageMakerStudioDomainUrl),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -1126,26 +1117,15 @@ const deserializeAws_restJson1EnvironmentList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1FederationParameters = (output: any, context: __SerdeContext): FederationParameters => {
   return {
-    applicationCallBackURL:
-      output.applicationCallBackURL !== undefined && output.applicationCallBackURL !== null
-        ? output.applicationCallBackURL
-        : undefined,
+    applicationCallBackURL: __expectString(output.applicationCallBackURL),
     attributeMap:
       output.attributeMap !== undefined && output.attributeMap !== null
         ? deserializeAws_restJson1AttributeMap(output.attributeMap, context)
         : undefined,
-    federationProviderName:
-      output.federationProviderName !== undefined && output.federationProviderName !== null
-        ? output.federationProviderName
-        : undefined,
-    federationURN:
-      output.federationURN !== undefined && output.federationURN !== null ? output.federationURN : undefined,
-    samlMetadataDocument:
-      output.samlMetadataDocument !== undefined && output.samlMetadataDocument !== null
-        ? output.samlMetadataDocument
-        : undefined,
-    samlMetadataURL:
-      output.samlMetadataURL !== undefined && output.samlMetadataURL !== null ? output.samlMetadataURL : undefined,
+    federationProviderName: __expectString(output.federationProviderName),
+    federationURN: __expectString(output.federationURN),
+    samlMetadataDocument: __expectString(output.samlMetadataDocument),
+    samlMetadataURL: __expectString(output.samlMetadataURL),
   } as any;
 };
 
@@ -1156,7 +1136,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

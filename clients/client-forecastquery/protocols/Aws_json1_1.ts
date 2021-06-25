@@ -11,7 +11,11 @@ import {
   ResourceNotFoundException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -219,8 +223,8 @@ const serializeAws_json1_1QueryForecastRequest = (input: QueryForecastRequest, c
 
 const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): DataPoint => {
   return {
-    Timestamp: output.Timestamp !== undefined && output.Timestamp !== null ? output.Timestamp : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Timestamp: __expectString(output.Timestamp),
+    Value: __expectNumber(output.Value),
   } as any;
 };
 
@@ -235,7 +239,7 @@ const deserializeAws_json1_1Forecast = (output: any, context: __SerdeContext): F
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -244,13 +248,13 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -277,7 +281,7 @@ const deserializeAws_json1_1QueryForecastResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -286,7 +290,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 

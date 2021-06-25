@@ -148,7 +148,12 @@ import {
   UploadNotFoundException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3054,16 +3059,13 @@ const deserializeAws_json1_1ArchitectureList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1AuthorizationData = (output: any, context: __SerdeContext): AuthorizationData => {
   return {
-    authorizationToken:
-      output.authorizationToken !== undefined && output.authorizationToken !== null
-        ? output.authorizationToken
-        : undefined,
+    authorizationToken: __expectString(output.authorizationToken),
     expiresAt:
       output.expiresAt !== undefined && output.expiresAt !== null
         ? new Date(Math.round(output.expiresAt * 1000))
@@ -3108,11 +3110,10 @@ const deserializeAws_json1_1CompleteLayerUploadResponse = (
   context: __SerdeContext
 ): CompleteLayerUploadResponse => {
   return {
-    layerDigest: output.layerDigest !== undefined && output.layerDigest !== null ? output.layerDigest : undefined,
-    registryId: output.registryId !== undefined && output.registryId !== null ? output.registryId : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
-    uploadId: output.uploadId !== undefined && output.uploadId !== null ? output.uploadId : undefined,
+    layerDigest: __expectString(output.layerDigest),
+    registryId: __expectString(output.registryId),
+    repositoryName: __expectString(output.repositoryName),
+    uploadId: __expectString(output.uploadId),
   } as any;
 };
 
@@ -3137,10 +3138,9 @@ const deserializeAws_json1_1DeleteRepositoryPolicyResponse = (
   context: __SerdeContext
 ): DeleteRepositoryPolicyResponse => {
   return {
-    policyText: output.policyText !== undefined && output.policyText !== null ? output.policyText : undefined,
-    registryId: output.registryId !== undefined && output.registryId !== null ? output.registryId : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    policyText: __expectString(output.policyText),
+    registryId: __expectString(output.registryId),
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -3162,7 +3162,7 @@ const deserializeAws_json1_1DescribeImagesResponse = (output: any, context: __Se
       output.imageDetails !== undefined && output.imageDetails !== null
         ? deserializeAws_json1_1ImageDetailList(output.imageDetails, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -3175,7 +3175,7 @@ const deserializeAws_json1_1DescribeImageTagsResponse = (
       output.imageTagDetails !== undefined && output.imageTagDetails !== null
         ? deserializeAws_json1_1ImageTagDetailList(output.imageTagDetails, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -3184,7 +3184,7 @@ const deserializeAws_json1_1DescribeRegistriesResponse = (
   context: __SerdeContext
 ): DescribeRegistriesResponse => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     registries:
       output.registries !== undefined && output.registries !== null
         ? deserializeAws_json1_1RegistryList(output.registries, context)
@@ -3197,7 +3197,7 @@ const deserializeAws_json1_1DescribeRepositoriesResponse = (
   context: __SerdeContext
 ): DescribeRepositoriesResponse => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     repositories:
       output.repositories !== undefined && output.repositories !== null
         ? deserializeAws_json1_1RepositoryList(output.repositories, context)
@@ -3207,7 +3207,7 @@ const deserializeAws_json1_1DescribeRepositoriesResponse = (
 
 const deserializeAws_json1_1EmptyUploadException = (output: any, context: __SerdeContext): EmptyUploadException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3252,10 +3252,9 @@ const deserializeAws_json1_1GetRepositoryPolicyResponse = (
   context: __SerdeContext
 ): GetRepositoryPolicyResponse => {
   return {
-    policyText: output.policyText !== undefined && output.policyText !== null ? output.policyText : undefined,
-    registryId: output.registryId !== undefined && output.registryId !== null ? output.registryId : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    policyText: __expectString(output.policyText),
+    registryId: __expectString(output.registryId),
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -3265,15 +3264,10 @@ const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Imag
       output.imageId !== undefined && output.imageId !== null
         ? deserializeAws_json1_1ImageIdentifier(output.imageId, context)
         : undefined,
-    imageManifest:
-      output.imageManifest !== undefined && output.imageManifest !== null ? output.imageManifest : undefined,
-    imageManifestMediaType:
-      output.imageManifestMediaType !== undefined && output.imageManifestMediaType !== null
-        ? output.imageManifestMediaType
-        : undefined,
-    registryId: output.registryId !== undefined && output.registryId !== null ? output.registryId : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    imageManifest: __expectString(output.imageManifest),
+    imageManifestMediaType: __expectString(output.imageManifestMediaType),
+    registryId: __expectString(output.registryId),
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -3282,34 +3276,26 @@ const deserializeAws_json1_1ImageAlreadyExistsException = (
   context: __SerdeContext
 ): ImageAlreadyExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ImageDetail = (output: any, context: __SerdeContext): ImageDetail => {
   return {
-    artifactMediaType:
-      output.artifactMediaType !== undefined && output.artifactMediaType !== null
-        ? output.artifactMediaType
-        : undefined,
-    imageDigest: output.imageDigest !== undefined && output.imageDigest !== null ? output.imageDigest : undefined,
-    imageManifestMediaType:
-      output.imageManifestMediaType !== undefined && output.imageManifestMediaType !== null
-        ? output.imageManifestMediaType
-        : undefined,
+    artifactMediaType: __expectString(output.artifactMediaType),
+    imageDigest: __expectString(output.imageDigest),
+    imageManifestMediaType: __expectString(output.imageManifestMediaType),
     imagePushedAt:
       output.imagePushedAt !== undefined && output.imagePushedAt !== null
         ? new Date(Math.round(output.imagePushedAt * 1000))
         : undefined,
-    imageSizeInBytes:
-      output.imageSizeInBytes !== undefined && output.imageSizeInBytes !== null ? output.imageSizeInBytes : undefined,
+    imageSizeInBytes: __expectNumber(output.imageSizeInBytes),
     imageTags:
       output.imageTags !== undefined && output.imageTags !== null
         ? deserializeAws_json1_1ImageTagList(output.imageTags, context)
         : undefined,
-    registryId: output.registryId !== undefined && output.registryId !== null ? output.registryId : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    registryId: __expectString(output.registryId),
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -3329,15 +3315,14 @@ const deserializeAws_json1_1ImageDigestDoesNotMatchException = (
   context: __SerdeContext
 ): ImageDigestDoesNotMatchException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ImageFailure = (output: any, context: __SerdeContext): ImageFailure => {
   return {
-    failureCode: output.failureCode !== undefined && output.failureCode !== null ? output.failureCode : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    failureCode: __expectString(output.failureCode),
+    failureReason: __expectString(output.failureReason),
     imageId:
       output.imageId !== undefined && output.imageId !== null
         ? deserializeAws_json1_1ImageIdentifier(output.imageId, context)
@@ -3358,8 +3343,8 @@ const deserializeAws_json1_1ImageFailureList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ImageIdentifier = (output: any, context: __SerdeContext): ImageIdentifier => {
   return {
-    imageDigest: output.imageDigest !== undefined && output.imageDigest !== null ? output.imageDigest : undefined,
-    imageTag: output.imageTag !== undefined && output.imageTag !== null ? output.imageTag : undefined,
+    imageDigest: __expectString(output.imageDigest),
+    imageTag: __expectString(output.imageTag),
   } as any;
 };
 
@@ -3376,7 +3361,7 @@ const deserializeAws_json1_1ImageIdentifierList = (output: any, context: __Serde
 
 const deserializeAws_json1_1ImageNotFoundException = (output: any, context: __SerdeContext): ImageNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3385,7 +3370,7 @@ const deserializeAws_json1_1ImageTagAlreadyExistsException = (
   context: __SerdeContext
 ): ImageTagAlreadyExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3399,7 +3384,7 @@ const deserializeAws_json1_1ImageTagDetail = (output: any, context: __SerdeConte
       output.imageDetail !== undefined && output.imageDetail !== null
         ? deserializeAws_json1_1ReferencedImageDetail(output.imageDetail, context)
         : undefined,
-    imageTag: output.imageTag !== undefined && output.imageTag !== null ? output.imageTag : undefined,
+    imageTag: __expectString(output.imageTag),
   } as any;
 };
 
@@ -3421,7 +3406,7 @@ const deserializeAws_json1_1ImageTagList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3430,14 +3415,14 @@ const deserializeAws_json1_1InitiateLayerUploadResponse = (
   context: __SerdeContext
 ): InitiateLayerUploadResponse => {
   return {
-    partSize: output.partSize !== undefined && output.partSize !== null ? output.partSize : undefined,
-    uploadId: output.uploadId !== undefined && output.uploadId !== null ? output.uploadId : undefined,
+    partSize: __expectNumber(output.partSize),
+    uploadId: __expectString(output.uploadId),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidLayerException = (output: any, context: __SerdeContext): InvalidLayerException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3446,15 +3431,11 @@ const deserializeAws_json1_1InvalidLayerPartException = (
   context: __SerdeContext
 ): InvalidLayerPartException => {
   return {
-    lastValidByteReceived:
-      output.lastValidByteReceived !== undefined && output.lastValidByteReceived !== null
-        ? output.lastValidByteReceived
-        : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    registryId: output.registryId !== undefined && output.registryId !== null ? output.registryId : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
-    uploadId: output.uploadId !== undefined && output.uploadId !== null ? output.uploadId : undefined,
+    lastValidByteReceived: __expectNumber(output.lastValidByteReceived),
+    message: __expectString(output.message),
+    registryId: __expectString(output.registryId),
+    repositoryName: __expectString(output.repositoryName),
+    uploadId: __expectString(output.uploadId),
   } as any;
 };
 
@@ -3463,7 +3444,7 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3472,19 +3453,16 @@ const deserializeAws_json1_1InvalidTagParameterException = (
   context: __SerdeContext
 ): InvalidTagParameterException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1Layer = (output: any, context: __SerdeContext): Layer => {
   return {
-    layerAvailability:
-      output.layerAvailability !== undefined && output.layerAvailability !== null
-        ? output.layerAvailability
-        : undefined,
-    layerDigest: output.layerDigest !== undefined && output.layerDigest !== null ? output.layerDigest : undefined,
-    layerSize: output.layerSize !== undefined && output.layerSize !== null ? output.layerSize : undefined,
-    mediaType: output.mediaType !== undefined && output.mediaType !== null ? output.mediaType : undefined,
+    layerAvailability: __expectString(output.layerAvailability),
+    layerDigest: __expectString(output.layerDigest),
+    layerSize: __expectNumber(output.layerSize),
+    mediaType: __expectString(output.mediaType),
   } as any;
 };
 
@@ -3493,16 +3471,15 @@ const deserializeAws_json1_1LayerAlreadyExistsException = (
   context: __SerdeContext
 ): LayerAlreadyExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1LayerFailure = (output: any, context: __SerdeContext): LayerFailure => {
   return {
-    failureCode: output.failureCode !== undefined && output.failureCode !== null ? output.failureCode : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
-    layerDigest: output.layerDigest !== undefined && output.layerDigest !== null ? output.layerDigest : undefined,
+    failureCode: __expectString(output.failureCode),
+    failureReason: __expectString(output.failureReason),
+    layerDigest: __expectString(output.layerDigest),
   } as any;
 };
 
@@ -3533,7 +3510,7 @@ const deserializeAws_json1_1LayerPartTooSmallException = (
   context: __SerdeContext
 ): LayerPartTooSmallException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3542,13 +3519,13 @@ const deserializeAws_json1_1LayersNotFoundException = (
   context: __SerdeContext
 ): LayersNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3571,7 +3548,7 @@ const deserializeAws_json1_1OperatingSystemList = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3610,21 +3587,14 @@ const deserializeAws_json1_1PutRepositoryCatalogDataResponse = (
 
 const deserializeAws_json1_1ReferencedImageDetail = (output: any, context: __SerdeContext): ReferencedImageDetail => {
   return {
-    artifactMediaType:
-      output.artifactMediaType !== undefined && output.artifactMediaType !== null
-        ? output.artifactMediaType
-        : undefined,
-    imageDigest: output.imageDigest !== undefined && output.imageDigest !== null ? output.imageDigest : undefined,
-    imageManifestMediaType:
-      output.imageManifestMediaType !== undefined && output.imageManifestMediaType !== null
-        ? output.imageManifestMediaType
-        : undefined,
+    artifactMediaType: __expectString(output.artifactMediaType),
+    imageDigest: __expectString(output.imageDigest),
+    imageManifestMediaType: __expectString(output.imageManifestMediaType),
     imagePushedAt:
       output.imagePushedAt !== undefined && output.imagePushedAt !== null
         ? new Date(Math.round(output.imagePushedAt * 1000))
         : undefined,
-    imageSizeInBytes:
-      output.imageSizeInBytes !== undefined && output.imageSizeInBytes !== null ? output.imageSizeInBytes : undefined,
+    imageSizeInBytes: __expectNumber(output.imageSizeInBytes),
   } as any;
 };
 
@@ -3633,7 +3603,7 @@ const deserializeAws_json1_1ReferencedImagesNotFoundException = (
   context: __SerdeContext
 ): ReferencedImagesNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3643,25 +3613,19 @@ const deserializeAws_json1_1Registry = (output: any, context: __SerdeContext): R
       output.aliases !== undefined && output.aliases !== null
         ? deserializeAws_json1_1RegistryAliasList(output.aliases, context)
         : undefined,
-    registryArn: output.registryArn !== undefined && output.registryArn !== null ? output.registryArn : undefined,
-    registryId: output.registryId !== undefined && output.registryId !== null ? output.registryId : undefined,
-    registryUri: output.registryUri !== undefined && output.registryUri !== null ? output.registryUri : undefined,
-    verified: output.verified !== undefined && output.verified !== null ? output.verified : undefined,
+    registryArn: __expectString(output.registryArn),
+    registryId: __expectString(output.registryId),
+    registryUri: __expectString(output.registryUri),
+    verified: __expectBoolean(output.verified),
   } as any;
 };
 
 const deserializeAws_json1_1RegistryAlias = (output: any, context: __SerdeContext): RegistryAlias => {
   return {
-    defaultRegistryAlias:
-      output.defaultRegistryAlias !== undefined && output.defaultRegistryAlias !== null
-        ? output.defaultRegistryAlias
-        : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    primaryRegistryAlias:
-      output.primaryRegistryAlias !== undefined && output.primaryRegistryAlias !== null
-        ? output.primaryRegistryAlias
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    defaultRegistryAlias: __expectBoolean(output.defaultRegistryAlias),
+    name: __expectString(output.name),
+    primaryRegistryAlias: __expectBoolean(output.primaryRegistryAlias),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -3678,7 +3642,7 @@ const deserializeAws_json1_1RegistryAliasList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1RegistryCatalogData = (output: any, context: __SerdeContext): RegistryCatalogData => {
   return {
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
+    displayName: __expectString(output.displayName),
   } as any;
 };
 
@@ -3698,7 +3662,7 @@ const deserializeAws_json1_1RegistryNotFoundException = (
   context: __SerdeContext
 ): RegistryNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3708,13 +3672,10 @@ const deserializeAws_json1_1Repository = (output: any, context: __SerdeContext):
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    registryId: output.registryId !== undefined && output.registryId !== null ? output.registryId : undefined,
-    repositoryArn:
-      output.repositoryArn !== undefined && output.repositoryArn !== null ? output.repositoryArn : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
-    repositoryUri:
-      output.repositoryUri !== undefined && output.repositoryUri !== null ? output.repositoryUri : undefined,
+    registryId: __expectString(output.registryId),
+    repositoryArn: __expectString(output.repositoryArn),
+    repositoryName: __expectString(output.repositoryName),
+    repositoryUri: __expectString(output.repositoryUri),
   } as any;
 };
 
@@ -3723,28 +3684,25 @@ const deserializeAws_json1_1RepositoryAlreadyExistsException = (
   context: __SerdeContext
 ): RepositoryAlreadyExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1RepositoryCatalogData = (output: any, context: __SerdeContext): RepositoryCatalogData => {
   return {
-    aboutText: output.aboutText !== undefined && output.aboutText !== null ? output.aboutText : undefined,
+    aboutText: __expectString(output.aboutText),
     architectures:
       output.architectures !== undefined && output.architectures !== null
         ? deserializeAws_json1_1ArchitectureList(output.architectures, context)
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    logoUrl: output.logoUrl !== undefined && output.logoUrl !== null ? output.logoUrl : undefined,
-    marketplaceCertified:
-      output.marketplaceCertified !== undefined && output.marketplaceCertified !== null
-        ? output.marketplaceCertified
-        : undefined,
+    description: __expectString(output.description),
+    logoUrl: __expectString(output.logoUrl),
+    marketplaceCertified: __expectBoolean(output.marketplaceCertified),
     operatingSystems:
       output.operatingSystems !== undefined && output.operatingSystems !== null
         ? deserializeAws_json1_1OperatingSystemList(output.operatingSystems, context)
         : undefined,
-    usageText: output.usageText !== undefined && output.usageText !== null ? output.usageText : undefined,
+    usageText: __expectString(output.usageText),
   } as any;
 };
 
@@ -3764,7 +3722,7 @@ const deserializeAws_json1_1RepositoryNotEmptyException = (
   context: __SerdeContext
 ): RepositoryNotEmptyException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3773,7 +3731,7 @@ const deserializeAws_json1_1RepositoryNotFoundException = (
   context: __SerdeContext
 ): RepositoryNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3782,13 +3740,13 @@ const deserializeAws_json1_1RepositoryPolicyNotFoundException = (
   context: __SerdeContext
 ): RepositoryPolicyNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ServerException = (output: any, context: __SerdeContext): ServerException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3797,17 +3755,16 @@ const deserializeAws_json1_1SetRepositoryPolicyResponse = (
   context: __SerdeContext
 ): SetRepositoryPolicyResponse => {
   return {
-    policyText: output.policyText !== undefined && output.policyText !== null ? output.policyText : undefined,
-    registryId: output.registryId !== undefined && output.registryId !== null ? output.registryId : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    policyText: __expectString(output.policyText),
+    registryId: __expectString(output.registryId),
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -3828,7 +3785,7 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3837,7 +3794,7 @@ const deserializeAws_json1_1UnsupportedCommandException = (
   context: __SerdeContext
 ): UnsupportedCommandException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3850,12 +3807,10 @@ const deserializeAws_json1_1UploadLayerPartResponse = (
   context: __SerdeContext
 ): UploadLayerPartResponse => {
   return {
-    lastByteReceived:
-      output.lastByteReceived !== undefined && output.lastByteReceived !== null ? output.lastByteReceived : undefined,
-    registryId: output.registryId !== undefined && output.registryId !== null ? output.registryId : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
-    uploadId: output.uploadId !== undefined && output.uploadId !== null ? output.uploadId : undefined,
+    lastByteReceived: __expectNumber(output.lastByteReceived),
+    registryId: __expectString(output.registryId),
+    repositoryName: __expectString(output.repositoryName),
+    uploadId: __expectString(output.uploadId),
   } as any;
 };
 
@@ -3864,7 +3819,7 @@ const deserializeAws_json1_1UploadNotFoundException = (
   context: __SerdeContext
 ): UploadNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 

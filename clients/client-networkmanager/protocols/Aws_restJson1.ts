@@ -105,6 +105,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -2793,7 +2795,7 @@ export const deserializeAws_restJson1DescribeGlobalNetworksCommand = async (
     contents.GlobalNetworks = deserializeAws_restJson1GlobalNetworkList(data.GlobalNetworks, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3175,7 +3177,7 @@ export const deserializeAws_restJson1GetConnectionsCommand = async (
     contents.Connections = deserializeAws_restJson1ConnectionList(data.Connections, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3269,7 +3271,7 @@ export const deserializeAws_restJson1GetCustomerGatewayAssociationsCommand = asy
     );
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3368,7 +3370,7 @@ export const deserializeAws_restJson1GetDevicesCommand = async (
     contents.Devices = deserializeAws_restJson1DeviceList(data.Devices, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3459,7 +3461,7 @@ export const deserializeAws_restJson1GetLinkAssociationsCommand = async (
     contents.LinkAssociations = deserializeAws_restJson1LinkAssociationList(data.LinkAssociations, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3550,7 +3552,7 @@ export const deserializeAws_restJson1GetLinksCommand = async (
     contents.Links = deserializeAws_restJson1LinkList(data.Links, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3638,7 +3640,7 @@ export const deserializeAws_restJson1GetSitesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Sites !== undefined && data.Sites !== null) {
     contents.Sites = deserializeAws_restJson1SiteList(data.Sites, context);
@@ -3729,7 +3731,7 @@ export const deserializeAws_restJson1GetTransitGatewayConnectPeerAssociationsCom
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.TransitGatewayConnectPeerAssociations !== undefined && data.TransitGatewayConnectPeerAssociations !== null) {
     contents.TransitGatewayConnectPeerAssociations = deserializeAws_restJson1TransitGatewayConnectPeerAssociationList(
@@ -3831,7 +3833,7 @@ export const deserializeAws_restJson1GetTransitGatewayRegistrationsCommand = asy
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.TransitGatewayRegistrations !== undefined && data.TransitGatewayRegistrations !== null) {
     contents.TransitGatewayRegistrations = deserializeAws_restJson1TransitGatewayRegistrationList(
@@ -4781,7 +4783,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4800,13 +4802,13 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.ResourceId !== undefined && data.ResourceId !== null) {
-    contents.ResourceId = data.ResourceId;
+    contents.ResourceId = __expectString(data.ResourceId);
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = data.ResourceType;
+    contents.ResourceType = __expectString(data.ResourceType);
   }
   return contents;
 };
@@ -4827,7 +4829,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   }
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4846,13 +4848,13 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.ResourceId !== undefined && data.ResourceId !== null) {
-    contents.ResourceId = data.ResourceId;
+    contents.ResourceId = __expectString(data.ResourceId);
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = data.ResourceType;
+    contents.ResourceType = __expectString(data.ResourceType);
   }
   return contents;
 };
@@ -4873,19 +4875,19 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.LimitCode !== undefined && data.LimitCode !== null) {
-    contents.LimitCode = data.LimitCode;
+    contents.LimitCode = __expectString(data.LimitCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.ResourceId !== undefined && data.ResourceId !== null) {
-    contents.ResourceId = data.ResourceId;
+    contents.ResourceId = __expectString(data.ResourceId);
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = data.ResourceType;
+    contents.ResourceType = __expectString(data.ResourceType);
   }
   if (data.ServiceCode !== undefined && data.ServiceCode !== null) {
-    contents.ServiceCode = data.ServiceCode;
+    contents.ServiceCode = __expectString(data.ServiceCode);
   }
   return contents;
 };
@@ -4906,7 +4908,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   }
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4928,10 +4930,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
     contents.Fields = deserializeAws_restJson1ValidationExceptionFieldList(data.Fields, context);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Reason !== undefined && data.Reason !== null) {
-    contents.Reason = data.Reason;
+    contents.Reason = __expectString(data.Reason);
   }
   return contents;
 };
@@ -4978,40 +4980,33 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
 
 const deserializeAws_restJson1AWSLocation = (output: any, context: __SerdeContext): AWSLocation => {
   return {
-    SubnetArn: output.SubnetArn !== undefined && output.SubnetArn !== null ? output.SubnetArn : undefined,
-    Zone: output.Zone !== undefined && output.Zone !== null ? output.Zone : undefined,
+    SubnetArn: __expectString(output.SubnetArn),
+    Zone: __expectString(output.Zone),
   } as any;
 };
 
 const deserializeAws_restJson1Bandwidth = (output: any, context: __SerdeContext): Bandwidth => {
   return {
-    DownloadSpeed:
-      output.DownloadSpeed !== undefined && output.DownloadSpeed !== null ? output.DownloadSpeed : undefined,
-    UploadSpeed: output.UploadSpeed !== undefined && output.UploadSpeed !== null ? output.UploadSpeed : undefined,
+    DownloadSpeed: __expectNumber(output.DownloadSpeed),
+    UploadSpeed: __expectNumber(output.UploadSpeed),
   } as any;
 };
 
 const deserializeAws_restJson1Connection = (output: any, context: __SerdeContext): Connection => {
   return {
-    ConnectedDeviceId:
-      output.ConnectedDeviceId !== undefined && output.ConnectedDeviceId !== null
-        ? output.ConnectedDeviceId
-        : undefined,
-    ConnectedLinkId:
-      output.ConnectedLinkId !== undefined && output.ConnectedLinkId !== null ? output.ConnectedLinkId : undefined,
-    ConnectionArn:
-      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
-    ConnectionId: output.ConnectionId !== undefined && output.ConnectionId !== null ? output.ConnectionId : undefined,
+    ConnectedDeviceId: __expectString(output.ConnectedDeviceId),
+    ConnectedLinkId: __expectString(output.ConnectedLinkId),
+    ConnectionArn: __expectString(output.ConnectionArn),
+    ConnectionId: __expectString(output.ConnectionId),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    DeviceId: output.DeviceId !== undefined && output.DeviceId !== null ? output.DeviceId : undefined,
-    GlobalNetworkId:
-      output.GlobalNetworkId !== undefined && output.GlobalNetworkId !== null ? output.GlobalNetworkId : undefined,
-    LinkId: output.LinkId !== undefined && output.LinkId !== null ? output.LinkId : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Description: __expectString(output.Description),
+    DeviceId: __expectString(output.DeviceId),
+    GlobalNetworkId: __expectString(output.GlobalNetworkId),
+    LinkId: __expectString(output.LinkId),
+    State: __expectString(output.State),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagList(output.Tags, context)
@@ -5035,15 +5030,11 @@ const deserializeAws_restJson1CustomerGatewayAssociation = (
   context: __SerdeContext
 ): CustomerGatewayAssociation => {
   return {
-    CustomerGatewayArn:
-      output.CustomerGatewayArn !== undefined && output.CustomerGatewayArn !== null
-        ? output.CustomerGatewayArn
-        : undefined,
-    DeviceId: output.DeviceId !== undefined && output.DeviceId !== null ? output.DeviceId : undefined,
-    GlobalNetworkId:
-      output.GlobalNetworkId !== undefined && output.GlobalNetworkId !== null ? output.GlobalNetworkId : undefined,
-    LinkId: output.LinkId !== undefined && output.LinkId !== null ? output.LinkId : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    CustomerGatewayArn: __expectString(output.CustomerGatewayArn),
+    DeviceId: __expectString(output.DeviceId),
+    GlobalNetworkId: __expectString(output.GlobalNetworkId),
+    LinkId: __expectString(output.LinkId),
+    State: __expectString(output.State),
   } as any;
 };
 
@@ -5071,25 +5062,24 @@ const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): D
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    DeviceArn: output.DeviceArn !== undefined && output.DeviceArn !== null ? output.DeviceArn : undefined,
-    DeviceId: output.DeviceId !== undefined && output.DeviceId !== null ? output.DeviceId : undefined,
-    GlobalNetworkId:
-      output.GlobalNetworkId !== undefined && output.GlobalNetworkId !== null ? output.GlobalNetworkId : undefined,
+    Description: __expectString(output.Description),
+    DeviceArn: __expectString(output.DeviceArn),
+    DeviceId: __expectString(output.DeviceId),
+    GlobalNetworkId: __expectString(output.GlobalNetworkId),
     Location:
       output.Location !== undefined && output.Location !== null
         ? deserializeAws_restJson1Location(output.Location, context)
         : undefined,
-    Model: output.Model !== undefined && output.Model !== null ? output.Model : undefined,
-    SerialNumber: output.SerialNumber !== undefined && output.SerialNumber !== null ? output.SerialNumber : undefined,
-    SiteId: output.SiteId !== undefined && output.SiteId !== null ? output.SiteId : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Model: __expectString(output.Model),
+    SerialNumber: __expectString(output.SerialNumber),
+    SiteId: __expectString(output.SiteId),
+    State: __expectString(output.State),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagList(output.Tags, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
-    Vendor: output.Vendor !== undefined && output.Vendor !== null ? output.Vendor : undefined,
+    Type: __expectString(output.Type),
+    Vendor: __expectString(output.Vendor),
   } as any;
 };
 
@@ -5110,12 +5100,10 @@ const deserializeAws_restJson1GlobalNetwork = (output: any, context: __SerdeCont
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    GlobalNetworkArn:
-      output.GlobalNetworkArn !== undefined && output.GlobalNetworkArn !== null ? output.GlobalNetworkArn : undefined,
-    GlobalNetworkId:
-      output.GlobalNetworkId !== undefined && output.GlobalNetworkId !== null ? output.GlobalNetworkId : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Description: __expectString(output.Description),
+    GlobalNetworkArn: __expectString(output.GlobalNetworkArn),
+    GlobalNetworkId: __expectString(output.GlobalNetworkId),
+    State: __expectString(output.State),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagList(output.Tags, context)
@@ -5144,32 +5132,27 @@ const deserializeAws_restJson1Link = (output: any, context: __SerdeContext): Lin
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    GlobalNetworkId:
-      output.GlobalNetworkId !== undefined && output.GlobalNetworkId !== null ? output.GlobalNetworkId : undefined,
-    LinkArn: output.LinkArn !== undefined && output.LinkArn !== null ? output.LinkArn : undefined,
-    LinkId: output.LinkId !== undefined && output.LinkId !== null ? output.LinkId : undefined,
-    Provider: output.Provider !== undefined && output.Provider !== null ? output.Provider : undefined,
-    SiteId: output.SiteId !== undefined && output.SiteId !== null ? output.SiteId : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Description: __expectString(output.Description),
+    GlobalNetworkId: __expectString(output.GlobalNetworkId),
+    LinkArn: __expectString(output.LinkArn),
+    LinkId: __expectString(output.LinkId),
+    Provider: __expectString(output.Provider),
+    SiteId: __expectString(output.SiteId),
+    State: __expectString(output.State),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagList(output.Tags, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_restJson1LinkAssociation = (output: any, context: __SerdeContext): LinkAssociation => {
   return {
-    DeviceId: output.DeviceId !== undefined && output.DeviceId !== null ? output.DeviceId : undefined,
-    GlobalNetworkId:
-      output.GlobalNetworkId !== undefined && output.GlobalNetworkId !== null ? output.GlobalNetworkId : undefined,
-    LinkAssociationState:
-      output.LinkAssociationState !== undefined && output.LinkAssociationState !== null
-        ? output.LinkAssociationState
-        : undefined,
-    LinkId: output.LinkId !== undefined && output.LinkId !== null ? output.LinkId : undefined,
+    DeviceId: __expectString(output.DeviceId),
+    GlobalNetworkId: __expectString(output.GlobalNetworkId),
+    LinkAssociationState: __expectString(output.LinkAssociationState),
+    LinkId: __expectString(output.LinkId),
   } as any;
 };
 
@@ -5197,9 +5180,9 @@ const deserializeAws_restJson1LinkList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Location = (output: any, context: __SerdeContext): Location => {
   return {
-    Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
-    Latitude: output.Latitude !== undefined && output.Latitude !== null ? output.Latitude : undefined,
-    Longitude: output.Longitude !== undefined && output.Longitude !== null ? output.Longitude : undefined,
+    Address: __expectString(output.Address),
+    Latitude: __expectString(output.Latitude),
+    Longitude: __expectString(output.Longitude),
   } as any;
 };
 
@@ -5209,16 +5192,15 @@ const deserializeAws_restJson1Site = (output: any, context: __SerdeContext): Sit
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    GlobalNetworkId:
-      output.GlobalNetworkId !== undefined && output.GlobalNetworkId !== null ? output.GlobalNetworkId : undefined,
+    Description: __expectString(output.Description),
+    GlobalNetworkId: __expectString(output.GlobalNetworkId),
     Location:
       output.Location !== undefined && output.Location !== null
         ? deserializeAws_restJson1Location(output.Location, context)
         : undefined,
-    SiteArn: output.SiteArn !== undefined && output.SiteArn !== null ? output.SiteArn : undefined,
-    SiteId: output.SiteId !== undefined && output.SiteId !== null ? output.SiteId : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    SiteArn: __expectString(output.SiteArn),
+    SiteId: __expectString(output.SiteId),
+    State: __expectString(output.State),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagList(output.Tags, context)
@@ -5239,8 +5221,8 @@ const deserializeAws_restJson1SiteList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -5260,15 +5242,11 @@ const deserializeAws_restJson1TransitGatewayConnectPeerAssociation = (
   context: __SerdeContext
 ): TransitGatewayConnectPeerAssociation => {
   return {
-    DeviceId: output.DeviceId !== undefined && output.DeviceId !== null ? output.DeviceId : undefined,
-    GlobalNetworkId:
-      output.GlobalNetworkId !== undefined && output.GlobalNetworkId !== null ? output.GlobalNetworkId : undefined,
-    LinkId: output.LinkId !== undefined && output.LinkId !== null ? output.LinkId : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    TransitGatewayConnectPeerArn:
-      output.TransitGatewayConnectPeerArn !== undefined && output.TransitGatewayConnectPeerArn !== null
-        ? output.TransitGatewayConnectPeerArn
-        : undefined,
+    DeviceId: __expectString(output.DeviceId),
+    GlobalNetworkId: __expectString(output.GlobalNetworkId),
+    LinkId: __expectString(output.LinkId),
+    State: __expectString(output.State),
+    TransitGatewayConnectPeerArn: __expectString(output.TransitGatewayConnectPeerArn),
   } as any;
 };
 
@@ -5291,16 +5269,12 @@ const deserializeAws_restJson1TransitGatewayRegistration = (
   context: __SerdeContext
 ): TransitGatewayRegistration => {
   return {
-    GlobalNetworkId:
-      output.GlobalNetworkId !== undefined && output.GlobalNetworkId !== null ? output.GlobalNetworkId : undefined,
+    GlobalNetworkId: __expectString(output.GlobalNetworkId),
     State:
       output.State !== undefined && output.State !== null
         ? deserializeAws_restJson1TransitGatewayRegistrationStateReason(output.State, context)
         : undefined,
-    TransitGatewayArn:
-      output.TransitGatewayArn !== undefined && output.TransitGatewayArn !== null
-        ? output.TransitGatewayArn
-        : undefined,
+    TransitGatewayArn: __expectString(output.TransitGatewayArn),
   } as any;
 };
 
@@ -5323,8 +5297,8 @@ const deserializeAws_restJson1TransitGatewayRegistrationStateReason = (
   context: __SerdeContext
 ): TransitGatewayRegistrationStateReason => {
   return {
-    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Code: __expectString(output.Code),
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -5333,8 +5307,8 @@ const deserializeAws_restJson1ValidationExceptionField = (
   context: __SerdeContext
 ): ValidationExceptionField => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Message: __expectString(output.Message),
+    Name: __expectString(output.Name),
   } as any;
 };
 
