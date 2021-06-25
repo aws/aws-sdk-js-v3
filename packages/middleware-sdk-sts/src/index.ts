@@ -18,6 +18,13 @@ export interface StsAuthResolvedConfig extends AwsAuthResolvedConfig {
   stsClientCtor: new (clientConfig: any) => Client<any, any, any>;
 }
 
+export interface StsAuthConfigOptions {
+  /**
+   * Reference to STSClient class constructor.
+   */
+  stsClientCtor: new (clientConfig: any) => Client<any, any, any>;
+}
+
 /**
  * Set STS client constructor to `stsClientCtor` config parameter. It is used
  * for role assumers for STS client internally. See `clients/client-sts/defaultStsRoleAssumers.ts`
@@ -25,10 +32,9 @@ export interface StsAuthResolvedConfig extends AwsAuthResolvedConfig {
  */
 export const resolveStsAuthConfig = <T>(
   input: T & PreviouslyResolved & StsAuthInputConfig,
-  stsClientCtor: new (clientConfig: any) => Client<any, any, any>
-): T & StsAuthResolvedConfig => {
-  return resolveAwsAuthConfig({
+  { stsClientCtor }: StsAuthConfigOptions
+): T & StsAuthResolvedConfig =>
+  resolveAwsAuthConfig({
     ...input,
     stsClientCtor,
   });
-};

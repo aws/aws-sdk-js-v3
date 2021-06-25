@@ -454,7 +454,9 @@ export class DynamoDBClient extends __Client<
     let _config_4 = resolveHostHeaderConfig(_config_3);
     let _config_5 = resolveAwsAuthConfig(_config_4);
     let _config_6 = resolveUserAgentConfig(_config_5);
-    let _config_7 = resolveEndpointDiscoveryConfig(_config_6, DescribeEndpointsCommand);
+    let _config_7 = resolveEndpointDiscoveryConfig(_config_6, {
+      endpointDiscoveryCommandCtor: DescribeEndpointsCommand,
+    });
     super(_config_7);
     this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));

@@ -17,7 +17,7 @@ describe(resolveEndpointDiscoveryConfig.name, () => {
   });
 
   it("assigns endpointDiscoveryCommandCtor in resolvedConfig", () => {
-    const resolvedConfig = resolveEndpointDiscoveryConfig(mockInput, endpointDiscoveryCommandCtor);
+    const resolvedConfig = resolveEndpointDiscoveryConfig(mockInput, { endpointDiscoveryCommandCtor });
     expect(resolvedConfig.endpointDiscoveryCommandCtor).toStrictEqual(endpointDiscoveryCommandCtor);
   });
 
@@ -29,13 +29,13 @@ describe(resolveEndpointDiscoveryConfig.name, () => {
           ...mockInput,
           endpointCacheSize,
         },
-        endpointDiscoveryCommandCtor
+        { endpointDiscoveryCommandCtor }
       );
       expect(EndpointCache).toBeCalledWith(endpointCacheSize);
     });
 
     it("creates cache of size 1000 if endpointCacheSize not passed", () => {
-      resolveEndpointDiscoveryConfig(mockInput, endpointDiscoveryCommandCtor);
+      resolveEndpointDiscoveryConfig(mockInput, { endpointDiscoveryCommandCtor });
       expect(EndpointCache).toBeCalledWith(1000);
     });
   });
@@ -47,7 +47,7 @@ describe(resolveEndpointDiscoveryConfig.name, () => {
           ...mockInput,
           endpointDiscoveryEnabled,
         },
-        endpointDiscoveryCommandCtor
+        { endpointDiscoveryCommandCtor }
       );
       expect(resolvedConfig.endpointDiscoveryEnabled()).resolves.toBe(endpointDiscoveryEnabled);
       expect(mockInput.endpointDiscoveryEnabledProvider).not.toHaveBeenCalled();
@@ -55,7 +55,7 @@ describe(resolveEndpointDiscoveryConfig.name, () => {
     });
 
     it(`sets to endpointDiscoveryEnabledProvider if value is not passed`, () => {
-      const resolvedConfig = resolveEndpointDiscoveryConfig(mockInput, endpointDiscoveryCommandCtor);
+      const resolvedConfig = resolveEndpointDiscoveryConfig(mockInput, { endpointDiscoveryCommandCtor });
       expect(resolvedConfig.endpointDiscoveryEnabled).toBe(mockInput.endpointDiscoveryEnabledProvider);
       expect(resolvedConfig.isClientEndpointDiscoveryEnabled).toStrictEqual(false);
     });

@@ -51,9 +51,16 @@ export interface EndpointDiscoveryResolvedConfig {
   isClientEndpointDiscoveryEnabled: boolean;
 }
 
+export interface EndpointDiscoveryConfigOptions {
+  /**
+   * The constructor of the Command used for discovering endpoints.
+   */
+  endpointDiscoveryCommandCtor: new (comandConfig: any) => any;
+}
+
 export const resolveEndpointDiscoveryConfig = <T>(
   input: T & PreviouslyResolved & EndpointDiscoveryInputConfig,
-  endpointDiscoveryCommandCtor: new (comandConfig: any) => any
+  { endpointDiscoveryCommandCtor }: EndpointDiscoveryConfigOptions
 ): T & EndpointDiscoveryResolvedConfig => ({
   ...input,
   endpointDiscoveryCommandCtor,
