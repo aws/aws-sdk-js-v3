@@ -21,6 +21,7 @@ import static software.amazon.smithy.typescript.codegen.integration.RuntimeClien
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -28,6 +29,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
@@ -104,7 +106,9 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.STS_MIDDLEWARE.dependency,
                             "StsAuth", HAS_CONFIG)
-                    .additionalResolveFunctionParameters("STSClient")
+                    .additionalResolveFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
+                        put("STSClient", Symbol.builder().name("STSClient").build());
+                    }})
                     .servicePredicate((m, s) -> testServiceId(s, "STS"))
                     .build(),
             RuntimeClientPlugin.builder()
