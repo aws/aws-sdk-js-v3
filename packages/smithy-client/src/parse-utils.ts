@@ -4,7 +4,7 @@
  * @param value The boolean string to parse.
  * @returns true for "true", false for "false", otherwise an error is thrown.
  */
-export const parseBoolean = (value: "true" | "false"): boolean => {
+export const parseBoolean = (value: string): boolean => {
   switch (value) {
     case "true":
       return true;
