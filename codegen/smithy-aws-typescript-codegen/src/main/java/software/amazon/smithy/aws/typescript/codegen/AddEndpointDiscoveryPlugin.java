@@ -84,8 +84,9 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                             put("options", Symbol.builder().name("options").build());
                             put("isDiscoveredEndpointRequired", isClientDiscoveredEndpointRequired(s, o));
                         }})
-                        .operationPredicate((m, s, o) -> isClientDiscoveredEndpointRequired(s, o))
-                        .build()
+                        .operationPredicate((m, s, o) ->
+                            isClientDiscoveredEndpointRequired(s, o) || isClientDiscoveredEndpointOptional(s, o)
+                        ).build()
         );
     }
 
