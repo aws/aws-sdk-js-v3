@@ -74,7 +74,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             writer.write("if (entry === null) { return null as any; }");
 
             // Dispatch to the output value provider for any additional handling.
-            writer.write("return $L;", target.accept(getMemberVisitor("entry")));
+            writer.write("return $L$L;", target.accept(getMemberVisitor("entry")), usesExpect(target) ? " as any" : "");
         });
     }
 
@@ -112,7 +112,8 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 writer.openBlock("return {", "};", () -> {
                     writer.write("...acc,");
                     // Dispatch to the output value provider for any additional handling.
-                    writer.write("[key]: $L", target.accept(getMemberVisitor("value")));
+                    writer.write("[key]: $L$L", target.accept(getMemberVisitor("value")),
+                            usesExpect(target) ? " as any" : "");
                 });
             }
         );
@@ -176,8 +177,8 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             if (usesExpect(target)) {
                 // Booleans and numbers will call expectBoolean/expectNumber which will handle
                 // null/undefined properly.
-                writer.openBlock("if ((val = $L) !== undefined) {", "}", memberValue, () -> {
-                    writer.write("return { $L: val }", memberName);
+                writer.openBlock("if ($L !== undefined) {", "}", memberValue, () -> {
+                    writer.write("return { $L: $L as any }", memberName, memberValue);
                 });
             } else {
                 writer.openBlock("if (output.$L !== undefined && output.$L !== null) {", "}", locationName,
