@@ -76,26 +76,18 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                         }})
                         .servicePredicate((m, s) -> hasClientEndpointDiscovery(s))
                         .build(),
-                // ToDo: The value ClientDiscoveredEndpointTrait.isRequired() needs to be passed to Plugin instead
-                // of creating two functions Required and Optional. The map of identifiers also needs to be passed.
+                // ToDo: Pass the map of identifiers to the EndpointDiscovery plugin.
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
-                                "EndpointDiscoveryRequired", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
+                                "EndpointDiscovery", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
                         .additionalPluginFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
                             put("clientStack", Symbol.builder().name("clientStack").build());
                             put("options", Symbol.builder().name("options").build());
+                            put("isDiscoveredEndpointRequired", isClientDiscoveredEndpointRequired(s, o));
                         }})
-                        .operationPredicate((m, s, o) -> isClientDiscoveredEndpointRequired(s, o))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
-                                "EndpointDiscoveryOptional", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .additionalPluginFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
-                            put("clientStack", Symbol.builder().name("clientStack").build());
-                            put("options", Symbol.builder().name("options").build());
-                        }})
-                        .operationPredicate((m, s, o) -> isClientDiscoveredEndpointOptional(s, o))
-                        .build()
+                        .operationPredicate((m, s, o) ->
+                            isClientDiscoveredEndpointRequired(s, o) || isClientDiscoveredEndpointOptional(s, o)
+                        ).build()
         );
     }
 
