@@ -13,7 +13,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
 
 public class AddUserAgentDependencyTest {
     @Test
-    public void addsUserAgentForAwsService() {
+    public void awsClient() {
         Model model = Model.assembler()
                 .addImport(getClass().getResource("NotSame.smithy"))
                 .discoverModels()
@@ -32,11 +32,14 @@ public class AddUserAgentDependencyTest {
                 .build();
         new TypeScriptCodegenPlugin().execute(context);
 
-        // Check that one of the many dependencies was added.
+        // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
                    containsString(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.packageName));
 
-        // Check that both the config files were updated.
+        // Check config interface fields
+        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("defaultUserAgentProvider?"));
+
+        // Check config files
         assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("defaultUserAgent"));
         assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("packageInfo.version"));
         assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("ClientSharedValues.serviceId"));
@@ -45,12 +48,13 @@ public class AddUserAgentDependencyTest {
         assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("packageInfo.version"));
         assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("ClientSharedValues.serviceId"));
 
-        // Check that the dependency interface was updated.
-        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("defaultUserAgentProvider?"));
+        // Check the config resolution and middleware plugin
+        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("resolveUserAgentConfig"));
+        assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("getUserAgentPlugin"));
     }
 
     @Test
-    public void addsUserAgentForNonAwsService() {
+    public void genericClient() {
         Model model = Model.assembler()
                 .addImport(getClass().getResource("NonAwsService.smithy"))
                 .discoverModels()
@@ -69,11 +73,14 @@ public class AddUserAgentDependencyTest {
                 .build();
         new TypeScriptCodegenPlugin().execute(context);
 
-        // Check that one of the many dependencies was added.
+        // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
                 containsString(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.packageName));
 
-        // Check that both the config files were updated.
+        // Check config interface fields
+        assertThat(manifest.getFileString("ExampleServiceClient.ts").get(), containsString("defaultUserAgentProvider?"));
+
+        // Check config files
         assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("defaultUserAgent"));
         assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("packageInfo.version"));
         assertThat(manifest.getFileString("runtimeConfig.ts").get(), not(containsString("ClientSharedValues.serviceId")));
@@ -82,7 +89,8 @@ public class AddUserAgentDependencyTest {
         assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("packageInfo.version"));
         assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), not(containsString("ClientSharedValues.serviceId")));
 
-        // Check that the dependency interface was updated.
-        assertThat(manifest.getFileString("ExampleServiceClient.ts").get(), containsString("defaultUserAgentProvider?"));
+        // Check the config resolution and middleware plugin
+        assertThat(manifest.getFileString("ExampleServiceClient.ts").get(), containsString("resolveUserAgentConfig"));
+        assertThat(manifest.getFileString("ExampleServiceClient.ts").get(), containsString("getUserAgentPlugin"));
     }
 }
