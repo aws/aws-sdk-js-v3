@@ -1,5 +1,5 @@
 import { constructStack } from "@aws-sdk/middleware-stack";
-import { Client as IClient, Command, MetadataBearer, RequestHandler } from "@aws-sdk/types";
+import { Client as IClient, Command, MetadataBearer, MiddlewareStack, RequestHandler } from "@aws-sdk/types";
 
 export interface SmithyConfiguration<HandlerOptions> {
   requestHandler: RequestHandler<any, any, HandlerOptions>;
@@ -20,7 +20,7 @@ export class Client<
   ResolvedClientConfiguration extends SmithyResolvedConfiguration<HandlerOptions>
 > implements IClient<ClientInput, ClientOutput, ResolvedClientConfiguration>
 {
-  public middlewareStack = constructStack<ClientInput, ClientOutput>();
+  public middlewareStack: MiddlewareStack<ClientInput, ClientOutput> = constructStack<ClientInput, ClientOutput>();
   readonly config: ResolvedClientConfiguration;
   constructor(config: ResolvedClientConfiguration) {
     this.config = config;
