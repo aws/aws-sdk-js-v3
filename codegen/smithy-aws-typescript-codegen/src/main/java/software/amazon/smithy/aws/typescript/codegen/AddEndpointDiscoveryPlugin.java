@@ -69,10 +69,9 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
                                 "EndpointDiscovery", RuntimeClientPlugin.Convention.HAS_CONFIG)
-                        // ToDo: The Endpoint Discovery Command Name needs to be read from ClientEndpointDiscoveryTrait.
                         .additionalResolveFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
                             put("endpointDiscoveryCommandCtor",
-                                    Symbol.builder().name("DescribeEndpointsCommand").build());
+                                    Symbol.builder().name(getClientDiscoveryCommand(s)).build());
                         }})
                         .servicePredicate((m, s) -> hasClientEndpointDiscovery(s))
                         .build(),
@@ -160,5 +159,14 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
             return !operation.getTrait(ClientDiscoveredEndpointTrait.class).orElse(null).isRequired();
         }
         return false;
+    }
+
+    private static String getClientDiscoveryCommand(ServiceShape service) {
+        if (!hasClientEndpointDiscovery(service)) {
+            throw new CodegenException(
+                "EndpointDiscovery command discovery attempt for service without endpoint discovery"
+            );
+        }
+        return service.getTrait(ClientEndpointDiscoveryTrait.class).orElse(null).getOperation().getName() + "Command";
     }
 }
