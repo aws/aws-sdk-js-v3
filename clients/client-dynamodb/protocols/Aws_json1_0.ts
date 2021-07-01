@@ -327,6 +327,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5556,7 +5558,7 @@ const serializeAws_json1_0AttributeUpdates = (
   input: { [key: string]: AttributeValueUpdate },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AttributeValueUpdate }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5645,7 +5647,8 @@ const serializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationUpd
       input.ScaleInCooldown !== null && { ScaleInCooldown: input.ScaleInCooldown }),
     ...(input.ScaleOutCooldown !== undefined &&
       input.ScaleOutCooldown !== null && { ScaleOutCooldown: input.ScaleOutCooldown }),
-    ...(input.TargetValue !== undefined && input.TargetValue !== null && { TargetValue: input.TargetValue }),
+    ...(input.TargetValue !== undefined &&
+      input.TargetValue !== null && { TargetValue: __serializeFloat(input.TargetValue) }),
   };
 };
 
@@ -5674,7 +5677,7 @@ const serializeAws_json1_0BatchGetRequestMap = (
   input: { [key: string]: KeysAndAttributes },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: KeysAndAttributes }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5714,7 +5717,7 @@ const serializeAws_json1_0BatchWriteItemRequestMap = (
   input: { [key: string]: WriteRequest[] },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: WriteRequest[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6094,7 +6097,7 @@ const serializeAws_json1_0ExpectedAttributeMap = (
   input: { [key: string]: ExpectedAttributeValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: ExpectedAttributeValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6142,7 +6145,7 @@ const serializeAws_json1_0ExpressionAttributeNameMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6157,7 +6160,7 @@ const serializeAws_json1_0ExpressionAttributeValueMap = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6169,7 +6172,7 @@ const serializeAws_json1_0ExpressionAttributeValueMap = (
 };
 
 const serializeAws_json1_0FilterConditionMap = (input: { [key: string]: Condition }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: Condition }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6338,7 +6341,7 @@ const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList = (
 };
 
 const serializeAws_json1_0Key = (input: { [key: string]: AttributeValue }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6350,7 +6353,7 @@ const serializeAws_json1_0Key = (input: { [key: string]: AttributeValue }, conte
 };
 
 const serializeAws_json1_0KeyConditions = (input: { [key: string]: Condition }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: Condition }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6520,7 +6523,7 @@ const serializeAws_json1_0MapAttributeValue = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6701,7 +6704,7 @@ const serializeAws_json1_0PutItemInputAttributeMap = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7711,7 +7714,7 @@ const deserializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationD
     DisableScaleIn: __expectBoolean(output.DisableScaleIn),
     ScaleInCooldown: __expectNumber(output.ScaleInCooldown),
     ScaleOutCooldown: __expectNumber(output.ScaleOutCooldown),
-    TargetValue: __expectNumber(output.TargetValue),
+    TargetValue: __handleFloat(output.TargetValue),
   } as any;
 };
 
@@ -7957,9 +7960,9 @@ const deserializeAws_json1_0CancellationReasonList = (output: any, context: __Se
 
 const deserializeAws_json1_0Capacity = (output: any, context: __SerdeContext): Capacity => {
   return {
-    CapacityUnits: __expectNumber(output.CapacityUnits),
-    ReadCapacityUnits: __expectNumber(output.ReadCapacityUnits),
-    WriteCapacityUnits: __expectNumber(output.WriteCapacityUnits),
+    CapacityUnits: __handleFloat(output.CapacityUnits),
+    ReadCapacityUnits: __handleFloat(output.ReadCapacityUnits),
+    WriteCapacityUnits: __handleFloat(output.WriteCapacityUnits),
   } as any;
 };
 
@@ -7974,7 +7977,7 @@ const deserializeAws_json1_0ConditionalCheckFailedException = (
 
 const deserializeAws_json1_0ConsumedCapacity = (output: any, context: __SerdeContext): ConsumedCapacity => {
   return {
-    CapacityUnits: __expectNumber(output.CapacityUnits),
+    CapacityUnits: __handleFloat(output.CapacityUnits),
     GlobalSecondaryIndexes:
       output.GlobalSecondaryIndexes !== undefined && output.GlobalSecondaryIndexes !== null
         ? deserializeAws_json1_0SecondaryIndexesCapacityMap(output.GlobalSecondaryIndexes, context)
@@ -7983,13 +7986,13 @@ const deserializeAws_json1_0ConsumedCapacity = (output: any, context: __SerdeCon
       output.LocalSecondaryIndexes !== undefined && output.LocalSecondaryIndexes !== null
         ? deserializeAws_json1_0SecondaryIndexesCapacityMap(output.LocalSecondaryIndexes, context)
         : undefined,
-    ReadCapacityUnits: __expectNumber(output.ReadCapacityUnits),
+    ReadCapacityUnits: __handleFloat(output.ReadCapacityUnits),
     Table:
       output.Table !== undefined && output.Table !== null
         ? deserializeAws_json1_0Capacity(output.Table, context)
         : undefined,
     TableName: __expectString(output.TableName),
-    WriteCapacityUnits: __expectNumber(output.WriteCapacityUnits),
+    WriteCapacityUnits: __handleFloat(output.WriteCapacityUnits),
   } as any;
 };
 
@@ -8683,7 +8686,7 @@ const deserializeAws_json1_0ItemCollectionSizeEstimateRange = (output: any, cont
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __handleFloat(entry) as any;
     });
 };
 

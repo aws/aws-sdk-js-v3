@@ -145,6 +145,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -9751,7 +9753,7 @@ const serializeAws_restJson1IntegrationParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9791,22 +9793,19 @@ const serializeAws_restJson1ResponseParameters = (
   input: { [key: string]: { [key: string]: string } },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1IntegrationParameters(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1IntegrationParameters(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1RouteModels = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9821,7 +9820,7 @@ const serializeAws_restJson1RouteParameters = (
   input: { [key: string]: ParameterConstraints },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: ParameterConstraints }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9842,7 +9841,7 @@ const serializeAws_restJson1RouteSettings = (input: RouteSettings, context: __Se
     ...(input.ThrottlingBurstLimit !== undefined &&
       input.ThrottlingBurstLimit !== null && { throttlingBurstLimit: input.ThrottlingBurstLimit }),
     ...(input.ThrottlingRateLimit !== undefined &&
-      input.ThrottlingRateLimit !== null && { throttlingRateLimit: input.ThrottlingRateLimit }),
+      input.ThrottlingRateLimit !== null && { throttlingRateLimit: __serializeFloat(input.ThrottlingRateLimit) }),
   };
 };
 
@@ -9850,7 +9849,7 @@ const serializeAws_restJson1RouteSettingsMap = (
   input: { [key: string]: RouteSettings },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: RouteSettings }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9873,7 +9872,7 @@ const serializeAws_restJson1SecurityGroupIdList = (input: string[], context: __S
 };
 
 const serializeAws_restJson1StageVariablesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9896,7 +9895,7 @@ const serializeAws_restJson1SubnetIdList = (input: string[], context: __SerdeCon
 };
 
 const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9908,7 +9907,7 @@ const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: _
 };
 
 const serializeAws_restJson1TemplateMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -10490,7 +10489,7 @@ const deserializeAws_restJson1RouteSettings = (output: any, context: __SerdeCont
     DetailedMetricsEnabled: __expectBoolean(output.detailedMetricsEnabled),
     LoggingLevel: __expectString(output.loggingLevel),
     ThrottlingBurstLimit: __expectNumber(output.throttlingBurstLimit),
-    ThrottlingRateLimit: __expectNumber(output.throttlingRateLimit),
+    ThrottlingRateLimit: __handleFloat(output.throttlingRateLimit),
   } as any;
 };
 

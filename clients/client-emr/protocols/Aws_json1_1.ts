@@ -307,6 +307,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3855,7 +3857,7 @@ const serializeAws_json1_1CloudWatchAlarmDefinition = (
     ...(input.Namespace !== undefined && input.Namespace !== null && { Namespace: input.Namespace }),
     ...(input.Period !== undefined && input.Period !== null && { Period: input.Period }),
     ...(input.Statistic !== undefined && input.Statistic !== null && { Statistic: input.Statistic }),
-    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: input.Threshold }),
+    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: __serializeFloat(input.Threshold) }),
     ...(input.Unit !== undefined && input.Unit !== null && { Unit: input.Unit }),
   };
 };
@@ -4324,7 +4326,7 @@ const serializeAws_json1_1InstanceTypeConfig = (input: InstanceTypeConfig, conte
     ...(input.BidPrice !== undefined && input.BidPrice !== null && { BidPrice: input.BidPrice }),
     ...(input.BidPriceAsPercentageOfOnDemandPrice !== undefined &&
       input.BidPriceAsPercentageOfOnDemandPrice !== null && {
-        BidPriceAsPercentageOfOnDemandPrice: input.BidPriceAsPercentageOfOnDemandPrice,
+        BidPriceAsPercentageOfOnDemandPrice: __serializeFloat(input.BidPriceAsPercentageOfOnDemandPrice),
       }),
     ...(input.Configurations !== undefined &&
       input.Configurations !== null && {
@@ -5088,7 +5090,7 @@ const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext
 };
 
 const serializeAws_json1_1StringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5426,7 +5428,7 @@ const deserializeAws_json1_1CloudWatchAlarmDefinition = (
     Namespace: __expectString(output.Namespace),
     Period: __expectNumber(output.Period),
     Statistic: __expectString(output.Statistic),
-    Threshold: __expectNumber(output.Threshold),
+    Threshold: __handleFloat(output.Threshold),
     Unit: __expectString(output.Unit),
   } as any;
 };
@@ -6198,7 +6200,7 @@ const deserializeAws_json1_1InstanceTypeSpecification = (
 ): InstanceTypeSpecification => {
   return {
     BidPrice: __expectString(output.BidPrice),
-    BidPriceAsPercentageOfOnDemandPrice: __expectNumber(output.BidPriceAsPercentageOfOnDemandPrice),
+    BidPriceAsPercentageOfOnDemandPrice: __handleFloat(output.BidPriceAsPercentageOfOnDemandPrice),
     Configurations:
       output.Configurations !== undefined && output.Configurations !== null
         ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)

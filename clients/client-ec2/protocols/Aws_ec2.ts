@@ -2921,6 +2921,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -32124,7 +32125,7 @@ const serializeAws_ec2ClientData = (input: ClientData, context: __SerdeContext):
     entries["UploadEnd"] = input.UploadEnd.toISOString().split(".")[0] + "Z";
   }
   if (input.UploadSize !== undefined && input.UploadSize !== null) {
-    entries["UploadSize"] = input.UploadSize;
+    entries["UploadSize"] = __serializeFloat(input.UploadSize);
   }
   if (input.UploadStart !== undefined && input.UploadStart !== null) {
     entries["UploadStart"] = input.UploadStart.toISOString().split(".")[0] + "Z";
@@ -40003,10 +40004,10 @@ const serializeAws_ec2FleetLaunchTemplateOverridesRequest = (
     entries["AvailabilityZone"] = input.AvailabilityZone;
   }
   if (input.WeightedCapacity !== undefined && input.WeightedCapacity !== null) {
-    entries["WeightedCapacity"] = input.WeightedCapacity;
+    entries["WeightedCapacity"] = __serializeFloat(input.WeightedCapacity);
   }
   if (input.Priority !== undefined && input.Priority !== null) {
-    entries["Priority"] = input.Priority;
+    entries["Priority"] = __serializeFloat(input.Priority);
   }
   if (input.Placement !== undefined && input.Placement !== null) {
     const memberEntries = serializeAws_ec2Placement(input.Placement, context);
@@ -42055,10 +42056,10 @@ const serializeAws_ec2LaunchTemplateOverrides = (input: LaunchTemplateOverrides,
     entries["AvailabilityZone"] = input.AvailabilityZone;
   }
   if (input.WeightedCapacity !== undefined && input.WeightedCapacity !== null) {
-    entries["WeightedCapacity"] = input.WeightedCapacity;
+    entries["WeightedCapacity"] = __serializeFloat(input.WeightedCapacity);
   }
   if (input.Priority !== undefined && input.Priority !== null) {
-    entries["Priority"] = input.Priority;
+    entries["Priority"] = __serializeFloat(input.Priority);
   }
   return entries;
 };
@@ -44443,7 +44444,7 @@ const serializeAws_ec2PriceScheduleSpecification = (
     entries["CurrencyCode"] = input.CurrencyCode;
   }
   if (input.Price !== undefined && input.Price !== null) {
-    entries["Price"] = input.Price;
+    entries["Price"] = __serializeFloat(input.Price);
   }
   if (input.Term !== undefined && input.Term !== null) {
     entries["Term"] = input.Term;
@@ -45706,7 +45707,7 @@ const serializeAws_ec2ReservedInstanceLimitPrice = (
 ): any => {
   const entries: any = {};
   if (input.Amount !== undefined && input.Amount !== null) {
-    entries["Amount"] = input.Amount;
+    entries["Amount"] = __serializeFloat(input.Amount);
   }
   if (input.CurrencyCode !== undefined && input.CurrencyCode !== null) {
     entries["CurrencyCode"] = input.CurrencyCode;
@@ -46999,7 +47000,7 @@ const serializeAws_ec2SpotFleetLaunchSpecification = (
     entries["UserData"] = input.UserData;
   }
   if (input.WeightedCapacity !== undefined && input.WeightedCapacity !== null) {
-    entries["WeightedCapacity"] = input.WeightedCapacity;
+    entries["WeightedCapacity"] = __serializeFloat(input.WeightedCapacity);
   }
   if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
     const memberEntries = serializeAws_ec2SpotFleetTagSpecificationList(input.TagSpecifications, context);
@@ -47044,10 +47045,10 @@ const serializeAws_ec2SpotFleetRequestConfigData = (
     entries["ExcessCapacityTerminationPolicy"] = input.ExcessCapacityTerminationPolicy;
   }
   if (input.FulfilledCapacity !== undefined && input.FulfilledCapacity !== null) {
-    entries["FulfilledCapacity"] = input.FulfilledCapacity;
+    entries["FulfilledCapacity"] = __serializeFloat(input.FulfilledCapacity);
   }
   if (input.OnDemandFulfilledCapacity !== undefined && input.OnDemandFulfilledCapacity !== null) {
-    entries["OnDemandFulfilledCapacity"] = input.OnDemandFulfilledCapacity;
+    entries["OnDemandFulfilledCapacity"] = __serializeFloat(input.OnDemandFulfilledCapacity);
   }
   if (input.IamFleetRole !== undefined && input.IamFleetRole !== null) {
     entries["IamFleetRole"] = input.IamFleetRole;

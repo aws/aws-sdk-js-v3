@@ -65,9 +65,9 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   SmithyException as __SmithyException,
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3022,7 +3022,7 @@ const deserializeAws_restJson1ServiceLimitExceededExceptionResponse = async (
     contents.LimitName = __expectString(data.LimitName);
   }
   if (data.LimitValue !== undefined && data.LimitValue !== null) {
-    contents.LimitValue = __expectNumber(data.LimitValue);
+    contents.LimitValue = __handleFloat(data.LimitValue);
   }
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
@@ -3201,7 +3201,7 @@ const serializeAws_restJson1ListOfRevisionDestinationEntry = (
 };
 
 const serializeAws_restJson1MapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3462,7 +3462,7 @@ const deserializeAws_restJson1JobError = (output: any, context: __SerdeContext):
         ? deserializeAws_restJson1Details(output.Details, context)
         : undefined,
     LimitName: __expectString(output.LimitName),
-    LimitValue: __expectNumber(output.LimitValue),
+    LimitValue: __handleFloat(output.LimitValue),
     Message: __expectString(output.Message),
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
@@ -3632,7 +3632,7 @@ const deserializeAws_restJson1RevisionEntry = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1S3SnapshotAsset = (output: any, context: __SerdeContext): S3SnapshotAsset => {
   return {
-    Size: __expectNumber(output.Size),
+    Size: __handleFloat(output.Size),
   } as any;
 };
 

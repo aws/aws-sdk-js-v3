@@ -61,6 +61,10 @@ import {
 } from "../commands/HttpPayloadWithXmlNamespaceCommand";
 import { HttpPrefixHeadersCommandInput, HttpPrefixHeadersCommandOutput } from "../commands/HttpPrefixHeadersCommand";
 import {
+  HttpRequestWithFloatLabelsCommandInput,
+  HttpRequestWithFloatLabelsCommandOutput,
+} from "../commands/HttpRequestWithFloatLabelsCommand";
+import {
   HttpRequestWithGreedyLabelInPathCommandInput,
   HttpRequestWithGreedyLabelInPathCommandOutput,
 } from "../commands/HttpRequestWithGreedyLabelInPathCommand";
@@ -778,6 +782,43 @@ export const serializeAws_restXmlHttpPrefixHeadersCommand = async (
       )),
   };
   let resolvedPath = "/HttpPrefixHeaders";
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlHttpRequestWithFloatLabelsCommand = async (
+  input: HttpRequestWithFloatLabelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/FloatHttpLabels/{float}/{double}";
+  if (input.float !== undefined) {
+    const labelValue: string = input.float % 1 == 0 ? input.float + ".0" : input.float.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: float.");
+    }
+    resolvedPath = resolvedPath.replace("{float}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: float.");
+  }
+  if (input.double !== undefined) {
+    const labelValue: string = input.double % 1 == 0 ? input.double + ".0" : input.double.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: double.");
+    }
+    resolvedPath = resolvedPath.replace("{double}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: double.");
+  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3057,6 +3098,49 @@ const deserializeAws_restXmlHttpPrefixHeadersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPrefixHeadersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlHttpRequestWithFloatLabelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpRequestWithFloatLabelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlHttpRequestWithFloatLabelsCommandError(output, context);
+  }
+  const contents: HttpRequestWithFloatLabelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlHttpRequestWithFloatLabelsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpRequestWithFloatLabelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),

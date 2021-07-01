@@ -239,6 +239,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3764,10 +3766,14 @@ const serializeAws_json1_1DescribeCodeCoveragesInput = (
 ): any => {
   return {
     ...(input.maxLineCoveragePercentage !== undefined &&
-      input.maxLineCoveragePercentage !== null && { maxLineCoveragePercentage: input.maxLineCoveragePercentage }),
+      input.maxLineCoveragePercentage !== null && {
+        maxLineCoveragePercentage: __serializeFloat(input.maxLineCoveragePercentage),
+      }),
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.minLineCoveragePercentage !== undefined &&
-      input.minLineCoveragePercentage !== null && { minLineCoveragePercentage: input.minLineCoveragePercentage }),
+      input.minLineCoveragePercentage !== null && {
+        minLineCoveragePercentage: __serializeFloat(input.minLineCoveragePercentage),
+      }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
     ...(input.reportArn !== undefined && input.reportArn !== null && { reportArn: input.reportArn }),
     ...(input.sortBy !== undefined && input.sortBy !== null && { sortBy: input.sortBy }),
@@ -5144,14 +5150,14 @@ const deserializeAws_json1_1CloudWatchLogsConfig = (output: any, context: __Serd
 
 const deserializeAws_json1_1CodeCoverage = (output: any, context: __SerdeContext): CodeCoverage => {
   return {
-    branchCoveragePercentage: __expectNumber(output.branchCoveragePercentage),
+    branchCoveragePercentage: __handleFloat(output.branchCoveragePercentage),
     branchesCovered: __expectNumber(output.branchesCovered),
     branchesMissed: __expectNumber(output.branchesMissed),
     expired:
       output.expired !== undefined && output.expired !== null ? new Date(Math.round(output.expired * 1000)) : undefined,
     filePath: __expectString(output.filePath),
     id: __expectString(output.id),
-    lineCoveragePercentage: __expectNumber(output.lineCoveragePercentage),
+    lineCoveragePercentage: __handleFloat(output.lineCoveragePercentage),
     linesCovered: __expectNumber(output.linesCovered),
     linesMissed: __expectNumber(output.linesMissed),
     reportARN: __expectString(output.reportARN),
@@ -5163,10 +5169,10 @@ const deserializeAws_json1_1CodeCoverageReportSummary = (
   context: __SerdeContext
 ): CodeCoverageReportSummary => {
   return {
-    branchCoveragePercentage: __expectNumber(output.branchCoveragePercentage),
+    branchCoveragePercentage: __handleFloat(output.branchCoveragePercentage),
     branchesCovered: __expectNumber(output.branchesCovered),
     branchesMissed: __expectNumber(output.branchesMissed),
-    lineCoveragePercentage: __expectNumber(output.lineCoveragePercentage),
+    lineCoveragePercentage: __handleFloat(output.lineCoveragePercentage),
     linesCovered: __expectNumber(output.linesCovered),
     linesMissed: __expectNumber(output.linesMissed),
   } as any;

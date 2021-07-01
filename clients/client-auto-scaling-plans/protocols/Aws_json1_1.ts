@@ -52,6 +52,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -984,7 +986,8 @@ const serializeAws_json1_1TargetTrackingConfiguration = (
       input.ScaleInCooldown !== null && { ScaleInCooldown: input.ScaleInCooldown }),
     ...(input.ScaleOutCooldown !== undefined &&
       input.ScaleOutCooldown !== null && { ScaleOutCooldown: input.ScaleOutCooldown }),
-    ...(input.TargetValue !== undefined && input.TargetValue !== null && { TargetValue: input.TargetValue }),
+    ...(input.TargetValue !== undefined &&
+      input.TargetValue !== null && { TargetValue: __serializeFloat(input.TargetValue) }),
   };
 };
 
@@ -1088,7 +1091,7 @@ const deserializeAws_json1_1Datapoint = (output: any, context: __SerdeContext): 
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Value: __expectNumber(output.Value),
+    Value: __handleFloat(output.Value),
   } as any;
 };
 
@@ -1398,7 +1401,7 @@ const deserializeAws_json1_1TargetTrackingConfiguration = (
         : undefined,
     ScaleInCooldown: __expectNumber(output.ScaleInCooldown),
     ScaleOutCooldown: __expectNumber(output.ScaleOutCooldown),
-    TargetValue: __expectNumber(output.TargetValue),
+    TargetValue: __handleFloat(output.TargetValue),
   } as any;
 };
 

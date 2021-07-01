@@ -149,11 +149,25 @@ export namespace GreetingStruct {
   });
 }
 
+export interface NestedStructWithList {
+  ListArg?: string[];
+}
+
+export namespace NestedStructWithList {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NestedStructWithList): any => ({
+    ...obj,
+  });
+}
+
 export interface QueryListsInput {
   ListArg?: string[];
   ComplexListArg?: GreetingStruct[];
   ListArgWithXmlNameMember?: string[];
   ListArgWithXmlName?: string[];
+  NestedWithList?: NestedStructWithList;
 }
 
 export namespace QueryListsInput {
@@ -193,6 +207,7 @@ export interface SimpleInputParamsInput {
   Bar?: string;
   Baz?: boolean;
   Bam?: number;
+  FloatValue?: number;
   Boo?: number;
   Qux?: Uint8Array;
   FooEnum?: FooEnum | string;

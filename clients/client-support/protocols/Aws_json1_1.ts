@@ -100,6 +100,7 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2049,8 +2050,8 @@ const deserializeAws_json1_1TrustedAdvisorCostOptimizingSummary = (
   context: __SerdeContext
 ): TrustedAdvisorCostOptimizingSummary => {
   return {
-    estimatedMonthlySavings: __expectNumber(output.estimatedMonthlySavings),
-    estimatedPercentMonthlySavings: __expectNumber(output.estimatedPercentMonthlySavings),
+    estimatedMonthlySavings: __handleFloat(output.estimatedMonthlySavings),
+    estimatedPercentMonthlySavings: __handleFloat(output.estimatedPercentMonthlySavings),
   } as any;
 };
 

@@ -44,6 +44,7 @@ import {
   HostLabelInput,
   IgnoresWrappingXmlNameOutput,
   InvalidGreeting,
+  NestedStructWithList,
   NestedStructuresInput,
   NoInputAndOutputOutput,
   QueryIdempotencyTokenAutoFillInput,
@@ -75,6 +76,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1385,6 +1387,18 @@ const serializeAws_ec2NestedStructuresInput = (input: NestedStructuresInput, con
   return entries;
 };
 
+const serializeAws_ec2NestedStructWithList = (input: NestedStructWithList, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ListArg !== undefined && input.ListArg !== null) {
+    const memberEntries = serializeAws_ec2StringList(input.ListArg, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ListArg.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_ec2QueryIdempotencyTokenAutoFillInput = (
   input: QueryIdempotencyTokenAutoFillInput,
   context: __SerdeContext
@@ -1429,6 +1443,13 @@ const serializeAws_ec2QueryListsInput = (input: QueryListsInput, context: __Serd
       entries[loc] = value;
     });
   }
+  if (input.NestedWithList !== undefined && input.NestedWithList !== null) {
+    const memberEntries = serializeAws_ec2NestedStructWithList(input.NestedWithList, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NestedWithList.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -1460,8 +1481,11 @@ const serializeAws_ec2SimpleInputParamsInput = (input: SimpleInputParamsInput, c
   if (input.Bam !== undefined && input.Bam !== null) {
     entries["Bam"] = input.Bam;
   }
+  if (input.FloatValue !== undefined && input.FloatValue !== null) {
+    entries["FloatValue"] = __serializeFloat(input.FloatValue);
+  }
   if (input.Boo !== undefined && input.Boo !== null) {
-    entries["Boo"] = input.Boo;
+    entries["Boo"] = __serializeFloat(input.Boo);
   }
   if (input.Qux !== undefined && input.Qux !== null) {
     entries["Qux"] = context.base64Encoder(input.Qux);

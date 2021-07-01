@@ -21,6 +21,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -447,9 +448,9 @@ const deserializeAws_restJson1FieldStats = (output: any, context: __SerdeContext
     mean: __expectString(output.mean),
     min: __expectString(output.min),
     missing: __expectNumber(output.missing),
-    stddev: __expectNumber(output.stddev),
-    sum: __expectNumber(output.sum),
-    sumOfSquares: __expectNumber(output.sumOfSquares),
+    stddev: __handleFloat(output.stddev),
+    sum: __handleFloat(output.sum),
+    sumOfSquares: __handleFloat(output.sumOfSquares),
   } as any;
 };
 

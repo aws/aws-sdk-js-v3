@@ -202,6 +202,7 @@ import {
   SmithyException as __SmithyException,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3915,7 +3916,7 @@ const deserializeAws_json1_1AttackVolume = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1AttackVolumeStatistics = (output: any, context: __SerdeContext): AttackVolumeStatistics => {
   return {
-    Max: __expectNumber(output.Max),
+    Max: __handleFloat(output.Max),
   } as any;
 };
 
@@ -4541,11 +4542,11 @@ const deserializeAws_json1_1SummarizedAttackVectorList = (
 
 const deserializeAws_json1_1SummarizedCounter = (output: any, context: __SerdeContext): SummarizedCounter => {
   return {
-    Average: __expectNumber(output.Average),
-    Max: __expectNumber(output.Max),
+    Average: __handleFloat(output.Average),
+    Max: __handleFloat(output.Max),
     N: __expectNumber(output.N),
     Name: __expectString(output.Name),
-    Sum: __expectNumber(output.Sum),
+    Sum: __handleFloat(output.Sum),
     Unit: __expectString(output.Unit),
   } as any;
 };

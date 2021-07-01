@@ -11,6 +11,11 @@ import {
   ConstantQueryStringCommandOutput,
 } from "../commands/ConstantQueryStringCommand";
 import {
+  DocumentTypeAsPayloadCommandInput,
+  DocumentTypeAsPayloadCommandOutput,
+} from "../commands/DocumentTypeAsPayloadCommand";
+import { DocumentTypeCommandInput, DocumentTypeCommandOutput } from "../commands/DocumentTypeCommand";
+import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "../commands/EmptyInputAndEmptyOutputCommand";
@@ -36,6 +41,10 @@ import {
   HttpPrefixHeadersResponseCommandOutput,
 } from "../commands/HttpPrefixHeadersResponseCommand";
 import {
+  HttpRequestWithFloatLabelsCommandInput,
+  HttpRequestWithFloatLabelsCommandOutput,
+} from "../commands/HttpRequestWithFloatLabelsCommand";
+import {
   HttpRequestWithGreedyLabelInPathCommandInput,
   HttpRequestWithGreedyLabelInPathCommandOutput,
 } from "../commands/HttpRequestWithGreedyLabelInPathCommand";
@@ -53,11 +62,6 @@ import {
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
 } from "../commands/IgnoreQueryParamsInResponseCommand";
-import {
-  InlineDocumentAsPayloadCommandInput,
-  InlineDocumentAsPayloadCommandOutput,
-} from "../commands/InlineDocumentAsPayloadCommand";
-import { InlineDocumentCommandInput, InlineDocumentCommandOutput } from "../commands/InlineDocumentCommand";
 import {
   InputAndOutputWithHeadersCommandInput,
   InputAndOutputWithHeadersCommandOutput,
@@ -138,7 +142,9 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
   parseBoolean as __parseBoolean,
+  serializeFloat as __serializeFloat,
   splitEvery as __splitEvery,
 } from "@aws-sdk/smithy-client";
 import {
@@ -264,6 +270,61 @@ export const serializeAws_restJson1ConstantQueryStringCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DocumentTypeCommand = async (
+  input: DocumentTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/DocumentType";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.documentValue !== undefined &&
+      input.documentValue !== null && { documentValue: serializeAws_restJson1Document(input.documentValue, context) }),
+    ...(input.stringValue !== undefined && input.stringValue !== null && { stringValue: input.stringValue }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DocumentTypeAsPayloadCommand = async (
+  input: DocumentTypeAsPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/DocumentTypeAsPayload";
+  let body: any;
+  if (input.documentValue !== undefined) {
+    if (input.documentValue === null) {
+      body = "null";
+    } else {
+      body = input.documentValue;
+    }
+  }
+  body = JSON.stringify(body);
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -517,6 +578,43 @@ export const serializeAws_restJson1HttpPrefixHeadersResponseCommand = async (
   let resolvedPath = "/HttpPrefixHeadersResponse";
   let body: any;
   body = "";
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1HttpRequestWithFloatLabelsCommand = async (
+  input: HttpRequestWithFloatLabelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/FloatHttpLabels/{float}/{double}";
+  if (input.float !== undefined) {
+    const labelValue: string = input.float % 1 == 0 ? input.float + ".0" : input.float.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: float.");
+    }
+    resolvedPath = resolvedPath.replace("{float}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: float.");
+  }
+  if (input.double !== undefined) {
+    const labelValue: string = input.double % 1 == 0 ? input.double + ".0" : input.double.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: double.");
+    }
+    resolvedPath = resolvedPath.replace("{double}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: double.");
+  }
+  let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -814,61 +912,6 @@ export const serializeAws_restJson1IgnoreQueryParamsInResponseCommand = async (
   });
 };
 
-export const serializeAws_restJson1InlineDocumentCommand = async (
-  input: InlineDocumentCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  let resolvedPath = "/InlineDocument";
-  let body: any;
-  body = JSON.stringify({
-    ...(input.documentValue !== undefined &&
-      input.documentValue !== null && { documentValue: serializeAws_restJson1Document(input.documentValue, context) }),
-    ...(input.stringValue !== undefined && input.stringValue !== null && { stringValue: input.stringValue }),
-  });
-  const { hostname, protocol = "https", port } = await context.endpoint();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
-export const serializeAws_restJson1InlineDocumentAsPayloadCommand = async (
-  input: InlineDocumentAsPayloadCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  let resolvedPath = "/InlineDocumentAsPayload";
-  let body: any;
-  if (input.documentValue !== undefined) {
-    if (input.documentValue === null) {
-      body = "null";
-    } else {
-      body = input.documentValue;
-    }
-  }
-  body = JSON.stringify(body);
-  const { hostname, protocol = "https", port } = await context.endpoint();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
 export const serializeAws_restJson1InputAndOutputWithHeadersCommand = async (
   input: InputAndOutputWithHeadersCommandInput,
   context: __SerdeContext
@@ -1046,6 +1089,8 @@ export const serializeAws_restJson1JsonMapsCommand = async (
       input.denseNumberMap !== null && {
         denseNumberMap: serializeAws_restJson1DenseNumberMap(input.denseNumberMap, context),
       }),
+    ...(input.denseSetMap !== undefined &&
+      input.denseSetMap !== null && { denseSetMap: serializeAws_restJson1DenseSetMap(input.denseSetMap, context) }),
     ...(input.denseStringMap !== undefined &&
       input.denseStringMap !== null && {
         denseStringMap: serializeAws_restJson1DenseStringMap(input.denseStringMap, context),
@@ -1062,6 +1107,8 @@ export const serializeAws_restJson1JsonMapsCommand = async (
       input.sparseNumberMap !== null && {
         sparseNumberMap: serializeAws_restJson1SparseNumberMap(input.sparseNumberMap, context),
       }),
+    ...(input.sparseSetMap !== undefined &&
+      input.sparseSetMap !== null && { sparseSetMap: serializeAws_restJson1SparseSetMap(input.sparseSetMap, context) }),
     ...(input.sparseStringMap !== undefined &&
       input.sparseStringMap !== null && {
         sparseStringMap: serializeAws_restJson1SparseStringMap(input.sparseStringMap, context),
@@ -1384,10 +1431,12 @@ export const serializeAws_restJson1SimpleScalarPropertiesCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.byteValue !== undefined && input.byteValue !== null && { byteValue: input.byteValue }),
-    ...(input.doubleValue !== undefined && input.doubleValue !== null && { DoubleDribble: input.doubleValue }),
+    ...(input.doubleValue !== undefined &&
+      input.doubleValue !== null && { DoubleDribble: __serializeFloat(input.doubleValue) }),
     ...(input.falseBooleanValue !== undefined &&
       input.falseBooleanValue !== null && { falseBooleanValue: input.falseBooleanValue }),
-    ...(input.floatValue !== undefined && input.floatValue !== null && { floatValue: input.floatValue }),
+    ...(input.floatValue !== undefined &&
+      input.floatValue !== null && { floatValue: __serializeFloat(input.floatValue) }),
     ...(input.integerValue !== undefined && input.integerValue !== null && { integerValue: input.integerValue }),
     ...(input.longValue !== undefined && input.longValue !== null && { longValue: input.longValue }),
     ...(input.shortValue !== undefined && input.shortValue !== null && { shortValue: input.shortValue }),
@@ -1627,6 +1676,103 @@ const deserializeAws_restJson1ConstantQueryStringCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConstantQueryStringCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DocumentTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DocumentTypeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DocumentTypeCommandError(output, context);
+  }
+  const contents: DocumentTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    documentValue: undefined,
+    stringValue: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.documentValue !== undefined && data.documentValue !== null) {
+    contents.documentValue = deserializeAws_restJson1Document(data.documentValue, context);
+  }
+  if (data.stringValue !== undefined && data.stringValue !== null) {
+    contents.stringValue = __expectString(data.stringValue);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DocumentTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DocumentTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DocumentTypeAsPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DocumentTypeAsPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DocumentTypeAsPayloadCommandError(output, context);
+  }
+  const contents: DocumentTypeAsPayloadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    documentValue: undefined,
+  };
+  const data: any = await collectBodyString(output.body, context);
+  contents.documentValue = data;
+  contents.documentValue = JSON.parse(data);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DocumentTypeAsPayloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DocumentTypeAsPayloadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2148,6 +2294,49 @@ const deserializeAws_restJson1HttpPrefixHeadersResponseCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1HttpRequestWithFloatLabelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpRequestWithFloatLabelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1HttpRequestWithFloatLabelsCommandError(output, context);
+  }
+  const contents: HttpRequestWithFloatLabelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1HttpRequestWithFloatLabelsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpRequestWithFloatLabelsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2391,103 +2580,6 @@ const deserializeAws_restJson1IgnoreQueryParamsInResponseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IgnoreQueryParamsInResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1InlineDocumentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InlineDocumentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1InlineDocumentCommandError(output, context);
-  }
-  const contents: InlineDocumentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    documentValue: undefined,
-    stringValue: undefined,
-  };
-  const data: any = await parseBody(output.body, context);
-  if (data.documentValue !== undefined && data.documentValue !== null) {
-    contents.documentValue = deserializeAws_restJson1Document(data.documentValue, context);
-  }
-  if (data.stringValue !== undefined && data.stringValue !== null) {
-    contents.stringValue = __expectString(data.stringValue);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1InlineDocumentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InlineDocumentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1InlineDocumentAsPayloadCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InlineDocumentAsPayloadCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1InlineDocumentAsPayloadCommandError(output, context);
-  }
-  const contents: InlineDocumentAsPayloadCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    documentValue: undefined,
-  };
-  const data: any = await collectBodyString(output.body, context);
-  contents.documentValue = data;
-  contents.documentValue = JSON.parse(data);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1InlineDocumentAsPayloadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InlineDocumentAsPayloadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2830,10 +2922,12 @@ export const deserializeAws_restJson1JsonMapsCommand = async (
     $metadata: deserializeMetadata(output),
     denseBooleanMap: undefined,
     denseNumberMap: undefined,
+    denseSetMap: undefined,
     denseStringMap: undefined,
     denseStructMap: undefined,
     sparseBooleanMap: undefined,
     sparseNumberMap: undefined,
+    sparseSetMap: undefined,
     sparseStringMap: undefined,
     sparseStructMap: undefined,
   };
@@ -2843,6 +2937,9 @@ export const deserializeAws_restJson1JsonMapsCommand = async (
   }
   if (data.denseNumberMap !== undefined && data.denseNumberMap !== null) {
     contents.denseNumberMap = deserializeAws_restJson1DenseNumberMap(data.denseNumberMap, context);
+  }
+  if (data.denseSetMap !== undefined && data.denseSetMap !== null) {
+    contents.denseSetMap = deserializeAws_restJson1DenseSetMap(data.denseSetMap, context);
   }
   if (data.denseStringMap !== undefined && data.denseStringMap !== null) {
     contents.denseStringMap = deserializeAws_restJson1DenseStringMap(data.denseStringMap, context);
@@ -2855,6 +2952,9 @@ export const deserializeAws_restJson1JsonMapsCommand = async (
   }
   if (data.sparseNumberMap !== undefined && data.sparseNumberMap !== null) {
     contents.sparseNumberMap = deserializeAws_restJson1SparseNumberMap(data.sparseNumberMap, context);
+  }
+  if (data.sparseSetMap !== undefined && data.sparseSetMap !== null) {
+    contents.sparseSetMap = deserializeAws_restJson1SparseSetMap(data.sparseSetMap, context);
   }
   if (data.sparseStringMap !== undefined && data.sparseStringMap !== null) {
     contents.sparseStringMap = deserializeAws_restJson1SparseStringMap(data.sparseStringMap, context);
@@ -3490,13 +3590,13 @@ export const deserializeAws_restJson1SimpleScalarPropertiesCommand = async (
     contents.byteValue = __expectNumber(data.byteValue);
   }
   if (data.DoubleDribble !== undefined && data.DoubleDribble !== null) {
-    contents.doubleValue = __expectNumber(data.DoubleDribble);
+    contents.doubleValue = __handleFloat(data.DoubleDribble);
   }
   if (data.falseBooleanValue !== undefined && data.falseBooleanValue !== null) {
     contents.falseBooleanValue = __expectBoolean(data.falseBooleanValue);
   }
   if (data.floatValue !== undefined && data.floatValue !== null) {
-    contents.floatValue = __expectNumber(data.floatValue);
+    contents.floatValue = __handleFloat(data.floatValue);
   }
   if (data.integerValue !== undefined && data.integerValue !== null) {
     contents.integerValue = __expectNumber(data.integerValue);
@@ -3819,7 +3919,7 @@ const deserializeAws_restJson1InvalidGreetingResponse = async (
 };
 
 const serializeAws_restJson1DenseBooleanMap = (input: { [key: string]: boolean }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: boolean }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3831,7 +3931,7 @@ const serializeAws_restJson1DenseBooleanMap = (input: { [key: string]: boolean }
 };
 
 const serializeAws_restJson1DenseNumberMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3842,8 +3942,20 @@ const serializeAws_restJson1DenseNumberMap = (input: { [key: string]: number }, 
   }, {});
 };
 
+const serializeAws_restJson1DenseSetMap = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1StringSet(value, context),
+    };
+  }, {});
+};
+
 const serializeAws_restJson1DenseStringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3858,7 +3970,7 @@ const serializeAws_restJson1DenseStructMap = (
   input: { [key: string]: GreetingStruct },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: GreetingStruct }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3925,7 +4037,7 @@ const serializeAws_restJson1RecursiveShapesInputOutputNested2 = (
 };
 
 const serializeAws_restJson1SparseBooleanMap = (input: { [key: string]: boolean }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: boolean }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return { ...acc, [key]: null as any };
     }
@@ -3937,7 +4049,7 @@ const serializeAws_restJson1SparseBooleanMap = (input: { [key: string]: boolean 
 };
 
 const serializeAws_restJson1SparseNumberMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return { ...acc, [key]: null as any };
     }
@@ -3948,11 +4060,23 @@ const serializeAws_restJson1SparseNumberMap = (input: { [key: string]: number },
   }, {});
 };
 
+const serializeAws_restJson1SparseSetMap = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return { ...acc, [key]: null as any };
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1StringSet(value, context),
+    };
+  }, {});
+};
+
 const serializeAws_restJson1SparseStructMap = (
   input: { [key: string]: GreetingStruct },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: GreetingStruct }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return { ...acc, [key]: null as any };
     }
@@ -4010,7 +4134,7 @@ const serializeAws_restJson1FooEnumList = (input: (FooEnum | string)[], context:
 };
 
 const serializeAws_restJson1FooEnumMap = (input: { [key: string]: FooEnum | string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: FooEnum | string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4070,7 +4194,7 @@ const serializeAws_restJson1SparseStringList = (input: string[], context: __Serd
 };
 
 const serializeAws_restJson1SparseStringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return { ...acc, [key]: null as any };
     }
@@ -4093,7 +4217,7 @@ const serializeAws_restJson1StringList = (input: string[], context: __SerdeConte
 };
 
 const serializeAws_restJson1StringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4155,6 +4279,18 @@ const deserializeAws_restJson1DenseNumberMap = (output: any, context: __SerdeCon
     return {
       ...acc,
       [key]: __expectNumber(value) as any,
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1DenseSetMap = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1StringSet(value, context),
     };
   }, {});
 };
@@ -4289,6 +4425,18 @@ const deserializeAws_restJson1SparseNumberMap = (output: any, context: __SerdeCo
     return {
       ...acc,
       [key]: __expectNumber(value) as any,
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1SparseSetMap = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return { ...acc, [key]: null as any };
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1StringSet(value, context),
     };
   }, {});
 };

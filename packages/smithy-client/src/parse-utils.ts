@@ -65,3 +65,27 @@ export const expectString = (value: any): string | undefined => {
   }
   throw new TypeError(`Expected string, got ${typeof value}`);
 };
+
+/**
+ * Asserts a value is a number and returns it, and also converts string
+ * representations of non-numeric floats into Numbers.
+ *
+ * @param value A number or string representation of a non-numeric float.
+ * @returns The value as a number, undefined if it's null/undefined,
+ *     otherwise an error is thrown.
+ */
+export const handleFloat = (value: string | number): number | undefined => {
+  if (typeof value == "string") {
+    switch (value) {
+      case "NaN":
+        return NaN;
+      case "Infinity":
+        return Infinity;
+      case "-Infinity":
+        return -Infinity;
+      default:
+        throw new Error(`Unable to parse float value: ${value}`);
+    }
+  }
+  return expectNumber(value);
+};

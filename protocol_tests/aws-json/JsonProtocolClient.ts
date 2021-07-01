@@ -20,6 +20,10 @@ import {
   PutAndGetInlineDocumentsCommandInput,
   PutAndGetInlineDocumentsCommandOutput,
 } from "./commands/PutAndGetInlineDocumentsCommand";
+import {
+  SimpleScalarPropertiesCommandInput,
+  SimpleScalarPropertiesCommandOutput,
+} from "./commands/SimpleScalarPropertiesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -81,7 +85,8 @@ export type ServiceInputTypes =
   | KitchenSinkOperationCommandInput
   | NullOperationCommandInput
   | OperationWithOptionalInputOutputCommandInput
-  | PutAndGetInlineDocumentsCommandInput;
+  | PutAndGetInlineDocumentsCommandInput
+  | SimpleScalarPropertiesCommandInput;
 
 export type ServiceOutputTypes =
   | EmptyOperationCommandOutput
@@ -93,7 +98,8 @@ export type ServiceOutputTypes =
   | KitchenSinkOperationCommandOutput
   | NullOperationCommandOutput
   | OperationWithOptionalInputOutputCommandOutput
-  | PutAndGetInlineDocumentsCommandOutput;
+  | PutAndGetInlineDocumentsCommandOutput
+  | SimpleScalarPropertiesCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

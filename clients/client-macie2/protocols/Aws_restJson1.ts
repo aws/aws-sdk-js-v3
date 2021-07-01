@@ -282,6 +282,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7969,18 +7970,15 @@ const serializeAws_restJson1BucketCriteria = (
   input: { [key: string]: BucketCriteriaAdditionalProperties },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: BucketCriteriaAdditionalProperties }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1BucketCriteriaAdditionalProperties(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1BucketCriteriaAdditionalProperties(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1BucketCriteriaAdditionalProperties = (
@@ -8043,18 +8041,15 @@ const serializeAws_restJson1Criterion = (
   input: { [key: string]: CriterionAdditionalProperties },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: CriterionAdditionalProperties }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1CriterionAdditionalProperties(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1CriterionAdditionalProperties(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1CriterionAdditionalProperties = (
@@ -8364,7 +8359,7 @@ const serializeAws_restJson1TagCriterionPairForJob = (input: TagCriterionPairFor
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9301,8 +9296,8 @@ const deserializeAws_restJson1IpCountry = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1IpGeoLocation = (output: any, context: __SerdeContext): IpGeoLocation => {
   return {
-    lat: __expectNumber(output.lat),
-    lon: __expectNumber(output.lon),
+    lat: __handleFloat(output.lat),
+    lon: __handleFloat(output.lon),
   } as any;
 };
 
@@ -9856,8 +9851,8 @@ const deserializeAws_restJson1SimpleScopeTerm = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Statistics = (output: any, context: __SerdeContext): Statistics => {
   return {
-    approximateNumberOfObjectsToProcess: __expectNumber(output.approximateNumberOfObjectsToProcess),
-    numberOfRuns: __expectNumber(output.numberOfRuns),
+    approximateNumberOfObjectsToProcess: __handleFloat(output.approximateNumberOfObjectsToProcess),
+    numberOfRuns: __handleFloat(output.numberOfRuns),
   } as any;
 };
 

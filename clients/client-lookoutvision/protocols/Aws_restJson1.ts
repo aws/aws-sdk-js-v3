@@ -56,6 +56,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2885,7 +2886,7 @@ const deserializeAws_restJson1DatasetMetadataList = (output: any, context: __Ser
 
 const deserializeAws_restJson1DetectAnomalyResult = (output: any, context: __SerdeContext): DetectAnomalyResult => {
   return {
-    Confidence: __expectNumber(output.Confidence),
+    Confidence: __handleFloat(output.Confidence),
     IsAnomalous: __expectBoolean(output.IsAnomalous),
     Source:
       output.Source !== undefined && output.Source !== null
@@ -2966,9 +2967,9 @@ const deserializeAws_restJson1ModelMetadataList = (output: any, context: __Serde
 
 const deserializeAws_restJson1ModelPerformance = (output: any, context: __SerdeContext): ModelPerformance => {
   return {
-    F1Score: __expectNumber(output.F1Score),
-    Precision: __expectNumber(output.Precision),
-    Recall: __expectNumber(output.Recall),
+    F1Score: __handleFloat(output.F1Score),
+    Precision: __handleFloat(output.Precision),
+    Recall: __handleFloat(output.Recall),
   } as any;
 };
 

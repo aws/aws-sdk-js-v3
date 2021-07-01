@@ -3637,7 +3637,7 @@ const serializeAws_restJson1ConfigurationsMap = (
   input: { [key: string]: Configuration },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: Configuration }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3659,7 +3659,7 @@ const serializeAws_restJson1Criterion = (input: Criterion, context: __SerdeConte
 };
 
 const serializeAws_restJson1FilterCriteriaMap = (input: { [key: string]: Criterion }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: Criterion }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3711,7 +3711,7 @@ const serializeAws_restJson1InternetConfiguration = (input: InternetConfiguratio
 };
 
 const serializeAws_restJson1KmsConstraintsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3794,7 +3794,7 @@ const serializeAws_restJson1KmsKeyConfiguration = (input: KmsKeyConfiguration, c
 };
 
 const serializeAws_restJson1KmsKeyPoliciesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3860,18 +3860,15 @@ const serializeAws_restJson1S3AccessPointConfigurationsMap = (
   input: { [key: string]: S3AccessPointConfiguration },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: S3AccessPointConfiguration }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1S3AccessPointConfiguration(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1S3AccessPointConfiguration(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1S3BucketAclGrantConfiguration = (
@@ -3956,7 +3953,7 @@ const serializeAws_restJson1SqsQueueConfiguration = (input: SqsQueueConfiguratio
 };
 
 const serializeAws_restJson1TagsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

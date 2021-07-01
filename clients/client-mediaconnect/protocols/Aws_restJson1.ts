@@ -115,6 +115,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4278,7 +4280,7 @@ const serializeAws_restJson1__listOfVpcInterfaceRequest = (
 };
 
 const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4358,7 +4360,7 @@ const serializeAws_restJson1EncodingParametersRequest = (
 ): any => {
   return {
     ...(input.CompressionFactor !== undefined &&
-      input.CompressionFactor !== null && { compressionFactor: input.CompressionFactor }),
+      input.CompressionFactor !== null && { compressionFactor: __serializeFloat(input.CompressionFactor) }),
     ...(input.EncoderProfile !== undefined &&
       input.EncoderProfile !== null && { encoderProfile: input.EncoderProfile }),
   };
@@ -4780,7 +4782,7 @@ const deserializeAws_restJson1DestinationConfiguration = (
 
 const deserializeAws_restJson1EncodingParameters = (output: any, context: __SerdeContext): EncodingParameters => {
   return {
-    CompressionFactor: __expectNumber(output.compressionFactor),
+    CompressionFactor: __handleFloat(output.compressionFactor),
     EncoderProfile: __expectString(output.encoderProfile),
   } as any;
 };

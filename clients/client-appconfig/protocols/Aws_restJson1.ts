@@ -103,6 +103,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -192,7 +194,8 @@ export const serializeAws_restJson1CreateDeploymentStrategyCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.FinalBakeTimeInMinutes !== undefined &&
       input.FinalBakeTimeInMinutes !== null && { FinalBakeTimeInMinutes: input.FinalBakeTimeInMinutes }),
-    ...(input.GrowthFactor !== undefined && input.GrowthFactor !== null && { GrowthFactor: input.GrowthFactor }),
+    ...(input.GrowthFactor !== undefined &&
+      input.GrowthFactor !== null && { GrowthFactor: __serializeFloat(input.GrowthFactor) }),
     ...(input.GrowthType !== undefined && input.GrowthType !== null && { GrowthType: input.GrowthType }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.ReplicateTo !== undefined && input.ReplicateTo !== null && { ReplicateTo: input.ReplicateTo }),
@@ -1240,7 +1243,8 @@ export const serializeAws_restJson1UpdateDeploymentStrategyCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.FinalBakeTimeInMinutes !== undefined &&
       input.FinalBakeTimeInMinutes !== null && { FinalBakeTimeInMinutes: input.FinalBakeTimeInMinutes }),
-    ...(input.GrowthFactor !== undefined && input.GrowthFactor !== null && { GrowthFactor: input.GrowthFactor }),
+    ...(input.GrowthFactor !== undefined &&
+      input.GrowthFactor !== null && { GrowthFactor: __serializeFloat(input.GrowthFactor) }),
     ...(input.GrowthType !== undefined && input.GrowthType !== null && { GrowthType: input.GrowthType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1536,7 +1540,7 @@ export const deserializeAws_restJson1CreateDeploymentStrategyCommand = async (
     contents.FinalBakeTimeInMinutes = __expectNumber(data.FinalBakeTimeInMinutes);
   }
   if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __expectNumber(data.GrowthFactor);
+    contents.GrowthFactor = __handleFloat(data.GrowthFactor);
   }
   if (data.GrowthType !== undefined && data.GrowthType !== null) {
     contents.GrowthType = __expectString(data.GrowthType);
@@ -2473,13 +2477,13 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
     contents.FinalBakeTimeInMinutes = __expectNumber(data.FinalBakeTimeInMinutes);
   }
   if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __expectNumber(data.GrowthFactor);
+    contents.GrowthFactor = __handleFloat(data.GrowthFactor);
   }
   if (data.GrowthType !== undefined && data.GrowthType !== null) {
     contents.GrowthType = __expectString(data.GrowthType);
   }
   if (data.PercentageComplete !== undefined && data.PercentageComplete !== null) {
-    contents.PercentageComplete = __expectNumber(data.PercentageComplete);
+    contents.PercentageComplete = __handleFloat(data.PercentageComplete);
   }
   if (data.StartedAt !== undefined && data.StartedAt !== null) {
     contents.StartedAt = new Date(data.StartedAt);
@@ -2572,7 +2576,7 @@ export const deserializeAws_restJson1GetDeploymentStrategyCommand = async (
     contents.FinalBakeTimeInMinutes = __expectNumber(data.FinalBakeTimeInMinutes);
   }
   if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __expectNumber(data.GrowthFactor);
+    contents.GrowthFactor = __handleFloat(data.GrowthFactor);
   }
   if (data.GrowthType !== undefined && data.GrowthType !== null) {
     contents.GrowthType = __expectString(data.GrowthType);
@@ -3396,13 +3400,13 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
     contents.FinalBakeTimeInMinutes = __expectNumber(data.FinalBakeTimeInMinutes);
   }
   if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __expectNumber(data.GrowthFactor);
+    contents.GrowthFactor = __handleFloat(data.GrowthFactor);
   }
   if (data.GrowthType !== undefined && data.GrowthType !== null) {
     contents.GrowthType = __expectString(data.GrowthType);
   }
   if (data.PercentageComplete !== undefined && data.PercentageComplete !== null) {
-    contents.PercentageComplete = __expectNumber(data.PercentageComplete);
+    contents.PercentageComplete = __handleFloat(data.PercentageComplete);
   }
   if (data.StartedAt !== undefined && data.StartedAt !== null) {
     contents.StartedAt = new Date(data.StartedAt);
@@ -3543,13 +3547,13 @@ export const deserializeAws_restJson1StopDeploymentCommand = async (
     contents.FinalBakeTimeInMinutes = __expectNumber(data.FinalBakeTimeInMinutes);
   }
   if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __expectNumber(data.GrowthFactor);
+    contents.GrowthFactor = __handleFloat(data.GrowthFactor);
   }
   if (data.GrowthType !== undefined && data.GrowthType !== null) {
     contents.GrowthType = __expectString(data.GrowthType);
   }
   if (data.PercentageComplete !== undefined && data.PercentageComplete !== null) {
-    contents.PercentageComplete = __expectNumber(data.PercentageComplete);
+    contents.PercentageComplete = __handleFloat(data.PercentageComplete);
   }
   if (data.StartedAt !== undefined && data.StartedAt !== null) {
     contents.StartedAt = new Date(data.StartedAt);
@@ -3950,7 +3954,7 @@ export const deserializeAws_restJson1UpdateDeploymentStrategyCommand = async (
     contents.FinalBakeTimeInMinutes = __expectNumber(data.FinalBakeTimeInMinutes);
   }
   if (data.GrowthFactor !== undefined && data.GrowthFactor !== null) {
-    contents.GrowthFactor = __expectNumber(data.GrowthFactor);
+    contents.GrowthFactor = __handleFloat(data.GrowthFactor);
   }
   if (data.GrowthType !== undefined && data.GrowthType !== null) {
     contents.GrowthType = __expectString(data.GrowthType);
@@ -4244,7 +4248,7 @@ const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Limit !== undefined && data.Limit !== null) {
-    contents.Limit = __expectNumber(data.Limit);
+    contents.Limit = __handleFloat(data.Limit);
   }
   if (data.Measure !== undefined && data.Measure !== null) {
     contents.Measure = __expectString(data.Measure);
@@ -4253,7 +4257,7 @@ const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
     contents.Message = __expectString(data.Message);
   }
   if (data.Size !== undefined && data.Size !== null) {
-    contents.Size = __expectNumber(data.Size);
+    contents.Size = __handleFloat(data.Size);
   }
   return contents;
 };
@@ -4315,7 +4319,7 @@ const serializeAws_restJson1MonitorList = (input: Monitor[], context: __SerdeCon
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4429,7 +4433,7 @@ const deserializeAws_restJson1DeploymentStrategy = (output: any, context: __Serd
     DeploymentDurationInMinutes: __expectNumber(output.DeploymentDurationInMinutes),
     Description: __expectString(output.Description),
     FinalBakeTimeInMinutes: __expectNumber(output.FinalBakeTimeInMinutes),
-    GrowthFactor: __expectNumber(output.GrowthFactor),
+    GrowthFactor: __handleFloat(output.GrowthFactor),
     GrowthType: __expectString(output.GrowthType),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
@@ -4457,9 +4461,9 @@ const deserializeAws_restJson1DeploymentSummary = (output: any, context: __Serde
     DeploymentDurationInMinutes: __expectNumber(output.DeploymentDurationInMinutes),
     DeploymentNumber: __expectNumber(output.DeploymentNumber),
     FinalBakeTimeInMinutes: __expectNumber(output.FinalBakeTimeInMinutes),
-    GrowthFactor: __expectNumber(output.GrowthFactor),
+    GrowthFactor: __handleFloat(output.GrowthFactor),
     GrowthType: __expectString(output.GrowthType),
-    PercentageComplete: __expectNumber(output.PercentageComplete),
+    PercentageComplete: __handleFloat(output.PercentageComplete),
     StartedAt: output.StartedAt !== undefined && output.StartedAt !== null ? new Date(output.StartedAt) : undefined,
     State: __expectString(output.State),
   } as any;

@@ -80,6 +80,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1384,9 +1386,13 @@ const serializeAws_json1_1ScalableTargetAction = (input: ScalableTargetAction, c
 const serializeAws_json1_1StepAdjustment = (input: StepAdjustment, context: __SerdeContext): any => {
   return {
     ...(input.MetricIntervalLowerBound !== undefined &&
-      input.MetricIntervalLowerBound !== null && { MetricIntervalLowerBound: input.MetricIntervalLowerBound }),
+      input.MetricIntervalLowerBound !== null && {
+        MetricIntervalLowerBound: __serializeFloat(input.MetricIntervalLowerBound),
+      }),
     ...(input.MetricIntervalUpperBound !== undefined &&
-      input.MetricIntervalUpperBound !== null && { MetricIntervalUpperBound: input.MetricIntervalUpperBound }),
+      input.MetricIntervalUpperBound !== null && {
+        MetricIntervalUpperBound: __serializeFloat(input.MetricIntervalUpperBound),
+      }),
     ...(input.ScalingAdjustment !== undefined &&
       input.ScalingAdjustment !== null && { ScalingAdjustment: input.ScalingAdjustment }),
   };
@@ -1458,7 +1464,8 @@ const serializeAws_json1_1TargetTrackingScalingPolicyConfiguration = (
       input.ScaleInCooldown !== null && { ScaleInCooldown: input.ScaleInCooldown }),
     ...(input.ScaleOutCooldown !== undefined &&
       input.ScaleOutCooldown !== null && { ScaleOutCooldown: input.ScaleOutCooldown }),
-    ...(input.TargetValue !== undefined && input.TargetValue !== null && { TargetValue: input.TargetValue }),
+    ...(input.TargetValue !== undefined &&
+      input.TargetValue !== null && { TargetValue: __serializeFloat(input.TargetValue) }),
   };
 };
 
@@ -1824,8 +1831,8 @@ const deserializeAws_json1_1ScheduledActions = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1StepAdjustment = (output: any, context: __SerdeContext): StepAdjustment => {
   return {
-    MetricIntervalLowerBound: __expectNumber(output.MetricIntervalLowerBound),
-    MetricIntervalUpperBound: __expectNumber(output.MetricIntervalUpperBound),
+    MetricIntervalLowerBound: __handleFloat(output.MetricIntervalLowerBound),
+    MetricIntervalUpperBound: __handleFloat(output.MetricIntervalUpperBound),
     ScalingAdjustment: __expectNumber(output.ScalingAdjustment),
   } as any;
 };
@@ -1881,7 +1888,7 @@ const deserializeAws_json1_1TargetTrackingScalingPolicyConfiguration = (
         : undefined,
     ScaleInCooldown: __expectNumber(output.ScaleInCooldown),
     ScaleOutCooldown: __expectNumber(output.ScaleOutCooldown),
-    TargetValue: __expectNumber(output.TargetValue),
+    TargetValue: __handleFloat(output.TargetValue),
   } as any;
 };
 

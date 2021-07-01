@@ -15,6 +15,7 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -168,7 +169,7 @@ const serializeAws_json1_1GetEntitlementFilters = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [GetEntitlementFilterName | string, any]) => {
+    (acc: { [key: string]: any }, [key, value]: [GetEntitlementFilterName | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -222,8 +223,8 @@ const deserializeAws_json1_1EntitlementValue = (output: any, context: __SerdeCon
   if (__expectBoolean(output.BooleanValue) !== undefined) {
     return { BooleanValue: __expectBoolean(output.BooleanValue) as any };
   }
-  if (__expectNumber(output.DoubleValue) !== undefined) {
-    return { DoubleValue: __expectNumber(output.DoubleValue) as any };
+  if (__handleFloat(output.DoubleValue) !== undefined) {
+    return { DoubleValue: __handleFloat(output.DoubleValue) as any };
   }
   if (__expectNumber(output.IntegerValue) !== undefined) {
     return { IntegerValue: __expectNumber(output.IntegerValue) as any };

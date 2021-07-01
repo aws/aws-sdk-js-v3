@@ -396,6 +396,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -8273,8 +8275,8 @@ const serializeAws_json1_1ListVPCEConfigurationsRequest = (
 
 const serializeAws_json1_1Location = (input: Location, context: __SerdeContext): any => {
   return {
-    ...(input.latitude !== undefined && input.latitude !== null && { latitude: input.latitude }),
-    ...(input.longitude !== undefined && input.longitude !== null && { longitude: input.longitude }),
+    ...(input.latitude !== undefined && input.latitude !== null && { latitude: __serializeFloat(input.latitude) }),
+    ...(input.longitude !== undefined && input.longitude !== null && { longitude: __serializeFloat(input.longitude) }),
   };
 };
 
@@ -8493,7 +8495,7 @@ const serializeAws_json1_1TestGridVpcConfig = (input: TestGridVpcConfig, context
 };
 
 const serializeAws_json1_1TestParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -8717,7 +8719,7 @@ const deserializeAws_json1_1Counters = (output: any, context: __SerdeContext): C
 const deserializeAws_json1_1CPU = (output: any, context: __SerdeContext): CPU => {
   return {
     architecture: __expectString(output.architecture),
-    clock: __expectNumber(output.clock),
+    clock: __handleFloat(output.clock),
     frequency: __expectString(output.frequency),
   } as any;
 };
@@ -8994,9 +8996,9 @@ const deserializeAws_json1_1DeviceInstances = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1DeviceMinutes = (output: any, context: __SerdeContext): DeviceMinutes => {
   return {
-    metered: __expectNumber(output.metered),
-    total: __expectNumber(output.total),
-    unmetered: __expectNumber(output.unmetered),
+    metered: __handleFloat(output.metered),
+    total: __handleFloat(output.total),
+    unmetered: __handleFloat(output.unmetered),
   } as any;
 };
 
@@ -9700,8 +9702,8 @@ const deserializeAws_json1_1ListVPCEConfigurationsResult = (
 
 const deserializeAws_json1_1Location = (output: any, context: __SerdeContext): Location => {
   return {
-    latitude: __expectNumber(output.latitude),
-    longitude: __expectNumber(output.longitude),
+    latitude: __handleFloat(output.latitude),
+    longitude: __handleFloat(output.longitude),
   } as any;
 };
 
@@ -9719,7 +9721,7 @@ const deserializeAws_json1_1MaxSlotMap = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1MonetaryAmount = (output: any, context: __SerdeContext): MonetaryAmount => {
   return {
-    amount: __expectNumber(output.amount),
+    amount: __handleFloat(output.amount),
     currencyCode: __expectString(output.currencyCode),
   } as any;
 };
@@ -10354,7 +10356,7 @@ const deserializeAws_json1_1TestGridProjects = (output: any, context: __SerdeCon
 const deserializeAws_json1_1TestGridSession = (output: any, context: __SerdeContext): TestGridSession => {
   return {
     arn: __expectString(output.arn),
-    billingMinutes: __expectNumber(output.billingMinutes),
+    billingMinutes: __handleFloat(output.billingMinutes),
     created:
       output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
     ended: output.ended !== undefined && output.ended !== null ? new Date(Math.round(output.ended * 1000)) : undefined,
@@ -10458,8 +10460,8 @@ const deserializeAws_json1_1TooManyTagsException = (output: any, context: __Serd
 
 const deserializeAws_json1_1TrialMinutes = (output: any, context: __SerdeContext): TrialMinutes => {
   return {
-    remaining: __expectNumber(output.remaining),
-    total: __expectNumber(output.total),
+    remaining: __handleFloat(output.remaining),
+    total: __handleFloat(output.total),
   } as any;
 };
 

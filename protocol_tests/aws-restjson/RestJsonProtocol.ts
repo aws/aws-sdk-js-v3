@@ -15,6 +15,16 @@ import {
   ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
 import {
+  DocumentTypeAsPayloadCommand,
+  DocumentTypeAsPayloadCommandInput,
+  DocumentTypeAsPayloadCommandOutput,
+} from "./commands/DocumentTypeAsPayloadCommand";
+import {
+  DocumentTypeCommand,
+  DocumentTypeCommandInput,
+  DocumentTypeCommandOutput,
+} from "./commands/DocumentTypeCommand";
+import {
   EmptyInputAndEmptyOutputCommand,
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -65,6 +75,11 @@ import {
   HttpPrefixHeadersResponseCommandOutput,
 } from "./commands/HttpPrefixHeadersResponseCommand";
 import {
+  HttpRequestWithFloatLabelsCommand,
+  HttpRequestWithFloatLabelsCommandInput,
+  HttpRequestWithFloatLabelsCommandOutput,
+} from "./commands/HttpRequestWithFloatLabelsCommand";
+import {
   HttpRequestWithGreedyLabelInPathCommand,
   HttpRequestWithGreedyLabelInPathCommandInput,
   HttpRequestWithGreedyLabelInPathCommandOutput,
@@ -94,16 +109,6 @@ import {
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
 } from "./commands/IgnoreQueryParamsInResponseCommand";
-import {
-  InlineDocumentAsPayloadCommand,
-  InlineDocumentAsPayloadCommandInput,
-  InlineDocumentAsPayloadCommandOutput,
-} from "./commands/InlineDocumentAsPayloadCommand";
-import {
-  InlineDocumentCommand,
-  InlineDocumentCommandInput,
-  InlineDocumentCommandOutput,
-} from "./commands/InlineDocumentCommand";
 import {
   InputAndOutputWithHeadersCommand,
   InputAndOutputWithHeadersCommandInput,
@@ -291,6 +296,67 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: ConstantQueryStringCommandOutput) => void
   ): Promise<ConstantQueryStringCommandOutput> | void {
     const command = new ConstantQueryStringCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example serializes a document as part of the payload.
+   */
+  public documentType(
+    args: DocumentTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DocumentTypeCommandOutput>;
+  public documentType(args: DocumentTypeCommandInput, cb: (err: any, data?: DocumentTypeCommandOutput) => void): void;
+  public documentType(
+    args: DocumentTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DocumentTypeCommandOutput) => void
+  ): void;
+  public documentType(
+    args: DocumentTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DocumentTypeCommandOutput) => void),
+    cb?: (err: any, data?: DocumentTypeCommandOutput) => void
+  ): Promise<DocumentTypeCommandOutput> | void {
+    const command = new DocumentTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This example serializes a document as the entire HTTP payload.
+   */
+  public documentTypeAsPayload(
+    args: DocumentTypeAsPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DocumentTypeAsPayloadCommandOutput>;
+  public documentTypeAsPayload(
+    args: DocumentTypeAsPayloadCommandInput,
+    cb: (err: any, data?: DocumentTypeAsPayloadCommandOutput) => void
+  ): void;
+  public documentTypeAsPayload(
+    args: DocumentTypeAsPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DocumentTypeAsPayloadCommandOutput) => void
+  ): void;
+  public documentTypeAsPayload(
+    args: DocumentTypeAsPayloadCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DocumentTypeAsPayloadCommandOutput) => void),
+    cb?: (err: any, data?: DocumentTypeAsPayloadCommandOutput) => void
+  ): Promise<DocumentTypeAsPayloadCommandOutput> | void {
+    const command = new DocumentTypeAsPayloadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -631,6 +697,35 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  public httpRequestWithFloatLabels(
+    args: HttpRequestWithFloatLabelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpRequestWithFloatLabelsCommandOutput>;
+  public httpRequestWithFloatLabels(
+    args: HttpRequestWithFloatLabelsCommandInput,
+    cb: (err: any, data?: HttpRequestWithFloatLabelsCommandOutput) => void
+  ): void;
+  public httpRequestWithFloatLabels(
+    args: HttpRequestWithFloatLabelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpRequestWithFloatLabelsCommandOutput) => void
+  ): void;
+  public httpRequestWithFloatLabels(
+    args: HttpRequestWithFloatLabelsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpRequestWithFloatLabelsCommandOutput) => void),
+    cb?: (err: any, data?: HttpRequestWithFloatLabelsCommandOutput) => void
+  ): Promise<HttpRequestWithFloatLabelsCommandOutput> | void {
+    const command = new HttpRequestWithFloatLabelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   public httpRequestWithGreedyLabelInPath(
     args: HttpRequestWithGreedyLabelInPathCommandInput,
     options?: __HttpHandlerOptions
@@ -810,70 +905,6 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: IgnoreQueryParamsInResponseCommandOutput) => void
   ): Promise<IgnoreQueryParamsInResponseCommandOutput> | void {
     const command = new IgnoreQueryParamsInResponseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * This example serializes an inline document as part of the payload.
-   */
-  public inlineDocument(
-    args: InlineDocumentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<InlineDocumentCommandOutput>;
-  public inlineDocument(
-    args: InlineDocumentCommandInput,
-    cb: (err: any, data?: InlineDocumentCommandOutput) => void
-  ): void;
-  public inlineDocument(
-    args: InlineDocumentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: InlineDocumentCommandOutput) => void
-  ): void;
-  public inlineDocument(
-    args: InlineDocumentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InlineDocumentCommandOutput) => void),
-    cb?: (err: any, data?: InlineDocumentCommandOutput) => void
-  ): Promise<InlineDocumentCommandOutput> | void {
-    const command = new InlineDocumentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * This example serializes an inline document as the entire HTTP payload.
-   */
-  public inlineDocumentAsPayload(
-    args: InlineDocumentAsPayloadCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<InlineDocumentAsPayloadCommandOutput>;
-  public inlineDocumentAsPayload(
-    args: InlineDocumentAsPayloadCommandInput,
-    cb: (err: any, data?: InlineDocumentAsPayloadCommandOutput) => void
-  ): void;
-  public inlineDocumentAsPayload(
-    args: InlineDocumentAsPayloadCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: InlineDocumentAsPayloadCommandOutput) => void
-  ): void;
-  public inlineDocumentAsPayload(
-    args: InlineDocumentAsPayloadCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InlineDocumentAsPayloadCommandOutput) => void),
-    cb?: (err: any, data?: InlineDocumentAsPayloadCommandOutput) => void
-  ): Promise<InlineDocumentAsPayloadCommandOutput> | void {
-    const command = new InlineDocumentAsPayloadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -338,6 +338,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -10106,7 +10107,7 @@ const deserializeAws_restJson1DomainDeliverabilityCampaign = (
 ): DomainDeliverabilityCampaign => {
   return {
     CampaignId: __expectString(output.CampaignId),
-    DeleteRate: __expectNumber(output.DeleteRate),
+    DeleteRate: __handleFloat(output.DeleteRate),
     Esps:
       output.Esps !== undefined && output.Esps !== null
         ? deserializeAws_restJson1Esps(output.Esps, context)
@@ -10123,8 +10124,8 @@ const deserializeAws_restJson1DomainDeliverabilityCampaign = (
         ? new Date(Math.round(output.LastSeenDateTime * 1000))
         : undefined,
     ProjectedVolume: __expectNumber(output.ProjectedVolume),
-    ReadDeleteRate: __expectNumber(output.ReadDeleteRate),
-    ReadRate: __expectNumber(output.ReadRate),
+    ReadDeleteRate: __handleFloat(output.ReadDeleteRate),
+    ReadRate: __handleFloat(output.ReadRate),
     SendingIps:
       output.SendingIps !== undefined && output.SendingIps !== null
         ? deserializeAws_restJson1IpList(output.SendingIps, context)
@@ -10181,10 +10182,10 @@ const deserializeAws_restJson1DomainDeliverabilityTrackingOptions = (
 
 const deserializeAws_restJson1DomainIspPlacement = (output: any, context: __SerdeContext): DomainIspPlacement => {
   return {
-    InboxPercentage: __expectNumber(output.InboxPercentage),
+    InboxPercentage: __handleFloat(output.InboxPercentage),
     InboxRawCount: __expectNumber(output.InboxRawCount),
     IspName: __expectString(output.IspName),
-    SpamPercentage: __expectNumber(output.SpamPercentage),
+    SpamPercentage: __handleFloat(output.SpamPercentage),
     SpamRawCount: __expectNumber(output.SpamRawCount),
   } as any;
 };
@@ -10477,7 +10478,7 @@ const deserializeAws_restJson1OverallVolume = (output: any, context: __SerdeCont
       output.DomainIspPlacements !== undefined && output.DomainIspPlacements !== null
         ? deserializeAws_restJson1DomainIspPlacements(output.DomainIspPlacements, context)
         : undefined,
-    ReadRatePercent: __expectNumber(output.ReadRatePercent),
+    ReadRatePercent: __handleFloat(output.ReadRatePercent),
     VolumeStatistics:
       output.VolumeStatistics !== undefined && output.VolumeStatistics !== null
         ? deserializeAws_restJson1VolumeStatistics(output.VolumeStatistics, context)
@@ -10493,11 +10494,11 @@ const deserializeAws_restJson1PinpointDestination = (output: any, context: __Ser
 
 const deserializeAws_restJson1PlacementStatistics = (output: any, context: __SerdeContext): PlacementStatistics => {
   return {
-    DkimPercentage: __expectNumber(output.DkimPercentage),
-    InboxPercentage: __expectNumber(output.InboxPercentage),
-    MissingPercentage: __expectNumber(output.MissingPercentage),
-    SpamPercentage: __expectNumber(output.SpamPercentage),
-    SpfPercentage: __expectNumber(output.SpfPercentage),
+    DkimPercentage: __handleFloat(output.DkimPercentage),
+    InboxPercentage: __handleFloat(output.InboxPercentage),
+    MissingPercentage: __handleFloat(output.MissingPercentage),
+    SpamPercentage: __handleFloat(output.SpamPercentage),
+    SpfPercentage: __handleFloat(output.SpfPercentage),
   } as any;
 };
 
@@ -10538,9 +10539,9 @@ const deserializeAws_restJson1SendingOptions = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1SendQuota = (output: any, context: __SerdeContext): SendQuota => {
   return {
-    Max24HourSend: __expectNumber(output.Max24HourSend),
-    MaxSendRate: __expectNumber(output.MaxSendRate),
-    SentLast24Hours: __expectNumber(output.SentLast24Hours),
+    Max24HourSend: __handleFloat(output.Max24HourSend),
+    MaxSendRate: __handleFloat(output.MaxSendRate),
+    SentLast24Hours: __handleFloat(output.SentLast24Hours),
   } as any;
 };
 

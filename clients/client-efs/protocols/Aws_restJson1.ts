@@ -116,6 +116,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -177,7 +179,7 @@ export const serializeAws_restJson1CreateFileSystemCommand = async (
       input.PerformanceMode !== null && { PerformanceMode: input.PerformanceMode }),
     ...(input.ProvisionedThroughputInMibps !== undefined &&
       input.ProvisionedThroughputInMibps !== null && {
-        ProvisionedThroughputInMibps: input.ProvisionedThroughputInMibps,
+        ProvisionedThroughputInMibps: __serializeFloat(input.ProvisionedThroughputInMibps),
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
     ...(input.ThroughputMode !== undefined &&
@@ -940,7 +942,7 @@ export const serializeAws_restJson1UpdateFileSystemCommand = async (
   body = JSON.stringify({
     ...(input.ProvisionedThroughputInMibps !== undefined &&
       input.ProvisionedThroughputInMibps !== null && {
-        ProvisionedThroughputInMibps: input.ProvisionedThroughputInMibps,
+        ProvisionedThroughputInMibps: __serializeFloat(input.ProvisionedThroughputInMibps),
       }),
     ...(input.ThroughputMode !== undefined &&
       input.ThroughputMode !== null && { ThroughputMode: input.ThroughputMode }),
@@ -1156,7 +1158,7 @@ export const deserializeAws_restJson1CreateFileSystemCommand = async (
     contents.PerformanceMode = __expectString(data.PerformanceMode);
   }
   if (data.ProvisionedThroughputInMibps !== undefined && data.ProvisionedThroughputInMibps !== null) {
-    contents.ProvisionedThroughputInMibps = __expectNumber(data.ProvisionedThroughputInMibps);
+    contents.ProvisionedThroughputInMibps = __handleFloat(data.ProvisionedThroughputInMibps);
   }
   if (data.SizeInBytes !== undefined && data.SizeInBytes !== null) {
     contents.SizeInBytes = deserializeAws_restJson1FileSystemSize(data.SizeInBytes, context);
@@ -3263,7 +3265,7 @@ export const deserializeAws_restJson1UpdateFileSystemCommand = async (
     contents.PerformanceMode = __expectString(data.PerformanceMode);
   }
   if (data.ProvisionedThroughputInMibps !== undefined && data.ProvisionedThroughputInMibps !== null) {
-    contents.ProvisionedThroughputInMibps = __expectNumber(data.ProvisionedThroughputInMibps);
+    contents.ProvisionedThroughputInMibps = __handleFloat(data.ProvisionedThroughputInMibps);
   }
   if (data.SizeInBytes !== undefined && data.SizeInBytes !== null) {
     contents.SizeInBytes = deserializeAws_restJson1FileSystemSize(data.SizeInBytes, context);
@@ -4133,7 +4135,7 @@ const deserializeAws_restJson1FileSystemDescription = (output: any, context: __S
     NumberOfMountTargets: __expectNumber(output.NumberOfMountTargets),
     OwnerId: __expectString(output.OwnerId),
     PerformanceMode: __expectString(output.PerformanceMode),
-    ProvisionedThroughputInMibps: __expectNumber(output.ProvisionedThroughputInMibps),
+    ProvisionedThroughputInMibps: __handleFloat(output.ProvisionedThroughputInMibps),
     SizeInBytes:
       output.SizeInBytes !== undefined && output.SizeInBytes !== null
         ? deserializeAws_restJson1FileSystemSize(output.SizeInBytes, context)

@@ -19,6 +19,7 @@ import { HttpPayloadWithXmlNameCommand } from "../../commands/HttpPayloadWithXml
 import { HttpPayloadWithXmlNamespaceAndPrefixCommand } from "../../commands/HttpPayloadWithXmlNamespaceAndPrefixCommand";
 import { HttpPayloadWithXmlNamespaceCommand } from "../../commands/HttpPayloadWithXmlNamespaceCommand";
 import { HttpPrefixHeadersCommand } from "../../commands/HttpPrefixHeadersCommand";
+import { HttpRequestWithFloatLabelsCommand } from "../../commands/HttpRequestWithFloatLabelsCommand";
 import { HttpRequestWithGreedyLabelInPathCommand } from "../../commands/HttpRequestWithGreedyLabelInPathCommand";
 import { HttpRequestWithLabelsAndTimestampFormatCommand } from "../../commands/HttpRequestWithLabelsAndTimestampFormatCommand";
 import { HttpRequestWithLabelsCommand } from "../../commands/HttpRequestWithLabelsCommand";
@@ -335,6 +336,111 @@ it("RestXmlQueryStringMap:Request", async () => {
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("QueryParamsStringKeyA=Foo");
     expect(queryString).toContain("QueryParamsStringKeyB=Bar");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Supports handling NaN float query values.
+ */
+it("RestXmlSupportsNaNFloatQueryValues:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new AllQueryStringTypesCommand({
+    queryFloat: NaN,
+
+    queryDouble: NaN,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/AllQueryStringTypesInput");
+
+    const queryString = buildQueryString(r.query);
+    expect(queryString).toContain("Float=NaN");
+    expect(queryString).toContain("Double=NaN");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Supports handling Infinity float query values.
+ */
+it("RestXmlSupportsInfinityFloatQueryValues:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new AllQueryStringTypesCommand({
+    queryFloat: Infinity,
+
+    queryDouble: Infinity,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/AllQueryStringTypesInput");
+
+    const queryString = buildQueryString(r.query);
+    expect(queryString).toContain("Float=Infinity");
+    expect(queryString).toContain("Double=Infinity");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Supports handling -Infinity float query values.
+ */
+it("RestXmlSupportsNegativeInfinityFloatQueryValues:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new AllQueryStringTypesCommand({
+    queryFloat: -Infinity,
+
+    queryDouble: -Infinity,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/AllQueryStringTypesInput");
+
+    const queryString = buildQueryString(r.query);
+    expect(queryString).toContain("Float=-Infinity");
+    expect(queryString).toContain("Double=-Infinity");
 
     expect(r.body).toBeFalsy();
   }
@@ -1883,6 +1989,99 @@ it("HttpPrefixHeadersAreNotPresent:Response", async () => {
 });
 
 /**
+ * Supports handling NaN float label values.
+ */
+it("RestXmlSupportsNaNFloatLabels:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpRequestWithFloatLabelsCommand({
+    float: NaN,
+
+    double: NaN,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/FloatHttpLabels/NaN/NaN");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Supports handling Infinity float label values.
+ */
+it("RestXmlSupportsInfinityFloatLabels:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpRequestWithFloatLabelsCommand({
+    float: Infinity,
+
+    double: Infinity,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/FloatHttpLabels/Infinity/Infinity");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Supports handling -Infinity float label values.
+ */
+it("RestXmlSupportsNegativeInfinityFloatLabels:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpRequestWithFloatLabelsCommand({
+    float: -Infinity,
+
+    double: -Infinity,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/FloatHttpLabels/-Infinity/-Infinity");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
  * Serializes greedy labels and normal labels
  */
 it("HttpRequestWithGreedyLabelInPath:Request", async () => {
@@ -2286,6 +2485,114 @@ it("InputAndOutputWithEnumHeaders:Request", async () => {
 });
 
 /**
+ * Supports handling NaN float header values.
+ */
+it("RestXmlSupportsNaNFloatHeaderInputs:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new InputAndOutputWithHeadersCommand({
+    headerFloat: NaN,
+
+    headerDouble: NaN,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/InputAndOutputWithHeaders");
+
+    expect(r.headers["x-double"]).toBeDefined();
+    expect(r.headers["x-double"]).toBe("NaN");
+    expect(r.headers["x-float"]).toBeDefined();
+    expect(r.headers["x-float"]).toBe("NaN");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Supports handling Infinity float header values.
+ */
+it("RestXmlSupportsInfinityFloatHeaderInputs:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new InputAndOutputWithHeadersCommand({
+    headerFloat: Infinity,
+
+    headerDouble: Infinity,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/InputAndOutputWithHeaders");
+
+    expect(r.headers["x-double"]).toBeDefined();
+    expect(r.headers["x-double"]).toBe("Infinity");
+    expect(r.headers["x-float"]).toBeDefined();
+    expect(r.headers["x-float"]).toBe("Infinity");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Supports handling -Infinity float header values.
+ */
+it("RestXmlSupportsNegativeInfinityFloatHeaderInputs:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new InputAndOutputWithHeadersCommand({
+    headerFloat: -Infinity,
+
+    headerDouble: -Infinity,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/InputAndOutputWithHeaders");
+
+    expect(r.headers["x-double"]).toBeDefined();
+    expect(r.headers["x-double"]).toBe("-Infinity");
+    expect(r.headers["x-float"]).toBeDefined();
+    expect(r.headers["x-float"]).toBe("-Infinity");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
  * Tests responses with string header bindings
  */
 it("InputAndOutputWithStringHeaders:Response", async () => {
@@ -2506,6 +2813,129 @@ it("InputAndOutputWithEnumHeaders:Response", async () => {
       headerEnum: "Foo",
 
       headerEnumList: ["Foo", "Bar", "Baz"],
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Supports handling NaN float header values.
+ */
+it("RestXmlSupportsNaNFloatHeaderOutputs:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "x-float": "NaN",
+        "x-double": "NaN",
+      },
+      ``
+    ),
+  });
+
+  const params: any = {};
+  const command = new InputAndOutputWithHeadersCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      headerFloat: NaN,
+
+      headerDouble: NaN,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Supports handling Infinity float header values.
+ */
+it("RestXmlSupportsInfinityFloatHeaderOutputs:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "x-float": "Infinity",
+        "x-double": "Infinity",
+      },
+      ``
+    ),
+  });
+
+  const params: any = {};
+  const command = new InputAndOutputWithHeadersCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      headerFloat: Infinity,
+
+      headerDouble: Infinity,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Supports handling -Infinity float header values.
+ */
+it("RestXmlSupportsNegativeInfinityFloatHeaderOutputs:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "x-float": "-Infinity",
+        "x-double": "-Infinity",
+      },
+      ``
+    ),
+  });
+
+  const params: any = {};
+  const command = new InputAndOutputWithHeadersCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      headerFloat: -Infinity,
+
+      headerDouble: -Infinity,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -3345,6 +3775,132 @@ it("SimpleScalarPropertiesWithWhiteSpace:Request", async () => {
 });
 
 /**
+ * Supports handling NaN float values.
+ */
+it("RestXmlSupportsNaNFloatInputs:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SimpleScalarPropertiesCommand({
+    floatValue: NaN,
+
+    doubleValue: NaN,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/SimpleScalarProperties");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<SimpleScalarPropertiesInputOutput>
+        <floatValue>NaN</floatValue>
+        <DoubleDribble>NaN</DoubleDribble>
+    </SimpleScalarPropertiesInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Supports handling Infinity float values.
+ */
+it("RestXmlSupportsInfinityFloatInputs:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SimpleScalarPropertiesCommand({
+    floatValue: Infinity,
+
+    doubleValue: Infinity,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/SimpleScalarProperties");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<SimpleScalarPropertiesInputOutput>
+        <floatValue>Infinity</floatValue>
+        <DoubleDribble>Infinity</DoubleDribble>
+    </SimpleScalarPropertiesInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Supports handling -Infinity float values.
+ */
+it("RestXmlSupportsNegativeInfinityFloatInputs:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SimpleScalarPropertiesCommand({
+    floatValue: -Infinity,
+
+    doubleValue: -Infinity,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/SimpleScalarProperties");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<SimpleScalarPropertiesInputOutput>
+        <floatValue>-Infinity</floatValue>
+        <DoubleDribble>-Infinity</DoubleDribble>
+    </SimpleScalarPropertiesInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
  * Serializes simple scalar properties
  */
 it("SimpleScalarProperties:Response", async () => {
@@ -3404,6 +3960,56 @@ it("SimpleScalarProperties:Response", async () => {
       floatValue: 5.5,
 
       doubleValue: 6.5,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes string with escaping.
+ *
+ * This validates the three escape types: literal, decimal and hexadecimal. It also validates that unescaping properly
+ * handles the case where unescaping an & produces a newly formed escape sequence (this should not be re-unescaped).
+ *
+ * Servers may produce different output, this test is designed different unescapes clients must handle
+ *
+ */
+it("SimpleScalarPropertiesComplexEscapes:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "x-foo": "Foo",
+        "content-type": "application/xml",
+      },
+      `<SimpleScalarPropertiesInputOutput>
+          <stringValue>escaped data: &amp;lt;&#xD;&#10;</stringValue>
+      </SimpleScalarPropertiesInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new SimpleScalarPropertiesCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      foo: "Foo",
+
+      stringValue: "escaped data: &lt;\r\n",
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -3540,6 +4146,138 @@ it("SimpleScalarPropertiesWithWhiteSpace:Response", async () => {
       foo: "Foo",
 
       stringValue: "string with white    space",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Supports handling NaN float values.
+ */
+it("RestXmlSupportsNaNFloatOutputs:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<SimpleScalarPropertiesInputOutput>
+          <floatValue>NaN</floatValue>
+          <DoubleDribble>NaN</DoubleDribble>
+      </SimpleScalarPropertiesInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new SimpleScalarPropertiesCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      floatValue: NaN,
+
+      doubleValue: NaN,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Supports handling Infinity float values.
+ */
+it("RestXmlSupportsInfinityFloatOutputs:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<SimpleScalarPropertiesInputOutput>
+          <floatValue>Infinity</floatValue>
+          <DoubleDribble>Infinity</DoubleDribble>
+      </SimpleScalarPropertiesInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new SimpleScalarPropertiesCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      floatValue: Infinity,
+
+      doubleValue: Infinity,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Supports handling -Infinity float values.
+ */
+it("RestXmlSupportsNegativeInfinityFloatOutputs:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<SimpleScalarPropertiesInputOutput>
+          <floatValue>-Infinity</floatValue>
+          <DoubleDribble>-Infinity</DoubleDribble>
+      </SimpleScalarPropertiesInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new SimpleScalarPropertiesCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      floatValue: -Infinity,
+
+      doubleValue: -Infinity,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

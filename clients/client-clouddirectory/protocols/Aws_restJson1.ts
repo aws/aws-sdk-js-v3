@@ -11455,7 +11455,7 @@ const serializeAws_restJson1Rule = (input: Rule, context: __SerdeContext): any =
 };
 
 const serializeAws_restJson1RuleMap = (input: { [key: string]: Rule }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: Rule }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -11467,7 +11467,7 @@ const serializeAws_restJson1RuleMap = (input: { [key: string]: Rule }, context: 
 };
 
 const serializeAws_restJson1RuleParameterMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

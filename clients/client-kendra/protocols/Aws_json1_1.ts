@@ -258,6 +258,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6509,7 +6511,7 @@ const serializeAws_json1_1UserTokenConfigurationList = (
 };
 
 const serializeAws_json1_1ValueImportanceMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6532,7 +6534,7 @@ const serializeAws_json1_1WebCrawlerConfiguration = (input: WebCrawlerConfigurat
     ...(input.CrawlDepth !== undefined && input.CrawlDepth !== null && { CrawlDepth: input.CrawlDepth }),
     ...(input.MaxContentSizePerPageInMegaBytes !== undefined &&
       input.MaxContentSizePerPageInMegaBytes !== null && {
-        MaxContentSizePerPageInMegaBytes: input.MaxContentSizePerPageInMegaBytes,
+        MaxContentSizePerPageInMegaBytes: __serializeFloat(input.MaxContentSizePerPageInMegaBytes),
       }),
     ...(input.MaxLinksPerPage !== undefined &&
       input.MaxLinksPerPage !== null && { MaxLinksPerPage: input.MaxLinksPerPage }),
@@ -8765,7 +8767,7 @@ const deserializeAws_json1_1WebCrawlerConfiguration = (
         ? deserializeAws_json1_1AuthenticationConfiguration(output.AuthenticationConfiguration, context)
         : undefined,
     CrawlDepth: __expectNumber(output.CrawlDepth),
-    MaxContentSizePerPageInMegaBytes: __expectNumber(output.MaxContentSizePerPageInMegaBytes),
+    MaxContentSizePerPageInMegaBytes: __handleFloat(output.MaxContentSizePerPageInMegaBytes),
     MaxLinksPerPage: __expectNumber(output.MaxLinksPerPage),
     MaxUrlsPerMinuteCrawlRate: __expectNumber(output.MaxUrlsPerMinuteCrawlRate),
     ProxyConfiguration:

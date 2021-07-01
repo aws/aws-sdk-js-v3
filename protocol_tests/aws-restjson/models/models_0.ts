@@ -118,6 +118,33 @@ export namespace GreetingStruct {
   });
 }
 
+export interface DocumentTypeInputOutput {
+  stringValue?: string;
+  documentValue?: __DocumentType.Value;
+}
+
+export namespace DocumentTypeInputOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DocumentTypeInputOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface DocumentTypeAsPayloadInputOutput {
+  documentValue?: __DocumentType.Value;
+}
+
+export namespace DocumentTypeAsPayloadInputOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DocumentTypeAsPayloadInputOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface EmptyInputAndEmptyOutputInput {}
 
 export namespace EmptyInputAndEmptyOutputInput {
@@ -301,6 +328,20 @@ export namespace HttpPrefixHeadersResponseOutput {
   });
 }
 
+export interface HttpRequestWithFloatLabelsInput {
+  float: number | undefined;
+  double: number | undefined;
+}
+
+export namespace HttpRequestWithFloatLabelsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpRequestWithFloatLabelsInput): any => ({
+    ...obj,
+  });
+}
+
 export interface HttpRequestWithGreedyLabelInPathInput {
   foo: string | undefined;
   baz: string | undefined;
@@ -396,33 +437,6 @@ export namespace IgnoreQueryParamsInResponseOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: IgnoreQueryParamsInResponseOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface InlineDocumentInputOutput {
-  stringValue?: string;
-  documentValue?: __DocumentType.Value;
-}
-
-export namespace InlineDocumentInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InlineDocumentInputOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface InlineDocumentAsPayloadInputOutput {
-  documentValue?: __DocumentType.Value;
-}
-
-export namespace InlineDocumentAsPayloadInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InlineDocumentAsPayloadInputOutput): any => ({
     ...obj,
   });
 }
@@ -534,6 +548,8 @@ export interface JsonMapsInputOutput {
   sparseNumberMap?: { [key: string]: number };
   sparseBooleanMap?: { [key: string]: boolean };
   sparseStringMap?: { [key: string]: string };
+  denseSetMap?: { [key: string]: string[] };
+  sparseSetMap?: { [key: string]: string[] };
 }
 
 export namespace JsonMapsInputOutput {

@@ -100,6 +100,11 @@ import {
   HttpPrefixHeadersCommandOutput,
 } from "./commands/HttpPrefixHeadersCommand";
 import {
+  HttpRequestWithFloatLabelsCommand,
+  HttpRequestWithFloatLabelsCommandInput,
+  HttpRequestWithFloatLabelsCommandOutput,
+} from "./commands/HttpRequestWithFloatLabelsCommand";
+import {
   HttpRequestWithGreedyLabelInPathCommand,
   HttpRequestWithGreedyLabelInPathCommandInput,
   HttpRequestWithGreedyLabelInPathCommandOutput,
@@ -892,6 +897,35 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     cb?: (err: any, data?: HttpPrefixHeadersCommandOutput) => void
   ): Promise<HttpPrefixHeadersCommandOutput> | void {
     const command = new HttpPrefixHeadersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public httpRequestWithFloatLabels(
+    args: HttpRequestWithFloatLabelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpRequestWithFloatLabelsCommandOutput>;
+  public httpRequestWithFloatLabels(
+    args: HttpRequestWithFloatLabelsCommandInput,
+    cb: (err: any, data?: HttpRequestWithFloatLabelsCommandOutput) => void
+  ): void;
+  public httpRequestWithFloatLabels(
+    args: HttpRequestWithFloatLabelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpRequestWithFloatLabelsCommandOutput) => void
+  ): void;
+  public httpRequestWithFloatLabels(
+    args: HttpRequestWithFloatLabelsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpRequestWithFloatLabelsCommandOutput) => void),
+    cb?: (err: any, data?: HttpRequestWithFloatLabelsCommandOutput) => void
+  ): Promise<HttpRequestWithFloatLabelsCommandOutput> | void {
+    const command = new HttpRequestWithFloatLabelsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

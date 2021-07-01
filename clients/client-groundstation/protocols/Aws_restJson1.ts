@@ -96,6 +96,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3051,7 +3053,7 @@ const serializeAws_restJson1DemodulationConfig = (input: DemodulationConfig, con
 const serializeAws_restJson1Eirp = (input: Eirp, context: __SerdeContext): any => {
   return {
     ...(input.units !== undefined && input.units !== null && { units: input.units }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.value !== undefined && input.value !== null && { value: __serializeFloat(input.value) }),
   };
 };
 
@@ -3080,14 +3082,14 @@ const serializeAws_restJson1EndpointDetailsList = (input: EndpointDetails[], con
 const serializeAws_restJson1Frequency = (input: Frequency, context: __SerdeContext): any => {
   return {
     ...(input.units !== undefined && input.units !== null && { units: input.units }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.value !== undefined && input.value !== null && { value: __serializeFloat(input.value) }),
   };
 };
 
 const serializeAws_restJson1FrequencyBandwidth = (input: FrequencyBandwidth, context: __SerdeContext): any => {
   return {
     ...(input.units !== undefined && input.units !== null && { units: input.units }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.value !== undefined && input.value !== null && { value: __serializeFloat(input.value) }),
   };
 };
 
@@ -3164,7 +3166,7 @@ const serializeAws_restJson1SubnetList = (input: string[], context: __SerdeConte
 };
 
 const serializeAws_restJson1TagsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3500,14 +3502,14 @@ const deserializeAws_restJson1Destination = (output: any, context: __SerdeContex
 const deserializeAws_restJson1Eirp = (output: any, context: __SerdeContext): Eirp => {
   return {
     units: __expectString(output.units),
-    value: __expectNumber(output.value),
+    value: __handleFloat(output.value),
   } as any;
 };
 
 const deserializeAws_restJson1Elevation = (output: any, context: __SerdeContext): Elevation => {
   return {
     unit: __expectString(output.unit),
-    value: __expectNumber(output.value),
+    value: __handleFloat(output.value),
   } as any;
 };
 
@@ -3538,14 +3540,14 @@ const deserializeAws_restJson1EndpointDetailsList = (output: any, context: __Ser
 const deserializeAws_restJson1Frequency = (output: any, context: __SerdeContext): Frequency => {
   return {
     units: __expectString(output.units),
-    value: __expectNumber(output.value),
+    value: __handleFloat(output.value),
   } as any;
 };
 
 const deserializeAws_restJson1FrequencyBandwidth = (output: any, context: __SerdeContext): FrequencyBandwidth => {
   return {
     units: __expectString(output.units),
-    value: __expectNumber(output.value),
+    value: __handleFloat(output.value),
   } as any;
 };
 

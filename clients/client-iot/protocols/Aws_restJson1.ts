@@ -849,6 +849,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -29398,7 +29400,7 @@ const serializeAws_restJson1AbortCriteria = (input: AbortCriteria, context: __Se
     ...(input.minNumberOfExecutedThings !== undefined &&
       input.minNumberOfExecutedThings !== null && { minNumberOfExecutedThings: input.minNumberOfExecutedThings }),
     ...(input.thresholdPercentage !== undefined &&
-      input.thresholdPercentage !== null && { thresholdPercentage: input.thresholdPercentage }),
+      input.thresholdPercentage !== null && { thresholdPercentage: __serializeFloat(input.thresholdPercentage) }),
   };
 };
 
@@ -29511,7 +29513,7 @@ const serializeAws_restJson1AdditionalParameterMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -29545,18 +29547,15 @@ const serializeAws_restJson1AlertTarget = (input: AlertTarget, context: __SerdeC
 };
 
 const serializeAws_restJson1AlertTargets = (input: { [key: string]: AlertTarget }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: AlertTarget }, [key, value]: [AlertTargetType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1AlertTarget(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [AlertTargetType | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1AlertTarget(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1AssetPropertyTimestamp = (input: AssetPropertyTimestamp, context: __SerdeContext): any => {
@@ -29608,7 +29607,7 @@ const serializeAws_restJson1AttributePayload = (input: AttributePayload, context
 };
 
 const serializeAws_restJson1Attributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -29620,7 +29619,7 @@ const serializeAws_restJson1Attributes = (input: { [key: string]: string }, cont
 };
 
 const serializeAws_restJson1AttributesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -29644,25 +29643,22 @@ const serializeAws_restJson1AuditCheckConfigurations = (
   input: { [key: string]: AuditCheckConfiguration },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: AuditCheckConfiguration }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1AuditCheckConfiguration(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1AuditCheckConfiguration(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1AuditCheckToActionsMapping = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -29677,7 +29673,7 @@ const serializeAws_restJson1AuditCheckToReasonCodeFilter = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -29722,7 +29718,7 @@ const serializeAws_restJson1AuditNotificationTargetConfigurations = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: AuditNotificationTarget }, [key, value]: [AuditNotificationType | string, any]) => {
+    (acc: { [key: string]: any }, [key, value]: [AuditNotificationType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -29779,7 +29775,7 @@ const serializeAws_restJson1AwsJobAbortCriteria = (input: AwsJobAbortCriteria, c
     ...(input.minNumberOfExecutedThings !== undefined &&
       input.minNumberOfExecutedThings !== null && { minNumberOfExecutedThings: input.minNumberOfExecutedThings }),
     ...(input.thresholdPercentage !== undefined &&
-      input.thresholdPercentage !== null && { thresholdPercentage: input.thresholdPercentage }),
+      input.thresholdPercentage !== null && { thresholdPercentage: __serializeFloat(input.thresholdPercentage) }),
   };
 };
 
@@ -29816,7 +29812,7 @@ const serializeAws_restJson1AwsJobExponentialRolloutRate = (
     ...(input.baseRatePerMinute !== undefined &&
       input.baseRatePerMinute !== null && { baseRatePerMinute: input.baseRatePerMinute }),
     ...(input.incrementFactor !== undefined &&
-      input.incrementFactor !== null && { incrementFactor: input.incrementFactor }),
+      input.incrementFactor !== null && { incrementFactor: __serializeFloat(input.incrementFactor) }),
     ...(input.rateIncreaseCriteria !== undefined &&
       input.rateIncreaseCriteria !== null && {
         rateIncreaseCriteria: serializeAws_restJson1AwsJobRateIncreaseCriteria(input.rateIncreaseCriteria, context),
@@ -29924,7 +29920,7 @@ const serializeAws_restJson1Cidrs = (input: string[], context: __SerdeContext): 
 };
 
 const serializeAws_restJson1ClientProperties = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -30031,7 +30027,7 @@ const serializeAws_restJson1Destination = (input: Destination, context: __SerdeC
 };
 
 const serializeAws_restJson1DetailsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -30124,18 +30120,15 @@ const serializeAws_restJson1EventConfigurations = (
   input: { [key: string]: Configuration },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: Configuration }, [key, value]: [EventType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1Configuration(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [EventType | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1Configuration(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1ExponentialRolloutRate = (input: ExponentialRolloutRate, context: __SerdeContext): any => {
@@ -30143,7 +30136,7 @@ const serializeAws_restJson1ExponentialRolloutRate = (input: ExponentialRolloutR
     ...(input.baseRatePerMinute !== undefined &&
       input.baseRatePerMinute !== null && { baseRatePerMinute: input.baseRatePerMinute }),
     ...(input.incrementFactor !== undefined &&
-      input.incrementFactor !== null && { incrementFactor: input.incrementFactor }),
+      input.incrementFactor !== null && { incrementFactor: __serializeFloat(input.incrementFactor) }),
     ...(input.rateIncreaseCriteria !== undefined &&
       input.rateIncreaseCriteria !== null && {
         rateIncreaseCriteria: serializeAws_restJson1RateIncreaseCriteria(input.rateIncreaseCriteria, context),
@@ -30245,7 +30238,7 @@ const serializeAws_restJson1HttpContext = (input: HttpContext, context: __SerdeC
 };
 
 const serializeAws_restJson1HttpHeaders = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -30396,7 +30389,7 @@ const serializeAws_restJson1MetricValue = (input: MetricValue, context: __SerdeC
     ...(input.cidrs !== undefined &&
       input.cidrs !== null && { cidrs: serializeAws_restJson1Cidrs(input.cidrs, context) }),
     ...(input.count !== undefined && input.count !== null && { count: input.count }),
-    ...(input.number !== undefined && input.number !== null && { number: input.number }),
+    ...(input.number !== undefined && input.number !== null && { number: __serializeFloat(input.number) }),
     ...(input.numbers !== undefined &&
       input.numbers !== null && { numbers: serializeAws_restJson1NumberList(input.numbers, context) }),
     ...(input.ports !== undefined &&
@@ -30476,7 +30469,7 @@ const serializeAws_restJson1NumberList = (input: number[], context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __serializeFloat(entry);
     });
 };
 
@@ -30506,7 +30499,7 @@ const serializeAws_restJson1OTAUpdateFiles = (input: OTAUpdateFile[], context: _
 };
 
 const serializeAws_restJson1Parameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -30524,7 +30517,7 @@ const serializeAws_restJson1PercentList = (input: number[], context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __serializeFloat(entry);
     });
 };
 
@@ -30588,7 +30581,7 @@ const serializeAws_restJson1ProvisioningHook = (input: ProvisioningHook, context
 };
 
 const serializeAws_restJson1PublicKeyMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -31185,7 +31178,7 @@ const deserializeAws_restJson1AbortCriteria = (output: any, context: __SerdeCont
     action: __expectString(output.action),
     failureType: __expectString(output.failureType),
     minNumberOfExecutedThings: __expectNumber(output.minNumberOfExecutedThings),
-    thresholdPercentage: __expectNumber(output.thresholdPercentage),
+    thresholdPercentage: __handleFloat(output.thresholdPercentage),
   } as any;
 };
 
@@ -31912,7 +31905,7 @@ const deserializeAws_restJson1AwsJobExponentialRolloutRate = (
 ): AwsJobExponentialRolloutRate => {
   return {
     baseRatePerMinute: __expectNumber(output.baseRatePerMinute),
-    incrementFactor: __expectNumber(output.incrementFactor),
+    incrementFactor: __handleFloat(output.incrementFactor),
     rateIncreaseCriteria:
       output.rateIncreaseCriteria !== undefined && output.rateIncreaseCriteria !== null
         ? deserializeAws_restJson1AwsJobRateIncreaseCriteria(output.rateIncreaseCriteria, context)
@@ -31996,7 +31989,7 @@ const deserializeAws_restJson1BehaviorModelTrainingSummary = (
 ): BehaviorModelTrainingSummary => {
   return {
     behaviorName: __expectString(output.behaviorName),
-    datapointsCollectionPercentage: __expectNumber(output.datapointsCollectionPercentage),
+    datapointsCollectionPercentage: __handleFloat(output.datapointsCollectionPercentage),
     lastModelRefreshDate:
       output.lastModelRefreshDate !== undefined && output.lastModelRefreshDate !== null
         ? new Date(Math.round(output.lastModelRefreshDate * 1000))
@@ -32579,7 +32572,7 @@ const deserializeAws_restJson1ExponentialRolloutRate = (
 ): ExponentialRolloutRate => {
   return {
     baseRatePerMinute: __expectNumber(output.baseRatePerMinute),
-    incrementFactor: __expectNumber(output.incrementFactor),
+    incrementFactor: __handleFloat(output.incrementFactor),
     rateIncreaseCriteria:
       output.rateIncreaseCriteria !== undefined && output.rateIncreaseCriteria !== null
         ? deserializeAws_restJson1RateIncreaseCriteria(output.rateIncreaseCriteria, context)
@@ -33126,7 +33119,7 @@ const deserializeAws_restJson1MetricValue = (output: any, context: __SerdeContex
         ? deserializeAws_restJson1Cidrs(output.cidrs, context)
         : undefined,
     count: __expectNumber(output.count),
-    number: __expectNumber(output.number),
+    number: __handleFloat(output.number),
     numbers:
       output.numbers !== undefined && output.numbers !== null
         ? deserializeAws_restJson1NumberList(output.numbers, context)
@@ -33268,7 +33261,7 @@ const deserializeAws_restJson1NumberList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __handleFloat(entry) as any;
     });
 };
 
@@ -33414,8 +33407,8 @@ const deserializeAws_restJson1Percentiles = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1PercentPair = (output: any, context: __SerdeContext): PercentPair => {
   return {
-    percent: __expectNumber(output.percent),
-    value: __expectNumber(output.value),
+    percent: __handleFloat(output.percent),
+    value: __handleFloat(output.value),
   } as any;
 };
 
@@ -34053,14 +34046,14 @@ const deserializeAws_restJson1StatisticalThreshold = (output: any, context: __Se
 
 const deserializeAws_restJson1Statistics = (output: any, context: __SerdeContext): Statistics => {
   return {
-    average: __expectNumber(output.average),
+    average: __handleFloat(output.average),
     count: __expectNumber(output.count),
-    maximum: __expectNumber(output.maximum),
-    minimum: __expectNumber(output.minimum),
-    stdDeviation: __expectNumber(output.stdDeviation),
-    sum: __expectNumber(output.sum),
-    sumOfSquares: __expectNumber(output.sumOfSquares),
-    variance: __expectNumber(output.variance),
+    maximum: __handleFloat(output.maximum),
+    minimum: __handleFloat(output.minimum),
+    stdDeviation: __handleFloat(output.stdDeviation),
+    sum: __handleFloat(output.sum),
+    sumOfSquares: __handleFloat(output.sumOfSquares),
+    variance: __handleFloat(output.variance),
   } as any;
 };
 

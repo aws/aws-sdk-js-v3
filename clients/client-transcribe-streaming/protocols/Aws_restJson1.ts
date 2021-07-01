@@ -32,8 +32,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   SmithyException as __SmithyException,
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
   parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
@@ -782,12 +782,12 @@ const deserializeAws_restJson1InternalFailureException = (
 
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
-    Confidence: __expectNumber(output.Confidence),
+    Confidence: __handleFloat(output.Confidence),
     Content: __expectString(output.Content),
-    EndTime: __expectNumber(output.EndTime),
+    EndTime: __handleFloat(output.EndTime),
     Speaker: __expectString(output.Speaker),
     Stable: __expectBoolean(output.Stable),
-    StartTime: __expectNumber(output.StartTime),
+    StartTime: __handleFloat(output.StartTime),
     Type: __expectString(output.Type),
     VocabularyFilterMatch: __expectBoolean(output.VocabularyFilterMatch),
   } as any;
@@ -841,10 +841,10 @@ const deserializeAws_restJson1MedicalAlternativeList = (output: any, context: __
 const deserializeAws_restJson1MedicalEntity = (output: any, context: __SerdeContext): MedicalEntity => {
   return {
     Category: __expectString(output.Category),
-    Confidence: __expectNumber(output.Confidence),
+    Confidence: __handleFloat(output.Confidence),
     Content: __expectString(output.Content),
-    EndTime: __expectNumber(output.EndTime),
-    StartTime: __expectNumber(output.StartTime),
+    EndTime: __handleFloat(output.EndTime),
+    StartTime: __handleFloat(output.StartTime),
   } as any;
 };
 
@@ -861,11 +861,11 @@ const deserializeAws_restJson1MedicalEntityList = (output: any, context: __Serde
 
 const deserializeAws_restJson1MedicalItem = (output: any, context: __SerdeContext): MedicalItem => {
   return {
-    Confidence: __expectNumber(output.Confidence),
+    Confidence: __handleFloat(output.Confidence),
     Content: __expectString(output.Content),
-    EndTime: __expectNumber(output.EndTime),
+    EndTime: __handleFloat(output.EndTime),
     Speaker: __expectString(output.Speaker),
-    StartTime: __expectNumber(output.StartTime),
+    StartTime: __handleFloat(output.StartTime),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -888,10 +888,10 @@ const deserializeAws_restJson1MedicalResult = (output: any, context: __SerdeCont
         ? deserializeAws_restJson1MedicalAlternativeList(output.Alternatives, context)
         : undefined,
     ChannelId: __expectString(output.ChannelId),
-    EndTime: __expectNumber(output.EndTime),
+    EndTime: __handleFloat(output.EndTime),
     IsPartial: __expectBoolean(output.IsPartial),
     ResultId: __expectString(output.ResultId),
-    StartTime: __expectNumber(output.StartTime),
+    StartTime: __handleFloat(output.StartTime),
   } as any;
 };
 
@@ -977,10 +977,10 @@ const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): R
         ? deserializeAws_restJson1AlternativeList(output.Alternatives, context)
         : undefined,
     ChannelId: __expectString(output.ChannelId),
-    EndTime: __expectNumber(output.EndTime),
+    EndTime: __handleFloat(output.EndTime),
     IsPartial: __expectBoolean(output.IsPartial),
     ResultId: __expectString(output.ResultId),
-    StartTime: __expectNumber(output.StartTime),
+    StartTime: __handleFloat(output.StartTime),
   } as any;
 };
 

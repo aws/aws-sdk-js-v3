@@ -94,6 +94,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2940,7 +2941,7 @@ const serializeAws_restJson1FrameMetrics = (input: FrameMetric[], context: __Ser
 };
 
 const serializeAws_restJson1Metadata = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [MetadataField | string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [MetadataField | string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2963,7 +2964,7 @@ const serializeAws_restJson1Principals = (input: string[], context: __SerdeConte
 };
 
 const serializeAws_restJson1TagsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3180,7 +3181,7 @@ const deserializeAws_restJson1FrameMetricValues = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __handleFloat(entry) as any;
     });
 };
 
@@ -3199,7 +3200,7 @@ const deserializeAws_restJson1Match = (output: any, context: __SerdeContext): Ma
   return {
     frameAddress: __expectString(output.frameAddress),
     targetFramesIndex: __expectNumber(output.targetFramesIndex),
-    thresholdBreachValue: __expectNumber(output.thresholdBreachValue),
+    thresholdBreachValue: __handleFloat(output.thresholdBreachValue),
   } as any;
 };
 
@@ -3251,7 +3252,7 @@ const deserializeAws_restJson1Pattern = (output: any, context: __SerdeContext): 
       output.targetFrames !== undefined && output.targetFrames !== null
         ? deserializeAws_restJson1TargetFrames(output.targetFrames, context)
         : undefined,
-    thresholdPercent: __expectNumber(output.thresholdPercent),
+    thresholdPercent: __handleFloat(output.thresholdPercent),
   } as any;
 };
 
@@ -3342,7 +3343,7 @@ const deserializeAws_restJson1ProfilingStatus = (output: any, context: __SerdeCo
 const deserializeAws_restJson1Recommendation = (output: any, context: __SerdeContext): Recommendation => {
   return {
     allMatchesCount: __expectNumber(output.allMatchesCount),
-    allMatchesSum: __expectNumber(output.allMatchesSum),
+    allMatchesSum: __handleFloat(output.allMatchesSum),
     endTime: output.endTime !== undefined && output.endTime !== null ? new Date(output.endTime) : undefined,
     pattern:
       output.pattern !== undefined && output.pattern !== null

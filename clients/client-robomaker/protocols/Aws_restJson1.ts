@@ -237,6 +237,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7625,7 +7626,7 @@ const serializeAws_restJson1EnvironmentVariableMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7928,7 +7929,7 @@ const serializeAws_restJson1Subnets = (input: string[], context: __SerdeContext)
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -8383,7 +8384,7 @@ const deserializeAws_restJson1ProgressDetail = (output: any, context: __SerdeCon
   return {
     currentProgress: __expectString(output.currentProgress),
     estimatedTimeRemainingSeconds: __expectNumber(output.estimatedTimeRemainingSeconds),
-    percentDone: __expectNumber(output.percentDone),
+    percentDone: __handleFloat(output.percentDone),
     targetResource: __expectString(output.targetResource),
   } as any;
 };

@@ -798,6 +798,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -15893,7 +15895,7 @@ const serializeAws_json1_1AdditionalPlanOptionsMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16154,7 +16156,8 @@ const serializeAws_json1_1BinaryColumnStatisticsData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AverageLength !== undefined && input.AverageLength !== null && { AverageLength: input.AverageLength }),
+    ...(input.AverageLength !== undefined &&
+      input.AverageLength !== null && { AverageLength: __serializeFloat(input.AverageLength) }),
     ...(input.MaximumLength !== undefined && input.MaximumLength !== null && { MaximumLength: input.MaximumLength }),
     ...(input.NumberOfNulls !== undefined && input.NumberOfNulls !== null && { NumberOfNulls: input.NumberOfNulls }),
   };
@@ -16461,7 +16464,7 @@ const serializeAws_json1_1ConnectionPasswordEncryption = (
 
 const serializeAws_json1_1ConnectionProperties = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [ConnectionPropertyKey | string, any]) => {
+    (acc: { [key: string]: any }, [key, value]: [ConnectionPropertyKey | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -16675,7 +16678,8 @@ const serializeAws_json1_1CreateJobRequest = (input: CreateJobRequest, context: 
       }),
     ...(input.GlueVersion !== undefined && input.GlueVersion !== null && { GlueVersion: input.GlueVersion }),
     ...(input.LogUri !== undefined && input.LogUri !== null && { LogUri: input.LogUri }),
-    ...(input.MaxCapacity !== undefined && input.MaxCapacity !== null && { MaxCapacity: input.MaxCapacity }),
+    ...(input.MaxCapacity !== undefined &&
+      input.MaxCapacity !== null && { MaxCapacity: __serializeFloat(input.MaxCapacity) }),
     ...(input.MaxRetries !== undefined && input.MaxRetries !== null && { MaxRetries: input.MaxRetries }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.NonOverridableArguments !== undefined &&
@@ -16718,7 +16722,8 @@ const serializeAws_json1_1CreateMLTransformRequest = (
       input.InputRecordTables !== null && {
         InputRecordTables: serializeAws_json1_1GlueTables(input.InputRecordTables, context),
       }),
-    ...(input.MaxCapacity !== undefined && input.MaxCapacity !== null && { MaxCapacity: input.MaxCapacity }),
+    ...(input.MaxCapacity !== undefined &&
+      input.MaxCapacity !== null && { MaxCapacity: __serializeFloat(input.MaxCapacity) }),
     ...(input.MaxRetries !== undefined && input.MaxRetries !== null && { MaxRetries: input.MaxRetries }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.NumberOfWorkers !== undefined &&
@@ -17233,8 +17238,10 @@ const serializeAws_json1_1DoubleColumnStatisticsData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaximumValue !== undefined && input.MaximumValue !== null && { MaximumValue: input.MaximumValue }),
-    ...(input.MinimumValue !== undefined && input.MinimumValue !== null && { MinimumValue: input.MinimumValue }),
+    ...(input.MaximumValue !== undefined &&
+      input.MaximumValue !== null && { MaximumValue: __serializeFloat(input.MaximumValue) }),
+    ...(input.MinimumValue !== undefined &&
+      input.MinimumValue !== null && { MinimumValue: __serializeFloat(input.MinimumValue) }),
     ...(input.NumberOfDistinctValues !== undefined &&
       input.NumberOfDistinctValues !== null && { NumberOfDistinctValues: input.NumberOfDistinctValues }),
     ...(input.NumberOfNulls !== undefined && input.NumberOfNulls !== null && { NumberOfNulls: input.NumberOfNulls }),
@@ -17245,7 +17252,7 @@ const serializeAws_json1_1DynamoDBTarget = (input: DynamoDBTarget, context: __Se
   return {
     ...(input.Path !== undefined && input.Path !== null && { Path: input.Path }),
     ...(input.scanAll !== undefined && input.scanAll !== null && { scanAll: input.scanAll }),
-    ...(input.scanRate !== undefined && input.scanRate !== null && { scanRate: input.scanRate }),
+    ...(input.scanRate !== undefined && input.scanRate !== null && { scanRate: __serializeFloat(input.scanRate) }),
   };
 };
 
@@ -17296,18 +17303,20 @@ const serializeAws_json1_1ExecutionProperty = (input: ExecutionProperty, context
 const serializeAws_json1_1FindMatchesParameters = (input: FindMatchesParameters, context: __SerdeContext): any => {
   return {
     ...(input.AccuracyCostTradeoff !== undefined &&
-      input.AccuracyCostTradeoff !== null && { AccuracyCostTradeoff: input.AccuracyCostTradeoff }),
+      input.AccuracyCostTradeoff !== null && { AccuracyCostTradeoff: __serializeFloat(input.AccuracyCostTradeoff) }),
     ...(input.EnforceProvidedLabels !== undefined &&
       input.EnforceProvidedLabels !== null && { EnforceProvidedLabels: input.EnforceProvidedLabels }),
     ...(input.PrecisionRecallTradeoff !== undefined &&
-      input.PrecisionRecallTradeoff !== null && { PrecisionRecallTradeoff: input.PrecisionRecallTradeoff }),
+      input.PrecisionRecallTradeoff !== null && {
+        PrecisionRecallTradeoff: __serializeFloat(input.PrecisionRecallTradeoff),
+      }),
     ...(input.PrimaryKeyColumnName !== undefined &&
       input.PrimaryKeyColumnName !== null && { PrimaryKeyColumnName: input.PrimaryKeyColumnName }),
   };
 };
 
 const serializeAws_json1_1GenericMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17939,7 +17948,8 @@ const serializeAws_json1_1JobUpdate = (input: JobUpdate, context: __SerdeContext
       }),
     ...(input.GlueVersion !== undefined && input.GlueVersion !== null && { GlueVersion: input.GlueVersion }),
     ...(input.LogUri !== undefined && input.LogUri !== null && { LogUri: input.LogUri }),
-    ...(input.MaxCapacity !== undefined && input.MaxCapacity !== null && { MaxCapacity: input.MaxCapacity }),
+    ...(input.MaxCapacity !== undefined &&
+      input.MaxCapacity !== null && { MaxCapacity: __serializeFloat(input.MaxCapacity) }),
     ...(input.MaxRetries !== undefined && input.MaxRetries !== null && { MaxRetries: input.MaxRetries }),
     ...(input.NonOverridableArguments !== undefined &&
       input.NonOverridableArguments !== null && {
@@ -18066,7 +18076,7 @@ const serializeAws_json1_1Location = (input: Location, context: __SerdeContext):
 };
 
 const serializeAws_json1_1LocationMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -18113,7 +18123,7 @@ const serializeAws_json1_1MappingList = (input: MappingEntry[], context: __Serde
 };
 
 const serializeAws_json1_1MapValue = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -18240,7 +18250,7 @@ const serializeAws_json1_1OrderList = (input: Order[], context: __SerdeContext):
 };
 
 const serializeAws_json1_1ParametersMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -18773,7 +18783,8 @@ const serializeAws_json1_1StartJobRunRequest = (input: StartJobRunRequest, conte
       input.Arguments !== null && { Arguments: serializeAws_json1_1GenericMap(input.Arguments, context) }),
     ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
     ...(input.JobRunId !== undefined && input.JobRunId !== null && { JobRunId: input.JobRunId }),
-    ...(input.MaxCapacity !== undefined && input.MaxCapacity !== null && { MaxCapacity: input.MaxCapacity }),
+    ...(input.MaxCapacity !== undefined &&
+      input.MaxCapacity !== null && { MaxCapacity: __serializeFloat(input.MaxCapacity) }),
     ...(input.NotificationProperty !== undefined &&
       input.NotificationProperty !== null && {
         NotificationProperty: serializeAws_json1_1NotificationProperty(input.NotificationProperty, context),
@@ -18882,7 +18893,8 @@ const serializeAws_json1_1StringColumnStatisticsData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AverageLength !== undefined && input.AverageLength !== null && { AverageLength: input.AverageLength }),
+    ...(input.AverageLength !== undefined &&
+      input.AverageLength !== null && { AverageLength: __serializeFloat(input.AverageLength) }),
     ...(input.MaximumLength !== undefined && input.MaximumLength !== null && { MaximumLength: input.MaximumLength }),
     ...(input.NumberOfDistinctValues !== undefined &&
       input.NumberOfDistinctValues !== null && { NumberOfDistinctValues: input.NumberOfDistinctValues }),
@@ -18957,7 +18969,7 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
 };
 
 const serializeAws_json1_1TagsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -19299,7 +19311,8 @@ const serializeAws_json1_1UpdateMLTransformRequest = (
   return {
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.GlueVersion !== undefined && input.GlueVersion !== null && { GlueVersion: input.GlueVersion }),
-    ...(input.MaxCapacity !== undefined && input.MaxCapacity !== null && { MaxCapacity: input.MaxCapacity }),
+    ...(input.MaxCapacity !== undefined &&
+      input.MaxCapacity !== null && { MaxCapacity: __serializeFloat(input.MaxCapacity) }),
     ...(input.MaxRetries !== undefined && input.MaxRetries !== null && { MaxRetries: input.MaxRetries }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.NumberOfWorkers !== undefined &&
@@ -19449,7 +19462,7 @@ const serializeAws_json1_1WorkflowNames = (input: string[], context: __SerdeCont
 };
 
 const serializeAws_json1_1WorkflowRunProperties = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -19818,7 +19831,7 @@ const deserializeAws_json1_1BinaryColumnStatisticsData = (
   context: __SerdeContext
 ): BinaryColumnStatisticsData => {
   return {
-    AverageLength: __expectNumber(output.AverageLength),
+    AverageLength: __handleFloat(output.AverageLength),
     MaximumLength: __expectNumber(output.MaximumLength),
     NumberOfNulls: __expectNumber(output.NumberOfNulls),
   } as any;
@@ -20035,7 +20048,7 @@ const deserializeAws_json1_1ColumnErrors = (output: any, context: __SerdeContext
 const deserializeAws_json1_1ColumnImportance = (output: any, context: __SerdeContext): ColumnImportance => {
   return {
     ColumnName: __expectString(output.ColumnName),
-    Importance: __expectNumber(output.Importance),
+    Importance: __handleFloat(output.Importance),
   } as any;
 };
 
@@ -20381,13 +20394,13 @@ const deserializeAws_json1_1CrawlerList = (output: any, context: __SerdeContext)
 const deserializeAws_json1_1CrawlerMetrics = (output: any, context: __SerdeContext): CrawlerMetrics => {
   return {
     CrawlerName: __expectString(output.CrawlerName),
-    LastRuntimeSeconds: __expectNumber(output.LastRuntimeSeconds),
-    MedianRuntimeSeconds: __expectNumber(output.MedianRuntimeSeconds),
+    LastRuntimeSeconds: __handleFloat(output.LastRuntimeSeconds),
+    MedianRuntimeSeconds: __handleFloat(output.MedianRuntimeSeconds),
     StillEstimating: __expectBoolean(output.StillEstimating),
     TablesCreated: __expectNumber(output.TablesCreated),
     TablesDeleted: __expectNumber(output.TablesDeleted),
     TablesUpdated: __expectNumber(output.TablesUpdated),
-    TimeLeftSeconds: __expectNumber(output.TimeLeftSeconds),
+    TimeLeftSeconds: __handleFloat(output.TimeLeftSeconds),
   } as any;
 };
 
@@ -21044,8 +21057,8 @@ const deserializeAws_json1_1DoubleColumnStatisticsData = (
   context: __SerdeContext
 ): DoubleColumnStatisticsData => {
   return {
-    MaximumValue: __expectNumber(output.MaximumValue),
-    MinimumValue: __expectNumber(output.MinimumValue),
+    MaximumValue: __handleFloat(output.MaximumValue),
+    MinimumValue: __handleFloat(output.MinimumValue),
     NumberOfDistinctValues: __expectNumber(output.NumberOfDistinctValues),
     NumberOfNulls: __expectNumber(output.NumberOfNulls),
   } as any;
@@ -21055,7 +21068,7 @@ const deserializeAws_json1_1DynamoDBTarget = (output: any, context: __SerdeConte
   return {
     Path: __expectString(output.Path),
     scanAll: __expectBoolean(output.scanAll),
-    scanRate: __expectNumber(output.scanRate),
+    scanRate: __handleFloat(output.scanRate),
   } as any;
 };
 
@@ -21177,7 +21190,7 @@ const deserializeAws_json1_1ExportLabelsTaskRunProperties = (
 
 const deserializeAws_json1_1FindMatchesMetrics = (output: any, context: __SerdeContext): FindMatchesMetrics => {
   return {
-    AreaUnderPRCurve: __expectNumber(output.AreaUnderPRCurve),
+    AreaUnderPRCurve: __handleFloat(output.AreaUnderPRCurve),
     ColumnImportances:
       output.ColumnImportances !== undefined && output.ColumnImportances !== null
         ? deserializeAws_json1_1ColumnImportanceList(output.ColumnImportances, context)
@@ -21186,17 +21199,17 @@ const deserializeAws_json1_1FindMatchesMetrics = (output: any, context: __SerdeC
       output.ConfusionMatrix !== undefined && output.ConfusionMatrix !== null
         ? deserializeAws_json1_1ConfusionMatrix(output.ConfusionMatrix, context)
         : undefined,
-    F1: __expectNumber(output.F1),
-    Precision: __expectNumber(output.Precision),
-    Recall: __expectNumber(output.Recall),
+    F1: __handleFloat(output.F1),
+    Precision: __handleFloat(output.Precision),
+    Recall: __handleFloat(output.Recall),
   } as any;
 };
 
 const deserializeAws_json1_1FindMatchesParameters = (output: any, context: __SerdeContext): FindMatchesParameters => {
   return {
-    AccuracyCostTradeoff: __expectNumber(output.AccuracyCostTradeoff),
+    AccuracyCostTradeoff: __handleFloat(output.AccuracyCostTradeoff),
     EnforceProvidedLabels: __expectBoolean(output.EnforceProvidedLabels),
-    PrecisionRecallTradeoff: __expectNumber(output.PrecisionRecallTradeoff),
+    PrecisionRecallTradeoff: __handleFloat(output.PrecisionRecallTradeoff),
     PrimaryKeyColumnName: __expectString(output.PrimaryKeyColumnName),
   } as any;
 };
@@ -21518,7 +21531,7 @@ const deserializeAws_json1_1GetMLTransformResponse = (output: any, context: __Se
       output.LastModifiedOn !== undefined && output.LastModifiedOn !== null
         ? new Date(Math.round(output.LastModifiedOn * 1000))
         : undefined,
-    MaxCapacity: __expectNumber(output.MaxCapacity),
+    MaxCapacity: __handleFloat(output.MaxCapacity),
     MaxRetries: __expectNumber(output.MaxRetries),
     Name: __expectString(output.Name),
     NumberOfWorkers: __expectNumber(output.NumberOfWorkers),
@@ -22042,7 +22055,7 @@ const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job =>
         ? new Date(Math.round(output.LastModifiedOn * 1000))
         : undefined,
     LogUri: __expectString(output.LogUri),
-    MaxCapacity: __expectNumber(output.MaxCapacity),
+    MaxCapacity: __handleFloat(output.MaxCapacity),
     MaxRetries: __expectNumber(output.MaxRetries),
     Name: __expectString(output.Name),
     NonOverridableArguments:
@@ -22142,7 +22155,7 @@ const deserializeAws_json1_1JobRun = (output: any, context: __SerdeContext): Job
         ? new Date(Math.round(output.LastModifiedOn * 1000))
         : undefined,
     LogGroupName: __expectString(output.LogGroupName),
-    MaxCapacity: __expectNumber(output.MaxCapacity),
+    MaxCapacity: __handleFloat(output.MaxCapacity),
     NotificationProperty:
       output.NotificationProperty !== undefined && output.NotificationProperty !== null
         ? deserializeAws_json1_1NotificationProperty(output.NotificationProperty, context)
@@ -22453,7 +22466,7 @@ const deserializeAws_json1_1MLTransform = (output: any, context: __SerdeContext)
       output.LastModifiedOn !== undefined && output.LastModifiedOn !== null
         ? new Date(Math.round(output.LastModifiedOn * 1000))
         : undefined,
-    MaxCapacity: __expectNumber(output.MaxCapacity),
+    MaxCapacity: __handleFloat(output.MaxCapacity),
     MaxRetries: __expectNumber(output.MaxRetries),
     Name: __expectString(output.Name),
     NumberOfWorkers: __expectNumber(output.NumberOfWorkers),
@@ -23410,7 +23423,7 @@ const deserializeAws_json1_1StringColumnStatisticsData = (
   context: __SerdeContext
 ): StringColumnStatisticsData => {
   return {
-    AverageLength: __expectNumber(output.AverageLength),
+    AverageLength: __handleFloat(output.AverageLength),
     MaximumLength: __expectNumber(output.MaximumLength),
     NumberOfDistinctValues: __expectNumber(output.NumberOfDistinctValues),
     NumberOfNulls: __expectNumber(output.NumberOfNulls),

@@ -233,6 +233,7 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5273,7 +5274,7 @@ const deserializeAws_json1_1Finding = (output: any, context: __SerdeContext): Fi
     description: __expectString(output.description),
     id: __expectString(output.id),
     indicatorOfCompromise: __expectBoolean(output.indicatorOfCompromise),
-    numericSeverity: __expectNumber(output.numericSeverity),
+    numericSeverity: __handleFloat(output.numericSeverity),
     recommendation: __expectString(output.recommendation),
     schemaVersion: __expectNumber(output.schemaVersion),
     service: __expectString(output.service),

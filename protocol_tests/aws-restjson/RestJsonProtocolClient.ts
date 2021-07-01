@@ -11,6 +11,11 @@ import {
   ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
 import {
+  DocumentTypeAsPayloadCommandInput,
+  DocumentTypeAsPayloadCommandOutput,
+} from "./commands/DocumentTypeAsPayloadCommand";
+import { DocumentTypeCommandInput, DocumentTypeCommandOutput } from "./commands/DocumentTypeCommand";
+import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
@@ -36,6 +41,10 @@ import {
   HttpPrefixHeadersResponseCommandOutput,
 } from "./commands/HttpPrefixHeadersResponseCommand";
 import {
+  HttpRequestWithFloatLabelsCommandInput,
+  HttpRequestWithFloatLabelsCommandOutput,
+} from "./commands/HttpRequestWithFloatLabelsCommand";
+import {
   HttpRequestWithGreedyLabelInPathCommandInput,
   HttpRequestWithGreedyLabelInPathCommandOutput,
 } from "./commands/HttpRequestWithGreedyLabelInPathCommand";
@@ -53,11 +62,6 @@ import {
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
 } from "./commands/IgnoreQueryParamsInResponseCommand";
-import {
-  InlineDocumentAsPayloadCommandInput,
-  InlineDocumentAsPayloadCommandOutput,
-} from "./commands/InlineDocumentAsPayloadCommand";
-import { InlineDocumentCommandInput, InlineDocumentCommandOutput } from "./commands/InlineDocumentCommand";
 import {
   InputAndOutputWithHeadersCommandInput,
   InputAndOutputWithHeadersCommandOutput,
@@ -158,6 +162,8 @@ export type ServiceInputTypes =
   | AllQueryStringTypesCommandInput
   | ConstantAndVariableQueryStringCommandInput
   | ConstantQueryStringCommandInput
+  | DocumentTypeAsPayloadCommandInput
+  | DocumentTypeCommandInput
   | EmptyInputAndEmptyOutputCommandInput
   | EndpointOperationCommandInput
   | EndpointWithHostLabelOperationCommandInput
@@ -168,14 +174,13 @@ export type ServiceInputTypes =
   | HttpPayloadWithStructureCommandInput
   | HttpPrefixHeadersCommandInput
   | HttpPrefixHeadersResponseCommandInput
+  | HttpRequestWithFloatLabelsCommandInput
   | HttpRequestWithGreedyLabelInPathCommandInput
   | HttpRequestWithLabelsAndTimestampFormatCommandInput
   | HttpRequestWithLabelsCommandInput
   | HttpResponseCodeCommandInput
   | HttpStringPayloadCommandInput
   | IgnoreQueryParamsInResponseCommandInput
-  | InlineDocumentAsPayloadCommandInput
-  | InlineDocumentCommandInput
   | InputAndOutputWithHeadersCommandInput
   | JsonBlobsCommandInput
   | JsonEnumsCommandInput
@@ -203,6 +208,8 @@ export type ServiceOutputTypes =
   | AllQueryStringTypesCommandOutput
   | ConstantAndVariableQueryStringCommandOutput
   | ConstantQueryStringCommandOutput
+  | DocumentTypeAsPayloadCommandOutput
+  | DocumentTypeCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
   | EndpointOperationCommandOutput
   | EndpointWithHostLabelOperationCommandOutput
@@ -213,14 +220,13 @@ export type ServiceOutputTypes =
   | HttpPayloadWithStructureCommandOutput
   | HttpPrefixHeadersCommandOutput
   | HttpPrefixHeadersResponseCommandOutput
+  | HttpRequestWithFloatLabelsCommandOutput
   | HttpRequestWithGreedyLabelInPathCommandOutput
   | HttpRequestWithLabelsAndTimestampFormatCommandOutput
   | HttpRequestWithLabelsCommandOutput
   | HttpResponseCodeCommandOutput
   | HttpStringPayloadCommandOutput
   | IgnoreQueryParamsInResponseCommandOutput
-  | InlineDocumentAsPayloadCommandOutput
-  | InlineDocumentCommandOutput
   | InputAndOutputWithHeadersCommandOutput
   | JsonBlobsCommandOutput
   | JsonEnumsCommandOutput

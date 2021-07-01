@@ -408,6 +408,7 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -8491,18 +8492,15 @@ const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: 
 };
 
 const serializeAws_json1_1TargetFilters = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [TargetFilterName | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_json1_1FilterValueList(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [TargetFilterName | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_json1_1FilterValueList(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_json1_1TargetGroupInfo = (input: TargetGroupInfo, context: __SerdeContext): any => {
@@ -9078,7 +9076,7 @@ const deserializeAws_json1_1CloudFormationTarget = (output: any, context: __Serd
     resourceType: __expectString(output.resourceType),
     status: __expectString(output.status),
     targetId: __expectString(output.targetId),
-    targetVersionWeight: __expectNumber(output.targetVersionWeight),
+    targetVersionWeight: __handleFloat(output.targetVersionWeight),
   } as any;
 };
 
@@ -9717,7 +9715,7 @@ const deserializeAws_json1_1ECSTaskSet = (output: any, context: __SerdeContext):
         ? deserializeAws_json1_1TargetGroupInfo(output.targetGroup, context)
         : undefined,
     taskSetLabel: __expectString(output.taskSetLabel),
-    trafficWeight: __expectNumber(output.trafficWeight),
+    trafficWeight: __handleFloat(output.trafficWeight),
   } as any;
 };
 
@@ -10582,7 +10580,7 @@ const deserializeAws_json1_1LambdaFunctionInfo = (output: any, context: __SerdeC
     functionAlias: __expectString(output.functionAlias),
     functionName: __expectString(output.functionName),
     targetVersion: __expectString(output.targetVersion),
-    targetVersionWeight: __expectNumber(output.targetVersionWeight),
+    targetVersionWeight: __handleFloat(output.targetVersionWeight),
   } as any;
 };
 

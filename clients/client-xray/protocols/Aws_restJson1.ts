@@ -118,6 +118,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2804,7 +2806,7 @@ const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
 };
 
 const serializeAws_restJson1AttributeMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2857,7 +2859,7 @@ const serializeAws_restJson1SamplingRule = (input: SamplingRule, context: __Serd
   return {
     ...(input.Attributes !== undefined &&
       input.Attributes !== null && { Attributes: serializeAws_restJson1AttributeMap(input.Attributes, context) }),
-    ...(input.FixedRate !== undefined && input.FixedRate !== null && { FixedRate: input.FixedRate }),
+    ...(input.FixedRate !== undefined && input.FixedRate !== null && { FixedRate: __serializeFloat(input.FixedRate) }),
     ...(input.HTTPMethod !== undefined && input.HTTPMethod !== null && { HTTPMethod: input.HTTPMethod }),
     ...(input.Host !== undefined && input.Host !== null && { Host: input.Host }),
     ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
@@ -2876,7 +2878,7 @@ const serializeAws_restJson1SamplingRuleUpdate = (input: SamplingRuleUpdate, con
   return {
     ...(input.Attributes !== undefined &&
       input.Attributes !== null && { Attributes: serializeAws_restJson1AttributeMap(input.Attributes, context) }),
-    ...(input.FixedRate !== undefined && input.FixedRate !== null && { FixedRate: input.FixedRate }),
+    ...(input.FixedRate !== undefined && input.FixedRate !== null && { FixedRate: __serializeFloat(input.FixedRate) }),
     ...(input.HTTPMethod !== undefined && input.HTTPMethod !== null && { HTTPMethod: input.HTTPMethod }),
     ...(input.Host !== undefined && input.Host !== null && { Host: input.Host }),
     ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
@@ -2922,7 +2924,7 @@ const serializeAws_restJson1SamplingStatisticsDocumentList = (
 const serializeAws_restJson1SamplingStrategy = (input: SamplingStrategy, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: __serializeFloat(input.Value) }),
   };
 };
 
@@ -3059,8 +3061,8 @@ const deserializeAws_restJson1AnnotationValue = (output: any, context: __SerdeCo
   if (__expectBoolean(output.BooleanValue) !== undefined) {
     return { BooleanValue: __expectBoolean(output.BooleanValue) as any };
   }
-  if (__expectNumber(output.NumberValue) !== undefined) {
-    return { NumberValue: __expectNumber(output.NumberValue) as any };
+  if (__handleFloat(output.NumberValue) !== undefined) {
+    return { NumberValue: __handleFloat(output.NumberValue) as any };
   }
   if (__expectString(output.StringValue) !== undefined) {
     return { StringValue: __expectString(output.StringValue) as any };
@@ -3156,7 +3158,7 @@ const deserializeAws_restJson1EdgeStatistics = (output: any, context: __SerdeCon
         : undefined,
     OkCount: __expectNumber(output.OkCount),
     TotalCount: __expectNumber(output.TotalCount),
-    TotalResponseTime: __expectNumber(output.TotalResponseTime),
+    TotalResponseTime: __handleFloat(output.TotalResponseTime),
   } as any;
 };
 
@@ -3393,7 +3395,7 @@ const deserializeAws_restJson1Histogram = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1HistogramEntry = (output: any, context: __SerdeContext): HistogramEntry => {
   return {
     Count: __expectNumber(output.Count),
-    Value: __expectNumber(output.Value),
+    Value: __handleFloat(output.Value),
   } as any;
 };
 
@@ -3646,7 +3648,7 @@ const deserializeAws_restJson1ResponseTimeRootCauseEntity = (
   context: __SerdeContext
 ): ResponseTimeRootCauseEntity => {
   return {
-    Coverage: __expectNumber(output.Coverage),
+    Coverage: __handleFloat(output.Coverage),
     Name: __expectString(output.Name),
     Remote: __expectBoolean(output.Remote),
   } as any;
@@ -3738,7 +3740,7 @@ const deserializeAws_restJson1SamplingRule = (output: any, context: __SerdeConte
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_restJson1AttributeMap(output.Attributes, context)
         : undefined,
-    FixedRate: __expectNumber(output.FixedRate),
+    FixedRate: __handleFloat(output.FixedRate),
     HTTPMethod: __expectString(output.HTTPMethod),
     Host: __expectString(output.Host),
     Priority: __expectNumber(output.Priority),
@@ -3816,7 +3818,7 @@ const deserializeAws_restJson1SamplingTargetDocument = (
   context: __SerdeContext
 ): SamplingTargetDocument => {
   return {
-    FixedRate: __expectNumber(output.FixedRate),
+    FixedRate: __handleFloat(output.FixedRate),
     Interval: __expectNumber(output.Interval),
     ReservoirQuota: __expectNumber(output.ReservoirQuota),
     ReservoirQuotaTTL:
@@ -3953,7 +3955,7 @@ const deserializeAws_restJson1ServiceStatistics = (output: any, context: __Serde
         : undefined,
     OkCount: __expectNumber(output.OkCount),
     TotalCount: __expectNumber(output.TotalCount),
-    TotalResponseTime: __expectNumber(output.TotalResponseTime),
+    TotalResponseTime: __handleFloat(output.TotalResponseTime),
   } as any;
 };
 
@@ -4019,7 +4021,7 @@ const deserializeAws_restJson1TimeSeriesServiceStatisticsList = (
 
 const deserializeAws_restJson1Trace = (output: any, context: __SerdeContext): Trace => {
   return {
-    Duration: __expectNumber(output.Duration),
+    Duration: __handleFloat(output.Duration),
     Id: __expectString(output.Id),
     LimitExceeded: __expectBoolean(output.LimitExceeded),
     Segments:
@@ -4086,7 +4088,7 @@ const deserializeAws_restJson1TraceSummary = (output: any, context: __SerdeConte
       output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
         ? deserializeAws_restJson1TraceAvailabilityZones(output.AvailabilityZones, context)
         : undefined,
-    Duration: __expectNumber(output.Duration),
+    Duration: __handleFloat(output.Duration),
     EntryPoint:
       output.EntryPoint !== undefined && output.EntryPoint !== null
         ? deserializeAws_restJson1ServiceId(output.EntryPoint, context)
@@ -4120,7 +4122,7 @@ const deserializeAws_restJson1TraceSummary = (output: any, context: __SerdeConte
       output.ResourceARNs !== undefined && output.ResourceARNs !== null
         ? deserializeAws_restJson1TraceResourceARNs(output.ResourceARNs, context)
         : undefined,
-    ResponseTime: __expectNumber(output.ResponseTime),
+    ResponseTime: __handleFloat(output.ResponseTime),
     ResponseTimeRootCauses:
       output.ResponseTimeRootCauses !== undefined && output.ResponseTimeRootCauses !== null
         ? deserializeAws_restJson1ResponseTimeRootCauses(output.ResponseTimeRootCauses, context)

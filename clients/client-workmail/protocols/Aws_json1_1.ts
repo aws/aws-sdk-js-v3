@@ -285,6 +285,7 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7204,7 +7205,7 @@ const deserializeAws_json1_1GetMailboxDetailsResponse = (
 ): GetMailboxDetailsResponse => {
   return {
     MailboxQuota: __expectNumber(output.MailboxQuota),
-    MailboxSize: __expectNumber(output.MailboxSize),
+    MailboxSize: __handleFloat(output.MailboxSize),
   } as any;
 };
 

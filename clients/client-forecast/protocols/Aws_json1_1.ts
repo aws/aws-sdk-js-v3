@@ -185,6 +185,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3155,8 +3157,8 @@ const serializeAws_json1_1ContinuousParameterRange = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxValue !== undefined && input.MaxValue !== null && { MaxValue: input.MaxValue }),
-    ...(input.MinValue !== undefined && input.MinValue !== null && { MinValue: input.MinValue }),
+    ...(input.MaxValue !== undefined && input.MaxValue !== null && { MaxValue: __serializeFloat(input.MaxValue) }),
+    ...(input.MinValue !== undefined && input.MinValue !== null && { MinValue: __serializeFloat(input.MinValue) }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.ScalingType !== undefined && input.ScalingType !== null && { ScalingType: input.ScalingType }),
   };
@@ -3516,7 +3518,7 @@ const serializeAws_json1_1FeaturizationMethodParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3839,7 +3841,7 @@ const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any =>
 };
 
 const serializeAws_json1_1TrainingParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3924,8 +3926,8 @@ const deserializeAws_json1_1ContinuousParameterRange = (
   context: __SerdeContext
 ): ContinuousParameterRange => {
   return {
-    MaxValue: __expectNumber(output.MaxValue),
-    MinValue: __expectNumber(output.MinValue),
+    MaxValue: __handleFloat(output.MaxValue),
+    MinValue: __handleFloat(output.MinValue),
     Name: __expectString(output.Name),
     ScalingType: __expectString(output.ScalingType),
   } as any;
@@ -4142,7 +4144,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    DataSize: __expectNumber(output.DataSize),
+    DataSize: __handleFloat(output.DataSize),
     DataSource:
       output.DataSource !== undefined && output.DataSource !== null
         ? deserializeAws_json1_1DataSource(output.DataSource, context)
@@ -4351,8 +4353,8 @@ const deserializeAws_json1_1EncryptionConfig = (output: any, context: __SerdeCon
 const deserializeAws_json1_1ErrorMetric = (output: any, context: __SerdeContext): ErrorMetric => {
   return {
     ForecastType: __expectString(output.ForecastType),
-    RMSE: __expectNumber(output.RMSE),
-    WAPE: __expectNumber(output.WAPE),
+    RMSE: __handleFloat(output.RMSE),
+    WAPE: __handleFloat(output.WAPE),
   } as any;
 };
 
@@ -4731,7 +4733,7 @@ const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Me
       output.ErrorMetrics !== undefined && output.ErrorMetrics !== null
         ? deserializeAws_json1_1ErrorMetrics(output.ErrorMetrics, context)
         : undefined,
-    RMSE: __expectNumber(output.RMSE),
+    RMSE: __handleFloat(output.RMSE),
     WeightedQuantileLosses:
       output.WeightedQuantileLosses !== undefined && output.WeightedQuantileLosses !== null
         ? deserializeAws_json1_1WeightedQuantileLosses(output.WeightedQuantileLosses, context)
@@ -4928,7 +4930,7 @@ const deserializeAws_json1_1SchemaAttributes = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Statistics = (output: any, context: __SerdeContext): Statistics => {
   return {
-    Avg: __expectNumber(output.Avg),
+    Avg: __handleFloat(output.Avg),
     Count: __expectNumber(output.Count),
     CountDistinct: __expectNumber(output.CountDistinct),
     CountDistinctLong: __expectNumber(output.CountDistinctLong),
@@ -4939,7 +4941,7 @@ const deserializeAws_json1_1Statistics = (output: any, context: __SerdeContext):
     CountNullLong: __expectNumber(output.CountNullLong),
     Max: __expectString(output.Max),
     Min: __expectString(output.Min),
-    Stddev: __expectNumber(output.Stddev),
+    Stddev: __handleFloat(output.Stddev),
   } as any;
 };
 
@@ -5056,8 +5058,8 @@ const deserializeAws_json1_1Values = (output: any, context: __SerdeContext): str
 
 const deserializeAws_json1_1WeightedQuantileLoss = (output: any, context: __SerdeContext): WeightedQuantileLoss => {
   return {
-    LossValue: __expectNumber(output.LossValue),
-    Quantile: __expectNumber(output.Quantile),
+    LossValue: __handleFloat(output.LossValue),
+    Quantile: __handleFloat(output.Quantile),
   } as any;
 };
 

@@ -184,6 +184,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4151,7 +4153,7 @@ const serializeAws_json1_1DescribeSubscriptionFiltersRequest = (
 };
 
 const serializeAws_json1_1Dimensions = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4272,7 +4274,8 @@ const serializeAws_json1_1LogGroupNames = (input: string[], context: __SerdeCont
 
 const serializeAws_json1_1MetricTransformation = (input: MetricTransformation, context: __SerdeContext): any => {
   return {
-    ...(input.defaultValue !== undefined && input.defaultValue !== null && { defaultValue: input.defaultValue }),
+    ...(input.defaultValue !== undefined &&
+      input.defaultValue !== null && { defaultValue: __serializeFloat(input.defaultValue) }),
     ...(input.dimensions !== undefined &&
       input.dimensions !== null && { dimensions: serializeAws_json1_1Dimensions(input.dimensions, context) }),
     ...(input.metricName !== undefined && input.metricName !== null && { metricName: input.metricName }),
@@ -4428,7 +4431,7 @@ const serializeAws_json1_1TagLogGroupRequest = (input: TagLogGroupRequest, conte
 };
 
 const serializeAws_json1_1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4989,7 +4992,7 @@ const deserializeAws_json1_1MetricFilters = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1MetricTransformation = (output: any, context: __SerdeContext): MetricTransformation => {
   return {
-    defaultValue: __expectNumber(output.defaultValue),
+    defaultValue: __handleFloat(output.defaultValue),
     dimensions:
       output.dimensions !== undefined && output.dimensions !== null
         ? deserializeAws_json1_1Dimensions(output.dimensions, context)
@@ -5158,9 +5161,9 @@ const deserializeAws_json1_1QueryResults = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1QueryStatistics = (output: any, context: __SerdeContext): QueryStatistics => {
   return {
-    bytesScanned: __expectNumber(output.bytesScanned),
-    recordsMatched: __expectNumber(output.recordsMatched),
-    recordsScanned: __expectNumber(output.recordsScanned),
+    bytesScanned: __handleFloat(output.bytesScanned),
+    recordsMatched: __handleFloat(output.recordsMatched),
+    recordsScanned: __handleFloat(output.recordsScanned),
   } as any;
 };
 

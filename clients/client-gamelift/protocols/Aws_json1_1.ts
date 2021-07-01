@@ -530,6 +530,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -9739,7 +9741,7 @@ const serializeAws_json1_1AcceptMatchInput = (input: AcceptMatchInput, context: 
 
 const serializeAws_json1_1AttributeValue = (input: AttributeValue, context: __SerdeContext): any => {
   return {
-    ...(input.N !== undefined && input.N !== null && { N: input.N }),
+    ...(input.N !== undefined && input.N !== null && { N: __serializeFloat(input.N) }),
     ...(input.S !== undefined && input.S !== null && { S: input.S }),
     ...(input.SDM !== undefined &&
       input.SDM !== null && { SDM: serializeAws_json1_1StringDoubleMap(input.SDM, context) }),
@@ -10678,7 +10680,7 @@ const serializeAws_json1_1IpPermissionsList = (input: IpPermission[], context: _
 };
 
 const serializeAws_json1_1LatencyMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -10857,7 +10859,7 @@ const serializeAws_json1_1PlayerAttributeMap = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -10869,7 +10871,7 @@ const serializeAws_json1_1PlayerAttributeMap = (
 };
 
 const serializeAws_json1_1PlayerDataMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -10894,7 +10896,7 @@ const serializeAws_json1_1PlayerIdList = (input: string[], context: __SerdeConte
 const serializeAws_json1_1PlayerLatency = (input: PlayerLatency, context: __SerdeContext): any => {
   return {
     ...(input.LatencyInMilliseconds !== undefined &&
-      input.LatencyInMilliseconds !== null && { LatencyInMilliseconds: input.LatencyInMilliseconds }),
+      input.LatencyInMilliseconds !== null && { LatencyInMilliseconds: __serializeFloat(input.LatencyInMilliseconds) }),
     ...(input.PlayerId !== undefined && input.PlayerId !== null && { PlayerId: input.PlayerId }),
     ...(input.RegionIdentifier !== undefined &&
       input.RegionIdentifier !== null && { RegionIdentifier: input.RegionIdentifier }),
@@ -10987,7 +10989,7 @@ const serializeAws_json1_1PutScalingPolicyInput = (input: PutScalingPolicyInput,
       input.TargetConfiguration !== null && {
         TargetConfiguration: serializeAws_json1_1TargetConfiguration(input.TargetConfiguration, context),
       }),
-    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: input.Threshold }),
+    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: __serializeFloat(input.Threshold) }),
   };
 };
 
@@ -11209,13 +11211,13 @@ const serializeAws_json1_1StopMatchmakingInput = (input: StopMatchmakingInput, c
 };
 
 const serializeAws_json1_1StringDoubleMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __serializeFloat(value),
     };
   }, {});
 };
@@ -11283,7 +11285,8 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
 
 const serializeAws_json1_1TargetConfiguration = (input: TargetConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.TargetValue !== undefined && input.TargetValue !== null && { TargetValue: input.TargetValue }),
+    ...(input.TargetValue !== undefined &&
+      input.TargetValue !== null && { TargetValue: __serializeFloat(input.TargetValue) }),
   };
 };
 
@@ -11292,7 +11295,8 @@ const serializeAws_json1_1TargetTrackingConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TargetValue !== undefined && input.TargetValue !== null && { TargetValue: input.TargetValue }),
+    ...(input.TargetValue !== undefined &&
+      input.TargetValue !== null && { TargetValue: __serializeFloat(input.TargetValue) }),
   };
 };
 
@@ -11582,7 +11586,7 @@ const deserializeAws_json1_1AliasList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   return {
-    N: __expectNumber(output.N),
+    N: __handleFloat(output.N),
     S: __expectString(output.S),
     SDM:
       output.SDM !== undefined && output.SDM !== null
@@ -13245,7 +13249,7 @@ const deserializeAws_json1_1PlayerAttributeMap = (
 
 const deserializeAws_json1_1PlayerLatency = (output: any, context: __SerdeContext): PlayerLatency => {
   return {
-    LatencyInMilliseconds: __expectNumber(output.LatencyInMilliseconds),
+    LatencyInMilliseconds: __handleFloat(output.LatencyInMilliseconds),
     PlayerId: __expectString(output.PlayerId),
     RegionIdentifier: __expectString(output.RegionIdentifier),
   } as any;
@@ -13468,7 +13472,7 @@ const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContex
       output.TargetConfiguration !== undefined && output.TargetConfiguration !== null
         ? deserializeAws_json1_1TargetConfiguration(output.TargetConfiguration, context)
         : undefined,
-    Threshold: __expectNumber(output.Threshold),
+    Threshold: __handleFloat(output.Threshold),
     UpdateStatus: __expectString(output.UpdateStatus),
   } as any;
 };
@@ -13618,7 +13622,7 @@ const deserializeAws_json1_1StringDoubleMap = (output: any, context: __SerdeCont
     }
     return {
       ...acc,
-      [key]: __expectNumber(value) as any,
+      [key]: __handleFloat(value) as any,
     };
   }, {});
 };
@@ -13676,7 +13680,7 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1TargetConfiguration = (output: any, context: __SerdeContext): TargetConfiguration => {
   return {
-    TargetValue: __expectNumber(output.TargetValue),
+    TargetValue: __handleFloat(output.TargetValue),
   } as any;
 };
 

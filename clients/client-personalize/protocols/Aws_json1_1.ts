@@ -244,6 +244,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4218,8 +4220,8 @@ const serializeAws_json1_1ContinuousHyperParameterRange = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxValue !== undefined && input.maxValue !== null && { maxValue: input.maxValue }),
-    ...(input.minValue !== undefined && input.minValue !== null && { minValue: input.minValue }),
+    ...(input.maxValue !== undefined && input.maxValue !== null && { maxValue: __serializeFloat(input.maxValue) }),
+    ...(input.minValue !== undefined && input.minValue !== null && { minValue: __serializeFloat(input.minValue) }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
@@ -4560,7 +4562,7 @@ const serializeAws_json1_1FeatureTransformationParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4643,7 +4645,7 @@ const serializeAws_json1_1HyperParameterRanges = (input: HyperParameterRanges, c
 };
 
 const serializeAws_json1_1HyperParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5155,8 +5157,8 @@ const deserializeAws_json1_1ContinuousHyperParameterRange = (
   context: __SerdeContext
 ): ContinuousHyperParameterRange => {
   return {
-    maxValue: __expectNumber(output.maxValue),
-    minValue: __expectNumber(output.minValue),
+    maxValue: __handleFloat(output.maxValue),
+    minValue: __handleFloat(output.minValue),
     name: __expectString(output.name),
   } as any;
 };
@@ -5543,8 +5545,8 @@ const deserializeAws_json1_1DefaultContinuousHyperParameterRange = (
 ): DefaultContinuousHyperParameterRange => {
   return {
     isTunable: __expectBoolean(output.isTunable),
-    maxValue: __expectNumber(output.maxValue),
-    minValue: __expectNumber(output.minValue),
+    maxValue: __handleFloat(output.maxValue),
+    minValue: __handleFloat(output.minValue),
     name: __expectString(output.name),
   } as any;
 };
@@ -6177,7 +6179,7 @@ const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): { 
     }
     return {
       ...acc,
-      [key]: __expectNumber(value) as any,
+      [key]: __handleFloat(value) as any,
     };
   }, {});
 };
@@ -6399,7 +6401,7 @@ const deserializeAws_json1_1SolutionVersion = (output: any, context: __SerdeCont
         : undefined,
     solutionVersionArn: __expectString(output.solutionVersionArn),
     status: __expectString(output.status),
-    trainingHours: __expectNumber(output.trainingHours),
+    trainingHours: __handleFloat(output.trainingHours),
     trainingMode: __expectString(output.trainingMode),
     tunedHPOParams:
       output.tunedHPOParams !== undefined && output.tunedHPOParams !== null

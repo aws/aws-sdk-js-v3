@@ -109,6 +109,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3587,7 +3588,7 @@ const serializeAws_restJson1SubnetIdList = (input: string[], context: __SerdeCon
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3748,7 +3749,7 @@ const deserializeAws_restJson1AnomalyDetectorSummaryList = (
 const deserializeAws_restJson1AnomalyGroup = (output: any, context: __SerdeContext): AnomalyGroup => {
   return {
     AnomalyGroupId: __expectString(output.AnomalyGroupId),
-    AnomalyGroupScore: __expectNumber(output.AnomalyGroupScore),
+    AnomalyGroupScore: __handleFloat(output.AnomalyGroupScore),
     EndTime: __expectString(output.EndTime),
     MetricLevelImpactList:
       output.MetricLevelImpactList !== undefined && output.MetricLevelImpactList !== null
@@ -3776,7 +3777,7 @@ const deserializeAws_restJson1AnomalyGroupStatistics = (
 const deserializeAws_restJson1AnomalyGroupSummary = (output: any, context: __SerdeContext): AnomalyGroupSummary => {
   return {
     AnomalyGroupId: __expectString(output.AnomalyGroupId),
-    AnomalyGroupScore: __expectNumber(output.AnomalyGroupScore),
+    AnomalyGroupScore: __handleFloat(output.AnomalyGroupScore),
     EndTime: __expectString(output.EndTime),
     PrimaryMetricName: __expectString(output.PrimaryMetricName),
     StartTime: __expectString(output.StartTime),
@@ -3891,7 +3892,7 @@ const deserializeAws_restJson1DimensionValueContribution = (
   context: __SerdeContext
 ): DimensionValueContribution => {
   return {
-    ContributionScore: __expectNumber(output.ContributionScore),
+    ContributionScore: __handleFloat(output.ContributionScore),
     DimensionValue: __expectString(output.DimensionValue),
   } as any;
 };
@@ -4115,7 +4116,7 @@ const deserializeAws_restJson1MetricValueList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __handleFloat(entry) as any;
     });
 };
 

@@ -132,6 +132,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1472,7 +1473,7 @@ export const deserializeAws_restJson1GetCostEstimationCommand = async (
     contents.TimeRange = deserializeAws_restJson1CostEstimationTimeRange(data.TimeRange, context);
   }
   if (data.TotalCost !== undefined && data.TotalCost !== null) {
-    contents.TotalCost = __expectNumber(data.TotalCost);
+    contents.TotalCost = __handleFloat(data.TotalCost);
   }
   return Promise.resolve(contents);
 };
@@ -3380,7 +3381,7 @@ const deserializeAws_restJson1ProactiveAnomaly = (output: any, context: __SerdeC
         : undefined,
     AssociatedInsightId: __expectString(output.AssociatedInsightId),
     Id: __expectString(output.Id),
-    Limit: __expectNumber(output.Limit),
+    Limit: __handleFloat(output.Limit),
     PredictionTimeRange:
       output.PredictionTimeRange !== undefined && output.PredictionTimeRange !== null
         ? deserializeAws_restJson1PredictionTimeRange(output.PredictionTimeRange, context)
@@ -3413,7 +3414,7 @@ const deserializeAws_restJson1ProactiveAnomalySummary = (
         : undefined,
     AssociatedInsightId: __expectString(output.AssociatedInsightId),
     Id: __expectString(output.Id),
-    Limit: __expectNumber(output.Limit),
+    Limit: __handleFloat(output.Limit),
     PredictionTimeRange:
       output.PredictionTimeRange !== undefined && output.PredictionTimeRange !== null
         ? deserializeAws_restJson1PredictionTimeRange(output.PredictionTimeRange, context)
@@ -3871,11 +3872,11 @@ const deserializeAws_restJson1ServiceNames = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ServiceResourceCost = (output: any, context: __SerdeContext): ServiceResourceCost => {
   return {
-    Cost: __expectNumber(output.Cost),
+    Cost: __handleFloat(output.Cost),
     Count: __expectNumber(output.Count),
     State: __expectString(output.State),
     Type: __expectString(output.Type),
-    UnitCost: __expectNumber(output.UnitCost),
+    UnitCost: __handleFloat(output.UnitCost),
   } as any;
 };
 

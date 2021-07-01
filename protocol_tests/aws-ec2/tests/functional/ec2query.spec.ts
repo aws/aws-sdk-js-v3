@@ -179,8 +179,7 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=EmptyInputAndEmptyOutput
-    &Version=2020-01-08`;
+    const bodyString = `Action=EmptyInputAndEmptyOutput&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -247,8 +246,7 @@ it("Ec2QueryEndpointTrait:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=EndpointOperation
-    &Version=2020-01-08`;
+    const bodyString = `Action=EndpointOperation&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -286,9 +284,7 @@ it("Ec2QueryEndpointTraitWithHostLabel:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=EndpointWithHostLabelOperation
-    &Version=2020-01-08
-    &Label=bar`;
+    const bodyString = `Action=EndpointWithHostLabelOperation&Version=2020-01-08&Label=bar`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -457,7 +453,7 @@ it("Ec2IgnoresWrappingXmlName:Response", async () => {
       {
         "content-type": "text/xml;charset=UTF-8",
       },
-      `<IgnoresWrappingXmlNameResponse xmlns="http://foo.com" xmlns="https://example.com/">
+      `<IgnoresWrappingXmlNameResponse xmlns="https://example.com/">
           <foo>bar</foo>
           <RequestId>requestid</RequestId>
       </IgnoresWrappingXmlNameResponse>
@@ -526,11 +522,7 @@ it("Ec2NestedStructures:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=NestedStructures
-    &Version=2020-01-08
-    &Nested.StringArg=foo
-    &Nested.OtherArg=true
-    &Nested.RecursiveArg.StringArg=baz`;
+    const bodyString = `Action=NestedStructures&Version=2020-01-08&Nested.StringArg=foo&Nested.OtherArg=true&Nested.RecursiveArg.StringArg=baz`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -564,8 +556,7 @@ it("Ec2QueryNoInputAndOutput:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=NoInputAndOutput
-    &Version=2020-01-08`;
+    const bodyString = `Action=NoInputAndOutput&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -634,9 +625,7 @@ it("Ec2ProtocolIdempotencyTokenAutoFill:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryIdempotencyTokenAutoFill
-    &Version=2020-01-08
-    &Token=00000000-0000-4000-8000-000000000000`;
+    const bodyString = `Action=QueryIdempotencyTokenAutoFill&Version=2020-01-08&Token=00000000-0000-4000-8000-000000000000`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -673,9 +662,7 @@ it("Ec2ProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryIdempotencyTokenAutoFill
-    &Version=2020-01-08
-    &Token=00000000-0000-4000-8000-000000000123`;
+    const bodyString = `Action=QueryIdempotencyTokenAutoFill&Version=2020-01-08&Token=00000000-0000-4000-8000-000000000123`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -721,13 +708,7 @@ it("Ec2Lists:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryLists
-    &Version=2020-01-08
-    &ListArg.1=foo
-    &ListArg.2=bar
-    &ListArg.3=baz
-    &ComplexListArg.1.Hi=hello
-    &ComplexListArg.2.Hi=hola`;
+    const bodyString = `Action=QueryLists&Version=2020-01-08&ListArg.1=foo&ListArg.2=bar&ListArg.3=baz&ComplexListArg.1.Hi=hello&ComplexListArg.2.Hi=hola`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -763,8 +744,7 @@ it("Ec2EmptyQueryLists:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryLists
-    &Version=2020-01-08`;
+    const bodyString = `Action=QueryLists&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -800,10 +780,7 @@ it("Ec2ListArgWithXmlNameMember:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryLists
-    &Version=2020-01-08
-    &ListArgWithXmlNameMember.1=A
-    &ListArgWithXmlNameMember.2=B`;
+    const bodyString = `Action=QueryLists&Version=2020-01-08&ListArgWithXmlNameMember.1=A&ListArgWithXmlNameMember.2=B`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -839,10 +816,45 @@ it("Ec2ListMemberWithXmlName:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryLists
-    &Version=2020-01-08
-    &Hi.1=A
-    &Hi.2=B`;
+    const bodyString = `Action=QueryLists&Version=2020-01-08&Hi.1=A&Hi.2=B`;
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Nested structure with a list member
+ */
+it("Ec2ListNestedStructWithList:Request", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new QueryListsCommand({
+    NestedWithList: {
+      ListArg: ["A", "B"],
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `Action=QueryLists&Version=2020-01-08&NestedWithList.ListArg.1=A&NestedWithList.ListArg.2=B`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -883,11 +895,7 @@ it("Ec2TimestampsInput:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryTimestamps
-    &Version=2020-01-08
-    &NormalFormat=2015-01-25T08%3A00%3A00Z
-    &EpochMember=1422172800
-    &EpochTarget=1422172800`;
+    const bodyString = `Action=QueryTimestamps&Version=2020-01-08&NormalFormat=2015-01-25T08%3A00%3A00Z&EpochMember=1422172800&EpochTarget=1422172800`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -993,10 +1001,7 @@ it("Ec2SimpleInputParamsStrings:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &Foo=val1
-    &Bar=val2`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Foo=val1&Bar=val2`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1035,10 +1040,7 @@ it("Ec2SimpleInputParamsStringAndBooleanTrue:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &Foo=val1
-    &Baz=true`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Foo=val1&Baz=true`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1075,9 +1077,7 @@ it("Ec2SimpleInputParamsStringsAndBooleanFalse:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &Baz=false`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Baz=false`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1114,9 +1114,7 @@ it("Ec2SimpleInputParamsInteger:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &Bam=10`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Bam=10`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1153,9 +1151,7 @@ it("Ec2SimpleInputParamsFloat:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &Boo=10.8`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Boo=10.8`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1192,9 +1188,7 @@ it("Ec2SimpleInputParamsBlob:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &Qux=dmFsdWU%3D`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Qux=dmFsdWU%3D`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1231,9 +1225,7 @@ it("Ec2Enums:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &FooEnum=Foo`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&FooEnum=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1270,9 +1262,7 @@ it("Ec2Query:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &A=Hi`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&A=Hi`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1309,9 +1299,7 @@ it("Ec2QueryIsPreferred:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &B=Hi`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&B=Hi`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1348,9 +1336,124 @@ it("Ec2XmlNameIsUppercased:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &C=Hi`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&C=Hi`;
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Supports handling NaN float values.
+ */
+it("Ec2QuerySupportsNaNFloatInputs:Request", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SimpleInputParamsCommand({
+    FloatValue: NaN,
+
+    Boo: NaN,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&FloatValue=NaN&Boo=NaN`;
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Supports handling Infinity float values.
+ */
+it("Ec2QuerySupportsInfinityFloatInputs:Request", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SimpleInputParamsCommand({
+    FloatValue: Infinity,
+
+    Boo: Infinity,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&FloatValue=Infinity&Boo=Infinity`;
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Supports handling -Infinity float values.
+ */
+it("Ec2QuerySupportsNegativeInfinityFloatInputs:Request", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SimpleInputParamsCommand({
+    FloatValue: -Infinity,
+
+    Boo: -Infinity,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&FloatValue=-Infinity&Boo=-Infinity`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1417,6 +1520,138 @@ it("Ec2SimpleScalarProperties:Response", async () => {
       floatValue: 5.5,
 
       doubleValue: 6.5,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Supports handling NaN float values.
+ */
+it("Ec2QuerySupportsNaNFloatOutputs:Response", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml;charset=UTF-8",
+      },
+      `<SimpleScalarXmlPropertiesResponse xmlns="https://example.com/">
+          <floatValue>NaN</floatValue>
+          <DoubleDribble>NaN</DoubleDribble>
+      </SimpleScalarXmlPropertiesResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new SimpleScalarXmlPropertiesCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      floatValue: NaN,
+
+      doubleValue: NaN,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Supports handling Infinity float values.
+ */
+it("Ec2QuerySupportsInfinityFloatOutputs:Response", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml;charset=UTF-8",
+      },
+      `<SimpleScalarXmlPropertiesResponse xmlns="https://example.com/">
+          <floatValue>Infinity</floatValue>
+          <DoubleDribble>Infinity</DoubleDribble>
+      </SimpleScalarXmlPropertiesResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new SimpleScalarXmlPropertiesCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      floatValue: Infinity,
+
+      doubleValue: Infinity,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Supports handling -Infinity float values.
+ */
+it("Ec2QuerySupportsNegativeInfinityFloatOutputs:Response", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml;charset=UTF-8",
+      },
+      `<SimpleScalarXmlPropertiesResponse xmlns="https://example.com/">
+          <floatValue>-Infinity</floatValue>
+          <DoubleDribble>-Infinity</DoubleDribble>
+      </SimpleScalarXmlPropertiesResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new SimpleScalarXmlPropertiesCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      floatValue: -Infinity,
+
+      doubleValue: -Infinity,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -1824,7 +2059,7 @@ it("Ec2XmlNamespaces:Response", async () => {
       {
         "content-type": "text/xml;charset=UTF-8",
       },
-      `<XmlNamespacesResponse xmlns="http://foo.com" xmlns="https://example.com/">
+      `<XmlNamespacesResponse xmlns="https://example.com/">
           <nested>
               <foo xmlns:baz="http://baz.com">Foo</foo>
               <values xmlns="http://qux.com">

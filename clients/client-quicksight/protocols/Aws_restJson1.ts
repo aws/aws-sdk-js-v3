@@ -361,6 +361,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -16713,7 +16714,7 @@ const serializeAws_restJson1DoubleList = (input: number[], context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __serializeFloat(entry);
     });
 };
 
@@ -16733,7 +16734,7 @@ const serializeAws_restJson1FieldFolder = (input: FieldFolder, context: __SerdeC
 };
 
 const serializeAws_restJson1FieldFolderMap = (input: { [key: string]: FieldFolder }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: FieldFolder }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16778,7 +16779,7 @@ const serializeAws_restJson1GutterStyle = (input: GutterStyle, context: __SerdeC
 };
 
 const serializeAws_restJson1IdentityMap = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16882,7 +16883,7 @@ const serializeAws_restJson1LogicalTableMap = (
   input: { [key: string]: LogicalTable },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: LogicalTable }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16986,7 +16987,7 @@ const serializeAws_restJson1PhysicalTableMap = (
   input: { [key: string]: PhysicalTable },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: PhysicalTable }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

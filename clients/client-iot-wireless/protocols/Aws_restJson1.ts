@@ -238,6 +238,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7811,8 +7812,8 @@ const deserializeAws_restJson1LoRaWANGatewayMetadata = (
 ): LoRaWANGatewayMetadata => {
   return {
     GatewayEui: __expectString(output.GatewayEui),
-    Rssi: __expectNumber(output.Rssi),
-    Snr: __expectNumber(output.Snr),
+    Rssi: __handleFloat(output.Rssi),
+    Snr: __handleFloat(output.Snr),
   } as any;
 };
 

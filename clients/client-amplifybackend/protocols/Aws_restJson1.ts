@@ -77,9 +77,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   SmithyException as __SmithyException,
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3403,7 +3404,7 @@ const serializeAws_restJson1BackendAPIAppSyncAuthSettings = (
       input.CognitoUserPoolId !== null && { cognitoUserPoolId: input.CognitoUserPoolId }),
     ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
     ...(input.ExpirationTime !== undefined &&
-      input.ExpirationTime !== null && { expirationTime: input.ExpirationTime }),
+      input.ExpirationTime !== null && { expirationTime: __serializeFloat(input.ExpirationTime) }),
     ...(input.OpenIDAuthTTL !== undefined && input.OpenIDAuthTTL !== null && { openIDAuthTTL: input.OpenIDAuthTTL }),
     ...(input.OpenIDClientId !== undefined &&
       input.OpenIDClientId !== null && { openIDClientId: input.OpenIDClientId }),
@@ -3547,7 +3548,8 @@ const serializeAws_restJson1CreateBackendAuthPasswordPolicyConfig = (
           context
         ),
       }),
-    ...(input.MinimumLength !== undefined && input.MinimumLength !== null && { minimumLength: input.MinimumLength }),
+    ...(input.MinimumLength !== undefined &&
+      input.MinimumLength !== null && { minimumLength: __serializeFloat(input.MinimumLength) }),
   };
 };
 
@@ -3810,7 +3812,8 @@ const serializeAws_restJson1UpdateBackendAuthPasswordPolicyConfig = (
           context
         ),
       }),
-    ...(input.MinimumLength !== undefined && input.MinimumLength !== null && { minimumLength: input.MinimumLength }),
+    ...(input.MinimumLength !== undefined &&
+      input.MinimumLength !== null && { minimumLength: __serializeFloat(input.MinimumLength) }),
   };
 };
 
@@ -3862,7 +3865,7 @@ const deserializeAws_restJson1BackendAPIAppSyncAuthSettings = (
   return {
     CognitoUserPoolId: __expectString(output.cognitoUserPoolId),
     Description: __expectString(output.description),
-    ExpirationTime: __expectNumber(output.expirationTime),
+    ExpirationTime: __handleFloat(output.expirationTime),
     OpenIDAuthTTL: __expectString(output.openIDAuthTTL),
     OpenIDClientId: __expectString(output.openIDClientId),
     OpenIDIatTTL: __expectString(output.openIDIatTTL),
@@ -4011,7 +4014,7 @@ const deserializeAws_restJson1CreateBackendAuthPasswordPolicyConfig = (
       output.additionalConstraints !== undefined && output.additionalConstraints !== null
         ? deserializeAws_restJson1ListOfAdditionalConstraintsElement(output.additionalConstraints, context)
         : undefined,
-    MinimumLength: __expectNumber(output.minimumLength),
+    MinimumLength: __handleFloat(output.minimumLength),
   } as any;
 };
 

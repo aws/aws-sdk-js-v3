@@ -14945,7 +14945,7 @@ const serializeAws_json1_1AutomationParameterMap = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -15071,7 +15071,7 @@ const serializeAws_json1_1ComplianceExecutionSummary = (
 };
 
 const serializeAws_json1_1ComplianceItemDetails = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16591,7 +16591,7 @@ const serializeAws_json1_1InventoryItemContentContext = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16603,7 +16603,7 @@ const serializeAws_json1_1InventoryItemContentContext = (
 };
 
 const serializeAws_json1_1InventoryItemEntry = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16998,18 +16998,15 @@ const serializeAws_json1_1MaintenanceWindowTaskParameters = (
   input: { [key: string]: MaintenanceWindowTaskParameterValueExpression },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: MaintenanceWindowTaskParameterValueExpression }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_json1_1MaintenanceWindowTaskParameterValueExpression(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_json1_1MaintenanceWindowTaskParameterValueExpression(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_json1_1MaintenanceWindowTaskParameterValueExpression = (
@@ -17047,7 +17044,7 @@ const serializeAws_json1_1MetadataKeysToDeleteList = (input: string[], context: 
 };
 
 const serializeAws_json1_1MetadataMap = (input: { [key: string]: MetadataValue }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: MetadataValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17139,7 +17136,7 @@ const serializeAws_json1_1OpsAggregatorList = (input: OpsAggregator[], context: 
 };
 
 const serializeAws_json1_1OpsAggregatorValueMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17271,7 +17268,7 @@ const serializeAws_json1_1OpsItemOperationalData = (
   input: { [key: string]: OpsItemDataValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: OpsItemDataValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17400,7 +17397,7 @@ const serializeAws_json1_1ParameterNameList = (input: string[], context: __Serde
 };
 
 const serializeAws_json1_1Parameters = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -18046,7 +18043,7 @@ const serializeAws_json1_1SessionManagerParameters = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -18255,7 +18252,7 @@ const serializeAws_json1_1TargetLocations = (input: TargetLocation[], context: _
 };
 
 const serializeAws_json1_1TargetMap = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

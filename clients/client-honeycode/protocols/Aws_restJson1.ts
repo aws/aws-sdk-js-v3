@@ -2191,18 +2191,15 @@ const serializeAws_restJson1ImportColumnMap = (
   input: { [key: string]: SourceDataColumnProperties },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: SourceDataColumnProperties }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1SourceDataColumnProperties(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1SourceDataColumnProperties(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1ImportDataSource = (input: ImportDataSource, context: __SerdeContext): any => {
@@ -2234,7 +2231,7 @@ const serializeAws_restJson1ImportOptions = (input: ImportOptions, context: __Se
 };
 
 const serializeAws_restJson1RowDataInput = (input: { [key: string]: CellInput }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: CellInput }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2319,7 +2316,7 @@ const serializeAws_restJson1VariableValueMap = (
   input: { [key: string]: VariableValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: VariableValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

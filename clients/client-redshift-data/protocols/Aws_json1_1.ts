@@ -43,6 +43,7 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1100,8 +1101,8 @@ const deserializeAws_json1_1Field = (output: any, context: __SerdeContext): Fiel
   if (__expectBoolean(output.booleanValue) !== undefined) {
     return { booleanValue: __expectBoolean(output.booleanValue) as any };
   }
-  if (__expectNumber(output.doubleValue) !== undefined) {
-    return { doubleValue: __expectNumber(output.doubleValue) as any };
+  if (__handleFloat(output.doubleValue) !== undefined) {
+    return { doubleValue: __handleFloat(output.doubleValue) as any };
   }
   if (__expectBoolean(output.isNull) !== undefined) {
     return { isNull: __expectBoolean(output.isNull) as any };

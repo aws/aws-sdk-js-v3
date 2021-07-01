@@ -314,6 +314,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5725,7 +5727,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 
 const serializeAws_json1_1AppAttributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [AppAttributesKeys | string, any]) => {
+    (acc: { [key: string]: any }, [key, value]: [AppAttributesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -5778,13 +5780,15 @@ const serializeAws_json1_1AutoScalingThresholds = (input: AutoScalingThresholds,
   return {
     ...(input.Alarms !== undefined &&
       input.Alarms !== null && { Alarms: serializeAws_json1_1Strings(input.Alarms, context) }),
-    ...(input.CpuThreshold !== undefined && input.CpuThreshold !== null && { CpuThreshold: input.CpuThreshold }),
+    ...(input.CpuThreshold !== undefined &&
+      input.CpuThreshold !== null && { CpuThreshold: __serializeFloat(input.CpuThreshold) }),
     ...(input.IgnoreMetricsTime !== undefined &&
       input.IgnoreMetricsTime !== null && { IgnoreMetricsTime: input.IgnoreMetricsTime }),
     ...(input.InstanceCount !== undefined && input.InstanceCount !== null && { InstanceCount: input.InstanceCount }),
-    ...(input.LoadThreshold !== undefined && input.LoadThreshold !== null && { LoadThreshold: input.LoadThreshold }),
+    ...(input.LoadThreshold !== undefined &&
+      input.LoadThreshold !== null && { LoadThreshold: __serializeFloat(input.LoadThreshold) }),
     ...(input.MemoryThreshold !== undefined &&
-      input.MemoryThreshold !== null && { MemoryThreshold: input.MemoryThreshold }),
+      input.MemoryThreshold !== null && { MemoryThreshold: __serializeFloat(input.MemoryThreshold) }),
     ...(input.ThresholdsWaitTime !== undefined &&
       input.ThresholdsWaitTime !== null && { ThresholdsWaitTime: input.ThresholdsWaitTime }),
   };
@@ -6098,7 +6102,7 @@ const serializeAws_json1_1DailyAutoScalingSchedule = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6176,7 +6180,7 @@ const serializeAws_json1_1DeploymentCommandArgs = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6517,7 +6521,7 @@ const serializeAws_json1_1InstanceIdentity = (input: InstanceIdentity, context: 
 
 const serializeAws_json1_1LayerAttributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [LayerAttributesKeys | string, any]) => {
+    (acc: { [key: string]: any }, [key, value]: [LayerAttributesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -6699,7 +6703,7 @@ const serializeAws_json1_1SslConfiguration = (input: SslConfiguration, context: 
 
 const serializeAws_json1_1StackAttributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [StackAttributesKeys | string, any]) => {
+    (acc: { [key: string]: any }, [key, value]: [StackAttributesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -6777,7 +6781,7 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
 };
 
 const serializeAws_json1_1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7130,11 +7134,11 @@ const deserializeAws_json1_1AutoScalingThresholds = (output: any, context: __Ser
       output.Alarms !== undefined && output.Alarms !== null
         ? deserializeAws_json1_1Strings(output.Alarms, context)
         : undefined,
-    CpuThreshold: __expectNumber(output.CpuThreshold),
+    CpuThreshold: __handleFloat(output.CpuThreshold),
     IgnoreMetricsTime: __expectNumber(output.IgnoreMetricsTime),
     InstanceCount: __expectNumber(output.InstanceCount),
-    LoadThreshold: __expectNumber(output.LoadThreshold),
-    MemoryThreshold: __expectNumber(output.MemoryThreshold),
+    LoadThreshold: __handleFloat(output.LoadThreshold),
+    MemoryThreshold: __handleFloat(output.MemoryThreshold),
     ThresholdsWaitTime: __expectNumber(output.ThresholdsWaitTime),
   } as any;
 };

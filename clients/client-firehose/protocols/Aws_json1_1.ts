@@ -132,6 +132,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1289,7 +1291,7 @@ const serializeAws_json1_1ColumnToJsonKeyMappings = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1903,15 +1905,17 @@ const serializeAws_json1_1OrcSerDe = (input: OrcSerDe, context: __SerdeContext):
       }),
     ...(input.BloomFilterFalsePositiveProbability !== undefined &&
       input.BloomFilterFalsePositiveProbability !== null && {
-        BloomFilterFalsePositiveProbability: input.BloomFilterFalsePositiveProbability,
+        BloomFilterFalsePositiveProbability: __serializeFloat(input.BloomFilterFalsePositiveProbability),
       }),
     ...(input.Compression !== undefined && input.Compression !== null && { Compression: input.Compression }),
     ...(input.DictionaryKeyThreshold !== undefined &&
-      input.DictionaryKeyThreshold !== null && { DictionaryKeyThreshold: input.DictionaryKeyThreshold }),
+      input.DictionaryKeyThreshold !== null && {
+        DictionaryKeyThreshold: __serializeFloat(input.DictionaryKeyThreshold),
+      }),
     ...(input.EnablePadding !== undefined && input.EnablePadding !== null && { EnablePadding: input.EnablePadding }),
     ...(input.FormatVersion !== undefined && input.FormatVersion !== null && { FormatVersion: input.FormatVersion }),
     ...(input.PaddingTolerance !== undefined &&
-      input.PaddingTolerance !== null && { PaddingTolerance: input.PaddingTolerance }),
+      input.PaddingTolerance !== null && { PaddingTolerance: __serializeFloat(input.PaddingTolerance) }),
     ...(input.RowIndexStride !== undefined &&
       input.RowIndexStride !== null && { RowIndexStride: input.RowIndexStride }),
     ...(input.StripeSizeBytes !== undefined &&
@@ -2993,12 +2997,12 @@ const deserializeAws_json1_1OrcSerDe = (output: any, context: __SerdeContext): O
       output.BloomFilterColumns !== undefined && output.BloomFilterColumns !== null
         ? deserializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace(output.BloomFilterColumns, context)
         : undefined,
-    BloomFilterFalsePositiveProbability: __expectNumber(output.BloomFilterFalsePositiveProbability),
+    BloomFilterFalsePositiveProbability: __handleFloat(output.BloomFilterFalsePositiveProbability),
     Compression: __expectString(output.Compression),
-    DictionaryKeyThreshold: __expectNumber(output.DictionaryKeyThreshold),
+    DictionaryKeyThreshold: __handleFloat(output.DictionaryKeyThreshold),
     EnablePadding: __expectBoolean(output.EnablePadding),
     FormatVersion: __expectString(output.FormatVersion),
-    PaddingTolerance: __expectNumber(output.PaddingTolerance),
+    PaddingTolerance: __handleFloat(output.PaddingTolerance),
     RowIndexStride: __expectNumber(output.RowIndexStride),
     StripeSizeBytes: __expectNumber(output.StripeSizeBytes),
   } as any;

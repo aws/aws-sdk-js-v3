@@ -140,6 +140,7 @@ import {
   SmithyException as __SmithyException,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2501,9 +2502,9 @@ const deserializeAws_json1_1Attribute = (output: any, context: __SerdeContext): 
     Category: __expectString(output.Category),
     EndOffset: __expectNumber(output.EndOffset),
     Id: __expectNumber(output.Id),
-    RelationshipScore: __expectNumber(output.RelationshipScore),
+    RelationshipScore: __handleFloat(output.RelationshipScore),
     RelationshipType: __expectString(output.RelationshipType),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
     Text: __expectString(output.Text),
     Traits:
       output.Traits !== undefined && output.Traits !== null
@@ -2675,7 +2676,7 @@ const deserializeAws_json1_1Entity = (output: any, context: __SerdeContext): Ent
     Category: __expectString(output.Category),
     EndOffset: __expectNumber(output.EndOffset),
     Id: __expectNumber(output.Id),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
     Text: __expectString(output.Text),
     Traits:
       output.Traits !== undefined && output.Traits !== null
@@ -2702,9 +2703,9 @@ const deserializeAws_json1_1ICD10CMAttribute = (output: any, context: __SerdeCon
     Category: __expectString(output.Category),
     EndOffset: __expectNumber(output.EndOffset),
     Id: __expectNumber(output.Id),
-    RelationshipScore: __expectNumber(output.RelationshipScore),
+    RelationshipScore: __handleFloat(output.RelationshipScore),
     RelationshipType: __expectString(output.RelationshipType),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
     Text: __expectString(output.Text),
     Traits:
       output.Traits !== undefined && output.Traits !== null
@@ -2729,7 +2730,7 @@ const deserializeAws_json1_1ICD10CMConcept = (output: any, context: __SerdeConte
   return {
     Code: __expectString(output.Code),
     Description: __expectString(output.Description),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
   } as any;
 };
 
@@ -2758,7 +2759,7 @@ const deserializeAws_json1_1ICD10CMEntity = (output: any, context: __SerdeContex
         ? deserializeAws_json1_1ICD10CMConceptList(output.ICD10CMConcepts, context)
         : undefined,
     Id: __expectNumber(output.Id),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
     Text: __expectString(output.Text),
     Traits:
       output.Traits !== undefined && output.Traits !== null
@@ -2782,7 +2783,7 @@ const deserializeAws_json1_1ICD10CMEntityList = (output: any, context: __SerdeCo
 const deserializeAws_json1_1ICD10CMTrait = (output: any, context: __SerdeContext): ICD10CMTrait => {
   return {
     Name: __expectString(output.Name),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
   } as any;
 };
 
@@ -2942,8 +2943,8 @@ const deserializeAws_json1_1RxNormAttribute = (output: any, context: __SerdeCont
     BeginOffset: __expectNumber(output.BeginOffset),
     EndOffset: __expectNumber(output.EndOffset),
     Id: __expectNumber(output.Id),
-    RelationshipScore: __expectNumber(output.RelationshipScore),
-    Score: __expectNumber(output.Score),
+    RelationshipScore: __handleFloat(output.RelationshipScore),
+    Score: __handleFloat(output.Score),
     Text: __expectString(output.Text),
     Traits:
       output.Traits !== undefined && output.Traits !== null
@@ -2968,7 +2969,7 @@ const deserializeAws_json1_1RxNormConcept = (output: any, context: __SerdeContex
   return {
     Code: __expectString(output.Code),
     Description: __expectString(output.Description),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
   } as any;
 };
 
@@ -2997,7 +2998,7 @@ const deserializeAws_json1_1RxNormEntity = (output: any, context: __SerdeContext
       output.RxNormConcepts !== undefined && output.RxNormConcepts !== null
         ? deserializeAws_json1_1RxNormConceptList(output.RxNormConcepts, context)
         : undefined,
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
     Text: __expectString(output.Text),
     Traits:
       output.Traits !== undefined && output.Traits !== null
@@ -3021,7 +3022,7 @@ const deserializeAws_json1_1RxNormEntityList = (output: any, context: __SerdeCon
 const deserializeAws_json1_1RxNormTrait = (output: any, context: __SerdeContext): RxNormTrait => {
   return {
     Name: __expectString(output.Name),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
   } as any;
 };
 
@@ -3138,7 +3139,7 @@ const deserializeAws_json1_1TooManyRequestsException = (
 const deserializeAws_json1_1Trait = (output: any, context: __SerdeContext): Trait => {
   return {
     Name: __expectString(output.Name),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
   } as any;
 };
 

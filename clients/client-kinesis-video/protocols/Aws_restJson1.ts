@@ -2476,7 +2476,7 @@ const serializeAws_restJson1ListOfProtocols = (input: (ChannelProtocol | string)
 };
 
 const serializeAws_restJson1ResourceTags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

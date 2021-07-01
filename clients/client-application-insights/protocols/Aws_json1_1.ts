@@ -130,6 +130,7 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3332,7 +3333,7 @@ const deserializeAws_json1_1Observation = (output: any, context: __SerdeContext)
     StatesInput: __expectString(output.StatesInput),
     StatesStatus: __expectString(output.StatesStatus),
     Unit: __expectString(output.Unit),
-    Value: __expectNumber(output.Value),
+    Value: __handleFloat(output.Value),
     XRayErrorPercent: __expectNumber(output.XRayErrorPercent),
     XRayFaultPercent: __expectNumber(output.XRayFaultPercent),
     XRayNodeName: __expectString(output.XRayNodeName),

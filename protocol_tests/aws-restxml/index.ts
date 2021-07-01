@@ -20,6 +20,7 @@ export * from "./commands/HttpPayloadWithXmlNameCommand";
 export * from "./commands/HttpPayloadWithXmlNamespaceCommand";
 export * from "./commands/HttpPayloadWithXmlNamespaceAndPrefixCommand";
 export * from "./commands/HttpPrefixHeadersCommand";
+export * from "./commands/HttpRequestWithFloatLabelsCommand";
 export * from "./commands/HttpRequestWithGreedyLabelInPathCommand";
 export * from "./commands/HttpRequestWithLabelsCommand";
 export * from "./commands/HttpRequestWithLabelsAndTimestampFormatCommand";

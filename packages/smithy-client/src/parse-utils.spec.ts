@@ -1,4 +1,4 @@
-import { parseBoolean } from "./parse-utils";
+import { handleFloat, parseBoolean } from "./parse-utils";
 import { expectBoolean, expectNumber, expectString } from "./parse-utils";
 
 describe("parseBoolean", () => {
@@ -109,5 +109,28 @@ describe("expectString", () => {
     expect(() => expectString(false)).toThrowError();
     expect(() => expectString([])).toThrowError();
     expect(() => expectString({})).toThrowError();
+  });
+});
+
+describe("handleFloat", () => {
+  it("accepts non-numeric floats as strings", () => {
+    expect(handleFloat("NaN")).toEqual(NaN);
+    expect(handleFloat("Infinity")).toEqual(Infinity);
+    expect(handleFloat("-Infinity")).toEqual(-Infinity);
+  });
+
+  it("rejects numeric strings", () => {
+    expect(() => handleFloat("1")).toThrowError();
+    expect(() => handleFloat("1.1")).toThrowError();
+  });
+
+  it("accepts numbers", () => {
+    expect(expectNumber(1)).toEqual(1);
+    expect(expectNumber(1.1)).toEqual(1.1);
+    expect(expectNumber(Infinity)).toEqual(Infinity);
+    expect(expectNumber(-Infinity)).toEqual(-Infinity);
+    expect(expectNumber(NaN)).toEqual(NaN);
+    expect(expectNumber(null)).toEqual(undefined);
+    expect(expectNumber(undefined)).toEqual(undefined);
   });
 });

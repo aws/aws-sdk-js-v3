@@ -29,8 +29,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -418,7 +418,7 @@ const serializeAws_json1_1MetricQuery = (input: MetricQuery, context: __SerdeCon
 };
 
 const serializeAws_json1_1MetricQueryFilterMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -468,7 +468,7 @@ const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): 
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Value: __expectNumber(output.Value),
+    Value: __handleFloat(output.Value),
   } as any;
 };
 
@@ -521,7 +521,7 @@ const deserializeAws_json1_1DimensionKeyDescription = (
       output.Partitions !== undefined && output.Partitions !== null
         ? deserializeAws_json1_1MetricValuesList(output.Partitions, context)
         : undefined,
-    Total: __expectNumber(output.Total),
+    Total: __handleFloat(output.Total),
   } as any;
 };
 
@@ -650,7 +650,7 @@ const deserializeAws_json1_1MetricValuesList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __handleFloat(entry) as any;
     });
 };
 

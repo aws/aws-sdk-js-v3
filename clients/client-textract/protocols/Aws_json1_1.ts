@@ -68,6 +68,7 @@ import {
   SmithyException as __SmithyException,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1311,7 +1312,7 @@ const deserializeAws_json1_1Block = (output: any, context: __SerdeContext): Bloc
     BlockType: __expectString(output.BlockType),
     ColumnIndex: __expectNumber(output.ColumnIndex),
     ColumnSpan: __expectNumber(output.ColumnSpan),
-    Confidence: __expectNumber(output.Confidence),
+    Confidence: __handleFloat(output.Confidence),
     EntityTypes:
       output.EntityTypes !== undefined && output.EntityTypes !== null
         ? deserializeAws_json1_1EntityTypes(output.EntityTypes, context)
@@ -1347,10 +1348,10 @@ const deserializeAws_json1_1BlockList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
   return {
-    Height: __expectNumber(output.Height),
-    Left: __expectNumber(output.Left),
-    Top: __expectNumber(output.Top),
-    Width: __expectNumber(output.Width),
+    Height: __handleFloat(output.Height),
+    Left: __handleFloat(output.Left),
+    Top: __handleFloat(output.Top),
+    Width: __handleFloat(output.Width),
   } as any;
 };
 
@@ -1583,8 +1584,8 @@ const deserializeAws_json1_1Pages = (output: any, context: __SerdeContext): numb
 
 const deserializeAws_json1_1Point = (output: any, context: __SerdeContext): Point => {
   return {
-    X: __expectNumber(output.X),
-    Y: __expectNumber(output.Y),
+    X: __handleFloat(output.X),
+    Y: __handleFloat(output.Y),
   } as any;
 };
 

@@ -209,6 +209,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6018,7 +6019,7 @@ const serializeAws_restJson1Condition = (input: Condition, context: __SerdeConte
 };
 
 const serializeAws_restJson1Criterion = (input: { [key: string]: Condition }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: Condition }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6191,7 +6192,7 @@ const serializeAws_restJson1SortCriteria = (input: SortCriteria, context: __Serd
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6541,7 +6542,7 @@ const deserializeAws_restJson1Finding = (output: any, context: __SerdeContext): 
   return {
     AccountId: __expectString(output.accountId),
     Arn: __expectString(output.arn),
-    Confidence: __expectNumber(output.confidence),
+    Confidence: __handleFloat(output.confidence),
     CreatedAt: __expectString(output.createdAt),
     Description: __expectString(output.description),
     Id: __expectString(output.id),
@@ -6556,7 +6557,7 @@ const deserializeAws_restJson1Finding = (output: any, context: __SerdeContext): 
       output.service !== undefined && output.service !== null
         ? deserializeAws_restJson1Service(output.service, context)
         : undefined,
-    Severity: __expectNumber(output.severity),
+    Severity: __handleFloat(output.severity),
     Title: __expectString(output.title),
     Type: __expectString(output.type),
     UpdatedAt: __expectString(output.updatedAt),
@@ -6614,8 +6615,8 @@ const deserializeAws_restJson1FlowLogsConfigurationResult = (
 
 const deserializeAws_restJson1GeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
   return {
-    Lat: __expectNumber(output.lat),
-    Lon: __expectNumber(output.lon),
+    Lat: __handleFloat(output.lat),
+    Lon: __handleFloat(output.lon),
   } as any;
 };
 

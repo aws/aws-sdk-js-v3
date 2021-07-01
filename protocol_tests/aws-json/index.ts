@@ -10,4 +10,5 @@ export * from "./commands/KitchenSinkOperationCommand";
 export * from "./commands/NullOperationCommand";
 export * from "./commands/OperationWithOptionalInputOutputCommand";
 export * from "./commands/PutAndGetInlineDocumentsCommand";
+export * from "./commands/SimpleScalarPropertiesCommand";
 export * from "./models/index";

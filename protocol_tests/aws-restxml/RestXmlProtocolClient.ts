@@ -61,6 +61,10 @@ import {
 } from "./commands/HttpPayloadWithXmlNamespaceCommand";
 import { HttpPrefixHeadersCommandInput, HttpPrefixHeadersCommandOutput } from "./commands/HttpPrefixHeadersCommand";
 import {
+  HttpRequestWithFloatLabelsCommandInput,
+  HttpRequestWithFloatLabelsCommandOutput,
+} from "./commands/HttpRequestWithFloatLabelsCommand";
+import {
   HttpRequestWithGreedyLabelInPathCommandInput,
   HttpRequestWithGreedyLabelInPathCommandOutput,
 } from "./commands/HttpRequestWithGreedyLabelInPathCommand";
@@ -196,6 +200,7 @@ export type ServiceInputTypes =
   | HttpPayloadWithXmlNamespaceAndPrefixCommandInput
   | HttpPayloadWithXmlNamespaceCommandInput
   | HttpPrefixHeadersCommandInput
+  | HttpRequestWithFloatLabelsCommandInput
   | HttpRequestWithGreedyLabelInPathCommandInput
   | HttpRequestWithLabelsAndTimestampFormatCommandInput
   | HttpRequestWithLabelsCommandInput
@@ -250,6 +255,7 @@ export type ServiceOutputTypes =
   | HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
   | HttpPayloadWithXmlNamespaceCommandOutput
   | HttpPrefixHeadersCommandOutput
+  | HttpRequestWithFloatLabelsCommandOutput
   | HttpRequestWithGreedyLabelInPathCommandOutput
   | HttpRequestWithLabelsAndTimestampFormatCommandOutput
   | HttpRequestWithLabelsCommandOutput
