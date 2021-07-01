@@ -14,7 +14,12 @@ const { prettifyCode } = require("./code-prettify");
 const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
 const PROTOCOL_TESTS_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "protocol_tests"));
 
-const { models, globs, output: clientsDir } = yargs
+const {
+  models,
+  globs,
+  output: clientsDir,
+  noProtocolTest,
+} = yargs
   .alias("m", "models")
   .string("m")
   .describe("m", "The path to directory with models.")
@@ -26,21 +31,24 @@ const { models, globs, output: clientsDir } = yargs
   .string("o")
   .describe("o", "The output directory for built clients")
   .default("o", SDK_CLIENTS_DIR)
+  .alias("n", "noProtocolTest")
+  .boolean("n")
+  .describe("n", "Disable generating protocol test files")
   .help().argv;
 
 (async () => {
   try {
     await generateClients(models || globs);
-    await generateProtocolTests();
+    if (!noProtocolTest) await generateProtocolTests();
 
     await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
-    await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    if (!noProtocolTest) await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
 
     await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
-    await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
+    if (!noProtocolTest) await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
 
     emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
-    emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    if (!noProtocolTest) emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
     emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
 
     rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
