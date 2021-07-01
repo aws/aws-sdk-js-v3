@@ -42,6 +42,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1283,7 +1284,7 @@ export const deserializeAws_restJson1ListPlacementsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.placements !== undefined && data.placements !== null) {
     contents.placements = deserializeAws_restJson1PlacementSummaryList(data.placements, context);
@@ -1358,7 +1359,7 @@ export const deserializeAws_restJson1ListProjectsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.projects !== undefined && data.projects !== null) {
     contents.projects = deserializeAws_restJson1ProjectSummaryList(data.projects, context);
@@ -1779,10 +1780,10 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1800,10 +1801,10 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1821,10 +1822,10 @@ const deserializeAws_restJson1ResourceConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1842,10 +1843,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1863,10 +1864,10 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1976,7 +1977,7 @@ const deserializeAws_restJson1DefaultPlacementAttributeMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -1991,7 +1992,7 @@ const deserializeAws_restJson1DeviceCallbackOverrideMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -2003,7 +2004,7 @@ const deserializeAws_restJson1DeviceMap = (output: any, context: __SerdeContext)
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -2014,7 +2015,7 @@ const deserializeAws_restJson1DeviceTemplate = (output: any, context: __SerdeCon
       output.callbackOverrides !== undefined && output.callbackOverrides !== null
         ? deserializeAws_restJson1DeviceCallbackOverrideMap(output.callbackOverrides, context)
         : undefined,
-    deviceType: output.deviceType !== undefined && output.deviceType !== null ? output.deviceType : undefined,
+    deviceType: __expectString(output.deviceType),
   } as any;
 };
 
@@ -2043,7 +2044,7 @@ const deserializeAws_restJson1PlacementAttributeMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -2058,9 +2059,8 @@ const deserializeAws_restJson1PlacementDescription = (output: any, context: __Se
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
-    placementName:
-      output.placementName !== undefined && output.placementName !== null ? output.placementName : undefined,
-    projectName: output.projectName !== undefined && output.projectName !== null ? output.projectName : undefined,
+    placementName: __expectString(output.placementName),
+    projectName: __expectString(output.projectName),
     updatedDate:
       output.updatedDate !== undefined && output.updatedDate !== null
         ? new Date(Math.round(output.updatedDate * 1000))
@@ -2074,9 +2074,8 @@ const deserializeAws_restJson1PlacementSummary = (output: any, context: __SerdeC
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
-    placementName:
-      output.placementName !== undefined && output.placementName !== null ? output.placementName : undefined,
-    projectName: output.projectName !== undefined && output.projectName !== null ? output.projectName : undefined,
+    placementName: __expectString(output.placementName),
+    projectName: __expectString(output.projectName),
     updatedDate:
       output.updatedDate !== undefined && output.updatedDate !== null
         ? new Date(Math.round(output.updatedDate * 1000))
@@ -2110,17 +2109,17 @@ const deserializeAws_restJson1PlacementTemplate = (output: any, context: __Serde
 
 const deserializeAws_restJson1ProjectDescription = (output: any, context: __SerdeContext): ProjectDescription => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     placementTemplate:
       output.placementTemplate !== undefined && output.placementTemplate !== null
         ? deserializeAws_restJson1PlacementTemplate(output.placementTemplate, context)
         : undefined,
-    projectName: output.projectName !== undefined && output.projectName !== null ? output.projectName : undefined,
+    projectName: __expectString(output.projectName),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
@@ -2134,12 +2133,12 @@ const deserializeAws_restJson1ProjectDescription = (output: any, context: __Serd
 
 const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
-    projectName: output.projectName !== undefined && output.projectName !== null ? output.projectName : undefined,
+    projectName: __expectString(output.projectName),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
@@ -2169,7 +2168,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

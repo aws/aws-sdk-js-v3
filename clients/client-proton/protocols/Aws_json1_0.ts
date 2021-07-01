@@ -282,7 +282,7 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -6170,16 +6170,13 @@ const deserializeAws_json1_0AcceptEnvironmentAccountConnectionOutput = (
 
 const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_0AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
   return {
-    pipelineServiceRoleArn:
-      output.pipelineServiceRoleArn !== undefined && output.pipelineServiceRoleArn !== null
-        ? output.pipelineServiceRoleArn
-        : undefined,
+    pipelineServiceRoleArn: __expectString(output.pipelineServiceRoleArn),
   } as any;
 };
 
@@ -6224,8 +6221,8 @@ const deserializeAws_json1_0CompatibleEnvironmentTemplate = (
   context: __SerdeContext
 ): CompatibleEnvironmentTemplate => {
   return {
-    majorVersion: output.majorVersion !== undefined && output.majorVersion !== null ? output.majorVersion : undefined,
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    majorVersion: __expectString(output.majorVersion),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
@@ -6245,7 +6242,7 @@ const deserializeAws_json1_0CompatibleEnvironmentTemplateList = (
 
 const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6413,26 +6410,16 @@ const deserializeAws_json1_0DeleteServiceTemplateVersionOutput = (
 
 const deserializeAws_json1_0Environment = (output: any, context: __SerdeContext): Environment => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    deploymentStatus:
-      output.deploymentStatus !== undefined && output.deploymentStatus !== null ? output.deploymentStatus : undefined,
-    deploymentStatusMessage:
-      output.deploymentStatusMessage !== undefined && output.deploymentStatusMessage !== null
-        ? output.deploymentStatusMessage
-        : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    environmentAccountConnectionId:
-      output.environmentAccountConnectionId !== undefined && output.environmentAccountConnectionId !== null
-        ? output.environmentAccountConnectionId
-        : undefined,
-    environmentAccountId:
-      output.environmentAccountId !== undefined && output.environmentAccountId !== null
-        ? output.environmentAccountId
-        : undefined,
+    deploymentStatus: __expectString(output.deploymentStatus),
+    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
+    description: __expectString(output.description),
+    environmentAccountConnectionId: __expectString(output.environmentAccountConnectionId),
+    environmentAccountId: __expectString(output.environmentAccountId),
     lastDeploymentAttemptedAt:
       output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
         ? new Date(Math.round(output.lastDeploymentAttemptedAt * 1000))
@@ -6441,22 +6428,13 @@ const deserializeAws_json1_0Environment = (output: any, context: __SerdeContext)
       output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
         ? new Date(Math.round(output.lastDeploymentSucceededAt * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    protonServiceRoleArn:
-      output.protonServiceRoleArn !== undefined && output.protonServiceRoleArn !== null
-        ? output.protonServiceRoleArn
-        : undefined,
-    provisioning: output.provisioning !== undefined && output.provisioning !== null ? output.provisioning : undefined,
-    spec: output.spec !== undefined && output.spec !== null ? output.spec : undefined,
-    templateMajorVersion:
-      output.templateMajorVersion !== undefined && output.templateMajorVersion !== null
-        ? output.templateMajorVersion
-        : undefined,
-    templateMinorVersion:
-      output.templateMinorVersion !== undefined && output.templateMinorVersion !== null
-        ? output.templateMinorVersion
-        : undefined,
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    name: __expectString(output.name),
+    protonServiceRoleArn: __expectString(output.protonServiceRoleArn),
+    provisioning: __expectString(output.provisioning),
+    spec: __expectString(output.spec),
+    templateMajorVersion: __expectString(output.templateMajorVersion),
+    templateMinorVersion: __expectString(output.templateMinorVersion),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
@@ -6465,28 +6443,21 @@ const deserializeAws_json1_0EnvironmentAccountConnection = (
   context: __SerdeContext
 ): EnvironmentAccountConnection => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    environmentAccountId:
-      output.environmentAccountId !== undefined && output.environmentAccountId !== null
-        ? output.environmentAccountId
-        : undefined,
-    environmentName:
-      output.environmentName !== undefined && output.environmentName !== null ? output.environmentName : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    arn: __expectString(output.arn),
+    environmentAccountId: __expectString(output.environmentAccountId),
+    environmentName: __expectString(output.environmentName),
+    id: __expectString(output.id),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
         ? new Date(Math.round(output.lastModifiedAt * 1000))
         : undefined,
-    managementAccountId:
-      output.managementAccountId !== undefined && output.managementAccountId !== null
-        ? output.managementAccountId
-        : undefined,
+    managementAccountId: __expectString(output.managementAccountId),
     requestedAt:
       output.requestedAt !== undefined && output.requestedAt !== null
         ? new Date(Math.round(output.requestedAt * 1000))
         : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    roleArn: __expectString(output.roleArn),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -6495,28 +6466,21 @@ const deserializeAws_json1_0EnvironmentAccountConnectionSummary = (
   context: __SerdeContext
 ): EnvironmentAccountConnectionSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    environmentAccountId:
-      output.environmentAccountId !== undefined && output.environmentAccountId !== null
-        ? output.environmentAccountId
-        : undefined,
-    environmentName:
-      output.environmentName !== undefined && output.environmentName !== null ? output.environmentName : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    arn: __expectString(output.arn),
+    environmentAccountId: __expectString(output.environmentAccountId),
+    environmentName: __expectString(output.environmentName),
+    id: __expectString(output.id),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
         ? new Date(Math.round(output.lastModifiedAt * 1000))
         : undefined,
-    managementAccountId:
-      output.managementAccountId !== undefined && output.managementAccountId !== null
-        ? output.managementAccountId
-        : undefined,
+    managementAccountId: __expectString(output.managementAccountId),
     requestedAt:
       output.requestedAt !== undefined && output.requestedAt !== null
         ? new Date(Math.round(output.requestedAt * 1000))
         : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    roleArn: __expectString(output.roleArn),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -6536,26 +6500,16 @@ const deserializeAws_json1_0EnvironmentAccountConnectionSummaryList = (
 
 const deserializeAws_json1_0EnvironmentSummary = (output: any, context: __SerdeContext): EnvironmentSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    deploymentStatus:
-      output.deploymentStatus !== undefined && output.deploymentStatus !== null ? output.deploymentStatus : undefined,
-    deploymentStatusMessage:
-      output.deploymentStatusMessage !== undefined && output.deploymentStatusMessage !== null
-        ? output.deploymentStatusMessage
-        : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    environmentAccountConnectionId:
-      output.environmentAccountConnectionId !== undefined && output.environmentAccountConnectionId !== null
-        ? output.environmentAccountConnectionId
-        : undefined,
-    environmentAccountId:
-      output.environmentAccountId !== undefined && output.environmentAccountId !== null
-        ? output.environmentAccountId
-        : undefined,
+    deploymentStatus: __expectString(output.deploymentStatus),
+    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
+    description: __expectString(output.description),
+    environmentAccountConnectionId: __expectString(output.environmentAccountConnectionId),
+    environmentAccountId: __expectString(output.environmentAccountId),
     lastDeploymentAttemptedAt:
       output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
         ? new Date(Math.round(output.lastDeploymentAttemptedAt * 1000))
@@ -6564,21 +6518,12 @@ const deserializeAws_json1_0EnvironmentSummary = (output: any, context: __SerdeC
       output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
         ? new Date(Math.round(output.lastDeploymentSucceededAt * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    protonServiceRoleArn:
-      output.protonServiceRoleArn !== undefined && output.protonServiceRoleArn !== null
-        ? output.protonServiceRoleArn
-        : undefined,
-    provisioning: output.provisioning !== undefined && output.provisioning !== null ? output.provisioning : undefined,
-    templateMajorVersion:
-      output.templateMajorVersion !== undefined && output.templateMajorVersion !== null
-        ? output.templateMajorVersion
-        : undefined,
-    templateMinorVersion:
-      output.templateMinorVersion !== undefined && output.templateMinorVersion !== null
-        ? output.templateMinorVersion
-        : undefined,
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    name: __expectString(output.name),
+    protonServiceRoleArn: __expectString(output.protonServiceRoleArn),
+    provisioning: __expectString(output.provisioning),
+    templateMajorVersion: __expectString(output.templateMajorVersion),
+    templateMinorVersion: __expectString(output.templateMinorVersion),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
@@ -6595,25 +6540,21 @@ const deserializeAws_json1_0EnvironmentSummaryList = (output: any, context: __Se
 
 const deserializeAws_json1_0EnvironmentTemplate = (output: any, context: __SerdeContext): EnvironmentTemplate => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
-    encryptionKey:
-      output.encryptionKey !== undefined && output.encryptionKey !== null ? output.encryptionKey : undefined,
+    description: __expectString(output.description),
+    displayName: __expectString(output.displayName),
+    encryptionKey: __expectString(output.encryptionKey),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
         ? new Date(Math.round(output.lastModifiedAt * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    provisioning: output.provisioning !== undefined && output.provisioning !== null ? output.provisioning : undefined,
-    recommendedVersion:
-      output.recommendedVersion !== undefined && output.recommendedVersion !== null
-        ? output.recommendedVersion
-        : undefined,
+    name: __expectString(output.name),
+    provisioning: __expectString(output.provisioning),
+    recommendedVersion: __expectString(output.recommendedVersion),
   } as any;
 };
 
@@ -6622,23 +6563,20 @@ const deserializeAws_json1_0EnvironmentTemplateSummary = (
   context: __SerdeContext
 ): EnvironmentTemplateSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
+    description: __expectString(output.description),
+    displayName: __expectString(output.displayName),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
         ? new Date(Math.round(output.lastModifiedAt * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    provisioning: output.provisioning !== undefined && output.provisioning !== null ? output.provisioning : undefined,
-    recommendedVersion:
-      output.recommendedVersion !== undefined && output.recommendedVersion !== null
-        ? output.recommendedVersion
-        : undefined,
+    name: __expectString(output.name),
+    provisioning: __expectString(output.provisioning),
+    recommendedVersion: __expectString(output.recommendedVersion),
   } as any;
 };
 
@@ -6661,27 +6599,23 @@ const deserializeAws_json1_0EnvironmentTemplateVersion = (
   context: __SerdeContext
 ): EnvironmentTemplateVersion => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
         ? new Date(Math.round(output.lastModifiedAt * 1000))
         : undefined,
-    majorVersion: output.majorVersion !== undefined && output.majorVersion !== null ? output.majorVersion : undefined,
-    minorVersion: output.minorVersion !== undefined && output.minorVersion !== null ? output.minorVersion : undefined,
-    recommendedMinorVersion:
-      output.recommendedMinorVersion !== undefined && output.recommendedMinorVersion !== null
-        ? output.recommendedMinorVersion
-        : undefined,
-    schema: output.schema !== undefined && output.schema !== null ? output.schema : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    majorVersion: __expectString(output.majorVersion),
+    minorVersion: __expectString(output.minorVersion),
+    recommendedMinorVersion: __expectString(output.recommendedMinorVersion),
+    schema: __expectString(output.schema),
+    status: __expectString(output.status),
+    statusMessage: __expectString(output.statusMessage),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
@@ -6690,26 +6624,22 @@ const deserializeAws_json1_0EnvironmentTemplateVersionSummary = (
   context: __SerdeContext
 ): EnvironmentTemplateVersionSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
         ? new Date(Math.round(output.lastModifiedAt * 1000))
         : undefined,
-    majorVersion: output.majorVersion !== undefined && output.majorVersion !== null ? output.majorVersion : undefined,
-    minorVersion: output.minorVersion !== undefined && output.minorVersion !== null ? output.minorVersion : undefined,
-    recommendedMinorVersion:
-      output.recommendedMinorVersion !== undefined && output.recommendedMinorVersion !== null
-        ? output.recommendedMinorVersion
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    majorVersion: __expectString(output.majorVersion),
+    minorVersion: __expectString(output.minorVersion),
+    recommendedMinorVersion: __expectString(output.recommendedMinorVersion),
+    status: __expectString(output.status),
+    statusMessage: __expectString(output.statusMessage),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
@@ -6834,7 +6764,7 @@ const deserializeAws_json1_0InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6847,7 +6777,7 @@ const deserializeAws_json1_0ListEnvironmentAccountConnectionsOutput = (
       output.environmentAccountConnections !== undefined && output.environmentAccountConnections !== null
         ? deserializeAws_json1_0EnvironmentAccountConnectionSummaryList(output.environmentAccountConnections, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6857,7 +6787,7 @@ const deserializeAws_json1_0ListEnvironmentsOutput = (output: any, context: __Se
       output.environments !== undefined && output.environments !== null
         ? deserializeAws_json1_0EnvironmentSummaryList(output.environments, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6866,7 +6796,7 @@ const deserializeAws_json1_0ListEnvironmentTemplatesOutput = (
   context: __SerdeContext
 ): ListEnvironmentTemplatesOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     templates:
       output.templates !== undefined && output.templates !== null
         ? deserializeAws_json1_0EnvironmentTemplateSummaryList(output.templates, context)
@@ -6879,7 +6809,7 @@ const deserializeAws_json1_0ListEnvironmentTemplateVersionsOutput = (
   context: __SerdeContext
 ): ListEnvironmentTemplateVersionsOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     templateVersions:
       output.templateVersions !== undefined && output.templateVersions !== null
         ? deserializeAws_json1_0EnvironmentTemplateVersionSummaryList(output.templateVersions, context)
@@ -6892,7 +6822,7 @@ const deserializeAws_json1_0ListServiceInstancesOutput = (
   context: __SerdeContext
 ): ListServiceInstancesOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     serviceInstances:
       output.serviceInstances !== undefined && output.serviceInstances !== null
         ? deserializeAws_json1_0ServiceInstanceSummaryList(output.serviceInstances, context)
@@ -6902,7 +6832,7 @@ const deserializeAws_json1_0ListServiceInstancesOutput = (
 
 const deserializeAws_json1_0ListServicesOutput = (output: any, context: __SerdeContext): ListServicesOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     services:
       output.services !== undefined && output.services !== null
         ? deserializeAws_json1_0ServiceSummaryList(output.services, context)
@@ -6915,7 +6845,7 @@ const deserializeAws_json1_0ListServiceTemplatesOutput = (
   context: __SerdeContext
 ): ListServiceTemplatesOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     templates:
       output.templates !== undefined && output.templates !== null
         ? deserializeAws_json1_0ServiceTemplateSummaryList(output.templates, context)
@@ -6928,7 +6858,7 @@ const deserializeAws_json1_0ListServiceTemplateVersionsOutput = (
   context: __SerdeContext
 ): ListServiceTemplateVersionsOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     templateVersions:
       output.templateVersions !== undefined && output.templateVersions !== null
         ? deserializeAws_json1_0ServiceTemplateVersionSummaryList(output.templateVersions, context)
@@ -6941,7 +6871,7 @@ const deserializeAws_json1_0ListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_0TagList(output.tags, context)
@@ -6966,56 +6896,47 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_0Service = (output: any, context: __SerdeContext): Service => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    branchName: output.branchName !== undefined && output.branchName !== null ? output.branchName : undefined,
+    arn: __expectString(output.arn),
+    branchName: __expectString(output.branchName),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
         ? new Date(Math.round(output.lastModifiedAt * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     pipeline:
       output.pipeline !== undefined && output.pipeline !== null
         ? deserializeAws_json1_0ServicePipeline(output.pipeline, context)
         : undefined,
-    repositoryConnectionArn:
-      output.repositoryConnectionArn !== undefined && output.repositoryConnectionArn !== null
-        ? output.repositoryConnectionArn
-        : undefined,
-    repositoryId: output.repositoryId !== undefined && output.repositoryId !== null ? output.repositoryId : undefined,
-    spec: output.spec !== undefined && output.spec !== null ? output.spec : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    repositoryConnectionArn: __expectString(output.repositoryConnectionArn),
+    repositoryId: __expectString(output.repositoryId),
+    spec: __expectString(output.spec),
+    status: __expectString(output.status),
+    statusMessage: __expectString(output.statusMessage),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
 const deserializeAws_json1_0ServiceInstance = (output: any, context: __SerdeContext): ServiceInstance => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    deploymentStatus:
-      output.deploymentStatus !== undefined && output.deploymentStatus !== null ? output.deploymentStatus : undefined,
-    deploymentStatusMessage:
-      output.deploymentStatusMessage !== undefined && output.deploymentStatusMessage !== null
-        ? output.deploymentStatusMessage
-        : undefined,
-    environmentName:
-      output.environmentName !== undefined && output.environmentName !== null ? output.environmentName : undefined,
+    deploymentStatus: __expectString(output.deploymentStatus),
+    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
+    environmentName: __expectString(output.environmentName),
     lastDeploymentAttemptedAt:
       output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
         ? new Date(Math.round(output.lastDeploymentAttemptedAt * 1000))
@@ -7024,36 +6945,25 @@ const deserializeAws_json1_0ServiceInstance = (output: any, context: __SerdeCont
       output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
         ? new Date(Math.round(output.lastDeploymentSucceededAt * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    serviceName: output.serviceName !== undefined && output.serviceName !== null ? output.serviceName : undefined,
-    spec: output.spec !== undefined && output.spec !== null ? output.spec : undefined,
-    templateMajorVersion:
-      output.templateMajorVersion !== undefined && output.templateMajorVersion !== null
-        ? output.templateMajorVersion
-        : undefined,
-    templateMinorVersion:
-      output.templateMinorVersion !== undefined && output.templateMinorVersion !== null
-        ? output.templateMinorVersion
-        : undefined,
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    name: __expectString(output.name),
+    serviceName: __expectString(output.serviceName),
+    spec: __expectString(output.spec),
+    templateMajorVersion: __expectString(output.templateMajorVersion),
+    templateMinorVersion: __expectString(output.templateMinorVersion),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
 const deserializeAws_json1_0ServiceInstanceSummary = (output: any, context: __SerdeContext): ServiceInstanceSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    deploymentStatus:
-      output.deploymentStatus !== undefined && output.deploymentStatus !== null ? output.deploymentStatus : undefined,
-    deploymentStatusMessage:
-      output.deploymentStatusMessage !== undefined && output.deploymentStatusMessage !== null
-        ? output.deploymentStatusMessage
-        : undefined,
-    environmentName:
-      output.environmentName !== undefined && output.environmentName !== null ? output.environmentName : undefined,
+    deploymentStatus: __expectString(output.deploymentStatus),
+    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
+    environmentName: __expectString(output.environmentName),
     lastDeploymentAttemptedAt:
       output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
         ? new Date(Math.round(output.lastDeploymentAttemptedAt * 1000))
@@ -7062,17 +6972,11 @@ const deserializeAws_json1_0ServiceInstanceSummary = (output: any, context: __Se
       output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
         ? new Date(Math.round(output.lastDeploymentSucceededAt * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    serviceName: output.serviceName !== undefined && output.serviceName !== null ? output.serviceName : undefined,
-    templateMajorVersion:
-      output.templateMajorVersion !== undefined && output.templateMajorVersion !== null
-        ? output.templateMajorVersion
-        : undefined,
-    templateMinorVersion:
-      output.templateMinorVersion !== undefined && output.templateMinorVersion !== null
-        ? output.templateMinorVersion
-        : undefined,
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    name: __expectString(output.name),
+    serviceName: __expectString(output.serviceName),
+    templateMajorVersion: __expectString(output.templateMajorVersion),
+    templateMinorVersion: __expectString(output.templateMinorVersion),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
@@ -7092,17 +6996,13 @@ const deserializeAws_json1_0ServiceInstanceSummaryList = (
 
 const deserializeAws_json1_0ServicePipeline = (output: any, context: __SerdeContext): ServicePipeline => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    deploymentStatus:
-      output.deploymentStatus !== undefined && output.deploymentStatus !== null ? output.deploymentStatus : undefined,
-    deploymentStatusMessage:
-      output.deploymentStatusMessage !== undefined && output.deploymentStatusMessage !== null
-        ? output.deploymentStatusMessage
-        : undefined,
+    deploymentStatus: __expectString(output.deploymentStatus),
+    deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
     lastDeploymentAttemptedAt:
       output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
         ? new Date(Math.round(output.lastDeploymentAttemptedAt * 1000))
@@ -7111,16 +7011,10 @@ const deserializeAws_json1_0ServicePipeline = (output: any, context: __SerdeCont
       output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
         ? new Date(Math.round(output.lastDeploymentSucceededAt * 1000))
         : undefined,
-    spec: output.spec !== undefined && output.spec !== null ? output.spec : undefined,
-    templateMajorVersion:
-      output.templateMajorVersion !== undefined && output.templateMajorVersion !== null
-        ? output.templateMajorVersion
-        : undefined,
-    templateMinorVersion:
-      output.templateMinorVersion !== undefined && output.templateMinorVersion !== null
-        ? output.templateMinorVersion
-        : undefined,
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    spec: __expectString(output.spec),
+    templateMajorVersion: __expectString(output.templateMajorVersion),
+    templateMinorVersion: __expectString(output.templateMinorVersion),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
@@ -7129,27 +7023,26 @@ const deserializeAws_json1_0ServiceQuotaExceededException = (
   context: __SerdeContext
 ): ServiceQuotaExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_0ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
         ? new Date(Math.round(output.lastModifiedAt * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    name: __expectString(output.name),
+    status: __expectString(output.status),
+    statusMessage: __expectString(output.statusMessage),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
@@ -7166,53 +7059,40 @@ const deserializeAws_json1_0ServiceSummaryList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_0ServiceTemplate = (output: any, context: __SerdeContext): ServiceTemplate => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
-    encryptionKey:
-      output.encryptionKey !== undefined && output.encryptionKey !== null ? output.encryptionKey : undefined,
+    description: __expectString(output.description),
+    displayName: __expectString(output.displayName),
+    encryptionKey: __expectString(output.encryptionKey),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
         ? new Date(Math.round(output.lastModifiedAt * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    pipelineProvisioning:
-      output.pipelineProvisioning !== undefined && output.pipelineProvisioning !== null
-        ? output.pipelineProvisioning
-        : undefined,
-    recommendedVersion:
-      output.recommendedVersion !== undefined && output.recommendedVersion !== null
-        ? output.recommendedVersion
-        : undefined,
+    name: __expectString(output.name),
+    pipelineProvisioning: __expectString(output.pipelineProvisioning),
+    recommendedVersion: __expectString(output.recommendedVersion),
   } as any;
 };
 
 const deserializeAws_json1_0ServiceTemplateSummary = (output: any, context: __SerdeContext): ServiceTemplateSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
+    description: __expectString(output.description),
+    displayName: __expectString(output.displayName),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
         ? new Date(Math.round(output.lastModifiedAt * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    pipelineProvisioning:
-      output.pipelineProvisioning !== undefined && output.pipelineProvisioning !== null
-        ? output.pipelineProvisioning
-        : undefined,
-    recommendedVersion:
-      output.recommendedVersion !== undefined && output.recommendedVersion !== null
-        ? output.recommendedVersion
-        : undefined,
+    name: __expectString(output.name),
+    pipelineProvisioning: __expectString(output.pipelineProvisioning),
+    recommendedVersion: __expectString(output.recommendedVersion),
   } as any;
 };
 
@@ -7232,7 +7112,7 @@ const deserializeAws_json1_0ServiceTemplateSummaryList = (
 
 const deserializeAws_json1_0ServiceTemplateVersion = (output: any, context: __SerdeContext): ServiceTemplateVersion => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     compatibleEnvironmentTemplates:
       output.compatibleEnvironmentTemplates !== undefined && output.compatibleEnvironmentTemplates !== null
         ? deserializeAws_json1_0CompatibleEnvironmentTemplateList(output.compatibleEnvironmentTemplates, context)
@@ -7241,22 +7121,18 @@ const deserializeAws_json1_0ServiceTemplateVersion = (output: any, context: __Se
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
         ? new Date(Math.round(output.lastModifiedAt * 1000))
         : undefined,
-    majorVersion: output.majorVersion !== undefined && output.majorVersion !== null ? output.majorVersion : undefined,
-    minorVersion: output.minorVersion !== undefined && output.minorVersion !== null ? output.minorVersion : undefined,
-    recommendedMinorVersion:
-      output.recommendedMinorVersion !== undefined && output.recommendedMinorVersion !== null
-        ? output.recommendedMinorVersion
-        : undefined,
-    schema: output.schema !== undefined && output.schema !== null ? output.schema : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    majorVersion: __expectString(output.majorVersion),
+    minorVersion: __expectString(output.minorVersion),
+    recommendedMinorVersion: __expectString(output.recommendedMinorVersion),
+    schema: __expectString(output.schema),
+    status: __expectString(output.status),
+    statusMessage: __expectString(output.statusMessage),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
@@ -7265,26 +7141,22 @@ const deserializeAws_json1_0ServiceTemplateVersionSummary = (
   context: __SerdeContext
 ): ServiceTemplateVersionSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     lastModifiedAt:
       output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
         ? new Date(Math.round(output.lastModifiedAt * 1000))
         : undefined,
-    majorVersion: output.majorVersion !== undefined && output.majorVersion !== null ? output.majorVersion : undefined,
-    minorVersion: output.minorVersion !== undefined && output.minorVersion !== null ? output.minorVersion : undefined,
-    recommendedMinorVersion:
-      output.recommendedMinorVersion !== undefined && output.recommendedMinorVersion !== null
-        ? output.recommendedMinorVersion
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
-    templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
+    majorVersion: __expectString(output.majorVersion),
+    minorVersion: __expectString(output.minorVersion),
+    recommendedMinorVersion: __expectString(output.recommendedMinorVersion),
+    status: __expectString(output.status),
+    statusMessage: __expectString(output.statusMessage),
+    templateName: __expectString(output.templateName),
   } as any;
 };
 
@@ -7304,8 +7176,8 @@ const deserializeAws_json1_0ServiceTemplateVersionSummaryList = (
 
 const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -7326,7 +7198,7 @@ const deserializeAws_json1_0TagResourceOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -7453,7 +7325,7 @@ const deserializeAws_json1_0UpdateServiceTemplateVersionOutput = (
 
 const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 

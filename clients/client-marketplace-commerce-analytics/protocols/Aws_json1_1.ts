@@ -11,7 +11,7 @@ import {
   StartSupportDataExportResult,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -224,8 +224,7 @@ const serializeAws_json1_1StartSupportDataExportRequest = (
 
 const deserializeAws_json1_1GenerateDataSetResult = (output: any, context: __SerdeContext): GenerateDataSetResult => {
   return {
-    dataSetRequestId:
-      output.dataSetRequestId !== undefined && output.dataSetRequestId !== null ? output.dataSetRequestId : undefined,
+    dataSetRequestId: __expectString(output.dataSetRequestId),
   } as any;
 };
 
@@ -234,7 +233,7 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsException = (
   context: __SerdeContext
 ): MarketplaceCommerceAnalyticsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -243,8 +242,7 @@ const deserializeAws_json1_1StartSupportDataExportResult = (
   context: __SerdeContext
 ): StartSupportDataExportResult => {
   return {
-    dataSetRequestId:
-      output.dataSetRequestId !== undefined && output.dataSetRequestId !== null ? output.dataSetRequestId : undefined,
+    dataSetRequestId: __expectString(output.dataSetRequestId),
   } as any;
 };
 

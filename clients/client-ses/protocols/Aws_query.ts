@@ -431,6 +431,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
@@ -8053,7 +8054,7 @@ const deserializeAws_queryAccountSendingPausedException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8064,10 +8065,10 @@ const deserializeAws_queryAddHeaderAction = (output: any, context: __SerdeContex
     HeaderValue: undefined,
   };
   if (output["HeaderName"] !== undefined) {
-    contents.HeaderName = output["HeaderName"];
+    contents.HeaderName = __expectString(output["HeaderName"]);
   }
   if (output["HeaderValue"] !== undefined) {
-    contents.HeaderValue = output["HeaderValue"];
+    contents.HeaderValue = __expectString(output["HeaderValue"]);
   }
   return contents;
 };
@@ -8079,7 +8080,7 @@ const deserializeAws_queryAddressList = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -8089,10 +8090,10 @@ const deserializeAws_queryAlreadyExistsException = (output: any, context: __Serd
     message: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8106,19 +8107,19 @@ const deserializeAws_queryBounceAction = (output: any, context: __SerdeContext):
     Sender: undefined,
   };
   if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = output["TopicArn"];
+    contents.TopicArn = __expectString(output["TopicArn"]);
   }
   if (output["SmtpReplyCode"] !== undefined) {
-    contents.SmtpReplyCode = output["SmtpReplyCode"];
+    contents.SmtpReplyCode = __expectString(output["SmtpReplyCode"]);
   }
   if (output["StatusCode"] !== undefined) {
-    contents.StatusCode = output["StatusCode"];
+    contents.StatusCode = __expectString(output["StatusCode"]);
   }
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message = __expectString(output["Message"]);
   }
   if (output["Sender"] !== undefined) {
-    contents.Sender = output["Sender"];
+    contents.Sender = __expectString(output["Sender"]);
   }
   return contents;
 };
@@ -8133,13 +8134,13 @@ const deserializeAws_queryBulkEmailDestinationStatus = (
     MessageId: undefined,
   };
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["Error"] !== undefined) {
-    contents.Error = output["Error"];
+    contents.Error = __expectString(output["Error"]);
   }
   if (output["MessageId"] !== undefined) {
-    contents.MessageId = output["MessageId"];
+    contents.MessageId = __expectString(output["MessageId"]);
   }
   return contents;
 };
@@ -8164,10 +8165,10 @@ const deserializeAws_queryCannotDeleteException = (output: any, context: __Serde
     message: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8206,13 +8207,13 @@ const deserializeAws_queryCloudWatchDimensionConfiguration = (
     DefaultDimensionValue: undefined,
   };
   if (output["DimensionName"] !== undefined) {
-    contents.DimensionName = output["DimensionName"];
+    contents.DimensionName = __expectString(output["DimensionName"]);
   }
   if (output["DimensionValueSource"] !== undefined) {
-    contents.DimensionValueSource = output["DimensionValueSource"];
+    contents.DimensionValueSource = __expectString(output["DimensionValueSource"]);
   }
   if (output["DefaultDimensionValue"] !== undefined) {
-    contents.DefaultDimensionValue = output["DefaultDimensionValue"];
+    contents.DefaultDimensionValue = __expectString(output["DefaultDimensionValue"]);
   }
   return contents;
 };
@@ -8236,7 +8237,7 @@ const deserializeAws_queryConfigurationSet = (output: any, context: __SerdeConte
     Name: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   return contents;
 };
@@ -8250,10 +8251,10 @@ const deserializeAws_queryConfigurationSetAlreadyExistsException = (
     message: undefined,
   };
   if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = output["ConfigurationSetName"];
+    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8267,10 +8268,10 @@ const deserializeAws_queryConfigurationSetDoesNotExistException = (
     message: undefined,
   };
   if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = output["ConfigurationSetName"];
+    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8295,10 +8296,10 @@ const deserializeAws_queryConfigurationSetSendingPausedException = (
     message: undefined,
   };
   if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = output["ConfigurationSetName"];
+    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8364,7 +8365,7 @@ const deserializeAws_queryCustomVerificationEmailInvalidContentException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8381,19 +8382,19 @@ const deserializeAws_queryCustomVerificationEmailTemplate = (
     FailureRedirectionURL: undefined,
   };
   if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = output["TemplateName"];
+    contents.TemplateName = __expectString(output["TemplateName"]);
   }
   if (output["FromEmailAddress"] !== undefined) {
-    contents.FromEmailAddress = output["FromEmailAddress"];
+    contents.FromEmailAddress = __expectString(output["FromEmailAddress"]);
   }
   if (output["TemplateSubject"] !== undefined) {
-    contents.TemplateSubject = output["TemplateSubject"];
+    contents.TemplateSubject = __expectString(output["TemplateSubject"]);
   }
   if (output["SuccessRedirectionURL"] !== undefined) {
-    contents.SuccessRedirectionURL = output["SuccessRedirectionURL"];
+    contents.SuccessRedirectionURL = __expectString(output["SuccessRedirectionURL"]);
   }
   if (output["FailureRedirectionURL"] !== undefined) {
-    contents.FailureRedirectionURL = output["FailureRedirectionURL"];
+    contents.FailureRedirectionURL = __expectString(output["FailureRedirectionURL"]);
   }
   return contents;
 };
@@ -8407,10 +8408,10 @@ const deserializeAws_queryCustomVerificationEmailTemplateAlreadyExistsException 
     message: undefined,
   };
   if (output["CustomVerificationEmailTemplateName"] !== undefined) {
-    contents.CustomVerificationEmailTemplateName = output["CustomVerificationEmailTemplateName"];
+    contents.CustomVerificationEmailTemplateName = __expectString(output["CustomVerificationEmailTemplateName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8424,10 +8425,10 @@ const deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistException =
     message: undefined,
   };
   if (output["CustomVerificationEmailTemplateName"] !== undefined) {
-    contents.CustomVerificationEmailTemplateName = output["CustomVerificationEmailTemplateName"];
+    contents.CustomVerificationEmailTemplateName = __expectString(output["CustomVerificationEmailTemplateName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8517,7 +8518,7 @@ const deserializeAws_queryDeliveryOptions = (output: any, context: __SerdeContex
     TlsPolicy: undefined,
   };
   if (output["TlsPolicy"] !== undefined) {
-    contents.TlsPolicy = output["TlsPolicy"];
+    contents.TlsPolicy = __expectString(output["TlsPolicy"]);
   }
   return contents;
 };
@@ -8635,7 +8636,7 @@ const deserializeAws_queryEventDestination = (output: any, context: __SerdeConte
     SNSDestination: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   if (output["Enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["Enabled"]);
@@ -8677,13 +8678,13 @@ const deserializeAws_queryEventDestinationAlreadyExistsException = (
     message: undefined,
   };
   if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = output["ConfigurationSetName"];
+    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
   if (output["EventDestinationName"] !== undefined) {
-    contents.EventDestinationName = output["EventDestinationName"];
+    contents.EventDestinationName = __expectString(output["EventDestinationName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8698,13 +8699,13 @@ const deserializeAws_queryEventDestinationDoesNotExistException = (
     message: undefined,
   };
   if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = output["ConfigurationSetName"];
+    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
   if (output["EventDestinationName"] !== undefined) {
-    contents.EventDestinationName = output["EventDestinationName"];
+    contents.EventDestinationName = __expectString(output["EventDestinationName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8727,7 +8728,7 @@ const deserializeAws_queryEventTypes = (output: any, context: __SerdeContext): (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -8740,10 +8741,10 @@ const deserializeAws_queryFromEmailAddressNotVerifiedException = (
     message: undefined,
   };
   if (output["FromEmailAddress"] !== undefined) {
-    contents.FromEmailAddress = output["FromEmailAddress"];
+    contents.FromEmailAddress = __expectString(output["FromEmailAddress"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8774,22 +8775,22 @@ const deserializeAws_queryGetCustomVerificationEmailTemplateResponse = (
     FailureRedirectionURL: undefined,
   };
   if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = output["TemplateName"];
+    contents.TemplateName = __expectString(output["TemplateName"]);
   }
   if (output["FromEmailAddress"] !== undefined) {
-    contents.FromEmailAddress = output["FromEmailAddress"];
+    contents.FromEmailAddress = __expectString(output["FromEmailAddress"]);
   }
   if (output["TemplateSubject"] !== undefined) {
-    contents.TemplateSubject = output["TemplateSubject"];
+    contents.TemplateSubject = __expectString(output["TemplateSubject"]);
   }
   if (output["TemplateContent"] !== undefined) {
-    contents.TemplateContent = output["TemplateContent"];
+    contents.TemplateContent = __expectString(output["TemplateContent"]);
   }
   if (output["SuccessRedirectionURL"] !== undefined) {
-    contents.SuccessRedirectionURL = output["SuccessRedirectionURL"];
+    contents.SuccessRedirectionURL = __expectString(output["SuccessRedirectionURL"]);
   }
   if (output["FailureRedirectionURL"] !== undefined) {
-    contents.FailureRedirectionURL = output["FailureRedirectionURL"];
+    contents.FailureRedirectionURL = __expectString(output["FailureRedirectionURL"]);
   }
   return contents;
 };
@@ -8943,7 +8944,7 @@ const deserializeAws_queryIdentityDkimAttributes = (output: any, context: __Serd
     contents.DkimEnabled = __parseBoolean(output["DkimEnabled"]);
   }
   if (output["DkimVerificationStatus"] !== undefined) {
-    contents.DkimVerificationStatus = output["DkimVerificationStatus"];
+    contents.DkimVerificationStatus = __expectString(output["DkimVerificationStatus"]);
   }
   if (output.DkimTokens === "") {
     contents.DkimTokens = [];
@@ -8964,7 +8965,7 @@ const deserializeAws_queryIdentityList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -8978,13 +8979,13 @@ const deserializeAws_queryIdentityMailFromDomainAttributes = (
     BehaviorOnMXFailure: undefined,
   };
   if (output["MailFromDomain"] !== undefined) {
-    contents.MailFromDomain = output["MailFromDomain"];
+    contents.MailFromDomain = __expectString(output["MailFromDomain"]);
   }
   if (output["MailFromDomainStatus"] !== undefined) {
-    contents.MailFromDomainStatus = output["MailFromDomainStatus"];
+    contents.MailFromDomainStatus = __expectString(output["MailFromDomainStatus"]);
   }
   if (output["BehaviorOnMXFailure"] !== undefined) {
-    contents.BehaviorOnMXFailure = output["BehaviorOnMXFailure"];
+    contents.BehaviorOnMXFailure = __expectString(output["BehaviorOnMXFailure"]);
   }
   return contents;
 };
@@ -9003,13 +9004,13 @@ const deserializeAws_queryIdentityNotificationAttributes = (
     HeadersInDeliveryNotificationsEnabled: undefined,
   };
   if (output["BounceTopic"] !== undefined) {
-    contents.BounceTopic = output["BounceTopic"];
+    contents.BounceTopic = __expectString(output["BounceTopic"]);
   }
   if (output["ComplaintTopic"] !== undefined) {
-    contents.ComplaintTopic = output["ComplaintTopic"];
+    contents.ComplaintTopic = __expectString(output["ComplaintTopic"]);
   }
   if (output["DeliveryTopic"] !== undefined) {
-    contents.DeliveryTopic = output["DeliveryTopic"];
+    contents.DeliveryTopic = __expectString(output["DeliveryTopic"]);
   }
   if (output["ForwardingEnabled"] !== undefined) {
     contents.ForwardingEnabled = __parseBoolean(output["ForwardingEnabled"]);
@@ -9035,10 +9036,10 @@ const deserializeAws_queryIdentityVerificationAttributes = (
     VerificationToken: undefined,
   };
   if (output["VerificationStatus"] !== undefined) {
-    contents.VerificationStatus = output["VerificationStatus"];
+    contents.VerificationStatus = __expectString(output["VerificationStatus"]);
   }
   if (output["VerificationToken"] !== undefined) {
-    contents.VerificationToken = output["VerificationToken"];
+    contents.VerificationToken = __expectString(output["VerificationToken"]);
   }
   return contents;
 };
@@ -9053,13 +9054,13 @@ const deserializeAws_queryInvalidCloudWatchDestinationException = (
     message: undefined,
   };
   if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = output["ConfigurationSetName"];
+    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
   if (output["EventDestinationName"] !== undefined) {
-    contents.EventDestinationName = output["EventDestinationName"];
+    contents.EventDestinationName = __expectString(output["EventDestinationName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9072,7 +9073,7 @@ const deserializeAws_queryInvalidConfigurationSetException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9085,7 +9086,7 @@ const deserializeAws_queryInvalidDeliveryOptionsException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9100,13 +9101,13 @@ const deserializeAws_queryInvalidFirehoseDestinationException = (
     message: undefined,
   };
   if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = output["ConfigurationSetName"];
+    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
   if (output["EventDestinationName"] !== undefined) {
-    contents.EventDestinationName = output["EventDestinationName"];
+    contents.EventDestinationName = __expectString(output["EventDestinationName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9120,10 +9121,10 @@ const deserializeAws_queryInvalidLambdaFunctionException = (
     message: undefined,
   };
   if (output["FunctionArn"] !== undefined) {
-    contents.FunctionArn = output["FunctionArn"];
+    contents.FunctionArn = __expectString(output["FunctionArn"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9133,7 +9134,7 @@ const deserializeAws_queryInvalidPolicyException = (output: any, context: __Serd
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9147,10 +9148,10 @@ const deserializeAws_queryInvalidRenderingParameterException = (
     message: undefined,
   };
   if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = output["TemplateName"];
+    contents.TemplateName = __expectString(output["TemplateName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9164,10 +9165,10 @@ const deserializeAws_queryInvalidS3ConfigurationException = (
     message: undefined,
   };
   if (output["Bucket"] !== undefined) {
-    contents.Bucket = output["Bucket"];
+    contents.Bucket = __expectString(output["Bucket"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9182,13 +9183,13 @@ const deserializeAws_queryInvalidSNSDestinationException = (
     message: undefined,
   };
   if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = output["ConfigurationSetName"];
+    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
   if (output["EventDestinationName"] !== undefined) {
-    contents.EventDestinationName = output["EventDestinationName"];
+    contents.EventDestinationName = __expectString(output["EventDestinationName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9202,10 +9203,10 @@ const deserializeAws_queryInvalidSnsTopicException = (
     message: undefined,
   };
   if (output["Topic"] !== undefined) {
-    contents.Topic = output["Topic"];
+    contents.Topic = __expectString(output["Topic"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9219,10 +9220,10 @@ const deserializeAws_queryInvalidTemplateException = (
     message: undefined,
   };
   if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = output["TemplateName"];
+    contents.TemplateName = __expectString(output["TemplateName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9235,7 +9236,7 @@ const deserializeAws_queryInvalidTrackingOptionsException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9249,10 +9250,10 @@ const deserializeAws_queryKinesisFirehoseDestination = (
     DeliveryStreamARN: undefined,
   };
   if (output["IAMRoleARN"] !== undefined) {
-    contents.IAMRoleARN = output["IAMRoleARN"];
+    contents.IAMRoleARN = __expectString(output["IAMRoleARN"]);
   }
   if (output["DeliveryStreamARN"] !== undefined) {
-    contents.DeliveryStreamARN = output["DeliveryStreamARN"];
+    contents.DeliveryStreamARN = __expectString(output["DeliveryStreamARN"]);
   }
   return contents;
 };
@@ -9264,13 +9265,13 @@ const deserializeAws_queryLambdaAction = (output: any, context: __SerdeContext):
     InvocationType: undefined,
   };
   if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = output["TopicArn"];
+    contents.TopicArn = __expectString(output["TopicArn"]);
   }
   if (output["FunctionArn"] !== undefined) {
-    contents.FunctionArn = output["FunctionArn"];
+    contents.FunctionArn = __expectString(output["FunctionArn"]);
   }
   if (output["InvocationType"] !== undefined) {
-    contents.InvocationType = output["InvocationType"];
+    contents.InvocationType = __expectString(output["InvocationType"]);
   }
   return contents;
 };
@@ -9280,7 +9281,7 @@ const deserializeAws_queryLimitExceededException = (output: any, context: __Serd
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9303,7 +9304,7 @@ const deserializeAws_queryListConfigurationSetsResponse = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   return contents;
 };
@@ -9329,7 +9330,7 @@ const deserializeAws_queryListCustomVerificationEmailTemplatesResponse = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   return contents;
 };
@@ -9349,7 +9350,7 @@ const deserializeAws_queryListIdentitiesResponse = (output: any, context: __Serd
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   return contents;
 };
@@ -9410,7 +9411,7 @@ const deserializeAws_queryListReceiptRuleSetsResponse = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   return contents;
 };
@@ -9430,7 +9431,7 @@ const deserializeAws_queryListTemplatesResponse = (output: any, context: __Serde
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   return contents;
 };
@@ -9477,7 +9478,7 @@ const deserializeAws_queryMailFromDomainNotVerifiedException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9487,7 +9488,7 @@ const deserializeAws_queryMessageRejected = (output: any, context: __SerdeContex
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9501,10 +9502,10 @@ const deserializeAws_queryMissingRenderingAttributeException = (
     message: undefined,
   };
   if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = output["TemplateName"];
+    contents.TemplateName = __expectString(output["TemplateName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9531,7 +9532,7 @@ const deserializeAws_queryPolicyMap = (output: any, context: __SerdeContext): { 
     }
     return {
       ...acc,
-      [pair["key"]]: pair["value"],
+      [pair["key"]]: __expectString(pair["value"]) as any,
     };
   }, {});
 };
@@ -9543,7 +9544,7 @@ const deserializeAws_queryPolicyNameList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -9555,7 +9556,7 @@ const deserializeAws_queryProductionAccessNotGrantedException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9627,7 +9628,7 @@ const deserializeAws_queryReceiptFilter = (output: any, context: __SerdeContext)
     IpFilter: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   if (output["IpFilter"] !== undefined) {
     contents.IpFilter = deserializeAws_queryReceiptIpFilter(output["IpFilter"], context);
@@ -9652,10 +9653,10 @@ const deserializeAws_queryReceiptIpFilter = (output: any, context: __SerdeContex
     Cidr: undefined,
   };
   if (output["Policy"] !== undefined) {
-    contents.Policy = output["Policy"];
+    contents.Policy = __expectString(output["Policy"]);
   }
   if (output["Cidr"] !== undefined) {
-    contents.Cidr = output["Cidr"];
+    contents.Cidr = __expectString(output["Cidr"]);
   }
   return contents;
 };
@@ -9670,13 +9671,13 @@ const deserializeAws_queryReceiptRule = (output: any, context: __SerdeContext): 
     ScanEnabled: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   if (output["Enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["TlsPolicy"] !== undefined) {
-    contents.TlsPolicy = output["TlsPolicy"];
+    contents.TlsPolicy = __expectString(output["TlsPolicy"]);
   }
   if (output.Recipients === "") {
     contents.Recipients = [];
@@ -9708,7 +9709,7 @@ const deserializeAws_queryReceiptRuleSetMetadata = (output: any, context: __Serd
     CreatedTimestamp: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   if (output["CreatedTimestamp"] !== undefined) {
     contents.CreatedTimestamp = new Date(output["CreatedTimestamp"]);
@@ -9745,7 +9746,7 @@ const deserializeAws_queryRecipientsList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -9784,10 +9785,10 @@ const deserializeAws_queryRuleDoesNotExistException = (
     message: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9801,10 +9802,10 @@ const deserializeAws_queryRuleSetDoesNotExistException = (
     message: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -9817,16 +9818,16 @@ const deserializeAws_queryS3Action = (output: any, context: __SerdeContext): S3A
     KmsKeyArn: undefined,
   };
   if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = output["TopicArn"];
+    contents.TopicArn = __expectString(output["TopicArn"]);
   }
   if (output["BucketName"] !== undefined) {
-    contents.BucketName = output["BucketName"];
+    contents.BucketName = __expectString(output["BucketName"]);
   }
   if (output["ObjectKeyPrefix"] !== undefined) {
-    contents.ObjectKeyPrefix = output["ObjectKeyPrefix"];
+    contents.ObjectKeyPrefix = __expectString(output["ObjectKeyPrefix"]);
   }
   if (output["KmsKeyArn"] !== undefined) {
-    contents.KmsKeyArn = output["KmsKeyArn"];
+    contents.KmsKeyArn = __expectString(output["KmsKeyArn"]);
   }
   return contents;
 };
@@ -9836,7 +9837,7 @@ const deserializeAws_querySendBounceResponse = (output: any, context: __SerdeCon
     MessageId: undefined,
   };
   if (output["MessageId"] !== undefined) {
-    contents.MessageId = output["MessageId"];
+    contents.MessageId = __expectString(output["MessageId"]);
   }
   return contents;
 };
@@ -9868,7 +9869,7 @@ const deserializeAws_querySendCustomVerificationEmailResponse = (
     MessageId: undefined,
   };
   if (output["MessageId"] !== undefined) {
-    contents.MessageId = output["MessageId"];
+    contents.MessageId = __expectString(output["MessageId"]);
   }
   return contents;
 };
@@ -9915,7 +9916,7 @@ const deserializeAws_querySendEmailResponse = (output: any, context: __SerdeCont
     MessageId: undefined,
   };
   if (output["MessageId"] !== undefined) {
-    contents.MessageId = output["MessageId"];
+    contents.MessageId = __expectString(output["MessageId"]);
   }
   return contents;
 };
@@ -9925,7 +9926,7 @@ const deserializeAws_querySendRawEmailResponse = (output: any, context: __SerdeC
     MessageId: undefined,
   };
   if (output["MessageId"] !== undefined) {
-    contents.MessageId = output["MessageId"];
+    contents.MessageId = __expectString(output["MessageId"]);
   }
   return contents;
 };
@@ -9938,7 +9939,7 @@ const deserializeAws_querySendTemplatedEmailResponse = (
     MessageId: undefined,
   };
   if (output["MessageId"] !== undefined) {
-    contents.MessageId = output["MessageId"];
+    contents.MessageId = __expectString(output["MessageId"]);
   }
   return contents;
 };
@@ -10005,10 +10006,10 @@ const deserializeAws_querySNSAction = (output: any, context: __SerdeContext): SN
     Encoding: undefined,
   };
   if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = output["TopicArn"];
+    contents.TopicArn = __expectString(output["TopicArn"]);
   }
   if (output["Encoding"] !== undefined) {
-    contents.Encoding = output["Encoding"];
+    contents.Encoding = __expectString(output["Encoding"]);
   }
   return contents;
 };
@@ -10018,7 +10019,7 @@ const deserializeAws_querySNSDestination = (output: any, context: __SerdeContext
     TopicARN: undefined,
   };
   if (output["TopicARN"] !== undefined) {
-    contents.TopicARN = output["TopicARN"];
+    contents.TopicARN = __expectString(output["TopicARN"]);
   }
   return contents;
 };
@@ -10029,10 +10030,10 @@ const deserializeAws_queryStopAction = (output: any, context: __SerdeContext): S
     TopicArn: undefined,
   };
   if (output["Scope"] !== undefined) {
-    contents.Scope = output["Scope"];
+    contents.Scope = __expectString(output["Scope"]);
   }
   if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = output["TopicArn"];
+    contents.TopicArn = __expectString(output["TopicArn"]);
   }
   return contents;
 };
@@ -10045,16 +10046,16 @@ const deserializeAws_queryTemplate = (output: any, context: __SerdeContext): Tem
     HtmlPart: undefined,
   };
   if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = output["TemplateName"];
+    contents.TemplateName = __expectString(output["TemplateName"]);
   }
   if (output["SubjectPart"] !== undefined) {
-    contents.SubjectPart = output["SubjectPart"];
+    contents.SubjectPart = __expectString(output["SubjectPart"]);
   }
   if (output["TextPart"] !== undefined) {
-    contents.TextPart = output["TextPart"];
+    contents.TextPart = __expectString(output["TextPart"]);
   }
   if (output["HtmlPart"] !== undefined) {
-    contents.HtmlPart = output["HtmlPart"];
+    contents.HtmlPart = __expectString(output["HtmlPart"]);
   }
   return contents;
 };
@@ -10068,10 +10069,10 @@ const deserializeAws_queryTemplateDoesNotExistException = (
     message: undefined,
   };
   if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = output["TemplateName"];
+    contents.TemplateName = __expectString(output["TemplateName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -10082,7 +10083,7 @@ const deserializeAws_queryTemplateMetadata = (output: any, context: __SerdeConte
     CreatedTimestamp: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   if (output["CreatedTimestamp"] !== undefined) {
     contents.CreatedTimestamp = new Date(output["CreatedTimestamp"]);
@@ -10109,7 +10110,7 @@ const deserializeAws_queryTestRenderTemplateResponse = (
     RenderedTemplate: undefined,
   };
   if (output["RenderedTemplate"] !== undefined) {
-    contents.RenderedTemplate = output["RenderedTemplate"];
+    contents.RenderedTemplate = __expectString(output["RenderedTemplate"]);
   }
   return contents;
 };
@@ -10119,7 +10120,7 @@ const deserializeAws_queryTrackingOptions = (output: any, context: __SerdeContex
     CustomRedirectDomain: undefined,
   };
   if (output["CustomRedirectDomain"] !== undefined) {
-    contents.CustomRedirectDomain = output["CustomRedirectDomain"];
+    contents.CustomRedirectDomain = __expectString(output["CustomRedirectDomain"]);
   }
   return contents;
 };
@@ -10133,10 +10134,10 @@ const deserializeAws_queryTrackingOptionsAlreadyExistsException = (
     message: undefined,
   };
   if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = output["ConfigurationSetName"];
+    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -10150,10 +10151,10 @@ const deserializeAws_queryTrackingOptionsDoesNotExistException = (
     message: undefined,
   };
   if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = output["ConfigurationSetName"];
+    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -10209,7 +10210,7 @@ const deserializeAws_queryVerificationTokenList = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10240,7 +10241,7 @@ const deserializeAws_queryVerifyDomainIdentityResponse = (
     VerificationToken: undefined,
   };
   if (output["VerificationToken"] !== undefined) {
-    contents.VerificationToken = output["VerificationToken"];
+    contents.VerificationToken = __expectString(output["VerificationToken"]);
   }
   return contents;
 };
@@ -10259,10 +10260,10 @@ const deserializeAws_queryWorkmailAction = (output: any, context: __SerdeContext
     OrganizationArn: undefined,
   };
   if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = output["TopicArn"];
+    contents.TopicArn = __expectString(output["TopicArn"]);
   }
   if (output["OrganizationArn"] !== undefined) {
-    contents.OrganizationArn = output["OrganizationArn"];
+    contents.OrganizationArn = __expectString(output["OrganizationArn"]);
   }
   return contents;
 };

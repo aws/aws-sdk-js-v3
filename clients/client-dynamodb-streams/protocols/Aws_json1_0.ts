@@ -27,7 +27,12 @@ import {
   _Stream,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -500,10 +505,8 @@ const deserializeAws_json1_0AttributeValue = (output: any, context: __SerdeConte
       B: context.base64Decoder(output.B),
     };
   }
-  if (output.BOOL !== undefined && output.BOOL !== null) {
-    return {
-      BOOL: output.BOOL,
-    };
+  if (__expectBoolean(output.BOOL) !== undefined) {
+    return { BOOL: __expectBoolean(output.BOOL) as any };
   }
   if (output.BS !== undefined && output.BS !== null) {
     return {
@@ -520,25 +523,19 @@ const deserializeAws_json1_0AttributeValue = (output: any, context: __SerdeConte
       M: deserializeAws_json1_0MapAttributeValue(output.M, context),
     };
   }
-  if (output.N !== undefined && output.N !== null) {
-    return {
-      N: output.N,
-    };
+  if (__expectString(output.N) !== undefined) {
+    return { N: __expectString(output.N) as any };
   }
   if (output.NS !== undefined && output.NS !== null) {
     return {
       NS: deserializeAws_json1_0NumberSetAttributeValue(output.NS, context),
     };
   }
-  if (output.NULL !== undefined && output.NULL !== null) {
-    return {
-      NULL: output.NULL,
-    };
+  if (__expectBoolean(output.NULL) !== undefined) {
+    return { NULL: __expectBoolean(output.NULL) as any };
   }
-  if (output.S !== undefined && output.S !== null) {
-    return {
-      S: output.S,
-    };
+  if (__expectString(output.S) !== undefined) {
+    return { S: __expectString(output.S) as any };
   }
   if (output.SS !== undefined && output.SS !== null) {
     return {
@@ -573,16 +570,13 @@ const deserializeAws_json1_0ExpiredIteratorException = (
   context: __SerdeContext
 ): ExpiredIteratorException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_0GetRecordsOutput = (output: any, context: __SerdeContext): GetRecordsOutput => {
   return {
-    NextShardIterator:
-      output.NextShardIterator !== undefined && output.NextShardIterator !== null
-        ? output.NextShardIterator
-        : undefined,
+    NextShardIterator: __expectString(output.NextShardIterator),
     Records:
       output.Records !== undefined && output.Records !== null
         ? deserializeAws_json1_0RecordList(output.Records, context)
@@ -592,21 +586,20 @@ const deserializeAws_json1_0GetRecordsOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_0GetShardIteratorOutput = (output: any, context: __SerdeContext): GetShardIteratorOutput => {
   return {
-    ShardIterator:
-      output.ShardIterator !== undefined && output.ShardIterator !== null ? output.ShardIterator : undefined,
+    ShardIterator: __expectString(output.ShardIterator),
   } as any;
 };
 
 const deserializeAws_json1_0Identity = (output: any, context: __SerdeContext): Identity => {
   return {
-    PrincipalId: output.PrincipalId !== undefined && output.PrincipalId !== null ? output.PrincipalId : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    PrincipalId: __expectString(output.PrincipalId),
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_json1_0InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -623,15 +616,14 @@ const deserializeAws_json1_0KeySchema = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_0KeySchemaElement = (output: any, context: __SerdeContext): KeySchemaElement => {
   return {
-    AttributeName:
-      output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
-    KeyType: output.KeyType !== undefined && output.KeyType !== null ? output.KeyType : undefined,
+    AttributeName: __expectString(output.AttributeName),
+    KeyType: __expectString(output.KeyType),
   } as any;
 };
 
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -648,10 +640,7 @@ const deserializeAws_json1_0ListAttributeValue = (output: any, context: __SerdeC
 
 const deserializeAws_json1_0ListStreamsOutput = (output: any, context: __SerdeContext): ListStreamsOutput => {
   return {
-    LastEvaluatedStreamArn:
-      output.LastEvaluatedStreamArn !== undefined && output.LastEvaluatedStreamArn !== null
-        ? output.LastEvaluatedStreamArn
-        : undefined,
+    LastEvaluatedStreamArn: __expectString(output.LastEvaluatedStreamArn),
     Streams:
       output.Streams !== undefined && output.Streams !== null
         ? deserializeAws_json1_0StreamList(output.Streams, context)
@@ -681,21 +670,21 @@ const deserializeAws_json1_0NumberSetAttributeValue = (output: any, context: __S
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_0_Record = (output: any, context: __SerdeContext): _Record => {
   return {
-    awsRegion: output.awsRegion !== undefined && output.awsRegion !== null ? output.awsRegion : undefined,
+    awsRegion: __expectString(output.awsRegion),
     dynamodb:
       output.dynamodb !== undefined && output.dynamodb !== null
         ? deserializeAws_json1_0StreamRecord(output.dynamodb, context)
         : undefined,
-    eventID: output.eventID !== undefined && output.eventID !== null ? output.eventID : undefined,
-    eventName: output.eventName !== undefined && output.eventName !== null ? output.eventName : undefined,
-    eventSource: output.eventSource !== undefined && output.eventSource !== null ? output.eventSource : undefined,
-    eventVersion: output.eventVersion !== undefined && output.eventVersion !== null ? output.eventVersion : undefined,
+    eventID: __expectString(output.eventID),
+    eventName: __expectString(output.eventName),
+    eventSource: __expectString(output.eventSource),
+    eventVersion: __expectString(output.eventVersion),
     userIdentity:
       output.userIdentity !== undefined && output.userIdentity !== null
         ? deserializeAws_json1_0Identity(output.userIdentity, context)
@@ -719,32 +708,25 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_0SequenceNumberRange = (output: any, context: __SerdeContext): SequenceNumberRange => {
   return {
-    EndingSequenceNumber:
-      output.EndingSequenceNumber !== undefined && output.EndingSequenceNumber !== null
-        ? output.EndingSequenceNumber
-        : undefined,
-    StartingSequenceNumber:
-      output.StartingSequenceNumber !== undefined && output.StartingSequenceNumber !== null
-        ? output.StartingSequenceNumber
-        : undefined,
+    EndingSequenceNumber: __expectString(output.EndingSequenceNumber),
+    StartingSequenceNumber: __expectString(output.StartingSequenceNumber),
   } as any;
 };
 
 const deserializeAws_json1_0Shard = (output: any, context: __SerdeContext): Shard => {
   return {
-    ParentShardId:
-      output.ParentShardId !== undefined && output.ParentShardId !== null ? output.ParentShardId : undefined,
+    ParentShardId: __expectString(output.ParentShardId),
     SequenceNumberRange:
       output.SequenceNumberRange !== undefined && output.SequenceNumberRange !== null
         ? deserializeAws_json1_0SequenceNumberRange(output.SequenceNumberRange, context)
         : undefined,
-    ShardId: output.ShardId !== undefined && output.ShardId !== null ? output.ShardId : undefined,
+    ShardId: __expectString(output.ShardId),
   } as any;
 };
 
@@ -761,9 +743,9 @@ const deserializeAws_json1_0ShardDescriptionList = (output: any, context: __Serd
 
 const deserializeAws_json1_0_Stream = (output: any, context: __SerdeContext): _Stream => {
   return {
-    StreamArn: output.StreamArn !== undefined && output.StreamArn !== null ? output.StreamArn : undefined,
-    StreamLabel: output.StreamLabel !== undefined && output.StreamLabel !== null ? output.StreamLabel : undefined,
-    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
+    StreamArn: __expectString(output.StreamArn),
+    StreamLabel: __expectString(output.StreamLabel),
+    TableName: __expectString(output.TableName),
   } as any;
 };
 
@@ -777,20 +759,16 @@ const deserializeAws_json1_0StreamDescription = (output: any, context: __SerdeCo
       output.KeySchema !== undefined && output.KeySchema !== null
         ? deserializeAws_json1_0KeySchema(output.KeySchema, context)
         : undefined,
-    LastEvaluatedShardId:
-      output.LastEvaluatedShardId !== undefined && output.LastEvaluatedShardId !== null
-        ? output.LastEvaluatedShardId
-        : undefined,
+    LastEvaluatedShardId: __expectString(output.LastEvaluatedShardId),
     Shards:
       output.Shards !== undefined && output.Shards !== null
         ? deserializeAws_json1_0ShardDescriptionList(output.Shards, context)
         : undefined,
-    StreamArn: output.StreamArn !== undefined && output.StreamArn !== null ? output.StreamArn : undefined,
-    StreamLabel: output.StreamLabel !== undefined && output.StreamLabel !== null ? output.StreamLabel : undefined,
-    StreamStatus: output.StreamStatus !== undefined && output.StreamStatus !== null ? output.StreamStatus : undefined,
-    StreamViewType:
-      output.StreamViewType !== undefined && output.StreamViewType !== null ? output.StreamViewType : undefined,
-    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
+    StreamArn: __expectString(output.StreamArn),
+    StreamLabel: __expectString(output.StreamLabel),
+    StreamStatus: __expectString(output.StreamStatus),
+    StreamViewType: __expectString(output.StreamViewType),
+    TableName: __expectString(output.TableName),
   } as any;
 };
 
@@ -823,11 +801,9 @@ const deserializeAws_json1_0StreamRecord = (output: any, context: __SerdeContext
       output.OldImage !== undefined && output.OldImage !== null
         ? deserializeAws_json1_0AttributeMap(output.OldImage, context)
         : undefined,
-    SequenceNumber:
-      output.SequenceNumber !== undefined && output.SequenceNumber !== null ? output.SequenceNumber : undefined,
-    SizeBytes: output.SizeBytes !== undefined && output.SizeBytes !== null ? output.SizeBytes : undefined,
-    StreamViewType:
-      output.StreamViewType !== undefined && output.StreamViewType !== null ? output.StreamViewType : undefined,
+    SequenceNumber: __expectString(output.SequenceNumber),
+    SizeBytes: __expectNumber(output.SizeBytes),
+    StreamViewType: __expectString(output.StreamViewType),
   } as any;
 };
 
@@ -838,7 +814,7 @@ const deserializeAws_json1_0StringSetAttributeValue = (output: any, context: __S
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -847,7 +823,7 @@ const deserializeAws_json1_0TrimmedDataAccessException = (
   context: __SerdeContext
 ): TrimmedDataAccessException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 

@@ -26,6 +26,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -489,7 +491,7 @@ export const deserializeAws_restJson1UpdateJobExecutionCommand = async (
     contents.executionState = deserializeAws_restJson1JobExecutionState(data.executionState, context);
   }
   if (data.jobDocument !== undefined && data.jobDocument !== null) {
-    contents.jobDocument = data.jobDocument;
+    contents.jobDocument = __expectString(data.jobDocument);
   }
   return Promise.resolve(contents);
 };
@@ -583,7 +585,7 @@ const deserializeAws_restJson1CertificateValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -600,7 +602,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -617,7 +619,7 @@ const deserializeAws_restJson1InvalidStateTransitionExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -634,7 +636,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -651,7 +653,7 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -668,7 +670,7 @@ const deserializeAws_restJson1TerminalStateExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -686,7 +688,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.payload !== undefined && data.payload !== null) {
     contents.payload = context.base64Decoder(data.payload);
@@ -713,59 +715,49 @@ const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeContext): JobExecution => {
   return {
-    approximateSecondsBeforeTimedOut:
-      output.approximateSecondsBeforeTimedOut !== undefined && output.approximateSecondsBeforeTimedOut !== null
-        ? output.approximateSecondsBeforeTimedOut
-        : undefined,
-    executionNumber:
-      output.executionNumber !== undefined && output.executionNumber !== null ? output.executionNumber : undefined,
-    jobDocument: output.jobDocument !== undefined && output.jobDocument !== null ? output.jobDocument : undefined,
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null ? output.lastUpdatedAt : undefined,
-    queuedAt: output.queuedAt !== undefined && output.queuedAt !== null ? output.queuedAt : undefined,
-    startedAt: output.startedAt !== undefined && output.startedAt !== null ? output.startedAt : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    approximateSecondsBeforeTimedOut: __expectNumber(output.approximateSecondsBeforeTimedOut),
+    executionNumber: __expectNumber(output.executionNumber),
+    jobDocument: __expectString(output.jobDocument),
+    jobId: __expectString(output.jobId),
+    lastUpdatedAt: __expectNumber(output.lastUpdatedAt),
+    queuedAt: __expectNumber(output.queuedAt),
+    startedAt: __expectNumber(output.startedAt),
+    status: __expectString(output.status),
     statusDetails:
       output.statusDetails !== undefined && output.statusDetails !== null
         ? deserializeAws_restJson1DetailsMap(output.statusDetails, context)
         : undefined,
-    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
-    versionNumber:
-      output.versionNumber !== undefined && output.versionNumber !== null ? output.versionNumber : undefined,
+    thingName: __expectString(output.thingName),
+    versionNumber: __expectNumber(output.versionNumber),
   } as any;
 };
 
 const deserializeAws_restJson1JobExecutionState = (output: any, context: __SerdeContext): JobExecutionState => {
   return {
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
     statusDetails:
       output.statusDetails !== undefined && output.statusDetails !== null
         ? deserializeAws_restJson1DetailsMap(output.statusDetails, context)
         : undefined,
-    versionNumber:
-      output.versionNumber !== undefined && output.versionNumber !== null ? output.versionNumber : undefined,
+    versionNumber: __expectNumber(output.versionNumber),
   } as any;
 };
 
 const deserializeAws_restJson1JobExecutionSummary = (output: any, context: __SerdeContext): JobExecutionSummary => {
   return {
-    executionNumber:
-      output.executionNumber !== undefined && output.executionNumber !== null ? output.executionNumber : undefined,
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null ? output.lastUpdatedAt : undefined,
-    queuedAt: output.queuedAt !== undefined && output.queuedAt !== null ? output.queuedAt : undefined,
-    startedAt: output.startedAt !== undefined && output.startedAt !== null ? output.startedAt : undefined,
-    versionNumber:
-      output.versionNumber !== undefined && output.versionNumber !== null ? output.versionNumber : undefined,
+    executionNumber: __expectNumber(output.executionNumber),
+    jobId: __expectString(output.jobId),
+    lastUpdatedAt: __expectNumber(output.lastUpdatedAt),
+    queuedAt: __expectNumber(output.queuedAt),
+    startedAt: __expectNumber(output.startedAt),
+    versionNumber: __expectNumber(output.versionNumber),
   } as any;
 };
 

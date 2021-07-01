@@ -27,7 +27,11 @@ import {
   ResponseResourceMetricKey,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -464,7 +468,7 @@ const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): 
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Value: __expectNumber(output.Value),
   } as any;
 };
 
@@ -496,7 +500,7 @@ const deserializeAws_json1_1DescribeDimensionKeysResponse = (
       output.Keys !== undefined && output.Keys !== null
         ? deserializeAws_json1_1DimensionKeyDescriptionList(output.Keys, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     PartitionKeys:
       output.PartitionKeys !== undefined && output.PartitionKeys !== null
         ? deserializeAws_json1_1ResponsePartitionKeyList(output.PartitionKeys, context)
@@ -517,7 +521,7 @@ const deserializeAws_json1_1DimensionKeyDescription = (
       output.Partitions !== undefined && output.Partitions !== null
         ? deserializeAws_json1_1MetricValuesList(output.Partitions, context)
         : undefined,
-    Total: output.Total !== undefined && output.Total !== null ? output.Total : undefined,
+    Total: __expectNumber(output.Total),
   } as any;
 };
 
@@ -537,9 +541,9 @@ const deserializeAws_json1_1DimensionKeyDescriptionList = (
 
 const deserializeAws_json1_1DimensionKeyDetail = (output: any, context: __SerdeContext): DimensionKeyDetail => {
   return {
-    Dimension: output.Dimension !== undefined && output.Dimension !== null ? output.Dimension : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Dimension: __expectString(output.Dimension),
+    Status: __expectString(output.Status),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -561,7 +565,7 @@ const deserializeAws_json1_1DimensionMap = (output: any, context: __SerdeContext
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -591,18 +595,18 @@ const deserializeAws_json1_1GetResourceMetricsResponse = (
       output.AlignedStartTime !== undefined && output.AlignedStartTime !== null
         ? new Date(Math.round(output.AlignedStartTime * 1000))
         : undefined,
-    Identifier: output.Identifier !== undefined && output.Identifier !== null ? output.Identifier : undefined,
+    Identifier: __expectString(output.Identifier),
     MetricList:
       output.MetricList !== undefined && output.MetricList !== null
         ? deserializeAws_json1_1MetricKeyDataPointsList(output.MetricList, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -611,7 +615,7 @@ const deserializeAws_json1_1InvalidArgumentException = (
   context: __SerdeContext
 ): InvalidArgumentException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -646,13 +650,13 @@ const deserializeAws_json1_1MetricValuesList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
 const deserializeAws_json1_1NotAuthorizedException = (output: any, context: __SerdeContext): NotAuthorizedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -688,7 +692,7 @@ const deserializeAws_json1_1ResponseResourceMetricKey = (
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_json1_1DimensionMap(output.Dimensions, context)
         : undefined,
-    Metric: output.Metric !== undefined && output.Metric !== null ? output.Metric : undefined,
+    Metric: __expectString(output.Metric),
   } as any;
 };
 

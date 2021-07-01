@@ -70,6 +70,7 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
@@ -1541,7 +1542,7 @@ const deserializeAws_ec2ComplexError = (output: any, context: __SerdeContext): C
     Nested: undefined,
   };
   if (output["TopLevel"] !== undefined) {
-    contents.TopLevel = output["TopLevel"];
+    contents.TopLevel = __expectString(output["TopLevel"]);
   }
   if (output["Nested"] !== undefined) {
     contents.Nested = deserializeAws_ec2ComplexNestedErrorData(output["Nested"], context);
@@ -1554,7 +1555,7 @@ const deserializeAws_ec2ComplexNestedErrorData = (output: any, context: __SerdeC
     Foo: undefined,
   };
   if (output["Foo"] !== undefined) {
-    contents.Foo = output["Foo"];
+    contents.Foo = __expectString(output["Foo"]);
   }
   return contents;
 };
@@ -1572,7 +1573,7 @@ const deserializeAws_ec2GreetingWithErrorsOutput = (output: any, context: __Serd
     greeting: undefined,
   };
   if (output["greeting"] !== undefined) {
-    contents.greeting = output["greeting"];
+    contents.greeting = __expectString(output["greeting"]);
   }
   return contents;
 };
@@ -1585,7 +1586,7 @@ const deserializeAws_ec2IgnoresWrappingXmlNameOutput = (
     foo: undefined,
   };
   if (output["foo"] !== undefined) {
-    contents.foo = output["foo"];
+    contents.foo = __expectString(output["foo"]);
   }
   return contents;
 };
@@ -1595,7 +1596,7 @@ const deserializeAws_ec2InvalidGreeting = (output: any, context: __SerdeContext)
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
@@ -1607,7 +1608,7 @@ const deserializeAws_ec2ListWithMemberNamespace = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1618,7 +1619,7 @@ const deserializeAws_ec2ListWithNamespace = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1646,7 +1647,7 @@ const deserializeAws_ec2RecursiveXmlShapesOutputNested1 = (
     nested: undefined,
   };
   if (output["foo"] !== undefined) {
-    contents.foo = output["foo"];
+    contents.foo = __expectString(output["foo"]);
   }
   if (output["nested"] !== undefined) {
     contents.nested = deserializeAws_ec2RecursiveXmlShapesOutputNested2(output["nested"], context);
@@ -1663,7 +1664,7 @@ const deserializeAws_ec2RecursiveXmlShapesOutputNested2 = (
     recursiveMember: undefined,
   };
   if (output["bar"] !== undefined) {
-    contents.bar = output["bar"];
+    contents.bar = __expectString(output["bar"]);
   }
   if (output["recursiveMember"] !== undefined) {
     contents.recursiveMember = deserializeAws_ec2RecursiveXmlShapesOutputNested1(output["recursiveMember"], context);
@@ -1678,7 +1679,7 @@ const deserializeAws_ec2RenamedListMembers = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1699,10 +1700,10 @@ const deserializeAws_ec2SimpleScalarXmlPropertiesOutput = (
     doubleValue: undefined,
   };
   if (output["stringValue"] !== undefined) {
-    contents.stringValue = output["stringValue"];
+    contents.stringValue = __expectString(output["stringValue"]);
   }
   if (output["emptyStringValue"] !== undefined) {
-    contents.emptyStringValue = output["emptyStringValue"];
+    contents.emptyStringValue = __expectString(output["emptyStringValue"]);
   }
   if (output["trueBooleanValue"] !== undefined) {
     contents.trueBooleanValue = __parseBoolean(output["trueBooleanValue"]);
@@ -1748,10 +1749,10 @@ const deserializeAws_ec2StructureListMember = (output: any, context: __SerdeCont
     b: undefined,
   };
   if (output["value"] !== undefined) {
-    contents.a = output["value"];
+    contents.a = __expectString(output["value"]);
   }
   if (output["other"] !== undefined) {
-    contents.b = output["other"];
+    contents.b = __expectString(output["other"]);
   }
   return contents;
 };
@@ -1776,13 +1777,13 @@ const deserializeAws_ec2XmlEnumsOutput = (output: any, context: __SerdeContext):
     fooEnumMap: undefined,
   };
   if (output["fooEnum1"] !== undefined) {
-    contents.fooEnum1 = output["fooEnum1"];
+    contents.fooEnum1 = __expectString(output["fooEnum1"]);
   }
   if (output["fooEnum2"] !== undefined) {
-    contents.fooEnum2 = output["fooEnum2"];
+    contents.fooEnum2 = __expectString(output["fooEnum2"]);
   }
   if (output["fooEnum3"] !== undefined) {
-    contents.fooEnum3 = output["fooEnum3"];
+    contents.fooEnum3 = __expectString(output["fooEnum3"]);
   }
   if (output.fooEnumList === "") {
     contents.fooEnumList = [];
@@ -1942,7 +1943,7 @@ const deserializeAws_ec2XmlNamespacedList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1952,7 +1953,7 @@ const deserializeAws_ec2XmlNamespaceNested = (output: any, context: __SerdeConte
     values: undefined,
   };
   if (output["foo"] !== undefined) {
-    contents.foo = output["foo"];
+    contents.foo = __expectString(output["foo"]);
   }
   if (output.values === "") {
     contents.values = [];
@@ -2013,7 +2014,7 @@ const deserializeAws_ec2FooEnumList = (output: any, context: __SerdeContext): (F
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2024,7 +2025,7 @@ const deserializeAws_ec2FooEnumMap = (output: any, context: __SerdeContext): { [
     }
     return {
       ...acc,
-      [pair["key"]]: pair["value"],
+      [pair["key"]]: __expectString(pair["value"]) as any,
     };
   }, {});
 };
@@ -2036,7 +2037,7 @@ const deserializeAws_ec2FooEnumSet = (output: any, context: __SerdeContext): (Fo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2069,7 +2070,7 @@ const deserializeAws_ec2StringList = (output: any, context: __SerdeContext): str
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2080,7 +2081,7 @@ const deserializeAws_ec2StringSet = (output: any, context: __SerdeContext): stri
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

@@ -161,7 +161,11 @@ import {
   UpdateTaskResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3457,7 +3461,7 @@ const deserializeAws_json1_1AgentArnList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3474,9 +3478,9 @@ const deserializeAws_json1_1AgentList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1AgentListEntry = (output: any, context: __SerdeContext): AgentListEntry => {
   return {
-    AgentArn: output.AgentArn !== undefined && output.AgentArn !== null ? output.AgentArn : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    AgentArn: __expectString(output.AgentArn),
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -3489,7 +3493,7 @@ const deserializeAws_json1_1CancelTaskExecutionResponse = (
 
 const deserializeAws_json1_1CreateAgentResponse = (output: any, context: __SerdeContext): CreateAgentResponse => {
   return {
-    AgentArn: output.AgentArn !== undefined && output.AgentArn !== null ? output.AgentArn : undefined,
+    AgentArn: __expectString(output.AgentArn),
   } as any;
 };
 
@@ -3498,7 +3502,7 @@ const deserializeAws_json1_1CreateLocationEfsResponse = (
   context: __SerdeContext
 ): CreateLocationEfsResponse => {
   return {
-    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
+    LocationArn: __expectString(output.LocationArn),
   } as any;
 };
 
@@ -3507,7 +3511,7 @@ const deserializeAws_json1_1CreateLocationFsxWindowsResponse = (
   context: __SerdeContext
 ): CreateLocationFsxWindowsResponse => {
   return {
-    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
+    LocationArn: __expectString(output.LocationArn),
   } as any;
 };
 
@@ -3516,7 +3520,7 @@ const deserializeAws_json1_1CreateLocationNfsResponse = (
   context: __SerdeContext
 ): CreateLocationNfsResponse => {
   return {
-    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
+    LocationArn: __expectString(output.LocationArn),
   } as any;
 };
 
@@ -3525,7 +3529,7 @@ const deserializeAws_json1_1CreateLocationObjectStorageResponse = (
   context: __SerdeContext
 ): CreateLocationObjectStorageResponse => {
   return {
-    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
+    LocationArn: __expectString(output.LocationArn),
   } as any;
 };
 
@@ -3534,7 +3538,7 @@ const deserializeAws_json1_1CreateLocationS3Response = (
   context: __SerdeContext
 ): CreateLocationS3Response => {
   return {
-    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
+    LocationArn: __expectString(output.LocationArn),
   } as any;
 };
 
@@ -3543,13 +3547,13 @@ const deserializeAws_json1_1CreateLocationSmbResponse = (
   context: __SerdeContext
 ): CreateLocationSmbResponse => {
   return {
-    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
+    LocationArn: __expectString(output.LocationArn),
   } as any;
 };
 
 const deserializeAws_json1_1CreateTaskResponse = (output: any, context: __SerdeContext): CreateTaskResponse => {
   return {
-    TaskArn: output.TaskArn !== undefined && output.TaskArn !== null ? output.TaskArn : undefined,
+    TaskArn: __expectString(output.TaskArn),
   } as any;
 };
 
@@ -3567,22 +3571,22 @@ const deserializeAws_json1_1DeleteTaskResponse = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1DescribeAgentResponse = (output: any, context: __SerdeContext): DescribeAgentResponse => {
   return {
-    AgentArn: output.AgentArn !== undefined && output.AgentArn !== null ? output.AgentArn : undefined,
+    AgentArn: __expectString(output.AgentArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    EndpointType: output.EndpointType !== undefined && output.EndpointType !== null ? output.EndpointType : undefined,
+    EndpointType: __expectString(output.EndpointType),
     LastConnectionTime:
       output.LastConnectionTime !== undefined && output.LastConnectionTime !== null
         ? new Date(Math.round(output.LastConnectionTime * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
     PrivateLinkConfig:
       output.PrivateLinkConfig !== undefined && output.PrivateLinkConfig !== null
         ? deserializeAws_json1_1PrivateLinkConfig(output.PrivateLinkConfig, context)
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -3599,8 +3603,8 @@ const deserializeAws_json1_1DescribeLocationEfsResponse = (
       output.Ec2Config !== undefined && output.Ec2Config !== null
         ? deserializeAws_json1_1Ec2Config(output.Ec2Config, context)
         : undefined,
-    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
-    LocationUri: output.LocationUri !== undefined && output.LocationUri !== null ? output.LocationUri : undefined,
+    LocationArn: __expectString(output.LocationArn),
+    LocationUri: __expectString(output.LocationUri),
   } as any;
 };
 
@@ -3613,14 +3617,14 @@ const deserializeAws_json1_1DescribeLocationFsxWindowsResponse = (
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
-    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
-    LocationUri: output.LocationUri !== undefined && output.LocationUri !== null ? output.LocationUri : undefined,
+    Domain: __expectString(output.Domain),
+    LocationArn: __expectString(output.LocationArn),
+    LocationUri: __expectString(output.LocationUri),
     SecurityGroupArns:
       output.SecurityGroupArns !== undefined && output.SecurityGroupArns !== null
         ? deserializeAws_json1_1Ec2SecurityGroupArnList(output.SecurityGroupArns, context)
         : undefined,
-    User: output.User !== undefined && output.User !== null ? output.User : undefined,
+    User: __expectString(output.User),
   } as any;
 };
 
@@ -3633,8 +3637,8 @@ const deserializeAws_json1_1DescribeLocationNfsResponse = (
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
-    LocationUri: output.LocationUri !== undefined && output.LocationUri !== null ? output.LocationUri : undefined,
+    LocationArn: __expectString(output.LocationArn),
+    LocationUri: __expectString(output.LocationUri),
     MountOptions:
       output.MountOptions !== undefined && output.MountOptions !== null
         ? deserializeAws_json1_1NfsMountOptions(output.MountOptions, context)
@@ -3651,7 +3655,7 @@ const deserializeAws_json1_1DescribeLocationObjectStorageResponse = (
   context: __SerdeContext
 ): DescribeLocationObjectStorageResponse => {
   return {
-    AccessKey: output.AccessKey !== undefined && output.AccessKey !== null ? output.AccessKey : undefined,
+    AccessKey: __expectString(output.AccessKey),
     AgentArns:
       output.AgentArns !== undefined && output.AgentArns !== null
         ? deserializeAws_json1_1AgentArnList(output.AgentArns, context)
@@ -3660,11 +3664,10 @@ const deserializeAws_json1_1DescribeLocationObjectStorageResponse = (
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
-    LocationUri: output.LocationUri !== undefined && output.LocationUri !== null ? output.LocationUri : undefined,
-    ServerPort: output.ServerPort !== undefined && output.ServerPort !== null ? output.ServerPort : undefined,
-    ServerProtocol:
-      output.ServerProtocol !== undefined && output.ServerProtocol !== null ? output.ServerProtocol : undefined,
+    LocationArn: __expectString(output.LocationArn),
+    LocationUri: __expectString(output.LocationUri),
+    ServerPort: __expectNumber(output.ServerPort),
+    ServerProtocol: __expectString(output.ServerProtocol),
   } as any;
 };
 
@@ -3681,14 +3684,13 @@ const deserializeAws_json1_1DescribeLocationS3Response = (
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
-    LocationUri: output.LocationUri !== undefined && output.LocationUri !== null ? output.LocationUri : undefined,
+    LocationArn: __expectString(output.LocationArn),
+    LocationUri: __expectString(output.LocationUri),
     S3Config:
       output.S3Config !== undefined && output.S3Config !== null
         ? deserializeAws_json1_1S3Config(output.S3Config, context)
         : undefined,
-    S3StorageClass:
-      output.S3StorageClass !== undefined && output.S3StorageClass !== null ? output.S3StorageClass : undefined,
+    S3StorageClass: __expectString(output.S3StorageClass),
   } as any;
 };
 
@@ -3705,14 +3707,14 @@ const deserializeAws_json1_1DescribeLocationSmbResponse = (
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
-    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
-    LocationUri: output.LocationUri !== undefined && output.LocationUri !== null ? output.LocationUri : undefined,
+    Domain: __expectString(output.Domain),
+    LocationArn: __expectString(output.LocationArn),
+    LocationUri: __expectString(output.LocationUri),
     MountOptions:
       output.MountOptions !== undefined && output.MountOptions !== null
         ? deserializeAws_json1_1SmbMountOptions(output.MountOptions, context)
         : undefined,
-    User: output.User !== undefined && output.User !== null ? output.User : undefined,
+    User: __expectString(output.User),
   } as any;
 };
 
@@ -3721,23 +3723,15 @@ const deserializeAws_json1_1DescribeTaskExecutionResponse = (
   context: __SerdeContext
 ): DescribeTaskExecutionResponse => {
   return {
-    BytesTransferred:
-      output.BytesTransferred !== undefined && output.BytesTransferred !== null ? output.BytesTransferred : undefined,
-    BytesWritten: output.BytesWritten !== undefined && output.BytesWritten !== null ? output.BytesWritten : undefined,
-    EstimatedBytesToTransfer:
-      output.EstimatedBytesToTransfer !== undefined && output.EstimatedBytesToTransfer !== null
-        ? output.EstimatedBytesToTransfer
-        : undefined,
-    EstimatedFilesToTransfer:
-      output.EstimatedFilesToTransfer !== undefined && output.EstimatedFilesToTransfer !== null
-        ? output.EstimatedFilesToTransfer
-        : undefined,
+    BytesTransferred: __expectNumber(output.BytesTransferred),
+    BytesWritten: __expectNumber(output.BytesWritten),
+    EstimatedBytesToTransfer: __expectNumber(output.EstimatedBytesToTransfer),
+    EstimatedFilesToTransfer: __expectNumber(output.EstimatedFilesToTransfer),
     Excludes:
       output.Excludes !== undefined && output.Excludes !== null
         ? deserializeAws_json1_1FilterList(output.Excludes, context)
         : undefined,
-    FilesTransferred:
-      output.FilesTransferred !== undefined && output.FilesTransferred !== null ? output.FilesTransferred : undefined,
+    FilesTransferred: __expectNumber(output.FilesTransferred),
     Includes:
       output.Includes !== undefined && output.Includes !== null
         ? deserializeAws_json1_1FilterList(output.Includes, context)
@@ -3754,41 +3748,31 @@ const deserializeAws_json1_1DescribeTaskExecutionResponse = (
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    TaskExecutionArn:
-      output.TaskExecutionArn !== undefined && output.TaskExecutionArn !== null ? output.TaskExecutionArn : undefined,
+    Status: __expectString(output.Status),
+    TaskExecutionArn: __expectString(output.TaskExecutionArn),
   } as any;
 };
 
 const deserializeAws_json1_1DescribeTaskResponse = (output: any, context: __SerdeContext): DescribeTaskResponse => {
   return {
-    CloudWatchLogGroupArn:
-      output.CloudWatchLogGroupArn !== undefined && output.CloudWatchLogGroupArn !== null
-        ? output.CloudWatchLogGroupArn
-        : undefined,
+    CloudWatchLogGroupArn: __expectString(output.CloudWatchLogGroupArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    CurrentTaskExecutionArn:
-      output.CurrentTaskExecutionArn !== undefined && output.CurrentTaskExecutionArn !== null
-        ? output.CurrentTaskExecutionArn
-        : undefined,
-    DestinationLocationArn:
-      output.DestinationLocationArn !== undefined && output.DestinationLocationArn !== null
-        ? output.DestinationLocationArn
-        : undefined,
+    CurrentTaskExecutionArn: __expectString(output.CurrentTaskExecutionArn),
+    DestinationLocationArn: __expectString(output.DestinationLocationArn),
     DestinationNetworkInterfaceArns:
       output.DestinationNetworkInterfaceArns !== undefined && output.DestinationNetworkInterfaceArns !== null
         ? deserializeAws_json1_1DestinationNetworkInterfaceArns(output.DestinationNetworkInterfaceArns, context)
         : undefined,
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorDetail: output.ErrorDetail !== undefined && output.ErrorDetail !== null ? output.ErrorDetail : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorDetail: __expectString(output.ErrorDetail),
     Excludes:
       output.Excludes !== undefined && output.Excludes !== null
         ? deserializeAws_json1_1FilterList(output.Excludes, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
     Options:
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_json1_1Options(output.Options, context)
@@ -3797,16 +3781,13 @@ const deserializeAws_json1_1DescribeTaskResponse = (output: any, context: __Serd
       output.Schedule !== undefined && output.Schedule !== null
         ? deserializeAws_json1_1TaskSchedule(output.Schedule, context)
         : undefined,
-    SourceLocationArn:
-      output.SourceLocationArn !== undefined && output.SourceLocationArn !== null
-        ? output.SourceLocationArn
-        : undefined,
+    SourceLocationArn: __expectString(output.SourceLocationArn),
     SourceNetworkInterfaceArns:
       output.SourceNetworkInterfaceArns !== undefined && output.SourceNetworkInterfaceArns !== null
         ? deserializeAws_json1_1SourceNetworkInterfaceArns(output.SourceNetworkInterfaceArns, context)
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    TaskArn: output.TaskArn !== undefined && output.TaskArn !== null ? output.TaskArn : undefined,
+    Status: __expectString(output.Status),
+    TaskArn: __expectString(output.TaskArn),
   } as any;
 };
 
@@ -3817,7 +3798,7 @@ const deserializeAws_json1_1DestinationNetworkInterfaceArns = (output: any, cont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3827,7 +3808,7 @@ const deserializeAws_json1_1Ec2Config = (output: any, context: __SerdeContext): 
       output.SecurityGroupArns !== undefined && output.SecurityGroupArns !== null
         ? deserializeAws_json1_1Ec2SecurityGroupArnList(output.SecurityGroupArns, context)
         : undefined,
-    SubnetArn: output.SubnetArn !== undefined && output.SubnetArn !== null ? output.SubnetArn : undefined,
+    SubnetArn: __expectString(output.SubnetArn),
   } as any;
 };
 
@@ -3838,7 +3819,7 @@ const deserializeAws_json1_1Ec2SecurityGroupArnList = (output: any, context: __S
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3855,15 +3836,15 @@ const deserializeAws_json1_1FilterList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1FilterRule = (output: any, context: __SerdeContext): FilterRule => {
   return {
-    FilterType: output.FilterType !== undefined && output.FilterType !== null ? output.FilterType : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    FilterType: __expectString(output.FilterType),
+    Value: __expectString(output.Value),
   } as any;
 };
 
 const deserializeAws_json1_1InternalException = (output: any, context: __SerdeContext): InternalException => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    errorCode: __expectString(output.errorCode),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3872,8 +3853,8 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    errorCode: __expectString(output.errorCode),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3883,7 +3864,7 @@ const deserializeAws_json1_1ListAgentsResponse = (output: any, context: __SerdeC
       output.Agents !== undefined && output.Agents !== null
         ? deserializeAws_json1_1AgentList(output.Agents, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3893,7 +3874,7 @@ const deserializeAws_json1_1ListLocationsResponse = (output: any, context: __Ser
       output.Locations !== undefined && output.Locations !== null
         ? deserializeAws_json1_1LocationList(output.Locations, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3902,7 +3883,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1OutputTagList(output.Tags, context)
@@ -3915,7 +3896,7 @@ const deserializeAws_json1_1ListTaskExecutionsResponse = (
   context: __SerdeContext
 ): ListTaskExecutionsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     TaskExecutions:
       output.TaskExecutions !== undefined && output.TaskExecutions !== null
         ? deserializeAws_json1_1TaskExecutionList(output.TaskExecutions, context)
@@ -3925,7 +3906,7 @@ const deserializeAws_json1_1ListTaskExecutionsResponse = (
 
 const deserializeAws_json1_1ListTasksResponse = (output: any, context: __SerdeContext): ListTasksResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Tasks:
       output.Tasks !== undefined && output.Tasks !== null
         ? deserializeAws_json1_1TaskList(output.Tasks, context)
@@ -3946,14 +3927,14 @@ const deserializeAws_json1_1LocationList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1LocationListEntry = (output: any, context: __SerdeContext): LocationListEntry => {
   return {
-    LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
-    LocationUri: output.LocationUri !== undefined && output.LocationUri !== null ? output.LocationUri : undefined,
+    LocationArn: __expectString(output.LocationArn),
+    LocationUri: __expectString(output.LocationUri),
   } as any;
 };
 
 const deserializeAws_json1_1NfsMountOptions = (output: any, context: __SerdeContext): NfsMountOptions => {
   return {
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    Version: __expectString(output.Version),
   } as any;
 };
 
@@ -3968,30 +3949,20 @@ const deserializeAws_json1_1OnPremConfig = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1Options = (output: any, context: __SerdeContext): Options => {
   return {
-    Atime: output.Atime !== undefined && output.Atime !== null ? output.Atime : undefined,
-    BytesPerSecond:
-      output.BytesPerSecond !== undefined && output.BytesPerSecond !== null ? output.BytesPerSecond : undefined,
-    Gid: output.Gid !== undefined && output.Gid !== null ? output.Gid : undefined,
-    LogLevel: output.LogLevel !== undefined && output.LogLevel !== null ? output.LogLevel : undefined,
-    Mtime: output.Mtime !== undefined && output.Mtime !== null ? output.Mtime : undefined,
-    OverwriteMode:
-      output.OverwriteMode !== undefined && output.OverwriteMode !== null ? output.OverwriteMode : undefined,
-    PosixPermissions:
-      output.PosixPermissions !== undefined && output.PosixPermissions !== null ? output.PosixPermissions : undefined,
-    PreserveDeletedFiles:
-      output.PreserveDeletedFiles !== undefined && output.PreserveDeletedFiles !== null
-        ? output.PreserveDeletedFiles
-        : undefined,
-    PreserveDevices:
-      output.PreserveDevices !== undefined && output.PreserveDevices !== null ? output.PreserveDevices : undefined,
-    SecurityDescriptorCopyFlags:
-      output.SecurityDescriptorCopyFlags !== undefined && output.SecurityDescriptorCopyFlags !== null
-        ? output.SecurityDescriptorCopyFlags
-        : undefined,
-    TaskQueueing: output.TaskQueueing !== undefined && output.TaskQueueing !== null ? output.TaskQueueing : undefined,
-    TransferMode: output.TransferMode !== undefined && output.TransferMode !== null ? output.TransferMode : undefined,
-    Uid: output.Uid !== undefined && output.Uid !== null ? output.Uid : undefined,
-    VerifyMode: output.VerifyMode !== undefined && output.VerifyMode !== null ? output.VerifyMode : undefined,
+    Atime: __expectString(output.Atime),
+    BytesPerSecond: __expectNumber(output.BytesPerSecond),
+    Gid: __expectString(output.Gid),
+    LogLevel: __expectString(output.LogLevel),
+    Mtime: __expectString(output.Mtime),
+    OverwriteMode: __expectString(output.OverwriteMode),
+    PosixPermissions: __expectString(output.PosixPermissions),
+    PreserveDeletedFiles: __expectString(output.PreserveDeletedFiles),
+    PreserveDevices: __expectString(output.PreserveDevices),
+    SecurityDescriptorCopyFlags: __expectString(output.SecurityDescriptorCopyFlags),
+    TaskQueueing: __expectString(output.TaskQueueing),
+    TransferMode: __expectString(output.TransferMode),
+    Uid: __expectString(output.Uid),
+    VerifyMode: __expectString(output.VerifyMode),
   } as any;
 };
 
@@ -4013,7 +3984,7 @@ const deserializeAws_json1_1PLSecurityGroupArnList = (output: any, context: __Se
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4024,16 +3995,13 @@ const deserializeAws_json1_1PLSubnetArnList = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1PrivateLinkConfig = (output: any, context: __SerdeContext): PrivateLinkConfig => {
   return {
-    PrivateLinkEndpoint:
-      output.PrivateLinkEndpoint !== undefined && output.PrivateLinkEndpoint !== null
-        ? output.PrivateLinkEndpoint
-        : undefined,
+    PrivateLinkEndpoint: __expectString(output.PrivateLinkEndpoint),
     SecurityGroupArns:
       output.SecurityGroupArns !== undefined && output.SecurityGroupArns !== null
         ? deserializeAws_json1_1PLSecurityGroupArnList(output.SecurityGroupArns, context)
@@ -4042,23 +4010,19 @@ const deserializeAws_json1_1PrivateLinkConfig = (output: any, context: __SerdeCo
       output.SubnetArns !== undefined && output.SubnetArns !== null
         ? deserializeAws_json1_1PLSubnetArnList(output.SubnetArns, context)
         : undefined,
-    VpcEndpointId:
-      output.VpcEndpointId !== undefined && output.VpcEndpointId !== null ? output.VpcEndpointId : undefined,
+    VpcEndpointId: __expectString(output.VpcEndpointId),
   } as any;
 };
 
 const deserializeAws_json1_1S3Config = (output: any, context: __SerdeContext): S3Config => {
   return {
-    BucketAccessRoleArn:
-      output.BucketAccessRoleArn !== undefined && output.BucketAccessRoleArn !== null
-        ? output.BucketAccessRoleArn
-        : undefined,
+    BucketAccessRoleArn: __expectString(output.BucketAccessRoleArn),
   } as any;
 };
 
 const deserializeAws_json1_1SmbMountOptions = (output: any, context: __SerdeContext): SmbMountOptions => {
   return {
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    Version: __expectString(output.Version),
   } as any;
 };
 
@@ -4069,7 +4033,7 @@ const deserializeAws_json1_1SourceNetworkInterfaceArns = (output: any, context: 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4078,15 +4042,14 @@ const deserializeAws_json1_1StartTaskExecutionResponse = (
   context: __SerdeContext
 ): StartTaskExecutionResponse => {
   return {
-    TaskExecutionArn:
-      output.TaskExecutionArn !== undefined && output.TaskExecutionArn !== null ? output.TaskExecutionArn : undefined,
+    TaskExecutionArn: __expectString(output.TaskExecutionArn),
   } as any;
 };
 
 const deserializeAws_json1_1TagListEntry = (output: any, context: __SerdeContext): TagListEntry => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -4107,9 +4070,8 @@ const deserializeAws_json1_1TaskExecutionList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1TaskExecutionListEntry = (output: any, context: __SerdeContext): TaskExecutionListEntry => {
   return {
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    TaskExecutionArn:
-      output.TaskExecutionArn !== undefined && output.TaskExecutionArn !== null ? output.TaskExecutionArn : undefined,
+    Status: __expectString(output.Status),
+    TaskExecutionArn: __expectString(output.TaskExecutionArn),
   } as any;
 };
 
@@ -4118,21 +4080,15 @@ const deserializeAws_json1_1TaskExecutionResultDetail = (
   context: __SerdeContext
 ): TaskExecutionResultDetail => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorDetail: output.ErrorDetail !== undefined && output.ErrorDetail !== null ? output.ErrorDetail : undefined,
-    PrepareDuration:
-      output.PrepareDuration !== undefined && output.PrepareDuration !== null ? output.PrepareDuration : undefined,
-    PrepareStatus:
-      output.PrepareStatus !== undefined && output.PrepareStatus !== null ? output.PrepareStatus : undefined,
-    TotalDuration:
-      output.TotalDuration !== undefined && output.TotalDuration !== null ? output.TotalDuration : undefined,
-    TransferDuration:
-      output.TransferDuration !== undefined && output.TransferDuration !== null ? output.TransferDuration : undefined,
-    TransferStatus:
-      output.TransferStatus !== undefined && output.TransferStatus !== null ? output.TransferStatus : undefined,
-    VerifyDuration:
-      output.VerifyDuration !== undefined && output.VerifyDuration !== null ? output.VerifyDuration : undefined,
-    VerifyStatus: output.VerifyStatus !== undefined && output.VerifyStatus !== null ? output.VerifyStatus : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorDetail: __expectString(output.ErrorDetail),
+    PrepareDuration: __expectNumber(output.PrepareDuration),
+    PrepareStatus: __expectString(output.PrepareStatus),
+    TotalDuration: __expectNumber(output.TotalDuration),
+    TransferDuration: __expectNumber(output.TransferDuration),
+    TransferStatus: __expectString(output.TransferStatus),
+    VerifyDuration: __expectNumber(output.VerifyDuration),
+    VerifyStatus: __expectString(output.VerifyStatus),
   } as any;
 };
 
@@ -4149,18 +4105,15 @@ const deserializeAws_json1_1TaskList = (output: any, context: __SerdeContext): T
 
 const deserializeAws_json1_1TaskListEntry = (output: any, context: __SerdeContext): TaskListEntry => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    TaskArn: output.TaskArn !== undefined && output.TaskArn !== null ? output.TaskArn : undefined,
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
+    TaskArn: __expectString(output.TaskArn),
   } as any;
 };
 
 const deserializeAws_json1_1TaskSchedule = (output: any, context: __SerdeContext): TaskSchedule => {
   return {
-    ScheduleExpression:
-      output.ScheduleExpression !== undefined && output.ScheduleExpression !== null
-        ? output.ScheduleExpression
-        : undefined,
+    ScheduleExpression: __expectString(output.ScheduleExpression),
   } as any;
 };
 

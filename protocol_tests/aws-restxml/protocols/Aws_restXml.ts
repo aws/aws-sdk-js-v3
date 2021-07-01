@@ -157,6 +157,7 @@ import {
 import {
   SmithyException as __SmithyException,
   dateToUtcString as __dateToUtcString,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
@@ -3270,7 +3271,7 @@ export const deserializeAws_restXmlIgnoreQueryParamsInResponseCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["baz"] !== undefined) {
-    contents.baz = data["baz"];
+    contents.baz = __expectString(data["baz"]);
   }
   return Promise.resolve(contents);
 };
@@ -3935,7 +3936,7 @@ export const deserializeAws_restXmlSimpleScalarPropertiesCommand = async (
     contents.shortValue = parseInt(data["shortValue"]);
   }
   if (data["stringValue"] !== undefined) {
-    contents.stringValue = data["stringValue"];
+    contents.stringValue = __expectString(data["stringValue"]);
   }
   if (data["trueBooleanValue"] !== undefined) {
     contents.trueBooleanValue = __parseBoolean(data["trueBooleanValue"]);
@@ -4057,10 +4058,10 @@ export const deserializeAws_restXmlXmlAttributesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["test"] !== undefined) {
-    contents.attr = data["test"];
+    contents.attr = __expectString(data["test"]);
   }
   if (data["foo"] !== undefined) {
-    contents.foo = data["foo"];
+    contents.foo = __expectString(data["foo"]);
   }
   return Promise.resolve(contents);
 };
@@ -4476,7 +4477,7 @@ export const deserializeAws_restXmlXmlEmptyStringsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["emptyString"] !== undefined) {
-    contents.emptyString = data["emptyString"];
+    contents.emptyString = __expectString(data["emptyString"]);
   }
   return Promise.resolve(contents);
 };
@@ -4528,13 +4529,13 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["fooEnum1"] !== undefined) {
-    contents.fooEnum1 = data["fooEnum1"];
+    contents.fooEnum1 = __expectString(data["fooEnum1"]);
   }
   if (data["fooEnum2"] !== undefined) {
-    contents.fooEnum2 = data["fooEnum2"];
+    contents.fooEnum2 = __expectString(data["fooEnum2"]);
   }
   if (data["fooEnum3"] !== undefined) {
-    contents.fooEnum3 = data["fooEnum3"];
+    contents.fooEnum3 = __expectString(data["fooEnum3"]);
   }
   if (data.fooEnumList === "") {
     contents.fooEnumList = [];
@@ -5051,7 +5052,7 @@ const deserializeAws_restXmlComplexErrorResponse = async (
     contents.Nested = deserializeAws_restXmlComplexNestedErrorData(data["Nested"], context);
   }
   if (data["TopLevel"] !== undefined) {
-    contents.TopLevel = data["TopLevel"];
+    contents.TopLevel = __expectString(data["TopLevel"]);
   }
   return contents;
 };
@@ -5068,7 +5069,7 @@ const deserializeAws_restXmlInvalidGreetingResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message = data["Message"];
+    contents.Message = __expectString(data["Message"]);
   }
   return contents;
 };
@@ -5551,7 +5552,7 @@ const deserializeAws_restXmlComplexNestedErrorData = (output: any, context: __Se
     Foo: undefined,
   };
   if (output["Foo"] !== undefined) {
-    contents.Foo = output["Foo"];
+    contents.Foo = __expectString(output["Foo"]);
   }
   return contents;
 };
@@ -5566,7 +5567,7 @@ const deserializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap = (
     }
     return {
       ...acc,
-      [pair["K"]]: pair["V"],
+      [pair["K"]]: __expectString(pair["V"]) as any,
     };
   }, {});
 };
@@ -5581,7 +5582,7 @@ const deserializeAws_restXmlFlattenedXmlMapWithXmlNamespaceOutputMap = (
     }
     return {
       ...acc,
-      [pair["K"]]: pair["V"],
+      [pair["K"]]: __expectString(pair["V"]) as any,
     };
   }, {});
 };
@@ -5593,7 +5594,7 @@ const deserializeAws_restXmlListWithMemberNamespace = (output: any, context: __S
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5604,7 +5605,7 @@ const deserializeAws_restXmlListWithNamespace = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5629,10 +5630,10 @@ const deserializeAws_restXmlNestedPayload = (output: any, context: __SerdeContex
     name: undefined,
   };
   if (output["greeting"] !== undefined) {
-    contents.greeting = output["greeting"];
+    contents.greeting = __expectString(output["greeting"]);
   }
   if (output["name"] !== undefined) {
-    contents.name = output["name"];
+    contents.name = __expectString(output["name"]);
   }
   return contents;
 };
@@ -5642,7 +5643,7 @@ const deserializeAws_restXmlPayloadWithXmlName = (output: any, context: __SerdeC
     name: undefined,
   };
   if (output["name"] !== undefined) {
-    contents.name = output["name"];
+    contents.name = __expectString(output["name"]);
   }
   return contents;
 };
@@ -5655,7 +5656,7 @@ const deserializeAws_restXmlPayloadWithXmlNamespace = (
     name: undefined,
   };
   if (output["name"] !== undefined) {
-    contents.name = output["name"];
+    contents.name = __expectString(output["name"]);
   }
   return contents;
 };
@@ -5668,7 +5669,7 @@ const deserializeAws_restXmlPayloadWithXmlNamespaceAndPrefix = (
     name: undefined,
   };
   if (output["name"] !== undefined) {
-    contents.name = output["name"];
+    contents.name = __expectString(output["name"]);
   }
   return contents;
 };
@@ -5682,7 +5683,7 @@ const deserializeAws_restXmlRecursiveShapesInputOutputNested1 = (
     nested: undefined,
   };
   if (output["foo"] !== undefined) {
-    contents.foo = output["foo"];
+    contents.foo = __expectString(output["foo"]);
   }
   if (output["nested"] !== undefined) {
     contents.nested = deserializeAws_restXmlRecursiveShapesInputOutputNested2(output["nested"], context);
@@ -5699,7 +5700,7 @@ const deserializeAws_restXmlRecursiveShapesInputOutputNested2 = (
     recursiveMember: undefined,
   };
   if (output["bar"] !== undefined) {
-    contents.bar = output["bar"];
+    contents.bar = __expectString(output["bar"]);
   }
   if (output["recursiveMember"] !== undefined) {
     contents.recursiveMember = deserializeAws_restXmlRecursiveShapesInputOutputNested1(
@@ -5717,7 +5718,7 @@ const deserializeAws_restXmlRenamedListMembers = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5738,10 +5739,10 @@ const deserializeAws_restXmlStructureListMember = (output: any, context: __Serde
     b: undefined,
   };
   if (output["value"] !== undefined) {
-    contents.a = output["value"];
+    contents.a = __expectString(output["value"]);
   }
   if (output["other"] !== undefined) {
-    contents.b = output["other"];
+    contents.b = __expectString(output["other"]);
   }
   return contents;
 };
@@ -5755,10 +5756,10 @@ const deserializeAws_restXmlXmlAttributesInputOutput = (
     attr: undefined,
   };
   if (output["foo"] !== undefined) {
-    contents.foo = output["foo"];
+    contents.foo = __expectString(output["foo"]);
   }
   if (output["test"] !== undefined) {
-    contents.attr = output["test"];
+    contents.attr = __expectString(output["test"]);
   }
   return contents;
 };
@@ -5800,7 +5801,7 @@ const deserializeAws_restXmlXmlNamespacedList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5810,7 +5811,7 @@ const deserializeAws_restXmlXmlNamespaceNested = (output: any, context: __SerdeC
     values: undefined,
   };
   if (output["foo"] !== undefined) {
-    contents.foo = output["foo"];
+    contents.foo = __expectString(output["foo"]);
   }
   if (output.values === "") {
     contents.values = [];
@@ -5836,7 +5837,7 @@ const deserializeAws_restXmlXmlNestedUnionStruct = (output: any, context: __Serd
     doubleValue: undefined,
   };
   if (output["stringValue"] !== undefined) {
-    contents.stringValue = output["stringValue"];
+    contents.stringValue = __expectString(output["stringValue"]);
   }
   if (output["booleanValue"] !== undefined) {
     contents.booleanValue = __parseBoolean(output["booleanValue"]);
@@ -5865,7 +5866,7 @@ const deserializeAws_restXmlXmlNestedUnionStruct = (output: any, context: __Serd
 const deserializeAws_restXmlXmlUnionShape = (output: any, context: __SerdeContext): XmlUnionShape => {
   if (output["stringValue"] !== undefined) {
     return {
-      stringValue: output["stringValue"],
+      stringValue: __expectString(output["stringValue"]) as any,
     };
   }
   if (output["booleanValue"] !== undefined) {
@@ -5934,7 +5935,7 @@ const deserializeAws_restXmlFooEnumList = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5948,7 +5949,7 @@ const deserializeAws_restXmlFooEnumMap = (
     }
     return {
       ...acc,
-      [pair["key"]]: pair["value"],
+      [pair["key"]]: __expectString(pair["value"]) as any,
     };
   }, {});
 };
@@ -5960,7 +5961,7 @@ const deserializeAws_restXmlFooEnumSet = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5969,7 +5970,7 @@ const deserializeAws_restXmlGreetingStruct = (output: any, context: __SerdeConte
     hi: undefined,
   };
   if (output["hi"] !== undefined) {
-    contents.hi = output["hi"];
+    contents.hi = __expectString(output["hi"]);
   }
   return contents;
 };
@@ -6003,7 +6004,7 @@ const deserializeAws_restXmlStringList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6014,7 +6015,7 @@ const deserializeAws_restXmlStringSet = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

@@ -25,6 +25,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -208,10 +209,10 @@ export const deserializeAws_restJson1CancelChangeSetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ChangeSetArn !== undefined && data.ChangeSetArn !== null) {
-    contents.ChangeSetArn = data.ChangeSetArn;
+    contents.ChangeSetArn = __expectString(data.ChangeSetArn);
   }
   if (data.ChangeSetId !== undefined && data.ChangeSetId !== null) {
-    contents.ChangeSetId = data.ChangeSetId;
+    contents.ChangeSetId = __expectString(data.ChangeSetId);
   }
   return Promise.resolve(contents);
 };
@@ -317,28 +318,28 @@ export const deserializeAws_restJson1DescribeChangeSetCommand = async (
     contents.ChangeSet = deserializeAws_restJson1ChangeSetDescription(data.ChangeSet, context);
   }
   if (data.ChangeSetArn !== undefined && data.ChangeSetArn !== null) {
-    contents.ChangeSetArn = data.ChangeSetArn;
+    contents.ChangeSetArn = __expectString(data.ChangeSetArn);
   }
   if (data.ChangeSetId !== undefined && data.ChangeSetId !== null) {
-    contents.ChangeSetId = data.ChangeSetId;
+    contents.ChangeSetId = __expectString(data.ChangeSetId);
   }
   if (data.ChangeSetName !== undefined && data.ChangeSetName !== null) {
-    contents.ChangeSetName = data.ChangeSetName;
+    contents.ChangeSetName = __expectString(data.ChangeSetName);
   }
   if (data.EndTime !== undefined && data.EndTime !== null) {
-    contents.EndTime = data.EndTime;
+    contents.EndTime = __expectString(data.EndTime);
   }
   if (data.FailureCode !== undefined && data.FailureCode !== null) {
-    contents.FailureCode = data.FailureCode;
+    contents.FailureCode = __expectString(data.FailureCode);
   }
   if (data.FailureDescription !== undefined && data.FailureDescription !== null) {
-    contents.FailureDescription = data.FailureDescription;
+    contents.FailureDescription = __expectString(data.FailureDescription);
   }
   if (data.StartTime !== undefined && data.StartTime !== null) {
-    contents.StartTime = data.StartTime;
+    contents.StartTime = __expectString(data.StartTime);
   }
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = data.Status;
+    contents.Status = __expectString(data.Status);
   }
   return Promise.resolve(contents);
 };
@@ -429,19 +430,19 @@ export const deserializeAws_restJson1DescribeEntityCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Details !== undefined && data.Details !== null) {
-    contents.Details = data.Details;
+    contents.Details = __expectString(data.Details);
   }
   if (data.EntityArn !== undefined && data.EntityArn !== null) {
-    contents.EntityArn = data.EntityArn;
+    contents.EntityArn = __expectString(data.EntityArn);
   }
   if (data.EntityIdentifier !== undefined && data.EntityIdentifier !== null) {
-    contents.EntityIdentifier = data.EntityIdentifier;
+    contents.EntityIdentifier = __expectString(data.EntityIdentifier);
   }
   if (data.EntityType !== undefined && data.EntityType !== null) {
-    contents.EntityType = data.EntityType;
+    contents.EntityType = __expectString(data.EntityType);
   }
   if (data.LastModifiedDate !== undefined && data.LastModifiedDate !== null) {
-    contents.LastModifiedDate = data.LastModifiedDate;
+    contents.LastModifiedDate = __expectString(data.LastModifiedDate);
   }
   return Promise.resolve(contents);
 };
@@ -540,7 +541,7 @@ export const deserializeAws_restJson1ListChangeSetsCommand = async (
     contents.ChangeSetSummaryList = deserializeAws_restJson1ChangeSetSummaryList(data.ChangeSetSummaryList, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -623,7 +624,7 @@ export const deserializeAws_restJson1ListEntitiesCommand = async (
     contents.EntitySummaryList = deserializeAws_restJson1EntitySummaryList(data.EntitySummaryList, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -711,10 +712,10 @@ export const deserializeAws_restJson1StartChangeSetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ChangeSetArn !== undefined && data.ChangeSetArn !== null) {
-    contents.ChangeSetArn = data.ChangeSetArn;
+    contents.ChangeSetArn = __expectString(data.ChangeSetArn);
   }
   if (data.ChangeSetId !== undefined && data.ChangeSetId !== null) {
-    contents.ChangeSetId = data.ChangeSetId;
+    contents.ChangeSetId = __expectString(data.ChangeSetId);
   }
   return Promise.resolve(contents);
 };
@@ -816,7 +817,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -833,7 +834,7 @@ const deserializeAws_restJson1InternalServiceExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -850,7 +851,7 @@ const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -867,7 +868,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -884,7 +885,7 @@ const deserializeAws_restJson1ResourceNotSupportedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -901,7 +902,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -918,7 +919,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -935,7 +936,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1035,26 +1036,25 @@ const deserializeAws_restJson1ChangeSetSummaryListItem = (
   context: __SerdeContext
 ): ChangeSetSummaryListItem => {
   return {
-    ChangeSetArn: output.ChangeSetArn !== undefined && output.ChangeSetArn !== null ? output.ChangeSetArn : undefined,
-    ChangeSetId: output.ChangeSetId !== undefined && output.ChangeSetId !== null ? output.ChangeSetId : undefined,
-    ChangeSetName:
-      output.ChangeSetName !== undefined && output.ChangeSetName !== null ? output.ChangeSetName : undefined,
-    EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
+    ChangeSetArn: __expectString(output.ChangeSetArn),
+    ChangeSetId: __expectString(output.ChangeSetId),
+    ChangeSetName: __expectString(output.ChangeSetName),
+    EndTime: __expectString(output.EndTime),
     EntityIdList:
       output.EntityIdList !== undefined && output.EntityIdList !== null
         ? deserializeAws_restJson1ResourceIdList(output.EntityIdList, context)
         : undefined,
-    FailureCode: output.FailureCode !== undefined && output.FailureCode !== null ? output.FailureCode : undefined,
-    StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    FailureCode: __expectString(output.FailureCode),
+    StartTime: __expectString(output.StartTime),
+    Status: __expectString(output.Status),
   } as any;
 };
 
 const deserializeAws_restJson1ChangeSummary = (output: any, context: __SerdeContext): ChangeSummary => {
   return {
-    ChangeName: output.ChangeName !== undefined && output.ChangeName !== null ? output.ChangeName : undefined,
-    ChangeType: output.ChangeType !== undefined && output.ChangeType !== null ? output.ChangeType : undefined,
-    Details: output.Details !== undefined && output.Details !== null ? output.Details : undefined,
+    ChangeName: __expectString(output.ChangeName),
+    ChangeType: __expectString(output.ChangeType),
+    Details: __expectString(output.Details),
     Entity:
       output.Entity !== undefined && output.Entity !== null
         ? deserializeAws_restJson1Entity(output.Entity, context)
@@ -1068,20 +1068,19 @@ const deserializeAws_restJson1ChangeSummary = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Entity = (output: any, context: __SerdeContext): Entity => {
   return {
-    Identifier: output.Identifier !== undefined && output.Identifier !== null ? output.Identifier : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Identifier: __expectString(output.Identifier),
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_restJson1EntitySummary = (output: any, context: __SerdeContext): EntitySummary => {
   return {
-    EntityArn: output.EntityArn !== undefined && output.EntityArn !== null ? output.EntityArn : undefined,
-    EntityId: output.EntityId !== undefined && output.EntityId !== null ? output.EntityId : undefined,
-    EntityType: output.EntityType !== undefined && output.EntityType !== null ? output.EntityType : undefined,
-    LastModifiedDate:
-      output.LastModifiedDate !== undefined && output.LastModifiedDate !== null ? output.LastModifiedDate : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Visibility: output.Visibility !== undefined && output.Visibility !== null ? output.Visibility : undefined,
+    EntityArn: __expectString(output.EntityArn),
+    EntityId: __expectString(output.EntityId),
+    EntityType: __expectString(output.EntityType),
+    LastModifiedDate: __expectString(output.LastModifiedDate),
+    Name: __expectString(output.Name),
+    Visibility: __expectString(output.Visibility),
   } as any;
 };
 
@@ -1098,8 +1097,8 @@ const deserializeAws_restJson1EntitySummaryList = (output: any, context: __Serde
 
 const deserializeAws_restJson1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
   } as any;
 };
 
@@ -1121,7 +1120,7 @@ const deserializeAws_restJson1ResourceIdList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

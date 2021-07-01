@@ -77,6 +77,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -660,7 +663,7 @@ export const deserializeAws_restJson1AddProfilePermissionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.revisionId !== undefined && data.revisionId !== null) {
-    contents.revisionId = data.revisionId;
+    contents.revisionId = __expectString(data.revisionId);
   }
   return Promise.resolve(contents);
 };
@@ -862,31 +865,31 @@ export const deserializeAws_restJson1DescribeSigningJobCommand = async (
     contents.createdAt = new Date(Math.round(data.createdAt * 1000));
   }
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.jobId = data.jobId;
+    contents.jobId = __expectString(data.jobId);
   }
   if (data.jobInvoker !== undefined && data.jobInvoker !== null) {
-    contents.jobInvoker = data.jobInvoker;
+    contents.jobInvoker = __expectString(data.jobInvoker);
   }
   if (data.jobOwner !== undefined && data.jobOwner !== null) {
-    contents.jobOwner = data.jobOwner;
+    contents.jobOwner = __expectString(data.jobOwner);
   }
   if (data.overrides !== undefined && data.overrides !== null) {
     contents.overrides = deserializeAws_restJson1SigningPlatformOverrides(data.overrides, context);
   }
   if (data.platformDisplayName !== undefined && data.platformDisplayName !== null) {
-    contents.platformDisplayName = data.platformDisplayName;
+    contents.platformDisplayName = __expectString(data.platformDisplayName);
   }
   if (data.platformId !== undefined && data.platformId !== null) {
-    contents.platformId = data.platformId;
+    contents.platformId = __expectString(data.platformId);
   }
   if (data.profileName !== undefined && data.profileName !== null) {
-    contents.profileName = data.profileName;
+    contents.profileName = __expectString(data.profileName);
   }
   if (data.profileVersion !== undefined && data.profileVersion !== null) {
-    contents.profileVersion = data.profileVersion;
+    contents.profileVersion = __expectString(data.profileVersion);
   }
   if (data.requestedBy !== undefined && data.requestedBy !== null) {
-    contents.requestedBy = data.requestedBy;
+    contents.requestedBy = __expectString(data.requestedBy);
   }
   if (data.revocationRecord !== undefined && data.revocationRecord !== null) {
     contents.revocationRecord = deserializeAws_restJson1SigningJobRevocationRecord(data.revocationRecord, context);
@@ -907,10 +910,10 @@ export const deserializeAws_restJson1DescribeSigningJobCommand = async (
     contents.source = deserializeAws_restJson1Source(data.source, context);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = data.status;
+    contents.status = __expectString(data.status);
   }
   if (data.statusReason !== undefined && data.statusReason !== null) {
-    contents.statusReason = data.statusReason;
+    contents.statusReason = __expectString(data.statusReason);
   }
   return Promise.resolve(contents);
 };
@@ -997,22 +1000,22 @@ export const deserializeAws_restJson1GetSigningPlatformCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.category !== undefined && data.category !== null) {
-    contents.category = data.category;
+    contents.category = __expectString(data.category);
   }
   if (data.displayName !== undefined && data.displayName !== null) {
-    contents.displayName = data.displayName;
+    contents.displayName = __expectString(data.displayName);
   }
   if (data.maxSizeInMB !== undefined && data.maxSizeInMB !== null) {
-    contents.maxSizeInMB = data.maxSizeInMB;
+    contents.maxSizeInMB = __expectNumber(data.maxSizeInMB);
   }
   if (data.partner !== undefined && data.partner !== null) {
-    contents.partner = data.partner;
+    contents.partner = __expectString(data.partner);
   }
   if (data.platformId !== undefined && data.platformId !== null) {
-    contents.platformId = data.platformId;
+    contents.platformId = __expectString(data.platformId);
   }
   if (data.revocationSupported !== undefined && data.revocationSupported !== null) {
-    contents.revocationSupported = data.revocationSupported;
+    contents.revocationSupported = __expectBoolean(data.revocationSupported);
   }
   if (data.signingConfiguration !== undefined && data.signingConfiguration !== null) {
     contents.signingConfiguration = deserializeAws_restJson1SigningConfiguration(data.signingConfiguration, context);
@@ -1021,7 +1024,7 @@ export const deserializeAws_restJson1GetSigningPlatformCommand = async (
     contents.signingImageFormat = deserializeAws_restJson1SigningImageFormat(data.signingImageFormat, context);
   }
   if (data.target !== undefined && data.target !== null) {
-    contents.target = data.target;
+    contents.target = __expectString(data.target);
   }
   return Promise.resolve(contents);
 };
@@ -1113,25 +1116,25 @@ export const deserializeAws_restJson1GetSigningProfileCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = data.arn;
+    contents.arn = __expectString(data.arn);
   }
   if (data.overrides !== undefined && data.overrides !== null) {
     contents.overrides = deserializeAws_restJson1SigningPlatformOverrides(data.overrides, context);
   }
   if (data.platformDisplayName !== undefined && data.platformDisplayName !== null) {
-    contents.platformDisplayName = data.platformDisplayName;
+    contents.platformDisplayName = __expectString(data.platformDisplayName);
   }
   if (data.platformId !== undefined && data.platformId !== null) {
-    contents.platformId = data.platformId;
+    contents.platformId = __expectString(data.platformId);
   }
   if (data.profileName !== undefined && data.profileName !== null) {
-    contents.profileName = data.profileName;
+    contents.profileName = __expectString(data.profileName);
   }
   if (data.profileVersion !== undefined && data.profileVersion !== null) {
-    contents.profileVersion = data.profileVersion;
+    contents.profileVersion = __expectString(data.profileVersion);
   }
   if (data.profileVersionArn !== undefined && data.profileVersionArn !== null) {
-    contents.profileVersionArn = data.profileVersionArn;
+    contents.profileVersionArn = __expectString(data.profileVersionArn);
   }
   if (data.revocationRecord !== undefined && data.revocationRecord !== null) {
     contents.revocationRecord = deserializeAws_restJson1SigningProfileRevocationRecord(data.revocationRecord, context);
@@ -1149,10 +1152,10 @@ export const deserializeAws_restJson1GetSigningProfileCommand = async (
     contents.signingParameters = deserializeAws_restJson1SigningParameters(data.signingParameters, context);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = data.status;
+    contents.status = __expectString(data.status);
   }
   if (data.statusReason !== undefined && data.statusReason !== null) {
-    contents.statusReason = data.statusReason;
+    contents.statusReason = __expectString(data.statusReason);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
@@ -1237,16 +1240,16 @@ export const deserializeAws_restJson1ListProfilePermissionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.permissions !== undefined && data.permissions !== null) {
     contents.permissions = deserializeAws_restJson1Permissions(data.permissions, context);
   }
   if (data.policySizeBytes !== undefined && data.policySizeBytes !== null) {
-    contents.policySizeBytes = data.policySizeBytes;
+    contents.policySizeBytes = __expectNumber(data.policySizeBytes);
   }
   if (data.revisionId !== undefined && data.revisionId !== null) {
-    contents.revisionId = data.revisionId;
+    contents.revisionId = __expectString(data.revisionId);
   }
   return Promise.resolve(contents);
 };
@@ -1337,7 +1340,7 @@ export const deserializeAws_restJson1ListSigningJobsCommand = async (
     contents.jobs = deserializeAws_restJson1SigningJobs(data.jobs, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1417,7 +1420,7 @@ export const deserializeAws_restJson1ListSigningPlatformsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.platforms !== undefined && data.platforms !== null) {
     contents.platforms = deserializeAws_restJson1SigningPlatforms(data.platforms, context);
@@ -1500,7 +1503,7 @@ export const deserializeAws_restJson1ListSigningProfilesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.profiles !== undefined && data.profiles !== null) {
     contents.profiles = deserializeAws_restJson1SigningProfiles(data.profiles, context);
@@ -1655,13 +1658,13 @@ export const deserializeAws_restJson1PutSigningProfileCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = data.arn;
+    contents.arn = __expectString(data.arn);
   }
   if (data.profileVersion !== undefined && data.profileVersion !== null) {
-    contents.profileVersion = data.profileVersion;
+    contents.profileVersion = __expectString(data.profileVersion);
   }
   if (data.profileVersionArn !== undefined && data.profileVersionArn !== null) {
-    contents.profileVersionArn = data.profileVersionArn;
+    contents.profileVersionArn = __expectString(data.profileVersionArn);
   }
   return Promise.resolve(contents);
 };
@@ -1748,7 +1751,7 @@ export const deserializeAws_restJson1RemoveProfilePermissionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.revisionId !== undefined && data.revisionId !== null) {
-    contents.revisionId = data.revisionId;
+    contents.revisionId = __expectString(data.revisionId);
   }
   return Promise.resolve(contents);
 };
@@ -2010,10 +2013,10 @@ export const deserializeAws_restJson1StartSigningJobCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobId !== undefined && data.jobId !== null) {
-    contents.jobId = data.jobId;
+    contents.jobId = __expectString(data.jobId);
   }
   if (data.jobOwner !== undefined && data.jobOwner !== null) {
-    contents.jobOwner = data.jobOwner;
+    contents.jobOwner = __expectString(data.jobOwner);
   }
   return Promise.resolve(contents);
 };
@@ -2258,10 +2261,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2279,10 +2282,10 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2300,10 +2303,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2321,10 +2324,10 @@ const deserializeAws_restJson1InternalServiceErrorExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2342,10 +2345,10 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2363,10 +2366,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2384,10 +2387,10 @@ const deserializeAws_restJson1ServiceLimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2405,10 +2408,10 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2426,10 +2429,10 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2447,10 +2450,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2557,7 +2560,7 @@ const deserializeAws_restJson1EncryptionAlgorithmOptions = (
       output.allowedValues !== undefined && output.allowedValues !== null
         ? deserializeAws_restJson1EncryptionAlgorithms(output.allowedValues, context)
         : undefined,
-    defaultValue: output.defaultValue !== undefined && output.defaultValue !== null ? output.defaultValue : undefined,
+    defaultValue: __expectString(output.defaultValue),
   } as any;
 };
 
@@ -2571,7 +2574,7 @@ const deserializeAws_restJson1EncryptionAlgorithms = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2581,7 +2584,7 @@ const deserializeAws_restJson1HashAlgorithmOptions = (output: any, context: __Se
       output.allowedValues !== undefined && output.allowedValues !== null
         ? deserializeAws_restJson1HashAlgorithms(output.allowedValues, context)
         : undefined,
-    defaultValue: output.defaultValue !== undefined && output.defaultValue !== null ? output.defaultValue : undefined,
+    defaultValue: __expectString(output.defaultValue),
   } as any;
 };
 
@@ -2592,7 +2595,7 @@ const deserializeAws_restJson1HashAlgorithms = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2603,17 +2606,16 @@ const deserializeAws_restJson1ImageFormats = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Permission = (output: any, context: __SerdeContext): Permission => {
   return {
-    action: output.action !== undefined && output.action !== null ? output.action : undefined,
-    principal: output.principal !== undefined && output.principal !== null ? output.principal : undefined,
-    profileVersion:
-      output.profileVersion !== undefined && output.profileVersion !== null ? output.profileVersion : undefined,
-    statementId: output.statementId !== undefined && output.statementId !== null ? output.statementId : undefined,
+    action: __expectString(output.action),
+    principal: __expectString(output.principal),
+    profileVersion: __expectString(output.profileVersion),
+    statementId: __expectString(output.statementId),
   } as any;
 };
 
@@ -2630,16 +2632,16 @@ const deserializeAws_restJson1Permissions = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1S3SignedObject = (output: any, context: __SerdeContext): S3SignedObject => {
   return {
-    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    bucketName: __expectString(output.bucketName),
+    key: __expectString(output.key),
   } as any;
 };
 
 const deserializeAws_restJson1S3Source = (output: any, context: __SerdeContext): S3Source => {
   return {
-    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    bucketName: __expectString(output.bucketName),
+    key: __expectString(output.key),
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -2648,8 +2650,8 @@ const deserializeAws_restJson1SignatureValidityPeriod = (
   context: __SerdeContext
 ): SignatureValidityPeriod => {
   return {
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    type: __expectString(output.type),
+    value: __expectNumber(output.value),
   } as any;
 };
 
@@ -2680,19 +2682,14 @@ const deserializeAws_restJson1SigningConfigurationOverrides = (
   context: __SerdeContext
 ): SigningConfigurationOverrides => {
   return {
-    encryptionAlgorithm:
-      output.encryptionAlgorithm !== undefined && output.encryptionAlgorithm !== null
-        ? output.encryptionAlgorithm
-        : undefined,
-    hashAlgorithm:
-      output.hashAlgorithm !== undefined && output.hashAlgorithm !== null ? output.hashAlgorithm : undefined,
+    encryptionAlgorithm: __expectString(output.encryptionAlgorithm),
+    hashAlgorithm: __expectString(output.hashAlgorithm),
   } as any;
 };
 
 const deserializeAws_restJson1SigningImageFormat = (output: any, context: __SerdeContext): SigningImageFormat => {
   return {
-    defaultFormat:
-      output.defaultFormat !== undefined && output.defaultFormat !== null ? output.defaultFormat : undefined,
+    defaultFormat: __expectString(output.defaultFormat),
     supportedFormats:
       output.supportedFormats !== undefined && output.supportedFormats !== null
         ? deserializeAws_restJson1ImageFormats(output.supportedFormats, context)
@@ -2706,18 +2703,14 @@ const deserializeAws_restJson1SigningJob = (output: any, context: __SerdeContext
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    isRevoked: output.isRevoked !== undefined && output.isRevoked !== null ? output.isRevoked : undefined,
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
-    jobInvoker: output.jobInvoker !== undefined && output.jobInvoker !== null ? output.jobInvoker : undefined,
-    jobOwner: output.jobOwner !== undefined && output.jobOwner !== null ? output.jobOwner : undefined,
-    platformDisplayName:
-      output.platformDisplayName !== undefined && output.platformDisplayName !== null
-        ? output.platformDisplayName
-        : undefined,
-    platformId: output.platformId !== undefined && output.platformId !== null ? output.platformId : undefined,
-    profileName: output.profileName !== undefined && output.profileName !== null ? output.profileName : undefined,
-    profileVersion:
-      output.profileVersion !== undefined && output.profileVersion !== null ? output.profileVersion : undefined,
+    isRevoked: __expectBoolean(output.isRevoked),
+    jobId: __expectString(output.jobId),
+    jobInvoker: __expectString(output.jobInvoker),
+    jobOwner: __expectString(output.jobOwner),
+    platformDisplayName: __expectString(output.platformDisplayName),
+    platformId: __expectString(output.platformId),
+    profileName: __expectString(output.profileName),
+    profileVersion: __expectString(output.profileVersion),
     signatureExpiresAt:
       output.signatureExpiresAt !== undefined && output.signatureExpiresAt !== null
         ? new Date(Math.round(output.signatureExpiresAt * 1000))
@@ -2734,7 +2727,7 @@ const deserializeAws_restJson1SigningJob = (output: any, context: __SerdeContext
       output.source !== undefined && output.source !== null
         ? deserializeAws_restJson1Source(output.source, context)
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -2743,12 +2736,12 @@ const deserializeAws_restJson1SigningJobRevocationRecord = (
   context: __SerdeContext
 ): SigningJobRevocationRecord => {
   return {
-    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
+    reason: __expectString(output.reason),
     revokedAt:
       output.revokedAt !== undefined && output.revokedAt !== null
         ? new Date(Math.round(output.revokedAt * 1000))
         : undefined,
-    revokedBy: output.revokedBy !== undefined && output.revokedBy !== null ? output.revokedBy : undefined,
+    revokedBy: __expectString(output.revokedBy),
   } as any;
 };
 
@@ -2765,8 +2758,7 @@ const deserializeAws_restJson1SigningJobs = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1SigningMaterial = (output: any, context: __SerdeContext): SigningMaterial => {
   return {
-    certificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
+    certificateArn: __expectString(output.certificateArn),
   } as any;
 };
 
@@ -2777,22 +2769,19 @@ const deserializeAws_restJson1SigningParameters = (output: any, context: __Serde
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1SigningPlatform = (output: any, context: __SerdeContext): SigningPlatform => {
   return {
-    category: output.category !== undefined && output.category !== null ? output.category : undefined,
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
-    maxSizeInMB: output.maxSizeInMB !== undefined && output.maxSizeInMB !== null ? output.maxSizeInMB : undefined,
-    partner: output.partner !== undefined && output.partner !== null ? output.partner : undefined,
-    platformId: output.platformId !== undefined && output.platformId !== null ? output.platformId : undefined,
-    revocationSupported:
-      output.revocationSupported !== undefined && output.revocationSupported !== null
-        ? output.revocationSupported
-        : undefined,
+    category: __expectString(output.category),
+    displayName: __expectString(output.displayName),
+    maxSizeInMB: __expectNumber(output.maxSizeInMB),
+    partner: __expectString(output.partner),
+    platformId: __expectString(output.platformId),
+    revocationSupported: __expectBoolean(output.revocationSupported),
     signingConfiguration:
       output.signingConfiguration !== undefined && output.signingConfiguration !== null
         ? deserializeAws_restJson1SigningConfiguration(output.signingConfiguration, context)
@@ -2801,7 +2790,7 @@ const deserializeAws_restJson1SigningPlatform = (output: any, context: __SerdeCo
       output.signingImageFormat !== undefined && output.signingImageFormat !== null
         ? deserializeAws_restJson1SigningImageFormat(output.signingImageFormat, context)
         : undefined,
-    target: output.target !== undefined && output.target !== null ? output.target : undefined,
+    target: __expectString(output.target),
   } as any;
 };
 
@@ -2814,10 +2803,7 @@ const deserializeAws_restJson1SigningPlatformOverrides = (
       output.signingConfiguration !== undefined && output.signingConfiguration !== null
         ? deserializeAws_restJson1SigningConfigurationOverrides(output.signingConfiguration, context)
         : undefined,
-    signingImageFormat:
-      output.signingImageFormat !== undefined && output.signingImageFormat !== null
-        ? output.signingImageFormat
-        : undefined,
+    signingImageFormat: __expectString(output.signingImageFormat),
   } as any;
 };
 
@@ -2834,19 +2820,12 @@ const deserializeAws_restJson1SigningPlatforms = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SigningProfile = (output: any, context: __SerdeContext): SigningProfile => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    platformDisplayName:
-      output.platformDisplayName !== undefined && output.platformDisplayName !== null
-        ? output.platformDisplayName
-        : undefined,
-    platformId: output.platformId !== undefined && output.platformId !== null ? output.platformId : undefined,
-    profileName: output.profileName !== undefined && output.profileName !== null ? output.profileName : undefined,
-    profileVersion:
-      output.profileVersion !== undefined && output.profileVersion !== null ? output.profileVersion : undefined,
-    profileVersionArn:
-      output.profileVersionArn !== undefined && output.profileVersionArn !== null
-        ? output.profileVersionArn
-        : undefined,
+    arn: __expectString(output.arn),
+    platformDisplayName: __expectString(output.platformDisplayName),
+    platformId: __expectString(output.platformId),
+    profileName: __expectString(output.profileName),
+    profileVersion: __expectString(output.profileVersion),
+    profileVersionArn: __expectString(output.profileVersionArn),
     signatureValidityPeriod:
       output.signatureValidityPeriod !== undefined && output.signatureValidityPeriod !== null
         ? deserializeAws_restJson1SignatureValidityPeriod(output.signatureValidityPeriod, context)
@@ -2859,7 +2838,7 @@ const deserializeAws_restJson1SigningProfile = (output: any, context: __SerdeCon
       output.signingParameters !== undefined && output.signingParameters !== null
         ? deserializeAws_restJson1SigningParameters(output.signingParameters, context)
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
@@ -2880,7 +2859,7 @@ const deserializeAws_restJson1SigningProfileRevocationRecord = (
       output.revokedAt !== undefined && output.revokedAt !== null
         ? new Date(Math.round(output.revokedAt * 1000))
         : undefined,
-    revokedBy: output.revokedBy !== undefined && output.revokedBy !== null ? output.revokedBy : undefined,
+    revokedBy: __expectString(output.revokedBy),
   } as any;
 };
 
@@ -2909,7 +2888,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

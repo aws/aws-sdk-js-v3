@@ -610,7 +610,12 @@ import {
   UpdateRepositoryNameInput,
 } from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -17725,15 +17730,14 @@ const deserializeAws_json1_1ActorDoesNotExistException = (
   context: __SerdeContext
 ): ActorDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1Approval = (output: any, context: __SerdeContext): Approval => {
   return {
-    approvalState:
-      output.approvalState !== undefined && output.approvalState !== null ? output.approvalState : undefined,
-    userArn: output.userArn !== undefined && output.userArn !== null ? output.userArn : undefined,
+    approvalState: __expectString(output.approvalState),
+    userArn: __expectString(output.userArn),
   } as any;
 };
 
@@ -17750,14 +17754,9 @@ const deserializeAws_json1_1ApprovalList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ApprovalRule = (output: any, context: __SerdeContext): ApprovalRule => {
   return {
-    approvalRuleContent:
-      output.approvalRuleContent !== undefined && output.approvalRuleContent !== null
-        ? output.approvalRuleContent
-        : undefined,
-    approvalRuleId:
-      output.approvalRuleId !== undefined && output.approvalRuleId !== null ? output.approvalRuleId : undefined,
-    approvalRuleName:
-      output.approvalRuleName !== undefined && output.approvalRuleName !== null ? output.approvalRuleName : undefined,
+    approvalRuleContent: __expectString(output.approvalRuleContent),
+    approvalRuleId: __expectString(output.approvalRuleId),
+    approvalRuleName: __expectString(output.approvalRuleName),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -17766,16 +17765,12 @@ const deserializeAws_json1_1ApprovalRule = (output: any, context: __SerdeContext
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
         : undefined,
-    lastModifiedUser:
-      output.lastModifiedUser !== undefined && output.lastModifiedUser !== null ? output.lastModifiedUser : undefined,
+    lastModifiedUser: __expectString(output.lastModifiedUser),
     originApprovalRuleTemplate:
       output.originApprovalRuleTemplate !== undefined && output.originApprovalRuleTemplate !== null
         ? deserializeAws_json1_1OriginApprovalRuleTemplate(output.originApprovalRuleTemplate, context)
         : undefined,
-    ruleContentSha256:
-      output.ruleContentSha256 !== undefined && output.ruleContentSha256 !== null
-        ? output.ruleContentSha256
-        : undefined,
+    ruleContentSha256: __expectString(output.ruleContentSha256),
   } as any;
 };
 
@@ -17784,7 +17779,7 @@ const deserializeAws_json1_1ApprovalRuleContentRequiredException = (
   context: __SerdeContext
 ): ApprovalRuleContentRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -17793,7 +17788,7 @@ const deserializeAws_json1_1ApprovalRuleDoesNotExistException = (
   context: __SerdeContext
 ): ApprovalRuleDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -17802,14 +17797,9 @@ const deserializeAws_json1_1ApprovalRuleEventMetadata = (
   context: __SerdeContext
 ): ApprovalRuleEventMetadata => {
   return {
-    approvalRuleContent:
-      output.approvalRuleContent !== undefined && output.approvalRuleContent !== null
-        ? output.approvalRuleContent
-        : undefined,
-    approvalRuleId:
-      output.approvalRuleId !== undefined && output.approvalRuleId !== null ? output.approvalRuleId : undefined,
-    approvalRuleName:
-      output.approvalRuleName !== undefined && output.approvalRuleName !== null ? output.approvalRuleName : undefined,
+    approvalRuleContent: __expectString(output.approvalRuleContent),
+    approvalRuleId: __expectString(output.approvalRuleId),
+    approvalRuleName: __expectString(output.approvalRuleName),
   } as any;
 };
 
@@ -17818,7 +17808,7 @@ const deserializeAws_json1_1ApprovalRuleNameAlreadyExistsException = (
   context: __SerdeContext
 ): ApprovalRuleNameAlreadyExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -17827,7 +17817,7 @@ const deserializeAws_json1_1ApprovalRuleNameRequiredException = (
   context: __SerdeContext
 ): ApprovalRuleNameRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -17836,9 +17826,8 @@ const deserializeAws_json1_1ApprovalRuleOverriddenEventMetadata = (
   context: __SerdeContext
 ): ApprovalRuleOverriddenEventMetadata => {
   return {
-    overrideStatus:
-      output.overrideStatus !== undefined && output.overrideStatus !== null ? output.overrideStatus : undefined,
-    revisionId: output.revisionId !== undefined && output.revisionId !== null ? output.revisionId : undefined,
+    overrideStatus: __expectString(output.overrideStatus),
+    revisionId: __expectString(output.revisionId),
   } as any;
 };
 
@@ -17860,7 +17849,7 @@ const deserializeAws_json1_1ApprovalRulesNotSatisfiedList = (output: any, contex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -17871,28 +17860,16 @@ const deserializeAws_json1_1ApprovalRulesSatisfiedList = (output: any, context: 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1ApprovalRuleTemplate = (output: any, context: __SerdeContext): ApprovalRuleTemplate => {
   return {
-    approvalRuleTemplateContent:
-      output.approvalRuleTemplateContent !== undefined && output.approvalRuleTemplateContent !== null
-        ? output.approvalRuleTemplateContent
-        : undefined,
-    approvalRuleTemplateDescription:
-      output.approvalRuleTemplateDescription !== undefined && output.approvalRuleTemplateDescription !== null
-        ? output.approvalRuleTemplateDescription
-        : undefined,
-    approvalRuleTemplateId:
-      output.approvalRuleTemplateId !== undefined && output.approvalRuleTemplateId !== null
-        ? output.approvalRuleTemplateId
-        : undefined,
-    approvalRuleTemplateName:
-      output.approvalRuleTemplateName !== undefined && output.approvalRuleTemplateName !== null
-        ? output.approvalRuleTemplateName
-        : undefined,
+    approvalRuleTemplateContent: __expectString(output.approvalRuleTemplateContent),
+    approvalRuleTemplateDescription: __expectString(output.approvalRuleTemplateDescription),
+    approvalRuleTemplateId: __expectString(output.approvalRuleTemplateId),
+    approvalRuleTemplateName: __expectString(output.approvalRuleTemplateName),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -17901,12 +17878,8 @@ const deserializeAws_json1_1ApprovalRuleTemplate = (output: any, context: __Serd
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
         : undefined,
-    lastModifiedUser:
-      output.lastModifiedUser !== undefined && output.lastModifiedUser !== null ? output.lastModifiedUser : undefined,
-    ruleContentSha256:
-      output.ruleContentSha256 !== undefined && output.ruleContentSha256 !== null
-        ? output.ruleContentSha256
-        : undefined,
+    lastModifiedUser: __expectString(output.lastModifiedUser),
+    ruleContentSha256: __expectString(output.ruleContentSha256),
   } as any;
 };
 
@@ -17915,7 +17888,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateContentRequiredException = (
   context: __SerdeContext
 ): ApprovalRuleTemplateContentRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -17924,7 +17897,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistException = (
   context: __SerdeContext
 ): ApprovalRuleTemplateDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -17933,7 +17906,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateInUseException = (
   context: __SerdeContext
 ): ApprovalRuleTemplateInUseException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -17942,7 +17915,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsException = (
   context: __SerdeContext
 ): ApprovalRuleTemplateNameAlreadyExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -17953,7 +17926,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameList = (output: any, context
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -17962,7 +17935,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameRequiredException = (
   context: __SerdeContext
 ): ApprovalRuleTemplateNameRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -17971,9 +17944,8 @@ const deserializeAws_json1_1ApprovalStateChangedEventMetadata = (
   context: __SerdeContext
 ): ApprovalStateChangedEventMetadata => {
   return {
-    approvalStatus:
-      output.approvalStatus !== undefined && output.approvalStatus !== null ? output.approvalStatus : undefined,
-    revisionId: output.revisionId !== undefined && output.revisionId !== null ? output.revisionId : undefined,
+    approvalStatus: __expectString(output.approvalStatus),
+    revisionId: __expectString(output.revisionId),
   } as any;
 };
 
@@ -17982,7 +17954,7 @@ const deserializeAws_json1_1ApprovalStateRequiredException = (
   context: __SerdeContext
 ): ApprovalStateRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -17991,7 +17963,7 @@ const deserializeAws_json1_1AuthorDoesNotExistException = (
   context: __SerdeContext
 ): AuthorDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18000,10 +17972,9 @@ const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesEr
   context: __SerdeContext
 ): BatchAssociateApprovalRuleTemplateWithRepositoriesError => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -18042,10 +18013,9 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsError = (
   context: __SerdeContext
 ): BatchDescribeMergeConflictsError => {
   return {
-    exceptionName:
-      output.exceptionName !== undefined && output.exceptionName !== null ? output.exceptionName : undefined,
-    filePath: output.filePath !== undefined && output.filePath !== null ? output.filePath : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    exceptionName: __expectString(output.exceptionName),
+    filePath: __expectString(output.filePath),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18068,22 +18038,18 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsOutput = (
   context: __SerdeContext
 ): BatchDescribeMergeConflictsOutput => {
   return {
-    baseCommitId: output.baseCommitId !== undefined && output.baseCommitId !== null ? output.baseCommitId : undefined,
+    baseCommitId: __expectString(output.baseCommitId),
     conflicts:
       output.conflicts !== undefined && output.conflicts !== null
         ? deserializeAws_json1_1Conflicts(output.conflicts, context)
         : undefined,
-    destinationCommitId:
-      output.destinationCommitId !== undefined && output.destinationCommitId !== null
-        ? output.destinationCommitId
-        : undefined,
+    destinationCommitId: __expectString(output.destinationCommitId),
     errors:
       output.errors !== undefined && output.errors !== null
         ? deserializeAws_json1_1BatchDescribeMergeConflictsErrors(output.errors, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
-    sourceCommitId:
-      output.sourceCommitId !== undefined && output.sourceCommitId !== null ? output.sourceCommitId : undefined,
+    nextToken: __expectString(output.nextToken),
+    sourceCommitId: __expectString(output.sourceCommitId),
   } as any;
 };
 
@@ -18092,10 +18058,9 @@ const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositorie
   context: __SerdeContext
 ): BatchDisassociateApprovalRuleTemplateFromRepositoriesError => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -18131,9 +18096,9 @@ const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositorie
 
 const deserializeAws_json1_1BatchGetCommitsError = (output: any, context: __SerdeContext): BatchGetCommitsError => {
   return {
-    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
+    commitId: __expectString(output.commitId),
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
   } as any;
 };
 
@@ -18185,7 +18150,7 @@ const deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameException = (
   context: __SerdeContext
 ): BeforeCommitIdAndAfterCommitIdAreSameException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18194,7 +18159,7 @@ const deserializeAws_json1_1BlobIdDoesNotExistException = (
   context: __SerdeContext
 ): BlobIdDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18203,15 +18168,15 @@ const deserializeAws_json1_1BlobIdRequiredException = (
   context: __SerdeContext
 ): BlobIdRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1BlobMetadata = (output: any, context: __SerdeContext): BlobMetadata => {
   return {
-    blobId: output.blobId !== undefined && output.blobId !== null ? output.blobId : undefined,
-    mode: output.mode !== undefined && output.mode !== null ? output.mode : undefined,
-    path: output.path !== undefined && output.path !== null ? output.path : undefined,
+    blobId: __expectString(output.blobId),
+    mode: __expectString(output.mode),
+    path: __expectString(output.path),
   } as any;
 };
 
@@ -18220,14 +18185,14 @@ const deserializeAws_json1_1BranchDoesNotExistException = (
   context: __SerdeContext
 ): BranchDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1BranchInfo = (output: any, context: __SerdeContext): BranchInfo => {
   return {
-    branchName: output.branchName !== undefined && output.branchName !== null ? output.branchName : undefined,
-    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
+    branchName: __expectString(output.branchName),
+    commitId: __expectString(output.commitId),
   } as any;
 };
 
@@ -18236,7 +18201,7 @@ const deserializeAws_json1_1BranchNameExistsException = (
   context: __SerdeContext
 ): BranchNameExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18245,7 +18210,7 @@ const deserializeAws_json1_1BranchNameIsTagNameException = (
   context: __SerdeContext
 ): BranchNameIsTagNameException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18256,7 +18221,7 @@ const deserializeAws_json1_1BranchNameList = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -18265,7 +18230,7 @@ const deserializeAws_json1_1BranchNameRequiredException = (
   context: __SerdeContext
 ): BranchNameRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18276,7 +18241,7 @@ const deserializeAws_json1_1CallerReactions = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -18285,7 +18250,7 @@ const deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateException = (
   context: __SerdeContext
 ): CannotDeleteApprovalRuleFromTemplateException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18294,7 +18259,7 @@ const deserializeAws_json1_1CannotModifyApprovalRuleFromTemplateException = (
   context: __SerdeContext
 ): CannotModifyApprovalRuleFromTemplateException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18303,29 +18268,26 @@ const deserializeAws_json1_1ClientRequestTokenRequiredException = (
   context: __SerdeContext
 ): ClientRequestTokenRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1Comment = (output: any, context: __SerdeContext): Comment => {
   return {
-    authorArn: output.authorArn !== undefined && output.authorArn !== null ? output.authorArn : undefined,
+    authorArn: __expectString(output.authorArn),
     callerReactions:
       output.callerReactions !== undefined && output.callerReactions !== null
         ? deserializeAws_json1_1CallerReactions(output.callerReactions, context)
         : undefined,
-    clientRequestToken:
-      output.clientRequestToken !== undefined && output.clientRequestToken !== null
-        ? output.clientRequestToken
-        : undefined,
-    commentId: output.commentId !== undefined && output.commentId !== null ? output.commentId : undefined,
-    content: output.content !== undefined && output.content !== null ? output.content : undefined,
+    clientRequestToken: __expectString(output.clientRequestToken),
+    commentId: __expectString(output.commentId),
+    content: __expectString(output.content),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    deleted: output.deleted !== undefined && output.deleted !== null ? output.deleted : undefined,
-    inReplyTo: output.inReplyTo !== undefined && output.inReplyTo !== null ? output.inReplyTo : undefined,
+    deleted: __expectBoolean(output.deleted),
+    inReplyTo: __expectString(output.inReplyTo),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
@@ -18342,7 +18304,7 @@ const deserializeAws_json1_1CommentContentRequiredException = (
   context: __SerdeContext
 ): CommentContentRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18351,7 +18313,7 @@ const deserializeAws_json1_1CommentContentSizeLimitExceededException = (
   context: __SerdeContext
 ): CommentContentSizeLimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18360,7 +18322,7 @@ const deserializeAws_json1_1CommentDeletedException = (
   context: __SerdeContext
 ): CommentDeletedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18369,7 +18331,7 @@ const deserializeAws_json1_1CommentDoesNotExistException = (
   context: __SerdeContext
 ): CommentDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18378,7 +18340,7 @@ const deserializeAws_json1_1CommentIdRequiredException = (
   context: __SerdeContext
 ): CommentIdRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18387,7 +18349,7 @@ const deserializeAws_json1_1CommentNotCreatedByCallerException = (
   context: __SerdeContext
 ): CommentNotCreatedByCallerException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18407,12 +18369,10 @@ const deserializeAws_json1_1CommentsForComparedCommit = (
   context: __SerdeContext
 ): CommentsForComparedCommit => {
   return {
-    afterBlobId: output.afterBlobId !== undefined && output.afterBlobId !== null ? output.afterBlobId : undefined,
-    afterCommitId:
-      output.afterCommitId !== undefined && output.afterCommitId !== null ? output.afterCommitId : undefined,
-    beforeBlobId: output.beforeBlobId !== undefined && output.beforeBlobId !== null ? output.beforeBlobId : undefined,
-    beforeCommitId:
-      output.beforeCommitId !== undefined && output.beforeCommitId !== null ? output.beforeCommitId : undefined,
+    afterBlobId: __expectString(output.afterBlobId),
+    afterCommitId: __expectString(output.afterCommitId),
+    beforeBlobId: __expectString(output.beforeBlobId),
+    beforeCommitId: __expectString(output.beforeCommitId),
     comments:
       output.comments !== undefined && output.comments !== null
         ? deserializeAws_json1_1Comments(output.comments, context)
@@ -18421,8 +18381,7 @@ const deserializeAws_json1_1CommentsForComparedCommit = (
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1Location(output.location, context)
         : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -18442,12 +18401,10 @@ const deserializeAws_json1_1CommentsForComparedCommitData = (
 
 const deserializeAws_json1_1CommentsForPullRequest = (output: any, context: __SerdeContext): CommentsForPullRequest => {
   return {
-    afterBlobId: output.afterBlobId !== undefined && output.afterBlobId !== null ? output.afterBlobId : undefined,
-    afterCommitId:
-      output.afterCommitId !== undefined && output.afterCommitId !== null ? output.afterCommitId : undefined,
-    beforeBlobId: output.beforeBlobId !== undefined && output.beforeBlobId !== null ? output.beforeBlobId : undefined,
-    beforeCommitId:
-      output.beforeCommitId !== undefined && output.beforeCommitId !== null ? output.beforeCommitId : undefined,
+    afterBlobId: __expectString(output.afterBlobId),
+    afterCommitId: __expectString(output.afterCommitId),
+    beforeBlobId: __expectString(output.beforeBlobId),
+    beforeCommitId: __expectString(output.beforeCommitId),
     comments:
       output.comments !== undefined && output.comments !== null
         ? deserializeAws_json1_1Comments(output.comments, context)
@@ -18456,10 +18413,8 @@ const deserializeAws_json1_1CommentsForPullRequest = (output: any, context: __Se
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1Location(output.location, context)
         : undefined,
-    pullRequestId:
-      output.pullRequestId !== undefined && output.pullRequestId !== null ? output.pullRequestId : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    pullRequestId: __expectString(output.pullRequestId),
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -18479,23 +18434,22 @@ const deserializeAws_json1_1CommentsForPullRequestData = (
 
 const deserializeAws_json1_1Commit = (output: any, context: __SerdeContext): Commit => {
   return {
-    additionalData:
-      output.additionalData !== undefined && output.additionalData !== null ? output.additionalData : undefined,
+    additionalData: __expectString(output.additionalData),
     author:
       output.author !== undefined && output.author !== null
         ? deserializeAws_json1_1UserInfo(output.author, context)
         : undefined,
-    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
+    commitId: __expectString(output.commitId),
     committer:
       output.committer !== undefined && output.committer !== null
         ? deserializeAws_json1_1UserInfo(output.committer, context)
         : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
     parents:
       output.parents !== undefined && output.parents !== null
         ? deserializeAws_json1_1ParentList(output.parents, context)
         : undefined,
-    treeId: output.treeId !== undefined && output.treeId !== null ? output.treeId : undefined,
+    treeId: __expectString(output.treeId),
   } as any;
 };
 
@@ -18504,7 +18458,7 @@ const deserializeAws_json1_1CommitDoesNotExistException = (
   context: __SerdeContext
 ): CommitDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18513,7 +18467,7 @@ const deserializeAws_json1_1CommitIdDoesNotExistException = (
   context: __SerdeContext
 ): CommitIdDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18522,7 +18476,7 @@ const deserializeAws_json1_1CommitIdRequiredException = (
   context: __SerdeContext
 ): CommitIdRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18531,7 +18485,7 @@ const deserializeAws_json1_1CommitIdsLimitExceededException = (
   context: __SerdeContext
 ): CommitIdsLimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18540,7 +18494,7 @@ const deserializeAws_json1_1CommitIdsListRequiredException = (
   context: __SerdeContext
 ): CommitIdsListRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18549,7 +18503,7 @@ const deserializeAws_json1_1CommitMessageLengthExceededException = (
   context: __SerdeContext
 ): CommitMessageLengthExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18569,7 +18523,7 @@ const deserializeAws_json1_1CommitRequiredException = (
   context: __SerdeContext
 ): CommitRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18578,7 +18532,7 @@ const deserializeAws_json1_1ConcurrentReferenceUpdateException = (
   context: __SerdeContext
 ): ConcurrentReferenceUpdateException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18597,15 +18551,13 @@ const deserializeAws_json1_1Conflict = (output: any, context: __SerdeContext): C
 
 const deserializeAws_json1_1ConflictMetadata = (output: any, context: __SerdeContext): ConflictMetadata => {
   return {
-    contentConflict:
-      output.contentConflict !== undefined && output.contentConflict !== null ? output.contentConflict : undefined,
-    fileModeConflict:
-      output.fileModeConflict !== undefined && output.fileModeConflict !== null ? output.fileModeConflict : undefined,
+    contentConflict: __expectBoolean(output.contentConflict),
+    fileModeConflict: __expectBoolean(output.fileModeConflict),
     fileModes:
       output.fileModes !== undefined && output.fileModes !== null
         ? deserializeAws_json1_1FileModes(output.fileModes, context)
         : undefined,
-    filePath: output.filePath !== undefined && output.filePath !== null ? output.filePath : undefined,
+    filePath: __expectString(output.filePath),
     fileSizes:
       output.fileSizes !== undefined && output.fileSizes !== null
         ? deserializeAws_json1_1FileSizes(output.fileSizes, context)
@@ -18618,14 +18570,8 @@ const deserializeAws_json1_1ConflictMetadata = (output: any, context: __SerdeCon
       output.mergeOperations !== undefined && output.mergeOperations !== null
         ? deserializeAws_json1_1MergeOperations(output.mergeOperations, context)
         : undefined,
-    numberOfConflicts:
-      output.numberOfConflicts !== undefined && output.numberOfConflicts !== null
-        ? output.numberOfConflicts
-        : undefined,
-    objectTypeConflict:
-      output.objectTypeConflict !== undefined && output.objectTypeConflict !== null
-        ? output.objectTypeConflict
-        : undefined,
+    numberOfConflicts: __expectNumber(output.numberOfConflicts),
+    objectTypeConflict: __expectBoolean(output.objectTypeConflict),
     objectTypes:
       output.objectTypes !== undefined && output.objectTypes !== null
         ? deserializeAws_json1_1ObjectTypes(output.objectTypes, context)
@@ -18669,7 +18615,7 @@ const deserializeAws_json1_1CreateApprovalRuleTemplateOutput = (
 
 const deserializeAws_json1_1CreateCommitOutput = (output: any, context: __SerdeContext): CreateCommitOutput => {
   return {
-    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
+    commitId: __expectString(output.commitId),
     filesAdded:
       output.filesAdded !== undefined && output.filesAdded !== null
         ? deserializeAws_json1_1FilesMetadata(output.filesAdded, context)
@@ -18682,7 +18628,7 @@ const deserializeAws_json1_1CreateCommitOutput = (output: any, context: __SerdeC
       output.filesUpdated !== undefined && output.filesUpdated !== null
         ? deserializeAws_json1_1FilesMetadata(output.filesUpdated, context)
         : undefined,
-    treeId: output.treeId !== undefined && output.treeId !== null ? output.treeId : undefined,
+    treeId: __expectString(output.treeId),
   } as any;
 };
 
@@ -18724,8 +18670,8 @@ const deserializeAws_json1_1CreateUnreferencedMergeCommitOutput = (
   context: __SerdeContext
 ): CreateUnreferencedMergeCommitOutput => {
   return {
-    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
-    treeId: output.treeId !== undefined && output.treeId !== null ? output.treeId : undefined,
+    commitId: __expectString(output.commitId),
+    treeId: __expectString(output.treeId),
   } as any;
 };
 
@@ -18734,7 +18680,7 @@ const deserializeAws_json1_1DefaultBranchCannotBeDeletedException = (
   context: __SerdeContext
 ): DefaultBranchCannotBeDeletedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18743,10 +18689,7 @@ const deserializeAws_json1_1DeleteApprovalRuleTemplateOutput = (
   context: __SerdeContext
 ): DeleteApprovalRuleTemplateOutput => {
   return {
-    approvalRuleTemplateId:
-      output.approvalRuleTemplateId !== undefined && output.approvalRuleTemplateId !== null
-        ? output.approvalRuleTemplateId
-        : undefined,
+    approvalRuleTemplateId: __expectString(output.approvalRuleTemplateId),
   } as any;
 };
 
@@ -18773,10 +18716,10 @@ const deserializeAws_json1_1DeleteCommentContentOutput = (
 
 const deserializeAws_json1_1DeleteFileOutput = (output: any, context: __SerdeContext): DeleteFileOutput => {
   return {
-    blobId: output.blobId !== undefined && output.blobId !== null ? output.blobId : undefined,
-    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
-    filePath: output.filePath !== undefined && output.filePath !== null ? output.filePath : undefined,
-    treeId: output.treeId !== undefined && output.treeId !== null ? output.treeId : undefined,
+    blobId: __expectString(output.blobId),
+    commitId: __expectString(output.commitId),
+    filePath: __expectString(output.filePath),
+    treeId: __expectString(output.treeId),
   } as any;
 };
 
@@ -18785,14 +18728,13 @@ const deserializeAws_json1_1DeletePullRequestApprovalRuleOutput = (
   context: __SerdeContext
 ): DeletePullRequestApprovalRuleOutput => {
   return {
-    approvalRuleId:
-      output.approvalRuleId !== undefined && output.approvalRuleId !== null ? output.approvalRuleId : undefined,
+    approvalRuleId: __expectString(output.approvalRuleId),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteRepositoryOutput = (output: any, context: __SerdeContext): DeleteRepositoryOutput => {
   return {
-    repositoryId: output.repositoryId !== undefined && output.repositoryId !== null ? output.repositoryId : undefined,
+    repositoryId: __expectString(output.repositoryId),
   } as any;
 };
 
@@ -18801,22 +18743,18 @@ const deserializeAws_json1_1DescribeMergeConflictsOutput = (
   context: __SerdeContext
 ): DescribeMergeConflictsOutput => {
   return {
-    baseCommitId: output.baseCommitId !== undefined && output.baseCommitId !== null ? output.baseCommitId : undefined,
+    baseCommitId: __expectString(output.baseCommitId),
     conflictMetadata:
       output.conflictMetadata !== undefined && output.conflictMetadata !== null
         ? deserializeAws_json1_1ConflictMetadata(output.conflictMetadata, context)
         : undefined,
-    destinationCommitId:
-      output.destinationCommitId !== undefined && output.destinationCommitId !== null
-        ? output.destinationCommitId
-        : undefined,
+    destinationCommitId: __expectString(output.destinationCommitId),
     mergeHunks:
       output.mergeHunks !== undefined && output.mergeHunks !== null
         ? deserializeAws_json1_1MergeHunks(output.mergeHunks, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
-    sourceCommitId:
-      output.sourceCommitId !== undefined && output.sourceCommitId !== null ? output.sourceCommitId : undefined,
+    nextToken: __expectString(output.nextToken),
+    sourceCommitId: __expectString(output.sourceCommitId),
   } as any;
 };
 
@@ -18825,7 +18763,7 @@ const deserializeAws_json1_1DescribePullRequestEventsOutput = (
   context: __SerdeContext
 ): DescribePullRequestEventsOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     pullRequestEvents:
       output.pullRequestEvents !== undefined && output.pullRequestEvents !== null
         ? deserializeAws_json1_1PullRequestEventList(output.pullRequestEvents, context)
@@ -18843,7 +18781,7 @@ const deserializeAws_json1_1Difference = (output: any, context: __SerdeContext):
       output.beforeBlob !== undefined && output.beforeBlob !== null
         ? deserializeAws_json1_1BlobMetadata(output.beforeBlob, context)
         : undefined,
-    changeType: output.changeType !== undefined && output.changeType !== null ? output.changeType : undefined,
+    changeType: __expectString(output.changeType),
   } as any;
 };
 
@@ -18863,7 +18801,7 @@ const deserializeAws_json1_1DirectoryNameConflictsWithFileNameException = (
   context: __SerdeContext
 ): DirectoryNameConflictsWithFileNameException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18872,7 +18810,7 @@ const deserializeAws_json1_1EncryptionIntegrityChecksFailedException = (
   context: __SerdeContext
 ): EncryptionIntegrityChecksFailedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18881,7 +18819,7 @@ const deserializeAws_json1_1EncryptionKeyAccessDeniedException = (
   context: __SerdeContext
 ): EncryptionKeyAccessDeniedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18890,7 +18828,7 @@ const deserializeAws_json1_1EncryptionKeyDisabledException = (
   context: __SerdeContext
 ): EncryptionKeyDisabledException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18899,7 +18837,7 @@ const deserializeAws_json1_1EncryptionKeyNotFoundException = (
   context: __SerdeContext
 ): EncryptionKeyNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18908,7 +18846,7 @@ const deserializeAws_json1_1EncryptionKeyUnavailableException = (
   context: __SerdeContext
 ): EncryptionKeyUnavailableException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18934,17 +18872,17 @@ const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext):
       output.approvalRulesSatisfied !== undefined && output.approvalRulesSatisfied !== null
         ? deserializeAws_json1_1ApprovalRulesSatisfiedList(output.approvalRulesSatisfied, context)
         : undefined,
-    approved: output.approved !== undefined && output.approved !== null ? output.approved : undefined,
-    overridden: output.overridden !== undefined && output.overridden !== null ? output.overridden : undefined,
+    approved: __expectBoolean(output.approved),
+    overridden: __expectBoolean(output.overridden),
   } as any;
 };
 
 const deserializeAws_json1_1File = (output: any, context: __SerdeContext): File => {
   return {
-    absolutePath: output.absolutePath !== undefined && output.absolutePath !== null ? output.absolutePath : undefined,
-    blobId: output.blobId !== undefined && output.blobId !== null ? output.blobId : undefined,
-    fileMode: output.fileMode !== undefined && output.fileMode !== null ? output.fileMode : undefined,
-    relativePath: output.relativePath !== undefined && output.relativePath !== null ? output.relativePath : undefined,
+    absolutePath: __expectString(output.absolutePath),
+    blobId: __expectString(output.blobId),
+    fileMode: __expectString(output.fileMode),
+    relativePath: __expectString(output.relativePath),
   } as any;
 };
 
@@ -18953,7 +18891,7 @@ const deserializeAws_json1_1FileContentAndSourceFileSpecifiedException = (
   context: __SerdeContext
 ): FileContentAndSourceFileSpecifiedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18962,7 +18900,7 @@ const deserializeAws_json1_1FileContentRequiredException = (
   context: __SerdeContext
 ): FileContentRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18971,7 +18909,7 @@ const deserializeAws_json1_1FileContentSizeLimitExceededException = (
   context: __SerdeContext
 ): FileContentSizeLimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18980,7 +18918,7 @@ const deserializeAws_json1_1FileDoesNotExistException = (
   context: __SerdeContext
 ): FileDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -18989,7 +18927,7 @@ const deserializeAws_json1_1FileEntryRequiredException = (
   context: __SerdeContext
 ): FileEntryRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19006,9 +18944,9 @@ const deserializeAws_json1_1FileList = (output: any, context: __SerdeContext): F
 
 const deserializeAws_json1_1FileMetadata = (output: any, context: __SerdeContext): FileMetadata => {
   return {
-    absolutePath: output.absolutePath !== undefined && output.absolutePath !== null ? output.absolutePath : undefined,
-    blobId: output.blobId !== undefined && output.blobId !== null ? output.blobId : undefined,
-    fileMode: output.fileMode !== undefined && output.fileMode !== null ? output.fileMode : undefined,
+    absolutePath: __expectString(output.absolutePath),
+    blobId: __expectString(output.blobId),
+    fileMode: __expectString(output.fileMode),
   } as any;
 };
 
@@ -19017,15 +18955,15 @@ const deserializeAws_json1_1FileModeRequiredException = (
   context: __SerdeContext
 ): FileModeRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1FileModes = (output: any, context: __SerdeContext): FileModes => {
   return {
-    base: output.base !== undefined && output.base !== null ? output.base : undefined,
-    destination: output.destination !== undefined && output.destination !== null ? output.destination : undefined,
-    source: output.source !== undefined && output.source !== null ? output.source : undefined,
+    base: __expectString(output.base),
+    destination: __expectString(output.destination),
+    source: __expectString(output.source),
   } as any;
 };
 
@@ -19034,7 +18972,7 @@ const deserializeAws_json1_1FileNameConflictsWithDirectoryNameException = (
   context: __SerdeContext
 ): FileNameConflictsWithDirectoryNameException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19043,15 +18981,15 @@ const deserializeAws_json1_1FilePathConflictsWithSubmodulePathException = (
   context: __SerdeContext
 ): FilePathConflictsWithSubmodulePathException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1FileSizes = (output: any, context: __SerdeContext): FileSizes => {
   return {
-    base: output.base !== undefined && output.base !== null ? output.base : undefined,
-    destination: output.destination !== undefined && output.destination !== null ? output.destination : undefined,
-    source: output.source !== undefined && output.source !== null ? output.source : undefined,
+    base: __expectNumber(output.base),
+    destination: __expectNumber(output.destination),
+    source: __expectNumber(output.source),
   } as any;
 };
 
@@ -19068,15 +19006,15 @@ const deserializeAws_json1_1FilesMetadata = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1FileTooLargeException = (output: any, context: __SerdeContext): FileTooLargeException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1Folder = (output: any, context: __SerdeContext): Folder => {
   return {
-    absolutePath: output.absolutePath !== undefined && output.absolutePath !== null ? output.absolutePath : undefined,
-    relativePath: output.relativePath !== undefined && output.relativePath !== null ? output.relativePath : undefined,
-    treeId: output.treeId !== undefined && output.treeId !== null ? output.treeId : undefined,
+    absolutePath: __expectString(output.absolutePath),
+    relativePath: __expectString(output.relativePath),
+    treeId: __expectString(output.treeId),
   } as any;
 };
 
@@ -19085,7 +19023,7 @@ const deserializeAws_json1_1FolderContentSizeLimitExceededException = (
   context: __SerdeContext
 ): FolderContentSizeLimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19094,7 +19032,7 @@ const deserializeAws_json1_1FolderDoesNotExistException = (
   context: __SerdeContext
 ): FolderDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19151,7 +19089,7 @@ const deserializeAws_json1_1GetCommentReactionsOutput = (
   context: __SerdeContext
 ): GetCommentReactionsOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     reactionsForComment:
       output.reactionsForComment !== undefined && output.reactionsForComment !== null
         ? deserializeAws_json1_1ReactionsForCommentList(output.reactionsForComment, context)
@@ -19168,7 +19106,7 @@ const deserializeAws_json1_1GetCommentsForComparedCommitOutput = (
       output.commentsForComparedCommitData !== undefined && output.commentsForComparedCommitData !== null
         ? deserializeAws_json1_1CommentsForComparedCommitData(output.commentsForComparedCommitData, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -19181,7 +19119,7 @@ const deserializeAws_json1_1GetCommentsForPullRequestOutput = (
       output.commentsForPullRequestData !== undefined && output.commentsForPullRequestData !== null
         ? deserializeAws_json1_1CommentsForPullRequestData(output.commentsForPullRequestData, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -19196,7 +19134,7 @@ const deserializeAws_json1_1GetCommitOutput = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1GetDifferencesOutput = (output: any, context: __SerdeContext): GetDifferencesOutput => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     differences:
       output.differences !== undefined && output.differences !== null
         ? deserializeAws_json1_1DifferenceList(output.differences, context)
@@ -19206,26 +19144,26 @@ const deserializeAws_json1_1GetDifferencesOutput = (output: any, context: __Serd
 
 const deserializeAws_json1_1GetFileOutput = (output: any, context: __SerdeContext): GetFileOutput => {
   return {
-    blobId: output.blobId !== undefined && output.blobId !== null ? output.blobId : undefined,
-    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
+    blobId: __expectString(output.blobId),
+    commitId: __expectString(output.commitId),
     fileContent:
       output.fileContent !== undefined && output.fileContent !== null
         ? context.base64Decoder(output.fileContent)
         : undefined,
-    fileMode: output.fileMode !== undefined && output.fileMode !== null ? output.fileMode : undefined,
-    filePath: output.filePath !== undefined && output.filePath !== null ? output.filePath : undefined,
-    fileSize: output.fileSize !== undefined && output.fileSize !== null ? output.fileSize : undefined,
+    fileMode: __expectString(output.fileMode),
+    filePath: __expectString(output.filePath),
+    fileSize: __expectNumber(output.fileSize),
   } as any;
 };
 
 const deserializeAws_json1_1GetFolderOutput = (output: any, context: __SerdeContext): GetFolderOutput => {
   return {
-    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
+    commitId: __expectString(output.commitId),
     files:
       output.files !== undefined && output.files !== null
         ? deserializeAws_json1_1FileList(output.files, context)
         : undefined,
-    folderPath: output.folderPath !== undefined && output.folderPath !== null ? output.folderPath : undefined,
+    folderPath: __expectString(output.folderPath),
     subFolders:
       output.subFolders !== undefined && output.subFolders !== null
         ? deserializeAws_json1_1FolderList(output.subFolders, context)
@@ -19238,21 +19176,16 @@ const deserializeAws_json1_1GetFolderOutput = (output: any, context: __SerdeCont
       output.symbolicLinks !== undefined && output.symbolicLinks !== null
         ? deserializeAws_json1_1SymbolicLinkList(output.symbolicLinks, context)
         : undefined,
-    treeId: output.treeId !== undefined && output.treeId !== null ? output.treeId : undefined,
+    treeId: __expectString(output.treeId),
   } as any;
 };
 
 const deserializeAws_json1_1GetMergeCommitOutput = (output: any, context: __SerdeContext): GetMergeCommitOutput => {
   return {
-    baseCommitId: output.baseCommitId !== undefined && output.baseCommitId !== null ? output.baseCommitId : undefined,
-    destinationCommitId:
-      output.destinationCommitId !== undefined && output.destinationCommitId !== null
-        ? output.destinationCommitId
-        : undefined,
-    mergedCommitId:
-      output.mergedCommitId !== undefined && output.mergedCommitId !== null ? output.mergedCommitId : undefined,
-    sourceCommitId:
-      output.sourceCommitId !== undefined && output.sourceCommitId !== null ? output.sourceCommitId : undefined,
+    baseCommitId: __expectString(output.baseCommitId),
+    destinationCommitId: __expectString(output.destinationCommitId),
+    mergedCommitId: __expectString(output.mergedCommitId),
+    sourceCommitId: __expectString(output.sourceCommitId),
   } as any;
 };
 
@@ -19261,35 +19194,27 @@ const deserializeAws_json1_1GetMergeConflictsOutput = (
   context: __SerdeContext
 ): GetMergeConflictsOutput => {
   return {
-    baseCommitId: output.baseCommitId !== undefined && output.baseCommitId !== null ? output.baseCommitId : undefined,
+    baseCommitId: __expectString(output.baseCommitId),
     conflictMetadataList:
       output.conflictMetadataList !== undefined && output.conflictMetadataList !== null
         ? deserializeAws_json1_1ConflictMetadataList(output.conflictMetadataList, context)
         : undefined,
-    destinationCommitId:
-      output.destinationCommitId !== undefined && output.destinationCommitId !== null
-        ? output.destinationCommitId
-        : undefined,
-    mergeable: output.mergeable !== undefined && output.mergeable !== null ? output.mergeable : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
-    sourceCommitId:
-      output.sourceCommitId !== undefined && output.sourceCommitId !== null ? output.sourceCommitId : undefined,
+    destinationCommitId: __expectString(output.destinationCommitId),
+    mergeable: __expectBoolean(output.mergeable),
+    nextToken: __expectString(output.nextToken),
+    sourceCommitId: __expectString(output.sourceCommitId),
   } as any;
 };
 
 const deserializeAws_json1_1GetMergeOptionsOutput = (output: any, context: __SerdeContext): GetMergeOptionsOutput => {
   return {
-    baseCommitId: output.baseCommitId !== undefined && output.baseCommitId !== null ? output.baseCommitId : undefined,
-    destinationCommitId:
-      output.destinationCommitId !== undefined && output.destinationCommitId !== null
-        ? output.destinationCommitId
-        : undefined,
+    baseCommitId: __expectString(output.baseCommitId),
+    destinationCommitId: __expectString(output.destinationCommitId),
     mergeOptions:
       output.mergeOptions !== undefined && output.mergeOptions !== null
         ? deserializeAws_json1_1MergeOptions(output.mergeOptions, context)
         : undefined,
-    sourceCommitId:
-      output.sourceCommitId !== undefined && output.sourceCommitId !== null ? output.sourceCommitId : undefined,
+    sourceCommitId: __expectString(output.sourceCommitId),
   } as any;
 };
 
@@ -19319,8 +19244,8 @@ const deserializeAws_json1_1GetPullRequestOverrideStateOutput = (
   context: __SerdeContext
 ): GetPullRequestOverrideStateOutput => {
   return {
-    overridden: output.overridden !== undefined && output.overridden !== null ? output.overridden : undefined,
-    overrider: output.overrider !== undefined && output.overrider !== null ? output.overrider : undefined,
+    overridden: __expectBoolean(output.overridden),
+    overrider: __expectString(output.overrider),
   } as any;
 };
 
@@ -19338,8 +19263,7 @@ const deserializeAws_json1_1GetRepositoryTriggersOutput = (
   context: __SerdeContext
 ): GetRepositoryTriggersOutput => {
   return {
-    configurationId:
-      output.configurationId !== undefined && output.configurationId !== null ? output.configurationId : undefined,
+    configurationId: __expectString(output.configurationId),
     triggers:
       output.triggers !== undefined && output.triggers !== null
         ? deserializeAws_json1_1RepositoryTriggersList(output.triggers, context)
@@ -19352,7 +19276,7 @@ const deserializeAws_json1_1IdempotencyParameterMismatchException = (
   context: __SerdeContext
 ): IdempotencyParameterMismatchException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19361,7 +19285,7 @@ const deserializeAws_json1_1InvalidActorArnException = (
   context: __SerdeContext
 ): InvalidActorArnException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19370,7 +19294,7 @@ const deserializeAws_json1_1InvalidApprovalRuleContentException = (
   context: __SerdeContext
 ): InvalidApprovalRuleContentException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19379,7 +19303,7 @@ const deserializeAws_json1_1InvalidApprovalRuleNameException = (
   context: __SerdeContext
 ): InvalidApprovalRuleNameException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19388,7 +19312,7 @@ const deserializeAws_json1_1InvalidApprovalRuleTemplateContentException = (
   context: __SerdeContext
 ): InvalidApprovalRuleTemplateContentException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19397,7 +19321,7 @@ const deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionException = (
   context: __SerdeContext
 ): InvalidApprovalRuleTemplateDescriptionException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19406,7 +19330,7 @@ const deserializeAws_json1_1InvalidApprovalRuleTemplateNameException = (
   context: __SerdeContext
 ): InvalidApprovalRuleTemplateNameException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19415,7 +19339,7 @@ const deserializeAws_json1_1InvalidApprovalStateException = (
   context: __SerdeContext
 ): InvalidApprovalStateException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19424,13 +19348,13 @@ const deserializeAws_json1_1InvalidAuthorArnException = (
   context: __SerdeContext
 ): InvalidAuthorArnException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidBlobIdException = (output: any, context: __SerdeContext): InvalidBlobIdException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19439,7 +19363,7 @@ const deserializeAws_json1_1InvalidBranchNameException = (
   context: __SerdeContext
 ): InvalidBranchNameException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19448,7 +19372,7 @@ const deserializeAws_json1_1InvalidClientRequestTokenException = (
   context: __SerdeContext
 ): InvalidClientRequestTokenException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19457,13 +19381,13 @@ const deserializeAws_json1_1InvalidCommentIdException = (
   context: __SerdeContext
 ): InvalidCommentIdException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidCommitException = (output: any, context: __SerdeContext): InvalidCommitException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19472,7 +19396,7 @@ const deserializeAws_json1_1InvalidCommitIdException = (
   context: __SerdeContext
 ): InvalidCommitIdException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19481,7 +19405,7 @@ const deserializeAws_json1_1InvalidConflictDetailLevelException = (
   context: __SerdeContext
 ): InvalidConflictDetailLevelException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19490,7 +19414,7 @@ const deserializeAws_json1_1InvalidConflictResolutionException = (
   context: __SerdeContext
 ): InvalidConflictResolutionException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19499,7 +19423,7 @@ const deserializeAws_json1_1InvalidConflictResolutionStrategyException = (
   context: __SerdeContext
 ): InvalidConflictResolutionStrategyException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19508,7 +19432,7 @@ const deserializeAws_json1_1InvalidContinuationTokenException = (
   context: __SerdeContext
 ): InvalidContinuationTokenException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19517,7 +19441,7 @@ const deserializeAws_json1_1InvalidDeletionParameterException = (
   context: __SerdeContext
 ): InvalidDeletionParameterException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19526,7 +19450,7 @@ const deserializeAws_json1_1InvalidDescriptionException = (
   context: __SerdeContext
 ): InvalidDescriptionException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19535,13 +19459,13 @@ const deserializeAws_json1_1InvalidDestinationCommitSpecifierException = (
   context: __SerdeContext
 ): InvalidDestinationCommitSpecifierException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidEmailException = (output: any, context: __SerdeContext): InvalidEmailException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19550,7 +19474,7 @@ const deserializeAws_json1_1InvalidFileLocationException = (
   context: __SerdeContext
 ): InvalidFileLocationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19559,7 +19483,7 @@ const deserializeAws_json1_1InvalidFileModeException = (
   context: __SerdeContext
 ): InvalidFileModeException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19568,7 +19492,7 @@ const deserializeAws_json1_1InvalidFilePositionException = (
   context: __SerdeContext
 ): InvalidFilePositionException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19577,7 +19501,7 @@ const deserializeAws_json1_1InvalidMaxConflictFilesException = (
   context: __SerdeContext
 ): InvalidMaxConflictFilesException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19586,7 +19510,7 @@ const deserializeAws_json1_1InvalidMaxMergeHunksException = (
   context: __SerdeContext
 ): InvalidMaxMergeHunksException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19595,7 +19519,7 @@ const deserializeAws_json1_1InvalidMaxResultsException = (
   context: __SerdeContext
 ): InvalidMaxResultsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19604,13 +19528,13 @@ const deserializeAws_json1_1InvalidMergeOptionException = (
   context: __SerdeContext
 ): InvalidMergeOptionException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidOrderException = (output: any, context: __SerdeContext): InvalidOrderException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19619,7 +19543,7 @@ const deserializeAws_json1_1InvalidOverrideStatusException = (
   context: __SerdeContext
 ): InvalidOverrideStatusException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19628,13 +19552,13 @@ const deserializeAws_json1_1InvalidParentCommitIdException = (
   context: __SerdeContext
 ): InvalidParentCommitIdException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidPathException = (output: any, context: __SerdeContext): InvalidPathException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19643,7 +19567,7 @@ const deserializeAws_json1_1InvalidPullRequestEventTypeException = (
   context: __SerdeContext
 ): InvalidPullRequestEventTypeException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19652,7 +19576,7 @@ const deserializeAws_json1_1InvalidPullRequestIdException = (
   context: __SerdeContext
 ): InvalidPullRequestIdException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19661,7 +19585,7 @@ const deserializeAws_json1_1InvalidPullRequestStatusException = (
   context: __SerdeContext
 ): InvalidPullRequestStatusException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19670,7 +19594,7 @@ const deserializeAws_json1_1InvalidPullRequestStatusUpdateException = (
   context: __SerdeContext
 ): InvalidPullRequestStatusUpdateException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19679,7 +19603,7 @@ const deserializeAws_json1_1InvalidReactionUserArnException = (
   context: __SerdeContext
 ): InvalidReactionUserArnException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19688,7 +19612,7 @@ const deserializeAws_json1_1InvalidReactionValueException = (
   context: __SerdeContext
 ): InvalidReactionValueException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19697,7 +19621,7 @@ const deserializeAws_json1_1InvalidReferenceNameException = (
   context: __SerdeContext
 ): InvalidReferenceNameException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19706,7 +19630,7 @@ const deserializeAws_json1_1InvalidRelativeFileVersionEnumException = (
   context: __SerdeContext
 ): InvalidRelativeFileVersionEnumException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19715,7 +19639,7 @@ const deserializeAws_json1_1InvalidReplacementContentException = (
   context: __SerdeContext
 ): InvalidReplacementContentException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19724,7 +19648,7 @@ const deserializeAws_json1_1InvalidReplacementTypeException = (
   context: __SerdeContext
 ): InvalidReplacementTypeException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19733,7 +19657,7 @@ const deserializeAws_json1_1InvalidRepositoryDescriptionException = (
   context: __SerdeContext
 ): InvalidRepositoryDescriptionException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19742,7 +19666,7 @@ const deserializeAws_json1_1InvalidRepositoryNameException = (
   context: __SerdeContext
 ): InvalidRepositoryNameException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19751,7 +19675,7 @@ const deserializeAws_json1_1InvalidRepositoryTriggerBranchNameException = (
   context: __SerdeContext
 ): InvalidRepositoryTriggerBranchNameException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19760,7 +19684,7 @@ const deserializeAws_json1_1InvalidRepositoryTriggerCustomDataException = (
   context: __SerdeContext
 ): InvalidRepositoryTriggerCustomDataException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19769,7 +19693,7 @@ const deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnException = (
   context: __SerdeContext
 ): InvalidRepositoryTriggerDestinationArnException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19778,7 +19702,7 @@ const deserializeAws_json1_1InvalidRepositoryTriggerEventsException = (
   context: __SerdeContext
 ): InvalidRepositoryTriggerEventsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19787,7 +19711,7 @@ const deserializeAws_json1_1InvalidRepositoryTriggerNameException = (
   context: __SerdeContext
 ): InvalidRepositoryTriggerNameException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19796,7 +19720,7 @@ const deserializeAws_json1_1InvalidRepositoryTriggerRegionException = (
   context: __SerdeContext
 ): InvalidRepositoryTriggerRegionException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19805,7 +19729,7 @@ const deserializeAws_json1_1InvalidResourceArnException = (
   context: __SerdeContext
 ): InvalidResourceArnException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19814,7 +19738,7 @@ const deserializeAws_json1_1InvalidRevisionIdException = (
   context: __SerdeContext
 ): InvalidRevisionIdException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19823,13 +19747,13 @@ const deserializeAws_json1_1InvalidRuleContentSha256Exception = (
   context: __SerdeContext
 ): InvalidRuleContentSha256Exception => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidSortByException = (output: any, context: __SerdeContext): InvalidSortByException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19838,7 +19762,7 @@ const deserializeAws_json1_1InvalidSourceCommitSpecifierException = (
   context: __SerdeContext
 ): InvalidSourceCommitSpecifierException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19847,7 +19771,7 @@ const deserializeAws_json1_1InvalidSystemTagUsageException = (
   context: __SerdeContext
 ): InvalidSystemTagUsageException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19856,7 +19780,7 @@ const deserializeAws_json1_1InvalidTagKeysListException = (
   context: __SerdeContext
 ): InvalidTagKeysListException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19865,7 +19789,7 @@ const deserializeAws_json1_1InvalidTagsMapException = (
   context: __SerdeContext
 ): InvalidTagsMapException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19874,13 +19798,13 @@ const deserializeAws_json1_1InvalidTargetBranchException = (
   context: __SerdeContext
 ): InvalidTargetBranchException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidTargetException = (output: any, context: __SerdeContext): InvalidTargetException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -19889,21 +19813,21 @@ const deserializeAws_json1_1InvalidTargetsException = (
   context: __SerdeContext
 ): InvalidTargetsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidTitleException = (output: any, context: __SerdeContext): InvalidTitleException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1IsBinaryFile = (output: any, context: __SerdeContext): IsBinaryFile => {
   return {
-    base: output.base !== undefined && output.base !== null ? output.base : undefined,
-    destination: output.destination !== undefined && output.destination !== null ? output.destination : undefined,
-    source: output.source !== undefined && output.source !== null ? output.source : undefined,
+    base: __expectBoolean(output.base),
+    destination: __expectBoolean(output.destination),
+    source: __expectBoolean(output.source),
   } as any;
 };
 
@@ -19916,7 +19840,7 @@ const deserializeAws_json1_1ListApprovalRuleTemplatesOutput = (
       output.approvalRuleTemplateNames !== undefined && output.approvalRuleTemplateNames !== null
         ? deserializeAws_json1_1ApprovalRuleTemplateNameList(output.approvalRuleTemplateNames, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -19929,7 +19853,7 @@ const deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryOutp
       output.approvalRuleTemplateNames !== undefined && output.approvalRuleTemplateNames !== null
         ? deserializeAws_json1_1ApprovalRuleTemplateNameList(output.approvalRuleTemplateNames, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -19939,13 +19863,13 @@ const deserializeAws_json1_1ListBranchesOutput = (output: any, context: __SerdeC
       output.branches !== undefined && output.branches !== null
         ? deserializeAws_json1_1BranchNameList(output.branches, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListPullRequestsOutput = (output: any, context: __SerdeContext): ListPullRequestsOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     pullRequestIds:
       output.pullRequestIds !== undefined && output.pullRequestIds !== null
         ? deserializeAws_json1_1PullRequestIdList(output.pullRequestIds, context)
@@ -19958,7 +19882,7 @@ const deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateOutput = (
   context: __SerdeContext
 ): ListRepositoriesForApprovalRuleTemplateOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     repositoryNames:
       output.repositoryNames !== undefined && output.repositoryNames !== null
         ? deserializeAws_json1_1RepositoryNameList(output.repositoryNames, context)
@@ -19968,7 +19892,7 @@ const deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateOutput = (
 
 const deserializeAws_json1_1ListRepositoriesOutput = (output: any, context: __SerdeContext): ListRepositoriesOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     repositories:
       output.repositories !== undefined && output.repositories !== null
         ? deserializeAws_json1_1RepositoryNameIdPairList(output.repositories, context)
@@ -19981,7 +19905,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagsMap(output.tags, context)
@@ -19991,12 +19915,9 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
 
 const deserializeAws_json1_1Location = (output: any, context: __SerdeContext): Location => {
   return {
-    filePath: output.filePath !== undefined && output.filePath !== null ? output.filePath : undefined,
-    filePosition: output.filePosition !== undefined && output.filePosition !== null ? output.filePosition : undefined,
-    relativeFileVersion:
-      output.relativeFileVersion !== undefined && output.relativeFileVersion !== null
-        ? output.relativeFileVersion
-        : undefined,
+    filePath: __expectString(output.filePath),
+    filePosition: __expectNumber(output.filePosition),
+    relativeFileVersion: __expectString(output.relativeFileVersion),
   } as any;
 };
 
@@ -20005,7 +19926,7 @@ const deserializeAws_json1_1ManualMergeRequiredException = (
   context: __SerdeContext
 ): ManualMergeRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20014,7 +19935,7 @@ const deserializeAws_json1_1MaximumBranchesExceededException = (
   context: __SerdeContext
 ): MaximumBranchesExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20023,7 +19944,7 @@ const deserializeAws_json1_1MaximumConflictResolutionEntriesExceededException = 
   context: __SerdeContext
 ): MaximumConflictResolutionEntriesExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20032,7 +19953,7 @@ const deserializeAws_json1_1MaximumFileContentToLoadExceededException = (
   context: __SerdeContext
 ): MaximumFileContentToLoadExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20041,7 +19962,7 @@ const deserializeAws_json1_1MaximumFileEntriesExceededException = (
   context: __SerdeContext
 ): MaximumFileEntriesExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20050,7 +19971,7 @@ const deserializeAws_json1_1MaximumItemsToCompareExceededException = (
   context: __SerdeContext
 ): MaximumItemsToCompareExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20059,7 +19980,7 @@ const deserializeAws_json1_1MaximumNumberOfApprovalsExceededException = (
   context: __SerdeContext
 ): MaximumNumberOfApprovalsExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20068,7 +19989,7 @@ const deserializeAws_json1_1MaximumOpenPullRequestsExceededException = (
   context: __SerdeContext
 ): MaximumOpenPullRequestsExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20077,7 +19998,7 @@ const deserializeAws_json1_1MaximumRepositoryNamesExceededException = (
   context: __SerdeContext
 ): MaximumRepositoryNamesExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20086,7 +20007,7 @@ const deserializeAws_json1_1MaximumRepositoryTriggersExceededException = (
   context: __SerdeContext
 ): MaximumRepositoryTriggersExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20095,7 +20016,7 @@ const deserializeAws_json1_1MaximumRuleTemplatesAssociatedWithRepositoryExceptio
   context: __SerdeContext
 ): MaximumRuleTemplatesAssociatedWithRepositoryException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20104,8 +20025,8 @@ const deserializeAws_json1_1MergeBranchesByFastForwardOutput = (
   context: __SerdeContext
 ): MergeBranchesByFastForwardOutput => {
   return {
-    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
-    treeId: output.treeId !== undefined && output.treeId !== null ? output.treeId : undefined,
+    commitId: __expectString(output.commitId),
+    treeId: __expectString(output.treeId),
   } as any;
 };
 
@@ -20114,8 +20035,8 @@ const deserializeAws_json1_1MergeBranchesBySquashOutput = (
   context: __SerdeContext
 ): MergeBranchesBySquashOutput => {
   return {
-    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
-    treeId: output.treeId !== undefined && output.treeId !== null ? output.treeId : undefined,
+    commitId: __expectString(output.commitId),
+    treeId: __expectString(output.treeId),
   } as any;
 };
 
@@ -20124,8 +20045,8 @@ const deserializeAws_json1_1MergeBranchesByThreeWayOutput = (
   context: __SerdeContext
 ): MergeBranchesByThreeWayOutput => {
   return {
-    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
-    treeId: output.treeId !== undefined && output.treeId !== null ? output.treeId : undefined,
+    commitId: __expectString(output.commitId),
+    treeId: __expectString(output.treeId),
   } as any;
 };
 
@@ -20139,7 +20060,7 @@ const deserializeAws_json1_1MergeHunk = (output: any, context: __SerdeContext): 
       output.destination !== undefined && output.destination !== null
         ? deserializeAws_json1_1MergeHunkDetail(output.destination, context)
         : undefined,
-    isConflict: output.isConflict !== undefined && output.isConflict !== null ? output.isConflict : undefined,
+    isConflict: __expectBoolean(output.isConflict),
     source:
       output.source !== undefined && output.source !== null
         ? deserializeAws_json1_1MergeHunkDetail(output.source, context)
@@ -20149,9 +20070,9 @@ const deserializeAws_json1_1MergeHunk = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1MergeHunkDetail = (output: any, context: __SerdeContext): MergeHunkDetail => {
   return {
-    endLine: output.endLine !== undefined && output.endLine !== null ? output.endLine : undefined,
-    hunkContent: output.hunkContent !== undefined && output.hunkContent !== null ? output.hunkContent : undefined,
-    startLine: output.startLine !== undefined && output.startLine !== null ? output.startLine : undefined,
+    endLine: __expectNumber(output.endLine),
+    hunkContent: __expectString(output.hunkContent),
+    startLine: __expectNumber(output.startLine),
   } as any;
 };
 
@@ -20168,18 +20089,17 @@ const deserializeAws_json1_1MergeHunks = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1MergeMetadata = (output: any, context: __SerdeContext): MergeMetadata => {
   return {
-    isMerged: output.isMerged !== undefined && output.isMerged !== null ? output.isMerged : undefined,
-    mergeCommitId:
-      output.mergeCommitId !== undefined && output.mergeCommitId !== null ? output.mergeCommitId : undefined,
-    mergeOption: output.mergeOption !== undefined && output.mergeOption !== null ? output.mergeOption : undefined,
-    mergedBy: output.mergedBy !== undefined && output.mergedBy !== null ? output.mergedBy : undefined,
+    isMerged: __expectBoolean(output.isMerged),
+    mergeCommitId: __expectString(output.mergeCommitId),
+    mergeOption: __expectString(output.mergeOption),
+    mergedBy: __expectString(output.mergedBy),
   } as any;
 };
 
 const deserializeAws_json1_1MergeOperations = (output: any, context: __SerdeContext): MergeOperations => {
   return {
-    destination: output.destination !== undefined && output.destination !== null ? output.destination : undefined,
-    source: output.source !== undefined && output.source !== null ? output.source : undefined,
+    destination: __expectString(output.destination),
+    source: __expectString(output.source),
   } as any;
 };
 
@@ -20188,7 +20108,7 @@ const deserializeAws_json1_1MergeOptionRequiredException = (
   context: __SerdeContext
 ): MergeOptionRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20199,7 +20119,7 @@ const deserializeAws_json1_1MergeOptions = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -20244,7 +20164,7 @@ const deserializeAws_json1_1MultipleConflictResolutionEntriesException = (
   context: __SerdeContext
 ): MultipleConflictResolutionEntriesException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20253,7 +20173,7 @@ const deserializeAws_json1_1MultipleRepositoriesInPullRequestException = (
   context: __SerdeContext
 ): MultipleRepositoriesInPullRequestException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20262,13 +20182,13 @@ const deserializeAws_json1_1NameLengthExceededException = (
   context: __SerdeContext
 ): NameLengthExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1NoChangeException = (output: any, context: __SerdeContext): NoChangeException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20277,7 +20197,7 @@ const deserializeAws_json1_1NumberOfRulesExceededException = (
   context: __SerdeContext
 ): NumberOfRulesExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20286,15 +20206,15 @@ const deserializeAws_json1_1NumberOfRuleTemplatesExceededException = (
   context: __SerdeContext
 ): NumberOfRuleTemplatesExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ObjectTypes = (output: any, context: __SerdeContext): ObjectTypes => {
   return {
-    base: output.base !== undefined && output.base !== null ? output.base : undefined,
-    destination: output.destination !== undefined && output.destination !== null ? output.destination : undefined,
-    source: output.source !== undefined && output.source !== null ? output.source : undefined,
+    base: __expectString(output.base),
+    destination: __expectString(output.destination),
+    source: __expectString(output.source),
   } as any;
 };
 
@@ -20303,14 +20223,8 @@ const deserializeAws_json1_1OriginApprovalRuleTemplate = (
   context: __SerdeContext
 ): OriginApprovalRuleTemplate => {
   return {
-    approvalRuleTemplateId:
-      output.approvalRuleTemplateId !== undefined && output.approvalRuleTemplateId !== null
-        ? output.approvalRuleTemplateId
-        : undefined,
-    approvalRuleTemplateName:
-      output.approvalRuleTemplateName !== undefined && output.approvalRuleTemplateName !== null
-        ? output.approvalRuleTemplateName
-        : undefined,
+    approvalRuleTemplateId: __expectString(output.approvalRuleTemplateId),
+    approvalRuleTemplateName: __expectString(output.approvalRuleTemplateName),
   } as any;
 };
 
@@ -20319,7 +20233,7 @@ const deserializeAws_json1_1OverrideAlreadySetException = (
   context: __SerdeContext
 ): OverrideAlreadySetException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20328,7 +20242,7 @@ const deserializeAws_json1_1OverrideStatusRequiredException = (
   context: __SerdeContext
 ): OverrideStatusRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20337,7 +20251,7 @@ const deserializeAws_json1_1ParentCommitDoesNotExistException = (
   context: __SerdeContext
 ): ParentCommitDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20346,7 +20260,7 @@ const deserializeAws_json1_1ParentCommitIdOutdatedException = (
   context: __SerdeContext
 ): ParentCommitIdOutdatedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20355,7 +20269,7 @@ const deserializeAws_json1_1ParentCommitIdRequiredException = (
   context: __SerdeContext
 ): ParentCommitIdRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20366,7 +20280,7 @@ const deserializeAws_json1_1ParentList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -20375,13 +20289,13 @@ const deserializeAws_json1_1PathDoesNotExistException = (
   context: __SerdeContext
 ): PathDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1PathRequiredException = (output: any, context: __SerdeContext): PathRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20390,12 +20304,10 @@ const deserializeAws_json1_1PostCommentForComparedCommitOutput = (
   context: __SerdeContext
 ): PostCommentForComparedCommitOutput => {
   return {
-    afterBlobId: output.afterBlobId !== undefined && output.afterBlobId !== null ? output.afterBlobId : undefined,
-    afterCommitId:
-      output.afterCommitId !== undefined && output.afterCommitId !== null ? output.afterCommitId : undefined,
-    beforeBlobId: output.beforeBlobId !== undefined && output.beforeBlobId !== null ? output.beforeBlobId : undefined,
-    beforeCommitId:
-      output.beforeCommitId !== undefined && output.beforeCommitId !== null ? output.beforeCommitId : undefined,
+    afterBlobId: __expectString(output.afterBlobId),
+    afterCommitId: __expectString(output.afterCommitId),
+    beforeBlobId: __expectString(output.beforeBlobId),
+    beforeCommitId: __expectString(output.beforeCommitId),
     comment:
       output.comment !== undefined && output.comment !== null
         ? deserializeAws_json1_1Comment(output.comment, context)
@@ -20404,8 +20316,7 @@ const deserializeAws_json1_1PostCommentForComparedCommitOutput = (
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1Location(output.location, context)
         : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -20414,12 +20325,10 @@ const deserializeAws_json1_1PostCommentForPullRequestOutput = (
   context: __SerdeContext
 ): PostCommentForPullRequestOutput => {
   return {
-    afterBlobId: output.afterBlobId !== undefined && output.afterBlobId !== null ? output.afterBlobId : undefined,
-    afterCommitId:
-      output.afterCommitId !== undefined && output.afterCommitId !== null ? output.afterCommitId : undefined,
-    beforeBlobId: output.beforeBlobId !== undefined && output.beforeBlobId !== null ? output.beforeBlobId : undefined,
-    beforeCommitId:
-      output.beforeCommitId !== undefined && output.beforeCommitId !== null ? output.beforeCommitId : undefined,
+    afterBlobId: __expectString(output.afterBlobId),
+    afterCommitId: __expectString(output.afterCommitId),
+    beforeBlobId: __expectString(output.beforeBlobId),
+    beforeCommitId: __expectString(output.beforeCommitId),
     comment:
       output.comment !== undefined && output.comment !== null
         ? deserializeAws_json1_1Comment(output.comment, context)
@@ -20428,10 +20337,8 @@ const deserializeAws_json1_1PostCommentForPullRequestOutput = (
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1Location(output.location, context)
         : undefined,
-    pullRequestId:
-      output.pullRequestId !== undefined && output.pullRequestId !== null ? output.pullRequestId : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    pullRequestId: __expectString(output.pullRequestId),
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -20450,32 +20357,25 @@ const deserializeAws_json1_1PullRequest = (output: any, context: __SerdeContext)
       output.approvalRules !== undefined && output.approvalRules !== null
         ? deserializeAws_json1_1ApprovalRulesList(output.approvalRules, context)
         : undefined,
-    authorArn: output.authorArn !== undefined && output.authorArn !== null ? output.authorArn : undefined,
-    clientRequestToken:
-      output.clientRequestToken !== undefined && output.clientRequestToken !== null
-        ? output.clientRequestToken
-        : undefined,
+    authorArn: __expectString(output.authorArn),
+    clientRequestToken: __expectString(output.clientRequestToken),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     lastActivityDate:
       output.lastActivityDate !== undefined && output.lastActivityDate !== null
         ? new Date(Math.round(output.lastActivityDate * 1000))
         : undefined,
-    pullRequestId:
-      output.pullRequestId !== undefined && output.pullRequestId !== null ? output.pullRequestId : undefined,
-    pullRequestStatus:
-      output.pullRequestStatus !== undefined && output.pullRequestStatus !== null
-        ? output.pullRequestStatus
-        : undefined,
+    pullRequestId: __expectString(output.pullRequestId),
+    pullRequestStatus: __expectString(output.pullRequestStatus),
     pullRequestTargets:
       output.pullRequestTargets !== undefined && output.pullRequestTargets !== null
         ? deserializeAws_json1_1PullRequestTargetList(output.pullRequestTargets, context)
         : undefined,
-    revisionId: output.revisionId !== undefined && output.revisionId !== null ? output.revisionId : undefined,
-    title: output.title !== undefined && output.title !== null ? output.title : undefined,
+    revisionId: __expectString(output.revisionId),
+    title: __expectString(output.title),
   } as any;
 };
 
@@ -20484,7 +20384,7 @@ const deserializeAws_json1_1PullRequestAlreadyClosedException = (
   context: __SerdeContext
 ): PullRequestAlreadyClosedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20493,7 +20393,7 @@ const deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedException = (
   context: __SerdeContext
 ): PullRequestApprovalRulesNotSatisfiedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20502,7 +20402,7 @@ const deserializeAws_json1_1PullRequestCannotBeApprovedByAuthorException = (
   context: __SerdeContext
 ): PullRequestCannotBeApprovedByAuthorException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20511,15 +20411,10 @@ const deserializeAws_json1_1PullRequestCreatedEventMetadata = (
   context: __SerdeContext
 ): PullRequestCreatedEventMetadata => {
   return {
-    destinationCommitId:
-      output.destinationCommitId !== undefined && output.destinationCommitId !== null
-        ? output.destinationCommitId
-        : undefined,
-    mergeBase: output.mergeBase !== undefined && output.mergeBase !== null ? output.mergeBase : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
-    sourceCommitId:
-      output.sourceCommitId !== undefined && output.sourceCommitId !== null ? output.sourceCommitId : undefined,
+    destinationCommitId: __expectString(output.destinationCommitId),
+    mergeBase: __expectString(output.mergeBase),
+    repositoryName: __expectString(output.repositoryName),
+    sourceCommitId: __expectString(output.sourceCommitId),
   } as any;
 };
 
@@ -20528,13 +20423,13 @@ const deserializeAws_json1_1PullRequestDoesNotExistException = (
   context: __SerdeContext
 ): PullRequestDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1PullRequestEvent = (output: any, context: __SerdeContext): PullRequestEvent => {
   return {
-    actorArn: output.actorArn !== undefined && output.actorArn !== null ? output.actorArn : undefined,
+    actorArn: __expectString(output.actorArn),
     approvalRuleEventMetadata:
       output.approvalRuleEventMetadata !== undefined && output.approvalRuleEventMetadata !== null
         ? deserializeAws_json1_1ApprovalRuleEventMetadata(output.approvalRuleEventMetadata, context)
@@ -20555,12 +20450,8 @@ const deserializeAws_json1_1PullRequestEvent = (output: any, context: __SerdeCon
       output.pullRequestCreatedEventMetadata !== undefined && output.pullRequestCreatedEventMetadata !== null
         ? deserializeAws_json1_1PullRequestCreatedEventMetadata(output.pullRequestCreatedEventMetadata, context)
         : undefined,
-    pullRequestEventType:
-      output.pullRequestEventType !== undefined && output.pullRequestEventType !== null
-        ? output.pullRequestEventType
-        : undefined,
-    pullRequestId:
-      output.pullRequestId !== undefined && output.pullRequestId !== null ? output.pullRequestId : undefined,
+    pullRequestEventType: __expectString(output.pullRequestEventType),
+    pullRequestId: __expectString(output.pullRequestId),
     pullRequestMergedStateChangedEventMetadata:
       output.pullRequestMergedStateChangedEventMetadata !== undefined &&
       output.pullRequestMergedStateChangedEventMetadata !== null
@@ -20606,7 +20497,7 @@ const deserializeAws_json1_1PullRequestIdList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -20615,7 +20506,7 @@ const deserializeAws_json1_1PullRequestIdRequiredException = (
   context: __SerdeContext
 ): PullRequestIdRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20624,16 +20515,12 @@ const deserializeAws_json1_1PullRequestMergedStateChangedEventMetadata = (
   context: __SerdeContext
 ): PullRequestMergedStateChangedEventMetadata => {
   return {
-    destinationReference:
-      output.destinationReference !== undefined && output.destinationReference !== null
-        ? output.destinationReference
-        : undefined,
+    destinationReference: __expectString(output.destinationReference),
     mergeMetadata:
       output.mergeMetadata !== undefined && output.mergeMetadata !== null
         ? deserializeAws_json1_1MergeMetadata(output.mergeMetadata, context)
         : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -20642,13 +20529,10 @@ const deserializeAws_json1_1PullRequestSourceReferenceUpdatedEventMetadata = (
   context: __SerdeContext
 ): PullRequestSourceReferenceUpdatedEventMetadata => {
   return {
-    afterCommitId:
-      output.afterCommitId !== undefined && output.afterCommitId !== null ? output.afterCommitId : undefined,
-    beforeCommitId:
-      output.beforeCommitId !== undefined && output.beforeCommitId !== null ? output.beforeCommitId : undefined,
-    mergeBase: output.mergeBase !== undefined && output.mergeBase !== null ? output.mergeBase : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    afterCommitId: __expectString(output.afterCommitId),
+    beforeCommitId: __expectString(output.beforeCommitId),
+    mergeBase: __expectString(output.mergeBase),
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -20657,10 +20541,7 @@ const deserializeAws_json1_1PullRequestStatusChangedEventMetadata = (
   context: __SerdeContext
 ): PullRequestStatusChangedEventMetadata => {
   return {
-    pullRequestStatus:
-      output.pullRequestStatus !== undefined && output.pullRequestStatus !== null
-        ? output.pullRequestStatus
-        : undefined,
+    pullRequestStatus: __expectString(output.pullRequestStatus),
   } as any;
 };
 
@@ -20669,30 +20550,22 @@ const deserializeAws_json1_1PullRequestStatusRequiredException = (
   context: __SerdeContext
 ): PullRequestStatusRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1PullRequestTarget = (output: any, context: __SerdeContext): PullRequestTarget => {
   return {
-    destinationCommit:
-      output.destinationCommit !== undefined && output.destinationCommit !== null
-        ? output.destinationCommit
-        : undefined,
-    destinationReference:
-      output.destinationReference !== undefined && output.destinationReference !== null
-        ? output.destinationReference
-        : undefined,
-    mergeBase: output.mergeBase !== undefined && output.mergeBase !== null ? output.mergeBase : undefined,
+    destinationCommit: __expectString(output.destinationCommit),
+    destinationReference: __expectString(output.destinationReference),
+    mergeBase: __expectString(output.mergeBase),
     mergeMetadata:
       output.mergeMetadata !== undefined && output.mergeMetadata !== null
         ? deserializeAws_json1_1MergeMetadata(output.mergeMetadata, context)
         : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
-    sourceCommit: output.sourceCommit !== undefined && output.sourceCommit !== null ? output.sourceCommit : undefined,
-    sourceReference:
-      output.sourceReference !== undefined && output.sourceReference !== null ? output.sourceReference : undefined,
+    repositoryName: __expectString(output.repositoryName),
+    sourceCommit: __expectString(output.sourceCommit),
+    sourceReference: __expectString(output.sourceReference),
   } as any;
 };
 
@@ -20712,15 +20585,15 @@ const deserializeAws_json1_1PutFileEntryConflictException = (
   context: __SerdeContext
 ): PutFileEntryConflictException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1PutFileOutput = (output: any, context: __SerdeContext): PutFileOutput => {
   return {
-    blobId: output.blobId !== undefined && output.blobId !== null ? output.blobId : undefined,
-    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
-    treeId: output.treeId !== undefined && output.treeId !== null ? output.treeId : undefined,
+    blobId: __expectString(output.blobId),
+    commitId: __expectString(output.commitId),
+    treeId: __expectString(output.treeId),
   } as any;
 };
 
@@ -20729,8 +20602,7 @@ const deserializeAws_json1_1PutRepositoryTriggersOutput = (
   context: __SerdeContext
 ): PutRepositoryTriggersOutput => {
   return {
-    configurationId:
-      output.configurationId !== undefined && output.configurationId !== null ? output.configurationId : undefined,
+    configurationId: __expectString(output.configurationId),
   } as any;
 };
 
@@ -20741,7 +20613,7 @@ const deserializeAws_json1_1ReactionCountsMap = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectNumber(value) as any,
     };
   }, {});
 };
@@ -20756,10 +20628,7 @@ const deserializeAws_json1_1ReactionForComment = (output: any, context: __SerdeC
       output.reactionUsers !== undefined && output.reactionUsers !== null
         ? deserializeAws_json1_1ReactionUsersList(output.reactionUsers, context)
         : undefined,
-    reactionsFromDeletedUsersCount:
-      output.reactionsFromDeletedUsersCount !== undefined && output.reactionsFromDeletedUsersCount !== null
-        ? output.reactionsFromDeletedUsersCount
-        : undefined,
+    reactionsFromDeletedUsersCount: __expectNumber(output.reactionsFromDeletedUsersCount),
   } as any;
 };
 
@@ -20768,7 +20637,7 @@ const deserializeAws_json1_1ReactionLimitExceededException = (
   context: __SerdeContext
 ): ReactionLimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20790,15 +20659,15 @@ const deserializeAws_json1_1ReactionUsersList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1ReactionValueFormats = (output: any, context: __SerdeContext): ReactionValueFormats => {
   return {
-    emoji: output.emoji !== undefined && output.emoji !== null ? output.emoji : undefined,
-    shortCode: output.shortCode !== undefined && output.shortCode !== null ? output.shortCode : undefined,
-    unicode: output.unicode !== undefined && output.unicode !== null ? output.unicode : undefined,
+    emoji: __expectString(output.emoji),
+    shortCode: __expectString(output.shortCode),
+    unicode: __expectString(output.unicode),
   } as any;
 };
 
@@ -20807,7 +20676,7 @@ const deserializeAws_json1_1ReactionValueRequiredException = (
   context: __SerdeContext
 ): ReactionValueRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20816,7 +20685,7 @@ const deserializeAws_json1_1ReferenceDoesNotExistException = (
   context: __SerdeContext
 ): ReferenceDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20825,7 +20694,7 @@ const deserializeAws_json1_1ReferenceNameRequiredException = (
   context: __SerdeContext
 ): ReferenceNameRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20834,7 +20703,7 @@ const deserializeAws_json1_1ReferenceTypeNotSupportedException = (
   context: __SerdeContext
 ): ReferenceTypeNotSupportedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20843,7 +20712,7 @@ const deserializeAws_json1_1ReplacementContentRequiredException = (
   context: __SerdeContext
 ): ReplacementContentRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20852,7 +20721,7 @@ const deserializeAws_json1_1ReplacementTypeRequiredException = (
   context: __SerdeContext
 ): ReplacementTypeRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20861,7 +20730,7 @@ const deserializeAws_json1_1RepositoryDoesNotExistException = (
   context: __SerdeContext
 ): RepositoryDoesNotExistException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20870,33 +20739,28 @@ const deserializeAws_json1_1RepositoryLimitExceededException = (
   context: __SerdeContext
 ): RepositoryLimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1RepositoryMetadata = (output: any, context: __SerdeContext): RepositoryMetadata => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
-    cloneUrlHttp: output.cloneUrlHttp !== undefined && output.cloneUrlHttp !== null ? output.cloneUrlHttp : undefined,
-    cloneUrlSsh: output.cloneUrlSsh !== undefined && output.cloneUrlSsh !== null ? output.cloneUrlSsh : undefined,
+    Arn: __expectString(output.Arn),
+    accountId: __expectString(output.accountId),
+    cloneUrlHttp: __expectString(output.cloneUrlHttp),
+    cloneUrlSsh: __expectString(output.cloneUrlSsh),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    defaultBranch:
-      output.defaultBranch !== undefined && output.defaultBranch !== null ? output.defaultBranch : undefined,
+    defaultBranch: __expectString(output.defaultBranch),
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
         : undefined,
-    repositoryDescription:
-      output.repositoryDescription !== undefined && output.repositoryDescription !== null
-        ? output.repositoryDescription
-        : undefined,
-    repositoryId: output.repositoryId !== undefined && output.repositoryId !== null ? output.repositoryId : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    repositoryDescription: __expectString(output.repositoryDescription),
+    repositoryId: __expectString(output.repositoryId),
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -20916,15 +20780,14 @@ const deserializeAws_json1_1RepositoryNameExistsException = (
   context: __SerdeContext
 ): RepositoryNameExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1RepositoryNameIdPair = (output: any, context: __SerdeContext): RepositoryNameIdPair => {
   return {
-    repositoryId: output.repositoryId !== undefined && output.repositoryId !== null ? output.repositoryId : undefined,
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    repositoryId: __expectString(output.repositoryId),
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 
@@ -20949,7 +20812,7 @@ const deserializeAws_json1_1RepositoryNameList = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -20958,7 +20821,7 @@ const deserializeAws_json1_1RepositoryNameRequiredException = (
   context: __SerdeContext
 ): RepositoryNameRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20967,7 +20830,7 @@ const deserializeAws_json1_1RepositoryNamesRequiredException = (
   context: __SerdeContext
 ): RepositoryNamesRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20976,7 +20839,7 @@ const deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestException = (
   context: __SerdeContext
 ): RepositoryNotAssociatedWithPullRequestException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -20987,7 +20850,7 @@ const deserializeAws_json1_1RepositoryNotFoundList = (output: any, context: __Se
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -20997,14 +20860,13 @@ const deserializeAws_json1_1RepositoryTrigger = (output: any, context: __SerdeCo
       output.branches !== undefined && output.branches !== null
         ? deserializeAws_json1_1BranchNameList(output.branches, context)
         : undefined,
-    customData: output.customData !== undefined && output.customData !== null ? output.customData : undefined,
-    destinationArn:
-      output.destinationArn !== undefined && output.destinationArn !== null ? output.destinationArn : undefined,
+    customData: __expectString(output.customData),
+    destinationArn: __expectString(output.destinationArn),
     events:
       output.events !== undefined && output.events !== null
         ? deserializeAws_json1_1RepositoryTriggerEventList(output.events, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -21013,7 +20875,7 @@ const deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredException = (
   context: __SerdeContext
 ): RepositoryTriggerBranchNameListRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21022,7 +20884,7 @@ const deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredException = (
   context: __SerdeContext
 ): RepositoryTriggerDestinationArnRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21036,7 +20898,7 @@ const deserializeAws_json1_1RepositoryTriggerEventList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -21045,7 +20907,7 @@ const deserializeAws_json1_1RepositoryTriggerEventsListRequiredException = (
   context: __SerdeContext
 ): RepositoryTriggerEventsListRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21054,9 +20916,8 @@ const deserializeAws_json1_1RepositoryTriggerExecutionFailure = (
   context: __SerdeContext
 ): RepositoryTriggerExecutionFailure => {
   return {
-    failureMessage:
-      output.failureMessage !== undefined && output.failureMessage !== null ? output.failureMessage : undefined,
-    trigger: output.trigger !== undefined && output.trigger !== null ? output.trigger : undefined,
+    failureMessage: __expectString(output.failureMessage),
+    trigger: __expectString(output.trigger),
   } as any;
 };
 
@@ -21081,7 +20942,7 @@ const deserializeAws_json1_1RepositoryTriggerNameList = (output: any, context: _
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -21090,7 +20951,7 @@ const deserializeAws_json1_1RepositoryTriggerNameRequiredException = (
   context: __SerdeContext
 ): RepositoryTriggerNameRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21110,7 +20971,7 @@ const deserializeAws_json1_1RepositoryTriggersListRequiredException = (
   context: __SerdeContext
 ): RepositoryTriggersListRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21119,7 +20980,7 @@ const deserializeAws_json1_1ResourceArnRequiredException = (
   context: __SerdeContext
 ): ResourceArnRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21128,7 +20989,7 @@ const deserializeAws_json1_1RestrictedSourceFileException = (
   context: __SerdeContext
 ): RestrictedSourceFileException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21137,7 +20998,7 @@ const deserializeAws_json1_1RevisionIdRequiredException = (
   context: __SerdeContext
 ): RevisionIdRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21146,7 +21007,7 @@ const deserializeAws_json1_1RevisionNotCurrentException = (
   context: __SerdeContext
 ): RevisionNotCurrentException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21155,7 +21016,7 @@ const deserializeAws_json1_1SameFileContentException = (
   context: __SerdeContext
 ): SameFileContentException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21164,7 +21025,7 @@ const deserializeAws_json1_1SamePathRequestException = (
   context: __SerdeContext
 ): SamePathRequestException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21173,7 +21034,7 @@ const deserializeAws_json1_1SourceAndDestinationAreSameException = (
   context: __SerdeContext
 ): SourceAndDestinationAreSameException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21182,15 +21043,15 @@ const deserializeAws_json1_1SourceFileOrContentRequiredException = (
   context: __SerdeContext
 ): SourceFileOrContentRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1SubModule = (output: any, context: __SerdeContext): SubModule => {
   return {
-    absolutePath: output.absolutePath !== undefined && output.absolutePath !== null ? output.absolutePath : undefined,
-    commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
-    relativePath: output.relativePath !== undefined && output.relativePath !== null ? output.relativePath : undefined,
+    absolutePath: __expectString(output.absolutePath),
+    commitId: __expectString(output.commitId),
+    relativePath: __expectString(output.relativePath),
   } as any;
 };
 
@@ -21207,10 +21068,10 @@ const deserializeAws_json1_1SubModuleList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1SymbolicLink = (output: any, context: __SerdeContext): SymbolicLink => {
   return {
-    absolutePath: output.absolutePath !== undefined && output.absolutePath !== null ? output.absolutePath : undefined,
-    blobId: output.blobId !== undefined && output.blobId !== null ? output.blobId : undefined,
-    fileMode: output.fileMode !== undefined && output.fileMode !== null ? output.fileMode : undefined,
-    relativePath: output.relativePath !== undefined && output.relativePath !== null ? output.relativePath : undefined,
+    absolutePath: __expectString(output.absolutePath),
+    blobId: __expectString(output.blobId),
+    fileMode: __expectString(output.fileMode),
+    relativePath: __expectString(output.relativePath),
   } as any;
 };
 
@@ -21230,13 +21091,13 @@ const deserializeAws_json1_1TagKeysListRequiredException = (
   context: __SerdeContext
 ): TagKeysListRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1TagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21247,7 +21108,7 @@ const deserializeAws_json1_1TagsMap = (output: any, context: __SerdeContext): { 
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -21257,7 +21118,7 @@ const deserializeAws_json1_1TagsMapRequiredException = (
   context: __SerdeContext
 ): TagsMapRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21266,7 +21127,7 @@ const deserializeAws_json1_1TargetRequiredException = (
   context: __SerdeContext
 ): TargetRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21275,7 +21136,7 @@ const deserializeAws_json1_1TargetsRequiredException = (
   context: __SerdeContext
 ): TargetsRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21300,7 +21161,7 @@ const deserializeAws_json1_1TipOfSourceReferenceIsDifferentException = (
   context: __SerdeContext
 ): TipOfSourceReferenceIsDifferentException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21309,19 +21170,19 @@ const deserializeAws_json1_1TipsDivergenceExceededException = (
   context: __SerdeContext
 ): TipsDivergenceExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1TitleRequiredException = (output: any, context: __SerdeContext): TitleRequiredException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -21420,9 +21281,9 @@ const deserializeAws_json1_1UpdatePullRequestTitleOutput = (
 
 const deserializeAws_json1_1UserInfo = (output: any, context: __SerdeContext): UserInfo => {
   return {
-    date: output.date !== undefined && output.date !== null ? output.date : undefined,
-    email: output.email !== undefined && output.email !== null ? output.email : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    date: __expectString(output.date),
+    email: __expectString(output.email),
+    name: __expectString(output.name),
   } as any;
 };
 

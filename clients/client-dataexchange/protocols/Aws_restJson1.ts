@@ -64,6 +64,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -922,31 +925,31 @@ export const deserializeAws_restJson1CreateDataSetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.AssetType !== undefined && data.AssetType !== null) {
-    contents.AssetType = data.AssetType;
+    contents.AssetType = __expectString(data.AssetType);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = new Date(data.CreatedAt);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.Origin !== undefined && data.Origin !== null) {
-    contents.Origin = data.Origin;
+    contents.Origin = __expectString(data.Origin);
   }
   if (data.OriginDetails !== undefined && data.OriginDetails !== null) {
     contents.OriginDetails = deserializeAws_restJson1OriginDetails(data.OriginDetails, context);
   }
   if (data.SourceId !== undefined && data.SourceId !== null) {
-    contents.SourceId = data.SourceId;
+    contents.SourceId = __expectString(data.SourceId);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1MapOf__string(data.Tags, context);
@@ -1046,7 +1049,7 @@ export const deserializeAws_restJson1CreateJobCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = new Date(data.CreatedAt);
@@ -1058,13 +1061,13 @@ export const deserializeAws_restJson1CreateJobCommand = async (
     contents.Errors = deserializeAws_restJson1ListOfJobError(data.Errors, context);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
     contents.UpdatedAt = new Date(data.UpdatedAt);
@@ -1162,25 +1165,25 @@ export const deserializeAws_restJson1CreateRevisionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Comment !== undefined && data.Comment !== null) {
-    contents.Comment = data.Comment;
+    contents.Comment = __expectString(data.Comment);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = new Date(data.CreatedAt);
   }
   if (data.DataSetId !== undefined && data.DataSetId !== null) {
-    contents.DataSetId = data.DataSetId;
+    contents.DataSetId = __expectString(data.DataSetId);
   }
   if (data.Finalized !== undefined && data.Finalized !== null) {
-    contents.Finalized = data.Finalized;
+    contents.Finalized = __expectBoolean(data.Finalized);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.SourceId !== undefined && data.SourceId !== null) {
-    contents.SourceId = data.SourceId;
+    contents.SourceId = __expectString(data.SourceId);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1MapOf__string(data.Tags, context);
@@ -1555,31 +1558,31 @@ export const deserializeAws_restJson1GetAssetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.AssetDetails !== undefined && data.AssetDetails !== null) {
     contents.AssetDetails = deserializeAws_restJson1AssetDetails(data.AssetDetails, context);
   }
   if (data.AssetType !== undefined && data.AssetType !== null) {
-    contents.AssetType = data.AssetType;
+    contents.AssetType = __expectString(data.AssetType);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = new Date(data.CreatedAt);
   }
   if (data.DataSetId !== undefined && data.DataSetId !== null) {
-    contents.DataSetId = data.DataSetId;
+    contents.DataSetId = __expectString(data.DataSetId);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   if (data.SourceId !== undefined && data.SourceId !== null) {
-    contents.SourceId = data.SourceId;
+    contents.SourceId = __expectString(data.SourceId);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
     contents.UpdatedAt = new Date(data.UpdatedAt);
@@ -1671,31 +1674,31 @@ export const deserializeAws_restJson1GetDataSetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.AssetType !== undefined && data.AssetType !== null) {
-    contents.AssetType = data.AssetType;
+    contents.AssetType = __expectString(data.AssetType);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = new Date(data.CreatedAt);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.Origin !== undefined && data.Origin !== null) {
-    contents.Origin = data.Origin;
+    contents.Origin = __expectString(data.Origin);
   }
   if (data.OriginDetails !== undefined && data.OriginDetails !== null) {
     contents.OriginDetails = deserializeAws_restJson1OriginDetails(data.OriginDetails, context);
   }
   if (data.SourceId !== undefined && data.SourceId !== null) {
-    contents.SourceId = data.SourceId;
+    contents.SourceId = __expectString(data.SourceId);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1MapOf__string(data.Tags, context);
@@ -1787,7 +1790,7 @@ export const deserializeAws_restJson1GetJobCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = new Date(data.CreatedAt);
@@ -1799,13 +1802,13 @@ export const deserializeAws_restJson1GetJobCommand = async (
     contents.Errors = deserializeAws_restJson1ListOfJobError(data.Errors, context);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
     contents.UpdatedAt = new Date(data.UpdatedAt);
@@ -1895,25 +1898,25 @@ export const deserializeAws_restJson1GetRevisionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Comment !== undefined && data.Comment !== null) {
-    contents.Comment = data.Comment;
+    contents.Comment = __expectString(data.Comment);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = new Date(data.CreatedAt);
   }
   if (data.DataSetId !== undefined && data.DataSetId !== null) {
-    contents.DataSetId = data.DataSetId;
+    contents.DataSetId = __expectString(data.DataSetId);
   }
   if (data.Finalized !== undefined && data.Finalized !== null) {
-    contents.Finalized = data.Finalized;
+    contents.Finalized = __expectBoolean(data.Finalized);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.SourceId !== undefined && data.SourceId !== null) {
-    contents.SourceId = data.SourceId;
+    contents.SourceId = __expectString(data.SourceId);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1MapOf__string(data.Tags, context);
@@ -1999,7 +2002,7 @@ export const deserializeAws_restJson1ListDataSetRevisionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Revisions !== undefined && data.Revisions !== null) {
     contents.Revisions = deserializeAws_restJson1ListOfRevisionEntry(data.Revisions, context);
@@ -2085,7 +2088,7 @@ export const deserializeAws_restJson1ListDataSetsCommand = async (
     contents.DataSets = deserializeAws_restJson1ListOfDataSetEntry(data.DataSets, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2168,7 +2171,7 @@ export const deserializeAws_restJson1ListJobsCommand = async (
     contents.Jobs = deserializeAws_restJson1ListOfJobEntry(data.Jobs, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2251,7 +2254,7 @@ export const deserializeAws_restJson1ListRevisionAssetsCommand = async (
     contents.Assets = deserializeAws_restJson1ListOfAssetEntry(data.Assets, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2563,31 +2566,31 @@ export const deserializeAws_restJson1UpdateAssetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.AssetDetails !== undefined && data.AssetDetails !== null) {
     contents.AssetDetails = deserializeAws_restJson1AssetDetails(data.AssetDetails, context);
   }
   if (data.AssetType !== undefined && data.AssetType !== null) {
-    contents.AssetType = data.AssetType;
+    contents.AssetType = __expectString(data.AssetType);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = new Date(data.CreatedAt);
   }
   if (data.DataSetId !== undefined && data.DataSetId !== null) {
-    contents.DataSetId = data.DataSetId;
+    contents.DataSetId = __expectString(data.DataSetId);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   if (data.SourceId !== undefined && data.SourceId !== null) {
-    contents.SourceId = data.SourceId;
+    contents.SourceId = __expectString(data.SourceId);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
     contents.UpdatedAt = new Date(data.UpdatedAt);
@@ -2694,31 +2697,31 @@ export const deserializeAws_restJson1UpdateDataSetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.AssetType !== undefined && data.AssetType !== null) {
-    contents.AssetType = data.AssetType;
+    contents.AssetType = __expectString(data.AssetType);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = new Date(data.CreatedAt);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.Origin !== undefined && data.Origin !== null) {
-    contents.Origin = data.Origin;
+    contents.Origin = __expectString(data.Origin);
   }
   if (data.OriginDetails !== undefined && data.OriginDetails !== null) {
     contents.OriginDetails = deserializeAws_restJson1OriginDetails(data.OriginDetails, context);
   }
   if (data.SourceId !== undefined && data.SourceId !== null) {
-    contents.SourceId = data.SourceId;
+    contents.SourceId = __expectString(data.SourceId);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
     contents.UpdatedAt = new Date(data.UpdatedAt);
@@ -2815,25 +2818,25 @@ export const deserializeAws_restJson1UpdateRevisionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Comment !== undefined && data.Comment !== null) {
-    contents.Comment = data.Comment;
+    contents.Comment = __expectString(data.Comment);
   }
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
     contents.CreatedAt = new Date(data.CreatedAt);
   }
   if (data.DataSetId !== undefined && data.DataSetId !== null) {
-    contents.DataSetId = data.DataSetId;
+    contents.DataSetId = __expectString(data.DataSetId);
   }
   if (data.Finalized !== undefined && data.Finalized !== null) {
-    contents.Finalized = data.Finalized;
+    contents.Finalized = __expectBoolean(data.Finalized);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.SourceId !== undefined && data.SourceId !== null) {
-    contents.SourceId = data.SourceId;
+    contents.SourceId = __expectString(data.SourceId);
   }
   if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
     contents.UpdatedAt = new Date(data.UpdatedAt);
@@ -2930,7 +2933,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -2949,13 +2952,13 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.ResourceId !== undefined && data.ResourceId !== null) {
-    contents.ResourceId = data.ResourceId;
+    contents.ResourceId = __expectString(data.ResourceId);
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = data.ResourceType;
+    contents.ResourceType = __expectString(data.ResourceType);
   }
   return contents;
 };
@@ -2972,7 +2975,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -2991,13 +2994,13 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.ResourceId !== undefined && data.ResourceId !== null) {
-    contents.ResourceId = data.ResourceId;
+    contents.ResourceId = __expectString(data.ResourceId);
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = data.ResourceType;
+    contents.ResourceType = __expectString(data.ResourceType);
   }
   return contents;
 };
@@ -3016,13 +3019,13 @@ const deserializeAws_restJson1ServiceLimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.LimitName !== undefined && data.LimitName !== null) {
-    contents.LimitName = data.LimitName;
+    contents.LimitName = __expectString(data.LimitName);
   }
   if (data.LimitValue !== undefined && data.LimitValue !== null) {
-    contents.LimitValue = data.LimitValue;
+    contents.LimitValue = __expectNumber(data.LimitValue);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3039,7 +3042,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3056,7 +3059,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3256,9 +3259,9 @@ const serializeAws_restJson1RevisionDestinationEntry = (
 
 const deserializeAws_restJson1AssetDestinationEntry = (output: any, context: __SerdeContext): AssetDestinationEntry => {
   return {
-    AssetId: output.AssetId !== undefined && output.AssetId !== null ? output.AssetId : undefined,
-    Bucket: output.Bucket !== undefined && output.Bucket !== null ? output.Bucket : undefined,
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    AssetId: __expectString(output.AssetId),
+    Bucket: __expectString(output.Bucket),
+    Key: __expectString(output.Key),
   } as any;
 };
 
@@ -3273,43 +3276,43 @@ const deserializeAws_restJson1AssetDetails = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1AssetEntry = (output: any, context: __SerdeContext): AssetEntry => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: __expectString(output.Arn),
     AssetDetails:
       output.AssetDetails !== undefined && output.AssetDetails !== null
         ? deserializeAws_restJson1AssetDetails(output.AssetDetails, context)
         : undefined,
-    AssetType: output.AssetType !== undefined && output.AssetType !== null ? output.AssetType : undefined,
+    AssetType: __expectString(output.AssetType),
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? new Date(output.CreatedAt) : undefined,
-    DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    RevisionId: output.RevisionId !== undefined && output.RevisionId !== null ? output.RevisionId : undefined,
-    SourceId: output.SourceId !== undefined && output.SourceId !== null ? output.SourceId : undefined,
+    DataSetId: __expectString(output.DataSetId),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
+    RevisionId: __expectString(output.RevisionId),
+    SourceId: __expectString(output.SourceId),
     UpdatedAt: output.UpdatedAt !== undefined && output.UpdatedAt !== null ? new Date(output.UpdatedAt) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1AssetSourceEntry = (output: any, context: __SerdeContext): AssetSourceEntry => {
   return {
-    Bucket: output.Bucket !== undefined && output.Bucket !== null ? output.Bucket : undefined,
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Bucket: __expectString(output.Bucket),
+    Key: __expectString(output.Key),
   } as any;
 };
 
 const deserializeAws_restJson1DataSetEntry = (output: any, context: __SerdeContext): DataSetEntry => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    AssetType: output.AssetType !== undefined && output.AssetType !== null ? output.AssetType : undefined,
+    Arn: __expectString(output.Arn),
+    AssetType: __expectString(output.AssetType),
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? new Date(output.CreatedAt) : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Origin: output.Origin !== undefined && output.Origin !== null ? output.Origin : undefined,
+    Description: __expectString(output.Description),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
+    Origin: __expectString(output.Origin),
     OriginDetails:
       output.OriginDetails !== undefined && output.OriginDetails !== null
         ? deserializeAws_restJson1OriginDetails(output.OriginDetails, context)
         : undefined,
-    SourceId: output.SourceId !== undefined && output.SourceId !== null ? output.SourceId : undefined,
+    SourceId: __expectString(output.SourceId),
     UpdatedAt: output.UpdatedAt !== undefined && output.UpdatedAt !== null ? new Date(output.UpdatedAt) : undefined,
   } as any;
 };
@@ -3340,12 +3343,12 @@ const deserializeAws_restJson1ExportAssetsToS3ResponseDetails = (
       output.AssetDestinations !== undefined && output.AssetDestinations !== null
         ? deserializeAws_restJson1ListOfAssetDestinationEntry(output.AssetDestinations, context)
         : undefined,
-    DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
+    DataSetId: __expectString(output.DataSetId),
     Encryption:
       output.Encryption !== undefined && output.Encryption !== null
         ? deserializeAws_restJson1ExportServerSideEncryption(output.Encryption, context)
         : undefined,
-    RevisionId: output.RevisionId !== undefined && output.RevisionId !== null ? output.RevisionId : undefined,
+    RevisionId: __expectString(output.RevisionId),
   } as any;
 };
 
@@ -3354,10 +3357,10 @@ const deserializeAws_restJson1ExportAssetToSignedUrlResponseDetails = (
   context: __SerdeContext
 ): ExportAssetToSignedUrlResponseDetails => {
   return {
-    AssetId: output.AssetId !== undefined && output.AssetId !== null ? output.AssetId : undefined,
-    DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
-    RevisionId: output.RevisionId !== undefined && output.RevisionId !== null ? output.RevisionId : undefined,
-    SignedUrl: output.SignedUrl !== undefined && output.SignedUrl !== null ? output.SignedUrl : undefined,
+    AssetId: __expectString(output.AssetId),
+    DataSetId: __expectString(output.DataSetId),
+    RevisionId: __expectString(output.RevisionId),
+    SignedUrl: __expectString(output.SignedUrl),
     SignedUrlExpiresAt:
       output.SignedUrlExpiresAt !== undefined && output.SignedUrlExpiresAt !== null
         ? new Date(output.SignedUrlExpiresAt)
@@ -3370,7 +3373,7 @@ const deserializeAws_restJson1ExportRevisionsToS3ResponseDetails = (
   context: __SerdeContext
 ): ExportRevisionsToS3ResponseDetails => {
   return {
-    DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
+    DataSetId: __expectString(output.DataSetId),
     Encryption:
       output.Encryption !== undefined && output.Encryption !== null
         ? deserializeAws_restJson1ExportServerSideEncryption(output.Encryption, context)
@@ -3387,8 +3390,8 @@ const deserializeAws_restJson1ExportServerSideEncryption = (
   context: __SerdeContext
 ): ExportServerSideEncryption => {
   return {
-    KmsKeyArn: output.KmsKeyArn !== undefined && output.KmsKeyArn !== null ? output.KmsKeyArn : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    KmsKeyArn: __expectString(output.KmsKeyArn),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -3397,7 +3400,7 @@ const deserializeAws_restJson1ImportAssetFromSignedUrlJobErrorDetails = (
   context: __SerdeContext
 ): ImportAssetFromSignedUrlJobErrorDetails => {
   return {
-    AssetName: output.AssetName !== undefined && output.AssetName !== null ? output.AssetName : undefined,
+    AssetName: __expectString(output.AssetName),
   } as any;
 };
 
@@ -3406,11 +3409,11 @@ const deserializeAws_restJson1ImportAssetFromSignedUrlResponseDetails = (
   context: __SerdeContext
 ): ImportAssetFromSignedUrlResponseDetails => {
   return {
-    AssetName: output.AssetName !== undefined && output.AssetName !== null ? output.AssetName : undefined,
-    DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
-    Md5Hash: output.Md5Hash !== undefined && output.Md5Hash !== null ? output.Md5Hash : undefined,
-    RevisionId: output.RevisionId !== undefined && output.RevisionId !== null ? output.RevisionId : undefined,
-    SignedUrl: output.SignedUrl !== undefined && output.SignedUrl !== null ? output.SignedUrl : undefined,
+    AssetName: __expectString(output.AssetName),
+    DataSetId: __expectString(output.DataSetId),
+    Md5Hash: __expectString(output.Md5Hash),
+    RevisionId: __expectString(output.RevisionId),
+    SignedUrl: __expectString(output.SignedUrl),
     SignedUrlExpiresAt:
       output.SignedUrlExpiresAt !== undefined && output.SignedUrlExpiresAt !== null
         ? new Date(output.SignedUrlExpiresAt)
@@ -3427,14 +3430,14 @@ const deserializeAws_restJson1ImportAssetsFromS3ResponseDetails = (
       output.AssetSources !== undefined && output.AssetSources !== null
         ? deserializeAws_restJson1ListOfAssetSourceEntry(output.AssetSources, context)
         : undefined,
-    DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
-    RevisionId: output.RevisionId !== undefined && output.RevisionId !== null ? output.RevisionId : undefined,
+    DataSetId: __expectString(output.DataSetId),
+    RevisionId: __expectString(output.RevisionId),
   } as any;
 };
 
 const deserializeAws_restJson1JobEntry = (output: any, context: __SerdeContext): JobEntry => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: __expectString(output.Arn),
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? new Date(output.CreatedAt) : undefined,
     Details:
       output.Details !== undefined && output.Details !== null
@@ -3444,25 +3447,25 @@ const deserializeAws_restJson1JobEntry = (output: any, context: __SerdeContext):
       output.Errors !== undefined && output.Errors !== null
         ? deserializeAws_restJson1ListOfJobError(output.Errors, context)
         : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Id: __expectString(output.Id),
+    State: __expectString(output.State),
+    Type: __expectString(output.Type),
     UpdatedAt: output.UpdatedAt !== undefined && output.UpdatedAt !== null ? new Date(output.UpdatedAt) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1JobError = (output: any, context: __SerdeContext): JobError => {
   return {
-    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Code: __expectString(output.Code),
     Details:
       output.Details !== undefined && output.Details !== null
         ? deserializeAws_restJson1Details(output.Details, context)
         : undefined,
-    LimitName: output.LimitName !== undefined && output.LimitName !== null ? output.LimitName : undefined,
-    LimitValue: output.LimitValue !== undefined && output.LimitValue !== null ? output.LimitValue : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
-    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    LimitName: __expectString(output.LimitName),
+    LimitValue: __expectNumber(output.LimitValue),
+    Message: __expectString(output.Message),
+    ResourceId: __expectString(output.ResourceId),
+    ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
@@ -3567,14 +3570,14 @@ const deserializeAws_restJson1MapOf__string = (output: any, context: __SerdeCont
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1OriginDetails = (output: any, context: __SerdeContext): OriginDetails => {
   return {
-    ProductId: output.ProductId !== undefined && output.ProductId !== null ? output.ProductId : undefined,
+    ProductId: __expectString(output.ProductId),
   } as any;
 };
 
@@ -3608,28 +3611,28 @@ const deserializeAws_restJson1RevisionDestinationEntry = (
   context: __SerdeContext
 ): RevisionDestinationEntry => {
   return {
-    Bucket: output.Bucket !== undefined && output.Bucket !== null ? output.Bucket : undefined,
-    KeyPattern: output.KeyPattern !== undefined && output.KeyPattern !== null ? output.KeyPattern : undefined,
-    RevisionId: output.RevisionId !== undefined && output.RevisionId !== null ? output.RevisionId : undefined,
+    Bucket: __expectString(output.Bucket),
+    KeyPattern: __expectString(output.KeyPattern),
+    RevisionId: __expectString(output.RevisionId),
   } as any;
 };
 
 const deserializeAws_restJson1RevisionEntry = (output: any, context: __SerdeContext): RevisionEntry => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Comment: output.Comment !== undefined && output.Comment !== null ? output.Comment : undefined,
+    Arn: __expectString(output.Arn),
+    Comment: __expectString(output.Comment),
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? new Date(output.CreatedAt) : undefined,
-    DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
-    Finalized: output.Finalized !== undefined && output.Finalized !== null ? output.Finalized : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    SourceId: output.SourceId !== undefined && output.SourceId !== null ? output.SourceId : undefined,
+    DataSetId: __expectString(output.DataSetId),
+    Finalized: __expectBoolean(output.Finalized),
+    Id: __expectString(output.Id),
+    SourceId: __expectString(output.SourceId),
     UpdatedAt: output.UpdatedAt !== undefined && output.UpdatedAt !== null ? new Date(output.UpdatedAt) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1S3SnapshotAsset = (output: any, context: __SerdeContext): S3SnapshotAsset => {
   return {
-    Size: output.Size !== undefined && output.Size !== null ? output.Size : undefined,
+    Size: __expectNumber(output.Size),
   } as any;
 };
 

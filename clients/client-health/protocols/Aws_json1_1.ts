@@ -92,7 +92,11 @@ import {
   UnsupportedLocale,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1527,22 +1531,22 @@ const deserializeAws_json1_1affectedAccountsList = (output: any, context: __Serd
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1AffectedEntity = (output: any, context: __SerdeContext): AffectedEntity => {
   return {
-    awsAccountId: output.awsAccountId !== undefined && output.awsAccountId !== null ? output.awsAccountId : undefined,
-    entityArn: output.entityArn !== undefined && output.entityArn !== null ? output.entityArn : undefined,
-    entityUrl: output.entityUrl !== undefined && output.entityUrl !== null ? output.entityUrl : undefined,
-    entityValue: output.entityValue !== undefined && output.entityValue !== null ? output.entityValue : undefined,
-    eventArn: output.eventArn !== undefined && output.eventArn !== null ? output.eventArn : undefined,
+    awsAccountId: __expectString(output.awsAccountId),
+    entityArn: __expectString(output.entityArn),
+    entityUrl: __expectString(output.entityUrl),
+    entityValue: __expectString(output.entityValue),
+    eventArn: __expectString(output.eventArn),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? new Date(Math.round(output.lastUpdatedTime * 1000))
         : undefined,
-    statusCode: output.statusCode !== undefined && output.statusCode !== null ? output.statusCode : undefined,
+    statusCode: __expectString(output.statusCode),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1tagSet(output.tags, context)
@@ -1555,7 +1559,7 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -1568,9 +1572,8 @@ const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationResponse = (
       output.affectedAccounts !== undefined && output.affectedAccounts !== null
         ? deserializeAws_json1_1affectedAccountsList(output.affectedAccounts, context)
         : undefined,
-    eventScopeCode:
-      output.eventScopeCode !== undefined && output.eventScopeCode !== null ? output.eventScopeCode : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    eventScopeCode: __expectString(output.eventScopeCode),
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -1601,7 +1604,7 @@ const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationResponse = (
       output.failedSet !== undefined && output.failedSet !== null
         ? deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationFailedSet(output.failedSet, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -1614,7 +1617,7 @@ const deserializeAws_json1_1DescribeAffectedEntitiesResponse = (
       output.entities !== undefined && output.entities !== null
         ? deserializeAws_json1_1EntityList(output.entities, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -1639,7 +1642,7 @@ const deserializeAws_json1_1DescribeEventAggregatesResponse = (
       output.eventAggregates !== undefined && output.eventAggregates !== null
         ? deserializeAws_json1_1EventAggregateList(output.eventAggregates, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -1740,7 +1743,7 @@ const deserializeAws_json1_1DescribeEventsForOrganizationResponse = (
       output.events !== undefined && output.events !== null
         ? deserializeAws_json1_1OrganizationEventList(output.events, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -1750,7 +1753,7 @@ const deserializeAws_json1_1DescribeEventsResponse = (output: any, context: __Se
       output.events !== undefined && output.events !== null
         ? deserializeAws_json1_1EventList(output.events, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -1763,7 +1766,7 @@ const deserializeAws_json1_1DescribeEventTypesResponse = (
       output.eventTypes !== undefined && output.eventTypes !== null
         ? deserializeAws_json1_1EventTypeList(output.eventTypes, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -1772,18 +1775,14 @@ const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationResponse =
   context: __SerdeContext
 ): DescribeHealthServiceStatusForOrganizationResponse => {
   return {
-    healthServiceAccessStatusForOrganization:
-      output.healthServiceAccessStatusForOrganization !== undefined &&
-      output.healthServiceAccessStatusForOrganization !== null
-        ? output.healthServiceAccessStatusForOrganization
-        : undefined,
+    healthServiceAccessStatusForOrganization: __expectString(output.healthServiceAccessStatusForOrganization),
   } as any;
 };
 
 const deserializeAws_json1_1EntityAggregate = (output: any, context: __SerdeContext): EntityAggregate => {
   return {
-    count: output.count !== undefined && output.count !== null ? output.count : undefined,
-    eventArn: output.eventArn !== undefined && output.eventArn !== null ? output.eventArn : undefined,
+    count: __expectNumber(output.count),
+    eventArn: __expectString(output.eventArn),
   } as any;
 };
 
@@ -1811,38 +1810,31 @@ const deserializeAws_json1_1EntityList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    availabilityZone:
-      output.availabilityZone !== undefined && output.availabilityZone !== null ? output.availabilityZone : undefined,
+    arn: __expectString(output.arn),
+    availabilityZone: __expectString(output.availabilityZone),
     endTime:
       output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
-    eventScopeCode:
-      output.eventScopeCode !== undefined && output.eventScopeCode !== null ? output.eventScopeCode : undefined,
-    eventTypeCategory:
-      output.eventTypeCategory !== undefined && output.eventTypeCategory !== null
-        ? output.eventTypeCategory
-        : undefined,
-    eventTypeCode:
-      output.eventTypeCode !== undefined && output.eventTypeCode !== null ? output.eventTypeCode : undefined,
+    eventScopeCode: __expectString(output.eventScopeCode),
+    eventTypeCategory: __expectString(output.eventTypeCategory),
+    eventTypeCode: __expectString(output.eventTypeCode),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? new Date(Math.round(output.lastUpdatedTime * 1000))
         : undefined,
-    region: output.region !== undefined && output.region !== null ? output.region : undefined,
-    service: output.service !== undefined && output.service !== null ? output.service : undefined,
+    region: __expectString(output.region),
+    service: __expectString(output.service),
     startTime:
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    statusCode: output.statusCode !== undefined && output.statusCode !== null ? output.statusCode : undefined,
+    statusCode: __expectString(output.statusCode),
   } as any;
 };
 
 const deserializeAws_json1_1EventAggregate = (output: any, context: __SerdeContext): EventAggregate => {
   return {
-    aggregateValue:
-      output.aggregateValue !== undefined && output.aggregateValue !== null ? output.aggregateValue : undefined,
-    count: output.count !== undefined && output.count !== null ? output.count : undefined,
+    aggregateValue: __expectString(output.aggregateValue),
+    count: __expectNumber(output.count),
   } as any;
 };
 
@@ -1859,10 +1851,7 @@ const deserializeAws_json1_1EventAggregateList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1EventDescription = (output: any, context: __SerdeContext): EventDescription => {
   return {
-    latestDescription:
-      output.latestDescription !== undefined && output.latestDescription !== null
-        ? output.latestDescription
-        : undefined,
+    latestDescription: __expectString(output.latestDescription),
   } as any;
 };
 
@@ -1885,9 +1874,9 @@ const deserializeAws_json1_1EventDetails = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1EventDetailsErrorItem = (output: any, context: __SerdeContext): EventDetailsErrorItem => {
   return {
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
-    errorName: output.errorName !== undefined && output.errorName !== null ? output.errorName : undefined,
-    eventArn: output.eventArn !== undefined && output.eventArn !== null ? output.eventArn : undefined,
+    errorMessage: __expectString(output.errorMessage),
+    errorName: __expectString(output.errorName),
+    eventArn: __expectString(output.eventArn),
   } as any;
 };
 
@@ -1909,16 +1898,16 @@ const deserializeAws_json1_1eventMetadata = (output: any, context: __SerdeContex
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_json1_1EventType = (output: any, context: __SerdeContext): EventType => {
   return {
-    category: output.category !== undefined && output.category !== null ? output.category : undefined,
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    service: output.service !== undefined && output.service !== null ? output.service : undefined,
+    category: __expectString(output.category),
+    code: __expectString(output.code),
+    service: __expectString(output.service),
   } as any;
 };
 
@@ -1935,7 +1924,7 @@ const deserializeAws_json1_1EventTypeList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1InvalidPaginationToken = (output: any, context: __SerdeContext): InvalidPaginationToken => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -1944,37 +1933,32 @@ const deserializeAws_json1_1OrganizationAffectedEntitiesErrorItem = (
   context: __SerdeContext
 ): OrganizationAffectedEntitiesErrorItem => {
   return {
-    awsAccountId: output.awsAccountId !== undefined && output.awsAccountId !== null ? output.awsAccountId : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
-    errorName: output.errorName !== undefined && output.errorName !== null ? output.errorName : undefined,
-    eventArn: output.eventArn !== undefined && output.eventArn !== null ? output.eventArn : undefined,
+    awsAccountId: __expectString(output.awsAccountId),
+    errorMessage: __expectString(output.errorMessage),
+    errorName: __expectString(output.errorName),
+    eventArn: __expectString(output.eventArn),
   } as any;
 };
 
 const deserializeAws_json1_1OrganizationEvent = (output: any, context: __SerdeContext): OrganizationEvent => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     endTime:
       output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
-    eventScopeCode:
-      output.eventScopeCode !== undefined && output.eventScopeCode !== null ? output.eventScopeCode : undefined,
-    eventTypeCategory:
-      output.eventTypeCategory !== undefined && output.eventTypeCategory !== null
-        ? output.eventTypeCategory
-        : undefined,
-    eventTypeCode:
-      output.eventTypeCode !== undefined && output.eventTypeCode !== null ? output.eventTypeCode : undefined,
+    eventScopeCode: __expectString(output.eventScopeCode),
+    eventTypeCategory: __expectString(output.eventTypeCategory),
+    eventTypeCode: __expectString(output.eventTypeCode),
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? new Date(Math.round(output.lastUpdatedTime * 1000))
         : undefined,
-    region: output.region !== undefined && output.region !== null ? output.region : undefined,
-    service: output.service !== undefined && output.service !== null ? output.service : undefined,
+    region: __expectString(output.region),
+    service: __expectString(output.service),
     startTime:
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    statusCode: output.statusCode !== undefined && output.statusCode !== null ? output.statusCode : undefined,
+    statusCode: __expectString(output.statusCode),
   } as any;
 };
 
@@ -1983,7 +1967,7 @@ const deserializeAws_json1_1OrganizationEventDetails = (
   context: __SerdeContext
 ): OrganizationEventDetails => {
   return {
-    awsAccountId: output.awsAccountId !== undefined && output.awsAccountId !== null ? output.awsAccountId : undefined,
+    awsAccountId: __expectString(output.awsAccountId),
     event:
       output.event !== undefined && output.event !== null
         ? deserializeAws_json1_1Event(output.event, context)
@@ -2004,10 +1988,10 @@ const deserializeAws_json1_1OrganizationEventDetailsErrorItem = (
   context: __SerdeContext
 ): OrganizationEventDetailsErrorItem => {
   return {
-    awsAccountId: output.awsAccountId !== undefined && output.awsAccountId !== null ? output.awsAccountId : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
-    errorName: output.errorName !== undefined && output.errorName !== null ? output.errorName : undefined,
-    eventArn: output.eventArn !== undefined && output.eventArn !== null ? output.eventArn : undefined,
+    awsAccountId: __expectString(output.awsAccountId),
+    errorMessage: __expectString(output.errorMessage),
+    errorName: __expectString(output.errorName),
+    eventArn: __expectString(output.eventArn),
   } as any;
 };
 
@@ -2029,14 +2013,14 @@ const deserializeAws_json1_1tagSet = (output: any, context: __SerdeContext): { [
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_json1_1UnsupportedLocale = (output: any, context: __SerdeContext): UnsupportedLocale => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 

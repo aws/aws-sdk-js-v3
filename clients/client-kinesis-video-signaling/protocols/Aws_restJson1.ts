@@ -13,7 +13,11 @@ import {
   SessionExpiredException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -184,7 +188,7 @@ export const deserializeAws_restJson1SendAlexaOfferToMasterCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Answer !== undefined && data.Answer !== null) {
-    contents.Answer = data.Answer;
+    contents.Answer = __expectString(data.Answer);
   }
   return Promise.resolve(contents);
 };
@@ -262,7 +266,7 @@ const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -279,7 +283,7 @@ const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -296,7 +300,7 @@ const deserializeAws_restJson1InvalidClientExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -313,7 +317,7 @@ const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -330,7 +334,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -347,20 +351,20 @@ const deserializeAws_restJson1SessionExpiredExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
 
 const deserializeAws_restJson1IceServer = (output: any, context: __SerdeContext): IceServer => {
   return {
-    Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
-    Ttl: output.Ttl !== undefined && output.Ttl !== null ? output.Ttl : undefined,
+    Password: __expectString(output.Password),
+    Ttl: __expectNumber(output.Ttl),
     Uris:
       output.Uris !== undefined && output.Uris !== null
         ? deserializeAws_restJson1Uris(output.Uris, context)
         : undefined,
-    Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
+    Username: __expectString(output.Username),
   } as any;
 };
 
@@ -382,7 +386,7 @@ const deserializeAws_restJson1Uris = (output: any, context: __SerdeContext): str
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

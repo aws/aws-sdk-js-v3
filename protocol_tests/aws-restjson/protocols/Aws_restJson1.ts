@@ -134,6 +134,9 @@ import {
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
   dateToUtcString as __dateToUtcString,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   parseBoolean as __parseBoolean,
   splitEvery as __splitEvery,
@@ -1861,7 +1864,7 @@ export const deserializeAws_restJson1HttpEnumPayloadCommand = async (
     payload: undefined,
   };
   const data: any = await collectBodyString(output.body, context);
-  contents.payload = data;
+  contents.payload = __expectString(data);
   return Promise.resolve(contents);
 };
 
@@ -2333,7 +2336,7 @@ export const deserializeAws_restJson1HttpStringPayloadCommand = async (
     payload: undefined,
   };
   const data: any = await collectBodyString(output.body, context);
-  contents.payload = data;
+  contents.payload = __expectString(data);
   return Promise.resolve(contents);
 };
 
@@ -2379,7 +2382,7 @@ export const deserializeAws_restJson1IgnoreQueryParamsInResponseCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data.baz !== undefined && data.baz !== null) {
-    contents.baz = data.baz;
+    contents.baz = __expectString(data.baz);
   }
   return Promise.resolve(contents);
 };
@@ -2430,7 +2433,7 @@ export const deserializeAws_restJson1InlineDocumentCommand = async (
     contents.documentValue = deserializeAws_restJson1Document(data.documentValue, context);
   }
   if (data.stringValue !== undefined && data.stringValue !== null) {
-    contents.stringValue = data.stringValue;
+    contents.stringValue = __expectString(data.stringValue);
   }
   return Promise.resolve(contents);
 };
@@ -2688,13 +2691,13 @@ export const deserializeAws_restJson1JsonEnumsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.fooEnum1 !== undefined && data.fooEnum1 !== null) {
-    contents.fooEnum1 = data.fooEnum1;
+    contents.fooEnum1 = __expectString(data.fooEnum1);
   }
   if (data.fooEnum2 !== undefined && data.fooEnum2 !== null) {
-    contents.fooEnum2 = data.fooEnum2;
+    contents.fooEnum2 = __expectString(data.fooEnum2);
   }
   if (data.fooEnum3 !== undefined && data.fooEnum3 !== null) {
-    contents.fooEnum3 = data.fooEnum3;
+    contents.fooEnum3 = __expectString(data.fooEnum3);
   }
   if (data.fooEnumList !== undefined && data.fooEnumList !== null) {
     contents.fooEnumList = deserializeAws_restJson1FooEnumList(data.fooEnumList, context);
@@ -3484,31 +3487,31 @@ export const deserializeAws_restJson1SimpleScalarPropertiesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   if (data.byteValue !== undefined && data.byteValue !== null) {
-    contents.byteValue = data.byteValue;
+    contents.byteValue = __expectNumber(data.byteValue);
   }
   if (data.DoubleDribble !== undefined && data.DoubleDribble !== null) {
-    contents.doubleValue = data.DoubleDribble;
+    contents.doubleValue = __expectNumber(data.DoubleDribble);
   }
   if (data.falseBooleanValue !== undefined && data.falseBooleanValue !== null) {
-    contents.falseBooleanValue = data.falseBooleanValue;
+    contents.falseBooleanValue = __expectBoolean(data.falseBooleanValue);
   }
   if (data.floatValue !== undefined && data.floatValue !== null) {
-    contents.floatValue = data.floatValue;
+    contents.floatValue = __expectNumber(data.floatValue);
   }
   if (data.integerValue !== undefined && data.integerValue !== null) {
-    contents.integerValue = data.integerValue;
+    contents.integerValue = __expectNumber(data.integerValue);
   }
   if (data.longValue !== undefined && data.longValue !== null) {
-    contents.longValue = data.longValue;
+    contents.longValue = __expectNumber(data.longValue);
   }
   if (data.shortValue !== undefined && data.shortValue !== null) {
-    contents.shortValue = data.shortValue;
+    contents.shortValue = __expectNumber(data.shortValue);
   }
   if (data.stringValue !== undefined && data.stringValue !== null) {
-    contents.stringValue = data.stringValue;
+    contents.stringValue = __expectString(data.stringValue);
   }
   if (data.trueBooleanValue !== undefined && data.trueBooleanValue !== null) {
-    contents.trueBooleanValue = data.trueBooleanValue;
+    contents.trueBooleanValue = __expectBoolean(data.trueBooleanValue);
   }
   return Promise.resolve(contents);
 };
@@ -3780,7 +3783,7 @@ const deserializeAws_restJson1ComplexErrorResponse = async (
     contents.Nested = deserializeAws_restJson1ComplexNestedErrorData(data.Nested, context);
   }
   if (data.TopLevel !== undefined && data.TopLevel !== null) {
-    contents.TopLevel = data.TopLevel;
+    contents.TopLevel = __expectString(data.TopLevel);
   }
   return contents;
 };
@@ -3810,7 +3813,7 @@ const deserializeAws_restJson1InvalidGreetingResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4128,7 +4131,7 @@ const deserializeAws_restJson1ComplexNestedErrorData = (
   context: __SerdeContext
 ): ComplexNestedErrorData => {
   return {
-    Foo: output.Fooooo !== undefined && output.Fooooo !== null ? output.Fooooo : undefined,
+    Foo: __expectString(output.Fooooo),
   } as any;
 };
 
@@ -4139,7 +4142,7 @@ const deserializeAws_restJson1DenseBooleanMap = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectBoolean(value) as any,
     };
   }, {});
 };
@@ -4151,7 +4154,7 @@ const deserializeAws_restJson1DenseNumberMap = (output: any, context: __SerdeCon
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectNumber(value) as any,
     };
   }, {});
 };
@@ -4163,7 +4166,7 @@ const deserializeAws_restJson1DenseStringMap = (output: any, context: __SerdeCon
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4193,15 +4196,11 @@ const deserializeAws_restJson1MyUnion = (output: any, context: __SerdeContext): 
       blobValue: context.base64Decoder(output.blobValue),
     };
   }
-  if (output.booleanValue !== undefined && output.booleanValue !== null) {
-    return {
-      booleanValue: output.booleanValue,
-    };
+  if (__expectBoolean(output.booleanValue) !== undefined) {
+    return { booleanValue: __expectBoolean(output.booleanValue) as any };
   }
-  if (output.enumValue !== undefined && output.enumValue !== null) {
-    return {
-      enumValue: output.enumValue,
-    };
+  if (__expectString(output.enumValue) !== undefined) {
+    return { enumValue: __expectString(output.enumValue) as any };
   }
   if (output.listValue !== undefined && output.listValue !== null) {
     return {
@@ -4213,20 +4212,16 @@ const deserializeAws_restJson1MyUnion = (output: any, context: __SerdeContext): 
       mapValue: deserializeAws_restJson1StringMap(output.mapValue, context),
     };
   }
-  if (output.numberValue !== undefined && output.numberValue !== null) {
-    return {
-      numberValue: output.numberValue,
-    };
+  if (__expectNumber(output.numberValue) !== undefined) {
+    return { numberValue: __expectNumber(output.numberValue) as any };
   }
   if (output.renamedStructureValue !== undefined && output.renamedStructureValue !== null) {
     return {
       renamedStructureValue: deserializeAws_restJson1RenamedGreeting(output.renamedStructureValue, context),
     };
   }
-  if (output.stringValue !== undefined && output.stringValue !== null) {
-    return {
-      stringValue: output.stringValue,
-    };
+  if (__expectString(output.stringValue) !== undefined) {
+    return { stringValue: __expectString(output.stringValue) as any };
   }
   if (output.structureValue !== undefined && output.structureValue !== null) {
     return {
@@ -4243,8 +4238,8 @@ const deserializeAws_restJson1MyUnion = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1NestedPayload = (output: any, context: __SerdeContext): NestedPayload => {
   return {
-    greeting: output.greeting !== undefined && output.greeting !== null ? output.greeting : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    greeting: __expectString(output.greeting),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -4253,7 +4248,7 @@ const deserializeAws_restJson1RecursiveShapesInputOutputNested1 = (
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested1 => {
   return {
-    foo: output.foo !== undefined && output.foo !== null ? output.foo : undefined,
+    foo: __expectString(output.foo),
     nested:
       output.nested !== undefined && output.nested !== null
         ? deserializeAws_restJson1RecursiveShapesInputOutputNested2(output.nested, context)
@@ -4266,7 +4261,7 @@ const deserializeAws_restJson1RecursiveShapesInputOutputNested2 = (
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested2 => {
   return {
-    bar: output.bar !== undefined && output.bar !== null ? output.bar : undefined,
+    bar: __expectString(output.bar),
     recursiveMember:
       output.recursiveMember !== undefined && output.recursiveMember !== null
         ? deserializeAws_restJson1RecursiveShapesInputOutputNested1(output.recursiveMember, context)
@@ -4281,7 +4276,7 @@ const deserializeAws_restJson1SparseBooleanMap = (output: any, context: __SerdeC
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectBoolean(value) as any,
     };
   }, {});
 };
@@ -4293,7 +4288,7 @@ const deserializeAws_restJson1SparseNumberMap = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectNumber(value) as any,
     };
   }, {});
 };
@@ -4326,14 +4321,14 @@ const deserializeAws_restJson1StructureList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1StructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
   return {
-    a: output.value !== undefined && output.value !== null ? output.value : undefined,
-    b: output.other !== undefined && output.other !== null ? output.other : undefined,
+    a: __expectString(output.value),
+    b: __expectString(output.other),
   } as any;
 };
 
 const deserializeAws_restJson1RenamedGreeting = (output: any, context: __SerdeContext): RenamedGreeting => {
   return {
-    salutation: output.salutation !== undefined && output.salutation !== null ? output.salutation : undefined,
+    salutation: __expectString(output.salutation),
   } as any;
 };
 
@@ -4344,7 +4339,7 @@ const deserializeAws_restJson1BooleanList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectBoolean(entry) as any;
     });
 };
 
@@ -4355,7 +4350,7 @@ const deserializeAws_restJson1FooEnumList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4369,7 +4364,7 @@ const deserializeAws_restJson1FooEnumMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4381,13 +4376,13 @@ const deserializeAws_restJson1FooEnumSet = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
   return {
-    hi: output.hi !== undefined && output.hi !== null ? output.hi : undefined,
+    hi: __expectString(output.hi),
   } as any;
 };
 
@@ -4398,7 +4393,7 @@ const deserializeAws_restJson1IntegerList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
@@ -4418,7 +4413,7 @@ const deserializeAws_restJson1SparseStringList = (output: any, context: __SerdeC
     if (entry === null) {
       return null as any;
     }
-    return entry;
+    return __expectString(entry) as any;
   });
 };
 
@@ -4429,7 +4424,7 @@ const deserializeAws_restJson1SparseStringMap = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4441,7 +4436,7 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4452,7 +4447,7 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4464,7 +4459,7 @@ const deserializeAws_restJson1StringSet = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

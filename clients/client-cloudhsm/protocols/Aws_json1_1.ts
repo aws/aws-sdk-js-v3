@@ -71,7 +71,11 @@ import {
   Tag,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1989,7 +1993,7 @@ const deserializeAws_json1_1AddTagsToResourceResponse = (
   context: __SerdeContext
 ): AddTagsToResourceResponse => {
   return {
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -2000,7 +2004,7 @@ const deserializeAws_json1_1AZList = (output: any, context: __SerdeContext): str
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2011,7 +2015,7 @@ const deserializeAws_json1_1ClientList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2020,8 +2024,8 @@ const deserializeAws_json1_1CloudHsmInternalException = (
   context: __SerdeContext
 ): CloudHsmInternalException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    retryable: output.retryable !== undefined && output.retryable !== null ? output.retryable : undefined,
+    message: __expectString(output.message),
+    retryable: __expectBoolean(output.retryable),
   } as any;
 };
 
@@ -2030,20 +2034,20 @@ const deserializeAws_json1_1CloudHsmServiceException = (
   context: __SerdeContext
 ): CloudHsmServiceException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    retryable: output.retryable !== undefined && output.retryable !== null ? output.retryable : undefined,
+    message: __expectString(output.message),
+    retryable: __expectBoolean(output.retryable),
   } as any;
 };
 
 const deserializeAws_json1_1CreateHapgResponse = (output: any, context: __SerdeContext): CreateHapgResponse => {
   return {
-    HapgArn: output.HapgArn !== undefined && output.HapgArn !== null ? output.HapgArn : undefined,
+    HapgArn: __expectString(output.HapgArn),
   } as any;
 };
 
 const deserializeAws_json1_1CreateHsmResponse = (output: any, context: __SerdeContext): CreateHsmResponse => {
   return {
-    HsmArn: output.HsmArn !== undefined && output.HsmArn !== null ? output.HsmArn : undefined,
+    HsmArn: __expectString(output.HsmArn),
   } as any;
 };
 
@@ -2052,19 +2056,19 @@ const deserializeAws_json1_1CreateLunaClientResponse = (
   context: __SerdeContext
 ): CreateLunaClientResponse => {
   return {
-    ClientArn: output.ClientArn !== undefined && output.ClientArn !== null ? output.ClientArn : undefined,
+    ClientArn: __expectString(output.ClientArn),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteHapgResponse = (output: any, context: __SerdeContext): DeleteHapgResponse => {
   return {
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteHsmResponse = (output: any, context: __SerdeContext): DeleteHsmResponse => {
   return {
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -2073,14 +2077,14 @@ const deserializeAws_json1_1DeleteLunaClientResponse = (
   context: __SerdeContext
 ): DeleteLunaClientResponse => {
   return {
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
 const deserializeAws_json1_1DescribeHapgResponse = (output: any, context: __SerdeContext): DescribeHapgResponse => {
   return {
-    HapgArn: output.HapgArn !== undefined && output.HapgArn !== null ? output.HapgArn : undefined,
-    HapgSerial: output.HapgSerial !== undefined && output.HapgSerial !== null ? output.HapgSerial : undefined,
+    HapgArn: __expectString(output.HapgArn),
+    HapgSerial: __expectString(output.HapgSerial),
     HsmsLastActionFailed:
       output.HsmsLastActionFailed !== undefined && output.HsmsLastActionFailed !== null
         ? deserializeAws_json1_1HsmList(output.HsmsLastActionFailed, context)
@@ -2093,62 +2097,42 @@ const deserializeAws_json1_1DescribeHapgResponse = (output: any, context: __Serd
       output.HsmsPendingRegistration !== undefined && output.HsmsPendingRegistration !== null
         ? deserializeAws_json1_1HsmList(output.HsmsPendingRegistration, context)
         : undefined,
-    Label: output.Label !== undefined && output.Label !== null ? output.Label : undefined,
-    LastModifiedTimestamp:
-      output.LastModifiedTimestamp !== undefined && output.LastModifiedTimestamp !== null
-        ? output.LastModifiedTimestamp
-        : undefined,
+    Label: __expectString(output.Label),
+    LastModifiedTimestamp: __expectString(output.LastModifiedTimestamp),
     PartitionSerialList:
       output.PartitionSerialList !== undefined && output.PartitionSerialList !== null
         ? deserializeAws_json1_1PartitionSerialList(output.PartitionSerialList, context)
         : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    State: __expectString(output.State),
   } as any;
 };
 
 const deserializeAws_json1_1DescribeHsmResponse = (output: any, context: __SerdeContext): DescribeHsmResponse => {
   return {
-    AvailabilityZone:
-      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
-    EniId: output.EniId !== undefined && output.EniId !== null ? output.EniId : undefined,
-    EniIp: output.EniIp !== undefined && output.EniIp !== null ? output.EniIp : undefined,
-    HsmArn: output.HsmArn !== undefined && output.HsmArn !== null ? output.HsmArn : undefined,
-    HsmType: output.HsmType !== undefined && output.HsmType !== null ? output.HsmType : undefined,
-    IamRoleArn: output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
+    AvailabilityZone: __expectString(output.AvailabilityZone),
+    EniId: __expectString(output.EniId),
+    EniIp: __expectString(output.EniIp),
+    HsmArn: __expectString(output.HsmArn),
+    HsmType: __expectString(output.HsmType),
+    IamRoleArn: __expectString(output.IamRoleArn),
     Partitions:
       output.Partitions !== undefined && output.Partitions !== null
         ? deserializeAws_json1_1PartitionList(output.Partitions, context)
         : undefined,
-    SerialNumber: output.SerialNumber !== undefined && output.SerialNumber !== null ? output.SerialNumber : undefined,
-    ServerCertLastUpdated:
-      output.ServerCertLastUpdated !== undefined && output.ServerCertLastUpdated !== null
-        ? output.ServerCertLastUpdated
-        : undefined,
-    ServerCertUri:
-      output.ServerCertUri !== undefined && output.ServerCertUri !== null ? output.ServerCertUri : undefined,
-    SoftwareVersion:
-      output.SoftwareVersion !== undefined && output.SoftwareVersion !== null ? output.SoftwareVersion : undefined,
-    SshKeyLastUpdated:
-      output.SshKeyLastUpdated !== undefined && output.SshKeyLastUpdated !== null
-        ? output.SshKeyLastUpdated
-        : undefined,
-    SshPublicKey: output.SshPublicKey !== undefined && output.SshPublicKey !== null ? output.SshPublicKey : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    StatusDetails:
-      output.StatusDetails !== undefined && output.StatusDetails !== null ? output.StatusDetails : undefined,
-    SubnetId: output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined,
-    SubscriptionEndDate:
-      output.SubscriptionEndDate !== undefined && output.SubscriptionEndDate !== null
-        ? output.SubscriptionEndDate
-        : undefined,
-    SubscriptionStartDate:
-      output.SubscriptionStartDate !== undefined && output.SubscriptionStartDate !== null
-        ? output.SubscriptionStartDate
-        : undefined,
-    SubscriptionType:
-      output.SubscriptionType !== undefined && output.SubscriptionType !== null ? output.SubscriptionType : undefined,
-    VendorName: output.VendorName !== undefined && output.VendorName !== null ? output.VendorName : undefined,
-    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+    SerialNumber: __expectString(output.SerialNumber),
+    ServerCertLastUpdated: __expectString(output.ServerCertLastUpdated),
+    ServerCertUri: __expectString(output.ServerCertUri),
+    SoftwareVersion: __expectString(output.SoftwareVersion),
+    SshKeyLastUpdated: __expectString(output.SshKeyLastUpdated),
+    SshPublicKey: __expectString(output.SshPublicKey),
+    Status: __expectString(output.Status),
+    StatusDetails: __expectString(output.StatusDetails),
+    SubnetId: __expectString(output.SubnetId),
+    SubscriptionEndDate: __expectString(output.SubscriptionEndDate),
+    SubscriptionStartDate: __expectString(output.SubscriptionStartDate),
+    SubscriptionType: __expectString(output.SubscriptionType),
+    VendorName: __expectString(output.VendorName),
+    VpcId: __expectString(output.VpcId),
   } as any;
 };
 
@@ -2157,25 +2141,19 @@ const deserializeAws_json1_1DescribeLunaClientResponse = (
   context: __SerdeContext
 ): DescribeLunaClientResponse => {
   return {
-    Certificate: output.Certificate !== undefined && output.Certificate !== null ? output.Certificate : undefined,
-    CertificateFingerprint:
-      output.CertificateFingerprint !== undefined && output.CertificateFingerprint !== null
-        ? output.CertificateFingerprint
-        : undefined,
-    ClientArn: output.ClientArn !== undefined && output.ClientArn !== null ? output.ClientArn : undefined,
-    Label: output.Label !== undefined && output.Label !== null ? output.Label : undefined,
-    LastModifiedTimestamp:
-      output.LastModifiedTimestamp !== undefined && output.LastModifiedTimestamp !== null
-        ? output.LastModifiedTimestamp
-        : undefined,
+    Certificate: __expectString(output.Certificate),
+    CertificateFingerprint: __expectString(output.CertificateFingerprint),
+    ClientArn: __expectString(output.ClientArn),
+    Label: __expectString(output.Label),
+    LastModifiedTimestamp: __expectString(output.LastModifiedTimestamp),
   } as any;
 };
 
 const deserializeAws_json1_1GetConfigResponse = (output: any, context: __SerdeContext): GetConfigResponse => {
   return {
-    ConfigCred: output.ConfigCred !== undefined && output.ConfigCred !== null ? output.ConfigCred : undefined,
-    ConfigFile: output.ConfigFile !== undefined && output.ConfigFile !== null ? output.ConfigFile : undefined,
-    ConfigType: output.ConfigType !== undefined && output.ConfigType !== null ? output.ConfigType : undefined,
+    ConfigCred: __expectString(output.ConfigCred),
+    ConfigFile: __expectString(output.ConfigFile),
+    ConfigType: __expectString(output.ConfigType),
   } as any;
 };
 
@@ -2186,7 +2164,7 @@ const deserializeAws_json1_1HapgList = (output: any, context: __SerdeContext): s
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2197,7 +2175,7 @@ const deserializeAws_json1_1HsmList = (output: any, context: __SerdeContext): st
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2206,8 +2184,8 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    retryable: output.retryable !== undefined && output.retryable !== null ? output.retryable : undefined,
+    message: __expectString(output.message),
+    retryable: __expectBoolean(output.retryable),
   } as any;
 };
 
@@ -2229,7 +2207,7 @@ const deserializeAws_json1_1ListHapgsResponse = (output: any, context: __SerdeCo
       output.HapgList !== undefined && output.HapgList !== null
         ? deserializeAws_json1_1HapgList(output.HapgList, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -2239,7 +2217,7 @@ const deserializeAws_json1_1ListHsmsResponse = (output: any, context: __SerdeCon
       output.HsmList !== undefined && output.HsmList !== null
         ? deserializeAws_json1_1HsmList(output.HsmList, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -2252,7 +2230,7 @@ const deserializeAws_json1_1ListLunaClientsResponse = (
       output.ClientList !== undefined && output.ClientList !== null
         ? deserializeAws_json1_1ClientList(output.ClientList, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -2270,13 +2248,13 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1ModifyHapgResponse = (output: any, context: __SerdeContext): ModifyHapgResponse => {
   return {
-    HapgArn: output.HapgArn !== undefined && output.HapgArn !== null ? output.HapgArn : undefined,
+    HapgArn: __expectString(output.HapgArn),
   } as any;
 };
 
 const deserializeAws_json1_1ModifyHsmResponse = (output: any, context: __SerdeContext): ModifyHsmResponse => {
   return {
-    HsmArn: output.HsmArn !== undefined && output.HsmArn !== null ? output.HsmArn : undefined,
+    HsmArn: __expectString(output.HsmArn),
   } as any;
 };
 
@@ -2285,7 +2263,7 @@ const deserializeAws_json1_1ModifyLunaClientResponse = (
   context: __SerdeContext
 ): ModifyLunaClientResponse => {
   return {
-    ClientArn: output.ClientArn !== undefined && output.ClientArn !== null ? output.ClientArn : undefined,
+    ClientArn: __expectString(output.ClientArn),
   } as any;
 };
 
@@ -2296,7 +2274,7 @@ const deserializeAws_json1_1PartitionList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2307,7 +2285,7 @@ const deserializeAws_json1_1PartitionSerialList = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2316,14 +2294,14 @@ const deserializeAws_json1_1RemoveTagsFromResourceResponse = (
   context: __SerdeContext
 ): RemoveTagsFromResourceResponse => {
   return {
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 

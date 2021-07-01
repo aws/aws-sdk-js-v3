@@ -38,7 +38,12 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -953,7 +958,7 @@ const deserializeAws_json1_1ActiveStatementsExceededException = (
   context: __SerdeContext
 ): ActiveStatementsExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -962,7 +967,7 @@ const deserializeAws_json1_1CancelStatementResponse = (
   context: __SerdeContext
 ): CancelStatementResponse => {
   return {
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectBoolean(output.Status),
   } as any;
 };
 
@@ -979,21 +984,19 @@ const deserializeAws_json1_1ColumnList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
   return {
-    columnDefault:
-      output.columnDefault !== undefined && output.columnDefault !== null ? output.columnDefault : undefined,
-    isCaseSensitive:
-      output.isCaseSensitive !== undefined && output.isCaseSensitive !== null ? output.isCaseSensitive : undefined,
-    isCurrency: output.isCurrency !== undefined && output.isCurrency !== null ? output.isCurrency : undefined,
-    isSigned: output.isSigned !== undefined && output.isSigned !== null ? output.isSigned : undefined,
-    label: output.label !== undefined && output.label !== null ? output.label : undefined,
-    length: output.length !== undefined && output.length !== null ? output.length : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    nullable: output.nullable !== undefined && output.nullable !== null ? output.nullable : undefined,
-    precision: output.precision !== undefined && output.precision !== null ? output.precision : undefined,
-    scale: output.scale !== undefined && output.scale !== null ? output.scale : undefined,
-    schemaName: output.schemaName !== undefined && output.schemaName !== null ? output.schemaName : undefined,
-    tableName: output.tableName !== undefined && output.tableName !== null ? output.tableName : undefined,
-    typeName: output.typeName !== undefined && output.typeName !== null ? output.typeName : undefined,
+    columnDefault: __expectString(output.columnDefault),
+    isCaseSensitive: __expectBoolean(output.isCaseSensitive),
+    isCurrency: __expectBoolean(output.isCurrency),
+    isSigned: __expectBoolean(output.isSigned),
+    label: __expectString(output.label),
+    length: __expectNumber(output.length),
+    name: __expectString(output.name),
+    nullable: __expectNumber(output.nullable),
+    precision: __expectNumber(output.precision),
+    scale: __expectNumber(output.scale),
+    schemaName: __expectString(output.schemaName),
+    tableName: __expectString(output.tableName),
+    typeName: __expectString(output.typeName),
   } as any;
 };
 
@@ -1015,7 +1018,7 @@ const deserializeAws_json1_1DatabaseList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1024,32 +1027,28 @@ const deserializeAws_json1_1DescribeStatementResponse = (
   context: __SerdeContext
 ): DescribeStatementResponse => {
   return {
-    ClusterIdentifier:
-      output.ClusterIdentifier !== undefined && output.ClusterIdentifier !== null
-        ? output.ClusterIdentifier
-        : undefined,
+    ClusterIdentifier: __expectString(output.ClusterIdentifier),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
-    DbUser: output.DbUser !== undefined && output.DbUser !== null ? output.DbUser : undefined,
-    Duration: output.Duration !== undefined && output.Duration !== null ? output.Duration : undefined,
-    Error: output.Error !== undefined && output.Error !== null ? output.Error : undefined,
-    HasResultSet: output.HasResultSet !== undefined && output.HasResultSet !== null ? output.HasResultSet : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Database: __expectString(output.Database),
+    DbUser: __expectString(output.DbUser),
+    Duration: __expectNumber(output.Duration),
+    Error: __expectString(output.Error),
+    HasResultSet: __expectBoolean(output.HasResultSet),
+    Id: __expectString(output.Id),
     QueryParameters:
       output.QueryParameters !== undefined && output.QueryParameters !== null
         ? deserializeAws_json1_1SqlParametersList(output.QueryParameters, context)
         : undefined,
-    QueryString: output.QueryString !== undefined && output.QueryString !== null ? output.QueryString : undefined,
-    RedshiftPid: output.RedshiftPid !== undefined && output.RedshiftPid !== null ? output.RedshiftPid : undefined,
-    RedshiftQueryId:
-      output.RedshiftQueryId !== undefined && output.RedshiftQueryId !== null ? output.RedshiftQueryId : undefined,
-    ResultRows: output.ResultRows !== undefined && output.ResultRows !== null ? output.ResultRows : undefined,
-    ResultSize: output.ResultSize !== undefined && output.ResultSize !== null ? output.ResultSize : undefined,
-    SecretArn: output.SecretArn !== undefined && output.SecretArn !== null ? output.SecretArn : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    QueryString: __expectString(output.QueryString),
+    RedshiftPid: __expectNumber(output.RedshiftPid),
+    RedshiftQueryId: __expectNumber(output.RedshiftQueryId),
+    ResultRows: __expectNumber(output.ResultRows),
+    ResultSize: __expectNumber(output.ResultSize),
+    SecretArn: __expectString(output.SecretArn),
+    Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
         ? new Date(Math.round(output.UpdatedAt * 1000))
@@ -1063,8 +1062,8 @@ const deserializeAws_json1_1DescribeTableResponse = (output: any, context: __Ser
       output.ColumnList !== undefined && output.ColumnList !== null
         ? deserializeAws_json1_1ColumnList(output.ColumnList, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
-    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
+    NextToken: __expectString(output.NextToken),
+    TableName: __expectString(output.TableName),
   } as any;
 };
 
@@ -1073,25 +1072,22 @@ const deserializeAws_json1_1ExecuteStatementException = (
   context: __SerdeContext
 ): ExecuteStatementException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    StatementId: output.StatementId !== undefined && output.StatementId !== null ? output.StatementId : undefined,
+    Message: __expectString(output.Message),
+    StatementId: __expectString(output.StatementId),
   } as any;
 };
 
 const deserializeAws_json1_1ExecuteStatementOutput = (output: any, context: __SerdeContext): ExecuteStatementOutput => {
   return {
-    ClusterIdentifier:
-      output.ClusterIdentifier !== undefined && output.ClusterIdentifier !== null
-        ? output.ClusterIdentifier
-        : undefined,
+    ClusterIdentifier: __expectString(output.ClusterIdentifier),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
-    DbUser: output.DbUser !== undefined && output.DbUser !== null ? output.DbUser : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    SecretArn: output.SecretArn !== undefined && output.SecretArn !== null ? output.SecretArn : undefined,
+    Database: __expectString(output.Database),
+    DbUser: __expectString(output.DbUser),
+    Id: __expectString(output.Id),
+    SecretArn: __expectString(output.SecretArn),
   } as any;
 };
 
@@ -1101,30 +1097,20 @@ const deserializeAws_json1_1Field = (output: any, context: __SerdeContext): Fiel
       blobValue: context.base64Decoder(output.blobValue),
     };
   }
-  if (output.booleanValue !== undefined && output.booleanValue !== null) {
-    return {
-      booleanValue: output.booleanValue,
-    };
+  if (__expectBoolean(output.booleanValue) !== undefined) {
+    return { booleanValue: __expectBoolean(output.booleanValue) as any };
   }
-  if (output.doubleValue !== undefined && output.doubleValue !== null) {
-    return {
-      doubleValue: output.doubleValue,
-    };
+  if (__expectNumber(output.doubleValue) !== undefined) {
+    return { doubleValue: __expectNumber(output.doubleValue) as any };
   }
-  if (output.isNull !== undefined && output.isNull !== null) {
-    return {
-      isNull: output.isNull,
-    };
+  if (__expectBoolean(output.isNull) !== undefined) {
+    return { isNull: __expectBoolean(output.isNull) as any };
   }
-  if (output.longValue !== undefined && output.longValue !== null) {
-    return {
-      longValue: output.longValue,
-    };
+  if (__expectNumber(output.longValue) !== undefined) {
+    return { longValue: __expectNumber(output.longValue) as any };
   }
-  if (output.stringValue !== undefined && output.stringValue !== null) {
-    return {
-      stringValue: output.stringValue,
-    };
+  if (__expectString(output.stringValue) !== undefined) {
+    return { stringValue: __expectString(output.stringValue) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };
@@ -1149,12 +1135,12 @@ const deserializeAws_json1_1GetStatementResultResponse = (
       output.ColumnMetadata !== undefined && output.ColumnMetadata !== null
         ? deserializeAws_json1_1ColumnMetadataList(output.ColumnMetadata, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Records:
       output.Records !== undefined && output.Records !== null
         ? deserializeAws_json1_1SqlRecords(output.Records, context)
         : undefined,
-    TotalNumRows: output.TotalNumRows !== undefined && output.TotalNumRows !== null ? output.TotalNumRows : undefined,
+    TotalNumRows: __expectNumber(output.TotalNumRows),
   } as any;
 };
 
@@ -1163,7 +1149,7 @@ const deserializeAws_json1_1InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1173,13 +1159,13 @@ const deserializeAws_json1_1ListDatabasesResponse = (output: any, context: __Ser
       output.Databases !== undefined && output.Databases !== null
         ? deserializeAws_json1_1DatabaseList(output.Databases, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListSchemasResponse = (output: any, context: __SerdeContext): ListSchemasResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Schemas:
       output.Schemas !== undefined && output.Schemas !== null
         ? deserializeAws_json1_1SchemaList(output.Schemas, context)
@@ -1189,7 +1175,7 @@ const deserializeAws_json1_1ListSchemasResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1ListStatementsResponse = (output: any, context: __SerdeContext): ListStatementsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Statements:
       output.Statements !== undefined && output.Statements !== null
         ? deserializeAws_json1_1StatementList(output.Statements, context)
@@ -1199,7 +1185,7 @@ const deserializeAws_json1_1ListStatementsResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1ListTablesResponse = (output: any, context: __SerdeContext): ListTablesResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Tables:
       output.Tables !== undefined && output.Tables !== null
         ? deserializeAws_json1_1TableList(output.Tables, context)
@@ -1212,8 +1198,8 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    Message: __expectString(output.Message),
+    ResourceId: __expectString(output.ResourceId),
   } as any;
 };
 
@@ -1224,14 +1210,14 @@ const deserializeAws_json1_1SchemaList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1SqlParameter = (output: any, context: __SerdeContext): SqlParameter => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    name: __expectString(output.name),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -1263,16 +1249,15 @@ const deserializeAws_json1_1StatementData = (output: any, context: __SerdeContex
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Id: __expectString(output.Id),
     QueryParameters:
       output.QueryParameters !== undefined && output.QueryParameters !== null
         ? deserializeAws_json1_1SqlParametersList(output.QueryParameters, context)
         : undefined,
-    QueryString: output.QueryString !== undefined && output.QueryString !== null ? output.QueryString : undefined,
-    SecretArn: output.SecretArn !== undefined && output.SecretArn !== null ? output.SecretArn : undefined,
-    StatementName:
-      output.StatementName !== undefined && output.StatementName !== null ? output.StatementName : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    QueryString: __expectString(output.QueryString),
+    SecretArn: __expectString(output.SecretArn),
+    StatementName: __expectString(output.StatementName),
+    Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
         ? new Date(Math.round(output.UpdatedAt * 1000))
@@ -1304,15 +1289,15 @@ const deserializeAws_json1_1TableList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1TableMember = (output: any, context: __SerdeContext): TableMember => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    schema: output.schema !== undefined && output.schema !== null ? output.schema : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    name: __expectString(output.name),
+    schema: __expectString(output.schema),
+    type: __expectString(output.type),
   } as any;
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 

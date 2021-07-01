@@ -163,7 +163,12 @@ import {
   WorkGroupSummary,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3410,25 +3415,24 @@ const deserializeAws_json1_1BatchGetQueryExecutionOutput = (
 
 const deserializeAws_json1_1Column = (output: any, context: __SerdeContext): Column => {
   return {
-    Comment: output.Comment !== undefined && output.Comment !== null ? output.Comment : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Comment: __expectString(output.Comment),
+    Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_json1_1ColumnInfo = (output: any, context: __SerdeContext): ColumnInfo => {
   return {
-    CaseSensitive:
-      output.CaseSensitive !== undefined && output.CaseSensitive !== null ? output.CaseSensitive : undefined,
-    CatalogName: output.CatalogName !== undefined && output.CatalogName !== null ? output.CatalogName : undefined,
-    Label: output.Label !== undefined && output.Label !== null ? output.Label : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Nullable: output.Nullable !== undefined && output.Nullable !== null ? output.Nullable : undefined,
-    Precision: output.Precision !== undefined && output.Precision !== null ? output.Precision : undefined,
-    Scale: output.Scale !== undefined && output.Scale !== null ? output.Scale : undefined,
-    SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
-    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    CaseSensitive: __expectBoolean(output.CaseSensitive),
+    CatalogName: __expectString(output.CatalogName),
+    Label: __expectString(output.Label),
+    Name: __expectString(output.Name),
+    Nullable: __expectString(output.Nullable),
+    Precision: __expectNumber(output.Precision),
+    Scale: __expectNumber(output.Scale),
+    SchemaName: __expectString(output.SchemaName),
+    TableName: __expectString(output.TableName),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -3463,7 +3467,7 @@ const deserializeAws_json1_1CreateDataCatalogOutput = (
 
 const deserializeAws_json1_1CreateNamedQueryOutput = (output: any, context: __SerdeContext): CreateNamedQueryOutput => {
   return {
-    NamedQueryId: output.NamedQueryId !== undefined && output.NamedQueryId !== null ? output.NamedQueryId : undefined,
+    NamedQueryId: __expectString(output.NamedQueryId),
   } as any;
 };
 
@@ -3480,8 +3484,8 @@ const deserializeAws_json1_1CreateWorkGroupOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1Database = (output: any, context: __SerdeContext): Database => {
   return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Description: __expectString(output.Description),
+    Name: __expectString(output.Name),
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1ParametersMap(output.Parameters, context)
@@ -3502,20 +3506,20 @@ const deserializeAws_json1_1DatabaseList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1DataCatalog = (output: any, context: __SerdeContext): DataCatalog => {
   return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Description: __expectString(output.Description),
+    Name: __expectString(output.Name),
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1ParametersMap(output.Parameters, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_json1_1DataCatalogSummary = (output: any, context: __SerdeContext): DataCatalogSummary => {
   return {
-    CatalogName: output.CatalogName !== undefined && output.CatalogName !== null ? output.CatalogName : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    CatalogName: __expectString(output.CatalogName),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -3532,7 +3536,7 @@ const deserializeAws_json1_1DataCatalogSummaryList = (output: any, context: __Se
 
 const deserializeAws_json1_1Datum = (output: any, context: __SerdeContext): Datum => {
   return {
-    VarCharValue: output.VarCharValue !== undefined && output.VarCharValue !== null ? output.VarCharValue : undefined,
+    VarCharValue: __expectString(output.VarCharValue),
   } as any;
 };
 
@@ -3574,22 +3578,15 @@ const deserializeAws_json1_1EncryptionConfiguration = (
   context: __SerdeContext
 ): EncryptionConfiguration => {
   return {
-    EncryptionOption:
-      output.EncryptionOption !== undefined && output.EncryptionOption !== null ? output.EncryptionOption : undefined,
-    KmsKey: output.KmsKey !== undefined && output.KmsKey !== null ? output.KmsKey : undefined,
+    EncryptionOption: __expectString(output.EncryptionOption),
+    KmsKey: __expectString(output.KmsKey),
   } as any;
 };
 
 const deserializeAws_json1_1EngineVersion = (output: any, context: __SerdeContext): EngineVersion => {
   return {
-    EffectiveEngineVersion:
-      output.EffectiveEngineVersion !== undefined && output.EffectiveEngineVersion !== null
-        ? output.EffectiveEngineVersion
-        : undefined,
-    SelectedEngineVersion:
-      output.SelectedEngineVersion !== undefined && output.SelectedEngineVersion !== null
-        ? output.SelectedEngineVersion
-        : undefined,
+    EffectiveEngineVersion: __expectString(output.EffectiveEngineVersion),
+    SelectedEngineVersion: __expectString(output.SelectedEngineVersion),
   } as any;
 };
 
@@ -3657,12 +3654,12 @@ const deserializeAws_json1_1GetQueryExecutionOutput = (
 
 const deserializeAws_json1_1GetQueryResultsOutput = (output: any, context: __SerdeContext): GetQueryResultsOutput => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     ResultSet:
       output.ResultSet !== undefined && output.ResultSet !== null
         ? deserializeAws_json1_1ResultSet(output.ResultSet, context)
         : undefined,
-    UpdateCount: output.UpdateCount !== undefined && output.UpdateCount !== null ? output.UpdateCount : undefined,
+    UpdateCount: __expectNumber(output.UpdateCount),
   } as any;
 };
 
@@ -3689,7 +3686,7 @@ const deserializeAws_json1_1InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3698,9 +3695,8 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    AthenaErrorCode:
-      output.AthenaErrorCode !== undefined && output.AthenaErrorCode !== null ? output.AthenaErrorCode : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    AthenaErrorCode: __expectString(output.AthenaErrorCode),
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3710,7 +3706,7 @@ const deserializeAws_json1_1ListDatabasesOutput = (output: any, context: __Serde
       output.DatabaseList !== undefined && output.DatabaseList !== null
         ? deserializeAws_json1_1DatabaseList(output.DatabaseList, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3720,7 +3716,7 @@ const deserializeAws_json1_1ListDataCatalogsOutput = (output: any, context: __Se
       output.DataCatalogsSummary !== undefined && output.DataCatalogsSummary !== null
         ? deserializeAws_json1_1DataCatalogSummaryList(output.DataCatalogsSummary, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3733,7 +3729,7 @@ const deserializeAws_json1_1ListEngineVersionsOutput = (
       output.EngineVersions !== undefined && output.EngineVersions !== null
         ? deserializeAws_json1_1EngineVersionsList(output.EngineVersions, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3743,7 +3739,7 @@ const deserializeAws_json1_1ListNamedQueriesOutput = (output: any, context: __Se
       output.NamedQueryIds !== undefined && output.NamedQueryIds !== null
         ? deserializeAws_json1_1NamedQueryIdList(output.NamedQueryIds, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -3752,7 +3748,7 @@ const deserializeAws_json1_1ListPreparedStatementsOutput = (
   context: __SerdeContext
 ): ListPreparedStatementsOutput => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     PreparedStatements:
       output.PreparedStatements !== undefined && output.PreparedStatements !== null
         ? deserializeAws_json1_1PreparedStatementsList(output.PreparedStatements, context)
@@ -3765,7 +3761,7 @@ const deserializeAws_json1_1ListQueryExecutionsOutput = (
   context: __SerdeContext
 ): ListQueryExecutionsOutput => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     QueryExecutionIds:
       output.QueryExecutionIds !== undefined && output.QueryExecutionIds !== null
         ? deserializeAws_json1_1QueryExecutionIdList(output.QueryExecutionIds, context)
@@ -3778,7 +3774,7 @@ const deserializeAws_json1_1ListTableMetadataOutput = (
   context: __SerdeContext
 ): ListTableMetadataOutput => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     TableMetadataList:
       output.TableMetadataList !== undefined && output.TableMetadataList !== null
         ? deserializeAws_json1_1TableMetadataList(output.TableMetadataList, context)
@@ -3791,7 +3787,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -3801,7 +3797,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
 
 const deserializeAws_json1_1ListWorkGroupsOutput = (output: any, context: __SerdeContext): ListWorkGroupsOutput => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     WorkGroups:
       output.WorkGroups !== undefined && output.WorkGroups !== null
         ? deserializeAws_json1_1WorkGroupsList(output.WorkGroups, context)
@@ -3811,18 +3807,18 @@ const deserializeAws_json1_1ListWorkGroupsOutput = (output: any, context: __Serd
 
 const deserializeAws_json1_1MetadataException = (output: any, context: __SerdeContext): MetadataException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1NamedQuery = (output: any, context: __SerdeContext): NamedQuery => {
   return {
-    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    NamedQueryId: output.NamedQueryId !== undefined && output.NamedQueryId !== null ? output.NamedQueryId : undefined,
-    QueryString: output.QueryString !== undefined && output.QueryString !== null ? output.QueryString : undefined,
-    WorkGroup: output.WorkGroup !== undefined && output.WorkGroup !== null ? output.WorkGroup : undefined,
+    Database: __expectString(output.Database),
+    Description: __expectString(output.Description),
+    Name: __expectString(output.Name),
+    NamedQueryId: __expectString(output.NamedQueryId),
+    QueryString: __expectString(output.QueryString),
+    WorkGroup: __expectString(output.WorkGroup),
   } as any;
 };
 
@@ -3833,7 +3829,7 @@ const deserializeAws_json1_1NamedQueryIdList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3855,24 +3851,21 @@ const deserializeAws_json1_1ParametersMap = (output: any, context: __SerdeContex
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_json1_1PreparedStatement = (output: any, context: __SerdeContext): PreparedStatement => {
   return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Description: __expectString(output.Description),
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
-    QueryStatement:
-      output.QueryStatement !== undefined && output.QueryStatement !== null ? output.QueryStatement : undefined,
-    StatementName:
-      output.StatementName !== undefined && output.StatementName !== null ? output.StatementName : undefined,
-    WorkGroupName:
-      output.WorkGroupName !== undefined && output.WorkGroupName !== null ? output.WorkGroupName : undefined,
+    QueryStatement: __expectString(output.QueryStatement),
+    StatementName: __expectString(output.StatementName),
+    WorkGroupName: __expectString(output.WorkGroupName),
   } as any;
 };
 
@@ -3899,8 +3892,7 @@ const deserializeAws_json1_1PreparedStatementSummary = (
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
-    StatementName:
-      output.StatementName !== undefined && output.StatementName !== null ? output.StatementName : undefined,
+    StatementName: __expectString(output.StatementName),
   } as any;
 };
 
@@ -3910,19 +3902,17 @@ const deserializeAws_json1_1QueryExecution = (output: any, context: __SerdeConte
       output.EngineVersion !== undefined && output.EngineVersion !== null
         ? deserializeAws_json1_1EngineVersion(output.EngineVersion, context)
         : undefined,
-    Query: output.Query !== undefined && output.Query !== null ? output.Query : undefined,
+    Query: __expectString(output.Query),
     QueryExecutionContext:
       output.QueryExecutionContext !== undefined && output.QueryExecutionContext !== null
         ? deserializeAws_json1_1QueryExecutionContext(output.QueryExecutionContext, context)
         : undefined,
-    QueryExecutionId:
-      output.QueryExecutionId !== undefined && output.QueryExecutionId !== null ? output.QueryExecutionId : undefined,
+    QueryExecutionId: __expectString(output.QueryExecutionId),
     ResultConfiguration:
       output.ResultConfiguration !== undefined && output.ResultConfiguration !== null
         ? deserializeAws_json1_1ResultConfiguration(output.ResultConfiguration, context)
         : undefined,
-    StatementType:
-      output.StatementType !== undefined && output.StatementType !== null ? output.StatementType : undefined,
+    StatementType: __expectString(output.StatementType),
     Statistics:
       output.Statistics !== undefined && output.Statistics !== null
         ? deserializeAws_json1_1QueryExecutionStatistics(output.Statistics, context)
@@ -3931,14 +3921,14 @@ const deserializeAws_json1_1QueryExecution = (output: any, context: __SerdeConte
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_json1_1QueryExecutionStatus(output.Status, context)
         : undefined,
-    WorkGroup: output.WorkGroup !== undefined && output.WorkGroup !== null ? output.WorkGroup : undefined,
+    WorkGroup: __expectString(output.WorkGroup),
   } as any;
 };
 
 const deserializeAws_json1_1QueryExecutionContext = (output: any, context: __SerdeContext): QueryExecutionContext => {
   return {
-    Catalog: output.Catalog !== undefined && output.Catalog !== null ? output.Catalog : undefined,
-    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
+    Catalog: __expectString(output.Catalog),
+    Database: __expectString(output.Database),
   } as any;
 };
 
@@ -3949,7 +3939,7 @@ const deserializeAws_json1_1QueryExecutionIdList = (output: any, context: __Serd
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3969,34 +3959,13 @@ const deserializeAws_json1_1QueryExecutionStatistics = (
   context: __SerdeContext
 ): QueryExecutionStatistics => {
   return {
-    DataManifestLocation:
-      output.DataManifestLocation !== undefined && output.DataManifestLocation !== null
-        ? output.DataManifestLocation
-        : undefined,
-    DataScannedInBytes:
-      output.DataScannedInBytes !== undefined && output.DataScannedInBytes !== null
-        ? output.DataScannedInBytes
-        : undefined,
-    EngineExecutionTimeInMillis:
-      output.EngineExecutionTimeInMillis !== undefined && output.EngineExecutionTimeInMillis !== null
-        ? output.EngineExecutionTimeInMillis
-        : undefined,
-    QueryPlanningTimeInMillis:
-      output.QueryPlanningTimeInMillis !== undefined && output.QueryPlanningTimeInMillis !== null
-        ? output.QueryPlanningTimeInMillis
-        : undefined,
-    QueryQueueTimeInMillis:
-      output.QueryQueueTimeInMillis !== undefined && output.QueryQueueTimeInMillis !== null
-        ? output.QueryQueueTimeInMillis
-        : undefined,
-    ServiceProcessingTimeInMillis:
-      output.ServiceProcessingTimeInMillis !== undefined && output.ServiceProcessingTimeInMillis !== null
-        ? output.ServiceProcessingTimeInMillis
-        : undefined,
-    TotalExecutionTimeInMillis:
-      output.TotalExecutionTimeInMillis !== undefined && output.TotalExecutionTimeInMillis !== null
-        ? output.TotalExecutionTimeInMillis
-        : undefined,
+    DataManifestLocation: __expectString(output.DataManifestLocation),
+    DataScannedInBytes: __expectNumber(output.DataScannedInBytes),
+    EngineExecutionTimeInMillis: __expectNumber(output.EngineExecutionTimeInMillis),
+    QueryPlanningTimeInMillis: __expectNumber(output.QueryPlanningTimeInMillis),
+    QueryQueueTimeInMillis: __expectNumber(output.QueryQueueTimeInMillis),
+    ServiceProcessingTimeInMillis: __expectNumber(output.ServiceProcessingTimeInMillis),
+    TotalExecutionTimeInMillis: __expectNumber(output.TotalExecutionTimeInMillis),
   } as any;
 };
 
@@ -4006,11 +3975,8 @@ const deserializeAws_json1_1QueryExecutionStatus = (output: any, context: __Serd
       output.CompletionDateTime !== undefined && output.CompletionDateTime !== null
         ? new Date(Math.round(output.CompletionDateTime * 1000))
         : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    StateChangeReason:
-      output.StateChangeReason !== undefined && output.StateChangeReason !== null
-        ? output.StateChangeReason
-        : undefined,
+    State: __expectString(output.State),
+    StateChangeReason: __expectString(output.StateChangeReason),
     SubmissionDateTime:
       output.SubmissionDateTime !== undefined && output.SubmissionDateTime !== null
         ? new Date(Math.round(output.SubmissionDateTime * 1000))
@@ -4023,8 +3989,8 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    ResourceName: output.ResourceName !== undefined && output.ResourceName !== null ? output.ResourceName : undefined,
+    Message: __expectString(output.Message),
+    ResourceName: __expectString(output.ResourceName),
   } as any;
 };
 
@@ -4034,8 +4000,7 @@ const deserializeAws_json1_1ResultConfiguration = (output: any, context: __Serde
       output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
         ? deserializeAws_json1_1EncryptionConfiguration(output.EncryptionConfiguration, context)
         : undefined,
-    OutputLocation:
-      output.OutputLocation !== undefined && output.OutputLocation !== null ? output.OutputLocation : undefined,
+    OutputLocation: __expectString(output.OutputLocation),
   } as any;
 };
 
@@ -4086,8 +4051,7 @@ const deserializeAws_json1_1StartQueryExecutionOutput = (
   context: __SerdeContext
 ): StartQueryExecutionOutput => {
   return {
-    QueryExecutionId:
-      output.QueryExecutionId !== undefined && output.QueryExecutionId !== null ? output.QueryExecutionId : undefined,
+    QueryExecutionId: __expectString(output.QueryExecutionId),
   } as any;
 };
 
@@ -4112,7 +4076,7 @@ const deserializeAws_json1_1TableMetadata = (output: any, context: __SerdeContex
       output.LastAccessTime !== undefined && output.LastAccessTime !== null
         ? new Date(Math.round(output.LastAccessTime * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1ParametersMap(output.Parameters, context)
@@ -4121,7 +4085,7 @@ const deserializeAws_json1_1TableMetadata = (output: any, context: __SerdeContex
       output.PartitionKeys !== undefined && output.PartitionKeys !== null
         ? deserializeAws_json1_1ColumnList(output.PartitionKeys, context)
         : undefined,
-    TableType: output.TableType !== undefined && output.TableType !== null ? output.TableType : undefined,
+    TableType: __expectString(output.TableType),
   } as any;
 };
 
@@ -4138,8 +4102,8 @@ const deserializeAws_json1_1TableMetadataList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -4163,8 +4127,8 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
+    Message: __expectString(output.Message),
+    Reason: __expectString(output.Reason),
   } as any;
 };
 
@@ -4173,9 +4137,9 @@ const deserializeAws_json1_1UnprocessedNamedQueryId = (
   context: __SerdeContext
 ): UnprocessedNamedQueryId => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
-    NamedQueryId: output.NamedQueryId !== undefined && output.NamedQueryId !== null ? output.NamedQueryId : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    NamedQueryId: __expectString(output.NamedQueryId),
   } as any;
 };
 
@@ -4198,10 +4162,9 @@ const deserializeAws_json1_1UnprocessedQueryExecutionId = (
   context: __SerdeContext
 ): UnprocessedQueryExecutionId => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
-    QueryExecutionId:
-      output.QueryExecutionId !== undefined && output.QueryExecutionId !== null ? output.QueryExecutionId : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    QueryExecutionId: __expectString(output.QueryExecutionId),
   } as any;
 };
 
@@ -4251,34 +4214,22 @@ const deserializeAws_json1_1WorkGroup = (output: any, context: __SerdeContext): 
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Description: __expectString(output.Description),
+    Name: __expectString(output.Name),
+    State: __expectString(output.State),
   } as any;
 };
 
 const deserializeAws_json1_1WorkGroupConfiguration = (output: any, context: __SerdeContext): WorkGroupConfiguration => {
   return {
-    BytesScannedCutoffPerQuery:
-      output.BytesScannedCutoffPerQuery !== undefined && output.BytesScannedCutoffPerQuery !== null
-        ? output.BytesScannedCutoffPerQuery
-        : undefined,
-    EnforceWorkGroupConfiguration:
-      output.EnforceWorkGroupConfiguration !== undefined && output.EnforceWorkGroupConfiguration !== null
-        ? output.EnforceWorkGroupConfiguration
-        : undefined,
+    BytesScannedCutoffPerQuery: __expectNumber(output.BytesScannedCutoffPerQuery),
+    EnforceWorkGroupConfiguration: __expectBoolean(output.EnforceWorkGroupConfiguration),
     EngineVersion:
       output.EngineVersion !== undefined && output.EngineVersion !== null
         ? deserializeAws_json1_1EngineVersion(output.EngineVersion, context)
         : undefined,
-    PublishCloudWatchMetricsEnabled:
-      output.PublishCloudWatchMetricsEnabled !== undefined && output.PublishCloudWatchMetricsEnabled !== null
-        ? output.PublishCloudWatchMetricsEnabled
-        : undefined,
-    RequesterPaysEnabled:
-      output.RequesterPaysEnabled !== undefined && output.RequesterPaysEnabled !== null
-        ? output.RequesterPaysEnabled
-        : undefined,
+    PublishCloudWatchMetricsEnabled: __expectBoolean(output.PublishCloudWatchMetricsEnabled),
+    RequesterPaysEnabled: __expectBoolean(output.RequesterPaysEnabled),
     ResultConfiguration:
       output.ResultConfiguration !== undefined && output.ResultConfiguration !== null
         ? deserializeAws_json1_1ResultConfiguration(output.ResultConfiguration, context)
@@ -4303,13 +4254,13 @@ const deserializeAws_json1_1WorkGroupSummary = (output: any, context: __SerdeCon
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Description: __expectString(output.Description),
     EngineVersion:
       output.EngineVersion !== undefined && output.EngineVersion !== null
         ? deserializeAws_json1_1EngineVersion(output.EngineVersion, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Name: __expectString(output.Name),
+    State: __expectString(output.State),
   } as any;
 };
 

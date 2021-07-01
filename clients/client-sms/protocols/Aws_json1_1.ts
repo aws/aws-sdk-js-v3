@@ -208,7 +208,12 @@ import {
   VmServerAddress,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -4632,14 +4637,13 @@ const deserializeAws_json1_1Apps = (output: any, context: __SerdeContext): AppSu
 
 const deserializeAws_json1_1AppSummary = (output: any, context: __SerdeContext): AppSummary => {
   return {
-    appId: output.appId !== undefined && output.appId !== null ? output.appId : undefined,
+    appId: __expectString(output.appId),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    importedAppId:
-      output.importedAppId !== undefined && output.importedAppId !== null ? output.importedAppId : undefined,
+    description: __expectString(output.description),
+    importedAppId: __expectString(output.importedAppId),
     lastModified:
       output.lastModified !== undefined && output.lastModified !== null
         ? new Date(Math.round(output.lastModified * 1000))
@@ -4648,41 +4652,22 @@ const deserializeAws_json1_1AppSummary = (output: any, context: __SerdeContext):
       output.latestReplicationTime !== undefined && output.latestReplicationTime !== null
         ? new Date(Math.round(output.latestReplicationTime * 1000))
         : undefined,
-    launchConfigurationStatus:
-      output.launchConfigurationStatus !== undefined && output.launchConfigurationStatus !== null
-        ? output.launchConfigurationStatus
-        : undefined,
+    launchConfigurationStatus: __expectString(output.launchConfigurationStatus),
     launchDetails:
       output.launchDetails !== undefined && output.launchDetails !== null
         ? deserializeAws_json1_1LaunchDetails(output.launchDetails, context)
         : undefined,
-    launchStatus: output.launchStatus !== undefined && output.launchStatus !== null ? output.launchStatus : undefined,
-    launchStatusMessage:
-      output.launchStatusMessage !== undefined && output.launchStatusMessage !== null
-        ? output.launchStatusMessage
-        : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    replicationConfigurationStatus:
-      output.replicationConfigurationStatus !== undefined && output.replicationConfigurationStatus !== null
-        ? output.replicationConfigurationStatus
-        : undefined,
-    replicationStatus:
-      output.replicationStatus !== undefined && output.replicationStatus !== null
-        ? output.replicationStatus
-        : undefined,
-    replicationStatusMessage:
-      output.replicationStatusMessage !== undefined && output.replicationStatusMessage !== null
-        ? output.replicationStatusMessage
-        : undefined,
-    roleName: output.roleName !== undefined && output.roleName !== null ? output.roleName : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
-    totalServerGroups:
-      output.totalServerGroups !== undefined && output.totalServerGroups !== null
-        ? output.totalServerGroups
-        : undefined,
-    totalServers: output.totalServers !== undefined && output.totalServers !== null ? output.totalServers : undefined,
+    launchStatus: __expectString(output.launchStatus),
+    launchStatusMessage: __expectString(output.launchStatusMessage),
+    name: __expectString(output.name),
+    replicationConfigurationStatus: __expectString(output.replicationConfigurationStatus),
+    replicationStatus: __expectString(output.replicationStatus),
+    replicationStatusMessage: __expectString(output.replicationStatusMessage),
+    roleName: __expectString(output.roleName),
+    status: __expectString(output.status),
+    statusMessage: __expectString(output.statusMessage),
+    totalServerGroups: __expectNumber(output.totalServerGroups),
+    totalServers: __expectNumber(output.totalServers),
   } as any;
 };
 
@@ -4691,16 +4676,13 @@ const deserializeAws_json1_1AppValidationConfiguration = (
   context: __SerdeContext
 ): AppValidationConfiguration => {
   return {
-    appValidationStrategy:
-      output.appValidationStrategy !== undefined && output.appValidationStrategy !== null
-        ? output.appValidationStrategy
-        : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    appValidationStrategy: __expectString(output.appValidationStrategy),
+    name: __expectString(output.name),
     ssmValidationParameters:
       output.ssmValidationParameters !== undefined && output.ssmValidationParameters !== null
         ? deserializeAws_json1_1SSMValidationParameters(output.ssmValidationParameters, context)
         : undefined,
-    validationId: output.validationId !== undefined && output.validationId !== null ? output.validationId : undefined,
+    validationId: __expectString(output.validationId),
   } as any;
 };
 
@@ -4737,16 +4719,14 @@ const deserializeAws_json1_1Connector = (output: any, context: __SerdeContext): 
       output.capabilityList !== undefined && output.capabilityList !== null
         ? deserializeAws_json1_1ConnectorCapabilityList(output.capabilityList, context)
         : undefined,
-    connectorId: output.connectorId !== undefined && output.connectorId !== null ? output.connectorId : undefined,
-    ipAddress: output.ipAddress !== undefined && output.ipAddress !== null ? output.ipAddress : undefined,
-    macAddress: output.macAddress !== undefined && output.macAddress !== null ? output.macAddress : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
-    vmManagerId: output.vmManagerId !== undefined && output.vmManagerId !== null ? output.vmManagerId : undefined,
-    vmManagerName:
-      output.vmManagerName !== undefined && output.vmManagerName !== null ? output.vmManagerName : undefined,
-    vmManagerType:
-      output.vmManagerType !== undefined && output.vmManagerType !== null ? output.vmManagerType : undefined,
+    connectorId: __expectString(output.connectorId),
+    ipAddress: __expectString(output.ipAddress),
+    macAddress: __expectString(output.macAddress),
+    status: __expectString(output.status),
+    version: __expectString(output.version),
+    vmManagerId: __expectString(output.vmManagerId),
+    vmManagerName: __expectString(output.vmManagerName),
+    vmManagerType: __expectString(output.vmManagerType),
   } as any;
 };
 
@@ -4760,7 +4740,7 @@ const deserializeAws_json1_1ConnectorCapabilityList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4795,8 +4775,7 @@ const deserializeAws_json1_1CreateReplicationJobResponse = (
   context: __SerdeContext
 ): CreateReplicationJobResponse => {
   return {
-    replicationJobId:
-      output.replicationJobId !== undefined && output.replicationJobId !== null ? output.replicationJobId : undefined,
+    replicationJobId: __expectString(output.replicationJobId),
   } as any;
 };
 
@@ -4851,7 +4830,7 @@ const deserializeAws_json1_1DryRunOperationException = (
   context: __SerdeContext
 ): DryRunOperationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -4884,9 +4863,9 @@ const deserializeAws_json1_1GetAppLaunchConfigurationResponse = (
   context: __SerdeContext
 ): GetAppLaunchConfigurationResponse => {
   return {
-    appId: output.appId !== undefined && output.appId !== null ? output.appId : undefined,
-    autoLaunch: output.autoLaunch !== undefined && output.autoLaunch !== null ? output.autoLaunch : undefined,
-    roleName: output.roleName !== undefined && output.roleName !== null ? output.roleName : undefined,
+    appId: __expectString(output.appId),
+    autoLaunch: __expectBoolean(output.autoLaunch),
+    roleName: __expectString(output.roleName),
     serverGroupLaunchConfigurations:
       output.serverGroupLaunchConfigurations !== undefined && output.serverGroupLaunchConfigurations !== null
         ? deserializeAws_json1_1ServerGroupLaunchConfigurations(output.serverGroupLaunchConfigurations, context)
@@ -4958,7 +4937,7 @@ const deserializeAws_json1_1GetConnectorsResponse = (output: any, context: __Ser
       output.connectorList !== undefined && output.connectorList !== null
         ? deserializeAws_json1_1ConnectorList(output.connectorList, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -4967,7 +4946,7 @@ const deserializeAws_json1_1GetReplicationJobsResponse = (
   context: __SerdeContext
 ): GetReplicationJobsResponse => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     replicationJobList:
       output.replicationJobList !== undefined && output.replicationJobList !== null
         ? deserializeAws_json1_1ReplicationJobList(output.replicationJobList, context)
@@ -4980,7 +4959,7 @@ const deserializeAws_json1_1GetReplicationRunsResponse = (
   context: __SerdeContext
 ): GetReplicationRunsResponse => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     replicationJob:
       output.replicationJob !== undefined && output.replicationJob !== null
         ? deserializeAws_json1_1ReplicationJob(output.replicationJob, context)
@@ -4998,11 +4977,8 @@ const deserializeAws_json1_1GetServersResponse = (output: any, context: __SerdeC
       output.lastModifiedOn !== undefined && output.lastModifiedOn !== null
         ? new Date(Math.round(output.lastModifiedOn * 1000))
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
-    serverCatalogStatus:
-      output.serverCatalogStatus !== undefined && output.serverCatalogStatus !== null
-        ? output.serverCatalogStatus
-        : undefined,
+    nextToken: __expectString(output.nextToken),
+    serverCatalogStatus: __expectString(output.serverCatalogStatus),
     serverList:
       output.serverList !== undefined && output.serverList !== null
         ? deserializeAws_json1_1ServerList(output.serverList, context)
@@ -5026,7 +5002,7 @@ const deserializeAws_json1_1ImportServerCatalogResponse = (
 
 const deserializeAws_json1_1InternalError = (output: any, context: __SerdeContext): InternalError => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5035,7 +5011,7 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5049,8 +5025,8 @@ const deserializeAws_json1_1LaunchDetails = (output: any, context: __SerdeContex
       output.latestLaunchTime !== undefined && output.latestLaunchTime !== null
         ? new Date(Math.round(output.latestLaunchTime * 1000))
         : undefined,
-    stackId: output.stackId !== undefined && output.stackId !== null ? output.stackId : undefined,
-    stackName: output.stackName !== undefined && output.stackName !== null ? output.stackName : undefined,
+    stackId: __expectString(output.stackId),
+    stackName: __expectString(output.stackName),
   } as any;
 };
 
@@ -5058,7 +5034,7 @@ const deserializeAws_json1_1ListAppsResponse = (output: any, context: __SerdeCon
   return {
     apps:
       output.apps !== undefined && output.apps !== null ? deserializeAws_json1_1Apps(output.apps, context) : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -5067,7 +5043,7 @@ const deserializeAws_json1_1MissingRequiredParameterException = (
   context: __SerdeContext
 ): MissingRequiredParameterException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5076,7 +5052,7 @@ const deserializeAws_json1_1NoConnectorsAvailableException = (
   context: __SerdeContext
 ): NoConnectorsAvailableException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5092,7 +5068,7 @@ const deserializeAws_json1_1OperationNotPermittedException = (
   context: __SerdeContext
 ): OperationNotPermittedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5119,37 +5095,32 @@ const deserializeAws_json1_1PutAppValidationConfigurationResponse = (
 
 const deserializeAws_json1_1ReplicationJob = (output: any, context: __SerdeContext): ReplicationJob => {
   return {
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    encrypted: output.encrypted !== undefined && output.encrypted !== null ? output.encrypted : undefined,
-    frequency: output.frequency !== undefined && output.frequency !== null ? output.frequency : undefined,
-    kmsKeyId: output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
-    latestAmiId: output.latestAmiId !== undefined && output.latestAmiId !== null ? output.latestAmiId : undefined,
-    licenseType: output.licenseType !== undefined && output.licenseType !== null ? output.licenseType : undefined,
+    description: __expectString(output.description),
+    encrypted: __expectBoolean(output.encrypted),
+    frequency: __expectNumber(output.frequency),
+    kmsKeyId: __expectString(output.kmsKeyId),
+    latestAmiId: __expectString(output.latestAmiId),
+    licenseType: __expectString(output.licenseType),
     nextReplicationRunStartTime:
       output.nextReplicationRunStartTime !== undefined && output.nextReplicationRunStartTime !== null
         ? new Date(Math.round(output.nextReplicationRunStartTime * 1000))
         : undefined,
-    numberOfRecentAmisToKeep:
-      output.numberOfRecentAmisToKeep !== undefined && output.numberOfRecentAmisToKeep !== null
-        ? output.numberOfRecentAmisToKeep
-        : undefined,
-    replicationJobId:
-      output.replicationJobId !== undefined && output.replicationJobId !== null ? output.replicationJobId : undefined,
+    numberOfRecentAmisToKeep: __expectNumber(output.numberOfRecentAmisToKeep),
+    replicationJobId: __expectString(output.replicationJobId),
     replicationRunList:
       output.replicationRunList !== undefined && output.replicationRunList !== null
         ? deserializeAws_json1_1ReplicationRunList(output.replicationRunList, context)
         : undefined,
-    roleName: output.roleName !== undefined && output.roleName !== null ? output.roleName : undefined,
-    runOnce: output.runOnce !== undefined && output.runOnce !== null ? output.runOnce : undefined,
+    roleName: __expectString(output.roleName),
+    runOnce: __expectBoolean(output.runOnce),
     seedReplicationTime:
       output.seedReplicationTime !== undefined && output.seedReplicationTime !== null
         ? new Date(Math.round(output.seedReplicationTime * 1000))
         : undefined,
-    serverId: output.serverId !== undefined && output.serverId !== null ? output.serverId : undefined,
-    serverType: output.serverType !== undefined && output.serverType !== null ? output.serverType : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
+    serverId: __expectString(output.serverId),
+    serverType: __expectString(output.serverType),
+    state: __expectString(output.state),
+    statusMessage: __expectString(output.statusMessage),
     vmServer:
       output.vmServer !== undefined && output.vmServer !== null
         ? deserializeAws_json1_1VmServer(output.vmServer, context)
@@ -5162,7 +5133,7 @@ const deserializeAws_json1_1ReplicationJobAlreadyExistsException = (
   context: __SerdeContext
 ): ReplicationJobAlreadyExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5182,22 +5153,21 @@ const deserializeAws_json1_1ReplicationJobNotFoundException = (
   context: __SerdeContext
 ): ReplicationJobNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ReplicationRun = (output: any, context: __SerdeContext): ReplicationRun => {
   return {
-    amiId: output.amiId !== undefined && output.amiId !== null ? output.amiId : undefined,
+    amiId: __expectString(output.amiId),
     completedTime:
       output.completedTime !== undefined && output.completedTime !== null
         ? new Date(Math.round(output.completedTime * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    encrypted: output.encrypted !== undefined && output.encrypted !== null ? output.encrypted : undefined,
-    kmsKeyId: output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
-    replicationRunId:
-      output.replicationRunId !== undefined && output.replicationRunId !== null ? output.replicationRunId : undefined,
+    description: __expectString(output.description),
+    encrypted: __expectBoolean(output.encrypted),
+    kmsKeyId: __expectString(output.kmsKeyId),
+    replicationRunId: __expectString(output.replicationRunId),
     scheduledStartTime:
       output.scheduledStartTime !== undefined && output.scheduledStartTime !== null
         ? new Date(Math.round(output.scheduledStartTime * 1000))
@@ -5206,10 +5176,9 @@ const deserializeAws_json1_1ReplicationRun = (output: any, context: __SerdeConte
       output.stageDetails !== undefined && output.stageDetails !== null
         ? deserializeAws_json1_1ReplicationRunStageDetails(output.stageDetails, context)
         : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    state: __expectString(output.state),
+    statusMessage: __expectString(output.statusMessage),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -5218,7 +5187,7 @@ const deserializeAws_json1_1ReplicationRunLimitExceededException = (
   context: __SerdeContext
 ): ReplicationRunLimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5238,29 +5207,24 @@ const deserializeAws_json1_1ReplicationRunStageDetails = (
   context: __SerdeContext
 ): ReplicationRunStageDetails => {
   return {
-    stage: output.stage !== undefined && output.stage !== null ? output.stage : undefined,
-    stageProgress:
-      output.stageProgress !== undefined && output.stageProgress !== null ? output.stageProgress : undefined,
+    stage: __expectString(output.stage),
+    stageProgress: __expectString(output.stageProgress),
   } as any;
 };
 
 const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
-    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    bucket: __expectString(output.bucket),
+    key: __expectString(output.key),
   } as any;
 };
 
 const deserializeAws_json1_1Server = (output: any, context: __SerdeContext): Server => {
   return {
-    replicationJobId:
-      output.replicationJobId !== undefined && output.replicationJobId !== null ? output.replicationJobId : undefined,
-    replicationJobTerminated:
-      output.replicationJobTerminated !== undefined && output.replicationJobTerminated !== null
-        ? output.replicationJobTerminated
-        : undefined,
-    serverId: output.serverId !== undefined && output.serverId !== null ? output.serverId : undefined,
-    serverType: output.serverType !== undefined && output.serverType !== null ? output.serverType : undefined,
+    replicationJobId: __expectString(output.replicationJobId),
+    replicationJobTerminated: __expectBoolean(output.replicationJobTerminated),
+    serverId: __expectString(output.serverId),
+    serverType: __expectString(output.serverType),
     vmServer:
       output.vmServer !== undefined && output.vmServer !== null
         ? deserializeAws_json1_1VmServer(output.vmServer, context)
@@ -5273,15 +5237,14 @@ const deserializeAws_json1_1ServerCannotBeReplicatedException = (
   context: __SerdeContext
 ): ServerCannotBeReplicatedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ServerGroup = (output: any, context: __SerdeContext): ServerGroup => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    serverGroupId:
-      output.serverGroupId !== undefined && output.serverGroupId !== null ? output.serverGroupId : undefined,
+    name: __expectString(output.name),
+    serverGroupId: __expectString(output.serverGroupId),
     serverList:
       output.serverList !== undefined && output.serverList !== null
         ? deserializeAws_json1_1ServerList(output.serverList, context)
@@ -5294,9 +5257,8 @@ const deserializeAws_json1_1ServerGroupLaunchConfiguration = (
   context: __SerdeContext
 ): ServerGroupLaunchConfiguration => {
   return {
-    launchOrder: output.launchOrder !== undefined && output.launchOrder !== null ? output.launchOrder : undefined,
-    serverGroupId:
-      output.serverGroupId !== undefined && output.serverGroupId !== null ? output.serverGroupId : undefined,
+    launchOrder: __expectNumber(output.launchOrder),
+    serverGroupId: __expectString(output.serverGroupId),
     serverLaunchConfigurations:
       output.serverLaunchConfigurations !== undefined && output.serverLaunchConfigurations !== null
         ? deserializeAws_json1_1ServerLaunchConfigurations(output.serverLaunchConfigurations, context)
@@ -5323,8 +5285,7 @@ const deserializeAws_json1_1ServerGroupReplicationConfiguration = (
   context: __SerdeContext
 ): ServerGroupReplicationConfiguration => {
   return {
-    serverGroupId:
-      output.serverGroupId !== undefined && output.serverGroupId !== null ? output.serverGroupId : undefined,
+    serverGroupId: __expectString(output.serverGroupId),
     serverReplicationConfigurations:
       output.serverReplicationConfigurations !== undefined && output.serverReplicationConfigurations !== null
         ? deserializeAws_json1_1ServerReplicationConfigurations(output.serverReplicationConfigurations, context)
@@ -5362,8 +5323,7 @@ const deserializeAws_json1_1ServerGroupValidationConfiguration = (
   context: __SerdeContext
 ): ServerGroupValidationConfiguration => {
   return {
-    serverGroupId:
-      output.serverGroupId !== undefined && output.serverGroupId !== null ? output.serverGroupId : undefined,
+    serverGroupId: __expectString(output.serverGroupId),
     serverValidationConfigurations:
       output.serverValidationConfigurations !== undefined && output.serverValidationConfigurations !== null
         ? deserializeAws_json1_1ServerValidationConfigurations(output.serverValidationConfigurations, context)
@@ -5390,37 +5350,27 @@ const deserializeAws_json1_1ServerLaunchConfiguration = (
   context: __SerdeContext
 ): ServerLaunchConfiguration => {
   return {
-    associatePublicIpAddress:
-      output.associatePublicIpAddress !== undefined && output.associatePublicIpAddress !== null
-        ? output.associatePublicIpAddress
-        : undefined,
+    associatePublicIpAddress: __expectBoolean(output.associatePublicIpAddress),
     configureScript:
       output.configureScript !== undefined && output.configureScript !== null
         ? deserializeAws_json1_1S3Location(output.configureScript, context)
         : undefined,
-    configureScriptType:
-      output.configureScriptType !== undefined && output.configureScriptType !== null
-        ? output.configureScriptType
-        : undefined,
-    ec2KeyName: output.ec2KeyName !== undefined && output.ec2KeyName !== null ? output.ec2KeyName : undefined,
-    iamInstanceProfileName:
-      output.iamInstanceProfileName !== undefined && output.iamInstanceProfileName !== null
-        ? output.iamInstanceProfileName
-        : undefined,
-    instanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
-    logicalId: output.logicalId !== undefined && output.logicalId !== null ? output.logicalId : undefined,
-    securityGroup:
-      output.securityGroup !== undefined && output.securityGroup !== null ? output.securityGroup : undefined,
+    configureScriptType: __expectString(output.configureScriptType),
+    ec2KeyName: __expectString(output.ec2KeyName),
+    iamInstanceProfileName: __expectString(output.iamInstanceProfileName),
+    instanceType: __expectString(output.instanceType),
+    logicalId: __expectString(output.logicalId),
+    securityGroup: __expectString(output.securityGroup),
     server:
       output.server !== undefined && output.server !== null
         ? deserializeAws_json1_1Server(output.server, context)
         : undefined,
-    subnet: output.subnet !== undefined && output.subnet !== null ? output.subnet : undefined,
+    subnet: __expectString(output.subnet),
     userData:
       output.userData !== undefined && output.userData !== null
         ? deserializeAws_json1_1UserData(output.userData, context)
         : undefined,
-    vpc: output.vpc !== undefined && output.vpc !== null ? output.vpc : undefined,
+    vpc: __expectString(output.vpc),
   } as any;
 };
 
@@ -5484,15 +5434,12 @@ const deserializeAws_json1_1ServerReplicationParameters = (
   context: __SerdeContext
 ): ServerReplicationParameters => {
   return {
-    encrypted: output.encrypted !== undefined && output.encrypted !== null ? output.encrypted : undefined,
-    frequency: output.frequency !== undefined && output.frequency !== null ? output.frequency : undefined,
-    kmsKeyId: output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
-    licenseType: output.licenseType !== undefined && output.licenseType !== null ? output.licenseType : undefined,
-    numberOfRecentAmisToKeep:
-      output.numberOfRecentAmisToKeep !== undefined && output.numberOfRecentAmisToKeep !== null
-        ? output.numberOfRecentAmisToKeep
-        : undefined,
-    runOnce: output.runOnce !== undefined && output.runOnce !== null ? output.runOnce : undefined,
+    encrypted: __expectBoolean(output.encrypted),
+    frequency: __expectNumber(output.frequency),
+    kmsKeyId: __expectString(output.kmsKeyId),
+    licenseType: __expectString(output.licenseType),
+    numberOfRecentAmisToKeep: __expectNumber(output.numberOfRecentAmisToKeep),
+    runOnce: __expectBoolean(output.runOnce),
     seedTime:
       output.seedTime !== undefined && output.seedTime !== null
         ? new Date(Math.round(output.seedTime * 1000))
@@ -5505,20 +5452,17 @@ const deserializeAws_json1_1ServerValidationConfiguration = (
   context: __SerdeContext
 ): ServerValidationConfiguration => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     server:
       output.server !== undefined && output.server !== null
         ? deserializeAws_json1_1Server(output.server, context)
         : undefined,
-    serverValidationStrategy:
-      output.serverValidationStrategy !== undefined && output.serverValidationStrategy !== null
-        ? output.serverValidationStrategy
-        : undefined,
+    serverValidationStrategy: __expectString(output.serverValidationStrategy),
     userDataValidationParameters:
       output.userDataValidationParameters !== undefined && output.userDataValidationParameters !== null
         ? deserializeAws_json1_1UserDataValidationParameters(output.userDataValidationParameters, context)
         : undefined,
-    validationId: output.validationId !== undefined && output.validationId !== null ? output.validationId : undefined,
+    validationId: __expectString(output.validationId),
   } as any;
 };
 
@@ -5568,17 +5512,11 @@ const deserializeAws_json1_1SSMValidationParameters = (
   context: __SerdeContext
 ): SSMValidationParameters => {
   return {
-    command: output.command !== undefined && output.command !== null ? output.command : undefined,
-    executionTimeoutSeconds:
-      output.executionTimeoutSeconds !== undefined && output.executionTimeoutSeconds !== null
-        ? output.executionTimeoutSeconds
-        : undefined,
-    instanceId: output.instanceId !== undefined && output.instanceId !== null ? output.instanceId : undefined,
-    outputS3BucketName:
-      output.outputS3BucketName !== undefined && output.outputS3BucketName !== null
-        ? output.outputS3BucketName
-        : undefined,
-    scriptType: output.scriptType !== undefined && output.scriptType !== null ? output.scriptType : undefined,
+    command: __expectString(output.command),
+    executionTimeoutSeconds: __expectNumber(output.executionTimeoutSeconds),
+    instanceId: __expectString(output.instanceId),
+    outputS3BucketName: __expectString(output.outputS3BucketName),
+    scriptType: __expectString(output.scriptType),
     source:
       output.source !== undefined && output.source !== null
         ? deserializeAws_json1_1Source(output.source, context)
@@ -5605,8 +5543,7 @@ const deserializeAws_json1_1StartOnDemandReplicationRunResponse = (
   context: __SerdeContext
 ): StartOnDemandReplicationRunResponse => {
   return {
-    replicationRunId:
-      output.replicationRunId !== undefined && output.replicationRunId !== null ? output.replicationRunId : undefined,
+    replicationRunId: __expectString(output.replicationRunId),
   } as any;
 };
 
@@ -5619,8 +5556,8 @@ const deserializeAws_json1_1StopAppReplicationResponse = (
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -5651,7 +5588,7 @@ const deserializeAws_json1_1UnauthorizedOperationException = (
   context: __SerdeContext
 ): UnauthorizedOperationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5691,7 +5628,7 @@ const deserializeAws_json1_1UserDataValidationParameters = (
   context: __SerdeContext
 ): UserDataValidationParameters => {
   return {
-    scriptType: output.scriptType !== undefined && output.scriptType !== null ? output.scriptType : undefined,
+    scriptType: __expectString(output.scriptType),
     source:
       output.source !== undefined && output.source !== null
         ? deserializeAws_json1_1Source(output.source, context)
@@ -5709,15 +5646,14 @@ const deserializeAws_json1_1ValidationOutput = (output: any, context: __SerdeCon
       output.latestValidationTime !== undefined && output.latestValidationTime !== null
         ? new Date(Math.round(output.latestValidationTime * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     serverValidationOutput:
       output.serverValidationOutput !== undefined && output.serverValidationOutput !== null
         ? deserializeAws_json1_1ServerValidationOutput(output.serverValidationOutput, context)
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
-    validationId: output.validationId !== undefined && output.validationId !== null ? output.validationId : undefined,
+    status: __expectString(output.status),
+    statusMessage: __expectString(output.statusMessage),
+    validationId: __expectString(output.validationId),
   } as any;
 };
 
@@ -5734,12 +5670,10 @@ const deserializeAws_json1_1ValidationOutputList = (output: any, context: __Serd
 
 const deserializeAws_json1_1VmServer = (output: any, context: __SerdeContext): VmServer => {
   return {
-    vmManagerName:
-      output.vmManagerName !== undefined && output.vmManagerName !== null ? output.vmManagerName : undefined,
-    vmManagerType:
-      output.vmManagerType !== undefined && output.vmManagerType !== null ? output.vmManagerType : undefined,
-    vmName: output.vmName !== undefined && output.vmName !== null ? output.vmName : undefined,
-    vmPath: output.vmPath !== undefined && output.vmPath !== null ? output.vmPath : undefined,
+    vmManagerName: __expectString(output.vmManagerName),
+    vmManagerType: __expectString(output.vmManagerType),
+    vmName: __expectString(output.vmName),
+    vmPath: __expectString(output.vmPath),
     vmServerAddress:
       output.vmServerAddress !== undefined && output.vmServerAddress !== null
         ? deserializeAws_json1_1VmServerAddress(output.vmServerAddress, context)
@@ -5749,8 +5683,8 @@ const deserializeAws_json1_1VmServer = (output: any, context: __SerdeContext): V
 
 const deserializeAws_json1_1VmServerAddress = (output: any, context: __SerdeContext): VmServerAddress => {
   return {
-    vmId: output.vmId !== undefined && output.vmId !== null ? output.vmId : undefined,
-    vmManagerId: output.vmManagerId !== undefined && output.vmManagerId !== null ? output.vmManagerId : undefined,
+    vmId: __expectString(output.vmId),
+    vmManagerId: __expectString(output.vmManagerId),
   } as any;
 };
 

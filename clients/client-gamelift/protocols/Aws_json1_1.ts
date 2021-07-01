@@ -525,7 +525,12 @@ import {
   VpcPeeringConnectionStatus,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -11545,18 +11550,18 @@ const deserializeAws_json1_1AcceptMatchOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1Alias = (output: any, context: __SerdeContext): Alias => {
   return {
-    AliasArn: output.AliasArn !== undefined && output.AliasArn !== null ? output.AliasArn : undefined,
-    AliasId: output.AliasId !== undefined && output.AliasId !== null ? output.AliasId : undefined,
+    AliasArn: __expectString(output.AliasArn),
+    AliasId: __expectString(output.AliasId),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Description: __expectString(output.Description),
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
     RoutingStrategy:
       output.RoutingStrategy !== undefined && output.RoutingStrategy !== null
         ? deserializeAws_json1_1RoutingStrategy(output.RoutingStrategy, context)
@@ -11577,8 +11582,8 @@ const deserializeAws_json1_1AliasList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   return {
-    N: output.N !== undefined && output.N !== null ? output.N : undefined,
-    S: output.S !== undefined && output.S !== null ? output.S : undefined,
+    N: __expectNumber(output.N),
+    S: __expectString(output.S),
     SDM:
       output.SDM !== undefined && output.SDM !== null
         ? deserializeAws_json1_1StringDoubleMap(output.SDM, context)
@@ -11590,27 +11595,25 @@ const deserializeAws_json1_1AttributeValue = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1AwsCredentials = (output: any, context: __SerdeContext): AwsCredentials => {
   return {
-    AccessKeyId: output.AccessKeyId !== undefined && output.AccessKeyId !== null ? output.AccessKeyId : undefined,
-    SecretAccessKey:
-      output.SecretAccessKey !== undefined && output.SecretAccessKey !== null ? output.SecretAccessKey : undefined,
-    SessionToken: output.SessionToken !== undefined && output.SessionToken !== null ? output.SessionToken : undefined,
+    AccessKeyId: __expectString(output.AccessKeyId),
+    SecretAccessKey: __expectString(output.SecretAccessKey),
+    SessionToken: __expectString(output.SessionToken),
   } as any;
 };
 
 const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Build => {
   return {
-    BuildArn: output.BuildArn !== undefined && output.BuildArn !== null ? output.BuildArn : undefined,
-    BuildId: output.BuildId !== undefined && output.BuildId !== null ? output.BuildId : undefined,
+    BuildArn: __expectString(output.BuildArn),
+    BuildId: __expectString(output.BuildId),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    OperatingSystem:
-      output.OperatingSystem !== undefined && output.OperatingSystem !== null ? output.OperatingSystem : undefined,
-    SizeOnDisk: output.SizeOnDisk !== undefined && output.SizeOnDisk !== null ? output.SizeOnDisk : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    Name: __expectString(output.Name),
+    OperatingSystem: __expectString(output.OperatingSystem),
+    SizeOnDisk: __expectNumber(output.SizeOnDisk),
+    Status: __expectString(output.Status),
+    Version: __expectString(output.Version),
   } as any;
 };
 
@@ -11630,8 +11633,7 @@ const deserializeAws_json1_1CertificateConfiguration = (
   context: __SerdeContext
 ): CertificateConfiguration => {
   return {
-    CertificateType:
-      output.CertificateType !== undefined && output.CertificateType !== null ? output.CertificateType : undefined,
+    CertificateType: __expectString(output.CertificateType),
   } as any;
 };
 
@@ -11646,7 +11648,7 @@ const deserializeAws_json1_1ClaimGameServerOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -11681,8 +11683,8 @@ const deserializeAws_json1_1CreateFleetLocationsOutput = (
   context: __SerdeContext
 ): CreateFleetLocationsOutput => {
   return {
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
     LocationStates:
       output.LocationStates !== undefined && output.LocationStates !== null
         ? deserializeAws_json1_1LocationStateList(output.LocationStates, context)
@@ -11820,8 +11822,8 @@ const deserializeAws_json1_1DeleteFleetLocationsOutput = (
   context: __SerdeContext
 ): DeleteFleetLocationsOutput => {
   return {
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
     LocationStates:
       output.LocationStates !== undefined && output.LocationStates !== null
         ? deserializeAws_json1_1LocationStateList(output.LocationStates, context)
@@ -11915,7 +11917,7 @@ const deserializeAws_json1_1DescribeFleetAttributesOutput = (
       output.FleetAttributes !== undefined && output.FleetAttributes !== null
         ? deserializeAws_json1_1FleetAttributesList(output.FleetAttributes, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -11928,7 +11930,7 @@ const deserializeAws_json1_1DescribeFleetCapacityOutput = (
       output.FleetCapacity !== undefined && output.FleetCapacity !== null
         ? deserializeAws_json1_1FleetCapacityList(output.FleetCapacity, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -11941,7 +11943,7 @@ const deserializeAws_json1_1DescribeFleetEventsOutput = (
       output.Events !== undefined && output.Events !== null
         ? deserializeAws_json1_1EventList(output.Events, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -11950,13 +11952,13 @@ const deserializeAws_json1_1DescribeFleetLocationAttributesOutput = (
   context: __SerdeContext
 ): DescribeFleetLocationAttributesOutput => {
   return {
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
     LocationAttributes:
       output.LocationAttributes !== undefined && output.LocationAttributes !== null
         ? deserializeAws_json1_1LocationAttributesList(output.LocationAttributes, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -11989,14 +11991,14 @@ const deserializeAws_json1_1DescribeFleetPortSettingsOutput = (
   context: __SerdeContext
 ): DescribeFleetPortSettingsOutput => {
   return {
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
     InboundPermissions:
       output.InboundPermissions !== undefined && output.InboundPermissions !== null
         ? deserializeAws_json1_1IpPermissionsList(output.InboundPermissions, context)
         : undefined,
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
-    UpdateStatus: output.UpdateStatus !== undefined && output.UpdateStatus !== null ? output.UpdateStatus : undefined,
+    Location: __expectString(output.Location),
+    UpdateStatus: __expectString(output.UpdateStatus),
   } as any;
 };
 
@@ -12009,7 +12011,7 @@ const deserializeAws_json1_1DescribeFleetUtilizationOutput = (
       output.FleetUtilization !== undefined && output.FleetUtilization !== null
         ? deserializeAws_json1_1FleetUtilizationList(output.FleetUtilization, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -12034,7 +12036,7 @@ const deserializeAws_json1_1DescribeGameServerInstancesOutput = (
       output.GameServerInstances !== undefined && output.GameServerInstances !== null
         ? deserializeAws_json1_1GameServerInstances(output.GameServerInstances, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -12059,7 +12061,7 @@ const deserializeAws_json1_1DescribeGameSessionDetailsOutput = (
       output.GameSessionDetails !== undefined && output.GameSessionDetails !== null
         ? deserializeAws_json1_1GameSessionDetailList(output.GameSessionDetails, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -12084,7 +12086,7 @@ const deserializeAws_json1_1DescribeGameSessionQueuesOutput = (
       output.GameSessionQueues !== undefined && output.GameSessionQueues !== null
         ? deserializeAws_json1_1GameSessionQueueList(output.GameSessionQueues, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -12097,7 +12099,7 @@ const deserializeAws_json1_1DescribeGameSessionsOutput = (
       output.GameSessions !== undefined && output.GameSessions !== null
         ? deserializeAws_json1_1GameSessionList(output.GameSessions, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -12110,7 +12112,7 @@ const deserializeAws_json1_1DescribeInstancesOutput = (
       output.Instances !== undefined && output.Instances !== null
         ? deserializeAws_json1_1InstanceList(output.Instances, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -12123,7 +12125,7 @@ const deserializeAws_json1_1DescribeMatchmakingConfigurationsOutput = (
       output.Configurations !== undefined && output.Configurations !== null
         ? deserializeAws_json1_1MatchmakingConfigurationList(output.Configurations, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -12144,7 +12146,7 @@ const deserializeAws_json1_1DescribeMatchmakingRuleSetsOutput = (
   context: __SerdeContext
 ): DescribeMatchmakingRuleSetsOutput => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     RuleSets:
       output.RuleSets !== undefined && output.RuleSets !== null
         ? deserializeAws_json1_1MatchmakingRuleSetList(output.RuleSets, context)
@@ -12157,7 +12159,7 @@ const deserializeAws_json1_1DescribePlayerSessionsOutput = (
   context: __SerdeContext
 ): DescribePlayerSessionsOutput => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     PlayerSessions:
       output.PlayerSessions !== undefined && output.PlayerSessions !== null
         ? deserializeAws_json1_1PlayerSessionList(output.PlayerSessions, context)
@@ -12182,7 +12184,7 @@ const deserializeAws_json1_1DescribeScalingPoliciesOutput = (
   context: __SerdeContext
 ): DescribeScalingPoliciesOutput => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     ScalingPolicies:
       output.ScalingPolicies !== undefined && output.ScalingPolicies !== null
         ? deserializeAws_json1_1ScalingPolicyList(output.ScalingPolicies, context)
@@ -12225,25 +12227,22 @@ const deserializeAws_json1_1DescribeVpcPeeringConnectionsOutput = (
 
 const deserializeAws_json1_1EC2InstanceCounts = (output: any, context: __SerdeContext): EC2InstanceCounts => {
   return {
-    ACTIVE: output.ACTIVE !== undefined && output.ACTIVE !== null ? output.ACTIVE : undefined,
-    DESIRED: output.DESIRED !== undefined && output.DESIRED !== null ? output.DESIRED : undefined,
-    IDLE: output.IDLE !== undefined && output.IDLE !== null ? output.IDLE : undefined,
-    MAXIMUM: output.MAXIMUM !== undefined && output.MAXIMUM !== null ? output.MAXIMUM : undefined,
-    MINIMUM: output.MINIMUM !== undefined && output.MINIMUM !== null ? output.MINIMUM : undefined,
-    PENDING: output.PENDING !== undefined && output.PENDING !== null ? output.PENDING : undefined,
-    TERMINATING: output.TERMINATING !== undefined && output.TERMINATING !== null ? output.TERMINATING : undefined,
+    ACTIVE: __expectNumber(output.ACTIVE),
+    DESIRED: __expectNumber(output.DESIRED),
+    IDLE: __expectNumber(output.IDLE),
+    MAXIMUM: __expectNumber(output.MAXIMUM),
+    MINIMUM: __expectNumber(output.MINIMUM),
+    PENDING: __expectNumber(output.PENDING),
+    TERMINATING: __expectNumber(output.TERMINATING),
   } as any;
 };
 
 const deserializeAws_json1_1EC2InstanceLimit = (output: any, context: __SerdeContext): EC2InstanceLimit => {
   return {
-    CurrentInstances:
-      output.CurrentInstances !== undefined && output.CurrentInstances !== null ? output.CurrentInstances : undefined,
-    EC2InstanceType:
-      output.EC2InstanceType !== undefined && output.EC2InstanceType !== null ? output.EC2InstanceType : undefined,
-    InstanceLimit:
-      output.InstanceLimit !== undefined && output.InstanceLimit !== null ? output.InstanceLimit : undefined,
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
+    CurrentInstances: __expectNumber(output.CurrentInstances),
+    EC2InstanceType: __expectString(output.EC2InstanceType),
+    InstanceLimit: __expectNumber(output.InstanceLimit),
+    Location: __expectString(output.Location),
   } as any;
 };
 
@@ -12260,16 +12259,15 @@ const deserializeAws_json1_1EC2InstanceLimitList = (output: any, context: __Serd
 
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
   return {
-    EventCode: output.EventCode !== undefined && output.EventCode !== null ? output.EventCode : undefined,
-    EventId: output.EventId !== undefined && output.EventId !== null ? output.EventId : undefined,
+    EventCode: __expectString(output.EventCode),
+    EventId: __expectString(output.EventId),
     EventTime:
       output.EventTime !== undefined && output.EventTime !== null
         ? new Date(Math.round(output.EventTime * 1000))
         : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    PreSignedLogUrl:
-      output.PreSignedLogUrl !== undefined && output.PreSignedLogUrl !== null ? output.PreSignedLogUrl : undefined,
-    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    Message: __expectString(output.Message),
+    PreSignedLogUrl: __expectString(output.PreSignedLogUrl),
+    ResourceId: __expectString(output.ResourceId),
   } as any;
 };
 
@@ -12300,14 +12298,14 @@ const deserializeAws_json1_1FleetActionList = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1FleetAttributes = (output: any, context: __SerdeContext): FleetAttributes => {
   return {
-    BuildArn: output.BuildArn !== undefined && output.BuildArn !== null ? output.BuildArn : undefined,
-    BuildId: output.BuildId !== undefined && output.BuildId !== null ? output.BuildId : undefined,
+    BuildArn: __expectString(output.BuildArn),
+    BuildId: __expectString(output.BuildId),
     CertificateConfiguration:
       output.CertificateConfiguration !== undefined && output.CertificateConfiguration !== null
         ? deserializeAws_json1_1CertificateConfiguration(output.CertificateConfiguration, context)
@@ -12316,13 +12314,12 @@ const deserializeAws_json1_1FleetAttributes = (output: any, context: __SerdeCont
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
-    FleetType: output.FleetType !== undefined && output.FleetType !== null ? output.FleetType : undefined,
-    InstanceRoleArn:
-      output.InstanceRoleArn !== undefined && output.InstanceRoleArn !== null ? output.InstanceRoleArn : undefined,
-    InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
+    Description: __expectString(output.Description),
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
+    FleetType: __expectString(output.FleetType),
+    InstanceRoleArn: __expectString(output.InstanceRoleArn),
+    InstanceType: __expectString(output.InstanceType),
     LogPaths:
       output.LogPaths !== undefined && output.LogPaths !== null
         ? deserializeAws_json1_1StringList(output.LogPaths, context)
@@ -12331,26 +12328,18 @@ const deserializeAws_json1_1FleetAttributes = (output: any, context: __SerdeCont
       output.MetricGroups !== undefined && output.MetricGroups !== null
         ? deserializeAws_json1_1MetricGroupList(output.MetricGroups, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    NewGameSessionProtectionPolicy:
-      output.NewGameSessionProtectionPolicy !== undefined && output.NewGameSessionProtectionPolicy !== null
-        ? output.NewGameSessionProtectionPolicy
-        : undefined,
-    OperatingSystem:
-      output.OperatingSystem !== undefined && output.OperatingSystem !== null ? output.OperatingSystem : undefined,
+    Name: __expectString(output.Name),
+    NewGameSessionProtectionPolicy: __expectString(output.NewGameSessionProtectionPolicy),
+    OperatingSystem: __expectString(output.OperatingSystem),
     ResourceCreationLimitPolicy:
       output.ResourceCreationLimitPolicy !== undefined && output.ResourceCreationLimitPolicy !== null
         ? deserializeAws_json1_1ResourceCreationLimitPolicy(output.ResourceCreationLimitPolicy, context)
         : undefined,
-    ScriptArn: output.ScriptArn !== undefined && output.ScriptArn !== null ? output.ScriptArn : undefined,
-    ScriptId: output.ScriptId !== undefined && output.ScriptId !== null ? output.ScriptId : undefined,
-    ServerLaunchParameters:
-      output.ServerLaunchParameters !== undefined && output.ServerLaunchParameters !== null
-        ? output.ServerLaunchParameters
-        : undefined,
-    ServerLaunchPath:
-      output.ServerLaunchPath !== undefined && output.ServerLaunchPath !== null ? output.ServerLaunchPath : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    ScriptArn: __expectString(output.ScriptArn),
+    ScriptId: __expectString(output.ScriptId),
+    ServerLaunchParameters: __expectString(output.ServerLaunchParameters),
+    ServerLaunchPath: __expectString(output.ServerLaunchPath),
+    Status: __expectString(output.Status),
     StoppedActions:
       output.StoppedActions !== undefined && output.StoppedActions !== null
         ? deserializeAws_json1_1FleetActionList(output.StoppedActions, context)
@@ -12375,14 +12364,14 @@ const deserializeAws_json1_1FleetAttributesList = (output: any, context: __Serde
 
 const deserializeAws_json1_1FleetCapacity = (output: any, context: __SerdeContext): FleetCapacity => {
   return {
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
     InstanceCounts:
       output.InstanceCounts !== undefined && output.InstanceCounts !== null
         ? deserializeAws_json1_1EC2InstanceCounts(output.InstanceCounts, context)
         : undefined,
-    InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
+    InstanceType: __expectString(output.InstanceType),
+    Location: __expectString(output.Location),
   } as any;
 };
 
@@ -12391,7 +12380,7 @@ const deserializeAws_json1_1FleetCapacityExceededException = (
   context: __SerdeContext
 ): FleetCapacityExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -12413,31 +12402,19 @@ const deserializeAws_json1_1FleetIdList = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1FleetUtilization = (output: any, context: __SerdeContext): FleetUtilization => {
   return {
-    ActiveGameSessionCount:
-      output.ActiveGameSessionCount !== undefined && output.ActiveGameSessionCount !== null
-        ? output.ActiveGameSessionCount
-        : undefined,
-    ActiveServerProcessCount:
-      output.ActiveServerProcessCount !== undefined && output.ActiveServerProcessCount !== null
-        ? output.ActiveServerProcessCount
-        : undefined,
-    CurrentPlayerSessionCount:
-      output.CurrentPlayerSessionCount !== undefined && output.CurrentPlayerSessionCount !== null
-        ? output.CurrentPlayerSessionCount
-        : undefined,
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
-    MaximumPlayerSessionCount:
-      output.MaximumPlayerSessionCount !== undefined && output.MaximumPlayerSessionCount !== null
-        ? output.MaximumPlayerSessionCount
-        : undefined,
+    ActiveGameSessionCount: __expectNumber(output.ActiveGameSessionCount),
+    ActiveServerProcessCount: __expectNumber(output.ActiveServerProcessCount),
+    CurrentPlayerSessionCount: __expectNumber(output.CurrentPlayerSessionCount),
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
+    Location: __expectString(output.Location),
+    MaximumPlayerSessionCount: __expectNumber(output.MaximumPlayerSessionCount),
   } as any;
 };
 
@@ -12454,8 +12431,8 @@ const deserializeAws_json1_1FleetUtilizationList = (output: any, context: __Serd
 
 const deserializeAws_json1_1GameProperty = (output: any, context: __SerdeContext): GameProperty => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -12472,21 +12449,13 @@ const deserializeAws_json1_1GamePropertyList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1GameServer = (output: any, context: __SerdeContext): GameServer => {
   return {
-    ClaimStatus: output.ClaimStatus !== undefined && output.ClaimStatus !== null ? output.ClaimStatus : undefined,
-    ConnectionInfo:
-      output.ConnectionInfo !== undefined && output.ConnectionInfo !== null ? output.ConnectionInfo : undefined,
-    GameServerData:
-      output.GameServerData !== undefined && output.GameServerData !== null ? output.GameServerData : undefined,
-    GameServerGroupArn:
-      output.GameServerGroupArn !== undefined && output.GameServerGroupArn !== null
-        ? output.GameServerGroupArn
-        : undefined,
-    GameServerGroupName:
-      output.GameServerGroupName !== undefined && output.GameServerGroupName !== null
-        ? output.GameServerGroupName
-        : undefined,
-    GameServerId: output.GameServerId !== undefined && output.GameServerId !== null ? output.GameServerId : undefined,
-    InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
+    ClaimStatus: __expectString(output.ClaimStatus),
+    ConnectionInfo: __expectString(output.ConnectionInfo),
+    GameServerData: __expectString(output.GameServerData),
+    GameServerGroupArn: __expectString(output.GameServerGroupArn),
+    GameServerGroupName: __expectString(output.GameServerGroupName),
+    GameServerId: __expectString(output.GameServerId),
+    InstanceId: __expectString(output.InstanceId),
     LastClaimTime:
       output.LastClaimTime !== undefined && output.LastClaimTime !== null
         ? new Date(Math.round(output.LastClaimTime * 1000))
@@ -12499,39 +12468,21 @@ const deserializeAws_json1_1GameServer = (output: any, context: __SerdeContext):
       output.RegistrationTime !== undefined && output.RegistrationTime !== null
         ? new Date(Math.round(output.RegistrationTime * 1000))
         : undefined,
-    UtilizationStatus:
-      output.UtilizationStatus !== undefined && output.UtilizationStatus !== null
-        ? output.UtilizationStatus
-        : undefined,
+    UtilizationStatus: __expectString(output.UtilizationStatus),
   } as any;
 };
 
 const deserializeAws_json1_1GameServerGroup = (output: any, context: __SerdeContext): GameServerGroup => {
   return {
-    AutoScalingGroupArn:
-      output.AutoScalingGroupArn !== undefined && output.AutoScalingGroupArn !== null
-        ? output.AutoScalingGroupArn
-        : undefined,
-    BalancingStrategy:
-      output.BalancingStrategy !== undefined && output.BalancingStrategy !== null
-        ? output.BalancingStrategy
-        : undefined,
+    AutoScalingGroupArn: __expectString(output.AutoScalingGroupArn),
+    BalancingStrategy: __expectString(output.BalancingStrategy),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    GameServerGroupArn:
-      output.GameServerGroupArn !== undefined && output.GameServerGroupArn !== null
-        ? output.GameServerGroupArn
-        : undefined,
-    GameServerGroupName:
-      output.GameServerGroupName !== undefined && output.GameServerGroupName !== null
-        ? output.GameServerGroupName
-        : undefined,
-    GameServerProtectionPolicy:
-      output.GameServerProtectionPolicy !== undefined && output.GameServerProtectionPolicy !== null
-        ? output.GameServerProtectionPolicy
-        : undefined,
+    GameServerGroupArn: __expectString(output.GameServerGroupArn),
+    GameServerGroupName: __expectString(output.GameServerGroupName),
+    GameServerProtectionPolicy: __expectString(output.GameServerProtectionPolicy),
     InstanceDefinitions:
       output.InstanceDefinitions !== undefined && output.InstanceDefinitions !== null
         ? deserializeAws_json1_1InstanceDefinitions(output.InstanceDefinitions, context)
@@ -12540,9 +12491,9 @@ const deserializeAws_json1_1GameServerGroup = (output: any, context: __SerdeCont
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
-    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    StatusReason: output.StatusReason !== undefined && output.StatusReason !== null ? output.StatusReason : undefined,
+    RoleArn: __expectString(output.RoleArn),
+    Status: __expectString(output.Status),
+    StatusReason: __expectString(output.StatusReason),
     SuspendedActions:
       output.SuspendedActions !== undefined && output.SuspendedActions !== null
         ? deserializeAws_json1_1GameServerGroupActions(output.SuspendedActions, context)
@@ -12560,7 +12511,7 @@ const deserializeAws_json1_1GameServerGroupActions = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -12577,17 +12528,10 @@ const deserializeAws_json1_1GameServerGroups = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1GameServerInstance = (output: any, context: __SerdeContext): GameServerInstance => {
   return {
-    GameServerGroupArn:
-      output.GameServerGroupArn !== undefined && output.GameServerGroupArn !== null
-        ? output.GameServerGroupArn
-        : undefined,
-    GameServerGroupName:
-      output.GameServerGroupName !== undefined && output.GameServerGroupName !== null
-        ? output.GameServerGroupName
-        : undefined,
-    InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
-    InstanceStatus:
-      output.InstanceStatus !== undefined && output.InstanceStatus !== null ? output.InstanceStatus : undefined,
+    GameServerGroupArn: __expectString(output.GameServerGroupArn),
+    GameServerGroupName: __expectString(output.GameServerGroupName),
+    InstanceId: __expectString(output.InstanceId),
+    InstanceStatus: __expectString(output.InstanceStatus),
   } as any;
 };
 
@@ -12619,38 +12563,26 @@ const deserializeAws_json1_1GameSession = (output: any, context: __SerdeContext)
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    CreatorId: output.CreatorId !== undefined && output.CreatorId !== null ? output.CreatorId : undefined,
-    CurrentPlayerSessionCount:
-      output.CurrentPlayerSessionCount !== undefined && output.CurrentPlayerSessionCount !== null
-        ? output.CurrentPlayerSessionCount
-        : undefined,
-    DnsName: output.DnsName !== undefined && output.DnsName !== null ? output.DnsName : undefined,
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    CreatorId: __expectString(output.CreatorId),
+    CurrentPlayerSessionCount: __expectNumber(output.CurrentPlayerSessionCount),
+    DnsName: __expectString(output.DnsName),
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
     GameProperties:
       output.GameProperties !== undefined && output.GameProperties !== null
         ? deserializeAws_json1_1GamePropertyList(output.GameProperties, context)
         : undefined,
-    GameSessionData:
-      output.GameSessionData !== undefined && output.GameSessionData !== null ? output.GameSessionData : undefined,
-    GameSessionId:
-      output.GameSessionId !== undefined && output.GameSessionId !== null ? output.GameSessionId : undefined,
-    IpAddress: output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
-    MatchmakerData:
-      output.MatchmakerData !== undefined && output.MatchmakerData !== null ? output.MatchmakerData : undefined,
-    MaximumPlayerSessionCount:
-      output.MaximumPlayerSessionCount !== undefined && output.MaximumPlayerSessionCount !== null
-        ? output.MaximumPlayerSessionCount
-        : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    PlayerSessionCreationPolicy:
-      output.PlayerSessionCreationPolicy !== undefined && output.PlayerSessionCreationPolicy !== null
-        ? output.PlayerSessionCreationPolicy
-        : undefined,
-    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    StatusReason: output.StatusReason !== undefined && output.StatusReason !== null ? output.StatusReason : undefined,
+    GameSessionData: __expectString(output.GameSessionData),
+    GameSessionId: __expectString(output.GameSessionId),
+    IpAddress: __expectString(output.IpAddress),
+    Location: __expectString(output.Location),
+    MatchmakerData: __expectString(output.MatchmakerData),
+    MaximumPlayerSessionCount: __expectNumber(output.MaximumPlayerSessionCount),
+    Name: __expectString(output.Name),
+    PlayerSessionCreationPolicy: __expectString(output.PlayerSessionCreationPolicy),
+    Port: __expectNumber(output.Port),
+    Status: __expectString(output.Status),
+    StatusReason: __expectString(output.StatusReason),
     TerminationTime:
       output.TerminationTime !== undefined && output.TerminationTime !== null
         ? new Date(Math.round(output.TerminationTime * 1000))
@@ -12663,15 +12595,14 @@ const deserializeAws_json1_1GameSessionConnectionInfo = (
   context: __SerdeContext
 ): GameSessionConnectionInfo => {
   return {
-    DnsName: output.DnsName !== undefined && output.DnsName !== null ? output.DnsName : undefined,
-    GameSessionArn:
-      output.GameSessionArn !== undefined && output.GameSessionArn !== null ? output.GameSessionArn : undefined,
-    IpAddress: output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
+    DnsName: __expectString(output.DnsName),
+    GameSessionArn: __expectString(output.GameSessionArn),
+    IpAddress: __expectString(output.IpAddress),
     MatchedPlayerSessions:
       output.MatchedPlayerSessions !== undefined && output.MatchedPlayerSessions !== null
         ? deserializeAws_json1_1MatchedPlayerSessionList(output.MatchedPlayerSessions, context)
         : undefined,
-    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    Port: __expectNumber(output.Port),
   } as any;
 };
 
@@ -12681,8 +12612,7 @@ const deserializeAws_json1_1GameSessionDetail = (output: any, context: __SerdeCo
       output.GameSession !== undefined && output.GameSession !== null
         ? deserializeAws_json1_1GameSession(output.GameSession, context)
         : undefined,
-    ProtectionPolicy:
-      output.ProtectionPolicy !== undefined && output.ProtectionPolicy !== null ? output.ProtectionPolicy : undefined,
+    ProtectionPolicy: __expectString(output.ProtectionPolicy),
   } as any;
 };
 
@@ -12702,7 +12632,7 @@ const deserializeAws_json1_1GameSessionFullException = (
   context: __SerdeContext
 ): GameSessionFullException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -12719,58 +12649,43 @@ const deserializeAws_json1_1GameSessionList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1GameSessionPlacement = (output: any, context: __SerdeContext): GameSessionPlacement => {
   return {
-    DnsName: output.DnsName !== undefined && output.DnsName !== null ? output.DnsName : undefined,
+    DnsName: __expectString(output.DnsName),
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
     GameProperties:
       output.GameProperties !== undefined && output.GameProperties !== null
         ? deserializeAws_json1_1GamePropertyList(output.GameProperties, context)
         : undefined,
-    GameSessionArn:
-      output.GameSessionArn !== undefined && output.GameSessionArn !== null ? output.GameSessionArn : undefined,
-    GameSessionData:
-      output.GameSessionData !== undefined && output.GameSessionData !== null ? output.GameSessionData : undefined,
-    GameSessionId:
-      output.GameSessionId !== undefined && output.GameSessionId !== null ? output.GameSessionId : undefined,
-    GameSessionName:
-      output.GameSessionName !== undefined && output.GameSessionName !== null ? output.GameSessionName : undefined,
-    GameSessionQueueName:
-      output.GameSessionQueueName !== undefined && output.GameSessionQueueName !== null
-        ? output.GameSessionQueueName
-        : undefined,
-    GameSessionRegion:
-      output.GameSessionRegion !== undefined && output.GameSessionRegion !== null
-        ? output.GameSessionRegion
-        : undefined,
-    IpAddress: output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
-    MatchmakerData:
-      output.MatchmakerData !== undefined && output.MatchmakerData !== null ? output.MatchmakerData : undefined,
-    MaximumPlayerSessionCount:
-      output.MaximumPlayerSessionCount !== undefined && output.MaximumPlayerSessionCount !== null
-        ? output.MaximumPlayerSessionCount
-        : undefined,
+    GameSessionArn: __expectString(output.GameSessionArn),
+    GameSessionData: __expectString(output.GameSessionData),
+    GameSessionId: __expectString(output.GameSessionId),
+    GameSessionName: __expectString(output.GameSessionName),
+    GameSessionQueueName: __expectString(output.GameSessionQueueName),
+    GameSessionRegion: __expectString(output.GameSessionRegion),
+    IpAddress: __expectString(output.IpAddress),
+    MatchmakerData: __expectString(output.MatchmakerData),
+    MaximumPlayerSessionCount: __expectNumber(output.MaximumPlayerSessionCount),
     PlacedPlayerSessions:
       output.PlacedPlayerSessions !== undefined && output.PlacedPlayerSessions !== null
         ? deserializeAws_json1_1PlacedPlayerSessionList(output.PlacedPlayerSessions, context)
         : undefined,
-    PlacementId: output.PlacementId !== undefined && output.PlacementId !== null ? output.PlacementId : undefined,
+    PlacementId: __expectString(output.PlacementId),
     PlayerLatencies:
       output.PlayerLatencies !== undefined && output.PlayerLatencies !== null
         ? deserializeAws_json1_1PlayerLatencyList(output.PlayerLatencies, context)
         : undefined,
-    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    Port: __expectNumber(output.Port),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
 const deserializeAws_json1_1GameSessionQueue = (output: any, context: __SerdeContext): GameSessionQueue => {
   return {
-    CustomEventData:
-      output.CustomEventData !== undefined && output.CustomEventData !== null ? output.CustomEventData : undefined,
+    CustomEventData: __expectString(output.CustomEventData),
     Destinations:
       output.Destinations !== undefined && output.Destinations !== null
         ? deserializeAws_json1_1GameSessionQueueDestinationList(output.Destinations, context)
@@ -12779,15 +12694,9 @@ const deserializeAws_json1_1GameSessionQueue = (output: any, context: __SerdeCon
       output.FilterConfiguration !== undefined && output.FilterConfiguration !== null
         ? deserializeAws_json1_1FilterConfiguration(output.FilterConfiguration, context)
         : undefined,
-    GameSessionQueueArn:
-      output.GameSessionQueueArn !== undefined && output.GameSessionQueueArn !== null
-        ? output.GameSessionQueueArn
-        : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    NotificationTarget:
-      output.NotificationTarget !== undefined && output.NotificationTarget !== null
-        ? output.NotificationTarget
-        : undefined,
+    GameSessionQueueArn: __expectString(output.GameSessionQueueArn),
+    Name: __expectString(output.Name),
+    NotificationTarget: __expectString(output.NotificationTarget),
     PlayerLatencyPolicies:
       output.PlayerLatencyPolicies !== undefined && output.PlayerLatencyPolicies !== null
         ? deserializeAws_json1_1PlayerLatencyPolicyList(output.PlayerLatencyPolicies, context)
@@ -12796,8 +12705,7 @@ const deserializeAws_json1_1GameSessionQueue = (output: any, context: __SerdeCon
       output.PriorityConfiguration !== undefined && output.PriorityConfiguration !== null
         ? deserializeAws_json1_1PriorityConfiguration(output.PriorityConfiguration, context)
         : undefined,
-    TimeoutInSeconds:
-      output.TimeoutInSeconds !== undefined && output.TimeoutInSeconds !== null ? output.TimeoutInSeconds : undefined,
+    TimeoutInSeconds: __expectNumber(output.TimeoutInSeconds),
   } as any;
 };
 
@@ -12806,8 +12714,7 @@ const deserializeAws_json1_1GameSessionQueueDestination = (
   context: __SerdeContext
 ): GameSessionQueueDestination => {
   return {
-    DestinationArn:
-      output.DestinationArn !== undefined && output.DestinationArn !== null ? output.DestinationArn : undefined,
+    DestinationArn: __expectString(output.DestinationArn),
   } as any;
 };
 
@@ -12841,7 +12748,7 @@ const deserializeAws_json1_1GetGameSessionLogUrlOutput = (
   context: __SerdeContext
 ): GetGameSessionLogUrlOutput => {
   return {
-    PreSignedUrl: output.PreSignedUrl !== undefined && output.PreSignedUrl !== null ? output.PreSignedUrl : undefined,
+    PreSignedUrl: __expectString(output.PreSignedUrl),
   } as any;
 };
 
@@ -12862,7 +12769,7 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
   context: __SerdeContext
 ): IdempotentParameterMismatchException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -12872,16 +12779,15 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    DnsName: output.DnsName !== undefined && output.DnsName !== null ? output.DnsName : undefined,
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
-    InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
-    IpAddress: output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
-    OperatingSystem:
-      output.OperatingSystem !== undefined && output.OperatingSystem !== null ? output.OperatingSystem : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    DnsName: __expectString(output.DnsName),
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
+    InstanceId: __expectString(output.InstanceId),
+    IpAddress: __expectString(output.IpAddress),
+    Location: __expectString(output.Location),
+    OperatingSystem: __expectString(output.OperatingSystem),
+    Status: __expectString(output.Status),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -12891,26 +12797,24 @@ const deserializeAws_json1_1InstanceAccess = (output: any, context: __SerdeConte
       output.Credentials !== undefined && output.Credentials !== null
         ? deserializeAws_json1_1InstanceCredentials(output.Credentials, context)
         : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
-    InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
-    IpAddress: output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
-    OperatingSystem:
-      output.OperatingSystem !== undefined && output.OperatingSystem !== null ? output.OperatingSystem : undefined,
+    FleetId: __expectString(output.FleetId),
+    InstanceId: __expectString(output.InstanceId),
+    IpAddress: __expectString(output.IpAddress),
+    OperatingSystem: __expectString(output.OperatingSystem),
   } as any;
 };
 
 const deserializeAws_json1_1InstanceCredentials = (output: any, context: __SerdeContext): InstanceCredentials => {
   return {
-    Secret: output.Secret !== undefined && output.Secret !== null ? output.Secret : undefined,
-    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
+    Secret: __expectString(output.Secret),
+    UserName: __expectString(output.UserName),
   } as any;
 };
 
 const deserializeAws_json1_1InstanceDefinition = (output: any, context: __SerdeContext): InstanceDefinition => {
   return {
-    InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
-    WeightedCapacity:
-      output.WeightedCapacity !== undefined && output.WeightedCapacity !== null ? output.WeightedCapacity : undefined,
+    InstanceType: __expectString(output.InstanceType),
+    WeightedCapacity: __expectString(output.WeightedCapacity),
   } as any;
 };
 
@@ -12941,7 +12845,7 @@ const deserializeAws_json1_1InternalServiceException = (
   context: __SerdeContext
 ): InternalServiceException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -12950,7 +12854,7 @@ const deserializeAws_json1_1InvalidFleetStatusException = (
   context: __SerdeContext
 ): InvalidFleetStatusException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -12959,7 +12863,7 @@ const deserializeAws_json1_1InvalidGameSessionStatusException = (
   context: __SerdeContext
 ): InvalidGameSessionStatusException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -12968,16 +12872,16 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1IpPermission = (output: any, context: __SerdeContext): IpPermission => {
   return {
-    FromPort: output.FromPort !== undefined && output.FromPort !== null ? output.FromPort : undefined,
-    IpRange: output.IpRange !== undefined && output.IpRange !== null ? output.IpRange : undefined,
-    Protocol: output.Protocol !== undefined && output.Protocol !== null ? output.Protocol : undefined,
-    ToPort: output.ToPort !== undefined && output.ToPort !== null ? output.ToPort : undefined,
+    FromPort: __expectNumber(output.FromPort),
+    IpRange: __expectString(output.IpRange),
+    Protocol: __expectString(output.Protocol),
+    ToPort: __expectNumber(output.ToPort),
   } as any;
 };
 
@@ -12999,14 +12903,14 @@ const deserializeAws_json1_1LatencyMap = (output: any, context: __SerdeContext):
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectNumber(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -13016,7 +12920,7 @@ const deserializeAws_json1_1ListAliasesOutput = (output: any, context: __SerdeCo
       output.Aliases !== undefined && output.Aliases !== null
         ? deserializeAws_json1_1AliasList(output.Aliases, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -13026,7 +12930,7 @@ const deserializeAws_json1_1ListBuildsOutput = (output: any, context: __SerdeCon
       output.Builds !== undefined && output.Builds !== null
         ? deserializeAws_json1_1BuildList(output.Builds, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -13036,7 +12940,7 @@ const deserializeAws_json1_1ListFleetsOutput = (output: any, context: __SerdeCon
       output.FleetIds !== undefined && output.FleetIds !== null
         ? deserializeAws_json1_1FleetIdList(output.FleetIds, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -13049,7 +12953,7 @@ const deserializeAws_json1_1ListGameServerGroupsOutput = (
       output.GameServerGroups !== undefined && output.GameServerGroups !== null
         ? deserializeAws_json1_1GameServerGroups(output.GameServerGroups, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -13059,13 +12963,13 @@ const deserializeAws_json1_1ListGameServersOutput = (output: any, context: __Ser
       output.GameServers !== undefined && output.GameServers !== null
         ? deserializeAws_json1_1GameServers(output.GameServers, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListScriptsOutput = (output: any, context: __SerdeContext): ListScriptsOutput => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Scripts:
       output.Scripts !== undefined && output.Scripts !== null
         ? deserializeAws_json1_1ScriptList(output.Scripts, context)
@@ -13095,7 +12999,7 @@ const deserializeAws_json1_1LocationAttributes = (output: any, context: __SerdeC
       output.StoppedActions !== undefined && output.StoppedActions !== null
         ? deserializeAws_json1_1FleetActionList(output.StoppedActions, context)
         : undefined,
-    UpdateStatus: output.UpdateStatus !== undefined && output.UpdateStatus !== null ? output.UpdateStatus : undefined,
+    UpdateStatus: __expectString(output.UpdateStatus),
   } as any;
 };
 
@@ -13117,14 +13021,14 @@ const deserializeAws_json1_1LocationList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1LocationState = (output: any, context: __SerdeContext): LocationState => {
   return {
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Location: __expectString(output.Location),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -13141,9 +13045,8 @@ const deserializeAws_json1_1LocationStateList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1MatchedPlayerSession = (output: any, context: __SerdeContext): MatchedPlayerSession => {
   return {
-    PlayerId: output.PlayerId !== undefined && output.PlayerId !== null ? output.PlayerId : undefined,
-    PlayerSessionId:
-      output.PlayerSessionId !== undefined && output.PlayerSessionId !== null ? output.PlayerSessionId : undefined,
+    PlayerId: __expectString(output.PlayerId),
+    PlayerSessionId: __expectString(output.PlayerSessionId),
   } as any;
 };
 
@@ -13166,51 +13069,32 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
   context: __SerdeContext
 ): MatchmakingConfiguration => {
   return {
-    AcceptanceRequired:
-      output.AcceptanceRequired !== undefined && output.AcceptanceRequired !== null
-        ? output.AcceptanceRequired
-        : undefined,
-    AcceptanceTimeoutSeconds:
-      output.AcceptanceTimeoutSeconds !== undefined && output.AcceptanceTimeoutSeconds !== null
-        ? output.AcceptanceTimeoutSeconds
-        : undefined,
-    AdditionalPlayerCount:
-      output.AdditionalPlayerCount !== undefined && output.AdditionalPlayerCount !== null
-        ? output.AdditionalPlayerCount
-        : undefined,
-    BackfillMode: output.BackfillMode !== undefined && output.BackfillMode !== null ? output.BackfillMode : undefined,
-    ConfigurationArn:
-      output.ConfigurationArn !== undefined && output.ConfigurationArn !== null ? output.ConfigurationArn : undefined,
+    AcceptanceRequired: __expectBoolean(output.AcceptanceRequired),
+    AcceptanceTimeoutSeconds: __expectNumber(output.AcceptanceTimeoutSeconds),
+    AdditionalPlayerCount: __expectNumber(output.AdditionalPlayerCount),
+    BackfillMode: __expectString(output.BackfillMode),
+    ConfigurationArn: __expectString(output.ConfigurationArn),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    CustomEventData:
-      output.CustomEventData !== undefined && output.CustomEventData !== null ? output.CustomEventData : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    FlexMatchMode:
-      output.FlexMatchMode !== undefined && output.FlexMatchMode !== null ? output.FlexMatchMode : undefined,
+    CustomEventData: __expectString(output.CustomEventData),
+    Description: __expectString(output.Description),
+    FlexMatchMode: __expectString(output.FlexMatchMode),
     GameProperties:
       output.GameProperties !== undefined && output.GameProperties !== null
         ? deserializeAws_json1_1GamePropertyList(output.GameProperties, context)
         : undefined,
-    GameSessionData:
-      output.GameSessionData !== undefined && output.GameSessionData !== null ? output.GameSessionData : undefined,
+    GameSessionData: __expectString(output.GameSessionData),
     GameSessionQueueArns:
       output.GameSessionQueueArns !== undefined && output.GameSessionQueueArns !== null
         ? deserializeAws_json1_1QueueArnsList(output.GameSessionQueueArns, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    NotificationTarget:
-      output.NotificationTarget !== undefined && output.NotificationTarget !== null
-        ? output.NotificationTarget
-        : undefined,
-    RequestTimeoutSeconds:
-      output.RequestTimeoutSeconds !== undefined && output.RequestTimeoutSeconds !== null
-        ? output.RequestTimeoutSeconds
-        : undefined,
-    RuleSetArn: output.RuleSetArn !== undefined && output.RuleSetArn !== null ? output.RuleSetArn : undefined,
-    RuleSetName: output.RuleSetName !== undefined && output.RuleSetName !== null ? output.RuleSetName : undefined,
+    Name: __expectString(output.Name),
+    NotificationTarget: __expectString(output.NotificationTarget),
+    RequestTimeoutSeconds: __expectNumber(output.RequestTimeoutSeconds),
+    RuleSetArn: __expectString(output.RuleSetArn),
+    RuleSetName: __expectString(output.RuleSetName),
   } as any;
 };
 
@@ -13234,9 +13118,9 @@ const deserializeAws_json1_1MatchmakingRuleSet = (output: any, context: __SerdeC
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    RuleSetArn: output.RuleSetArn !== undefined && output.RuleSetArn !== null ? output.RuleSetArn : undefined,
-    RuleSetBody: output.RuleSetBody !== undefined && output.RuleSetBody !== null ? output.RuleSetBody : undefined,
-    RuleSetName: output.RuleSetName !== undefined && output.RuleSetName !== null ? output.RuleSetName : undefined,
+    RuleSetArn: __expectString(output.RuleSetArn),
+    RuleSetBody: __expectString(output.RuleSetBody),
+    RuleSetName: __expectString(output.RuleSetName),
   } as any;
 };
 
@@ -13253,18 +13137,11 @@ const deserializeAws_json1_1MatchmakingRuleSetList = (output: any, context: __Se
 
 const deserializeAws_json1_1MatchmakingTicket = (output: any, context: __SerdeContext): MatchmakingTicket => {
   return {
-    ConfigurationArn:
-      output.ConfigurationArn !== undefined && output.ConfigurationArn !== null ? output.ConfigurationArn : undefined,
-    ConfigurationName:
-      output.ConfigurationName !== undefined && output.ConfigurationName !== null
-        ? output.ConfigurationName
-        : undefined,
+    ConfigurationArn: __expectString(output.ConfigurationArn),
+    ConfigurationName: __expectString(output.ConfigurationName),
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
-    EstimatedWaitTime:
-      output.EstimatedWaitTime !== undefined && output.EstimatedWaitTime !== null
-        ? output.EstimatedWaitTime
-        : undefined,
+    EstimatedWaitTime: __expectNumber(output.EstimatedWaitTime),
     GameSessionConnectionInfo:
       output.GameSessionConnectionInfo !== undefined && output.GameSessionConnectionInfo !== null
         ? deserializeAws_json1_1GameSessionConnectionInfo(output.GameSessionConnectionInfo, context)
@@ -13277,11 +13154,10 @@ const deserializeAws_json1_1MatchmakingTicket = (output: any, context: __SerdeCo
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    StatusMessage:
-      output.StatusMessage !== undefined && output.StatusMessage !== null ? output.StatusMessage : undefined,
-    StatusReason: output.StatusReason !== undefined && output.StatusReason !== null ? output.StatusReason : undefined,
-    TicketId: output.TicketId !== undefined && output.TicketId !== null ? output.TicketId : undefined,
+    Status: __expectString(output.Status),
+    StatusMessage: __expectString(output.StatusMessage),
+    StatusReason: __expectString(output.StatusReason),
+    TicketId: __expectString(output.TicketId),
   } as any;
 };
 
@@ -13303,27 +13179,26 @@ const deserializeAws_json1_1MetricGroupList = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1OutOfCapacityException = (output: any, context: __SerdeContext): OutOfCapacityException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1PlacedPlayerSession = (output: any, context: __SerdeContext): PlacedPlayerSession => {
   return {
-    PlayerId: output.PlayerId !== undefined && output.PlayerId !== null ? output.PlayerId : undefined,
-    PlayerSessionId:
-      output.PlayerSessionId !== undefined && output.PlayerSessionId !== null ? output.PlayerSessionId : undefined,
+    PlayerId: __expectString(output.PlayerId),
+    PlayerSessionId: __expectString(output.PlayerSessionId),
   } as any;
 };
 
@@ -13348,8 +13223,8 @@ const deserializeAws_json1_1Player = (output: any, context: __SerdeContext): Pla
       output.PlayerAttributes !== undefined && output.PlayerAttributes !== null
         ? deserializeAws_json1_1PlayerAttributeMap(output.PlayerAttributes, context)
         : undefined,
-    PlayerId: output.PlayerId !== undefined && output.PlayerId !== null ? output.PlayerId : undefined,
-    Team: output.Team !== undefined && output.Team !== null ? output.Team : undefined,
+    PlayerId: __expectString(output.PlayerId),
+    Team: __expectString(output.Team),
   } as any;
 };
 
@@ -13370,13 +13245,9 @@ const deserializeAws_json1_1PlayerAttributeMap = (
 
 const deserializeAws_json1_1PlayerLatency = (output: any, context: __SerdeContext): PlayerLatency => {
   return {
-    LatencyInMilliseconds:
-      output.LatencyInMilliseconds !== undefined && output.LatencyInMilliseconds !== null
-        ? output.LatencyInMilliseconds
-        : undefined,
-    PlayerId: output.PlayerId !== undefined && output.PlayerId !== null ? output.PlayerId : undefined,
-    RegionIdentifier:
-      output.RegionIdentifier !== undefined && output.RegionIdentifier !== null ? output.RegionIdentifier : undefined,
+    LatencyInMilliseconds: __expectNumber(output.LatencyInMilliseconds),
+    PlayerId: __expectString(output.PlayerId),
+    RegionIdentifier: __expectString(output.RegionIdentifier),
   } as any;
 };
 
@@ -13393,15 +13264,8 @@ const deserializeAws_json1_1PlayerLatencyList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1PlayerLatencyPolicy = (output: any, context: __SerdeContext): PlayerLatencyPolicy => {
   return {
-    MaximumIndividualPlayerLatencyMilliseconds:
-      output.MaximumIndividualPlayerLatencyMilliseconds !== undefined &&
-      output.MaximumIndividualPlayerLatencyMilliseconds !== null
-        ? output.MaximumIndividualPlayerLatencyMilliseconds
-        : undefined,
-    PolicyDurationSeconds:
-      output.PolicyDurationSeconds !== undefined && output.PolicyDurationSeconds !== null
-        ? output.PolicyDurationSeconds
-        : undefined,
+    MaximumIndividualPlayerLatencyMilliseconds: __expectNumber(output.MaximumIndividualPlayerLatencyMilliseconds),
+    PolicyDurationSeconds: __expectNumber(output.PolicyDurationSeconds),
   } as any;
 };
 
@@ -13433,18 +13297,16 @@ const deserializeAws_json1_1PlayerSession = (output: any, context: __SerdeContex
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    DnsName: output.DnsName !== undefined && output.DnsName !== null ? output.DnsName : undefined,
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
-    GameSessionId:
-      output.GameSessionId !== undefined && output.GameSessionId !== null ? output.GameSessionId : undefined,
-    IpAddress: output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
-    PlayerData: output.PlayerData !== undefined && output.PlayerData !== null ? output.PlayerData : undefined,
-    PlayerId: output.PlayerId !== undefined && output.PlayerId !== null ? output.PlayerId : undefined,
-    PlayerSessionId:
-      output.PlayerSessionId !== undefined && output.PlayerSessionId !== null ? output.PlayerSessionId : undefined,
-    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    DnsName: __expectString(output.DnsName),
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
+    GameSessionId: __expectString(output.GameSessionId),
+    IpAddress: __expectString(output.IpAddress),
+    PlayerData: __expectString(output.PlayerData),
+    PlayerId: __expectString(output.PlayerId),
+    PlayerSessionId: __expectString(output.PlayerSessionId),
+    Port: __expectNumber(output.Port),
+    Status: __expectString(output.Status),
     TerminationTime:
       output.TerminationTime !== undefined && output.TerminationTime !== null
         ? new Date(Math.round(output.TerminationTime * 1000))
@@ -13483,13 +13345,13 @@ const deserializeAws_json1_1PriorityTypeList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1PutScalingPolicyOutput = (output: any, context: __SerdeContext): PutScalingPolicyOutput => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -13500,7 +13362,7 @@ const deserializeAws_json1_1QueueArnsList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -13534,8 +13396,8 @@ const deserializeAws_json1_1RequestUploadCredentialsOutput = (
 
 const deserializeAws_json1_1ResolveAliasOutput = (output: any, context: __SerdeContext): ResolveAliasOutput => {
   return {
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
   } as any;
 };
 
@@ -13544,14 +13406,8 @@ const deserializeAws_json1_1ResourceCreationLimitPolicy = (
   context: __SerdeContext
 ): ResourceCreationLimitPolicy => {
   return {
-    NewGameSessionsPerCreator:
-      output.NewGameSessionsPerCreator !== undefined && output.NewGameSessionsPerCreator !== null
-        ? output.NewGameSessionsPerCreator
-        : undefined,
-    PolicyPeriodInMinutes:
-      output.PolicyPeriodInMinutes !== undefined && output.PolicyPeriodInMinutes !== null
-        ? output.PolicyPeriodInMinutes
-        : undefined,
+    NewGameSessionsPerCreator: __expectNumber(output.NewGameSessionsPerCreator),
+    PolicyPeriodInMinutes: __expectNumber(output.PolicyPeriodInMinutes),
   } as any;
 };
 
@@ -13569,22 +13425,16 @@ const deserializeAws_json1_1ResumeGameServerGroupOutput = (
 
 const deserializeAws_json1_1RoutingStrategy = (output: any, context: __SerdeContext): RoutingStrategy => {
   return {
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    FleetId: __expectString(output.FleetId),
+    Message: __expectString(output.Message),
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_json1_1RuntimeConfiguration = (output: any, context: __SerdeContext): RuntimeConfiguration => {
   return {
-    GameSessionActivationTimeoutSeconds:
-      output.GameSessionActivationTimeoutSeconds !== undefined && output.GameSessionActivationTimeoutSeconds !== null
-        ? output.GameSessionActivationTimeoutSeconds
-        : undefined,
-    MaxConcurrentGameSessionActivations:
-      output.MaxConcurrentGameSessionActivations !== undefined && output.MaxConcurrentGameSessionActivations !== null
-        ? output.MaxConcurrentGameSessionActivations
-        : undefined,
+    GameSessionActivationTimeoutSeconds: __expectNumber(output.GameSessionActivationTimeoutSeconds),
+    MaxConcurrentGameSessionActivations: __expectNumber(output.MaxConcurrentGameSessionActivations),
     ServerProcesses:
       output.ServerProcesses !== undefined && output.ServerProcesses !== null
         ? deserializeAws_json1_1ServerProcessList(output.ServerProcesses, context)
@@ -13594,45 +13444,32 @@ const deserializeAws_json1_1RuntimeConfiguration = (output: any, context: __Serd
 
 const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
-    Bucket: output.Bucket !== undefined && output.Bucket !== null ? output.Bucket : undefined,
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    ObjectVersion:
-      output.ObjectVersion !== undefined && output.ObjectVersion !== null ? output.ObjectVersion : undefined,
-    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
+    Bucket: __expectString(output.Bucket),
+    Key: __expectString(output.Key),
+    ObjectVersion: __expectString(output.ObjectVersion),
+    RoleArn: __expectString(output.RoleArn),
   } as any;
 };
 
 const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
   return {
-    ComparisonOperator:
-      output.ComparisonOperator !== undefined && output.ComparisonOperator !== null
-        ? output.ComparisonOperator
-        : undefined,
-    EvaluationPeriods:
-      output.EvaluationPeriods !== undefined && output.EvaluationPeriods !== null
-        ? output.EvaluationPeriods
-        : undefined,
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
-    MetricName: output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    PolicyType: output.PolicyType !== undefined && output.PolicyType !== null ? output.PolicyType : undefined,
-    ScalingAdjustment:
-      output.ScalingAdjustment !== undefined && output.ScalingAdjustment !== null
-        ? output.ScalingAdjustment
-        : undefined,
-    ScalingAdjustmentType:
-      output.ScalingAdjustmentType !== undefined && output.ScalingAdjustmentType !== null
-        ? output.ScalingAdjustmentType
-        : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    ComparisonOperator: __expectString(output.ComparisonOperator),
+    EvaluationPeriods: __expectNumber(output.EvaluationPeriods),
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
+    Location: __expectString(output.Location),
+    MetricName: __expectString(output.MetricName),
+    Name: __expectString(output.Name),
+    PolicyType: __expectString(output.PolicyType),
+    ScalingAdjustment: __expectNumber(output.ScalingAdjustment),
+    ScalingAdjustmentType: __expectString(output.ScalingAdjustmentType),
+    Status: __expectString(output.Status),
     TargetConfiguration:
       output.TargetConfiguration !== undefined && output.TargetConfiguration !== null
         ? deserializeAws_json1_1TargetConfiguration(output.TargetConfiguration, context)
         : undefined,
-    Threshold: output.Threshold !== undefined && output.Threshold !== null ? output.Threshold : undefined,
-    UpdateStatus: output.UpdateStatus !== undefined && output.UpdateStatus !== null ? output.UpdateStatus : undefined,
+    Threshold: __expectNumber(output.Threshold),
+    UpdateStatus: __expectString(output.UpdateStatus),
   } as any;
 };
 
@@ -13653,15 +13490,15 @@ const deserializeAws_json1_1Script = (output: any, context: __SerdeContext): Scr
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    ScriptArn: output.ScriptArn !== undefined && output.ScriptArn !== null ? output.ScriptArn : undefined,
-    ScriptId: output.ScriptId !== undefined && output.ScriptId !== null ? output.ScriptId : undefined,
-    SizeOnDisk: output.SizeOnDisk !== undefined && output.SizeOnDisk !== null ? output.SizeOnDisk : undefined,
+    Name: __expectString(output.Name),
+    ScriptArn: __expectString(output.ScriptArn),
+    ScriptId: __expectString(output.ScriptId),
+    SizeOnDisk: __expectNumber(output.SizeOnDisk),
     StorageLocation:
       output.StorageLocation !== undefined && output.StorageLocation !== null
         ? deserializeAws_json1_1S3Location(output.StorageLocation, context)
         : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    Version: __expectString(output.Version),
   } as any;
 };
 
@@ -13685,18 +13522,15 @@ const deserializeAws_json1_1SearchGameSessionsOutput = (
       output.GameSessions !== undefined && output.GameSessions !== null
         ? deserializeAws_json1_1GameSessionList(output.GameSessions, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ServerProcess = (output: any, context: __SerdeContext): ServerProcess => {
   return {
-    ConcurrentExecutions:
-      output.ConcurrentExecutions !== undefined && output.ConcurrentExecutions !== null
-        ? output.ConcurrentExecutions
-        : undefined,
-    LaunchPath: output.LaunchPath !== undefined && output.LaunchPath !== null ? output.LaunchPath : undefined,
-    Parameters: output.Parameters !== undefined && output.Parameters !== null ? output.Parameters : undefined,
+    ConcurrentExecutions: __expectNumber(output.ConcurrentExecutions),
+    LaunchPath: __expectString(output.LaunchPath),
+    Parameters: __expectString(output.Parameters),
   } as any;
 };
 
@@ -13716,8 +13550,8 @@ const deserializeAws_json1_1StartFleetActionsOutput = (
   context: __SerdeContext
 ): StartFleetActionsOutput => {
   return {
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
   } as any;
 };
 
@@ -13756,8 +13590,8 @@ const deserializeAws_json1_1StartMatchmakingOutput = (output: any, context: __Se
 
 const deserializeAws_json1_1StopFleetActionsOutput = (output: any, context: __SerdeContext): StopFleetActionsOutput => {
   return {
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
   } as any;
 };
 
@@ -13784,7 +13618,7 @@ const deserializeAws_json1_1StringDoubleMap = (output: any, context: __SerdeCont
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectNumber(value) as any,
     };
   }, {});
 };
@@ -13796,7 +13630,7 @@ const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -13814,14 +13648,14 @@ const deserializeAws_json1_1SuspendGameServerGroupOutput = (
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
 const deserializeAws_json1_1TaggingFailedException = (output: any, context: __SerdeContext): TaggingFailedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -13842,7 +13676,7 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1TargetConfiguration = (output: any, context: __SerdeContext): TargetConfiguration => {
   return {
-    TargetValue: output.TargetValue !== undefined && output.TargetValue !== null ? output.TargetValue : undefined,
+    TargetValue: __expectNumber(output.TargetValue),
   } as any;
 };
 
@@ -13851,13 +13685,13 @@ const deserializeAws_json1_1TerminalRoutingStrategyException = (
   context: __SerdeContext
 ): TerminalRoutingStrategyException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1UnauthorizedException = (output: any, context: __SerdeContext): UnauthorizedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -13866,7 +13700,7 @@ const deserializeAws_json1_1UnsupportedRegionException = (
   context: __SerdeContext
 ): UnsupportedRegionException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -13897,7 +13731,7 @@ const deserializeAws_json1_1UpdateFleetAttributesOutput = (
   context: __SerdeContext
 ): UpdateFleetAttributesOutput => {
   return {
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    FleetId: __expectString(output.FleetId),
   } as any;
 };
 
@@ -13906,9 +13740,9 @@ const deserializeAws_json1_1UpdateFleetCapacityOutput = (
   context: __SerdeContext
 ): UpdateFleetCapacityOutput => {
   return {
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
+    Location: __expectString(output.Location),
   } as any;
 };
 
@@ -13917,7 +13751,7 @@ const deserializeAws_json1_1UpdateFleetPortSettingsOutput = (
   context: __SerdeContext
 ): UpdateFleetPortSettingsOutput => {
   return {
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    FleetId: __expectString(output.FleetId),
   } as any;
 };
 
@@ -14004,7 +13838,7 @@ const deserializeAws_json1_1ValidateMatchmakingRuleSetOutput = (
   context: __SerdeContext
 ): ValidateMatchmakingRuleSetOutput => {
   return {
-    Valid: output.Valid !== undefined && output.Valid !== null ? output.Valid : undefined,
+    Valid: __expectBoolean(output.Valid),
   } as any;
 };
 
@@ -14021,15 +13855,9 @@ const deserializeAws_json1_1VpcPeeringAuthorization = (
       output.ExpirationTime !== undefined && output.ExpirationTime !== null
         ? new Date(Math.round(output.ExpirationTime * 1000))
         : undefined,
-    GameLiftAwsAccountId:
-      output.GameLiftAwsAccountId !== undefined && output.GameLiftAwsAccountId !== null
-        ? output.GameLiftAwsAccountId
-        : undefined,
-    PeerVpcAwsAccountId:
-      output.PeerVpcAwsAccountId !== undefined && output.PeerVpcAwsAccountId !== null
-        ? output.PeerVpcAwsAccountId
-        : undefined,
-    PeerVpcId: output.PeerVpcId !== undefined && output.PeerVpcId !== null ? output.PeerVpcId : undefined,
+    GameLiftAwsAccountId: __expectString(output.GameLiftAwsAccountId),
+    PeerVpcAwsAccountId: __expectString(output.PeerVpcAwsAccountId),
+    PeerVpcId: __expectString(output.PeerVpcId),
   } as any;
 };
 
@@ -14049,21 +13877,16 @@ const deserializeAws_json1_1VpcPeeringAuthorizationList = (
 
 const deserializeAws_json1_1VpcPeeringConnection = (output: any, context: __SerdeContext): VpcPeeringConnection => {
   return {
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
-    GameLiftVpcId:
-      output.GameLiftVpcId !== undefined && output.GameLiftVpcId !== null ? output.GameLiftVpcId : undefined,
-    IpV4CidrBlock:
-      output.IpV4CidrBlock !== undefined && output.IpV4CidrBlock !== null ? output.IpV4CidrBlock : undefined,
-    PeerVpcId: output.PeerVpcId !== undefined && output.PeerVpcId !== null ? output.PeerVpcId : undefined,
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
+    GameLiftVpcId: __expectString(output.GameLiftVpcId),
+    IpV4CidrBlock: __expectString(output.IpV4CidrBlock),
+    PeerVpcId: __expectString(output.PeerVpcId),
     Status:
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_json1_1VpcPeeringConnectionStatus(output.Status, context)
         : undefined,
-    VpcPeeringConnectionId:
-      output.VpcPeeringConnectionId !== undefined && output.VpcPeeringConnectionId !== null
-        ? output.VpcPeeringConnectionId
-        : undefined,
+    VpcPeeringConnectionId: __expectString(output.VpcPeeringConnectionId),
   } as any;
 };
 
@@ -14086,8 +13909,8 @@ const deserializeAws_json1_1VpcPeeringConnectionStatus = (
   context: __SerdeContext
 ): VpcPeeringConnectionStatus => {
   return {
-    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Code: __expectString(output.Code),
+    Message: __expectString(output.Message),
   } as any;
 };
 

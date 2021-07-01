@@ -141,6 +141,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3104,16 +3107,16 @@ export const deserializeAws_restJson1CreateApiCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiEndpoint !== undefined && data.apiEndpoint !== null) {
-    contents.ApiEndpoint = data.apiEndpoint;
+    contents.ApiEndpoint = __expectString(data.apiEndpoint);
   }
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.apiId !== undefined && data.apiId !== null) {
-    contents.ApiId = data.apiId;
+    contents.ApiId = __expectString(data.apiId);
   }
   if (data.apiKeySelectionExpression !== undefined && data.apiKeySelectionExpression !== null) {
-    contents.ApiKeySelectionExpression = data.apiKeySelectionExpression;
+    contents.ApiKeySelectionExpression = __expectString(data.apiKeySelectionExpression);
   }
   if (data.corsConfiguration !== undefined && data.corsConfiguration !== null) {
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
@@ -3122,31 +3125,31 @@ export const deserializeAws_restJson1CreateApiCommand = async (
     contents.CreatedDate = new Date(data.createdDate);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.disableExecuteApiEndpoint !== undefined && data.disableExecuteApiEndpoint !== null) {
-    contents.DisableExecuteApiEndpoint = data.disableExecuteApiEndpoint;
+    contents.DisableExecuteApiEndpoint = __expectBoolean(data.disableExecuteApiEndpoint);
   }
   if (data.disableSchemaValidation !== undefined && data.disableSchemaValidation !== null) {
-    contents.DisableSchemaValidation = data.disableSchemaValidation;
+    contents.DisableSchemaValidation = __expectBoolean(data.disableSchemaValidation);
   }
   if (data.importInfo !== undefined && data.importInfo !== null) {
     contents.ImportInfo = deserializeAws_restJson1__listOf__string(data.importInfo, context);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   if (data.protocolType !== undefined && data.protocolType !== null) {
-    contents.ProtocolType = data.protocolType;
+    contents.ProtocolType = __expectString(data.protocolType);
   }
   if (data.routeSelectionExpression !== undefined && data.routeSelectionExpression !== null) {
-    contents.RouteSelectionExpression = data.routeSelectionExpression;
+    contents.RouteSelectionExpression = __expectString(data.routeSelectionExpression);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.Version = data.version;
+    contents.Version = __expectString(data.version);
   }
   if (data.warnings !== undefined && data.warnings !== null) {
     contents.Warnings = deserializeAws_restJson1__listOf__string(data.warnings, context);
@@ -3231,16 +3234,16 @@ export const deserializeAws_restJson1CreateApiMappingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiId !== undefined && data.apiId !== null) {
-    contents.ApiId = data.apiId;
+    contents.ApiId = __expectString(data.apiId);
   }
   if (data.apiMappingId !== undefined && data.apiMappingId !== null) {
-    contents.ApiMappingId = data.apiMappingId;
+    contents.ApiMappingId = __expectString(data.apiMappingId);
   }
   if (data.apiMappingKey !== undefined && data.apiMappingKey !== null) {
-    contents.ApiMappingKey = data.apiMappingKey;
+    contents.ApiMappingKey = __expectString(data.apiMappingKey);
   }
   if (data.stage !== undefined && data.stage !== null) {
-    contents.Stage = data.stage;
+    contents.Stage = __expectString(data.stage);
   }
   return Promise.resolve(contents);
 };
@@ -3329,37 +3332,37 @@ export const deserializeAws_restJson1CreateAuthorizerCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.authorizerCredentialsArn !== undefined && data.authorizerCredentialsArn !== null) {
-    contents.AuthorizerCredentialsArn = data.authorizerCredentialsArn;
+    contents.AuthorizerCredentialsArn = __expectString(data.authorizerCredentialsArn);
   }
   if (data.authorizerId !== undefined && data.authorizerId !== null) {
-    contents.AuthorizerId = data.authorizerId;
+    contents.AuthorizerId = __expectString(data.authorizerId);
   }
   if (data.authorizerPayloadFormatVersion !== undefined && data.authorizerPayloadFormatVersion !== null) {
-    contents.AuthorizerPayloadFormatVersion = data.authorizerPayloadFormatVersion;
+    contents.AuthorizerPayloadFormatVersion = __expectString(data.authorizerPayloadFormatVersion);
   }
   if (data.authorizerResultTtlInSeconds !== undefined && data.authorizerResultTtlInSeconds !== null) {
-    contents.AuthorizerResultTtlInSeconds = data.authorizerResultTtlInSeconds;
+    contents.AuthorizerResultTtlInSeconds = __expectNumber(data.authorizerResultTtlInSeconds);
   }
   if (data.authorizerType !== undefined && data.authorizerType !== null) {
-    contents.AuthorizerType = data.authorizerType;
+    contents.AuthorizerType = __expectString(data.authorizerType);
   }
   if (data.authorizerUri !== undefined && data.authorizerUri !== null) {
-    contents.AuthorizerUri = data.authorizerUri;
+    contents.AuthorizerUri = __expectString(data.authorizerUri);
   }
   if (data.enableSimpleResponses !== undefined && data.enableSimpleResponses !== null) {
-    contents.EnableSimpleResponses = data.enableSimpleResponses;
+    contents.EnableSimpleResponses = __expectBoolean(data.enableSimpleResponses);
   }
   if (data.identitySource !== undefined && data.identitySource !== null) {
     contents.IdentitySource = deserializeAws_restJson1IdentitySourceList(data.identitySource, context);
   }
   if (data.identityValidationExpression !== undefined && data.identityValidationExpression !== null) {
-    contents.IdentityValidationExpression = data.identityValidationExpression;
+    contents.IdentityValidationExpression = __expectString(data.identityValidationExpression);
   }
   if (data.jwtConfiguration !== undefined && data.jwtConfiguration !== null) {
     contents.JwtConfiguration = deserializeAws_restJson1JWTConfiguration(data.jwtConfiguration, context);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   return Promise.resolve(contents);
 };
@@ -3443,22 +3446,22 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.autoDeployed !== undefined && data.autoDeployed !== null) {
-    contents.AutoDeployed = data.autoDeployed;
+    contents.AutoDeployed = __expectBoolean(data.autoDeployed);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
-    contents.DeploymentId = data.deploymentId;
+    contents.DeploymentId = __expectString(data.deploymentId);
   }
   if (data.deploymentStatus !== undefined && data.deploymentStatus !== null) {
-    contents.DeploymentStatus = data.deploymentStatus;
+    contents.DeploymentStatus = __expectString(data.deploymentStatus);
   }
   if (data.deploymentStatusMessage !== undefined && data.deploymentStatusMessage !== null) {
-    contents.DeploymentStatusMessage = data.deploymentStatusMessage;
+    contents.DeploymentStatusMessage = __expectString(data.deploymentStatusMessage);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   return Promise.resolve(contents);
 };
@@ -3541,10 +3544,10 @@ export const deserializeAws_restJson1CreateDomainNameCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiMappingSelectionExpression !== undefined && data.apiMappingSelectionExpression !== null) {
-    contents.ApiMappingSelectionExpression = data.apiMappingSelectionExpression;
+    contents.ApiMappingSelectionExpression = __expectString(data.apiMappingSelectionExpression);
   }
   if (data.domainName !== undefined && data.domainName !== null) {
-    contents.DomainName = data.domainName;
+    contents.DomainName = __expectString(data.domainName);
   }
   if (data.domainNameConfigurations !== undefined && data.domainNameConfigurations !== null) {
     contents.DomainNameConfigurations = deserializeAws_restJson1DomainNameConfigurations(
@@ -3665,49 +3668,49 @@ export const deserializeAws_restJson1CreateIntegrationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.connectionId !== undefined && data.connectionId !== null) {
-    contents.ConnectionId = data.connectionId;
+    contents.ConnectionId = __expectString(data.connectionId);
   }
   if (data.connectionType !== undefined && data.connectionType !== null) {
-    contents.ConnectionType = data.connectionType;
+    contents.ConnectionType = __expectString(data.connectionType);
   }
   if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
-    contents.ContentHandlingStrategy = data.contentHandlingStrategy;
+    contents.ContentHandlingStrategy = __expectString(data.contentHandlingStrategy);
   }
   if (data.credentialsArn !== undefined && data.credentialsArn !== null) {
-    contents.CredentialsArn = data.credentialsArn;
+    contents.CredentialsArn = __expectString(data.credentialsArn);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.integrationId !== undefined && data.integrationId !== null) {
-    contents.IntegrationId = data.integrationId;
+    contents.IntegrationId = __expectString(data.integrationId);
   }
   if (data.integrationMethod !== undefined && data.integrationMethod !== null) {
-    contents.IntegrationMethod = data.integrationMethod;
+    contents.IntegrationMethod = __expectString(data.integrationMethod);
   }
   if (
     data.integrationResponseSelectionExpression !== undefined &&
     data.integrationResponseSelectionExpression !== null
   ) {
-    contents.IntegrationResponseSelectionExpression = data.integrationResponseSelectionExpression;
+    contents.IntegrationResponseSelectionExpression = __expectString(data.integrationResponseSelectionExpression);
   }
   if (data.integrationSubtype !== undefined && data.integrationSubtype !== null) {
-    contents.IntegrationSubtype = data.integrationSubtype;
+    contents.IntegrationSubtype = __expectString(data.integrationSubtype);
   }
   if (data.integrationType !== undefined && data.integrationType !== null) {
-    contents.IntegrationType = data.integrationType;
+    contents.IntegrationType = __expectString(data.integrationType);
   }
   if (data.integrationUri !== undefined && data.integrationUri !== null) {
-    contents.IntegrationUri = data.integrationUri;
+    contents.IntegrationUri = __expectString(data.integrationUri);
   }
   if (data.passthroughBehavior !== undefined && data.passthroughBehavior !== null) {
-    contents.PassthroughBehavior = data.passthroughBehavior;
+    contents.PassthroughBehavior = __expectString(data.passthroughBehavior);
   }
   if (data.payloadFormatVersion !== undefined && data.payloadFormatVersion !== null) {
-    contents.PayloadFormatVersion = data.payloadFormatVersion;
+    contents.PayloadFormatVersion = __expectString(data.payloadFormatVersion);
   }
   if (data.requestParameters !== undefined && data.requestParameters !== null) {
     contents.RequestParameters = deserializeAws_restJson1IntegrationParameters(data.requestParameters, context);
@@ -3719,10 +3722,10 @@ export const deserializeAws_restJson1CreateIntegrationCommand = async (
     contents.ResponseParameters = deserializeAws_restJson1ResponseParameters(data.responseParameters, context);
   }
   if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
-    contents.TemplateSelectionExpression = data.templateSelectionExpression;
+    contents.TemplateSelectionExpression = __expectString(data.templateSelectionExpression);
   }
   if (data.timeoutInMillis !== undefined && data.timeoutInMillis !== null) {
-    contents.TimeoutInMillis = data.timeoutInMillis;
+    contents.TimeoutInMillis = __expectNumber(data.timeoutInMillis);
   }
   if (data.tlsConfig !== undefined && data.tlsConfig !== null) {
     contents.TlsConfig = deserializeAws_restJson1TlsConfig(data.tlsConfig, context);
@@ -3809,13 +3812,13 @@ export const deserializeAws_restJson1CreateIntegrationResponseCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
-    contents.ContentHandlingStrategy = data.contentHandlingStrategy;
+    contents.ContentHandlingStrategy = __expectString(data.contentHandlingStrategy);
   }
   if (data.integrationResponseId !== undefined && data.integrationResponseId !== null) {
-    contents.IntegrationResponseId = data.integrationResponseId;
+    contents.IntegrationResponseId = __expectString(data.integrationResponseId);
   }
   if (data.integrationResponseKey !== undefined && data.integrationResponseKey !== null) {
-    contents.IntegrationResponseKey = data.integrationResponseKey;
+    contents.IntegrationResponseKey = __expectString(data.integrationResponseKey);
   }
   if (data.responseParameters !== undefined && data.responseParameters !== null) {
     contents.ResponseParameters = deserializeAws_restJson1IntegrationParameters(data.responseParameters, context);
@@ -3824,7 +3827,7 @@ export const deserializeAws_restJson1CreateIntegrationResponseCommand = async (
     contents.ResponseTemplates = deserializeAws_restJson1TemplateMap(data.responseTemplates, context);
   }
   if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
-    contents.TemplateSelectionExpression = data.templateSelectionExpression;
+    contents.TemplateSelectionExpression = __expectString(data.templateSelectionExpression);
   }
   return Promise.resolve(contents);
 };
@@ -3907,19 +3910,19 @@ export const deserializeAws_restJson1CreateModelCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.contentType !== undefined && data.contentType !== null) {
-    contents.ContentType = data.contentType;
+    contents.ContentType = __expectString(data.contentType);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.modelId !== undefined && data.modelId !== null) {
-    contents.ModelId = data.modelId;
+    contents.ModelId = __expectString(data.modelId);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   if (data.schema !== undefined && data.schema !== null) {
-    contents.Schema = data.schema;
+    contents.Schema = __expectString(data.schema);
   }
   return Promise.resolve(contents);
 };
@@ -4010,25 +4013,25 @@ export const deserializeAws_restJson1CreateRouteCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.apiKeyRequired !== undefined && data.apiKeyRequired !== null) {
-    contents.ApiKeyRequired = data.apiKeyRequired;
+    contents.ApiKeyRequired = __expectBoolean(data.apiKeyRequired);
   }
   if (data.authorizationScopes !== undefined && data.authorizationScopes !== null) {
     contents.AuthorizationScopes = deserializeAws_restJson1AuthorizationScopes(data.authorizationScopes, context);
   }
   if (data.authorizationType !== undefined && data.authorizationType !== null) {
-    contents.AuthorizationType = data.authorizationType;
+    contents.AuthorizationType = __expectString(data.authorizationType);
   }
   if (data.authorizerId !== undefined && data.authorizerId !== null) {
-    contents.AuthorizerId = data.authorizerId;
+    contents.AuthorizerId = __expectString(data.authorizerId);
   }
   if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
-    contents.ModelSelectionExpression = data.modelSelectionExpression;
+    contents.ModelSelectionExpression = __expectString(data.modelSelectionExpression);
   }
   if (data.operationName !== undefined && data.operationName !== null) {
-    contents.OperationName = data.operationName;
+    contents.OperationName = __expectString(data.operationName);
   }
   if (data.requestModels !== undefined && data.requestModels !== null) {
     contents.RequestModels = deserializeAws_restJson1RouteModels(data.requestModels, context);
@@ -4037,16 +4040,16 @@ export const deserializeAws_restJson1CreateRouteCommand = async (
     contents.RequestParameters = deserializeAws_restJson1RouteParameters(data.requestParameters, context);
   }
   if (data.routeId !== undefined && data.routeId !== null) {
-    contents.RouteId = data.routeId;
+    contents.RouteId = __expectString(data.routeId);
   }
   if (data.routeKey !== undefined && data.routeKey !== null) {
-    contents.RouteKey = data.routeKey;
+    contents.RouteKey = __expectString(data.routeKey);
   }
   if (data.routeResponseSelectionExpression !== undefined && data.routeResponseSelectionExpression !== null) {
-    contents.RouteResponseSelectionExpression = data.routeResponseSelectionExpression;
+    contents.RouteResponseSelectionExpression = __expectString(data.routeResponseSelectionExpression);
   }
   if (data.target !== undefined && data.target !== null) {
-    contents.Target = data.target;
+    contents.Target = __expectString(data.target);
   }
   return Promise.resolve(contents);
 };
@@ -4129,7 +4132,7 @@ export const deserializeAws_restJson1CreateRouteResponseCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
-    contents.ModelSelectionExpression = data.modelSelectionExpression;
+    contents.ModelSelectionExpression = __expectString(data.modelSelectionExpression);
   }
   if (data.responseModels !== undefined && data.responseModels !== null) {
     contents.ResponseModels = deserializeAws_restJson1RouteModels(data.responseModels, context);
@@ -4138,10 +4141,10 @@ export const deserializeAws_restJson1CreateRouteResponseCommand = async (
     contents.ResponseParameters = deserializeAws_restJson1RouteParameters(data.responseParameters, context);
   }
   if (data.routeResponseId !== undefined && data.routeResponseId !== null) {
-    contents.RouteResponseId = data.routeResponseId;
+    contents.RouteResponseId = __expectString(data.routeResponseId);
   }
   if (data.routeResponseKey !== undefined && data.routeResponseKey !== null) {
-    contents.RouteResponseKey = data.routeResponseKey;
+    contents.RouteResponseKey = __expectString(data.routeResponseKey);
   }
   return Promise.resolve(contents);
 };
@@ -4236,13 +4239,13 @@ export const deserializeAws_restJson1CreateStageCommand = async (
     contents.AccessLogSettings = deserializeAws_restJson1AccessLogSettings(data.accessLogSettings, context);
   }
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.autoDeploy !== undefined && data.autoDeploy !== null) {
-    contents.AutoDeploy = data.autoDeploy;
+    contents.AutoDeploy = __expectBoolean(data.autoDeploy);
   }
   if (data.clientCertificateId !== undefined && data.clientCertificateId !== null) {
-    contents.ClientCertificateId = data.clientCertificateId;
+    contents.ClientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
@@ -4251,13 +4254,13 @@ export const deserializeAws_restJson1CreateStageCommand = async (
     contents.DefaultRouteSettings = deserializeAws_restJson1RouteSettings(data.defaultRouteSettings, context);
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
-    contents.DeploymentId = data.deploymentId;
+    contents.DeploymentId = __expectString(data.deploymentId);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.lastDeploymentStatusMessage !== undefined && data.lastDeploymentStatusMessage !== null) {
-    contents.LastDeploymentStatusMessage = data.lastDeploymentStatusMessage;
+    contents.LastDeploymentStatusMessage = __expectString(data.lastDeploymentStatusMessage);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.LastUpdatedDate = new Date(data.lastUpdatedDate);
@@ -4266,7 +4269,7 @@ export const deserializeAws_restJson1CreateStageCommand = async (
     contents.RouteSettings = deserializeAws_restJson1RouteSettingsMap(data.routeSettings, context);
   }
   if (data.stageName !== undefined && data.stageName !== null) {
-    contents.StageName = data.stageName;
+    contents.StageName = __expectString(data.stageName);
   }
   if (data.stageVariables !== undefined && data.stageVariables !== null) {
     contents.StageVariables = deserializeAws_restJson1StageVariablesMap(data.stageVariables, context);
@@ -4362,7 +4365,7 @@ export const deserializeAws_restJson1CreateVpcLinkCommand = async (
     contents.CreatedDate = new Date(data.createdDate);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   if (data.securityGroupIds !== undefined && data.securityGroupIds !== null) {
     contents.SecurityGroupIds = deserializeAws_restJson1SecurityGroupIdList(data.securityGroupIds, context);
@@ -4374,16 +4377,16 @@ export const deserializeAws_restJson1CreateVpcLinkCommand = async (
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.vpcLinkId !== undefined && data.vpcLinkId !== null) {
-    contents.VpcLinkId = data.vpcLinkId;
+    contents.VpcLinkId = __expectString(data.vpcLinkId);
   }
   if (data.vpcLinkStatus !== undefined && data.vpcLinkStatus !== null) {
-    contents.VpcLinkStatus = data.vpcLinkStatus;
+    contents.VpcLinkStatus = __expectString(data.vpcLinkStatus);
   }
   if (data.vpcLinkStatusMessage !== undefined && data.vpcLinkStatusMessage !== null) {
-    contents.VpcLinkStatusMessage = data.vpcLinkStatusMessage;
+    contents.VpcLinkStatusMessage = __expectString(data.vpcLinkStatusMessage);
   }
   if (data.vpcLinkVersion !== undefined && data.vpcLinkVersion !== null) {
-    contents.VpcLinkVersion = data.vpcLinkVersion;
+    contents.VpcLinkVersion = __expectString(data.vpcLinkVersion);
   }
   return Promise.resolve(contents);
 };
@@ -5482,16 +5485,16 @@ export const deserializeAws_restJson1GetApiCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiEndpoint !== undefined && data.apiEndpoint !== null) {
-    contents.ApiEndpoint = data.apiEndpoint;
+    contents.ApiEndpoint = __expectString(data.apiEndpoint);
   }
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.apiId !== undefined && data.apiId !== null) {
-    contents.ApiId = data.apiId;
+    contents.ApiId = __expectString(data.apiId);
   }
   if (data.apiKeySelectionExpression !== undefined && data.apiKeySelectionExpression !== null) {
-    contents.ApiKeySelectionExpression = data.apiKeySelectionExpression;
+    contents.ApiKeySelectionExpression = __expectString(data.apiKeySelectionExpression);
   }
   if (data.corsConfiguration !== undefined && data.corsConfiguration !== null) {
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
@@ -5500,31 +5503,31 @@ export const deserializeAws_restJson1GetApiCommand = async (
     contents.CreatedDate = new Date(data.createdDate);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.disableExecuteApiEndpoint !== undefined && data.disableExecuteApiEndpoint !== null) {
-    contents.DisableExecuteApiEndpoint = data.disableExecuteApiEndpoint;
+    contents.DisableExecuteApiEndpoint = __expectBoolean(data.disableExecuteApiEndpoint);
   }
   if (data.disableSchemaValidation !== undefined && data.disableSchemaValidation !== null) {
-    contents.DisableSchemaValidation = data.disableSchemaValidation;
+    contents.DisableSchemaValidation = __expectBoolean(data.disableSchemaValidation);
   }
   if (data.importInfo !== undefined && data.importInfo !== null) {
     contents.ImportInfo = deserializeAws_restJson1__listOf__string(data.importInfo, context);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   if (data.protocolType !== undefined && data.protocolType !== null) {
-    contents.ProtocolType = data.protocolType;
+    contents.ProtocolType = __expectString(data.protocolType);
   }
   if (data.routeSelectionExpression !== undefined && data.routeSelectionExpression !== null) {
-    contents.RouteSelectionExpression = data.routeSelectionExpression;
+    contents.RouteSelectionExpression = __expectString(data.routeSelectionExpression);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.Version = data.version;
+    contents.Version = __expectString(data.version);
   }
   if (data.warnings !== undefined && data.warnings !== null) {
     contents.Warnings = deserializeAws_restJson1__listOf__string(data.warnings, context);
@@ -5593,16 +5596,16 @@ export const deserializeAws_restJson1GetApiMappingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiId !== undefined && data.apiId !== null) {
-    contents.ApiId = data.apiId;
+    contents.ApiId = __expectString(data.apiId);
   }
   if (data.apiMappingId !== undefined && data.apiMappingId !== null) {
-    contents.ApiMappingId = data.apiMappingId;
+    contents.ApiMappingId = __expectString(data.apiMappingId);
   }
   if (data.apiMappingKey !== undefined && data.apiMappingKey !== null) {
-    contents.ApiMappingKey = data.apiMappingKey;
+    contents.ApiMappingKey = __expectString(data.apiMappingKey);
   }
   if (data.stage !== undefined && data.stage !== null) {
-    contents.Stage = data.stage;
+    contents.Stage = __expectString(data.stage);
   }
   return Promise.resolve(contents);
 };
@@ -5677,7 +5680,7 @@ export const deserializeAws_restJson1GetApiMappingsCommand = async (
     contents.Items = deserializeAws_restJson1__listOfApiMapping(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -5752,7 +5755,7 @@ export const deserializeAws_restJson1GetApisCommand = async (
     contents.Items = deserializeAws_restJson1__listOfApi(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -5833,37 +5836,37 @@ export const deserializeAws_restJson1GetAuthorizerCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.authorizerCredentialsArn !== undefined && data.authorizerCredentialsArn !== null) {
-    contents.AuthorizerCredentialsArn = data.authorizerCredentialsArn;
+    contents.AuthorizerCredentialsArn = __expectString(data.authorizerCredentialsArn);
   }
   if (data.authorizerId !== undefined && data.authorizerId !== null) {
-    contents.AuthorizerId = data.authorizerId;
+    contents.AuthorizerId = __expectString(data.authorizerId);
   }
   if (data.authorizerPayloadFormatVersion !== undefined && data.authorizerPayloadFormatVersion !== null) {
-    contents.AuthorizerPayloadFormatVersion = data.authorizerPayloadFormatVersion;
+    contents.AuthorizerPayloadFormatVersion = __expectString(data.authorizerPayloadFormatVersion);
   }
   if (data.authorizerResultTtlInSeconds !== undefined && data.authorizerResultTtlInSeconds !== null) {
-    contents.AuthorizerResultTtlInSeconds = data.authorizerResultTtlInSeconds;
+    contents.AuthorizerResultTtlInSeconds = __expectNumber(data.authorizerResultTtlInSeconds);
   }
   if (data.authorizerType !== undefined && data.authorizerType !== null) {
-    contents.AuthorizerType = data.authorizerType;
+    contents.AuthorizerType = __expectString(data.authorizerType);
   }
   if (data.authorizerUri !== undefined && data.authorizerUri !== null) {
-    contents.AuthorizerUri = data.authorizerUri;
+    contents.AuthorizerUri = __expectString(data.authorizerUri);
   }
   if (data.enableSimpleResponses !== undefined && data.enableSimpleResponses !== null) {
-    contents.EnableSimpleResponses = data.enableSimpleResponses;
+    contents.EnableSimpleResponses = __expectBoolean(data.enableSimpleResponses);
   }
   if (data.identitySource !== undefined && data.identitySource !== null) {
     contents.IdentitySource = deserializeAws_restJson1IdentitySourceList(data.identitySource, context);
   }
   if (data.identityValidationExpression !== undefined && data.identityValidationExpression !== null) {
-    contents.IdentityValidationExpression = data.identityValidationExpression;
+    contents.IdentityValidationExpression = __expectString(data.identityValidationExpression);
   }
   if (data.jwtConfiguration !== undefined && data.jwtConfiguration !== null) {
     contents.JwtConfiguration = deserializeAws_restJson1JWTConfiguration(data.jwtConfiguration, context);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   return Promise.resolve(contents);
 };
@@ -5930,7 +5933,7 @@ export const deserializeAws_restJson1GetAuthorizersCommand = async (
     contents.Items = deserializeAws_restJson1__listOfAuthorizer(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -6006,22 +6009,22 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.autoDeployed !== undefined && data.autoDeployed !== null) {
-    contents.AutoDeployed = data.autoDeployed;
+    contents.AutoDeployed = __expectBoolean(data.autoDeployed);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
-    contents.DeploymentId = data.deploymentId;
+    contents.DeploymentId = __expectString(data.deploymentId);
   }
   if (data.deploymentStatus !== undefined && data.deploymentStatus !== null) {
-    contents.DeploymentStatus = data.deploymentStatus;
+    contents.DeploymentStatus = __expectString(data.deploymentStatus);
   }
   if (data.deploymentStatusMessage !== undefined && data.deploymentStatusMessage !== null) {
-    contents.DeploymentStatusMessage = data.deploymentStatusMessage;
+    contents.DeploymentStatusMessage = __expectString(data.deploymentStatusMessage);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   return Promise.resolve(contents);
 };
@@ -6088,7 +6091,7 @@ export const deserializeAws_restJson1GetDeploymentsCommand = async (
     contents.Items = deserializeAws_restJson1__listOfDeployment(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -6163,10 +6166,10 @@ export const deserializeAws_restJson1GetDomainNameCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiMappingSelectionExpression !== undefined && data.apiMappingSelectionExpression !== null) {
-    contents.ApiMappingSelectionExpression = data.apiMappingSelectionExpression;
+    contents.ApiMappingSelectionExpression = __expectString(data.apiMappingSelectionExpression);
   }
   if (data.domainName !== undefined && data.domainName !== null) {
-    contents.DomainName = data.domainName;
+    contents.DomainName = __expectString(data.domainName);
   }
   if (data.domainNameConfigurations !== undefined && data.domainNameConfigurations !== null) {
     contents.DomainNameConfigurations = deserializeAws_restJson1DomainNameConfigurations(
@@ -6248,7 +6251,7 @@ export const deserializeAws_restJson1GetDomainNamesCommand = async (
     contents.Items = deserializeAws_restJson1__listOfDomainName(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -6338,49 +6341,49 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.connectionId !== undefined && data.connectionId !== null) {
-    contents.ConnectionId = data.connectionId;
+    contents.ConnectionId = __expectString(data.connectionId);
   }
   if (data.connectionType !== undefined && data.connectionType !== null) {
-    contents.ConnectionType = data.connectionType;
+    contents.ConnectionType = __expectString(data.connectionType);
   }
   if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
-    contents.ContentHandlingStrategy = data.contentHandlingStrategy;
+    contents.ContentHandlingStrategy = __expectString(data.contentHandlingStrategy);
   }
   if (data.credentialsArn !== undefined && data.credentialsArn !== null) {
-    contents.CredentialsArn = data.credentialsArn;
+    contents.CredentialsArn = __expectString(data.credentialsArn);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.integrationId !== undefined && data.integrationId !== null) {
-    contents.IntegrationId = data.integrationId;
+    contents.IntegrationId = __expectString(data.integrationId);
   }
   if (data.integrationMethod !== undefined && data.integrationMethod !== null) {
-    contents.IntegrationMethod = data.integrationMethod;
+    contents.IntegrationMethod = __expectString(data.integrationMethod);
   }
   if (
     data.integrationResponseSelectionExpression !== undefined &&
     data.integrationResponseSelectionExpression !== null
   ) {
-    contents.IntegrationResponseSelectionExpression = data.integrationResponseSelectionExpression;
+    contents.IntegrationResponseSelectionExpression = __expectString(data.integrationResponseSelectionExpression);
   }
   if (data.integrationSubtype !== undefined && data.integrationSubtype !== null) {
-    contents.IntegrationSubtype = data.integrationSubtype;
+    contents.IntegrationSubtype = __expectString(data.integrationSubtype);
   }
   if (data.integrationType !== undefined && data.integrationType !== null) {
-    contents.IntegrationType = data.integrationType;
+    contents.IntegrationType = __expectString(data.integrationType);
   }
   if (data.integrationUri !== undefined && data.integrationUri !== null) {
-    contents.IntegrationUri = data.integrationUri;
+    contents.IntegrationUri = __expectString(data.integrationUri);
   }
   if (data.passthroughBehavior !== undefined && data.passthroughBehavior !== null) {
-    contents.PassthroughBehavior = data.passthroughBehavior;
+    contents.PassthroughBehavior = __expectString(data.passthroughBehavior);
   }
   if (data.payloadFormatVersion !== undefined && data.payloadFormatVersion !== null) {
-    contents.PayloadFormatVersion = data.payloadFormatVersion;
+    contents.PayloadFormatVersion = __expectString(data.payloadFormatVersion);
   }
   if (data.requestParameters !== undefined && data.requestParameters !== null) {
     contents.RequestParameters = deserializeAws_restJson1IntegrationParameters(data.requestParameters, context);
@@ -6392,10 +6395,10 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
     contents.ResponseParameters = deserializeAws_restJson1ResponseParameters(data.responseParameters, context);
   }
   if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
-    contents.TemplateSelectionExpression = data.templateSelectionExpression;
+    contents.TemplateSelectionExpression = __expectString(data.templateSelectionExpression);
   }
   if (data.timeoutInMillis !== undefined && data.timeoutInMillis !== null) {
-    contents.TimeoutInMillis = data.timeoutInMillis;
+    contents.TimeoutInMillis = __expectNumber(data.timeoutInMillis);
   }
   if (data.tlsConfig !== undefined && data.tlsConfig !== null) {
     contents.TlsConfig = deserializeAws_restJson1TlsConfig(data.tlsConfig, context);
@@ -6466,13 +6469,13 @@ export const deserializeAws_restJson1GetIntegrationResponseCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
-    contents.ContentHandlingStrategy = data.contentHandlingStrategy;
+    contents.ContentHandlingStrategy = __expectString(data.contentHandlingStrategy);
   }
   if (data.integrationResponseId !== undefined && data.integrationResponseId !== null) {
-    contents.IntegrationResponseId = data.integrationResponseId;
+    contents.IntegrationResponseId = __expectString(data.integrationResponseId);
   }
   if (data.integrationResponseKey !== undefined && data.integrationResponseKey !== null) {
-    contents.IntegrationResponseKey = data.integrationResponseKey;
+    contents.IntegrationResponseKey = __expectString(data.integrationResponseKey);
   }
   if (data.responseParameters !== undefined && data.responseParameters !== null) {
     contents.ResponseParameters = deserializeAws_restJson1IntegrationParameters(data.responseParameters, context);
@@ -6481,7 +6484,7 @@ export const deserializeAws_restJson1GetIntegrationResponseCommand = async (
     contents.ResponseTemplates = deserializeAws_restJson1TemplateMap(data.responseTemplates, context);
   }
   if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
-    contents.TemplateSelectionExpression = data.templateSelectionExpression;
+    contents.TemplateSelectionExpression = __expectString(data.templateSelectionExpression);
   }
   return Promise.resolve(contents);
 };
@@ -6548,7 +6551,7 @@ export const deserializeAws_restJson1GetIntegrationResponsesCommand = async (
     contents.Items = deserializeAws_restJson1__listOfIntegrationResponse(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -6623,7 +6626,7 @@ export const deserializeAws_restJson1GetIntegrationsCommand = async (
     contents.Items = deserializeAws_restJson1__listOfIntegration(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -6698,19 +6701,19 @@ export const deserializeAws_restJson1GetModelCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.contentType !== undefined && data.contentType !== null) {
-    contents.ContentType = data.contentType;
+    contents.ContentType = __expectString(data.contentType);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.modelId !== undefined && data.modelId !== null) {
-    contents.ModelId = data.modelId;
+    contents.ModelId = __expectString(data.modelId);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   if (data.schema !== undefined && data.schema !== null) {
-    contents.Schema = data.schema;
+    contents.Schema = __expectString(data.schema);
   }
   return Promise.resolve(contents);
 };
@@ -6777,7 +6780,7 @@ export const deserializeAws_restJson1GetModelsCommand = async (
     contents.Items = deserializeAws_restJson1__listOfModel(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -6848,7 +6851,7 @@ export const deserializeAws_restJson1GetModelTemplateCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.value !== undefined && data.value !== null) {
-    contents.Value = data.value;
+    contents.Value = __expectString(data.value);
   }
   return Promise.resolve(contents);
 };
@@ -6923,25 +6926,25 @@ export const deserializeAws_restJson1GetRouteCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.apiKeyRequired !== undefined && data.apiKeyRequired !== null) {
-    contents.ApiKeyRequired = data.apiKeyRequired;
+    contents.ApiKeyRequired = __expectBoolean(data.apiKeyRequired);
   }
   if (data.authorizationScopes !== undefined && data.authorizationScopes !== null) {
     contents.AuthorizationScopes = deserializeAws_restJson1AuthorizationScopes(data.authorizationScopes, context);
   }
   if (data.authorizationType !== undefined && data.authorizationType !== null) {
-    contents.AuthorizationType = data.authorizationType;
+    contents.AuthorizationType = __expectString(data.authorizationType);
   }
   if (data.authorizerId !== undefined && data.authorizerId !== null) {
-    contents.AuthorizerId = data.authorizerId;
+    contents.AuthorizerId = __expectString(data.authorizerId);
   }
   if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
-    contents.ModelSelectionExpression = data.modelSelectionExpression;
+    contents.ModelSelectionExpression = __expectString(data.modelSelectionExpression);
   }
   if (data.operationName !== undefined && data.operationName !== null) {
-    contents.OperationName = data.operationName;
+    contents.OperationName = __expectString(data.operationName);
   }
   if (data.requestModels !== undefined && data.requestModels !== null) {
     contents.RequestModels = deserializeAws_restJson1RouteModels(data.requestModels, context);
@@ -6950,16 +6953,16 @@ export const deserializeAws_restJson1GetRouteCommand = async (
     contents.RequestParameters = deserializeAws_restJson1RouteParameters(data.requestParameters, context);
   }
   if (data.routeId !== undefined && data.routeId !== null) {
-    contents.RouteId = data.routeId;
+    contents.RouteId = __expectString(data.routeId);
   }
   if (data.routeKey !== undefined && data.routeKey !== null) {
-    contents.RouteKey = data.routeKey;
+    contents.RouteKey = __expectString(data.routeKey);
   }
   if (data.routeResponseSelectionExpression !== undefined && data.routeResponseSelectionExpression !== null) {
-    contents.RouteResponseSelectionExpression = data.routeResponseSelectionExpression;
+    contents.RouteResponseSelectionExpression = __expectString(data.routeResponseSelectionExpression);
   }
   if (data.target !== undefined && data.target !== null) {
-    contents.Target = data.target;
+    contents.Target = __expectString(data.target);
   }
   return Promise.resolve(contents);
 };
@@ -7026,7 +7029,7 @@ export const deserializeAws_restJson1GetRouteResponseCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
-    contents.ModelSelectionExpression = data.modelSelectionExpression;
+    contents.ModelSelectionExpression = __expectString(data.modelSelectionExpression);
   }
   if (data.responseModels !== undefined && data.responseModels !== null) {
     contents.ResponseModels = deserializeAws_restJson1RouteModels(data.responseModels, context);
@@ -7035,10 +7038,10 @@ export const deserializeAws_restJson1GetRouteResponseCommand = async (
     contents.ResponseParameters = deserializeAws_restJson1RouteParameters(data.responseParameters, context);
   }
   if (data.routeResponseId !== undefined && data.routeResponseId !== null) {
-    contents.RouteResponseId = data.routeResponseId;
+    contents.RouteResponseId = __expectString(data.routeResponseId);
   }
   if (data.routeResponseKey !== undefined && data.routeResponseKey !== null) {
-    contents.RouteResponseKey = data.routeResponseKey;
+    contents.RouteResponseKey = __expectString(data.routeResponseKey);
   }
   return Promise.resolve(contents);
 };
@@ -7105,7 +7108,7 @@ export const deserializeAws_restJson1GetRouteResponsesCommand = async (
     contents.Items = deserializeAws_restJson1__listOfRouteResponse(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -7180,7 +7183,7 @@ export const deserializeAws_restJson1GetRoutesCommand = async (
     contents.Items = deserializeAws_restJson1__listOfRoute(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -7267,13 +7270,13 @@ export const deserializeAws_restJson1GetStageCommand = async (
     contents.AccessLogSettings = deserializeAws_restJson1AccessLogSettings(data.accessLogSettings, context);
   }
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.autoDeploy !== undefined && data.autoDeploy !== null) {
-    contents.AutoDeploy = data.autoDeploy;
+    contents.AutoDeploy = __expectBoolean(data.autoDeploy);
   }
   if (data.clientCertificateId !== undefined && data.clientCertificateId !== null) {
-    contents.ClientCertificateId = data.clientCertificateId;
+    contents.ClientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
@@ -7282,13 +7285,13 @@ export const deserializeAws_restJson1GetStageCommand = async (
     contents.DefaultRouteSettings = deserializeAws_restJson1RouteSettings(data.defaultRouteSettings, context);
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
-    contents.DeploymentId = data.deploymentId;
+    contents.DeploymentId = __expectString(data.deploymentId);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.lastDeploymentStatusMessage !== undefined && data.lastDeploymentStatusMessage !== null) {
-    contents.LastDeploymentStatusMessage = data.lastDeploymentStatusMessage;
+    contents.LastDeploymentStatusMessage = __expectString(data.lastDeploymentStatusMessage);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.LastUpdatedDate = new Date(data.lastUpdatedDate);
@@ -7297,7 +7300,7 @@ export const deserializeAws_restJson1GetStageCommand = async (
     contents.RouteSettings = deserializeAws_restJson1RouteSettingsMap(data.routeSettings, context);
   }
   if (data.stageName !== undefined && data.stageName !== null) {
-    contents.StageName = data.stageName;
+    contents.StageName = __expectString(data.stageName);
   }
   if (data.stageVariables !== undefined && data.stageVariables !== null) {
     contents.StageVariables = deserializeAws_restJson1StageVariablesMap(data.stageVariables, context);
@@ -7370,7 +7373,7 @@ export const deserializeAws_restJson1GetStagesCommand = async (
     contents.Items = deserializeAws_restJson1__listOfStage(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -7531,7 +7534,7 @@ export const deserializeAws_restJson1GetVpcLinkCommand = async (
     contents.CreatedDate = new Date(data.createdDate);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   if (data.securityGroupIds !== undefined && data.securityGroupIds !== null) {
     contents.SecurityGroupIds = deserializeAws_restJson1SecurityGroupIdList(data.securityGroupIds, context);
@@ -7543,16 +7546,16 @@ export const deserializeAws_restJson1GetVpcLinkCommand = async (
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.vpcLinkId !== undefined && data.vpcLinkId !== null) {
-    contents.VpcLinkId = data.vpcLinkId;
+    contents.VpcLinkId = __expectString(data.vpcLinkId);
   }
   if (data.vpcLinkStatus !== undefined && data.vpcLinkStatus !== null) {
-    contents.VpcLinkStatus = data.vpcLinkStatus;
+    contents.VpcLinkStatus = __expectString(data.vpcLinkStatus);
   }
   if (data.vpcLinkStatusMessage !== undefined && data.vpcLinkStatusMessage !== null) {
-    contents.VpcLinkStatusMessage = data.vpcLinkStatusMessage;
+    contents.VpcLinkStatusMessage = __expectString(data.vpcLinkStatusMessage);
   }
   if (data.vpcLinkVersion !== undefined && data.vpcLinkVersion !== null) {
-    contents.VpcLinkVersion = data.vpcLinkVersion;
+    contents.VpcLinkVersion = __expectString(data.vpcLinkVersion);
   }
   return Promise.resolve(contents);
 };
@@ -7619,7 +7622,7 @@ export const deserializeAws_restJson1GetVpcLinksCommand = async (
     contents.Items = deserializeAws_restJson1__listOfVpcLink(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -7697,16 +7700,16 @@ export const deserializeAws_restJson1ImportApiCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiEndpoint !== undefined && data.apiEndpoint !== null) {
-    contents.ApiEndpoint = data.apiEndpoint;
+    contents.ApiEndpoint = __expectString(data.apiEndpoint);
   }
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.apiId !== undefined && data.apiId !== null) {
-    contents.ApiId = data.apiId;
+    contents.ApiId = __expectString(data.apiId);
   }
   if (data.apiKeySelectionExpression !== undefined && data.apiKeySelectionExpression !== null) {
-    contents.ApiKeySelectionExpression = data.apiKeySelectionExpression;
+    contents.ApiKeySelectionExpression = __expectString(data.apiKeySelectionExpression);
   }
   if (data.corsConfiguration !== undefined && data.corsConfiguration !== null) {
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
@@ -7715,31 +7718,31 @@ export const deserializeAws_restJson1ImportApiCommand = async (
     contents.CreatedDate = new Date(data.createdDate);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.disableExecuteApiEndpoint !== undefined && data.disableExecuteApiEndpoint !== null) {
-    contents.DisableExecuteApiEndpoint = data.disableExecuteApiEndpoint;
+    contents.DisableExecuteApiEndpoint = __expectBoolean(data.disableExecuteApiEndpoint);
   }
   if (data.disableSchemaValidation !== undefined && data.disableSchemaValidation !== null) {
-    contents.DisableSchemaValidation = data.disableSchemaValidation;
+    contents.DisableSchemaValidation = __expectBoolean(data.disableSchemaValidation);
   }
   if (data.importInfo !== undefined && data.importInfo !== null) {
     contents.ImportInfo = deserializeAws_restJson1__listOf__string(data.importInfo, context);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   if (data.protocolType !== undefined && data.protocolType !== null) {
-    contents.ProtocolType = data.protocolType;
+    contents.ProtocolType = __expectString(data.protocolType);
   }
   if (data.routeSelectionExpression !== undefined && data.routeSelectionExpression !== null) {
-    contents.RouteSelectionExpression = data.routeSelectionExpression;
+    contents.RouteSelectionExpression = __expectString(data.routeSelectionExpression);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.Version = data.version;
+    contents.Version = __expectString(data.version);
   }
   if (data.warnings !== undefined && data.warnings !== null) {
     contents.Warnings = deserializeAws_restJson1__listOf__string(data.warnings, context);
@@ -7836,16 +7839,16 @@ export const deserializeAws_restJson1ReimportApiCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiEndpoint !== undefined && data.apiEndpoint !== null) {
-    contents.ApiEndpoint = data.apiEndpoint;
+    contents.ApiEndpoint = __expectString(data.apiEndpoint);
   }
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.apiId !== undefined && data.apiId !== null) {
-    contents.ApiId = data.apiId;
+    contents.ApiId = __expectString(data.apiId);
   }
   if (data.apiKeySelectionExpression !== undefined && data.apiKeySelectionExpression !== null) {
-    contents.ApiKeySelectionExpression = data.apiKeySelectionExpression;
+    contents.ApiKeySelectionExpression = __expectString(data.apiKeySelectionExpression);
   }
   if (data.corsConfiguration !== undefined && data.corsConfiguration !== null) {
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
@@ -7854,31 +7857,31 @@ export const deserializeAws_restJson1ReimportApiCommand = async (
     contents.CreatedDate = new Date(data.createdDate);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.disableExecuteApiEndpoint !== undefined && data.disableExecuteApiEndpoint !== null) {
-    contents.DisableExecuteApiEndpoint = data.disableExecuteApiEndpoint;
+    contents.DisableExecuteApiEndpoint = __expectBoolean(data.disableExecuteApiEndpoint);
   }
   if (data.disableSchemaValidation !== undefined && data.disableSchemaValidation !== null) {
-    contents.DisableSchemaValidation = data.disableSchemaValidation;
+    contents.DisableSchemaValidation = __expectBoolean(data.disableSchemaValidation);
   }
   if (data.importInfo !== undefined && data.importInfo !== null) {
     contents.ImportInfo = deserializeAws_restJson1__listOf__string(data.importInfo, context);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   if (data.protocolType !== undefined && data.protocolType !== null) {
-    contents.ProtocolType = data.protocolType;
+    contents.ProtocolType = __expectString(data.protocolType);
   }
   if (data.routeSelectionExpression !== undefined && data.routeSelectionExpression !== null) {
-    contents.RouteSelectionExpression = data.routeSelectionExpression;
+    contents.RouteSelectionExpression = __expectString(data.routeSelectionExpression);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.Version = data.version;
+    contents.Version = __expectString(data.version);
   }
   if (data.warnings !== undefined && data.warnings !== null) {
     contents.Warnings = deserializeAws_restJson1__listOf__string(data.warnings, context);
@@ -8184,16 +8187,16 @@ export const deserializeAws_restJson1UpdateApiCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiEndpoint !== undefined && data.apiEndpoint !== null) {
-    contents.ApiEndpoint = data.apiEndpoint;
+    contents.ApiEndpoint = __expectString(data.apiEndpoint);
   }
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.apiId !== undefined && data.apiId !== null) {
-    contents.ApiId = data.apiId;
+    contents.ApiId = __expectString(data.apiId);
   }
   if (data.apiKeySelectionExpression !== undefined && data.apiKeySelectionExpression !== null) {
-    contents.ApiKeySelectionExpression = data.apiKeySelectionExpression;
+    contents.ApiKeySelectionExpression = __expectString(data.apiKeySelectionExpression);
   }
   if (data.corsConfiguration !== undefined && data.corsConfiguration !== null) {
     contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
@@ -8202,31 +8205,31 @@ export const deserializeAws_restJson1UpdateApiCommand = async (
     contents.CreatedDate = new Date(data.createdDate);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.disableExecuteApiEndpoint !== undefined && data.disableExecuteApiEndpoint !== null) {
-    contents.DisableExecuteApiEndpoint = data.disableExecuteApiEndpoint;
+    contents.DisableExecuteApiEndpoint = __expectBoolean(data.disableExecuteApiEndpoint);
   }
   if (data.disableSchemaValidation !== undefined && data.disableSchemaValidation !== null) {
-    contents.DisableSchemaValidation = data.disableSchemaValidation;
+    contents.DisableSchemaValidation = __expectBoolean(data.disableSchemaValidation);
   }
   if (data.importInfo !== undefined && data.importInfo !== null) {
     contents.ImportInfo = deserializeAws_restJson1__listOf__string(data.importInfo, context);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   if (data.protocolType !== undefined && data.protocolType !== null) {
-    contents.ProtocolType = data.protocolType;
+    contents.ProtocolType = __expectString(data.protocolType);
   }
   if (data.routeSelectionExpression !== undefined && data.routeSelectionExpression !== null) {
-    contents.RouteSelectionExpression = data.routeSelectionExpression;
+    contents.RouteSelectionExpression = __expectString(data.routeSelectionExpression);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.Version = data.version;
+    contents.Version = __expectString(data.version);
   }
   if (data.warnings !== undefined && data.warnings !== null) {
     contents.Warnings = deserializeAws_restJson1__listOf__string(data.warnings, context);
@@ -8311,16 +8314,16 @@ export const deserializeAws_restJson1UpdateApiMappingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiId !== undefined && data.apiId !== null) {
-    contents.ApiId = data.apiId;
+    contents.ApiId = __expectString(data.apiId);
   }
   if (data.apiMappingId !== undefined && data.apiMappingId !== null) {
-    contents.ApiMappingId = data.apiMappingId;
+    contents.ApiMappingId = __expectString(data.apiMappingId);
   }
   if (data.apiMappingKey !== undefined && data.apiMappingKey !== null) {
-    contents.ApiMappingKey = data.apiMappingKey;
+    contents.ApiMappingKey = __expectString(data.apiMappingKey);
   }
   if (data.stage !== undefined && data.stage !== null) {
-    contents.Stage = data.stage;
+    contents.Stage = __expectString(data.stage);
   }
   return Promise.resolve(contents);
 };
@@ -8409,37 +8412,37 @@ export const deserializeAws_restJson1UpdateAuthorizerCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.authorizerCredentialsArn !== undefined && data.authorizerCredentialsArn !== null) {
-    contents.AuthorizerCredentialsArn = data.authorizerCredentialsArn;
+    contents.AuthorizerCredentialsArn = __expectString(data.authorizerCredentialsArn);
   }
   if (data.authorizerId !== undefined && data.authorizerId !== null) {
-    contents.AuthorizerId = data.authorizerId;
+    contents.AuthorizerId = __expectString(data.authorizerId);
   }
   if (data.authorizerPayloadFormatVersion !== undefined && data.authorizerPayloadFormatVersion !== null) {
-    contents.AuthorizerPayloadFormatVersion = data.authorizerPayloadFormatVersion;
+    contents.AuthorizerPayloadFormatVersion = __expectString(data.authorizerPayloadFormatVersion);
   }
   if (data.authorizerResultTtlInSeconds !== undefined && data.authorizerResultTtlInSeconds !== null) {
-    contents.AuthorizerResultTtlInSeconds = data.authorizerResultTtlInSeconds;
+    contents.AuthorizerResultTtlInSeconds = __expectNumber(data.authorizerResultTtlInSeconds);
   }
   if (data.authorizerType !== undefined && data.authorizerType !== null) {
-    contents.AuthorizerType = data.authorizerType;
+    contents.AuthorizerType = __expectString(data.authorizerType);
   }
   if (data.authorizerUri !== undefined && data.authorizerUri !== null) {
-    contents.AuthorizerUri = data.authorizerUri;
+    contents.AuthorizerUri = __expectString(data.authorizerUri);
   }
   if (data.enableSimpleResponses !== undefined && data.enableSimpleResponses !== null) {
-    contents.EnableSimpleResponses = data.enableSimpleResponses;
+    contents.EnableSimpleResponses = __expectBoolean(data.enableSimpleResponses);
   }
   if (data.identitySource !== undefined && data.identitySource !== null) {
     contents.IdentitySource = deserializeAws_restJson1IdentitySourceList(data.identitySource, context);
   }
   if (data.identityValidationExpression !== undefined && data.identityValidationExpression !== null) {
-    contents.IdentityValidationExpression = data.identityValidationExpression;
+    contents.IdentityValidationExpression = __expectString(data.identityValidationExpression);
   }
   if (data.jwtConfiguration !== undefined && data.jwtConfiguration !== null) {
     contents.JwtConfiguration = deserializeAws_restJson1JWTConfiguration(data.jwtConfiguration, context);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   return Promise.resolve(contents);
 };
@@ -8523,22 +8526,22 @@ export const deserializeAws_restJson1UpdateDeploymentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.autoDeployed !== undefined && data.autoDeployed !== null) {
-    contents.AutoDeployed = data.autoDeployed;
+    contents.AutoDeployed = __expectBoolean(data.autoDeployed);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
-    contents.DeploymentId = data.deploymentId;
+    contents.DeploymentId = __expectString(data.deploymentId);
   }
   if (data.deploymentStatus !== undefined && data.deploymentStatus !== null) {
-    contents.DeploymentStatus = data.deploymentStatus;
+    contents.DeploymentStatus = __expectString(data.deploymentStatus);
   }
   if (data.deploymentStatusMessage !== undefined && data.deploymentStatusMessage !== null) {
-    contents.DeploymentStatusMessage = data.deploymentStatusMessage;
+    contents.DeploymentStatusMessage = __expectString(data.deploymentStatusMessage);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   return Promise.resolve(contents);
 };
@@ -8621,10 +8624,10 @@ export const deserializeAws_restJson1UpdateDomainNameCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiMappingSelectionExpression !== undefined && data.apiMappingSelectionExpression !== null) {
-    contents.ApiMappingSelectionExpression = data.apiMappingSelectionExpression;
+    contents.ApiMappingSelectionExpression = __expectString(data.apiMappingSelectionExpression);
   }
   if (data.domainName !== undefined && data.domainName !== null) {
-    contents.DomainName = data.domainName;
+    contents.DomainName = __expectString(data.domainName);
   }
   if (data.domainNameConfigurations !== undefined && data.domainNameConfigurations !== null) {
     contents.DomainNameConfigurations = deserializeAws_restJson1DomainNameConfigurations(
@@ -8737,49 +8740,49 @@ export const deserializeAws_restJson1UpdateIntegrationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.connectionId !== undefined && data.connectionId !== null) {
-    contents.ConnectionId = data.connectionId;
+    contents.ConnectionId = __expectString(data.connectionId);
   }
   if (data.connectionType !== undefined && data.connectionType !== null) {
-    contents.ConnectionType = data.connectionType;
+    contents.ConnectionType = __expectString(data.connectionType);
   }
   if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
-    contents.ContentHandlingStrategy = data.contentHandlingStrategy;
+    contents.ContentHandlingStrategy = __expectString(data.contentHandlingStrategy);
   }
   if (data.credentialsArn !== undefined && data.credentialsArn !== null) {
-    contents.CredentialsArn = data.credentialsArn;
+    contents.CredentialsArn = __expectString(data.credentialsArn);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.integrationId !== undefined && data.integrationId !== null) {
-    contents.IntegrationId = data.integrationId;
+    contents.IntegrationId = __expectString(data.integrationId);
   }
   if (data.integrationMethod !== undefined && data.integrationMethod !== null) {
-    contents.IntegrationMethod = data.integrationMethod;
+    contents.IntegrationMethod = __expectString(data.integrationMethod);
   }
   if (
     data.integrationResponseSelectionExpression !== undefined &&
     data.integrationResponseSelectionExpression !== null
   ) {
-    contents.IntegrationResponseSelectionExpression = data.integrationResponseSelectionExpression;
+    contents.IntegrationResponseSelectionExpression = __expectString(data.integrationResponseSelectionExpression);
   }
   if (data.integrationSubtype !== undefined && data.integrationSubtype !== null) {
-    contents.IntegrationSubtype = data.integrationSubtype;
+    contents.IntegrationSubtype = __expectString(data.integrationSubtype);
   }
   if (data.integrationType !== undefined && data.integrationType !== null) {
-    contents.IntegrationType = data.integrationType;
+    contents.IntegrationType = __expectString(data.integrationType);
   }
   if (data.integrationUri !== undefined && data.integrationUri !== null) {
-    contents.IntegrationUri = data.integrationUri;
+    contents.IntegrationUri = __expectString(data.integrationUri);
   }
   if (data.passthroughBehavior !== undefined && data.passthroughBehavior !== null) {
-    contents.PassthroughBehavior = data.passthroughBehavior;
+    contents.PassthroughBehavior = __expectString(data.passthroughBehavior);
   }
   if (data.payloadFormatVersion !== undefined && data.payloadFormatVersion !== null) {
-    contents.PayloadFormatVersion = data.payloadFormatVersion;
+    contents.PayloadFormatVersion = __expectString(data.payloadFormatVersion);
   }
   if (data.requestParameters !== undefined && data.requestParameters !== null) {
     contents.RequestParameters = deserializeAws_restJson1IntegrationParameters(data.requestParameters, context);
@@ -8791,10 +8794,10 @@ export const deserializeAws_restJson1UpdateIntegrationCommand = async (
     contents.ResponseParameters = deserializeAws_restJson1ResponseParameters(data.responseParameters, context);
   }
   if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
-    contents.TemplateSelectionExpression = data.templateSelectionExpression;
+    contents.TemplateSelectionExpression = __expectString(data.templateSelectionExpression);
   }
   if (data.timeoutInMillis !== undefined && data.timeoutInMillis !== null) {
-    contents.TimeoutInMillis = data.timeoutInMillis;
+    contents.TimeoutInMillis = __expectNumber(data.timeoutInMillis);
   }
   if (data.tlsConfig !== undefined && data.tlsConfig !== null) {
     contents.TlsConfig = deserializeAws_restJson1TlsConfig(data.tlsConfig, context);
@@ -8881,13 +8884,13 @@ export const deserializeAws_restJson1UpdateIntegrationResponseCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
-    contents.ContentHandlingStrategy = data.contentHandlingStrategy;
+    contents.ContentHandlingStrategy = __expectString(data.contentHandlingStrategy);
   }
   if (data.integrationResponseId !== undefined && data.integrationResponseId !== null) {
-    contents.IntegrationResponseId = data.integrationResponseId;
+    contents.IntegrationResponseId = __expectString(data.integrationResponseId);
   }
   if (data.integrationResponseKey !== undefined && data.integrationResponseKey !== null) {
-    contents.IntegrationResponseKey = data.integrationResponseKey;
+    contents.IntegrationResponseKey = __expectString(data.integrationResponseKey);
   }
   if (data.responseParameters !== undefined && data.responseParameters !== null) {
     contents.ResponseParameters = deserializeAws_restJson1IntegrationParameters(data.responseParameters, context);
@@ -8896,7 +8899,7 @@ export const deserializeAws_restJson1UpdateIntegrationResponseCommand = async (
     contents.ResponseTemplates = deserializeAws_restJson1TemplateMap(data.responseTemplates, context);
   }
   if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
-    contents.TemplateSelectionExpression = data.templateSelectionExpression;
+    contents.TemplateSelectionExpression = __expectString(data.templateSelectionExpression);
   }
   return Promise.resolve(contents);
 };
@@ -8979,19 +8982,19 @@ export const deserializeAws_restJson1UpdateModelCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.contentType !== undefined && data.contentType !== null) {
-    contents.ContentType = data.contentType;
+    contents.ContentType = __expectString(data.contentType);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.modelId !== undefined && data.modelId !== null) {
-    contents.ModelId = data.modelId;
+    contents.ModelId = __expectString(data.modelId);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   if (data.schema !== undefined && data.schema !== null) {
-    contents.Schema = data.schema;
+    contents.Schema = __expectString(data.schema);
   }
   return Promise.resolve(contents);
 };
@@ -9082,25 +9085,25 @@ export const deserializeAws_restJson1UpdateRouteCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.apiKeyRequired !== undefined && data.apiKeyRequired !== null) {
-    contents.ApiKeyRequired = data.apiKeyRequired;
+    contents.ApiKeyRequired = __expectBoolean(data.apiKeyRequired);
   }
   if (data.authorizationScopes !== undefined && data.authorizationScopes !== null) {
     contents.AuthorizationScopes = deserializeAws_restJson1AuthorizationScopes(data.authorizationScopes, context);
   }
   if (data.authorizationType !== undefined && data.authorizationType !== null) {
-    contents.AuthorizationType = data.authorizationType;
+    contents.AuthorizationType = __expectString(data.authorizationType);
   }
   if (data.authorizerId !== undefined && data.authorizerId !== null) {
-    contents.AuthorizerId = data.authorizerId;
+    contents.AuthorizerId = __expectString(data.authorizerId);
   }
   if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
-    contents.ModelSelectionExpression = data.modelSelectionExpression;
+    contents.ModelSelectionExpression = __expectString(data.modelSelectionExpression);
   }
   if (data.operationName !== undefined && data.operationName !== null) {
-    contents.OperationName = data.operationName;
+    contents.OperationName = __expectString(data.operationName);
   }
   if (data.requestModels !== undefined && data.requestModels !== null) {
     contents.RequestModels = deserializeAws_restJson1RouteModels(data.requestModels, context);
@@ -9109,16 +9112,16 @@ export const deserializeAws_restJson1UpdateRouteCommand = async (
     contents.RequestParameters = deserializeAws_restJson1RouteParameters(data.requestParameters, context);
   }
   if (data.routeId !== undefined && data.routeId !== null) {
-    contents.RouteId = data.routeId;
+    contents.RouteId = __expectString(data.routeId);
   }
   if (data.routeKey !== undefined && data.routeKey !== null) {
-    contents.RouteKey = data.routeKey;
+    contents.RouteKey = __expectString(data.routeKey);
   }
   if (data.routeResponseSelectionExpression !== undefined && data.routeResponseSelectionExpression !== null) {
-    contents.RouteResponseSelectionExpression = data.routeResponseSelectionExpression;
+    contents.RouteResponseSelectionExpression = __expectString(data.routeResponseSelectionExpression);
   }
   if (data.target !== undefined && data.target !== null) {
-    contents.Target = data.target;
+    contents.Target = __expectString(data.target);
   }
   return Promise.resolve(contents);
 };
@@ -9201,7 +9204,7 @@ export const deserializeAws_restJson1UpdateRouteResponseCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
-    contents.ModelSelectionExpression = data.modelSelectionExpression;
+    contents.ModelSelectionExpression = __expectString(data.modelSelectionExpression);
   }
   if (data.responseModels !== undefined && data.responseModels !== null) {
     contents.ResponseModels = deserializeAws_restJson1RouteModels(data.responseModels, context);
@@ -9210,10 +9213,10 @@ export const deserializeAws_restJson1UpdateRouteResponseCommand = async (
     contents.ResponseParameters = deserializeAws_restJson1RouteParameters(data.responseParameters, context);
   }
   if (data.routeResponseId !== undefined && data.routeResponseId !== null) {
-    contents.RouteResponseId = data.routeResponseId;
+    contents.RouteResponseId = __expectString(data.routeResponseId);
   }
   if (data.routeResponseKey !== undefined && data.routeResponseKey !== null) {
-    contents.RouteResponseKey = data.routeResponseKey;
+    contents.RouteResponseKey = __expectString(data.routeResponseKey);
   }
   return Promise.resolve(contents);
 };
@@ -9308,13 +9311,13 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
     contents.AccessLogSettings = deserializeAws_restJson1AccessLogSettings(data.accessLogSettings, context);
   }
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
-    contents.ApiGatewayManaged = data.apiGatewayManaged;
+    contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
   }
   if (data.autoDeploy !== undefined && data.autoDeploy !== null) {
-    contents.AutoDeploy = data.autoDeploy;
+    contents.AutoDeploy = __expectBoolean(data.autoDeploy);
   }
   if (data.clientCertificateId !== undefined && data.clientCertificateId !== null) {
-    contents.ClientCertificateId = data.clientCertificateId;
+    contents.ClientCertificateId = __expectString(data.clientCertificateId);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
@@ -9323,13 +9326,13 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
     contents.DefaultRouteSettings = deserializeAws_restJson1RouteSettings(data.defaultRouteSettings, context);
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
-    contents.DeploymentId = data.deploymentId;
+    contents.DeploymentId = __expectString(data.deploymentId);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.lastDeploymentStatusMessage !== undefined && data.lastDeploymentStatusMessage !== null) {
-    contents.LastDeploymentStatusMessage = data.lastDeploymentStatusMessage;
+    contents.LastDeploymentStatusMessage = __expectString(data.lastDeploymentStatusMessage);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.LastUpdatedDate = new Date(data.lastUpdatedDate);
@@ -9338,7 +9341,7 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
     contents.RouteSettings = deserializeAws_restJson1RouteSettingsMap(data.routeSettings, context);
   }
   if (data.stageName !== undefined && data.stageName !== null) {
-    contents.StageName = data.stageName;
+    contents.StageName = __expectString(data.stageName);
   }
   if (data.stageVariables !== undefined && data.stageVariables !== null) {
     contents.StageVariables = deserializeAws_restJson1StageVariablesMap(data.stageVariables, context);
@@ -9434,7 +9437,7 @@ export const deserializeAws_restJson1UpdateVpcLinkCommand = async (
     contents.CreatedDate = new Date(data.createdDate);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   if (data.securityGroupIds !== undefined && data.securityGroupIds !== null) {
     contents.SecurityGroupIds = deserializeAws_restJson1SecurityGroupIdList(data.securityGroupIds, context);
@@ -9446,16 +9449,16 @@ export const deserializeAws_restJson1UpdateVpcLinkCommand = async (
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.vpcLinkId !== undefined && data.vpcLinkId !== null) {
-    contents.VpcLinkId = data.vpcLinkId;
+    contents.VpcLinkId = __expectString(data.vpcLinkId);
   }
   if (data.vpcLinkStatus !== undefined && data.vpcLinkStatus !== null) {
-    contents.VpcLinkStatus = data.vpcLinkStatus;
+    contents.VpcLinkStatus = __expectString(data.vpcLinkStatus);
   }
   if (data.vpcLinkStatusMessage !== undefined && data.vpcLinkStatusMessage !== null) {
-    contents.VpcLinkStatusMessage = data.vpcLinkStatusMessage;
+    contents.VpcLinkStatusMessage = __expectString(data.vpcLinkStatusMessage);
   }
   if (data.vpcLinkVersion !== undefined && data.vpcLinkVersion !== null) {
-    contents.VpcLinkVersion = data.vpcLinkVersion;
+    contents.VpcLinkVersion = __expectString(data.vpcLinkVersion);
   }
   return Promise.resolve(contents);
 };
@@ -9525,7 +9528,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -9542,7 +9545,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -9559,7 +9562,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -9577,10 +9580,10 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.ResourceType = data.resourceType;
+    contents.ResourceType = __expectString(data.resourceType);
   }
   return contents;
 };
@@ -9598,10 +9601,10 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.limitType !== undefined && data.limitType !== null) {
-    contents.LimitType = data.limitType;
+    contents.LimitType = __expectString(data.limitType);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -9930,7 +9933,7 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10071,54 +10074,38 @@ const deserializeAws_restJson1__listOfVpcLink = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1AccessLogSettings = (output: any, context: __SerdeContext): AccessLogSettings => {
   return {
-    DestinationArn:
-      output.destinationArn !== undefined && output.destinationArn !== null ? output.destinationArn : undefined,
-    Format: output.format !== undefined && output.format !== null ? output.format : undefined,
+    DestinationArn: __expectString(output.destinationArn),
+    Format: __expectString(output.format),
   } as any;
 };
 
 const deserializeAws_restJson1Api = (output: any, context: __SerdeContext): Api => {
   return {
-    ApiEndpoint: output.apiEndpoint !== undefined && output.apiEndpoint !== null ? output.apiEndpoint : undefined,
-    ApiGatewayManaged:
-      output.apiGatewayManaged !== undefined && output.apiGatewayManaged !== null
-        ? output.apiGatewayManaged
-        : undefined,
-    ApiId: output.apiId !== undefined && output.apiId !== null ? output.apiId : undefined,
-    ApiKeySelectionExpression:
-      output.apiKeySelectionExpression !== undefined && output.apiKeySelectionExpression !== null
-        ? output.apiKeySelectionExpression
-        : undefined,
+    ApiEndpoint: __expectString(output.apiEndpoint),
+    ApiGatewayManaged: __expectBoolean(output.apiGatewayManaged),
+    ApiId: __expectString(output.apiId),
+    ApiKeySelectionExpression: __expectString(output.apiKeySelectionExpression),
     CorsConfiguration:
       output.corsConfiguration !== undefined && output.corsConfiguration !== null
         ? deserializeAws_restJson1Cors(output.corsConfiguration, context)
         : undefined,
     CreatedDate:
       output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
-    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    DisableExecuteApiEndpoint:
-      output.disableExecuteApiEndpoint !== undefined && output.disableExecuteApiEndpoint !== null
-        ? output.disableExecuteApiEndpoint
-        : undefined,
-    DisableSchemaValidation:
-      output.disableSchemaValidation !== undefined && output.disableSchemaValidation !== null
-        ? output.disableSchemaValidation
-        : undefined,
+    Description: __expectString(output.description),
+    DisableExecuteApiEndpoint: __expectBoolean(output.disableExecuteApiEndpoint),
+    DisableSchemaValidation: __expectBoolean(output.disableSchemaValidation),
     ImportInfo:
       output.importInfo !== undefined && output.importInfo !== null
         ? deserializeAws_restJson1__listOf__string(output.importInfo, context)
         : undefined,
-    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    ProtocolType: output.protocolType !== undefined && output.protocolType !== null ? output.protocolType : undefined,
-    RouteSelectionExpression:
-      output.routeSelectionExpression !== undefined && output.routeSelectionExpression !== null
-        ? output.routeSelectionExpression
-        : undefined,
+    Name: __expectString(output.name),
+    ProtocolType: __expectString(output.protocolType),
+    RouteSelectionExpression: __expectString(output.routeSelectionExpression),
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
-    Version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    Version: __expectString(output.version),
     Warnings:
       output.warnings !== undefined && output.warnings !== null
         ? deserializeAws_restJson1__listOf__string(output.warnings, context)
@@ -10128,11 +10115,10 @@ const deserializeAws_restJson1Api = (output: any, context: __SerdeContext): Api 
 
 const deserializeAws_restJson1ApiMapping = (output: any, context: __SerdeContext): ApiMapping => {
   return {
-    ApiId: output.apiId !== undefined && output.apiId !== null ? output.apiId : undefined,
-    ApiMappingId: output.apiMappingId !== undefined && output.apiMappingId !== null ? output.apiMappingId : undefined,
-    ApiMappingKey:
-      output.apiMappingKey !== undefined && output.apiMappingKey !== null ? output.apiMappingKey : undefined,
-    Stage: output.stage !== undefined && output.stage !== null ? output.stage : undefined,
+    ApiId: __expectString(output.apiId),
+    ApiMappingId: __expectString(output.apiMappingId),
+    ApiMappingKey: __expectString(output.apiMappingKey),
+    Stage: __expectString(output.stage),
   } as any;
 };
 
@@ -10143,53 +10129,35 @@ const deserializeAws_restJson1AuthorizationScopes = (output: any, context: __Ser
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Authorizer = (output: any, context: __SerdeContext): Authorizer => {
   return {
-    AuthorizerCredentialsArn:
-      output.authorizerCredentialsArn !== undefined && output.authorizerCredentialsArn !== null
-        ? output.authorizerCredentialsArn
-        : undefined,
-    AuthorizerId: output.authorizerId !== undefined && output.authorizerId !== null ? output.authorizerId : undefined,
-    AuthorizerPayloadFormatVersion:
-      output.authorizerPayloadFormatVersion !== undefined && output.authorizerPayloadFormatVersion !== null
-        ? output.authorizerPayloadFormatVersion
-        : undefined,
-    AuthorizerResultTtlInSeconds:
-      output.authorizerResultTtlInSeconds !== undefined && output.authorizerResultTtlInSeconds !== null
-        ? output.authorizerResultTtlInSeconds
-        : undefined,
-    AuthorizerType:
-      output.authorizerType !== undefined && output.authorizerType !== null ? output.authorizerType : undefined,
-    AuthorizerUri:
-      output.authorizerUri !== undefined && output.authorizerUri !== null ? output.authorizerUri : undefined,
-    EnableSimpleResponses:
-      output.enableSimpleResponses !== undefined && output.enableSimpleResponses !== null
-        ? output.enableSimpleResponses
-        : undefined,
+    AuthorizerCredentialsArn: __expectString(output.authorizerCredentialsArn),
+    AuthorizerId: __expectString(output.authorizerId),
+    AuthorizerPayloadFormatVersion: __expectString(output.authorizerPayloadFormatVersion),
+    AuthorizerResultTtlInSeconds: __expectNumber(output.authorizerResultTtlInSeconds),
+    AuthorizerType: __expectString(output.authorizerType),
+    AuthorizerUri: __expectString(output.authorizerUri),
+    EnableSimpleResponses: __expectBoolean(output.enableSimpleResponses),
     IdentitySource:
       output.identitySource !== undefined && output.identitySource !== null
         ? deserializeAws_restJson1IdentitySourceList(output.identitySource, context)
         : undefined,
-    IdentityValidationExpression:
-      output.identityValidationExpression !== undefined && output.identityValidationExpression !== null
-        ? output.identityValidationExpression
-        : undefined,
+    IdentityValidationExpression: __expectString(output.identityValidationExpression),
     JwtConfiguration:
       output.jwtConfiguration !== undefined && output.jwtConfiguration !== null
         ? deserializeAws_restJson1JWTConfiguration(output.jwtConfiguration, context)
         : undefined,
-    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    Name: __expectString(output.name),
   } as any;
 };
 
 const deserializeAws_restJson1Cors = (output: any, context: __SerdeContext): Cors => {
   return {
-    AllowCredentials:
-      output.allowCredentials !== undefined && output.allowCredentials !== null ? output.allowCredentials : undefined,
+    AllowCredentials: __expectBoolean(output.allowCredentials),
     AllowHeaders:
       output.allowHeaders !== undefined && output.allowHeaders !== null
         ? deserializeAws_restJson1CorsHeaderList(output.allowHeaders, context)
@@ -10206,7 +10174,7 @@ const deserializeAws_restJson1Cors = (output: any, context: __SerdeContext): Cor
       output.exposeHeaders !== undefined && output.exposeHeaders !== null
         ? deserializeAws_restJson1CorsHeaderList(output.exposeHeaders, context)
         : undefined,
-    MaxAge: output.maxAge !== undefined && output.maxAge !== null ? output.maxAge : undefined,
+    MaxAge: __expectNumber(output.maxAge),
   } as any;
 };
 
@@ -10217,7 +10185,7 @@ const deserializeAws_restJson1CorsHeaderList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10228,7 +10196,7 @@ const deserializeAws_restJson1CorsMethodList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10239,33 +10207,26 @@ const deserializeAws_restJson1CorsOriginList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext): Deployment => {
   return {
-    AutoDeployed: output.autoDeployed !== undefined && output.autoDeployed !== null ? output.autoDeployed : undefined,
+    AutoDeployed: __expectBoolean(output.autoDeployed),
     CreatedDate:
       output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
-    DeploymentId: output.deploymentId !== undefined && output.deploymentId !== null ? output.deploymentId : undefined,
-    DeploymentStatus:
-      output.deploymentStatus !== undefined && output.deploymentStatus !== null ? output.deploymentStatus : undefined,
-    DeploymentStatusMessage:
-      output.deploymentStatusMessage !== undefined && output.deploymentStatusMessage !== null
-        ? output.deploymentStatusMessage
-        : undefined,
-    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    DeploymentId: __expectString(output.deploymentId),
+    DeploymentStatus: __expectString(output.deploymentStatus),
+    DeploymentStatusMessage: __expectString(output.deploymentStatusMessage),
+    Description: __expectString(output.description),
   } as any;
 };
 
 const deserializeAws_restJson1DomainName = (output: any, context: __SerdeContext): DomainName => {
   return {
-    ApiMappingSelectionExpression:
-      output.apiMappingSelectionExpression !== undefined && output.apiMappingSelectionExpression !== null
-        ? output.apiMappingSelectionExpression
-        : undefined,
-    DomainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    ApiMappingSelectionExpression: __expectString(output.apiMappingSelectionExpression),
+    DomainName: __expectString(output.domainName),
     DomainNameConfigurations:
       output.domainNameConfigurations !== undefined && output.domainNameConfigurations !== null
         ? deserializeAws_restJson1DomainNameConfigurations(output.domainNameConfigurations, context)
@@ -10286,28 +10247,18 @@ const deserializeAws_restJson1DomainNameConfiguration = (
   context: __SerdeContext
 ): DomainNameConfiguration => {
   return {
-    ApiGatewayDomainName:
-      output.apiGatewayDomainName !== undefined && output.apiGatewayDomainName !== null
-        ? output.apiGatewayDomainName
-        : undefined,
-    CertificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
-    CertificateName:
-      output.certificateName !== undefined && output.certificateName !== null ? output.certificateName : undefined,
+    ApiGatewayDomainName: __expectString(output.apiGatewayDomainName),
+    CertificateArn: __expectString(output.certificateArn),
+    CertificateName: __expectString(output.certificateName),
     CertificateUploadDate:
       output.certificateUploadDate !== undefined && output.certificateUploadDate !== null
         ? new Date(output.certificateUploadDate)
         : undefined,
-    DomainNameStatus:
-      output.domainNameStatus !== undefined && output.domainNameStatus !== null ? output.domainNameStatus : undefined,
-    DomainNameStatusMessage:
-      output.domainNameStatusMessage !== undefined && output.domainNameStatusMessage !== null
-        ? output.domainNameStatusMessage
-        : undefined,
-    EndpointType: output.endpointType !== undefined && output.endpointType !== null ? output.endpointType : undefined,
-    HostedZoneId: output.hostedZoneId !== undefined && output.hostedZoneId !== null ? output.hostedZoneId : undefined,
-    SecurityPolicy:
-      output.securityPolicy !== undefined && output.securityPolicy !== null ? output.securityPolicy : undefined,
+    DomainNameStatus: __expectString(output.domainNameStatus),
+    DomainNameStatusMessage: __expectString(output.domainNameStatusMessage),
+    EndpointType: __expectString(output.endpointType),
+    HostedZoneId: __expectString(output.hostedZoneId),
+    SecurityPolicy: __expectString(output.securityPolicy),
   } as any;
 };
 
@@ -10332,53 +10283,26 @@ const deserializeAws_restJson1IdentitySourceList = (output: any, context: __Serd
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Integration = (output: any, context: __SerdeContext): Integration => {
   return {
-    ApiGatewayManaged:
-      output.apiGatewayManaged !== undefined && output.apiGatewayManaged !== null
-        ? output.apiGatewayManaged
-        : undefined,
-    ConnectionId: output.connectionId !== undefined && output.connectionId !== null ? output.connectionId : undefined,
-    ConnectionType:
-      output.connectionType !== undefined && output.connectionType !== null ? output.connectionType : undefined,
-    ContentHandlingStrategy:
-      output.contentHandlingStrategy !== undefined && output.contentHandlingStrategy !== null
-        ? output.contentHandlingStrategy
-        : undefined,
-    CredentialsArn:
-      output.credentialsArn !== undefined && output.credentialsArn !== null ? output.credentialsArn : undefined,
-    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    IntegrationId:
-      output.integrationId !== undefined && output.integrationId !== null ? output.integrationId : undefined,
-    IntegrationMethod:
-      output.integrationMethod !== undefined && output.integrationMethod !== null
-        ? output.integrationMethod
-        : undefined,
-    IntegrationResponseSelectionExpression:
-      output.integrationResponseSelectionExpression !== undefined &&
-      output.integrationResponseSelectionExpression !== null
-        ? output.integrationResponseSelectionExpression
-        : undefined,
-    IntegrationSubtype:
-      output.integrationSubtype !== undefined && output.integrationSubtype !== null
-        ? output.integrationSubtype
-        : undefined,
-    IntegrationType:
-      output.integrationType !== undefined && output.integrationType !== null ? output.integrationType : undefined,
-    IntegrationUri:
-      output.integrationUri !== undefined && output.integrationUri !== null ? output.integrationUri : undefined,
-    PassthroughBehavior:
-      output.passthroughBehavior !== undefined && output.passthroughBehavior !== null
-        ? output.passthroughBehavior
-        : undefined,
-    PayloadFormatVersion:
-      output.payloadFormatVersion !== undefined && output.payloadFormatVersion !== null
-        ? output.payloadFormatVersion
-        : undefined,
+    ApiGatewayManaged: __expectBoolean(output.apiGatewayManaged),
+    ConnectionId: __expectString(output.connectionId),
+    ConnectionType: __expectString(output.connectionType),
+    ContentHandlingStrategy: __expectString(output.contentHandlingStrategy),
+    CredentialsArn: __expectString(output.credentialsArn),
+    Description: __expectString(output.description),
+    IntegrationId: __expectString(output.integrationId),
+    IntegrationMethod: __expectString(output.integrationMethod),
+    IntegrationResponseSelectionExpression: __expectString(output.integrationResponseSelectionExpression),
+    IntegrationSubtype: __expectString(output.integrationSubtype),
+    IntegrationType: __expectString(output.integrationType),
+    IntegrationUri: __expectString(output.integrationUri),
+    PassthroughBehavior: __expectString(output.passthroughBehavior),
+    PayloadFormatVersion: __expectString(output.payloadFormatVersion),
     RequestParameters:
       output.requestParameters !== undefined && output.requestParameters !== null
         ? deserializeAws_restJson1IntegrationParameters(output.requestParameters, context)
@@ -10391,12 +10315,8 @@ const deserializeAws_restJson1Integration = (output: any, context: __SerdeContex
       output.responseParameters !== undefined && output.responseParameters !== null
         ? deserializeAws_restJson1ResponseParameters(output.responseParameters, context)
         : undefined,
-    TemplateSelectionExpression:
-      output.templateSelectionExpression !== undefined && output.templateSelectionExpression !== null
-        ? output.templateSelectionExpression
-        : undefined,
-    TimeoutInMillis:
-      output.timeoutInMillis !== undefined && output.timeoutInMillis !== null ? output.timeoutInMillis : undefined,
+    TemplateSelectionExpression: __expectString(output.templateSelectionExpression),
+    TimeoutInMillis: __expectNumber(output.timeoutInMillis),
     TlsConfig:
       output.tlsConfig !== undefined && output.tlsConfig !== null
         ? deserializeAws_restJson1TlsConfig(output.tlsConfig, context)
@@ -10414,25 +10334,16 @@ const deserializeAws_restJson1IntegrationParameters = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1IntegrationResponse = (output: any, context: __SerdeContext): IntegrationResponse => {
   return {
-    ContentHandlingStrategy:
-      output.contentHandlingStrategy !== undefined && output.contentHandlingStrategy !== null
-        ? output.contentHandlingStrategy
-        : undefined,
-    IntegrationResponseId:
-      output.integrationResponseId !== undefined && output.integrationResponseId !== null
-        ? output.integrationResponseId
-        : undefined,
-    IntegrationResponseKey:
-      output.integrationResponseKey !== undefined && output.integrationResponseKey !== null
-        ? output.integrationResponseKey
-        : undefined,
+    ContentHandlingStrategy: __expectString(output.contentHandlingStrategy),
+    IntegrationResponseId: __expectString(output.integrationResponseId),
+    IntegrationResponseKey: __expectString(output.integrationResponseKey),
     ResponseParameters:
       output.responseParameters !== undefined && output.responseParameters !== null
         ? deserializeAws_restJson1IntegrationParameters(output.responseParameters, context)
@@ -10441,10 +10352,7 @@ const deserializeAws_restJson1IntegrationResponse = (output: any, context: __Ser
       output.responseTemplates !== undefined && output.responseTemplates !== null
         ? deserializeAws_restJson1TemplateMap(output.responseTemplates, context)
         : undefined,
-    TemplateSelectionExpression:
-      output.templateSelectionExpression !== undefined && output.templateSelectionExpression !== null
-        ? output.templateSelectionExpression
-        : undefined,
+    TemplateSelectionExpression: __expectString(output.templateSelectionExpression),
   } as any;
 };
 
@@ -10454,17 +10362,17 @@ const deserializeAws_restJson1JWTConfiguration = (output: any, context: __SerdeC
       output.audience !== undefined && output.audience !== null
         ? deserializeAws_restJson1__listOf__string(output.audience, context)
         : undefined,
-    Issuer: output.issuer !== undefined && output.issuer !== null ? output.issuer : undefined,
+    Issuer: __expectString(output.issuer),
   } as any;
 };
 
 const deserializeAws_restJson1Model = (output: any, context: __SerdeContext): Model => {
   return {
-    ContentType: output.contentType !== undefined && output.contentType !== null ? output.contentType : undefined,
-    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    ModelId: output.modelId !== undefined && output.modelId !== null ? output.modelId : undefined,
-    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    Schema: output.schema !== undefined && output.schema !== null ? output.schema : undefined,
+    ContentType: __expectString(output.contentType),
+    Description: __expectString(output.description),
+    ModelId: __expectString(output.modelId),
+    Name: __expectString(output.name),
+    Schema: __expectString(output.schema),
   } as any;
 };
 
@@ -10473,12 +10381,8 @@ const deserializeAws_restJson1MutualTlsAuthentication = (
   context: __SerdeContext
 ): MutualTlsAuthentication => {
   return {
-    TruststoreUri:
-      output.truststoreUri !== undefined && output.truststoreUri !== null ? output.truststoreUri : undefined,
-    TruststoreVersion:
-      output.truststoreVersion !== undefined && output.truststoreVersion !== null
-        ? output.truststoreVersion
-        : undefined,
+    TruststoreUri: __expectString(output.truststoreUri),
+    TruststoreVersion: __expectString(output.truststoreVersion),
     TruststoreWarnings:
       output.truststoreWarnings !== undefined && output.truststoreWarnings !== null
         ? deserializeAws_restJson1__listOf__string(output.truststoreWarnings, context)
@@ -10488,7 +10392,7 @@ const deserializeAws_restJson1MutualTlsAuthentication = (
 
 const deserializeAws_restJson1ParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
   return {
-    Required: output.required !== undefined && output.required !== null ? output.required : undefined,
+    Required: __expectBoolean(output.required),
   } as any;
 };
 
@@ -10512,27 +10416,16 @@ const deserializeAws_restJson1ResponseParameters = (
 
 const deserializeAws_restJson1Route = (output: any, context: __SerdeContext): Route => {
   return {
-    ApiGatewayManaged:
-      output.apiGatewayManaged !== undefined && output.apiGatewayManaged !== null
-        ? output.apiGatewayManaged
-        : undefined,
-    ApiKeyRequired:
-      output.apiKeyRequired !== undefined && output.apiKeyRequired !== null ? output.apiKeyRequired : undefined,
+    ApiGatewayManaged: __expectBoolean(output.apiGatewayManaged),
+    ApiKeyRequired: __expectBoolean(output.apiKeyRequired),
     AuthorizationScopes:
       output.authorizationScopes !== undefined && output.authorizationScopes !== null
         ? deserializeAws_restJson1AuthorizationScopes(output.authorizationScopes, context)
         : undefined,
-    AuthorizationType:
-      output.authorizationType !== undefined && output.authorizationType !== null
-        ? output.authorizationType
-        : undefined,
-    AuthorizerId: output.authorizerId !== undefined && output.authorizerId !== null ? output.authorizerId : undefined,
-    ModelSelectionExpression:
-      output.modelSelectionExpression !== undefined && output.modelSelectionExpression !== null
-        ? output.modelSelectionExpression
-        : undefined,
-    OperationName:
-      output.operationName !== undefined && output.operationName !== null ? output.operationName : undefined,
+    AuthorizationType: __expectString(output.authorizationType),
+    AuthorizerId: __expectString(output.authorizerId),
+    ModelSelectionExpression: __expectString(output.modelSelectionExpression),
+    OperationName: __expectString(output.operationName),
     RequestModels:
       output.requestModels !== undefined && output.requestModels !== null
         ? deserializeAws_restJson1RouteModels(output.requestModels, context)
@@ -10541,13 +10434,10 @@ const deserializeAws_restJson1Route = (output: any, context: __SerdeContext): Ro
       output.requestParameters !== undefined && output.requestParameters !== null
         ? deserializeAws_restJson1RouteParameters(output.requestParameters, context)
         : undefined,
-    RouteId: output.routeId !== undefined && output.routeId !== null ? output.routeId : undefined,
-    RouteKey: output.routeKey !== undefined && output.routeKey !== null ? output.routeKey : undefined,
-    RouteResponseSelectionExpression:
-      output.routeResponseSelectionExpression !== undefined && output.routeResponseSelectionExpression !== null
-        ? output.routeResponseSelectionExpression
-        : undefined,
-    Target: output.target !== undefined && output.target !== null ? output.target : undefined,
+    RouteId: __expectString(output.routeId),
+    RouteKey: __expectString(output.routeKey),
+    RouteResponseSelectionExpression: __expectString(output.routeResponseSelectionExpression),
+    Target: __expectString(output.target),
   } as any;
 };
 
@@ -10558,7 +10448,7 @@ const deserializeAws_restJson1RouteModels = (output: any, context: __SerdeContex
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -10580,10 +10470,7 @@ const deserializeAws_restJson1RouteParameters = (
 
 const deserializeAws_restJson1RouteResponse = (output: any, context: __SerdeContext): RouteResponse => {
   return {
-    ModelSelectionExpression:
-      output.modelSelectionExpression !== undefined && output.modelSelectionExpression !== null
-        ? output.modelSelectionExpression
-        : undefined,
+    ModelSelectionExpression: __expectString(output.modelSelectionExpression),
     ResponseModels:
       output.responseModels !== undefined && output.responseModels !== null
         ? deserializeAws_restJson1RouteModels(output.responseModels, context)
@@ -10592,30 +10479,18 @@ const deserializeAws_restJson1RouteResponse = (output: any, context: __SerdeCont
       output.responseParameters !== undefined && output.responseParameters !== null
         ? deserializeAws_restJson1RouteParameters(output.responseParameters, context)
         : undefined,
-    RouteResponseId:
-      output.routeResponseId !== undefined && output.routeResponseId !== null ? output.routeResponseId : undefined,
-    RouteResponseKey:
-      output.routeResponseKey !== undefined && output.routeResponseKey !== null ? output.routeResponseKey : undefined,
+    RouteResponseId: __expectString(output.routeResponseId),
+    RouteResponseKey: __expectString(output.routeResponseKey),
   } as any;
 };
 
 const deserializeAws_restJson1RouteSettings = (output: any, context: __SerdeContext): RouteSettings => {
   return {
-    DataTraceEnabled:
-      output.dataTraceEnabled !== undefined && output.dataTraceEnabled !== null ? output.dataTraceEnabled : undefined,
-    DetailedMetricsEnabled:
-      output.detailedMetricsEnabled !== undefined && output.detailedMetricsEnabled !== null
-        ? output.detailedMetricsEnabled
-        : undefined,
-    LoggingLevel: output.loggingLevel !== undefined && output.loggingLevel !== null ? output.loggingLevel : undefined,
-    ThrottlingBurstLimit:
-      output.throttlingBurstLimit !== undefined && output.throttlingBurstLimit !== null
-        ? output.throttlingBurstLimit
-        : undefined,
-    ThrottlingRateLimit:
-      output.throttlingRateLimit !== undefined && output.throttlingRateLimit !== null
-        ? output.throttlingRateLimit
-        : undefined,
+    DataTraceEnabled: __expectBoolean(output.dataTraceEnabled),
+    DetailedMetricsEnabled: __expectBoolean(output.detailedMetricsEnabled),
+    LoggingLevel: __expectString(output.loggingLevel),
+    ThrottlingBurstLimit: __expectNumber(output.throttlingBurstLimit),
+    ThrottlingRateLimit: __expectNumber(output.throttlingRateLimit),
   } as any;
 };
 
@@ -10641,7 +10516,7 @@ const deserializeAws_restJson1SecurityGroupIdList = (output: any, context: __Ser
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10651,27 +10526,18 @@ const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): St
       output.accessLogSettings !== undefined && output.accessLogSettings !== null
         ? deserializeAws_restJson1AccessLogSettings(output.accessLogSettings, context)
         : undefined,
-    ApiGatewayManaged:
-      output.apiGatewayManaged !== undefined && output.apiGatewayManaged !== null
-        ? output.apiGatewayManaged
-        : undefined,
-    AutoDeploy: output.autoDeploy !== undefined && output.autoDeploy !== null ? output.autoDeploy : undefined,
-    ClientCertificateId:
-      output.clientCertificateId !== undefined && output.clientCertificateId !== null
-        ? output.clientCertificateId
-        : undefined,
+    ApiGatewayManaged: __expectBoolean(output.apiGatewayManaged),
+    AutoDeploy: __expectBoolean(output.autoDeploy),
+    ClientCertificateId: __expectString(output.clientCertificateId),
     CreatedDate:
       output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
     DefaultRouteSettings:
       output.defaultRouteSettings !== undefined && output.defaultRouteSettings !== null
         ? deserializeAws_restJson1RouteSettings(output.defaultRouteSettings, context)
         : undefined,
-    DeploymentId: output.deploymentId !== undefined && output.deploymentId !== null ? output.deploymentId : undefined,
-    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    LastDeploymentStatusMessage:
-      output.lastDeploymentStatusMessage !== undefined && output.lastDeploymentStatusMessage !== null
-        ? output.lastDeploymentStatusMessage
-        : undefined,
+    DeploymentId: __expectString(output.deploymentId),
+    Description: __expectString(output.description),
+    LastDeploymentStatusMessage: __expectString(output.lastDeploymentStatusMessage),
     LastUpdatedDate:
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
         ? new Date(output.lastUpdatedDate)
@@ -10680,7 +10546,7 @@ const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): St
       output.routeSettings !== undefined && output.routeSettings !== null
         ? deserializeAws_restJson1RouteSettingsMap(output.routeSettings, context)
         : undefined,
-    StageName: output.stageName !== undefined && output.stageName !== null ? output.stageName : undefined,
+    StageName: __expectString(output.stageName),
     StageVariables:
       output.stageVariables !== undefined && output.stageVariables !== null
         ? deserializeAws_restJson1StageVariablesMap(output.stageVariables, context)
@@ -10699,7 +10565,7 @@ const deserializeAws_restJson1StageVariablesMap = (output: any, context: __Serde
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -10711,7 +10577,7 @@ const deserializeAws_restJson1SubnetIdList = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10722,7 +10588,7 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -10734,17 +10600,14 @@ const deserializeAws_restJson1TemplateMap = (output: any, context: __SerdeContex
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1TlsConfig = (output: any, context: __SerdeContext): TlsConfig => {
   return {
-    ServerNameToVerify:
-      output.serverNameToVerify !== undefined && output.serverNameToVerify !== null
-        ? output.serverNameToVerify
-        : undefined,
+    ServerNameToVerify: __expectString(output.serverNameToVerify),
   } as any;
 };
 
@@ -10752,7 +10615,7 @@ const deserializeAws_restJson1VpcLink = (output: any, context: __SerdeContext): 
   return {
     CreatedDate:
       output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
-    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    Name: __expectString(output.name),
     SecurityGroupIds:
       output.securityGroupIds !== undefined && output.securityGroupIds !== null
         ? deserializeAws_restJson1SecurityGroupIdList(output.securityGroupIds, context)
@@ -10765,15 +10628,10 @@ const deserializeAws_restJson1VpcLink = (output: any, context: __SerdeContext): 
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
-    VpcLinkId: output.vpcLinkId !== undefined && output.vpcLinkId !== null ? output.vpcLinkId : undefined,
-    VpcLinkStatus:
-      output.vpcLinkStatus !== undefined && output.vpcLinkStatus !== null ? output.vpcLinkStatus : undefined,
-    VpcLinkStatusMessage:
-      output.vpcLinkStatusMessage !== undefined && output.vpcLinkStatusMessage !== null
-        ? output.vpcLinkStatusMessage
-        : undefined,
-    VpcLinkVersion:
-      output.vpcLinkVersion !== undefined && output.vpcLinkVersion !== null ? output.vpcLinkVersion : undefined,
+    VpcLinkId: __expectString(output.vpcLinkId),
+    VpcLinkStatus: __expectString(output.vpcLinkStatus),
+    VpcLinkStatusMessage: __expectString(output.vpcLinkStatusMessage),
+    VpcLinkVersion: __expectString(output.vpcLinkVersion),
   } as any;
 };
 

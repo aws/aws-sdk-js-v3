@@ -273,7 +273,12 @@ import {
   WebhookNotFoundException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -5223,7 +5228,7 @@ const serializeAws_json1_1WebhookFilters = (input: WebhookFilterRule[], context:
 
 const deserializeAws_json1_1AcknowledgeJobOutput = (output: any, context: __SerdeContext): AcknowledgeJobOutput => {
   return {
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5232,7 +5237,7 @@ const deserializeAws_json1_1AcknowledgeThirdPartyJobOutput = (
   context: __SerdeContext
 ): AcknowledgeThirdPartyJobOutput => {
   return {
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5255,7 +5260,7 @@ const deserializeAws_json1_1ActionConfigurationMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -5265,13 +5270,13 @@ const deserializeAws_json1_1ActionConfigurationProperty = (
   context: __SerdeContext
 ): ActionConfigurationProperty => {
   return {
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    queryable: output.queryable !== undefined && output.queryable !== null ? output.queryable : undefined,
-    required: output.required !== undefined && output.required !== null ? output.required : undefined,
-    secret: output.secret !== undefined && output.secret !== null ? output.secret : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    description: __expectString(output.description),
+    key: __expectBoolean(output.key),
+    name: __expectString(output.name),
+    queryable: __expectBoolean(output.queryable),
+    required: __expectBoolean(output.required),
+    secret: __expectBoolean(output.secret),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -5291,11 +5296,8 @@ const deserializeAws_json1_1ActionConfigurationPropertyList = (
 
 const deserializeAws_json1_1ActionContext = (output: any, context: __SerdeContext): ActionContext => {
   return {
-    actionExecutionId:
-      output.actionExecutionId !== undefined && output.actionExecutionId !== null
-        ? output.actionExecutionId
-        : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    actionExecutionId: __expectString(output.actionExecutionId),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -5313,57 +5315,43 @@ const deserializeAws_json1_1ActionDeclaration = (output: any, context: __SerdeCo
       output.inputArtifacts !== undefined && output.inputArtifacts !== null
         ? deserializeAws_json1_1InputArtifactList(output.inputArtifacts, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    namespace: output.namespace !== undefined && output.namespace !== null ? output.namespace : undefined,
+    name: __expectString(output.name),
+    namespace: __expectString(output.namespace),
     outputArtifacts:
       output.outputArtifacts !== undefined && output.outputArtifacts !== null
         ? deserializeAws_json1_1OutputArtifactList(output.outputArtifacts, context)
         : undefined,
-    region: output.region !== undefined && output.region !== null ? output.region : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    runOrder: output.runOrder !== undefined && output.runOrder !== null ? output.runOrder : undefined,
+    region: __expectString(output.region),
+    roleArn: __expectString(output.roleArn),
+    runOrder: __expectNumber(output.runOrder),
   } as any;
 };
 
 const deserializeAws_json1_1ActionExecution = (output: any, context: __SerdeContext): ActionExecution => {
   return {
-    actionExecutionId:
-      output.actionExecutionId !== undefined && output.actionExecutionId !== null
-        ? output.actionExecutionId
-        : undefined,
+    actionExecutionId: __expectString(output.actionExecutionId),
     errorDetails:
       output.errorDetails !== undefined && output.errorDetails !== null
         ? deserializeAws_json1_1ErrorDetails(output.errorDetails, context)
         : undefined,
-    externalExecutionId:
-      output.externalExecutionId !== undefined && output.externalExecutionId !== null
-        ? output.externalExecutionId
-        : undefined,
-    externalExecutionUrl:
-      output.externalExecutionUrl !== undefined && output.externalExecutionUrl !== null
-        ? output.externalExecutionUrl
-        : undefined,
+    externalExecutionId: __expectString(output.externalExecutionId),
+    externalExecutionUrl: __expectString(output.externalExecutionUrl),
     lastStatusChange:
       output.lastStatusChange !== undefined && output.lastStatusChange !== null
         ? new Date(Math.round(output.lastStatusChange * 1000))
         : undefined,
-    lastUpdatedBy:
-      output.lastUpdatedBy !== undefined && output.lastUpdatedBy !== null ? output.lastUpdatedBy : undefined,
-    percentComplete:
-      output.percentComplete !== undefined && output.percentComplete !== null ? output.percentComplete : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    summary: output.summary !== undefined && output.summary !== null ? output.summary : undefined,
-    token: output.token !== undefined && output.token !== null ? output.token : undefined,
+    lastUpdatedBy: __expectString(output.lastUpdatedBy),
+    percentComplete: __expectNumber(output.percentComplete),
+    status: __expectString(output.status),
+    summary: __expectString(output.summary),
+    token: __expectString(output.token),
   } as any;
 };
 
 const deserializeAws_json1_1ActionExecutionDetail = (output: any, context: __SerdeContext): ActionExecutionDetail => {
   return {
-    actionExecutionId:
-      output.actionExecutionId !== undefined && output.actionExecutionId !== null
-        ? output.actionExecutionId
-        : undefined,
-    actionName: output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
+    actionExecutionId: __expectString(output.actionExecutionId),
+    actionName: __expectString(output.actionName),
     input:
       output.input !== undefined && output.input !== null
         ? deserializeAws_json1_1ActionExecutionInput(output.input, context)
@@ -5376,18 +5364,14 @@ const deserializeAws_json1_1ActionExecutionDetail = (output: any, context: __Ser
       output.output !== undefined && output.output !== null
         ? deserializeAws_json1_1ActionExecutionOutput(output.output, context)
         : undefined,
-    pipelineExecutionId:
-      output.pipelineExecutionId !== undefined && output.pipelineExecutionId !== null
-        ? output.pipelineExecutionId
-        : undefined,
-    pipelineVersion:
-      output.pipelineVersion !== undefined && output.pipelineVersion !== null ? output.pipelineVersion : undefined,
-    stageName: output.stageName !== undefined && output.stageName !== null ? output.stageName : undefined,
+    pipelineExecutionId: __expectString(output.pipelineExecutionId),
+    pipelineVersion: __expectNumber(output.pipelineVersion),
+    stageName: __expectString(output.stageName),
     startTime:
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -5419,13 +5403,13 @@ const deserializeAws_json1_1ActionExecutionInput = (output: any, context: __Serd
       output.inputArtifacts !== undefined && output.inputArtifacts !== null
         ? deserializeAws_json1_1ArtifactDetailList(output.inputArtifacts, context)
         : undefined,
-    namespace: output.namespace !== undefined && output.namespace !== null ? output.namespace : undefined,
-    region: output.region !== undefined && output.region !== null ? output.region : undefined,
+    namespace: __expectString(output.namespace),
+    region: __expectString(output.region),
     resolvedConfiguration:
       output.resolvedConfiguration !== undefined && output.resolvedConfiguration !== null
         ? deserializeAws_json1_1ResolvedActionConfigurationMap(output.resolvedConfiguration, context)
         : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    roleArn: __expectString(output.roleArn),
   } as any;
 };
 
@@ -5448,18 +5432,9 @@ const deserializeAws_json1_1ActionExecutionOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1ActionExecutionResult = (output: any, context: __SerdeContext): ActionExecutionResult => {
   return {
-    externalExecutionId:
-      output.externalExecutionId !== undefined && output.externalExecutionId !== null
-        ? output.externalExecutionId
-        : undefined,
-    externalExecutionSummary:
-      output.externalExecutionSummary !== undefined && output.externalExecutionSummary !== null
-        ? output.externalExecutionSummary
-        : undefined,
-    externalExecutionUrl:
-      output.externalExecutionUrl !== undefined && output.externalExecutionUrl !== null
-        ? output.externalExecutionUrl
-        : undefined,
+    externalExecutionId: __expectString(output.externalExecutionId),
+    externalExecutionSummary: __expectString(output.externalExecutionSummary),
+    externalExecutionUrl: __expectString(output.externalExecutionUrl),
   } as any;
 };
 
@@ -5468,7 +5443,7 @@ const deserializeAws_json1_1ActionNotFoundException = (
   context: __SerdeContext
 ): ActionNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5476,25 +5451,24 @@ const deserializeAws_json1_1ActionRevision = (output: any, context: __SerdeConte
   return {
     created:
       output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
-    revisionChangeId:
-      output.revisionChangeId !== undefined && output.revisionChangeId !== null ? output.revisionChangeId : undefined,
-    revisionId: output.revisionId !== undefined && output.revisionId !== null ? output.revisionId : undefined,
+    revisionChangeId: __expectString(output.revisionChangeId),
+    revisionId: __expectString(output.revisionId),
   } as any;
 };
 
 const deserializeAws_json1_1ActionState = (output: any, context: __SerdeContext): ActionState => {
   return {
-    actionName: output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
+    actionName: __expectString(output.actionName),
     currentRevision:
       output.currentRevision !== undefined && output.currentRevision !== null
         ? deserializeAws_json1_1ActionRevision(output.currentRevision, context)
         : undefined,
-    entityUrl: output.entityUrl !== undefined && output.entityUrl !== null ? output.entityUrl : undefined,
+    entityUrl: __expectString(output.entityUrl),
     latestExecution:
       output.latestExecution !== undefined && output.latestExecution !== null
         ? deserializeAws_json1_1ActionExecution(output.latestExecution, context)
         : undefined,
-    revisionUrl: output.revisionUrl !== undefined && output.revisionUrl !== null ? output.revisionUrl : undefined,
+    revisionUrl: __expectString(output.revisionUrl),
   } as any;
 };
 
@@ -5539,14 +5513,14 @@ const deserializeAws_json1_1ActionTypeArtifactDetails = (
   context: __SerdeContext
 ): ActionTypeArtifactDetails => {
   return {
-    maximumCount: output.maximumCount !== undefined && output.maximumCount !== null ? output.maximumCount : undefined,
-    minimumCount: output.minimumCount !== undefined && output.minimumCount !== null ? output.minimumCount : undefined,
+    maximumCount: __expectNumber(output.maximumCount),
+    minimumCount: __expectNumber(output.minimumCount),
   } as any;
 };
 
 const deserializeAws_json1_1ActionTypeDeclaration = (output: any, context: __SerdeContext): ActionTypeDeclaration => {
   return {
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     executor:
       output.executor !== undefined && output.executor !== null
         ? deserializeAws_json1_1ActionTypeExecutor(output.executor, context)
@@ -5584,30 +5558,27 @@ const deserializeAws_json1_1ActionTypeExecutor = (output: any, context: __SerdeC
       output.configuration !== undefined && output.configuration !== null
         ? deserializeAws_json1_1ExecutorConfiguration(output.configuration, context)
         : undefined,
-    jobTimeout: output.jobTimeout !== undefined && output.jobTimeout !== null ? output.jobTimeout : undefined,
-    policyStatementsTemplate:
-      output.policyStatementsTemplate !== undefined && output.policyStatementsTemplate !== null
-        ? output.policyStatementsTemplate
-        : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    jobTimeout: __expectNumber(output.jobTimeout),
+    policyStatementsTemplate: __expectString(output.policyStatementsTemplate),
+    type: __expectString(output.type),
   } as any;
 };
 
 const deserializeAws_json1_1ActionTypeId = (output: any, context: __SerdeContext): ActionTypeId => {
   return {
-    category: output.category !== undefined && output.category !== null ? output.category : undefined,
-    owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
-    provider: output.provider !== undefined && output.provider !== null ? output.provider : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    category: __expectString(output.category),
+    owner: __expectString(output.owner),
+    provider: __expectString(output.provider),
+    version: __expectString(output.version),
   } as any;
 };
 
 const deserializeAws_json1_1ActionTypeIdentifier = (output: any, context: __SerdeContext): ActionTypeIdentifier => {
   return {
-    category: output.category !== undefined && output.category !== null ? output.category : undefined,
-    owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
-    provider: output.provider !== undefined && output.provider !== null ? output.provider : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    category: __expectString(output.category),
+    owner: __expectString(output.owner),
+    provider: __expectString(output.provider),
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -5627,7 +5598,7 @@ const deserializeAws_json1_1ActionTypeNotFoundException = (
   context: __SerdeContext
 ): ActionTypeNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5653,52 +5624,30 @@ const deserializeAws_json1_1ActionTypeProperties = (output: any, context: __Serd
 
 const deserializeAws_json1_1ActionTypeProperty = (output: any, context: __SerdeContext): ActionTypeProperty => {
   return {
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    noEcho: output.noEcho !== undefined && output.noEcho !== null ? output.noEcho : undefined,
-    optional: output.optional !== undefined && output.optional !== null ? output.optional : undefined,
-    queryable: output.queryable !== undefined && output.queryable !== null ? output.queryable : undefined,
+    description: __expectString(output.description),
+    key: __expectBoolean(output.key),
+    name: __expectString(output.name),
+    noEcho: __expectBoolean(output.noEcho),
+    optional: __expectBoolean(output.optional),
+    queryable: __expectBoolean(output.queryable),
   } as any;
 };
 
 const deserializeAws_json1_1ActionTypeSettings = (output: any, context: __SerdeContext): ActionTypeSettings => {
   return {
-    entityUrlTemplate:
-      output.entityUrlTemplate !== undefined && output.entityUrlTemplate !== null
-        ? output.entityUrlTemplate
-        : undefined,
-    executionUrlTemplate:
-      output.executionUrlTemplate !== undefined && output.executionUrlTemplate !== null
-        ? output.executionUrlTemplate
-        : undefined,
-    revisionUrlTemplate:
-      output.revisionUrlTemplate !== undefined && output.revisionUrlTemplate !== null
-        ? output.revisionUrlTemplate
-        : undefined,
-    thirdPartyConfigurationUrl:
-      output.thirdPartyConfigurationUrl !== undefined && output.thirdPartyConfigurationUrl !== null
-        ? output.thirdPartyConfigurationUrl
-        : undefined,
+    entityUrlTemplate: __expectString(output.entityUrlTemplate),
+    executionUrlTemplate: __expectString(output.executionUrlTemplate),
+    revisionUrlTemplate: __expectString(output.revisionUrlTemplate),
+    thirdPartyConfigurationUrl: __expectString(output.thirdPartyConfigurationUrl),
   } as any;
 };
 
 const deserializeAws_json1_1ActionTypeUrls = (output: any, context: __SerdeContext): ActionTypeUrls => {
   return {
-    configurationUrl:
-      output.configurationUrl !== undefined && output.configurationUrl !== null ? output.configurationUrl : undefined,
-    entityUrlTemplate:
-      output.entityUrlTemplate !== undefined && output.entityUrlTemplate !== null
-        ? output.entityUrlTemplate
-        : undefined,
-    executionUrlTemplate:
-      output.executionUrlTemplate !== undefined && output.executionUrlTemplate !== null
-        ? output.executionUrlTemplate
-        : undefined,
-    revisionUrlTemplate:
-      output.revisionUrlTemplate !== undefined && output.revisionUrlTemplate !== null
-        ? output.revisionUrlTemplate
-        : undefined,
+    configurationUrl: __expectString(output.configurationUrl),
+    entityUrlTemplate: __expectString(output.entityUrlTemplate),
+    executionUrlTemplate: __expectString(output.executionUrlTemplate),
+    revisionUrlTemplate: __expectString(output.revisionUrlTemplate),
   } as any;
 };
 
@@ -5709,7 +5658,7 @@ const deserializeAws_json1_1AllowedAccounts = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5718,7 +5667,7 @@ const deserializeAws_json1_1ApprovalAlreadyCompletedException = (
   context: __SerdeContext
 ): ApprovalAlreadyCompletedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5728,14 +5677,14 @@ const deserializeAws_json1_1Artifact = (output: any, context: __SerdeContext): A
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ArtifactLocation(output.location, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
+    name: __expectString(output.name),
+    revision: __expectString(output.revision),
   } as any;
 };
 
 const deserializeAws_json1_1ArtifactDetail = (output: any, context: __SerdeContext): ArtifactDetail => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     s3location:
       output.s3location !== undefined && output.s3location !== null
         ? deserializeAws_json1_1S3Location(output.s3location, context)
@@ -5756,8 +5705,8 @@ const deserializeAws_json1_1ArtifactDetailList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ArtifactDetails = (output: any, context: __SerdeContext): ArtifactDetails => {
   return {
-    maximumCount: output.maximumCount !== undefined && output.maximumCount !== null ? output.maximumCount : undefined,
-    minimumCount: output.minimumCount !== undefined && output.minimumCount !== null ? output.minimumCount : undefined,
+    maximumCount: __expectNumber(output.maximumCount),
+    minimumCount: __expectNumber(output.minimumCount),
   } as any;
 };
 
@@ -5778,7 +5727,7 @@ const deserializeAws_json1_1ArtifactLocation = (output: any, context: __SerdeCon
       output.s3Location !== undefined && output.s3Location !== null
         ? deserializeAws_json1_1S3ArtifactLocation(output.s3Location, context)
         : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -5786,15 +5735,11 @@ const deserializeAws_json1_1ArtifactRevision = (output: any, context: __SerdeCon
   return {
     created:
       output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    revisionChangeIdentifier:
-      output.revisionChangeIdentifier !== undefined && output.revisionChangeIdentifier !== null
-        ? output.revisionChangeIdentifier
-        : undefined,
-    revisionId: output.revisionId !== undefined && output.revisionId !== null ? output.revisionId : undefined,
-    revisionSummary:
-      output.revisionSummary !== undefined && output.revisionSummary !== null ? output.revisionSummary : undefined,
-    revisionUrl: output.revisionUrl !== undefined && output.revisionUrl !== null ? output.revisionUrl : undefined,
+    name: __expectString(output.name),
+    revisionChangeIdentifier: __expectString(output.revisionChangeIdentifier),
+    revisionId: __expectString(output.revisionId),
+    revisionSummary: __expectString(output.revisionSummary),
+    revisionUrl: __expectString(output.revisionUrl),
   } as any;
 };
 
@@ -5815,8 +5760,8 @@ const deserializeAws_json1_1ArtifactStore = (output: any, context: __SerdeContex
       output.encryptionKey !== undefined && output.encryptionKey !== null
         ? deserializeAws_json1_1EncryptionKey(output.encryptionKey, context)
         : undefined,
-    location: output.location !== undefined && output.location !== null ? output.location : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    location: __expectString(output.location),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -5837,17 +5782,16 @@ const deserializeAws_json1_1ArtifactStoreMap = (
 
 const deserializeAws_json1_1AWSSessionCredentials = (output: any, context: __SerdeContext): AWSSessionCredentials => {
   return {
-    accessKeyId: output.accessKeyId !== undefined && output.accessKeyId !== null ? output.accessKeyId : undefined,
-    secretAccessKey:
-      output.secretAccessKey !== undefined && output.secretAccessKey !== null ? output.secretAccessKey : undefined,
-    sessionToken: output.sessionToken !== undefined && output.sessionToken !== null ? output.sessionToken : undefined,
+    accessKeyId: __expectString(output.accessKeyId),
+    secretAccessKey: __expectString(output.secretAccessKey),
+    sessionToken: __expectString(output.sessionToken),
   } as any;
 };
 
 const deserializeAws_json1_1BlockerDeclaration = (output: any, context: __SerdeContext): BlockerDeclaration => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    name: __expectString(output.name),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -5856,13 +5800,13 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5911,29 +5855,28 @@ const deserializeAws_json1_1DuplicatedStopRequestException = (
   context: __SerdeContext
 ): DuplicatedStopRequestException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1EncryptionKey = (output: any, context: __SerdeContext): EncryptionKey => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    id: __expectString(output.id),
+    type: __expectString(output.type),
   } as any;
 };
 
 const deserializeAws_json1_1ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    code: __expectString(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ExecutionTrigger = (output: any, context: __SerdeContext): ExecutionTrigger => {
   return {
-    triggerDetail:
-      output.triggerDetail !== undefined && output.triggerDetail !== null ? output.triggerDetail : undefined,
-    triggerType: output.triggerType !== undefined && output.triggerType !== null ? output.triggerType : undefined,
+    triggerDetail: __expectString(output.triggerDetail),
+    triggerType: __expectString(output.triggerType),
   } as any;
 };
 
@@ -5997,9 +5940,8 @@ const deserializeAws_json1_1GetPipelineStateOutput = (output: any, context: __Se
   return {
     created:
       output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
-    pipelineName: output.pipelineName !== undefined && output.pipelineName !== null ? output.pipelineName : undefined,
-    pipelineVersion:
-      output.pipelineVersion !== undefined && output.pipelineVersion !== null ? output.pipelineVersion : undefined,
+    pipelineName: __expectString(output.pipelineName),
+    pipelineVersion: __expectNumber(output.pipelineVersion),
     stageStates:
       output.stageStates !== undefined && output.stageStates !== null
         ? deserializeAws_json1_1StageStateList(output.stageStates, context)
@@ -6023,7 +5965,7 @@ const deserializeAws_json1_1GetThirdPartyJobDetailsOutput = (
 
 const deserializeAws_json1_1InputArtifact = (output: any, context: __SerdeContext): InputArtifact => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -6043,7 +5985,7 @@ const deserializeAws_json1_1InvalidActionDeclarationException = (
   context: __SerdeContext
 ): InvalidActionDeclarationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6052,13 +5994,13 @@ const deserializeAws_json1_1InvalidApprovalTokenException = (
   context: __SerdeContext
 ): InvalidApprovalTokenException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidArnException = (output: any, context: __SerdeContext): InvalidArnException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6067,7 +6009,7 @@ const deserializeAws_json1_1InvalidBlockerDeclarationException = (
   context: __SerdeContext
 ): InvalidBlockerDeclarationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6076,13 +6018,13 @@ const deserializeAws_json1_1InvalidClientTokenException = (
   context: __SerdeContext
 ): InvalidClientTokenException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidJobException = (output: any, context: __SerdeContext): InvalidJobException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6091,7 +6033,7 @@ const deserializeAws_json1_1InvalidJobStateException = (
   context: __SerdeContext
 ): InvalidJobStateException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6100,13 +6042,13 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidNonceException = (output: any, context: __SerdeContext): InvalidNonceException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6115,7 +6057,7 @@ const deserializeAws_json1_1InvalidStageDeclarationException = (
   context: __SerdeContext
 ): InvalidStageDeclarationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6124,13 +6066,13 @@ const deserializeAws_json1_1InvalidStructureException = (
   context: __SerdeContext
 ): InvalidStructureException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidTagsException = (output: any, context: __SerdeContext): InvalidTagsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6139,7 +6081,7 @@ const deserializeAws_json1_1InvalidWebhookAuthenticationParametersException = (
   context: __SerdeContext
 ): InvalidWebhookAuthenticationParametersException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6148,19 +6090,19 @@ const deserializeAws_json1_1InvalidWebhookFilterPatternException = (
   context: __SerdeContext
 ): InvalidWebhookFilterPatternException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job => {
   return {
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
+    accountId: __expectString(output.accountId),
     data:
       output.data !== undefined && output.data !== null
         ? deserializeAws_json1_1JobData(output.data, context)
         : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    nonce: output.nonce !== undefined && output.nonce !== null ? output.nonce : undefined,
+    id: __expectString(output.id),
+    nonce: __expectString(output.nonce),
   } as any;
 };
 
@@ -6178,10 +6120,7 @@ const deserializeAws_json1_1JobData = (output: any, context: __SerdeContext): Jo
       output.artifactCredentials !== undefined && output.artifactCredentials !== null
         ? deserializeAws_json1_1AWSSessionCredentials(output.artifactCredentials, context)
         : undefined,
-    continuationToken:
-      output.continuationToken !== undefined && output.continuationToken !== null
-        ? output.continuationToken
-        : undefined,
+    continuationToken: __expectString(output.continuationToken),
     encryptionKey:
       output.encryptionKey !== undefined && output.encryptionKey !== null
         ? deserializeAws_json1_1EncryptionKey(output.encryptionKey, context)
@@ -6203,12 +6142,12 @@ const deserializeAws_json1_1JobData = (output: any, context: __SerdeContext): Jo
 
 const deserializeAws_json1_1JobDetails = (output: any, context: __SerdeContext): JobDetails => {
   return {
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
+    accountId: __expectString(output.accountId),
     data:
       output.data !== undefined && output.data !== null
         ? deserializeAws_json1_1JobData(output.data, context)
         : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    id: __expectString(output.id),
   } as any;
 };
 
@@ -6225,7 +6164,7 @@ const deserializeAws_json1_1JobList = (output: any, context: __SerdeContext): Jo
 
 const deserializeAws_json1_1JobNotFoundException = (output: any, context: __SerdeContext): JobNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6250,16 +6189,13 @@ const deserializeAws_json1_1LambdaExecutorConfiguration = (
   context: __SerdeContext
 ): LambdaExecutorConfiguration => {
   return {
-    lambdaFunctionArn:
-      output.lambdaFunctionArn !== undefined && output.lambdaFunctionArn !== null
-        ? output.lambdaFunctionArn
-        : undefined,
+    lambdaFunctionArn: __expectString(output.lambdaFunctionArn),
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6272,7 +6208,7 @@ const deserializeAws_json1_1ListActionExecutionsOutput = (
       output.actionExecutionDetails !== undefined && output.actionExecutionDetails !== null
         ? deserializeAws_json1_1ActionExecutionDetailList(output.actionExecutionDetails, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6282,7 +6218,7 @@ const deserializeAws_json1_1ListActionTypesOutput = (output: any, context: __Ser
       output.actionTypes !== undefined && output.actionTypes !== null
         ? deserializeAws_json1_1ActionTypeList(output.actionTypes, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -6291,7 +6227,7 @@ const deserializeAws_json1_1ListPipelineExecutionsOutput = (
   context: __SerdeContext
 ): ListPipelineExecutionsOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     pipelineExecutionSummaries:
       output.pipelineExecutionSummaries !== undefined && output.pipelineExecutionSummaries !== null
         ? deserializeAws_json1_1PipelineExecutionSummaryList(output.pipelineExecutionSummaries, context)
@@ -6301,7 +6237,7 @@ const deserializeAws_json1_1ListPipelineExecutionsOutput = (
 
 const deserializeAws_json1_1ListPipelinesOutput = (output: any, context: __SerdeContext): ListPipelinesOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     pipelines:
       output.pipelines !== undefined && output.pipelines !== null
         ? deserializeAws_json1_1PipelineList(output.pipelines, context)
@@ -6314,7 +6250,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -6324,13 +6260,13 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
 
 const deserializeAws_json1_1ListWebhookItem = (output: any, context: __SerdeContext): ListWebhookItem => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     definition:
       output.definition !== undefined && output.definition !== null
         ? deserializeAws_json1_1WebhookDefinition(output.definition, context)
         : undefined,
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
     lastTriggered:
       output.lastTriggered !== undefined && output.lastTriggered !== null
         ? new Date(Math.round(output.lastTriggered * 1000))
@@ -6339,13 +6275,13 @@ const deserializeAws_json1_1ListWebhookItem = (output: any, context: __SerdeCont
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
         : undefined,
-    url: output.url !== undefined && output.url !== null ? output.url : undefined,
+    url: __expectString(output.url),
   } as any;
 };
 
 const deserializeAws_json1_1ListWebhooksOutput = (output: any, context: __SerdeContext): ListWebhooksOutput => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     webhooks:
       output.webhooks !== undefined && output.webhooks !== null
         ? deserializeAws_json1_1WebhookList(output.webhooks, context)
@@ -6358,13 +6294,13 @@ const deserializeAws_json1_1NotLatestPipelineExecutionException = (
   context: __SerdeContext
 ): NotLatestPipelineExecutionException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1OutputArtifact = (output: any, context: __SerdeContext): OutputArtifact => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -6386,7 +6322,7 @@ const deserializeAws_json1_1OutputVariablesMap = (output: any, context: __SerdeC
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -6396,7 +6332,7 @@ const deserializeAws_json1_1OutputVariablesSizeExceededException = (
   context: __SerdeContext
 ): OutputVariablesSizeExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6406,12 +6342,9 @@ const deserializeAws_json1_1PipelineContext = (output: any, context: __SerdeCont
       output.action !== undefined && output.action !== null
         ? deserializeAws_json1_1ActionContext(output.action, context)
         : undefined,
-    pipelineArn: output.pipelineArn !== undefined && output.pipelineArn !== null ? output.pipelineArn : undefined,
-    pipelineExecutionId:
-      output.pipelineExecutionId !== undefined && output.pipelineExecutionId !== null
-        ? output.pipelineExecutionId
-        : undefined,
-    pipelineName: output.pipelineName !== undefined && output.pipelineName !== null ? output.pipelineName : undefined,
+    pipelineArn: __expectString(output.pipelineArn),
+    pipelineExecutionId: __expectString(output.pipelineExecutionId),
+    pipelineName: __expectString(output.pipelineName),
     stage:
       output.stage !== undefined && output.stage !== null
         ? deserializeAws_json1_1StageContext(output.stage, context)
@@ -6429,13 +6362,13 @@ const deserializeAws_json1_1PipelineDeclaration = (output: any, context: __Serde
       output.artifactStores !== undefined && output.artifactStores !== null
         ? deserializeAws_json1_1ArtifactStoreMap(output.artifactStores, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    name: __expectString(output.name),
+    roleArn: __expectString(output.roleArn),
     stages:
       output.stages !== undefined && output.stages !== null
         ? deserializeAws_json1_1PipelineStageDeclarationList(output.stages, context)
         : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    version: __expectNumber(output.version),
   } as any;
 };
 
@@ -6445,16 +6378,11 @@ const deserializeAws_json1_1PipelineExecution = (output: any, context: __SerdeCo
       output.artifactRevisions !== undefined && output.artifactRevisions !== null
         ? deserializeAws_json1_1ArtifactRevisionList(output.artifactRevisions, context)
         : undefined,
-    pipelineExecutionId:
-      output.pipelineExecutionId !== undefined && output.pipelineExecutionId !== null
-        ? output.pipelineExecutionId
-        : undefined,
-    pipelineName: output.pipelineName !== undefined && output.pipelineName !== null ? output.pipelineName : undefined,
-    pipelineVersion:
-      output.pipelineVersion !== undefined && output.pipelineVersion !== null ? output.pipelineVersion : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    statusSummary:
-      output.statusSummary !== undefined && output.statusSummary !== null ? output.statusSummary : undefined,
+    pipelineExecutionId: __expectString(output.pipelineExecutionId),
+    pipelineName: __expectString(output.pipelineName),
+    pipelineVersion: __expectNumber(output.pipelineVersion),
+    status: __expectString(output.status),
+    statusSummary: __expectString(output.statusSummary),
   } as any;
 };
 
@@ -6463,7 +6391,7 @@ const deserializeAws_json1_1PipelineExecutionNotFoundException = (
   context: __SerdeContext
 ): PipelineExecutionNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6472,7 +6400,7 @@ const deserializeAws_json1_1PipelineExecutionNotStoppableException = (
   context: __SerdeContext
 ): PipelineExecutionNotStoppableException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6485,10 +6413,7 @@ const deserializeAws_json1_1PipelineExecutionSummary = (
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    pipelineExecutionId:
-      output.pipelineExecutionId !== undefined && output.pipelineExecutionId !== null
-        ? output.pipelineExecutionId
-        : undefined,
+    pipelineExecutionId: __expectString(output.pipelineExecutionId),
     sourceRevisions:
       output.sourceRevisions !== undefined && output.sourceRevisions !== null
         ? deserializeAws_json1_1SourceRevisionList(output.sourceRevisions, context)
@@ -6497,7 +6422,7 @@ const deserializeAws_json1_1PipelineExecutionSummary = (
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
     stopTrigger:
       output.stopTrigger !== undefined && output.stopTrigger !== null
         ? deserializeAws_json1_1StopExecutionTrigger(output.stopTrigger, context)
@@ -6538,7 +6463,7 @@ const deserializeAws_json1_1PipelineMetadata = (output: any, context: __SerdeCon
   return {
     created:
       output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
-    pipelineArn: output.pipelineArn !== undefined && output.pipelineArn !== null ? output.pipelineArn : undefined,
+    pipelineArn: __expectString(output.pipelineArn),
     updated:
       output.updated !== undefined && output.updated !== null ? new Date(Math.round(output.updated * 1000)) : undefined,
   } as any;
@@ -6549,7 +6474,7 @@ const deserializeAws_json1_1PipelineNameInUseException = (
   context: __SerdeContext
 ): PipelineNameInUseException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6558,7 +6483,7 @@ const deserializeAws_json1_1PipelineNotFoundException = (
   context: __SerdeContext
 ): PipelineNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6580,10 +6505,10 @@ const deserializeAws_json1_1PipelineSummary = (output: any, context: __SerdeCont
   return {
     created:
       output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     updated:
       output.updated !== undefined && output.updated !== null ? new Date(Math.round(output.updated * 1000)) : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    version: __expectNumber(output.version),
   } as any;
 };
 
@@ -6592,7 +6517,7 @@ const deserializeAws_json1_1PipelineVersionNotFoundException = (
   context: __SerdeContext
 ): PipelineVersionNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6624,7 +6549,7 @@ const deserializeAws_json1_1PollingAccountList = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6635,7 +6560,7 @@ const deserializeAws_json1_1PollingServicePrincipalList = (output: any, context:
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6644,11 +6569,8 @@ const deserializeAws_json1_1PutActionRevisionOutput = (
   context: __SerdeContext
 ): PutActionRevisionOutput => {
   return {
-    newRevision: output.newRevision !== undefined && output.newRevision !== null ? output.newRevision : undefined,
-    pipelineExecutionId:
-      output.pipelineExecutionId !== undefined && output.pipelineExecutionId !== null
-        ? output.pipelineExecutionId
-        : undefined,
+    newRevision: __expectBoolean(output.newRevision),
+    pipelineExecutionId: __expectString(output.pipelineExecutionId),
   } as any;
 };
 
@@ -6682,7 +6604,7 @@ const deserializeAws_json1_1RegisterWebhookWithThirdPartyOutput = (
 
 const deserializeAws_json1_1RequestFailedException = (output: any, context: __SerdeContext): RequestFailedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6696,7 +6618,7 @@ const deserializeAws_json1_1ResolvedActionConfigurationMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -6706,7 +6628,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6715,34 +6637,30 @@ const deserializeAws_json1_1RetryStageExecutionOutput = (
   context: __SerdeContext
 ): RetryStageExecutionOutput => {
   return {
-    pipelineExecutionId:
-      output.pipelineExecutionId !== undefined && output.pipelineExecutionId !== null
-        ? output.pipelineExecutionId
-        : undefined,
+    pipelineExecutionId: __expectString(output.pipelineExecutionId),
   } as any;
 };
 
 const deserializeAws_json1_1S3ArtifactLocation = (output: any, context: __SerdeContext): S3ArtifactLocation => {
   return {
-    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
-    objectKey: output.objectKey !== undefined && output.objectKey !== null ? output.objectKey : undefined,
+    bucketName: __expectString(output.bucketName),
+    objectKey: __expectString(output.objectKey),
   } as any;
 };
 
 const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
-    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    bucket: __expectString(output.bucket),
+    key: __expectString(output.key),
   } as any;
 };
 
 const deserializeAws_json1_1SourceRevision = (output: any, context: __SerdeContext): SourceRevision => {
   return {
-    actionName: output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
-    revisionId: output.revisionId !== undefined && output.revisionId !== null ? output.revisionId : undefined,
-    revisionSummary:
-      output.revisionSummary !== undefined && output.revisionSummary !== null ? output.revisionSummary : undefined,
-    revisionUrl: output.revisionUrl !== undefined && output.revisionUrl !== null ? output.revisionUrl : undefined,
+    actionName: __expectString(output.actionName),
+    revisionId: __expectString(output.revisionId),
+    revisionSummary: __expectString(output.revisionSummary),
+    revisionUrl: __expectString(output.revisionUrl),
   } as any;
 };
 
@@ -6787,7 +6705,7 @@ const deserializeAws_json1_1StageBlockerDeclarationList = (
 
 const deserializeAws_json1_1StageContext = (output: any, context: __SerdeContext): StageContext => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -6801,23 +6719,20 @@ const deserializeAws_json1_1StageDeclaration = (output: any, context: __SerdeCon
       output.blockers !== undefined && output.blockers !== null
         ? deserializeAws_json1_1StageBlockerDeclarationList(output.blockers, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
   } as any;
 };
 
 const deserializeAws_json1_1StageExecution = (output: any, context: __SerdeContext): StageExecution => {
   return {
-    pipelineExecutionId:
-      output.pipelineExecutionId !== undefined && output.pipelineExecutionId !== null
-        ? output.pipelineExecutionId
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    pipelineExecutionId: __expectString(output.pipelineExecutionId),
+    status: __expectString(output.status),
   } as any;
 };
 
 const deserializeAws_json1_1StageNotFoundException = (output: any, context: __SerdeContext): StageNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6826,7 +6741,7 @@ const deserializeAws_json1_1StageNotRetryableException = (
   context: __SerdeContext
 ): StageNotRetryableException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -6848,7 +6763,7 @@ const deserializeAws_json1_1StageState = (output: any, context: __SerdeContext):
       output.latestExecution !== undefined && output.latestExecution !== null
         ? deserializeAws_json1_1StageExecution(output.latestExecution, context)
         : undefined,
-    stageName: output.stageName !== undefined && output.stageName !== null ? output.stageName : undefined,
+    stageName: __expectString(output.stageName),
   } as any;
 };
 
@@ -6868,16 +6783,13 @@ const deserializeAws_json1_1StartPipelineExecutionOutput = (
   context: __SerdeContext
 ): StartPipelineExecutionOutput => {
   return {
-    pipelineExecutionId:
-      output.pipelineExecutionId !== undefined && output.pipelineExecutionId !== null
-        ? output.pipelineExecutionId
-        : undefined,
+    pipelineExecutionId: __expectString(output.pipelineExecutionId),
   } as any;
 };
 
 const deserializeAws_json1_1StopExecutionTrigger = (output: any, context: __SerdeContext): StopExecutionTrigger => {
   return {
-    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
+    reason: __expectString(output.reason),
   } as any;
 };
 
@@ -6886,17 +6798,14 @@ const deserializeAws_json1_1StopPipelineExecutionOutput = (
   context: __SerdeContext
 ): StopPipelineExecutionOutput => {
   return {
-    pipelineExecutionId:
-      output.pipelineExecutionId !== undefined && output.pipelineExecutionId !== null
-        ? output.pipelineExecutionId
-        : undefined,
+    pipelineExecutionId: __expectString(output.pipelineExecutionId),
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -6917,8 +6826,8 @@ const deserializeAws_json1_1TagResourceOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ThirdPartyJob = (output: any, context: __SerdeContext): ThirdPartyJob => {
   return {
-    clientId: output.clientId !== undefined && output.clientId !== null ? output.clientId : undefined,
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    clientId: __expectString(output.clientId),
+    jobId: __expectString(output.jobId),
   } as any;
 };
 
@@ -6936,10 +6845,7 @@ const deserializeAws_json1_1ThirdPartyJobData = (output: any, context: __SerdeCo
       output.artifactCredentials !== undefined && output.artifactCredentials !== null
         ? deserializeAws_json1_1AWSSessionCredentials(output.artifactCredentials, context)
         : undefined,
-    continuationToken:
-      output.continuationToken !== undefined && output.continuationToken !== null
-        ? output.continuationToken
-        : undefined,
+    continuationToken: __expectString(output.continuationToken),
     encryptionKey:
       output.encryptionKey !== undefined && output.encryptionKey !== null
         ? deserializeAws_json1_1EncryptionKey(output.encryptionKey, context)
@@ -6965,8 +6871,8 @@ const deserializeAws_json1_1ThirdPartyJobDetails = (output: any, context: __Serd
       output.data !== undefined && output.data !== null
         ? deserializeAws_json1_1ThirdPartyJobData(output.data, context)
         : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    nonce: output.nonce !== undefined && output.nonce !== null ? output.nonce : undefined,
+    id: __expectString(output.id),
+    nonce: __expectString(output.nonce),
   } as any;
 };
 
@@ -6983,21 +6889,19 @@ const deserializeAws_json1_1ThirdPartyJobList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1TransitionState = (output: any, context: __SerdeContext): TransitionState => {
   return {
-    disabledReason:
-      output.disabledReason !== undefined && output.disabledReason !== null ? output.disabledReason : undefined,
-    enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+    disabledReason: __expectString(output.disabledReason),
+    enabled: __expectBoolean(output.enabled),
     lastChangedAt:
       output.lastChangedAt !== undefined && output.lastChangedAt !== null
         ? new Date(Math.round(output.lastChangedAt * 1000))
         : undefined,
-    lastChangedBy:
-      output.lastChangedBy !== undefined && output.lastChangedBy !== null ? output.lastChangedBy : undefined,
+    lastChangedBy: __expectString(output.lastChangedBy),
   } as any;
 };
 
@@ -7016,7 +6920,7 @@ const deserializeAws_json1_1UpdatePipelineOutput = (output: any, context: __Serd
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -7025,16 +6929,14 @@ const deserializeAws_json1_1WebhookAuthConfiguration = (
   context: __SerdeContext
 ): WebhookAuthConfiguration => {
   return {
-    AllowedIPRange:
-      output.AllowedIPRange !== undefined && output.AllowedIPRange !== null ? output.AllowedIPRange : undefined,
-    SecretToken: output.SecretToken !== undefined && output.SecretToken !== null ? output.SecretToken : undefined,
+    AllowedIPRange: __expectString(output.AllowedIPRange),
+    SecretToken: __expectString(output.SecretToken),
   } as any;
 };
 
 const deserializeAws_json1_1WebhookDefinition = (output: any, context: __SerdeContext): WebhookDefinition => {
   return {
-    authentication:
-      output.authentication !== undefined && output.authentication !== null ? output.authentication : undefined,
+    authentication: __expectString(output.authentication),
     authenticationConfiguration:
       output.authenticationConfiguration !== undefined && output.authenticationConfiguration !== null
         ? deserializeAws_json1_1WebhookAuthConfiguration(output.authenticationConfiguration, context)
@@ -7043,17 +6945,16 @@ const deserializeAws_json1_1WebhookDefinition = (output: any, context: __SerdeCo
       output.filters !== undefined && output.filters !== null
         ? deserializeAws_json1_1WebhookFilters(output.filters, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    targetAction: output.targetAction !== undefined && output.targetAction !== null ? output.targetAction : undefined,
-    targetPipeline:
-      output.targetPipeline !== undefined && output.targetPipeline !== null ? output.targetPipeline : undefined,
+    name: __expectString(output.name),
+    targetAction: __expectString(output.targetAction),
+    targetPipeline: __expectString(output.targetPipeline),
   } as any;
 };
 
 const deserializeAws_json1_1WebhookFilterRule = (output: any, context: __SerdeContext): WebhookFilterRule => {
   return {
-    jsonPath: output.jsonPath !== undefined && output.jsonPath !== null ? output.jsonPath : undefined,
-    matchEquals: output.matchEquals !== undefined && output.matchEquals !== null ? output.matchEquals : undefined,
+    jsonPath: __expectString(output.jsonPath),
+    matchEquals: __expectString(output.matchEquals),
   } as any;
 };
 

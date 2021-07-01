@@ -29,10 +29,12 @@ import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.MediaTypeTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlFlattenedTrait;
 import software.amazon.smithy.model.traits.XmlNameTrait;
+import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeDeserVisitor;
@@ -78,7 +80,8 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             writer.write("if (entry === null) { return null as any; }");
 
             String dataSource = getUnnamedTargetWrapper(context, target, "entry");
-            writer.write("return $L;", target.accept(getMemberVisitor(dataSource)));
+            writer.write("return $L$L;", target.accept(getMemberVisitor(dataSource)),
+                    usesExpect(target) ? " as any" : "");
         });
     }
 
@@ -133,7 +136,8 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             writer.openBlock("return {", "};", () -> {
                 writer.write("...acc,");
                 // Dispatch to the output value provider for any additional handling.
-                writer.write("[pair[$S]]: $L", keyLocation, target.accept(getMemberVisitor(dataSource)));
+                writer.write("[pair[$S]]: $L$L", keyLocation, target.accept(getMemberVisitor(dataSource)),
+                        usesExpect(target) ? " as any" : "");
             });
         });
     }
@@ -269,12 +273,22 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             deserializeNamedMember(context, memberName, memberShape, "output", (dataSource, visitor) -> {
                 writer.openBlock("return {", "};", () -> {
                     // Dispatch to the output value provider for any additional handling.
-                    writer.write("$L: $L", memberName, target.accept(visitor));
+                    writer.write("$L: $L$L", memberName, target.accept(visitor), usesExpect(target) ? " as any" : "");
                 });
             });
         });
 
         // Or write output element to the unknown member.
         writer.write("return { $$unknown: Object.entries(output)[0] };");
+    }
+
+    private boolean usesExpect(Shape shape) {
+        if (shape.isStringShape()) {
+            if (shape.hasTrait(MediaTypeTrait.class)) {
+                return !CodegenUtils.isJsonMediaType(shape.expectTrait(MediaTypeTrait.class).getValue());
+            }
+            return true;
+        }
+        return false;
     }
 }

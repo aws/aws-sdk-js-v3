@@ -424,7 +424,12 @@ import {
   XssMatchTuple,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -9869,9 +9874,9 @@ const deserializeAws_json1_1ActivatedRule = (output: any, context: __SerdeContex
       output.OverrideAction !== undefined && output.OverrideAction !== null
         ? deserializeAws_json1_1WafOverrideAction(output.OverrideAction, context)
         : undefined,
-    Priority: output.Priority !== undefined && output.Priority !== null ? output.Priority : undefined,
-    RuleId: output.RuleId !== undefined && output.RuleId !== null ? output.RuleId : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Priority: __expectNumber(output.Priority),
+    RuleId: __expectString(output.RuleId),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -9895,13 +9900,12 @@ const deserializeAws_json1_1AssociateWebACLResponse = (
 
 const deserializeAws_json1_1ByteMatchSet = (output: any, context: __SerdeContext): ByteMatchSet => {
   return {
-    ByteMatchSetId:
-      output.ByteMatchSetId !== undefined && output.ByteMatchSetId !== null ? output.ByteMatchSetId : undefined,
+    ByteMatchSetId: __expectString(output.ByteMatchSetId),
     ByteMatchTuples:
       output.ByteMatchTuples !== undefined && output.ByteMatchTuples !== null
         ? deserializeAws_json1_1ByteMatchTuples(output.ByteMatchTuples, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -9918,9 +9922,8 @@ const deserializeAws_json1_1ByteMatchSetSummaries = (output: any, context: __Ser
 
 const deserializeAws_json1_1ByteMatchSetSummary = (output: any, context: __SerdeContext): ByteMatchSetSummary => {
   return {
-    ByteMatchSetId:
-      output.ByteMatchSetId !== undefined && output.ByteMatchSetId !== null ? output.ByteMatchSetId : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ByteMatchSetId: __expectString(output.ByteMatchSetId),
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -9930,18 +9933,12 @@ const deserializeAws_json1_1ByteMatchTuple = (output: any, context: __SerdeConte
       output.FieldToMatch !== undefined && output.FieldToMatch !== null
         ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
         : undefined,
-    PositionalConstraint:
-      output.PositionalConstraint !== undefined && output.PositionalConstraint !== null
-        ? output.PositionalConstraint
-        : undefined,
+    PositionalConstraint: __expectString(output.PositionalConstraint),
     TargetString:
       output.TargetString !== undefined && output.TargetString !== null
         ? context.base64Decoder(output.TargetString)
         : undefined,
-    TextTransformation:
-      output.TextTransformation !== undefined && output.TextTransformation !== null
-        ? output.TextTransformation
-        : undefined,
+    TextTransformation: __expectString(output.TextTransformation),
   } as any;
 };
 
@@ -9965,7 +9962,7 @@ const deserializeAws_json1_1CreateByteMatchSetResponse = (
       output.ByteMatchSet !== undefined && output.ByteMatchSet !== null
         ? deserializeAws_json1_1ByteMatchSet(output.ByteMatchSet, context)
         : undefined,
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -9974,7 +9971,7 @@ const deserializeAws_json1_1CreateGeoMatchSetResponse = (
   context: __SerdeContext
 ): CreateGeoMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
     GeoMatchSet:
       output.GeoMatchSet !== undefined && output.GeoMatchSet !== null
         ? deserializeAws_json1_1GeoMatchSet(output.GeoMatchSet, context)
@@ -9984,7 +9981,7 @@ const deserializeAws_json1_1CreateGeoMatchSetResponse = (
 
 const deserializeAws_json1_1CreateIPSetResponse = (output: any, context: __SerdeContext): CreateIPSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
     IPSet:
       output.IPSet !== undefined && output.IPSet !== null
         ? deserializeAws_json1_1IPSet(output.IPSet, context)
@@ -9997,7 +9994,7 @@ const deserializeAws_json1_1CreateRateBasedRuleResponse = (
   context: __SerdeContext
 ): CreateRateBasedRuleResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
     Rule:
       output.Rule !== undefined && output.Rule !== null
         ? deserializeAws_json1_1RateBasedRule(output.Rule, context)
@@ -10010,7 +10007,7 @@ const deserializeAws_json1_1CreateRegexMatchSetResponse = (
   context: __SerdeContext
 ): CreateRegexMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
     RegexMatchSet:
       output.RegexMatchSet !== undefined && output.RegexMatchSet !== null
         ? deserializeAws_json1_1RegexMatchSet(output.RegexMatchSet, context)
@@ -10023,7 +10020,7 @@ const deserializeAws_json1_1CreateRegexPatternSetResponse = (
   context: __SerdeContext
 ): CreateRegexPatternSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
     RegexPatternSet:
       output.RegexPatternSet !== undefined && output.RegexPatternSet !== null
         ? deserializeAws_json1_1RegexPatternSet(output.RegexPatternSet, context)
@@ -10036,7 +10033,7 @@ const deserializeAws_json1_1CreateRuleGroupResponse = (
   context: __SerdeContext
 ): CreateRuleGroupResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
     RuleGroup:
       output.RuleGroup !== undefined && output.RuleGroup !== null
         ? deserializeAws_json1_1RuleGroup(output.RuleGroup, context)
@@ -10046,7 +10043,7 @@ const deserializeAws_json1_1CreateRuleGroupResponse = (
 
 const deserializeAws_json1_1CreateRuleResponse = (output: any, context: __SerdeContext): CreateRuleResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
     Rule:
       output.Rule !== undefined && output.Rule !== null ? deserializeAws_json1_1Rule(output.Rule, context) : undefined,
   } as any;
@@ -10057,7 +10054,7 @@ const deserializeAws_json1_1CreateSizeConstraintSetResponse = (
   context: __SerdeContext
 ): CreateSizeConstraintSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
     SizeConstraintSet:
       output.SizeConstraintSet !== undefined && output.SizeConstraintSet !== null
         ? deserializeAws_json1_1SizeConstraintSet(output.SizeConstraintSet, context)
@@ -10070,7 +10067,7 @@ const deserializeAws_json1_1CreateSqlInjectionMatchSetResponse = (
   context: __SerdeContext
 ): CreateSqlInjectionMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
     SqlInjectionMatchSet:
       output.SqlInjectionMatchSet !== undefined && output.SqlInjectionMatchSet !== null
         ? deserializeAws_json1_1SqlInjectionMatchSet(output.SqlInjectionMatchSet, context)
@@ -10083,13 +10080,13 @@ const deserializeAws_json1_1CreateWebACLMigrationStackResponse = (
   context: __SerdeContext
 ): CreateWebACLMigrationStackResponse => {
   return {
-    S3ObjectUrl: output.S3ObjectUrl !== undefined && output.S3ObjectUrl !== null ? output.S3ObjectUrl : undefined,
+    S3ObjectUrl: __expectString(output.S3ObjectUrl),
   } as any;
 };
 
 const deserializeAws_json1_1CreateWebACLResponse = (output: any, context: __SerdeContext): CreateWebACLResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
     WebACL:
       output.WebACL !== undefined && output.WebACL !== null
         ? deserializeAws_json1_1WebACL(output.WebACL, context)
@@ -10102,7 +10099,7 @@ const deserializeAws_json1_1CreateXssMatchSetResponse = (
   context: __SerdeContext
 ): CreateXssMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
     XssMatchSet:
       output.XssMatchSet !== undefined && output.XssMatchSet !== null
         ? deserializeAws_json1_1XssMatchSet(output.XssMatchSet, context)
@@ -10115,7 +10112,7 @@ const deserializeAws_json1_1DeleteByteMatchSetResponse = (
   context: __SerdeContext
 ): DeleteByteMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -10124,13 +10121,13 @@ const deserializeAws_json1_1DeleteGeoMatchSetResponse = (
   context: __SerdeContext
 ): DeleteGeoMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteIPSetResponse = (output: any, context: __SerdeContext): DeleteIPSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -10153,7 +10150,7 @@ const deserializeAws_json1_1DeleteRateBasedRuleResponse = (
   context: __SerdeContext
 ): DeleteRateBasedRuleResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -10162,7 +10159,7 @@ const deserializeAws_json1_1DeleteRegexMatchSetResponse = (
   context: __SerdeContext
 ): DeleteRegexMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -10171,7 +10168,7 @@ const deserializeAws_json1_1DeleteRegexPatternSetResponse = (
   context: __SerdeContext
 ): DeleteRegexPatternSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -10180,13 +10177,13 @@ const deserializeAws_json1_1DeleteRuleGroupResponse = (
   context: __SerdeContext
 ): DeleteRuleGroupResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteRuleResponse = (output: any, context: __SerdeContext): DeleteRuleResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -10195,7 +10192,7 @@ const deserializeAws_json1_1DeleteSizeConstraintSetResponse = (
   context: __SerdeContext
 ): DeleteSizeConstraintSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -10204,13 +10201,13 @@ const deserializeAws_json1_1DeleteSqlInjectionMatchSetResponse = (
   context: __SerdeContext
 ): DeleteSqlInjectionMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteWebACLResponse = (output: any, context: __SerdeContext): DeleteWebACLResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -10219,7 +10216,7 @@ const deserializeAws_json1_1DeleteXssMatchSetResponse = (
   context: __SerdeContext
 ): DeleteXssMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -10232,7 +10229,7 @@ const deserializeAws_json1_1DisassociateWebACLResponse = (
 
 const deserializeAws_json1_1ExcludedRule = (output: any, context: __SerdeContext): ExcludedRule => {
   return {
-    RuleId: output.RuleId !== undefined && output.RuleId !== null ? output.RuleId : undefined,
+    RuleId: __expectString(output.RuleId),
   } as any;
 };
 
@@ -10249,15 +10246,15 @@ const deserializeAws_json1_1ExcludedRules = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1FieldToMatch = (output: any, context: __SerdeContext): FieldToMatch => {
   return {
-    Data: output.Data !== undefined && output.Data !== null ? output.Data : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Data: __expectString(output.Data),
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_json1_1GeoMatchConstraint = (output: any, context: __SerdeContext): GeoMatchConstraint => {
   return {
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Type: __expectString(output.Type),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -10278,9 +10275,8 @@ const deserializeAws_json1_1GeoMatchSet = (output: any, context: __SerdeContext)
       output.GeoMatchConstraints !== undefined && output.GeoMatchConstraints !== null
         ? deserializeAws_json1_1GeoMatchConstraints(output.GeoMatchConstraints, context)
         : undefined,
-    GeoMatchSetId:
-      output.GeoMatchSetId !== undefined && output.GeoMatchSetId !== null ? output.GeoMatchSetId : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    GeoMatchSetId: __expectString(output.GeoMatchSetId),
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -10297,9 +10293,8 @@ const deserializeAws_json1_1GeoMatchSetSummaries = (output: any, context: __Serd
 
 const deserializeAws_json1_1GeoMatchSetSummary = (output: any, context: __SerdeContext): GeoMatchSetSummary => {
   return {
-    GeoMatchSetId:
-      output.GeoMatchSetId !== undefined && output.GeoMatchSetId !== null ? output.GeoMatchSetId : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    GeoMatchSetId: __expectString(output.GeoMatchSetId),
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -10317,7 +10312,7 @@ const deserializeAws_json1_1GetByteMatchSetResponse = (
 
 const deserializeAws_json1_1GetChangeTokenResponse = (output: any, context: __SerdeContext): GetChangeTokenResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -10326,10 +10321,7 @@ const deserializeAws_json1_1GetChangeTokenStatusResponse = (
   context: __SerdeContext
 ): GetChangeTokenStatusResponse => {
   return {
-    ChangeTokenStatus:
-      output.ChangeTokenStatus !== undefined && output.ChangeTokenStatus !== null
-        ? output.ChangeTokenStatus
-        : undefined,
+    ChangeTokenStatus: __expectString(output.ChangeTokenStatus),
   } as any;
 };
 
@@ -10368,7 +10360,7 @@ const deserializeAws_json1_1GetPermissionPolicyResponse = (
   context: __SerdeContext
 ): GetPermissionPolicyResponse => {
   return {
-    Policy: output.Policy !== undefined && output.Policy !== null ? output.Policy : undefined,
+    Policy: __expectString(output.Policy),
   } as any;
 };
 
@@ -10381,7 +10373,7 @@ const deserializeAws_json1_1GetRateBasedRuleManagedKeysResponse = (
       output.ManagedKeys !== undefined && output.ManagedKeys !== null
         ? deserializeAws_json1_1ManagedKeys(output.ManagedKeys, context)
         : undefined,
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
   } as any;
 };
 
@@ -10442,8 +10434,7 @@ const deserializeAws_json1_1GetSampledRequestsResponse = (
   context: __SerdeContext
 ): GetSampledRequestsResponse => {
   return {
-    PopulationSize:
-      output.PopulationSize !== undefined && output.PopulationSize !== null ? output.PopulationSize : undefined,
+    PopulationSize: __expectNumber(output.PopulationSize),
     SampledRequests:
       output.SampledRequests !== undefined && output.SampledRequests !== null
         ? deserializeAws_json1_1SampledHTTPRequests(output.SampledRequests, context)
@@ -10511,8 +10502,8 @@ const deserializeAws_json1_1GetXssMatchSetResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1HTTPHeader = (output: any, context: __SerdeContext): HTTPHeader => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Name: __expectString(output.Name),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -10529,15 +10520,15 @@ const deserializeAws_json1_1HTTPHeaders = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1HTTPRequest = (output: any, context: __SerdeContext): HTTPRequest => {
   return {
-    ClientIP: output.ClientIP !== undefined && output.ClientIP !== null ? output.ClientIP : undefined,
-    Country: output.Country !== undefined && output.Country !== null ? output.Country : undefined,
-    HTTPVersion: output.HTTPVersion !== undefined && output.HTTPVersion !== null ? output.HTTPVersion : undefined,
+    ClientIP: __expectString(output.ClientIP),
+    Country: __expectString(output.Country),
+    HTTPVersion: __expectString(output.HTTPVersion),
     Headers:
       output.Headers !== undefined && output.Headers !== null
         ? deserializeAws_json1_1HTTPHeaders(output.Headers, context)
         : undefined,
-    Method: output.Method !== undefined && output.Method !== null ? output.Method : undefined,
-    URI: output.URI !== undefined && output.URI !== null ? output.URI : undefined,
+    Method: __expectString(output.Method),
+    URI: __expectString(output.URI),
   } as any;
 };
 
@@ -10547,15 +10538,15 @@ const deserializeAws_json1_1IPSet = (output: any, context: __SerdeContext): IPSe
       output.IPSetDescriptors !== undefined && output.IPSetDescriptors !== null
         ? deserializeAws_json1_1IPSetDescriptors(output.IPSetDescriptors, context)
         : undefined,
-    IPSetId: output.IPSetId !== undefined && output.IPSetId !== null ? output.IPSetId : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    IPSetId: __expectString(output.IPSetId),
+    Name: __expectString(output.Name),
   } as any;
 };
 
 const deserializeAws_json1_1IPSetDescriptor = (output: any, context: __SerdeContext): IPSetDescriptor => {
   return {
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Type: __expectString(output.Type),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -10583,8 +10574,8 @@ const deserializeAws_json1_1IPSetSummaries = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1IPSetSummary = (output: any, context: __SerdeContext): IPSetSummary => {
   return {
-    IPSetId: output.IPSetId !== undefined && output.IPSetId !== null ? output.IPSetId : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    IPSetId: __expectString(output.IPSetId),
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -10597,7 +10588,7 @@ const deserializeAws_json1_1ListActivatedRulesInRuleGroupResponse = (
       output.ActivatedRules !== undefined && output.ActivatedRules !== null
         ? deserializeAws_json1_1ActivatedRules(output.ActivatedRules, context)
         : undefined,
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
   } as any;
 };
 
@@ -10610,7 +10601,7 @@ const deserializeAws_json1_1ListByteMatchSetsResponse = (
       output.ByteMatchSets !== undefined && output.ByteMatchSets !== null
         ? deserializeAws_json1_1ByteMatchSetSummaries(output.ByteMatchSets, context)
         : undefined,
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
   } as any;
 };
 
@@ -10623,7 +10614,7 @@ const deserializeAws_json1_1ListGeoMatchSetsResponse = (
       output.GeoMatchSets !== undefined && output.GeoMatchSets !== null
         ? deserializeAws_json1_1GeoMatchSetSummaries(output.GeoMatchSets, context)
         : undefined,
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
   } as any;
 };
 
@@ -10633,7 +10624,7 @@ const deserializeAws_json1_1ListIPSetsResponse = (output: any, context: __SerdeC
       output.IPSets !== undefined && output.IPSets !== null
         ? deserializeAws_json1_1IPSetSummaries(output.IPSets, context)
         : undefined,
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
   } as any;
 };
 
@@ -10646,7 +10637,7 @@ const deserializeAws_json1_1ListLoggingConfigurationsResponse = (
       output.LoggingConfigurations !== undefined && output.LoggingConfigurations !== null
         ? deserializeAws_json1_1LoggingConfigurations(output.LoggingConfigurations, context)
         : undefined,
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
   } as any;
 };
 
@@ -10655,7 +10646,7 @@ const deserializeAws_json1_1ListRateBasedRulesResponse = (
   context: __SerdeContext
 ): ListRateBasedRulesResponse => {
   return {
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
     Rules:
       output.Rules !== undefined && output.Rules !== null
         ? deserializeAws_json1_1RuleSummaries(output.Rules, context)
@@ -10668,7 +10659,7 @@ const deserializeAws_json1_1ListRegexMatchSetsResponse = (
   context: __SerdeContext
 ): ListRegexMatchSetsResponse => {
   return {
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
     RegexMatchSets:
       output.RegexMatchSets !== undefined && output.RegexMatchSets !== null
         ? deserializeAws_json1_1RegexMatchSetSummaries(output.RegexMatchSets, context)
@@ -10681,7 +10672,7 @@ const deserializeAws_json1_1ListRegexPatternSetsResponse = (
   context: __SerdeContext
 ): ListRegexPatternSetsResponse => {
   return {
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
     RegexPatternSets:
       output.RegexPatternSets !== undefined && output.RegexPatternSets !== null
         ? deserializeAws_json1_1RegexPatternSetSummaries(output.RegexPatternSets, context)
@@ -10703,7 +10694,7 @@ const deserializeAws_json1_1ListResourcesForWebACLResponse = (
 
 const deserializeAws_json1_1ListRuleGroupsResponse = (output: any, context: __SerdeContext): ListRuleGroupsResponse => {
   return {
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
     RuleGroups:
       output.RuleGroups !== undefined && output.RuleGroups !== null
         ? deserializeAws_json1_1RuleGroupSummaries(output.RuleGroups, context)
@@ -10713,7 +10704,7 @@ const deserializeAws_json1_1ListRuleGroupsResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1ListRulesResponse = (output: any, context: __SerdeContext): ListRulesResponse => {
   return {
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
     Rules:
       output.Rules !== undefined && output.Rules !== null
         ? deserializeAws_json1_1RuleSummaries(output.Rules, context)
@@ -10726,7 +10717,7 @@ const deserializeAws_json1_1ListSizeConstraintSetsResponse = (
   context: __SerdeContext
 ): ListSizeConstraintSetsResponse => {
   return {
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
     SizeConstraintSets:
       output.SizeConstraintSets !== undefined && output.SizeConstraintSets !== null
         ? deserializeAws_json1_1SizeConstraintSetSummaries(output.SizeConstraintSets, context)
@@ -10739,7 +10730,7 @@ const deserializeAws_json1_1ListSqlInjectionMatchSetsResponse = (
   context: __SerdeContext
 ): ListSqlInjectionMatchSetsResponse => {
   return {
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
     SqlInjectionMatchSets:
       output.SqlInjectionMatchSets !== undefined && output.SqlInjectionMatchSets !== null
         ? deserializeAws_json1_1SqlInjectionMatchSetSummaries(output.SqlInjectionMatchSets, context)
@@ -10752,7 +10743,7 @@ const deserializeAws_json1_1ListSubscribedRuleGroupsResponse = (
   context: __SerdeContext
 ): ListSubscribedRuleGroupsResponse => {
   return {
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
     RuleGroups:
       output.RuleGroups !== undefined && output.RuleGroups !== null
         ? deserializeAws_json1_1SubscribedRuleGroupSummaries(output.RuleGroups, context)
@@ -10765,7 +10756,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
     TagInfoForResource:
       output.TagInfoForResource !== undefined && output.TagInfoForResource !== null
         ? deserializeAws_json1_1TagInfoForResource(output.TagInfoForResource, context)
@@ -10775,7 +10766,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1ListWebACLsResponse = (output: any, context: __SerdeContext): ListWebACLsResponse => {
   return {
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
     WebACLs:
       output.WebACLs !== undefined && output.WebACLs !== null
         ? deserializeAws_json1_1WebACLSummaries(output.WebACLs, context)
@@ -10788,7 +10779,7 @@ const deserializeAws_json1_1ListXssMatchSetsResponse = (
   context: __SerdeContext
 ): ListXssMatchSetsResponse => {
   return {
-    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+    NextMarker: __expectString(output.NextMarker),
     XssMatchSets:
       output.XssMatchSets !== undefined && output.XssMatchSets !== null
         ? deserializeAws_json1_1XssMatchSetSummaries(output.XssMatchSets, context)
@@ -10803,7 +10794,7 @@ const deserializeAws_json1_1LogDestinationConfigs = (output: any, context: __Ser
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10817,7 +10808,7 @@ const deserializeAws_json1_1LoggingConfiguration = (output: any, context: __Serd
       output.RedactedFields !== undefined && output.RedactedFields !== null
         ? deserializeAws_json1_1RedactedFields(output.RedactedFields, context)
         : undefined,
-    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
+    ResourceArn: __expectString(output.ResourceArn),
   } as any;
 };
 
@@ -10839,15 +10830,15 @@ const deserializeAws_json1_1ManagedKeys = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1Predicate = (output: any, context: __SerdeContext): Predicate => {
   return {
-    DataId: output.DataId !== undefined && output.DataId !== null ? output.DataId : undefined,
-    Negated: output.Negated !== undefined && output.Negated !== null ? output.Negated : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    DataId: __expectString(output.DataId),
+    Negated: __expectBoolean(output.Negated),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -10887,11 +10878,11 @@ const deserializeAws_json1_1RateBasedRule = (output: any, context: __SerdeContex
       output.MatchPredicates !== undefined && output.MatchPredicates !== null
         ? deserializeAws_json1_1Predicates(output.MatchPredicates, context)
         : undefined,
-    MetricName: output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    RateKey: output.RateKey !== undefined && output.RateKey !== null ? output.RateKey : undefined,
-    RateLimit: output.RateLimit !== undefined && output.RateLimit !== null ? output.RateLimit : undefined,
-    RuleId: output.RuleId !== undefined && output.RuleId !== null ? output.RuleId : undefined,
+    MetricName: __expectString(output.MetricName),
+    Name: __expectString(output.Name),
+    RateKey: __expectString(output.RateKey),
+    RateLimit: __expectNumber(output.RateLimit),
+    RuleId: __expectString(output.RuleId),
   } as any;
 };
 
@@ -10908,9 +10899,8 @@ const deserializeAws_json1_1RedactedFields = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1RegexMatchSet = (output: any, context: __SerdeContext): RegexMatchSet => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    RegexMatchSetId:
-      output.RegexMatchSetId !== undefined && output.RegexMatchSetId !== null ? output.RegexMatchSetId : undefined,
+    Name: __expectString(output.Name),
+    RegexMatchSetId: __expectString(output.RegexMatchSetId),
     RegexMatchTuples:
       output.RegexMatchTuples !== undefined && output.RegexMatchTuples !== null
         ? deserializeAws_json1_1RegexMatchTuples(output.RegexMatchTuples, context)
@@ -10931,9 +10921,8 @@ const deserializeAws_json1_1RegexMatchSetSummaries = (output: any, context: __Se
 
 const deserializeAws_json1_1RegexMatchSetSummary = (output: any, context: __SerdeContext): RegexMatchSetSummary => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    RegexMatchSetId:
-      output.RegexMatchSetId !== undefined && output.RegexMatchSetId !== null ? output.RegexMatchSetId : undefined,
+    Name: __expectString(output.Name),
+    RegexMatchSetId: __expectString(output.RegexMatchSetId),
   } as any;
 };
 
@@ -10943,14 +10932,8 @@ const deserializeAws_json1_1RegexMatchTuple = (output: any, context: __SerdeCont
       output.FieldToMatch !== undefined && output.FieldToMatch !== null
         ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
         : undefined,
-    RegexPatternSetId:
-      output.RegexPatternSetId !== undefined && output.RegexPatternSetId !== null
-        ? output.RegexPatternSetId
-        : undefined,
-    TextTransformation:
-      output.TextTransformation !== undefined && output.TextTransformation !== null
-        ? output.TextTransformation
-        : undefined,
+    RegexPatternSetId: __expectString(output.RegexPatternSetId),
+    TextTransformation: __expectString(output.TextTransformation),
   } as any;
 };
 
@@ -10967,11 +10950,8 @@ const deserializeAws_json1_1RegexMatchTuples = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1RegexPatternSet = (output: any, context: __SerdeContext): RegexPatternSet => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    RegexPatternSetId:
-      output.RegexPatternSetId !== undefined && output.RegexPatternSetId !== null
-        ? output.RegexPatternSetId
-        : undefined,
+    Name: __expectString(output.Name),
+    RegexPatternSetId: __expectString(output.RegexPatternSetId),
     RegexPatternStrings:
       output.RegexPatternStrings !== undefined && output.RegexPatternStrings !== null
         ? deserializeAws_json1_1RegexPatternStrings(output.RegexPatternStrings, context)
@@ -10995,11 +10975,8 @@ const deserializeAws_json1_1RegexPatternSetSummaries = (
 
 const deserializeAws_json1_1RegexPatternSetSummary = (output: any, context: __SerdeContext): RegexPatternSetSummary => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    RegexPatternSetId:
-      output.RegexPatternSetId !== undefined && output.RegexPatternSetId !== null
-        ? output.RegexPatternSetId
-        : undefined,
+    Name: __expectString(output.Name),
+    RegexPatternSetId: __expectString(output.RegexPatternSetId),
   } as any;
 };
 
@@ -11010,7 +10987,7 @@ const deserializeAws_json1_1RegexPatternStrings = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -11021,27 +10998,27 @@ const deserializeAws_json1_1ResourceArns = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule => {
   return {
-    MetricName: output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    MetricName: __expectString(output.MetricName),
+    Name: __expectString(output.Name),
     Predicates:
       output.Predicates !== undefined && output.Predicates !== null
         ? deserializeAws_json1_1Predicates(output.Predicates, context)
         : undefined,
-    RuleId: output.RuleId !== undefined && output.RuleId !== null ? output.RuleId : undefined,
+    RuleId: __expectString(output.RuleId),
   } as any;
 };
 
 const deserializeAws_json1_1RuleGroup = (output: any, context: __SerdeContext): RuleGroup => {
   return {
-    MetricName: output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    RuleGroupId: output.RuleGroupId !== undefined && output.RuleGroupId !== null ? output.RuleGroupId : undefined,
+    MetricName: __expectString(output.MetricName),
+    Name: __expectString(output.Name),
+    RuleGroupId: __expectString(output.RuleGroupId),
   } as any;
 };
 
@@ -11058,8 +11035,8 @@ const deserializeAws_json1_1RuleGroupSummaries = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1RuleGroupSummary = (output: any, context: __SerdeContext): RuleGroupSummary => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    RuleGroupId: output.RuleGroupId !== undefined && output.RuleGroupId !== null ? output.RuleGroupId : undefined,
+    Name: __expectString(output.Name),
+    RuleGroupId: __expectString(output.RuleGroupId),
   } as any;
 };
 
@@ -11076,27 +11053,24 @@ const deserializeAws_json1_1RuleSummaries = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1RuleSummary = (output: any, context: __SerdeContext): RuleSummary => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    RuleId: output.RuleId !== undefined && output.RuleId !== null ? output.RuleId : undefined,
+    Name: __expectString(output.Name),
+    RuleId: __expectString(output.RuleId),
   } as any;
 };
 
 const deserializeAws_json1_1SampledHTTPRequest = (output: any, context: __SerdeContext): SampledHTTPRequest => {
   return {
-    Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
+    Action: __expectString(output.Action),
     Request:
       output.Request !== undefined && output.Request !== null
         ? deserializeAws_json1_1HTTPRequest(output.Request, context)
         : undefined,
-    RuleWithinRuleGroup:
-      output.RuleWithinRuleGroup !== undefined && output.RuleWithinRuleGroup !== null
-        ? output.RuleWithinRuleGroup
-        : undefined,
+    RuleWithinRuleGroup: __expectString(output.RuleWithinRuleGroup),
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Weight: output.Weight !== undefined && output.Weight !== null ? output.Weight : undefined,
+    Weight: __expectNumber(output.Weight),
   } as any;
 };
 
@@ -11113,19 +11087,13 @@ const deserializeAws_json1_1SampledHTTPRequests = (output: any, context: __Serde
 
 const deserializeAws_json1_1SizeConstraint = (output: any, context: __SerdeContext): SizeConstraint => {
   return {
-    ComparisonOperator:
-      output.ComparisonOperator !== undefined && output.ComparisonOperator !== null
-        ? output.ComparisonOperator
-        : undefined,
+    ComparisonOperator: __expectString(output.ComparisonOperator),
     FieldToMatch:
       output.FieldToMatch !== undefined && output.FieldToMatch !== null
         ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
         : undefined,
-    Size: output.Size !== undefined && output.Size !== null ? output.Size : undefined,
-    TextTransformation:
-      output.TextTransformation !== undefined && output.TextTransformation !== null
-        ? output.TextTransformation
-        : undefined,
+    Size: __expectNumber(output.Size),
+    TextTransformation: __expectString(output.TextTransformation),
   } as any;
 };
 
@@ -11142,11 +11110,8 @@ const deserializeAws_json1_1SizeConstraints = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1SizeConstraintSet = (output: any, context: __SerdeContext): SizeConstraintSet => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    SizeConstraintSetId:
-      output.SizeConstraintSetId !== undefined && output.SizeConstraintSetId !== null
-        ? output.SizeConstraintSetId
-        : undefined,
+    Name: __expectString(output.Name),
+    SizeConstraintSetId: __expectString(output.SizeConstraintSetId),
     SizeConstraints:
       output.SizeConstraints !== undefined && output.SizeConstraints !== null
         ? deserializeAws_json1_1SizeConstraints(output.SizeConstraints, context)
@@ -11173,21 +11138,15 @@ const deserializeAws_json1_1SizeConstraintSetSummary = (
   context: __SerdeContext
 ): SizeConstraintSetSummary => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    SizeConstraintSetId:
-      output.SizeConstraintSetId !== undefined && output.SizeConstraintSetId !== null
-        ? output.SizeConstraintSetId
-        : undefined,
+    Name: __expectString(output.Name),
+    SizeConstraintSetId: __expectString(output.SizeConstraintSetId),
   } as any;
 };
 
 const deserializeAws_json1_1SqlInjectionMatchSet = (output: any, context: __SerdeContext): SqlInjectionMatchSet => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    SqlInjectionMatchSetId:
-      output.SqlInjectionMatchSetId !== undefined && output.SqlInjectionMatchSetId !== null
-        ? output.SqlInjectionMatchSetId
-        : undefined,
+    Name: __expectString(output.Name),
+    SqlInjectionMatchSetId: __expectString(output.SqlInjectionMatchSetId),
     SqlInjectionMatchTuples:
       output.SqlInjectionMatchTuples !== undefined && output.SqlInjectionMatchTuples !== null
         ? deserializeAws_json1_1SqlInjectionMatchTuples(output.SqlInjectionMatchTuples, context)
@@ -11214,11 +11173,8 @@ const deserializeAws_json1_1SqlInjectionMatchSetSummary = (
   context: __SerdeContext
 ): SqlInjectionMatchSetSummary => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    SqlInjectionMatchSetId:
-      output.SqlInjectionMatchSetId !== undefined && output.SqlInjectionMatchSetId !== null
-        ? output.SqlInjectionMatchSetId
-        : undefined,
+    Name: __expectString(output.Name),
+    SqlInjectionMatchSetId: __expectString(output.SqlInjectionMatchSetId),
   } as any;
 };
 
@@ -11228,10 +11184,7 @@ const deserializeAws_json1_1SqlInjectionMatchTuple = (output: any, context: __Se
       output.FieldToMatch !== undefined && output.FieldToMatch !== null
         ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
         : undefined,
-    TextTransformation:
-      output.TextTransformation !== undefined && output.TextTransformation !== null
-        ? output.TextTransformation
-        : undefined,
+    TextTransformation: __expectString(output.TextTransformation),
   } as any;
 };
 
@@ -11268,22 +11221,22 @@ const deserializeAws_json1_1SubscribedRuleGroupSummary = (
   context: __SerdeContext
 ): SubscribedRuleGroupSummary => {
   return {
-    MetricName: output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    RuleGroupId: output.RuleGroupId !== undefined && output.RuleGroupId !== null ? output.RuleGroupId : undefined,
+    MetricName: __expectString(output.MetricName),
+    Name: __expectString(output.Name),
+    RuleGroupId: __expectString(output.RuleGroupId),
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
 const deserializeAws_json1_1TagInfoForResource = (output: any, context: __SerdeContext): TagInfoForResource => {
   return {
-    ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
+    ResourceARN: __expectString(output.ResourceARN),
     TagList:
       output.TagList !== undefined && output.TagList !== null
         ? deserializeAws_json1_1TagList(output.TagList, context)
@@ -11326,7 +11279,7 @@ const deserializeAws_json1_1UpdateByteMatchSetResponse = (
   context: __SerdeContext
 ): UpdateByteMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -11335,13 +11288,13 @@ const deserializeAws_json1_1UpdateGeoMatchSetResponse = (
   context: __SerdeContext
 ): UpdateGeoMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
 const deserializeAws_json1_1UpdateIPSetResponse = (output: any, context: __SerdeContext): UpdateIPSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -11350,7 +11303,7 @@ const deserializeAws_json1_1UpdateRateBasedRuleResponse = (
   context: __SerdeContext
 ): UpdateRateBasedRuleResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -11359,7 +11312,7 @@ const deserializeAws_json1_1UpdateRegexMatchSetResponse = (
   context: __SerdeContext
 ): UpdateRegexMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -11368,7 +11321,7 @@ const deserializeAws_json1_1UpdateRegexPatternSetResponse = (
   context: __SerdeContext
 ): UpdateRegexPatternSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -11377,13 +11330,13 @@ const deserializeAws_json1_1UpdateRuleGroupResponse = (
   context: __SerdeContext
 ): UpdateRuleGroupResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
 const deserializeAws_json1_1UpdateRuleResponse = (output: any, context: __SerdeContext): UpdateRuleResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -11392,7 +11345,7 @@ const deserializeAws_json1_1UpdateSizeConstraintSetResponse = (
   context: __SerdeContext
 ): UpdateSizeConstraintSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -11401,13 +11354,13 @@ const deserializeAws_json1_1UpdateSqlInjectionMatchSetResponse = (
   context: __SerdeContext
 ): UpdateSqlInjectionMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
 const deserializeAws_json1_1UpdateWebACLResponse = (output: any, context: __SerdeContext): UpdateWebACLResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
@@ -11416,19 +11369,19 @@ const deserializeAws_json1_1UpdateXssMatchSetResponse = (
   context: __SerdeContext
 ): UpdateXssMatchSetResponse => {
   return {
-    ChangeToken: output.ChangeToken !== undefined && output.ChangeToken !== null ? output.ChangeToken : undefined,
+    ChangeToken: __expectString(output.ChangeToken),
   } as any;
 };
 
 const deserializeAws_json1_1WafAction = (output: any, context: __SerdeContext): WafAction => {
   return {
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_json1_1WAFBadRequestException = (output: any, context: __SerdeContext): WAFBadRequestException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11437,7 +11390,7 @@ const deserializeAws_json1_1WAFDisallowedNameException = (
   context: __SerdeContext
 ): WAFDisallowedNameException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11446,15 +11399,9 @@ const deserializeAws_json1_1WAFEntityMigrationException = (
   context: __SerdeContext
 ): WAFEntityMigrationException => {
   return {
-    MigrationErrorReason:
-      output.MigrationErrorReason !== undefined && output.MigrationErrorReason !== null
-        ? output.MigrationErrorReason
-        : undefined,
-    MigrationErrorType:
-      output.MigrationErrorType !== undefined && output.MigrationErrorType !== null
-        ? output.MigrationErrorType
-        : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    MigrationErrorReason: __expectString(output.MigrationErrorReason),
+    MigrationErrorType: __expectString(output.MigrationErrorType),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11463,7 +11410,7 @@ const deserializeAws_json1_1WAFInternalErrorException = (
   context: __SerdeContext
 ): WAFInternalErrorException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11479,7 +11426,7 @@ const deserializeAws_json1_1WAFInvalidOperationException = (
   context: __SerdeContext
 ): WAFInvalidOperationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11488,9 +11435,9 @@ const deserializeAws_json1_1WAFInvalidParameterException = (
   context: __SerdeContext
 ): WAFInvalidParameterException => {
   return {
-    field: output.field !== undefined && output.field !== null ? output.field : undefined,
-    parameter: output.parameter !== undefined && output.parameter !== null ? output.parameter : undefined,
-    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
+    field: __expectString(output.field),
+    parameter: __expectString(output.parameter),
+    reason: __expectString(output.reason),
   } as any;
 };
 
@@ -11499,7 +11446,7 @@ const deserializeAws_json1_1WAFInvalidPermissionPolicyException = (
   context: __SerdeContext
 ): WAFInvalidPermissionPolicyException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11508,7 +11455,7 @@ const deserializeAws_json1_1WAFInvalidRegexPatternException = (
   context: __SerdeContext
 ): WAFInvalidRegexPatternException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11517,7 +11464,7 @@ const deserializeAws_json1_1WAFLimitsExceededException = (
   context: __SerdeContext
 ): WAFLimitsExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11526,7 +11473,7 @@ const deserializeAws_json1_1WAFNonEmptyEntityException = (
   context: __SerdeContext
 ): WAFNonEmptyEntityException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11535,7 +11482,7 @@ const deserializeAws_json1_1WAFNonexistentContainerException = (
   context: __SerdeContext
 ): WAFNonexistentContainerException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11544,13 +11491,13 @@ const deserializeAws_json1_1WAFNonexistentItemException = (
   context: __SerdeContext
 ): WAFNonexistentItemException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1WafOverrideAction = (output: any, context: __SerdeContext): WafOverrideAction => {
   return {
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -11559,7 +11506,7 @@ const deserializeAws_json1_1WAFReferencedItemException = (
   context: __SerdeContext
 ): WAFReferencedItemException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11568,13 +11515,13 @@ const deserializeAws_json1_1WAFServiceLinkedRoleErrorException = (
   context: __SerdeContext
 ): WAFServiceLinkedRoleErrorException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1WAFStaleDataException = (output: any, context: __SerdeContext): WAFStaleDataException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11583,7 +11530,7 @@ const deserializeAws_json1_1WAFSubscriptionNotFoundException = (
   context: __SerdeContext
 ): WAFSubscriptionNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11592,7 +11539,7 @@ const deserializeAws_json1_1WAFTagOperationException = (
   context: __SerdeContext
 ): WAFTagOperationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11601,7 +11548,7 @@ const deserializeAws_json1_1WAFTagOperationInternalErrorException = (
   context: __SerdeContext
 ): WAFTagOperationInternalErrorException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11610,7 +11557,7 @@ const deserializeAws_json1_1WAFUnavailableEntityException = (
   context: __SerdeContext
 ): WAFUnavailableEntityException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -11620,14 +11567,14 @@ const deserializeAws_json1_1WebACL = (output: any, context: __SerdeContext): Web
       output.DefaultAction !== undefined && output.DefaultAction !== null
         ? deserializeAws_json1_1WafAction(output.DefaultAction, context)
         : undefined,
-    MetricName: output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    MetricName: __expectString(output.MetricName),
+    Name: __expectString(output.Name),
     Rules:
       output.Rules !== undefined && output.Rules !== null
         ? deserializeAws_json1_1ActivatedRules(output.Rules, context)
         : undefined,
-    WebACLArn: output.WebACLArn !== undefined && output.WebACLArn !== null ? output.WebACLArn : undefined,
-    WebACLId: output.WebACLId !== undefined && output.WebACLId !== null ? output.WebACLId : undefined,
+    WebACLArn: __expectString(output.WebACLArn),
+    WebACLId: __expectString(output.WebACLId),
   } as any;
 };
 
@@ -11644,16 +11591,15 @@ const deserializeAws_json1_1WebACLSummaries = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1WebACLSummary = (output: any, context: __SerdeContext): WebACLSummary => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    WebACLId: output.WebACLId !== undefined && output.WebACLId !== null ? output.WebACLId : undefined,
+    Name: __expectString(output.Name),
+    WebACLId: __expectString(output.WebACLId),
   } as any;
 };
 
 const deserializeAws_json1_1XssMatchSet = (output: any, context: __SerdeContext): XssMatchSet => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    XssMatchSetId:
-      output.XssMatchSetId !== undefined && output.XssMatchSetId !== null ? output.XssMatchSetId : undefined,
+    Name: __expectString(output.Name),
+    XssMatchSetId: __expectString(output.XssMatchSetId),
     XssMatchTuples:
       output.XssMatchTuples !== undefined && output.XssMatchTuples !== null
         ? deserializeAws_json1_1XssMatchTuples(output.XssMatchTuples, context)
@@ -11674,9 +11620,8 @@ const deserializeAws_json1_1XssMatchSetSummaries = (output: any, context: __Serd
 
 const deserializeAws_json1_1XssMatchSetSummary = (output: any, context: __SerdeContext): XssMatchSetSummary => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    XssMatchSetId:
-      output.XssMatchSetId !== undefined && output.XssMatchSetId !== null ? output.XssMatchSetId : undefined,
+    Name: __expectString(output.Name),
+    XssMatchSetId: __expectString(output.XssMatchSetId),
   } as any;
 };
 
@@ -11686,10 +11631,7 @@ const deserializeAws_json1_1XssMatchTuple = (output: any, context: __SerdeContex
       output.FieldToMatch !== undefined && output.FieldToMatch !== null
         ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
         : undefined,
-    TextTransformation:
-      output.TextTransformation !== undefined && output.TextTransformation !== null
-        ? output.TextTransformation
-        : undefined,
+    TextTransformation: __expectString(output.TextTransformation),
   } as any;
 };
 

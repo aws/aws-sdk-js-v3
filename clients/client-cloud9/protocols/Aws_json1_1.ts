@@ -77,7 +77,11 @@ import {
   UpdateEnvironmentResult,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1813,9 +1817,9 @@ const serializeAws_json1_1UpdateEnvironmentRequest = (
 
 const deserializeAws_json1_1BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
   return {
-    className: output.className !== undefined && output.className !== null ? output.className : undefined,
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    className: __expectString(output.className),
+    code: __expectNumber(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -1824,17 +1828,17 @@ const deserializeAws_json1_1ConcurrentAccessException = (
   context: __SerdeContext
 ): ConcurrentAccessException => {
   return {
-    className: output.className !== undefined && output.className !== null ? output.className : undefined,
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    className: __expectString(output.className),
+    code: __expectNumber(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    className: output.className !== undefined && output.className !== null ? output.className : undefined,
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    className: __expectString(output.className),
+    code: __expectNumber(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -1843,8 +1847,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2Result = (
   context: __SerdeContext
 ): CreateEnvironmentEC2Result => {
   return {
-    environmentId:
-      output.environmentId !== undefined && output.environmentId !== null ? output.environmentId : undefined,
+    environmentId: __expectString(output.environmentId),
   } as any;
 };
 
@@ -1883,7 +1886,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsResult = (
       output.memberships !== undefined && output.memberships !== null
         ? deserializeAws_json1_1EnvironmentMembersList(output.memberships, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -1904,29 +1907,25 @@ const deserializeAws_json1_1DescribeEnvironmentStatusResult = (
   context: __SerdeContext
 ): DescribeEnvironmentStatusResult => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    message: __expectString(output.message),
+    status: __expectString(output.status),
   } as any;
 };
 
 const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext): Environment => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    connectionType:
-      output.connectionType !== undefined && output.connectionType !== null ? output.connectionType : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    arn: __expectString(output.arn),
+    connectionType: __expectString(output.connectionType),
+    description: __expectString(output.description),
+    id: __expectString(output.id),
     lifecycle:
       output.lifecycle !== undefined && output.lifecycle !== null
         ? deserializeAws_json1_1EnvironmentLifecycle(output.lifecycle, context)
         : undefined,
-    managedCredentialsStatus:
-      output.managedCredentialsStatus !== undefined && output.managedCredentialsStatus !== null
-        ? output.managedCredentialsStatus
-        : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    ownerArn: output.ownerArn !== undefined && output.ownerArn !== null ? output.ownerArn : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    managedCredentialsStatus: __expectString(output.managedCredentialsStatus),
+    name: __expectString(output.name),
+    ownerArn: __expectString(output.ownerArn),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -1937,16 +1936,15 @@ const deserializeAws_json1_1EnvironmentIdList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1EnvironmentLifecycle = (output: any, context: __SerdeContext): EnvironmentLifecycle => {
   return {
-    failureResource:
-      output.failureResource !== undefined && output.failureResource !== null ? output.failureResource : undefined,
-    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    failureResource: __expectString(output.failureResource),
+    reason: __expectString(output.reason),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -1963,15 +1961,14 @@ const deserializeAws_json1_1EnvironmentList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1EnvironmentMember = (output: any, context: __SerdeContext): EnvironmentMember => {
   return {
-    environmentId:
-      output.environmentId !== undefined && output.environmentId !== null ? output.environmentId : undefined,
+    environmentId: __expectString(output.environmentId),
     lastAccess:
       output.lastAccess !== undefined && output.lastAccess !== null
         ? new Date(Math.round(output.lastAccess * 1000))
         : undefined,
-    permissions: output.permissions !== undefined && output.permissions !== null ? output.permissions : undefined,
-    userArn: output.userArn !== undefined && output.userArn !== null ? output.userArn : undefined,
-    userId: output.userId !== undefined && output.userId !== null ? output.userId : undefined,
+    permissions: __expectString(output.permissions),
+    userArn: __expectString(output.userArn),
+    userId: __expectString(output.userId),
   } as any;
 };
 
@@ -1988,9 +1985,9 @@ const deserializeAws_json1_1EnvironmentMembersList = (output: any, context: __Se
 
 const deserializeAws_json1_1ForbiddenException = (output: any, context: __SerdeContext): ForbiddenException => {
   return {
-    className: output.className !== undefined && output.className !== null ? output.className : undefined,
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    className: __expectString(output.className),
+    code: __expectNumber(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -1999,17 +1996,17 @@ const deserializeAws_json1_1InternalServerErrorException = (
   context: __SerdeContext
 ): InternalServerErrorException => {
   return {
-    className: output.className !== undefined && output.className !== null ? output.className : undefined,
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    className: __expectString(output.className),
+    code: __expectNumber(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    className: output.className !== undefined && output.className !== null ? output.className : undefined,
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    className: __expectString(output.className),
+    code: __expectNumber(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2019,7 +2016,7 @@ const deserializeAws_json1_1ListEnvironmentsResult = (output: any, context: __Se
       output.environmentIds !== undefined && output.environmentIds !== null
         ? deserializeAws_json1_1EnvironmentIdList(output.environmentIds, context)
         : undefined,
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
   } as any;
 };
 
@@ -2037,16 +2034,16 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
-    className: output.className !== undefined && output.className !== null ? output.className : undefined,
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    className: __expectString(output.className),
+    code: __expectNumber(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -2070,9 +2067,9 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    className: output.className !== undefined && output.className !== null ? output.className : undefined,
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    className: __expectString(output.className),
+    code: __expectNumber(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 

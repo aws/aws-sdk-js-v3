@@ -22,6 +22,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -191,13 +192,13 @@ export const deserializeAws_restJson1CreateWorkspaceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = data.arn;
+    contents.arn = __expectString(data.arn);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = deserializeAws_restJson1WorkspaceStatus(data.status, context);
   }
   if (data.workspaceId !== undefined && data.workspaceId !== null) {
-    contents.workspaceId = data.workspaceId;
+    contents.workspaceId = __expectString(data.workspaceId);
   }
   return Promise.resolve(contents);
 };
@@ -463,7 +464,7 @@ export const deserializeAws_restJson1ListWorkspacesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.workspaces !== undefined && data.workspaces !== null) {
     contents.workspaces = deserializeAws_restJson1WorkspaceSummaryList(data.workspaces, context);
@@ -643,7 +644,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -662,13 +663,13 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.resourceId !== undefined && data.resourceId !== null) {
-    contents.resourceId = data.resourceId;
+    contents.resourceId = __expectString(data.resourceId);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = data.resourceType;
+    contents.resourceType = __expectString(data.resourceType);
   }
   return contents;
 };
@@ -690,7 +691,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   }
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -709,13 +710,13 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.resourceId !== undefined && data.resourceId !== null) {
-    contents.resourceId = data.resourceId;
+    contents.resourceId = __expectString(data.resourceId);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = data.resourceType;
+    contents.resourceType = __expectString(data.resourceType);
   }
   return contents;
 };
@@ -736,19 +737,19 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.quotaCode !== undefined && data.quotaCode !== null) {
-    contents.quotaCode = data.quotaCode;
+    contents.quotaCode = __expectString(data.quotaCode);
   }
   if (data.resourceId !== undefined && data.resourceId !== null) {
-    contents.resourceId = data.resourceId;
+    contents.resourceId = __expectString(data.resourceId);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = data.resourceType;
+    contents.resourceType = __expectString(data.resourceType);
   }
   if (data.serviceCode !== undefined && data.serviceCode !== null) {
-    contents.serviceCode = data.serviceCode;
+    contents.serviceCode = __expectString(data.serviceCode);
   }
   return contents;
 };
@@ -772,13 +773,13 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   }
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.quotaCode !== undefined && data.quotaCode !== null) {
-    contents.quotaCode = data.quotaCode;
+    contents.quotaCode = __expectString(data.quotaCode);
   }
   if (data.serviceCode !== undefined && data.serviceCode !== null) {
-    contents.serviceCode = data.serviceCode;
+    contents.serviceCode = __expectString(data.serviceCode);
   }
   return contents;
 };
@@ -800,10 +801,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
     contents.fieldList = deserializeAws_restJson1ValidationExceptionFieldList(data.fieldList, context);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.reason !== undefined && data.reason !== null) {
-    contents.reason = data.reason;
+    contents.reason = __expectString(data.reason);
   }
   return contents;
 };
@@ -813,8 +814,8 @@ const deserializeAws_restJson1ValidationExceptionField = (
   context: __SerdeContext
 ): ValidationExceptionField => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    message: __expectString(output.message),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -834,34 +835,31 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
 
 const deserializeAws_restJson1WorkspaceDescription = (output: any, context: __SerdeContext): WorkspaceDescription => {
   return {
-    alias: output.alias !== undefined && output.alias !== null ? output.alias : undefined,
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    alias: __expectString(output.alias),
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    prometheusEndpoint:
-      output.prometheusEndpoint !== undefined && output.prometheusEndpoint !== null
-        ? output.prometheusEndpoint
-        : undefined,
+    prometheusEndpoint: __expectString(output.prometheusEndpoint),
     status:
       output.status !== undefined && output.status !== null
         ? deserializeAws_restJson1WorkspaceStatus(output.status, context)
         : undefined,
-    workspaceId: output.workspaceId !== undefined && output.workspaceId !== null ? output.workspaceId : undefined,
+    workspaceId: __expectString(output.workspaceId),
   } as any;
 };
 
 const deserializeAws_restJson1WorkspaceStatus = (output: any, context: __SerdeContext): WorkspaceStatus => {
   return {
-    statusCode: output.statusCode !== undefined && output.statusCode !== null ? output.statusCode : undefined,
+    statusCode: __expectString(output.statusCode),
   } as any;
 };
 
 const deserializeAws_restJson1WorkspaceSummary = (output: any, context: __SerdeContext): WorkspaceSummary => {
   return {
-    alias: output.alias !== undefined && output.alias !== null ? output.alias : undefined,
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    alias: __expectString(output.alias),
+    arn: __expectString(output.arn),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -870,7 +868,7 @@ const deserializeAws_restJson1WorkspaceSummary = (output: any, context: __SerdeC
       output.status !== undefined && output.status !== null
         ? deserializeAws_restJson1WorkspaceStatus(output.status, context)
         : undefined,
-    workspaceId: output.workspaceId !== undefined && output.workspaceId !== null ? output.workspaceId : undefined,
+    workspaceId: __expectString(output.workspaceId),
   } as any;
 };
 

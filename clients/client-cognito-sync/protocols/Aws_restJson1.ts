@@ -61,6 +61,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -756,7 +759,7 @@ export const deserializeAws_restJson1BulkPublishCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.IdentityPoolId !== undefined && data.IdentityPoolId !== null) {
-    contents.IdentityPoolId = data.IdentityPoolId;
+    contents.IdentityPoolId = __expectString(data.IdentityPoolId);
   }
   return Promise.resolve(contents);
 };
@@ -1217,13 +1220,13 @@ export const deserializeAws_restJson1GetBulkPublishDetailsCommand = async (
     contents.BulkPublishStartTime = new Date(Math.round(data.BulkPublishStartTime * 1000));
   }
   if (data.BulkPublishStatus !== undefined && data.BulkPublishStatus !== null) {
-    contents.BulkPublishStatus = data.BulkPublishStatus;
+    contents.BulkPublishStatus = __expectString(data.BulkPublishStatus);
   }
   if (data.FailureMessage !== undefined && data.FailureMessage !== null) {
-    contents.FailureMessage = data.FailureMessage;
+    contents.FailureMessage = __expectString(data.FailureMessage);
   }
   if (data.IdentityPoolId !== undefined && data.IdentityPoolId !== null) {
-    contents.IdentityPoolId = data.IdentityPoolId;
+    contents.IdentityPoolId = __expectString(data.IdentityPoolId);
   }
   return Promise.resolve(contents);
 };
@@ -1394,7 +1397,7 @@ export const deserializeAws_restJson1GetIdentityPoolConfigurationCommand = async
     contents.CognitoStreams = deserializeAws_restJson1CognitoStreams(data.CognitoStreams, context);
   }
   if (data.IdentityPoolId !== undefined && data.IdentityPoolId !== null) {
-    contents.IdentityPoolId = data.IdentityPoolId;
+    contents.IdentityPoolId = __expectString(data.IdentityPoolId);
   }
   if (data.PushSync !== undefined && data.PushSync !== null) {
     contents.PushSync = deserializeAws_restJson1PushSync(data.PushSync, context);
@@ -1486,13 +1489,13 @@ export const deserializeAws_restJson1ListDatasetsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Count !== undefined && data.Count !== null) {
-    contents.Count = data.Count;
+    contents.Count = __expectNumber(data.Count);
   }
   if (data.Datasets !== undefined && data.Datasets !== null) {
     contents.Datasets = deserializeAws_restJson1DatasetList(data.Datasets, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1574,16 +1577,16 @@ export const deserializeAws_restJson1ListIdentityPoolUsageCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Count !== undefined && data.Count !== null) {
-    contents.Count = data.Count;
+    contents.Count = __expectNumber(data.Count);
   }
   if (data.IdentityPoolUsages !== undefined && data.IdentityPoolUsages !== null) {
     contents.IdentityPoolUsages = deserializeAws_restJson1IdentityPoolUsageList(data.IdentityPoolUsages, context);
   }
   if (data.MaxResults !== undefined && data.MaxResults !== null) {
-    contents.MaxResults = data.MaxResults;
+    contents.MaxResults = __expectNumber(data.MaxResults);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1670,31 +1673,31 @@ export const deserializeAws_restJson1ListRecordsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Count !== undefined && data.Count !== null) {
-    contents.Count = data.Count;
+    contents.Count = __expectNumber(data.Count);
   }
   if (data.DatasetDeletedAfterRequestedSyncCount !== undefined && data.DatasetDeletedAfterRequestedSyncCount !== null) {
-    contents.DatasetDeletedAfterRequestedSyncCount = data.DatasetDeletedAfterRequestedSyncCount;
+    contents.DatasetDeletedAfterRequestedSyncCount = __expectBoolean(data.DatasetDeletedAfterRequestedSyncCount);
   }
   if (data.DatasetExists !== undefined && data.DatasetExists !== null) {
-    contents.DatasetExists = data.DatasetExists;
+    contents.DatasetExists = __expectBoolean(data.DatasetExists);
   }
   if (data.DatasetSyncCount !== undefined && data.DatasetSyncCount !== null) {
-    contents.DatasetSyncCount = data.DatasetSyncCount;
+    contents.DatasetSyncCount = __expectNumber(data.DatasetSyncCount);
   }
   if (data.LastModifiedBy !== undefined && data.LastModifiedBy !== null) {
-    contents.LastModifiedBy = data.LastModifiedBy;
+    contents.LastModifiedBy = __expectString(data.LastModifiedBy);
   }
   if (data.MergedDatasetNames !== undefined && data.MergedDatasetNames !== null) {
     contents.MergedDatasetNames = deserializeAws_restJson1MergedDatasetNameList(data.MergedDatasetNames, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Records !== undefined && data.Records !== null) {
     contents.Records = deserializeAws_restJson1RecordList(data.Records, context);
   }
   if (data.SyncSessionToken !== undefined && data.SyncSessionToken !== null) {
-    contents.SyncSessionToken = data.SyncSessionToken;
+    contents.SyncSessionToken = __expectString(data.SyncSessionToken);
   }
   return Promise.resolve(contents);
 };
@@ -1773,7 +1776,7 @@ export const deserializeAws_restJson1RegisterDeviceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DeviceId !== undefined && data.DeviceId !== null) {
-    contents.DeviceId = data.DeviceId;
+    contents.DeviceId = __expectString(data.DeviceId);
   }
   return Promise.resolve(contents);
 };
@@ -1956,7 +1959,7 @@ export const deserializeAws_restJson1SetIdentityPoolConfigurationCommand = async
     contents.CognitoStreams = deserializeAws_restJson1CognitoStreams(data.CognitoStreams, context);
   }
   if (data.IdentityPoolId !== undefined && data.IdentityPoolId !== null) {
-    contents.IdentityPoolId = data.IdentityPoolId;
+    contents.IdentityPoolId = __expectString(data.IdentityPoolId);
   }
   if (data.PushSync !== undefined && data.PushSync !== null) {
     contents.PushSync = deserializeAws_restJson1PushSync(data.PushSync, context);
@@ -2354,7 +2357,7 @@ const deserializeAws_restJson1AlreadyStreamedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2371,7 +2374,7 @@ const deserializeAws_restJson1ConcurrentModificationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2388,7 +2391,7 @@ const deserializeAws_restJson1DuplicateRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2405,7 +2408,7 @@ const deserializeAws_restJson1InternalErrorExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2422,7 +2425,7 @@ const deserializeAws_restJson1InvalidConfigurationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2439,7 +2442,7 @@ const deserializeAws_restJson1InvalidLambdaFunctionOutputExceptionResponse = asy
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2456,7 +2459,7 @@ const deserializeAws_restJson1InvalidParameterExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2473,7 +2476,7 @@ const deserializeAws_restJson1LambdaThrottledExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2490,7 +2493,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2507,7 +2510,7 @@ const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2524,7 +2527,7 @@ const deserializeAws_restJson1ResourceConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2541,7 +2544,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2558,7 +2561,7 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -2636,16 +2639,15 @@ const deserializeAws_restJson1ApplicationArnList = (output: any, context: __Serd
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1CognitoStreams = (output: any, context: __SerdeContext): CognitoStreams => {
   return {
-    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
-    StreamName: output.StreamName !== undefined && output.StreamName !== null ? output.StreamName : undefined,
-    StreamingStatus:
-      output.StreamingStatus !== undefined && output.StreamingStatus !== null ? output.StreamingStatus : undefined,
+    RoleArn: __expectString(output.RoleArn),
+    StreamName: __expectString(output.StreamName),
+    StreamingStatus: __expectString(output.StreamingStatus),
   } as any;
 };
 
@@ -2655,16 +2657,15 @@ const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): 
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
         : undefined,
-    DataStorage: output.DataStorage !== undefined && output.DataStorage !== null ? output.DataStorage : undefined,
-    DatasetName: output.DatasetName !== undefined && output.DatasetName !== null ? output.DatasetName : undefined,
-    IdentityId: output.IdentityId !== undefined && output.IdentityId !== null ? output.IdentityId : undefined,
-    LastModifiedBy:
-      output.LastModifiedBy !== undefined && output.LastModifiedBy !== null ? output.LastModifiedBy : undefined,
+    DataStorage: __expectNumber(output.DataStorage),
+    DatasetName: __expectString(output.DatasetName),
+    IdentityId: __expectString(output.IdentityId),
+    LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
         : undefined,
-    NumRecords: output.NumRecords !== undefined && output.NumRecords !== null ? output.NumRecords : undefined,
+    NumRecords: __expectNumber(output.NumRecords),
   } as any;
 };
 
@@ -2686,24 +2687,20 @@ const deserializeAws_restJson1Events = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1IdentityPoolUsage = (output: any, context: __SerdeContext): IdentityPoolUsage => {
   return {
-    DataStorage: output.DataStorage !== undefined && output.DataStorage !== null ? output.DataStorage : undefined,
-    IdentityPoolId:
-      output.IdentityPoolId !== undefined && output.IdentityPoolId !== null ? output.IdentityPoolId : undefined,
+    DataStorage: __expectNumber(output.DataStorage),
+    IdentityPoolId: __expectString(output.IdentityPoolId),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
         : undefined,
-    SyncSessionsCount:
-      output.SyncSessionsCount !== undefined && output.SyncSessionsCount !== null
-        ? output.SyncSessionsCount
-        : undefined,
+    SyncSessionsCount: __expectNumber(output.SyncSessionsCount),
   } as any;
 };
 
@@ -2720,11 +2717,10 @@ const deserializeAws_restJson1IdentityPoolUsageList = (output: any, context: __S
 
 const deserializeAws_restJson1IdentityUsage = (output: any, context: __SerdeContext): IdentityUsage => {
   return {
-    DataStorage: output.DataStorage !== undefined && output.DataStorage !== null ? output.DataStorage : undefined,
-    DatasetCount: output.DatasetCount !== undefined && output.DatasetCount !== null ? output.DatasetCount : undefined,
-    IdentityId: output.IdentityId !== undefined && output.IdentityId !== null ? output.IdentityId : undefined,
-    IdentityPoolId:
-      output.IdentityPoolId !== undefined && output.IdentityPoolId !== null ? output.IdentityPoolId : undefined,
+    DataStorage: __expectNumber(output.DataStorage),
+    DatasetCount: __expectNumber(output.DatasetCount),
+    IdentityId: __expectString(output.IdentityId),
+    IdentityPoolId: __expectString(output.IdentityPoolId),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
@@ -2739,7 +2735,7 @@ const deserializeAws_restJson1MergedDatasetNameList = (output: any, context: __S
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2749,7 +2745,7 @@ const deserializeAws_restJson1PushSync = (output: any, context: __SerdeContext):
       output.ApplicationArns !== undefined && output.ApplicationArns !== null
         ? deserializeAws_restJson1ApplicationArnList(output.ApplicationArns, context)
         : undefined,
-    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
+    RoleArn: __expectString(output.RoleArn),
   } as any;
 };
 
@@ -2759,15 +2755,14 @@ const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): 
       output.DeviceLastModifiedDate !== undefined && output.DeviceLastModifiedDate !== null
         ? new Date(Math.round(output.DeviceLastModifiedDate * 1000))
         : undefined,
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    LastModifiedBy:
-      output.LastModifiedBy !== undefined && output.LastModifiedBy !== null ? output.LastModifiedBy : undefined,
+    Key: __expectString(output.Key),
+    LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
         : undefined,
-    SyncCount: output.SyncCount !== undefined && output.SyncCount !== null ? output.SyncCount : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    SyncCount: __expectNumber(output.SyncCount),
+    Value: __expectString(output.Value),
   } as any;
 };
 

@@ -5,7 +5,7 @@ import {
 import { SendHeartbeatCommandInput, SendHeartbeatCommandOutput } from "../commands/SendHeartbeatCommand";
 import { EdgeMetric, InternalServiceException, Model } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -84,10 +84,10 @@ export const deserializeAws_restJson1GetDeviceRegistrationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.CacheTTL !== undefined && data.CacheTTL !== null) {
-    contents.CacheTTL = data.CacheTTL;
+    contents.CacheTTL = __expectString(data.CacheTTL);
   }
   if (data.DeviceRegistration !== undefined && data.DeviceRegistration !== null) {
-    contents.DeviceRegistration = data.DeviceRegistration;
+    contents.DeviceRegistration = __expectString(data.DeviceRegistration);
   }
   return Promise.resolve(contents);
 };
@@ -192,7 +192,7 @@ const deserializeAws_restJson1InternalServiceExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };

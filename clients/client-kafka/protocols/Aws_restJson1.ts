@@ -131,6 +131,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -1143,7 +1146,7 @@ export const deserializeAws_restJson1BatchAssociateScramSecretCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clusterArn !== undefined && data.clusterArn !== null) {
-    contents.ClusterArn = data.clusterArn;
+    contents.ClusterArn = __expectString(data.clusterArn);
   }
   if (data.unprocessedScramSecrets !== undefined && data.unprocessedScramSecrets !== null) {
     contents.UnprocessedScramSecrets = deserializeAws_restJson1__listOfUnprocessedScramSecret(
@@ -1253,7 +1256,7 @@ export const deserializeAws_restJson1BatchDisassociateScramSecretCommand = async
   };
   const data: any = await parseBody(output.body, context);
   if (data.clusterArn !== undefined && data.clusterArn !== null) {
-    contents.ClusterArn = data.clusterArn;
+    contents.ClusterArn = __expectString(data.clusterArn);
   }
   if (data.unprocessedScramSecrets !== undefined && data.unprocessedScramSecrets !== null) {
     contents.UnprocessedScramSecrets = deserializeAws_restJson1__listOfUnprocessedScramSecret(
@@ -1364,13 +1367,13 @@ export const deserializeAws_restJson1CreateClusterCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clusterArn !== undefined && data.clusterArn !== null) {
-    contents.ClusterArn = data.clusterArn;
+    contents.ClusterArn = __expectString(data.clusterArn);
   }
   if (data.clusterName !== undefined && data.clusterName !== null) {
-    contents.ClusterName = data.clusterName;
+    contents.ClusterName = __expectString(data.clusterName);
   }
   if (data.state !== undefined && data.state !== null) {
-    contents.State = data.state;
+    contents.State = __expectString(data.state);
   }
   return Promise.resolve(contents);
 };
@@ -1477,7 +1480,7 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.CreationTime = new Date(data.creationTime);
@@ -1486,10 +1489,10 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
     contents.LatestRevision = deserializeAws_restJson1ConfigurationRevision(data.latestRevision, context);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   if (data.state !== undefined && data.state !== null) {
-    contents.State = data.state;
+    contents.State = __expectString(data.state);
   }
   return Promise.resolve(contents);
 };
@@ -1593,10 +1596,10 @@ export const deserializeAws_restJson1DeleteClusterCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clusterArn !== undefined && data.clusterArn !== null) {
-    contents.ClusterArn = data.clusterArn;
+    contents.ClusterArn = __expectString(data.clusterArn);
   }
   if (data.state !== undefined && data.state !== null) {
-    contents.State = data.state;
+    contents.State = __expectString(data.state);
   }
   return Promise.resolve(contents);
 };
@@ -1676,10 +1679,10 @@ export const deserializeAws_restJson1DeleteConfigurationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.state !== undefined && data.state !== null) {
-    contents.State = data.state;
+    contents.State = __expectString(data.state);
   }
   return Promise.resolve(contents);
 };
@@ -1938,13 +1941,13 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.CreationTime = new Date(data.creationTime);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.kafkaVersions !== undefined && data.kafkaVersions !== null) {
     contents.KafkaVersions = deserializeAws_restJson1__listOf__string(data.kafkaVersions, context);
@@ -1953,10 +1956,10 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
     contents.LatestRevision = deserializeAws_restJson1ConfigurationRevision(data.latestRevision, context);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.Name = data.name;
+    contents.Name = __expectString(data.name);
   }
   if (data.state !== undefined && data.state !== null) {
-    contents.State = data.state;
+    contents.State = __expectString(data.state);
   }
   return Promise.resolve(contents);
 };
@@ -2055,16 +2058,16 @@ export const deserializeAws_restJson1DescribeConfigurationRevisionCommand = asyn
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.creationTime !== undefined && data.creationTime !== null) {
     contents.CreationTime = new Date(data.creationTime);
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.Description = data.description;
+    contents.Description = __expectString(data.description);
   }
   if (data.revision !== undefined && data.revision !== null) {
-    contents.Revision = data.revision;
+    contents.Revision = __expectNumber(data.revision);
   }
   if (data.serverProperties !== undefined && data.serverProperties !== null) {
     contents.ServerProperties = context.base64Decoder(data.serverProperties);
@@ -2165,16 +2168,16 @@ export const deserializeAws_restJson1GetBootstrapBrokersCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.bootstrapBrokerString !== undefined && data.bootstrapBrokerString !== null) {
-    contents.BootstrapBrokerString = data.bootstrapBrokerString;
+    contents.BootstrapBrokerString = __expectString(data.bootstrapBrokerString);
   }
   if (data.bootstrapBrokerStringSaslIam !== undefined && data.bootstrapBrokerStringSaslIam !== null) {
-    contents.BootstrapBrokerStringSaslIam = data.bootstrapBrokerStringSaslIam;
+    contents.BootstrapBrokerStringSaslIam = __expectString(data.bootstrapBrokerStringSaslIam);
   }
   if (data.bootstrapBrokerStringSaslScram !== undefined && data.bootstrapBrokerStringSaslScram !== null) {
-    contents.BootstrapBrokerStringSaslScram = data.bootstrapBrokerStringSaslScram;
+    contents.BootstrapBrokerStringSaslScram = __expectString(data.bootstrapBrokerStringSaslScram);
   }
   if (data.bootstrapBrokerStringTls !== undefined && data.bootstrapBrokerStringTls !== null) {
-    contents.BootstrapBrokerStringTls = data.bootstrapBrokerStringTls;
+    contents.BootstrapBrokerStringTls = __expectString(data.bootstrapBrokerStringTls);
   }
   return Promise.resolve(contents);
 };
@@ -2374,7 +2377,7 @@ export const deserializeAws_restJson1ListClusterOperationsCommand = async (
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2457,7 +2460,7 @@ export const deserializeAws_restJson1ListClustersCommand = async (
     contents.ClusterInfoList = deserializeAws_restJson1__listOfClusterInfo(data.clusterInfoList, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2537,7 +2540,7 @@ export const deserializeAws_restJson1ListConfigurationRevisionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   if (data.revisions !== undefined && data.revisions !== null) {
     contents.Revisions = deserializeAws_restJson1__listOfConfigurationRevision(data.revisions, context);
@@ -2639,7 +2642,7 @@ export const deserializeAws_restJson1ListConfigurationsCommand = async (
     contents.Configurations = deserializeAws_restJson1__listOfConfiguration(data.configurations, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2730,7 +2733,7 @@ export const deserializeAws_restJson1ListKafkaVersionsCommand = async (
     contents.KafkaVersions = deserializeAws_restJson1__listOfKafkaVersion(data.kafkaVersions, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2810,7 +2813,7 @@ export const deserializeAws_restJson1ListNodesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   if (data.nodeInfoList !== undefined && data.nodeInfoList !== null) {
     contents.NodeInfoList = deserializeAws_restJson1__listOfNodeInfo(data.nodeInfoList, context);
@@ -2893,7 +2896,7 @@ export const deserializeAws_restJson1ListScramSecretsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   if (data.secretArnList !== undefined && data.secretArnList !== null) {
     contents.SecretArnList = deserializeAws_restJson1__listOf__string(data.secretArnList, context);
@@ -3071,10 +3074,10 @@ export const deserializeAws_restJson1RebootBrokerCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clusterArn !== undefined && data.clusterArn !== null) {
-    contents.ClusterArn = data.clusterArn;
+    contents.ClusterArn = __expectString(data.clusterArn);
   }
   if (data.clusterOperationArn !== undefined && data.clusterOperationArn !== null) {
-    contents.ClusterOperationArn = data.clusterOperationArn;
+    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
   }
   return Promise.resolve(contents);
 };
@@ -3312,10 +3315,10 @@ export const deserializeAws_restJson1UpdateBrokerCountCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clusterArn !== undefined && data.clusterArn !== null) {
-    contents.ClusterArn = data.clusterArn;
+    contents.ClusterArn = __expectString(data.clusterArn);
   }
   if (data.clusterOperationArn !== undefined && data.clusterOperationArn !== null) {
-    contents.ClusterOperationArn = data.clusterOperationArn;
+    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
   }
   return Promise.resolve(contents);
 };
@@ -3403,10 +3406,10 @@ export const deserializeAws_restJson1UpdateBrokerStorageCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clusterArn !== undefined && data.clusterArn !== null) {
-    contents.ClusterArn = data.clusterArn;
+    contents.ClusterArn = __expectString(data.clusterArn);
   }
   if (data.clusterOperationArn !== undefined && data.clusterOperationArn !== null) {
-    contents.ClusterOperationArn = data.clusterOperationArn;
+    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
   }
   return Promise.resolve(contents);
 };
@@ -3494,10 +3497,10 @@ export const deserializeAws_restJson1UpdateBrokerTypeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clusterArn !== undefined && data.clusterArn !== null) {
-    contents.ClusterArn = data.clusterArn;
+    contents.ClusterArn = __expectString(data.clusterArn);
   }
   if (data.clusterOperationArn !== undefined && data.clusterOperationArn !== null) {
-    contents.ClusterOperationArn = data.clusterOperationArn;
+    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
   }
   return Promise.resolve(contents);
 };
@@ -3601,10 +3604,10 @@ export const deserializeAws_restJson1UpdateClusterConfigurationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clusterArn !== undefined && data.clusterArn !== null) {
-    contents.ClusterArn = data.clusterArn;
+    contents.ClusterArn = __expectString(data.clusterArn);
   }
   if (data.clusterOperationArn !== undefined && data.clusterOperationArn !== null) {
-    contents.ClusterOperationArn = data.clusterOperationArn;
+    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
   }
   return Promise.resolve(contents);
 };
@@ -3700,10 +3703,10 @@ export const deserializeAws_restJson1UpdateClusterKafkaVersionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clusterArn !== undefined && data.clusterArn !== null) {
-    contents.ClusterArn = data.clusterArn;
+    contents.ClusterArn = __expectString(data.clusterArn);
   }
   if (data.clusterOperationArn !== undefined && data.clusterOperationArn !== null) {
-    contents.ClusterOperationArn = data.clusterOperationArn;
+    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
   }
   return Promise.resolve(contents);
 };
@@ -3807,7 +3810,7 @@ export const deserializeAws_restJson1UpdateConfigurationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.Arn = data.arn;
+    contents.Arn = __expectString(data.arn);
   }
   if (data.latestRevision !== undefined && data.latestRevision !== null) {
     contents.LatestRevision = deserializeAws_restJson1ConfigurationRevision(data.latestRevision, context);
@@ -3906,10 +3909,10 @@ export const deserializeAws_restJson1UpdateMonitoringCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.clusterArn !== undefined && data.clusterArn !== null) {
-    contents.ClusterArn = data.clusterArn;
+    contents.ClusterArn = __expectString(data.clusterArn);
   }
   if (data.clusterOperationArn !== undefined && data.clusterOperationArn !== null) {
-    contents.ClusterOperationArn = data.clusterOperationArn;
+    contents.ClusterOperationArn = __expectString(data.clusterOperationArn);
   }
   return Promise.resolve(contents);
 };
@@ -3996,10 +3999,10 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.invalidParameter !== undefined && data.invalidParameter !== null) {
-    contents.InvalidParameter = data.invalidParameter;
+    contents.InvalidParameter = __expectString(data.invalidParameter);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -4017,10 +4020,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.invalidParameter !== undefined && data.invalidParameter !== null) {
-    contents.InvalidParameter = data.invalidParameter;
+    contents.InvalidParameter = __expectString(data.invalidParameter);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -4038,10 +4041,10 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.invalidParameter !== undefined && data.invalidParameter !== null) {
-    contents.InvalidParameter = data.invalidParameter;
+    contents.InvalidParameter = __expectString(data.invalidParameter);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -4059,10 +4062,10 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.invalidParameter !== undefined && data.invalidParameter !== null) {
-    contents.InvalidParameter = data.invalidParameter;
+    contents.InvalidParameter = __expectString(data.invalidParameter);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -4080,10 +4083,10 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.invalidParameter !== undefined && data.invalidParameter !== null) {
-    contents.InvalidParameter = data.invalidParameter;
+    contents.InvalidParameter = __expectString(data.invalidParameter);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -4101,10 +4104,10 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.invalidParameter !== undefined && data.invalidParameter !== null) {
-    contents.InvalidParameter = data.invalidParameter;
+    contents.InvalidParameter = __expectString(data.invalidParameter);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -4122,10 +4125,10 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.invalidParameter !== undefined && data.invalidParameter !== null) {
-    contents.InvalidParameter = data.invalidParameter;
+    contents.InvalidParameter = __expectString(data.invalidParameter);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -4143,10 +4146,10 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.invalidParameter !== undefined && data.invalidParameter !== null) {
-    contents.InvalidParameter = data.invalidParameter;
+    contents.InvalidParameter = __expectString(data.invalidParameter);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -4380,7 +4383,7 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4519,18 +4522,15 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1BrokerEBSVolumeInfo = (output: any, context: __SerdeContext): BrokerEBSVolumeInfo => {
   return {
-    KafkaBrokerNodeId:
-      output.kafkaBrokerNodeId !== undefined && output.kafkaBrokerNodeId !== null
-        ? output.kafkaBrokerNodeId
-        : undefined,
-    VolumeSizeGB: output.volumeSizeGB !== undefined && output.volumeSizeGB !== null ? output.volumeSizeGB : undefined,
+    KafkaBrokerNodeId: __expectString(output.kafkaBrokerNodeId),
+    VolumeSizeGB: __expectNumber(output.volumeSizeGB),
   } as any;
 };
 
@@ -4550,15 +4550,12 @@ const deserializeAws_restJson1BrokerLogs = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1BrokerNodeGroupInfo = (output: any, context: __SerdeContext): BrokerNodeGroupInfo => {
   return {
-    BrokerAZDistribution:
-      output.brokerAZDistribution !== undefined && output.brokerAZDistribution !== null
-        ? output.brokerAZDistribution
-        : undefined,
+    BrokerAZDistribution: __expectString(output.brokerAZDistribution),
     ClientSubnets:
       output.clientSubnets !== undefined && output.clientSubnets !== null
         ? deserializeAws_restJson1__listOf__string(output.clientSubnets, context)
         : undefined,
-    InstanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
+    InstanceType: __expectString(output.instanceType),
     SecurityGroups:
       output.securityGroups !== undefined && output.securityGroups !== null
         ? deserializeAws_restJson1__listOf__string(output.securityGroups, context)
@@ -4572,14 +4569,10 @@ const deserializeAws_restJson1BrokerNodeGroupInfo = (output: any, context: __Ser
 
 const deserializeAws_restJson1BrokerNodeInfo = (output: any, context: __SerdeContext): BrokerNodeInfo => {
   return {
-    AttachedENIId:
-      output.attachedENIId !== undefined && output.attachedENIId !== null ? output.attachedENIId : undefined,
-    BrokerId: output.brokerId !== undefined && output.brokerId !== null ? output.brokerId : undefined,
-    ClientSubnet: output.clientSubnet !== undefined && output.clientSubnet !== null ? output.clientSubnet : undefined,
-    ClientVpcIpAddress:
-      output.clientVpcIpAddress !== undefined && output.clientVpcIpAddress !== null
-        ? output.clientVpcIpAddress
-        : undefined,
+    AttachedENIId: __expectString(output.attachedENIId),
+    BrokerId: __expectNumber(output.brokerId),
+    ClientSubnet: __expectString(output.clientSubnet),
+    ClientVpcIpAddress: __expectString(output.clientVpcIpAddress),
     CurrentBrokerSoftwareInfo:
       output.currentBrokerSoftwareInfo !== undefined && output.currentBrokerSoftwareInfo !== null
         ? deserializeAws_restJson1BrokerSoftwareInfo(output.currentBrokerSoftwareInfo, context)
@@ -4593,13 +4586,9 @@ const deserializeAws_restJson1BrokerNodeInfo = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1BrokerSoftwareInfo = (output: any, context: __SerdeContext): BrokerSoftwareInfo => {
   return {
-    ConfigurationArn:
-      output.configurationArn !== undefined && output.configurationArn !== null ? output.configurationArn : undefined,
-    ConfigurationRevision:
-      output.configurationRevision !== undefined && output.configurationRevision !== null
-        ? output.configurationRevision
-        : undefined,
-    KafkaVersion: output.kafkaVersion !== undefined && output.kafkaVersion !== null ? output.kafkaVersion : undefined,
+    ConfigurationArn: __expectString(output.configurationArn),
+    ConfigurationRevision: __expectNumber(output.configurationRevision),
+    KafkaVersion: __expectString(output.kafkaVersion),
   } as any;
 };
 
@@ -4615,17 +4604,14 @@ const deserializeAws_restJson1ClientAuthentication = (output: any, context: __Se
 
 const deserializeAws_restJson1CloudWatchLogs = (output: any, context: __SerdeContext): CloudWatchLogs => {
   return {
-    Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
-    LogGroup: output.logGroup !== undefined && output.logGroup !== null ? output.logGroup : undefined,
+    Enabled: __expectBoolean(output.enabled),
+    LogGroup: __expectString(output.logGroup),
   } as any;
 };
 
 const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContext): ClusterInfo => {
   return {
-    ActiveOperationArn:
-      output.activeOperationArn !== undefined && output.activeOperationArn !== null
-        ? output.activeOperationArn
-        : undefined,
+    ActiveOperationArn: __expectString(output.activeOperationArn),
     BrokerNodeGroupInfo:
       output.brokerNodeGroupInfo !== undefined && output.brokerNodeGroupInfo !== null
         ? deserializeAws_restJson1BrokerNodeGroupInfo(output.brokerNodeGroupInfo, context)
@@ -4634,37 +4620,30 @@ const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContex
       output.clientAuthentication !== undefined && output.clientAuthentication !== null
         ? deserializeAws_restJson1ClientAuthentication(output.clientAuthentication, context)
         : undefined,
-    ClusterArn: output.clusterArn !== undefined && output.clusterArn !== null ? output.clusterArn : undefined,
-    ClusterName: output.clusterName !== undefined && output.clusterName !== null ? output.clusterName : undefined,
+    ClusterArn: __expectString(output.clusterArn),
+    ClusterName: __expectString(output.clusterName),
     CreationTime:
       output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
     CurrentBrokerSoftwareInfo:
       output.currentBrokerSoftwareInfo !== undefined && output.currentBrokerSoftwareInfo !== null
         ? deserializeAws_restJson1BrokerSoftwareInfo(output.currentBrokerSoftwareInfo, context)
         : undefined,
-    CurrentVersion:
-      output.currentVersion !== undefined && output.currentVersion !== null ? output.currentVersion : undefined,
+    CurrentVersion: __expectString(output.currentVersion),
     EncryptionInfo:
       output.encryptionInfo !== undefined && output.encryptionInfo !== null
         ? deserializeAws_restJson1EncryptionInfo(output.encryptionInfo, context)
         : undefined,
-    EnhancedMonitoring:
-      output.enhancedMonitoring !== undefined && output.enhancedMonitoring !== null
-        ? output.enhancedMonitoring
-        : undefined,
+    EnhancedMonitoring: __expectString(output.enhancedMonitoring),
     LoggingInfo:
       output.loggingInfo !== undefined && output.loggingInfo !== null
         ? deserializeAws_restJson1LoggingInfo(output.loggingInfo, context)
         : undefined,
-    NumberOfBrokerNodes:
-      output.numberOfBrokerNodes !== undefined && output.numberOfBrokerNodes !== null
-        ? output.numberOfBrokerNodes
-        : undefined,
+    NumberOfBrokerNodes: __expectNumber(output.numberOfBrokerNodes),
     OpenMonitoring:
       output.openMonitoring !== undefined && output.openMonitoring !== null
         ? deserializeAws_restJson1OpenMonitoring(output.openMonitoring, context)
         : undefined,
-    State: output.state !== undefined && output.state !== null ? output.state : undefined,
+    State: __expectString(output.state),
     StateInfo:
       output.stateInfo !== undefined && output.stateInfo !== null
         ? deserializeAws_restJson1StateInfo(output.stateInfo, context)
@@ -4673,22 +4652,15 @@ const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContex
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1__mapOf__string(output.tags, context)
         : undefined,
-    ZookeeperConnectString:
-      output.zookeeperConnectString !== undefined && output.zookeeperConnectString !== null
-        ? output.zookeeperConnectString
-        : undefined,
-    ZookeeperConnectStringTls:
-      output.zookeeperConnectStringTls !== undefined && output.zookeeperConnectStringTls !== null
-        ? output.zookeeperConnectStringTls
-        : undefined,
+    ZookeeperConnectString: __expectString(output.zookeeperConnectString),
+    ZookeeperConnectStringTls: __expectString(output.zookeeperConnectStringTls),
   } as any;
 };
 
 const deserializeAws_restJson1ClusterOperationInfo = (output: any, context: __SerdeContext): ClusterOperationInfo => {
   return {
-    ClientRequestId:
-      output.clientRequestId !== undefined && output.clientRequestId !== null ? output.clientRequestId : undefined,
-    ClusterArn: output.clusterArn !== undefined && output.clusterArn !== null ? output.clusterArn : undefined,
+    ClientRequestId: __expectString(output.clientRequestId),
+    ClusterArn: __expectString(output.clusterArn),
     CreationTime:
       output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
     EndTime: output.endTime !== undefined && output.endTime !== null ? new Date(output.endTime) : undefined,
@@ -4696,15 +4668,13 @@ const deserializeAws_restJson1ClusterOperationInfo = (output: any, context: __Se
       output.errorInfo !== undefined && output.errorInfo !== null
         ? deserializeAws_restJson1ErrorInfo(output.errorInfo, context)
         : undefined,
-    OperationArn: output.operationArn !== undefined && output.operationArn !== null ? output.operationArn : undefined,
-    OperationState:
-      output.operationState !== undefined && output.operationState !== null ? output.operationState : undefined,
+    OperationArn: __expectString(output.operationArn),
+    OperationState: __expectString(output.operationState),
     OperationSteps:
       output.operationSteps !== undefined && output.operationSteps !== null
         ? deserializeAws_restJson1__listOfClusterOperationStep(output.operationSteps, context)
         : undefined,
-    OperationType:
-      output.operationType !== undefined && output.operationType !== null ? output.operationType : undefined,
+    OperationType: __expectString(output.operationType),
     SourceClusterInfo:
       output.sourceClusterInfo !== undefined && output.sourceClusterInfo !== null
         ? deserializeAws_restJson1MutableClusterInfo(output.sourceClusterInfo, context)
@@ -4722,7 +4692,7 @@ const deserializeAws_restJson1ClusterOperationStep = (output: any, context: __Se
       output.stepInfo !== undefined && output.stepInfo !== null
         ? deserializeAws_restJson1ClusterOperationStepInfo(output.stepInfo, context)
         : undefined,
-    StepName: output.stepName !== undefined && output.stepName !== null ? output.stepName : undefined,
+    StepName: __expectString(output.stepName),
   } as any;
 };
 
@@ -4731,7 +4701,7 @@ const deserializeAws_restJson1ClusterOperationStepInfo = (
   context: __SerdeContext
 ): ClusterOperationStepInfo => {
   return {
-    StepStatus: output.stepStatus !== undefined && output.stepStatus !== null ? output.stepStatus : undefined,
+    StepStatus: __expectString(output.stepStatus),
   } as any;
 };
 
@@ -4740,8 +4710,7 @@ const deserializeAws_restJson1CompatibleKafkaVersion = (
   context: __SerdeContext
 ): CompatibleKafkaVersion => {
   return {
-    SourceVersion:
-      output.sourceVersion !== undefined && output.sourceVersion !== null ? output.sourceVersion : undefined,
+    SourceVersion: __expectString(output.sourceVersion),
     TargetVersions:
       output.targetVersions !== undefined && output.targetVersions !== null
         ? deserializeAws_restJson1__listOf__string(output.targetVersions, context)
@@ -4751,10 +4720,10 @@ const deserializeAws_restJson1CompatibleKafkaVersion = (
 
 const deserializeAws_restJson1Configuration = (output: any, context: __SerdeContext): Configuration => {
   return {
-    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Arn: __expectString(output.arn),
     CreationTime:
       output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
-    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    Description: __expectString(output.description),
     KafkaVersions:
       output.kafkaVersions !== undefined && output.kafkaVersions !== null
         ? deserializeAws_restJson1__listOf__string(output.kafkaVersions, context)
@@ -4763,15 +4732,15 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
       output.latestRevision !== undefined && output.latestRevision !== null
         ? deserializeAws_restJson1ConfigurationRevision(output.latestRevision, context)
         : undefined,
-    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    State: output.state !== undefined && output.state !== null ? output.state : undefined,
+    Name: __expectString(output.name),
+    State: __expectString(output.state),
   } as any;
 };
 
 const deserializeAws_restJson1ConfigurationInfo = (output: any, context: __SerdeContext): ConfigurationInfo => {
   return {
-    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    Revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
+    Arn: __expectString(output.arn),
+    Revision: __expectNumber(output.revision),
   } as any;
 };
 
@@ -4779,23 +4748,20 @@ const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __S
   return {
     CreationTime:
       output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
-    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    Revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
+    Description: __expectString(output.description),
+    Revision: __expectNumber(output.revision),
   } as any;
 };
 
 const deserializeAws_restJson1EBSStorageInfo = (output: any, context: __SerdeContext): EBSStorageInfo => {
   return {
-    VolumeSize: output.volumeSize !== undefined && output.volumeSize !== null ? output.volumeSize : undefined,
+    VolumeSize: __expectNumber(output.volumeSize),
   } as any;
 };
 
 const deserializeAws_restJson1EncryptionAtRest = (output: any, context: __SerdeContext): EncryptionAtRest => {
   return {
-    DataVolumeKMSKeyId:
-      output.dataVolumeKMSKeyId !== undefined && output.dataVolumeKMSKeyId !== null
-        ? output.dataVolumeKMSKeyId
-        : undefined,
+    DataVolumeKMSKeyId: __expectString(output.dataVolumeKMSKeyId),
   } as any;
 };
 
@@ -4814,43 +4780,41 @@ const deserializeAws_restJson1EncryptionInfo = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1EncryptionInTransit = (output: any, context: __SerdeContext): EncryptionInTransit => {
   return {
-    ClientBroker: output.clientBroker !== undefined && output.clientBroker !== null ? output.clientBroker : undefined,
-    InCluster: output.inCluster !== undefined && output.inCluster !== null ? output.inCluster : undefined,
+    ClientBroker: __expectString(output.clientBroker),
+    InCluster: __expectBoolean(output.inCluster),
   } as any;
 };
 
 const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext): ErrorInfo => {
   return {
-    ErrorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    ErrorString: output.errorString !== undefined && output.errorString !== null ? output.errorString : undefined,
+    ErrorCode: __expectString(output.errorCode),
+    ErrorString: __expectString(output.errorString),
   } as any;
 };
 
 const deserializeAws_restJson1Firehose = (output: any, context: __SerdeContext): Firehose => {
   return {
-    DeliveryStream:
-      output.deliveryStream !== undefined && output.deliveryStream !== null ? output.deliveryStream : undefined,
-    Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+    DeliveryStream: __expectString(output.deliveryStream),
+    Enabled: __expectBoolean(output.enabled),
   } as any;
 };
 
 const deserializeAws_restJson1Iam = (output: any, context: __SerdeContext): Iam => {
   return {
-    Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+    Enabled: __expectBoolean(output.enabled),
   } as any;
 };
 
 const deserializeAws_restJson1JmxExporter = (output: any, context: __SerdeContext): JmxExporter => {
   return {
-    EnabledInBroker:
-      output.enabledInBroker !== undefined && output.enabledInBroker !== null ? output.enabledInBroker : undefined,
+    EnabledInBroker: __expectBoolean(output.enabledInBroker),
   } as any;
 };
 
 const deserializeAws_restJson1KafkaVersion = (output: any, context: __SerdeContext): KafkaVersion => {
   return {
-    Status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    Version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    Status: __expectString(output.status),
+    Version: __expectString(output.version),
   } as any;
 };
 
@@ -4873,20 +4837,14 @@ const deserializeAws_restJson1MutableClusterInfo = (output: any, context: __Serd
       output.configurationInfo !== undefined && output.configurationInfo !== null
         ? deserializeAws_restJson1ConfigurationInfo(output.configurationInfo, context)
         : undefined,
-    EnhancedMonitoring:
-      output.enhancedMonitoring !== undefined && output.enhancedMonitoring !== null
-        ? output.enhancedMonitoring
-        : undefined,
-    InstanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
-    KafkaVersion: output.kafkaVersion !== undefined && output.kafkaVersion !== null ? output.kafkaVersion : undefined,
+    EnhancedMonitoring: __expectString(output.enhancedMonitoring),
+    InstanceType: __expectString(output.instanceType),
+    KafkaVersion: __expectString(output.kafkaVersion),
     LoggingInfo:
       output.loggingInfo !== undefined && output.loggingInfo !== null
         ? deserializeAws_restJson1LoggingInfo(output.loggingInfo, context)
         : undefined,
-    NumberOfBrokerNodes:
-      output.numberOfBrokerNodes !== undefined && output.numberOfBrokerNodes !== null
-        ? output.numberOfBrokerNodes
-        : undefined,
+    NumberOfBrokerNodes: __expectNumber(output.numberOfBrokerNodes),
     OpenMonitoring:
       output.openMonitoring !== undefined && output.openMonitoring !== null
         ? deserializeAws_restJson1OpenMonitoring(output.openMonitoring, context)
@@ -4896,24 +4854,20 @@ const deserializeAws_restJson1MutableClusterInfo = (output: any, context: __Serd
 
 const deserializeAws_restJson1NodeExporter = (output: any, context: __SerdeContext): NodeExporter => {
   return {
-    EnabledInBroker:
-      output.enabledInBroker !== undefined && output.enabledInBroker !== null ? output.enabledInBroker : undefined,
+    EnabledInBroker: __expectBoolean(output.enabledInBroker),
   } as any;
 };
 
 const deserializeAws_restJson1NodeInfo = (output: any, context: __SerdeContext): NodeInfo => {
   return {
-    AddedToClusterTime:
-      output.addedToClusterTime !== undefined && output.addedToClusterTime !== null
-        ? output.addedToClusterTime
-        : undefined,
+    AddedToClusterTime: __expectString(output.addedToClusterTime),
     BrokerNodeInfo:
       output.brokerNodeInfo !== undefined && output.brokerNodeInfo !== null
         ? deserializeAws_restJson1BrokerNodeInfo(output.brokerNodeInfo, context)
         : undefined,
-    InstanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
-    NodeARN: output.nodeARN !== undefined && output.nodeARN !== null ? output.nodeARN : undefined,
-    NodeType: output.nodeType !== undefined && output.nodeType !== null ? output.nodeType : undefined,
+    InstanceType: __expectString(output.instanceType),
+    NodeARN: __expectString(output.nodeARN),
+    NodeType: __expectString(output.nodeType),
     ZookeeperNodeInfo:
       output.zookeeperNodeInfo !== undefined && output.zookeeperNodeInfo !== null
         ? deserializeAws_restJson1ZookeeperNodeInfo(output.zookeeperNodeInfo, context)
@@ -4945,9 +4899,9 @@ const deserializeAws_restJson1Prometheus = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1S3 = (output: any, context: __SerdeContext): S3 => {
   return {
-    Bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
-    Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
-    Prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
+    Bucket: __expectString(output.bucket),
+    Enabled: __expectBoolean(output.enabled),
+    Prefix: __expectString(output.prefix),
   } as any;
 };
 
@@ -4963,14 +4917,14 @@ const deserializeAws_restJson1Sasl = (output: any, context: __SerdeContext): Sas
 
 const deserializeAws_restJson1Scram = (output: any, context: __SerdeContext): Scram => {
   return {
-    Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+    Enabled: __expectBoolean(output.enabled),
   } as any;
 };
 
 const deserializeAws_restJson1StateInfo = (output: any, context: __SerdeContext): StateInfo => {
   return {
-    Code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    Message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    Code: __expectString(output.code),
+    Message: __expectString(output.message),
   } as any;
 };
 
@@ -4997,27 +4951,22 @@ const deserializeAws_restJson1UnprocessedScramSecret = (
   context: __SerdeContext
 ): UnprocessedScramSecret => {
   return {
-    ErrorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    ErrorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
-    SecretArn: output.secretArn !== undefined && output.secretArn !== null ? output.secretArn : undefined,
+    ErrorCode: __expectString(output.errorCode),
+    ErrorMessage: __expectString(output.errorMessage),
+    SecretArn: __expectString(output.secretArn),
   } as any;
 };
 
 const deserializeAws_restJson1ZookeeperNodeInfo = (output: any, context: __SerdeContext): ZookeeperNodeInfo => {
   return {
-    AttachedENIId:
-      output.attachedENIId !== undefined && output.attachedENIId !== null ? output.attachedENIId : undefined,
-    ClientVpcIpAddress:
-      output.clientVpcIpAddress !== undefined && output.clientVpcIpAddress !== null
-        ? output.clientVpcIpAddress
-        : undefined,
+    AttachedENIId: __expectString(output.attachedENIId),
+    ClientVpcIpAddress: __expectString(output.clientVpcIpAddress),
     Endpoints:
       output.endpoints !== undefined && output.endpoints !== null
         ? deserializeAws_restJson1__listOf__string(output.endpoints, context)
         : undefined,
-    ZookeeperId: output.zookeeperId !== undefined && output.zookeeperId !== null ? output.zookeeperId : undefined,
-    ZookeeperVersion:
-      output.zookeeperVersion !== undefined && output.zookeeperVersion !== null ? output.zookeeperVersion : undefined,
+    ZookeeperId: __expectNumber(output.zookeeperId),
+    ZookeeperVersion: __expectString(output.zookeeperVersion),
   } as any;
 };
 

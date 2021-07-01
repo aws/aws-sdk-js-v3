@@ -28,6 +28,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -685,13 +686,13 @@ export const deserializeAws_restJson1GetOutpostInstanceTypesCommand = async (
     contents.InstanceTypes = deserializeAws_restJson1InstanceTypeListDefinition(data.InstanceTypes, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.OutpostArn !== undefined && data.OutpostArn !== null) {
-    contents.OutpostArn = data.OutpostArn;
+    contents.OutpostArn = __expectString(data.OutpostArn);
   }
   if (data.OutpostId !== undefined && data.OutpostId !== null) {
-    contents.OutpostId = data.OutpostId;
+    contents.OutpostId = __expectString(data.OutpostId);
   }
   return Promise.resolve(contents);
 };
@@ -771,7 +772,7 @@ export const deserializeAws_restJson1ListOutpostsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Outposts !== undefined && data.Outposts !== null) {
     contents.Outposts = deserializeAws_restJson1outpostListDefinition(data.Outposts, context);
@@ -846,7 +847,7 @@ export const deserializeAws_restJson1ListSitesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Sites !== undefined && data.Sites !== null) {
     contents.Sites = deserializeAws_restJson1siteListDefinition(data.Sites, context);
@@ -1124,7 +1125,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1143,13 +1144,13 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.ResourceId !== undefined && data.ResourceId !== null) {
-    contents.ResourceId = data.ResourceId;
+    contents.ResourceId = __expectString(data.ResourceId);
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = data.ResourceType;
+    contents.ResourceType = __expectString(data.ResourceType);
   }
   return contents;
 };
@@ -1166,7 +1167,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1183,7 +1184,7 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1200,7 +1201,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1217,7 +1218,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1236,7 +1237,7 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 
 const deserializeAws_restJson1InstanceTypeItem = (output: any, context: __SerdeContext): InstanceTypeItem => {
   return {
-    InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
+    InstanceType: __expectString(output.InstanceType),
   } as any;
 };
 
@@ -1256,21 +1257,16 @@ const deserializeAws_restJson1InstanceTypeListDefinition = (
 
 const deserializeAws_restJson1Outpost = (output: any, context: __SerdeContext): Outpost => {
   return {
-    AvailabilityZone:
-      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
-    AvailabilityZoneId:
-      output.AvailabilityZoneId !== undefined && output.AvailabilityZoneId !== null
-        ? output.AvailabilityZoneId
-        : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    LifeCycleStatus:
-      output.LifeCycleStatus !== undefined && output.LifeCycleStatus !== null ? output.LifeCycleStatus : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    OutpostArn: output.OutpostArn !== undefined && output.OutpostArn !== null ? output.OutpostArn : undefined,
-    OutpostId: output.OutpostId !== undefined && output.OutpostId !== null ? output.OutpostId : undefined,
-    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
-    SiteArn: output.SiteArn !== undefined && output.SiteArn !== null ? output.SiteArn : undefined,
-    SiteId: output.SiteId !== undefined && output.SiteId !== null ? output.SiteId : undefined,
+    AvailabilityZone: __expectString(output.AvailabilityZone),
+    AvailabilityZoneId: __expectString(output.AvailabilityZoneId),
+    Description: __expectString(output.Description),
+    LifeCycleStatus: __expectString(output.LifeCycleStatus),
+    Name: __expectString(output.Name),
+    OutpostArn: __expectString(output.OutpostArn),
+    OutpostId: __expectString(output.OutpostId),
+    OwnerId: __expectString(output.OwnerId),
+    SiteArn: __expectString(output.SiteArn),
+    SiteId: __expectString(output.SiteId),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagMap(output.Tags, context)
@@ -1291,11 +1287,11 @@ const deserializeAws_restJson1outpostListDefinition = (output: any, context: __S
 
 const deserializeAws_restJson1Site = (output: any, context: __SerdeContext): Site => {
   return {
-    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    SiteArn: output.SiteArn !== undefined && output.SiteArn !== null ? output.SiteArn : undefined,
-    SiteId: output.SiteId !== undefined && output.SiteId !== null ? output.SiteId : undefined,
+    AccountId: __expectString(output.AccountId),
+    Description: __expectString(output.Description),
+    Name: __expectString(output.Name),
+    SiteArn: __expectString(output.SiteArn),
+    SiteId: __expectString(output.SiteId),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagMap(output.Tags, context)
@@ -1321,7 +1317,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

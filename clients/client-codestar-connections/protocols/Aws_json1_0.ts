@@ -49,7 +49,7 @@ import {
   VpcConfiguration,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1161,22 +1161,18 @@ const serializeAws_json1_0VpcConfiguration = (input: VpcConfiguration, context: 
 
 const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_0Connection = (output: any, context: __SerdeContext): Connection => {
   return {
-    ConnectionArn:
-      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
-    ConnectionName:
-      output.ConnectionName !== undefined && output.ConnectionName !== null ? output.ConnectionName : undefined,
-    ConnectionStatus:
-      output.ConnectionStatus !== undefined && output.ConnectionStatus !== null ? output.ConnectionStatus : undefined,
-    HostArn: output.HostArn !== undefined && output.HostArn !== null ? output.HostArn : undefined,
-    OwnerAccountId:
-      output.OwnerAccountId !== undefined && output.OwnerAccountId !== null ? output.OwnerAccountId : undefined,
-    ProviderType: output.ProviderType !== undefined && output.ProviderType !== null ? output.ProviderType : undefined,
+    ConnectionArn: __expectString(output.ConnectionArn),
+    ConnectionName: __expectString(output.ConnectionName),
+    ConnectionStatus: __expectString(output.ConnectionStatus),
+    HostArn: __expectString(output.HostArn),
+    OwnerAccountId: __expectString(output.OwnerAccountId),
+    ProviderType: __expectString(output.ProviderType),
   } as any;
 };
 
@@ -1193,8 +1189,7 @@ const deserializeAws_json1_0ConnectionList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_0CreateConnectionOutput = (output: any, context: __SerdeContext): CreateConnectionOutput => {
   return {
-    ConnectionArn:
-      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
+    ConnectionArn: __expectString(output.ConnectionArn),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_0TagList(output.Tags, context)
@@ -1204,7 +1199,7 @@ const deserializeAws_json1_0CreateConnectionOutput = (output: any, context: __Se
 
 const deserializeAws_json1_0CreateHostOutput = (output: any, context: __SerdeContext): CreateHostOutput => {
   return {
-    HostArn: output.HostArn !== undefined && output.HostArn !== null ? output.HostArn : undefined,
+    HostArn: __expectString(output.HostArn),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_0TagList(output.Tags, context)
@@ -1231,11 +1226,10 @@ const deserializeAws_json1_0GetConnectionOutput = (output: any, context: __Serde
 
 const deserializeAws_json1_0GetHostOutput = (output: any, context: __SerdeContext): GetHostOutput => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    ProviderEndpoint:
-      output.ProviderEndpoint !== undefined && output.ProviderEndpoint !== null ? output.ProviderEndpoint : undefined,
-    ProviderType: output.ProviderType !== undefined && output.ProviderType !== null ? output.ProviderType : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Name: __expectString(output.Name),
+    ProviderEndpoint: __expectString(output.ProviderEndpoint),
+    ProviderType: __expectString(output.ProviderType),
+    Status: __expectString(output.Status),
     VpcConfiguration:
       output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
         ? deserializeAws_json1_0VpcConfiguration(output.VpcConfiguration, context)
@@ -1245,14 +1239,12 @@ const deserializeAws_json1_0GetHostOutput = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_0Host = (output: any, context: __SerdeContext): Host => {
   return {
-    HostArn: output.HostArn !== undefined && output.HostArn !== null ? output.HostArn : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    ProviderEndpoint:
-      output.ProviderEndpoint !== undefined && output.ProviderEndpoint !== null ? output.ProviderEndpoint : undefined,
-    ProviderType: output.ProviderType !== undefined && output.ProviderType !== null ? output.ProviderType : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    StatusMessage:
-      output.StatusMessage !== undefined && output.StatusMessage !== null ? output.StatusMessage : undefined,
+    HostArn: __expectString(output.HostArn),
+    Name: __expectString(output.Name),
+    ProviderEndpoint: __expectString(output.ProviderEndpoint),
+    ProviderType: __expectString(output.ProviderType),
+    Status: __expectString(output.Status),
+    StatusMessage: __expectString(output.StatusMessage),
     VpcConfiguration:
       output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
         ? deserializeAws_json1_0VpcConfiguration(output.VpcConfiguration, context)
@@ -1273,7 +1265,7 @@ const deserializeAws_json1_0HostList = (output: any, context: __SerdeContext): H
 
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1283,7 +1275,7 @@ const deserializeAws_json1_0ListConnectionsOutput = (output: any, context: __Ser
       output.Connections !== undefined && output.Connections !== null
         ? deserializeAws_json1_0ConnectionList(output.Connections, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -1293,7 +1285,7 @@ const deserializeAws_json1_0ListHostsOutput = (output: any, context: __SerdeCont
       output.Hosts !== undefined && output.Hosts !== null
         ? deserializeAws_json1_0HostList(output.Hosts, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -1314,7 +1306,7 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1323,7 +1315,7 @@ const deserializeAws_json1_0ResourceUnavailableException = (
   context: __SerdeContext
 ): ResourceUnavailableException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1334,7 +1326,7 @@ const deserializeAws_json1_0SecurityGroupIds = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1345,14 +1337,14 @@ const deserializeAws_json1_0SubnetIds = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -1376,7 +1368,7 @@ const deserializeAws_json1_0UnsupportedOperationException = (
   context: __SerdeContext
 ): UnsupportedOperationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1398,9 +1390,8 @@ const deserializeAws_json1_0VpcConfiguration = (output: any, context: __SerdeCon
       output.SubnetIds !== undefined && output.SubnetIds !== null
         ? deserializeAws_json1_0SubnetIds(output.SubnetIds, context)
         : undefined,
-    TlsCertificate:
-      output.TlsCertificate !== undefined && output.TlsCertificate !== null ? output.TlsCertificate : undefined,
-    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+    TlsCertificate: __expectString(output.TlsCertificate),
+    VpcId: __expectString(output.VpcId),
   } as any;
 };
 

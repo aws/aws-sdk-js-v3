@@ -48,6 +48,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -736,7 +738,7 @@ export const deserializeAws_restJson1ListConfigurationSetsCommand = async (
     contents.ConfigurationSets = deserializeAws_restJson1ConfigurationSets(data.ConfigurationSets, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -807,7 +809,7 @@ export const deserializeAws_restJson1SendVoiceMessageCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.MessageId !== undefined && data.MessageId !== null) {
-    contents.MessageId = data.MessageId;
+    contents.MessageId = __expectString(data.MessageId);
   }
   return Promise.resolve(contents);
 };
@@ -952,7 +954,7 @@ const deserializeAws_restJson1AlreadyExistsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -969,7 +971,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -986,7 +988,7 @@ const deserializeAws_restJson1InternalServiceErrorExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1003,7 +1005,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1020,7 +1022,7 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1037,7 +1039,7 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1159,8 +1161,8 @@ const deserializeAws_restJson1CloudWatchLogsDestination = (
   context: __SerdeContext
 ): CloudWatchLogsDestination => {
   return {
-    IamRoleArn: output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
-    LogGroupArn: output.LogGroupArn !== undefined && output.LogGroupArn !== null ? output.LogGroupArn : undefined,
+    IamRoleArn: __expectString(output.IamRoleArn),
+    LogGroupArn: __expectString(output.LogGroupArn),
   } as any;
 };
 
@@ -1171,7 +1173,7 @@ const deserializeAws_restJson1ConfigurationSets = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1181,7 +1183,7 @@ const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeC
       output.CloudWatchLogsDestination !== undefined && output.CloudWatchLogsDestination !== null
         ? deserializeAws_restJson1CloudWatchLogsDestination(output.CloudWatchLogsDestination, context)
         : undefined,
-    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+    Enabled: __expectBoolean(output.Enabled),
     KinesisFirehoseDestination:
       output.KinesisFirehoseDestination !== undefined && output.KinesisFirehoseDestination !== null
         ? deserializeAws_restJson1KinesisFirehoseDestination(output.KinesisFirehoseDestination, context)
@@ -1190,7 +1192,7 @@ const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeC
       output.MatchingEventTypes !== undefined && output.MatchingEventTypes !== null
         ? deserializeAws_restJson1EventTypes(output.MatchingEventTypes, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
     SnsDestination:
       output.SnsDestination !== undefined && output.SnsDestination !== null
         ? deserializeAws_restJson1SnsDestination(output.SnsDestination, context)
@@ -1216,7 +1218,7 @@ const deserializeAws_restJson1EventTypes = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1225,17 +1227,14 @@ const deserializeAws_restJson1KinesisFirehoseDestination = (
   context: __SerdeContext
 ): KinesisFirehoseDestination => {
   return {
-    DeliveryStreamArn:
-      output.DeliveryStreamArn !== undefined && output.DeliveryStreamArn !== null
-        ? output.DeliveryStreamArn
-        : undefined,
-    IamRoleArn: output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
+    DeliveryStreamArn: __expectString(output.DeliveryStreamArn),
+    IamRoleArn: __expectString(output.IamRoleArn),
   } as any;
 };
 
 const deserializeAws_restJson1SnsDestination = (output: any, context: __SerdeContext): SnsDestination => {
   return {
-    TopicArn: output.TopicArn !== undefined && output.TopicArn !== null ? output.TopicArn : undefined,
+    TopicArn: __expectString(output.TopicArn),
   } as any;
 };
 

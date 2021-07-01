@@ -180,7 +180,12 @@ import {
   WindowSummary,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3883,7 +3888,7 @@ const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): st
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -3892,7 +3897,7 @@ const deserializeAws_json1_1CategoricalParameterRange = (
   context: __SerdeContext
 ): CategoricalParameterRange => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
     Values:
       output.Values !== undefined && output.Values !== null
         ? deserializeAws_json1_1Values(output.Values, context)
@@ -3919,10 +3924,10 @@ const deserializeAws_json1_1ContinuousParameterRange = (
   context: __SerdeContext
 ): ContinuousParameterRange => {
   return {
-    MaxValue: output.MaxValue !== undefined && output.MaxValue !== null ? output.MaxValue : undefined,
-    MinValue: output.MinValue !== undefined && output.MinValue !== null ? output.MinValue : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    ScalingType: output.ScalingType !== undefined && output.ScalingType !== null ? output.ScalingType : undefined,
+    MaxValue: __expectNumber(output.MaxValue),
+    MinValue: __expectNumber(output.MinValue),
+    Name: __expectString(output.Name),
+    ScalingType: __expectString(output.ScalingType),
   } as any;
 };
 
@@ -3945,8 +3950,7 @@ const deserializeAws_json1_1CreateDatasetGroupResponse = (
   context: __SerdeContext
 ): CreateDatasetGroupResponse => {
   return {
-    DatasetGroupArn:
-      output.DatasetGroupArn !== undefined && output.DatasetGroupArn !== null ? output.DatasetGroupArn : undefined,
+    DatasetGroupArn: __expectString(output.DatasetGroupArn),
   } as any;
 };
 
@@ -3955,16 +3959,13 @@ const deserializeAws_json1_1CreateDatasetImportJobResponse = (
   context: __SerdeContext
 ): CreateDatasetImportJobResponse => {
   return {
-    DatasetImportJobArn:
-      output.DatasetImportJobArn !== undefined && output.DatasetImportJobArn !== null
-        ? output.DatasetImportJobArn
-        : undefined,
+    DatasetImportJobArn: __expectString(output.DatasetImportJobArn),
   } as any;
 };
 
 const deserializeAws_json1_1CreateDatasetResponse = (output: any, context: __SerdeContext): CreateDatasetResponse => {
   return {
-    DatasetArn: output.DatasetArn !== undefined && output.DatasetArn !== null ? output.DatasetArn : undefined,
+    DatasetArn: __expectString(output.DatasetArn),
   } as any;
 };
 
@@ -3973,16 +3974,13 @@ const deserializeAws_json1_1CreateForecastExportJobResponse = (
   context: __SerdeContext
 ): CreateForecastExportJobResponse => {
   return {
-    ForecastExportJobArn:
-      output.ForecastExportJobArn !== undefined && output.ForecastExportJobArn !== null
-        ? output.ForecastExportJobArn
-        : undefined,
+    ForecastExportJobArn: __expectString(output.ForecastExportJobArn),
   } as any;
 };
 
 const deserializeAws_json1_1CreateForecastResponse = (output: any, context: __SerdeContext): CreateForecastResponse => {
   return {
-    ForecastArn: output.ForecastArn !== undefined && output.ForecastArn !== null ? output.ForecastArn : undefined,
+    ForecastArn: __expectString(output.ForecastArn),
   } as any;
 };
 
@@ -3991,10 +3989,7 @@ const deserializeAws_json1_1CreatePredictorBacktestExportJobResponse = (
   context: __SerdeContext
 ): CreatePredictorBacktestExportJobResponse => {
   return {
-    PredictorBacktestExportJobArn:
-      output.PredictorBacktestExportJobArn !== undefined && output.PredictorBacktestExportJobArn !== null
-        ? output.PredictorBacktestExportJobArn
-        : undefined,
+    PredictorBacktestExportJobArn: __expectString(output.PredictorBacktestExportJobArn),
   } as any;
 };
 
@@ -4003,7 +3998,7 @@ const deserializeAws_json1_1CreatePredictorResponse = (
   context: __SerdeContext
 ): CreatePredictorResponse => {
   return {
-    PredictorArn: output.PredictorArn !== undefined && output.PredictorArn !== null ? output.PredictorArn : undefined,
+    PredictorArn: __expectString(output.PredictorArn),
   } as any;
 };
 
@@ -4033,10 +4028,8 @@ const deserializeAws_json1_1DatasetGroupSummary = (output: any, context: __Serde
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    DatasetGroupArn:
-      output.DatasetGroupArn !== undefined && output.DatasetGroupArn !== null ? output.DatasetGroupArn : undefined,
-    DatasetGroupName:
-      output.DatasetGroupName !== undefined && output.DatasetGroupName !== null ? output.DatasetGroupName : undefined,
+    DatasetGroupArn: __expectString(output.DatasetGroupArn),
+    DatasetGroupName: __expectString(output.DatasetGroupName),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
@@ -4068,20 +4061,14 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
       output.DataSource !== undefined && output.DataSource !== null
         ? deserializeAws_json1_1DataSource(output.DataSource, context)
         : undefined,
-    DatasetImportJobArn:
-      output.DatasetImportJobArn !== undefined && output.DatasetImportJobArn !== null
-        ? output.DatasetImportJobArn
-        : undefined,
-    DatasetImportJobName:
-      output.DatasetImportJobName !== undefined && output.DatasetImportJobName !== null
-        ? output.DatasetImportJobName
-        : undefined,
+    DatasetImportJobArn: __expectString(output.DatasetImportJobArn),
+    DatasetImportJobName: __expectString(output.DatasetImportJobName),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
         : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Message: __expectString(output.Message),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -4102,10 +4089,10 @@ const deserializeAws_json1_1DatasetSummary = (output: any, context: __SerdeConte
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    DatasetArn: output.DatasetArn !== undefined && output.DatasetArn !== null ? output.DatasetArn : undefined,
-    DatasetName: output.DatasetName !== undefined && output.DatasetName !== null ? output.DatasetName : undefined,
-    DatasetType: output.DatasetType !== undefined && output.DatasetType !== null ? output.DatasetType : undefined,
-    Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
+    DatasetArn: __expectString(output.DatasetArn),
+    DatasetName: __expectString(output.DatasetName),
+    DatasetType: __expectString(output.DatasetType),
+    Domain: __expectString(output.Domain),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
@@ -4135,16 +4122,14 @@ const deserializeAws_json1_1DescribeDatasetGroupResponse = (
       output.DatasetArns !== undefined && output.DatasetArns !== null
         ? deserializeAws_json1_1ArnList(output.DatasetArns, context)
         : undefined,
-    DatasetGroupArn:
-      output.DatasetGroupArn !== undefined && output.DatasetGroupArn !== null ? output.DatasetGroupArn : undefined,
-    DatasetGroupName:
-      output.DatasetGroupName !== undefined && output.DatasetGroupName !== null ? output.DatasetGroupName : undefined,
-    Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
+    DatasetGroupArn: __expectString(output.DatasetGroupArn),
+    DatasetGroupName: __expectString(output.DatasetGroupName),
+    Domain: __expectString(output.Domain),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -4157,45 +4142,29 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    DataSize: output.DataSize !== undefined && output.DataSize !== null ? output.DataSize : undefined,
+    DataSize: __expectNumber(output.DataSize),
     DataSource:
       output.DataSource !== undefined && output.DataSource !== null
         ? deserializeAws_json1_1DataSource(output.DataSource, context)
         : undefined,
-    DatasetArn: output.DatasetArn !== undefined && output.DatasetArn !== null ? output.DatasetArn : undefined,
-    DatasetImportJobArn:
-      output.DatasetImportJobArn !== undefined && output.DatasetImportJobArn !== null
-        ? output.DatasetImportJobArn
-        : undefined,
-    DatasetImportJobName:
-      output.DatasetImportJobName !== undefined && output.DatasetImportJobName !== null
-        ? output.DatasetImportJobName
-        : undefined,
-    EstimatedTimeRemainingInMinutes:
-      output.EstimatedTimeRemainingInMinutes !== undefined && output.EstimatedTimeRemainingInMinutes !== null
-        ? output.EstimatedTimeRemainingInMinutes
-        : undefined,
+    DatasetArn: __expectString(output.DatasetArn),
+    DatasetImportJobArn: __expectString(output.DatasetImportJobArn),
+    DatasetImportJobName: __expectString(output.DatasetImportJobName),
+    EstimatedTimeRemainingInMinutes: __expectNumber(output.EstimatedTimeRemainingInMinutes),
     FieldStatistics:
       output.FieldStatistics !== undefined && output.FieldStatistics !== null
         ? deserializeAws_json1_1FieldStatistics(output.FieldStatistics, context)
         : undefined,
-    GeolocationFormat:
-      output.GeolocationFormat !== undefined && output.GeolocationFormat !== null
-        ? output.GeolocationFormat
-        : undefined,
+    GeolocationFormat: __expectString(output.GeolocationFormat),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
         : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    TimeZone: output.TimeZone !== undefined && output.TimeZone !== null ? output.TimeZone : undefined,
-    TimestampFormat:
-      output.TimestampFormat !== undefined && output.TimestampFormat !== null ? output.TimestampFormat : undefined,
-    UseGeolocationForTimeZone:
-      output.UseGeolocationForTimeZone !== undefined && output.UseGeolocationForTimeZone !== null
-        ? output.UseGeolocationForTimeZone
-        : undefined,
+    Message: __expectString(output.Message),
+    Status: __expectString(output.Status),
+    TimeZone: __expectString(output.TimeZone),
+    TimestampFormat: __expectString(output.TimestampFormat),
+    UseGeolocationForTimeZone: __expectBoolean(output.UseGeolocationForTimeZone),
   } as any;
 };
 
@@ -4208,12 +4177,11 @@ const deserializeAws_json1_1DescribeDatasetResponse = (
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    DataFrequency:
-      output.DataFrequency !== undefined && output.DataFrequency !== null ? output.DataFrequency : undefined,
-    DatasetArn: output.DatasetArn !== undefined && output.DatasetArn !== null ? output.DatasetArn : undefined,
-    DatasetName: output.DatasetName !== undefined && output.DatasetName !== null ? output.DatasetName : undefined,
-    DatasetType: output.DatasetType !== undefined && output.DatasetType !== null ? output.DatasetType : undefined,
-    Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
+    DataFrequency: __expectString(output.DataFrequency),
+    DatasetArn: __expectString(output.DatasetArn),
+    DatasetName: __expectString(output.DatasetName),
+    DatasetType: __expectString(output.DatasetType),
+    Domain: __expectString(output.Domain),
     EncryptionConfig:
       output.EncryptionConfig !== undefined && output.EncryptionConfig !== null
         ? deserializeAws_json1_1EncryptionConfig(output.EncryptionConfig, context)
@@ -4226,7 +4194,7 @@ const deserializeAws_json1_1DescribeDatasetResponse = (
       output.Schema !== undefined && output.Schema !== null
         ? deserializeAws_json1_1Schema(output.Schema, context)
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -4243,21 +4211,15 @@ const deserializeAws_json1_1DescribeForecastExportJobResponse = (
       output.Destination !== undefined && output.Destination !== null
         ? deserializeAws_json1_1DataDestination(output.Destination, context)
         : undefined,
-    ForecastArn: output.ForecastArn !== undefined && output.ForecastArn !== null ? output.ForecastArn : undefined,
-    ForecastExportJobArn:
-      output.ForecastExportJobArn !== undefined && output.ForecastExportJobArn !== null
-        ? output.ForecastExportJobArn
-        : undefined,
-    ForecastExportJobName:
-      output.ForecastExportJobName !== undefined && output.ForecastExportJobName !== null
-        ? output.ForecastExportJobName
-        : undefined,
+    ForecastArn: __expectString(output.ForecastArn),
+    ForecastExportJobArn: __expectString(output.ForecastExportJobArn),
+    ForecastExportJobName: __expectString(output.ForecastExportJobName),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
         : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Message: __expectString(output.Message),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -4270,14 +4232,10 @@ const deserializeAws_json1_1DescribeForecastResponse = (
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    DatasetGroupArn:
-      output.DatasetGroupArn !== undefined && output.DatasetGroupArn !== null ? output.DatasetGroupArn : undefined,
-    EstimatedTimeRemainingInMinutes:
-      output.EstimatedTimeRemainingInMinutes !== undefined && output.EstimatedTimeRemainingInMinutes !== null
-        ? output.EstimatedTimeRemainingInMinutes
-        : undefined,
-    ForecastArn: output.ForecastArn !== undefined && output.ForecastArn !== null ? output.ForecastArn : undefined,
-    ForecastName: output.ForecastName !== undefined && output.ForecastName !== null ? output.ForecastName : undefined,
+    DatasetGroupArn: __expectString(output.DatasetGroupArn),
+    EstimatedTimeRemainingInMinutes: __expectNumber(output.EstimatedTimeRemainingInMinutes),
+    ForecastArn: __expectString(output.ForecastArn),
+    ForecastName: __expectString(output.ForecastName),
     ForecastTypes:
       output.ForecastTypes !== undefined && output.ForecastTypes !== null
         ? deserializeAws_json1_1ForecastTypes(output.ForecastTypes, context)
@@ -4286,9 +4244,9 @@ const deserializeAws_json1_1DescribeForecastResponse = (
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
         : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    PredictorArn: output.PredictorArn !== undefined && output.PredictorArn !== null ? output.PredictorArn : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Message: __expectString(output.Message),
+    PredictorArn: __expectString(output.PredictorArn),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -4309,17 +4267,11 @@ const deserializeAws_json1_1DescribePredictorBacktestExportJobResponse = (
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
         : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    PredictorArn: output.PredictorArn !== undefined && output.PredictorArn !== null ? output.PredictorArn : undefined,
-    PredictorBacktestExportJobArn:
-      output.PredictorBacktestExportJobArn !== undefined && output.PredictorBacktestExportJobArn !== null
-        ? output.PredictorBacktestExportJobArn
-        : undefined,
-    PredictorBacktestExportJobName:
-      output.PredictorBacktestExportJobName !== undefined && output.PredictorBacktestExportJobName !== null
-        ? output.PredictorBacktestExportJobName
-        : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Message: __expectString(output.Message),
+    PredictorArn: __expectString(output.PredictorArn),
+    PredictorBacktestExportJobArn: __expectString(output.PredictorBacktestExportJobArn),
+    PredictorBacktestExportJobName: __expectString(output.PredictorBacktestExportJobName),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -4328,15 +4280,12 @@ const deserializeAws_json1_1DescribePredictorResponse = (
   context: __SerdeContext
 ): DescribePredictorResponse => {
   return {
-    AlgorithmArn: output.AlgorithmArn !== undefined && output.AlgorithmArn !== null ? output.AlgorithmArn : undefined,
+    AlgorithmArn: __expectString(output.AlgorithmArn),
     AutoMLAlgorithmArns:
       output.AutoMLAlgorithmArns !== undefined && output.AutoMLAlgorithmArns !== null
         ? deserializeAws_json1_1ArnList(output.AutoMLAlgorithmArns, context)
         : undefined,
-    AutoMLOverrideStrategy:
-      output.AutoMLOverrideStrategy !== undefined && output.AutoMLOverrideStrategy !== null
-        ? output.AutoMLOverrideStrategy
-        : undefined,
+    AutoMLOverrideStrategy: __expectString(output.AutoMLOverrideStrategy),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -4349,10 +4298,7 @@ const deserializeAws_json1_1DescribePredictorResponse = (
       output.EncryptionConfig !== undefined && output.EncryptionConfig !== null
         ? deserializeAws_json1_1EncryptionConfig(output.EncryptionConfig, context)
         : undefined,
-    EstimatedTimeRemainingInMinutes:
-      output.EstimatedTimeRemainingInMinutes !== undefined && output.EstimatedTimeRemainingInMinutes !== null
-        ? output.EstimatedTimeRemainingInMinutes
-        : undefined,
+    EstimatedTimeRemainingInMinutes: __expectNumber(output.EstimatedTimeRemainingInMinutes),
     EvaluationParameters:
       output.EvaluationParameters !== undefined && output.EvaluationParameters !== null
         ? deserializeAws_json1_1EvaluationParameters(output.EvaluationParameters, context)
@@ -4361,8 +4307,7 @@ const deserializeAws_json1_1DescribePredictorResponse = (
       output.FeaturizationConfig !== undefined && output.FeaturizationConfig !== null
         ? deserializeAws_json1_1FeaturizationConfig(output.FeaturizationConfig, context)
         : undefined,
-    ForecastHorizon:
-      output.ForecastHorizon !== undefined && output.ForecastHorizon !== null ? output.ForecastHorizon : undefined,
+    ForecastHorizon: __expectNumber(output.ForecastHorizon),
     ForecastTypes:
       output.ForecastTypes !== undefined && output.ForecastTypes !== null
         ? deserializeAws_json1_1ForecastTypes(output.ForecastTypes, context)
@@ -4379,18 +4324,16 @@ const deserializeAws_json1_1DescribePredictorResponse = (
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
         : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    PerformAutoML:
-      output.PerformAutoML !== undefined && output.PerformAutoML !== null ? output.PerformAutoML : undefined,
-    PerformHPO: output.PerformHPO !== undefined && output.PerformHPO !== null ? output.PerformHPO : undefined,
-    PredictorArn: output.PredictorArn !== undefined && output.PredictorArn !== null ? output.PredictorArn : undefined,
+    Message: __expectString(output.Message),
+    PerformAutoML: __expectBoolean(output.PerformAutoML),
+    PerformHPO: __expectBoolean(output.PerformHPO),
+    PredictorArn: __expectString(output.PredictorArn),
     PredictorExecutionDetails:
       output.PredictorExecutionDetails !== undefined && output.PredictorExecutionDetails !== null
         ? deserializeAws_json1_1PredictorExecutionDetails(output.PredictorExecutionDetails, context)
         : undefined,
-    PredictorName:
-      output.PredictorName !== undefined && output.PredictorName !== null ? output.PredictorName : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    PredictorName: __expectString(output.PredictorName),
+    Status: __expectString(output.Status),
     TrainingParameters:
       output.TrainingParameters !== undefined && output.TrainingParameters !== null
         ? deserializeAws_json1_1TrainingParameters(output.TrainingParameters, context)
@@ -4400,16 +4343,16 @@ const deserializeAws_json1_1DescribePredictorResponse = (
 
 const deserializeAws_json1_1EncryptionConfig = (output: any, context: __SerdeContext): EncryptionConfig => {
   return {
-    KMSKeyArn: output.KMSKeyArn !== undefined && output.KMSKeyArn !== null ? output.KMSKeyArn : undefined,
-    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
+    KMSKeyArn: __expectString(output.KMSKeyArn),
+    RoleArn: __expectString(output.RoleArn),
   } as any;
 };
 
 const deserializeAws_json1_1ErrorMetric = (output: any, context: __SerdeContext): ErrorMetric => {
   return {
-    ForecastType: output.ForecastType !== undefined && output.ForecastType !== null ? output.ForecastType : undefined,
-    RMSE: output.RMSE !== undefined && output.RMSE !== null ? output.RMSE : undefined,
-    WAPE: output.WAPE !== undefined && output.WAPE !== null ? output.WAPE : undefined,
+    ForecastType: __expectString(output.ForecastType),
+    RMSE: __expectNumber(output.RMSE),
+    WAPE: __expectNumber(output.WAPE),
   } as any;
 };
 
@@ -4426,20 +4369,14 @@ const deserializeAws_json1_1ErrorMetrics = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1EvaluationParameters = (output: any, context: __SerdeContext): EvaluationParameters => {
   return {
-    BackTestWindowOffset:
-      output.BackTestWindowOffset !== undefined && output.BackTestWindowOffset !== null
-        ? output.BackTestWindowOffset
-        : undefined,
-    NumberOfBacktestWindows:
-      output.NumberOfBacktestWindows !== undefined && output.NumberOfBacktestWindows !== null
-        ? output.NumberOfBacktestWindows
-        : undefined,
+    BackTestWindowOffset: __expectNumber(output.BackTestWindowOffset),
+    NumberOfBacktestWindows: __expectNumber(output.NumberOfBacktestWindows),
   } as any;
 };
 
 const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   return {
-    AlgorithmArn: output.AlgorithmArn !== undefined && output.AlgorithmArn !== null ? output.AlgorithmArn : undefined,
+    AlgorithmArn: __expectString(output.AlgorithmArn),
     TestWindows:
       output.TestWindows !== undefined && output.TestWindows !== null
         ? deserializeAws_json1_1TestWindows(output.TestWindows, context)
@@ -4449,8 +4386,7 @@ const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Featurization = (output: any, context: __SerdeContext): Featurization => {
   return {
-    AttributeName:
-      output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
+    AttributeName: __expectString(output.AttributeName),
     FeaturizationPipeline:
       output.FeaturizationPipeline !== undefined && output.FeaturizationPipeline !== null
         ? deserializeAws_json1_1FeaturizationPipeline(output.FeaturizationPipeline, context)
@@ -4468,19 +4404,13 @@ const deserializeAws_json1_1FeaturizationConfig = (output: any, context: __Serde
       output.ForecastDimensions !== undefined && output.ForecastDimensions !== null
         ? deserializeAws_json1_1ForecastDimensions(output.ForecastDimensions, context)
         : undefined,
-    ForecastFrequency:
-      output.ForecastFrequency !== undefined && output.ForecastFrequency !== null
-        ? output.ForecastFrequency
-        : undefined,
+    ForecastFrequency: __expectString(output.ForecastFrequency),
   } as any;
 };
 
 const deserializeAws_json1_1FeaturizationMethod = (output: any, context: __SerdeContext): FeaturizationMethod => {
   return {
-    FeaturizationMethodName:
-      output.FeaturizationMethodName !== undefined && output.FeaturizationMethodName !== null
-        ? output.FeaturizationMethodName
-        : undefined,
+    FeaturizationMethodName: __expectString(output.FeaturizationMethodName),
     FeaturizationMethodParameters:
       output.FeaturizationMethodParameters !== undefined && output.FeaturizationMethodParameters !== null
         ? deserializeAws_json1_1FeaturizationMethodParameters(output.FeaturizationMethodParameters, context)
@@ -4498,7 +4428,7 @@ const deserializeAws_json1_1FeaturizationMethodParameters = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4544,7 +4474,7 @@ const deserializeAws_json1_1ForecastDimensions = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4572,20 +4502,14 @@ const deserializeAws_json1_1ForecastExportJobSummary = (
       output.Destination !== undefined && output.Destination !== null
         ? deserializeAws_json1_1DataDestination(output.Destination, context)
         : undefined,
-    ForecastExportJobArn:
-      output.ForecastExportJobArn !== undefined && output.ForecastExportJobArn !== null
-        ? output.ForecastExportJobArn
-        : undefined,
-    ForecastExportJobName:
-      output.ForecastExportJobName !== undefined && output.ForecastExportJobName !== null
-        ? output.ForecastExportJobName
-        : undefined,
+    ForecastExportJobArn: __expectString(output.ForecastExportJobArn),
+    ForecastExportJobName: __expectString(output.ForecastExportJobName),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
         : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Message: __expectString(output.Message),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -4606,17 +4530,16 @@ const deserializeAws_json1_1ForecastSummary = (output: any, context: __SerdeCont
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    DatasetGroupArn:
-      output.DatasetGroupArn !== undefined && output.DatasetGroupArn !== null ? output.DatasetGroupArn : undefined,
-    ForecastArn: output.ForecastArn !== undefined && output.ForecastArn !== null ? output.ForecastArn : undefined,
-    ForecastName: output.ForecastName !== undefined && output.ForecastName !== null ? output.ForecastName : undefined,
+    DatasetGroupArn: __expectString(output.DatasetGroupArn),
+    ForecastArn: __expectString(output.ForecastArn),
+    ForecastName: __expectString(output.ForecastName),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
         : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    PredictorArn: output.PredictorArn !== undefined && output.PredictorArn !== null ? output.PredictorArn : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Message: __expectString(output.Message),
+    PredictorArn: __expectString(output.PredictorArn),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -4627,7 +4550,7 @@ const deserializeAws_json1_1ForecastTypes = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4636,10 +4559,7 @@ const deserializeAws_json1_1GetAccuracyMetricsResponse = (
   context: __SerdeContext
 ): GetAccuracyMetricsResponse => {
   return {
-    AutoMLOverrideStrategy:
-      output.AutoMLOverrideStrategy !== undefined && output.AutoMLOverrideStrategy !== null
-        ? output.AutoMLOverrideStrategy
-        : undefined,
+    AutoMLOverrideStrategy: __expectString(output.AutoMLOverrideStrategy),
     PredictorEvaluationResults:
       output.PredictorEvaluationResults !== undefined && output.PredictorEvaluationResults !== null
         ? deserializeAws_json1_1PredictorEvaluationResults(output.PredictorEvaluationResults, context)
@@ -4661,8 +4581,7 @@ const deserializeAws_json1_1HyperParameterTuningJobConfig = (
 
 const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
   return {
-    DatasetGroupArn:
-      output.DatasetGroupArn !== undefined && output.DatasetGroupArn !== null ? output.DatasetGroupArn : undefined,
+    DatasetGroupArn: __expectString(output.DatasetGroupArn),
     SupplementaryFeatures:
       output.SupplementaryFeatures !== undefined && output.SupplementaryFeatures !== null
         ? deserializeAws_json1_1SupplementaryFeatures(output.SupplementaryFeatures, context)
@@ -4672,10 +4591,10 @@ const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1IntegerParameterRange = (output: any, context: __SerdeContext): IntegerParameterRange => {
   return {
-    MaxValue: output.MaxValue !== undefined && output.MaxValue !== null ? output.MaxValue : undefined,
-    MinValue: output.MinValue !== undefined && output.MinValue !== null ? output.MinValue : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    ScalingType: output.ScalingType !== undefined && output.ScalingType !== null ? output.ScalingType : undefined,
+    MaxValue: __expectNumber(output.MaxValue),
+    MinValue: __expectNumber(output.MinValue),
+    Name: __expectString(output.Name),
+    ScalingType: __expectString(output.ScalingType),
   } as any;
 };
 
@@ -4695,7 +4614,7 @@ const deserializeAws_json1_1IntegerParameterRanges = (
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4704,13 +4623,13 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4723,7 +4642,7 @@ const deserializeAws_json1_1ListDatasetGroupsResponse = (
       output.DatasetGroups !== undefined && output.DatasetGroups !== null
         ? deserializeAws_json1_1DatasetGroups(output.DatasetGroups, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -4736,7 +4655,7 @@ const deserializeAws_json1_1ListDatasetImportJobsResponse = (
       output.DatasetImportJobs !== undefined && output.DatasetImportJobs !== null
         ? deserializeAws_json1_1DatasetImportJobs(output.DatasetImportJobs, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -4746,7 +4665,7 @@ const deserializeAws_json1_1ListDatasetsResponse = (output: any, context: __Serd
       output.Datasets !== undefined && output.Datasets !== null
         ? deserializeAws_json1_1Datasets(output.Datasets, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -4759,7 +4678,7 @@ const deserializeAws_json1_1ListForecastExportJobsResponse = (
       output.ForecastExportJobs !== undefined && output.ForecastExportJobs !== null
         ? deserializeAws_json1_1ForecastExportJobs(output.ForecastExportJobs, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -4769,7 +4688,7 @@ const deserializeAws_json1_1ListForecastsResponse = (output: any, context: __Ser
       output.Forecasts !== undefined && output.Forecasts !== null
         ? deserializeAws_json1_1Forecasts(output.Forecasts, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -4778,7 +4697,7 @@ const deserializeAws_json1_1ListPredictorBacktestExportJobsResponse = (
   context: __SerdeContext
 ): ListPredictorBacktestExportJobsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     PredictorBacktestExportJobs:
       output.PredictorBacktestExportJobs !== undefined && output.PredictorBacktestExportJobs !== null
         ? deserializeAws_json1_1PredictorBacktestExportJobs(output.PredictorBacktestExportJobs, context)
@@ -4788,7 +4707,7 @@ const deserializeAws_json1_1ListPredictorBacktestExportJobsResponse = (
 
 const deserializeAws_json1_1ListPredictorsResponse = (output: any, context: __SerdeContext): ListPredictorsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Predictors:
       output.Predictors !== undefined && output.Predictors !== null
         ? deserializeAws_json1_1Predictors(output.Predictors, context)
@@ -4812,7 +4731,7 @@ const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Me
       output.ErrorMetrics !== undefined && output.ErrorMetrics !== null
         ? deserializeAws_json1_1ErrorMetrics(output.ErrorMetrics, context)
         : undefined,
-    RMSE: output.RMSE !== undefined && output.RMSE !== null ? output.RMSE : undefined,
+    RMSE: __expectNumber(output.RMSE),
     WeightedQuantileLosses:
       output.WeightedQuantileLosses !== undefined && output.WeightedQuantileLosses !== null
         ? deserializeAws_json1_1WeightedQuantileLosses(output.WeightedQuantileLosses, context)
@@ -4868,16 +4787,10 @@ const deserializeAws_json1_1PredictorBacktestExportJobSummary = (
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
         : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    PredictorBacktestExportJobArn:
-      output.PredictorBacktestExportJobArn !== undefined && output.PredictorBacktestExportJobArn !== null
-        ? output.PredictorBacktestExportJobArn
-        : undefined,
-    PredictorBacktestExportJobName:
-      output.PredictorBacktestExportJobName !== undefined && output.PredictorBacktestExportJobName !== null
-        ? output.PredictorBacktestExportJobName
-        : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Message: __expectString(output.Message),
+    PredictorBacktestExportJobArn: __expectString(output.PredictorBacktestExportJobArn),
+    PredictorBacktestExportJobName: __expectString(output.PredictorBacktestExportJobName),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -4894,7 +4807,7 @@ const deserializeAws_json1_1PredictorEvaluationResults = (output: any, context: 
 
 const deserializeAws_json1_1PredictorExecution = (output: any, context: __SerdeContext): PredictorExecution => {
   return {
-    AlgorithmArn: output.AlgorithmArn !== undefined && output.AlgorithmArn !== null ? output.AlgorithmArn : undefined,
+    AlgorithmArn: __expectString(output.AlgorithmArn),
     TestWindows:
       output.TestWindows !== undefined && output.TestWindows !== null
         ? deserializeAws_json1_1TestWindowDetails(output.TestWindows, context)
@@ -4942,17 +4855,15 @@ const deserializeAws_json1_1PredictorSummary = (output: any, context: __SerdeCon
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    DatasetGroupArn:
-      output.DatasetGroupArn !== undefined && output.DatasetGroupArn !== null ? output.DatasetGroupArn : undefined,
+    DatasetGroupArn: __expectString(output.DatasetGroupArn),
     LastModificationTime:
       output.LastModificationTime !== undefined && output.LastModificationTime !== null
         ? new Date(Math.round(output.LastModificationTime * 1000))
         : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    PredictorArn: output.PredictorArn !== undefined && output.PredictorArn !== null ? output.PredictorArn : undefined,
-    PredictorName:
-      output.PredictorName !== undefined && output.PredictorName !== null ? output.PredictorName : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Message: __expectString(output.Message),
+    PredictorArn: __expectString(output.PredictorArn),
+    PredictorName: __expectString(output.PredictorName),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -4961,13 +4872,13 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -4976,15 +4887,15 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1S3Config = (output: any, context: __SerdeContext): S3Config => {
   return {
-    KMSKeyArn: output.KMSKeyArn !== undefined && output.KMSKeyArn !== null ? output.KMSKeyArn : undefined,
-    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
-    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
+    KMSKeyArn: __expectString(output.KMSKeyArn),
+    Path: __expectString(output.Path),
+    RoleArn: __expectString(output.RoleArn),
   } as any;
 };
 
@@ -4999,10 +4910,8 @@ const deserializeAws_json1_1Schema = (output: any, context: __SerdeContext): Sch
 
 const deserializeAws_json1_1SchemaAttribute = (output: any, context: __SerdeContext): SchemaAttribute => {
   return {
-    AttributeName:
-      output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
-    AttributeType:
-      output.AttributeType !== undefined && output.AttributeType !== null ? output.AttributeType : undefined,
+    AttributeName: __expectString(output.AttributeName),
+    AttributeType: __expectString(output.AttributeType),
   } as any;
 };
 
@@ -5019,30 +4928,25 @@ const deserializeAws_json1_1SchemaAttributes = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Statistics = (output: any, context: __SerdeContext): Statistics => {
   return {
-    Avg: output.Avg !== undefined && output.Avg !== null ? output.Avg : undefined,
-    Count: output.Count !== undefined && output.Count !== null ? output.Count : undefined,
-    CountDistinct:
-      output.CountDistinct !== undefined && output.CountDistinct !== null ? output.CountDistinct : undefined,
-    CountDistinctLong:
-      output.CountDistinctLong !== undefined && output.CountDistinctLong !== null
-        ? output.CountDistinctLong
-        : undefined,
-    CountLong: output.CountLong !== undefined && output.CountLong !== null ? output.CountLong : undefined,
-    CountNan: output.CountNan !== undefined && output.CountNan !== null ? output.CountNan : undefined,
-    CountNanLong: output.CountNanLong !== undefined && output.CountNanLong !== null ? output.CountNanLong : undefined,
-    CountNull: output.CountNull !== undefined && output.CountNull !== null ? output.CountNull : undefined,
-    CountNullLong:
-      output.CountNullLong !== undefined && output.CountNullLong !== null ? output.CountNullLong : undefined,
-    Max: output.Max !== undefined && output.Max !== null ? output.Max : undefined,
-    Min: output.Min !== undefined && output.Min !== null ? output.Min : undefined,
-    Stddev: output.Stddev !== undefined && output.Stddev !== null ? output.Stddev : undefined,
+    Avg: __expectNumber(output.Avg),
+    Count: __expectNumber(output.Count),
+    CountDistinct: __expectNumber(output.CountDistinct),
+    CountDistinctLong: __expectNumber(output.CountDistinctLong),
+    CountLong: __expectNumber(output.CountLong),
+    CountNan: __expectNumber(output.CountNan),
+    CountNanLong: __expectNumber(output.CountNanLong),
+    CountNull: __expectNumber(output.CountNull),
+    CountNullLong: __expectNumber(output.CountNullLong),
+    Max: __expectString(output.Max),
+    Min: __expectString(output.Min),
+    Stddev: __expectNumber(output.Stddev),
   } as any;
 };
 
 const deserializeAws_json1_1SupplementaryFeature = (output: any, context: __SerdeContext): SupplementaryFeature => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Name: __expectString(output.Name),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -5059,8 +4963,8 @@ const deserializeAws_json1_1SupplementaryFeatures = (output: any, context: __Ser
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -5103,8 +5007,8 @@ const deserializeAws_json1_1TestWindows = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1TestWindowSummary = (output: any, context: __SerdeContext): TestWindowSummary => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Message: __expectString(output.Message),
+    Status: __expectString(output.Status),
     TestWindowEnd:
       output.TestWindowEnd !== undefined && output.TestWindowEnd !== null
         ? new Date(Math.round(output.TestWindowEnd * 1000))
@@ -5123,7 +5027,7 @@ const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeC
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -5146,14 +5050,14 @@ const deserializeAws_json1_1Values = (output: any, context: __SerdeContext): str
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1WeightedQuantileLoss = (output: any, context: __SerdeContext): WeightedQuantileLoss => {
   return {
-    LossValue: output.LossValue !== undefined && output.LossValue !== null ? output.LossValue : undefined,
-    Quantile: output.Quantile !== undefined && output.Quantile !== null ? output.Quantile : undefined,
+    LossValue: __expectNumber(output.LossValue),
+    Quantile: __expectNumber(output.Quantile),
   } as any;
 };
 
@@ -5170,9 +5074,8 @@ const deserializeAws_json1_1WeightedQuantileLosses = (output: any, context: __Se
 
 const deserializeAws_json1_1WindowSummary = (output: any, context: __SerdeContext): WindowSummary => {
   return {
-    EvaluationType:
-      output.EvaluationType !== undefined && output.EvaluationType !== null ? output.EvaluationType : undefined,
-    ItemCount: output.ItemCount !== undefined && output.ItemCount !== null ? output.ItemCount : undefined,
+    EvaluationType: __expectString(output.EvaluationType),
+    ItemCount: __expectNumber(output.ItemCount),
     Metrics:
       output.Metrics !== undefined && output.Metrics !== null
         ? deserializeAws_json1_1Metrics(output.Metrics, context)

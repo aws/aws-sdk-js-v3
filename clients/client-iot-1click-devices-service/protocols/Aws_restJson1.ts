@@ -40,6 +40,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -464,10 +467,10 @@ export const deserializeAws_restJson1ClaimDevicesByClaimCodeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.claimCode !== undefined && data.claimCode !== null) {
-    contents.ClaimCode = data.claimCode;
+    contents.ClaimCode = __expectString(data.claimCode);
   }
   if (data.total !== undefined && data.total !== null) {
-    contents.Total = data.total;
+    contents.Total = __expectNumber(data.total);
   }
   return Promise.resolve(contents);
 };
@@ -609,7 +612,7 @@ export const deserializeAws_restJson1FinalizeDeviceClaimCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.state !== undefined && data.state !== null) {
-    contents.State = data.state;
+    contents.State = __expectString(data.state);
   }
   return Promise.resolve(contents);
 };
@@ -767,7 +770,7 @@ export const deserializeAws_restJson1InitiateDeviceClaimCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.state !== undefined && data.state !== null) {
-    contents.State = data.state;
+    contents.State = __expectString(data.state);
   }
   return Promise.resolve(contents);
 };
@@ -846,7 +849,7 @@ export const deserializeAws_restJson1InvokeDeviceMethodCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.deviceMethodResponse !== undefined && data.deviceMethodResponse !== null) {
-    contents.DeviceMethodResponse = data.deviceMethodResponse;
+    contents.DeviceMethodResponse = __expectString(data.deviceMethodResponse);
   }
   return Promise.resolve(contents);
 };
@@ -945,7 +948,7 @@ export const deserializeAws_restJson1ListDeviceEventsCommand = async (
     contents.Events = deserializeAws_restJson1__listOfDeviceEvent(data.events, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1028,7 +1031,7 @@ export const deserializeAws_restJson1ListDevicesCommand = async (
     contents.Devices = deserializeAws_restJson1__listOfDeviceDescription(data.devices, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1229,7 +1232,7 @@ export const deserializeAws_restJson1UnclaimDeviceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.state !== undefined && data.state !== null) {
-    contents.State = data.state;
+    contents.State = __expectString(data.state);
   }
   return Promise.resolve(contents);
 };
@@ -1434,10 +1437,10 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -1455,10 +1458,10 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -1476,10 +1479,10 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -1497,10 +1500,10 @@ const deserializeAws_restJson1PreconditionFailedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -1518,10 +1521,10 @@ const deserializeAws_restJson1RangeNotSatisfiableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -1539,10 +1542,10 @@ const deserializeAws_restJson1ResourceConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -1560,10 +1563,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -1630,7 +1633,7 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -1645,8 +1648,8 @@ const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): D
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1Attributes(output.attributes, context)
         : undefined,
-    DeviceId: output.deviceId !== undefined && output.deviceId !== null ? output.deviceId : undefined,
-    Type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    DeviceId: __expectString(output.deviceId),
+    Type: __expectString(output.type),
   } as any;
 };
 
@@ -1657,27 +1660,26 @@ const deserializeAws_restJson1DeviceAttributes = (output: any, context: __SerdeC
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1DeviceDescription = (output: any, context: __SerdeContext): DeviceDescription => {
   return {
-    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Arn: __expectString(output.arn),
     Attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1DeviceAttributes(output.attributes, context)
         : undefined,
-    DeviceId: output.deviceId !== undefined && output.deviceId !== null ? output.deviceId : undefined,
-    Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
-    RemainingLife:
-      output.remainingLife !== undefined && output.remainingLife !== null ? output.remainingLife : undefined,
+    DeviceId: __expectString(output.deviceId),
+    Enabled: __expectBoolean(output.enabled),
+    RemainingLife: __expectNumber(output.remainingLife),
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1__mapOf__string(output.tags, context)
         : undefined,
-    Type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    Type: __expectString(output.type),
   } as any;
 };
 
@@ -1687,14 +1689,14 @@ const deserializeAws_restJson1DeviceEvent = (output: any, context: __SerdeContex
       output.device !== undefined && output.device !== null
         ? deserializeAws_restJson1Device(output.device, context)
         : undefined,
-    StdEvent: output.stdEvent !== undefined && output.stdEvent !== null ? output.stdEvent : undefined,
+    StdEvent: __expectString(output.stdEvent),
   } as any;
 };
 
 const deserializeAws_restJson1DeviceMethod = (output: any, context: __SerdeContext): DeviceMethod => {
   return {
-    DeviceType: output.deviceType !== undefined && output.deviceType !== null ? output.deviceType : undefined,
-    MethodName: output.methodName !== undefined && output.methodName !== null ? output.methodName : undefined,
+    DeviceType: __expectString(output.deviceType),
+    MethodName: __expectString(output.methodName),
   } as any;
 };
 

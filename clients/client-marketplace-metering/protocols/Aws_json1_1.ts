@@ -34,7 +34,11 @@ import {
   UsageRecordResult,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -913,13 +917,13 @@ const deserializeAws_json1_1CustomerNotEntitledException = (
   context: __SerdeContext
 ): CustomerNotEntitledException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1DisabledApiException = (output: any, context: __SerdeContext): DisabledApiException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -928,13 +932,13 @@ const deserializeAws_json1_1DuplicateRequestException = (
   context: __SerdeContext
 ): DuplicateRequestException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ExpiredTokenException = (output: any, context: __SerdeContext): ExpiredTokenException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -943,7 +947,7 @@ const deserializeAws_json1_1InternalServiceErrorException = (
   context: __SerdeContext
 ): InternalServiceErrorException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -952,7 +956,7 @@ const deserializeAws_json1_1InvalidCustomerIdentifierException = (
   context: __SerdeContext
 ): InvalidCustomerIdentifierException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -961,7 +965,7 @@ const deserializeAws_json1_1InvalidEndpointRegionException = (
   context: __SerdeContext
 ): InvalidEndpointRegionException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -970,7 +974,7 @@ const deserializeAws_json1_1InvalidProductCodeException = (
   context: __SerdeContext
 ): InvalidProductCodeException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -979,25 +983,25 @@ const deserializeAws_json1_1InvalidPublicKeyVersionException = (
   context: __SerdeContext
 ): InvalidPublicKeyVersionException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidRegionException = (output: any, context: __SerdeContext): InvalidRegionException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidTokenException = (output: any, context: __SerdeContext): InvalidTokenException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -1006,7 +1010,7 @@ const deserializeAws_json1_1InvalidUsageAllocationsException = (
   context: __SerdeContext
 ): InvalidUsageAllocationsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -1015,14 +1019,13 @@ const deserializeAws_json1_1InvalidUsageDimensionException = (
   context: __SerdeContext
 ): InvalidUsageDimensionException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1MeterUsageResult = (output: any, context: __SerdeContext): MeterUsageResult => {
   return {
-    MeteringRecordId:
-      output.MeteringRecordId !== undefined && output.MeteringRecordId !== null ? output.MeteringRecordId : undefined,
+    MeteringRecordId: __expectString(output.MeteringRecordId),
   } as any;
 };
 
@@ -1031,7 +1034,7 @@ const deserializeAws_json1_1PlatformNotSupportedException = (
   context: __SerdeContext
 ): PlatformNotSupportedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -1041,24 +1044,21 @@ const deserializeAws_json1_1RegisterUsageResult = (output: any, context: __Serde
       output.PublicKeyRotationTimestamp !== undefined && output.PublicKeyRotationTimestamp !== null
         ? new Date(Math.round(output.PublicKeyRotationTimestamp * 1000))
         : undefined,
-    Signature: output.Signature !== undefined && output.Signature !== null ? output.Signature : undefined,
+    Signature: __expectString(output.Signature),
   } as any;
 };
 
 const deserializeAws_json1_1ResolveCustomerResult = (output: any, context: __SerdeContext): ResolveCustomerResult => {
   return {
-    CustomerIdentifier:
-      output.CustomerIdentifier !== undefined && output.CustomerIdentifier !== null
-        ? output.CustomerIdentifier
-        : undefined,
-    ProductCode: output.ProductCode !== undefined && output.ProductCode !== null ? output.ProductCode : undefined,
+    CustomerIdentifier: __expectString(output.CustomerIdentifier),
+    ProductCode: __expectString(output.ProductCode),
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -1075,7 +1075,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -1084,16 +1084,13 @@ const deserializeAws_json1_1TimestampOutOfBoundsException = (
   context: __SerdeContext
 ): TimestampOutOfBoundsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1UsageAllocation = (output: any, context: __SerdeContext): UsageAllocation => {
   return {
-    AllocatedUsageQuantity:
-      output.AllocatedUsageQuantity !== undefined && output.AllocatedUsageQuantity !== null
-        ? output.AllocatedUsageQuantity
-        : undefined,
+    AllocatedUsageQuantity: __expectNumber(output.AllocatedUsageQuantity),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -1114,12 +1111,9 @@ const deserializeAws_json1_1UsageAllocations = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1UsageRecord = (output: any, context: __SerdeContext): UsageRecord => {
   return {
-    CustomerIdentifier:
-      output.CustomerIdentifier !== undefined && output.CustomerIdentifier !== null
-        ? output.CustomerIdentifier
-        : undefined,
-    Dimension: output.Dimension !== undefined && output.Dimension !== null ? output.Dimension : undefined,
-    Quantity: output.Quantity !== undefined && output.Quantity !== null ? output.Quantity : undefined,
+    CustomerIdentifier: __expectString(output.CustomerIdentifier),
+    Dimension: __expectString(output.Dimension),
+    Quantity: __expectNumber(output.Quantity),
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
@@ -1144,9 +1138,8 @@ const deserializeAws_json1_1UsageRecordList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1UsageRecordResult = (output: any, context: __SerdeContext): UsageRecordResult => {
   return {
-    MeteringRecordId:
-      output.MeteringRecordId !== undefined && output.MeteringRecordId !== null ? output.MeteringRecordId : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    MeteringRecordId: __expectString(output.MeteringRecordId),
+    Status: __expectString(output.Status),
     UsageRecord:
       output.UsageRecord !== undefined && output.UsageRecord !== null
         ? deserializeAws_json1_1UsageRecord(output.UsageRecord, context)

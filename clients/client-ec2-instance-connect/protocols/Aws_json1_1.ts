@@ -19,7 +19,11 @@ import {
   ThrottlingException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -417,7 +421,7 @@ const serializeAws_json1_1SendSSHPublicKeyRequest = (input: SendSSHPublicKeyRequ
 
 const deserializeAws_json1_1AuthException = (output: any, context: __SerdeContext): AuthException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -426,7 +430,7 @@ const deserializeAws_json1_1EC2InstanceNotFoundException = (
   context: __SerdeContext
 ): EC2InstanceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -435,13 +439,13 @@ const deserializeAws_json1_1EC2InstanceTypeInvalidException = (
   context: __SerdeContext
 ): EC2InstanceTypeInvalidException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidArgsException = (output: any, context: __SerdeContext): InvalidArgsException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -450,8 +454,8 @@ const deserializeAws_json1_1SendSerialConsoleSSHPublicKeyResponse = (
   context: __SerdeContext
 ): SendSerialConsoleSSHPublicKeyResponse => {
   return {
-    RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
-    Success: output.Success !== undefined && output.Success !== null ? output.Success : undefined,
+    RequestId: __expectString(output.RequestId),
+    Success: __expectBoolean(output.Success),
   } as any;
 };
 
@@ -460,8 +464,8 @@ const deserializeAws_json1_1SendSSHPublicKeyResponse = (
   context: __SerdeContext
 ): SendSSHPublicKeyResponse => {
   return {
-    RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
-    Success: output.Success !== undefined && output.Success !== null ? output.Success : undefined,
+    RequestId: __expectString(output.RequestId),
+    Success: __expectBoolean(output.Success),
   } as any;
 };
 
@@ -470,7 +474,7 @@ const deserializeAws_json1_1SerialConsoleAccessDisabledException = (
   context: __SerdeContext
 ): SerialConsoleAccessDisabledException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -479,7 +483,7 @@ const deserializeAws_json1_1SerialConsoleSessionLimitExceededException = (
   context: __SerdeContext
 ): SerialConsoleSessionLimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -488,19 +492,19 @@ const deserializeAws_json1_1SerialConsoleSessionUnavailableException = (
   context: __SerdeContext
 ): SerialConsoleSessionUnavailableException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 

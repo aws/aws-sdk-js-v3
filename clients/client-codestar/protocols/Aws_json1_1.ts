@@ -90,7 +90,11 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -2154,10 +2158,7 @@ const deserializeAws_json1_1AssociateTeamMemberResult = (
   context: __SerdeContext
 ): AssociateTeamMemberResult => {
   return {
-    clientRequestToken:
-      output.clientRequestToken !== undefined && output.clientRequestToken !== null
-        ? output.clientRequestToken
-        : undefined,
+    clientRequestToken: __expectString(output.clientRequestToken),
   } as any;
 };
 
@@ -2166,22 +2167,16 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1CreateProjectResult = (output: any, context: __SerdeContext): CreateProjectResult => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    clientRequestToken:
-      output.clientRequestToken !== undefined && output.clientRequestToken !== null
-        ? output.clientRequestToken
-        : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    projectTemplateId:
-      output.projectTemplateId !== undefined && output.projectTemplateId !== null
-        ? output.projectTemplateId
-        : undefined,
+    arn: __expectString(output.arn),
+    clientRequestToken: __expectString(output.clientRequestToken),
+    id: __expectString(output.id),
+    projectTemplateId: __expectString(output.projectTemplateId),
   } as any;
 };
 
@@ -2194,21 +2189,21 @@ const deserializeAws_json1_1CreateUserProfileResult = (
       output.createdTimestamp !== undefined && output.createdTimestamp !== null
         ? new Date(Math.round(output.createdTimestamp * 1000))
         : undefined,
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
-    emailAddress: output.emailAddress !== undefined && output.emailAddress !== null ? output.emailAddress : undefined,
+    displayName: __expectString(output.displayName),
+    emailAddress: __expectString(output.emailAddress),
     lastModifiedTimestamp:
       output.lastModifiedTimestamp !== undefined && output.lastModifiedTimestamp !== null
         ? new Date(Math.round(output.lastModifiedTimestamp * 1000))
         : undefined,
-    sshPublicKey: output.sshPublicKey !== undefined && output.sshPublicKey !== null ? output.sshPublicKey : undefined,
-    userArn: output.userArn !== undefined && output.userArn !== null ? output.userArn : undefined,
+    sshPublicKey: __expectString(output.sshPublicKey),
+    userArn: __expectString(output.userArn),
   } as any;
 };
 
 const deserializeAws_json1_1DeleteProjectResult = (output: any, context: __SerdeContext): DeleteProjectResult => {
   return {
-    projectArn: output.projectArn !== undefined && output.projectArn !== null ? output.projectArn : undefined,
-    stackId: output.stackId !== undefined && output.stackId !== null ? output.stackId : undefined,
+    projectArn: __expectString(output.projectArn),
+    stackId: __expectString(output.stackId),
   } as any;
 };
 
@@ -2217,29 +2212,23 @@ const deserializeAws_json1_1DeleteUserProfileResult = (
   context: __SerdeContext
 ): DeleteUserProfileResult => {
   return {
-    userArn: output.userArn !== undefined && output.userArn !== null ? output.userArn : undefined,
+    userArn: __expectString(output.userArn),
   } as any;
 };
 
 const deserializeAws_json1_1DescribeProjectResult = (output: any, context: __SerdeContext): DescribeProjectResult => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    clientRequestToken:
-      output.clientRequestToken !== undefined && output.clientRequestToken !== null
-        ? output.clientRequestToken
-        : undefined,
+    arn: __expectString(output.arn),
+    clientRequestToken: __expectString(output.clientRequestToken),
     createdTimeStamp:
       output.createdTimeStamp !== undefined && output.createdTimeStamp !== null
         ? new Date(Math.round(output.createdTimeStamp * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    projectTemplateId:
-      output.projectTemplateId !== undefined && output.projectTemplateId !== null
-        ? output.projectTemplateId
-        : undefined,
-    stackId: output.stackId !== undefined && output.stackId !== null ? output.stackId : undefined,
+    description: __expectString(output.description),
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+    projectTemplateId: __expectString(output.projectTemplateId),
+    stackId: __expectString(output.stackId),
     status:
       output.status !== undefined && output.status !== null
         ? deserializeAws_json1_1ProjectStatus(output.status, context)
@@ -2256,14 +2245,14 @@ const deserializeAws_json1_1DescribeUserProfileResult = (
       output.createdTimestamp !== undefined && output.createdTimestamp !== null
         ? new Date(Math.round(output.createdTimestamp * 1000))
         : undefined,
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
-    emailAddress: output.emailAddress !== undefined && output.emailAddress !== null ? output.emailAddress : undefined,
+    displayName: __expectString(output.displayName),
+    emailAddress: __expectString(output.emailAddress),
     lastModifiedTimestamp:
       output.lastModifiedTimestamp !== undefined && output.lastModifiedTimestamp !== null
         ? new Date(Math.round(output.lastModifiedTimestamp * 1000))
         : undefined,
-    sshPublicKey: output.sshPublicKey !== undefined && output.sshPublicKey !== null ? output.sshPublicKey : undefined,
-    userArn: output.userArn !== undefined && output.userArn !== null ? output.userArn : undefined,
+    sshPublicKey: __expectString(output.sshPublicKey),
+    userArn: __expectString(output.userArn),
   } as any;
 };
 
@@ -2279,7 +2268,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2288,19 +2277,19 @@ const deserializeAws_json1_1InvalidServiceRoleException = (
   context: __SerdeContext
 ): InvalidServiceRoleException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1ListProjectsResult = (output: any, context: __SerdeContext): ListProjectsResult => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     projects:
       output.projects !== undefined && output.projects !== null
         ? deserializeAws_json1_1ProjectsList(output.projects, context)
@@ -2310,7 +2299,7 @@ const deserializeAws_json1_1ListProjectsResult = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ListResourcesResult = (output: any, context: __SerdeContext): ListResourcesResult => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     resources:
       output.resources !== undefined && output.resources !== null
         ? deserializeAws_json1_1ResourcesResult(output.resources, context)
@@ -2323,7 +2312,7 @@ const deserializeAws_json1_1ListTagsForProjectResult = (
   context: __SerdeContext
 ): ListTagsForProjectResult => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     tags:
       output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
   } as any;
@@ -2331,7 +2320,7 @@ const deserializeAws_json1_1ListTagsForProjectResult = (
 
 const deserializeAws_json1_1ListTeamMembersResult = (output: any, context: __SerdeContext): ListTeamMembersResult => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     teamMembers:
       output.teamMembers !== undefined && output.teamMembers !== null
         ? deserializeAws_json1_1TeamMemberResult(output.teamMembers, context)
@@ -2341,7 +2330,7 @@ const deserializeAws_json1_1ListTeamMembersResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1ListUserProfilesResult = (output: any, context: __SerdeContext): ListUserProfilesResult => {
   return {
-    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+    nextToken: __expectString(output.nextToken),
     userProfiles:
       output.userProfiles !== undefined && output.userProfiles !== null
         ? deserializeAws_json1_1UserProfilesList(output.userProfiles, context)
@@ -2354,7 +2343,7 @@ const deserializeAws_json1_1ProjectAlreadyExistsException = (
   context: __SerdeContext
 ): ProjectAlreadyExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2363,7 +2352,7 @@ const deserializeAws_json1_1ProjectConfigurationException = (
   context: __SerdeContext
 ): ProjectConfigurationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2372,7 +2361,7 @@ const deserializeAws_json1_1ProjectCreationFailedException = (
   context: __SerdeContext
 ): ProjectCreationFailedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2381,7 +2370,7 @@ const deserializeAws_json1_1ProjectNotFoundException = (
   context: __SerdeContext
 ): ProjectNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2398,21 +2387,21 @@ const deserializeAws_json1_1ProjectsList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ProjectStatus = (output: any, context: __SerdeContext): ProjectStatus => {
   return {
-    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    reason: __expectString(output.reason),
+    state: __expectString(output.state),
   } as any;
 };
 
 const deserializeAws_json1_1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
   return {
-    projectArn: output.projectArn !== undefined && output.projectArn !== null ? output.projectArn : undefined,
-    projectId: output.projectId !== undefined && output.projectId !== null ? output.projectId : undefined,
+    projectArn: __expectString(output.projectArn),
+    projectId: __expectString(output.projectId),
   } as any;
 };
 
 const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    id: __expectString(output.id),
   } as any;
 };
 
@@ -2441,19 +2430,16 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): { [ke
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_json1_1TeamMember = (output: any, context: __SerdeContext): TeamMember => {
   return {
-    projectRole: output.projectRole !== undefined && output.projectRole !== null ? output.projectRole : undefined,
-    remoteAccessAllowed:
-      output.remoteAccessAllowed !== undefined && output.remoteAccessAllowed !== null
-        ? output.remoteAccessAllowed
-        : undefined,
-    userArn: output.userArn !== undefined && output.userArn !== null ? output.userArn : undefined,
+    projectRole: __expectString(output.projectRole),
+    remoteAccessAllowed: __expectBoolean(output.remoteAccessAllowed),
+    userArn: __expectString(output.userArn),
   } as any;
 };
 
@@ -2462,7 +2448,7 @@ const deserializeAws_json1_1TeamMemberAlreadyAssociatedException = (
   context: __SerdeContext
 ): TeamMemberAlreadyAssociatedException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2471,7 +2457,7 @@ const deserializeAws_json1_1TeamMemberNotFoundException = (
   context: __SerdeContext
 ): TeamMemberNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2496,12 +2482,9 @@ const deserializeAws_json1_1UpdateProjectResult = (output: any, context: __Serde
 
 const deserializeAws_json1_1UpdateTeamMemberResult = (output: any, context: __SerdeContext): UpdateTeamMemberResult => {
   return {
-    projectRole: output.projectRole !== undefined && output.projectRole !== null ? output.projectRole : undefined,
-    remoteAccessAllowed:
-      output.remoteAccessAllowed !== undefined && output.remoteAccessAllowed !== null
-        ? output.remoteAccessAllowed
-        : undefined,
-    userArn: output.userArn !== undefined && output.userArn !== null ? output.userArn : undefined,
+    projectRole: __expectString(output.projectRole),
+    remoteAccessAllowed: __expectBoolean(output.remoteAccessAllowed),
+    userArn: __expectString(output.userArn),
   } as any;
 };
 
@@ -2514,14 +2497,14 @@ const deserializeAws_json1_1UpdateUserProfileResult = (
       output.createdTimestamp !== undefined && output.createdTimestamp !== null
         ? new Date(Math.round(output.createdTimestamp * 1000))
         : undefined,
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
-    emailAddress: output.emailAddress !== undefined && output.emailAddress !== null ? output.emailAddress : undefined,
+    displayName: __expectString(output.displayName),
+    emailAddress: __expectString(output.emailAddress),
     lastModifiedTimestamp:
       output.lastModifiedTimestamp !== undefined && output.lastModifiedTimestamp !== null
         ? new Date(Math.round(output.lastModifiedTimestamp * 1000))
         : undefined,
-    sshPublicKey: output.sshPublicKey !== undefined && output.sshPublicKey !== null ? output.sshPublicKey : undefined,
-    userArn: output.userArn !== undefined && output.userArn !== null ? output.userArn : undefined,
+    sshPublicKey: __expectString(output.sshPublicKey),
+    userArn: __expectString(output.userArn),
   } as any;
 };
 
@@ -2530,7 +2513,7 @@ const deserializeAws_json1_1UserProfileAlreadyExistsException = (
   context: __SerdeContext
 ): UserProfileAlreadyExistsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2539,7 +2522,7 @@ const deserializeAws_json1_1UserProfileNotFoundException = (
   context: __SerdeContext
 ): UserProfileNotFoundException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2556,16 +2539,16 @@ const deserializeAws_json1_1UserProfilesList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1UserProfileSummary = (output: any, context: __SerdeContext): UserProfileSummary => {
   return {
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
-    emailAddress: output.emailAddress !== undefined && output.emailAddress !== null ? output.emailAddress : undefined,
-    sshPublicKey: output.sshPublicKey !== undefined && output.sshPublicKey !== null ? output.sshPublicKey : undefined,
-    userArn: output.userArn !== undefined && output.userArn !== null ? output.userArn : undefined,
+    displayName: __expectString(output.displayName),
+    emailAddress: __expectString(output.emailAddress),
+    sshPublicKey: __expectString(output.sshPublicKey),
+    userArn: __expectString(output.userArn),
   } as any;
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 

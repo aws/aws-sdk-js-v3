@@ -157,7 +157,12 @@ import {
   ViewBillingResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -3010,7 +3015,7 @@ const deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountResponse = 
   context: __SerdeContext
 ): AcceptDomainTransferFromAnotherAwsAccountResponse => {
   return {
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    OperationId: __expectString(output.OperationId),
   } as any;
 };
 
@@ -3020,10 +3025,10 @@ const deserializeAws_json1_1BillingRecord = (output: any, context: __SerdeContex
       output.BillDate !== undefined && output.BillDate !== null
         ? new Date(Math.round(output.BillDate * 1000))
         : undefined,
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
-    InvoiceId: output.InvoiceId !== undefined && output.InvoiceId !== null ? output.InvoiceId : undefined,
-    Operation: output.Operation !== undefined && output.Operation !== null ? output.Operation : undefined,
-    Price: output.Price !== undefined && output.Price !== null ? output.Price : undefined,
+    DomainName: __expectString(output.DomainName),
+    InvoiceId: __expectString(output.InvoiceId),
+    Operation: __expectString(output.Operation),
+    Price: __expectNumber(output.Price),
   } as any;
 };
 
@@ -3043,7 +3048,7 @@ const deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountResponse = (
   context: __SerdeContext
 ): CancelDomainTransferToAnotherAwsAccountResponse => {
   return {
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    OperationId: __expectString(output.OperationId),
   } as any;
 };
 
@@ -3052,7 +3057,7 @@ const deserializeAws_json1_1CheckDomainAvailabilityResponse = (
   context: __SerdeContext
 ): CheckDomainAvailabilityResponse => {
   return {
-    Availability: output.Availability !== undefined && output.Availability !== null ? output.Availability : undefined,
+    Availability: __expectString(output.Availability),
   } as any;
 };
 
@@ -3070,24 +3075,23 @@ const deserializeAws_json1_1CheckDomainTransferabilityResponse = (
 
 const deserializeAws_json1_1ContactDetail = (output: any, context: __SerdeContext): ContactDetail => {
   return {
-    AddressLine1: output.AddressLine1 !== undefined && output.AddressLine1 !== null ? output.AddressLine1 : undefined,
-    AddressLine2: output.AddressLine2 !== undefined && output.AddressLine2 !== null ? output.AddressLine2 : undefined,
-    City: output.City !== undefined && output.City !== null ? output.City : undefined,
-    ContactType: output.ContactType !== undefined && output.ContactType !== null ? output.ContactType : undefined,
-    CountryCode: output.CountryCode !== undefined && output.CountryCode !== null ? output.CountryCode : undefined,
-    Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
+    AddressLine1: __expectString(output.AddressLine1),
+    AddressLine2: __expectString(output.AddressLine2),
+    City: __expectString(output.City),
+    ContactType: __expectString(output.ContactType),
+    CountryCode: __expectString(output.CountryCode),
+    Email: __expectString(output.Email),
     ExtraParams:
       output.ExtraParams !== undefined && output.ExtraParams !== null
         ? deserializeAws_json1_1ExtraParamList(output.ExtraParams, context)
         : undefined,
-    Fax: output.Fax !== undefined && output.Fax !== null ? output.Fax : undefined,
-    FirstName: output.FirstName !== undefined && output.FirstName !== null ? output.FirstName : undefined,
-    LastName: output.LastName !== undefined && output.LastName !== null ? output.LastName : undefined,
-    OrganizationName:
-      output.OrganizationName !== undefined && output.OrganizationName !== null ? output.OrganizationName : undefined,
-    PhoneNumber: output.PhoneNumber !== undefined && output.PhoneNumber !== null ? output.PhoneNumber : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    ZipCode: output.ZipCode !== undefined && output.ZipCode !== null ? output.ZipCode : undefined,
+    Fax: __expectString(output.Fax),
+    FirstName: __expectString(output.FirstName),
+    LastName: __expectString(output.LastName),
+    OrganizationName: __expectString(output.OrganizationName),
+    PhoneNumber: __expectString(output.PhoneNumber),
+    State: __expectString(output.State),
+    ZipCode: __expectString(output.ZipCode),
   } as any;
 };
 
@@ -3110,13 +3114,13 @@ const deserializeAws_json1_1DisableDomainTransferLockResponse = (
   context: __SerdeContext
 ): DisableDomainTransferLockResponse => {
   return {
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    OperationId: __expectString(output.OperationId),
   } as any;
 };
 
 const deserializeAws_json1_1DomainLimitExceeded = (output: any, context: __SerdeContext): DomainLimitExceeded => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3127,14 +3131,14 @@ const deserializeAws_json1_1DomainStatusList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1DomainSuggestion = (output: any, context: __SerdeContext): DomainSuggestion => {
   return {
-    Availability: output.Availability !== undefined && output.Availability !== null ? output.Availability : undefined,
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    Availability: __expectString(output.Availability),
+    DomainName: __expectString(output.DomainName),
   } as any;
 };
 
@@ -3151,11 +3155,11 @@ const deserializeAws_json1_1DomainSuggestionsList = (output: any, context: __Ser
 
 const deserializeAws_json1_1DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
   return {
-    AutoRenew: output.AutoRenew !== undefined && output.AutoRenew !== null ? output.AutoRenew : undefined,
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    AutoRenew: __expectBoolean(output.AutoRenew),
+    DomainName: __expectString(output.DomainName),
     Expiry:
       output.Expiry !== undefined && output.Expiry !== null ? new Date(Math.round(output.Expiry * 1000)) : undefined,
-    TransferLock: output.TransferLock !== undefined && output.TransferLock !== null ? output.TransferLock : undefined,
+    TransferLock: __expectBoolean(output.TransferLock),
   } as any;
 };
 
@@ -3172,13 +3176,13 @@ const deserializeAws_json1_1DomainSummaryList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1DomainTransferability = (output: any, context: __SerdeContext): DomainTransferability => {
   return {
-    Transferable: output.Transferable !== undefined && output.Transferable !== null ? output.Transferable : undefined,
+    Transferable: __expectString(output.Transferable),
   } as any;
 };
 
 const deserializeAws_json1_1DuplicateRequest = (output: any, context: __SerdeContext): DuplicateRequest => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3194,14 +3198,14 @@ const deserializeAws_json1_1EnableDomainTransferLockResponse = (
   context: __SerdeContext
 ): EnableDomainTransferLockResponse => {
   return {
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    OperationId: __expectString(output.OperationId),
   } as any;
 };
 
 const deserializeAws_json1_1ExtraParam = (output: any, context: __SerdeContext): ExtraParam => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Name: __expectString(output.Name),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -3221,8 +3225,8 @@ const deserializeAws_json1_1GetContactReachabilityStatusResponse = (
   context: __SerdeContext
 ): GetContactReachabilityStatusResponse => {
   return {
-    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    domainName: __expectString(output.domainName),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -3231,26 +3235,20 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
   context: __SerdeContext
 ): GetDomainDetailResponse => {
   return {
-    AbuseContactEmail:
-      output.AbuseContactEmail !== undefined && output.AbuseContactEmail !== null
-        ? output.AbuseContactEmail
-        : undefined,
-    AbuseContactPhone:
-      output.AbuseContactPhone !== undefined && output.AbuseContactPhone !== null
-        ? output.AbuseContactPhone
-        : undefined,
+    AbuseContactEmail: __expectString(output.AbuseContactEmail),
+    AbuseContactPhone: __expectString(output.AbuseContactPhone),
     AdminContact:
       output.AdminContact !== undefined && output.AdminContact !== null
         ? deserializeAws_json1_1ContactDetail(output.AdminContact, context)
         : undefined,
-    AdminPrivacy: output.AdminPrivacy !== undefined && output.AdminPrivacy !== null ? output.AdminPrivacy : undefined,
-    AutoRenew: output.AutoRenew !== undefined && output.AutoRenew !== null ? output.AutoRenew : undefined,
+    AdminPrivacy: __expectBoolean(output.AdminPrivacy),
+    AutoRenew: __expectBoolean(output.AutoRenew),
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
         : undefined,
-    DnsSec: output.DnsSec !== undefined && output.DnsSec !== null ? output.DnsSec : undefined,
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    DnsSec: __expectString(output.DnsSec),
+    DomainName: __expectString(output.DomainName),
     ExpirationDate:
       output.ExpirationDate !== undefined && output.ExpirationDate !== null
         ? new Date(Math.round(output.ExpirationDate * 1000))
@@ -3263,16 +3261,11 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
       output.RegistrantContact !== undefined && output.RegistrantContact !== null
         ? deserializeAws_json1_1ContactDetail(output.RegistrantContact, context)
         : undefined,
-    RegistrantPrivacy:
-      output.RegistrantPrivacy !== undefined && output.RegistrantPrivacy !== null
-        ? output.RegistrantPrivacy
-        : undefined,
-    RegistrarName:
-      output.RegistrarName !== undefined && output.RegistrarName !== null ? output.RegistrarName : undefined,
-    RegistrarUrl: output.RegistrarUrl !== undefined && output.RegistrarUrl !== null ? output.RegistrarUrl : undefined,
-    RegistryDomainId:
-      output.RegistryDomainId !== undefined && output.RegistryDomainId !== null ? output.RegistryDomainId : undefined,
-    Reseller: output.Reseller !== undefined && output.Reseller !== null ? output.Reseller : undefined,
+    RegistrantPrivacy: __expectBoolean(output.RegistrantPrivacy),
+    RegistrarName: __expectString(output.RegistrarName),
+    RegistrarUrl: __expectString(output.RegistrarUrl),
+    RegistryDomainId: __expectString(output.RegistryDomainId),
+    Reseller: __expectString(output.Reseller),
     StatusList:
       output.StatusList !== undefined && output.StatusList !== null
         ? deserializeAws_json1_1DomainStatusList(output.StatusList, context)
@@ -3281,12 +3274,12 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
       output.TechContact !== undefined && output.TechContact !== null
         ? deserializeAws_json1_1ContactDetail(output.TechContact, context)
         : undefined,
-    TechPrivacy: output.TechPrivacy !== undefined && output.TechPrivacy !== null ? output.TechPrivacy : undefined,
+    TechPrivacy: __expectBoolean(output.TechPrivacy),
     UpdatedDate:
       output.UpdatedDate !== undefined && output.UpdatedDate !== null
         ? new Date(Math.round(output.UpdatedDate * 1000))
         : undefined,
-    WhoIsServer: output.WhoIsServer !== undefined && output.WhoIsServer !== null ? output.WhoIsServer : undefined,
+    WhoIsServer: __expectString(output.WhoIsServer),
   } as any;
 };
 
@@ -3307,15 +3300,15 @@ const deserializeAws_json1_1GetOperationDetailResponse = (
   context: __SerdeContext
 ): GetOperationDetailResponse => {
   return {
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    DomainName: __expectString(output.DomainName),
+    Message: __expectString(output.Message),
+    OperationId: __expectString(output.OperationId),
+    Status: __expectString(output.Status),
     SubmittedDate:
       output.SubmittedDate !== undefined && output.SubmittedDate !== null
         ? new Date(Math.round(output.SubmittedDate * 1000))
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -3326,13 +3319,13 @@ const deserializeAws_json1_1GlueIpList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1InvalidInput = (output: any, context: __SerdeContext): InvalidInput => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3342,15 +3335,13 @@ const deserializeAws_json1_1ListDomainsResponse = (output: any, context: __Serde
       output.Domains !== undefined && output.Domains !== null
         ? deserializeAws_json1_1DomainSummaryList(output.Domains, context)
         : undefined,
-    NextPageMarker:
-      output.NextPageMarker !== undefined && output.NextPageMarker !== null ? output.NextPageMarker : undefined,
+    NextPageMarker: __expectString(output.NextPageMarker),
   } as any;
 };
 
 const deserializeAws_json1_1ListOperationsResponse = (output: any, context: __SerdeContext): ListOperationsResponse => {
   return {
-    NextPageMarker:
-      output.NextPageMarker !== undefined && output.NextPageMarker !== null ? output.NextPageMarker : undefined,
+    NextPageMarker: __expectString(output.NextPageMarker),
     Operations:
       output.Operations !== undefined && output.Operations !== null
         ? deserializeAws_json1_1OperationSummaryList(output.Operations, context)
@@ -3376,7 +3367,7 @@ const deserializeAws_json1_1Nameserver = (output: any, context: __SerdeContext):
       output.GlueIps !== undefined && output.GlueIps !== null
         ? deserializeAws_json1_1GlueIpList(output.GlueIps, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -3393,19 +3384,19 @@ const deserializeAws_json1_1NameserverList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1OperationLimitExceeded = (output: any, context: __SerdeContext): OperationLimitExceeded => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
   return {
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    OperationId: __expectString(output.OperationId),
+    Status: __expectString(output.Status),
     SubmittedDate:
       output.SubmittedDate !== undefined && output.SubmittedDate !== null
         ? new Date(Math.round(output.SubmittedDate * 1000))
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -3422,7 +3413,7 @@ const deserializeAws_json1_1OperationSummaryList = (output: any, context: __Serd
 
 const deserializeAws_json1_1RegisterDomainResponse = (output: any, context: __SerdeContext): RegisterDomainResponse => {
   return {
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    OperationId: __expectString(output.OperationId),
   } as any;
 };
 
@@ -3431,13 +3422,13 @@ const deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountResponse = 
   context: __SerdeContext
 ): RejectDomainTransferFromAnotherAwsAccountResponse => {
   return {
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    OperationId: __expectString(output.OperationId),
   } as any;
 };
 
 const deserializeAws_json1_1RenewDomainResponse = (output: any, context: __SerdeContext): RenewDomainResponse => {
   return {
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    OperationId: __expectString(output.OperationId),
   } as any;
 };
 
@@ -3446,12 +3437,9 @@ const deserializeAws_json1_1ResendContactReachabilityEmailResponse = (
   context: __SerdeContext
 ): ResendContactReachabilityEmailResponse => {
   return {
-    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
-    emailAddress: output.emailAddress !== undefined && output.emailAddress !== null ? output.emailAddress : undefined,
-    isAlreadyVerified:
-      output.isAlreadyVerified !== undefined && output.isAlreadyVerified !== null
-        ? output.isAlreadyVerified
-        : undefined,
+    domainName: __expectString(output.domainName),
+    emailAddress: __expectString(output.emailAddress),
+    isAlreadyVerified: __expectBoolean(output.isAlreadyVerified),
   } as any;
 };
 
@@ -3460,14 +3448,14 @@ const deserializeAws_json1_1RetrieveDomainAuthCodeResponse = (
   context: __SerdeContext
 ): RetrieveDomainAuthCodeResponse => {
   return {
-    AuthCode: output.AuthCode !== undefined && output.AuthCode !== null ? output.AuthCode : undefined,
+    AuthCode: __expectString(output.AuthCode),
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -3484,13 +3472,13 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TLDRulesViolation = (output: any, context: __SerdeContext): TLDRulesViolation => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_json1_1TransferDomainResponse = (output: any, context: __SerdeContext): TransferDomainResponse => {
   return {
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    OperationId: __expectString(output.OperationId),
   } as any;
 };
 
@@ -3499,14 +3487,14 @@ const deserializeAws_json1_1TransferDomainToAnotherAwsAccountResponse = (
   context: __SerdeContext
 ): TransferDomainToAnotherAwsAccountResponse => {
   return {
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
-    Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
+    OperationId: __expectString(output.OperationId),
+    Password: __expectString(output.Password),
   } as any;
 };
 
 const deserializeAws_json1_1UnsupportedTLD = (output: any, context: __SerdeContext): UnsupportedTLD => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -3515,7 +3503,7 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyResponse = (
   context: __SerdeContext
 ): UpdateDomainContactPrivacyResponse => {
   return {
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    OperationId: __expectString(output.OperationId),
   } as any;
 };
 
@@ -3524,7 +3512,7 @@ const deserializeAws_json1_1UpdateDomainContactResponse = (
   context: __SerdeContext
 ): UpdateDomainContactResponse => {
   return {
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    OperationId: __expectString(output.OperationId),
   } as any;
 };
 
@@ -3533,7 +3521,7 @@ const deserializeAws_json1_1UpdateDomainNameserversResponse = (
   context: __SerdeContext
 ): UpdateDomainNameserversResponse => {
   return {
-    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    OperationId: __expectString(output.OperationId),
   } as any;
 };
 
@@ -3550,8 +3538,7 @@ const deserializeAws_json1_1ViewBillingResponse = (output: any, context: __Serde
       output.BillingRecords !== undefined && output.BillingRecords !== null
         ? deserializeAws_json1_1BillingRecords(output.BillingRecords, context)
         : undefined,
-    NextPageMarker:
-      output.NextPageMarker !== undefined && output.NextPageMarker !== null ? output.NextPageMarker : undefined,
+    NextPageMarker: __expectString(output.NextPageMarker),
   } as any;
 };
 

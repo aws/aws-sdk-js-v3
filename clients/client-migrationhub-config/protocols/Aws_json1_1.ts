@@ -24,7 +24,11 @@ import {
   ThrottlingException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -467,7 +471,7 @@ const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -492,26 +496,26 @@ const deserializeAws_json1_1DescribeHomeRegionControlsResult = (
       output.HomeRegionControls !== undefined && output.HomeRegionControls !== null
         ? deserializeAws_json1_1HomeRegionControls(output.HomeRegionControls, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1DryRunOperation = (output: any, context: __SerdeContext): DryRunOperation => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1GetHomeRegionResult = (output: any, context: __SerdeContext): GetHomeRegionResult => {
   return {
-    HomeRegion: output.HomeRegion !== undefined && output.HomeRegion !== null ? output.HomeRegion : undefined,
+    HomeRegion: __expectString(output.HomeRegion),
   } as any;
 };
 
 const deserializeAws_json1_1HomeRegionControl = (output: any, context: __SerdeContext): HomeRegionControl => {
   return {
-    ControlId: output.ControlId !== undefined && output.ControlId !== null ? output.ControlId : undefined,
-    HomeRegion: output.HomeRegion !== undefined && output.HomeRegion !== null ? output.HomeRegion : undefined,
+    ControlId: __expectString(output.ControlId),
+    HomeRegion: __expectString(output.HomeRegion),
     RequestedTime:
       output.RequestedTime !== undefined && output.RequestedTime !== null
         ? new Date(Math.round(output.RequestedTime * 1000))
@@ -536,13 +540,13 @@ const deserializeAws_json1_1HomeRegionControls = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -551,24 +555,21 @@ const deserializeAws_json1_1ServiceUnavailableException = (
   context: __SerdeContext
 ): ServiceUnavailableException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1Target = (output: any, context: __SerdeContext): Target => {
   return {
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Id: __expectString(output.Id),
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    RetryAfterSeconds:
-      output.RetryAfterSeconds !== undefined && output.RetryAfterSeconds !== null
-        ? output.RetryAfterSeconds
-        : undefined,
+    Message: __expectString(output.Message),
+    RetryAfterSeconds: __expectNumber(output.RetryAfterSeconds),
   } as any;
 };
 

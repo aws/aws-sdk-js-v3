@@ -81,7 +81,11 @@ import {
   UpdateParallelDataResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -1869,7 +1873,7 @@ const serializeAws_json1_1UpdateParallelDataRequest = (
 
 const deserializeAws_json1_1AppliedTerminology = (output: any, context: __SerdeContext): AppliedTerminology => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
     Terms:
       output.Terms !== undefined && output.Terms !== null
         ? deserializeAws_json1_1TermList(output.Terms, context)
@@ -1893,13 +1897,13 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -1908,8 +1912,8 @@ const deserializeAws_json1_1CreateParallelDataResponse = (
   context: __SerdeContext
 ): CreateParallelDataResponse => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -1918,8 +1922,8 @@ const deserializeAws_json1_1DeleteParallelDataResponse = (
   context: __SerdeContext
 ): DeleteParallelDataResponse => {
   return {
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -1940,18 +1944,15 @@ const deserializeAws_json1_1DetectedLanguageLowConfidenceException = (
   context: __SerdeContext
 ): DetectedLanguageLowConfidenceException => {
   return {
-    DetectedLanguageCode:
-      output.DetectedLanguageCode !== undefined && output.DetectedLanguageCode !== null
-        ? output.DetectedLanguageCode
-        : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    DetectedLanguageCode: __expectString(output.DetectedLanguageCode),
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1EncryptionKey = (output: any, context: __SerdeContext): EncryptionKey => {
   return {
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Id: __expectString(output.Id),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -2007,8 +2008,8 @@ const deserializeAws_json1_1ImportTerminologyResponse = (
 
 const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
   return {
-    ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
-    S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
+    ContentType: __expectString(output.ContentType),
+    S3Uri: __expectString(output.S3Uri),
   } as any;
 };
 
@@ -2017,13 +2018,13 @@ const deserializeAws_json1_1InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidFilterException = (output: any, context: __SerdeContext): InvalidFilterException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2032,7 +2033,7 @@ const deserializeAws_json1_1InvalidParameterValueException = (
   context: __SerdeContext
 ): InvalidParameterValueException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2041,24 +2042,15 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1JobDetails = (output: any, context: __SerdeContext): JobDetails => {
   return {
-    DocumentsWithErrorsCount:
-      output.DocumentsWithErrorsCount !== undefined && output.DocumentsWithErrorsCount !== null
-        ? output.DocumentsWithErrorsCount
-        : undefined,
-    InputDocumentsCount:
-      output.InputDocumentsCount !== undefined && output.InputDocumentsCount !== null
-        ? output.InputDocumentsCount
-        : undefined,
-    TranslatedDocumentsCount:
-      output.TranslatedDocumentsCount !== undefined && output.TranslatedDocumentsCount !== null
-        ? output.TranslatedDocumentsCount
-        : undefined,
+    DocumentsWithErrorsCount: __expectNumber(output.DocumentsWithErrorsCount),
+    InputDocumentsCount: __expectNumber(output.InputDocumentsCount),
+    TranslatedDocumentsCount: __expectNumber(output.TranslatedDocumentsCount),
   } as any;
 };
 
@@ -2069,13 +2061,13 @@ const deserializeAws_json1_1LanguageCodeStringList = (output: any, context: __Se
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2084,7 +2076,7 @@ const deserializeAws_json1_1ListParallelDataResponse = (
   context: __SerdeContext
 ): ListParallelDataResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     ParallelDataPropertiesList:
       output.ParallelDataPropertiesList !== undefined && output.ParallelDataPropertiesList !== null
         ? deserializeAws_json1_1ParallelDataPropertiesList(output.ParallelDataPropertiesList, context)
@@ -2097,7 +2089,7 @@ const deserializeAws_json1_1ListTerminologiesResponse = (
   context: __SerdeContext
 ): ListTerminologiesResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     TerminologyPropertiesList:
       output.TerminologyPropertiesList !== undefined && output.TerminologyPropertiesList !== null
         ? deserializeAws_json1_1TerminologyPropertiesList(output.TerminologyPropertiesList, context)
@@ -2110,7 +2102,7 @@ const deserializeAws_json1_1ListTextTranslationJobsResponse = (
   context: __SerdeContext
 ): ListTextTranslationJobsResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     TextTranslationJobPropertiesList:
       output.TextTranslationJobPropertiesList !== undefined && output.TextTranslationJobPropertiesList !== null
         ? deserializeAws_json1_1TextTranslationJobPropertiesList(output.TextTranslationJobPropertiesList, context)
@@ -2120,14 +2112,14 @@ const deserializeAws_json1_1ListTextTranslationJobsResponse = (
 
 const deserializeAws_json1_1OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
   return {
-    S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
+    S3Uri: __expectString(output.S3Uri),
   } as any;
 };
 
 const deserializeAws_json1_1ParallelDataConfig = (output: any, context: __SerdeContext): ParallelDataConfig => {
   return {
-    Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
-    S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
+    Format: __expectString(output.Format),
+    S3Uri: __expectString(output.S3Uri),
   } as any;
 };
 
@@ -2136,34 +2128,26 @@ const deserializeAws_json1_1ParallelDataDataLocation = (
   context: __SerdeContext
 ): ParallelDataDataLocation => {
   return {
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
-    RepositoryType:
-      output.RepositoryType !== undefined && output.RepositoryType !== null ? output.RepositoryType : undefined,
+    Location: __expectString(output.Location),
+    RepositoryType: __expectString(output.RepositoryType),
   } as any;
 };
 
 const deserializeAws_json1_1ParallelDataProperties = (output: any, context: __SerdeContext): ParallelDataProperties => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: __expectString(output.Arn),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Description: __expectString(output.Description),
     EncryptionKey:
       output.EncryptionKey !== undefined && output.EncryptionKey !== null
         ? deserializeAws_json1_1EncryptionKey(output.EncryptionKey, context)
         : undefined,
-    FailedRecordCount:
-      output.FailedRecordCount !== undefined && output.FailedRecordCount !== null
-        ? output.FailedRecordCount
-        : undefined,
-    ImportedDataSize:
-      output.ImportedDataSize !== undefined && output.ImportedDataSize !== null ? output.ImportedDataSize : undefined,
-    ImportedRecordCount:
-      output.ImportedRecordCount !== undefined && output.ImportedRecordCount !== null
-        ? output.ImportedRecordCount
-        : undefined,
+    FailedRecordCount: __expectNumber(output.FailedRecordCount),
+    ImportedDataSize: __expectNumber(output.ImportedDataSize),
+    ImportedRecordCount: __expectNumber(output.ImportedRecordCount),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
@@ -2172,25 +2156,16 @@ const deserializeAws_json1_1ParallelDataProperties = (output: any, context: __Se
       output.LatestUpdateAttemptAt !== undefined && output.LatestUpdateAttemptAt !== null
         ? new Date(Math.round(output.LatestUpdateAttemptAt * 1000))
         : undefined,
-    LatestUpdateAttemptStatus:
-      output.LatestUpdateAttemptStatus !== undefined && output.LatestUpdateAttemptStatus !== null
-        ? output.LatestUpdateAttemptStatus
-        : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    LatestUpdateAttemptStatus: __expectString(output.LatestUpdateAttemptStatus),
+    Message: __expectString(output.Message),
+    Name: __expectString(output.Name),
     ParallelDataConfig:
       output.ParallelDataConfig !== undefined && output.ParallelDataConfig !== null
         ? deserializeAws_json1_1ParallelDataConfig(output.ParallelDataConfig, context)
         : undefined,
-    SkippedRecordCount:
-      output.SkippedRecordCount !== undefined && output.SkippedRecordCount !== null
-        ? output.SkippedRecordCount
-        : undefined,
-    SourceLanguageCode:
-      output.SourceLanguageCode !== undefined && output.SourceLanguageCode !== null
-        ? output.SourceLanguageCode
-        : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    SkippedRecordCount: __expectNumber(output.SkippedRecordCount),
+    SourceLanguageCode: __expectString(output.SourceLanguageCode),
+    Status: __expectString(output.Status),
     TargetLanguageCodes:
       output.TargetLanguageCodes !== undefined && output.TargetLanguageCodes !== null
         ? deserializeAws_json1_1LanguageCodeStringList(output.TargetLanguageCodes, context)
@@ -2219,7 +2194,7 @@ const deserializeAws_json1_1ResourceNameList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2228,7 +2203,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2237,7 +2212,7 @@ const deserializeAws_json1_1ServiceUnavailableException = (
   context: __SerdeContext
 ): ServiceUnavailableException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2246,8 +2221,8 @@ const deserializeAws_json1_1StartTextTranslationJobResponse = (
   context: __SerdeContext
 ): StartTextTranslationJobResponse => {
   return {
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
-    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
+    JobId: __expectString(output.JobId),
+    JobStatus: __expectString(output.JobStatus),
   } as any;
 };
 
@@ -2256,8 +2231,8 @@ const deserializeAws_json1_1StopTextTranslationJobResponse = (
   context: __SerdeContext
 ): StopTextTranslationJobResponse => {
   return {
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
-    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
+    JobId: __expectString(output.JobId),
+    JobStatus: __expectString(output.JobStatus),
   } as any;
 };
 
@@ -2268,14 +2243,14 @@ const deserializeAws_json1_1TargetLanguageCodeStringList = (output: any, context
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1Term = (output: any, context: __SerdeContext): Term => {
   return {
-    SourceText: output.SourceText !== undefined && output.SourceText !== null ? output.SourceText : undefined,
-    TargetText: output.TargetText !== undefined && output.TargetText !== null ? output.TargetText : undefined,
+    SourceText: __expectString(output.SourceText),
+    TargetText: __expectString(output.TargetText),
   } as any;
 };
 
@@ -2284,20 +2259,19 @@ const deserializeAws_json1_1TerminologyDataLocation = (
   context: __SerdeContext
 ): TerminologyDataLocation => {
   return {
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
-    RepositoryType:
-      output.RepositoryType !== undefined && output.RepositoryType !== null ? output.RepositoryType : undefined,
+    Location: __expectString(output.Location),
+    RepositoryType: __expectString(output.RepositoryType),
   } as any;
 };
 
 const deserializeAws_json1_1TerminologyProperties = (output: any, context: __SerdeContext): TerminologyProperties => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: __expectString(output.Arn),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Description: __expectString(output.Description),
     EncryptionKey:
       output.EncryptionKey !== undefined && output.EncryptionKey !== null
         ? deserializeAws_json1_1EncryptionKey(output.EncryptionKey, context)
@@ -2306,17 +2280,14 @@ const deserializeAws_json1_1TerminologyProperties = (output: any, context: __Ser
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    SizeBytes: output.SizeBytes !== undefined && output.SizeBytes !== null ? output.SizeBytes : undefined,
-    SourceLanguageCode:
-      output.SourceLanguageCode !== undefined && output.SourceLanguageCode !== null
-        ? output.SourceLanguageCode
-        : undefined,
+    Name: __expectString(output.Name),
+    SizeBytes: __expectNumber(output.SizeBytes),
+    SourceLanguageCode: __expectString(output.SourceLanguageCode),
     TargetLanguageCodes:
       output.TargetLanguageCodes !== undefined && output.TargetLanguageCodes !== null
         ? deserializeAws_json1_1LanguageCodeStringList(output.TargetLanguageCodes, context)
         : undefined,
-    TermCount: output.TermCount !== undefined && output.TermCount !== null ? output.TermCount : undefined,
+    TermCount: __expectNumber(output.TermCount),
   } as any;
 };
 
@@ -2350,7 +2321,7 @@ const deserializeAws_json1_1TextSizeLimitExceededException = (
   context: __SerdeContext
 ): TextSizeLimitExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2359,10 +2330,7 @@ const deserializeAws_json1_1TextTranslationJobProperties = (
   context: __SerdeContext
 ): TextTranslationJobProperties => {
   return {
-    DataAccessRoleArn:
-      output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
-        ? output.DataAccessRoleArn
-        : undefined,
+    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
     InputDataConfig:
@@ -2373,10 +2341,10 @@ const deserializeAws_json1_1TextTranslationJobProperties = (
       output.JobDetails !== undefined && output.JobDetails !== null
         ? deserializeAws_json1_1JobDetails(output.JobDetails, context)
         : undefined,
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
-    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
-    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    JobId: __expectString(output.JobId),
+    JobName: __expectString(output.JobName),
+    JobStatus: __expectString(output.JobStatus),
+    Message: __expectString(output.Message),
     OutputDataConfig:
       output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
         ? deserializeAws_json1_1OutputDataConfig(output.OutputDataConfig, context)
@@ -2385,10 +2353,7 @@ const deserializeAws_json1_1TextTranslationJobProperties = (
       output.ParallelDataNames !== undefined && output.ParallelDataNames !== null
         ? deserializeAws_json1_1ResourceNameList(output.ParallelDataNames, context)
         : undefined,
-    SourceLanguageCode:
-      output.SourceLanguageCode !== undefined && output.SourceLanguageCode !== null
-        ? output.SourceLanguageCode
-        : undefined,
+    SourceLanguageCode: __expectString(output.SourceLanguageCode),
     SubmittedTime:
       output.SubmittedTime !== undefined && output.SubmittedTime !== null
         ? new Date(Math.round(output.SubmittedTime * 1000))
@@ -2423,7 +2388,7 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2433,16 +2398,9 @@ const deserializeAws_json1_1TranslateTextResponse = (output: any, context: __Ser
       output.AppliedTerminologies !== undefined && output.AppliedTerminologies !== null
         ? deserializeAws_json1_1AppliedTerminologyList(output.AppliedTerminologies, context)
         : undefined,
-    SourceLanguageCode:
-      output.SourceLanguageCode !== undefined && output.SourceLanguageCode !== null
-        ? output.SourceLanguageCode
-        : undefined,
-    TargetLanguageCode:
-      output.TargetLanguageCode !== undefined && output.TargetLanguageCode !== null
-        ? output.TargetLanguageCode
-        : undefined,
-    TranslatedText:
-      output.TranslatedText !== undefined && output.TranslatedText !== null ? output.TranslatedText : undefined,
+    SourceLanguageCode: __expectString(output.SourceLanguageCode),
+    TargetLanguageCode: __expectString(output.TargetLanguageCode),
+    TranslatedText: __expectString(output.TranslatedText),
   } as any;
 };
 
@@ -2451,15 +2409,9 @@ const deserializeAws_json1_1UnsupportedLanguagePairException = (
   context: __SerdeContext
 ): UnsupportedLanguagePairException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    SourceLanguageCode:
-      output.SourceLanguageCode !== undefined && output.SourceLanguageCode !== null
-        ? output.SourceLanguageCode
-        : undefined,
-    TargetLanguageCode:
-      output.TargetLanguageCode !== undefined && output.TargetLanguageCode !== null
-        ? output.TargetLanguageCode
-        : undefined,
+    Message: __expectString(output.Message),
+    SourceLanguageCode: __expectString(output.SourceLanguageCode),
+    TargetLanguageCode: __expectString(output.TargetLanguageCode),
   } as any;
 };
 
@@ -2472,12 +2424,9 @@ const deserializeAws_json1_1UpdateParallelDataResponse = (
       output.LatestUpdateAttemptAt !== undefined && output.LatestUpdateAttemptAt !== null
         ? new Date(Math.round(output.LatestUpdateAttemptAt * 1000))
         : undefined,
-    LatestUpdateAttemptStatus:
-      output.LatestUpdateAttemptStatus !== undefined && output.LatestUpdateAttemptStatus !== null
-        ? output.LatestUpdateAttemptStatus
-        : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    LatestUpdateAttemptStatus: __expectString(output.LatestUpdateAttemptStatus),
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
   } as any;
 };
 
