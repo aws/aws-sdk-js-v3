@@ -41,6 +41,11 @@ import {
   PutAndGetInlineDocumentsCommandInput,
   PutAndGetInlineDocumentsCommandOutput,
 } from "./commands/PutAndGetInlineDocumentsCommand";
+import {
+  SimpleScalarPropertiesCommand,
+  SimpleScalarPropertiesCommandInput,
+  SimpleScalarPropertiesCommandOutput,
+} from "./commands/SimpleScalarPropertiesCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 export class JsonProtocol extends JsonProtocolClient {
@@ -331,6 +336,35 @@ export class JsonProtocol extends JsonProtocolClient {
     cb?: (err: any, data?: PutAndGetInlineDocumentsCommandOutput) => void
   ): Promise<PutAndGetInlineDocumentsCommandOutput> | void {
     const command = new PutAndGetInlineDocumentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public simpleScalarProperties(
+    args: SimpleScalarPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SimpleScalarPropertiesCommandOutput>;
+  public simpleScalarProperties(
+    args: SimpleScalarPropertiesCommandInput,
+    cb: (err: any, data?: SimpleScalarPropertiesCommandOutput) => void
+  ): void;
+  public simpleScalarProperties(
+    args: SimpleScalarPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SimpleScalarPropertiesCommandOutput) => void
+  ): void;
+  public simpleScalarProperties(
+    args: SimpleScalarPropertiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SimpleScalarPropertiesCommandOutput) => void),
+    cb?: (err: any, data?: SimpleScalarPropertiesCommandOutput) => void
+  ): Promise<SimpleScalarPropertiesCommandOutput> | void {
+    const command = new SimpleScalarPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

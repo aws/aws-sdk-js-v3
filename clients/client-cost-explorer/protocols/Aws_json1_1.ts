@@ -251,6 +251,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2878,7 +2880,7 @@ const serializeAws_json1_1AnomalySubscription = (input: AnomalySubscription, con
       input.SubscriptionArn !== null && { SubscriptionArn: input.SubscriptionArn }),
     ...(input.SubscriptionName !== undefined &&
       input.SubscriptionName !== null && { SubscriptionName: input.SubscriptionName }),
-    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: input.Threshold }),
+    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: __serializeFloat(input.Threshold) }),
   };
 };
 
@@ -3516,10 +3518,11 @@ const serializeAws_json1_1TagValues = (input: TagValues, context: __SerdeContext
 
 const serializeAws_json1_1TotalImpactFilter = (input: TotalImpactFilter, context: __SerdeContext): any => {
   return {
-    ...(input.EndValue !== undefined && input.EndValue !== null && { EndValue: input.EndValue }),
+    ...(input.EndValue !== undefined && input.EndValue !== null && { EndValue: __serializeFloat(input.EndValue) }),
     ...(input.NumericOperator !== undefined &&
       input.NumericOperator !== null && { NumericOperator: input.NumericOperator }),
-    ...(input.StartValue !== undefined && input.StartValue !== null && { StartValue: input.StartValue }),
+    ...(input.StartValue !== undefined &&
+      input.StartValue !== null && { StartValue: __serializeFloat(input.StartValue) }),
   };
 };
 
@@ -3549,7 +3552,7 @@ const serializeAws_json1_1UpdateAnomalySubscriptionRequest = (
       input.SubscriptionArn !== null && { SubscriptionArn: input.SubscriptionArn }),
     ...(input.SubscriptionName !== undefined &&
       input.SubscriptionName !== null && { SubscriptionName: input.SubscriptionName }),
-    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: input.Threshold }),
+    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: __serializeFloat(input.Threshold) }),
   };
 };
 
@@ -3642,8 +3645,8 @@ const deserializeAws_json1_1AnomalyMonitors = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1AnomalyScore = (output: any, context: __SerdeContext): AnomalyScore => {
   return {
-    CurrentScore: __expectNumber(output.CurrentScore),
-    MaxScore: __expectNumber(output.MaxScore),
+    CurrentScore: __handleFloat(output.CurrentScore),
+    MaxScore: __handleFloat(output.MaxScore),
   } as any;
 };
 
@@ -3661,7 +3664,7 @@ const deserializeAws_json1_1AnomalySubscription = (output: any, context: __Serde
         : undefined,
     SubscriptionArn: __expectString(output.SubscriptionArn),
     SubscriptionName: __expectString(output.SubscriptionName),
-    Threshold: __expectNumber(output.Threshold),
+    Threshold: __handleFloat(output.Threshold),
   } as any;
 };
 
@@ -4577,8 +4580,8 @@ const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Gro
 
 const deserializeAws_json1_1Impact = (output: any, context: __SerdeContext): Impact => {
   return {
-    MaxImpact: __expectNumber(output.MaxImpact),
-    TotalImpact: __expectNumber(output.TotalImpact),
+    MaxImpact: __handleFloat(output.MaxImpact),
+    TotalImpact: __handleFloat(output.TotalImpact),
   } as any;
 };
 

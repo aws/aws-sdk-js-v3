@@ -116,6 +116,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1221,7 +1223,7 @@ export const serializeAws_restJson1PutBotCommand = async (
     ...(input.locale !== undefined && input.locale !== null && { locale: input.locale }),
     ...(input.nluIntentConfidenceThreshold !== undefined &&
       input.nluIntentConfidenceThreshold !== null && {
-        nluIntentConfidenceThreshold: input.nluIntentConfidenceThreshold,
+        nluIntentConfidenceThreshold: __serializeFloat(input.nluIntentConfidenceThreshold),
       }),
     ...(input.processBehavior !== undefined &&
       input.processBehavior !== null && { processBehavior: input.processBehavior }),
@@ -2834,7 +2836,7 @@ export const deserializeAws_restJson1GetBotCommand = async (
     contents.name = __expectString(data.name);
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = __expectNumber(data.nluIntentConfidenceThreshold);
+    contents.nluIntentConfidenceThreshold = __handleFloat(data.nluIntentConfidenceThreshold);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);
@@ -4717,7 +4719,7 @@ export const deserializeAws_restJson1PutBotCommand = async (
     contents.name = __expectString(data.name);
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = __expectNumber(data.nluIntentConfidenceThreshold);
+    contents.nluIntentConfidenceThreshold = __handleFloat(data.nluIntentConfidenceThreshold);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = __expectString(data.status);

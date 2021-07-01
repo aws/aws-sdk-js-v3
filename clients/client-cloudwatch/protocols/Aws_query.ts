@@ -184,6 +184,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3364,7 +3365,7 @@ const serializeAws_queryCounts = (input: number[], context: __SerdeContext): any
     if (entry === null) {
       continue;
     }
-    entries[`member.${counter}`] = entry;
+    entries[`member.${counter}`] = __serializeFloat(entry);
     counter++;
   }
   return entries;
@@ -4038,7 +4039,7 @@ const serializeAws_queryMetricDatum = (input: MetricDatum, context: __SerdeConte
     entries["Timestamp"] = input.Timestamp.toISOString().split(".")[0] + "Z";
   }
   if (input.Value !== undefined && input.Value !== null) {
-    entries["Value"] = input.Value;
+    entries["Value"] = __serializeFloat(input.Value);
   }
   if (input.StatisticValues !== undefined && input.StatisticValues !== null) {
     const memberEntries = serializeAws_queryStatisticSet(input.StatisticValues, context);
@@ -4297,7 +4298,7 @@ const serializeAws_queryPutMetricAlarmInput = (input: PutMetricAlarmInput, conte
     entries["DatapointsToAlarm"] = input.DatapointsToAlarm;
   }
   if (input.Threshold !== undefined && input.Threshold !== null) {
-    entries["Threshold"] = input.Threshold;
+    entries["Threshold"] = __serializeFloat(input.Threshold);
   }
   if (input.ComparisonOperator !== undefined && input.ComparisonOperator !== null) {
     entries["ComparisonOperator"] = input.ComparisonOperator;
@@ -4450,16 +4451,16 @@ const serializeAws_queryStatistics = (input: (Statistic | string)[], context: __
 const serializeAws_queryStatisticSet = (input: StatisticSet, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SampleCount !== undefined && input.SampleCount !== null) {
-    entries["SampleCount"] = input.SampleCount;
+    entries["SampleCount"] = __serializeFloat(input.SampleCount);
   }
   if (input.Sum !== undefined && input.Sum !== null) {
-    entries["Sum"] = input.Sum;
+    entries["Sum"] = __serializeFloat(input.Sum);
   }
   if (input.Minimum !== undefined && input.Minimum !== null) {
-    entries["Minimum"] = input.Minimum;
+    entries["Minimum"] = __serializeFloat(input.Minimum);
   }
   if (input.Maximum !== undefined && input.Maximum !== null) {
-    entries["Maximum"] = input.Maximum;
+    entries["Maximum"] = __serializeFloat(input.Maximum);
   }
   return entries;
 };
@@ -4553,7 +4554,7 @@ const serializeAws_queryValues = (input: number[], context: __SerdeContext): any
     if (entry === null) {
       continue;
     }
-    entries[`member.${counter}`] = entry;
+    entries[`member.${counter}`] = __serializeFloat(entry);
     counter++;
   }
   return entries;

@@ -240,6 +240,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -9386,7 +9388,7 @@ const serializeAws_restJson1AdditionalVersionWeights = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __serializeFloat(value),
     };
   }, {});
 };
@@ -9742,7 +9744,7 @@ const deserializeAws_restJson1AdditionalVersionWeights = (
     }
     return {
       ...acc,
-      [key]: __expectNumber(value) as any,
+      [key]: __handleFloat(value) as any,
     };
   }, {});
 };

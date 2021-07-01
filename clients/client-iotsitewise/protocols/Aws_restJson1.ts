@@ -197,6 +197,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -8250,7 +8252,8 @@ const serializeAws_restJson1VariableValue = (input: VariableValue, context: __Se
 const serializeAws_restJson1Variant = (input: Variant, context: __SerdeContext): any => {
   return {
     ...(input.booleanValue !== undefined && input.booleanValue !== null && { booleanValue: input.booleanValue }),
-    ...(input.doubleValue !== undefined && input.doubleValue !== null && { doubleValue: input.doubleValue }),
+    ...(input.doubleValue !== undefined &&
+      input.doubleValue !== null && { doubleValue: __serializeFloat(input.doubleValue) }),
     ...(input.integerValue !== undefined && input.integerValue !== null && { integerValue: input.integerValue }),
     ...(input.stringValue !== undefined && input.stringValue !== null && { stringValue: input.stringValue }),
   };
@@ -8317,12 +8320,12 @@ const deserializeAws_restJson1AggregatedValues = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Aggregates = (output: any, context: __SerdeContext): Aggregates => {
   return {
-    average: __expectNumber(output.average),
-    count: __expectNumber(output.count),
-    maximum: __expectNumber(output.maximum),
-    minimum: __expectNumber(output.minimum),
-    standardDeviation: __expectNumber(output.standardDeviation),
-    sum: __expectNumber(output.sum),
+    average: __handleFloat(output.average),
+    count: __handleFloat(output.count),
+    maximum: __handleFloat(output.maximum),
+    minimum: __handleFloat(output.minimum),
+    standardDeviation: __handleFloat(output.standardDeviation),
+    sum: __handleFloat(output.sum),
   } as any;
 };
 
@@ -9250,7 +9253,7 @@ const deserializeAws_restJson1VariableValue = (output: any, context: __SerdeCont
 const deserializeAws_restJson1Variant = (output: any, context: __SerdeContext): Variant => {
   return {
     booleanValue: __expectBoolean(output.booleanValue),
-    doubleValue: __expectNumber(output.doubleValue),
+    doubleValue: __handleFloat(output.doubleValue),
     integerValue: __expectNumber(output.integerValue),
     stringValue: __expectString(output.stringValue),
   } as any;

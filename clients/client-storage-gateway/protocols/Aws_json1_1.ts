@@ -454,6 +454,7 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -8633,7 +8634,7 @@ const deserializeAws_json1_1CachediSCSIVolume = (output: any, context: __SerdeCo
     VolumeARN: __expectString(output.VolumeARN),
     VolumeAttachmentStatus: __expectString(output.VolumeAttachmentStatus),
     VolumeId: __expectString(output.VolumeId),
-    VolumeProgress: __expectNumber(output.VolumeProgress),
+    VolumeProgress: __handleFloat(output.VolumeProgress),
     VolumeSizeInBytes: __expectNumber(output.VolumeSizeInBytes),
     VolumeStatus: __expectString(output.VolumeStatus),
     VolumeType: __expectString(output.VolumeType),
@@ -8909,10 +8910,10 @@ const deserializeAws_json1_1DescribeCachediSCSIVolumesOutput = (
 const deserializeAws_json1_1DescribeCacheOutput = (output: any, context: __SerdeContext): DescribeCacheOutput => {
   return {
     CacheAllocatedInBytes: __expectNumber(output.CacheAllocatedInBytes),
-    CacheDirtyPercentage: __expectNumber(output.CacheDirtyPercentage),
-    CacheHitPercentage: __expectNumber(output.CacheHitPercentage),
-    CacheMissPercentage: __expectNumber(output.CacheMissPercentage),
-    CacheUsedPercentage: __expectNumber(output.CacheUsedPercentage),
+    CacheDirtyPercentage: __handleFloat(output.CacheDirtyPercentage),
+    CacheHitPercentage: __handleFloat(output.CacheHitPercentage),
+    CacheMissPercentage: __handleFloat(output.CacheMissPercentage),
+    CacheUsedPercentage: __handleFloat(output.CacheUsedPercentage),
     DiskIds:
       output.DiskIds !== undefined && output.DiskIds !== null
         ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
@@ -9784,7 +9785,7 @@ const deserializeAws_json1_1StorediSCSIVolume = (output: any, context: __SerdeCo
     VolumeAttachmentStatus: __expectString(output.VolumeAttachmentStatus),
     VolumeDiskId: __expectString(output.VolumeDiskId),
     VolumeId: __expectString(output.VolumeId),
-    VolumeProgress: __expectNumber(output.VolumeProgress),
+    VolumeProgress: __handleFloat(output.VolumeProgress),
     VolumeSizeInBytes: __expectNumber(output.VolumeSizeInBytes),
     VolumeStatus: __expectString(output.VolumeStatus),
     VolumeType: __expectString(output.VolumeType),
@@ -9833,7 +9834,7 @@ const deserializeAws_json1_1Tape = (output: any, context: __SerdeContext): Tape 
         ? new Date(Math.round(output.PoolEntryDate * 1000))
         : undefined,
     PoolId: __expectString(output.PoolId),
-    Progress: __expectNumber(output.Progress),
+    Progress: __handleFloat(output.Progress),
     RetentionStartDate:
       output.RetentionStartDate !== undefined && output.RetentionStartDate !== null
         ? new Date(Math.round(output.RetentionStartDate * 1000))

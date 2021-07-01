@@ -417,6 +417,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -16201,8 +16203,8 @@ const serializeAws_restJson1EndpointLocation = (input: EndpointLocation, context
   return {
     ...(input.City !== undefined && input.City !== null && { City: input.City }),
     ...(input.Country !== undefined && input.Country !== null && { Country: input.Country }),
-    ...(input.Latitude !== undefined && input.Latitude !== null && { Latitude: input.Latitude }),
-    ...(input.Longitude !== undefined && input.Longitude !== null && { Longitude: input.Longitude }),
+    ...(input.Latitude !== undefined && input.Latitude !== null && { Latitude: __serializeFloat(input.Latitude) }),
+    ...(input.Longitude !== undefined && input.Longitude !== null && { Longitude: __serializeFloat(input.Longitude) }),
     ...(input.PostalCode !== undefined && input.PostalCode !== null && { PostalCode: input.PostalCode }),
     ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
   };
@@ -16383,8 +16385,8 @@ const serializeAws_restJson1GCMMessage = (input: GCMMessage, context: __SerdeCon
 
 const serializeAws_restJson1GPSCoordinates = (input: GPSCoordinates, context: __SerdeContext): any => {
   return {
-    ...(input.Latitude !== undefined && input.Latitude !== null && { Latitude: input.Latitude }),
-    ...(input.Longitude !== undefined && input.Longitude !== null && { Longitude: input.Longitude }),
+    ...(input.Latitude !== undefined && input.Latitude !== null && { Latitude: __serializeFloat(input.Latitude) }),
+    ...(input.Longitude !== undefined && input.Longitude !== null && { Longitude: __serializeFloat(input.Longitude) }),
   };
 };
 
@@ -16393,7 +16395,7 @@ const serializeAws_restJson1GPSPointDimension = (input: GPSPointDimension, conte
     ...(input.Coordinates !== undefined &&
       input.Coordinates !== null && { Coordinates: serializeAws_restJson1GPSCoordinates(input.Coordinates, context) }),
     ...(input.RangeInKilometers !== undefined &&
-      input.RangeInKilometers !== null && { RangeInKilometers: input.RangeInKilometers }),
+      input.RangeInKilometers !== null && { RangeInKilometers: __serializeFloat(input.RangeInKilometers) }),
   };
 };
 
@@ -16601,7 +16603,7 @@ const serializeAws_restJson1MapOf__double = (input: { [key: string]: number }, c
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __serializeFloat(value),
     };
   }, {});
 };
@@ -16808,7 +16810,7 @@ const serializeAws_restJson1MetricDimension = (input: MetricDimension, context: 
   return {
     ...(input.ComparisonOperator !== undefined &&
       input.ComparisonOperator !== null && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: __serializeFloat(input.Value) }),
   };
 };
 
@@ -18087,8 +18089,8 @@ const deserializeAws_restJson1EndpointLocation = (output: any, context: __SerdeC
   return {
     City: __expectString(output.City),
     Country: __expectString(output.Country),
-    Latitude: __expectNumber(output.Latitude),
-    Longitude: __expectNumber(output.Longitude),
+    Latitude: __handleFloat(output.Latitude),
+    Longitude: __handleFloat(output.Longitude),
     PostalCode: __expectString(output.PostalCode),
     Region: __expectString(output.Region),
   } as any;
@@ -18294,8 +18296,8 @@ const deserializeAws_restJson1GCMChannelResponse = (output: any, context: __Serd
 
 const deserializeAws_restJson1GPSCoordinates = (output: any, context: __SerdeContext): GPSCoordinates => {
   return {
-    Latitude: __expectNumber(output.Latitude),
-    Longitude: __expectNumber(output.Longitude),
+    Latitude: __handleFloat(output.Latitude),
+    Longitude: __handleFloat(output.Longitude),
   } as any;
 };
 
@@ -18305,7 +18307,7 @@ const deserializeAws_restJson1GPSPointDimension = (output: any, context: __Serde
       output.Coordinates !== undefined && output.Coordinates !== null
         ? deserializeAws_restJson1GPSCoordinates(output.Coordinates, context)
         : undefined,
-    RangeInKilometers: __expectNumber(output.RangeInKilometers),
+    RangeInKilometers: __handleFloat(output.RangeInKilometers),
   } as any;
 };
 
@@ -18798,7 +18800,7 @@ const deserializeAws_restJson1MapOf__double = (output: any, context: __SerdeCont
     }
     return {
       ...acc,
-      [key]: __expectNumber(value) as any,
+      [key]: __handleFloat(value) as any,
     };
   }, {});
 };
@@ -19066,7 +19068,7 @@ const deserializeAws_restJson1MessageResult = (output: any, context: __SerdeCont
 const deserializeAws_restJson1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   return {
     ComparisonOperator: __expectString(output.ComparisonOperator),
-    Value: __expectNumber(output.Value),
+    Value: __handleFloat(output.Value),
   } as any;
 };
 

@@ -162,6 +162,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3123,7 +3124,7 @@ const serializeAws_queryDomainNameList = (input: string[], context: __SerdeConte
 const serializeAws_queryDoubleArrayOptions = (input: DoubleArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
-    entries["DefaultValue"] = input.DefaultValue;
+    entries["DefaultValue"] = __serializeFloat(input.DefaultValue);
   }
   if (input.SourceFields !== undefined && input.SourceFields !== null) {
     entries["SourceFields"] = input.SourceFields;
@@ -3143,7 +3144,7 @@ const serializeAws_queryDoubleArrayOptions = (input: DoubleArrayOptions, context
 const serializeAws_queryDoubleOptions = (input: DoubleOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
-    entries["DefaultValue"] = input.DefaultValue;
+    entries["DefaultValue"] = __serializeFloat(input.DefaultValue);
   }
   if (input.SourceField !== undefined && input.SourceField !== null) {
     entries["SourceField"] = input.SourceField;

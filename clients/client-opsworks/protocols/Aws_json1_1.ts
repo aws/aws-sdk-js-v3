@@ -314,6 +314,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5778,13 +5780,15 @@ const serializeAws_json1_1AutoScalingThresholds = (input: AutoScalingThresholds,
   return {
     ...(input.Alarms !== undefined &&
       input.Alarms !== null && { Alarms: serializeAws_json1_1Strings(input.Alarms, context) }),
-    ...(input.CpuThreshold !== undefined && input.CpuThreshold !== null && { CpuThreshold: input.CpuThreshold }),
+    ...(input.CpuThreshold !== undefined &&
+      input.CpuThreshold !== null && { CpuThreshold: __serializeFloat(input.CpuThreshold) }),
     ...(input.IgnoreMetricsTime !== undefined &&
       input.IgnoreMetricsTime !== null && { IgnoreMetricsTime: input.IgnoreMetricsTime }),
     ...(input.InstanceCount !== undefined && input.InstanceCount !== null && { InstanceCount: input.InstanceCount }),
-    ...(input.LoadThreshold !== undefined && input.LoadThreshold !== null && { LoadThreshold: input.LoadThreshold }),
+    ...(input.LoadThreshold !== undefined &&
+      input.LoadThreshold !== null && { LoadThreshold: __serializeFloat(input.LoadThreshold) }),
     ...(input.MemoryThreshold !== undefined &&
-      input.MemoryThreshold !== null && { MemoryThreshold: input.MemoryThreshold }),
+      input.MemoryThreshold !== null && { MemoryThreshold: __serializeFloat(input.MemoryThreshold) }),
     ...(input.ThresholdsWaitTime !== undefined &&
       input.ThresholdsWaitTime !== null && { ThresholdsWaitTime: input.ThresholdsWaitTime }),
   };
@@ -7130,11 +7134,11 @@ const deserializeAws_json1_1AutoScalingThresholds = (output: any, context: __Ser
       output.Alarms !== undefined && output.Alarms !== null
         ? deserializeAws_json1_1Strings(output.Alarms, context)
         : undefined,
-    CpuThreshold: __expectNumber(output.CpuThreshold),
+    CpuThreshold: __handleFloat(output.CpuThreshold),
     IgnoreMetricsTime: __expectNumber(output.IgnoreMetricsTime),
     InstanceCount: __expectNumber(output.InstanceCount),
-    LoadThreshold: __expectNumber(output.LoadThreshold),
-    MemoryThreshold: __expectNumber(output.MemoryThreshold),
+    LoadThreshold: __handleFloat(output.LoadThreshold),
+    MemoryThreshold: __handleFloat(output.MemoryThreshold),
     ThresholdsWaitTime: __expectNumber(output.ThresholdsWaitTime),
   } as any;
 };

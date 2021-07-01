@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -224,7 +224,7 @@ const serializeAws_json1_1QueryForecastRequest = (input: QueryForecastRequest, c
 const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): DataPoint => {
   return {
     Timestamp: __expectString(output.Timestamp),
-    Value: __expectNumber(output.Value),
+    Value: __handleFloat(output.Value),
   } as any;
 };
 

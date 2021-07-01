@@ -748,6 +748,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -18415,7 +18417,7 @@ const serializeAws_json1_1PutAlarmRequest = (input: PutAlarmRequest, context: __
       input.notificationTriggers !== null && {
         notificationTriggers: serializeAws_json1_1NotificationTriggerList(input.notificationTriggers, context),
       }),
-    ...(input.threshold !== undefined && input.threshold !== null && { threshold: input.threshold }),
+    ...(input.threshold !== undefined && input.threshold !== null && { threshold: __serializeFloat(input.threshold) }),
     ...(input.treatMissingData !== undefined &&
       input.treatMissingData !== null && { treatMissingData: input.treatMissingData }),
   };
@@ -18853,7 +18855,7 @@ const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alar
     state: __expectString(output.state),
     statistic: __expectString(output.statistic),
     supportCode: __expectString(output.supportCode),
-    threshold: __expectNumber(output.threshold),
+    threshold: __handleFloat(output.threshold),
     treatMissingData: __expectString(output.treatMissingData),
     unit: __expectString(output.unit),
   } as any;
@@ -19032,8 +19034,8 @@ const deserializeAws_json1_1Bundle = (output: any, context: __SerdeContext): Bun
     isActive: __expectBoolean(output.isActive),
     name: __expectString(output.name),
     power: __expectNumber(output.power),
-    price: __expectNumber(output.price),
-    ramSizeInGb: __expectNumber(output.ramSizeInGb),
+    price: __handleFloat(output.price),
+    ramSizeInGb: __handleFloat(output.ramSizeInGb),
     supportedPlatforms:
       output.supportedPlatforms !== undefined && output.supportedPlatforms !== null
         ? deserializeAws_json1_1InstancePlatformList(output.supportedPlatforms, context)
@@ -19532,12 +19534,12 @@ const deserializeAws_json1_1ContainerServiceMetadataEntryList = (
 
 const deserializeAws_json1_1ContainerServicePower = (output: any, context: __SerdeContext): ContainerServicePower => {
   return {
-    cpuCount: __expectNumber(output.cpuCount),
+    cpuCount: __handleFloat(output.cpuCount),
     isActive: __expectBoolean(output.isActive),
     name: __expectString(output.name),
     powerId: __expectString(output.powerId),
-    price: __expectNumber(output.price),
-    ramSizeInGb: __expectNumber(output.ramSizeInGb),
+    price: __handleFloat(output.price),
+    ramSizeInGb: __handleFloat(output.ramSizeInGb),
   } as any;
 };
 
@@ -20268,7 +20270,7 @@ const deserializeAws_json1_1DistributionBundle = (output: any, context: __SerdeC
     bundleId: __expectString(output.bundleId),
     isActive: __expectBoolean(output.isActive),
     name: __expectString(output.name),
-    price: __expectNumber(output.price),
+    price: __handleFloat(output.price),
     transferPerMonthInGb: __expectNumber(output.transferPerMonthInGb),
   } as any;
 };
@@ -21279,7 +21281,7 @@ const deserializeAws_json1_1InstanceHardware = (output: any, context: __SerdeCon
       output.disks !== undefined && output.disks !== null
         ? deserializeAws_json1_1DiskList(output.disks, context)
         : undefined,
-    ramSizeInGb: __expectNumber(output.ramSizeInGb),
+    ramSizeInGb: __handleFloat(output.ramSizeInGb),
   } as any;
 };
 
@@ -21846,11 +21848,11 @@ const deserializeAws_json1_1LogEventList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1MetricDatapoint = (output: any, context: __SerdeContext): MetricDatapoint => {
   return {
-    average: __expectNumber(output.average),
-    maximum: __expectNumber(output.maximum),
-    minimum: __expectNumber(output.minimum),
-    sampleCount: __expectNumber(output.sampleCount),
-    sum: __expectNumber(output.sum),
+    average: __handleFloat(output.average),
+    maximum: __handleFloat(output.maximum),
+    minimum: __handleFloat(output.minimum),
+    sampleCount: __handleFloat(output.sampleCount),
+    sum: __handleFloat(output.sum),
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
         ? new Date(Math.round(output.timestamp * 1000))
@@ -22247,8 +22249,8 @@ const deserializeAws_json1_1RelationalDatabaseBundle = (
     isActive: __expectBoolean(output.isActive),
     isEncrypted: __expectBoolean(output.isEncrypted),
     name: __expectString(output.name),
-    price: __expectNumber(output.price),
-    ramSizeInGb: __expectNumber(output.ramSizeInGb),
+    price: __handleFloat(output.price),
+    ramSizeInGb: __handleFloat(output.ramSizeInGb),
     transferPerMonthInGb: __expectNumber(output.transferPerMonthInGb),
   } as any;
 };
@@ -22316,7 +22318,7 @@ const deserializeAws_json1_1RelationalDatabaseHardware = (
   return {
     cpuCount: __expectNumber(output.cpuCount),
     diskSizeInGb: __expectNumber(output.diskSizeInGb),
-    ramSizeInGb: __expectNumber(output.ramSizeInGb),
+    ramSizeInGb: __handleFloat(output.ramSizeInGb),
   } as any;
 };
 

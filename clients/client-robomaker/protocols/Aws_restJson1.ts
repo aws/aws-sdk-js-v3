@@ -237,6 +237,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -8383,7 +8384,7 @@ const deserializeAws_restJson1ProgressDetail = (output: any, context: __SerdeCon
   return {
     currentProgress: __expectString(output.currentProgress),
     estimatedTimeRemainingSeconds: __expectNumber(output.estimatedTimeRemainingSeconds),
-    percentDone: __expectNumber(output.percentDone),
+    percentDone: __handleFloat(output.percentDone),
     targetResource: __expectString(output.targetResource),
   } as any;
 };

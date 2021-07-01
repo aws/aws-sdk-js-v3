@@ -1352,6 +1352,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -19530,7 +19532,8 @@ const serializeAws_json1_1DesiredWeightAndCapacity = (
   return {
     ...(input.DesiredInstanceCount !== undefined &&
       input.DesiredInstanceCount !== null && { DesiredInstanceCount: input.DesiredInstanceCount }),
-    ...(input.DesiredWeight !== undefined && input.DesiredWeight !== null && { DesiredWeight: input.DesiredWeight }),
+    ...(input.DesiredWeight !== undefined &&
+      input.DesiredWeight !== null && { DesiredWeight: __serializeFloat(input.DesiredWeight) }),
     ...(input.VariantName !== undefined && input.VariantName !== null && { VariantName: input.VariantName }),
   };
 };
@@ -19629,7 +19632,7 @@ const serializeAws_json1_1EndpointInput = (input: EndpointInput, context: __Serd
       input.ProbabilityAttribute !== null && { ProbabilityAttribute: input.ProbabilityAttribute }),
     ...(input.ProbabilityThresholdAttribute !== undefined &&
       input.ProbabilityThresholdAttribute !== null && {
-        ProbabilityThresholdAttribute: input.ProbabilityThresholdAttribute,
+        ProbabilityThresholdAttribute: __serializeFloat(input.ProbabilityThresholdAttribute),
       }),
     ...(input.S3DataDistributionType !== undefined &&
       input.S3DataDistributionType !== null && { S3DataDistributionType: input.S3DataDistributionType }),
@@ -22532,7 +22535,7 @@ const serializeAws_json1_1ProductionVariant = (input: ProductionVariant, context
     ...(input.InitialInstanceCount !== undefined &&
       input.InitialInstanceCount !== null && { InitialInstanceCount: input.InitialInstanceCount }),
     ...(input.InitialVariantWeight !== undefined &&
-      input.InitialVariantWeight !== null && { InitialVariantWeight: input.InitialVariantWeight }),
+      input.InitialVariantWeight !== null && { InitialVariantWeight: __serializeFloat(input.InitialVariantWeight) }),
     ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
     ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
     ...(input.VariantName !== undefined && input.VariantName !== null && { VariantName: input.VariantName }),
@@ -23476,7 +23479,7 @@ const serializeAws_json1_1TrialComponentParameterValue = (
   context: __SerdeContext
 ): any => {
   return TrialComponentParameterValue.visit(input, {
-    NumberValue: (value) => ({ NumberValue: value }),
+    NumberValue: (value) => ({ NumberValue: __serializeFloat(value) }),
     StringValue: (value) => ({ StringValue: value }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -23495,7 +23498,9 @@ const serializeAws_json1_1TuningJobCompletionCriteria = (
 ): any => {
   return {
     ...(input.TargetObjectiveMetricValue !== undefined &&
-      input.TargetObjectiveMetricValue !== null && { TargetObjectiveMetricValue: input.TargetObjectiveMetricValue }),
+      input.TargetObjectiveMetricValue !== null && {
+        TargetObjectiveMetricValue: __serializeFloat(input.TargetObjectiveMetricValue),
+      }),
   };
 };
 
@@ -27863,7 +27868,7 @@ const deserializeAws_json1_1EndpointInput = (output: any, context: __SerdeContex
     InferenceAttribute: __expectString(output.InferenceAttribute),
     LocalPath: __expectString(output.LocalPath),
     ProbabilityAttribute: __expectString(output.ProbabilityAttribute),
-    ProbabilityThresholdAttribute: __expectNumber(output.ProbabilityThresholdAttribute),
+    ProbabilityThresholdAttribute: __handleFloat(output.ProbabilityThresholdAttribute),
     S3DataDistributionType: __expectString(output.S3DataDistributionType),
     S3InputMode: __expectString(output.S3InputMode),
     StartTimeOffset: __expectString(output.StartTimeOffset),
@@ -28103,7 +28108,7 @@ const deserializeAws_json1_1FinalAutoMLJobObjectiveMetric = (
   return {
     MetricName: __expectString(output.MetricName),
     Type: __expectString(output.Type),
-    Value: __expectNumber(output.Value),
+    Value: __handleFloat(output.Value),
   } as any;
 };
 
@@ -28114,7 +28119,7 @@ const deserializeAws_json1_1FinalHyperParameterTuningJobObjectiveMetric = (
   return {
     MetricName: __expectString(output.MetricName),
     Type: __expectString(output.Type),
-    Value: __expectNumber(output.Value),
+    Value: __handleFloat(output.Value),
   } as any;
 };
 
@@ -29808,7 +29813,7 @@ const deserializeAws_json1_1MetricData = (output: any, context: __SerdeContext):
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Value: __expectNumber(output.Value),
+    Value: __handleFloat(output.Value),
   } as any;
 };
 
@@ -31535,7 +31540,7 @@ const deserializeAws_json1_1ProductionVariant = (output: any, context: __SerdeCo
         ? deserializeAws_json1_1ProductionVariantCoreDumpConfig(output.CoreDumpConfig, context)
         : undefined,
     InitialInstanceCount: __expectNumber(output.InitialInstanceCount),
-    InitialVariantWeight: __expectNumber(output.InitialVariantWeight),
+    InitialVariantWeight: __handleFloat(output.InitialVariantWeight),
     InstanceType: __expectString(output.InstanceType),
     ModelName: __expectString(output.ModelName),
     VariantName: __expectString(output.VariantName),
@@ -31569,13 +31574,13 @@ const deserializeAws_json1_1ProductionVariantSummary = (
 ): ProductionVariantSummary => {
   return {
     CurrentInstanceCount: __expectNumber(output.CurrentInstanceCount),
-    CurrentWeight: __expectNumber(output.CurrentWeight),
+    CurrentWeight: __handleFloat(output.CurrentWeight),
     DeployedImages:
       output.DeployedImages !== undefined && output.DeployedImages !== null
         ? deserializeAws_json1_1DeployedImages(output.DeployedImages, context)
         : undefined,
     DesiredInstanceCount: __expectNumber(output.DesiredInstanceCount),
-    DesiredWeight: __expectNumber(output.DesiredWeight),
+    DesiredWeight: __handleFloat(output.DesiredWeight),
     VariantName: __expectString(output.VariantName),
   } as any;
 };
@@ -32892,14 +32897,14 @@ const deserializeAws_json1_1TrialComponentMetricSummary = (
   context: __SerdeContext
 ): TrialComponentMetricSummary => {
   return {
-    Avg: __expectNumber(output.Avg),
+    Avg: __handleFloat(output.Avg),
     Count: __expectNumber(output.Count),
-    Last: __expectNumber(output.Last),
-    Max: __expectNumber(output.Max),
+    Last: __handleFloat(output.Last),
+    Max: __handleFloat(output.Max),
     MetricName: __expectString(output.MetricName),
-    Min: __expectNumber(output.Min),
+    Min: __handleFloat(output.Min),
     SourceArn: __expectString(output.SourceArn),
-    StdDev: __expectNumber(output.StdDev),
+    StdDev: __handleFloat(output.StdDev),
     TimeStamp:
       output.TimeStamp !== undefined && output.TimeStamp !== null
         ? new Date(Math.round(output.TimeStamp * 1000))
@@ -32929,8 +32934,8 @@ const deserializeAws_json1_1TrialComponentParameterValue = (
   output: any,
   context: __SerdeContext
 ): TrialComponentParameterValue => {
-  if (__expectNumber(output.NumberValue) !== undefined) {
-    return { NumberValue: __expectNumber(output.NumberValue) as any };
+  if (__handleFloat(output.NumberValue) !== undefined) {
+    return { NumberValue: __handleFloat(output.NumberValue) as any };
   }
   if (__expectString(output.StringValue) !== undefined) {
     return { StringValue: __expectString(output.StringValue) as any };
@@ -33104,7 +33109,7 @@ const deserializeAws_json1_1TuningJobCompletionCriteria = (
   context: __SerdeContext
 ): TuningJobCompletionCriteria => {
   return {
-    TargetObjectiveMetricValue: __expectNumber(output.TargetObjectiveMetricValue),
+    TargetObjectiveMetricValue: __handleFloat(output.TargetObjectiveMetricValue),
   } as any;
 };
 

@@ -275,6 +275,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4968,7 +4970,7 @@ const serializeAws_json1_1CreateEndpointGroupRequest = (
     ...(input.ThresholdCount !== undefined &&
       input.ThresholdCount !== null && { ThresholdCount: input.ThresholdCount }),
     ...(input.TrafficDialPercentage !== undefined &&
-      input.TrafficDialPercentage !== null && { TrafficDialPercentage: input.TrafficDialPercentage }),
+      input.TrafficDialPercentage !== null && { TrafficDialPercentage: __serializeFloat(input.TrafficDialPercentage) }),
   };
 };
 
@@ -5575,7 +5577,7 @@ const serializeAws_json1_1UpdateEndpointGroupRequest = (
     ...(input.ThresholdCount !== undefined &&
       input.ThresholdCount !== null && { ThresholdCount: input.ThresholdCount }),
     ...(input.TrafficDialPercentage !== undefined &&
-      input.TrafficDialPercentage !== null && { TrafficDialPercentage: input.TrafficDialPercentage }),
+      input.TrafficDialPercentage !== null && { TrafficDialPercentage: __serializeFloat(input.TrafficDialPercentage) }),
   };
 };
 
@@ -6195,7 +6197,7 @@ const deserializeAws_json1_1EndpointGroup = (output: any, context: __SerdeContex
         ? deserializeAws_json1_1PortOverrides(output.PortOverrides, context)
         : undefined,
     ThresholdCount: __expectNumber(output.ThresholdCount),
-    TrafficDialPercentage: __expectNumber(output.TrafficDialPercentage),
+    TrafficDialPercentage: __handleFloat(output.TrafficDialPercentage),
   } as any;
 };
 

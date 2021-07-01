@@ -211,12 +211,26 @@ export namespace GreetingStruct {
   });
 }
 
+export interface NestedStructWithList {
+  ListArg?: string[];
+}
+
+export namespace NestedStructWithList {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NestedStructWithList): any => ({
+    ...obj,
+  });
+}
+
 export interface QueryListsInput {
   ListArg?: string[];
   ComplexListArg?: GreetingStruct[];
   FlattenedListArg?: string[];
   ListArgWithXmlNameMember?: string[];
   FlattenedListArgWithXmlName?: string[];
+  NestedWithList?: NestedStructWithList;
 }
 
 export namespace QueryListsInput {
@@ -224,6 +238,19 @@ export namespace QueryListsInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: QueryListsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface NestedStructWithMap {
+  MapArg?: { [key: string]: string };
+}
+
+export namespace NestedStructWithMap {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NestedStructWithMap): any => ({
     ...obj,
   });
 }
@@ -236,6 +263,7 @@ export interface QueryMapsInput {
   FlattenedMap?: { [key: string]: string };
   FlattenedMapWithXmlName?: { [key: string]: string };
   MapOfLists?: { [key: string]: string[] };
+  NestedStructWithMap?: NestedStructWithMap;
 }
 
 export namespace QueryMapsInput {
@@ -267,6 +295,7 @@ export interface SimpleInputParamsInput {
   Bar?: string;
   Baz?: boolean;
   Bam?: number;
+  FloatValue?: number;
   Boo?: number;
   Qux?: Uint8Array;
   FooEnum?: FooEnum | string;

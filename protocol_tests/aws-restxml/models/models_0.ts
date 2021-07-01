@@ -391,6 +391,20 @@ export namespace HttpPrefixHeadersInputOutput {
   });
 }
 
+export interface HttpRequestWithFloatLabelsInput {
+  float: number | undefined;
+  double: number | undefined;
+}
+
+export namespace HttpRequestWithFloatLabelsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpRequestWithFloatLabelsInput): any => ({
+    ...obj,
+  });
+}
+
 export interface HttpRequestWithGreedyLabelInPathInput {
   foo: string | undefined;
   baz: string | undefined;

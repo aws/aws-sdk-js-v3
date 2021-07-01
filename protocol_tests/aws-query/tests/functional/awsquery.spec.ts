@@ -187,8 +187,7 @@ it("QueryEmptyInputAndEmptyOutput:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=EmptyInputAndEmptyOutput
-    &Version=2020-01-08`;
+    const bodyString = `Action=EmptyInputAndEmptyOutput&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -245,8 +244,7 @@ it("AwsQueryEndpointTrait:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=EndpointOperation
-    &Version=2020-01-08`;
+    const bodyString = `Action=EndpointOperation&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -284,9 +282,7 @@ it("AwsQueryEndpointTraitWithHostLabel:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=EndpointWithHostLabelOperation
-    &Version=2020-01-08
-    &label=bar`;
+    const bodyString = `Action=EndpointWithHostLabelOperation&Version=2020-01-08&label=bar`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -734,11 +730,7 @@ it("NestedStructures:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=NestedStructures
-    &Version=2020-01-08
-    &Nested.StringArg=foo
-    &Nested.OtherArg=true
-    &Nested.RecursiveArg.StringArg=baz`;
+    const bodyString = `Action=NestedStructures&Version=2020-01-08&Nested.StringArg=foo&Nested.OtherArg=true&Nested.RecursiveArg.StringArg=baz`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -772,8 +764,7 @@ it("QueryNoInputAndNoOutput:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=NoInputAndNoOutput
-    &Version=2020-01-08`;
+    const bodyString = `Action=NoInputAndNoOutput&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -829,8 +820,7 @@ it("QueryNoInputAndOutput:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=NoInputAndOutput
-    &Version=2020-01-08`;
+    const bodyString = `Action=NoInputAndOutput&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -889,9 +879,7 @@ it("QueryProtocolIdempotencyTokenAutoFill:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryIdempotencyTokenAutoFill
-    &Version=2020-01-08
-    &token=00000000-0000-4000-8000-000000000000`;
+    const bodyString = `Action=QueryIdempotencyTokenAutoFill&Version=2020-01-08&token=00000000-0000-4000-8000-000000000000`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -928,9 +916,7 @@ it("QueryProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryIdempotencyTokenAutoFill
-    &Version=2020-01-08
-    &token=00000000-0000-4000-8000-000000000123`;
+    const bodyString = `Action=QueryIdempotencyTokenAutoFill&Version=2020-01-08&token=00000000-0000-4000-8000-000000000123`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -976,13 +962,7 @@ it("QueryLists:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryLists
-    &Version=2020-01-08
-    &ListArg.member.1=foo
-    &ListArg.member.2=bar
-    &ListArg.member.3=baz
-    &ComplexListArg.member.1.hi=hello
-    &ComplexListArg.member.2.hi=hola`;
+    const bodyString = `Action=QueryLists&Version=2020-01-08&ListArg.member.1=foo&ListArg.member.2=bar&ListArg.member.3=baz&ComplexListArg.member.1.hi=hello&ComplexListArg.member.2.hi=hola`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1018,8 +998,7 @@ it("EmptyQueryLists:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryLists
-    &Version=2020-01-08`;
+    const bodyString = `Action=QueryLists&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1055,10 +1034,7 @@ it("FlattenedQueryLists:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryLists
-    &Version=2020-01-08
-    &FlattenedListArg.1=A
-    &FlattenedListArg.2=B`;
+    const bodyString = `Action=QueryLists&Version=2020-01-08&FlattenedListArg.1=A&FlattenedListArg.2=B`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1094,10 +1070,7 @@ it("QueryListArgWithXmlNameMember:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryLists
-    &Version=2020-01-08
-    &ListArgWithXmlNameMember.item.1=A
-    &ListArgWithXmlNameMember.item.2=B`;
+    const bodyString = `Action=QueryLists&Version=2020-01-08&ListArgWithXmlNameMember.item.1=A&ListArgWithXmlNameMember.item.2=B`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1133,10 +1106,45 @@ it("QueryFlattenedListArgWithXmlName:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryLists
-    &Version=2020-01-08
-    &Hi.1=A
-    &Hi.2=B`;
+    const bodyString = `Action=QueryLists&Version=2020-01-08&Hi.1=A&Hi.2=B`;
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Nested structure with a list member
+ */
+it("QueryNestedStructWithList:Request", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new QueryListsCommand({
+    NestedWithList: {
+      ListArg: ["A", "B"],
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `Action=QueryLists&Version=2020-01-08&NestedWithList.ListArg.member.1=A&NestedWithList.ListArg.member.2=B`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1176,12 +1184,7 @@ it("QuerySimpleQueryMaps:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryMaps
-    &Version=2020-01-08
-    &MapArg.entry.1.key=bar
-    &MapArg.entry.1.value=Bar
-    &MapArg.entry.2.key=foo
-    &MapArg.entry.2.value=Foo`;
+    const bodyString = `Action=QueryMaps&Version=2020-01-08&MapArg.entry.1.key=bar&MapArg.entry.1.value=Bar&MapArg.entry.2.key=foo&MapArg.entry.2.value=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1219,10 +1222,7 @@ it("QuerySimpleQueryMapsWithXmlName:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryMaps
-    &Version=2020-01-08
-    &Foo.entry.1.key=foo
-    &Foo.entry.1.value=Foo`;
+    const bodyString = `Action=QueryMaps&Version=2020-01-08&Foo.entry.1.key=foo&Foo.entry.1.value=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1266,12 +1266,7 @@ it("QueryComplexQueryMaps:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryMaps
-    &Version=2020-01-08
-    &ComplexMapArg.entry.1.key=bar
-    &ComplexMapArg.entry.1.value.hi=Bar
-    &ComplexMapArg.entry.2.key=foo
-    &ComplexMapArg.entry.2.value.hi=Foo`;
+    const bodyString = `Action=QueryMaps&Version=2020-01-08&ComplexMapArg.entry.1.key=bar&ComplexMapArg.entry.1.value.hi=Bar&ComplexMapArg.entry.2.key=foo&ComplexMapArg.entry.2.value.hi=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1307,8 +1302,7 @@ it("QueryEmptyQueryMaps:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryMaps
-    &Version=2020-01-08`;
+    const bodyString = `Action=QueryMaps&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1348,12 +1342,7 @@ it("QueryQueryMapWithMemberXmlName:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryMaps
-    &Version=2020-01-08
-    &MapWithXmlMemberName.entry.1.K=bar
-    &MapWithXmlMemberName.entry.1.V=Bar
-    &MapWithXmlMemberName.entry.2.K=foo
-    &MapWithXmlMemberName.entry.2.V=Foo`;
+    const bodyString = `Action=QueryMaps&Version=2020-01-08&MapWithXmlMemberName.entry.1.K=bar&MapWithXmlMemberName.entry.1.V=Bar&MapWithXmlMemberName.entry.2.K=foo&MapWithXmlMemberName.entry.2.V=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1393,12 +1382,7 @@ it("QueryFlattenedQueryMaps:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryMaps
-    &Version=2020-01-08
-    &FlattenedMap.1.key=bar
-    &FlattenedMap.1.value=Bar
-    &FlattenedMap.2.key=foo
-    &FlattenedMap.2.value=Foo`;
+    const bodyString = `Action=QueryMaps&Version=2020-01-08&FlattenedMap.1.key=bar&FlattenedMap.1.value=Bar&FlattenedMap.2.key=foo&FlattenedMap.2.value=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1438,12 +1422,7 @@ it("QueryFlattenedQueryMapsWithXmlName:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryMaps
-    &Version=2020-01-08
-    &Hi.1.K=bar
-    &Hi.1.V=Bar
-    &Hi.2.K=foo
-    &Hi.2.V=Foo`;
+    const bodyString = `Action=QueryMaps&Version=2020-01-08&Hi.1.K=bar&Hi.1.V=Bar&Hi.2.K=foo&Hi.2.V=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1483,14 +1462,49 @@ it("QueryQueryMapOfLists:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryMaps
-    &Version=2020-01-08
-    &MapOfLists.entry.1.key=bar
-    &MapOfLists.entry.1.value.member.1=C
-    &MapOfLists.entry.1.value.member.2=D
-    &MapOfLists.entry.2.key=foo
-    &MapOfLists.entry.2.value.member.1=A
-    &MapOfLists.entry.2.value.member.2=B`;
+    const bodyString = `Action=QueryMaps&Version=2020-01-08&MapOfLists.entry.1.key=bar&MapOfLists.entry.1.value.member.1=C&MapOfLists.entry.1.value.member.2=D&MapOfLists.entry.2.key=foo&MapOfLists.entry.2.value.member.1=A&MapOfLists.entry.2.value.member.2=B`;
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes nested struct with map member
+ */
+it("QueryNestedStructWithMap:Request", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new QueryMapsCommand({
+    NestedStructWithMap: {
+      MapArg: {
+        bar: "Bar",
+
+        foo: "Foo",
+      } as any,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `Action=QueryMaps&Version=2020-01-08&NestedStructWithMap.MapArg.entry.1.key=bar&NestedStructWithMap.MapArg.entry.1.value=Bar&NestedStructWithMap.MapArg.entry.2.key=foo&NestedStructWithMap.MapArg.entry.2.value=Foo`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1531,11 +1545,7 @@ it("QueryTimestampsInput:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryTimestamps
-    &Version=2020-01-08
-    &normalFormat=2015-01-25T08%3A00%3A00Z
-    &epochMember=1422172800
-    &epochTarget=1422172800`;
+    const bodyString = `Action=QueryTimestamps&Version=2020-01-08&normalFormat=2015-01-25T08%3A00%3A00Z&epochMember=1422172800&epochTarget=1422172800`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1642,10 +1652,7 @@ it("QuerySimpleInputParamsStrings:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &Foo=val1
-    &Bar=val2`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Foo=val1&Bar=val2`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1684,10 +1691,7 @@ it("QuerySimpleInputParamsStringAndBooleanTrue:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &Foo=val1
-    &Baz=true`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Foo=val1&Baz=true`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1724,9 +1728,7 @@ it("QuerySimpleInputParamsStringsAndBooleanFalse:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &Baz=false`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Baz=false`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1763,9 +1765,7 @@ it("QuerySimpleInputParamsInteger:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &Bam=10`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Bam=10`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1802,9 +1802,7 @@ it("QuerySimpleInputParamsFloat:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &Boo=10.8`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Boo=10.8`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1841,9 +1839,7 @@ it("QuerySimpleInputParamsBlob:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &Qux=dmFsdWU%3D`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&Qux=dmFsdWU%3D`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1880,9 +1876,124 @@ it("QueryEnums:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &FooEnum=Foo`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&FooEnum=Foo`;
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Supports handling NaN float values.
+ */
+it("AwsQuerySupportsNaNFloatInputs:Request", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SimpleInputParamsCommand({
+    FloatValue: NaN,
+
+    Boo: NaN,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&FloatValue=NaN&Boo=NaN`;
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Supports handling Infinity float values.
+ */
+it("AwsQuerySupportsInfinityFloatInputs:Request", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SimpleInputParamsCommand({
+    FloatValue: Infinity,
+
+    Boo: Infinity,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&FloatValue=Infinity&Boo=Infinity`;
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Supports handling -Infinity float values.
+ */
+it("AwsQuerySupportsNegativeInfinityFloatInputs:Request", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SimpleInputParamsCommand({
+    FloatValue: -Infinity,
+
+    Boo: -Infinity,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&FloatValue=-Infinity&Boo=-Infinity`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1950,6 +2061,144 @@ it("QuerySimpleScalarProperties:Response", async () => {
       floatValue: 5.5,
 
       doubleValue: 6.5,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Supports handling NaN float values.
+ */
+it("AwsQuerySupportsNaNFloatOutputs:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<SimpleScalarXmlPropertiesResponse xmlns="https://example.com/">
+          <SimpleScalarXmlPropertiesResult>
+              <floatValue>NaN</floatValue>
+              <DoubleDribble>NaN</DoubleDribble>
+          </SimpleScalarXmlPropertiesResult>
+      </SimpleScalarXmlPropertiesResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new SimpleScalarXmlPropertiesCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      floatValue: NaN,
+
+      doubleValue: NaN,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Supports handling Infinity float values.
+ */
+it("AwsQuerySupportsInfinityFloatOutputs:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<SimpleScalarXmlPropertiesResponse xmlns="https://example.com/">
+          <SimpleScalarXmlPropertiesResult>
+              <floatValue>Infinity</floatValue>
+              <DoubleDribble>Infinity</DoubleDribble>
+          </SimpleScalarXmlPropertiesResult>
+      </SimpleScalarXmlPropertiesResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new SimpleScalarXmlPropertiesCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      floatValue: Infinity,
+
+      doubleValue: Infinity,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Supports handling -Infinity float values.
+ */
+it("AwsQuerySupportsNegativeInfinityFloatOutputs:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<SimpleScalarXmlPropertiesResponse xmlns="https://example.com/">
+          <SimpleScalarXmlPropertiesResult>
+              <floatValue>-Infinity</floatValue>
+              <DoubleDribble>-Infinity</DoubleDribble>
+          </SimpleScalarXmlPropertiesResult>
+      </SimpleScalarXmlPropertiesResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new SimpleScalarXmlPropertiesCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      floatValue: -Infinity,
+
+      doubleValue: -Infinity,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

@@ -427,6 +427,20 @@ export namespace PutAndGetInlineDocumentsInputOutput {
   });
 }
 
+export interface SimpleScalarPropertiesInputOutput {
+  floatValue?: number;
+  doubleValue?: number;
+}
+
+export namespace SimpleScalarPropertiesInputOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SimpleScalarPropertiesInputOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface KitchenSink {
   Blob?: Uint8Array;
   Boolean?: boolean;

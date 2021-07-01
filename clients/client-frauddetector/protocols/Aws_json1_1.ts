@@ -264,6 +264,7 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7301,10 +7302,10 @@ const deserializeAws_json1_1ListTagsForResourceResult = (
 
 const deserializeAws_json1_1MetricDataPoint = (output: any, context: __SerdeContext): MetricDataPoint => {
   return {
-    fpr: __expectNumber(output.fpr),
-    precision: __expectNumber(output.precision),
-    threshold: __expectNumber(output.threshold),
-    tpr: __expectNumber(output.tpr),
+    fpr: __handleFloat(output.fpr),
+    precision: __handleFloat(output.precision),
+    threshold: __handleFloat(output.threshold),
+    tpr: __handleFloat(output.tpr),
   } as any;
 };
 
@@ -7379,7 +7380,7 @@ const deserializeAws_json1_1ModelPredictionMap = (output: any, context: __SerdeC
     }
     return {
       ...acc,
-      [key]: __expectNumber(value) as any,
+      [key]: __handleFloat(value) as any,
     };
   }, {});
 };
@@ -7615,7 +7616,7 @@ const deserializeAws_json1_1TrainingDataSchema = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1TrainingMetrics = (output: any, context: __SerdeContext): TrainingMetrics => {
   return {
-    auc: __expectNumber(output.auc),
+    auc: __handleFloat(output.auc),
     metricDataPoints:
       output.metricDataPoints !== undefined && output.metricDataPoints !== null
         ? deserializeAws_json1_1metricDataPointsList(output.metricDataPoints, context)

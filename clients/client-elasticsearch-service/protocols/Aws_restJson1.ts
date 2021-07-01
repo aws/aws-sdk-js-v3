@@ -215,6 +215,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6388,7 +6389,7 @@ const deserializeAws_restJson1PackageVersionHistoryList = (
 
 const deserializeAws_restJson1RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
   return {
-    RecurringChargeAmount: __expectNumber(output.RecurringChargeAmount),
+    RecurringChargeAmount: __handleFloat(output.RecurringChargeAmount),
     RecurringChargeFrequency: __expectString(output.RecurringChargeFrequency),
   } as any;
 };
@@ -6413,7 +6414,7 @@ const deserializeAws_restJson1ReservedElasticsearchInstance = (
     Duration: __expectNumber(output.Duration),
     ElasticsearchInstanceCount: __expectNumber(output.ElasticsearchInstanceCount),
     ElasticsearchInstanceType: __expectString(output.ElasticsearchInstanceType),
-    FixedPrice: __expectNumber(output.FixedPrice),
+    FixedPrice: __handleFloat(output.FixedPrice),
     PaymentOption: __expectString(output.PaymentOption),
     RecurringCharges:
       output.RecurringCharges !== undefined && output.RecurringCharges !== null
@@ -6427,7 +6428,7 @@ const deserializeAws_restJson1ReservedElasticsearchInstance = (
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
     State: __expectString(output.State),
-    UsagePrice: __expectNumber(output.UsagePrice),
+    UsagePrice: __handleFloat(output.UsagePrice),
   } as any;
 };
 
@@ -6453,14 +6454,14 @@ const deserializeAws_restJson1ReservedElasticsearchInstanceOffering = (
     CurrencyCode: __expectString(output.CurrencyCode),
     Duration: __expectNumber(output.Duration),
     ElasticsearchInstanceType: __expectString(output.ElasticsearchInstanceType),
-    FixedPrice: __expectNumber(output.FixedPrice),
+    FixedPrice: __handleFloat(output.FixedPrice),
     PaymentOption: __expectString(output.PaymentOption),
     RecurringCharges:
       output.RecurringCharges !== undefined && output.RecurringCharges !== null
         ? deserializeAws_restJson1RecurringChargeList(output.RecurringCharges, context)
         : undefined,
     ReservedElasticsearchInstanceOfferingId: __expectString(output.ReservedElasticsearchInstanceOfferingId),
-    UsagePrice: __expectNumber(output.UsagePrice),
+    UsagePrice: __handleFloat(output.UsagePrice),
   } as any;
 };
 
@@ -6652,7 +6653,7 @@ const deserializeAws_restJson1UpgradeStepItem = (output: any, context: __SerdeCo
       output.Issues !== undefined && output.Issues !== null
         ? deserializeAws_restJson1Issues(output.Issues, context)
         : undefined,
-    ProgressPercent: __expectNumber(output.ProgressPercent),
+    ProgressPercent: __handleFloat(output.ProgressPercent),
     UpgradeStep: __expectString(output.UpgradeStep),
     UpgradeStepStatus: __expectString(output.UpgradeStepStatus),
   } as any;

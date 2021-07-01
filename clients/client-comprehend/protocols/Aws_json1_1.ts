@@ -404,6 +404,7 @@ import {
   SmithyException as __SmithyException,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7757,14 +7758,14 @@ const deserializeAws_json1_1ClassifierEvaluationMetrics = (
   context: __SerdeContext
 ): ClassifierEvaluationMetrics => {
   return {
-    Accuracy: __expectNumber(output.Accuracy),
-    F1Score: __expectNumber(output.F1Score),
-    HammingLoss: __expectNumber(output.HammingLoss),
-    MicroF1Score: __expectNumber(output.MicroF1Score),
-    MicroPrecision: __expectNumber(output.MicroPrecision),
-    MicroRecall: __expectNumber(output.MicroRecall),
-    Precision: __expectNumber(output.Precision),
-    Recall: __expectNumber(output.Recall),
+    Accuracy: __handleFloat(output.Accuracy),
+    F1Score: __handleFloat(output.F1Score),
+    HammingLoss: __handleFloat(output.HammingLoss),
+    MicroF1Score: __handleFloat(output.MicroF1Score),
+    MicroPrecision: __handleFloat(output.MicroPrecision),
+    MicroRecall: __handleFloat(output.MicroRecall),
+    Precision: __handleFloat(output.Precision),
+    Recall: __handleFloat(output.Recall),
   } as any;
 };
 
@@ -8065,7 +8066,7 @@ const deserializeAws_json1_1DetectSyntaxResponse = (output: any, context: __Serd
 const deserializeAws_json1_1DocumentClass = (output: any, context: __SerdeContext): DocumentClass => {
   return {
     Name: __expectString(output.Name),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
   } as any;
 };
 
@@ -8218,14 +8219,14 @@ const deserializeAws_json1_1DocumentClassifierPropertiesList = (
 const deserializeAws_json1_1DocumentLabel = (output: any, context: __SerdeContext): DocumentLabel => {
   return {
     Name: __expectString(output.Name),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
   } as any;
 };
 
 const deserializeAws_json1_1DominantLanguage = (output: any, context: __SerdeContext): DominantLanguage => {
   return {
     LanguageCode: __expectString(output.LanguageCode),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
   } as any;
 };
 
@@ -8358,7 +8359,7 @@ const deserializeAws_json1_1Entity = (output: any, context: __SerdeContext): Ent
   return {
     BeginOffset: __expectNumber(output.BeginOffset),
     EndOffset: __expectNumber(output.EndOffset),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
     Text: __expectString(output.Text),
     Type: __expectString(output.Type),
   } as any;
@@ -8367,7 +8368,7 @@ const deserializeAws_json1_1Entity = (output: any, context: __SerdeContext): Ent
 const deserializeAws_json1_1EntityLabel = (output: any, context: __SerdeContext): EntityLabel => {
   return {
     Name: __expectString(output.Name),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
   } as any;
 };
 
@@ -8417,9 +8418,9 @@ const deserializeAws_json1_1EntityRecognizerEvaluationMetrics = (
   context: __SerdeContext
 ): EntityRecognizerEvaluationMetrics => {
   return {
-    F1Score: __expectNumber(output.F1Score),
-    Precision: __expectNumber(output.Precision),
-    Recall: __expectNumber(output.Recall),
+    F1Score: __handleFloat(output.F1Score),
+    Precision: __handleFloat(output.Precision),
+    Recall: __handleFloat(output.Recall),
   } as any;
 };
 
@@ -8558,9 +8559,9 @@ const deserializeAws_json1_1EntityTypesEvaluationMetrics = (
   context: __SerdeContext
 ): EntityTypesEvaluationMetrics => {
   return {
-    F1Score: __expectNumber(output.F1Score),
-    Precision: __expectNumber(output.Precision),
-    Recall: __expectNumber(output.Recall),
+    F1Score: __handleFloat(output.F1Score),
+    Precision: __handleFloat(output.Precision),
+    Recall: __handleFloat(output.Recall),
   } as any;
 };
 
@@ -8668,7 +8669,7 @@ const deserializeAws_json1_1KeyPhrase = (output: any, context: __SerdeContext): 
   return {
     BeginOffset: __expectNumber(output.BeginOffset),
     EndOffset: __expectNumber(output.EndOffset),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
     Text: __expectString(output.Text),
   } as any;
 };
@@ -9078,7 +9079,7 @@ const deserializeAws_json1_1OutputDataConfig = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1PartOfSpeechTag = (output: any, context: __SerdeContext): PartOfSpeechTag => {
   return {
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
     Tag: __expectString(output.Tag),
   } as any;
 };
@@ -9134,7 +9135,7 @@ const deserializeAws_json1_1PiiEntity = (output: any, context: __SerdeContext): 
   return {
     BeginOffset: __expectNumber(output.BeginOffset),
     EndOffset: __expectNumber(output.EndOffset),
-    Score: __expectNumber(output.Score),
+    Score: __handleFloat(output.Score),
     Type: __expectString(output.Type),
   } as any;
 };
@@ -9250,10 +9251,10 @@ const deserializeAws_json1_1SentimentDetectionJobPropertiesList = (
 
 const deserializeAws_json1_1SentimentScore = (output: any, context: __SerdeContext): SentimentScore => {
   return {
-    Mixed: __expectNumber(output.Mixed),
-    Negative: __expectNumber(output.Negative),
-    Neutral: __expectNumber(output.Neutral),
-    Positive: __expectNumber(output.Positive),
+    Mixed: __handleFloat(output.Mixed),
+    Negative: __handleFloat(output.Negative),
+    Neutral: __handleFloat(output.Neutral),
+    Positive: __handleFloat(output.Positive),
   } as any;
 };
 

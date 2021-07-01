@@ -36,6 +36,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -905,7 +907,7 @@ const serializeAws_restJson1DoubleArray = (input: number[], context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __serializeFloat(entry);
     });
 };
 
@@ -914,7 +916,7 @@ const serializeAws_restJson1Field = (input: Field, context: __SerdeContext): any
     arrayValue: (value) => ({ arrayValue: serializeAws_restJson1ArrayValue(value, context) }),
     blobValue: (value) => ({ blobValue: context.base64Encoder(value) }),
     booleanValue: (value) => ({ booleanValue: value }),
-    doubleValue: (value) => ({ doubleValue: value }),
+    doubleValue: (value) => ({ doubleValue: __serializeFloat(value) }),
     isNull: (value) => ({ isNull: value }),
     longValue: (value) => ({ longValue: value }),
     stringValue: (value) => ({ stringValue: value }),
@@ -1070,7 +1072,7 @@ const deserializeAws_restJson1DoubleArray = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __handleFloat(entry) as any;
     });
 };
 
@@ -1088,8 +1090,8 @@ const deserializeAws_restJson1Field = (output: any, context: __SerdeContext): Fi
   if (__expectBoolean(output.booleanValue) !== undefined) {
     return { booleanValue: __expectBoolean(output.booleanValue) as any };
   }
-  if (__expectNumber(output.doubleValue) !== undefined) {
-    return { doubleValue: __expectNumber(output.doubleValue) as any };
+  if (__handleFloat(output.doubleValue) !== undefined) {
+    return { doubleValue: __handleFloat(output.doubleValue) as any };
   }
   if (__expectBoolean(output.isNull) !== undefined) {
     return { isNull: __expectBoolean(output.isNull) as any };
@@ -1279,8 +1281,8 @@ const deserializeAws_restJson1Value = (output: any, context: __SerdeContext): Va
       blobValue: context.base64Decoder(output.blobValue),
     };
   }
-  if (__expectNumber(output.doubleValue) !== undefined) {
-    return { doubleValue: __expectNumber(output.doubleValue) as any };
+  if (__handleFloat(output.doubleValue) !== undefined) {
+    return { doubleValue: __handleFloat(output.doubleValue) as any };
   }
   if (__expectNumber(output.intValue) !== undefined) {
     return { intValue: __expectNumber(output.intValue) as any };
@@ -1288,8 +1290,8 @@ const deserializeAws_restJson1Value = (output: any, context: __SerdeContext): Va
   if (__expectBoolean(output.isNull) !== undefined) {
     return { isNull: __expectBoolean(output.isNull) as any };
   }
-  if (__expectNumber(output.realValue) !== undefined) {
-    return { realValue: __expectNumber(output.realValue) as any };
+  if (__handleFloat(output.realValue) !== undefined) {
+    return { realValue: __handleFloat(output.realValue) as any };
   }
   if (__expectString(output.stringValue) !== undefined) {
     return { stringValue: __expectString(output.stringValue) as any };

@@ -389,6 +389,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -13838,7 +13840,7 @@ const serializeAws_restJson1Threshold = (input: Threshold, context: __SerdeConte
   return {
     ...(input.Comparison !== undefined && input.Comparison !== null && { Comparison: input.Comparison }),
     ...(input.ThresholdValue !== undefined &&
-      input.ThresholdValue !== null && { ThresholdValue: input.ThresholdValue }),
+      input.ThresholdValue !== null && { ThresholdValue: __serializeFloat(input.ThresholdValue) }),
   };
 };
 
@@ -13971,7 +13973,7 @@ const deserializeAws_restJson1CurrentMetricData = (output: any, context: __Serde
       output.Metric !== undefined && output.Metric !== null
         ? deserializeAws_restJson1CurrentMetric(output.Metric, context)
         : undefined,
-    Value: __expectNumber(output.Value),
+    Value: __handleFloat(output.Value),
   } as any;
 };
 
@@ -14152,7 +14154,7 @@ const deserializeAws_restJson1HistoricalMetricData = (output: any, context: __Se
       output.Metric !== undefined && output.Metric !== null
         ? deserializeAws_restJson1HistoricalMetric(output.Metric, context)
         : undefined,
-    Value: __expectNumber(output.Value),
+    Value: __handleFloat(output.Value),
   } as any;
 };
 
@@ -14851,7 +14853,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 const deserializeAws_restJson1Threshold = (output: any, context: __SerdeContext): Threshold => {
   return {
     Comparison: __expectString(output.Comparison),
-    ThresholdValue: __expectNumber(output.ThresholdValue),
+    ThresholdValue: __handleFloat(output.ThresholdValue),
   } as any;
 };
 

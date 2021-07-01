@@ -39,6 +39,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1709,7 +1710,7 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
     InvitedTime:
       output.InvitedTime !== undefined && output.InvitedTime !== null ? new Date(output.InvitedTime) : undefined,
     MasterId: __expectString(output.MasterId),
-    PercentOfGraphUtilization: __expectNumber(output.PercentOfGraphUtilization),
+    PercentOfGraphUtilization: __handleFloat(output.PercentOfGraphUtilization),
     PercentOfGraphUtilizationUpdatedTime:
       output.PercentOfGraphUtilizationUpdatedTime !== undefined && output.PercentOfGraphUtilizationUpdatedTime !== null
         ? new Date(output.PercentOfGraphUtilizationUpdatedTime)

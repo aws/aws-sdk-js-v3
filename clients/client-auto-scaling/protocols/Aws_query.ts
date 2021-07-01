@@ -349,6 +349,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6097,10 +6098,10 @@ const serializeAws_queryExecutePolicyType = (input: ExecutePolicyType, context: 
     entries["HonorCooldown"] = input.HonorCooldown;
   }
   if (input.MetricValue !== undefined && input.MetricValue !== null) {
-    entries["MetricValue"] = input.MetricValue;
+    entries["MetricValue"] = __serializeFloat(input.MetricValue);
   }
   if (input.BreachThreshold !== undefined && input.BreachThreshold !== null) {
-    entries["BreachThreshold"] = input.BreachThreshold;
+    entries["BreachThreshold"] = __serializeFloat(input.BreachThreshold);
   }
   return entries;
 };
@@ -6563,7 +6564,7 @@ const serializeAws_queryPredictiveScalingMetricSpecification = (
 ): any => {
   const entries: any = {};
   if (input.TargetValue !== undefined && input.TargetValue !== null) {
-    entries["TargetValue"] = input.TargetValue;
+    entries["TargetValue"] = __serializeFloat(input.TargetValue);
   }
   if (input.PredefinedMetricPairSpecification !== undefined && input.PredefinedMetricPairSpecification !== null) {
     const memberEntries = serializeAws_queryPredictiveScalingPredefinedMetricPair(
@@ -7042,10 +7043,10 @@ const serializeAws_queryStartInstanceRefreshType = (input: StartInstanceRefreshT
 const serializeAws_queryStepAdjustment = (input: StepAdjustment, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.MetricIntervalLowerBound !== undefined && input.MetricIntervalLowerBound !== null) {
-    entries["MetricIntervalLowerBound"] = input.MetricIntervalLowerBound;
+    entries["MetricIntervalLowerBound"] = __serializeFloat(input.MetricIntervalLowerBound);
   }
   if (input.MetricIntervalUpperBound !== undefined && input.MetricIntervalUpperBound !== null) {
-    entries["MetricIntervalUpperBound"] = input.MetricIntervalUpperBound;
+    entries["MetricIntervalUpperBound"] = __serializeFloat(input.MetricIntervalUpperBound);
   }
   if (input.ScalingAdjustment !== undefined && input.ScalingAdjustment !== null) {
     entries["ScalingAdjustment"] = input.ScalingAdjustment;
@@ -7138,7 +7139,7 @@ const serializeAws_queryTargetTrackingConfiguration = (
     });
   }
   if (input.TargetValue !== undefined && input.TargetValue !== null) {
-    entries["TargetValue"] = input.TargetValue;
+    entries["TargetValue"] = __serializeFloat(input.TargetValue);
   }
   if (input.DisableScaleIn !== undefined && input.DisableScaleIn !== null) {
     entries["DisableScaleIn"] = input.DisableScaleIn;

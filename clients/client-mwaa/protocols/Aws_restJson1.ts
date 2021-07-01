@@ -44,6 +44,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1438,7 +1439,7 @@ const serializeAws_restJson1MetricDatum = (input: MetricDatum, context: __SerdeC
     ...(input.Timestamp !== undefined &&
       input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
     ...(input.Unit !== undefined && input.Unit !== null && { Unit: input.Unit }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: __serializeFloat(input.Value) }),
   };
 };
 
@@ -1476,10 +1477,10 @@ const serializeAws_restJson1SecurityGroupList = (input: string[], context: __Ser
 
 const serializeAws_restJson1StatisticSet = (input: StatisticSet, context: __SerdeContext): any => {
   return {
-    ...(input.Maximum !== undefined && input.Maximum !== null && { Maximum: input.Maximum }),
-    ...(input.Minimum !== undefined && input.Minimum !== null && { Minimum: input.Minimum }),
+    ...(input.Maximum !== undefined && input.Maximum !== null && { Maximum: __serializeFloat(input.Maximum) }),
+    ...(input.Minimum !== undefined && input.Minimum !== null && { Minimum: __serializeFloat(input.Minimum) }),
     ...(input.SampleCount !== undefined && input.SampleCount !== null && { SampleCount: input.SampleCount }),
-    ...(input.Sum !== undefined && input.Sum !== null && { Sum: input.Sum }),
+    ...(input.Sum !== undefined && input.Sum !== null && { Sum: __serializeFloat(input.Sum) }),
   };
 };
 

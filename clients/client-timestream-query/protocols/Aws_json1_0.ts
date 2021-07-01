@@ -29,6 +29,7 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -610,7 +611,7 @@ const deserializeAws_json1_0QueryStatus = (output: any, context: __SerdeContext)
   return {
     CumulativeBytesMetered: __expectNumber(output.CumulativeBytesMetered),
     CumulativeBytesScanned: __expectNumber(output.CumulativeBytesScanned),
-    ProgressPercentage: __expectNumber(output.ProgressPercentage),
+    ProgressPercentage: __handleFloat(output.ProgressPercentage),
   } as any;
 };
 

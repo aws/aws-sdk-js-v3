@@ -130,6 +130,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2727,7 +2729,8 @@ const serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest = (
 ): any => {
   return {
     ...(input.AwsRegion !== undefined && input.AwsRegion !== null && { AwsRegion: input.AwsRegion }),
-    ...(input.DesiredValue !== undefined && input.DesiredValue !== null && { DesiredValue: input.DesiredValue }),
+    ...(input.DesiredValue !== undefined &&
+      input.DesiredValue !== null && { DesiredValue: __serializeFloat(input.DesiredValue) }),
     ...(input.QuotaCode !== undefined && input.QuotaCode !== null && { QuotaCode: input.QuotaCode }),
     ...(input.ServiceCode !== undefined && input.ServiceCode !== null && { ServiceCode: input.ServiceCode }),
   };
@@ -2738,7 +2741,8 @@ const serializeAws_json1_1RequestServiceQuotaIncreaseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DesiredValue !== undefined && input.DesiredValue !== null && { DesiredValue: input.DesiredValue }),
+    ...(input.DesiredValue !== undefined &&
+      input.DesiredValue !== null && { DesiredValue: __serializeFloat(input.DesiredValue) }),
     ...(input.QuotaCode !== undefined && input.QuotaCode !== null && { QuotaCode: input.QuotaCode }),
     ...(input.ServiceCode !== undefined && input.ServiceCode !== null && { ServiceCode: input.ServiceCode }),
   };
@@ -3100,7 +3104,7 @@ const deserializeAws_json1_1RequestedServiceQuotaChange = (
     CaseId: __expectString(output.CaseId),
     Created:
       output.Created !== undefined && output.Created !== null ? new Date(Math.round(output.Created * 1000)) : undefined,
-    DesiredValue: __expectNumber(output.DesiredValue),
+    DesiredValue: __handleFloat(output.DesiredValue),
     GlobalQuota: __expectBoolean(output.GlobalQuota),
     Id: __expectString(output.Id),
     LastUpdated:
@@ -3199,7 +3203,7 @@ const deserializeAws_json1_1ServiceQuota = (output: any, context: __SerdeContext
       output.UsageMetric !== undefined && output.UsageMetric !== null
         ? deserializeAws_json1_1MetricInfo(output.UsageMetric, context)
         : undefined,
-    Value: __expectNumber(output.Value),
+    Value: __handleFloat(output.Value),
   } as any;
 };
 
@@ -3209,7 +3213,7 @@ const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate = (
 ): ServiceQuotaIncreaseRequestInTemplate => {
   return {
     AwsRegion: __expectString(output.AwsRegion),
-    DesiredValue: __expectNumber(output.DesiredValue),
+    DesiredValue: __handleFloat(output.DesiredValue),
     GlobalQuota: __expectBoolean(output.GlobalQuota),
     QuotaCode: __expectString(output.QuotaCode),
     QuotaName: __expectString(output.QuotaName),

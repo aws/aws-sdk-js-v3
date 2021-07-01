@@ -5,7 +5,11 @@ import {
 import { SendHeartbeatCommandInput, SendHeartbeatCommandOutput } from "../commands/SendHeartbeatCommand";
 import { EdgeMetric, InternalServiceException, Model } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectString as __expectString,
+  serializeFloat as __serializeFloat,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -203,7 +207,7 @@ const serializeAws_restJson1EdgeMetric = (input: EdgeMetric, context: __SerdeCon
     ...(input.MetricName !== undefined && input.MetricName !== null && { MetricName: input.MetricName }),
     ...(input.Timestamp !== undefined &&
       input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: __serializeFloat(input.Value) }),
   };
 };
 

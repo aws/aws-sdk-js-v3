@@ -7,8 +7,8 @@ import { InvalidInputException, PredictedItem, ResourceNotFoundException } from 
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -298,7 +298,7 @@ const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1PredictedItem = (output: any, context: __SerdeContext): PredictedItem => {
   return {
     itemId: __expectString(output.itemId),
-    score: __expectNumber(output.score),
+    score: __handleFloat(output.score),
   } as any;
 };
 

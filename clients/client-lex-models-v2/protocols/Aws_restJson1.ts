@@ -174,6 +174,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -347,7 +349,7 @@ export const serializeAws_restJson1CreateBotLocaleCommand = async (
     ...(input.localeId !== undefined && input.localeId !== null && { localeId: input.localeId }),
     ...(input.nluIntentConfidenceThreshold !== undefined &&
       input.nluIntentConfidenceThreshold !== null && {
-        nluIntentConfidenceThreshold: input.nluIntentConfidenceThreshold,
+        nluIntentConfidenceThreshold: __serializeFloat(input.nluIntentConfidenceThreshold),
       }),
     ...(input.voiceSettings !== undefined &&
       input.voiceSettings !== null && {
@@ -2361,7 +2363,7 @@ export const serializeAws_restJson1UpdateBotLocaleCommand = async (
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.nluIntentConfidenceThreshold !== undefined &&
       input.nluIntentConfidenceThreshold !== null && {
-        nluIntentConfidenceThreshold: input.nluIntentConfidenceThreshold,
+        nluIntentConfidenceThreshold: __serializeFloat(input.nluIntentConfidenceThreshold),
       }),
     ...(input.voiceSettings !== undefined &&
       input.voiceSettings !== null && {
@@ -3137,7 +3139,7 @@ export const deserializeAws_restJson1CreateBotLocaleCommand = async (
     contents.localeName = __expectString(data.localeName);
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = __expectNumber(data.nluIntentConfidenceThreshold);
+    contents.nluIntentConfidenceThreshold = __handleFloat(data.nluIntentConfidenceThreshold);
   }
   if (data.voiceSettings !== undefined && data.voiceSettings !== null) {
     contents.voiceSettings = deserializeAws_restJson1VoiceSettings(data.voiceSettings, context);
@@ -5549,7 +5551,7 @@ export const deserializeAws_restJson1DescribeBotLocaleCommand = async (
     contents.localeName = __expectString(data.localeName);
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = __expectNumber(data.nluIntentConfidenceThreshold);
+    contents.nluIntentConfidenceThreshold = __handleFloat(data.nluIntentConfidenceThreshold);
   }
   if (data.slotTypesCount !== undefined && data.slotTypesCount !== null) {
     contents.slotTypesCount = __expectNumber(data.slotTypesCount);
@@ -8131,7 +8133,7 @@ export const deserializeAws_restJson1UpdateBotLocaleCommand = async (
     contents.localeName = __expectString(data.localeName);
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = __expectNumber(data.nluIntentConfidenceThreshold);
+    contents.nluIntentConfidenceThreshold = __handleFloat(data.nluIntentConfidenceThreshold);
   }
   if (data.voiceSettings !== undefined && data.voiceSettings !== null) {
     contents.voiceSettings = deserializeAws_restJson1VoiceSettings(data.voiceSettings, context);
@@ -9147,7 +9149,7 @@ const serializeAws_restJson1BotLocaleImportSpecification = (
     ...(input.localeId !== undefined && input.localeId !== null && { localeId: input.localeId }),
     ...(input.nluIntentConfidenceThreshold !== undefined &&
       input.nluIntentConfidenceThreshold !== null && {
-        nluIntentConfidenceThreshold: input.nluIntentConfidenceThreshold,
+        nluIntentConfidenceThreshold: __serializeFloat(input.nluIntentConfidenceThreshold),
       }),
     ...(input.voiceSettings !== undefined &&
       input.voiceSettings !== null && {
@@ -10186,7 +10188,7 @@ const deserializeAws_restJson1BotLocaleImportSpecification = (
     botId: __expectString(output.botId),
     botVersion: __expectString(output.botVersion),
     localeId: __expectString(output.localeId),
-    nluIntentConfidenceThreshold: __expectNumber(output.nluIntentConfidenceThreshold),
+    nluIntentConfidenceThreshold: __handleFloat(output.nluIntentConfidenceThreshold),
     voiceSettings:
       output.voiceSettings !== undefined && output.voiceSettings !== null
         ? deserializeAws_restJson1VoiceSettings(output.voiceSettings, context)

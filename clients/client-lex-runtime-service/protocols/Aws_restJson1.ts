@@ -33,6 +33,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1449,7 +1450,7 @@ const deserializeAws_restJson1genericAttachmentList = (output: any, context: __S
 
 const deserializeAws_restJson1IntentConfidence = (output: any, context: __SerdeContext): IntentConfidence => {
   return {
-    score: __expectNumber(output.score),
+    score: __handleFloat(output.score),
   } as any;
 };
 

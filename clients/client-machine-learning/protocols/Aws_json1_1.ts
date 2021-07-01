@@ -149,6 +149,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3073,7 +3075,7 @@ const serializeAws_json1_1UpdateMLModelInput = (input: UpdateMLModelInput, conte
     ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
     ...(input.MLModelName !== undefined && input.MLModelName !== null && { MLModelName: input.MLModelName }),
     ...(input.ScoreThreshold !== undefined &&
-      input.ScoreThreshold !== null && { ScoreThreshold: input.ScoreThreshold }),
+      input.ScoreThreshold !== null && { ScoreThreshold: __serializeFloat(input.ScoreThreshold) }),
   };
 };
 
@@ -3551,7 +3553,7 @@ const deserializeAws_json1_1GetMLModelOutput = (output: any, context: __SerdeCon
     Name: __expectString(output.Name),
     Recipe: __expectString(output.Recipe),
     Schema: __expectString(output.Schema),
-    ScoreThreshold: __expectNumber(output.ScoreThreshold),
+    ScoreThreshold: __handleFloat(output.ScoreThreshold),
     ScoreThresholdLastUpdatedAt:
       output.ScoreThresholdLastUpdatedAt !== undefined && output.ScoreThresholdLastUpdatedAt !== null
         ? new Date(Math.round(output.ScoreThresholdLastUpdatedAt * 1000))
@@ -3636,7 +3638,7 @@ const deserializeAws_json1_1MLModel = (output: any, context: __SerdeContext): ML
     MLModelType: __expectString(output.MLModelType),
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
-    ScoreThreshold: __expectNumber(output.ScoreThreshold),
+    ScoreThreshold: __handleFloat(output.ScoreThreshold),
     ScoreThresholdLastUpdatedAt:
       output.ScoreThresholdLastUpdatedAt !== undefined && output.ScoreThresholdLastUpdatedAt !== null
         ? new Date(Math.round(output.ScoreThresholdLastUpdatedAt * 1000))
@@ -3701,7 +3703,7 @@ const deserializeAws_json1_1Prediction = (output: any, context: __SerdeContext):
       output.predictedScores !== undefined && output.predictedScores !== null
         ? deserializeAws_json1_1ScoreValuePerLabelMap(output.predictedScores, context)
         : undefined,
-    predictedValue: __expectNumber(output.predictedValue),
+    predictedValue: __handleFloat(output.predictedValue),
   } as any;
 };
 
@@ -3794,7 +3796,7 @@ const deserializeAws_json1_1ScoreValuePerLabelMap = (
     }
     return {
       ...acc,
-      [key]: __expectNumber(value) as any,
+      [key]: __handleFloat(value) as any,
     };
   }, {});
 };

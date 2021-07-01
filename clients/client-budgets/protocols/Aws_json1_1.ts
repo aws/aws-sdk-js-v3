@@ -121,8 +121,9 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   SmithyException as __SmithyException,
   expectBoolean as __expectBoolean,
-  expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2450,7 +2451,7 @@ const serializeAws_json1_1ActionThreshold = (input: ActionThreshold, context: __
     ...(input.ActionThresholdType !== undefined &&
       input.ActionThresholdType !== null && { ActionThresholdType: input.ActionThresholdType }),
     ...(input.ActionThresholdValue !== undefined &&
-      input.ActionThresholdValue !== null && { ActionThresholdValue: input.ActionThresholdValue }),
+      input.ActionThresholdValue !== null && { ActionThresholdValue: __serializeFloat(input.ActionThresholdValue) }),
   };
 };
 
@@ -2814,7 +2815,7 @@ const serializeAws_json1_1Notification = (input: Notification, context: __SerdeC
       input.NotificationState !== null && { NotificationState: input.NotificationState }),
     ...(input.NotificationType !== undefined &&
       input.NotificationType !== null && { NotificationType: input.NotificationType }),
-    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: input.Threshold }),
+    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: __serializeFloat(input.Threshold) }),
     ...(input.ThresholdType !== undefined && input.ThresholdType !== null && { ThresholdType: input.ThresholdType }),
   };
 };
@@ -3083,7 +3084,7 @@ const deserializeAws_json1_1Actions = (output: any, context: __SerdeContext): Ac
 const deserializeAws_json1_1ActionThreshold = (output: any, context: __SerdeContext): ActionThreshold => {
   return {
     ActionThresholdType: __expectString(output.ActionThresholdType),
-    ActionThresholdValue: __expectNumber(output.ActionThresholdValue),
+    ActionThresholdValue: __handleFloat(output.ActionThresholdValue),
   } as any;
 };
 
@@ -3549,7 +3550,7 @@ const deserializeAws_json1_1Notification = (output: any, context: __SerdeContext
     ComparisonOperator: __expectString(output.ComparisonOperator),
     NotificationState: __expectString(output.NotificationState),
     NotificationType: __expectString(output.NotificationType),
-    Threshold: __expectNumber(output.Threshold),
+    Threshold: __handleFloat(output.Threshold),
     ThresholdType: __expectString(output.ThresholdType),
   } as any;
 };

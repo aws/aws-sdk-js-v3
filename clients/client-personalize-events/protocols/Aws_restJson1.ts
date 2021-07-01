@@ -14,6 +14,7 @@ import {
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
   expectString as __expectString,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -342,7 +343,8 @@ const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any
   return {
     ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
     ...(input.eventType !== undefined && input.eventType !== null && { eventType: input.eventType }),
-    ...(input.eventValue !== undefined && input.eventValue !== null && { eventValue: input.eventValue }),
+    ...(input.eventValue !== undefined &&
+      input.eventValue !== null && { eventValue: __serializeFloat(input.eventValue) }),
     ...(input.impression !== undefined &&
       input.impression !== null && { impression: serializeAws_restJson1Impression(input.impression, context) }),
     ...(input.itemId !== undefined && input.itemId !== null && { itemId: input.itemId }),

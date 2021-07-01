@@ -105,6 +105,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3416,7 +3418,7 @@ const serializeAws_restJson1IoTJobAbortCriteria = (input: IoTJobAbortCriteria, c
     ...(input.minNumberOfExecutedThings !== undefined &&
       input.minNumberOfExecutedThings !== null && { minNumberOfExecutedThings: input.minNumberOfExecutedThings }),
     ...(input.thresholdPercentage !== undefined &&
-      input.thresholdPercentage !== null && { thresholdPercentage: input.thresholdPercentage }),
+      input.thresholdPercentage !== null && { thresholdPercentage: __serializeFloat(input.thresholdPercentage) }),
   };
 };
 
@@ -3453,7 +3455,7 @@ const serializeAws_restJson1IoTJobExponentialRolloutRate = (
     ...(input.baseRatePerMinute !== undefined &&
       input.baseRatePerMinute !== null && { baseRatePerMinute: input.baseRatePerMinute }),
     ...(input.incrementFactor !== undefined &&
-      input.incrementFactor !== null && { incrementFactor: input.incrementFactor }),
+      input.incrementFactor !== null && { incrementFactor: __serializeFloat(input.incrementFactor) }),
     ...(input.rateIncreaseCriteria !== undefined &&
       input.rateIncreaseCriteria !== null && {
         rateIncreaseCriteria: serializeAws_restJson1IoTJobRateIncreaseCriteria(input.rateIncreaseCriteria, context),
@@ -4089,7 +4091,7 @@ const deserializeAws_restJson1IoTJobAbortCriteria = (output: any, context: __Ser
     action: __expectString(output.action),
     failureType: __expectString(output.failureType),
     minNumberOfExecutedThings: __expectNumber(output.minNumberOfExecutedThings),
-    thresholdPercentage: __expectNumber(output.thresholdPercentage),
+    thresholdPercentage: __handleFloat(output.thresholdPercentage),
   } as any;
 };
 
@@ -4126,7 +4128,7 @@ const deserializeAws_restJson1IoTJobExponentialRolloutRate = (
 ): IoTJobExponentialRolloutRate => {
   return {
     baseRatePerMinute: __expectNumber(output.baseRatePerMinute),
-    incrementFactor: __expectNumber(output.incrementFactor),
+    incrementFactor: __handleFloat(output.incrementFactor),
     rateIncreaseCriteria:
       output.rateIncreaseCriteria !== undefined && output.rateIncreaseCriteria !== null
         ? deserializeAws_restJson1IoTJobRateIncreaseCriteria(output.rateIncreaseCriteria, context)

@@ -147,6 +147,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5040,7 +5042,8 @@ const serializeAws_restJson1Variable = (input: Variable, context: __SerdeContext
           context
         ),
       }),
-    ...(input.doubleValue !== undefined && input.doubleValue !== null && { doubleValue: input.doubleValue }),
+    ...(input.doubleValue !== undefined &&
+      input.doubleValue !== null && { doubleValue: __serializeFloat(input.doubleValue) }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.outputFileUriValue !== undefined &&
       input.outputFileUriValue !== null && {
@@ -5766,7 +5769,7 @@ const deserializeAws_restJson1EstimatedResourceSize = (output: any, context: __S
       output.estimatedOn !== undefined && output.estimatedOn !== null
         ? new Date(Math.round(output.estimatedOn * 1000))
         : undefined,
-    estimatedSizeInBytes: __expectNumber(output.estimatedSizeInBytes),
+    estimatedSizeInBytes: __handleFloat(output.estimatedSizeInBytes),
   } as any;
 };
 
@@ -6217,7 +6220,7 @@ const deserializeAws_restJson1Variable = (output: any, context: __SerdeContext):
       output.datasetContentVersionValue !== undefined && output.datasetContentVersionValue !== null
         ? deserializeAws_restJson1DatasetContentVersionValue(output.datasetContentVersionValue, context)
         : undefined,
-    doubleValue: __expectNumber(output.doubleValue),
+    doubleValue: __handleFloat(output.doubleValue),
     name: __expectString(output.name),
     outputFileUriValue:
       output.outputFileUriValue !== undefined && output.outputFileUriValue !== null

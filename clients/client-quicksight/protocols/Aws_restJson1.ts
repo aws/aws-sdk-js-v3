@@ -361,6 +361,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -16713,7 +16714,7 @@ const serializeAws_restJson1DoubleList = (input: number[], context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __serializeFloat(entry);
     });
 };
 

@@ -129,6 +129,7 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2310,7 +2311,7 @@ const deserializeAws_json1_0AutoScalingGroupRecommendation = (
       output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
         ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
         : undefined,
-    lookBackPeriodInDays: __expectNumber(output.lookBackPeriodInDays),
+    lookBackPeriodInDays: __handleFloat(output.lookBackPeriodInDays),
     recommendationOptions:
       output.recommendationOptions !== undefined && output.recommendationOptions !== null
         ? deserializeAws_json1_0AutoScalingGroupRecommendationOptions(output.recommendationOptions, context)
@@ -2331,7 +2332,7 @@ const deserializeAws_json1_0AutoScalingGroupRecommendationOption = (
       output.configuration !== undefined && output.configuration !== null
         ? deserializeAws_json1_0AutoScalingGroupConfiguration(output.configuration, context)
         : undefined,
-    performanceRisk: __expectNumber(output.performanceRisk),
+    performanceRisk: __handleFloat(output.performanceRisk),
     projectedUtilizationMetrics:
       output.projectedUtilizationMetrics !== undefined && output.projectedUtilizationMetrics !== null
         ? deserializeAws_json1_0ProjectedUtilizationMetrics(output.projectedUtilizationMetrics, context)
@@ -2385,7 +2386,7 @@ const deserializeAws_json1_0EBSUtilizationMetric = (output: any, context: __Serd
   return {
     name: __expectString(output.name),
     statistic: __expectString(output.statistic),
-    value: __expectNumber(output.value),
+    value: __handleFloat(output.value),
   } as any;
 };
 
@@ -2598,7 +2599,7 @@ const deserializeAws_json1_0InstanceRecommendation = (output: any, context: __Se
       output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
         ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
         : undefined,
-    lookBackPeriodInDays: __expectNumber(output.lookBackPeriodInDays),
+    lookBackPeriodInDays: __handleFloat(output.lookBackPeriodInDays),
     recommendationOptions:
       output.recommendationOptions !== undefined && output.recommendationOptions !== null
         ? deserializeAws_json1_0RecommendationOptions(output.recommendationOptions, context)
@@ -2634,7 +2635,7 @@ const deserializeAws_json1_0InstanceRecommendationOption = (
 ): InstanceRecommendationOption => {
   return {
     instanceType: __expectString(output.instanceType),
-    performanceRisk: __expectNumber(output.performanceRisk),
+    performanceRisk: __handleFloat(output.performanceRisk),
     platformDifferences:
       output.platformDifferences !== undefined && output.platformDifferences !== null
         ? deserializeAws_json1_0PlatformDifferences(output.platformDifferences, context)
@@ -2686,7 +2687,7 @@ const deserializeAws_json1_0LambdaFunctionMemoryProjectedMetric = (
   return {
     name: __expectString(output.name),
     statistic: __expectString(output.statistic),
-    value: __expectNumber(output.value),
+    value: __handleFloat(output.value),
   } as any;
 };
 
@@ -2750,7 +2751,7 @@ const deserializeAws_json1_0LambdaFunctionRecommendation = (
       output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
         ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
         : undefined,
-    lookbackPeriodInDays: __expectNumber(output.lookbackPeriodInDays),
+    lookbackPeriodInDays: __handleFloat(output.lookbackPeriodInDays),
     memorySizeRecommendationOptions:
       output.memorySizeRecommendationOptions !== undefined && output.memorySizeRecommendationOptions !== null
         ? deserializeAws_json1_0LambdaFunctionMemoryRecommendationOptions(
@@ -2801,7 +2802,7 @@ const deserializeAws_json1_0LambdaFunctionUtilizationMetric = (
   return {
     name: __expectString(output.name),
     statistic: __expectString(output.statistic),
-    value: __expectNumber(output.value),
+    value: __handleFloat(output.value),
   } as any;
 };
 
@@ -2832,7 +2833,7 @@ const deserializeAws_json1_0MetricValues = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __handleFloat(entry) as any;
     });
 };
 
@@ -2918,7 +2919,7 @@ const deserializeAws_json1_0ReasonCodeSummaries = (output: any, context: __Serde
 const deserializeAws_json1_0ReasonCodeSummary = (output: any, context: __SerdeContext): ReasonCodeSummary => {
   return {
     name: __expectString(output.name),
-    value: __expectNumber(output.value),
+    value: __handleFloat(output.value),
   } as any;
 };
 
@@ -3089,7 +3090,7 @@ const deserializeAws_json1_0Summary = (output: any, context: __SerdeContext): Su
       output.reasonCodeSummaries !== undefined && output.reasonCodeSummaries !== null
         ? deserializeAws_json1_0ReasonCodeSummaries(output.reasonCodeSummaries, context)
         : undefined,
-    value: __expectNumber(output.value),
+    value: __handleFloat(output.value),
   } as any;
 };
 
@@ -3124,7 +3125,7 @@ const deserializeAws_json1_0UtilizationMetric = (output: any, context: __SerdeCo
   return {
     name: __expectString(output.name),
     statistic: __expectString(output.statistic),
-    value: __expectNumber(output.value),
+    value: __handleFloat(output.value),
   } as any;
 };
 
@@ -3162,7 +3163,7 @@ const deserializeAws_json1_0VolumeRecommendation = (output: any, context: __Serd
       output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
         ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
         : undefined,
-    lookBackPeriodInDays: __expectNumber(output.lookBackPeriodInDays),
+    lookBackPeriodInDays: __handleFloat(output.lookBackPeriodInDays),
     utilizationMetrics:
       output.utilizationMetrics !== undefined && output.utilizationMetrics !== null
         ? deserializeAws_json1_0EBSUtilizationMetrics(output.utilizationMetrics, context)
@@ -3184,7 +3185,7 @@ const deserializeAws_json1_0VolumeRecommendationOption = (
       output.configuration !== undefined && output.configuration !== null
         ? deserializeAws_json1_0VolumeConfiguration(output.configuration, context)
         : undefined,
-    performanceRisk: __expectNumber(output.performanceRisk),
+    performanceRisk: __handleFloat(output.performanceRisk),
     rank: __expectNumber(output.rank),
   } as any;
 };

@@ -282,6 +282,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -9301,8 +9302,8 @@ const deserializeAws_restJson1IpCountry = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1IpGeoLocation = (output: any, context: __SerdeContext): IpGeoLocation => {
   return {
-    lat: __expectNumber(output.lat),
-    lon: __expectNumber(output.lon),
+    lat: __handleFloat(output.lat),
+    lon: __handleFloat(output.lon),
   } as any;
 };
 
@@ -9856,8 +9857,8 @@ const deserializeAws_restJson1SimpleScopeTerm = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Statistics = (output: any, context: __SerdeContext): Statistics => {
   return {
-    approximateNumberOfObjectsToProcess: __expectNumber(output.approximateNumberOfObjectsToProcess),
-    numberOfRuns: __expectNumber(output.numberOfRuns),
+    approximateNumberOfObjectsToProcess: __handleFloat(output.approximateNumberOfObjectsToProcess),
+    numberOfRuns: __handleFloat(output.numberOfRuns),
   } as any;
 };
 

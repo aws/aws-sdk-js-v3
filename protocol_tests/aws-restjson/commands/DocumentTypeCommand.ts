@@ -1,8 +1,8 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { InlineDocumentInputOutput } from "../models/models_0";
+import { DocumentTypeInputOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1InlineDocumentCommand,
-  serializeAws_restJson1InlineDocumentCommand,
+  deserializeAws_restJson1DocumentTypeCommand,
+  serializeAws_restJson1DocumentTypeCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -17,35 +17,35 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export interface InlineDocumentCommandInput extends InlineDocumentInputOutput {}
-export interface InlineDocumentCommandOutput extends InlineDocumentInputOutput, __MetadataBearer {}
+export interface DocumentTypeCommandInput extends DocumentTypeInputOutput {}
+export interface DocumentTypeCommandOutput extends DocumentTypeInputOutput, __MetadataBearer {}
 
 /**
- * This example serializes an inline document as part of the payload.
+ * This example serializes a document as part of the payload.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RestJsonProtocolClient, InlineDocumentCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
- * // const { RestJsonProtocolClient, InlineDocumentCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
+ * import { RestJsonProtocolClient, DocumentTypeCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, DocumentTypeCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const command = new InlineDocumentCommand(input);
+ * const command = new DocumentTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link InlineDocumentCommandInput} for command's `input` shape.
- * @see {@link InlineDocumentCommandOutput} for command's `response` shape.
+ * @see {@link DocumentTypeCommandInput} for command's `input` shape.
+ * @see {@link DocumentTypeCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
  *
  */
-export class InlineDocumentCommand extends $Command<
-  InlineDocumentCommandInput,
-  InlineDocumentCommandOutput,
+export class DocumentTypeCommand extends $Command<
+  DocumentTypeCommandInput,
+  DocumentTypeCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: InlineDocumentCommandInput) {
+  constructor(readonly input: DocumentTypeCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -58,20 +58,20 @@ export class InlineDocumentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<InlineDocumentCommandInput, InlineDocumentCommandOutput> {
+  ): Handler<DocumentTypeCommandInput, DocumentTypeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RestJsonProtocolClient";
-    const commandName = "InlineDocumentCommand";
+    const commandName = "DocumentTypeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InlineDocumentInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: InlineDocumentInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DocumentTypeInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: DocumentTypeInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -81,12 +81,12 @@ export class InlineDocumentCommand extends $Command<
     );
   }
 
-  private serialize(input: InlineDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InlineDocumentCommand(input, context);
+  private serialize(input: DocumentTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DocumentTypeCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InlineDocumentCommandOutput> {
-    return deserializeAws_restJson1InlineDocumentCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DocumentTypeCommandOutput> {
+    return deserializeAws_restJson1DocumentTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

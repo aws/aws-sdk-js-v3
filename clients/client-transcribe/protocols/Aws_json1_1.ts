@@ -166,6 +166,7 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3593,7 +3594,7 @@ const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeCon
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
-    IdentifiedLanguageScore: __expectNumber(output.IdentifiedLanguageScore),
+    IdentifiedLanguageScore: __handleFloat(output.IdentifiedLanguageScore),
     IdentifyLanguage: __expectBoolean(output.IdentifyLanguage),
     JobExecutionSettings:
       output.JobExecutionSettings !== undefined && output.JobExecutionSettings !== null
@@ -3663,7 +3664,7 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
-    IdentifiedLanguageScore: __expectNumber(output.IdentifiedLanguageScore),
+    IdentifiedLanguageScore: __handleFloat(output.IdentifiedLanguageScore),
     IdentifyLanguage: __expectBoolean(output.IdentifyLanguage),
     LanguageCode: __expectString(output.LanguageCode),
     ModelSettings:

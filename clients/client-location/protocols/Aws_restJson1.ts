@@ -163,6 +163,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6275,7 +6277,7 @@ const serializeAws_restJson1BoundingBox = (input: number[], context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __serializeFloat(entry);
     });
 };
 
@@ -6411,7 +6413,7 @@ const serializeAws_restJson1Position = (input: number[], context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __serializeFloat(entry);
     });
 };
 
@@ -6429,16 +6431,16 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 
 const serializeAws_restJson1TruckDimensions = (input: TruckDimensions, context: __SerdeContext): any => {
   return {
-    ...(input.Height !== undefined && input.Height !== null && { Height: input.Height }),
-    ...(input.Length !== undefined && input.Length !== null && { Length: input.Length }),
+    ...(input.Height !== undefined && input.Height !== null && { Height: __serializeFloat(input.Height) }),
+    ...(input.Length !== undefined && input.Length !== null && { Length: __serializeFloat(input.Length) }),
     ...(input.Unit !== undefined && input.Unit !== null && { Unit: input.Unit }),
-    ...(input.Width !== undefined && input.Width !== null && { Width: input.Width }),
+    ...(input.Width !== undefined && input.Width !== null && { Width: __serializeFloat(input.Width) }),
   };
 };
 
 const serializeAws_restJson1TruckWeight = (input: TruckWeight, context: __SerdeContext): any => {
   return {
-    ...(input.Total !== undefined && input.Total !== null && { Total: input.Total }),
+    ...(input.Total !== undefined && input.Total !== null && { Total: __serializeFloat(input.Total) }),
     ...(input.Unit !== undefined && input.Unit !== null && { Unit: input.Unit }),
   };
 };
@@ -6665,16 +6667,16 @@ const deserializeAws_restJson1BoundingBox = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __handleFloat(entry) as any;
     });
 };
 
 const deserializeAws_restJson1CalculateRouteSummary = (output: any, context: __SerdeContext): CalculateRouteSummary => {
   return {
     DataSource: __expectString(output.DataSource),
-    Distance: __expectNumber(output.Distance),
+    Distance: __handleFloat(output.Distance),
     DistanceUnit: __expectString(output.DistanceUnit),
-    DurationSeconds: __expectNumber(output.DurationSeconds),
+    DurationSeconds: __handleFloat(output.DurationSeconds),
     RouteBBox:
       output.RouteBBox !== undefined && output.RouteBBox !== null
         ? deserializeAws_restJson1BoundingBox(output.RouteBBox, context)
@@ -6737,8 +6739,8 @@ const deserializeAws_restJson1GeofenceGeometry = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Leg = (output: any, context: __SerdeContext): Leg => {
   return {
-    Distance: __expectNumber(output.Distance),
-    DurationSeconds: __expectNumber(output.DurationSeconds),
+    Distance: __handleFloat(output.Distance),
+    DurationSeconds: __handleFloat(output.DurationSeconds),
     EndPosition:
       output.EndPosition !== undefined && output.EndPosition !== null
         ? deserializeAws_restJson1Position(output.EndPosition, context)
@@ -7046,7 +7048,7 @@ const deserializeAws_restJson1Position = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return __expectNumber(entry) as any;
+      return __handleFloat(entry) as any;
     });
 };
 
@@ -7142,8 +7144,8 @@ const deserializeAws_restJson1SearchPlaceIndexForTextSummary = (
 
 const deserializeAws_restJson1Step = (output: any, context: __SerdeContext): Step => {
   return {
-    Distance: __expectNumber(output.Distance),
-    DurationSeconds: __expectNumber(output.DurationSeconds),
+    Distance: __handleFloat(output.Distance),
+    DurationSeconds: __handleFloat(output.DurationSeconds),
     EndPosition:
       output.EndPosition !== undefined && output.EndPosition !== null
         ? deserializeAws_restJson1Position(output.EndPosition, context)

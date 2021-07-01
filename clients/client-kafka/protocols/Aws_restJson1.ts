@@ -135,6 +135,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4570,7 +4571,7 @@ const deserializeAws_restJson1BrokerNodeGroupInfo = (output: any, context: __Ser
 const deserializeAws_restJson1BrokerNodeInfo = (output: any, context: __SerdeContext): BrokerNodeInfo => {
   return {
     AttachedENIId: __expectString(output.attachedENIId),
-    BrokerId: __expectNumber(output.brokerId),
+    BrokerId: __handleFloat(output.brokerId),
     ClientSubnet: __expectString(output.clientSubnet),
     ClientVpcIpAddress: __expectString(output.clientVpcIpAddress),
     CurrentBrokerSoftwareInfo:
@@ -4965,7 +4966,7 @@ const deserializeAws_restJson1ZookeeperNodeInfo = (output: any, context: __Serde
       output.endpoints !== undefined && output.endpoints !== null
         ? deserializeAws_restJson1__listOf__string(output.endpoints, context)
         : undefined,
-    ZookeeperId: __expectNumber(output.zookeeperId),
+    ZookeeperId: __handleFloat(output.zookeeperId),
     ZookeeperVersion: __expectString(output.zookeeperVersion),
   } as any;
 };

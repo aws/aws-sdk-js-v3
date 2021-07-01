@@ -404,6 +404,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6350,7 +6352,7 @@ const serializeAws_restJson1AwsApiGatewayCanarySettings = (
   return {
     ...(input.DeploymentId !== undefined && input.DeploymentId !== null && { DeploymentId: input.DeploymentId }),
     ...(input.PercentTraffic !== undefined &&
-      input.PercentTraffic !== null && { PercentTraffic: input.PercentTraffic }),
+      input.PercentTraffic !== null && { PercentTraffic: __serializeFloat(input.PercentTraffic) }),
     ...(input.StageVariableOverrides !== undefined &&
       input.StageVariableOverrides !== null && {
         StageVariableOverrides: serializeAws_restJson1FieldMap(input.StageVariableOverrides, context),
@@ -6394,7 +6396,7 @@ const serializeAws_restJson1AwsApiGatewayMethodSettings = (
     ...(input.ThrottlingBurstLimit !== undefined &&
       input.ThrottlingBurstLimit !== null && { ThrottlingBurstLimit: input.ThrottlingBurstLimit }),
     ...(input.ThrottlingRateLimit !== undefined &&
-      input.ThrottlingRateLimit !== null && { ThrottlingRateLimit: input.ThrottlingRateLimit }),
+      input.ThrottlingRateLimit !== null && { ThrottlingRateLimit: __serializeFloat(input.ThrottlingRateLimit) }),
     ...(input.UnauthorizedCacheControlHeaderStrategy !== undefined &&
       input.UnauthorizedCacheControlHeaderStrategy !== null && {
         UnauthorizedCacheControlHeaderStrategy: input.UnauthorizedCacheControlHeaderStrategy,
@@ -6520,7 +6522,7 @@ const serializeAws_restJson1AwsApiGatewayV2RouteSettings = (
     ...(input.ThrottlingBurstLimit !== undefined &&
       input.ThrottlingBurstLimit !== null && { ThrottlingBurstLimit: input.ThrottlingBurstLimit }),
     ...(input.ThrottlingRateLimit !== undefined &&
-      input.ThrottlingRateLimit !== null && { ThrottlingRateLimit: input.ThrottlingRateLimit }),
+      input.ThrottlingRateLimit !== null && { ThrottlingRateLimit: __serializeFloat(input.ThrottlingRateLimit) }),
   };
 };
 
@@ -8875,7 +8877,8 @@ const serializeAws_restJson1AwsIamUserPolicyList = (input: AwsIamUserPolicy[], c
 const serializeAws_restJson1AwsKmsKeyDetails = (input: AwsKmsKeyDetails, context: __SerdeContext): any => {
   return {
     ...(input.AWSAccountId !== undefined && input.AWSAccountId !== null && { AWSAccountId: input.AWSAccountId }),
-    ...(input.CreationDate !== undefined && input.CreationDate !== null && { CreationDate: input.CreationDate }),
+    ...(input.CreationDate !== undefined &&
+      input.CreationDate !== null && { CreationDate: __serializeFloat(input.CreationDate) }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
     ...(input.KeyManager !== undefined && input.KeyManager !== null && { KeyManager: input.KeyManager }),
@@ -10139,7 +10142,7 @@ const serializeAws_restJson1AwsRedshiftClusterRestoreStatus = (
   return {
     ...(input.CurrentRestoreRateInMegaBytesPerSecond !== undefined &&
       input.CurrentRestoreRateInMegaBytesPerSecond !== null && {
-        CurrentRestoreRateInMegaBytesPerSecond: input.CurrentRestoreRateInMegaBytesPerSecond,
+        CurrentRestoreRateInMegaBytesPerSecond: __serializeFloat(input.CurrentRestoreRateInMegaBytesPerSecond),
       }),
     ...(input.ElapsedTimeInSeconds !== undefined &&
       input.ElapsedTimeInSeconds !== null && { ElapsedTimeInSeconds: input.ElapsedTimeInSeconds }),
@@ -11136,7 +11139,7 @@ const serializeAws_restJson1CustomDataIdentifiersResult = (
 
 const serializeAws_restJson1Cvss = (input: Cvss, context: __SerdeContext): any => {
   return {
-    ...(input.BaseScore !== undefined && input.BaseScore !== null && { BaseScore: input.BaseScore }),
+    ...(input.BaseScore !== undefined && input.BaseScore !== null && { BaseScore: __serializeFloat(input.BaseScore) }),
     ...(input.BaseVector !== undefined && input.BaseVector !== null && { BaseVector: input.BaseVector }),
     ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
   };
@@ -11239,8 +11242,8 @@ const serializeAws_restJson1FindingProviderSeverity = (
 
 const serializeAws_restJson1GeoLocation = (input: GeoLocation, context: __SerdeContext): any => {
   return {
-    ...(input.Lat !== undefined && input.Lat !== null && { Lat: input.Lat }),
-    ...(input.Lon !== undefined && input.Lon !== null && { Lon: input.Lon }),
+    ...(input.Lat !== undefined && input.Lat !== null && { Lat: __serializeFloat(input.Lat) }),
+    ...(input.Lon !== undefined && input.Lon !== null && { Lon: __serializeFloat(input.Lon) }),
   };
 };
 
@@ -11486,9 +11489,9 @@ const serializeAws_restJson1NoteUpdate = (input: NoteUpdate, context: __SerdeCon
 
 const serializeAws_restJson1NumberFilter = (input: NumberFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Eq !== undefined && input.Eq !== null && { Eq: input.Eq }),
-    ...(input.Gte !== undefined && input.Gte !== null && { Gte: input.Gte }),
-    ...(input.Lte !== undefined && input.Lte !== null && { Lte: input.Lte }),
+    ...(input.Eq !== undefined && input.Eq !== null && { Eq: __serializeFloat(input.Eq) }),
+    ...(input.Gte !== undefined && input.Gte !== null && { Gte: __serializeFloat(input.Gte) }),
+    ...(input.Lte !== undefined && input.Lte !== null && { Lte: __serializeFloat(input.Lte) }),
   };
 };
 
@@ -12008,7 +12011,7 @@ const serializeAws_restJson1Severity = (input: Severity, context: __SerdeContext
     ...(input.Label !== undefined && input.Label !== null && { Label: input.Label }),
     ...(input.Normalized !== undefined && input.Normalized !== null && { Normalized: input.Normalized }),
     ...(input.Original !== undefined && input.Original !== null && { Original: input.Original }),
-    ...(input.Product !== undefined && input.Product !== null && { Product: input.Product }),
+    ...(input.Product !== undefined && input.Product !== null && { Product: __serializeFloat(input.Product) }),
   };
 };
 
@@ -12016,7 +12019,7 @@ const serializeAws_restJson1SeverityUpdate = (input: SeverityUpdate, context: __
   return {
     ...(input.Label !== undefined && input.Label !== null && { Label: input.Label }),
     ...(input.Normalized !== undefined && input.Normalized !== null && { Normalized: input.Normalized }),
-    ...(input.Product !== undefined && input.Product !== null && { Product: input.Product }),
+    ...(input.Product !== undefined && input.Product !== null && { Product: __serializeFloat(input.Product) }),
   };
 };
 
@@ -12467,7 +12470,7 @@ const deserializeAws_restJson1AwsApiGatewayCanarySettings = (
 ): AwsApiGatewayCanarySettings => {
   return {
     DeploymentId: __expectString(output.DeploymentId),
-    PercentTraffic: __expectNumber(output.PercentTraffic),
+    PercentTraffic: __handleFloat(output.PercentTraffic),
     StageVariableOverrides:
       output.StageVariableOverrides !== undefined && output.StageVariableOverrides !== null
         ? deserializeAws_restJson1FieldMap(output.StageVariableOverrides, context)
@@ -12503,7 +12506,7 @@ const deserializeAws_restJson1AwsApiGatewayMethodSettings = (
     RequireAuthorizationForCacheControl: __expectBoolean(output.RequireAuthorizationForCacheControl),
     ResourcePath: __expectString(output.ResourcePath),
     ThrottlingBurstLimit: __expectNumber(output.ThrottlingBurstLimit),
-    ThrottlingRateLimit: __expectNumber(output.ThrottlingRateLimit),
+    ThrottlingRateLimit: __handleFloat(output.ThrottlingRateLimit),
     UnauthorizedCacheControlHeaderStrategy: __expectString(output.UnauthorizedCacheControlHeaderStrategy),
   } as any;
 };
@@ -12611,7 +12614,7 @@ const deserializeAws_restJson1AwsApiGatewayV2RouteSettings = (
     DetailedMetricsEnabled: __expectBoolean(output.DetailedMetricsEnabled),
     LoggingLevel: __expectString(output.LoggingLevel),
     ThrottlingBurstLimit: __expectNumber(output.ThrottlingBurstLimit),
-    ThrottlingRateLimit: __expectNumber(output.ThrottlingRateLimit),
+    ThrottlingRateLimit: __handleFloat(output.ThrottlingRateLimit),
   } as any;
 };
 
@@ -14788,7 +14791,7 @@ const deserializeAws_restJson1AwsIamUserPolicyList = (output: any, context: __Se
 const deserializeAws_restJson1AwsKmsKeyDetails = (output: any, context: __SerdeContext): AwsKmsKeyDetails => {
   return {
     AWSAccountId: __expectString(output.AWSAccountId),
-    CreationDate: __expectNumber(output.CreationDate),
+    CreationDate: __handleFloat(output.CreationDate),
     Description: __expectString(output.Description),
     KeyId: __expectString(output.KeyId),
     KeyManager: __expectString(output.KeyManager),
@@ -15870,7 +15873,7 @@ const deserializeAws_restJson1AwsRedshiftClusterRestoreStatus = (
   context: __SerdeContext
 ): AwsRedshiftClusterRestoreStatus => {
   return {
-    CurrentRestoreRateInMegaBytesPerSecond: __expectNumber(output.CurrentRestoreRateInMegaBytesPerSecond),
+    CurrentRestoreRateInMegaBytesPerSecond: __handleFloat(output.CurrentRestoreRateInMegaBytesPerSecond),
     ElapsedTimeInSeconds: __expectNumber(output.ElapsedTimeInSeconds),
     EstimatedTimeToCompletionInSeconds: __expectNumber(output.EstimatedTimeToCompletionInSeconds),
     ProgressInMegaBytes: __expectNumber(output.ProgressInMegaBytes),
@@ -16856,7 +16859,7 @@ const deserializeAws_restJson1CustomDataIdentifiersResult = (
 
 const deserializeAws_restJson1Cvss = (output: any, context: __SerdeContext): Cvss => {
   return {
-    BaseScore: __expectNumber(output.BaseScore),
+    BaseScore: __handleFloat(output.BaseScore),
     BaseVector: __expectString(output.BaseVector),
     Version: __expectString(output.Version),
   } as any;
@@ -16966,8 +16969,8 @@ const deserializeAws_restJson1FindingProviderSeverity = (
 
 const deserializeAws_restJson1GeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
   return {
-    Lat: __expectNumber(output.Lat),
-    Lon: __expectNumber(output.Lon),
+    Lat: __handleFloat(output.Lat),
+    Lon: __handleFloat(output.Lon),
   } as any;
 };
 
@@ -17343,9 +17346,9 @@ const deserializeAws_restJson1Note = (output: any, context: __SerdeContext): Not
 
 const deserializeAws_restJson1NumberFilter = (output: any, context: __SerdeContext): NumberFilter => {
   return {
-    Eq: __expectNumber(output.Eq),
-    Gte: __expectNumber(output.Gte),
-    Lte: __expectNumber(output.Lte),
+    Eq: __handleFloat(output.Eq),
+    Gte: __handleFloat(output.Gte),
+    Lte: __handleFloat(output.Lte),
   } as any;
 };
 
@@ -17932,7 +17935,7 @@ const deserializeAws_restJson1Severity = (output: any, context: __SerdeContext):
     Label: __expectString(output.Label),
     Normalized: __expectNumber(output.Normalized),
     Original: __expectString(output.Original),
-    Product: __expectNumber(output.Product),
+    Product: __handleFloat(output.Product),
   } as any;
 };
 

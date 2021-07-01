@@ -44,6 +44,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1674,7 +1675,7 @@ const deserializeAws_restJson1DeviceDescription = (output: any, context: __Serde
         : undefined,
     DeviceId: __expectString(output.deviceId),
     Enabled: __expectBoolean(output.enabled),
-    RemainingLife: __expectNumber(output.remainingLife),
+    RemainingLife: __handleFloat(output.remainingLife),
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1__mapOf__string(output.tags, context)

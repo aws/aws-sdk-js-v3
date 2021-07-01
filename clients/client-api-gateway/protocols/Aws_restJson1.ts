@@ -281,6 +281,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -16786,7 +16788,7 @@ const serializeAws_restJson1CanarySettings = (input: CanarySettings, context: __
   return {
     ...(input.deploymentId !== undefined && input.deploymentId !== null && { deploymentId: input.deploymentId }),
     ...(input.percentTraffic !== undefined &&
-      input.percentTraffic !== null && { percentTraffic: input.percentTraffic }),
+      input.percentTraffic !== null && { percentTraffic: __serializeFloat(input.percentTraffic) }),
     ...(input.stageVariableOverrides !== undefined &&
       input.stageVariableOverrides !== null && {
         stageVariableOverrides: serializeAws_restJson1MapOfStringToString(input.stageVariableOverrides, context),
@@ -16801,7 +16803,7 @@ const serializeAws_restJson1DeploymentCanarySettings = (
 ): any => {
   return {
     ...(input.percentTraffic !== undefined &&
-      input.percentTraffic !== null && { percentTraffic: input.percentTraffic }),
+      input.percentTraffic !== null && { percentTraffic: __serializeFloat(input.percentTraffic) }),
     ...(input.stageVariableOverrides !== undefined &&
       input.stageVariableOverrides !== null && {
         stageVariableOverrides: serializeAws_restJson1MapOfStringToString(input.stageVariableOverrides, context),
@@ -16992,7 +16994,7 @@ const serializeAws_restJson1StageKey = (input: StageKey, context: __SerdeContext
 const serializeAws_restJson1ThrottleSettings = (input: ThrottleSettings, context: __SerdeContext): any => {
   return {
     ...(input.burstLimit !== undefined && input.burstLimit !== null && { burstLimit: input.burstLimit }),
-    ...(input.rateLimit !== undefined && input.rateLimit !== null && { rateLimit: input.rateLimit }),
+    ...(input.rateLimit !== undefined && input.rateLimit !== null && { rateLimit: __serializeFloat(input.rateLimit) }),
   };
 };
 
@@ -17077,7 +17079,7 @@ const deserializeAws_restJson1BasePathMapping = (output: any, context: __SerdeCo
 const deserializeAws_restJson1CanarySettings = (output: any, context: __SerdeContext): CanarySettings => {
   return {
     deploymentId: __expectString(output.deploymentId),
-    percentTraffic: __expectNumber(output.percentTraffic),
+    percentTraffic: __handleFloat(output.percentTraffic),
     stageVariableOverrides:
       output.stageVariableOverrides !== undefined && output.stageVariableOverrides !== null
         ? deserializeAws_restJson1MapOfStringToString(output.stageVariableOverrides, context)
@@ -17755,7 +17757,7 @@ const deserializeAws_restJson1MethodSetting = (output: any, context: __SerdeCont
     metricsEnabled: __expectBoolean(output.metricsEnabled),
     requireAuthorizationForCacheControl: __expectBoolean(output.requireAuthorizationForCacheControl),
     throttlingBurstLimit: __expectNumber(output.throttlingBurstLimit),
-    throttlingRateLimit: __expectNumber(output.throttlingRateLimit),
+    throttlingRateLimit: __handleFloat(output.throttlingRateLimit),
     unauthorizedCacheControlHeaderStrategy: __expectString(output.unauthorizedCacheControlHeaderStrategy),
   } as any;
 };
@@ -17943,7 +17945,7 @@ const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): St
 const deserializeAws_restJson1ThrottleSettings = (output: any, context: __SerdeContext): ThrottleSettings => {
   return {
     burstLimit: __expectNumber(output.burstLimit),
-    rateLimit: __expectNumber(output.rateLimit),
+    rateLimit: __handleFloat(output.rateLimit),
   } as any;
 };
 

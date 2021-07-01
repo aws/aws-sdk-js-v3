@@ -48,6 +48,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1993,7 +1994,7 @@ const deserializeAws_restJson1ButtonsList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1ConfidenceScore = (output: any, context: __SerdeContext): ConfidenceScore => {
   return {
-    score: __expectNumber(output.score),
+    score: __handleFloat(output.score),
   } as any;
 };
 
@@ -2160,10 +2161,10 @@ const deserializeAws_restJson1SentimentResponse = (output: any, context: __Serde
 
 const deserializeAws_restJson1SentimentScore = (output: any, context: __SerdeContext): SentimentScore => {
   return {
-    mixed: __expectNumber(output.mixed),
-    negative: __expectNumber(output.negative),
-    neutral: __expectNumber(output.neutral),
-    positive: __expectNumber(output.positive),
+    mixed: __handleFloat(output.mixed),
+    negative: __handleFloat(output.negative),
+    neutral: __handleFloat(output.neutral),
+    positive: __handleFloat(output.positive),
   } as any;
 };
 

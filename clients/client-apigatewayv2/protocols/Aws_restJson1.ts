@@ -145,6 +145,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -9842,7 +9844,7 @@ const serializeAws_restJson1RouteSettings = (input: RouteSettings, context: __Se
     ...(input.ThrottlingBurstLimit !== undefined &&
       input.ThrottlingBurstLimit !== null && { throttlingBurstLimit: input.ThrottlingBurstLimit }),
     ...(input.ThrottlingRateLimit !== undefined &&
-      input.ThrottlingRateLimit !== null && { throttlingRateLimit: input.ThrottlingRateLimit }),
+      input.ThrottlingRateLimit !== null && { throttlingRateLimit: __serializeFloat(input.ThrottlingRateLimit) }),
   };
 };
 
@@ -10490,7 +10492,7 @@ const deserializeAws_restJson1RouteSettings = (output: any, context: __SerdeCont
     DetailedMetricsEnabled: __expectBoolean(output.detailedMetricsEnabled),
     LoggingLevel: __expectString(output.loggingLevel),
     ThrottlingBurstLimit: __expectNumber(output.throttlingBurstLimit),
-    ThrottlingRateLimit: __expectNumber(output.throttlingRateLimit),
+    ThrottlingRateLimit: __handleFloat(output.throttlingRateLimit),
   } as any;
 };
 

@@ -350,6 +350,8 @@ import {
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7212,7 +7214,8 @@ const serializeAws_json1_1RepositoryCredentials = (input: RepositoryCredentials,
 
 const serializeAws_json1_1Resource = (input: Resource, context: __SerdeContext): any => {
   return {
-    ...(input.doubleValue !== undefined && input.doubleValue !== null && { doubleValue: input.doubleValue }),
+    ...(input.doubleValue !== undefined &&
+      input.doubleValue !== null && { doubleValue: __serializeFloat(input.doubleValue) }),
     ...(input.integerValue !== undefined && input.integerValue !== null && { integerValue: input.integerValue }),
     ...(input.longValue !== undefined && input.longValue !== null && { longValue: input.longValue }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
@@ -7295,7 +7298,7 @@ const serializeAws_json1_1RunTaskRequest = (input: RunTaskRequest, context: __Se
 const serializeAws_json1_1Scale = (input: Scale, context: __SerdeContext): any => {
   return {
     ...(input.unit !== undefined && input.unit !== null && { unit: input.unit }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.value !== undefined && input.value !== null && { value: __serializeFloat(input.value) }),
   };
 };
 
@@ -9554,7 +9557,7 @@ const deserializeAws_json1_1RequiresAttributes = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    doubleValue: __expectNumber(output.doubleValue),
+    doubleValue: __handleFloat(output.doubleValue),
     integerValue: __expectNumber(output.integerValue),
     longValue: __expectNumber(output.longValue),
     name: __expectString(output.name),
@@ -9626,7 +9629,7 @@ const deserializeAws_json1_1RunTaskResponse = (output: any, context: __SerdeCont
 const deserializeAws_json1_1Scale = (output: any, context: __SerdeContext): Scale => {
   return {
     unit: __expectString(output.unit),
-    value: __expectNumber(output.value),
+    value: __handleFloat(output.value),
   } as any;
 };
 
