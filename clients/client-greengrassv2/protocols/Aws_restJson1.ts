@@ -3212,18 +3212,15 @@ const serializeAws_restJson1ComponentDependencyMap = (
   input: { [key: string]: ComponentDependencyRequirement },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: ComponentDependencyRequirement }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1ComponentDependencyRequirement(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1ComponentDependencyRequirement(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1ComponentDependencyRequirement = (
@@ -3258,18 +3255,15 @@ const serializeAws_restJson1ComponentDeploymentSpecifications = (
   input: { [key: string]: ComponentDeploymentSpecification },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: ComponentDeploymentSpecification }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1ComponentDeploymentSpecification(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1ComponentDeploymentSpecification(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1ComponentPlatform = (input: ComponentPlatform, context: __SerdeContext): any => {
@@ -3303,7 +3297,7 @@ const serializeAws_restJson1ComponentVersionRequirementMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3517,7 +3511,7 @@ const serializeAws_restJson1LambdaEnvironmentVariables = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3656,7 +3650,7 @@ const serializeAws_restJson1PlatformAttributesMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3668,7 +3662,7 @@ const serializeAws_restJson1PlatformAttributesMap = (
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -29513,7 +29513,7 @@ const serializeAws_restJson1AdditionalParameterMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -29547,18 +29547,15 @@ const serializeAws_restJson1AlertTarget = (input: AlertTarget, context: __SerdeC
 };
 
 const serializeAws_restJson1AlertTargets = (input: { [key: string]: AlertTarget }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: AlertTarget }, [key, value]: [AlertTargetType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1AlertTarget(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [AlertTargetType | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1AlertTarget(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1AssetPropertyTimestamp = (input: AssetPropertyTimestamp, context: __SerdeContext): any => {
@@ -29610,7 +29607,7 @@ const serializeAws_restJson1AttributePayload = (input: AttributePayload, context
 };
 
 const serializeAws_restJson1Attributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -29622,7 +29619,7 @@ const serializeAws_restJson1Attributes = (input: { [key: string]: string }, cont
 };
 
 const serializeAws_restJson1AttributesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -29646,25 +29643,22 @@ const serializeAws_restJson1AuditCheckConfigurations = (
   input: { [key: string]: AuditCheckConfiguration },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: AuditCheckConfiguration }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1AuditCheckConfiguration(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1AuditCheckConfiguration(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1AuditCheckToActionsMapping = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -29679,7 +29673,7 @@ const serializeAws_restJson1AuditCheckToReasonCodeFilter = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -29724,7 +29718,7 @@ const serializeAws_restJson1AuditNotificationTargetConfigurations = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: AuditNotificationTarget }, [key, value]: [AuditNotificationType | string, any]) => {
+    (acc: { [key: string]: any }, [key, value]: [AuditNotificationType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -29926,7 +29920,7 @@ const serializeAws_restJson1Cidrs = (input: string[], context: __SerdeContext): 
 };
 
 const serializeAws_restJson1ClientProperties = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -30033,7 +30027,7 @@ const serializeAws_restJson1Destination = (input: Destination, context: __SerdeC
 };
 
 const serializeAws_restJson1DetailsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -30126,18 +30120,15 @@ const serializeAws_restJson1EventConfigurations = (
   input: { [key: string]: Configuration },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: Configuration }, [key, value]: [EventType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1Configuration(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [EventType | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1Configuration(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1ExponentialRolloutRate = (input: ExponentialRolloutRate, context: __SerdeContext): any => {
@@ -30247,7 +30238,7 @@ const serializeAws_restJson1HttpContext = (input: HttpContext, context: __SerdeC
 };
 
 const serializeAws_restJson1HttpHeaders = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -30508,7 +30499,7 @@ const serializeAws_restJson1OTAUpdateFiles = (input: OTAUpdateFile[], context: _
 };
 
 const serializeAws_restJson1Parameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -30590,7 +30581,7 @@ const serializeAws_restJson1ProvisioningHook = (input: ProvisioningHook, context
 };
 
 const serializeAws_restJson1PublicKeyMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

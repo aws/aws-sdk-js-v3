@@ -10680,7 +10680,7 @@ const serializeAws_json1_1IpPermissionsList = (input: IpPermission[], context: _
 };
 
 const serializeAws_json1_1LatencyMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -10859,7 +10859,7 @@ const serializeAws_json1_1PlayerAttributeMap = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -10871,7 +10871,7 @@ const serializeAws_json1_1PlayerAttributeMap = (
 };
 
 const serializeAws_json1_1PlayerDataMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -11211,7 +11211,7 @@ const serializeAws_json1_1StopMatchmakingInput = (input: StopMatchmakingInput, c
 };
 
 const serializeAws_json1_1StringDoubleMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

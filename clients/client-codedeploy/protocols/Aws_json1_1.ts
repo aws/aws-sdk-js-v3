@@ -8492,18 +8492,15 @@ const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: 
 };
 
 const serializeAws_json1_1TargetFilters = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [TargetFilterName | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_json1_1FilterValueList(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [TargetFilterName | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_json1_1FilterValueList(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_json1_1TargetGroupInfo = (input: TargetGroupInfo, context: __SerdeContext): any => {

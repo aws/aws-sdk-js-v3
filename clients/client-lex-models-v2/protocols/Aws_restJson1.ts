@@ -9053,7 +9053,7 @@ const serializeAws_restJson1BotAliasLocaleSettingsMap = (
   input: { [key: string]: BotAliasLocaleSettings },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: BotAliasLocaleSettings }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9186,18 +9186,15 @@ const serializeAws_restJson1BotVersionLocaleSpecification = (
   input: { [key: string]: BotVersionLocaleDetails },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: BotVersionLocaleDetails }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1BotVersionLocaleDetails(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1BotVersionLocaleDetails(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1BotVersionSortBy = (input: BotVersionSortBy, context: __SerdeContext): any => {
@@ -9260,7 +9257,7 @@ const serializeAws_restJson1CodeHookSpecification = (input: CodeHookSpecificatio
 };
 
 const serializeAws_restJson1ConditionKeyValueMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9275,18 +9272,15 @@ const serializeAws_restJson1ConditionMap = (
   input: { [key: string]: { [key: string]: string } },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1ConditionKeyValueMap(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1ConditionKeyValueMap(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1ConversationLogSettings = (
@@ -9926,7 +9920,7 @@ const serializeAws_restJson1SynonymList = (input: SampleValue[], context: __Serd
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

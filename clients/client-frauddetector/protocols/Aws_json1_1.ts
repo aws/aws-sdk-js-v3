@@ -5772,7 +5772,7 @@ const serializeAws_json1_1CreateVariableRequest = (input: CreateVariableRequest,
 };
 
 const serializeAws_json1_1CsvIndexToVariableMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5910,7 +5910,7 @@ const serializeAws_json1_1Entity = (input: Entity, context: __SerdeContext): any
 };
 
 const serializeAws_json1_1EventVariableMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5933,7 +5933,7 @@ const serializeAws_json1_1ExternalModelEndpointDataBlobMap = (
   input: { [key: string]: ModelEndpointDataBlob },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: ModelEndpointDataBlob }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6082,7 +6082,7 @@ const serializeAws_json1_1GetVariablesRequest = (input: GetVariablesRequest, con
 };
 
 const serializeAws_json1_1JsonKeyToVariableMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6094,7 +6094,7 @@ const serializeAws_json1_1JsonKeyToVariableMap = (input: { [key: string]: string
 };
 
 const serializeAws_json1_1labelMapper = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

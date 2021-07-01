@@ -5727,7 +5727,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 
 const serializeAws_json1_1AppAttributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [AppAttributesKeys | string, any]) => {
+    (acc: { [key: string]: any }, [key, value]: [AppAttributesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -6102,7 +6102,7 @@ const serializeAws_json1_1DailyAutoScalingSchedule = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6180,7 +6180,7 @@ const serializeAws_json1_1DeploymentCommandArgs = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6521,7 +6521,7 @@ const serializeAws_json1_1InstanceIdentity = (input: InstanceIdentity, context: 
 
 const serializeAws_json1_1LayerAttributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [LayerAttributesKeys | string, any]) => {
+    (acc: { [key: string]: any }, [key, value]: [LayerAttributesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -6703,7 +6703,7 @@ const serializeAws_json1_1SslConfiguration = (input: SslConfiguration, context: 
 
 const serializeAws_json1_1StackAttributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [StackAttributesKeys | string, any]) => {
+    (acc: { [key: string]: any }, [key, value]: [StackAttributesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -6781,7 +6781,7 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
 };
 
 const serializeAws_json1_1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

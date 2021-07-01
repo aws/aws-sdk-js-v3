@@ -3251,7 +3251,7 @@ const serializeAws_restJson1SourceFlowConfig = (input: SourceFlowConfig, context
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3282,7 +3282,7 @@ const serializeAws_restJson1Task = (input: Task, context: __SerdeContext): any =
 
 const serializeAws_restJson1TaskPropertiesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [OperatorPropertiesKeys | string, any]) => {
+    (acc: { [key: string]: any }, [key, value]: [OperatorPropertiesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }

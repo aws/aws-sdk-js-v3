@@ -17299,7 +17299,7 @@ const serializeAws_json1_1CollectionConfigurations = (
 };
 
 const serializeAws_json1_1CollectionParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -19643,7 +19643,7 @@ const serializeAws_json1_1EndpointInput = (input: EndpointInput, context: __Serd
 };
 
 const serializeAws_json1_1EnvironmentMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -19814,7 +19814,7 @@ const serializeAws_json1_1Groups = (input: string[], context: __SerdeContext): a
 };
 
 const serializeAws_json1_1HookParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -19942,7 +19942,7 @@ const serializeAws_json1_1HyperParameterAlgorithmSpecification = (
 };
 
 const serializeAws_json1_1HyperParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -20442,7 +20442,7 @@ const serializeAws_json1_1LineageEntityParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -21927,7 +21927,7 @@ const serializeAws_json1_1MonitoringEnvironmentMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -22407,7 +22407,7 @@ const serializeAws_json1_1ProcessingEnvironmentMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -22630,7 +22630,7 @@ const serializeAws_json1_1ProfilerRuleConfigurations = (
 };
 
 const serializeAws_json1_1ProfilingParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -22814,7 +22814,7 @@ const serializeAws_json1_1RetryStrategy = (input: RetryStrategy, context: __Serd
 };
 
 const serializeAws_json1_1RuleParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -23243,7 +23243,7 @@ const serializeAws_json1_1TrafficRoutingConfig = (input: TrafficRoutingConfig, c
 };
 
 const serializeAws_json1_1TrainingEnvironmentMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -23347,7 +23347,7 @@ const serializeAws_json1_1TransformEnvironmentMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -23445,7 +23445,7 @@ const serializeAws_json1_1TrialComponentArtifacts = (
   input: { [key: string]: TrialComponentArtifact },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: TrialComponentArtifact }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -23460,18 +23460,15 @@ const serializeAws_json1_1TrialComponentParameters = (
   input: { [key: string]: TrialComponentParameterValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: TrialComponentParameterValue }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_json1_1TrialComponentParameterValue(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_json1_1TrialComponentParameterValue(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_json1_1TrialComponentParameterValue = (

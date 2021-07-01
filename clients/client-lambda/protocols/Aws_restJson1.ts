@@ -9382,7 +9382,7 @@ const serializeAws_restJson1AdditionalVersionWeights = (
   input: { [key: string]: number },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9467,18 +9467,15 @@ const serializeAws_restJson1EndpointLists = (input: string[], context: __SerdeCo
 };
 
 const serializeAws_restJson1Endpoints = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [EndPointType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1EndpointLists(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [EndPointType | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1EndpointLists(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1Environment = (input: Environment, context: __SerdeContext): any => {
@@ -9489,7 +9486,7 @@ const serializeAws_restJson1Environment = (input: Environment, context: __SerdeC
 };
 
 const serializeAws_restJson1EnvironmentVariables = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9678,7 +9675,7 @@ const serializeAws_restJson1SubnetIds = (input: string[], context: __SerdeContex
 };
 
 const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

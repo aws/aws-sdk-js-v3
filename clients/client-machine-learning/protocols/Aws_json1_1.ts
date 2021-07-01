@@ -2939,7 +2939,7 @@ const serializeAws_json1_1RDSDataSpec = (input: RDSDataSpec, context: __SerdeCon
 };
 
 const serializeAws_json1_1Record = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3031,7 +3031,7 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 };
 
 const serializeAws_json1_1TrainingParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

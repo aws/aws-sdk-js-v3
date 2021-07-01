@@ -16906,7 +16906,7 @@ const serializeAws_restJson1MapOfApiStageThrottleSettings = (
   input: { [key: string]: ThrottleSettings },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: ThrottleSettings }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16921,7 +16921,7 @@ const serializeAws_restJson1MapOfStringToBoolean = (
   input: { [key: string]: boolean },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: boolean }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16933,7 +16933,7 @@ const serializeAws_restJson1MapOfStringToBoolean = (
 };
 
 const serializeAws_restJson1MapOfStringToList = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16945,7 +16945,7 @@ const serializeAws_restJson1MapOfStringToList = (input: { [key: string]: string[
 };
 
 const serializeAws_restJson1MapOfStringToString = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

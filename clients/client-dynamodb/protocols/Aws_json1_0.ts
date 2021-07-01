@@ -5558,7 +5558,7 @@ const serializeAws_json1_0AttributeUpdates = (
   input: { [key: string]: AttributeValueUpdate },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AttributeValueUpdate }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5677,7 +5677,7 @@ const serializeAws_json1_0BatchGetRequestMap = (
   input: { [key: string]: KeysAndAttributes },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: KeysAndAttributes }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -5717,7 +5717,7 @@ const serializeAws_json1_0BatchWriteItemRequestMap = (
   input: { [key: string]: WriteRequest[] },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: WriteRequest[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6097,7 +6097,7 @@ const serializeAws_json1_0ExpectedAttributeMap = (
   input: { [key: string]: ExpectedAttributeValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: ExpectedAttributeValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6145,7 +6145,7 @@ const serializeAws_json1_0ExpressionAttributeNameMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6160,7 +6160,7 @@ const serializeAws_json1_0ExpressionAttributeValueMap = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6172,7 +6172,7 @@ const serializeAws_json1_0ExpressionAttributeValueMap = (
 };
 
 const serializeAws_json1_0FilterConditionMap = (input: { [key: string]: Condition }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: Condition }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6341,7 +6341,7 @@ const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList = (
 };
 
 const serializeAws_json1_0Key = (input: { [key: string]: AttributeValue }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6353,7 +6353,7 @@ const serializeAws_json1_0Key = (input: { [key: string]: AttributeValue }, conte
 };
 
 const serializeAws_json1_0KeyConditions = (input: { [key: string]: Condition }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: Condition }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6523,7 +6523,7 @@ const serializeAws_json1_0MapAttributeValue = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -6704,7 +6704,7 @@ const serializeAws_json1_0PutItemInputAttributeMap = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -3791,7 +3791,7 @@ const serializeAws_restJson1__listOfTeletextPageType = (
 };
 
 const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3806,7 +3806,7 @@ const serializeAws_restJson1__mapOfAudioSelector = (
   input: { [key: string]: AudioSelector },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AudioSelector }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3821,7 +3821,7 @@ const serializeAws_restJson1__mapOfAudioSelectorGroup = (
   input: { [key: string]: AudioSelectorGroup },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: AudioSelectorGroup }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3836,7 +3836,7 @@ const serializeAws_restJson1__mapOfCaptionSelector = (
   input: { [key: string]: CaptionSelector },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: CaptionSelector }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

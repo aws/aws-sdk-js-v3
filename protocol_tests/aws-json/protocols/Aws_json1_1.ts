@@ -995,7 +995,7 @@ const serializeAws_json1_1ListOfStructs = (input: SimpleStruct[], context: __Ser
 };
 
 const serializeAws_json1_1MapOfKitchenSinks = (input: { [key: string]: KitchenSink }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: KitchenSink }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1007,7 +1007,7 @@ const serializeAws_json1_1MapOfKitchenSinks = (input: { [key: string]: KitchenSi
 };
 
 const serializeAws_json1_1MapOfListsOfStrings = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1022,22 +1022,19 @@ const serializeAws_json1_1MapOfMapOfStrings = (
   input: { [key: string]: { [key: string]: string } },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_json1_1MapOfStrings(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_json1_1MapOfStrings(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_json1_1MapOfStrings = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1049,7 +1046,7 @@ const serializeAws_json1_1MapOfStrings = (input: { [key: string]: string }, cont
 };
 
 const serializeAws_json1_1MapOfStructs = (input: { [key: string]: SimpleStruct }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: SimpleStruct }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1145,7 +1142,7 @@ const serializeAws_json1_1FooEnumList = (input: (FooEnum | string)[], context: _
 };
 
 const serializeAws_json1_1FooEnumMap = (input: { [key: string]: FooEnum | string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: FooEnum | string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1183,7 +1180,7 @@ const serializeAws_json1_1SparseStringList = (input: string[], context: __SerdeC
 };
 
 const serializeAws_json1_1SparseStringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return { ...acc, [key]: null as any };
     }
@@ -1206,7 +1203,7 @@ const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext
 };
 
 const serializeAws_json1_1StringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

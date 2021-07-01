@@ -13450,7 +13450,7 @@ const deserializeAws_restJson1UserNotFoundExceptionResponse = async (
 };
 
 const serializeAws_restJson1Attributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -13480,7 +13480,7 @@ const serializeAws_restJson1ChatMessage = (input: ChatMessage, context: __SerdeC
 };
 
 const serializeAws_restJson1ContactReferences = (input: { [key: string]: Reference }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: Reference }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -13825,7 +13825,7 @@ const serializeAws_restJson1SecurityProfileIds = (input: string[], context: __Se
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

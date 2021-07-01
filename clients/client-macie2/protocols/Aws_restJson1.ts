@@ -7970,18 +7970,15 @@ const serializeAws_restJson1BucketCriteria = (
   input: { [key: string]: BucketCriteriaAdditionalProperties },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: BucketCriteriaAdditionalProperties }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1BucketCriteriaAdditionalProperties(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1BucketCriteriaAdditionalProperties(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1BucketCriteriaAdditionalProperties = (
@@ -8044,18 +8041,15 @@ const serializeAws_restJson1Criterion = (
   input: { [key: string]: CriterionAdditionalProperties },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: CriterionAdditionalProperties }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1CriterionAdditionalProperties(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1CriterionAdditionalProperties(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1CriterionAdditionalProperties = (
@@ -8365,7 +8359,7 @@ const serializeAws_restJson1TagCriterionPairForJob = (input: TagCriterionPairFor
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }

@@ -16770,7 +16770,7 @@ const serializeAws_json1_1AttachDiskRequest = (input: AttachDiskRequest, context
 };
 
 const serializeAws_json1_1AttachedDiskMap = (input: { [key: string]: DiskMap[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: DiskMap[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16924,7 +16924,7 @@ const serializeAws_json1_1Container = (input: Container, context: __SerdeContext
 };
 
 const serializeAws_json1_1ContainerMap = (input: { [key: string]: Container }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: Container }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -16971,7 +16971,7 @@ const serializeAws_json1_1ContainerServicePublicDomains = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17638,7 +17638,7 @@ const serializeAws_json1_1DomainEntry = (input: DomainEntry, context: __SerdeCon
 };
 
 const serializeAws_json1_1DomainEntryOptions = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -17687,7 +17687,7 @@ const serializeAws_json1_1EndpointRequest = (input: EndpointRequest, context: __
 };
 
 const serializeAws_json1_1Environment = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -18381,18 +18381,15 @@ const serializeAws_json1_1PortMap = (
   input: { [key: string]: ContainerServiceProtocol | string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: ContainerServiceProtocol | string }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: value,
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_json1_1PutAlarmRequest = (input: PutAlarmRequest, context: __SerdeContext): any => {

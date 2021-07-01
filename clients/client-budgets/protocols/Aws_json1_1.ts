@@ -2491,7 +2491,7 @@ const serializeAws_json1_1CalculatedSpend = (input: CalculatedSpend, context: __
 };
 
 const serializeAws_json1_1CostFilters = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2847,7 +2847,7 @@ const serializeAws_json1_1NotificationWithSubscribersList = (
 };
 
 const serializeAws_json1_1PlannedBudgetLimits = (input: { [key: string]: Spend }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: Spend }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
