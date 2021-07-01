@@ -5,7 +5,6 @@
   "scripts": {
     "clean": "yarn remove-definitions && yarn remove-dist && yarn remove-documentation",
     "build-documentation": "yarn remove-documentation && typedoc ./",
-    "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",
     "pretest": "yarn build",
     "remove-definitions": "rimraf ./types",
     "remove-dist": "rimraf ./dist",
