@@ -15,7 +15,8 @@
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:cjs && yarn build:es",
-    "postbuild": "cp test/speech.wav dist/cjs/test"
+    "postbuild": "cp test/speech.wav dist/cjs/test",
+    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4"
   },
   "main": "./dist/cjs/index.js",
   "types": "./dist/types/index.d.ts",
