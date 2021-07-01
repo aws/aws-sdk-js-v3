@@ -57,9 +57,6 @@ tasks.register("generate-smithy-build") {
         fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
             val model = Model.assembler()
                     .addImport(file.absolutePath)
-                    // Grab the result directly rather than worrying about checking for errors via unwrap.
-                    // All we care about here is the service shape, any unchecked errors will be exposed
-                    // as part of the actual build task done by the smithy gradle plugin.
                     .assemble().result.get();
             val services = model.shapes(ServiceShape::class.javaObjectType).sorted().toList();
             if (services.size != 1) {
@@ -88,7 +85,7 @@ tasks.register("generate-smithy-build") {
                             .withMember("typescript-codegen", Node.objectNodeBuilder()
                                     .withMember("package", "@aws-sdk/client-" + sdkId.toLowerCase())
                                     // Note that this version is replaced by Lerna when publishing.
-                                    .withMember("packageVersion", "1.0.0-rc.1")
+                                    .withMember("packageVersion", "3.0.0")
                                     .withMember("packageJson", manifestOverwrites)
                                     .withMember("packageDescription", "AWS SDK for JavaScript "
                                         + clientName + " Client for Node.js, Browser and React Native")
