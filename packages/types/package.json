@@ -9,10 +9,10 @@
     "typescript": "~4.3.2"
   },
   "scripts": {
-    "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
+    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
     "test": "exit 0"
   },
   "author": {

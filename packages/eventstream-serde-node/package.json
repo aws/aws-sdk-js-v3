@@ -2,10 +2,10 @@
   "name": "@aws-sdk/eventstream-serde-node",
   "version": "3.18.0",
   "scripts": {
-    "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
+    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
     "test": "jest"
   },
   "main": "./dist/cjs/index.js",

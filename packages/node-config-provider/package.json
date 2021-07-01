@@ -3,10 +3,10 @@
   "version": "3.19.0",
   "description": "Load config default values from ini config files and environmental variable",
   "scripts": {
-    "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
+    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
     "test": "jest --passWithNoTests"
   },
   "author": {
