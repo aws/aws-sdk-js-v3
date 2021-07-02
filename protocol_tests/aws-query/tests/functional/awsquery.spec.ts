@@ -222,6 +222,7 @@ it("QueryEmptyInputAndEmptyOutput:Response", async () => {
 it("AwsQueryEndpointTrait:Request", async () => {
   const client = new QueryProtocolClient({
     ...clientParams,
+    endpoint: "https://example.com",
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -258,6 +259,7 @@ it("AwsQueryEndpointTrait:Request", async () => {
 it("AwsQueryEndpointTraitWithHostLabel:Request", async () => {
   const client = new QueryProtocolClient({
     ...clientParams,
+    endpoint: "https://example.com",
     requestHandler: new RequestSerializationTestHandler(),
   });
 

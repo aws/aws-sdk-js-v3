@@ -259,10 +259,13 @@ export const serializeAws_restJson1CreateGatewayRouteCommand = async (
   input: CreateGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -294,7 +297,6 @@ export const serializeAws_restJson1CreateGatewayRouteCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -311,10 +313,11 @@ export const serializeAws_restJson1CreateMeshCommand = async (
   input: CreateMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes";
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
@@ -324,7 +327,6 @@ export const serializeAws_restJson1CreateMeshCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -340,10 +342,13 @@ export const serializeAws_restJson1CreateRouteCommand = async (
   input: CreateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -374,7 +379,6 @@ export const serializeAws_restJson1CreateRouteCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -391,10 +395,13 @@ export const serializeAws_restJson1CreateVirtualGatewayCommand = async (
   input: CreateVirtualGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateways";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualGateways";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -417,7 +424,6 @@ export const serializeAws_restJson1CreateVirtualGatewayCommand = async (
     ...(input.virtualGatewayName !== undefined &&
       input.virtualGatewayName !== null && { virtualGatewayName: input.virtualGatewayName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -434,10 +440,12 @@ export const serializeAws_restJson1CreateVirtualNodeCommand = async (
   input: CreateVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes/{meshName}/virtualNodes";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -460,7 +468,6 @@ export const serializeAws_restJson1CreateVirtualNodeCommand = async (
     ...(input.virtualNodeName !== undefined &&
       input.virtualNodeName !== null && { virtualNodeName: input.virtualNodeName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -477,10 +484,13 @@ export const serializeAws_restJson1CreateVirtualRouterCommand = async (
   input: CreateVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualRouters";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -503,7 +513,6 @@ export const serializeAws_restJson1CreateVirtualRouterCommand = async (
     ...(input.virtualRouterName !== undefined &&
       input.virtualRouterName !== null && { virtualRouterName: input.virtualRouterName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -520,10 +529,13 @@ export const serializeAws_restJson1CreateVirtualServiceCommand = async (
   input: CreateVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualServices";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -546,7 +558,6 @@ export const serializeAws_restJson1CreateVirtualServiceCommand = async (
     ...(input.virtualServiceName !== undefined &&
       input.virtualServiceName !== null && { virtualServiceName: input.virtualServiceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -563,8 +574,10 @@ export const serializeAws_restJson1DeleteGatewayRouteCommand = async (
   input: DeleteGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}";
   if (input.gatewayRouteName !== undefined) {
     const labelValue: string = input.gatewayRouteName;
@@ -597,7 +610,6 @@ export const serializeAws_restJson1DeleteGatewayRouteCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -614,8 +626,10 @@ export const serializeAws_restJson1DeleteMeshCommand = async (
   input: DeleteMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes/{meshName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -626,7 +640,6 @@ export const serializeAws_restJson1DeleteMeshCommand = async (
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -642,8 +655,11 @@ export const serializeAws_restJson1DeleteRouteCommand = async (
   input: DeleteRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
   if (input.routeName !== undefined) {
     const labelValue: string = input.routeName;
     if (labelValue.length <= 0) {
@@ -675,7 +691,6 @@ export const serializeAws_restJson1DeleteRouteCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -692,8 +707,11 @@ export const serializeAws_restJson1DeleteVirtualGatewayCommand = async (
   input: DeleteVirtualGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}";
   if (input.virtualGatewayName !== undefined) {
     const labelValue: string = input.virtualGatewayName;
     if (labelValue.length <= 0) {
@@ -716,7 +734,6 @@ export const serializeAws_restJson1DeleteVirtualGatewayCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -733,8 +750,11 @@ export const serializeAws_restJson1DeleteVirtualNodeCommand = async (
   input: DeleteVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
   if (input.virtualNodeName !== undefined) {
     const labelValue: string = input.virtualNodeName;
     if (labelValue.length <= 0) {
@@ -757,7 +777,6 @@ export const serializeAws_restJson1DeleteVirtualNodeCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -774,8 +793,11 @@ export const serializeAws_restJson1DeleteVirtualRouterCommand = async (
   input: DeleteVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
@@ -798,7 +820,6 @@ export const serializeAws_restJson1DeleteVirtualRouterCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -815,8 +836,11 @@ export const serializeAws_restJson1DeleteVirtualServiceCommand = async (
   input: DeleteVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
   if (input.virtualServiceName !== undefined) {
     const labelValue: string = input.virtualServiceName;
     if (labelValue.length <= 0) {
@@ -839,7 +863,6 @@ export const serializeAws_restJson1DeleteVirtualServiceCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -856,8 +879,10 @@ export const serializeAws_restJson1DescribeGatewayRouteCommand = async (
   input: DescribeGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}";
   if (input.gatewayRouteName !== undefined) {
     const labelValue: string = input.gatewayRouteName;
@@ -890,7 +915,6 @@ export const serializeAws_restJson1DescribeGatewayRouteCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -907,8 +931,10 @@ export const serializeAws_restJson1DescribeMeshCommand = async (
   input: DescribeMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes/{meshName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -922,7 +948,6 @@ export const serializeAws_restJson1DescribeMeshCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -939,8 +964,11 @@ export const serializeAws_restJson1DescribeRouteCommand = async (
   input: DescribeRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
   if (input.routeName !== undefined) {
     const labelValue: string = input.routeName;
     if (labelValue.length <= 0) {
@@ -972,7 +1000,6 @@ export const serializeAws_restJson1DescribeRouteCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -989,8 +1016,11 @@ export const serializeAws_restJson1DescribeVirtualGatewayCommand = async (
   input: DescribeVirtualGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}";
   if (input.virtualGatewayName !== undefined) {
     const labelValue: string = input.virtualGatewayName;
     if (labelValue.length <= 0) {
@@ -1013,7 +1043,6 @@ export const serializeAws_restJson1DescribeVirtualGatewayCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1030,8 +1059,11 @@ export const serializeAws_restJson1DescribeVirtualNodeCommand = async (
   input: DescribeVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
   if (input.virtualNodeName !== undefined) {
     const labelValue: string = input.virtualNodeName;
     if (labelValue.length <= 0) {
@@ -1054,7 +1086,6 @@ export const serializeAws_restJson1DescribeVirtualNodeCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1071,8 +1102,11 @@ export const serializeAws_restJson1DescribeVirtualRouterCommand = async (
   input: DescribeVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
@@ -1095,7 +1129,6 @@ export const serializeAws_restJson1DescribeVirtualRouterCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1112,8 +1145,11 @@ export const serializeAws_restJson1DescribeVirtualServiceCommand = async (
   input: DescribeVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
   if (input.virtualServiceName !== undefined) {
     const labelValue: string = input.virtualServiceName;
     if (labelValue.length <= 0) {
@@ -1136,7 +1172,6 @@ export const serializeAws_restJson1DescribeVirtualServiceCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1153,8 +1188,11 @@ export const serializeAws_restJson1ListGatewayRoutesCommand = async (
   input: ListGatewayRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -1179,7 +1217,6 @@ export const serializeAws_restJson1ListGatewayRoutesCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1196,14 +1233,14 @@ export const serializeAws_restJson1ListMeshesCommand = async (
   input: ListMeshesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1220,8 +1257,11 @@ export const serializeAws_restJson1ListRoutesCommand = async (
   input: ListRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -1246,7 +1286,6 @@ export const serializeAws_restJson1ListRoutesCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1263,15 +1302,15 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1288,8 +1327,11 @@ export const serializeAws_restJson1ListVirtualGatewaysCommand = async (
   input: ListVirtualGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateways";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualGateways";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -1305,7 +1347,6 @@ export const serializeAws_restJson1ListVirtualGatewaysCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1322,8 +1363,10 @@ export const serializeAws_restJson1ListVirtualNodesCommand = async (
   input: ListVirtualNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes/{meshName}/virtualNodes";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -1339,7 +1382,6 @@ export const serializeAws_restJson1ListVirtualNodesCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1356,8 +1398,11 @@ export const serializeAws_restJson1ListVirtualRoutersCommand = async (
   input: ListVirtualRoutersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualRouters";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -1373,7 +1418,6 @@ export const serializeAws_restJson1ListVirtualRoutersCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1390,8 +1434,11 @@ export const serializeAws_restJson1ListVirtualServicesCommand = async (
   input: ListVirtualServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualServices";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -1407,7 +1454,6 @@ export const serializeAws_restJson1ListVirtualServicesCommand = async (
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1424,10 +1470,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/tag";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/tag";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
@@ -1436,7 +1483,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1453,10 +1499,11 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/untag";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/untag";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
@@ -1465,7 +1512,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined &&
       input.tagKeys !== null && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1482,10 +1528,12 @@ export const serializeAws_restJson1UpdateGatewayRouteCommand = async (
   input: UpdateGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
   let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}";
   if (input.gatewayRouteName !== undefined) {
     const labelValue: string = input.gatewayRouteName;
@@ -1523,7 +1571,6 @@ export const serializeAws_restJson1UpdateGatewayRouteCommand = async (
     ...(input.spec !== undefined &&
       input.spec !== null && { spec: serializeAws_restJson1GatewayRouteSpec(input.spec, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1540,10 +1587,12 @@ export const serializeAws_restJson1UpdateMeshCommand = async (
   input: UpdateMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes/{meshName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes/{meshName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -1559,7 +1608,6 @@ export const serializeAws_restJson1UpdateMeshCommand = async (
     ...(input.spec !== undefined &&
       input.spec !== null && { spec: serializeAws_restJson1MeshSpec(input.spec, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1575,10 +1623,13 @@ export const serializeAws_restJson1UpdateRouteCommand = async (
   input: UpdateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
   if (input.routeName !== undefined) {
     const labelValue: string = input.routeName;
     if (labelValue.length <= 0) {
@@ -1615,7 +1666,6 @@ export const serializeAws_restJson1UpdateRouteCommand = async (
     ...(input.spec !== undefined &&
       input.spec !== null && { spec: serializeAws_restJson1RouteSpec(input.spec, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1632,10 +1682,13 @@ export const serializeAws_restJson1UpdateVirtualGatewayCommand = async (
   input: UpdateVirtualGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}";
   if (input.virtualGatewayName !== undefined) {
     const labelValue: string = input.virtualGatewayName;
     if (labelValue.length <= 0) {
@@ -1663,7 +1716,6 @@ export const serializeAws_restJson1UpdateVirtualGatewayCommand = async (
     ...(input.spec !== undefined &&
       input.spec !== null && { spec: serializeAws_restJson1VirtualGatewaySpec(input.spec, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1680,10 +1732,13 @@ export const serializeAws_restJson1UpdateVirtualNodeCommand = async (
   input: UpdateVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
   if (input.virtualNodeName !== undefined) {
     const labelValue: string = input.virtualNodeName;
     if (labelValue.length <= 0) {
@@ -1711,7 +1766,6 @@ export const serializeAws_restJson1UpdateVirtualNodeCommand = async (
     ...(input.spec !== undefined &&
       input.spec !== null && { spec: serializeAws_restJson1VirtualNodeSpec(input.spec, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1728,10 +1782,13 @@ export const serializeAws_restJson1UpdateVirtualRouterCommand = async (
   input: UpdateVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
@@ -1759,7 +1816,6 @@ export const serializeAws_restJson1UpdateVirtualRouterCommand = async (
     ...(input.spec !== undefined &&
       input.spec !== null && { spec: serializeAws_restJson1VirtualRouterSpec(input.spec, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1776,10 +1832,13 @@ export const serializeAws_restJson1UpdateVirtualServiceCommand = async (
   input: UpdateVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
   if (input.virtualServiceName !== undefined) {
     const labelValue: string = input.virtualServiceName;
     if (labelValue.length <= 0) {
@@ -1807,7 +1866,6 @@ export const serializeAws_restJson1UpdateVirtualServiceCommand = async (
     ...(input.spec !== undefined &&
       input.spec !== null && { spec: serializeAws_restJson1VirtualServiceSpec(input.spec, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

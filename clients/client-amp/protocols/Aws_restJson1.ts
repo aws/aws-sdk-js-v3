@@ -37,16 +37,16 @@ export const serializeAws_restJson1CreateWorkspaceCommand = async (
   input: CreateWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workspaces";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces";
   let body: any;
   body = JSON.stringify({
     ...(input.alias !== undefined && input.alias !== null && { alias: input.alias }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -62,8 +62,10 @@ export const serializeAws_restJson1DeleteWorkspaceCommand = async (
   input: DeleteWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workspaces/{workspaceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}";
   if (input.workspaceId !== undefined) {
     const labelValue: string = input.workspaceId;
     if (labelValue.length <= 0) {
@@ -77,7 +79,6 @@ export const serializeAws_restJson1DeleteWorkspaceCommand = async (
     ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -94,8 +95,10 @@ export const serializeAws_restJson1DescribeWorkspaceCommand = async (
   input: DescribeWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workspaces/{workspaceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}";
   if (input.workspaceId !== undefined) {
     const labelValue: string = input.workspaceId;
     if (labelValue.length <= 0) {
@@ -106,7 +109,6 @@ export const serializeAws_restJson1DescribeWorkspaceCommand = async (
     throw new Error("No value provided for input HTTP label: workspaceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -122,15 +124,15 @@ export const serializeAws_restJson1ListWorkspacesCommand = async (
   input: ListWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workspaces";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.alias !== undefined && { alias: input.alias }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -147,10 +149,12 @@ export const serializeAws_restJson1UpdateWorkspaceAliasCommand = async (
   input: UpdateWorkspaceAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workspaces/{workspaceId}/alias";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/alias";
   if (input.workspaceId !== undefined) {
     const labelValue: string = input.workspaceId;
     if (labelValue.length <= 0) {
@@ -165,7 +169,6 @@ export const serializeAws_restJson1UpdateWorkspaceAliasCommand = async (
     ...(input.alias !== undefined && input.alias !== null && { alias: input.alias }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

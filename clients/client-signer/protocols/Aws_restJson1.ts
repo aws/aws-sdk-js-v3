@@ -94,10 +94,13 @@ export const serializeAws_restJson1AddProfilePermissionCommand = async (
   input: AddProfilePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/signing-profiles/{profileName}/permissions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/signing-profiles/{profileName}/permissions";
   if (input.profileName !== undefined) {
     const labelValue: string = input.profileName;
     if (labelValue.length <= 0) {
@@ -116,7 +119,6 @@ export const serializeAws_restJson1AddProfilePermissionCommand = async (
     ...(input.revisionId !== undefined && input.revisionId !== null && { revisionId: input.revisionId }),
     ...(input.statementId !== undefined && input.statementId !== null && { statementId: input.statementId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -132,8 +134,10 @@ export const serializeAws_restJson1CancelSigningProfileCommand = async (
   input: CancelSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/signing-profiles/{profileName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
     const labelValue: string = input.profileName;
     if (labelValue.length <= 0) {
@@ -144,7 +148,6 @@ export const serializeAws_restJson1CancelSigningProfileCommand = async (
     throw new Error("No value provided for input HTTP label: profileName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -160,8 +163,9 @@ export const serializeAws_restJson1DescribeSigningJobCommand = async (
   input: DescribeSigningJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/signing-jobs/{jobId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs/{jobId}";
   if (input.jobId !== undefined) {
     const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
@@ -172,7 +176,6 @@ export const serializeAws_restJson1DescribeSigningJobCommand = async (
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -188,8 +191,10 @@ export const serializeAws_restJson1GetSigningPlatformCommand = async (
   input: GetSigningPlatformCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/signing-platforms/{platformId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-platforms/{platformId}";
   if (input.platformId !== undefined) {
     const labelValue: string = input.platformId;
     if (labelValue.length <= 0) {
@@ -200,7 +205,6 @@ export const serializeAws_restJson1GetSigningPlatformCommand = async (
     throw new Error("No value provided for input HTTP label: platformId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -216,8 +220,10 @@ export const serializeAws_restJson1GetSigningProfileCommand = async (
   input: GetSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/signing-profiles/{profileName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
     const labelValue: string = input.profileName;
     if (labelValue.length <= 0) {
@@ -231,7 +237,6 @@ export const serializeAws_restJson1GetSigningProfileCommand = async (
     ...(input.profileOwner !== undefined && { profileOwner: input.profileOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -248,8 +253,11 @@ export const serializeAws_restJson1ListProfilePermissionsCommand = async (
   input: ListProfilePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/signing-profiles/{profileName}/permissions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/signing-profiles/{profileName}/permissions";
   if (input.profileName !== undefined) {
     const labelValue: string = input.profileName;
     if (labelValue.length <= 0) {
@@ -263,7 +271,6 @@ export const serializeAws_restJson1ListProfilePermissionsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -280,8 +287,9 @@ export const serializeAws_restJson1ListSigningJobsCommand = async (
   input: ListSigningJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/signing-jobs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs";
   const query: any = {
     ...(input.status !== undefined && { status: input.status }),
     ...(input.platformId !== undefined && { platformId: input.platformId }),
@@ -298,7 +306,6 @@ export const serializeAws_restJson1ListSigningJobsCommand = async (
     ...(input.jobInvoker !== undefined && { jobInvoker: input.jobInvoker }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -315,8 +322,9 @@ export const serializeAws_restJson1ListSigningPlatformsCommand = async (
   input: ListSigningPlatformsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/signing-platforms";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-platforms";
   const query: any = {
     ...(input.category !== undefined && { category: input.category }),
     ...(input.partner !== undefined && { partner: input.partner }),
@@ -325,7 +333,6 @@ export const serializeAws_restJson1ListSigningPlatformsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -342,8 +349,9 @@ export const serializeAws_restJson1ListSigningProfilesCommand = async (
   input: ListSigningProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/signing-profiles";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles";
   const query: any = {
     ...(input.includeCanceled !== undefined && { includeCanceled: input.includeCanceled.toString() }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
@@ -352,7 +360,6 @@ export const serializeAws_restJson1ListSigningProfilesCommand = async (
     ...(input.statuses !== undefined && { statuses: (input.statuses || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -369,8 +376,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -381,7 +389,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -397,10 +404,12 @@ export const serializeAws_restJson1PutSigningProfileCommand = async (
   input: PutSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/signing-profiles/{profileName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
     const labelValue: string = input.profileName;
     if (labelValue.length <= 0) {
@@ -431,7 +440,6 @@ export const serializeAws_restJson1PutSigningProfileCommand = async (
       }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -447,8 +455,11 @@ export const serializeAws_restJson1RemoveProfilePermissionCommand = async (
   input: RemoveProfilePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/signing-profiles/{profileName}/permissions/{statementId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/signing-profiles/{profileName}/permissions/{statementId}";
   if (input.profileName !== undefined) {
     const labelValue: string = input.profileName;
     if (labelValue.length <= 0) {
@@ -471,7 +482,6 @@ export const serializeAws_restJson1RemoveProfilePermissionCommand = async (
     ...(input.revisionId !== undefined && { revisionId: input.revisionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -488,10 +498,12 @@ export const serializeAws_restJson1RevokeSignatureCommand = async (
   input: RevokeSignatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/signing-jobs/{jobId}/revoke";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs/{jobId}/revoke";
   if (input.jobId !== undefined) {
     const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
@@ -506,7 +518,6 @@ export const serializeAws_restJson1RevokeSignatureCommand = async (
     ...(input.jobOwner !== undefined && input.jobOwner !== null && { jobOwner: input.jobOwner }),
     ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -522,10 +533,12 @@ export const serializeAws_restJson1RevokeSigningProfileCommand = async (
   input: RevokeSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/signing-profiles/{profileName}/revoke";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles/{profileName}/revoke";
   if (input.profileName !== undefined) {
     const labelValue: string = input.profileName;
     if (labelValue.length <= 0) {
@@ -543,7 +556,6 @@ export const serializeAws_restJson1RevokeSigningProfileCommand = async (
       input.profileVersion !== null && { profileVersion: input.profileVersion }),
     ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -559,10 +571,11 @@ export const serializeAws_restJson1StartSigningJobCommand = async (
   input: StartSigningJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/signing-jobs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs";
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
@@ -573,7 +586,6 @@ export const serializeAws_restJson1StartSigningJobCommand = async (
     ...(input.source !== undefined &&
       input.source !== null && { source: serializeAws_restJson1Source(input.source, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -589,10 +601,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -606,7 +619,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -622,8 +634,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -637,7 +650,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

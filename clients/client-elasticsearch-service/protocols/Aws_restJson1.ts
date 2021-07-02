@@ -228,8 +228,11 @@ export const serializeAws_restJson1AcceptInboundCrossClusterSearchConnectionComm
   input: AcceptInboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/accept";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/accept";
   if (input.CrossClusterSearchConnectionId !== undefined) {
     const labelValue: string = input.CrossClusterSearchConnectionId;
     if (labelValue.length <= 0) {
@@ -240,7 +243,6 @@ export const serializeAws_restJson1AcceptInboundCrossClusterSearchConnectionComm
     throw new Error("No value provided for input HTTP label: CrossClusterSearchConnectionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -256,17 +258,17 @@ export const serializeAws_restJson1AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/tags";
   let body: any;
   body = JSON.stringify({
     ...(input.ARN !== undefined && input.ARN !== null && { ARN: input.ARN }),
     ...(input.TagList !== undefined &&
       input.TagList !== null && { TagList: serializeAws_restJson1TagList(input.TagList, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -282,8 +284,11 @@ export const serializeAws_restJson1AssociatePackageCommand = async (
   input: AssociatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/packages/associate/{PackageID}/{DomainName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/packages/associate/{PackageID}/{DomainName}";
   if (input.PackageID !== undefined) {
     const labelValue: string = input.PackageID;
     if (labelValue.length <= 0) {
@@ -303,7 +308,6 @@ export const serializeAws_restJson1AssociatePackageCommand = async (
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -319,15 +323,17 @@ export const serializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateComma
   input: CancelElasticsearchServiceSoftwareUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/es/serviceSoftwareUpdate/cancel";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/serviceSoftwareUpdate/cancel";
   let body: any;
   body = JSON.stringify({
     ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -343,10 +349,11 @@ export const serializeAws_restJson1CreateElasticsearchDomainCommand = async (
   input: CreateElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/es/domain";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain";
   let body: any;
   body = JSON.stringify({
     ...(input.AccessPolicies !== undefined &&
@@ -410,7 +417,6 @@ export const serializeAws_restJson1CreateElasticsearchDomainCommand = async (
     ...(input.VPCOptions !== undefined &&
       input.VPCOptions !== null && { VPCOptions: serializeAws_restJson1VPCOptions(input.VPCOptions, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -426,10 +432,12 @@ export const serializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCom
   input: CreateOutboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/es/ccs/outboundConnection";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/ccs/outboundConnection";
   let body: any;
   body = JSON.stringify({
     ...(input.ConnectionAlias !== undefined &&
@@ -443,7 +451,6 @@ export const serializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCom
         SourceDomainInfo: serializeAws_restJson1DomainInformation(input.SourceDomainInfo, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -459,10 +466,11 @@ export const serializeAws_restJson1CreatePackageCommand = async (
   input: CreatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/packages";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages";
   let body: any;
   body = JSON.stringify({
     ...(input.PackageDescription !== undefined &&
@@ -474,7 +482,6 @@ export const serializeAws_restJson1CreatePackageCommand = async (
       }),
     ...(input.PackageType !== undefined && input.PackageType !== null && { PackageType: input.PackageType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -490,8 +497,10 @@ export const serializeAws_restJson1DeleteElasticsearchDomainCommand = async (
   input: DeleteElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/domain/{DomainName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain/{DomainName}";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
@@ -502,7 +511,6 @@ export const serializeAws_restJson1DeleteElasticsearchDomainCommand = async (
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -518,13 +526,13 @@ export const serializeAws_restJson1DeleteElasticsearchServiceRoleCommand = async
   input: DeleteElasticsearchServiceRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/es/role";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/role";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -540,8 +548,11 @@ export const serializeAws_restJson1DeleteInboundCrossClusterSearchConnectionComm
   input: DeleteInboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}";
   if (input.CrossClusterSearchConnectionId !== undefined) {
     const labelValue: string = input.CrossClusterSearchConnectionId;
     if (labelValue.length <= 0) {
@@ -552,7 +563,6 @@ export const serializeAws_restJson1DeleteInboundCrossClusterSearchConnectionComm
     throw new Error("No value provided for input HTTP label: CrossClusterSearchConnectionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -568,8 +578,11 @@ export const serializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionCom
   input: DeleteOutboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/ccs/outboundConnection/{CrossClusterSearchConnectionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/ccs/outboundConnection/{CrossClusterSearchConnectionId}";
   if (input.CrossClusterSearchConnectionId !== undefined) {
     const labelValue: string = input.CrossClusterSearchConnectionId;
     if (labelValue.length <= 0) {
@@ -580,7 +593,6 @@ export const serializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionCom
     throw new Error("No value provided for input HTTP label: CrossClusterSearchConnectionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -596,8 +608,10 @@ export const serializeAws_restJson1DeletePackageCommand = async (
   input: DeletePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/packages/{PackageID}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages/{PackageID}";
   if (input.PackageID !== undefined) {
     const labelValue: string = input.PackageID;
     if (labelValue.length <= 0) {
@@ -608,7 +622,6 @@ export const serializeAws_restJson1DeletePackageCommand = async (
     throw new Error("No value provided for input HTTP label: PackageID.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -624,10 +637,13 @@ export const serializeAws_restJson1DescribeDomainAutoTunesCommand = async (
   input: DescribeDomainAutoTunesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/es/domain/{DomainName}/autoTunes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/domain/{DomainName}/autoTunes";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
@@ -642,7 +658,6 @@ export const serializeAws_restJson1DescribeDomainAutoTunesCommand = async (
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -658,8 +673,10 @@ export const serializeAws_restJson1DescribeElasticsearchDomainCommand = async (
   input: DescribeElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/domain/{DomainName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain/{DomainName}";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
@@ -670,7 +687,6 @@ export const serializeAws_restJson1DescribeElasticsearchDomainCommand = async (
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -686,8 +702,10 @@ export const serializeAws_restJson1DescribeElasticsearchDomainConfigCommand = as
   input: DescribeElasticsearchDomainConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/domain/{DomainName}/config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain/{DomainName}/config";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
@@ -698,7 +716,6 @@ export const serializeAws_restJson1DescribeElasticsearchDomainConfigCommand = as
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -714,16 +731,17 @@ export const serializeAws_restJson1DescribeElasticsearchDomainsCommand = async (
   input: DescribeElasticsearchDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/es/domain-info";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain-info";
   let body: any;
   body = JSON.stringify({
     ...(input.DomainNames !== undefined &&
       input.DomainNames !== null && { DomainNames: serializeAws_restJson1DomainNameList(input.DomainNames, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -739,8 +757,11 @@ export const serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsComman
   input: DescribeElasticsearchInstanceTypeLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}";
   if (input.InstanceType !== undefined) {
     const labelValue: string = input.InstanceType;
     if (labelValue.length <= 0) {
@@ -763,7 +784,6 @@ export const serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsComman
     ...(input.DomainName !== undefined && { domainName: input.DomainName }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -780,10 +800,13 @@ export const serializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsC
   input: DescribeInboundCrossClusterSearchConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/es/ccs/inboundConnection/search";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/ccs/inboundConnection/search";
   let body: any;
   body = JSON.stringify({
     ...(input.Filters !== undefined &&
@@ -791,7 +814,6 @@ export const serializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsC
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -807,10 +829,13 @@ export const serializeAws_restJson1DescribeOutboundCrossClusterSearchConnections
   input: DescribeOutboundCrossClusterSearchConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/es/ccs/outboundConnection/search";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/ccs/outboundConnection/search";
   let body: any;
   body = JSON.stringify({
     ...(input.Filters !== undefined &&
@@ -818,7 +843,6 @@ export const serializeAws_restJson1DescribeOutboundCrossClusterSearchConnections
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -834,10 +858,12 @@ export const serializeAws_restJson1DescribePackagesCommand = async (
   input: DescribePackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/packages/describe";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages/describe";
   let body: any;
   body = JSON.stringify({
     ...(input.Filters !== undefined &&
@@ -845,7 +871,6 @@ export const serializeAws_restJson1DescribePackagesCommand = async (
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -861,8 +886,10 @@ export const serializeAws_restJson1DescribeReservedElasticsearchInstanceOffering
   input: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/reservedInstanceOfferings";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/reservedInstanceOfferings";
   const query: any = {
     ...(input.ReservedElasticsearchInstanceOfferingId !== undefined && {
       offeringId: input.ReservedElasticsearchInstanceOfferingId,
@@ -871,7 +898,6 @@ export const serializeAws_restJson1DescribeReservedElasticsearchInstanceOffering
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -888,8 +914,10 @@ export const serializeAws_restJson1DescribeReservedElasticsearchInstancesCommand
   input: DescribeReservedElasticsearchInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/reservedInstances";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/reservedInstances";
   const query: any = {
     ...(input.ReservedElasticsearchInstanceId !== undefined && {
       reservationId: input.ReservedElasticsearchInstanceId,
@@ -898,7 +926,6 @@ export const serializeAws_restJson1DescribeReservedElasticsearchInstancesCommand
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -915,8 +942,11 @@ export const serializeAws_restJson1DissociatePackageCommand = async (
   input: DissociatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/packages/dissociate/{PackageID}/{DomainName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/packages/dissociate/{PackageID}/{DomainName}";
   if (input.PackageID !== undefined) {
     const labelValue: string = input.PackageID;
     if (labelValue.length <= 0) {
@@ -936,7 +966,6 @@ export const serializeAws_restJson1DissociatePackageCommand = async (
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -952,13 +981,14 @@ export const serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand = a
   input: GetCompatibleElasticsearchVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/compatibleVersions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/compatibleVersions";
   const query: any = {
     ...(input.DomainName !== undefined && { domainName: input.DomainName }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -975,8 +1005,10 @@ export const serializeAws_restJson1GetPackageVersionHistoryCommand = async (
   input: GetPackageVersionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/packages/{PackageID}/history";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages/{PackageID}/history";
   if (input.PackageID !== undefined) {
     const labelValue: string = input.PackageID;
     if (labelValue.length <= 0) {
@@ -991,7 +1023,6 @@ export const serializeAws_restJson1GetPackageVersionHistoryCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1008,8 +1039,11 @@ export const serializeAws_restJson1GetUpgradeHistoryCommand = async (
   input: GetUpgradeHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/upgradeDomain/{DomainName}/history";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/upgradeDomain/{DomainName}/history";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
@@ -1024,7 +1058,6 @@ export const serializeAws_restJson1GetUpgradeHistoryCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1041,8 +1074,11 @@ export const serializeAws_restJson1GetUpgradeStatusCommand = async (
   input: GetUpgradeStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/upgradeDomain/{DomainName}/status";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/upgradeDomain/{DomainName}/status";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
@@ -1053,7 +1089,6 @@ export const serializeAws_restJson1GetUpgradeStatusCommand = async (
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1069,13 +1104,13 @@ export const serializeAws_restJson1ListDomainNamesCommand = async (
   input: ListDomainNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/domain";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/domain";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1091,8 +1126,10 @@ export const serializeAws_restJson1ListDomainsForPackageCommand = async (
   input: ListDomainsForPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/packages/{PackageID}/domains";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages/{PackageID}/domains";
   if (input.PackageID !== undefined) {
     const labelValue: string = input.PackageID;
     if (labelValue.length <= 0) {
@@ -1107,7 +1144,6 @@ export const serializeAws_restJson1ListDomainsForPackageCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1124,8 +1160,11 @@ export const serializeAws_restJson1ListElasticsearchInstanceTypesCommand = async
   input: ListElasticsearchInstanceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/instanceTypes/{ElasticsearchVersion}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/instanceTypes/{ElasticsearchVersion}";
   if (input.ElasticsearchVersion !== undefined) {
     const labelValue: string = input.ElasticsearchVersion;
     if (labelValue.length <= 0) {
@@ -1141,7 +1180,6 @@ export const serializeAws_restJson1ListElasticsearchInstanceTypesCommand = async
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1158,14 +1196,14 @@ export const serializeAws_restJson1ListElasticsearchVersionsCommand = async (
   input: ListElasticsearchVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/versions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/versions";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1182,8 +1220,10 @@ export const serializeAws_restJson1ListPackagesForDomainCommand = async (
   input: ListPackagesForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/domain/{DomainName}/packages";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/domain/{DomainName}/packages";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
@@ -1198,7 +1238,6 @@ export const serializeAws_restJson1ListPackagesForDomainCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1215,13 +1254,13 @@ export const serializeAws_restJson1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/tags";
   const query: any = {
     ...(input.ARN !== undefined && { arn: input.ARN }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1238,10 +1277,13 @@ export const serializeAws_restJson1PurchaseReservedElasticsearchInstanceOffering
   input: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/es/purchaseReservedInstanceOffering";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/purchaseReservedInstanceOffering";
   let body: any;
   body = JSON.stringify({
     ...(input.InstanceCount !== undefined && input.InstanceCount !== null && { InstanceCount: input.InstanceCount }),
@@ -1252,7 +1294,6 @@ export const serializeAws_restJson1PurchaseReservedElasticsearchInstanceOffering
         ReservedElasticsearchInstanceOfferingId: input.ReservedElasticsearchInstanceOfferingId,
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1268,8 +1309,11 @@ export const serializeAws_restJson1RejectInboundCrossClusterSearchConnectionComm
   input: RejectInboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/reject";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/reject";
   if (input.CrossClusterSearchConnectionId !== undefined) {
     const labelValue: string = input.CrossClusterSearchConnectionId;
     if (labelValue.length <= 0) {
@@ -1280,7 +1324,6 @@ export const serializeAws_restJson1RejectInboundCrossClusterSearchConnectionComm
     throw new Error("No value provided for input HTTP label: CrossClusterSearchConnectionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1296,17 +1339,17 @@ export const serializeAws_restJson1RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/tags-removal";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/tags-removal";
   let body: any;
   body = JSON.stringify({
     ...(input.ARN !== undefined && input.ARN !== null && { ARN: input.ARN }),
     ...(input.TagKeys !== undefined &&
       input.TagKeys !== null && { TagKeys: serializeAws_restJson1StringList(input.TagKeys, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1322,15 +1365,17 @@ export const serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateComman
   input: StartElasticsearchServiceSoftwareUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/es/serviceSoftwareUpdate/start";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/serviceSoftwareUpdate/start";
   let body: any;
   body = JSON.stringify({
     ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1346,10 +1391,12 @@ export const serializeAws_restJson1UpdateElasticsearchDomainConfigCommand = asyn
   input: UpdateElasticsearchDomainConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/es/domain/{DomainName}/config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain/{DomainName}/config";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
@@ -1417,7 +1464,6 @@ export const serializeAws_restJson1UpdateElasticsearchDomainConfigCommand = asyn
     ...(input.VPCOptions !== undefined &&
       input.VPCOptions !== null && { VPCOptions: serializeAws_restJson1VPCOptions(input.VPCOptions, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1433,10 +1479,12 @@ export const serializeAws_restJson1UpdatePackageCommand = async (
   input: UpdatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/packages/update";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages/update";
   let body: any;
   body = JSON.stringify({
     ...(input.CommitMessage !== undefined && input.CommitMessage !== null && { CommitMessage: input.CommitMessage }),
@@ -1448,7 +1496,6 @@ export const serializeAws_restJson1UpdatePackageCommand = async (
         PackageSource: serializeAws_restJson1PackageSource(input.PackageSource, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1464,10 +1511,12 @@ export const serializeAws_restJson1UpgradeElasticsearchDomainCommand = async (
   input: UpgradeElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-01-01/es/upgradeDomain";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/upgradeDomain";
   let body: any;
   body = JSON.stringify({
     ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
@@ -1475,7 +1524,6 @@ export const serializeAws_restJson1UpgradeElasticsearchDomainCommand = async (
       input.PerformCheckOnly !== null && { PerformCheckOnly: input.PerformCheckOnly }),
     ...(input.TargetVersion !== undefined && input.TargetVersion !== null && { TargetVersion: input.TargetVersion }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

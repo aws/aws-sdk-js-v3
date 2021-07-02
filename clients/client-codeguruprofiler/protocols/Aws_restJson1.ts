@@ -108,10 +108,13 @@ export const serializeAws_restJson1AddNotificationChannelsCommand = async (
   input: AddNotificationChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/profilingGroups/{profilingGroupName}/notificationConfiguration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/profilingGroups/{profilingGroupName}/notificationConfiguration";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -126,7 +129,6 @@ export const serializeAws_restJson1AddNotificationChannelsCommand = async (
     ...(input.channels !== undefined &&
       input.channels !== null && { channels: serializeAws_restJson1Channels(input.channels, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -142,10 +144,13 @@ export const serializeAws_restJson1BatchGetFrameMetricDataCommand = async (
   input: BatchGetFrameMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/profilingGroups/{profilingGroupName}/frames/-/metrics";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/profilingGroups/{profilingGroupName}/frames/-/metrics";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -166,7 +171,6 @@ export const serializeAws_restJson1BatchGetFrameMetricDataCommand = async (
     ...(input.frameMetrics !== undefined &&
       input.frameMetrics !== null && { frameMetrics: serializeAws_restJson1FrameMetrics(input.frameMetrics, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -183,10 +187,13 @@ export const serializeAws_restJson1ConfigureAgentCommand = async (
   input: ConfigureAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/profilingGroups/{profilingGroupName}/configureAgent";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/profilingGroups/{profilingGroupName}/configureAgent";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -203,7 +210,6 @@ export const serializeAws_restJson1ConfigureAgentCommand = async (
     ...(input.metadata !== undefined &&
       input.metadata !== null && { metadata: serializeAws_restJson1Metadata(input.metadata, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -219,10 +225,11 @@ export const serializeAws_restJson1CreateProfilingGroupCommand = async (
   input: CreateProfilingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/profilingGroups";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profilingGroups";
   const query: any = {
     ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
   };
@@ -242,7 +249,6 @@ export const serializeAws_restJson1CreateProfilingGroupCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -259,8 +265,10 @@ export const serializeAws_restJson1DeleteProfilingGroupCommand = async (
   input: DeleteProfilingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/profilingGroups/{profilingGroupName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -271,7 +279,6 @@ export const serializeAws_restJson1DeleteProfilingGroupCommand = async (
     throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -287,8 +294,10 @@ export const serializeAws_restJson1DescribeProfilingGroupCommand = async (
   input: DescribeProfilingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/profilingGroups/{profilingGroupName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -299,7 +308,6 @@ export const serializeAws_restJson1DescribeProfilingGroupCommand = async (
     throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -315,15 +323,16 @@ export const serializeAws_restJson1GetFindingsReportAccountSummaryCommand = asyn
   input: GetFindingsReportAccountSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/internal/findingsReports";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/internal/findingsReports";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.dailyReportsOnly !== undefined && { dailyReportsOnly: input.dailyReportsOnly.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -340,8 +349,11 @@ export const serializeAws_restJson1GetNotificationConfigurationCommand = async (
   input: GetNotificationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/profilingGroups/{profilingGroupName}/notificationConfiguration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/profilingGroups/{profilingGroupName}/notificationConfiguration";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -352,7 +364,6 @@ export const serializeAws_restJson1GetNotificationConfigurationCommand = async (
     throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -368,8 +379,11 @@ export const serializeAws_restJson1GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/profilingGroups/{profilingGroupName}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/profilingGroups/{profilingGroupName}/policy";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -380,7 +394,6 @@ export const serializeAws_restJson1GetPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: profilingGroupName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -396,10 +409,13 @@ export const serializeAws_restJson1GetProfileCommand = async (
   input: GetProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.accept) && { accept: input.accept! }),
   };
-  let resolvedPath = "/profilingGroups/{profilingGroupName}/profile";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/profilingGroups/{profilingGroupName}/profile";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -416,7 +432,6 @@ export const serializeAws_restJson1GetProfileCommand = async (
     ...(input.maxDepth !== undefined && { maxDepth: input.maxDepth.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -433,8 +448,11 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   input: GetRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/internal/profilingGroups/{profilingGroupName}/recommendations";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/internal/profilingGroups/{profilingGroupName}/recommendations";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -450,7 +468,6 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
     ...(input.locale !== undefined && { locale: input.locale }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -467,8 +484,11 @@ export const serializeAws_restJson1ListFindingsReportsCommand = async (
   input: ListFindingsReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/internal/profilingGroups/{profilingGroupName}/findingsReports";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/internal/profilingGroups/{profilingGroupName}/findingsReports";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -486,7 +506,6 @@ export const serializeAws_restJson1ListFindingsReportsCommand = async (
     ...(input.dailyReportsOnly !== undefined && { dailyReportsOnly: input.dailyReportsOnly.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -503,8 +522,11 @@ export const serializeAws_restJson1ListProfileTimesCommand = async (
   input: ListProfileTimesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/profilingGroups/{profilingGroupName}/profileTimes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/profilingGroups/{profilingGroupName}/profileTimes";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -523,7 +545,6 @@ export const serializeAws_restJson1ListProfileTimesCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -540,15 +561,15 @@ export const serializeAws_restJson1ListProfilingGroupsCommand = async (
   input: ListProfilingGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/profilingGroups";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profilingGroups";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.includeDescription !== undefined && { includeDescription: input.includeDescription.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -565,8 +586,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -577,7 +599,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -593,11 +614,14 @@ export const serializeAws_restJson1PostAgentProfileCommand = async (
   input: PostAgentProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.contentType) && { "content-type": input.contentType! }),
   };
-  let resolvedPath = "/profilingGroups/{profilingGroupName}/agentProfile";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/profilingGroups/{profilingGroupName}/agentProfile";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -614,7 +638,6 @@ export const serializeAws_restJson1PostAgentProfileCommand = async (
   if (input.agentProfile !== undefined) {
     body = input.agentProfile;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -631,10 +654,13 @@ export const serializeAws_restJson1PutPermissionCommand = async (
   input: PutPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/profilingGroups/{profilingGroupName}/policy/{actionGroup}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/profilingGroups/{profilingGroupName}/policy/{actionGroup}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -659,7 +685,6 @@ export const serializeAws_restJson1PutPermissionCommand = async (
       input.principals !== null && { principals: serializeAws_restJson1Principals(input.principals, context) }),
     ...(input.revisionId !== undefined && input.revisionId !== null && { revisionId: input.revisionId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -675,8 +700,11 @@ export const serializeAws_restJson1RemoveNotificationChannelCommand = async (
   input: RemoveNotificationChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/profilingGroups/{profilingGroupName}/notificationConfiguration/{channelId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/profilingGroups/{profilingGroupName}/notificationConfiguration/{channelId}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -696,7 +724,6 @@ export const serializeAws_restJson1RemoveNotificationChannelCommand = async (
     throw new Error("No value provided for input HTTP label: channelId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -712,8 +739,11 @@ export const serializeAws_restJson1RemovePermissionCommand = async (
   input: RemovePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/profilingGroups/{profilingGroupName}/policy/{actionGroup}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/profilingGroups/{profilingGroupName}/policy/{actionGroup}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -736,7 +766,6 @@ export const serializeAws_restJson1RemovePermissionCommand = async (
     ...(input.revisionId !== undefined && { revisionId: input.revisionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -753,10 +782,13 @@ export const serializeAws_restJson1SubmitFeedbackCommand = async (
   input: SubmitFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/internal/profilingGroups/{profilingGroupName}/anomalies/{anomalyInstanceId}/feedback";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/internal/profilingGroups/{profilingGroupName}/anomalies/{anomalyInstanceId}/feedback";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -780,7 +812,6 @@ export const serializeAws_restJson1SubmitFeedbackCommand = async (
     ...(input.comment !== undefined && input.comment !== null && { comment: input.comment }),
     ...(input.type !== undefined && input.type !== null && { type: input.type }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -796,10 +827,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -814,7 +846,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -830,8 +861,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -845,7 +877,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -862,10 +893,12 @@ export const serializeAws_restJson1UpdateProfilingGroupCommand = async (
   input: UpdateProfilingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/profilingGroups/{profilingGroupName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
     if (labelValue.length <= 0) {
@@ -885,7 +918,6 @@ export const serializeAws_restJson1UpdateProfilingGroupCommand = async (
         ),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

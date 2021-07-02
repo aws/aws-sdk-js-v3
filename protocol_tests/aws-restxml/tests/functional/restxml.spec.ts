@@ -685,6 +685,7 @@ it("EmptyInputAndEmptyOutput:Response", async () => {
 it("RestXmlEndpointTrait:Request", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
+    endpoint: "https://example.com",
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -716,6 +717,7 @@ it("RestXmlEndpointTrait:Request", async () => {
 it("RestXmlEndpointTraitWithHostLabelAndHttpBinding:Request", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
+    endpoint: "https://example.com",
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -750,6 +752,7 @@ it("RestXmlEndpointTraitWithHostLabelAndHttpBinding:Request", async () => {
 it("RestXmlEndpointTraitWithHostLabel:Request", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
+    endpoint: "https://example.com",
     requestHandler: new RequestSerializationTestHandler(),
   });
 

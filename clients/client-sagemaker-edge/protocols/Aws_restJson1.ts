@@ -21,17 +21,17 @@ export const serializeAws_restJson1GetDeviceRegistrationCommand = async (
   input: GetDeviceRegistrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/GetDeviceRegistration";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDeviceRegistration";
   let body: any;
   body = JSON.stringify({
     ...(input.DeviceFleetName !== undefined &&
       input.DeviceFleetName !== null && { DeviceFleetName: input.DeviceFleetName }),
     ...(input.DeviceName !== undefined && input.DeviceName !== null && { DeviceName: input.DeviceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -47,10 +47,11 @@ export const serializeAws_restJson1SendHeartbeatCommand = async (
   input: SendHeartbeatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/SendHeartbeat";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SendHeartbeat";
   let body: any;
   body = JSON.stringify({
     ...(input.AgentMetrics !== undefined &&
@@ -62,7 +63,6 @@ export const serializeAws_restJson1SendHeartbeatCommand = async (
     ...(input.Models !== undefined &&
       input.Models !== null && { Models: serializeAws_restJson1Models(input.Models, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

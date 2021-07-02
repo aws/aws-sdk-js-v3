@@ -1279,6 +1279,7 @@ it("RestJsonEmptyInputAndEmptyOutputJsonObjectOutput:Response", async () => {
 it("RestJsonEndpointTrait:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
+    endpoint: "https://example.com",
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1308,6 +1309,7 @@ it("RestJsonEndpointTrait:Request", async () => {
 it("RestJsonEndpointTraitWithHostLabel:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
+    endpoint: "https://example.com",
     requestHandler: new RequestSerializationTestHandler(),
   });
 

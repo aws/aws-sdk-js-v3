@@ -77,8 +77,11 @@ export const serializeAws_restJson1BulkPublishCommand = async (
   input: BulkPublishCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/identitypools/{IdentityPoolId}/bulkpublish";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/identitypools/{IdentityPoolId}/bulkpublish";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -89,7 +92,6 @@ export const serializeAws_restJson1BulkPublishCommand = async (
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -105,8 +107,11 @@ export const serializeAws_restJson1DeleteDatasetCommand = async (
   input: DeleteDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -135,7 +140,6 @@ export const serializeAws_restJson1DeleteDatasetCommand = async (
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -151,8 +155,11 @@ export const serializeAws_restJson1DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -181,7 +188,6 @@ export const serializeAws_restJson1DescribeDatasetCommand = async (
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -197,8 +203,10 @@ export const serializeAws_restJson1DescribeIdentityPoolUsageCommand = async (
   input: DescribeIdentityPoolUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/identitypools/{IdentityPoolId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identitypools/{IdentityPoolId}";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -209,7 +217,6 @@ export const serializeAws_restJson1DescribeIdentityPoolUsageCommand = async (
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -225,8 +232,11 @@ export const serializeAws_restJson1DescribeIdentityUsageCommand = async (
   input: DescribeIdentityUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/identitypools/{IdentityPoolId}/identities/{IdentityId}";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -246,7 +256,6 @@ export const serializeAws_restJson1DescribeIdentityUsageCommand = async (
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -262,8 +271,11 @@ export const serializeAws_restJson1GetBulkPublishDetailsCommand = async (
   input: GetBulkPublishDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/identitypools/{IdentityPoolId}/getBulkPublishDetails";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/identitypools/{IdentityPoolId}/getBulkPublishDetails";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -274,7 +286,6 @@ export const serializeAws_restJson1GetBulkPublishDetailsCommand = async (
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -290,8 +301,10 @@ export const serializeAws_restJson1GetCognitoEventsCommand = async (
   input: GetCognitoEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/identitypools/{IdentityPoolId}/events";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identitypools/{IdentityPoolId}/events";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -302,7 +315,6 @@ export const serializeAws_restJson1GetCognitoEventsCommand = async (
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -318,8 +330,11 @@ export const serializeAws_restJson1GetIdentityPoolConfigurationCommand = async (
   input: GetIdentityPoolConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/identitypools/{IdentityPoolId}/configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/identitypools/{IdentityPoolId}/configuration";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -330,7 +345,6 @@ export const serializeAws_restJson1GetIdentityPoolConfigurationCommand = async (
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -346,8 +360,11 @@ export const serializeAws_restJson1ListDatasetsCommand = async (
   input: ListDatasetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -371,7 +388,6 @@ export const serializeAws_restJson1ListDatasetsCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -388,14 +404,14 @@ export const serializeAws_restJson1ListIdentityPoolUsageCommand = async (
   input: ListIdentityPoolUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/identitypools";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identitypools";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -412,8 +428,11 @@ export const serializeAws_restJson1ListRecordsCommand = async (
   input: ListRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -448,7 +467,6 @@ export const serializeAws_restJson1ListRecordsCommand = async (
     ...(input.SyncSessionToken !== undefined && { syncSessionToken: input.SyncSessionToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -465,10 +483,13 @@ export const serializeAws_restJson1RegisterDeviceCommand = async (
   input: RegisterDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -492,7 +513,6 @@ export const serializeAws_restJson1RegisterDeviceCommand = async (
     ...(input.Platform !== undefined && input.Platform !== null && { Platform: input.Platform }),
     ...(input.Token !== undefined && input.Token !== null && { Token: input.Token }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -508,10 +528,12 @@ export const serializeAws_restJson1SetCognitoEventsCommand = async (
   input: SetCognitoEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/identitypools/{IdentityPoolId}/events";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identitypools/{IdentityPoolId}/events";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -526,7 +548,6 @@ export const serializeAws_restJson1SetCognitoEventsCommand = async (
     ...(input.Events !== undefined &&
       input.Events !== null && { Events: serializeAws_restJson1Events(input.Events, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -542,10 +563,13 @@ export const serializeAws_restJson1SetIdentityPoolConfigurationCommand = async (
   input: SetIdentityPoolConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/identitypools/{IdentityPoolId}/configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/identitypools/{IdentityPoolId}/configuration";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -564,7 +588,6 @@ export const serializeAws_restJson1SetIdentityPoolConfigurationCommand = async (
     ...(input.PushSync !== undefined &&
       input.PushSync !== null && { PushSync: serializeAws_restJson1PushSync(input.PushSync, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -580,8 +603,10 @@ export const serializeAws_restJson1SubscribeToDatasetCommand = async (
   input: SubscribeToDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
@@ -620,7 +645,6 @@ export const serializeAws_restJson1SubscribeToDatasetCommand = async (
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -636,8 +660,10 @@ export const serializeAws_restJson1UnsubscribeFromDatasetCommand = async (
   input: UnsubscribeFromDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
@@ -676,7 +702,6 @@ export const serializeAws_restJson1UnsubscribeFromDatasetCommand = async (
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -692,11 +717,14 @@ export const serializeAws_restJson1UpdateRecordsCommand = async (
   input: UpdateRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ClientContext) && { "x-amz-client-context": input.ClientContext! }),
   };
-  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
@@ -734,7 +762,6 @@ export const serializeAws_restJson1UpdateRecordsCommand = async (
     ...(input.SyncSessionToken !== undefined &&
       input.SyncSessionToken !== null && { SyncSessionToken: input.SyncSessionToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

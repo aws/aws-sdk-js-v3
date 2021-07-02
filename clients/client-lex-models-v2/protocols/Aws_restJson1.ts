@@ -188,8 +188,11 @@ export const serializeAws_restJson1BuildBotLocaleCommand = async (
   input: BuildBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -218,7 +221,6 @@ export const serializeAws_restJson1BuildBotLocaleCommand = async (
     throw new Error("No value provided for input HTTP label: localeId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -234,10 +236,11 @@ export const serializeAws_restJson1CreateBotCommand = async (
   input: CreateBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots";
   let body: any;
   body = JSON.stringify({
     ...(input.botName !== undefined && input.botName !== null && { botName: input.botName }),
@@ -254,7 +257,6 @@ export const serializeAws_restJson1CreateBotCommand = async (
         testBotAliasTags: serializeAws_restJson1TagMap(input.testBotAliasTags, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -270,10 +272,11 @@ export const serializeAws_restJson1CreateBotAliasCommand = async (
   input: CreateBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botaliases";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botaliases";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -305,7 +308,6 @@ export const serializeAws_restJson1CreateBotAliasCommand = async (
       }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -321,10 +323,13 @@ export const serializeAws_restJson1CreateBotLocaleCommand = async (
   input: CreateBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -356,7 +361,6 @@ export const serializeAws_restJson1CreateBotLocaleCommand = async (
         voiceSettings: serializeAws_restJson1VoiceSettings(input.voiceSettings, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -372,10 +376,12 @@ export const serializeAws_restJson1CreateBotVersionCommand = async (
   input: CreateBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botversions";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -396,7 +402,6 @@ export const serializeAws_restJson1CreateBotVersionCommand = async (
       }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -412,10 +417,11 @@ export const serializeAws_restJson1CreateExportCommand = async (
   input: CreateExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/exports";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports";
   let body: any;
   body = JSON.stringify({
     ...(input.fileFormat !== undefined && input.fileFormat !== null && { fileFormat: input.fileFormat }),
@@ -425,7 +431,6 @@ export const serializeAws_restJson1CreateExportCommand = async (
         resourceSpecification: serializeAws_restJson1ExportResourceSpecification(input.resourceSpecification, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -441,10 +446,13 @@ export const serializeAws_restJson1CreateIntentCommand = async (
   input: CreateIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -514,7 +522,6 @@ export const serializeAws_restJson1CreateIntentCommand = async (
         sampleUtterances: serializeAws_restJson1SampleUtterancesList(input.sampleUtterances, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -530,10 +537,11 @@ export const serializeAws_restJson1CreateResourcePolicyCommand = async (
   input: CreateResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/policy/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -547,7 +555,6 @@ export const serializeAws_restJson1CreateResourcePolicyCommand = async (
   body = JSON.stringify({
     ...(input.policy !== undefined && input.policy !== null && { policy: input.policy }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -563,10 +570,12 @@ export const serializeAws_restJson1CreateResourcePolicyStatementCommand = async 
   input: CreateResourcePolicyStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/policy/{resourceArn}/statements";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/{resourceArn}/statements";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -590,7 +599,6 @@ export const serializeAws_restJson1CreateResourcePolicyStatementCommand = async 
       input.principal !== null && { principal: serializeAws_restJson1PrincipalList(input.principal, context) }),
     ...(input.statementId !== undefined && input.statementId !== null && { statementId: input.statementId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -607,10 +615,13 @@ export const serializeAws_restJson1CreateSlotCommand = async (
   input: CreateSlotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -668,7 +679,6 @@ export const serializeAws_restJson1CreateSlotCommand = async (
         ),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -684,10 +694,13 @@ export const serializeAws_restJson1CreateSlotTypeCommand = async (
   input: CreateSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -730,7 +743,6 @@ export const serializeAws_restJson1CreateSlotTypeCommand = async (
         valueSelectionSetting: serializeAws_restJson1SlotValueSelectionSetting(input.valueSelectionSetting, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -746,13 +758,13 @@ export const serializeAws_restJson1CreateUploadUrlCommand = async (
   input: CreateUploadUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createuploadurl";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createuploadurl";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -768,8 +780,9 @@ export const serializeAws_restJson1DeleteBotCommand = async (
   input: DeleteBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -785,7 +798,6 @@ export const serializeAws_restJson1DeleteBotCommand = async (
     }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -802,8 +814,10 @@ export const serializeAws_restJson1DeleteBotAliasCommand = async (
   input: DeleteBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}/botaliases/{botAliasId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botaliases/{botAliasId}";
   if (input.botAliasId !== undefined) {
     const labelValue: string = input.botAliasId;
     if (labelValue.length <= 0) {
@@ -828,7 +842,6 @@ export const serializeAws_restJson1DeleteBotAliasCommand = async (
     }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -845,8 +858,11 @@ export const serializeAws_restJson1DeleteBotLocaleCommand = async (
   input: DeleteBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -875,7 +891,6 @@ export const serializeAws_restJson1DeleteBotLocaleCommand = async (
     throw new Error("No value provided for input HTTP label: localeId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -891,8 +906,10 @@ export const serializeAws_restJson1DeleteBotVersionCommand = async (
   input: DeleteBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botversions/{botVersion}";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -917,7 +934,6 @@ export const serializeAws_restJson1DeleteBotVersionCommand = async (
     }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -934,8 +950,9 @@ export const serializeAws_restJson1DeleteExportCommand = async (
   input: DeleteExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/exports/{exportId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports/{exportId}";
   if (input.exportId !== undefined) {
     const labelValue: string = input.exportId;
     if (labelValue.length <= 0) {
@@ -946,7 +963,6 @@ export const serializeAws_restJson1DeleteExportCommand = async (
     throw new Error("No value provided for input HTTP label: exportId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -962,8 +978,9 @@ export const serializeAws_restJson1DeleteImportCommand = async (
   input: DeleteImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/imports/{importId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports/{importId}";
   if (input.importId !== undefined) {
     const labelValue: string = input.importId;
     if (labelValue.length <= 0) {
@@ -974,7 +991,6 @@ export const serializeAws_restJson1DeleteImportCommand = async (
     throw new Error("No value provided for input HTTP label: importId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -990,8 +1006,11 @@ export const serializeAws_restJson1DeleteIntentCommand = async (
   input: DeleteIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}";
   if (input.intentId !== undefined) {
     const labelValue: string = input.intentId;
     if (labelValue.length <= 0) {
@@ -1029,7 +1048,6 @@ export const serializeAws_restJson1DeleteIntentCommand = async (
     throw new Error("No value provided for input HTTP label: localeId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1045,8 +1063,9 @@ export const serializeAws_restJson1DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/policy/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1060,7 +1079,6 @@ export const serializeAws_restJson1DeleteResourcePolicyCommand = async (
     ...(input.expectedRevisionId !== undefined && { expectedRevisionId: input.expectedRevisionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1077,8 +1095,11 @@ export const serializeAws_restJson1DeleteResourcePolicyStatementCommand = async 
   input: DeleteResourcePolicyStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/policy/{resourceArn}/statements/{statementId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/policy/{resourceArn}/statements/{statementId}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1101,7 +1122,6 @@ export const serializeAws_restJson1DeleteResourcePolicyStatementCommand = async 
     ...(input.expectedRevisionId !== undefined && { expectedRevisionId: input.expectedRevisionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1118,8 +1138,11 @@ export const serializeAws_restJson1DeleteSlotCommand = async (
   input: DeleteSlotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}";
   if (input.slotId !== undefined) {
     const labelValue: string = input.slotId;
     if (labelValue.length <= 0) {
@@ -1166,7 +1189,6 @@ export const serializeAws_restJson1DeleteSlotCommand = async (
     throw new Error("No value provided for input HTTP label: intentId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1182,8 +1204,11 @@ export const serializeAws_restJson1DeleteSlotTypeCommand = async (
   input: DeleteSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}";
   if (input.slotTypeId !== undefined) {
     const labelValue: string = input.slotTypeId;
     if (labelValue.length <= 0) {
@@ -1226,7 +1251,6 @@ export const serializeAws_restJson1DeleteSlotTypeCommand = async (
     }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1243,8 +1267,9 @@ export const serializeAws_restJson1DescribeBotCommand = async (
   input: DescribeBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -1255,7 +1280,6 @@ export const serializeAws_restJson1DescribeBotCommand = async (
     throw new Error("No value provided for input HTTP label: botId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1271,8 +1295,10 @@ export const serializeAws_restJson1DescribeBotAliasCommand = async (
   input: DescribeBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}/botaliases/{botAliasId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botaliases/{botAliasId}";
   if (input.botAliasId !== undefined) {
     const labelValue: string = input.botAliasId;
     if (labelValue.length <= 0) {
@@ -1292,7 +1318,6 @@ export const serializeAws_restJson1DescribeBotAliasCommand = async (
     throw new Error("No value provided for input HTTP label: botId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1308,8 +1333,11 @@ export const serializeAws_restJson1DescribeBotLocaleCommand = async (
   input: DescribeBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -1338,7 +1366,6 @@ export const serializeAws_restJson1DescribeBotLocaleCommand = async (
     throw new Error("No value provided for input HTTP label: localeId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1354,8 +1381,10 @@ export const serializeAws_restJson1DescribeBotVersionCommand = async (
   input: DescribeBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botversions/{botVersion}";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -1375,7 +1404,6 @@ export const serializeAws_restJson1DescribeBotVersionCommand = async (
     throw new Error("No value provided for input HTTP label: botVersion.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1391,8 +1419,9 @@ export const serializeAws_restJson1DescribeExportCommand = async (
   input: DescribeExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/exports/{exportId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports/{exportId}";
   if (input.exportId !== undefined) {
     const labelValue: string = input.exportId;
     if (labelValue.length <= 0) {
@@ -1403,7 +1432,6 @@ export const serializeAws_restJson1DescribeExportCommand = async (
     throw new Error("No value provided for input HTTP label: exportId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1419,8 +1447,9 @@ export const serializeAws_restJson1DescribeImportCommand = async (
   input: DescribeImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/imports/{importId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports/{importId}";
   if (input.importId !== undefined) {
     const labelValue: string = input.importId;
     if (labelValue.length <= 0) {
@@ -1431,7 +1460,6 @@ export const serializeAws_restJson1DescribeImportCommand = async (
     throw new Error("No value provided for input HTTP label: importId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1447,8 +1475,11 @@ export const serializeAws_restJson1DescribeIntentCommand = async (
   input: DescribeIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}";
   if (input.intentId !== undefined) {
     const labelValue: string = input.intentId;
     if (labelValue.length <= 0) {
@@ -1486,7 +1517,6 @@ export const serializeAws_restJson1DescribeIntentCommand = async (
     throw new Error("No value provided for input HTTP label: localeId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1502,8 +1532,9 @@ export const serializeAws_restJson1DescribeResourcePolicyCommand = async (
   input: DescribeResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/policy/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1514,7 +1545,6 @@ export const serializeAws_restJson1DescribeResourcePolicyCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1530,8 +1560,11 @@ export const serializeAws_restJson1DescribeSlotCommand = async (
   input: DescribeSlotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}";
   if (input.slotId !== undefined) {
     const labelValue: string = input.slotId;
     if (labelValue.length <= 0) {
@@ -1578,7 +1611,6 @@ export const serializeAws_restJson1DescribeSlotCommand = async (
     throw new Error("No value provided for input HTTP label: intentId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1594,8 +1626,11 @@ export const serializeAws_restJson1DescribeSlotTypeCommand = async (
   input: DescribeSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}";
   if (input.slotTypeId !== undefined) {
     const labelValue: string = input.slotTypeId;
     if (labelValue.length <= 0) {
@@ -1633,7 +1668,6 @@ export const serializeAws_restJson1DescribeSlotTypeCommand = async (
     throw new Error("No value provided for input HTTP label: localeId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1649,10 +1683,11 @@ export const serializeAws_restJson1ListBotAliasesCommand = async (
   input: ListBotAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botaliases";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botaliases";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -1667,7 +1702,6 @@ export const serializeAws_restJson1ListBotAliasesCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1683,10 +1717,13 @@ export const serializeAws_restJson1ListBotLocalesCommand = async (
   input: ListBotLocalesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -1714,7 +1751,6 @@ export const serializeAws_restJson1ListBotLocalesCommand = async (
     ...(input.sortBy !== undefined &&
       input.sortBy !== null && { sortBy: serializeAws_restJson1BotLocaleSortBy(input.sortBy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1730,10 +1766,11 @@ export const serializeAws_restJson1ListBotsCommand = async (
   input: ListBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots";
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined &&
@@ -1743,7 +1780,6 @@ export const serializeAws_restJson1ListBotsCommand = async (
     ...(input.sortBy !== undefined &&
       input.sortBy !== null && { sortBy: serializeAws_restJson1BotSortBy(input.sortBy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1759,10 +1795,12 @@ export const serializeAws_restJson1ListBotVersionsCommand = async (
   input: ListBotVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botversions";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -1779,7 +1817,6 @@ export const serializeAws_restJson1ListBotVersionsCommand = async (
     ...(input.sortBy !== undefined &&
       input.sortBy !== null && { sortBy: serializeAws_restJson1BotVersionSortBy(input.sortBy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1795,10 +1832,12 @@ export const serializeAws_restJson1ListBuiltInIntentsCommand = async (
   input: ListBuiltInIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/builtins/locales/{localeId}/intents";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/builtins/locales/{localeId}/intents";
   if (input.localeId !== undefined) {
     const labelValue: string = input.localeId;
     if (labelValue.length <= 0) {
@@ -1815,7 +1854,6 @@ export const serializeAws_restJson1ListBuiltInIntentsCommand = async (
     ...(input.sortBy !== undefined &&
       input.sortBy !== null && { sortBy: serializeAws_restJson1BuiltInIntentSortBy(input.sortBy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1831,10 +1869,12 @@ export const serializeAws_restJson1ListBuiltInSlotTypesCommand = async (
   input: ListBuiltInSlotTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/builtins/locales/{localeId}/slottypes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/builtins/locales/{localeId}/slottypes";
   if (input.localeId !== undefined) {
     const labelValue: string = input.localeId;
     if (labelValue.length <= 0) {
@@ -1851,7 +1891,6 @@ export const serializeAws_restJson1ListBuiltInSlotTypesCommand = async (
     ...(input.sortBy !== undefined &&
       input.sortBy !== null && { sortBy: serializeAws_restJson1BuiltInSlotTypeSortBy(input.sortBy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1867,10 +1906,11 @@ export const serializeAws_restJson1ListExportsCommand = async (
   input: ListExportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/exports";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports";
   let body: any;
   body = JSON.stringify({
     ...(input.botId !== undefined && input.botId !== null && { botId: input.botId }),
@@ -1882,7 +1922,6 @@ export const serializeAws_restJson1ListExportsCommand = async (
     ...(input.sortBy !== undefined &&
       input.sortBy !== null && { sortBy: serializeAws_restJson1ExportSortBy(input.sortBy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1898,10 +1937,11 @@ export const serializeAws_restJson1ListImportsCommand = async (
   input: ListImportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/imports";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports";
   let body: any;
   body = JSON.stringify({
     ...(input.botId !== undefined && input.botId !== null && { botId: input.botId }),
@@ -1913,7 +1953,6 @@ export const serializeAws_restJson1ListImportsCommand = async (
     ...(input.sortBy !== undefined &&
       input.sortBy !== null && { sortBy: serializeAws_restJson1ImportSortBy(input.sortBy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1929,10 +1968,13 @@ export const serializeAws_restJson1ListIntentsCommand = async (
   input: ListIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -1969,7 +2011,6 @@ export const serializeAws_restJson1ListIntentsCommand = async (
     ...(input.sortBy !== undefined &&
       input.sortBy !== null && { sortBy: serializeAws_restJson1IntentSortBy(input.sortBy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1985,10 +2026,13 @@ export const serializeAws_restJson1ListSlotsCommand = async (
   input: ListSlotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -2034,7 +2078,6 @@ export const serializeAws_restJson1ListSlotsCommand = async (
     ...(input.sortBy !== undefined &&
       input.sortBy !== null && { sortBy: serializeAws_restJson1SlotSortBy(input.sortBy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2050,10 +2093,13 @@ export const serializeAws_restJson1ListSlotTypesCommand = async (
   input: ListSlotTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -2090,7 +2136,6 @@ export const serializeAws_restJson1ListSlotTypesCommand = async (
     ...(input.sortBy !== undefined &&
       input.sortBy !== null && { sortBy: serializeAws_restJson1SlotTypeSortBy(input.sortBy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2106,8 +2151,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceARN}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceARN}";
   if (input.resourceARN !== undefined) {
     const labelValue: string = input.resourceARN;
     if (labelValue.length <= 0) {
@@ -2118,7 +2164,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceARN.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2134,10 +2179,11 @@ export const serializeAws_restJson1StartImportCommand = async (
   input: StartImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/imports";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports";
   let body: any;
   body = JSON.stringify({
     ...(input.filePassword !== undefined && input.filePassword !== null && { filePassword: input.filePassword }),
@@ -2148,7 +2194,6 @@ export const serializeAws_restJson1StartImportCommand = async (
         resourceSpecification: serializeAws_restJson1ImportResourceSpecification(input.resourceSpecification, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2164,10 +2209,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceARN}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceARN}";
   if (input.resourceARN !== undefined) {
     const labelValue: string = input.resourceARN;
     if (labelValue.length <= 0) {
@@ -2181,7 +2227,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2197,8 +2242,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceARN}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceARN}";
   if (input.resourceARN !== undefined) {
     const labelValue: string = input.resourceARN;
     if (labelValue.length <= 0) {
@@ -2212,7 +2258,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2229,10 +2274,11 @@ export const serializeAws_restJson1UpdateBotCommand = async (
   input: UpdateBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -2252,7 +2298,6 @@ export const serializeAws_restJson1UpdateBotCommand = async (
       input.idleSessionTTLInSeconds !== null && { idleSessionTTLInSeconds: input.idleSessionTTLInSeconds }),
     ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2268,10 +2313,12 @@ export const serializeAws_restJson1UpdateBotAliasCommand = async (
   input: UpdateBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botaliases/{botAliasId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botaliases/{botAliasId}";
   if (input.botAliasId !== undefined) {
     const labelValue: string = input.botAliasId;
     if (labelValue.length <= 0) {
@@ -2311,7 +2358,6 @@ export const serializeAws_restJson1UpdateBotAliasCommand = async (
         ),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2327,10 +2373,13 @@ export const serializeAws_restJson1UpdateBotLocaleCommand = async (
   input: UpdateBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}";
   if (input.botId !== undefined) {
     const labelValue: string = input.botId;
     if (labelValue.length <= 0) {
@@ -2370,7 +2419,6 @@ export const serializeAws_restJson1UpdateBotLocaleCommand = async (
         voiceSettings: serializeAws_restJson1VoiceSettings(input.voiceSettings, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2386,10 +2434,11 @@ export const serializeAws_restJson1UpdateExportCommand = async (
   input: UpdateExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/exports/{exportId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports/{exportId}";
   if (input.exportId !== undefined) {
     const labelValue: string = input.exportId;
     if (labelValue.length <= 0) {
@@ -2403,7 +2452,6 @@ export const serializeAws_restJson1UpdateExportCommand = async (
   body = JSON.stringify({
     ...(input.filePassword !== undefined && input.filePassword !== null && { filePassword: input.filePassword }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2419,10 +2467,13 @@ export const serializeAws_restJson1UpdateIntentCommand = async (
   input: UpdateIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}";
   if (input.intentId !== undefined) {
     const labelValue: string = input.intentId;
     if (labelValue.length <= 0) {
@@ -2505,7 +2556,6 @@ export const serializeAws_restJson1UpdateIntentCommand = async (
         slotPriorities: serializeAws_restJson1SlotPrioritiesList(input.slotPriorities, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2521,10 +2571,11 @@ export const serializeAws_restJson1UpdateResourcePolicyCommand = async (
   input: UpdateResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/policy/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -2541,7 +2592,6 @@ export const serializeAws_restJson1UpdateResourcePolicyCommand = async (
   body = JSON.stringify({
     ...(input.policy !== undefined && input.policy !== null && { policy: input.policy }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2558,10 +2608,13 @@ export const serializeAws_restJson1UpdateSlotCommand = async (
   input: UpdateSlotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}";
   if (input.slotId !== undefined) {
     const labelValue: string = input.slotId;
     if (labelValue.length <= 0) {
@@ -2628,7 +2681,6 @@ export const serializeAws_restJson1UpdateSlotCommand = async (
         ),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2644,10 +2696,13 @@ export const serializeAws_restJson1UpdateSlotTypeCommand = async (
   input: UpdateSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}";
   if (input.slotTypeId !== undefined) {
     const labelValue: string = input.slotTypeId;
     if (labelValue.length <= 0) {
@@ -2699,7 +2754,6 @@ export const serializeAws_restJson1UpdateSlotTypeCommand = async (
         valueSelectionSetting: serializeAws_restJson1SlotValueSelectionSetting(input.valueSelectionSetting, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

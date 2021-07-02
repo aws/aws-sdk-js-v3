@@ -21,10 +21,11 @@ export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
   input: GetPersonalizedRankingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/personalize-ranking";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/personalize-ranking";
   let body: any;
   body = JSON.stringify({
     ...(input.campaignArn !== undefined && input.campaignArn !== null && { campaignArn: input.campaignArn }),
@@ -37,7 +38,6 @@ export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
       input.inputList !== null && { inputList: serializeAws_restJson1InputList(input.inputList, context) }),
     ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -53,10 +53,11 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   input: GetRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/recommendations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/recommendations";
   let body: any;
   body = JSON.stringify({
     ...(input.campaignArn !== undefined && input.campaignArn !== null && { campaignArn: input.campaignArn }),
@@ -69,7 +70,6 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
     ...(input.numResults !== undefined && input.numResults !== null && { numResults: input.numResults }),
     ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

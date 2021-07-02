@@ -131,8 +131,11 @@ export const serializeAws_restJson1AbortMultipartUploadCommand = async (
   input: AbortMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -161,7 +164,6 @@ export const serializeAws_restJson1AbortMultipartUploadCommand = async (
     throw new Error("No value provided for input HTTP label: uploadId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -177,8 +179,11 @@ export const serializeAws_restJson1AbortVaultLockCommand = async (
   input: AbortVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -198,7 +203,6 @@ export const serializeAws_restJson1AbortVaultLockCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -214,10 +218,12 @@ export const serializeAws_restJson1AddTagsToVaultCommand = async (
   input: AddTagsToVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -243,7 +249,6 @@ export const serializeAws_restJson1AddTagsToVaultCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -260,11 +265,14 @@ export const serializeAws_restJson1CompleteMultipartUploadCommand = async (
   input: CompleteMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.archiveSize) && { "x-amz-archive-size": input.archiveSize! }),
     ...(isSerializableHeaderValue(input.checksum) && { "x-amz-sha256-tree-hash": input.checksum! }),
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -293,7 +301,6 @@ export const serializeAws_restJson1CompleteMultipartUploadCommand = async (
     throw new Error("No value provided for input HTTP label: uploadId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -309,8 +316,11 @@ export const serializeAws_restJson1CompleteVaultLockCommand = async (
   input: CompleteVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy/{lockId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/lock-policy/{lockId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -339,7 +349,6 @@ export const serializeAws_restJson1CompleteVaultLockCommand = async (
     throw new Error("No value provided for input HTTP label: lockId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -355,8 +364,10 @@ export const serializeAws_restJson1CreateVaultCommand = async (
   input: CreateVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -376,7 +387,6 @@ export const serializeAws_restJson1CreateVaultCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -392,8 +402,11 @@ export const serializeAws_restJson1DeleteArchiveCommand = async (
   input: DeleteArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/archives/{archiveId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/archives/{archiveId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -422,7 +435,6 @@ export const serializeAws_restJson1DeleteArchiveCommand = async (
     throw new Error("No value provided for input HTTP label: archiveId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -438,8 +450,10 @@ export const serializeAws_restJson1DeleteVaultCommand = async (
   input: DeleteVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -459,7 +473,6 @@ export const serializeAws_restJson1DeleteVaultCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -475,8 +488,11 @@ export const serializeAws_restJson1DeleteVaultAccessPolicyCommand = async (
   input: DeleteVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -496,7 +512,6 @@ export const serializeAws_restJson1DeleteVaultAccessPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -512,8 +527,11 @@ export const serializeAws_restJson1DeleteVaultNotificationsCommand = async (
   input: DeleteVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/notification-configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -533,7 +551,6 @@ export const serializeAws_restJson1DeleteVaultNotificationsCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -549,8 +566,11 @@ export const serializeAws_restJson1DescribeJobCommand = async (
   input: DescribeJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs/{jobId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/jobs/{jobId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -579,7 +599,6 @@ export const serializeAws_restJson1DescribeJobCommand = async (
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -595,8 +614,10 @@ export const serializeAws_restJson1DescribeVaultCommand = async (
   input: DescribeVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -616,7 +637,6 @@ export const serializeAws_restJson1DescribeVaultCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -632,8 +652,10 @@ export const serializeAws_restJson1GetDataRetrievalPolicyCommand = async (
   input: GetDataRetrievalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/policies/data-retrieval";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/policies/data-retrieval";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -644,7 +666,6 @@ export const serializeAws_restJson1GetDataRetrievalPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -660,10 +681,13 @@ export const serializeAws_restJson1GetJobOutputCommand = async (
   input: GetJobOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.range) && { range: input.range! }),
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs/{jobId}/output";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/jobs/{jobId}/output";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -692,7 +716,6 @@ export const serializeAws_restJson1GetJobOutputCommand = async (
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -708,8 +731,11 @@ export const serializeAws_restJson1GetVaultAccessPolicyCommand = async (
   input: GetVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -729,7 +755,6 @@ export const serializeAws_restJson1GetVaultAccessPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -745,8 +770,11 @@ export const serializeAws_restJson1GetVaultLockCommand = async (
   input: GetVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -766,7 +794,6 @@ export const serializeAws_restJson1GetVaultLockCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -782,8 +809,11 @@ export const serializeAws_restJson1GetVaultNotificationsCommand = async (
   input: GetVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/notification-configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -803,7 +833,6 @@ export const serializeAws_restJson1GetVaultNotificationsCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -819,10 +848,12 @@ export const serializeAws_restJson1InitiateJobCommand = async (
   input: InitiateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/jobs";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -849,7 +880,6 @@ export const serializeAws_restJson1InitiateJobCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -865,13 +895,16 @@ export const serializeAws_restJson1InitiateMultipartUploadCommand = async (
   input: InitiateMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.archiveDescription) && {
       "x-amz-archive-description": input.archiveDescription!,
     }),
     ...(isSerializableHeaderValue(input.partSize) && { "x-amz-part-size": input.partSize! }),
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/multipart-uploads";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -891,7 +924,6 @@ export const serializeAws_restJson1InitiateMultipartUploadCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -907,10 +939,13 @@ export const serializeAws_restJson1InitiateVaultLockCommand = async (
   input: InitiateVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -937,7 +972,6 @@ export const serializeAws_restJson1InitiateVaultLockCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -953,8 +987,10 @@ export const serializeAws_restJson1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/jobs";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -980,7 +1016,6 @@ export const serializeAws_restJson1ListJobsCommand = async (
     ...(input.completed !== undefined && { completed: input.completed }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -997,8 +1032,11 @@ export const serializeAws_restJson1ListMultipartUploadsCommand = async (
   input: ListMultipartUploadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/multipart-uploads";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1022,7 +1060,6 @@ export const serializeAws_restJson1ListMultipartUploadsCommand = async (
     ...(input.marker !== undefined && { marker: input.marker }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1039,8 +1076,11 @@ export const serializeAws_restJson1ListPartsCommand = async (
   input: ListPartsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1073,7 +1113,6 @@ export const serializeAws_restJson1ListPartsCommand = async (
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1090,8 +1129,10 @@ export const serializeAws_restJson1ListProvisionedCapacityCommand = async (
   input: ListProvisionedCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/provisioned-capacity";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/provisioned-capacity";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1102,7 +1143,6 @@ export const serializeAws_restJson1ListProvisionedCapacityCommand = async (
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1118,8 +1158,10 @@ export const serializeAws_restJson1ListTagsForVaultCommand = async (
   input: ListTagsForVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1139,7 +1181,6 @@ export const serializeAws_restJson1ListTagsForVaultCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1155,8 +1196,9 @@ export const serializeAws_restJson1ListVaultsCommand = async (
   input: ListVaultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1171,7 +1213,6 @@ export const serializeAws_restJson1ListVaultsCommand = async (
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1188,8 +1229,10 @@ export const serializeAws_restJson1PurchaseProvisionedCapacityCommand = async (
   input: PurchaseProvisionedCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/provisioned-capacity";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/provisioned-capacity";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1200,7 +1243,6 @@ export const serializeAws_restJson1PurchaseProvisionedCapacityCommand = async (
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1216,10 +1258,12 @@ export const serializeAws_restJson1RemoveTagsFromVaultCommand = async (
   input: RemoveTagsFromVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1246,7 +1290,6 @@ export const serializeAws_restJson1RemoveTagsFromVaultCommand = async (
     ...(input.TagKeys !== undefined &&
       input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1263,10 +1306,12 @@ export const serializeAws_restJson1SetDataRetrievalPolicyCommand = async (
   input: SetDataRetrievalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/policies/data-retrieval";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/policies/data-retrieval";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1281,7 +1326,6 @@ export const serializeAws_restJson1SetDataRetrievalPolicyCommand = async (
     ...(input.Policy !== undefined &&
       input.Policy !== null && { Policy: serializeAws_restJson1DataRetrievalPolicy(input.Policy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1297,10 +1341,13 @@ export const serializeAws_restJson1SetVaultAccessPolicyCommand = async (
   input: SetVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1327,7 +1374,6 @@ export const serializeAws_restJson1SetVaultAccessPolicyCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1343,10 +1389,13 @@ export const serializeAws_restJson1SetVaultNotificationsCommand = async (
   input: SetVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/notification-configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1373,7 +1422,6 @@ export const serializeAws_restJson1SetVaultNotificationsCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1389,6 +1437,7 @@ export const serializeAws_restJson1UploadArchiveCommand = async (
   input: UploadArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.archiveDescription) && {
@@ -1396,7 +1445,8 @@ export const serializeAws_restJson1UploadArchiveCommand = async (
     }),
     ...(isSerializableHeaderValue(input.checksum) && { "x-amz-sha256-tree-hash": input.checksum! }),
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/archives";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/archives";
   if (input.vaultName !== undefined) {
     const labelValue: string = input.vaultName;
     if (labelValue.length <= 0) {
@@ -1419,7 +1469,6 @@ export const serializeAws_restJson1UploadArchiveCommand = async (
   if (input.body !== undefined) {
     body = input.body;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1435,12 +1484,15 @@ export const serializeAws_restJson1UploadMultipartPartCommand = async (
   input: UploadMultipartPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.checksum) && { "x-amz-sha256-tree-hash": input.checksum! }),
     ...(isSerializableHeaderValue(input.range) && { "content-range": input.range! }),
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1472,7 +1524,6 @@ export const serializeAws_restJson1UploadMultipartPartCommand = async (
   if (input.body !== undefined) {
     body = input.body;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

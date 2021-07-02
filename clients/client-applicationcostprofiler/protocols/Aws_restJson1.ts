@@ -49,8 +49,10 @@ export const serializeAws_restJson1DeleteReportDefinitionCommand = async (
   input: DeleteReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/reportDefinition/{reportId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition/{reportId}";
   if (input.reportId !== undefined) {
     const labelValue: string = input.reportId;
     if (labelValue.length <= 0) {
@@ -61,7 +63,6 @@ export const serializeAws_restJson1DeleteReportDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: reportId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -77,8 +78,10 @@ export const serializeAws_restJson1GetReportDefinitionCommand = async (
   input: GetReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/reportDefinition/{reportId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition/{reportId}";
   if (input.reportId !== undefined) {
     const labelValue: string = input.reportId;
     if (labelValue.length <= 0) {
@@ -89,7 +92,6 @@ export const serializeAws_restJson1GetReportDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: reportId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -105,10 +107,11 @@ export const serializeAws_restJson1ImportApplicationUsageCommand = async (
   input: ImportApplicationUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/importApplicationUsage";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/importApplicationUsage";
   let body: any;
   body = JSON.stringify({
     ...(input.sourceS3Location !== undefined &&
@@ -116,7 +119,6 @@ export const serializeAws_restJson1ImportApplicationUsageCommand = async (
         sourceS3Location: serializeAws_restJson1SourceS3Location(input.sourceS3Location, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -132,14 +134,14 @@ export const serializeAws_restJson1ListReportDefinitionsCommand = async (
   input: ListReportDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/reportDefinition";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -156,10 +158,11 @@ export const serializeAws_restJson1PutReportDefinitionCommand = async (
   input: PutReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/reportDefinition";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition";
   let body: any;
   body = JSON.stringify({
     ...(input.destinationS3Location !== undefined &&
@@ -173,7 +176,6 @@ export const serializeAws_restJson1PutReportDefinitionCommand = async (
       input.reportFrequency !== null && { reportFrequency: input.reportFrequency }),
     ...(input.reportId !== undefined && input.reportId !== null && { reportId: input.reportId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -189,10 +191,12 @@ export const serializeAws_restJson1UpdateReportDefinitionCommand = async (
   input: UpdateReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/reportDefinition/{reportId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition/{reportId}";
   if (input.reportId !== undefined) {
     const labelValue: string = input.reportId;
     if (labelValue.length <= 0) {
@@ -214,7 +218,6 @@ export const serializeAws_restJson1UpdateReportDefinitionCommand = async (
     ...(input.reportFrequency !== undefined &&
       input.reportFrequency !== null && { reportFrequency: input.reportFrequency }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

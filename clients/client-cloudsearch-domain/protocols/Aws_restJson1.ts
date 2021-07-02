@@ -34,8 +34,9 @@ export const serializeAws_restJson1SearchCommand = async (
   input: SearchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2013-01-01/search";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/search";
   const query: any = {
     format: "sdk",
     pretty: "true",
@@ -55,7 +56,6 @@ export const serializeAws_restJson1SearchCommand = async (
     ...(input.stats !== undefined && { stats: input.stats }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -72,8 +72,9 @@ export const serializeAws_restJson1SuggestCommand = async (
   input: SuggestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2013-01-01/suggest";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/suggest";
   const query: any = {
     format: "sdk",
     pretty: "true",
@@ -82,7 +83,6 @@ export const serializeAws_restJson1SuggestCommand = async (
     ...(input.size !== undefined && { size: input.size.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -99,11 +99,13 @@ export const serializeAws_restJson1UploadDocumentsCommand = async (
   input: UploadDocumentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.contentType) && { "content-type": input.contentType! }),
   };
-  let resolvedPath = "/2013-01-01/documents/batch";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/documents/batch";
   const query: any = {
     format: "sdk",
   };
@@ -111,7 +113,6 @@ export const serializeAws_restJson1UploadDocumentsCommand = async (
   if (input.documents !== undefined) {
     body = input.documents;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

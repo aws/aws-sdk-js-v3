@@ -50,10 +50,11 @@ export const serializeAws_restJson1BatchExecuteStatementCommand = async (
   input: BatchExecuteStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/BatchExecute";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchExecute";
   let body: any;
   body = JSON.stringify({
     ...(input.database !== undefined && input.database !== null && { database: input.database }),
@@ -67,7 +68,6 @@ export const serializeAws_restJson1BatchExecuteStatementCommand = async (
     ...(input.sql !== undefined && input.sql !== null && { sql: input.sql }),
     ...(input.transactionId !== undefined && input.transactionId !== null && { transactionId: input.transactionId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -83,10 +83,11 @@ export const serializeAws_restJson1BeginTransactionCommand = async (
   input: BeginTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/BeginTransaction";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BeginTransaction";
   let body: any;
   body = JSON.stringify({
     ...(input.database !== undefined && input.database !== null && { database: input.database }),
@@ -94,7 +95,6 @@ export const serializeAws_restJson1BeginTransactionCommand = async (
     ...(input.schema !== undefined && input.schema !== null && { schema: input.schema }),
     ...(input.secretArn !== undefined && input.secretArn !== null && { secretArn: input.secretArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -110,17 +110,17 @@ export const serializeAws_restJson1CommitTransactionCommand = async (
   input: CommitTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/CommitTransaction";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CommitTransaction";
   let body: any;
   body = JSON.stringify({
     ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
     ...(input.secretArn !== undefined && input.secretArn !== null && { secretArn: input.secretArn }),
     ...(input.transactionId !== undefined && input.transactionId !== null && { transactionId: input.transactionId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -136,10 +136,11 @@ export const serializeAws_restJson1ExecuteSqlCommand = async (
   input: ExecuteSqlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/ExecuteSql";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ExecuteSql";
   let body: any;
   body = JSON.stringify({
     ...(input.awsSecretStoreArn !== undefined &&
@@ -150,7 +151,6 @@ export const serializeAws_restJson1ExecuteSqlCommand = async (
     ...(input.schema !== undefined && input.schema !== null && { schema: input.schema }),
     ...(input.sqlStatements !== undefined && input.sqlStatements !== null && { sqlStatements: input.sqlStatements }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -166,10 +166,11 @@ export const serializeAws_restJson1ExecuteStatementCommand = async (
   input: ExecuteStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/Execute";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/Execute";
   let body: any;
   body = JSON.stringify({
     ...(input.continueAfterTimeout !== undefined &&
@@ -189,7 +190,6 @@ export const serializeAws_restJson1ExecuteStatementCommand = async (
     ...(input.sql !== undefined && input.sql !== null && { sql: input.sql }),
     ...(input.transactionId !== undefined && input.transactionId !== null && { transactionId: input.transactionId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -205,17 +205,17 @@ export const serializeAws_restJson1RollbackTransactionCommand = async (
   input: RollbackTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/RollbackTransaction";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RollbackTransaction";
   let body: any;
   body = JSON.stringify({
     ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
     ...(input.secretArn !== undefined && input.secretArn !== null && { secretArn: input.secretArn }),
     ...(input.transactionId !== undefined && input.transactionId !== null && { transactionId: input.transactionId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

@@ -18,6 +18,7 @@ export const serializeAws_restJson1InvokeEndpointCommand = async (
   input: InvokeEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.ContentType) && { "content-type": input.ContentType! }),
@@ -32,7 +33,8 @@ export const serializeAws_restJson1InvokeEndpointCommand = async (
     }),
     ...(isSerializableHeaderValue(input.InferenceId) && { "x-amzn-sagemaker-inference-id": input.InferenceId! }),
   };
-  let resolvedPath = "/endpoints/{EndpointName}/invocations";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/endpoints/{EndpointName}/invocations";
   if (input.EndpointName !== undefined) {
     const labelValue: string = input.EndpointName;
     if (labelValue.length <= 0) {
@@ -46,7 +48,6 @@ export const serializeAws_restJson1InvokeEndpointCommand = async (
   if (input.Body !== undefined) {
     body = input.Body;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

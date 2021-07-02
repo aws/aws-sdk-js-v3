@@ -28,8 +28,9 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{Path+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Path+}";
   if (input.Path !== undefined) {
     const labelValue: string = input.Path;
     if (labelValue.length <= 0) {
@@ -46,7 +47,6 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
     throw new Error("No value provided for input HTTP label: Path.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -62,8 +62,9 @@ export const serializeAws_restJson1DescribeObjectCommand = async (
   input: DescribeObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{Path+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Path+}";
   if (input.Path !== undefined) {
     const labelValue: string = input.Path;
     if (labelValue.length <= 0) {
@@ -80,7 +81,6 @@ export const serializeAws_restJson1DescribeObjectCommand = async (
     throw new Error("No value provided for input HTTP label: Path.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -96,10 +96,11 @@ export const serializeAws_restJson1GetObjectCommand = async (
   input: GetObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.Range) && { range: input.Range! }),
   };
-  let resolvedPath = "/{Path+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Path+}";
   if (input.Path !== undefined) {
     const labelValue: string = input.Path;
     if (labelValue.length <= 0) {
@@ -116,7 +117,6 @@ export const serializeAws_restJson1GetObjectCommand = async (
     throw new Error("No value provided for input HTTP label: Path.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -132,15 +132,15 @@ export const serializeAws_restJson1ListItemsCommand = async (
   input: ListItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   const query: any = {
     ...(input.Path !== undefined && { Path: input.Path }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -157,6 +157,7 @@ export const serializeAws_restJson1PutObjectCommand = async (
   input: PutObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
@@ -167,7 +168,7 @@ export const serializeAws_restJson1PutObjectCommand = async (
       "x-amz-upload-availability": input.UploadAvailability!,
     }),
   };
-  let resolvedPath = "/{Path+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Path+}";
   if (input.Path !== undefined) {
     const labelValue: string = input.Path;
     if (labelValue.length <= 0) {
@@ -187,7 +188,6 @@ export const serializeAws_restJson1PutObjectCommand = async (
   if (input.Body !== undefined) {
     body = input.Body;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

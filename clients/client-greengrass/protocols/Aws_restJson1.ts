@@ -384,10 +384,12 @@ export const serializeAws_restJson1AssociateRoleToGroupCommand = async (
   input: AssociateRoleToGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/groups/{GroupId}/role";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/role";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -401,7 +403,6 @@ export const serializeAws_restJson1AssociateRoleToGroupCommand = async (
   body = JSON.stringify({
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -417,15 +418,15 @@ export const serializeAws_restJson1AssociateServiceRoleToAccountCommand = async 
   input: AssociateServiceRoleToAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/servicerole";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/servicerole";
   let body: any;
   body = JSON.stringify({
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -441,11 +442,13 @@ export const serializeAws_restJson1CreateConnectorDefinitionCommand = async (
   input: CreateConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/connectors";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/connectors";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined &&
@@ -455,7 +458,6 @@ export const serializeAws_restJson1CreateConnectorDefinitionCommand = async (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -471,11 +473,14 @@ export const serializeAws_restJson1CreateConnectorDefinitionVersionCommand = asy
   input: CreateConnectorDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
   if (input.ConnectorDefinitionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionId;
     if (labelValue.length <= 0) {
@@ -490,7 +495,6 @@ export const serializeAws_restJson1CreateConnectorDefinitionVersionCommand = asy
     ...(input.Connectors !== undefined &&
       input.Connectors !== null && { Connectors: serializeAws_restJson1__listOfConnector(input.Connectors, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -506,11 +510,13 @@ export const serializeAws_restJson1CreateCoreDefinitionCommand = async (
   input: CreateCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/cores";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/cores";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined &&
@@ -520,7 +526,6 @@ export const serializeAws_restJson1CreateCoreDefinitionCommand = async (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -536,11 +541,14 @@ export const serializeAws_restJson1CreateCoreDefinitionVersionCommand = async (
   input: CreateCoreDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/cores/{CoreDefinitionId}/versions";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
     if (labelValue.length <= 0) {
@@ -555,7 +563,6 @@ export const serializeAws_restJson1CreateCoreDefinitionVersionCommand = async (
     ...(input.Cores !== undefined &&
       input.Cores !== null && { Cores: serializeAws_restJson1__listOfCore(input.Cores, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -571,11 +578,13 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
   input: CreateDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/groups/{GroupId}/deployments";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/deployments";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -593,7 +602,6 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
     ...(input.GroupVersionId !== undefined &&
       input.GroupVersionId !== null && { GroupVersionId: input.GroupVersionId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -609,11 +617,13 @@ export const serializeAws_restJson1CreateDeviceDefinitionCommand = async (
   input: CreateDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/devices";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/devices";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined &&
@@ -623,7 +633,6 @@ export const serializeAws_restJson1CreateDeviceDefinitionCommand = async (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -639,11 +648,14 @@ export const serializeAws_restJson1CreateDeviceDefinitionVersionCommand = async 
   input: CreateDeviceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
     if (labelValue.length <= 0) {
@@ -658,7 +670,6 @@ export const serializeAws_restJson1CreateDeviceDefinitionVersionCommand = async 
     ...(input.Devices !== undefined &&
       input.Devices !== null && { Devices: serializeAws_restJson1__listOfDevice(input.Devices, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -674,11 +685,13 @@ export const serializeAws_restJson1CreateFunctionDefinitionCommand = async (
   input: CreateFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/functions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/functions";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined &&
@@ -688,7 +701,6 @@ export const serializeAws_restJson1CreateFunctionDefinitionCommand = async (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -704,11 +716,14 @@ export const serializeAws_restJson1CreateFunctionDefinitionVersionCommand = asyn
   input: CreateFunctionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
     if (labelValue.length <= 0) {
@@ -727,7 +742,6 @@ export const serializeAws_restJson1CreateFunctionDefinitionVersionCommand = asyn
     ...(input.Functions !== undefined &&
       input.Functions !== null && { Functions: serializeAws_restJson1__listOfFunction(input.Functions, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -743,11 +757,12 @@ export const serializeAws_restJson1CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/groups";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined &&
@@ -757,7 +772,6 @@ export const serializeAws_restJson1CreateGroupCommand = async (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -773,10 +787,13 @@ export const serializeAws_restJson1CreateGroupCertificateAuthorityCommand = asyn
   input: CreateGroupCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/groups/{GroupId}/certificateauthorities";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -787,7 +804,6 @@ export const serializeAws_restJson1CreateGroupCertificateAuthorityCommand = asyn
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -803,11 +819,13 @@ export const serializeAws_restJson1CreateGroupVersionCommand = async (
   input: CreateGroupVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/groups/{GroupId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/versions";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -842,7 +860,6 @@ export const serializeAws_restJson1CreateGroupVersionCommand = async (
         SubscriptionDefinitionVersionArn: input.SubscriptionDefinitionVersionArn,
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -858,11 +875,13 @@ export const serializeAws_restJson1CreateLoggerDefinitionCommand = async (
   input: CreateLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/loggers";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/loggers";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined &&
@@ -872,7 +891,6 @@ export const serializeAws_restJson1CreateLoggerDefinitionCommand = async (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -888,11 +906,14 @@ export const serializeAws_restJson1CreateLoggerDefinitionVersionCommand = async 
   input: CreateLoggerDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
     if (labelValue.length <= 0) {
@@ -907,7 +928,6 @@ export const serializeAws_restJson1CreateLoggerDefinitionVersionCommand = async 
     ...(input.Loggers !== undefined &&
       input.Loggers !== null && { Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -923,11 +943,13 @@ export const serializeAws_restJson1CreateResourceDefinitionCommand = async (
   input: CreateResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/resources";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/resources";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined &&
@@ -937,7 +959,6 @@ export const serializeAws_restJson1CreateResourceDefinitionCommand = async (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -953,11 +974,14 @@ export const serializeAws_restJson1CreateResourceDefinitionVersionCommand = asyn
   input: CreateResourceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
     if (labelValue.length <= 0) {
@@ -972,7 +996,6 @@ export const serializeAws_restJson1CreateResourceDefinitionVersionCommand = asyn
     ...(input.Resources !== undefined &&
       input.Resources !== null && { Resources: serializeAws_restJson1__listOfResource(input.Resources, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -988,11 +1011,12 @@ export const serializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
   input: CreateSoftwareUpdateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/updates";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/updates";
   let body: any;
   body = JSON.stringify({
     ...(input.S3UrlSignerRole !== undefined &&
@@ -1012,7 +1036,6 @@ export const serializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
         UpdateTargetsOperatingSystem: input.UpdateTargetsOperatingSystem,
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1028,11 +1051,13 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionCommand = async (
   input: CreateSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/subscriptions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/subscriptions";
   let body: any;
   body = JSON.stringify({
     ...(input.InitialVersion !== undefined &&
@@ -1042,7 +1067,6 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionCommand = async (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1058,11 +1082,14 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand = 
   input: CreateSubscriptionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
   if (input.SubscriptionDefinitionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionId;
     if (labelValue.length <= 0) {
@@ -1079,7 +1106,6 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand = 
         Subscriptions: serializeAws_restJson1__listOfSubscription(input.Subscriptions, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1095,8 +1121,11 @@ export const serializeAws_restJson1DeleteConnectorDefinitionCommand = async (
   input: DeleteConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/connectors/{ConnectorDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/connectors/{ConnectorDefinitionId}";
   if (input.ConnectorDefinitionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionId;
     if (labelValue.length <= 0) {
@@ -1107,7 +1136,6 @@ export const serializeAws_restJson1DeleteConnectorDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: ConnectorDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1123,8 +1151,11 @@ export const serializeAws_restJson1DeleteCoreDefinitionCommand = async (
   input: DeleteCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/cores/{CoreDefinitionId}";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
     if (labelValue.length <= 0) {
@@ -1135,7 +1166,6 @@ export const serializeAws_restJson1DeleteCoreDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: CoreDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1151,8 +1181,11 @@ export const serializeAws_restJson1DeleteDeviceDefinitionCommand = async (
   input: DeleteDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/devices/{DeviceDefinitionId}";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
     if (labelValue.length <= 0) {
@@ -1163,7 +1196,6 @@ export const serializeAws_restJson1DeleteDeviceDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: DeviceDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1179,8 +1211,11 @@ export const serializeAws_restJson1DeleteFunctionDefinitionCommand = async (
   input: DeleteFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/functions/{FunctionDefinitionId}";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
     if (labelValue.length <= 0) {
@@ -1191,7 +1226,6 @@ export const serializeAws_restJson1DeleteFunctionDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1207,8 +1241,10 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/groups/{GroupId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -1219,7 +1255,6 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1235,8 +1270,11 @@ export const serializeAws_restJson1DeleteLoggerDefinitionCommand = async (
   input: DeleteLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/loggers/{LoggerDefinitionId}";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
     if (labelValue.length <= 0) {
@@ -1247,7 +1285,6 @@ export const serializeAws_restJson1DeleteLoggerDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: LoggerDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1263,8 +1300,11 @@ export const serializeAws_restJson1DeleteResourceDefinitionCommand = async (
   input: DeleteResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/resources/{ResourceDefinitionId}";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
     if (labelValue.length <= 0) {
@@ -1275,7 +1315,6 @@ export const serializeAws_restJson1DeleteResourceDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1291,8 +1330,11 @@ export const serializeAws_restJson1DeleteSubscriptionDefinitionCommand = async (
   input: DeleteSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionId;
     if (labelValue.length <= 0) {
@@ -1303,7 +1345,6 @@ export const serializeAws_restJson1DeleteSubscriptionDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: SubscriptionDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1319,8 +1360,10 @@ export const serializeAws_restJson1DisassociateRoleFromGroupCommand = async (
   input: DisassociateRoleFromGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/groups/{GroupId}/role";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/role";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -1331,7 +1374,6 @@ export const serializeAws_restJson1DisassociateRoleFromGroupCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1347,13 +1389,13 @@ export const serializeAws_restJson1DisassociateServiceRoleFromAccountCommand = a
   input: DisassociateServiceRoleFromAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/servicerole";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/servicerole";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1369,8 +1411,10 @@ export const serializeAws_restJson1GetAssociatedRoleCommand = async (
   input: GetAssociatedRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/groups/{GroupId}/role";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/role";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -1381,7 +1425,6 @@ export const serializeAws_restJson1GetAssociatedRoleCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1397,8 +1440,11 @@ export const serializeAws_restJson1GetBulkDeploymentStatusCommand = async (
   input: GetBulkDeploymentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/bulk/deployments/{BulkDeploymentId}/status";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/bulk/deployments/{BulkDeploymentId}/status";
   if (input.BulkDeploymentId !== undefined) {
     const labelValue: string = input.BulkDeploymentId;
     if (labelValue.length <= 0) {
@@ -1409,7 +1455,6 @@ export const serializeAws_restJson1GetBulkDeploymentStatusCommand = async (
     throw new Error("No value provided for input HTTP label: BulkDeploymentId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1425,8 +1470,11 @@ export const serializeAws_restJson1GetConnectivityInfoCommand = async (
   input: GetConnectivityInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/things/{ThingName}/connectivityInfo";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/things/{ThingName}/connectivityInfo";
   if (input.ThingName !== undefined) {
     const labelValue: string = input.ThingName;
     if (labelValue.length <= 0) {
@@ -1437,7 +1485,6 @@ export const serializeAws_restJson1GetConnectivityInfoCommand = async (
     throw new Error("No value provided for input HTTP label: ThingName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1453,8 +1500,11 @@ export const serializeAws_restJson1GetConnectorDefinitionCommand = async (
   input: GetConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/connectors/{ConnectorDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/connectors/{ConnectorDefinitionId}";
   if (input.ConnectorDefinitionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionId;
     if (labelValue.length <= 0) {
@@ -1465,7 +1515,6 @@ export const serializeAws_restJson1GetConnectorDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: ConnectorDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1481,8 +1530,10 @@ export const serializeAws_restJson1GetConnectorDefinitionVersionCommand = async 
   input: GetConnectorDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions/{ConnectorDefinitionVersionId}";
   if (input.ConnectorDefinitionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionId;
@@ -1506,7 +1557,6 @@ export const serializeAws_restJson1GetConnectorDefinitionVersionCommand = async 
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1523,8 +1573,11 @@ export const serializeAws_restJson1GetCoreDefinitionCommand = async (
   input: GetCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/cores/{CoreDefinitionId}";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
     if (labelValue.length <= 0) {
@@ -1535,7 +1588,6 @@ export const serializeAws_restJson1GetCoreDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: CoreDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1551,8 +1603,11 @@ export const serializeAws_restJson1GetCoreDefinitionVersionCommand = async (
   input: GetCoreDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
     if (labelValue.length <= 0) {
@@ -1572,7 +1627,6 @@ export const serializeAws_restJson1GetCoreDefinitionVersionCommand = async (
     throw new Error("No value provided for input HTTP label: CoreDefinitionVersionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1588,8 +1642,11 @@ export const serializeAws_restJson1GetDeploymentStatusCommand = async (
   input: GetDeploymentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/groups/{GroupId}/deployments/{DeploymentId}/status";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/groups/{GroupId}/deployments/{DeploymentId}/status";
   if (input.DeploymentId !== undefined) {
     const labelValue: string = input.DeploymentId;
     if (labelValue.length <= 0) {
@@ -1609,7 +1666,6 @@ export const serializeAws_restJson1GetDeploymentStatusCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1625,8 +1681,11 @@ export const serializeAws_restJson1GetDeviceDefinitionCommand = async (
   input: GetDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/devices/{DeviceDefinitionId}";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
     if (labelValue.length <= 0) {
@@ -1637,7 +1696,6 @@ export const serializeAws_restJson1GetDeviceDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: DeviceDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1653,8 +1711,11 @@ export const serializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
   input: GetDeviceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
     if (labelValue.length <= 0) {
@@ -1677,7 +1738,6 @@ export const serializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1694,8 +1754,11 @@ export const serializeAws_restJson1GetFunctionDefinitionCommand = async (
   input: GetFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/functions/{FunctionDefinitionId}";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
     if (labelValue.length <= 0) {
@@ -1706,7 +1769,6 @@ export const serializeAws_restJson1GetFunctionDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1722,8 +1784,11 @@ export const serializeAws_restJson1GetFunctionDefinitionVersionCommand = async (
   input: GetFunctionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}/versions/{FunctionDefinitionVersionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/functions/{FunctionDefinitionId}/versions/{FunctionDefinitionVersionId}";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
     if (labelValue.length <= 0) {
@@ -1746,7 +1811,6 @@ export const serializeAws_restJson1GetFunctionDefinitionVersionCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1763,8 +1827,10 @@ export const serializeAws_restJson1GetGroupCommand = async (
   input: GetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/groups/{GroupId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -1775,7 +1841,6 @@ export const serializeAws_restJson1GetGroupCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1791,8 +1856,11 @@ export const serializeAws_restJson1GetGroupCertificateAuthorityCommand = async (
   input: GetGroupCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}";
   if (input.CertificateAuthorityId !== undefined) {
     const labelValue: string = input.CertificateAuthorityId;
     if (labelValue.length <= 0) {
@@ -1812,7 +1880,6 @@ export const serializeAws_restJson1GetGroupCertificateAuthorityCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1828,8 +1895,11 @@ export const serializeAws_restJson1GetGroupCertificateConfigurationCommand = asy
   input: GetGroupCertificateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -1840,7 +1910,6 @@ export const serializeAws_restJson1GetGroupCertificateConfigurationCommand = asy
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1856,8 +1925,11 @@ export const serializeAws_restJson1GetGroupVersionCommand = async (
   input: GetGroupVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/groups/{GroupId}/versions/{GroupVersionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/groups/{GroupId}/versions/{GroupVersionId}";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -1877,7 +1949,6 @@ export const serializeAws_restJson1GetGroupVersionCommand = async (
     throw new Error("No value provided for input HTTP label: GroupVersionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1893,8 +1964,11 @@ export const serializeAws_restJson1GetLoggerDefinitionCommand = async (
   input: GetLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/loggers/{LoggerDefinitionId}";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
     if (labelValue.length <= 0) {
@@ -1905,7 +1979,6 @@ export const serializeAws_restJson1GetLoggerDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: LoggerDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1921,8 +1994,11 @@ export const serializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
   input: GetLoggerDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
     if (labelValue.length <= 0) {
@@ -1945,7 +2021,6 @@ export const serializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1962,8 +2037,11 @@ export const serializeAws_restJson1GetResourceDefinitionCommand = async (
   input: GetResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/resources/{ResourceDefinitionId}";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
     if (labelValue.length <= 0) {
@@ -1974,7 +2052,6 @@ export const serializeAws_restJson1GetResourceDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1990,8 +2067,11 @@ export const serializeAws_restJson1GetResourceDefinitionVersionCommand = async (
   input: GetResourceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}/versions/{ResourceDefinitionVersionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/resources/{ResourceDefinitionId}/versions/{ResourceDefinitionVersionId}";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
     if (labelValue.length <= 0) {
@@ -2011,7 +2091,6 @@ export const serializeAws_restJson1GetResourceDefinitionVersionCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceDefinitionVersionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2027,13 +2106,13 @@ export const serializeAws_restJson1GetServiceRoleForAccountCommand = async (
   input: GetServiceRoleForAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/servicerole";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/servicerole";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2049,8 +2128,11 @@ export const serializeAws_restJson1GetSubscriptionDefinitionCommand = async (
   input: GetSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionId;
     if (labelValue.length <= 0) {
@@ -2061,7 +2143,6 @@ export const serializeAws_restJson1GetSubscriptionDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: SubscriptionDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2077,8 +2158,10 @@ export const serializeAws_restJson1GetSubscriptionDefinitionVersionCommand = asy
   input: GetSubscriptionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions/{SubscriptionDefinitionVersionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionId;
@@ -2102,7 +2185,6 @@ export const serializeAws_restJson1GetSubscriptionDefinitionVersionCommand = asy
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2119,8 +2201,11 @@ export const serializeAws_restJson1GetThingRuntimeConfigurationCommand = async (
   input: GetThingRuntimeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/things/{ThingName}/runtimeconfig";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/things/{ThingName}/runtimeconfig";
   if (input.ThingName !== undefined) {
     const labelValue: string = input.ThingName;
     if (labelValue.length <= 0) {
@@ -2131,7 +2216,6 @@ export const serializeAws_restJson1GetThingRuntimeConfigurationCommand = async (
     throw new Error("No value provided for input HTTP label: ThingName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2147,8 +2231,11 @@ export const serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand = as
   input: ListBulkDeploymentDetailedReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/bulk/deployments/{BulkDeploymentId}/detailed-reports";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/bulk/deployments/{BulkDeploymentId}/detailed-reports";
   if (input.BulkDeploymentId !== undefined) {
     const labelValue: string = input.BulkDeploymentId;
     if (labelValue.length <= 0) {
@@ -2163,7 +2250,6 @@ export const serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand = as
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2180,14 +2266,15 @@ export const serializeAws_restJson1ListBulkDeploymentsCommand = async (
   input: ListBulkDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/bulk/deployments";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/bulk/deployments";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2204,14 +2291,15 @@ export const serializeAws_restJson1ListConnectorDefinitionsCommand = async (
   input: ListConnectorDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/connectors";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/connectors";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2228,8 +2316,11 @@ export const serializeAws_restJson1ListConnectorDefinitionVersionsCommand = asyn
   input: ListConnectorDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
   if (input.ConnectorDefinitionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionId;
     if (labelValue.length <= 0) {
@@ -2244,7 +2335,6 @@ export const serializeAws_restJson1ListConnectorDefinitionVersionsCommand = asyn
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2261,14 +2351,15 @@ export const serializeAws_restJson1ListCoreDefinitionsCommand = async (
   input: ListCoreDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/cores";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/cores";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2285,8 +2376,11 @@ export const serializeAws_restJson1ListCoreDefinitionVersionsCommand = async (
   input: ListCoreDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/cores/{CoreDefinitionId}/versions";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
     if (labelValue.length <= 0) {
@@ -2301,7 +2395,6 @@ export const serializeAws_restJson1ListCoreDefinitionVersionsCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2318,8 +2411,10 @@ export const serializeAws_restJson1ListDeploymentsCommand = async (
   input: ListDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/groups/{GroupId}/deployments";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/deployments";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -2334,7 +2429,6 @@ export const serializeAws_restJson1ListDeploymentsCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2351,14 +2445,15 @@ export const serializeAws_restJson1ListDeviceDefinitionsCommand = async (
   input: ListDeviceDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/devices";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/devices";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2375,8 +2470,11 @@ export const serializeAws_restJson1ListDeviceDefinitionVersionsCommand = async (
   input: ListDeviceDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
     if (labelValue.length <= 0) {
@@ -2391,7 +2489,6 @@ export const serializeAws_restJson1ListDeviceDefinitionVersionsCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2408,14 +2505,15 @@ export const serializeAws_restJson1ListFunctionDefinitionsCommand = async (
   input: ListFunctionDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/functions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/functions";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2432,8 +2530,11 @@ export const serializeAws_restJson1ListFunctionDefinitionVersionsCommand = async
   input: ListFunctionDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
     if (labelValue.length <= 0) {
@@ -2448,7 +2549,6 @@ export const serializeAws_restJson1ListFunctionDefinitionVersionsCommand = async
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2465,8 +2565,11 @@ export const serializeAws_restJson1ListGroupCertificateAuthoritiesCommand = asyn
   input: ListGroupCertificateAuthoritiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/groups/{GroupId}/certificateauthorities";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -2477,7 +2580,6 @@ export const serializeAws_restJson1ListGroupCertificateAuthoritiesCommand = asyn
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2493,14 +2595,14 @@ export const serializeAws_restJson1ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/groups";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2517,8 +2619,10 @@ export const serializeAws_restJson1ListGroupVersionsCommand = async (
   input: ListGroupVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/groups/{GroupId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/versions";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -2533,7 +2637,6 @@ export const serializeAws_restJson1ListGroupVersionsCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2550,14 +2653,15 @@ export const serializeAws_restJson1ListLoggerDefinitionsCommand = async (
   input: ListLoggerDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/loggers";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/loggers";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2574,8 +2678,11 @@ export const serializeAws_restJson1ListLoggerDefinitionVersionsCommand = async (
   input: ListLoggerDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
     if (labelValue.length <= 0) {
@@ -2590,7 +2697,6 @@ export const serializeAws_restJson1ListLoggerDefinitionVersionsCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2607,14 +2713,15 @@ export const serializeAws_restJson1ListResourceDefinitionsCommand = async (
   input: ListResourceDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/resources";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/resources";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2631,8 +2738,11 @@ export const serializeAws_restJson1ListResourceDefinitionVersionsCommand = async
   input: ListResourceDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
     if (labelValue.length <= 0) {
@@ -2647,7 +2757,6 @@ export const serializeAws_restJson1ListResourceDefinitionVersionsCommand = async
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2664,14 +2773,15 @@ export const serializeAws_restJson1ListSubscriptionDefinitionsCommand = async (
   input: ListSubscriptionDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/subscriptions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/subscriptions";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2688,8 +2798,11 @@ export const serializeAws_restJson1ListSubscriptionDefinitionVersionsCommand = a
   input: ListSubscriptionDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
   if (input.SubscriptionDefinitionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionId;
     if (labelValue.length <= 0) {
@@ -2704,7 +2817,6 @@ export const serializeAws_restJson1ListSubscriptionDefinitionVersionsCommand = a
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2721,8 +2833,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -2733,7 +2846,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2749,11 +2861,14 @@ export const serializeAws_restJson1ResetDeploymentsCommand = async (
   input: ResetDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/groups/{GroupId}/deployments/$reset";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/groups/{GroupId}/deployments/$reset";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -2767,7 +2882,6 @@ export const serializeAws_restJson1ResetDeploymentsCommand = async (
   body = JSON.stringify({
     ...(input.Force !== undefined && input.Force !== null && { Force: input.Force }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2783,11 +2897,13 @@ export const serializeAws_restJson1StartBulkDeploymentCommand = async (
   input: StartBulkDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AmznClientToken) && { "x-amzn-client-token": input.AmznClientToken! }),
   };
-  let resolvedPath = "/greengrass/bulk/deployments";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/bulk/deployments";
   let body: any;
   body = JSON.stringify({
     ...(input.ExecutionRoleArn !== undefined &&
@@ -2795,7 +2911,6 @@ export const serializeAws_restJson1StartBulkDeploymentCommand = async (
     ...(input.InputFileUri !== undefined && input.InputFileUri !== null && { InputFileUri: input.InputFileUri }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2811,8 +2926,11 @@ export const serializeAws_restJson1StopBulkDeploymentCommand = async (
   input: StopBulkDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/greengrass/bulk/deployments/{BulkDeploymentId}/$stop";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/bulk/deployments/{BulkDeploymentId}/$stop";
   if (input.BulkDeploymentId !== undefined) {
     const labelValue: string = input.BulkDeploymentId;
     if (labelValue.length <= 0) {
@@ -2823,7 +2941,6 @@ export const serializeAws_restJson1StopBulkDeploymentCommand = async (
     throw new Error("No value provided for input HTTP label: BulkDeploymentId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2839,10 +2956,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -2856,7 +2974,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2872,8 +2989,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -2887,7 +3005,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2904,10 +3021,13 @@ export const serializeAws_restJson1UpdateConnectivityInfoCommand = async (
   input: UpdateConnectivityInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/things/{ThingName}/connectivityInfo";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/things/{ThingName}/connectivityInfo";
   if (input.ThingName !== undefined) {
     const labelValue: string = input.ThingName;
     if (labelValue.length <= 0) {
@@ -2924,7 +3044,6 @@ export const serializeAws_restJson1UpdateConnectivityInfoCommand = async (
         ConnectivityInfo: serializeAws_restJson1__listOfConnectivityInfo(input.ConnectivityInfo, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2940,10 +3059,13 @@ export const serializeAws_restJson1UpdateConnectorDefinitionCommand = async (
   input: UpdateConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/definition/connectors/{ConnectorDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/connectors/{ConnectorDefinitionId}";
   if (input.ConnectorDefinitionId !== undefined) {
     const labelValue: string = input.ConnectorDefinitionId;
     if (labelValue.length <= 0) {
@@ -2957,7 +3079,6 @@ export const serializeAws_restJson1UpdateConnectorDefinitionCommand = async (
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2973,10 +3094,13 @@ export const serializeAws_restJson1UpdateCoreDefinitionCommand = async (
   input: UpdateCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/cores/{CoreDefinitionId}";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
     if (labelValue.length <= 0) {
@@ -2990,7 +3114,6 @@ export const serializeAws_restJson1UpdateCoreDefinitionCommand = async (
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3006,10 +3129,13 @@ export const serializeAws_restJson1UpdateDeviceDefinitionCommand = async (
   input: UpdateDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/devices/{DeviceDefinitionId}";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
     if (labelValue.length <= 0) {
@@ -3023,7 +3149,6 @@ export const serializeAws_restJson1UpdateDeviceDefinitionCommand = async (
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3039,10 +3164,13 @@ export const serializeAws_restJson1UpdateFunctionDefinitionCommand = async (
   input: UpdateFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/functions/{FunctionDefinitionId}";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
     if (labelValue.length <= 0) {
@@ -3056,7 +3184,6 @@ export const serializeAws_restJson1UpdateFunctionDefinitionCommand = async (
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3072,10 +3199,12 @@ export const serializeAws_restJson1UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/groups/{GroupId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -3089,7 +3218,6 @@ export const serializeAws_restJson1UpdateGroupCommand = async (
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3105,10 +3233,13 @@ export const serializeAws_restJson1UpdateGroupCertificateConfigurationCommand = 
   input: UpdateGroupCertificateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -3125,7 +3256,6 @@ export const serializeAws_restJson1UpdateGroupCertificateConfigurationCommand = 
         CertificateExpiryInMilliseconds: input.CertificateExpiryInMilliseconds,
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3141,10 +3271,13 @@ export const serializeAws_restJson1UpdateLoggerDefinitionCommand = async (
   input: UpdateLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/loggers/{LoggerDefinitionId}";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
     if (labelValue.length <= 0) {
@@ -3158,7 +3291,6 @@ export const serializeAws_restJson1UpdateLoggerDefinitionCommand = async (
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3174,10 +3306,13 @@ export const serializeAws_restJson1UpdateResourceDefinitionCommand = async (
   input: UpdateResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/resources/{ResourceDefinitionId}";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
     if (labelValue.length <= 0) {
@@ -3191,7 +3326,6 @@ export const serializeAws_restJson1UpdateResourceDefinitionCommand = async (
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3207,10 +3341,13 @@ export const serializeAws_restJson1UpdateSubscriptionDefinitionCommand = async (
   input: UpdateSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
     const labelValue: string = input.SubscriptionDefinitionId;
     if (labelValue.length <= 0) {
@@ -3224,7 +3361,6 @@ export const serializeAws_restJson1UpdateSubscriptionDefinitionCommand = async (
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3240,10 +3376,13 @@ export const serializeAws_restJson1UpdateThingRuntimeConfigurationCommand = asyn
   input: UpdateThingRuntimeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/greengrass/things/{ThingName}/runtimeconfig";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/greengrass/things/{ThingName}/runtimeconfig";
   if (input.ThingName !== undefined) {
     const labelValue: string = input.ThingName;
     if (labelValue.length <= 0) {
@@ -3263,7 +3402,6 @@ export const serializeAws_restJson1UpdateThingRuntimeConfigurationCommand = asyn
         ),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

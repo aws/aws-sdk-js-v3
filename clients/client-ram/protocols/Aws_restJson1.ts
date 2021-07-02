@@ -121,17 +121,18 @@ export const serializeAws_restJson1AcceptResourceShareInvitationCommand = async 
   input: AcceptResourceShareInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/acceptresourceshareinvitation";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/acceptresourceshareinvitation";
   let body: any;
   body = JSON.stringify({
     ...(input.clientToken !== undefined && input.clientToken !== null && { clientToken: input.clientToken }),
     ...(input.resourceShareInvitationArn !== undefined &&
       input.resourceShareInvitationArn !== null && { resourceShareInvitationArn: input.resourceShareInvitationArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -147,10 +148,11 @@ export const serializeAws_restJson1AssociateResourceShareCommand = async (
   input: AssociateResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/associateresourceshare";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateresourceshare";
   let body: any;
   body = JSON.stringify({
     ...(input.clientToken !== undefined && input.clientToken !== null && { clientToken: input.clientToken }),
@@ -165,7 +167,6 @@ export const serializeAws_restJson1AssociateResourceShareCommand = async (
     ...(input.resourceShareArn !== undefined &&
       input.resourceShareArn !== null && { resourceShareArn: input.resourceShareArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -181,10 +182,12 @@ export const serializeAws_restJson1AssociateResourceSharePermissionCommand = asy
   input: AssociateResourceSharePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/associateresourcesharepermission";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateresourcesharepermission";
   let body: any;
   body = JSON.stringify({
     ...(input.clientToken !== undefined && input.clientToken !== null && { clientToken: input.clientToken }),
@@ -195,7 +198,6 @@ export const serializeAws_restJson1AssociateResourceSharePermissionCommand = asy
     ...(input.resourceShareArn !== undefined &&
       input.resourceShareArn !== null && { resourceShareArn: input.resourceShareArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -211,10 +213,11 @@ export const serializeAws_restJson1CreateResourceShareCommand = async (
   input: CreateResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createresourceshare";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createresourceshare";
   let body: any;
   body = JSON.stringify({
     ...(input.allowExternalPrincipals !== undefined &&
@@ -236,7 +239,6 @@ export const serializeAws_restJson1CreateResourceShareCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -252,14 +254,14 @@ export const serializeAws_restJson1DeleteResourceShareCommand = async (
   input: DeleteResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/deleteresourceshare";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteresourceshare";
   const query: any = {
     ...(input.resourceShareArn !== undefined && { resourceShareArn: input.resourceShareArn }),
     ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -276,10 +278,12 @@ export const serializeAws_restJson1DisassociateResourceShareCommand = async (
   input: DisassociateResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/disassociateresourceshare";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateresourceshare";
   let body: any;
   body = JSON.stringify({
     ...(input.clientToken !== undefined && input.clientToken !== null && { clientToken: input.clientToken }),
@@ -294,7 +298,6 @@ export const serializeAws_restJson1DisassociateResourceShareCommand = async (
     ...(input.resourceShareArn !== undefined &&
       input.resourceShareArn !== null && { resourceShareArn: input.resourceShareArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -310,10 +313,12 @@ export const serializeAws_restJson1DisassociateResourceSharePermissionCommand = 
   input: DisassociateResourceSharePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/disassociateresourcesharepermission";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateresourcesharepermission";
   let body: any;
   body = JSON.stringify({
     ...(input.clientToken !== undefined && input.clientToken !== null && { clientToken: input.clientToken }),
@@ -321,7 +326,6 @@ export const serializeAws_restJson1DisassociateResourceSharePermissionCommand = 
     ...(input.resourceShareArn !== undefined &&
       input.resourceShareArn !== null && { resourceShareArn: input.resourceShareArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -337,13 +341,14 @@ export const serializeAws_restJson1EnableSharingWithAwsOrganizationCommand = asy
   input: EnableSharingWithAwsOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/enablesharingwithawsorganization";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/enablesharingwithawsorganization";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -359,17 +364,17 @@ export const serializeAws_restJson1GetPermissionCommand = async (
   input: GetPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/getpermission";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getpermission";
   let body: any;
   body = JSON.stringify({
     ...(input.permissionArn !== undefined && input.permissionArn !== null && { permissionArn: input.permissionArn }),
     ...(input.permissionVersion !== undefined &&
       input.permissionVersion !== null && { permissionVersion: input.permissionVersion }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -385,10 +390,11 @@ export const serializeAws_restJson1GetResourcePoliciesCommand = async (
   input: GetResourcePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/getresourcepolicies";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourcepolicies";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -399,7 +405,6 @@ export const serializeAws_restJson1GetResourcePoliciesCommand = async (
         resourceArns: serializeAws_restJson1ResourceArnList(input.resourceArns, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -415,10 +420,12 @@ export const serializeAws_restJson1GetResourceShareAssociationsCommand = async (
   input: GetResourceShareAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/getresourceshareassociations";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshareassociations";
   let body: any;
   body = JSON.stringify({
     ...(input.associationStatus !== undefined &&
@@ -434,7 +441,6 @@ export const serializeAws_restJson1GetResourceShareAssociationsCommand = async (
         resourceShareArns: serializeAws_restJson1ResourceShareArnList(input.resourceShareArns, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -450,10 +456,12 @@ export const serializeAws_restJson1GetResourceShareInvitationsCommand = async (
   input: GetResourceShareInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/getresourceshareinvitations";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshareinvitations";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -470,7 +478,6 @@ export const serializeAws_restJson1GetResourceShareInvitationsCommand = async (
         ),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -486,10 +493,11 @@ export const serializeAws_restJson1GetResourceSharesCommand = async (
   input: GetResourceSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/getresourceshares";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshares";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -506,7 +514,6 @@ export const serializeAws_restJson1GetResourceSharesCommand = async (
     ...(input.tagFilters !== undefined &&
       input.tagFilters !== null && { tagFilters: serializeAws_restJson1TagFilters(input.tagFilters, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -522,10 +529,12 @@ export const serializeAws_restJson1ListPendingInvitationResourcesCommand = async
   input: ListPendingInvitationResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listpendinginvitationresources";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpendinginvitationresources";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -533,7 +542,6 @@ export const serializeAws_restJson1ListPendingInvitationResourcesCommand = async
     ...(input.resourceShareInvitationArn !== undefined &&
       input.resourceShareInvitationArn !== null && { resourceShareInvitationArn: input.resourceShareInvitationArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -549,17 +557,17 @@ export const serializeAws_restJson1ListPermissionsCommand = async (
   input: ListPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listpermissions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpermissions";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
     ...(input.resourceType !== undefined && input.resourceType !== null && { resourceType: input.resourceType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -575,10 +583,11 @@ export const serializeAws_restJson1ListPrincipalsCommand = async (
   input: ListPrincipalsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listprincipals";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listprincipals";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -595,7 +604,6 @@ export const serializeAws_restJson1ListPrincipalsCommand = async (
       }),
     ...(input.resourceType !== undefined && input.resourceType !== null && { resourceType: input.resourceType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -611,10 +619,11 @@ export const serializeAws_restJson1ListResourcesCommand = async (
   input: ListResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listresources";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresources";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -631,7 +640,6 @@ export const serializeAws_restJson1ListResourcesCommand = async (
       }),
     ...(input.resourceType !== undefined && input.resourceType !== null && { resourceType: input.resourceType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -647,10 +655,12 @@ export const serializeAws_restJson1ListResourceSharePermissionsCommand = async (
   input: ListResourceSharePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listresourcesharepermissions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresourcesharepermissions";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -658,7 +668,6 @@ export const serializeAws_restJson1ListResourceSharePermissionsCommand = async (
     ...(input.resourceShareArn !== undefined &&
       input.resourceShareArn !== null && { resourceShareArn: input.resourceShareArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -674,16 +683,16 @@ export const serializeAws_restJson1ListResourceTypesCommand = async (
   input: ListResourceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listresourcetypes";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresourcetypes";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -699,13 +708,14 @@ export const serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand 
   input: PromoteResourceShareCreatedFromPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/promoteresourcesharecreatedfrompolicy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/promoteresourcesharecreatedfrompolicy";
   const query: any = {
     ...(input.resourceShareArn !== undefined && { resourceShareArn: input.resourceShareArn }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -722,17 +732,18 @@ export const serializeAws_restJson1RejectResourceShareInvitationCommand = async 
   input: RejectResourceShareInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/rejectresourceshareinvitation";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rejectresourceshareinvitation";
   let body: any;
   body = JSON.stringify({
     ...(input.clientToken !== undefined && input.clientToken !== null && { clientToken: input.clientToken }),
     ...(input.resourceShareInvitationArn !== undefined &&
       input.resourceShareInvitationArn !== null && { resourceShareInvitationArn: input.resourceShareInvitationArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -748,10 +759,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tagresource";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tagresource";
   let body: any;
   body = JSON.stringify({
     ...(input.resourceShareArn !== undefined &&
@@ -759,7 +771,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -775,10 +786,11 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/untagresource";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagresource";
   let body: any;
   body = JSON.stringify({
     ...(input.resourceShareArn !== undefined &&
@@ -786,7 +798,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined &&
       input.tagKeys !== null && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -802,10 +813,11 @@ export const serializeAws_restJson1UpdateResourceShareCommand = async (
   input: UpdateResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/updateresourceshare";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateresourceshare";
   let body: any;
   body = JSON.stringify({
     ...(input.allowExternalPrincipals !== undefined &&
@@ -815,7 +827,6 @@ export const serializeAws_restJson1UpdateResourceShareCommand = async (
     ...(input.resourceShareArn !== undefined &&
       input.resourceShareArn !== null && { resourceShareArn: input.resourceShareArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

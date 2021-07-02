@@ -251,16 +251,16 @@ export const serializeAws_restJson1BatchDeleteWorldsCommand = async (
   input: BatchDeleteWorldsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/batchDeleteWorlds";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/batchDeleteWorlds";
   let body: any;
   body = JSON.stringify({
     ...(input.worlds !== undefined &&
       input.worlds !== null && { worlds: serializeAws_restJson1Arns(input.worlds, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -276,15 +276,16 @@ export const serializeAws_restJson1BatchDescribeSimulationJobCommand = async (
   input: BatchDescribeSimulationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/batchDescribeSimulationJob";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/batchDescribeSimulationJob";
   let body: any;
   body = JSON.stringify({
     ...(input.jobs !== undefined && input.jobs !== null && { jobs: serializeAws_restJson1Arns(input.jobs, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -300,15 +301,15 @@ export const serializeAws_restJson1CancelDeploymentJobCommand = async (
   input: CancelDeploymentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/cancelDeploymentJob";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cancelDeploymentJob";
   let body: any;
   body = JSON.stringify({
     ...(input.job !== undefined && input.job !== null && { job: input.job }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -324,15 +325,15 @@ export const serializeAws_restJson1CancelSimulationJobCommand = async (
   input: CancelSimulationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/cancelSimulationJob";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cancelSimulationJob";
   let body: any;
   body = JSON.stringify({
     ...(input.job !== undefined && input.job !== null && { job: input.job }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -348,15 +349,16 @@ export const serializeAws_restJson1CancelSimulationJobBatchCommand = async (
   input: CancelSimulationJobBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/cancelSimulationJobBatch";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cancelSimulationJobBatch";
   let body: any;
   body = JSON.stringify({
     ...(input.batch !== undefined && input.batch !== null && { batch: input.batch }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -372,15 +374,15 @@ export const serializeAws_restJson1CancelWorldExportJobCommand = async (
   input: CancelWorldExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/cancelWorldExportJob";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cancelWorldExportJob";
   let body: any;
   body = JSON.stringify({
     ...(input.job !== undefined && input.job !== null && { job: input.job }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -396,15 +398,16 @@ export const serializeAws_restJson1CancelWorldGenerationJobCommand = async (
   input: CancelWorldGenerationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/cancelWorldGenerationJob";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cancelWorldGenerationJob";
   let body: any;
   body = JSON.stringify({
     ...(input.job !== undefined && input.job !== null && { job: input.job }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -420,10 +423,11 @@ export const serializeAws_restJson1CreateDeploymentJobCommand = async (
   input: CreateDeploymentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createDeploymentJob";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createDeploymentJob";
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
@@ -441,7 +445,6 @@ export const serializeAws_restJson1CreateDeploymentJobCommand = async (
     ...(input.fleet !== undefined && input.fleet !== null && { fleet: input.fleet }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -457,16 +460,16 @@ export const serializeAws_restJson1CreateFleetCommand = async (
   input: CreateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createFleet";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createFleet";
   let body: any;
   body = JSON.stringify({
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -482,10 +485,11 @@ export const serializeAws_restJson1CreateRobotCommand = async (
   input: CreateRobotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createRobot";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createRobot";
   let body: any;
   body = JSON.stringify({
     ...(input.architecture !== undefined && input.architecture !== null && { architecture: input.architecture }),
@@ -494,7 +498,6 @@ export const serializeAws_restJson1CreateRobotCommand = async (
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -510,10 +513,11 @@ export const serializeAws_restJson1CreateRobotApplicationCommand = async (
   input: CreateRobotApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createRobotApplication";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createRobotApplication";
   let body: any;
   body = JSON.stringify({
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
@@ -525,7 +529,6 @@ export const serializeAws_restJson1CreateRobotApplicationCommand = async (
       input.sources !== null && { sources: serializeAws_restJson1SourceConfigs(input.sources, context) }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -541,17 +544,18 @@ export const serializeAws_restJson1CreateRobotApplicationVersionCommand = async 
   input: CreateRobotApplicationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createRobotApplicationVersion";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createRobotApplicationVersion";
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && input.application !== null && { application: input.application }),
     ...(input.currentRevisionId !== undefined &&
       input.currentRevisionId !== null && { currentRevisionId: input.currentRevisionId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -567,10 +571,12 @@ export const serializeAws_restJson1CreateSimulationApplicationCommand = async (
   input: CreateSimulationApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createSimulationApplication";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createSimulationApplication";
   let body: any;
   body = JSON.stringify({
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
@@ -590,7 +596,6 @@ export const serializeAws_restJson1CreateSimulationApplicationCommand = async (
       input.sources !== null && { sources: serializeAws_restJson1SourceConfigs(input.sources, context) }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -606,17 +611,18 @@ export const serializeAws_restJson1CreateSimulationApplicationVersionCommand = a
   input: CreateSimulationApplicationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createSimulationApplicationVersion";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createSimulationApplicationVersion";
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && input.application !== null && { application: input.application }),
     ...(input.currentRevisionId !== undefined &&
       input.currentRevisionId !== null && { currentRevisionId: input.currentRevisionId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -632,10 +638,11 @@ export const serializeAws_restJson1CreateSimulationJobCommand = async (
   input: CreateSimulationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createSimulationJob";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createSimulationJob";
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
@@ -673,7 +680,6 @@ export const serializeAws_restJson1CreateSimulationJobCommand = async (
     ...(input.vpcConfig !== undefined &&
       input.vpcConfig !== null && { vpcConfig: serializeAws_restJson1VPCConfig(input.vpcConfig, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -689,10 +695,11 @@ export const serializeAws_restJson1CreateWorldExportJobCommand = async (
   input: CreateWorldExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createWorldExportJob";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createWorldExportJob";
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
@@ -705,7 +712,6 @@ export const serializeAws_restJson1CreateWorldExportJobCommand = async (
     ...(input.worlds !== undefined &&
       input.worlds !== null && { worlds: serializeAws_restJson1Arns(input.worlds, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -721,10 +727,12 @@ export const serializeAws_restJson1CreateWorldGenerationJobCommand = async (
   input: CreateWorldGenerationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createWorldGenerationJob";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createWorldGenerationJob";
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
@@ -735,7 +743,6 @@ export const serializeAws_restJson1CreateWorldGenerationJobCommand = async (
     ...(input.worldTags !== undefined &&
       input.worldTags !== null && { worldTags: serializeAws_restJson1TagMap(input.worldTags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -751,10 +758,11 @@ export const serializeAws_restJson1CreateWorldTemplateCommand = async (
   input: CreateWorldTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createWorldTemplate";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createWorldTemplate";
   let body: any;
   body = JSON.stringify({
     ...(input.clientRequestToken !== undefined &&
@@ -767,7 +775,6 @@ export const serializeAws_restJson1CreateWorldTemplateCommand = async (
         templateLocation: serializeAws_restJson1TemplateLocation(input.templateLocation, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -783,15 +790,15 @@ export const serializeAws_restJson1DeleteFleetCommand = async (
   input: DeleteFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/deleteFleet";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteFleet";
   let body: any;
   body = JSON.stringify({
     ...(input.fleet !== undefined && input.fleet !== null && { fleet: input.fleet }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -807,15 +814,15 @@ export const serializeAws_restJson1DeleteRobotCommand = async (
   input: DeleteRobotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/deleteRobot";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteRobot";
   let body: any;
   body = JSON.stringify({
     ...(input.robot !== undefined && input.robot !== null && { robot: input.robot }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -831,17 +838,17 @@ export const serializeAws_restJson1DeleteRobotApplicationCommand = async (
   input: DeleteRobotApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/deleteRobotApplication";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteRobotApplication";
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && input.application !== null && { application: input.application }),
     ...(input.applicationVersion !== undefined &&
       input.applicationVersion !== null && { applicationVersion: input.applicationVersion }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -857,17 +864,18 @@ export const serializeAws_restJson1DeleteSimulationApplicationCommand = async (
   input: DeleteSimulationApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/deleteSimulationApplication";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteSimulationApplication";
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && input.application !== null && { application: input.application }),
     ...(input.applicationVersion !== undefined &&
       input.applicationVersion !== null && { applicationVersion: input.applicationVersion }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -883,15 +891,15 @@ export const serializeAws_restJson1DeleteWorldTemplateCommand = async (
   input: DeleteWorldTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/deleteWorldTemplate";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteWorldTemplate";
   let body: any;
   body = JSON.stringify({
     ...(input.template !== undefined && input.template !== null && { template: input.template }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -907,16 +915,16 @@ export const serializeAws_restJson1DeregisterRobotCommand = async (
   input: DeregisterRobotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/deregisterRobot";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deregisterRobot";
   let body: any;
   body = JSON.stringify({
     ...(input.fleet !== undefined && input.fleet !== null && { fleet: input.fleet }),
     ...(input.robot !== undefined && input.robot !== null && { robot: input.robot }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -932,15 +940,15 @@ export const serializeAws_restJson1DescribeDeploymentJobCommand = async (
   input: DescribeDeploymentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeDeploymentJob";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeDeploymentJob";
   let body: any;
   body = JSON.stringify({
     ...(input.job !== undefined && input.job !== null && { job: input.job }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -956,15 +964,15 @@ export const serializeAws_restJson1DescribeFleetCommand = async (
   input: DescribeFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeFleet";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeFleet";
   let body: any;
   body = JSON.stringify({
     ...(input.fleet !== undefined && input.fleet !== null && { fleet: input.fleet }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -980,15 +988,15 @@ export const serializeAws_restJson1DescribeRobotCommand = async (
   input: DescribeRobotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeRobot";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeRobot";
   let body: any;
   body = JSON.stringify({
     ...(input.robot !== undefined && input.robot !== null && { robot: input.robot }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1004,17 +1012,18 @@ export const serializeAws_restJson1DescribeRobotApplicationCommand = async (
   input: DescribeRobotApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeRobotApplication";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeRobotApplication";
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && input.application !== null && { application: input.application }),
     ...(input.applicationVersion !== undefined &&
       input.applicationVersion !== null && { applicationVersion: input.applicationVersion }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1030,17 +1039,18 @@ export const serializeAws_restJson1DescribeSimulationApplicationCommand = async 
   input: DescribeSimulationApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeSimulationApplication";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeSimulationApplication";
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && input.application !== null && { application: input.application }),
     ...(input.applicationVersion !== undefined &&
       input.applicationVersion !== null && { applicationVersion: input.applicationVersion }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1056,15 +1066,15 @@ export const serializeAws_restJson1DescribeSimulationJobCommand = async (
   input: DescribeSimulationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeSimulationJob";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeSimulationJob";
   let body: any;
   body = JSON.stringify({
     ...(input.job !== undefined && input.job !== null && { job: input.job }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1080,15 +1090,16 @@ export const serializeAws_restJson1DescribeSimulationJobBatchCommand = async (
   input: DescribeSimulationJobBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeSimulationJobBatch";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeSimulationJobBatch";
   let body: any;
   body = JSON.stringify({
     ...(input.batch !== undefined && input.batch !== null && { batch: input.batch }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1104,15 +1115,15 @@ export const serializeAws_restJson1DescribeWorldCommand = async (
   input: DescribeWorldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeWorld";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeWorld";
   let body: any;
   body = JSON.stringify({
     ...(input.world !== undefined && input.world !== null && { world: input.world }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1128,15 +1139,15 @@ export const serializeAws_restJson1DescribeWorldExportJobCommand = async (
   input: DescribeWorldExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeWorldExportJob";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeWorldExportJob";
   let body: any;
   body = JSON.stringify({
     ...(input.job !== undefined && input.job !== null && { job: input.job }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1152,15 +1163,16 @@ export const serializeAws_restJson1DescribeWorldGenerationJobCommand = async (
   input: DescribeWorldGenerationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeWorldGenerationJob";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeWorldGenerationJob";
   let body: any;
   body = JSON.stringify({
     ...(input.job !== undefined && input.job !== null && { job: input.job }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1176,15 +1188,15 @@ export const serializeAws_restJson1DescribeWorldTemplateCommand = async (
   input: DescribeWorldTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeWorldTemplate";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeWorldTemplate";
   let body: any;
   body = JSON.stringify({
     ...(input.template !== undefined && input.template !== null && { template: input.template }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1200,16 +1212,16 @@ export const serializeAws_restJson1GetWorldTemplateBodyCommand = async (
   input: GetWorldTemplateBodyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/getWorldTemplateBody";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getWorldTemplateBody";
   let body: any;
   body = JSON.stringify({
     ...(input.generationJob !== undefined && input.generationJob !== null && { generationJob: input.generationJob }),
     ...(input.template !== undefined && input.template !== null && { template: input.template }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1225,10 +1237,11 @@ export const serializeAws_restJson1ListDeploymentJobsCommand = async (
   input: ListDeploymentJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listDeploymentJobs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listDeploymentJobs";
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined &&
@@ -1236,7 +1249,6 @@ export const serializeAws_restJson1ListDeploymentJobsCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1252,10 +1264,11 @@ export const serializeAws_restJson1ListFleetsCommand = async (
   input: ListFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listFleets";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listFleets";
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined &&
@@ -1263,7 +1276,6 @@ export const serializeAws_restJson1ListFleetsCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1279,10 +1291,11 @@ export const serializeAws_restJson1ListRobotApplicationsCommand = async (
   input: ListRobotApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listRobotApplications";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listRobotApplications";
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined &&
@@ -1292,7 +1305,6 @@ export const serializeAws_restJson1ListRobotApplicationsCommand = async (
     ...(input.versionQualifier !== undefined &&
       input.versionQualifier !== null && { versionQualifier: input.versionQualifier }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1308,10 +1320,11 @@ export const serializeAws_restJson1ListRobotsCommand = async (
   input: ListRobotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listRobots";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listRobots";
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined &&
@@ -1319,7 +1332,6 @@ export const serializeAws_restJson1ListRobotsCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1335,10 +1347,12 @@ export const serializeAws_restJson1ListSimulationApplicationsCommand = async (
   input: ListSimulationApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listSimulationApplications";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listSimulationApplications";
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined &&
@@ -1348,7 +1362,6 @@ export const serializeAws_restJson1ListSimulationApplicationsCommand = async (
     ...(input.versionQualifier !== undefined &&
       input.versionQualifier !== null && { versionQualifier: input.versionQualifier }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1364,10 +1377,12 @@ export const serializeAws_restJson1ListSimulationJobBatchesCommand = async (
   input: ListSimulationJobBatchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listSimulationJobBatches";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listSimulationJobBatches";
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined &&
@@ -1375,7 +1390,6 @@ export const serializeAws_restJson1ListSimulationJobBatchesCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1391,10 +1405,11 @@ export const serializeAws_restJson1ListSimulationJobsCommand = async (
   input: ListSimulationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listSimulationJobs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listSimulationJobs";
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined &&
@@ -1402,7 +1417,6 @@ export const serializeAws_restJson1ListSimulationJobsCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1418,8 +1432,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1430,7 +1445,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1446,10 +1460,11 @@ export const serializeAws_restJson1ListWorldExportJobsCommand = async (
   input: ListWorldExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listWorldExportJobs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWorldExportJobs";
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined &&
@@ -1457,7 +1472,6 @@ export const serializeAws_restJson1ListWorldExportJobsCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1473,10 +1487,11 @@ export const serializeAws_restJson1ListWorldGenerationJobsCommand = async (
   input: ListWorldGenerationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listWorldGenerationJobs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWorldGenerationJobs";
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined &&
@@ -1484,7 +1499,6 @@ export const serializeAws_restJson1ListWorldGenerationJobsCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1500,10 +1514,11 @@ export const serializeAws_restJson1ListWorldsCommand = async (
   input: ListWorldsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listWorlds";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWorlds";
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined &&
@@ -1511,7 +1526,6 @@ export const serializeAws_restJson1ListWorldsCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1527,16 +1541,16 @@ export const serializeAws_restJson1ListWorldTemplatesCommand = async (
   input: ListWorldTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listWorldTemplates";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWorldTemplates";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1552,16 +1566,16 @@ export const serializeAws_restJson1RegisterRobotCommand = async (
   input: RegisterRobotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/registerRobot";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/registerRobot";
   let body: any;
   body = JSON.stringify({
     ...(input.fleet !== undefined && input.fleet !== null && { fleet: input.fleet }),
     ...(input.robot !== undefined && input.robot !== null && { robot: input.robot }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1577,15 +1591,15 @@ export const serializeAws_restJson1RestartSimulationJobCommand = async (
   input: RestartSimulationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/restartSimulationJob";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restartSimulationJob";
   let body: any;
   body = JSON.stringify({
     ...(input.job !== undefined && input.job !== null && { job: input.job }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1601,10 +1615,11 @@ export const serializeAws_restJson1StartSimulationJobBatchCommand = async (
   input: StartSimulationJobBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/startSimulationJobBatch";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/startSimulationJobBatch";
   let body: any;
   body = JSON.stringify({
     ...(input.batchPolicy !== undefined &&
@@ -1619,7 +1634,6 @@ export const serializeAws_restJson1StartSimulationJobBatchCommand = async (
       }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1635,16 +1649,16 @@ export const serializeAws_restJson1SyncDeploymentJobCommand = async (
   input: SyncDeploymentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/syncDeploymentJob";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/syncDeploymentJob";
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.fleet !== undefined && input.fleet !== null && { fleet: input.fleet }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1660,10 +1674,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1677,7 +1692,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1693,8 +1707,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1708,7 +1723,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1725,10 +1739,11 @@ export const serializeAws_restJson1UpdateRobotApplicationCommand = async (
   input: UpdateRobotApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/updateRobotApplication";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateRobotApplication";
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && input.application !== null && { application: input.application }),
@@ -1741,7 +1756,6 @@ export const serializeAws_restJson1UpdateRobotApplicationCommand = async (
     ...(input.sources !== undefined &&
       input.sources !== null && { sources: serializeAws_restJson1SourceConfigs(input.sources, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1757,10 +1771,12 @@ export const serializeAws_restJson1UpdateSimulationApplicationCommand = async (
   input: UpdateSimulationApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/updateSimulationApplication";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateSimulationApplication";
   let body: any;
   body = JSON.stringify({
     ...(input.application !== undefined && input.application !== null && { application: input.application }),
@@ -1781,7 +1797,6 @@ export const serializeAws_restJson1UpdateSimulationApplicationCommand = async (
     ...(input.sources !== undefined &&
       input.sources !== null && { sources: serializeAws_restJson1SourceConfigs(input.sources, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1797,10 +1812,11 @@ export const serializeAws_restJson1UpdateWorldTemplateCommand = async (
   input: UpdateWorldTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/updateWorldTemplate";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateWorldTemplate";
   let body: any;
   body = JSON.stringify({
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
@@ -1811,7 +1827,6 @@ export const serializeAws_restJson1UpdateWorldTemplateCommand = async (
         templateLocation: serializeAws_restJson1TemplateLocation(input.templateLocation, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

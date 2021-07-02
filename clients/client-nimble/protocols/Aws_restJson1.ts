@@ -181,11 +181,14 @@ export const serializeAws_restJson1AcceptEulasCommand = async (
   input: AcceptEulasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/eula-acceptances";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/eula-acceptances";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -200,7 +203,6 @@ export const serializeAws_restJson1AcceptEulasCommand = async (
     ...(input.eulaIds !== undefined &&
       input.eulaIds !== null && { eulaIds: serializeAws_restJson1EulaIdList(input.eulaIds, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -216,11 +218,14 @@ export const serializeAws_restJson1CreateLaunchProfileCommand = async (
   input: CreateLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -255,7 +260,6 @@ export const serializeAws_restJson1CreateLaunchProfileCommand = async (
       }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -271,11 +275,14 @@ export const serializeAws_restJson1CreateStreamingImageCommand = async (
   input: CreateStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-images";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-images";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -292,7 +299,6 @@ export const serializeAws_restJson1CreateStreamingImageCommand = async (
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -308,11 +314,14 @@ export const serializeAws_restJson1CreateStreamingSessionCommand = async (
   input: CreateStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-sessions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -332,7 +341,6 @@ export const serializeAws_restJson1CreateStreamingSessionCommand = async (
       input.streamingImageId !== null && { streamingImageId: input.streamingImageId }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -348,11 +356,14 @@ export const serializeAws_restJson1CreateStreamingSessionStreamCommand = async (
   input: CreateStreamingSessionStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams";
   if (input.sessionId !== undefined) {
     const labelValue: string = input.sessionId;
     if (labelValue.length <= 0) {
@@ -376,7 +387,6 @@ export const serializeAws_restJson1CreateStreamingSessionStreamCommand = async (
     ...(input.expirationInSeconds !== undefined &&
       input.expirationInSeconds !== null && { expirationInSeconds: input.expirationInSeconds }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -392,11 +402,12 @@ export const serializeAws_restJson1CreateStudioCommand = async (
   input: CreateStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios";
   let body: any;
   body = JSON.stringify({
     ...(input.adminRoleArn !== undefined && input.adminRoleArn !== null && { adminRoleArn: input.adminRoleArn }),
@@ -412,7 +423,6 @@ export const serializeAws_restJson1CreateStudioCommand = async (
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
     ...(input.userRoleArn !== undefined && input.userRoleArn !== null && { userRoleArn: input.userRoleArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -428,11 +438,14 @@ export const serializeAws_restJson1CreateStudioComponentCommand = async (
   input: CreateStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/studio-components";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/studio-components";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -475,7 +488,6 @@ export const serializeAws_restJson1CreateStudioComponentCommand = async (
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
     ...(input.type !== undefined && input.type !== null && { type: input.type }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -491,10 +503,13 @@ export const serializeAws_restJson1DeleteLaunchProfileCommand = async (
   input: DeleteLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -514,7 +529,6 @@ export const serializeAws_restJson1DeleteLaunchProfileCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -530,10 +544,13 @@ export const serializeAws_restJson1DeleteLaunchProfileMemberCommand = async (
   input: DeleteLaunchProfileMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -562,7 +579,6 @@ export const serializeAws_restJson1DeleteLaunchProfileMemberCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -578,10 +594,13 @@ export const serializeAws_restJson1DeleteStreamingImageCommand = async (
   input: DeleteStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
   if (input.streamingImageId !== undefined) {
     const labelValue: string = input.streamingImageId;
     if (labelValue.length <= 0) {
@@ -601,7 +620,6 @@ export const serializeAws_restJson1DeleteStreamingImageCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -617,10 +635,13 @@ export const serializeAws_restJson1DeleteStreamingSessionCommand = async (
   input: DeleteStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}";
   if (input.sessionId !== undefined) {
     const labelValue: string = input.sessionId;
     if (labelValue.length <= 0) {
@@ -640,7 +661,6 @@ export const serializeAws_restJson1DeleteStreamingSessionCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -656,10 +676,12 @@ export const serializeAws_restJson1DeleteStudioCommand = async (
   input: DeleteStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -670,7 +692,6 @@ export const serializeAws_restJson1DeleteStudioCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -686,10 +707,13 @@ export const serializeAws_restJson1DeleteStudioComponentCommand = async (
   input: DeleteStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
   if (input.studioComponentId !== undefined) {
     const labelValue: string = input.studioComponentId;
     if (labelValue.length <= 0) {
@@ -709,7 +733,6 @@ export const serializeAws_restJson1DeleteStudioComponentCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -725,10 +748,13 @@ export const serializeAws_restJson1DeleteStudioMemberCommand = async (
   input: DeleteStudioMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/membership/{principalId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/membership/{principalId}";
   if (input.principalId !== undefined) {
     const labelValue: string = input.principalId;
     if (labelValue.length <= 0) {
@@ -748,7 +774,6 @@ export const serializeAws_restJson1DeleteStudioMemberCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -764,8 +789,10 @@ export const serializeAws_restJson1GetEulaCommand = async (
   input: GetEulaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/eulas/{eulaId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/eulas/{eulaId}";
   if (input.eulaId !== undefined) {
     const labelValue: string = input.eulaId;
     if (labelValue.length <= 0) {
@@ -776,7 +803,6 @@ export const serializeAws_restJson1GetEulaCommand = async (
     throw new Error("No value provided for input HTTP label: eulaId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -792,8 +818,11 @@ export const serializeAws_restJson1GetLaunchProfileCommand = async (
   input: GetLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -813,7 +842,6 @@ export const serializeAws_restJson1GetLaunchProfileCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -829,8 +857,11 @@ export const serializeAws_restJson1GetLaunchProfileDetailsCommand = async (
   input: GetLaunchProfileDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/details";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/details";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -850,7 +881,6 @@ export const serializeAws_restJson1GetLaunchProfileDetailsCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -866,8 +896,11 @@ export const serializeAws_restJson1GetLaunchProfileInitializationCommand = async
   input: GetLaunchProfileInitializationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/init";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/init";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -894,7 +927,6 @@ export const serializeAws_restJson1GetLaunchProfileInitializationCommand = async
     ...(input.platform !== undefined && { platform: input.platform }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -911,8 +943,11 @@ export const serializeAws_restJson1GetLaunchProfileMemberCommand = async (
   input: GetLaunchProfileMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -941,7 +976,6 @@ export const serializeAws_restJson1GetLaunchProfileMemberCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -957,8 +991,11 @@ export const serializeAws_restJson1GetStreamingImageCommand = async (
   input: GetStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
   if (input.streamingImageId !== undefined) {
     const labelValue: string = input.streamingImageId;
     if (labelValue.length <= 0) {
@@ -978,7 +1015,6 @@ export const serializeAws_restJson1GetStreamingImageCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -994,8 +1030,11 @@ export const serializeAws_restJson1GetStreamingSessionCommand = async (
   input: GetStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}";
   if (input.sessionId !== undefined) {
     const labelValue: string = input.sessionId;
     if (labelValue.length <= 0) {
@@ -1015,7 +1054,6 @@ export const serializeAws_restJson1GetStreamingSessionCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1031,8 +1069,11 @@ export const serializeAws_restJson1GetStreamingSessionStreamCommand = async (
   input: GetStreamingSessionStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams/{streamId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams/{streamId}";
   if (input.sessionId !== undefined) {
     const labelValue: string = input.sessionId;
     if (labelValue.length <= 0) {
@@ -1061,7 +1102,6 @@ export const serializeAws_restJson1GetStreamingSessionStreamCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1077,8 +1117,10 @@ export const serializeAws_restJson1GetStudioCommand = async (
   input: GetStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1089,7 +1131,6 @@ export const serializeAws_restJson1GetStudioCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1105,8 +1146,11 @@ export const serializeAws_restJson1GetStudioComponentCommand = async (
   input: GetStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
   if (input.studioComponentId !== undefined) {
     const labelValue: string = input.studioComponentId;
     if (labelValue.length <= 0) {
@@ -1126,7 +1170,6 @@ export const serializeAws_restJson1GetStudioComponentCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1142,8 +1185,11 @@ export const serializeAws_restJson1GetStudioMemberCommand = async (
   input: GetStudioMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/membership/{principalId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/membership/{principalId}";
   if (input.principalId !== undefined) {
     const labelValue: string = input.principalId;
     if (labelValue.length <= 0) {
@@ -1163,7 +1209,6 @@ export const serializeAws_restJson1GetStudioMemberCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1179,8 +1224,11 @@ export const serializeAws_restJson1ListEulaAcceptancesCommand = async (
   input: ListEulaAcceptancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/eula-acceptances";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/eula-acceptances";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1195,7 +1243,6 @@ export const serializeAws_restJson1ListEulaAcceptancesCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1212,14 +1259,14 @@ export const serializeAws_restJson1ListEulasCommand = async (
   input: ListEulasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/eulas";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/eulas";
   const query: any = {
     ...(input.eulaIds !== undefined && { eulaIds: (input.eulaIds || []).map((_entry) => _entry) }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1236,8 +1283,11 @@ export const serializeAws_restJson1ListLaunchProfileMembersCommand = async (
   input: ListLaunchProfileMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -1261,7 +1311,6 @@ export const serializeAws_restJson1ListLaunchProfileMembersCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1278,8 +1327,11 @@ export const serializeAws_restJson1ListLaunchProfilesCommand = async (
   input: ListLaunchProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1296,7 +1348,6 @@ export const serializeAws_restJson1ListLaunchProfilesCommand = async (
     ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1313,8 +1364,11 @@ export const serializeAws_restJson1ListStreamingImagesCommand = async (
   input: ListStreamingImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-images";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-images";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1329,7 +1383,6 @@ export const serializeAws_restJson1ListStreamingImagesCommand = async (
     ...(input.owner !== undefined && { owner: input.owner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1346,8 +1399,11 @@ export const serializeAws_restJson1ListStreamingSessionsCommand = async (
   input: ListStreamingSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-sessions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1363,7 +1419,6 @@ export const serializeAws_restJson1ListStreamingSessionsCommand = async (
     ...(input.sessionIds !== undefined && { sessionIds: input.sessionIds }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1380,8 +1435,11 @@ export const serializeAws_restJson1ListStudioComponentsCommand = async (
   input: ListStudioComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/studio-components";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/studio-components";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1398,7 +1456,6 @@ export const serializeAws_restJson1ListStudioComponentsCommand = async (
     ...(input.types !== undefined && { types: (input.types || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1415,8 +1472,10 @@ export const serializeAws_restJson1ListStudioMembersCommand = async (
   input: ListStudioMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/membership";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}/membership";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1431,7 +1490,6 @@ export const serializeAws_restJson1ListStudioMembersCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1448,13 +1506,13 @@ export const serializeAws_restJson1ListStudiosCommand = async (
   input: ListStudiosCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1471,8 +1529,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/tags/{resourceArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1483,7 +1543,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1499,11 +1558,14 @@ export const serializeAws_restJson1PutLaunchProfileMembersCommand = async (
   input: PutLaunchProfileMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -1529,7 +1591,6 @@ export const serializeAws_restJson1PutLaunchProfileMembersCommand = async (
     ...(input.members !== undefined &&
       input.members !== null && { members: serializeAws_restJson1NewLaunchProfileMemberList(input.members, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1545,11 +1606,13 @@ export const serializeAws_restJson1PutStudioMembersCommand = async (
   input: PutStudioMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/membership";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}/membership";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1566,7 +1629,6 @@ export const serializeAws_restJson1PutStudioMembersCommand = async (
     ...(input.members !== undefined &&
       input.members !== null && { members: serializeAws_restJson1NewStudioMemberList(input.members, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1582,10 +1644,13 @@ export const serializeAws_restJson1StartStudioSSOConfigurationRepairCommand = as
   input: StartStudioSSOConfigurationRepairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/sso-configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/sso-configuration";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1596,7 +1661,6 @@ export const serializeAws_restJson1StartStudioSSOConfigurationRepairCommand = as
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1612,10 +1676,12 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2020-08-01/tags/{resourceArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1629,7 +1695,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1645,8 +1710,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/tags/{resourceArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1660,7 +1727,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1677,11 +1743,14 @@ export const serializeAws_restJson1UpdateLaunchProfileCommand = async (
   input: UpdateLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -1720,7 +1789,6 @@ export const serializeAws_restJson1UpdateLaunchProfileCommand = async (
         studioComponentIds: serializeAws_restJson1LaunchProfileStudioComponentIdList(input.studioComponentIds, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1736,11 +1804,14 @@ export const serializeAws_restJson1UpdateLaunchProfileMemberCommand = async (
   input: UpdateLaunchProfileMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -1772,7 +1843,6 @@ export const serializeAws_restJson1UpdateLaunchProfileMemberCommand = async (
   body = JSON.stringify({
     ...(input.persona !== undefined && input.persona !== null && { persona: input.persona }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1788,11 +1858,14 @@ export const serializeAws_restJson1UpdateStreamingImageCommand = async (
   input: UpdateStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
   if (input.streamingImageId !== undefined) {
     const labelValue: string = input.streamingImageId;
     if (labelValue.length <= 0) {
@@ -1816,7 +1889,6 @@ export const serializeAws_restJson1UpdateStreamingImageCommand = async (
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1832,11 +1904,13 @@ export const serializeAws_restJson1UpdateStudioCommand = async (
   input: UpdateStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1852,7 +1926,6 @@ export const serializeAws_restJson1UpdateStudioCommand = async (
     ...(input.displayName !== undefined && input.displayName !== null && { displayName: input.displayName }),
     ...(input.userRoleArn !== undefined && input.userRoleArn !== null && { userRoleArn: input.userRoleArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1868,11 +1941,14 @@ export const serializeAws_restJson1UpdateStudioComponentCommand = async (
   input: UpdateStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
   if (input.studioComponentId !== undefined) {
     const labelValue: string = input.studioComponentId;
     if (labelValue.length <= 0) {
@@ -1923,7 +1999,6 @@ export const serializeAws_restJson1UpdateStudioComponentCommand = async (
     ...(input.subtype !== undefined && input.subtype !== null && { subtype: input.subtype }),
     ...(input.type !== undefined && input.type !== null && { type: input.type }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

@@ -59,10 +59,11 @@ export const serializeAws_restJson1CreateSuiteDefinitionCommand = async (
   input: CreateSuiteDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/suiteDefinitions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteDefinitions";
   let body: any;
   body = JSON.stringify({
     ...(input.suiteDefinitionConfiguration !== undefined &&
@@ -74,7 +75,6 @@ export const serializeAws_restJson1CreateSuiteDefinitionCommand = async (
       }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -90,8 +90,10 @@ export const serializeAws_restJson1DeleteSuiteDefinitionCommand = async (
   input: DeleteSuiteDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/suiteDefinitions/{suiteDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteDefinitions/{suiteDefinitionId}";
   if (input.suiteDefinitionId !== undefined) {
     const labelValue: string = input.suiteDefinitionId;
     if (labelValue.length <= 0) {
@@ -102,7 +104,6 @@ export const serializeAws_restJson1DeleteSuiteDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: suiteDefinitionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -118,8 +119,10 @@ export const serializeAws_restJson1GetSuiteDefinitionCommand = async (
   input: GetSuiteDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/suiteDefinitions/{suiteDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteDefinitions/{suiteDefinitionId}";
   if (input.suiteDefinitionId !== undefined) {
     const labelValue: string = input.suiteDefinitionId;
     if (labelValue.length <= 0) {
@@ -133,7 +136,6 @@ export const serializeAws_restJson1GetSuiteDefinitionCommand = async (
     ...(input.suiteDefinitionVersion !== undefined && { suiteDefinitionVersion: input.suiteDefinitionVersion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -150,8 +152,11 @@ export const serializeAws_restJson1GetSuiteRunCommand = async (
   input: GetSuiteRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}";
   if (input.suiteDefinitionId !== undefined) {
     const labelValue: string = input.suiteDefinitionId;
     if (labelValue.length <= 0) {
@@ -171,7 +176,6 @@ export const serializeAws_restJson1GetSuiteRunCommand = async (
     throw new Error("No value provided for input HTTP label: suiteRunId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -187,8 +191,11 @@ export const serializeAws_restJson1GetSuiteRunReportCommand = async (
   input: GetSuiteRunReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/report";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/report";
   if (input.suiteDefinitionId !== undefined) {
     const labelValue: string = input.suiteDefinitionId;
     if (labelValue.length <= 0) {
@@ -208,7 +215,6 @@ export const serializeAws_restJson1GetSuiteRunReportCommand = async (
     throw new Error("No value provided for input HTTP label: suiteRunId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -224,14 +230,14 @@ export const serializeAws_restJson1ListSuiteDefinitionsCommand = async (
   input: ListSuiteDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/suiteDefinitions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteDefinitions";
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -248,8 +254,9 @@ export const serializeAws_restJson1ListSuiteRunsCommand = async (
   input: ListSuiteRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/suiteRuns";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteRuns";
   const query: any = {
     ...(input.suiteDefinitionId !== undefined && { suiteDefinitionId: input.suiteDefinitionId }),
     ...(input.suiteDefinitionVersion !== undefined && { suiteDefinitionVersion: input.suiteDefinitionVersion }),
@@ -257,7 +264,6 @@ export const serializeAws_restJson1ListSuiteRunsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -274,8 +280,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -286,7 +293,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -302,10 +308,13 @@ export const serializeAws_restJson1StartSuiteRunCommand = async (
   input: StartSuiteRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/suiteDefinitions/{suiteDefinitionId}/suiteRuns";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/suiteDefinitions/{suiteDefinitionId}/suiteRuns";
   if (input.suiteDefinitionId !== undefined) {
     const labelValue: string = input.suiteDefinitionId;
     if (labelValue.length <= 0) {
@@ -325,7 +334,6 @@ export const serializeAws_restJson1StartSuiteRunCommand = async (
       }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -341,8 +349,11 @@ export const serializeAws_restJson1StopSuiteRunCommand = async (
   input: StopSuiteRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop";
   if (input.suiteDefinitionId !== undefined) {
     const labelValue: string = input.suiteDefinitionId;
     if (labelValue.length <= 0) {
@@ -362,7 +373,6 @@ export const serializeAws_restJson1StopSuiteRunCommand = async (
     throw new Error("No value provided for input HTTP label: suiteRunId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -378,10 +388,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -395,7 +406,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -411,8 +421,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -426,7 +437,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -443,10 +453,12 @@ export const serializeAws_restJson1UpdateSuiteDefinitionCommand = async (
   input: UpdateSuiteDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/suiteDefinitions/{suiteDefinitionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteDefinitions/{suiteDefinitionId}";
   if (input.suiteDefinitionId !== undefined) {
     const labelValue: string = input.suiteDefinitionId;
     if (labelValue.length <= 0) {
@@ -466,7 +478,6 @@ export const serializeAws_restJson1UpdateSuiteDefinitionCommand = async (
         ),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
