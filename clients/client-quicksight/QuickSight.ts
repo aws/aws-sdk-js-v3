@@ -29,6 +29,16 @@ import {
   CreateDataSourceCommandInput,
   CreateDataSourceCommandOutput,
 } from "./commands/CreateDataSourceCommand";
+import {
+  CreateFolderCommand,
+  CreateFolderCommandInput,
+  CreateFolderCommandOutput,
+} from "./commands/CreateFolderCommand";
+import {
+  CreateFolderMembershipCommand,
+  CreateFolderMembershipCommandInput,
+  CreateFolderMembershipCommandOutput,
+} from "./commands/CreateFolderMembershipCommand";
 import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateGroupMembershipCommand,
@@ -91,6 +101,16 @@ import {
   DeleteDataSourceCommandInput,
   DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
+import {
+  DeleteFolderCommand,
+  DeleteFolderCommandInput,
+  DeleteFolderCommandOutput,
+} from "./commands/DeleteFolderCommand";
+import {
+  DeleteFolderMembershipCommand,
+  DeleteFolderMembershipCommandInput,
+  DeleteFolderMembershipCommandOutput,
+} from "./commands/DeleteFolderMembershipCommand";
 import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteGroupMembershipCommand,
@@ -179,6 +199,21 @@ import {
   DescribeDataSourcePermissionsCommandInput,
   DescribeDataSourcePermissionsCommandOutput,
 } from "./commands/DescribeDataSourcePermissionsCommand";
+import {
+  DescribeFolderCommand,
+  DescribeFolderCommandInput,
+  DescribeFolderCommandOutput,
+} from "./commands/DescribeFolderCommand";
+import {
+  DescribeFolderPermissionsCommand,
+  DescribeFolderPermissionsCommandInput,
+  DescribeFolderPermissionsCommandOutput,
+} from "./commands/DescribeFolderPermissionsCommand";
+import {
+  DescribeFolderResolvedPermissionsCommand,
+  DescribeFolderResolvedPermissionsCommandInput,
+  DescribeFolderResolvedPermissionsCommandOutput,
+} from "./commands/DescribeFolderResolvedPermissionsCommand";
 import {
   DescribeGroupCommand,
   DescribeGroupCommandInput,
@@ -270,6 +305,12 @@ import {
   ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
 import {
+  ListFolderMembersCommand,
+  ListFolderMembersCommandInput,
+  ListFolderMembersCommandOutput,
+} from "./commands/ListFolderMembersCommand";
+import { ListFoldersCommand, ListFoldersCommandInput, ListFoldersCommandOutput } from "./commands/ListFoldersCommand";
+import {
   ListGroupMembershipsCommand,
   ListGroupMembershipsCommandInput,
   ListGroupMembershipsCommandOutput,
@@ -352,6 +393,11 @@ import {
   SearchDashboardsCommandInput,
   SearchDashboardsCommandOutput,
 } from "./commands/SearchDashboardsCommand";
+import {
+  SearchFoldersCommand,
+  SearchFoldersCommandInput,
+  SearchFoldersCommandOutput,
+} from "./commands/SearchFoldersCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -413,6 +459,16 @@ import {
   UpdateDataSourcePermissionsCommandInput,
   UpdateDataSourcePermissionsCommandOutput,
 } from "./commands/UpdateDataSourcePermissionsCommand";
+import {
+  UpdateFolderCommand,
+  UpdateFolderCommandInput,
+  UpdateFolderCommandOutput,
+} from "./commands/UpdateFolderCommand";
+import {
+  UpdateFolderPermissionsCommand,
+  UpdateFolderPermissionsCommandInput,
+  UpdateFolderPermissionsCommandOutput,
+} from "./commands/UpdateFolderPermissionsCommand";
 import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateIAMPolicyAssignmentCommand,
@@ -665,6 +721,67 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): Promise<CreateDataSourceCommandOutput> | void {
     const command = new CreateDataSourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an empty shared folder.</p>
+   */
+  public createFolder(
+    args: CreateFolderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFolderCommandOutput>;
+  public createFolder(args: CreateFolderCommandInput, cb: (err: any, data?: CreateFolderCommandOutput) => void): void;
+  public createFolder(
+    args: CreateFolderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFolderCommandOutput) => void
+  ): void;
+  public createFolder(
+    args: CreateFolderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFolderCommandOutput) => void),
+    cb?: (err: any, data?: CreateFolderCommandOutput) => void
+  ): Promise<CreateFolderCommandOutput> | void {
+    const command = new CreateFolderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds an asset, such as a dashboard, analysis, or dataset into a folder.</p>
+   */
+  public createFolderMembership(
+    args: CreateFolderMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFolderMembershipCommandOutput>;
+  public createFolderMembership(
+    args: CreateFolderMembershipCommandInput,
+    cb: (err: any, data?: CreateFolderMembershipCommandOutput) => void
+  ): void;
+  public createFolderMembership(
+    args: CreateFolderMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFolderMembershipCommandOutput) => void
+  ): void;
+  public createFolderMembership(
+    args: CreateFolderMembershipCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFolderMembershipCommandOutput) => void),
+    cb?: (err: any, data?: CreateFolderMembershipCommandOutput) => void
+  ): Promise<CreateFolderMembershipCommandOutput> | void {
+    const command = new CreateFolderMembershipCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1142,6 +1259,67 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): Promise<DeleteDataSourceCommandOutput> | void {
     const command = new DeleteDataSourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an empty folder.</p>
+   */
+  public deleteFolder(
+    args: DeleteFolderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFolderCommandOutput>;
+  public deleteFolder(args: DeleteFolderCommandInput, cb: (err: any, data?: DeleteFolderCommandOutput) => void): void;
+  public deleteFolder(
+    args: DeleteFolderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFolderCommandOutput) => void
+  ): void;
+  public deleteFolder(
+    args: DeleteFolderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFolderCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFolderCommandOutput) => void
+  ): Promise<DeleteFolderCommandOutput> | void {
+    const command = new DeleteFolderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes an asset, such as a dashboard, analysis, or dataset, from a folder.</p>
+   */
+  public deleteFolderMembership(
+    args: DeleteFolderMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFolderMembershipCommandOutput>;
+  public deleteFolderMembership(
+    args: DeleteFolderMembershipCommandInput,
+    cb: (err: any, data?: DeleteFolderMembershipCommandOutput) => void
+  ): void;
+  public deleteFolderMembership(
+    args: DeleteFolderMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFolderMembershipCommandOutput) => void
+  ): void;
+  public deleteFolderMembership(
+    args: DeleteFolderMembershipCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFolderMembershipCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFolderMembershipCommandOutput) => void
+  ): Promise<DeleteFolderMembershipCommandOutput> | void {
+    const command = new DeleteFolderMembershipCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1840,6 +2018,102 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
+   * <p>Describes a folder.</p>
+   */
+  public describeFolder(
+    args: DescribeFolderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFolderCommandOutput>;
+  public describeFolder(
+    args: DescribeFolderCommandInput,
+    cb: (err: any, data?: DescribeFolderCommandOutput) => void
+  ): void;
+  public describeFolder(
+    args: DescribeFolderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFolderCommandOutput) => void
+  ): void;
+  public describeFolder(
+    args: DescribeFolderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFolderCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFolderCommandOutput) => void
+  ): Promise<DescribeFolderCommandOutput> | void {
+    const command = new DescribeFolderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes permissions for a folder.</p>
+   */
+  public describeFolderPermissions(
+    args: DescribeFolderPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFolderPermissionsCommandOutput>;
+  public describeFolderPermissions(
+    args: DescribeFolderPermissionsCommandInput,
+    cb: (err: any, data?: DescribeFolderPermissionsCommandOutput) => void
+  ): void;
+  public describeFolderPermissions(
+    args: DescribeFolderPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFolderPermissionsCommandOutput) => void
+  ): void;
+  public describeFolderPermissions(
+    args: DescribeFolderPermissionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFolderPermissionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFolderPermissionsCommandOutput) => void
+  ): Promise<DescribeFolderPermissionsCommandOutput> | void {
+    const command = new DescribeFolderPermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the folder resolved permissions. Permissions consists of both folder direct permissions and the inherited permissions from the ancestor folders.</p>
+   */
+  public describeFolderResolvedPermissions(
+    args: DescribeFolderResolvedPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFolderResolvedPermissionsCommandOutput>;
+  public describeFolderResolvedPermissions(
+    args: DescribeFolderResolvedPermissionsCommandInput,
+    cb: (err: any, data?: DescribeFolderResolvedPermissionsCommandOutput) => void
+  ): void;
+  public describeFolderResolvedPermissions(
+    args: DescribeFolderResolvedPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFolderResolvedPermissionsCommandOutput) => void
+  ): void;
+  public describeFolderResolvedPermissions(
+    args: DescribeFolderResolvedPermissionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFolderResolvedPermissionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFolderResolvedPermissionsCommandOutput) => void
+  ): Promise<DescribeFolderResolvedPermissionsCommandOutput> | void {
+    const command = new DescribeFolderResolvedPermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN). </p>
    */
   public describeGroup(
@@ -2453,6 +2727,64 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
+   * <p>List all assets (<code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code>) in a folder. </p>
+   */
+  public listFolderMembers(
+    args: ListFolderMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFolderMembersCommandOutput>;
+  public listFolderMembers(
+    args: ListFolderMembersCommandInput,
+    cb: (err: any, data?: ListFolderMembersCommandOutput) => void
+  ): void;
+  public listFolderMembers(
+    args: ListFolderMembersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFolderMembersCommandOutput) => void
+  ): void;
+  public listFolderMembers(
+    args: ListFolderMembersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFolderMembersCommandOutput) => void),
+    cb?: (err: any, data?: ListFolderMembersCommandOutput) => void
+  ): Promise<ListFolderMembersCommandOutput> | void {
+    const command = new ListFolderMembersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all folders in an account.</p>
+   */
+  public listFolders(args: ListFoldersCommandInput, options?: __HttpHandlerOptions): Promise<ListFoldersCommandOutput>;
+  public listFolders(args: ListFoldersCommandInput, cb: (err: any, data?: ListFoldersCommandOutput) => void): void;
+  public listFolders(
+    args: ListFoldersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFoldersCommandOutput) => void
+  ): void;
+  public listFolders(
+    args: ListFoldersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFoldersCommandOutput) => void),
+    cb?: (err: any, data?: ListFoldersCommandOutput) => void
+  ): Promise<ListFoldersCommandOutput> | void {
+    const command = new ListFoldersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists member users in a group.</p>
    */
   public listGroupMemberships(
@@ -3043,6 +3375,38 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
+   * <p>Searches the subfolders in a folder.</p>
+   */
+  public searchFolders(
+    args: SearchFoldersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchFoldersCommandOutput>;
+  public searchFolders(
+    args: SearchFoldersCommandInput,
+    cb: (err: any, data?: SearchFoldersCommandOutput) => void
+  ): void;
+  public searchFolders(
+    args: SearchFoldersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchFoldersCommandOutput) => void
+  ): void;
+  public searchFolders(
+    args: SearchFoldersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchFoldersCommandOutput) => void),
+    cb?: (err: any, data?: SearchFoldersCommandOutput) => void
+  ): Promise<SearchFoldersCommandOutput> | void {
+    const command = new SearchFoldersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Assigns one or more tags (key-value pairs) to the specified QuickSight resource. </p>
    * 		       <p>Tags can help you organize and categorize your resources. You can also use them to
    * 			scope user permissions, by granting a user permission to access or change only resources
@@ -3469,6 +3833,67 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: UpdateDataSourcePermissionsCommandOutput) => void
   ): Promise<UpdateDataSourcePermissionsCommandOutput> | void {
     const command = new UpdateDataSourcePermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the name of a folder.</p>
+   */
+  public updateFolder(
+    args: UpdateFolderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFolderCommandOutput>;
+  public updateFolder(args: UpdateFolderCommandInput, cb: (err: any, data?: UpdateFolderCommandOutput) => void): void;
+  public updateFolder(
+    args: UpdateFolderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFolderCommandOutput) => void
+  ): void;
+  public updateFolder(
+    args: UpdateFolderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFolderCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFolderCommandOutput) => void
+  ): Promise<UpdateFolderCommandOutput> | void {
+    const command = new UpdateFolderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates permissions of a folder.</p>
+   */
+  public updateFolderPermissions(
+    args: UpdateFolderPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFolderPermissionsCommandOutput>;
+  public updateFolderPermissions(
+    args: UpdateFolderPermissionsCommandInput,
+    cb: (err: any, data?: UpdateFolderPermissionsCommandOutput) => void
+  ): void;
+  public updateFolderPermissions(
+    args: UpdateFolderPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFolderPermissionsCommandOutput) => void
+  ): void;
+  public updateFolderPermissions(
+    args: UpdateFolderPermissionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFolderPermissionsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFolderPermissionsCommandOutput) => void
+  ): Promise<UpdateFolderPermissionsCommandOutput> | void {
+    const command = new UpdateFolderPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

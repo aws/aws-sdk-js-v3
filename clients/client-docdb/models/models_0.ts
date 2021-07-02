@@ -2,22 +2,186 @@ import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>Represents the input to <a>AddSourceIdentifierToSubscription</a>.
+ *         </p>
+ */
+export interface AddSourceIdentifierToSubscriptionMessage {
+  /**
+   * <p>The name of the Amazon DocumentDB event notification subscription that you
+   *             want to add a source identifier to.</p>
+   */
+  SubscriptionName: string | undefined;
+
+  /**
+   * <p>The identifier of the event source to be added:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If the source type is an instance, a
+   *                     <code>DBInstanceIdentifier</code> must be provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is a security group, a
+   *                     <code>DBSecurityGroupName</code> must be provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is a parameter group, a
+   *                     <code>DBParameterGroupName</code> must be provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is a snapshot, a
+   *                     <code>DBSnapshotIdentifier</code> must be provided.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceIdentifier: string | undefined;
+}
+
+export namespace AddSourceIdentifierToSubscriptionMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AddSourceIdentifierToSubscriptionMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Detailed information about an event to which you have subscribed.</p>
+ */
+export interface EventSubscription {
+  /**
+   * <p>The Amazon Web Services customer account that is associated with the Amazon DocumentDB event notification
+   *             subscription.</p>
+   */
+  CustomerAwsId?: string;
+
+  /**
+   * <p>The Amazon DocumentDB event notification subscription ID.</p>
+   */
+  CustSubscriptionId?: string;
+
+  /**
+   * <p>The topic ARN of the Amazon DocumentDB event notification subscription.</p>
+   */
+  SnsTopicArn?: string;
+
+  /**
+   * <p>The status of the Amazon DocumentDB event notification subscription.</p>
+   *         <p>Constraints:</p>
+   *         <p>Can be one of the following: <code>creating</code>, <code>modifying</code>,
+   *                 <code>deleting</code>, <code>active</code>, <code>no-permission</code>,
+   *                 <code>topic-not-exist</code>
+   *          </p>
+   *         <p>The <code>no-permission</code> status indicates that Amazon DocumentDB no longer has permission
+   *             to post to the SNS topic. The <code>topic-not-exist</code> status indicates that the
+   *             topic was deleted after the subscription was created.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The time at which the Amazon DocumentDB event notification subscription was created.</p>
+   */
+  SubscriptionCreationTime?: string;
+
+  /**
+   * <p>The source type for the Amazon DocumentDB event notification subscription.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>A list of source IDs for the Amazon DocumentDB event notification subscription.</p>
+   */
+  SourceIdsList?: string[];
+
+  /**
+   * <p>A list of event categories for the Amazon DocumentDB event notification subscription.</p>
+   */
+  EventCategoriesList?: string[];
+
+  /**
+   * <p>A Boolean value indicating whether the subscription is enabled. A value of
+   *                 <code>true</code> indicates that the subscription is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the event subscription.</p>
+   */
+  EventSubscriptionArn?: string;
+}
+
+export namespace EventSubscription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EventSubscription): any => ({
+    ...obj,
+  });
+}
+
+export interface AddSourceIdentifierToSubscriptionResult {
+  /**
+   * <p>Detailed information about an event to which you have subscribed.</p>
+   */
+  EventSubscription?: EventSubscription;
+}
+
+export namespace AddSourceIdentifierToSubscriptionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AddSourceIdentifierToSubscriptionResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The requested source could not be found. </p>
+ */
+export interface SourceNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "SourceNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SourceNotFoundFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SourceNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The subscription name does not exist. </p>
+ */
+export interface SubscriptionNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "SubscriptionNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubscriptionNotFoundFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SubscriptionNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Metadata assigned to an Amazon DocumentDB resource consisting of a key-value pair.</p>
  */
 export interface Tag {
   /**
-   * <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters
-   *             in length and can't be prefixed with "aws:" or "rds:". The string can contain only the
-   *             set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex:
-   *             "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   * <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "<code>aws:</code>" or "<code>rds:</code>". The string can contain only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
    */
   Key?: string;
 
   /**
-   * <p>The optional value of the tag. The string value can be from 1 to 256 Unicode
-   *             characters in length and can't be prefixed with "aws:" or "rds:". The string can contain
-   *             only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java
-   *             regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   * <p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "<code>aws:</code>" or "<code>rds:</code>". The string can contain only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
    */
   Value?: string;
 }
@@ -323,24 +487,17 @@ export namespace ResourceNotFoundFault {
  */
 export interface CopyDBClusterParameterGroupMessage {
   /**
-   * <p>The identifier or Amazon Resource Name (ARN) for the source cluster
-   *             parameter group.</p>
+   * <p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
    *                 <p>Must specify a valid cluster parameter group.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source cluster parameter group is in the same AWS
-   *                     Region as the copy, specify a valid parameter group
-   *                     identifier; for example,
-   *                     <code>my-db-cluster-param-group</code>, or a valid ARN.</p>
+   *                 <p>If the source cluster parameter group is in the same Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source parameter group is in a different AWS Region
-   *                     than the copy, specify a valid cluster parameter group ARN;
-   *                     for example,
-   *                     <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p>
+   *                 <p>If the source parameter group is in a different Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -462,8 +619,7 @@ export namespace DBParameterGroupAlreadyExistsFault {
 
 /**
  * <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter
- *             group. </p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
  */
 export interface DBParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBParameterGroupNotFoundFault";
@@ -481,8 +637,7 @@ export namespace DBParameterGroupNotFoundFault {
 }
 
 /**
- * <p>This request would cause you to exceed the allowed number of parameter
- *             groups.</p>
+ * <p>This request would cause you to exceed the allowed number of parameter groups.</p>
  */
 export interface DBParameterGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBParameterGroupQuotaExceededFault";
@@ -515,13 +670,11 @@ export interface CopyDBClusterSnapshotMessage {
    *                     <i>available</i> state.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source snapshot is in the same AWS Region as the
-   *                     copy, specify a valid snapshot identifier.</p>
+   *                 <p>If the source snapshot is in the same Region as the copy, specify a valid snapshot identifier.</p>
    *             </li>
    *             <li>
    *
-   *                 <p>If the source snapshot is in a different AWS Region than
-   *                     the copy, specify a valid cluster snapshot ARN.</p>
+   *                 <p>If the source snapshot is in a different Region than the copy, specify a valid cluster snapshot ARN.</p>
    *             </li>
    *          </ul>
    *         <p>Example: <code>my-cluster-snapshot1</code>
@@ -552,51 +705,33 @@ export interface CopyDBClusterSnapshotMessage {
   TargetDBClusterSnapshotIdentifier: string | undefined;
 
   /**
-   * <p>The AWS KMS key ID for an encrypted cluster snapshot. The AWS KMS
-   *             key ID is the Amazon Resource Name (ARN), AWS KMS key identifier, or
-   *             the AWS KMS key alias for the AWS KMS encryption key. </p>
+   * <p>The KMS key ID for an encrypted cluster snapshot. The KMS
+   *             key ID is the Amazon Resource Name (ARN), KMS key identifier, or
+   *             the KMS key alias for the KMS encryption key. </p>
    *
-   *         <p>If you copy an encrypted cluster snapshot from your AWS account,
-   *             you can specify a value for <code>KmsKeyId</code> to encrypt the
-   *             copy with a new AWS KMS encryption key. If you don't specify a value
-   *             for <code>KmsKeyId</code>, then the copy of the cluster snapshot is
-   *             encrypted with the same AWS KMS key as the source cluster snapshot.
-   *             </p>
+   *         <p>If you copy an encrypted cluster snapshot from your account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you don't specify a value for <code>KmsKeyId</code>, then the copy of the cluster snapshot is encrypted with the same KMS key as the source cluster snapshot.</p>
    *
-   *         <p>If you copy an encrypted cluster snapshot that is shared from
-   *             another AWS account, then you must specify a value for
-   *             <code>KmsKeyId</code>.</p>
+   *         <p>If you copy an encrypted cluster snapshot that is shared from another account, then you must specify a value for <code>KmsKeyId</code>.</p>
    *
+   *         <p>To copy an encrypted cluster snapshot to another Region, set <code>KmsKeyId</code> to the KMS key ID that you want to use to encrypt the copy of the cluster snapshot in the destination Region. KMS encryption keys are specific to the Region that they are created in, and you can't use encryption keys from one Region in another Region.</p>
    *
-   *         <p>To copy an encrypted cluster snapshot to another AWS Region, set
-   *             <code>KmsKeyId</code> to the AWS KMS key ID that you want to use to
-   *             encrypt the copy of the cluster snapshot in the destination Region.
-   *             AWS KMS encryption keys are specific to the AWS Region that they are
-   *             created in, and you can't use encryption keys from one AWS Region in
-   *             another AWS Region.</p>
-   *
-   *         <p>If you copy an unencrypted cluster snapshot and specify a value
-   *             for the <code>KmsKeyId</code> parameter, an error is returned.</p>
+   *         <p>If you copy an unencrypted cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter, an error is returned.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The URL that contains a Signature Version 4 signed request for the
-   *             <code>CopyDBClusterSnapshot</code> API action in the AWS Region that
-   *             contains the source cluster snapshot to copy. You must use the
-   *             <code>PreSignedUrl</code> parameter when copying a cluster snapshot
-   *             from another AWS Region.</p>
+   * <p>The URL that contains a Signature Version 4 signed request for the<code>CopyDBClusterSnapshot</code> API action in the Region that contains the source cluster snapshot to copy. You must use the <code>PreSignedUrl</code> parameter when copying a cluster snapshot from another Region.</p>
    *
-   *         <p>If you are using an AWS SDK tool or the AWS CLI, you can specify
+   *         <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify
    *             <code>SourceRegion</code> (or <code>--source-region</code> for the
-   *             AWS CLI) instead of specifying <code>PreSignedUrl</code> manually.
+   *             CLI) instead of specifying <code>PreSignedUrl</code> manually.
    *             Specifying <code>SourceRegion</code> autogenerates a pre-signed URL
    *             that is a valid request for the operation that can be executed in
-   *             the source AWS Region.</p>
+   *             the source Region.</p>
    *
    *         <p>The presigned URL must be a valid request for the
    *             <code>CopyDBClusterSnapshot</code> API action that can be executed
-   *             in the source AWS Region that contains the cluster snapshot to be
+   *             in the source Region that contains the cluster snapshot to be
    *             copied. The presigned URL request must contain the following
    *             parameter values:</p>
    *         <ul>
@@ -610,9 +745,9 @@ export interface CopyDBClusterSnapshotMessage {
    *                   <code>SourceDBClusterSnapshotIdentifier</code> - The
    *                     identifier for the the encrypted cluster snapshot to be
    *                     copied. This identifier must be in the Amazon Resource Name
-   *                     (ARN) format for the source AWS Region. For example, if you
+   *                     (ARN) format for the source Region. For example, if you
    *                     are copying an encrypted cluster snapshot from the us-east-1
-   *                     AWS Region, then your
+   *                     Region, then your
    *                     <code>SourceDBClusterSnapshotIdentifier</code> looks
    *                     something like the following:
    *                     <code>arn:aws:rds:us-east-1:12345678012:sample-cluster:sample-cluster-snapshot</code>.</p>
@@ -729,8 +864,7 @@ export interface DBClusterSnapshot {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>If <code>StorageEncrypted</code> is <code>true</code>, the AWS KMS key identifier for
-   *             the encrypted cluster snapshot.</p>
+   * <p>If <code>StorageEncrypted</code> is <code>true</code>, the KMS key identifier for the encrypted cluster snapshot.</p>
    */
   KmsKeyId?: string;
 
@@ -791,8 +925,7 @@ export namespace DBClusterSnapshotAlreadyExistsFault {
 
 /**
  * <p>
- *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster
- *             snapshot. </p>
+ *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
  */
 export interface DBClusterSnapshotNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterSnapshotNotFoundFault";
@@ -828,7 +961,7 @@ export namespace InvalidDBClusterSnapshotStateFault {
 }
 
 /**
- * <p>An error occurred when accessing an AWS KMS key.</p>
+ * <p>An error occurred when accessing an KMS key.</p>
  */
 export interface KMSKeyNotAccessibleFault extends __SmithyException, $MetadataBearer {
   name: "KMSKeyNotAccessibleFault";
@@ -938,7 +1071,7 @@ export interface CreateDBClusterMessage {
   Engine: string | undefined;
 
   /**
-   * <p>The version number of the database engine to use. The --engine-version will default to the latest major engine version. For production workloads, we recommend explicitly declaring this parameter with the intended major engine version.</p>
+   * <p>The version number of the database engine to use. The <code>--engine-version</code> will default to the latest major engine version. For production workloads, we recommend explicitly declaring this parameter with the intended major engine version.</p>
    */
   EngineVersion?: string;
 
@@ -964,7 +1097,7 @@ export interface CreateDBClusterMessage {
    *             </li>
    *          </ul>
    */
-  MasterUsername: string | undefined;
+  MasterUsername?: string;
 
   /**
    * <p>The password for the master database user. This password can
@@ -972,14 +1105,12 @@ export interface CreateDBClusterMessage {
    *             double quote ("), or the "at" symbol (@).</p>
    *         <p>Constraints: Must contain from 8 to 100 characters.</p>
    */
-  MasterUserPassword: string | undefined;
+  MasterUserPassword?: string;
 
   /**
    * <p>The daily time range during which automated backups are created if
-   *             automated backups are enabled using the
-   *             <code>BackupRetentionPeriod</code> parameter. </p>
-   *         <p>The default is a 30-minute window selected at random from an 8-hour
-   *             block of time for each AWS Region. </p>
+   *             automated backups are enabled using the <code>BackupRetentionPeriod</code> parameter. </p>
+   *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Region. </p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -1004,9 +1135,7 @@ export interface CreateDBClusterMessage {
    *             in Universal Coordinated Time (UTC).</p>
    *         <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *         </p>
-   *         <p>The default is a 30-minute window selected at random from an 8-hour
-   *             block of time for each AWS Region, occurring on a random day of the
-   *             week.</p>
+   *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Region, occurring on a random day of the week.</p>
    *         <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
    *         <p>Constraints: Minimum 30-minute window.</p>
    */
@@ -1023,12 +1152,8 @@ export interface CreateDBClusterMessage {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for an encrypted cluster.</p>
-   *         <p>The AWS KMS key identifier is the Amazon Resource Name (ARN) for
-   *             the AWS KMS encryption key. If you are creating a cluster using the
-   *             same AWS account that owns the AWS KMS encryption key that is used
-   *             to encrypt the new cluster, you can use the AWS KMS key alias
-   *             instead of the ARN for the AWS KMS encryption key.</p>
+   * <p>The KMS key identifier for an encrypted cluster.</p>
+   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same account that owns the KMS encryption key that is used to encrypt the new cluster, you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
    *         <p>If an encryption key is not specified in <code>KmsKeyId</code>:
    *             </p>
    *         <ul>
@@ -1038,9 +1163,7 @@ export interface CreateDBClusterMessage {
    *                     </p>
    *             </li>
    *          </ul>
-   *         <p>AWS KMS creates the default encryption key for your AWS account.
-   *             Your AWS account has a different default encryption key for each AWS
-   *             Region.</p>
+   *         <p>KMS creates the default encryption key for your account. Your account has a different default encryption key for each Regions.</p>
    */
   KmsKeyId?: string;
 
@@ -1069,6 +1192,11 @@ export interface CreateDBClusterMessage {
    *             being accidentally deleted.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>The cluster identifier of the new global cluster.</p>
+   */
+  GlobalClusterIdentifier?: string;
 }
 
 export namespace CreateDBClusterMessage {
@@ -1081,35 +1209,30 @@ export namespace CreateDBClusterMessage {
 }
 
 /**
- * <p>Describes an AWS Identity and Access Management (IAM) role that is associated with a
+ * <p>Describes an Identity and Access Management (IAM) role that is associated with a
  *             cluster.</p>
  */
 export interface DBClusterRole {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that is associated with the DB
+   * <p>The Amazon Resource Name (ARN) of the IAMrole that is associated with the DB
    *             cluster.</p>
    */
   RoleArn?: string;
 
   /**
-   * <p>Describes the state of association between the IAM role and the cluster. The
-   *                 <code>Status</code> property returns one of the following values:</p>
+   * <p>Describes the state of association between the IAMrole and the cluster. The <code>Status</code> property returns one of the following values:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>ACTIVE</code> - The IAM role ARN is associated with the cluster and
-   *                     can be used to access other AWS services on your behalf.</p>
+   *                   <code>ACTIVE</code> - The IAMrole ARN is associated with the cluster and can be used to access other Amazon Web Services services on your behalf.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>PENDING</code> - The IAM role ARN is being associated with the DB
-   *                     cluster.</p>
+   *                   <code>PENDING</code> - The IAMrole ARN is being associated with the cluster.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>INVALID</code> - The IAM role ARN is associated with the cluster, but
-   *                     the cluster cannot assume the IAM role to access other AWS services on your
-   *                     behalf.</p>
+   *                   <code>INVALID</code> - The IAMrole ARN is associated with the cluster, but the cluster cannot assume the IAMrole to access other Amazon Web Services services on your behalf.</p>
    *             </li>
    *          </ul>
    */
@@ -1214,8 +1337,7 @@ export interface DBCluster {
   DBClusterParameterGroup?: string;
 
   /**
-   * <p>Specifies information on the subnet group that is associated with the cluster,
-   *             including the name, description, and subnets in the subnet group.</p>
+   * <p>Specifies information on the subnet group that is associated with the cluster, including the name, description, and subnets in the subnet group.</p>
    */
   DBSubnetGroup?: string;
 
@@ -1241,15 +1363,8 @@ export interface DBCluster {
   Endpoint?: string;
 
   /**
-   * <p>The reader endpoint for the cluster. The reader endpoint for a cluster load
-   *             balances connections across the Amazon DocumentDB replicas that are available in a cluster. As
-   *             clients request new connections to the reader endpoint, Amazon DocumentDB distributes the
-   *             connection requests among the Amazon DocumentDB replicas in the cluster. This functionality can
-   *             help balance your read workload across multiple Amazon DocumentDB replicas in your cluster. </p>
-   *         <p>If a failover occurs, and the Amazon DocumentDB replica that you are connected to is promoted to
-   *             be the primary instance, your connection is dropped. To continue sending your read
-   *             workload to other Amazon DocumentDB replicas in the cluster, you can then reconnect to the reader
-   *             endpoint.</p>
+   * <p>The reader endpoint for the cluster. The reader endpoint for a cluster load balances connections across the Amazon DocumentDB replicas that are available in a cluster. As clients request new connections to the reader endpoint, Amazon DocumentDB distributes the connection requests among the Amazon DocumentDB replicas in the cluster. This functionality can help balance your read workload across multiple Amazon DocumentDB replicas in your cluster. </p>
+   *         <p>If a failover occurs, and the Amazon DocumentDB replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Amazon DocumentDB replicas in the cluster, you can then reconnect to the reader endpoint.</p>
    */
   ReaderEndpoint?: string;
 
@@ -1297,6 +1412,16 @@ export interface DBCluster {
   PreferredMaintenanceWindow?: string;
 
   /**
+   * <p>Contains the identifier of the source cluster if this cluster is a secondary cluster.</p>
+   */
+  ReplicationSourceIdentifier?: string;
+
+  /**
+   * <p>Contains one or more identifiers of the secondary clusters that are associated with this cluster.</p>
+   */
+  ReadReplicaIdentifiers?: string[];
+
+  /**
    * <p>Provides the list of instances that make up the cluster.</p>
    */
   DBClusterMembers?: DBClusterMember[];
@@ -1318,15 +1443,14 @@ export interface DBCluster {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>If <code>StorageEncrypted</code> is <code>true</code>, the AWS KMS key identifier for
+   * <p>If <code>StorageEncrypted</code> is <code>true</code>, the KMS key identifier for
    *             the encrypted cluster.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The AWS Region-unique, immutable identifier for the cluster. This identifier is
-   *             found in AWS CloudTrail log entries whenever the AWS KMS key for the cluster is
-   *             accessed.</p>
+   * <p>The Region-unique, immutable identifier for the cluster. This identifier is
+   *             found in CloudTrail log entries whenever the KMS key for the cluster is accessed.</p>
    */
   DbClusterResourceId?: string;
 
@@ -1336,9 +1460,7 @@ export interface DBCluster {
   DBClusterArn?: string;
 
   /**
-   * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that are
-   *             associated with the cluster. IAM roles that are associated with a cluster grant
-   *             permission for the cluster to access other AWS services on your behalf.</p>
+   * <p>Provides a list of the Identity and Access Management (IAM) roles that are associated with the cluster. (IAM) roles that are associated with a cluster grant permission for the cluster to access other Amazon Web Services services on your behalf.</p>
    */
   AssociatedRoles?: DBClusterRole[];
 
@@ -1408,8 +1530,7 @@ export namespace DBClusterAlreadyExistsFault {
 
 /**
  * <p>
- *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing cluster
- *             parameter group. </p>
+ *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing cluster parameter group. </p>
  */
 export interface DBClusterParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterParameterGroupNotFoundFault";
@@ -1427,8 +1548,7 @@ export namespace DBClusterParameterGroupNotFoundFault {
 }
 
 /**
- * <p>The cluster can't be created because you have reached the maximum allowed quota of
- *             clusters.</p>
+ * <p>The cluster can't be created because you have reached the maximum allowed quota of clusters.</p>
  */
 export interface DBClusterQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterQuotaExceededFault";
@@ -1446,8 +1566,7 @@ export namespace DBClusterQuotaExceededFault {
 }
 
 /**
- * <p>Subnets in the subnet group should cover at least two Availability Zones unless
- *             there is only one Availability Zone.</p>
+ * <p>Subnets in the subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  */
 export interface DBSubnetGroupDoesNotCoverEnoughAZs extends __SmithyException, $MetadataBearer {
   name: "DBSubnetGroupDoesNotCoverEnoughAZs";
@@ -1484,9 +1603,25 @@ export namespace DBSubnetGroupNotFoundFault {
 }
 
 /**
- * <p>There is not enough storage available for the current action. You might be able to
- *             resolve this error by updating your subnet group to use different Availability Zones
- *             that have more storage available. </p>
+ * <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
+ */
+export interface GlobalClusterNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "GlobalClusterNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace GlobalClusterNotFoundFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GlobalClusterNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>There is not enough storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available. </p>
  */
 export interface InsufficientStorageClusterCapacityFault extends __SmithyException, $MetadataBearer {
   name: "InsufficientStorageClusterCapacityFault";
@@ -1517,6 +1652,24 @@ export namespace InvalidDBSubnetGroupStateFault {
    * @internal
    */
   export const filterSensitiveLog = (obj: InvalidDBSubnetGroupStateFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The requested operation can't be performed while the cluster is in this state.</p>
+ */
+export interface InvalidGlobalClusterStateFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidGlobalClusterStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidGlobalClusterStateFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidGlobalClusterStateFault): any => ({
     ...obj,
   });
 }
@@ -1710,10 +1863,8 @@ export namespace CreateDBClusterSnapshotResult {
 }
 
 /**
- * <p>The specified CIDR IP or Amazon EC2 security group isn't authorized for the
- *             specified security group.</p>
- *         <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf
- *             using IAM.</p>
+ * <p>The specified CIDR IP or Amazon EC2 security group isn't authorized for the specified security group.</p>
+ *         <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
  */
 export interface AuthorizationNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "AuthorizationNotFoundFault";
@@ -1768,7 +1919,7 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The Amazon EC2 Availability Zone that the instance is created in. </p>
-   *         <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</p>
+   *         <p>Default: A random, system-chosen Availability Zone in the endpoint's Region.</p>
    *         <p>Example: <code>us-east-1d</code>
    *          </p>
    */
@@ -1780,16 +1931,15 @@ export interface CreateDBInstanceMessage {
    *         <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *         </p>
    *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for
-   *             each AWS Region, occurring on a random day of the week. </p>
+   *             each Region, occurring on a random day of the week. </p>
    *         <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
    *         <p>Constraints: Minimum 30-minute window.</p>
    */
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>Indicates that minor engine upgrades are applied automatically to the instance
-   *             during the maintenance window.</p>
-   *         <p>Default: <code>true</code>
+   * <p>This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.</p>
+   *         <p>Default: <code>false</code>
    *         </p>
    */
   AutoMinorVersionUpgrade?: boolean;
@@ -2163,8 +2313,7 @@ export interface DBInstance {
   AvailabilityZone?: string;
 
   /**
-   * <p>Specifies information on the subnet group that is associated with the instance,
-   *             including the name, description, and subnets in the subnet group.</p>
+   * <p>Specifies information on the subnet group that is associated with the instance, including the name, description, and subnets in the subnet group.</p>
    */
   DBSubnetGroup?: DBSubnetGroup;
 
@@ -2175,8 +2324,7 @@ export interface DBInstance {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>Specifies that changes to the instance are pending. This element is included only
-   *             when changes are pending. Specific changes are identified by subelements.</p>
+   * <p>Specifies that changes to the instance are pending. This element is included only when changes are pending. Specific changes are identified by subelements.</p>
    */
   PendingModifiedValues?: PendingModifiedValues;
 
@@ -2192,7 +2340,7 @@ export interface DBInstance {
   EngineVersion?: string;
 
   /**
-   * <p>Indicates that minor version patches are applied automatically.</p>
+   * <p>Does not apply. This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.</p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
@@ -2220,14 +2368,13 @@ export interface DBInstance {
   StorageEncrypted?: boolean;
 
   /**
-   * <p> If <code>StorageEncrypted</code> is <code>true</code>, the AWS KMS key identifier for
+   * <p> If <code>StorageEncrypted</code> is <code>true</code>, the KMS key identifier for
    *             the encrypted instance. </p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The AWS Region-unique, immutable identifier for the instance. This identifier is
-   *             found in AWS CloudTrail log entries whenever the AWS KMS key for the instance is
+   * <p>The Region-unique, immutable identifier for the instance. This identifier is found in CloudTrail log entries whenever the KMS key for the instance is
    *             accessed.</p>
    */
   DbiResourceId?: string;
@@ -2249,8 +2396,7 @@ export interface DBInstance {
   DBInstanceArn?: string;
 
   /**
-   * <p>A list of log types that this instance is configured to export to Amazon CloudWatch
-   *             Logs.</p>
+   * <p>A list of log types that this instance is configured to export to CloudWatch Logs.</p>
    */
   EnabledCloudwatchLogsExports?: string[];
 }
@@ -2336,8 +2482,7 @@ export namespace InstanceQuotaExceededFault {
 }
 
 /**
- * <p>The specified instance class isn't available in the specified Availability
- *             Zone.</p>
+ * <p>The specified instance class isn't available in the specified Availability Zone.</p>
  */
 export interface InsufficientDBInstanceCapacityFault extends __SmithyException, $MetadataBearer {
   name: "InsufficientDBInstanceCapacityFault";
@@ -2465,8 +2610,7 @@ export namespace DBSubnetGroupQuotaExceededFault {
 }
 
 /**
- * <p>The request would cause you to exceed the allowed number of subnets in a subnet
- *             group.</p>
+ * <p>The request would cause you to exceed the allowed number of subnets in a subnet group.</p>
  */
 export interface DBSubnetQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBSubnetQuotaExceededFault";
@@ -2484,12 +2628,407 @@ export namespace DBSubnetQuotaExceededFault {
 }
 
 /**
+ * <p>Represents the input to <a>CreateEventSubscription</a>.</p>
+ */
+export interface CreateEventSubscriptionMessage {
+  /**
+   * <p>The name of the subscription.</p>
+   *         <p>Constraints: The name must be fewer than 255 characters.</p>
+   */
+  SubscriptionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. Amazon SNS creates the ARN when you create a topic and subscribe to it.</p>
+   */
+  SnsTopicArn: string | undefined;
+
+  /**
+   * <p>The type of source that is generating the events. For example, if you want to be notified of events generated by an instance, you would set this parameter to <code>db-instance</code>. If this value is not specified, all events are returned.</p>
+   *         <p>Valid values: <code>db-instance</code>, <code>db-cluster</code>,
+   *                 <code>db-parameter-group</code>, <code>db-security-group</code>,
+   *                 <code>db-cluster-snapshot</code>
+   *         </p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p> A list of event categories for a <code>SourceType</code> that you want to subscribe to. </p>
+   */
+  EventCategories?: string[];
+
+  /**
+   * <p>The list of identifiers of the event sources for which events are returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a
+   *             hyphen or contain two consecutive hyphens.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If <code>SourceIds</code> are provided, <code>SourceType</code> must also be
+   *                     provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is an instance, a <code>DBInstanceIdentifier</code> must
+   *                     be provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is a security group, a <code>DBSecurityGroupName</code>
+   *                     must be provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is a parameter group, a
+   *                         <code>DBParameterGroupName</code> must be provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is a snapshot, a <code>DBSnapshotIdentifier</code> must
+   *                     be provided.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceIds?: string[];
+
+  /**
+   * <p> A Boolean value; set to <code>true</code> to activate the subscription, set to <code>false</code> to create the subscription but not active it. </p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The tags to be assigned to the event subscription.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateEventSubscriptionMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateEventSubscriptionMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateEventSubscriptionResult {
+  /**
+   * <p>Detailed information about an event to which you have subscribed.</p>
+   */
+  EventSubscription?: EventSubscription;
+}
+
+export namespace CreateEventSubscriptionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateEventSubscriptionResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You have reached the maximum number of event subscriptions. </p>
+ */
+export interface EventSubscriptionQuotaExceededFault extends __SmithyException, $MetadataBearer {
+  name: "EventSubscriptionQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace EventSubscriptionQuotaExceededFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EventSubscriptionQuotaExceededFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Amazon SNS has responded that there is a problem with the specified topic. </p>
+ */
+export interface SNSInvalidTopicFault extends __SmithyException, $MetadataBearer {
+  name: "SNSInvalidTopicFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SNSInvalidTopicFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You do not have permission to publish to the SNS topic Amazon Resource Name (ARN). </p>
+ */
+export interface SNSNoAuthorizationFault extends __SmithyException, $MetadataBearer {
+  name: "SNSNoAuthorizationFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SNSNoAuthorizationFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The SNS topic Amazon Resource Name (ARN) does not exist. </p>
+ */
+export interface SNSTopicArnNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "SNSTopicArnNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SNSTopicArnNotFoundFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SNSTopicArnNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The provided subscription name already exists. </p>
+ */
+export interface SubscriptionAlreadyExistFault extends __SmithyException, $MetadataBearer {
+  name: "SubscriptionAlreadyExistFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubscriptionAlreadyExistFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SubscriptionAlreadyExistFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The provided category does not exist. </p>
+ */
+export interface SubscriptionCategoryNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "SubscriptionCategoryNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubscriptionCategoryNotFoundFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SubscriptionCategoryNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the input to <a>CreateGlobalCluster</a>.</p>
+ */
+export interface CreateGlobalClusterMessage {
+  /**
+   * <p>The cluster identifier of the new global cluster.</p>
+   */
+  GlobalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) to use as the primary cluster of the global cluster. This parameter is optional.</p>
+   */
+  SourceDBClusterIdentifier?: string;
+
+  /**
+   * <p>The name of the database engine to be used for this cluster.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The engine version of the global cluster.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The deletion protection setting for the new global cluster. The global cluster can't be deleted when deletion protection is enabled. </p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon DocumentDB will not create a database in the global cluster you are creating.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>The storage encryption setting for the new global cluster. </p>
+   */
+  StorageEncrypted?: boolean;
+}
+
+export namespace CreateGlobalClusterMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateGlobalClusterMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A data structure with information about any primary and secondary clusters associated with an Amazon DocumentDB global clusters. </p>
+ */
+export interface GlobalClusterMember {
+  /**
+   * <p>The Amazon Resource Name (ARN) for each Amazon DocumentDB cluster.</p>
+   */
+  DBClusterArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Aurora global cluster.</p>
+   */
+  Readers?: string[];
+
+  /**
+   * <p> Specifies whether the Amazon DocumentDB cluster is the primary cluster (that is, has read-write capability) for the Amazon DocumentDB global cluster with which it is associated. </p>
+   */
+  IsWriter?: boolean;
+}
+
+export namespace GlobalClusterMember {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GlobalClusterMember): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A data type representing an Amazon DocumentDB global cluster.</p>
+ */
+export interface GlobalCluster {
+  /**
+   * <p>Contains a user-supplied global  cluster identifier. This identifier is the unique key that identifies a global cluster. </p>
+   */
+  GlobalClusterIdentifier?: string;
+
+  /**
+   * <p>The Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS customer master key (CMK) for the cluster is accessed. </p>
+   */
+  GlobalClusterResourceId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the global cluster.</p>
+   */
+  GlobalClusterArn?: string;
+
+  /**
+   * <p>Specifies the current state of this global cluster.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The Amazon DocumentDB database engine used by the global cluster. </p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>Indicates the database engine version.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The default database name within the new global cluster.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>The storage encryption setting for the global cluster.</p>
+   */
+  StorageEncrypted?: boolean;
+
+  /**
+   * <p>The deletion protection setting for the new global cluster.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>The list of cluster IDs for secondary clusters within the global cluster. Currently limited to one item. </p>
+   */
+  GlobalClusterMembers?: GlobalClusterMember[];
+}
+
+export namespace GlobalCluster {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GlobalCluster): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateGlobalClusterResult {
+  /**
+   * <p>A data type representing an Amazon DocumentDB global cluster.</p>
+   */
+  GlobalCluster?: GlobalCluster;
+}
+
+export namespace CreateGlobalClusterResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateGlobalClusterResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global cluster identifier (unique name) to create a new global cluster. </p>
+ */
+export interface GlobalClusterAlreadyExistsFault extends __SmithyException, $MetadataBearer {
+  name: "GlobalClusterAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace GlobalClusterAlreadyExistsFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GlobalClusterAlreadyExistsFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The number of global  clusters for this account is already at the maximum allowed.</p>
+ */
+export interface GlobalClusterQuotaExceededFault extends __SmithyException, $MetadataBearer {
+  name: "GlobalClusterQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace GlobalClusterQuotaExceededFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GlobalClusterQuotaExceededFault): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Represents the input to <a>DeleteDBCluster</a>.</p>
  */
 export interface DeleteDBClusterMessage {
   /**
-   * <p>The cluster identifier for the cluster to be deleted. This parameter isn't case
-   *             sensitive.</p>
+   * <p>The cluster identifier for the cluster to be deleted. This parameter isn't case sensitive.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -2500,13 +3039,9 @@ export interface DeleteDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
-   * <p> Determines whether a final cluster snapshot is created before the cluster is
-   *             deleted. If <code>true</code> is specified, no cluster snapshot is created. If
-   *                 <code>false</code> is specified, a cluster snapshot is created before the DB
-   *             cluster is deleted. </p>
+   * <p> Determines whether a final cluster snapshot is created before the cluster is deleted. If <code>true</code> is specified, no cluster snapshot is created. If <code>false</code> is specified, a cluster snapshot is created before the DB cluster is deleted. </p>
    *         <note>
-   *             <p>If <code>SkipFinalSnapshot</code> is <code>false</code>, you must specify a
-   *                     <code>FinalDBSnapshotIdentifier</code> parameter.</p>
+   *             <p>If <code>SkipFinalSnapshot</code> is <code>false</code>, you must specify a <code>FinalDBSnapshotIdentifier</code> parameter.</p>
    *         </note>
    *         <p>Default: <code>false</code>
    *         </p>
@@ -2514,11 +3049,9 @@ export interface DeleteDBClusterMessage {
   SkipFinalSnapshot?: boolean;
 
   /**
-   * <p> The cluster snapshot identifier of the new cluster snapshot created when
-   *                 <code>SkipFinalSnapshot</code> is set to <code>false</code>. </p>
+   * <p> The cluster snapshot identifier of the new cluster snapshot created when <code>SkipFinalSnapshot</code> is set to <code>false</code>. </p>
    *         <note>
-   *             <p> Specifying this parameter and also setting the <code>SkipFinalShapshot</code>
-   *                 parameter to <code>true</code> results in an error. </p>
+   *             <p> Specifying this parameter and also setting the <code>SkipFinalShapshot</code> parameter to <code>true</code> results in an error. </p>
    *         </note>
    *         <p>Constraints:</p>
    *         <ul>
@@ -2593,9 +3126,7 @@ export namespace DeleteDBClusterParameterGroupMessage {
 }
 
 /**
- * <p>The parameter group is in use, or it is in a state that is not valid. If you are
- *             trying to delete the parameter group, you can't delete it when the parameter group
- *             is in this state.</p>
+ * <p>The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
  */
 export interface InvalidDBParameterGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBParameterGroupStateFault";
@@ -2618,8 +3149,7 @@ export namespace InvalidDBParameterGroupStateFault {
 export interface DeleteDBClusterSnapshotMessage {
   /**
    * <p>The identifier of the cluster snapshot to delete.</p>
-   *         <p>Constraints: Must be the name of an existing cluster snapshot in the
-   *                 <code>available</code> state.</p>
+   *         <p>Constraints: Must be the name of an existing cluster snapshot in the <code>available</code> state.</p>
    */
   DBClusterSnapshotIdentifier: string | undefined;
 }
@@ -2720,8 +3250,7 @@ export interface DeleteDBSubnetGroupMessage {
    *             <p>You can't delete the default subnet group.</p>
    *         </note>
    *         <p>Constraints:</p>
-   *         <p>Must match the name of an existing <code>DBSubnetGroup</code>. Must not be
-   *             default.</p>
+   *         <p>Must match the name of an existing <code>DBSubnetGroup</code>. Must not be default.</p>
    *         <p>Example: <code>mySubnetgroup</code>
    *         </p>
    */
@@ -2756,7 +3285,96 @@ export namespace InvalidDBSubnetStateFault {
 }
 
 /**
- * <p>A certificate authority (CA) certificate for an AWS account.</p>
+ * <p>Represents the input to <a>DeleteEventSubscription</a>.</p>
+ */
+export interface DeleteEventSubscriptionMessage {
+  /**
+   * <p>The name of the Amazon DocumentDB event notification subscription that you want to delete.</p>
+   */
+  SubscriptionName: string | undefined;
+}
+
+export namespace DeleteEventSubscriptionMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEventSubscriptionMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteEventSubscriptionResult {
+  /**
+   * <p>Detailed information about an event to which you have subscribed.</p>
+   */
+  EventSubscription?: EventSubscription;
+}
+
+export namespace DeleteEventSubscriptionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEventSubscriptionResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Someone else might be modifying a subscription. Wait a few seconds, and try
+ *             again.</p>
+ */
+export interface InvalidEventSubscriptionStateFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidEventSubscriptionStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidEventSubscriptionStateFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidEventSubscriptionStateFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the input to <a>DeleteGlobalCluster</a>.</p>
+ */
+export interface DeleteGlobalClusterMessage {
+  /**
+   * <p>The cluster identifier of the global cluster being deleted.</p>
+   */
+  GlobalClusterIdentifier: string | undefined;
+}
+
+export namespace DeleteGlobalClusterMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteGlobalClusterMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteGlobalClusterResult {
+  /**
+   * <p>A data type representing an Amazon DocumentDB global cluster.</p>
+   */
+  GlobalCluster?: GlobalCluster;
+}
+
+export namespace DeleteGlobalClusterResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteGlobalClusterResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A certificate authority (CA) certificate for an account.</p>
  */
 export interface Certificate {
   /**
@@ -2811,15 +3429,12 @@ export namespace Certificate {
 
 export interface CertificateMessage {
   /**
-   * <p>A list of certificates for this AWS account.</p>
+   * <p>A list of certificates for this account.</p>
    */
   Certificates?: Certificate[];
 
   /**
-   * <p>An optional pagination token provided if the number of records retrieved is greater than
-   *          <code>MaxRecords</code>.  If this parameter is specified, the marker specifies the next record
-   *          in the list. Including the value of <code>Marker</code> in the next call to
-   *          <code>DescribeCertificates</code> results in the next page of certificates.</p>
+   * <p>An optional pagination token provided if the number of records retrieved is greater than <code>MaxRecords</code>. If this parameter is specified, the marker specifies the next record in the list. Including the value of <code>Marker</code> in the next call to <code>DescribeCertificates</code> results in the next page of certificates.</p>
    */
   Marker?: string;
 }
@@ -2880,10 +3495,7 @@ export namespace Filter {
 
 export interface DescribeCertificatesMessage {
   /**
-   * <p>The user-supplied certificate identifier. If this parameter is specified, information
-   *             for only the specified certificate is returned. If this parameter is omitted, a list of
-   *             up to <code>MaxRecords</code> certificates is returned. This parameter is not case
-   *             sensitive.</p>
+   * <p>The user-supplied certificate identifier. If this parameter is specified, information for only the specified certificate is returned. If this parameter is omitted, a list of up to <code>MaxRecords</code> certificates is returned. This parameter is not case sensitive.</p>
    *          <p>Constraints</p>
    *          <ul>
    *             <li>
@@ -2899,10 +3511,7 @@ export interface DescribeCertificatesMessage {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of records to include in the response. If more records
-   *          exist than the specified <code>MaxRecords</code> value, a pagination token
-   *          called a marker is included in the response so that the remaining results can
-   *          be retrieved.</p>
+   * <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -2917,9 +3526,7 @@ export interface DescribeCertificatesMessage {
   MaxRecords?: number;
 
   /**
-   * <p>An optional pagination token provided by a previous <code>DescribeCertificates</code> request.
-   *          If this parameter is specified, the response includes only records beyond the marker, up to the
-   *          value specified by <code>MaxRecords</code>.</p>
+   * <p>An optional pagination token provided by a previous <code>DescribeCertificates</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
 }
@@ -3105,21 +3712,18 @@ export namespace DBClusterParameterGroupDetails {
  */
 export interface DescribeDBClusterParametersMessage {
   /**
-   * <p>The name of a specific cluster parameter group to return parameter details
-   *             for.</p>
+   * <p>The name of a specific cluster parameter group to return parameter details for.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
-   *                 <p>If provided, must match the name of an existing
-   *                         <code>DBClusterParameterGroup</code>.</p>
+   *                 <p>If provided, must match the name of an existing <code>DBClusterParameterGroup</code>.</p>
    *             </li>
    *          </ul>
    */
   DBClusterParameterGroupName: string | undefined;
 
   /**
-   * <p> A value that indicates to return only parameters for a specific source. Parameter
-   *             sources can be <code>engine</code>, <code>service</code>, or <code>customer</code>.
+   * <p> A value that indicates to return only parameters for a specific source. Parameter sources can be <code>engine</code>, <code>service</code>, or <code>customer</code>.
    *         </p>
    */
   Source?: string;
@@ -3186,9 +3790,7 @@ export namespace DBClusterMessage {
  */
 export interface DescribeDBClustersMessage {
   /**
-   * <p>The user-provided cluster identifier. If this parameter is specified, information
-   *             from only the specific cluster is returned. This parameter isn't case
-   *             sensitive.</p>
+   * <p>The user-provided cluster identifier. If this parameter is specified, information from only the specific cluster is returned. This parameter isn't case sensitive.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -3204,9 +3806,7 @@ export interface DescribeDBClustersMessage {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>db-cluster-id</code> - Accepts cluster identifiers and cluster
-   *                     Amazon Resource Names (ARNs). The results list only includes information about
-   *                     the clusters identified by these ARNs.</p>
+   *                     <code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource Names (ARNs). The results list only includes information about the clusters identified by these ARNs.</p>
    *             </li>
    *          </ul>
    */
@@ -3259,24 +3859,18 @@ export namespace DescribeDBClusterSnapshotAttributesMessage {
 
 /**
  * <p>Contains the name and values of a manual cluster snapshot attribute.</p>
- *         <p>Manual cluster snapshot attributes are used to authorize other AWS accounts to
- *             restore a manual cluster snapshot.</p>
+ *         <p>Manual cluster snapshot attributes are used to authorize other accounts to restore a manual cluster snapshot.</p>
  */
 export interface DBClusterSnapshotAttribute {
   /**
    * <p>The name of the manual cluster snapshot attribute.</p>
-   *         <p>The attribute named <code>restore</code> refers to the list of AWS accounts that have
-   *             permission to copy or restore the manual cluster snapshot.</p>
+   *         <p>The attribute named <code>restore</code> refers to the list of accounts that have permission to copy or restore the manual cluster snapshot.</p>
    */
   AttributeName?: string;
 
   /**
    * <p>The values for the manual cluster snapshot attribute.</p>
-   *         <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this
-   *             element returns a list of IDs of the AWS accounts that are authorized to copy or restore
-   *             the manual cluster snapshot. If a value of <code>all</code> is in the list, then the
-   *             manual cluster snapshot is public and available for any AWS account to copy or
-   *             restore.</p>
+   *         <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element returns a list of IDs of the accounts that are authorized to copy or restore the manual cluster snapshot. If a value of <code>all</code> is in the list, then the manual cluster snapshot is public and available for any account to copy or restore.</p>
    */
   AttributeValues?: string[];
 }
@@ -3363,9 +3957,7 @@ export namespace DBClusterSnapshotMessage {
  */
 export interface DescribeDBClusterSnapshotsMessage {
   /**
-   * <p>The ID of the cluster to retrieve the list of cluster snapshots for. This
-   *             parameter can't be used with the <code>DBClusterSnapshotIdentifier</code> parameter.
-   *             This parameter is not case sensitive. </p>
+   * <p>The ID of the cluster to retrieve the list of cluster snapshots for. This parameter can't be used with the <code>DBClusterSnapshotIdentifier</code> parameter. This parameter is not case sensitive. </p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -3377,9 +3969,7 @@ export interface DescribeDBClusterSnapshotsMessage {
   DBClusterIdentifier?: string;
 
   /**
-   * <p>A specific cluster snapshot identifier to describe. This parameter can't be used
-   *             with the <code>DBClusterIdentifier</code> parameter. This value is stored as a lowercase
-   *             string. </p>
+   * <p>A specific cluster snapshot identifier to describe. This parameter can't be used with the <code>DBClusterIdentifier</code> parameter. This value is stored as a lowercase string. </p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -3395,40 +3985,27 @@ export interface DescribeDBClusterSnapshotsMessage {
   DBClusterSnapshotIdentifier?: string;
 
   /**
-   * <p>The type of cluster snapshots to be returned. You can specify one of the following
-   *             values:</p>
+   * <p>The type of cluster snapshots to be returned. You can specify one of the following values:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>automated</code> - Return all cluster snapshots that Amazon DocumentDB has
-   *                     automatically created for your AWS account.</p>
+   *                     <code>automated</code> - Return all cluster snapshots that Amazon DocumentDB has automatically created for your account.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>manual</code> - Return all cluster snapshots that you have manually
-   *                     created for your AWS account.</p>
+   *                     <code>manual</code> - Return all cluster snapshots that you have manually created for your account.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>shared</code> - Return all manual cluster snapshots that have been
-   *                     shared to your AWS account.</p>
+   *                     <code>shared</code> - Return all manual cluster snapshots that have been shared to your account.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>public</code> - Return all cluster snapshots that have been marked as
-   *                     public.</p>
+   *                     <code>public</code> - Return all cluster snapshots that have been marked as public.</p>
    *             </li>
    *          </ul>
-   *         <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
-   *             cluster snapshots are returned. You can include shared cluster snapshots with
-   *             these results by setting the <code>IncludeShared</code> parameter to <code>true</code>.
-   *             You can include public cluster snapshots with these results by setting the
-   *                 <code>IncludePublic</code> parameter to <code>true</code>.</p>
-   *         <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply
-   *             for <code>SnapshotType</code> values of <code>manual</code> or <code>automated</code>.
-   *             The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is
-   *             set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when
-   *                 <code>SnapshotType</code> is set to <code>public</code>.</p>
+   *         <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual cluster snapshots are returned. You can include shared cluster snapshots with these results by setting the <code>IncludeShared</code> parameter to <code>true</code>. You can include public cluster snapshots with these results by setting the<code>IncludePublic</code> parameter to <code>true</code>.</p>
+   *         <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply for <code>SnapshotType</code> values of <code>manual</code> or <code>automated</code>. The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when <code>SnapshotType</code> is set to <code>public</code>.</p>
    */
   SnapshotType?: string;
 
@@ -3454,16 +4031,12 @@ export interface DescribeDBClusterSnapshotsMessage {
   Marker?: string;
 
   /**
-   * <p>Set to <code>true</code> to include shared manual cluster snapshots from other AWS
-   *             accounts that this AWS account has been given permission to copy or restore, and
-   *             otherwise <code>false</code>. The default is <code>false</code>.</p>
+   * <p>Set to <code>true</code> to include shared manual cluster snapshots from other accounts that this account has been given permission to copy or restore, and otherwise <code>false</code>. The default is <code>false</code>.</p>
    */
   IncludeShared?: boolean;
 
   /**
-   * <p>Set to <code>true</code> to include manual cluster snapshots that are public and
-   *             can be copied or restored by any AWS account, and otherwise <code>false</code>. The
-   *             default is <code>false</code>.</p>
+   * <p>Set to <code>true</code> to include manual cluster snapshots that are public and can be copied or restored by any account, and otherwise <code>false</code>. The default is <code>false</code>.</p>
    */
   IncludePublic?: boolean;
 }
@@ -3497,9 +4070,7 @@ export interface UpgradeTarget {
   Description?: string;
 
   /**
-   * <p>A value that indicates whether the target version is applied to any source DB
-   *             instances that have <code>AutoMinorVersionUpgrade</code> set to
-   *             <code>true</code>.</p>
+   * <p>A value that indicates whether the target version is applied to any source DB instances that have <code>AutoMinorVersionUpgrade</code> set to <code>true</code>.</p>
    */
   AutoUpgrade?: boolean;
 
@@ -3657,16 +4228,12 @@ export interface DescribeDBEngineVersionsMessage {
   DefaultOnly?: boolean;
 
   /**
-   * <p>If this parameter is specified and the requested engine supports the
-   *                 <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the
-   *             response includes a list of supported character sets for each engine version. </p>
+   * <p>If this parameter is specified and the requested engine supports the <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the response includes a list of supported character sets for each engine version. </p>
    */
   ListSupportedCharacterSets?: boolean;
 
   /**
-   * <p>If this parameter is specified and the requested engine supports the
-   *                 <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response
-   *             includes a list of supported time zones for each engine version. </p>
+   * <p>If this parameter is specified and the requested engine supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response includes a list of supported time zones for each engine version. </p>
    */
   ListSupportedTimezones?: boolean;
 }
@@ -3711,9 +4278,7 @@ export namespace DBInstanceMessage {
  */
 export interface DescribeDBInstancesMessage {
   /**
-   * <p>The user-provided instance identifier. If this parameter is specified, information
-   *             from only the specific instance is returned. This parameter isn't case
-   *             sensitive.</p>
+   * <p>The user-provided instance identifier. If this parameter is specified, information from only the specific instance is returned. This parameter isn't case sensitive.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -3730,16 +4295,11 @@ export interface DescribeDBInstancesMessage {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>db-cluster-id</code> - Accepts cluster identifiers and cluster
-   *                     Amazon Resource Names (ARNs). The results list includes only the information
-   *                     about the instances that are associated with the clusters that are
-   *                     identified by these ARNs.</p>
+   *                     <code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource Names (ARNs). The results list includes only the information about the instances that are associated with the clusters that are identified by these ARNs.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>db-instance-id</code> - Accepts instance identifiers and instance
-   *                     ARNs. The results list includes only the information about the instances that
-   *                     are identified by these ARNs.</p>
+   *                     <code>db-instance-id</code> - Accepts instance identifiers and instance ARNs. The results list includes only the information about the instances that are identified by these ARNs.</p>
    *             </li>
    *          </ul>
    */
@@ -3884,8 +4444,7 @@ export namespace DescribeEngineDefaultClusterParametersMessage {
  */
 export interface EngineDefaults {
   /**
-   * <p>The name of the cluster parameter group family to return the engine parameter
-   *             information for.</p>
+   * <p>The name of the cluster parameter group family to return the engine parameter information for.</p>
    */
   DBParameterGroupFamily?: string;
 
@@ -3934,8 +4493,7 @@ export namespace DescribeEngineDefaultClusterParametersResult {
 export interface DescribeEventCategoriesMessage {
   /**
    * <p>The type of source that is generating the events.</p>
-   *         <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>,
-   *                 <code>db-security-group</code>, <code>db-snapshot</code>
+   *         <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code>
    *          </p>
    */
   SourceType?: string;
@@ -4011,13 +4569,11 @@ export type SourceType =
  */
 export interface DescribeEventsMessage {
   /**
-   * <p>The identifier of the event source for which events are returned. If not specified,
-   *             then all sources are included in the response.</p>
+   * <p>The identifier of the event source for which events are returned. If not specified, then all sources are included in the response.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
-   *                 <p>If <code>SourceIdentifier</code> is provided, <code>SourceType</code> must
-   *                     also be provided.</p>
+   *                 <p>If <code>SourceIdentifier</code> is provided, <code>SourceType</code> must also be provided.</p>
    *             </li>
    *             <li>
    *                 <p>If the source type is <code>DBInstance</code>, a
@@ -4043,14 +4599,12 @@ export interface DescribeEventsMessage {
   SourceIdentifier?: string;
 
   /**
-   * <p>The event source to retrieve events for. If no value is specified, all events are
-   *             returned.</p>
+   * <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
    */
   SourceType?: SourceType | string;
 
   /**
-   * <p> The beginning of the time interval to retrieve events for, specified in ISO 8601
-   *             format. </p>
+   * <p> The beginning of the time interval to retrieve events for, specified in ISO 8601 format. </p>
    *         <p>Example: 2009-07-08T18:00Z</p>
    */
   StartTime?: Date;
@@ -4171,6 +4725,126 @@ export namespace EventsMessage {
    * @internal
    */
   export const filterSensitiveLog = (obj: EventsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the input to <a>DescribeEventSubscriptions</a>.</p>
+ */
+export interface DescribeEventSubscriptionsMessage {
+  /**
+   * <p>The name of the Amazon DocumentDB event notification subscription that you want to
+   *             describe.</p>
+   */
+  SubscriptionName?: string;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
+   *          in the response so that the remaining results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
+   *          includes only records beyond the marker, up to the value specified by
+   *          <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeEventSubscriptionsMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeEventSubscriptionsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the output of <a>DescribeEventSubscriptions</a>.</p>
+ */
+export interface EventSubscriptionsMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
+   *          includes only records beyond the marker, up to the value specified by
+   *          <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of event subscriptions.</p>
+   */
+  EventSubscriptionsList?: EventSubscription[];
+}
+
+export namespace EventSubscriptionsMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EventSubscriptionsMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeGlobalClustersMessage {
+  /**
+   * <p>The user-supplied  cluster identifier. If this parameter is specified, information from only the specific cluster is returned. This parameter isn't case-sensitive.</p>
+   */
+  GlobalClusterIdentifier?: string;
+
+  /**
+   * <p>A filter that specifies one or more global DB clusters to describe.</p>
+   *         <p>Supported filters: <code>db-cluster-id</code> accepts  cluster identifiers and  cluster Amazon Resource Names (ARNs). The results list will only include information about the clusters identified by these ARNs.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. </p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeGlobalClusters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeGlobalClustersMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeGlobalClustersMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface GlobalClustersMessage {
+  /**
+   * <p></p>
+   */
+  Marker?: string;
+
+  /**
+   * <p></p>
+   */
+  GlobalClusters?: GlobalCluster[];
+}
+
+export namespace GlobalClustersMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GlobalClustersMessage): any => ({
     ...obj,
   });
 }
@@ -4396,8 +5070,7 @@ export namespace PendingMaintenanceActionsMessage {
  */
 export interface FailoverDBClusterMessage {
   /**
-   * <p>A cluster identifier to force a failover for. This parameter is not case
-   *             sensitive.</p>
+   * <p>A cluster identifier to force a failover for. This parameter is not case sensitive.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -4626,7 +5299,7 @@ export interface ModifyDBClusterMessage {
    * <p>The daily time range during which automated backups are created if automated backups
    *             are enabled, using the <code>BackupRetentionPeriod</code> parameter. </p>
    *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for
-   *             each AWS Region. </p>
+   *             each Region. </p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -4651,7 +5324,7 @@ export interface ModifyDBClusterMessage {
    *         <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *         </p>
    *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for
-   *             each AWS Region, occurring on a random day of the week. </p>
+   *             each Region, occurring on a random day of the week. </p>
    *         <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
    *         <p>Constraints: Minimum 30-minute window.</p>
    */
@@ -4666,9 +5339,7 @@ export interface ModifyDBClusterMessage {
   CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
 
   /**
-   * <p>The version number of the database engine to which you want to upgrade. Changing this
-   *             parameter results in an outage. The change is applied during the next maintenance window
-   *             unless the <code>ApplyImmediately</code> parameter is set to <code>true</code>.</p>
+   * <p>The version number of the database engine to which you want to upgrade. Modifying engine version is not supported on Amazon DocumentDB.</p>
    */
   EngineVersion?: string;
 
@@ -4775,31 +5446,20 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
 
   /**
    * <p>The name of the cluster snapshot attribute to modify.</p>
-   *         <p>To manage authorization for other AWS accounts to copy or restore a manual cluster
+   *         <p>To manage authorization for other accounts to copy or restore a manual cluster
    *             snapshot, set this value to <code>restore</code>.</p>
    */
   AttributeName: string | undefined;
 
   /**
-   * <p>A list of cluster snapshot attributes to add to the attribute specified by
-   *                 <code>AttributeName</code>.</p>
-   *         <p>To authorize other AWS accounts to copy or restore a manual cluster snapshot, set
-   *             this list to include one or more AWS account IDs. To make the manual cluster snapshot
-   *             restorable by any AWS account, set it to <code>all</code>. Do not add the
-   *                 <code>all</code> value for any manual cluster snapshots that contain private
-   *             information that you don't want to be available to all AWS accounts.</p>
+   * <p>A list of cluster snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</p>
+   *         <p>To authorize other accounts to copy or restore a manual cluster snapshot, set this list to include one or more account IDs. To make the manual cluster snapshot restorable by any account, set it to <code>all</code>. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want to be available to all accounts.</p>
    */
   ValuesToAdd?: string[];
 
   /**
-   * <p>A list of cluster snapshot attributes to remove from the attribute specified by
-   *                 <code>AttributeName</code>.</p>
-   *         <p>To remove authorization for other AWS accounts to copy or restore a manual cluster
-   *             snapshot, set this list to include one or more AWS account identifiers. To remove
-   *             authorization for any AWS account to copy or restore the cluster snapshot, set it to
-   *                 <code>all</code> . If you specify <code>all</code>, an AWS account whose account ID
-   *             is explicitly added to the <code>restore</code> attribute can still copy or restore a
-   *             manual cluster snapshot.</p>
+   * <p>A list of cluster snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</p>
+   *         <p>To remove authorization for other accounts to copy or restore a manual cluster snapshot, set this list to include one or more account identifiers. To remove authorization for any account to copy or restore the cluster snapshot, set it to <code>all</code> . If you specify <code>all</code>, an account whose account ID is explicitly added to the <code>restore</code> attribute can still copy or restore a manual cluster snapshot.</p>
    */
   ValuesToRemove?: string[];
 }
@@ -4884,9 +5544,7 @@ export interface ModifyDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>The new compute and memory capacity of the instance; for example,
-   *                 <code>db.r5.large</code>. Not all instance classes are available in all AWS
-   *             Regions. </p>
+   * <p>The new compute and memory capacity of the instance; for example, <code>db.r5.large</code>. Not all instance classes are available in all Regions. </p>
    *         <p>If you modify the instance class, an outage occurs during the change. The change is
    *             applied during the next maintenance window, unless <code>ApplyImmediately</code> is
    *             specified as <code>true</code> for this request. </p>
@@ -4924,21 +5582,12 @@ export interface ModifyDBInstanceMessage {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>Indicates that minor version upgrades are applied automatically to the instance
-   *             during the maintenance window. Changing this parameter doesn't result in an outage
-   *             except in the following case, and the change is asynchronously applied as soon as
-   *             possible. An outage results if this parameter is set to <code>true</code> during the
-   *             maintenance window, and a newer minor version is available, and Amazon DocumentDB has enabled
-   *             automatic patching for that engine version. </p>
+   * <p>This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.</p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
   /**
-   * <p> The new instance identifier for the instance when renaming an instance. When
-   *             you change the instance identifier, an instance reboot occurs immediately if you set
-   *                 <code>Apply Immediately</code> to <code>true</code>. It occurs during the next
-   *             maintenance window if you set <code>Apply Immediately</code> to <code>false</code>. This
-   *             value is stored as a lowercase string. </p>
+   * <p> The new instance identifier for the instance when renaming an instance. When you change the instance identifier, an instance reboot occurs immediately if you set <code>Apply Immediately</code> to <code>true</code>. It occurs during the next maintenance window if you set <code>Apply Immediately</code> to <code>false</code>. This value is stored as a lowercase string. </p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -4962,8 +5611,7 @@ export interface ModifyDBInstanceMessage {
   CACertificateIdentifier?: string;
 
   /**
-   * <p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the
-   *             primary instance after a failure of the existing primary instance.</p>
+   * <p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the primary instance after a failure of the existing primary instance.</p>
    *         <p>Default: 1</p>
    *         <p>Valid values: 0-15</p>
    */
@@ -5000,10 +5648,8 @@ export namespace ModifyDBInstanceResult {
  */
 export interface ModifyDBSubnetGroupMessage {
   /**
-   * <p>The name for the subnet group. This value is stored as a lowercase string. You
-   *             can't modify the default subnet group. </p>
-   *         <p>Constraints: Must match the name of an existing <code>DBSubnetGroup</code>. Must not
-   *             be default.</p>
+   * <p>The name for the subnet group. This value is stored as a lowercase string. You can't modify the default subnet group. </p>
+   *         <p>Constraints: Must match the name of an existing <code>DBSubnetGroup</code>. Must not be default.</p>
    *         <p>Example: <code>mySubnetgroup</code>
    *         </p>
    */
@@ -5064,6 +5710,125 @@ export namespace SubnetAlreadyInUse {
 }
 
 /**
+ * <p>Represents the input to <a>ModifyEventSubscription</a>.</p>
+ */
+export interface ModifyEventSubscriptionMessage {
+  /**
+   * <p>The name of the Amazon DocumentDB event notification subscription.</p>
+   */
+  SubscriptionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. The
+   *             ARN is created by Amazon SNS when you create a topic and subscribe to it.</p>
+   */
+  SnsTopicArn?: string;
+
+  /**
+   * <p>The type of source that is generating the events. For example, if you want to be notified of events generated by an instance, set this parameter to <code>db-instance</code>. If this value is not specified, all events are returned.</p>
+   *         <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code>
+   *          </p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p> A list of event categories for a <code>SourceType</code> that you want to subscribe
+   *             to.</p>
+   */
+  EventCategories?: string[];
+
+  /**
+   * <p> A Boolean value; set to <code>true</code> to activate the subscription. </p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace ModifyEventSubscriptionMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyEventSubscriptionMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyEventSubscriptionResult {
+  /**
+   * <p>Detailed information about an event to which you have subscribed.</p>
+   */
+  EventSubscription?: EventSubscription;
+}
+
+export namespace ModifyEventSubscriptionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyEventSubscriptionResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the input to <a>ModifyGlobalCluster</a>.</p>
+ */
+export interface ModifyGlobalClusterMessage {
+  /**
+   * <p>The identifier for the global cluster being modified. This parameter isn't case-sensitive.</p>
+   * 		       <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   * 				           <p>Must match the identifier of an existing global cluster.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  GlobalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The new identifier for a global cluster when you modify a global cluster. This value is stored as a lowercase string.</p>
+   *         <ul>
+   *             <li>
+   * 				           <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>
+   * 				           <p>The first character must be a letter</p>
+   * 				           <p>Can't end with a hyphen or contain two consecutive hyphens</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>Example: <code>my-cluster2</code>
+   *          </p>
+   */
+  NewGlobalClusterIdentifier?: string;
+
+  /**
+   * <p>Indicates if the global cluster has deletion protection enabled. The global cluster can't be deleted when deletion protection is enabled. </p>
+   */
+  DeletionProtection?: boolean;
+}
+
+export namespace ModifyGlobalClusterMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyGlobalClusterMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyGlobalClusterResult {
+  /**
+   * <p>A data type representing an Amazon DocumentDB global cluster.</p>
+   */
+  GlobalCluster?: GlobalCluster;
+}
+
+export namespace ModifyGlobalClusterResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyGlobalClusterResult): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Represents the input to <a>RebootDBInstance</a>.</p>
  */
 export interface RebootDBInstanceMessage {
@@ -5107,6 +5872,88 @@ export namespace RebootDBInstanceResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: RebootDBInstanceResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the input to <a>RemoveFromGlobalCluster</a>.</p>
+ */
+export interface RemoveFromGlobalClusterMessage {
+  /**
+   * <p>The cluster identifier to detach from the Amazon DocumentDB global cluster. </p>
+   */
+  GlobalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) identifying the cluster that was detached from the Amazon DocumentDB global cluster. </p>
+   */
+  DbClusterIdentifier: string | undefined;
+}
+
+export namespace RemoveFromGlobalClusterMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveFromGlobalClusterMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveFromGlobalClusterResult {
+  /**
+   * <p>A data type representing an Amazon DocumentDB global cluster.</p>
+   */
+  GlobalCluster?: GlobalCluster;
+}
+
+export namespace RemoveFromGlobalClusterResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveFromGlobalClusterResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the input to <a>RemoveSourceIdentifierFromSubscription</a>.</p>
+ */
+export interface RemoveSourceIdentifierFromSubscriptionMessage {
+  /**
+   * <p>The name of the Amazon DocumentDB event notification subscription that you want to remove a
+   *             source identifier from.</p>
+   */
+  SubscriptionName: string | undefined;
+
+  /**
+   * <p> The source identifier to be removed from the subscription, such as the instance
+   *             identifier for an instance, or the name of a security group. </p>
+   */
+  SourceIdentifier: string | undefined;
+}
+
+export namespace RemoveSourceIdentifierFromSubscriptionMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveSourceIdentifierFromSubscriptionMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveSourceIdentifierFromSubscriptionResult {
+  /**
+   * <p>Detailed information about an event to which you have subscribed.</p>
+   */
+  EventSubscription?: EventSubscription;
+}
+
+export namespace RemoveSourceIdentifierFromSubscriptionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveSourceIdentifierFromSubscriptionResult): any => ({
     ...obj,
   });
 }
@@ -5308,19 +6155,13 @@ export interface RestoreDBClusterFromSnapshotMessage {
   Tags?: Tag[];
 
   /**
-   * <p>The AWS KMS key identifier to use when restoring an encrypted cluster from a DB
-   *             snapshot or cluster snapshot.</p>
-   *         <p>The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS
-   *             encryption key. If you are restoring a cluster with the same AWS account that owns
-   *             the AWS KMS encryption key used to encrypt the new cluster, then you can use the AWS
-   *             KMS key alias instead of the ARN for the AWS KMS encryption key.</p>
+   * <p>The KMS key identifier to use when restoring an encrypted cluster from a DB snapshot or cluster snapshot.</p>
+   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
    *         <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the
    *             following occurs:</p>
    *         <ul>
    *             <li>
-   *                 <p>If the snapshot or cluster snapshot in <code>SnapshotIdentifier</code>
-   *                     is encrypted, then the restored cluster is encrypted using the AWS KMS key
-   *                     that was used to encrypt the snapshot or the cluster snapshot.</p>
+   *                 <p>If the snapshot or cluster snapshot in <code>SnapshotIdentifier</code> is encrypted, then the restored cluster is encrypted using the KMS key that was used to encrypt the snapshot or the cluster snapshot.</p>
    *             </li>
    *             <li>
    *                 <p>If the snapshot or the cluster snapshot in
@@ -5332,16 +6173,12 @@ export interface RestoreDBClusterFromSnapshotMessage {
   KmsKeyId?: string;
 
   /**
-   * <p>A list of log types that must be enabled for exporting to Amazon CloudWatch
-   *             Logs.</p>
+   * <p>A list of log types that must be enabled for exporting to Amazon CloudWatch Logs.</p>
    */
   EnableCloudwatchLogsExports?: string[];
 
   /**
-   * <p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is
-   *             enabled, the cluster cannot be deleted unless it is modified and
-   *                 <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code>
-   *             protects clusters from being accidentally deleted.</p>
+   * <p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is enabled, the cluster cannot be deleted unless it is modified and <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code> protects clusters from being accidentally deleted.</p>
    */
   DeletionProtection?: boolean;
 }
@@ -5412,16 +6249,13 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *                 <p>Must be before the latest restorable time for the instance.</p>
    *             </li>
    *             <li>
-   *                 <p>Must be specified if the <code>UseLatestRestorableTime</code> parameter is not
-   *                     provided.</p>
+   *                 <p>Must be specified if the <code>UseLatestRestorableTime</code> parameter is not provided.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot be specified if the <code>UseLatestRestorableTime</code> parameter is
-   *                         <code>true</code>.</p>
+   *                 <p>Cannot be specified if the <code>UseLatestRestorableTime</code> parameter is <code>true</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot be specified if the <code>RestoreType</code> parameter is
-   *                         <code>copy-on-write</code>.</p>
+   *                 <p>Cannot be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code>.</p>
    *             </li>
    *          </ul>
    *         <p>Example: <code>2015-03-07T23:45:00Z</code>
@@ -5466,26 +6300,16 @@ export interface RestoreDBClusterToPointInTimeMessage {
   Tags?: Tag[];
 
   /**
-   * <p>The AWS KMS key identifier to use when restoring an encrypted cluster from an
-   *             encrypted cluster.</p>
-   *         <p>The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS
-   *             encryption key. If you are restoring a cluster with the same AWS account that owns
-   *             the AWS KMS encryption key used to encrypt the new cluster, then you can use the AWS
-   *             KMS key alias instead of the ARN for the AWS KMS encryption key.</p>
-   *         <p>You can restore to a new cluster and encrypt the new cluster with an AWS KMS key
-   *             that is different from the AWS KMS key used to encrypt the source cluster. The new DB
-   *             cluster is encrypted with the AWS KMS key identified by the <code>KmsKeyId</code>
-   *             parameter.</p>
-   *         <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the
-   *             following occurs:</p>
+   * <p>The KMS key identifier to use when restoring an encrypted cluster from an encrypted cluster.</p>
+   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
+   *         <p>You can restore to a new cluster and encrypt the new cluster with an KMS key that is different from the KMS key used to encrypt the source cluster. The new DB cluster is encrypted with the KMS key identified by the <code>KmsKeyId</code> parameter.</p>
+   *         <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following occurs:</p>
    *         <ul>
    *             <li>
-   *                 <p>If the cluster is encrypted, then the restored cluster is encrypted
-   *                     using the AWS KMS key that was used to encrypt the source cluster.</p>
+   *                 <p>If the cluster is encrypted, then the restored cluster is encrypted using the KMS key that was used to encrypt the source cluster.</p>
    *             </li>
    *             <li>
-   *                 <p>If the cluster is not encrypted, then the restored cluster is not
-   *                     encrypted.</p>
+   *                 <p>If the cluster is not encrypted, then the restored cluster is not encrypted.</p>
    *             </li>
    *          </ul>
    *         <p>If <code>DBClusterIdentifier</code> refers to a cluster that is not encrypted, then
@@ -5500,10 +6324,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
   EnableCloudwatchLogsExports?: string[];
 
   /**
-   * <p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is
-   *             enabled, the cluster cannot be deleted unless it is modified and
-   *                 <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code>
-   *             protects clusters from being accidentally deleted.</p>
+   * <p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is enabled, the cluster cannot be deleted unless it is modified and <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code> protects clusters from being accidentally deleted.</p>
    */
   DeletionProtection?: boolean;
 }

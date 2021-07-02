@@ -7464,6 +7464,14 @@ const deserializeAws_queryDisableLoggingCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;

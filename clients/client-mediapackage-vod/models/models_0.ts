@@ -289,6 +289,11 @@ export namespace SpekeKeyProvider {
  */
 export interface CmafEncryption {
   /**
+   * An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
+   */
+  ConstantInitializationVector?: string;
+
+  /**
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;

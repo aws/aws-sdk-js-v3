@@ -39,16 +39,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudFormationClient` and
-the commands you need, for example `CancelUpdateStackCommand`:
+the commands you need, for example `ActivateTypeCommand`:
 
 ```js
 // ES5 example
-const { CloudFormationClient, CancelUpdateStackCommand } = require("@aws-sdk/client-cloudformation");
+const { CloudFormationClient, ActivateTypeCommand } = require("@aws-sdk/client-cloudformation");
 ```
 
 ```ts
 // ES6+ example
-import { CloudFormationClient, CancelUpdateStackCommand } from "@aws-sdk/client-cloudformation";
+import { CloudFormationClient, ActivateTypeCommand } from "@aws-sdk/client-cloudformation";
 ```
 
 ### Usage
@@ -67,7 +67,7 @@ const client = new CloudFormationClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelUpdateStackCommand(params);
+const command = new ActivateTypeCommand(params);
 ```
 
 #### Async/await
@@ -146,7 +146,7 @@ const client = new AWS.CloudFormation({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelUpdateStack(params);
+  const data = await client.activateType(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -154,7 +154,7 @@ try {
 
 // Promises.
 client
-  .cancelUpdateStack(params)
+  .activateType(params)
   .then((data) => {
     // process data.
   })
@@ -163,7 +163,7 @@ client
   });
 
 // callbacks.
-client.cancelUpdateStack(params, (err, data) => {
+client.activateType(params, (err, data) => {
   // proccess err and data.
 });
 ```

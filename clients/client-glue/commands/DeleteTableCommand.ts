@@ -24,7 +24,7 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * <p>Removes a table definition from the Data Catalog.</p>
  *          <note>
  *             <p>After completing this operation, you no longer have access to the table versions and
- *         partitions that belong to the deleted table. AWS Glue deletes these "orphaned" resources
+ *         partitions that belong to the deleted table. Glue deletes these "orphaned" resources
  *         asynchronously in a timely manner, at the discretion of the service.</p>
  *             <p>To ensure the immediate deletion of all related resources, before calling
  *           <code>DeleteTable</code>, use <code>DeleteTableVersion</code> or

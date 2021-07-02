@@ -21,11 +21,11 @@ export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesRequ
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the resource policies set on individual resources by AWS Resource Access Manager
+ * <p>Retrieves the resource policies set on individual resources by Resource Access Manager
  *       during cross-account permission grants. Also retrieves the Data Catalog resource
  *       policy.</p>
  *          <p>If you enabled metadata encryption in Data Catalog settings, and you do not have
- *       permission on the AWS KMS key, the operation can't return the Data Catalog resource
+ *       permission on the KMS key, the operation can't return the Data Catalog resource
  *       policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -1016,6 +1016,14 @@ const deserializeAws_json1_1CheckInLicenseCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
       response = {
@@ -1114,6 +1122,14 @@ const deserializeAws_json1_1CheckoutBorrowLicenseCommandError = async (
     case "com.amazonaws.licensemanager#EntitlementNotAllowedException":
       response = {
         ...(await deserializeAws_json1_1EntitlementNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1232,6 +1248,14 @@ const deserializeAws_json1_1CheckoutLicenseCommandError = async (
     case "com.amazonaws.licensemanager#AuthorizationException":
       response = {
         ...(await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5677,6 +5701,7 @@ const serializeAws_json1_1CreateGrantVersionRequest = (
     ...(input.GrantName !== undefined && input.GrantName !== null && { GrantName: input.GrantName }),
     ...(input.SourceVersion !== undefined && input.SourceVersion !== null && { SourceVersion: input.SourceVersion }),
     ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.StatusReason !== undefined && input.StatusReason !== null && { StatusReason: input.StatusReason }),
   };
 };
 
@@ -5810,6 +5835,7 @@ const serializeAws_json1_1DatetimeRange = (input: DatetimeRange, context: __Serd
 const serializeAws_json1_1DeleteGrantRequest = (input: DeleteGrantRequest, context: __SerdeContext): any => {
   return {
     ...(input.GrantArn !== undefined && input.GrantArn !== null && { GrantArn: input.GrantArn }),
+    ...(input.StatusReason !== undefined && input.StatusReason !== null && { StatusReason: input.StatusReason }),
     ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
   };
 };
@@ -7623,6 +7649,7 @@ const deserializeAws_json1_1ReceivedMetadata = (output: any, context: __SerdeCon
         ? deserializeAws_json1_1AllowedOperationList(output.AllowedOperations, context)
         : undefined,
     ReceivedStatus: __expectString(output.ReceivedStatus),
+    ReceivedStatusReason: __expectString(output.ReceivedStatusReason),
   } as any;
 };
 

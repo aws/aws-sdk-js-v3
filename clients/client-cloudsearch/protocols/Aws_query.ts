@@ -136,6 +136,7 @@ import {
   LiteralArrayOptions,
   LiteralOptions,
   OptionStatus,
+  ResourceAlreadyExistsException,
   ResourceNotFoundException,
   ScalingParameters,
   ScalingParametersStatus,
@@ -707,6 +708,22 @@ const deserializeAws_queryCreateDomainCommandError = async (
     case "com.amazonaws.cloudsearch#LimitExceededException":
       response = {
         ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.cloudsearch#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_queryResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2689,6 +2706,21 @@ const deserializeAws_queryLimitExceededExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_queryResourceAlreadyExistsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceAlreadyExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryResourceAlreadyExistsException(body.Error, context);
+  const contents: ResourceAlreadyExistsException = {
+    name: "ResourceAlreadyExistsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4587,6 +4619,23 @@ const deserializeAws_queryOptionStatus = (output: any, context: __SerdeContext):
   }
   if (output["PendingDeletion"] !== undefined) {
     contents.PendingDeletion = __parseBoolean(output["PendingDeletion"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryResourceAlreadyExistsException = (
+  output: any,
+  context: __SerdeContext
+): ResourceAlreadyExistsException => {
+  let contents: any = {
+    Code: undefined,
+    Message: undefined,
+  };
+  if (output["Code"] !== undefined) {
+    contents.Code = __expectString(output["Code"]);
+  }
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };

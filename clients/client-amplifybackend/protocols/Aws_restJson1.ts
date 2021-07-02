@@ -24,6 +24,7 @@ import { GetBackendAuthCommandInput, GetBackendAuthCommandOutput } from "../comm
 import { GetBackendCommandInput, GetBackendCommandOutput } from "../commands/GetBackendCommand";
 import { GetBackendJobCommandInput, GetBackendJobCommandOutput } from "../commands/GetBackendJobCommand";
 import { GetTokenCommandInput, GetTokenCommandOutput } from "../commands/GetTokenCommand";
+import { ImportBackendAuthCommandInput, ImportBackendAuthCommandOutput } from "../commands/ImportBackendAuthCommand";
 import { ListBackendJobsCommandInput, ListBackendJobsCommandOutput } from "../commands/ListBackendJobsCommand";
 import { RemoveAllBackendsCommandInput, RemoveAllBackendsCommandOutput } from "../commands/RemoveAllBackendsCommand";
 import {
@@ -749,6 +750,53 @@ export const serializeAws_restJson1GetTokenCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ImportBackendAuthCommand = async (
+  input: ImportBackendAuthCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/backend/{AppId}/auth/{BackendEnvironmentName}/import";
+  if (input.AppId !== undefined) {
+    const labelValue: string = input.AppId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AppId.");
+    }
+    resolvedPath = resolvedPath.replace("{AppId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AppId.");
+  }
+  if (input.BackendEnvironmentName !== undefined) {
+    const labelValue: string = input.BackendEnvironmentName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: BackendEnvironmentName.");
+    }
+    resolvedPath = resolvedPath.replace("{BackendEnvironmentName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.IdentityPoolId !== undefined &&
+      input.IdentityPoolId !== null && { identityPoolId: input.IdentityPoolId }),
+    ...(input.NativeClientId !== undefined &&
+      input.NativeClientId !== null && { nativeClientId: input.NativeClientId }),
+    ...(input.UserPoolId !== undefined && input.UserPoolId !== null && { userPoolId: input.UserPoolId }),
+    ...(input.WebClientId !== undefined && input.WebClientId !== null && { webClientId: input.WebClientId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -2609,6 +2657,105 @@ const deserializeAws_restJson1GetTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTokenCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.amplifybackend#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GatewayTimeoutException":
+    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
+      response = {
+        ...(await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.amplifybackend#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.amplifybackend#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ImportBackendAuthCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportBackendAuthCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ImportBackendAuthCommandError(output, context);
+  }
+  const contents: ImportBackendAuthCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AppId: undefined,
+    BackendEnvironmentName: undefined,
+    Error: undefined,
+    JobId: undefined,
+    Operation: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.appId !== undefined && data.appId !== null) {
+    contents.AppId = __expectString(data.appId);
+  }
+  if (data.backendEnvironmentName !== undefined && data.backendEnvironmentName !== null) {
+    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
+  }
+  if (data.error !== undefined && data.error !== null) {
+    contents.Error = __expectString(data.error);
+  }
+  if (data.jobId !== undefined && data.jobId !== null) {
+    contents.JobId = __expectString(data.jobId);
+  }
+  if (data.operation !== undefined && data.operation !== null) {
+    contents.Operation = __expectString(data.operation);
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.Status = __expectString(data.status);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ImportBackendAuthCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportBackendAuthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),

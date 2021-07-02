@@ -21,8 +21,7 @@ export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
 export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Modifies settings for an instance. You can change one or more database configuration
- *             parameters by specifying these parameters and the new values in the request.</p>
+ * <p>Modifies settings for an instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,7 +21,7 @@ export interface DeregisterInstanceCommandInput extends DeregisterInstanceReques
 export interface DeregisterInstanceCommandOutput extends DeregisterInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified
+ * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map created for the specified
  *    instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

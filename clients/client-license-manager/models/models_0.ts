@@ -26,6 +26,7 @@ export enum GrantStatus {
   PENDING_DELETE = "PENDING_DELETE",
   PENDING_WORKFLOW = "PENDING_WORKFLOW",
   REJECTED = "REJECTED",
+  WORKFLOW_COMPLETED = "WORKFLOW_COMPLETED",
 }
 
 export interface AcceptGrantResponse {
@@ -720,6 +721,7 @@ export interface CreateGrantVersionRequest {
    */
   Status?: GrantStatus | string;
 
+  StatusReason?: string;
   /**
    * <p>Current version of the grant.</p>
    */
@@ -1626,6 +1628,7 @@ export interface DeleteGrantRequest {
    */
   GrantArn: string | undefined;
 
+  StatusReason?: string;
   /**
    * <p>Current version of the grant.</p>
    */
@@ -3453,6 +3456,7 @@ export enum ReceivedStatus {
   PENDING_ACCEPT = "PENDING_ACCEPT",
   PENDING_WORKFLOW = "PENDING_WORKFLOW",
   REJECTED = "REJECTED",
+  WORKFLOW_COMPLETED = "WORKFLOW_COMPLETED",
 }
 
 /**
@@ -3464,6 +3468,7 @@ export interface ReceivedMetadata {
    */
   ReceivedStatus?: ReceivedStatus | string;
 
+  ReceivedStatusReason?: string;
   /**
    * <p>Allowed operations.</p>
    */

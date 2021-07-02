@@ -21,8 +21,7 @@ export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a previously provisioned instance.
- *             </p>
+ * <p>Deletes a previously provisioned instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,7 +22,8 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
 
 /**
  * <p>Describes your Spot Fleet requests.</p>
- *          <p>Spot Fleet requests are deleted 48 hours after they are canceled and their instances are terminated.</p>
+ *         <p>Spot Fleet requests are deleted 48 hours after they are canceled and their instances
+ *             are terminated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

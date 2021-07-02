@@ -5389,7 +5389,7 @@ export interface DescribeReservedInstancesOfferingsRequest {
    *                <p>
    *                   <code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance
    *           Marketplace offerings. When this filter is not used, which is the default behavior, all
-   *           offerings from both AWS and the Reserved Instance Marketplace are listed.</p>
+   *           offerings from both Amazon Web Services and the Reserved Instance Marketplace are listed.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5595,7 +5595,7 @@ export interface ReservedInstancesOffering {
   InstanceTenancy?: Tenancy | string;
 
   /**
-   * <p>Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS.
+   * <p>Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or Amazon Web Services.
    *         If it's a Reserved Instance Marketplace offering, this is <code>true</code>.</p>
    */
   Marketplace?: boolean;
@@ -6865,9 +6865,10 @@ export namespace DescribeSnapshotsResult {
  */
 export interface DescribeSpotDatafeedSubscriptionRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -6905,17 +6906,17 @@ export namespace DescribeSpotDatafeedSubscriptionResult {
  */
 export interface DescribeSpotFleetInstancesRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of results to return in a single call.
-   *       Specify a value between 1 and 1000. The default value is 1000.
-   *       To retrieve the remaining results, make another call with the returned
-   *       <code>NextToken</code> value.</p>
+   * <p>The maximum number of results to return in a single call. Specify a value between 1
+   *             and 1000. The default value is 1000. To retrieve the remaining results, make another
+   *             call with the returned <code>NextToken</code> value.</p>
    */
   MaxResults?: number;
 
@@ -6950,7 +6951,8 @@ export interface DescribeSpotFleetInstancesResponse {
   ActiveInstances?: ActiveInstance[];
 
   /**
-   * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token required to retrieve the next set of results. This value is
+   *                 <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
 
@@ -6981,9 +6983,10 @@ export enum EventType {
  */
 export interface DescribeSpotFleetRequestHistoryRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -6993,10 +6996,9 @@ export interface DescribeSpotFleetRequestHistoryRequest {
   EventType?: EventType | string;
 
   /**
-   * <p>The maximum number of results to return in a single call.
-   *       Specify a value between 1 and 1000. The default value is 1000.
-   *       To retrieve the remaining results, make another call with the returned
-   *       <code>NextToken</code> value.</p>
+   * <p>The maximum number of results to return in a single call. Specify a value between 1
+   *             and 1000. The default value is 1000. To retrieve the remaining results, make another
+   *             call with the returned <code>NextToken</code> value.</p>
    */
   MaxResults?: number;
 
@@ -7011,7 +7013,8 @@ export interface DescribeSpotFleetRequestHistoryRequest {
   SpotFleetRequestId: string | undefined;
 
   /**
-   * <p>The starting date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * <p>The starting date and time for the events, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
   StartTime: Date | undefined;
 }
@@ -7036,21 +7039,22 @@ export interface HistoryRecord {
 
   /**
    * <p>The event type.</p>
-   *          <ul>
+   *         <ul>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>error</code> - An error with the Spot Fleet request.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>fleetRequestChange</code> - A change in the status or configuration of the Spot Fleet request.</p>
+   *                 <p>
+   *                   <code>fleetRequestChange</code> - A change in the status or configuration of
+   *                     the Spot Fleet request.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>instanceChange</code> - An instance was launched or terminated.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>Information</code> - An informational event.</p>
    *             </li>
    *          </ul>
@@ -7058,7 +7062,8 @@ export interface HistoryRecord {
   EventType?: EventType | string;
 
   /**
-   * <p>The date and time of the event, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * <p>The date and time of the event, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
   Timestamp?: Date;
 }
@@ -7082,14 +7087,17 @@ export interface DescribeSpotFleetRequestHistoryResponse {
   HistoryRecords?: HistoryRecord[];
 
   /**
-   * <p>The last date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *       All records up to this time were retrieved.</p>
-   *          <p>If <code>nextToken</code> indicates that there are more results, this value is not present.</p>
+   * <p>The last date and time for the events, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *             All records up to this time were retrieved.</p>
+   *         <p>If <code>nextToken</code> indicates that there are more results, this value is not
+   *             present.</p>
    */
   LastEvaluatedTime?: Date;
 
   /**
-   * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token required to retrieve the next set of results. This value is
+   *                 <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
 
@@ -7099,7 +7107,8 @@ export interface DescribeSpotFleetRequestHistoryResponse {
   SpotFleetRequestId?: string;
 
   /**
-   * <p>The starting date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * <p>The starting date and time for the events, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
   StartTime?: Date;
 }
@@ -7118,17 +7127,17 @@ export namespace DescribeSpotFleetRequestHistoryResponse {
  */
 export interface DescribeSpotFleetRequestsRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of results to return in a single call.
-   *       Specify a value between 1 and 1000. The default value is 1000.
-   *       To retrieve the remaining results, make another call with the returned
-   *       <code>NextToken</code> value.</p>
+   * <p>The maximum number of results to return in a single call. Specify a value between 1
+   *             and 1000. The default value is 1000. To retrieve the remaining results, make another
+   *             call with the returned <code>NextToken</code> value.</p>
    */
   MaxResults?: number;
 
@@ -7302,7 +7311,8 @@ export namespace InstanceNetworkInterfaceSpecification {
 export interface SpotPlacement {
   /**
    * <p>The Availability Zone.</p>
-   *          <p>[Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".</p>
+   *         <p>[Spot Fleet only] To specify multiple Availability Zones, separate them using commas;
+   *             for example, "us-west-2a, us-west-2b".</p>
    */
   AvailabilityZone?: string;
 
@@ -7312,9 +7322,9 @@ export interface SpotPlacement {
   GroupName?: string;
 
   /**
-   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy
-   *        of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code> tenancy is not
-   *        supported for Spot Instances.</p>
+   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
+   *             tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
+   *             tenancy is not supported for Spot Instances.</p>
    */
   Tenancy?: Tenancy | string;
 }
@@ -7335,7 +7345,7 @@ export interface SpotFleetTagSpecification {
   /**
    * <p>The type of resource. Currently, the only resource type that is supported is
    *                 <code>instance</code>. To tag the Spot Fleet request on creation, use the
-   *             <code>TagSpecifications</code> parameter in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html">
+   *                 <code>TagSpecifications</code> parameter in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html">
    *                <code>SpotFleetRequestConfigData</code>
    *             </a>.</p>
    */
@@ -7358,8 +7368,8 @@ export namespace SpotFleetTagSpecification {
 
 /**
  * <p>Describes the launch specification for one or more Spot Instances. If you include
- *             On-Demand capacity in your fleet request or want to specify an EFA network device, you can't use
- *                 <code>SpotFleetLaunchSpecification</code>; you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
+ *             On-Demand capacity in your fleet request or want to specify an EFA network device, you
+ *             can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
  */
 export interface SpotFleetLaunchSpecification {
   /**
@@ -7433,7 +7443,9 @@ export interface SpotFleetLaunchSpecification {
   Placement?: SpotPlacement;
 
   /**
-   * <p>The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.</p>
+   * <p>The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel
+   *           requirements for information about whether you need to specify a RAM disk. To find kernel
+   *           requirements, refer to the Amazon Web Services Resource Center and search for the kernel ID.</p>
    */
   RamdiskId?: string;
 
@@ -7487,7 +7499,8 @@ export interface LaunchTemplateOverrides {
   InstanceType?: _InstanceType | string;
 
   /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot
+   *             Instance.</p>
    */
   SpotPrice?: string;
 
@@ -7514,8 +7527,8 @@ export interface LaunchTemplateOverrides {
    *             On-Demand capacity.</p>
    *         <p>If the Spot <code>AllocationStrategy</code> is set to
    *                 <code>capacityOptimizedPrioritized</code>, Spot Fleet uses priority on a best-effort basis
-   *             to determine which launch template override to use in fulfilling Spot capacity,
-   *             but optimizes for capacity first.</p>
+   *             to determine which launch template override to use in fulfilling Spot capacity, but
+   *             optimizes for capacity first.</p>
    *         <p>Valid values are whole numbers starting at <code>0</code>. The lower the number, the
    *             higher the priority. If no number is set, the launch template override has the lowest
    *             priority. You can set the same priority for different launch template overrides.</p>
@@ -7542,7 +7555,8 @@ export interface LaunchTemplateConfig {
   LaunchTemplateSpecification?: FleetLaunchTemplateSpecification;
 
   /**
-   * <p>Any parameters that you specify override the same parameters in the launch template.</p>
+   * <p>Any parameters that you specify override the same parameters in the launch
+   *             template.</p>
    */
   Overrides?: LaunchTemplateOverrides[];
 }
@@ -7576,8 +7590,8 @@ export namespace ClassicLoadBalancer {
 }
 
 /**
- * <p>Describes the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances
- *             with these Classic Load Balancers.</p>
+ * <p>Describes the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers
+ *             the running Spot Instances with these Classic Load Balancers.</p>
  */
 export interface ClassicLoadBalancersConfig {
   /**
@@ -7615,8 +7629,8 @@ export namespace TargetGroup {
 }
 
 /**
- * <p>Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances
- *             with these target groups.</p>
+ * <p>Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the
+ *             running Spot Instances with these target groups.</p>
  */
 export interface TargetGroupsConfig {
   /**
@@ -7635,7 +7649,8 @@ export namespace TargetGroupsConfig {
 }
 
 /**
- * <p>Describes the Classic Load Balancers and target groups to attach to a Spot Fleet request.</p>
+ * <p>Describes the Classic Load Balancers and target groups to attach to a Spot Fleet
+ *             request.</p>
  */
 export interface LoadBalancersConfig {
   /**
@@ -7744,51 +7759,53 @@ export interface SpotFleetRequestConfigData {
   AllocationStrategy?: AllocationStrategy | string;
 
   /**
-   * <p>The order of the launch template overrides to use in fulfilling On-Demand capacity.
-   *             If you specify <code>lowestPrice</code>, Spot Fleet uses price to determine the order,
-   *             launching the lowest price first. If you specify <code>prioritized</code>, Spot Fleet uses the
-   *             priority that you assign to each Spot Fleet launch template override, launching the highest
-   *             priority first. If you do not specify a value, Spot Fleet defaults to
-   *             <code>lowestPrice</code>.</p>
+   * <p>The order of the launch template overrides to use in fulfilling On-Demand capacity. If
+   *             you specify <code>lowestPrice</code>, Spot Fleet uses price to determine the order, launching
+   *             the lowest price first. If you specify <code>prioritized</code>, Spot Fleet uses the priority
+   *             that you assign to each Spot Fleet launch template override, launching the highest priority
+   *             first. If you do not specify a value, Spot Fleet defaults to <code>lowestPrice</code>.</p>
    */
   OnDemandAllocationStrategy?: OnDemandAllocationStrategy | string;
 
   /**
-   * <p>The strategies for managing your Spot Instances that are at an
-   *             elevated risk of being interrupted.</p>
+   * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
+   *             interrupted.</p>
    */
   SpotMaintenanceStrategies?: SpotMaintenanceStrategies;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-   *             your listings. This helps to avoid duplicate listings. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of your
+   *             listings. This helps to avoid duplicate listings. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
    */
   ClientToken?: string;
 
   /**
-   * <p>Indicates whether running Spot Instances should be terminated if you decrease the target
-   *             capacity of the Spot Fleet request below the current size of the Spot Fleet.</p>
+   * <p>Indicates whether running Spot Instances should be terminated if you decrease the
+   *             target capacity of the Spot Fleet request below the current size of the Spot
+   *             Fleet.</p>
    */
   ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | string;
 
   /**
-   * <p>The number of units fulfilled by this request compared to the set target capacity. You cannot set this value.</p>
+   * <p>The number of units fulfilled by this request compared to the set target capacity. You
+   *             cannot set this value.</p>
    */
   FulfilledCapacity?: number;
 
   /**
-   * <p>The number of On-Demand units fulfilled by this request compared to the set target On-Demand capacity.</p>
+   * <p>The number of On-Demand units fulfilled by this request compared to the set target
+   *             On-Demand capacity.</p>
    */
   OnDemandFulfilledCapacity?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that
+   * <p>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that
    *             grants the Spot Fleet the permission to request, launch, terminate, and tag instances on
    *             your behalf. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites">Spot
    *                 Fleet prerequisites</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>. Spot Fleet
    *             can terminate Spot Instances on your behalf when you cancel its Spot Fleet request using
-   *           <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests">CancelSpotFleetRequests</a> or when the Spot Fleet request expires, if
-   *             you set <code>TerminateInstancesWithExpiration</code>.</p>
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests">CancelSpotFleetRequests</a> or when the Spot Fleet request expires, if you set
+   *                 <code>TerminateInstancesWithExpiration</code>.</p>
    */
   IamFleetRole: string | undefined;
 
@@ -7808,7 +7825,8 @@ export interface SpotFleetRequestConfigData {
   LaunchTemplateConfigs?: LaunchTemplateConfig[];
 
   /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.</p>
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. The
+   *             default is the On-Demand price.</p>
    */
   SpotPrice?: string;
 
@@ -7822,33 +7840,33 @@ export interface SpotFleetRequestConfigData {
   TargetCapacity: number | undefined;
 
   /**
-   * <p>The number of On-Demand units to request. You can choose to set the target capacity
-   *             in terms of instances or a performance characteristic that is important to your
-   *             application workload, such as vCPUs, memory, or I/O. If the request type is
-   *                 <code>maintain</code>, you can specify a target capacity of 0 and add capacity
-   *             later.</p>
+   * <p>The number of On-Demand units to request. You can choose to set the target capacity in
+   *             terms of instances or a performance characteristic that is important to your application
+   *             workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>,
+   *             you can specify a target capacity of 0 and add capacity later.</p>
    */
   OnDemandTargetCapacity?: number;
 
   /**
-   * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay.
-   *             You can use the <code>onDemandMaxTotalPrice</code> parameter, the <code>spotMaxTotalPrice</code>
-   *             parameter, or both parameters to ensure that your fleet cost does not exceed
-   *             your budget. If you set a maximum price per hour for the On-Demand Instances and
-   *             Spot Instances in your request, Spot Fleet will launch instances until it reaches
-   *             the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached,
-   *             the fleet stops launching instances even if it hasn’t met the target capacity.</p>
+   * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay. You
+   *             can use the <code>onDemandMaxTotalPrice</code> parameter, the
+   *                 <code>spotMaxTotalPrice</code> parameter, or both parameters to ensure that your
+   *             fleet cost does not exceed your budget. If you set a maximum price per hour for the
+   *             On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the
+   *             maximum amount you're willing to pay. When the maximum amount you're willing to pay is
+   *             reached, the fleet stops launching instances even if it hasn’t met the target
+   *             capacity.</p>
    */
   OnDemandMaxTotalPrice?: string;
 
   /**
-   * <p>The maximum amount per hour for Spot Instances that you're willing to pay.
-   *             You can use the <code>spotdMaxTotalPrice</code> parameter, the <code>onDemandMaxTotalPrice</code>
-   *             parameter, or both parameters to ensure that your fleet cost does not exceed
-   *             your budget. If you set a maximum price per hour for the On-Demand Instances and
-   *             Spot Instances in your request, Spot Fleet will launch instances until it reaches
-   *             the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached,
-   *             the fleet stops launching instances even if it hasn’t met the target capacity.</p>
+   * <p>The maximum amount per hour for Spot Instances that you're willing to pay. You can use
+   *             the <code>spotdMaxTotalPrice</code> parameter, the <code>onDemandMaxTotalPrice</code>
+   *             parameter, or both parameters to ensure that your fleet cost does not exceed your
+   *             budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request,
+   *             Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay.
+   *             When the maximum amount you're willing to pay is reached, the fleet stops launching
+   *             instances even if it hasn’t met the target capacity.</p>
    */
   SpotMaxTotalPrice?: string;
 
@@ -7859,12 +7877,12 @@ export interface SpotFleetRequestConfigData {
   TerminateInstancesWithExpiration?: boolean;
 
   /**
-   * <p>The type of request. Indicates whether the Spot Fleet only requests the target capacity
-   *             or also attempts to maintain it. When this value is <code>request</code>, the Spot Fleet
-   *             only places the required requests. It does not attempt to replenish Spot Instances if
-   *             capacity is diminished, nor does it submit requests in alternative Spot pools if
-   *             capacity is not available. When this value is <code>maintain</code>, the Spot Fleet
-   *             maintains the target capacity. The Spot Fleet places the required requests to meet
+   * <p>The type of request. Indicates whether the Spot Fleet only requests the target
+   *             capacity or also attempts to maintain it. When this value is <code>request</code>, the
+   *             Spot Fleet only places the required requests. It does not attempt to replenish Spot
+   *             Instances if capacity is diminished, nor does it submit requests in alternative Spot
+   *             pools if capacity is not available. When this value is <code>maintain</code>, the Spot
+   *             Fleet maintains the target capacity. The Spot Fleet places the required requests to meet
    *             capacity and automatically replenishes any interrupted instances. Default:
    *                 <code>maintain</code>. <code>instant</code> is listed but is not used by Spot
    *             Fleet.</p>
@@ -7881,8 +7899,9 @@ export interface SpotFleetRequestConfigData {
   /**
    * <p>The end date and time of the request, in UTC format
    *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *             After the end date and time, no new Spot Instance requests are placed or able to fulfill the request.
-   *             If no value is specified, the Spot Fleet request remains until you cancel it.</p>
+   *             After the end date and time, no new Spot Instance requests are placed or able to fulfill
+   *             the request. If no value is specified, the Spot Fleet request remains until you cancel
+   *             it.</p>
    */
   ValidUntil?: Date;
 
@@ -7892,15 +7911,18 @@ export interface SpotFleetRequestConfigData {
   ReplaceUnhealthyInstances?: boolean;
 
   /**
-   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
+   * <p>The behavior when a Spot Instance is interrupted. The default is
+   *                 <code>terminate</code>.</p>
    */
   InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
 
   /**
-   * <p>One or more Classic Load Balancers and target groups to attach to the Spot Fleet request.
-   *           Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups.</p>
-   *          <p>With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types:
-   *           C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.</p>
+   * <p>One or more Classic Load Balancers and target groups to attach to the Spot Fleet
+   *             request. Spot Fleet registers the running Spot Instances with the specified Classic Load
+   *             Balancers and target groups.</p>
+   *         <p>With Network Load Balancers, Spot Fleet cannot register instances that have the
+   *             following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2,
+   *             M3, and T1.</p>
    */
   LoadBalancersConfig?: LoadBalancersConfig;
 
@@ -7910,8 +7932,20 @@ export interface SpotFleetRequestConfigData {
    *                 <code>lowest-price</code>. Spot Fleet selects the cheapest Spot pools and evenly
    *             allocates your target Spot capacity across the number of Spot pools that you
    *             specify.</p>
+   *         <p>Note that Spot Fleet attempts to draw Spot Instances from the number of pools that you specify on a
+   *             best effort basis. If a pool runs out of Spot capacity before fulfilling your target
+   *             capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest
+   *             pool. To ensure that your target capacity is met, you might receive Spot Instances from more than
+   *             the number of pools that you specified. Similarly, if most of the pools have no Spot
+   *             capacity, you might receive your full target capacity from fewer than the number of
+   *             pools that you specified.</p>
    */
   InstancePoolsToUseCount?: number;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  Context?: string;
 
   /**
    * <p>The key-value pair for tagging the Spot Fleet request on creation. The value for
@@ -7990,7 +8024,8 @@ export namespace SpotFleetRequestConfig {
  */
 export interface DescribeSpotFleetRequestsResponse {
   /**
-   * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The token required to retrieve the next set of results. This value is
+   *                 <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
 
@@ -8015,153 +8050,175 @@ export namespace DescribeSpotFleetRequestsResponse {
 export interface DescribeSpotInstanceRequestsRequest {
   /**
    * <p>One or more filters.</p>
-   *          <ul>
+   *         <ul>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>availability-zone-group</code> - The Availability Zone group.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>create-time</code> - The time stamp when the Spot Instance request was created.</p>
+   *                 <p>
+   *                   <code>create-time</code> - The time stamp when the Spot Instance request was
+   *                     created.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>fault-code</code> - The fault code related to the request.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>fault-message</code> - The fault message related to the request.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance that fulfilled the request.</p>
+   *                 <p>
+   *                   <code>instance-id</code> - The ID of the instance that fulfilled the
+   *                     request.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>launch-group</code> - The Spot Instance launch group.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>launch.block-device-mapping.delete-on-termination</code> - Indicates whether the EBS volume is deleted on instance termination.</p>
+   *                 <p>
+   *                   <code>launch.block-device-mapping.delete-on-termination</code> - Indicates
+   *                     whether the EBS volume is deleted on instance termination.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>launch.block-device-mapping.device-name</code> - The device name for the volume in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   *                 <p>
+   *                   <code>launch.block-device-mapping.device-name</code> - The device name for the
+   *                     volume in the block device mapping (for example, <code>/dev/sdh</code> or
+   *                         <code>xvdh</code>).</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>launch.block-device-mapping.snapshot-id</code> - The ID of the snapshot for the EBS volume.</p>
+   *                 <p>
+   *                   <code>launch.block-device-mapping.snapshot-id</code> - The ID of the snapshot
+   *                     for the EBS volume.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>launch.block-device-mapping.volume-size</code> - The size of the EBS volume, in GiB.</p>
+   *                 <p>
+   *                   <code>launch.block-device-mapping.volume-size</code> - The size of the EBS
+   *                     volume, in GiB.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>launch.block-device-mapping.volume-type</code> - The type of EBS volume:
-   *                <code>gp2</code> for General Purpose SSD, <code>io1</code> or <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for
-   *                Throughput Optimized HDD, <code>sc1</code>for Cold HDD, or <code>standard</code> for Magnetic.</p>
+   *                         <code>gp2</code> for General Purpose SSD, <code>io1</code> or
+   *                         <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput
+   *                     Optimized HDD, <code>sc1</code>for Cold HDD, or <code>standard</code> for
+   *                     Magnetic.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>launch.group-id</code> - The ID of the security group for the instance.</p>
+   *                 <p>
+   *                   <code>launch.group-id</code> - The ID of the security group for the
+   *                     instance.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>launch.group-name</code> - The name of the security group for the instance.</p>
+   *                 <p>
+   *                   <code>launch.group-name</code> - The name of the security group for the
+   *                     instance.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>launch.image-id</code> - The ID of the AMI.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>launch.instance-type</code> - The type of instance (for example, <code>m3.medium</code>).</p>
+   *                 <p>
+   *                   <code>launch.instance-type</code> - The type of instance (for example,
+   *                         <code>m3.medium</code>).</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>launch.kernel-id</code> - The kernel ID.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>launch.key-name</code> - The name of the key pair the instance launched with.</p>
+   *                 <p>
+   *                   <code>launch.key-name</code> - The name of the key pair the instance launched
+   *                     with.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>launch.monitoring-enabled</code> - Whether detailed monitoring is enabled for the Spot Instance.</p>
+   *                 <p>
+   *                   <code>launch.monitoring-enabled</code> - Whether detailed monitoring is
+   *                     enabled for the Spot Instance.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>launch.ramdisk-id</code> - The RAM disk ID.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>launched-availability-zone</code> - The Availability Zone in which the request is launched.</p>
+   *                 <p>
+   *                   <code>launched-availability-zone</code> - The Availability Zone in which the
+   *                     request is launched.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>network-interface.addresses.primary</code> - Indicates whether the IP address is
-   *                the primary private IP address.</p>
+   *                 <p>
+   *                   <code>network-interface.addresses.primary</code> - Indicates whether the IP
+   *                     address is the primary private IP address.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>network-interface.delete-on-termination</code> - Indicates whether the network
-   *                interface is deleted when the instance is terminated.</p>
+   *                 <p>
+   *                   <code>network-interface.delete-on-termination</code> - Indicates whether the
+   *                     network interface is deleted when the instance is terminated.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>network-interface.description</code> - A description of the network interface.</p>
+   *                 <p>
+   *                   <code>network-interface.description</code> - A description of the network
+   *                     interface.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>network-interface.device-index</code> - The index of the device for the network
-   *                interface attachment on the instance.</p>
+   *                 <p>
+   *                   <code>network-interface.device-index</code> - The index of the device for the
+   *                     network interface attachment on the instance.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>network-interface.group-id</code> - The ID of the security group associated with the network interface.</p>
+   *                 <p>
+   *                   <code>network-interface.group-id</code> - The ID of the security group
+   *                     associated with the network interface.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>network-interface.network-interface-id</code> - The ID of the network interface.</p>
+   *                 <p>
+   *                   <code>network-interface.network-interface-id</code> - The ID of the network
+   *                     interface.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>network-interface.private-ip-address</code> - The primary private IP address of
-   *                the network interface.</p>
+   *                 <p>
+   *                   <code>network-interface.private-ip-address</code> - The primary private IP
+   *                     address of the network interface.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>network-interface.subnet-id</code> - The ID of the subnet for the instance.</p>
+   *                 <p>
+   *                   <code>network-interface.subnet-id</code> - The ID of the subnet for the
+   *                     instance.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>product-description</code> - The product description associated with the instance (<code>Linux/UNIX</code> | <code>Windows</code>).</p>
+   *                 <p>
+   *                   <code>product-description</code> - The product description associated with the
+   *                     instance (<code>Linux/UNIX</code> | <code>Windows</code>).</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>spot-instance-request-id</code> - The Spot Instance request ID.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>spot-price</code> - The maximum hourly price for any Spot Instance launched to fulfill the request.</p>
+   *                 <p>
+   *                   <code>spot-price</code> - The maximum hourly price for any Spot Instance
+   *                     launched to fulfill the request.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>state</code> - The state of the Spot Instance request (<code>open</code>
    *                     | <code>active</code> | <code>closed</code> | <code>cancelled</code> |
    *                         <code>failed</code>). Spot request status information can help you track
    *                     your Amazon EC2 Spot Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html">Spot
-   *                         request status</a> in the
-   *                     <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                         request status</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>status-code</code> - The short code describing the most recent evaluation of your Spot Instance request.</p>
+   *                 <p>
+   *                   <code>status-code</code> - The short code describing the most recent
+   *                     evaluation of your Spot Instance request.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>status-message</code> - The message explaining the status of the Spot Instance request.</p>
+   *                 <p>
+   *                   <code>status-message</code> - The message explaining the status of the Spot
+   *                     Instance request.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8173,15 +8230,16 @@ export interface DescribeSpotInstanceRequestsRequest {
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>type</code> - The type of Spot Instance request (<code>one-time</code> | <code>persistent</code>).</p>
+   *                 <p>
+   *                   <code>type</code> - The type of Spot Instance request (<code>one-time</code> |
+   *                         <code>persistent</code>).</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>valid-from</code> - The start date of the request.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>valid-until</code> - The end date of the request.</p>
    *             </li>
    *          </ul>
@@ -8189,9 +8247,10 @@ export interface DescribeSpotInstanceRequestsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -8342,8 +8401,7 @@ export type SpotInstanceState = "active" | "cancelled" | "closed" | "failed" | "
  */
 export interface SpotInstanceStatus {
   /**
-   * <p>The status code. For a list of status codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand">Spot status codes</a>
-   *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>The status code. For a list of status codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand">Spot status codes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   Code?: string;
 
@@ -8353,7 +8411,8 @@ export interface SpotInstanceStatus {
   Message?: string;
 
   /**
-   * <p>The date and time of the most recent status update, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * <p>The date and time of the most recent status update, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
   UpdateTime?: Date;
 }
@@ -8372,7 +8431,7 @@ export namespace SpotInstanceStatus {
  */
 export interface SpotInstanceRequest {
   /**
-   * <p>If you specified a duration and your Spot Instance request was fulfilled, this is the fixed hourly price in effect for the Spot Instance while it runs.</p>
+   * <p>Deprecated.</p>
    */
   ActualBlockHourlyPrice?: string;
 
@@ -8382,7 +8441,7 @@ export interface SpotInstanceRequest {
   AvailabilityZoneGroup?: string;
 
   /**
-   * <p>The duration for the Spot Instance, in minutes.</p>
+   * <p>Deprecated.</p>
    */
   BlockDurationMinutes?: number;
 
@@ -8454,8 +8513,9 @@ export interface SpotInstanceRequest {
   Type?: SpotInstanceType | string;
 
   /**
-   * <p>The start date of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *         The request becomes active at this date and time.</p>
+   * <p>The start date of the request, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *             The request becomes active at this date and time.</p>
    */
   ValidFrom?: Date;
 
@@ -8523,30 +8583,33 @@ export namespace DescribeSpotInstanceRequestsResult {
 export interface DescribeSpotPriceHistoryRequest {
   /**
    * <p>One or more filters.</p>
-   *          <ul>
+   *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone for which prices should be returned.</p>
+   *                 <p>
+   *                     <code>availability-zone</code> - The Availability Zone for which prices should
+   *                     be returned.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The type of instance (for example, <code>m3.medium</code>).</p>
+   *                 <p>
+   *                     <code>instance-type</code> - The type of instance (for example,
+   *                         <code>m3.medium</code>).</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                     <code>product-description</code> - The product description for the Spot price
    *                         (<code>Linux/UNIX</code> | <code>Red Hat Enterprise Linux</code> |
    *                         <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon
-   *                         VPC)</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code>
-   *                         | <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon
+   *                         VPC)</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> |
+   *                         <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon
    *                     VPC)</code>).</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>spot-price</code> - The Spot price. The value must match exactly (or use wildcards; greater than or less than comparison is not supported).</p>
+   *                 <p>
+   *                     <code>spot-price</code> - The Spot price. The value must match exactly (or use
+   *                     wildcards; greater than or less than comparison is not supported).</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                     <code>timestamp</code> - The time stamp of the Spot price history, in UTC format
    *                     (for example,
    *                         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
@@ -8563,15 +8626,17 @@ export interface DescribeSpotPriceHistoryRequest {
   AvailabilityZone?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
   /**
-   * <p>The date and time, up to the current date, from which to stop retrieving the price history data,
-   *        in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * <p>The date and time, up to the current date, from which to stop retrieving the price
+   *             history data, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
   EndTime?: Date;
 
@@ -8581,10 +8646,9 @@ export interface DescribeSpotPriceHistoryRequest {
   InstanceTypes?: (_InstanceType | string)[];
 
   /**
-   * <p>The maximum number of results to return in a single call.
-   *        Specify a value between 1 and 1000. The default value is 1000.
-   *        To retrieve the remaining results, make another call with the returned
-   *        <code>NextToken</code> value.</p>
+   * <p>The maximum number of results to return in a single call. Specify a value between 1
+   *             and 1000. The default value is 1000. To retrieve the remaining results, make another
+   *             call with the returned <code>NextToken</code> value.</p>
    */
   MaxResults?: number;
 
@@ -8599,8 +8663,9 @@ export interface DescribeSpotPriceHistoryRequest {
   ProductDescriptions?: string[];
 
   /**
-   * <p>The date and time, up to the past 90 days, from which to start retrieving the price history data,
-   *        in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * <p>The date and time, up to the past 90 days, from which to start retrieving the price
+   *             history data, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
   StartTime?: Date;
 }
@@ -8615,7 +8680,8 @@ export namespace DescribeSpotPriceHistoryRequest {
 }
 
 /**
- * <p>Describes the maximum price per hour that you are willing to pay for a Spot Instance.</p>
+ * <p>Describes the maximum price per hour that you are willing to pay for a Spot
+ *             Instance.</p>
  */
 export interface SpotPrice {
   /**
@@ -8639,7 +8705,8 @@ export interface SpotPrice {
   SpotPrice?: string;
 
   /**
-   * <p>The date and time the request was created, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * <p>The date and time the request was created, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
   Timestamp?: Date;
 }

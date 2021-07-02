@@ -21,7 +21,7 @@ export interface CreateEnvironmentMembershipCommandInput extends CreateEnvironme
 export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironmentMembershipResult, __MetadataBearer {}
 
 /**
- * <p>Adds an environment member to an AWS Cloud9 development environment.</p>
+ * <p>Adds an environment member to an Cloud9 development environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

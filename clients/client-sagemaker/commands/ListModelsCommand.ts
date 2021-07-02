@@ -21,7 +21,7 @@ export interface ListModelsCommandInput extends ListModelsInput {}
 export interface ListModelsCommandOutput extends ListModelsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists models created with the <a>CreateModel</a> API.</p>
+ * <p>Lists models created with the <code>CreateModel</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

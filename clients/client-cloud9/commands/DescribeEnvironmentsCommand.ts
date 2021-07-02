@@ -21,7 +21,7 @@ export interface DescribeEnvironmentsCommandInput extends DescribeEnvironmentsRe
 export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsResult, __MetadataBearer {}
 
 /**
- * <p>Gets information about AWS Cloud9 development environments.</p>
+ * <p>Gets information about Cloud9 development environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

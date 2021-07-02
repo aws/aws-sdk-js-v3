@@ -23,7 +23,7 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
 /**
  * <p>Updates the specified <a>IPSet</a>. </p>
  *          <note>
- *             <p>This operation completely replaces any IP address specifications that you already have in the IP set with the ones that you provide to this call. If you want to add to or modify the addresses that are already in the IP set, retrieve those by calling <a>GetIPSet</a>, update them, and provide the complete updated array of IP addresses to this call.</p>
+ *             <p>This operation completely replaces the mutable specifications that you already have for the IP set with the ones that you provide to this call. To modify the IP set, retrieve it by calling <a>GetIPSet</a>, update the settings as needed, and then provide the complete IP set specification to this call.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

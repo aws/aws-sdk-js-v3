@@ -23,8 +23,9 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
 /**
  * <p>Creates an HTTP namespace. Service instances registered using an HTTP namespace can be discovered using a
  *     <code>DiscoverInstances</code> request but can't be discovered using DNS.</p>
- *          <p>For the current quota on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map quotas</a> in the
- *     <i>AWS Cloud Map Developer Guide</i>.</p>
+ *          <p>For the current quota on the number of namespaces that you can create using the same account,
+ *    see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
+ *     <i>Cloud Map Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

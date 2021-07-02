@@ -28,7 +28,9 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  *           <code>NextToken</code> as a parameter in your next request to
  *           <code>listQueues</code> to receive the next page of results.  </p>
  *          <note>
- *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a user name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+ *             <p>Cross-account permissions don't apply to this action. For more information,
+ * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
+ * cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

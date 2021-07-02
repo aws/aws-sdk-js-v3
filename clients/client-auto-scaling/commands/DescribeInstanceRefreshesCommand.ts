@@ -23,8 +23,8 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
 /**
  * <p>Gets information about the instance refreshes for the specified Auto Scaling group.</p>
  *         <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
- *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling
- *             group after you make configuration changes.</p>
+ *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
+ *             after you make configuration changes.</p>
  *         <p>To help you determine the status of an instance refresh, this operation returns
  *             information about the instance refreshes you previously initiated, including their
  *             status, end time, the percentage of the instance refresh that is complete, and the

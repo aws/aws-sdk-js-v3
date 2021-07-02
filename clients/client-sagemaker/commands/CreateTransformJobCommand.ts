@@ -30,12 +30,12 @@ export interface CreateTransformJobCommandOutput extends CreateTransformJobRespo
  *             <li>
  *                 <p>
  *                   <code>TransformJobName</code> - Identifies the transform job. The name must be
- *                     unique within an AWS Region in an AWS account.</p>
+ *                     unique within an Amazon Web Services Region in an Amazon Web Services account.</p>
  *             </li>
  *             <li>
  *                 <p>
  *                   <code>ModelName</code> - Identifies the model to use. <code>ModelName</code>
- *                     must be the name of an existing Amazon SageMaker model in the same AWS Region and AWS
+ *                     must be the name of an existing Amazon SageMaker model in the same Amazon Web Services Region and Amazon Web Services
  *                     account. For information on creating a model, see <a>CreateModel</a>.</p>
  *             </li>
  *             <li>

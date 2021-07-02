@@ -30,7 +30,7 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  *             Amazon CodeGuru Reviewer</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i>
  *         </p>
  *
- *          <p>If you associate a CodeCommit repository, it must be in the same
+ *          <p>If you associate a CodeCommit or S3 repository, it must be in the same
  *          AWS Region and AWS account where its CodeGuru Reviewer code reviews are configured.</p>
  *
  *          <p>Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar

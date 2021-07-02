@@ -669,9 +669,10 @@ export namespace ReportInstanceStatusRequest {
  */
 export interface RequestSpotFleetRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -815,48 +816,53 @@ export namespace RequestSpotLaunchSpecification {
 export interface RequestSpotInstancesRequest {
   /**
    * <p>The user-specified name for a logical grouping of requests.</p>
-   *          <p>When you specify an Availability Zone group in a Spot Instance request, all Spot Instances in the request are launched in the same Availability Zone. Instance proximity is maintained with this parameter, but the choice of Availability Zone is not. The group applies only to requests for Spot Instances of the same instance type. Any additional Spot Instance requests that are specified with the same Availability Zone group name are launched in that same Availability Zone, as long as at least one instance from the group is still active.</p>
-   *          <p>If there is no active instance running in the Availability Zone group that you specify for a new Spot Instance request (all instances are terminated, the request is expired, or the maximum price you specified falls below current Spot price), then Amazon EC2 launches the instance in any Availability Zone where the constraint can be met. Consequently, the subsequent set of Spot Instances could be placed in a different zone from the original request, even if you specified the same Availability Zone group.</p>
-   *          <p>Default: Instances are launched in any available Availability Zone.</p>
+   *         <p>When you specify an Availability Zone group in a Spot Instance request, all Spot
+   *             Instances in the request are launched in the same Availability Zone. Instance proximity
+   *             is maintained with this parameter, but the choice of Availability Zone is not. The group
+   *             applies only to requests for Spot Instances of the same instance type. Any additional
+   *             Spot Instance requests that are specified with the same Availability Zone group name are
+   *             launched in that same Availability Zone, as long as at least one instance from the group
+   *             is still active.</p>
+   *         <p>If there is no active instance running in the Availability Zone group that you specify
+   *             for a new Spot Instance request (all instances are terminated, the request is expired,
+   *             or the maximum price you specified falls below current Spot price), then Amazon EC2 launches
+   *             the instance in any Availability Zone where the constraint can be met. Consequently, the
+   *             subsequent set of Spot Instances could be placed in a different zone from the original
+   *             request, even if you specified the same Availability Zone group.</p>
+   *         <p>Default: Instances are launched in any available Availability Zone.</p>
    */
   AvailabilityZoneGroup?: string;
 
   /**
-   * <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>
-   *          <p>The duration period starts as soon as your Spot Instance receives its instance ID. At
-   *             the end of the duration period, Amazon EC2 marks the Spot Instance for termination and
-   *             provides a Spot Instance termination notice, which gives the instance a two-minute
-   *             warning before it terminates.</p>
-   *          <p>You can't specify an Availability Zone group or a launch group if you specify a
-   *             duration.</p>
-   *          <p>New accounts or accounts with no previous billing history with AWS are not eligible for
-   *             Spot Instances with a defined duration (also known as Spot blocks).</p>
+   * <p>Deprecated.</p>
    */
   BlockDurationMinutes?: number;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>
-   *        in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+   *                 Idempotency</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   ClientToken?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
   /**
    * <p>The maximum number of Spot Instances to launch.</p>
-   *          <p>Default: 1</p>
+   *         <p>Default: 1</p>
    */
   InstanceCount?: number;
 
   /**
-   * <p>The instance launch group. Launch groups are Spot Instances that launch together and terminate together.</p>
-   *          <p>Default: Instances are launched and terminated individually</p>
+   * <p>The instance launch group. Launch groups are Spot Instances that launch together and
+   *             terminate together.</p>
+   *         <p>Default: Instances are launched and terminated individually</p>
    */
   LaunchGroup?: string;
 
@@ -866,31 +872,36 @@ export interface RequestSpotInstancesRequest {
   LaunchSpecification?: RequestSpotLaunchSpecification;
 
   /**
-   * <p>The maximum price per hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.</p>
+   * <p>The maximum price per hour that you are willing to pay for a Spot Instance. The
+   *             default is the On-Demand price.</p>
    */
   SpotPrice?: string;
 
   /**
    * <p>The Spot Instance request type.</p>
-   *          <p>Default: <code>one-time</code>
-   *          </p>
+   *         <p>Default: <code>one-time</code>
+   *         </p>
    */
   Type?: SpotInstanceType | string;
 
   /**
-   * <p>The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.</p>
-   *    	     <p>The specified start date and time cannot be equal to the current date and time. You must specify a start date and time that occurs after the current date and time.</p>
+   * <p>The start date of the request. If this is a one-time request, the request becomes
+   *             active at this date and time and remains active until all instances launch, the request
+   *             expires, or the request is canceled. If the request is persistent, the request becomes
+   *             active at this date and time and remains active until it expires or is canceled.</p>
+   *         <p>The specified start date and time cannot be equal to the current date and time. You
+   *             must specify a start date and time that occurs after the current date and time.</p>
    */
   ValidFrom?: Date;
 
   /**
    * <p>The end date of the request, in UTC format
    *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   *          <ul>
+   *         <ul>
    *             <li>
-   *                 <p>For a persistent request, the request remains active until the <code>ValidUntil</code> date
-   *                     and time is reached. Otherwise, the request remains active until you cancel it.
-   *                 </p>
+   *                 <p>For a persistent request, the request remains active until the
+   *                         <code>ValidUntil</code> date and time is reached. Otherwise, the request
+   *                     remains active until you cancel it. </p>
    *             </li>
    *             <li>
    *                 <p>For a one-time request, the request remains active until all instances launch,
@@ -903,8 +914,10 @@ export interface RequestSpotInstancesRequest {
   ValidUntil?: Date;
 
   /**
-   * <p>The key-value pair for tagging the Spot Instance request on creation. The value for <code>ResourceType</code> must be <code>spot-instances-request</code>, otherwise the Spot Instance request fails. To tag the Spot Instance request after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.
-   *         </p>
+   * <p>The key-value pair for tagging the Spot Instance request on creation. The value for
+   *                 <code>ResourceType</code> must be <code>spot-instances-request</code>, otherwise the
+   *             Spot Instance request fails. To tag the Spot Instance request after it has been created,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>. </p>
    */
   TagSpecifications?: TagSpecification[];
 
@@ -1573,13 +1586,13 @@ export namespace ElasticInferenceAccelerator {
 }
 
 /**
- * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information,
+ * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information,
  *     		see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">
- *     			What is AWS Nitro Enclaves?</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p>
+ *     		    What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
  */
 export interface EnclaveOptionsRequest {
   /**
-   * <p>To enable the instance for AWS Nitro Enclaves, set this parameter to <code>true</code>.</p>
+   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to <code>true</code>.</p>
    */
   Enabled?: boolean;
 }
@@ -1645,7 +1658,7 @@ export interface SpotMarketOptions {
    *             warning before it terminates.</p>
    *         <p>You can't specify an Availability Zone group or a launch group if you specify a
    *             duration.</p>
-   *         <p>New accounts or accounts with no previous billing history with AWS are not eligible
+   *         <p>New accounts or accounts with no previous billing history with Amazon Web Services are not eligible
    *             for Spot Instances with a defined duration (also known as Spot blocks).</p>
    */
   BlockDurationMinutes?: number;
@@ -1901,7 +1914,7 @@ export interface RunInstancesRequest {
   /**
    * <p>The ID of the RAM disk to select. Some kernels require additional drivers at launch.
    *             Check the kernel requirements for information about whether you need to specify a RAM
-   *             disk. To find kernel requirements, go to the AWS Resource Center and search for the
+   *             disk. To find kernel requirements, go to the Amazon Web Services Resource Center and search for the
    *             kernel ID.</p>
    *         <important>
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
@@ -2084,7 +2097,7 @@ export interface RunInstancesRequest {
    * <p>Indicates whether an instance is enabled for hibernation. For more information, see
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
    *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *     	    <p>You can't enable hibernation and AWS Nitro Enclaves on the same instance.</p>
+   *         <p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same instance.</p>
    */
   HibernationOptions?: HibernationOptionsRequest;
 
@@ -2099,10 +2112,10 @@ export interface RunInstancesRequest {
   MetadataOptions?: InstanceMetadataOptionsRequest;
 
   /**
-   * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information,
+   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information,
    * 			see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">
-   * 				What is AWS Nitro Enclaves?</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p>
-   * 		       <p>You can't enable AWS Nitro Enclaves and hibernation on the same instance.</p>
+   * 			    What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
+   * 	        <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
    */
   EnclaveOptions?: EnclaveOptionsRequest;
 }

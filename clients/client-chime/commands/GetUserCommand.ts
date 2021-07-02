@@ -25,8 +25,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  *
  *          <p>
  * To retrieve user details with an email address instead of a user ID, use the
- * <a>ListUsers</a>
- * action, and then filter by email address.
+ * <a>ListUsers</a> action, and then filter by email address.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

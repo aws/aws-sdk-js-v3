@@ -7,6 +7,11 @@ import { CreateAnalysisCommandInput, CreateAnalysisCommandOutput } from "../comm
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "../commands/CreateDashboardCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "../commands/CreateDataSetCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
+import { CreateFolderCommandInput, CreateFolderCommandOutput } from "../commands/CreateFolderCommand";
+import {
+  CreateFolderMembershipCommandInput,
+  CreateFolderMembershipCommandOutput,
+} from "../commands/CreateFolderMembershipCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
 import {
   CreateGroupMembershipCommandInput,
@@ -33,6 +38,11 @@ import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "../comm
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "../commands/DeleteDashboardCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "../commands/DeleteDataSetCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
+import { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "../commands/DeleteFolderCommand";
+import {
+  DeleteFolderMembershipCommandInput,
+  DeleteFolderMembershipCommandOutput,
+} from "../commands/DeleteFolderMembershipCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
 import {
   DeleteGroupMembershipCommandInput,
@@ -83,6 +93,15 @@ import {
   DescribeDataSourcePermissionsCommandInput,
   DescribeDataSourcePermissionsCommandOutput,
 } from "../commands/DescribeDataSourcePermissionsCommand";
+import { DescribeFolderCommandInput, DescribeFolderCommandOutput } from "../commands/DescribeFolderCommand";
+import {
+  DescribeFolderPermissionsCommandInput,
+  DescribeFolderPermissionsCommandOutput,
+} from "../commands/DescribeFolderPermissionsCommand";
+import {
+  DescribeFolderResolvedPermissionsCommandInput,
+  DescribeFolderResolvedPermissionsCommandOutput,
+} from "../commands/DescribeFolderResolvedPermissionsCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "../commands/DescribeGroupCommand";
 import {
   DescribeIAMPolicyAssignmentCommandInput,
@@ -119,6 +138,8 @@ import {
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "../commands/ListDashboardsCommand";
 import { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "../commands/ListDataSetsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
+import { ListFolderMembersCommandInput, ListFolderMembersCommandOutput } from "../commands/ListFolderMembersCommand";
+import { ListFoldersCommandInput, ListFoldersCommandOutput } from "../commands/ListFoldersCommand";
 import {
   ListGroupMembershipsCommandInput,
   ListGroupMembershipsCommandOutput,
@@ -156,6 +177,7 @@ import { RegisterUserCommandInput, RegisterUserCommandOutput } from "../commands
 import { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "../commands/RestoreAnalysisCommand";
 import { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "../commands/SearchAnalysesCommand";
 import { SearchDashboardsCommandInput, SearchDashboardsCommandOutput } from "../commands/SearchDashboardsCommand";
+import { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "../commands/SearchFoldersCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -190,6 +212,11 @@ import {
   UpdateDataSourcePermissionsCommandInput,
   UpdateDataSourcePermissionsCommandOutput,
 } from "../commands/UpdateDataSourcePermissionsCommand";
+import { UpdateFolderCommandInput, UpdateFolderCommandOutput } from "../commands/UpdateFolderCommand";
+import {
+  UpdateFolderPermissionsCommandInput,
+  UpdateFolderPermissionsCommandOutput,
+} from "../commands/UpdateFolderPermissionsCommand";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "../commands/UpdateGroupCommand";
 import {
   UpdateIAMPolicyAssignmentCommandInput,
@@ -269,12 +296,15 @@ import {
   ExportToCSVOption,
   FieldFolder,
   FilterOperation,
+  Folder,
+  FolderMember,
+  FolderSearchFilter,
+  FolderSummary,
   GeoSpatialColumnGroup,
   Group,
   GroupMember,
   GutterStyle,
   IAMPolicyAssignment,
-  IAMPolicyAssignmentSummary,
   IdentityTypeNotSupportedException,
   Ingestion,
   InputColumn,
@@ -291,6 +321,7 @@ import {
   ManifestFileLocation,
   MarginStyle,
   MariaDbParameters,
+  MemberIdArnPair,
   MySqlParameters,
   NamespaceError,
   NamespaceInfoV2,
@@ -346,14 +377,20 @@ import {
   TransformOperation,
   TwitterParameters,
   UIColorPalette,
-  UnsupportedPricingPlanException,
   UnsupportedUserEditionException,
   UploadSettings,
   User,
   VpcConnectionProperties,
   _Parameters,
 } from "../models/models_0";
-import { TemplateSummary, TemplateVersionSummary, ThemeSummary, ThemeVersionSummary } from "../models/models_1";
+import {
+  IAMPolicyAssignmentSummary,
+  TemplateSummary,
+  TemplateVersionSummary,
+  ThemeSummary,
+  ThemeVersionSummary,
+  UnsupportedPricingPlanException,
+} from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
@@ -696,6 +733,112 @@ export const serializeAws_restJson1CreateDataSourceCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateFolderCommand = async (
+  input: CreateFolderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/accounts/{AwsAccountId}/folders/{FolderId}";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.FolderId !== undefined) {
+    const labelValue: string = input.FolderId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
+    }
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FolderId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.FolderType !== undefined && input.FolderType !== null && { FolderType: input.FolderType }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ParentFolderArn !== undefined &&
+      input.ParentFolderArn !== null && { ParentFolderArn: input.ParentFolderArn }),
+    ...(input.Permissions !== undefined &&
+      input.Permissions !== null && {
+        Permissions: serializeAws_restJson1ResourcePermissionList(input.Permissions, context),
+      }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateFolderMembershipCommand = async (
+  input: CreateFolderMembershipCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.FolderId !== undefined) {
+    const labelValue: string = input.FolderId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
+    }
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FolderId.");
+  }
+  if (input.MemberId !== undefined) {
+    const labelValue: string = input.MemberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberId.");
+  }
+  if (input.MemberType !== undefined) {
+    const labelValue: string = input.MemberType;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberType.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberType}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberType.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -1322,6 +1465,98 @@ export const serializeAws_restJson1DeleteDataSourceCommand = async (
     resolvedPath = resolvedPath.replace("{DataSourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteFolderCommand = async (
+  input: DeleteFolderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/accounts/{AwsAccountId}/folders/{FolderId}";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.FolderId !== undefined) {
+    const labelValue: string = input.FolderId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
+    }
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FolderId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteFolderMembershipCommand = async (
+  input: DeleteFolderMembershipCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.FolderId !== undefined) {
+    const labelValue: string = input.FolderId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
+    }
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FolderId.");
+  }
+  if (input.MemberId !== undefined) {
+    const labelValue: string = input.MemberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberId.");
+  }
+  if (input.MemberType !== undefined) {
+    const labelValue: string = input.MemberType;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberType.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberType}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberType.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2148,6 +2383,117 @@ export const serializeAws_restJson1DescribeDataSourcePermissionsCommand = async 
   });
 };
 
+export const serializeAws_restJson1DescribeFolderCommand = async (
+  input: DescribeFolderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/accounts/{AwsAccountId}/folders/{FolderId}";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.FolderId !== undefined) {
+    const labelValue: string = input.FolderId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
+    }
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FolderId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeFolderPermissionsCommand = async (
+  input: DescribeFolderPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/accounts/{AwsAccountId}/folders/{FolderId}/permissions";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.FolderId !== undefined) {
+    const labelValue: string = input.FolderId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
+    }
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FolderId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeFolderResolvedPermissionsCommand = async (
+  input: DescribeFolderResolvedPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/accounts/{AwsAccountId}/folders/{FolderId}/resolved-permissions";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.FolderId !== undefined) {
+    const labelValue: string = input.FolderId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
+    }
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FolderId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeGroupCommand = async (
   input: DescribeGroupCommandInput,
   context: __SerdeContext
@@ -2856,6 +3202,81 @@ export const serializeAws_restJson1ListDataSourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/accounts/{AwsAccountId}/data-sources";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListFolderMembersCommand = async (
+  input: ListFolderMembersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/accounts/{AwsAccountId}/folders/{FolderId}/members";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.FolderId !== undefined) {
+    const labelValue: string = input.FolderId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
+    }
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FolderId.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListFoldersCommand = async (
+  input: ListFoldersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/accounts/{AwsAccountId}/folders";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -3672,6 +4093,42 @@ export const serializeAws_restJson1SearchDashboardsCommand = async (
   });
 };
 
+export const serializeAws_restJson1SearchFoldersCommand = async (
+  input: SearchFoldersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/accounts/{AwsAccountId}/search/folders";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_restJson1FolderSearchFilterList(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
@@ -4285,6 +4742,97 @@ export const serializeAws_restJson1UpdateDataSourcePermissionsCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateFolderCommand = async (
+  input: UpdateFolderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/accounts/{AwsAccountId}/folders/{FolderId}";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.FolderId !== undefined) {
+    const labelValue: string = input.FolderId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
+    }
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FolderId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateFolderPermissionsCommand = async (
+  input: UpdateFolderPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/accounts/{AwsAccountId}/folders/{FolderId}/permissions";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.FolderId !== undefined) {
+    const labelValue: string = input.FolderId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
+    }
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FolderId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.GrantPermissions !== undefined &&
+      input.GrantPermissions !== null && {
+        GrantPermissions: serializeAws_restJson1ResourcePermissionList(input.GrantPermissions, context),
+      }),
+    ...(input.RevokePermissions !== undefined &&
+      input.RevokePermissions !== null && {
+        RevokePermissions: serializeAws_restJson1ResourcePermissionList(input.RevokePermissions, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -5477,6 +6025,256 @@ const deserializeAws_restJson1CreateDataSourceCommandError = async (
     case "com.amazonaws.quicksight#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateFolderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFolderCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateFolderCommandError(output, context);
+  }
+  const contents: CreateFolderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    FolderId: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.FolderId !== undefined && data.FolderId !== null) {
+    contents.FolderId = __expectString(data.FolderId);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateFolderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFolderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateFolderMembershipCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFolderMembershipCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateFolderMembershipCommandError(output, context);
+  }
+  const contents: CreateFolderMembershipCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FolderMember: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.FolderMember !== undefined && data.FolderMember !== null) {
+    contents.FolderMember = deserializeAws_restJson1FolderMember(data.FolderMember, context);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (data.Status !== undefined && data.Status !== null) {
+    contents.Status = __expectNumber(data.Status);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateFolderMembershipCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFolderMembershipCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7127,6 +7925,228 @@ const deserializeAws_restJson1DeleteDataSourceCommandError = async (
     case "com.amazonaws.quicksight#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteFolderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFolderCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteFolderCommandError(output, context);
+  }
+  const contents: DeleteFolderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    FolderId: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.FolderId !== undefined && data.FolderId !== null) {
+    contents.FolderId = __expectString(data.FolderId);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteFolderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFolderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      response = {
+        ...(await deserializeAws_restJson1PreconditionNotMetExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteFolderMembershipCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFolderMembershipCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteFolderMembershipCommandError(output, context);
+  }
+  const contents: DeleteFolderMembershipCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (data.Status !== undefined && data.Status !== null) {
+    contents.Status = __expectNumber(data.Status);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteFolderMembershipCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFolderMembershipCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9264,6 +10284,331 @@ const deserializeAws_restJson1DescribeDataSourcePermissionsCommandError = async 
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeFolderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFolderCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeFolderCommandError(output, context);
+  }
+  const contents: DescribeFolderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Folder: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Folder !== undefined && data.Folder !== null) {
+    contents.Folder = deserializeAws_restJson1Folder(data.Folder, context);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeFolderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFolderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeFolderPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFolderPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeFolderPermissionsCommandError(output, context);
+  }
+  const contents: DescribeFolderPermissionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    FolderId: undefined,
+    Permissions: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.FolderId !== undefined && data.FolderId !== null) {
+    contents.FolderId = __expectString(data.FolderId);
+  }
+  if (data.Permissions !== undefined && data.Permissions !== null) {
+    contents.Permissions = deserializeAws_restJson1ResourcePermissionList(data.Permissions, context);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeFolderPermissionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFolderPermissionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeFolderResolvedPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFolderResolvedPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeFolderResolvedPermissionsCommandError(output, context);
+  }
+  const contents: DescribeFolderResolvedPermissionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    FolderId: undefined,
+    Permissions: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.FolderId !== undefined && data.FolderId !== null) {
+    contents.FolderId = __expectString(data.FolderId);
+  }
+  if (data.Permissions !== undefined && data.Permissions !== null) {
+    contents.Permissions = deserializeAws_restJson1ResourcePermissionList(data.Permissions, context);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeFolderResolvedPermissionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFolderResolvedPermissionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -11184,6 +12529,236 @@ const deserializeAws_restJson1ListDataSourcesCommandError = async (
     case "com.amazonaws.quicksight#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListFolderMembersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFolderMembersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListFolderMembersCommandError(output, context);
+  }
+  const contents: ListFolderMembersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FolderMemberList: undefined,
+    NextToken: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.FolderMemberList !== undefined && data.FolderMemberList !== null) {
+    contents.FolderMemberList = deserializeAws_restJson1FolderMemberList(data.FolderMemberList, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListFolderMembersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFolderMembersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListFoldersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFoldersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListFoldersCommandError(output, context);
+  }
+  const contents: ListFoldersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FolderSummaryList: undefined,
+    NextToken: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.FolderSummaryList !== undefined && data.FolderSummaryList !== null) {
+    contents.FolderSummaryList = deserializeAws_restJson1FolderSummaryList(data.FolderSummaryList, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListFoldersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFoldersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13363,6 +14938,121 @@ const deserializeAws_restJson1SearchDashboardsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1SearchFoldersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchFoldersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchFoldersCommandError(output, context);
+  }
+  const contents: SearchFoldersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FolderSummaryList: undefined,
+    NextToken: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.FolderSummaryList !== undefined && data.FolderSummaryList !== null) {
+    contents.FolderSummaryList = deserializeAws_restJson1FolderSummaryList(data.FolderSummaryList, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SearchFoldersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchFoldersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14773,6 +16463,248 @@ const deserializeAws_restJson1UpdateDataSourcePermissionsCommandError = async (
     case "com.amazonaws.quicksight#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateFolderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFolderCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateFolderCommandError(output, context);
+  }
+  const contents: UpdateFolderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    FolderId: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.FolderId !== undefined && data.FolderId !== null) {
+    contents.FolderId = __expectString(data.FolderId);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateFolderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFolderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateFolderPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFolderPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateFolderPermissionsCommandError(output, context);
+  }
+  const contents: UpdateFolderPermissionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    FolderId: undefined,
+    Permissions: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.FolderId !== undefined && data.FolderId !== null) {
+    contents.FolderId = __expectString(data.FolderId);
+  }
+  if (data.Permissions !== undefined && data.Permissions !== null) {
+    contents.Permissions = deserializeAws_restJson1ResourcePermissionList(data.Permissions, context);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (data.Status !== undefined && data.Status !== null) {
+    contents.Status = __expectNumber(data.Status);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateFolderPermissionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFolderPermissionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -16763,6 +18695,25 @@ const serializeAws_restJson1FolderColumnList = (input: string[], context: __Serd
     });
 };
 
+const serializeAws_restJson1FolderSearchFilter = (input: FolderSearchFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Operator !== undefined && input.Operator !== null && { Operator: input.Operator }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1FolderSearchFilterList = (input: FolderSearchFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1FolderSearchFilter(entry, context);
+    });
+};
+
 const serializeAws_restJson1GeoSpatialColumnGroup = (input: GeoSpatialColumnGroup, context: __SerdeContext): any => {
   return {
     ...(input.Columns !== undefined &&
@@ -18320,6 +20271,27 @@ const deserializeAws_restJson1FilterOperation = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_restJson1Folder = (output: any, context: __SerdeContext): Folder => {
+  return {
+    Arn: __expectString(output.Arn),
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? new Date(Math.round(output.CreatedTime * 1000))
+        : undefined,
+    FolderId: __expectString(output.FolderId),
+    FolderPath:
+      output.FolderPath !== undefined && output.FolderPath !== null
+        ? deserializeAws_restJson1Path(output.FolderPath, context)
+        : undefined,
+    FolderType: __expectString(output.FolderType),
+    LastUpdatedTime:
+      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
 const deserializeAws_restJson1FolderColumnList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -18328,6 +20300,52 @@ const deserializeAws_restJson1FolderColumnList = (output: any, context: __SerdeC
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1FolderMember = (output: any, context: __SerdeContext): FolderMember => {
+  return {
+    MemberId: __expectString(output.MemberId),
+    MemberType: __expectString(output.MemberType),
+  } as any;
+};
+
+const deserializeAws_restJson1FolderMemberList = (output: any, context: __SerdeContext): MemberIdArnPair[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MemberIdArnPair(entry, context);
+    });
+};
+
+const deserializeAws_restJson1FolderSummary = (output: any, context: __SerdeContext): FolderSummary => {
+  return {
+    Arn: __expectString(output.Arn),
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? new Date(Math.round(output.CreatedTime * 1000))
+        : undefined,
+    FolderId: __expectString(output.FolderId),
+    FolderType: __expectString(output.FolderType),
+    LastUpdatedTime:
+      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_restJson1FolderSummaryList = (output: any, context: __SerdeContext): FolderSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FolderSummary(entry, context);
     });
 };
 
@@ -18593,6 +20611,13 @@ const deserializeAws_restJson1MariaDbParameters = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1MemberIdArnPair = (output: any, context: __SerdeContext): MemberIdArnPair => {
+  return {
+    MemberArn: __expectString(output.MemberArn),
+    MemberId: __expectString(output.MemberId),
+  } as any;
+};
+
 const deserializeAws_restJson1MySqlParameters = (output: any, context: __SerdeContext): MySqlParameters => {
   return {
     Database: __expectString(output.Database),
@@ -18657,6 +20682,17 @@ const deserializeAws_restJson1OutputColumnList = (output: any, context: __SerdeC
         return null as any;
       }
       return deserializeAws_restJson1OutputColumn(entry, context);
+    });
+};
+
+const deserializeAws_restJson1Path = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
 };
 

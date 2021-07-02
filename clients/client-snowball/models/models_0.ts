@@ -323,7 +323,7 @@ export interface Notification {
    *       action.</p>
    *
    *          <p>You can subscribe email addresses to an Amazon SNS topic through the AWS Management
-   *       Console, or by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html">Subscribe</a> AWS Simple Notification Service (SNS) API action.</p>
+   *       Console, or by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html">Subscribe</a> Amazon Simple Notification Service (Amazon SNS) API action.</p>
    */
   SnsTopicARN?: string;
 
@@ -345,6 +345,59 @@ export namespace Notification {
   export const filterSensitiveLog = (obj: Notification): any => ({
     ...obj,
   });
+}
+
+export enum StorageUnit {
+  TB = "TB",
+}
+
+/**
+ * <p>An object that represents metadata and configuration settings for NFS service on an AWS Snow Family device.</p>
+ */
+export interface NFSOnDeviceServiceConfiguration {
+  /**
+   * <p>The maximum NFS storage for one Snowball Family device.</p>
+   */
+  StorageLimit?: number;
+
+  /**
+   * <p>The scale unit of the NFS storage on the device.</p>
+   *          <p>Valid values: TB.</p>
+   */
+  StorageUnit?: StorageUnit | string;
+}
+
+export namespace NFSOnDeviceServiceConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NFSOnDeviceServiceConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents metadata and configuration settings for services on an AWS Snow Family device.</p>
+ */
+export interface OnDeviceServiceConfiguration {
+  /**
+   * <p>Represents the NFS service on a Snow Family device.</p>
+   */
+  NFSOnDeviceService?: NFSOnDeviceServiceConfiguration;
+}
+
+export namespace OnDeviceServiceConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OnDeviceServiceConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum RemoteManagement {
+  INSTALLED_AUTOSTART = "INSTALLED_AUTOSTART",
+  INSTALLED_ONLY = "INSTALLED_ONLY",
 }
 
 /**
@@ -447,6 +500,43 @@ export namespace KeyRange {
   });
 }
 
+export enum DeviceServiceName {
+  NFS_ON_DEVICE_SERVICE = "NFS_ON_DEVICE_SERVICE",
+  S3_ON_DEVICE_SERVICE = "S3_ON_DEVICE_SERVICE",
+}
+
+export enum TransferOption {
+  EXPORT = "EXPORT",
+  IMPORT = "IMPORT",
+  LOCAL_USE = "LOCAL_USE",
+}
+
+/**
+ * <p>An object that represents the service or services on the Snow Family device that your
+ *       transferred data will be exported from or imported into. AWS Snow Family supports Amazon S3 and NFS (Network File System).</p>
+ */
+export interface TargetOnDeviceService {
+  /**
+   * <p>Specifies the name of the service on the Snow Family device that your
+   *       transferred data will be exported from or imported into.</p>
+   */
+  ServiceName?: DeviceServiceName | string;
+
+  /**
+   * <p>Specifies whether the data is being imported or exported. You can import or export the data, or use it locally on the device.</p>
+   */
+  TransferOption?: TransferOption | string;
+}
+
+export namespace TargetOnDeviceService {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TargetOnDeviceService): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Each <code>S3Resource</code> object represents an Amazon S3 bucket that your
  *       transferred data will be exported from or imported into. For export jobs, this object can have
@@ -467,6 +557,12 @@ export interface S3Resource {
    *       UTF-8 binary sorted.</p>
    */
   KeyRange?: KeyRange;
+
+  /**
+   * <p>Specifies the service or services on the Snow Family device that your
+   *       transferred data will be exported from or imported into. AWS Snow Family supports Amazon S3 and NFS (Network File System).</p>
+   */
+  TargetOnDeviceServices?: TargetOnDeviceService[];
 }
 
 export namespace S3Resource {
@@ -584,6 +680,12 @@ export interface CreateClusterRequest {
   Resources: JobResource | undefined;
 
   /**
+   * <p>Specifies the service or services on the Snow Family device that your
+   *       transferred data will be exported from or imported into. AWS Snow Family supports Amazon S3 and NFS (Network File System).</p>
+   */
+  OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
+
+  /**
    * <p>An optional description of this specific cluster, for example <code>Environmental Data
    *         Cluster-01</code>.</p>
    */
@@ -640,7 +742,7 @@ export interface CreateClusterRequest {
    *           way.</p>
    *             </li>
    *             <li>
-   *                <p>In India, Snow device are delivered in one to seven days.</p>
+   *                <p>In India, Snow devices are delivered in one to seven days.</p>
    *             </li>
    *             <li>
    *                <p>In the United States of America (US), you have access to one-day shipping and
@@ -660,7 +762,7 @@ export interface CreateClusterRequest {
    *           way.</p>
    *             </li>
    *             <li>
-   *                <p>In India, Snow device are delivered in one to seven days.</p>
+   *                <p>In India, Snow devices are delivered in one to seven days.</p>
    *             </li>
    *             <li>
    *                <p>In the US, you have access to one-day shipping and two-day shipping.</p>
@@ -685,6 +787,14 @@ export interface CreateClusterRequest {
    * <p>The tax documents required in your AWS Region.</p>
    */
   TaxDocuments?: TaxDocuments;
+
+  /**
+   * <p>Allows you to securely operate and manage Snow devices in a cluster remotely from outside
+   *       of your internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management will
+   *       automatically be available when the device arrives at your location. Otherwise, you need to
+   *       use the Snowball Client to manage the device.</p>
+   */
+  RemoteManagement?: RemoteManagement | string;
 }
 
 export namespace CreateClusterRequest {
@@ -751,9 +861,9 @@ export namespace InvalidInputCombinationException {
 }
 
 /**
- * <p>Job creation failed. Currently, clusters support five nodes. If you have less than five
- *       nodes for your cluster and you have more nodes to create for this cluster, try again and
- *       create jobs until your cluster has exactly five notes.</p>
+ * <p>Job creation failed. Currently, clusters support five nodes. If you have fewer than
+ *       five nodes for your cluster and you have more nodes to create for this cluster, try again and
+ *       create jobs until your cluster has exactly five nodes.</p>
  */
 export interface ClusterLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ClusterLimitExceededException";
@@ -860,6 +970,12 @@ export interface CreateJobRequest {
   Resources?: JobResource;
 
   /**
+   * <p>Specifies the service or services on the Snow Family device that your
+   *       transferred data will be exported from or imported into. AWS Snow Family supports Amazon S3 and NFS (Network File System).</p>
+   */
+  OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
+
+  /**
    * <p>Defines an optional description of this specific job, for example <code>Important
    *         Photos 2016-08-11</code>.</p>
    */
@@ -957,7 +1073,7 @@ export interface CreateJobRequest {
 
   /**
    * <p>The forwarding address ID for a job. This field is not supported in most
-   *       regions.</p>
+   *       Regions.</p>
    */
   ForwardingAddressId?: string;
 
@@ -978,7 +1094,15 @@ export interface CreateJobRequest {
   DeviceConfiguration?: DeviceConfiguration;
 
   /**
-   * <p>The ID of the long term pricing type for the device.</p>
+   * <p>Allows you to securely operate and manage Snowcone devices remotely from outside of your
+   *       internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management will
+   *       automatically be available when the device arrives at your location. Otherwise, you need to
+   *       use the Snowball Client to manage the device.</p>
+   */
+  RemoteManagement?: RemoteManagement | string;
+
+  /**
+   * <p>The ID of the long-term pricing type for the device.</p>
    */
   LongTermPricingId?: string;
 }
@@ -1016,17 +1140,18 @@ export enum LongTermPricingType {
 
 export interface CreateLongTermPricingRequest {
   /**
-   * <p>The type of long term pricing option you want for the device - one year or three year long term pricing.</p>
+   * <p>The type of long-term pricing option you want for the device, either 1-year or 3-year
+   *       long-term pricing.</p>
    */
   LongTermPricingType: LongTermPricingType | string | undefined;
 
   /**
-   * <p>Specifies whether the current long term pricing type for the device should be renewed.</p>
+   * <p>Specifies whether the current long-term pricing type for the device should be renewed.</p>
    */
   IsLongTermPricingAutoRenew?: boolean;
 
   /**
-   * <p>The type of AWS Snow Family device to use for the long term pricing job.</p>
+   * <p>The type of AWS Snow Family device to use for the long-term pricing job.</p>
    */
   SnowballType?: SnowballType | string;
 }
@@ -1042,7 +1167,7 @@ export namespace CreateLongTermPricingRequest {
 
 export interface CreateLongTermPricingResult {
   /**
-   * <p>The ID of the long term pricing type for the device.</p>
+   * <p>The ID of the long-term pricing type for the device.</p>
    */
   LongTermPricingId?: string;
 }
@@ -1077,8 +1202,8 @@ export namespace ConflictException {
 
 export interface CreateReturnShippingLabelRequest {
   /**
-   * <p>The ID for a job that you want to create the return shipping label for. For example
-   *       <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * <p>The ID for a job that you want to create the return shipping label for; for example,
+   *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
    */
   JobId: string | undefined;
 
@@ -1369,6 +1494,11 @@ export interface ClusterMetadata {
    * <p>The tax documents required in your AWS Region.</p>
    */
   TaxDocuments?: TaxDocuments;
+
+  /**
+   * <p>Represents metadata and configuration settings for services on an AWS Snow Family device.</p>
+   */
+  OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
 }
 
 export namespace ClusterMetadata {
@@ -1549,7 +1679,7 @@ export interface ShippingDetails {
    *           way.</p>
    *             </li>
    *             <li>
-   *                <p>In India, Snow device are delivered in one to seven days.</p>
+   *                <p>In India, Snow devices are delivered in one to seven days.</p>
    *             </li>
    *             <li>
    *                <p>In the United States of America (US), you have access to one-day shipping and
@@ -1708,9 +1838,22 @@ export interface JobMetadata {
   DeviceConfiguration?: DeviceConfiguration;
 
   /**
-   * <p>The ID of the long term pricing type for the device.</p>
+   * <p>Allows you to securely operate and manage Snowcone devices remotely from outside of your
+   *       internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management will
+   *       automatically be available when the device arrives at your location. Otherwise, you need to
+   *       use the Snowball Client to manage the device.</p>
+   */
+  RemoteManagement?: RemoteManagement | string;
+
+  /**
+   * <p>The ID of the long-term pricing type for the device.</p>
    */
   LongTermPricingId?: string;
+
+  /**
+   * <p>Represents metadata and configuration settings for services on an AWS Snow Family device.</p>
+   */
+  OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
 }
 
 export namespace JobMetadata {
@@ -2256,57 +2399,57 @@ export namespace ListLongTermPricingRequest {
 }
 
 /**
- * <p>Each <code>LongTermPricingListEntry</code> object contains information about a long term pricing type.</p>
+ * <p>Each <code>LongTermPricingListEntry</code> object contains information about a long-term pricing type.</p>
  */
 export interface LongTermPricingListEntry {
   /**
-   * <p>The ID of the long term pricing type for the device.</p>
+   * <p>The ID of the long-term pricing type for the device.</p>
    */
   LongTermPricingId?: string;
 
   /**
-   * <p>The end date the long term pricing contract.</p>
+   * <p>The end date the long-term pricing contract.</p>
    */
   LongTermPricingEndDate?: Date;
 
   /**
-   * <p>The start date of the long term pricing contract.</p>
+   * <p>The start date of the long-term pricing contract.</p>
    */
   LongTermPricingStartDate?: Date;
 
   /**
-   * <p>The type of long term pricing that was selected for the device.</p>
+   * <p>The type of long-term pricing that was selected for the device.</p>
    */
   LongTermPricingType?: LongTermPricingType | string;
 
   /**
-   * <p>The current active jobs on the device the long term pricing type.</p>
+   * <p>The current active jobs on the device the long-term pricing type.</p>
    */
   CurrentActiveJob?: string;
 
   /**
-   * <p>A new device that replaces a device that is ordered with long term pricing.</p>
+   * <p>A new device that replaces a device that is ordered with long-term pricing.</p>
    */
   ReplacementJob?: string;
 
   /**
-   * <p>If set to <code>true</code>, specifies that the current long term pricing type for the
-   *       device should be automatically renewed before the long term pricing contract expires.</p>
+   * <p>If set to <code>true</code>, specifies that the current long-term pricing type for the
+   *       device should be automatically renewed before the long-term pricing contract expires.</p>
    */
   IsLongTermPricingAutoRenew?: boolean;
 
   /**
-   * <p>The status of the long term pricing type.</p>
+   * <p>The status of the long-term pricing type.</p>
    */
   LongTermPricingStatus?: string;
 
   /**
-   * <p>The type of AWS Snow Family device associated with this long term pricing job.</p>
+   * <p>The type of AWS Snow Family device associated with this long-term pricing job.</p>
    */
   SnowballType?: SnowballType | string;
 
   /**
-   * <p>The IDs of the jobs that are associated with a long term pricing type.</p>
+   * <p>The IDs of the jobs that are associated with a long-term pricing type.</p>
    */
   JobIds?: string[];
 }
@@ -2367,6 +2510,12 @@ export interface UpdateClusterRequest {
    *         <a>S3Resource</a> objects or <a>LambdaResource</a> objects.</p>
    */
   Resources?: JobResource;
+
+  /**
+   * <p>Specifies the service or services on the Snow Family device that your
+   *       transferred data will be exported from or imported into. AWS Snow Family supports Amazon S3 and NFS (Network File System).</p>
+   */
+  OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
 
   /**
    * <p>The ID of the updated <a>Address</a> object.</p>
@@ -2434,6 +2583,12 @@ export interface UpdateJobRequest {
    * <p>The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object. </p>
    */
   Resources?: JobResource;
+
+  /**
+   * <p>Specifies the service or services on the Snow Family device that your
+   *       transferred data will be exported from or imported into. AWS Snow Family supports Amazon S3 and NFS (Network File System).</p>
+   */
+  OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
 
   /**
    * <p>The ID of the updated <a>Address</a> object.</p>
@@ -2532,18 +2687,18 @@ export namespace UpdateJobShipmentStateResult {
 
 export interface UpdateLongTermPricingRequest {
   /**
-   * <p>The ID of the long term pricing type for the device.</p>
+   * <p>The ID of the long-term pricing type for the device.</p>
    */
   LongTermPricingId: string | undefined;
 
   /**
-   * <p>Specifies that a device that is ordered with long term pricing should be replaced with a new device.</p>
+   * <p>Specifies that a device that is ordered with long-term pricing should be replaced with a new device.</p>
    */
   ReplacementJob?: string;
 
   /**
-   * <p>If set to <code>true</code>, specifies that the current long term pricing type for the
-   *       device should be automatically renewed before the long term pricing contract expires.</p>
+   * <p>If set to <code>true</code>, specifies that the current long-term pricing type for the
+   *       device should be automatically renewed before the long-term pricing contract expires.</p>
    */
   IsLongTermPricingAutoRenew?: boolean;
 }

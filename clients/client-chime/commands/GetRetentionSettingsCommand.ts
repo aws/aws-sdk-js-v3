@@ -23,10 +23,7 @@ export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsR
 /**
  * <p>
  * Gets the retention settings for the specified Amazon Chime Enterprise account. For more information about retention settings, see
- * <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a>
- * in the
- * <i>Amazon Chime Administration Guide</i>
- * .
+ * <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

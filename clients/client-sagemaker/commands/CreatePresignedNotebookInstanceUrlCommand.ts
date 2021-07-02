@@ -39,7 +39,7 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
  *         <note>
  *             <p>The URL that you get from a call to <a>CreatePresignedNotebookInstanceUrl</a> is valid only for 5 minutes. If
  *                 you try to use the URL after the 5-minute limit expires, you are directed to the
- *                 AWS console sign-in page.</p>
+ *                 Amazon Web Services console sign-in page.</p>
  *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

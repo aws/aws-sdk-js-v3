@@ -23,9 +23,7 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
- *                 <code>DBClusterParameterGroupName</code> parameter is specified, the list contains
- *             only the description of the specified cluster parameter group. </p>
+ * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a <code>DBClusterParameterGroupName</code> parameter is specified, the list contains only the description of the specified cluster parameter group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

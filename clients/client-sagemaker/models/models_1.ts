@@ -77,6 +77,7 @@ import {
   MonitoringResources,
   MonitoringStatisticsResource,
   MonitoringStoppingCondition,
+  NeoVpcConfig,
   ObjectiveStatus,
   OfflineStoreConfig,
   OnlineStoreConfig,
@@ -103,6 +104,71 @@ import {
   VpcConfig,
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export interface CreateModelExplainabilityJobDefinitionRequest {
+  /**
+   * <p> The name of the model explainability job definition. The name must be unique within an
+   *          Amazon Web Services Region in the Amazon Web Services account.</p>
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>The baseline configuration for a model explainability job.</p>
+   */
+  ModelExplainabilityBaselineConfig?: ModelExplainabilityBaselineConfig;
+
+  /**
+   * <p>Configures the model explainability job to run a specified Docker container
+   *          image.</p>
+   */
+  ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecification | undefined;
+
+  /**
+   * <p>Inputs for the model explainability job.</p>
+   */
+  ModelExplainabilityJobInput: ModelExplainabilityJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   */
+  ModelExplainabilityJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Networking options for a model explainability job.</p>
+   */
+  NetworkConfig?: MonitoringNetworkConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
+   *          perform tasks on your behalf.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   */
+  StoppingCondition?: MonitoringStoppingCondition;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+   *             User Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateModelExplainabilityJobDefinitionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateModelExplainabilityJobDefinitionRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface CreateModelExplainabilityJobDefinitionResponse {
   /**
@@ -229,7 +295,7 @@ export namespace ModelMetrics {
 
 /**
  * <p>Specifies an algorithm that was used to create the model package. The algorithm must
- *             be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you
+ *             be either an algorithm resource in your Amazon SageMaker account or an algorithm in Amazon Web Services Marketplace that you
  *             are subscribed to.</p>
  */
 export interface SourceAlgorithm {
@@ -246,7 +312,7 @@ export interface SourceAlgorithm {
 
   /**
    * <p>The name of an algorithm that was used to create the model package. The algorithm must
-   *             be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you
+   *             be either an algorithm resource in your Amazon SageMaker account or an algorithm in Amazon Web Services Marketplace that you
    *             are subscribed to.</p>
    */
   AlgorithmName: string | undefined;
@@ -283,7 +349,7 @@ export namespace SourceAlgorithmSpecification {
 /**
  * <p>Contains data, such as the inputs and targeted instance types that are used in the
  *             process of validating the model package.</p>
- *         <p>The data provided in the validation profile is made available to your buyers on AWS
+ *         <p>The data provided in the validation profile is made available to your buyers on Amazon Web Services
  *             Marketplace.</p>
  */
 export interface ModelPackageValidationProfile {
@@ -386,15 +452,15 @@ export interface CreateModelPackageInput {
   SourceAlgorithmSpecification?: SourceAlgorithmSpecification;
 
   /**
-   * <p>Whether to certify the model package for listing on AWS Marketplace.</p>
+   * <p>Whether to certify the model package for listing on Amazon Web Services Marketplace.</p>
    *         <p>This parameter is optional for unversioned models, and does not apply to versioned
    *             models.</p>
    */
   CertifyForMarketplace?: boolean;
 
   /**
-   * <p>A list of key value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *                 resources</a> in the <i>AWS General Reference Guide</i>.</p>
+   * <p>A list of key value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    */
   Tags?: Tag[];
 
@@ -461,8 +527,8 @@ export interface CreateModelPackageGroupInput {
 
   /**
    * <p>A list of key value pairs associated with the model group. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *                 resources</a> in the <i>AWS General Reference Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *                 resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -650,7 +716,7 @@ export interface CreateModelQualityJobDefinitionRequest {
   StoppingCondition?: MonitoringStoppingCondition;
 
   /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
    *             User Guide</i>.</p>
    */
   Tags?: Tag[];
@@ -996,8 +1062,8 @@ export namespace MonitoringScheduleConfig {
 
 export interface CreateMonitoringScheduleRequest {
   /**
-   * <p>The name of the monitoring schedule. The name must be unique within an AWS Region within
-   *          an AWS account.</p>
+   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within
+   *          an Amazon Web Services account.</p>
    */
   MonitoringScheduleName: string | undefined;
 
@@ -1008,7 +1074,7 @@ export interface CreateMonitoringScheduleRequest {
   MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
 
   /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href=" https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href=" https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
    *             User Guide</i>.</p>
    */
   Tags?: Tag[];
@@ -1123,7 +1189,7 @@ export interface CreateNotebookInstanceInput {
   SecurityGroupIds?: string[];
 
   /**
-   * <p> When you send any requests to AWS resources from the notebook instance, Amazon SageMaker
+   * <p> When you send any requests to Amazon Web Services resources from the notebook instance, Amazon SageMaker
    *             assumes this role to perform tasks on your behalf. You must grant this role necessary
    *             permissions so Amazon SageMaker can perform these tasks. The policy must allow the Amazon SageMaker service
    *             principal (sagemaker.amazonaws.com) permissions to assume this role. For more
@@ -1136,17 +1202,17 @@ export interface CreateNotebookInstanceInput {
   RoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that Amazon SageMaker uses to encrypt data on
    *             the storage volume attached to your notebook instance. The KMS key you provide must be
    *             enabled. For information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">Enabling and Disabling
-   *                 Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   *                 Keys</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
    *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 Resources</a>.</p>
    */
   Tags?: Tag[];
@@ -1185,7 +1251,7 @@ export interface CreateNotebookInstanceInput {
   /**
    * <p>A Git repository to associate with the notebook instance as its default code
    *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
    *             other Git repository. When you open a notebook instance, it opens in the directory that
    *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with Amazon SageMaker
    *                 Notebook Instances</a>.</p>
@@ -1195,7 +1261,7 @@ export interface CreateNotebookInstanceInput {
   /**
    * <p>An array of up to three Git repositories to associate with the notebook instance.
    *             These can be either the names of Git repositories stored as resources in your account,
-   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
    *             other Git repository. These repositories are cloned at the same level as the default
    *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
    *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
@@ -1570,7 +1636,7 @@ export interface RedshiftDatasetDefinition {
   OutputS3Uri: string | undefined;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data from a
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data from a
    *             Redshift execution.</p>
    */
   KmsKeyId?: string;
@@ -1852,7 +1918,7 @@ export interface ProcessingOutputConfig {
   Outputs: ProcessingOutput[] | undefined;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the processing
    *             job output. <code>KmsKeyId</code> can be an ID of a KMS key, ARN of a KMS key, alias of
    *             a KMS key, or alias of a KMS key. The <code>KmsKeyId</code> is applied to all
    *             outputs.</p>
@@ -1900,7 +1966,7 @@ export interface ProcessingClusterConfig {
   VolumeSizeInGB: number | undefined;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the
    *             storage volume attached to the ML compute instance(s) that run the processing job.
    *         </p>
    *         <note>
@@ -1979,8 +2045,8 @@ export interface CreateProcessingJobRequest {
   ProcessingOutputConfig?: ProcessingOutputConfig;
 
   /**
-   * <p> The name of the processing job. The name must be unique within an AWS Region in the
-   *             AWS account.</p>
+   * <p> The name of the processing job. The name must be unique within an Amazon Web Services Region in the
+   *             Amazon Web Services account.</p>
    */
   ProcessingJobName: string | undefined;
 
@@ -2020,7 +2086,7 @@ export interface CreateProcessingJobRequest {
   RoleArn: string | undefined;
 
   /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
    *                 User Guide</i>.</p>
    */
   Tags?: Tag[];
@@ -2076,7 +2142,7 @@ export namespace CreateProcessingJobResponse {
 
 /**
  * <p>A key value pair used when you provision a project as a service catalog product. For
- *             information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is AWS Service
+ *             information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
  *                 Catalog</a>.</p>
  */
 export interface ProvisioningParameter {
@@ -2102,7 +2168,7 @@ export namespace ProvisioningParameter {
 
 /**
  * <p>Details that you specify to provision a service catalog product. For information about
- *             service catalog, see .<a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is AWS Service
+ *             service catalog, see .<a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
  *                 Catalog</a>.</p>
  */
 export interface ServiceCatalogProvisioningDetails {
@@ -2149,14 +2215,14 @@ export interface CreateProjectInput {
 
   /**
    * <p>The product ID and provisioning artifact ID to provision a service catalog. For
-   *             information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is AWS Service
+   *             information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
    *                 Catalog</a>.</p>
    */
   ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetails | undefined;
 
   /**
-   * <p>An array of key-value pairs that you want to use to organize and track your AWS
-   *             resource costs. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS resources</a> in the <i>AWS General Reference Guide</i>.</p>
+   * <p>An array of key-value pairs that you want to use to organize and track your Amazon Web Services
+   *             resource costs. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -2397,8 +2463,8 @@ export namespace TensorBoardOutputConfig {
 
 export interface CreateTrainingJobRequest {
   /**
-   * <p>The name of the training job. The name must be unique within an AWS Region in an
-   *             AWS account. </p>
+   * <p>The name of the training job. The name must be unique within an Amazon Web Services Region in an
+   *             Amazon Web Services account. </p>
    */
   TrainingJobName: string | undefined;
 
@@ -2490,9 +2556,9 @@ export interface CreateTrainingJobRequest {
   StoppingCondition: StoppingCondition | undefined;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
    *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 Resources</a>.</p>
    */
   Tags?: Tag[];
@@ -2720,15 +2786,15 @@ export namespace ModelClientConfig {
 
 export interface CreateTransformJobRequest {
   /**
-   * <p>The name of the transform job. The name must be unique within an AWS Region in an
-   *             AWS account. </p>
+   * <p>The name of the transform job. The name must be unique within an Amazon Web Services Region in an
+   *             Amazon Web Services account. </p>
    */
   TransformJobName: string | undefined;
 
   /**
    * <p>The name of the model that you want to use for the transform job.
-   *                 <code>ModelName</code> must be the name of an existing Amazon SageMaker model within an AWS
-   *             Region in an AWS account.</p>
+   *             <code>ModelName</code> must be the name of an existing Amazon SageMaker model within an Amazon Web Services
+   *             Region in an Amazon Web Services account.</p>
    */
   ModelName: string | undefined;
 
@@ -2821,7 +2887,7 @@ export interface CreateTransformJobRequest {
    * <p>(Optional)
    *             An
    *             array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-   *                 Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User
+   *                 Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
    *                 Guide</i>.</p>
    */
   Tags?: Tag[];
@@ -2877,7 +2943,7 @@ export namespace CreateTransformJobResponse {
 
 export interface CreateTrialRequest {
   /**
-   * <p>The name of the trial. The name must be unique in your AWS account and is not
+   * <p>The name of the trial. The name must be unique in your Amazon Web Services account and is not
    *       case-sensitive.</p>
    */
   TrialName: string | undefined;
@@ -3055,7 +3121,7 @@ export namespace TrialComponentStatus {
 
 export interface CreateTrialComponentRequest {
   /**
-   * <p>The name of the component. The name must be unique in your AWS account and is not
+   * <p>The name of the component. The name must be unique in your Amazon Web Services account and is not
    *       case-sensitive.</p>
    */
   TrialComponentName: string | undefined;
@@ -3175,7 +3241,7 @@ export interface CreateUserProfileRequest {
   SingleSignOnUserIdentifier?: string;
 
   /**
-   * <p>The username of the associated AWS Single Sign-On User for this UserProfile.  If the Domain's AuthMode is SSO, this field is
+   * <p>The username of the associated Amazon Web Services Single Sign-On User for this UserProfile.  If the Domain's AuthMode is SSO, this field is
    *            required, and must match a valid username of a user in your directory.  If the Domain's AuthMode is not SSO, this field cannot be specified.
    *        </p>
    */
@@ -3485,7 +3551,7 @@ export interface CreateWorkteamRequest {
    * <p>An array of key-value pairs.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html">Resource
    *                 Tag</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-   *                 Cost Allocation Tags</a> in the <i> AWS Billing and Cost Management User
+   *                     Cost Allocation Tags</a> in the <i> Amazon Web Services Billing and Cost Management User
    *                 Guide</i>.</p>
    */
   Tags?: Tag[];
@@ -3973,7 +4039,7 @@ export namespace DeleteExperimentResponse {
 export interface DeleteFeatureGroupRequest {
   /**
    * <p>The name of the <code>FeatureGroup</code> you want to delete. The name must be unique
-   *          within an AWS Region in an AWS account. </p>
+   *          within an Amazon Web Services Region in an Amazon Web Services account. </p>
    */
   FeatureGroupName: string | undefined;
 }
@@ -4734,7 +4800,7 @@ export interface DescribeAlgorithmOutput {
   ProductId?: string;
 
   /**
-   * <p>Whether the algorithm is certified to be listed in AWS Marketplace.</p>
+   * <p>Whether the algorithm is certified to be listed in Amazon Web Services Marketplace.</p>
    */
   CertifyForMarketplace?: boolean;
 }
@@ -5066,7 +5132,7 @@ export interface DescribeAutoMLJobResponse {
   OutputDataConfig: AutoMLOutputDataConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that has read permission to
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that has read permission to
    *          the input data location and write permission to the output data location in Amazon S3.</p>
    */
   RoleArn: string | undefined;
@@ -5205,7 +5271,7 @@ export interface DescribeCodeRepositoryOutput {
 
   /**
    * <p>Configuration details about the repository, including the URL where the repository is
-   *             located, the default branch, and the Amazon Resource Name (ARN) of the AWS Secrets
+   *             located, the default branch, and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets
    *             Manager secret that contains the credentials used to access the repository.</p>
    */
   GitConfig?: GitConfig;
@@ -5320,6 +5386,12 @@ export interface DescribeCompilationJobResponse {
   StoppingCondition: StoppingCondition | undefined;
 
   /**
+   * <p>The inference image to use when compiling a model.
+   *             Specify an image only if the target device is a cloud instance.</p>
+   */
+  InferenceImage?: string;
+
+  /**
    * <p>The time that the model compilation job was created.</p>
    */
   CreationTime: Date | undefined;
@@ -5365,6 +5437,14 @@ export interface DescribeCompilationJobResponse {
    *             that the model runs on.</p>
    */
   OutputConfig: OutputConfig | undefined;
+
+  /**
+   * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your
+   *             compilation job to connect to. Control access to your models by
+   *             configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon
+   *                 Virtual Private Cloud</a>.</p>
+   */
+  VpcConfig?: NeoVpcConfig;
 }
 
 export namespace DescribeCompilationJobResponse {
@@ -5621,7 +5701,7 @@ export interface DescribeDeviceResponse {
   DeviceFleetName: string | undefined;
 
   /**
-   * <p>The AWS Internet of Things (IoT) object thing name associated with the device.</p>
+   * <p>The Amazon Web Services Internet of Things (IoT) object thing name associated with the device.</p>
    */
   IotThingName?: string;
 
@@ -5708,12 +5788,12 @@ export interface DescribeDeviceFleetResponse {
   LastModifiedTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).</p>
+   * <p>The Amazon Resource Name (ARN) that has access to Amazon Web Services Internet of Things (IoT).</p>
    */
   RoleArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) alias created in AWS Internet of Things (IoT).</p>
+   * <p>The Amazon Resource Name (ARN) alias created in Amazon Web Services Internet of Things (IoT).</p>
    */
   IotRoleAlias?: string;
 }
@@ -5851,7 +5931,7 @@ export interface DescribeDomainResponse {
   VpcId?: string;
 
   /**
-   * <p>The AWS KMS customer managed CMK used to encrypt
+   * <p>The Amazon Web Services KMS customer managed CMK used to encrypt
    *          the EFS volume attached to the domain.</p>
    */
   KmsKeyId?: string;
@@ -5902,7 +5982,7 @@ export enum EdgePresetDeploymentStatus {
 export interface EdgePresetDeploymentOutput {
   /**
    * <p>The deployment type created by SageMaker Edge Manager. Currently only
-   *      supports AWS IoT Greengrass Version 2 components.</p>
+   *      supports Amazon Web Services IoT Greengrass Version 2 components.</p>
    */
   Type: EdgePresetDeploymentType | string | undefined;
 
@@ -6244,7 +6324,7 @@ export interface DescribeEndpointConfigOutput {
   DataCaptureConfig?: DataCaptureConfig;
 
   /**
-   * <p>AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage
+   * <p>Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage
    *             volume attached to the instance.</p>
    */
   KmsKeyId?: string;
@@ -6467,7 +6547,7 @@ export interface DescribeFeatureGroupResponse {
 
   /**
    * <p>The configuration of the <code>OfflineStore</code>, inducing the S3 location of the
-   *             <code>OfflineStore</code>, AWS Glue or AWS Hive data catalogue configurations, and the
+   *          <code>OfflineStore</code>, Amazon Web Services Glue or Amazon Web Services Hive data catalogue configurations, and the
    *          security configuration.</p>
    */
   OfflineStoreConfig?: OfflineStoreConfig;
@@ -6594,7 +6674,7 @@ export interface DescribeFlowDefinitionResponse {
   OutputConfig: FlowDefinitionOutputConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) execution role for the flow definition.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) execution role for the flow definition.</p>
    */
   RoleArn: string | undefined;
 
@@ -7379,7 +7459,7 @@ export interface DescribeLabelingJobResponse {
   InputConfig: LabelingJobInputConfig | undefined;
 
   /**
-   * <p>The location of the job's output data and the AWS Key Management Service key ID for the key used to
+   * <p>The location of the job's output data and the Amazon Web Services Key Management Service key ID for the key used to
    *             encrypt the output data, if any.</p>
    */
   OutputConfig: LabelingJobOutputConfig | undefined;
@@ -7468,9 +7548,9 @@ export interface DescribeLabelingJobResponse {
   HumanTaskConfig: HumanTaskConfig | undefined;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
    *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 Resources</a>.</p>
    */
   Tags?: Tag[];
@@ -7571,8 +7651,8 @@ export namespace DescribeModelOutput {
 
 export interface DescribeModelBiasJobDefinitionRequest {
   /**
-   * <p>The name of the model bias job definition. The name must be unique within an AWS Region
-   *          in the AWS account.</p>
+   * <p>The name of the model bias job definition. The name must be unique within an Amazon Web Services Region
+   *          in the Amazon Web Services account.</p>
    */
   JobDefinitionName: string | undefined;
 }
@@ -7593,8 +7673,8 @@ export interface DescribeModelBiasJobDefinitionResponse {
   JobDefinitionArn: string | undefined;
 
   /**
-   * <p>The name of the bias job definition. The name must be unique within an AWS Region in the
-   *          AWS account.</p>
+   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services Region in the
+   *          Amazon Web Services account.</p>
    */
   JobDefinitionName: string | undefined;
 
@@ -7634,7 +7714,7 @@ export interface DescribeModelBiasJobDefinitionResponse {
   NetworkConfig?: MonitoringNetworkConfig;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that
    *          has read permission to the input data location and write permission to the output data
    *          location in Amazon S3.</p>
    */
@@ -7658,7 +7738,7 @@ export namespace DescribeModelBiasJobDefinitionResponse {
 export interface DescribeModelExplainabilityJobDefinitionRequest {
   /**
    * <p>The name of the model explainability job definition. The name must be unique within an
-   *          AWS Region in the AWS account.</p>
+   *          Amazon Web Services Region in the Amazon Web Services account.</p>
    */
   JobDefinitionName: string | undefined;
 }
@@ -7679,8 +7759,8 @@ export interface DescribeModelExplainabilityJobDefinitionResponse {
   JobDefinitionArn: string | undefined;
 
   /**
-   * <p>The name of the explainability job definition. The name must be unique within an AWS
-   *          Region in the AWS account.</p>
+   * <p>The name of the explainability job definition. The name must be unique within an Amazon Web Services
+   *          Region in the Amazon Web Services account.</p>
    */
   JobDefinitionName: string | undefined;
 
@@ -7721,7 +7801,7 @@ export interface DescribeModelExplainabilityJobDefinitionResponse {
   NetworkConfig?: MonitoringNetworkConfig;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that
    *          has read permission to the input data location and write permission to the output data
    *          location in Amazon S3.</p>
    */
@@ -7888,7 +7968,7 @@ export interface DescribeModelPackageOutput {
   ModelPackageStatusDetails: ModelPackageStatusDetails | undefined;
 
   /**
-   * <p>Whether the model package is certified for listing on AWS Marketplace.</p>
+   * <p>Whether the model package is certified for listing on Amazon Web Services Marketplace.</p>
    */
   CertifyForMarketplace?: boolean;
 
@@ -8008,8 +8088,8 @@ export namespace DescribeModelPackageGroupOutput {
 
 export interface DescribeModelQualityJobDefinitionRequest {
   /**
-   * <p>The name of the model quality job. The name must be unique within an AWS Region in the
-   *          AWS account.</p>
+   * <p>The name of the model quality job. The name must be unique within an Amazon Web Services Region in the
+   *          Amazon Web Services account.</p>
    */
   JobDefinitionName: string | undefined;
 }
@@ -8030,8 +8110,8 @@ export interface DescribeModelQualityJobDefinitionResponse {
   JobDefinitionArn: string | undefined;
 
   /**
-   * <p>The name of the quality job definition. The name must be unique within an AWS Region in
-   *          the AWS account.</p>
+   * <p>The name of the quality job definition. The name must be unique within an Amazon Web Services Region in
+   *          the Amazon Web Services account.</p>
    */
   JobDefinitionName: string | undefined;
 
@@ -8348,7 +8428,7 @@ export interface DescribeNotebookInstanceOutput {
   RoleArn?: string;
 
   /**
-   * <p>The AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage
+   * <p>The Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage
    *             volume attached to the instance. </p>
    */
   KmsKeyId?: string;
@@ -8403,7 +8483,7 @@ export interface DescribeNotebookInstanceOutput {
   /**
    * <p>The Git repository associated with the notebook instance as its default code
    *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
    *             other Git repository. When you open a notebook instance, it opens in the directory that
    *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with Amazon SageMaker
    *                 Notebook Instances</a>.</p>
@@ -8413,7 +8493,7 @@ export interface DescribeNotebookInstanceOutput {
   /**
    * <p>An array of up to three Git repositories associated with the notebook instance. These
    *             can be either the names of Git repositories stored as resources in your account, or the
-   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
    *             other Git repository. These repositories are cloned at the same level as the default
    *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
    *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
@@ -8747,8 +8827,8 @@ export namespace DescribePipelineExecutionResponse {
 
 export interface DescribeProcessingJobRequest {
   /**
-   * <p>The name of the processing job. The name must be unique within an AWS Region in the
-   *             AWS account.</p>
+   * <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the
+   *             Amazon Web Services account.</p>
    */
   ProcessingJobName: string | undefined;
 }
@@ -8782,8 +8862,8 @@ export interface DescribeProcessingJobResponse {
   ProcessingOutputConfig?: ProcessingOutputConfig;
 
   /**
-   * <p>The name of the processing job. The name must be unique within an AWS Region in the
-   *             AWS account.</p>
+   * <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the
+   *             Amazon Web Services account.</p>
    */
   ProcessingJobName: string | undefined;
 
@@ -8920,7 +9000,7 @@ export enum ProjectStatus {
 
 /**
  * <p>Details of a provisioned service catalog product. For information about service catalog,
- *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is AWS Service
+ *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
  *                 Catalog</a>.</p>
  */
 export interface ServiceCatalogProvisionedProductDetails {
@@ -8988,7 +9068,7 @@ export interface DescribeProjectOutput {
   ProjectDescription?: string;
 
   /**
-   * <p>Information used to provision a service catalog product. For information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is AWS Service
+   * <p>Information used to provision a service catalog product. For information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
    *             Catalog</a>.</p>
    */
   ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetails | undefined;
@@ -9598,7 +9678,7 @@ export interface DescribeTrainingJobResponse {
   AlgorithmSpecification: AlgorithmSpecification | undefined;
 
   /**
-   * <p>The AWS Identity and Access Management (IAM) role configured for the training job. </p>
+   * <p>The Amazon Web Services Identity and Access Management (IAM) role configured for the training job. </p>
    */
   RoleArn?: string;
 
@@ -10209,117 +10289,5 @@ export namespace TrialComponentSource {
    */
   export const filterSensitiveLog = (obj: TrialComponentSource): any => ({
     ...obj,
-  });
-}
-
-export interface DescribeTrialComponentResponse {
-  /**
-   * <p>The name of the trial component.</p>
-   */
-  TrialComponentName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
-   */
-  TrialComponentArn?: string;
-
-  /**
-   * <p>The name of the component as displayed. If <code>DisplayName</code> isn't specified,
-   *         <code>TrialComponentName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the job type.</p>
-   */
-  Source?: TrialComponentSource;
-
-  /**
-   * <p>The status of the component. States include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>InProgress</p>
-   *             </li>
-   *             <li>
-   *                <p>Completed</p>
-   *             </li>
-   *             <li>
-   *                <p>Failed</p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: TrialComponentStatus;
-
-  /**
-   * <p>When the component started.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>When the component ended.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>When the component was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Who created the component.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>When the component was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Who last modified the component.</p>
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * <p>The hyperparameters of the component.</p>
-   */
-  Parameters?: { [key: string]: TrialComponentParameterValue };
-
-  /**
-   * <p>The input artifacts of the component.</p>
-   */
-  InputArtifacts?: { [key: string]: TrialComponentArtifact };
-
-  /**
-   * <p>The output artifacts of the component.</p>
-   */
-  OutputArtifacts?: { [key: string]: TrialComponentArtifact };
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * <p>The metrics for the component.</p>
-   */
-  Metrics?: TrialComponentMetricSummary[];
-}
-
-export namespace DescribeTrialComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrialComponentResponse): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, TrialComponentParameterValue]) => ({
-          ...acc,
-          [key]: TrialComponentParameterValue.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
   });
 }

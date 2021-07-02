@@ -28025,6 +28025,7 @@ const deserializeAws_restJson1MediaPlacement = (output: any, context: __SerdeCon
   return {
     AudioFallbackUrl: __expectString(output.AudioFallbackUrl),
     AudioHostUrl: __expectString(output.AudioHostUrl),
+    EventIngestionUrl: __expectString(output.EventIngestionUrl),
     ScreenDataUrl: __expectString(output.ScreenDataUrl),
     ScreenSharingUrl: __expectString(output.ScreenSharingUrl),
     ScreenViewingUrl: __expectString(output.ScreenViewingUrl),

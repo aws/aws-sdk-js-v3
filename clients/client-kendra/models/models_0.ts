@@ -2570,6 +2570,8 @@ export namespace ServiceNowConfiguration {
 }
 
 export enum SharePointVersion {
+  SHAREPOINT_2013 = "SHAREPOINT_2013",
+  SHAREPOINT_2016 = "SHAREPOINT_2016",
   SHAREPOINT_ONLINE = "SHAREPOINT_ONLINE",
 }
 
@@ -2668,6 +2670,12 @@ export interface SharePointConfiguration {
    *       </p>
    */
   DisableLocalGroups?: boolean;
+
+  /**
+   * <p>Information required to find a specific file in an Amazon S3
+   *             bucket.</p>
+   */
+  SslCertificateS3Path?: S3Path;
 }
 
 export namespace SharePointConfiguration {
@@ -3403,6 +3411,8 @@ export interface CreateIndexRequest {
    *       changed. </p>
    *          <p>The <code>Edition</code> parameter is optional. If you don't supply a
    *       value, the default is <code>ENTERPRISE_EDITION</code>.</p>
+   *          <p>For more information on quota limits for enterprise and developer editions,
+   *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</p>
    */
   Edition?: IndexEdition | string;
 
@@ -3982,9 +3992,9 @@ export namespace DescribeIndexRequest {
  */
 export interface CapacityUnitsConfiguration {
   /**
-   * <p>The amount of extra storage capacity for an index. A single capacity
-   *             unit for an index provides 150 GB of storage space or
-   *             500,000 documents, whichever is reached first.</p>
+   * <p>The amount of extra storage capacity for an index.
+   *             A single capacity unit provides 30 GB of storage space or 100,000 documents,
+   *             whichever is reached first.</p>
    */
   StorageCapacityUnits: number | undefined;
 
@@ -3992,14 +4002,16 @@ export interface CapacityUnitsConfiguration {
    * <p>The amount of extra query capacity for an index and
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html">GetQuerySuggestions</a>
    *             capacity.</p>
-   *         <p>A single extra capacity unit for an index provides 0.5 queries per second or
-   *             approximately 40,000 queries per day.</p>
+   *         <p>A single extra capacity unit for an index provides 0.1 queries per second or approximately
+   *             8,000 queries per day.</p>
    *         <p>
-   *             <code>GetQuerySuggestions</code> capacity is 5 times the provisioned query
-   *             capacity for an index. For example, the base capacity for an index is 0.5
-   *             queries per second, so GetQuerySuggestions capacity is 2.5 calls per second.
-   *             If adding another 0.5 queries per second to total 1 queries per second for an
-   *             index, the <code>GetQuerySuggestions</code> capacity is 5 calls per second.</p>
+   *             <code>GetQuerySuggestions</code> capacity is five times the
+   *             provisioned query capacity for an index, or the base capacity of 2.5 calls per second,
+   *             whichever is higher. For example, the base capacity for an index is 0.1 queries per
+   *             second, and <code>GetQuerySuggestions</code> capacity has a base of 2.5 calls per second.
+   *             If you add another 0.1 queries per second to total 0.2 queries per second for an index, the
+   *             <code>GetQuerySuggestions</code> capacity is 2.5 calls per second
+   *             (higher than five times 0.2 queries per second).</p>
    */
   QueryCapacityUnits: number | undefined;
 }

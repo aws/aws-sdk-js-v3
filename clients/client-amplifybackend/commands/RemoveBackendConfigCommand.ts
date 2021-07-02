@@ -21,7 +21,7 @@ export interface RemoveBackendConfigCommandInput extends RemoveBackendConfigRequ
 export interface RemoveBackendConfigCommandOutput extends RemoveBackendConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the AWS resources that are required to access the Amplify Admin UI.</p>
+ * <p>Removes the AWS resources required to access the Amplify Admin UI.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

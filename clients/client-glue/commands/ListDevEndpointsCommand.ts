@@ -21,7 +21,7 @@ export interface ListDevEndpointsCommandInput extends ListDevEndpointsRequest {}
 export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the names of all <code>DevEndpoint</code> resources in this AWS account, or the
+ * <p>Retrieves the names of all <code>DevEndpoint</code> resources in this Amazon Web Services account, or the
  *       resources with the specified tag. This operation allows you to see which resources are
  *       available in your account, and their names.</p>
  *

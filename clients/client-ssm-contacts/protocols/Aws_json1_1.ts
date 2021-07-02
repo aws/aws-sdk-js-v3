@@ -2151,6 +2151,14 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2511,6 +2519,14 @@ const deserializeAws_json1_1StopEngagementCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
       response = {
@@ -2687,6 +2703,14 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "com.amazonaws.ssmcontacts#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

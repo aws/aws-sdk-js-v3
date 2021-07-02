@@ -107,6 +107,7 @@ import {
   SSESpecification,
   SecurityGroupMembership,
   ServiceLinkedRoleNotFoundFault,
+  ServiceQuotaExceededException,
   Subnet,
   SubnetGroup,
   SubnetGroupAlreadyExistsFault,
@@ -537,6 +538,14 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
       response = {
         ...(await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.dax#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2580,6 +2589,21 @@ const deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ServiceQuotaExceededException(body, context);
+  const contents: ServiceQuotaExceededException = {
+    name: "ServiceQuotaExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1SubnetGroupAlreadyExistsFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2727,6 +2751,10 @@ const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, c
     ...(input.AvailabilityZones !== undefined &&
       input.AvailabilityZones !== null && {
         AvailabilityZones: serializeAws_json1_1AvailabilityZoneList(input.AvailabilityZones, context),
+      }),
+    ...(input.ClusterEndpointEncryptionType !== undefined &&
+      input.ClusterEndpointEncryptionType !== null && {
+        ClusterEndpointEncryptionType: input.ClusterEndpointEncryptionType,
       }),
     ...(input.ClusterName !== undefined && input.ClusterName !== null && { ClusterName: input.ClusterName }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
@@ -3106,6 +3134,7 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
       output.ClusterDiscoveryEndpoint !== undefined && output.ClusterDiscoveryEndpoint !== null
         ? deserializeAws_json1_1Endpoint(output.ClusterDiscoveryEndpoint, context)
         : undefined,
+    ClusterEndpointEncryptionType: __expectString(output.ClusterEndpointEncryptionType),
     ClusterName: __expectString(output.ClusterName),
     Description: __expectString(output.Description),
     IamRoleArn: __expectString(output.IamRoleArn),
@@ -3327,6 +3356,7 @@ const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): E
   return {
     Address: __expectString(output.Address),
     Port: __expectNumber(output.Port),
+    URL: __expectString(output.URL),
   } as any;
 };
 
@@ -3657,6 +3687,13 @@ const deserializeAws_json1_1ServiceLinkedRoleNotFoundFault = (
   return {
     message: __expectString(output.message),
   } as any;
+};
+
+const deserializeAws_json1_1ServiceQuotaExceededException = (
+  output: any,
+  context: __SerdeContext
+): ServiceQuotaExceededException => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1SSEDescription = (output: any, context: __SerdeContext): SSEDescription => {

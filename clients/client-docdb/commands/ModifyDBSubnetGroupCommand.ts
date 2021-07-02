@@ -21,8 +21,7 @@ export interface ModifyDBSubnetGroupCommandInput extends ModifyDBSubnetGroupMess
 export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupResult, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing subnet group. subnet groups must contain at least one
- *             subnet in at least two Availability Zones in the AWS Region.</p>
+ * <p>Modifies an existing subnet group. subnet groups must contain at least one subnet in at least two Availability Zones in the Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

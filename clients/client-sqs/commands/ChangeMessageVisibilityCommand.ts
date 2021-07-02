@@ -23,7 +23,7 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
 /**
  * <p>Changes the visibility timeout of a specified message in a queue to a new value. The
  *             default visibility timeout for a message is 30 seconds. The minimum is 0 seconds. The
- *             maximum is 12 hours. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+ *             maximum is 12 hours. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *          <p>For example, you have a message with a visibility timeout of 5 minutes. After 3
  *             minutes, you call <code>ChangeMessageVisibility</code> with a timeout of 10 minutes. You
  *             can continue to call <code>ChangeMessageVisibility</code> to extend the visibility

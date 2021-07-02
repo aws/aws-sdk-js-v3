@@ -25,7 +25,7 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  *          <note>
  *             <p>After completing this operation, you no longer have access to the tables (and all table
  *         versions and partitions that might belong to the tables) and the user-defined functions in
- *         the deleted database. AWS Glue deletes these "orphaned" resources asynchronously in a timely
+ *         the deleted database. Glue deletes these "orphaned" resources asynchronously in a timely
  *         manner, at the discretion of the service.</p>
  *             <p>To ensure the immediate deletion of all related resources, before calling
  *           <code>DeleteDatabase</code>, use <code>DeleteTableVersion</code> or

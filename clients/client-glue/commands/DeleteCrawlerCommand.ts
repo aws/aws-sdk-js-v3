@@ -21,7 +21,7 @@ export interface DeleteCrawlerCommandInput extends DeleteCrawlerRequest {}
 export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a specified crawler from the AWS Glue Data Catalog, unless the crawler state is
+ * <p>Removes a specified crawler from the Glue Data Catalog, unless the crawler state is
  *         <code>RUNNING</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

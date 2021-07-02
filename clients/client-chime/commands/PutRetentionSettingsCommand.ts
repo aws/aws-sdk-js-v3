@@ -24,8 +24,7 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * <p>
  * Puts retention settings for the specified Amazon Chime Enterprise account. We recommend using AWS CloudTrail to monitor usage of this API for your account. For more information, see
  * <a href="https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html">Logging Amazon Chime API Calls with AWS CloudTrail</a>
- * in the
- * <i>Amazon Chime Administration Guide</i>.</p>
+ * in the <i>Amazon Chime Administration Guide</i>.</p>
  *
  *          <p>
  * To turn off existing retention settings, remove the number of days from the corresponding
@@ -34,8 +33,7 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * <b>RetentionSettings</b>
  * object. For more information about retention settings, see
  * <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a>
- * in the
- * <i>Amazon Chime Administration Guide</i>.</p>
+ * in the <i>Amazon Chime Administration Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

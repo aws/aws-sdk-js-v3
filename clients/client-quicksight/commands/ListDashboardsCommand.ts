@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { ListDashboardsRequest, ListDashboardsResponse } from "../models/models_0";
+import { ListDashboardsRequest, ListDashboardsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListDashboardsCommand,
   serializeAws_restJson1ListDashboardsCommand,

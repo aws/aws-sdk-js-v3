@@ -1,3 +1,7 @@
+import {
+  AddSourceIdentifierToSubscriptionCommandInput,
+  AddSourceIdentifierToSubscriptionCommandOutput,
+} from "./commands/AddSourceIdentifierToSubscriptionCommand";
 import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
 import {
   ApplyPendingMaintenanceActionCommandInput,
@@ -25,6 +29,14 @@ import {
   CreateDBSubnetGroupCommandInput,
   CreateDBSubnetGroupCommandOutput,
 } from "./commands/CreateDBSubnetGroupCommand";
+import {
+  CreateEventSubscriptionCommandInput,
+  CreateEventSubscriptionCommandOutput,
+} from "./commands/CreateEventSubscriptionCommand";
+import {
+  CreateGlobalClusterCommandInput,
+  CreateGlobalClusterCommandOutput,
+} from "./commands/CreateGlobalClusterCommand";
 import { DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput } from "./commands/DeleteDBClusterCommand";
 import {
   DeleteDBClusterParameterGroupCommandInput,
@@ -39,6 +51,14 @@ import {
   DeleteDBSubnetGroupCommandInput,
   DeleteDBSubnetGroupCommandOutput,
 } from "./commands/DeleteDBSubnetGroupCommand";
+import {
+  DeleteEventSubscriptionCommandInput,
+  DeleteEventSubscriptionCommandOutput,
+} from "./commands/DeleteEventSubscriptionCommand";
+import {
+  DeleteGlobalClusterCommandInput,
+  DeleteGlobalClusterCommandOutput,
+} from "./commands/DeleteGlobalClusterCommand";
 import {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
@@ -80,7 +100,15 @@ import {
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
+import {
+  DescribeEventSubscriptionsCommandInput,
+  DescribeEventSubscriptionsCommandOutput,
+} from "./commands/DescribeEventSubscriptionsCommand";
 import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
+import {
+  DescribeGlobalClustersCommandInput,
+  DescribeGlobalClustersCommandOutput,
+} from "./commands/DescribeGlobalClustersCommand";
 import {
   DescribeOrderableDBInstanceOptionsCommandInput,
   DescribeOrderableDBInstanceOptionsCommandOutput,
@@ -108,7 +136,23 @@ import {
   ModifyDBSubnetGroupCommandInput,
   ModifyDBSubnetGroupCommandOutput,
 } from "./commands/ModifyDBSubnetGroupCommand";
+import {
+  ModifyEventSubscriptionCommandInput,
+  ModifyEventSubscriptionCommandOutput,
+} from "./commands/ModifyEventSubscriptionCommand";
+import {
+  ModifyGlobalClusterCommandInput,
+  ModifyGlobalClusterCommandOutput,
+} from "./commands/ModifyGlobalClusterCommand";
 import { RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput } from "./commands/RebootDBInstanceCommand";
+import {
+  RemoveFromGlobalClusterCommandInput,
+  RemoveFromGlobalClusterCommandOutput,
+} from "./commands/RemoveFromGlobalClusterCommand";
+import {
+  RemoveSourceIdentifierFromSubscriptionCommandInput,
+  RemoveSourceIdentifierFromSubscriptionCommandOutput,
+} from "./commands/RemoveSourceIdentifierFromSubscriptionCommand";
 import {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
@@ -179,6 +223,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AddSourceIdentifierToSubscriptionCommandInput
   | AddTagsToResourceCommandInput
   | ApplyPendingMaintenanceActionCommandInput
   | CopyDBClusterParameterGroupCommandInput
@@ -188,11 +233,15 @@ export type ServiceInputTypes =
   | CreateDBClusterSnapshotCommandInput
   | CreateDBInstanceCommandInput
   | CreateDBSubnetGroupCommandInput
+  | CreateEventSubscriptionCommandInput
+  | CreateGlobalClusterCommandInput
   | DeleteDBClusterCommandInput
   | DeleteDBClusterParameterGroupCommandInput
   | DeleteDBClusterSnapshotCommandInput
   | DeleteDBInstanceCommandInput
   | DeleteDBSubnetGroupCommandInput
+  | DeleteEventSubscriptionCommandInput
+  | DeleteGlobalClusterCommandInput
   | DescribeCertificatesCommandInput
   | DescribeDBClusterParameterGroupsCommandInput
   | DescribeDBClusterParametersCommandInput
@@ -204,7 +253,9 @@ export type ServiceInputTypes =
   | DescribeDBSubnetGroupsCommandInput
   | DescribeEngineDefaultClusterParametersCommandInput
   | DescribeEventCategoriesCommandInput
+  | DescribeEventSubscriptionsCommandInput
   | DescribeEventsCommandInput
+  | DescribeGlobalClustersCommandInput
   | DescribeOrderableDBInstanceOptionsCommandInput
   | DescribePendingMaintenanceActionsCommandInput
   | FailoverDBClusterCommandInput
@@ -214,7 +265,11 @@ export type ServiceInputTypes =
   | ModifyDBClusterSnapshotAttributeCommandInput
   | ModifyDBInstanceCommandInput
   | ModifyDBSubnetGroupCommandInput
+  | ModifyEventSubscriptionCommandInput
+  | ModifyGlobalClusterCommandInput
   | RebootDBInstanceCommandInput
+  | RemoveFromGlobalClusterCommandInput
+  | RemoveSourceIdentifierFromSubscriptionCommandInput
   | RemoveTagsFromResourceCommandInput
   | ResetDBClusterParameterGroupCommandInput
   | RestoreDBClusterFromSnapshotCommandInput
@@ -223,6 +278,7 @@ export type ServiceInputTypes =
   | StopDBClusterCommandInput;
 
 export type ServiceOutputTypes =
+  | AddSourceIdentifierToSubscriptionCommandOutput
   | AddTagsToResourceCommandOutput
   | ApplyPendingMaintenanceActionCommandOutput
   | CopyDBClusterParameterGroupCommandOutput
@@ -232,11 +288,15 @@ export type ServiceOutputTypes =
   | CreateDBClusterSnapshotCommandOutput
   | CreateDBInstanceCommandOutput
   | CreateDBSubnetGroupCommandOutput
+  | CreateEventSubscriptionCommandOutput
+  | CreateGlobalClusterCommandOutput
   | DeleteDBClusterCommandOutput
   | DeleteDBClusterParameterGroupCommandOutput
   | DeleteDBClusterSnapshotCommandOutput
   | DeleteDBInstanceCommandOutput
   | DeleteDBSubnetGroupCommandOutput
+  | DeleteEventSubscriptionCommandOutput
+  | DeleteGlobalClusterCommandOutput
   | DescribeCertificatesCommandOutput
   | DescribeDBClusterParameterGroupsCommandOutput
   | DescribeDBClusterParametersCommandOutput
@@ -248,7 +308,9 @@ export type ServiceOutputTypes =
   | DescribeDBSubnetGroupsCommandOutput
   | DescribeEngineDefaultClusterParametersCommandOutput
   | DescribeEventCategoriesCommandOutput
+  | DescribeEventSubscriptionsCommandOutput
   | DescribeEventsCommandOutput
+  | DescribeGlobalClustersCommandOutput
   | DescribeOrderableDBInstanceOptionsCommandOutput
   | DescribePendingMaintenanceActionsCommandOutput
   | FailoverDBClusterCommandOutput
@@ -258,7 +320,11 @@ export type ServiceOutputTypes =
   | ModifyDBClusterSnapshotAttributeCommandOutput
   | ModifyDBInstanceCommandOutput
   | ModifyDBSubnetGroupCommandOutput
+  | ModifyEventSubscriptionCommandOutput
+  | ModifyGlobalClusterCommandOutput
   | RebootDBInstanceCommandOutput
+  | RemoveFromGlobalClusterCommandOutput
+  | RemoveSourceIdentifierFromSubscriptionCommandOutput
   | RemoveTagsFromResourceCommandOutput
   | ResetDBClusterParameterGroupCommandOutput
   | RestoreDBClusterFromSnapshotCommandOutput

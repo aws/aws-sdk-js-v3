@@ -509,6 +509,7 @@ export interface AutoScalingClientResolvedConfig extends AutoScalingClientResolv
  *
  *
  *
+ *
  *         <p>Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances
  *             based on user-defined scaling policies, scheduled actions, and health checks.</p>
  *         <p>For more information about Amazon EC2 Auto Scaling, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon EC2 Auto Scaling User Guide</a>. For information about granting IAM users required

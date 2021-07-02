@@ -27,17 +27,10 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  *          <p>Trial components include pre-processing jobs, training jobs, and batch transform
  *       jobs.</p>
  *          <p>When you use SageMaker Studio or the SageMaker Python SDK, all experiments, trials, and trial
- *       components are automatically tracked, logged, and indexed. When you use the AWS SDK for Python (Boto), you
+ *       components are automatically tracked, logged, and indexed. When you use the Amazon Web Services SDK for Python (Boto), you
  *       must use the logging APIs provided by the SDK.</p>
  *          <p>You can add tags to a trial component and then use the <a>Search</a> API to
  *       search for the tags.</p>
- *          <note>
- *             <p>
- *                <code>CreateTrialComponent</code> can only be invoked from within an SageMaker managed
- *         environment. This includes SageMaker training jobs, processing jobs, transform jobs, and SageMaker
- *         notebooks. A call to <code>CreateTrialComponent</code> from outside one of these
- *         environments results in an error.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

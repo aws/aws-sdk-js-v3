@@ -805,8 +805,8 @@ type GlueClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerO
 export interface GlueClientResolvedConfig extends GlueClientResolvedConfigType {}
 
 /**
- * <fullname>AWS Glue</fullname>
- *          <p>Defines the public endpoint for the AWS Glue service.</p>
+ * <fullname>Glue</fullname>
+ *          <p>Defines the public endpoint for the Glue service.</p>
  */
 export class GlueClient extends __Client<
   __HttpHandlerOptions,

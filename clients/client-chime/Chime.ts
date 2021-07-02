@@ -1153,8 +1153,7 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Suspends up to 50 users from a <code>Team</code> or <code>EnterpriseLWA</code> Amazon Chime
-   *             account. For more information about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your
-   *                 Amazon Chime Accounts</a> in the <i>Amazon Chime Administration
+   *             account. For more information about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration
    *                 Guide</i>.</p>
    *
    *          <p>Users suspended from a <code>Team</code> account are disassociated from the account,but they
@@ -1163,8 +1162,7 @@ export class Chime extends ChimeClient {
    *             You can use the <a>InviteUsers</a> action to do so.</p>
    *
    *          <p>Users suspended from an <code>EnterpriseLWA</code> account are immediately signed out of
-   *             Amazon Chime and can no longer sign in. To remove the suspension from suspended
-   *                 <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a> action.</p>
+   *             Amazon Chime and can no longer sign in. To remove the suspension from suspended <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a> action.</p>
    *
    *          <p>
    * To sign out users without suspending them, use the
@@ -1204,9 +1202,11 @@ export class Chime extends ChimeClient {
   /**
    * <p>Removes the suspension from up to 50 previously suspended users for the specified Amazon
    *             Chime <code>EnterpriseLWA</code> account. Only users on <code>EnterpriseLWA</code>
-   *             accounts can be unsuspended using this action. For more information about different
-   *             account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the
-   *                 <i>Amazon Chime Administration Guide</i>.</p>
+   *             accounts can be unsuspended using this action. For more information about different account types, see
+   *     <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">
+   *         Managing Your Amazon Chime Accounts
+   *     </a> in the account types, in the <i>Amazon Chime Administration Guide</i>.
+   * </p>
    *
    *          <p>
    * Previously suspended users who are unsuspended using this action are returned to
@@ -1311,9 +1311,8 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Creates an Amazon Chime account under the administrator's AWS account. Only <code>Team</code>
-   *             account types are currently supported for this action. For more information about
-   *             different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the
-   *                 <i>Amazon Chime Administration Guide</i>.</p>
+   *             account types are currently supported for this action. For more information about different account types, see
+   *     <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.</p>
    */
   public createAccount(
     args: CreateAccountCommandInput,
@@ -3270,9 +3269,7 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Returns the full details of a user's channel membership.</p>
-   *
    *          <note>
-   *
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
    *         the API call as the value in the header.</p>
    *          </note>
@@ -3387,9 +3384,7 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Returns the full details of a single ChannelModerator.</p>
-   *
    *          <note>
-   *
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
    *         the API call as the value in the header.</p>
    *          </note>
@@ -3424,8 +3419,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime
-   *             user.</p>
+   * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime user.</p>
    */
   public disassociatePhoneNumberFromUser(
     args: DisassociatePhoneNumberFromUserCommandInput,
@@ -3587,8 +3581,9 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Retrieves account settings for the specified Amazon Chime account ID, such as remote control
-   *             and dialout settings. For more information about these settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use the Policies
-   *                 Page</a> in the <i>Amazon Chime Administration Guide</i>.</p>
+   *             and dialout settings. For more information about these settings, see
+   *     <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use the Policies Page</a> in the <i>Amazon Chime Administration Guide</i>.
+   * </p>
    */
   public getAccountSettings(
     args: GetAccountSettingsCommandInput,
@@ -4041,10 +4036,7 @@ export class Chime extends ChimeClient {
   /**
    * <p>
    * Gets the retention settings for the specified Amazon Chime Enterprise account. For more information about retention settings, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a>
-   * in the
-   * <i>Amazon Chime Administration Guide</i>
-   * .
+   * <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.
    * </p>
    */
   public getRetentionSettings(
@@ -4199,8 +4191,7 @@ export class Chime extends ChimeClient {
    *
    *          <p>
    * To retrieve user details with an email address instead of a user ID, use the
-   * <a>ListUsers</a>
-   * action, and then filter by email address.
+   * <a>ListUsers</a> action, and then filter by email address.
    * </p>
    */
   public getUser(args: GetUserCommandInput, options?: __HttpHandlerOptions): Promise<GetUserCommandOutput>;
@@ -4326,8 +4317,7 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>
-   * Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name, and associated
-   * <code>VoiceConnectorItems</code>.</p>
+   * Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name, and associated <code>VoiceConnectorItems</code>.</p>
    */
   public getVoiceConnectorGroup(
     args: GetVoiceConnectorGroupCommandInput,
@@ -4720,9 +4710,7 @@ export class Chime extends ChimeClient {
    * <p>
    * Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
    * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
-   * in the
-   * <i>Amazon Chime Developer Guide</i>
-   * .
+   * in the <i>Amazon Chime Developer Guide</i>.
    * </p>
    */
   public listAttendees(
@@ -4930,9 +4918,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>.
-   *             By default, sorted by creation timestamp in descending order.</p>
-   *
+   * <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending order.</p>
    *          <note>
    *             <p>Redacted messages appear in the results as empty, since they are only redacted, not deleted.
    *                 Deleted messages do not appear in the results. This action always returns the latest
@@ -5098,8 +5084,7 @@ export class Chime extends ChimeClient {
    * <p>
    * Lists up to 100 active Amazon Chime SDK meetings. For more information about the Amazon Chime SDK, see
    * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
-   * in the
-   * <i>Amazon Chime Developer Guide</i>.</p>
+   * in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public listMeetings(
     args: ListMeetingsCommandInput,
@@ -5694,8 +5679,7 @@ export class Chime extends ChimeClient {
    * <p>
    * Puts retention settings for the specified Amazon Chime Enterprise account. We recommend using AWS CloudTrail to monitor usage of this API for your account. For more information, see
    * <a href="https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html">Logging Amazon Chime API Calls with AWS CloudTrail</a>
-   * in the
-   * <i>Amazon Chime Administration Guide</i>.</p>
+   * in the <i>Amazon Chime Administration Guide</i>.</p>
    *
    *          <p>
    * To turn off existing retention settings, remove the number of days from the corresponding
@@ -5704,8 +5688,7 @@ export class Chime extends ChimeClient {
    * <b>RetentionSettings</b>
    * object. For more information about retention settings, see
    * <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a>
-   * in the
-   * <i>Amazon Chime Administration Guide</i>.</p>
+   * in the <i>Amazon Chime Administration Guide</i>.</p>
    */
   public putRetentionSettings(
     args: PutRetentionSettingsCommandInput,
@@ -5771,7 +5754,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Puts emergency calling configuration details to the specified Amazon Chime Voice Connector, such as emergency phone numbers and calling countries. Origination and termination settings must be enabled for the Amazon Chime Voice Connector before emergency calling can be configured.</p>
+   * <p>Puts emergency calling configuration details to the specified Amazon Chime Voice Connector, such as emergency phone numbers and calling countries. Origination and termination settings must be enabled for
+   *     the Amazon Chime Voice Connector before emergency calling can be configured.</p>
    */
   public putVoiceConnectorEmergencyCallingConfiguration(
     args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
@@ -7020,11 +7004,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>
-   * Updates user details for a specified user ID. Currently, only
-   * <code>LicenseType</code>
-   * updates are supported for this action.
-   * </p>
+   * <p>Updates user details for a specified user ID. Currently, only <code>LicenseType</code> updates are supported for this action.</p>
    */
   public updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
   public updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;

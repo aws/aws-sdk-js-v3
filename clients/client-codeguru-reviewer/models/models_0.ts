@@ -19,6 +19,11 @@ export namespace AccessDeniedException {
   });
 }
 
+export enum AnalysisType {
+  CODE_QUALITY = "CodeQuality",
+  SECURITY = "Security",
+}
+
 export enum EncryptionOption {
   AoCmk = "AWS_OWNED_CMK",
   CmCmk = "CUSTOMER_MANAGED_CMK",
@@ -87,7 +92,8 @@ export interface ThirdPartySourceRepository {
   /**
    * <p>
    *          The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
-   *          this is the username for the account that owns the repository.
+   *          this is the username for the account that owns the repository. For an S3 repository,
+   *          this can be the username or AWS account ID.
    *       </p>
    */
   Owner: string | undefined;
@@ -104,7 +110,7 @@ export namespace ThirdPartySourceRepository {
 
 /**
  * <p>Information about an AWS CodeCommit repository. The CodeCommit repository must be in the same
- *       AWS Region and AWS account where its CodeGuru Reviewer code reviews are configured. </p>
+ *       AWS Region and AWS account where its CodeGuru Reviewer code reviews are configured.</p>
  */
 export interface CodeCommitRepository {
   /**
@@ -120,6 +126,33 @@ export namespace CodeCommitRepository {
    * @internal
    */
   export const filterSensitiveLog = (obj: CodeCommitRepository): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *          Information about a repository in an S3 bucket.
+ *       </p>
+ */
+export interface S3Repository {
+  /**
+   * <p> The name of the repository in the S3 bucket. </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the S3 bucket used for associating a new S3 repository. It must begin with
+   *          <code>codeguru-reviewer-</code>. </p>
+   */
+  BucketName: string | undefined;
+}
+
+export namespace S3Repository {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3Repository): any => ({
     ...obj,
   });
 }
@@ -150,6 +183,13 @@ export interface Repository {
    *       </p>
    */
   GitHubEnterpriseServer?: ThirdPartySourceRepository;
+
+  /**
+   * <p>
+   *          Information about a repository in an S3 bucket.
+   *       </p>
+   */
+  S3Bucket?: S3Repository;
 }
 
 export namespace Repository {
@@ -223,6 +263,74 @@ export enum ProviderType {
   CODE_COMMIT = "CodeCommit",
   GIT_HUB = "GitHub",
   GIT_HUB_ENTERPRISE_SERVER = "GitHubEnterpriseServer",
+  S3_BUCKET = "S3Bucket",
+}
+
+/**
+ * <p>Code artifacts are source code artifacts and build artifacts used in a repository analysis or a pull request review.</p>
+ *          <ul>
+ *             <li>
+ *                <p>Source code artifacts are source code files in a Git repository that are
+ *             compressed into a .zip file.</p>
+ *             </li>
+ *             <li>
+ *                <p>Build artifacts are .jar or .class files that are compressed in a .zip file.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface CodeArtifacts {
+  /**
+   * <p>The S3 object key for a source code .zip file. This is required for all code reviews.</p>
+   */
+  SourceCodeArtifactsObjectKey: string | undefined;
+
+  /**
+   * <p>The S3 object key for a build artifacts .zip file that
+   *          contains .jar or .class files. This is required for a code review with security analysis. For more
+   *          information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/code-review-security.html">Create code reviews with security
+   *             analysis</a> in the <i>Amazon CodeGuru Reviewer User Guide</i>.</p>
+   */
+  BuildArtifactsObjectKey?: string;
+}
+
+export namespace CodeArtifacts {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CodeArtifacts): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *          Specifies the name of an S3 bucket and a <code>CodeArtifacts</code> object that contains the S3
+ *          object keys for a source code .zip file and for a build artifacts .zip file that contains .jar or .class files.
+ *       </p>
+ */
+export interface S3RepositoryDetails {
+  /**
+   * <p>The name of the S3 bucket used for associating a new S3 repository. It must begin with
+   *          <code>codeguru-reviewer-</code>. </p>
+   */
+  BucketName?: string;
+
+  /**
+   * <p>
+   *          A <code>CodeArtifacts</code> object. The <code>CodeArtifacts</code> object includes the S3
+   *          object key for a source code .zip file and for a build artifacts .zip file that contains .jar or .class files.
+   *       </p>
+   */
+  CodeArtifacts?: CodeArtifacts;
+}
+
+export namespace S3RepositoryDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3RepositoryDetails): any => ({
+    ...obj,
+  });
 }
 
 export enum RepositoryAssociationState {
@@ -270,7 +378,8 @@ export interface RepositoryAssociation {
 
   /**
    * <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the
-   *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.</p>
+   *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.
+   *       For an S3 repository, it can be the username or AWS account ID.</p>
    */
   Owner?: string;
 
@@ -367,6 +476,14 @@ export interface RepositoryAssociation {
    *          </ul>
    */
   KMSKeyDetails?: KMSKeyDetails;
+
+  /**
+   * <p>
+   *          Specifies the name of an S3 bucket and a <code>CodeArtifacts</code> object that contains the S3
+   *          object keys for a source code .zip file and for a build artifacts .zip file that contains .jar or .class files.
+   *       </p>
+   */
+  S3RepositoryDetails?: S3RepositoryDetails;
 }
 
 export namespace RepositoryAssociation {
@@ -515,6 +632,244 @@ export namespace RepositoryHeadSourceCodeType {
 }
 
 /**
+ * <p>
+ *          A type of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">
+ *                <code>SourceCodeType</code>
+ *             </a> that
+ *          specifies a code diff between a source and destination branch in an associated repository.
+ *       </p>
+ */
+export interface BranchDiffSourceCodeType {
+  /**
+   * <p>The source branch for a diff in an associated repository.</p>
+   */
+  SourceBranchName: string | undefined;
+
+  /**
+   * <p>The destination branch for a diff in an associated repository.</p>
+   */
+  DestinationBranchName: string | undefined;
+}
+
+export namespace BranchDiffSourceCodeType {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BranchDiffSourceCodeType): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *          A type of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">
+ *                <code>SourceCodeType</code>
+ *             </a> that
+ *          specifies the commit diff for a pull request on an associated repository. The <code>SourceCommit</code>
+ *          and <code>DestinationCommit</code> fields are required to do a pull request code review.
+ *       </p>
+ */
+export interface CommitDiffSourceCodeType {
+  /**
+   * <p>
+   *          The SHA of the source commit used to generate a commit diff. This field is required for a pull request code review.
+   *       </p>
+   */
+  SourceCommit?: string;
+
+  /**
+   * <p>
+   *          The SHA of the destination commit used to generate a commit diff. This field is required for a pull request code review.
+   *       </p>
+   */
+  DestinationCommit?: string;
+
+  /**
+   * <p>The SHA of the merge base of a commit.</p>
+   */
+  MergeBaseCommit?: string;
+}
+
+export namespace CommitDiffSourceCodeType {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CommitDiffSourceCodeType): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an event. The event might be a push, pull request, scheduled request, or another type of event.</p>
+ */
+export interface EventInfo {
+  /**
+   * <p>The name of the event. The possible names are <code>pull_request</code>, <code>workflow_dispatch</code>,
+   *          <code>schedule</code>, and <code>push</code>
+   *          </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The state of an event. The state might be open, closed, or another state.</p>
+   */
+  State?: string;
+}
+
+export namespace EventInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EventInfo): any => ({
+    ...obj,
+  });
+}
+
+export enum VendorName {
+  GITHUB = "GitHub",
+  GITLAB = "GitLab",
+  NATIVE_S3 = "NativeS3",
+}
+
+/**
+ * <p>Metadata that is associated with a code review. This applies to both pull request
+ *          and repository analysis code reviews.</p>
+ */
+export interface RequestMetadata {
+  /**
+   * <p>The ID of the request. This is required for a pull request code review.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>An identifier, such as a name or account ID, that is associated with the requester. The
+   *       <code>Requester</code> is used to capture the <code>author/actor</code> name of the event request.</p>
+   */
+  Requester?: string;
+
+  /**
+   * <p>Information about the event associated with a code review.</p>
+   */
+  EventInfo?: EventInfo;
+
+  /**
+   * <p>The name of the repository vendor used to upload code to an S3 bucket for a CI/CD code
+   *          review. For example, if code and artifacts are uploaded to an S3 bucket for a CI/CD code
+   *          review by GitHub scripts from a GitHub repository, then the repository association's <code>ProviderType</code> is
+   *             <code>S3Bucket</code> and the CI/CD repository vendor name is GitHub. For more
+   *          information, see the definition for <code>ProviderType</code> in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a>. </p>
+   */
+  VendorName?: VendorName | string;
+}
+
+export namespace RequestMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *          Information about an associated repository in an S3 bucket. The associated repository contains a source code
+ *          .zip file and a build artifacts .zip file that contains .jar or .class files.
+ *       </p>
+ */
+export interface S3BucketRepository {
+  /**
+   * <p>
+   *          The name of the repository when the <code>ProviderType</code> is <code>S3Bucket</code>.
+   *       </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>
+   * 			An <code>S3RepositoryDetails</code> object that specifies the name of an S3 bucket and
+   * 			a <code>CodeArtifacts</code> object. The <code>CodeArtifacts</code> object includes the S3
+   * 			object keys for a source code .zip file and for a build artifacts .zip file.
+   * 		</p>
+   */
+  Details?: S3RepositoryDetails;
+}
+
+export namespace S3BucketRepository {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3BucketRepository): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *          Specifies the source code that is analyzed in a code review.
+ *       </p>
+ */
+export interface SourceCodeType {
+  /**
+   * <p>
+   *          A <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">
+   *                <code>SourceCodeType</code>
+   *             </a> that
+   *          specifies a commit diff created by a pull request on an associated repository.
+   *       </p>
+   */
+  CommitDiff?: CommitDiffSourceCodeType;
+
+  /**
+   * <p>
+   *          A <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">
+   *                <code>SourceCodeType</code>
+   *             </a> that specifies
+   *          the tip of a branch in an associated repository.
+   *       </p>
+   */
+  RepositoryHead?: RepositoryHeadSourceCodeType;
+
+  /**
+   * <p>
+   *          A type of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">
+   *                <code>SourceCodeType</code>
+   *             </a> that
+   *          specifies a source branch name and a destination branch name in an associated repository.
+   *       </p>
+   */
+  BranchDiff?: BranchDiffSourceCodeType;
+
+  /**
+   * <p>
+   * 			Information about an associated repository in an S3 bucket that includes its name and an <code>S3RepositoryDetails</code> object.
+   * 			The <code>S3RepositoryDetails</code> object includes the name of an S3 bucket, an S3 key for a source code .zip file, and
+   * 			an S3 key for a build artifacts .zip file. <code>S3BucketRepository</code> is required in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">
+   *                <code>SourceCodeType</code>
+   *             </a> for
+   *          <code>S3BucketRepository</code> based code reviews.
+   * 		</p>
+   */
+  S3BucketRepository?: S3BucketRepository;
+
+  /**
+   * <p>Metadata that is associated with a code review. This applies to any type of code review supported by CodeGuru Reviewer. The
+   *       <code>RequestMetadaa</code> field captures any event metadata. For example, it might capture metadata associated with
+   *          an event trigger, such as a push or a pull request. </p>
+   */
+  RequestMetadata?: RequestMetadata;
+}
+
+export namespace SourceCodeType {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SourceCodeType): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> A code review type that analyzes all code under a specified branch in an associated
  * 			repository. The associated repository is specified using its ARN when you call <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview">
  *                <code>CreateCodeReview</code>
@@ -529,7 +884,14 @@ export interface RepositoryAnalysis {
    *          specifies the tip of a branch in an associated repository.
    *       </p>
    */
-  RepositoryHead: RepositoryHeadSourceCodeType | undefined;
+  RepositoryHead?: RepositoryHeadSourceCodeType;
+
+  /**
+   * <p>
+   *          Specifies the source code that is analyzed in a code review.
+   *       </p>
+   */
+  SourceCodeType?: SourceCodeType;
 }
 
 export namespace RepositoryAnalysis {
@@ -548,10 +910,7 @@ export namespace RepositoryAnalysis {
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>PullRequest</code> - A code review that is automatically triggered by a pull request on an associated repository. Because this
- *                type of code review is automatically generated, you cannot specify this code review type using <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview">
- *                      <code>CreateCodeReview</code>
- *                   </a>.
+ *                   <code>PullRequest</code> - A code review that is automatically triggered by a pull request on an associated repository.
  *             </p>
  *             </li>
  *             <li>
@@ -572,6 +931,12 @@ export interface CodeReviewType {
    *             </a>. </p>
    */
   RepositoryAnalysis: RepositoryAnalysis | undefined;
+
+  /**
+   * <p>They types of analysis performed during a repository analysis or a pull request review. You can specify either
+   *          <code>Security</code>, <code>CodeQuality</code>, or both.</p>
+   */
+  AnalysisTypes?: (AnalysisType | string)[];
 }
 
 export namespace CodeReviewType {
@@ -674,76 +1039,6 @@ export namespace Metrics {
   });
 }
 
-/**
- * <p>
- *          A type of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">
- *                <code>SourceCodeType</code>
- *             </a> that
- *          specifies the commit diff for a pull request on an associated repository.
- *       </p>
- */
-export interface CommitDiffSourceCodeType {
-  /**
-   * <p>
-   *          The SHA of the source commit used to generate a commit diff.
-   *       </p>
-   */
-  SourceCommit?: string;
-
-  /**
-   * <p>
-   *          The SHA of the destination commit used to generate a commit diff.
-   *       </p>
-   */
-  DestinationCommit?: string;
-}
-
-export namespace CommitDiffSourceCodeType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitDiffSourceCodeType): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>
- *          Specifies the source code that is analyzed in a code review. A code review can analyze the source code that is specified
- *          using a pull request diff or a branch in an associated repository.
- *       </p>
- */
-export interface SourceCodeType {
-  /**
-   * <p>
-   *          A <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">
-   *                <code>SourceCodeType</code>
-   *             </a> that
-   *          specifies a commit diff created by a pull request on an associated repository.
-   *       </p>
-   */
-  CommitDiff?: CommitDiffSourceCodeType;
-
-  /**
-   * <p>
-   *          A <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">
-   *                <code>SourceCodeType</code>
-   *             </a> that specifies
-   *          the tip of a branch in an associated repository.
-   *       </p>
-   */
-  RepositoryHead?: RepositoryHeadSourceCodeType;
-}
-
-export namespace SourceCodeType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceCodeType): any => ({
-    ...obj,
-  });
-}
-
 export enum JobState {
   COMPLETED = "Completed",
   DELETING = "Deleting",
@@ -786,7 +1081,8 @@ export interface CodeReview {
 
   /**
    * <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the
-   *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.</p>
+   *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.
+   *       For an S3 repository, it can be the username or AWS account ID.</p>
    */
   Owner?: string;
 
@@ -886,6 +1182,12 @@ export interface CodeReview {
    *       </p>
    */
   Metrics?: Metrics;
+
+  /**
+   * <p>They types of analysis performed during a repository analysis or a pull request review. You can specify either
+   *          <code>Security</code>, <code>CodeQuality</code>, or both.</p>
+   */
+  AnalysisTypes?: (AnalysisType | string)[];
 }
 
 export namespace CodeReview {
@@ -1380,7 +1682,8 @@ export interface CodeReviewSummary {
 
   /**
    * <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the
-   *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.</p>
+   *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.
+   *       For an S3 repository, it can be the username or AWS account ID.</p>
    */
   Owner?: string;
 
@@ -1455,6 +1758,13 @@ export interface CodeReviewSummary {
    *       </p>
    */
   MetricsSummary?: MetricsSummary;
+
+  /**
+   * <p>
+   *          Specifies the source code that is analyzed in a code review.
+   *       </p>
+   */
+  SourceCodeType?: SourceCodeType;
 }
 
 export namespace CodeReviewSummary {
@@ -1643,6 +1953,19 @@ export namespace ListRecommendationsRequest {
   });
 }
 
+export enum RecommendationCategory {
+  AWS_BEST_PRACTICES = "AWSBestPractices",
+  AWS_CLOUDFORMATION_ISSUES = "AWSCloudFormationIssues",
+  CODE_MAINTENANCE_ISSUES = "CodeMaintenanceIssues",
+  CONCURRENCY_ISSUES = "ConcurrencyIssues",
+  DUPLICATE_CODE = "DuplicateCode",
+  INPUT_VALIDATIONS = "InputValidations",
+  JAVA_BEST_PRACTICES = "JavaBestPractices",
+  PYTHON_BEST_PRACTICES = "PythonBestPractices",
+  RESOURCE_LEAKS = "ResourceLeaks",
+  SECURITY_ISSUES = "SecurityIssues",
+}
+
 /**
  * <p>
  *          Information about recommendations.
@@ -1681,6 +2004,11 @@ export interface RecommendationSummary {
    *       </p>
    */
   Description?: string;
+
+  /**
+   * <p>The type of a recommendation.</p>
+   */
+  RecommendationCategory?: RecommendationCategory | string;
 }
 
 export namespace RecommendationSummary {
@@ -1885,7 +2213,8 @@ export interface RepositoryAssociationSummary {
 
   /**
    * <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the
-   *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.</p>
+   *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.
+   *       For an S3 repository, it can be the username or AWS account ID.</p>
    */
   Owner?: string;
 

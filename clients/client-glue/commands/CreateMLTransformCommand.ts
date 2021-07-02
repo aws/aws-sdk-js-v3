@@ -21,7 +21,7 @@ export interface CreateMLTransformCommandInput extends CreateMLTransformRequest 
 export interface CreateMLTransformCommandOutput extends CreateMLTransformResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an AWS Glue machine learning transform. This operation creates the transform and
+ * <p>Creates an Glue machine learning transform. This operation creates the transform and
  *       all the necessary parameters to train it.</p>
  *
  * 	        <p>Call this operation as the first step in the process of using a machine learning transform
@@ -29,7 +29,7 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  *       optional <code>Description</code>, in addition to the parameters that you want to use for your
  *       algorithm.</p>
  *
- *          <p>You must also specify certain parameters for the tasks that AWS Glue runs on your
+ *          <p>You must also specify certain parameters for the tasks that Glue runs on your
  *       behalf as part of learning from your data and creating a high-quality machine learning
  *       transform. These parameters include <code>Role</code>, and optionally,
  *         <code>AllocatedCapacity</code>, <code>Timeout</code>, and <code>MaxRetries</code>. For more

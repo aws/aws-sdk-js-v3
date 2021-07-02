@@ -21,10 +21,7 @@ export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
 export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns events related to instances, security groups, snapshots, and DB
- *             parameter groups for the past 14 days. You can obtain events specific to a particular DB
- *             instance, security group, snapshot, or parameter group by providing the name as
- *             a parameter. By default, the events of the past hour are returned.</p>
+ * <p>Returns events related to instances, security groups, snapshots, and DB parameter groups for the past 14 days. You can obtain events specific to a particular DB instance, security group, snapshot, or parameter group by providing the name as a parameter. By default, the events of the past hour are returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

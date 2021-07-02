@@ -22,8 +22,7 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
 
 /**
  * <p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a
- *                 <code>DBSubnetGroupName</code> is specified, the list will contain only the
- *             descriptions of the specified <code>DBSubnetGroup</code>.</p>
+ *                 <code>DBSubnetGroupName</code> is specified, the list will contain only the descriptions of the specified <code>DBSubnetGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

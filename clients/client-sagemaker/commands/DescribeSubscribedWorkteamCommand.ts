@@ -22,7 +22,7 @@ export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscri
 
 /**
  * <p>Gets information about a work team provided by a vendor. It returns details about the
- *             subscription with a vendor in the AWS Marketplace.</p>
+ *             subscription with a vendor in the Amazon Web Services Marketplace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

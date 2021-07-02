@@ -21,8 +21,7 @@ export interface UpdateQuickConnectNameCommandInput extends UpdateQuickConnectNa
 export interface UpdateQuickConnectNameCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
+ * <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

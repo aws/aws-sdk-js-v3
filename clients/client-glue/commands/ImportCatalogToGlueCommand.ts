@@ -21,7 +21,7 @@ export interface ImportCatalogToGlueCommandInput extends ImportCatalogToGlueRequ
 export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueResponse, __MetadataBearer {}
 
 /**
- * <p>Imports an existing Amazon Athena Data Catalog to AWS Glue</p>
+ * <p>Imports an existing Amazon Athena Data Catalog to Glue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

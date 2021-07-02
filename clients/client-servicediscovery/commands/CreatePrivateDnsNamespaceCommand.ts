@@ -26,7 +26,8 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  *    service <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. Service
  *    instances that are registered using a private DNS namespace can be discovered using either a
  *     <code>DiscoverInstances</code> request or using DNS. For the current quota on the number of namespaces that you can
- *    create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
+ *    create using the same account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
+ *     <i>Cloud Map Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

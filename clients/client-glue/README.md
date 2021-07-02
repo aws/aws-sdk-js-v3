@@ -7,9 +7,9 @@
 
 AWS SDK for JavaScript Glue Client for Node.js, Browser and React Native.
 
-<fullname>AWS Glue</fullname>
+<fullname>Glue</fullname>
 
-<p>Defines the public endpoint for the AWS Glue service.</p>
+<p>Defines the public endpoint for the Glue service.</p>
 
 ## Installing
 

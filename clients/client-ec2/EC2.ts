@@ -3657,11 +3657,12 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Cancels the specified Spot Fleet requests.</p>
-   *          <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Instances.
-   *        You must specify whether the Spot Fleet should also terminate its Spot Instances.
-   *        If you terminate the instances, the Spot Fleet request enters the <code>cancelled_terminating</code> state.
-   *        Otherwise, the Spot Fleet request enters the <code>cancelled_running</code> state and the instances
-   *        continue to run until they are interrupted or you terminate them manually.</p>
+   *         <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Instances.
+   *             You must specify whether the Spot Fleet should also terminate its Spot Instances. If you
+   *             terminate the instances, the Spot Fleet request enters the
+   *                 <code>cancelled_terminating</code> state. Otherwise, the Spot Fleet request enters
+   *             the <code>cancelled_running</code> state and the instances continue to run until they
+   *             are interrupted or you terminate them manually.</p>
    */
   public cancelSpotFleetRequests(
     args: CancelSpotFleetRequestsCommandInput,
@@ -3694,9 +3695,10 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Cancels one or more Spot Instance requests.</p>
-   *          <important>
-   *             <p>Canceling a Spot Instance request does not terminate running Spot Instances associated with the request.</p>
-   *          </important>
+   *         <important>
+   *             <p>Canceling a Spot Instance request does not terminate running Spot Instances
+   *                 associated with the request.</p>
+   *         </important>
    */
   public cancelSpotInstanceRequests(
     args: CancelSpotInstanceRequestsCommandInput,
@@ -5339,7 +5341,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
-   * 				You can create one data feed per AWS account. For more information, see
+   * 				You can create one data feed per account. For more information, see
    *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
    *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
@@ -8597,8 +8599,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the AWS
-   * 			Region that you're currently using.</p>
+   * <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the
+   * 		    	Region that you're currently using.</p>
    */
   public describeCapacityReservations(
     args: DescribeCapacityReservationsCommandInput,
@@ -11390,9 +11392,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes the events for the specified Spot Fleet request during the specified time.</p>
-   *          <p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query
-   *           by the last evaluated time and not miss a recorded event. Spot Fleet events are available for 48 hours.</p>
+   * <p>Describes the events for the specified Spot Fleet request during the specified
+   *             time.</p>
+   *         <p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This
+   *             ensures that you can query by the last evaluated time and not miss a recorded event.
+   *             Spot Fleet events are available for 48 hours.</p>
    */
   public describeSpotFleetRequestHistory(
     args: DescribeSpotFleetRequestHistoryCommandInput,
@@ -11425,7 +11429,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes your Spot Fleet requests.</p>
-   *          <p>Spot Fleet requests are deleted 48 hours after they are canceled and their instances are terminated.</p>
+   *         <p>Spot Fleet requests are deleted 48 hours after they are canceled and their instances
+   *             are terminated.</p>
    */
   public describeSpotFleetRequests(
     args: DescribeSpotFleetRequestsCommandInput,
@@ -11458,12 +11463,12 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the specified Spot Instance requests.</p>
-   *          <p>You can use <code>DescribeSpotInstanceRequests</code> to find a
-   * 		running Spot Instance by examining the response. If the status of
-   * 		the Spot Instance is <code>fulfilled</code>, the instance ID
-   * 		appears in the response and contains the identifier of the instance.
-   * 		Alternatively, you can use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances">DescribeInstances</a> with a filter to
-   * 		look for instances where the instance lifecycle is <code>spot</code>.</p>
+   *         <p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by
+   *             examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the
+   *             instance ID appears in the response and contains the identifier of the instance.
+   *             Alternatively, you can use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances">DescribeInstances</a>
+   *             with a filter to look for instances where the instance lifecycle is
+   *             <code>spot</code>.</p>
    *         <p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to
    *             limit the number of results returned. This paginates the output, which makes the list
    *             more manageable and returns the results faster. If the list of results exceeds your
@@ -11471,8 +11476,8 @@ export class EC2 extends EC2Client {
    *                 <code>NextToken</code> value that can be passed to a subsequent
    *                 <code>DescribeSpotInstanceRequests</code> request to retrieve the remaining
    *             results.</p>
-   * 	        <p>Spot Instance requests are deleted four hours after they are canceled and their instances
-   *             are terminated.</p>
+   *         <p>Spot Instance requests are deleted four hours after they are canceled and their instances are
+   *             terminated.</p>
    */
   public describeSpotInstanceRequests(
     args: DescribeSpotInstanceRequestsCommandInput,
@@ -11504,9 +11509,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes the Spot price history. For more information, see
-   * 		<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html">Spot Instance pricing history</a>
-   *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>Describes the Spot price history. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html">Spot Instance pricing history</a> in the
+   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *         <p>When you specify a start and end time, the operation returns the prices of the
    *             instance types within that time range. It also returns the last price change before the
    *             start time, which is the effective price as of the start time.</p>
@@ -14014,7 +14018,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner
-   * 			and each AWS account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only
+   * 			and each account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only
    * 			the Capacity Reservation owner's usage.</p>
    */
   public getCapacityReservationUsage(
@@ -15105,12 +15109,12 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modifies the default credit option for CPU usage of burstable performance instances.
-   *             The default credit option is set at the account level per AWS Region, and is specified
+   *             The default credit option is set at the account level per Region, and is specified
    *             per instance family. All new burstable performance instances in the account launch using
    *             the default credit option.</p>
    *         <p>
-   *             <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which works at an AWS
-   *             Region level and modifies the credit option for each Availability Zone. All zones in a
+   *             <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which works at an Region
+   *             level and modifies the credit option for each Availability Zone. All zones in a
    *             Region are updated within five minutes. But if instances are launched during this
    *             operation, they might not get the new credit option until the zone is updated. To verify
    *             whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code> and check
@@ -15867,9 +15871,10 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modifies the specified Spot Fleet request.</p>
-   *          <p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p>
-   *          <p>While the Spot Fleet request is being modified, it is in the <code>modifying</code> state.</p>
-   *          <p>To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the
+   *         <p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p>
+   *         <p>While the Spot Fleet request is being modified, it is in the <code>modifying</code>
+   *             state.</p>
+   *         <p>To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the
    *             additional Spot Instances according to the allocation strategy for the Spot Fleet
    *             request. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet launches
    *             instances using the Spot Instance pool with the lowest price. If the allocation strategy
@@ -15877,7 +15882,7 @@ export class EC2 extends EC2Client {
    *             Instance pools. If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet
    *             launches instances from Spot Instance pools with optimal capacity for the number of instances
    *             that are launching.</p>
-   *          <p>To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet
+   *         <p>To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet
    *             cancels any open requests that exceed the new target capacity. You can request that the
    *             Spot Fleet terminate Spot Instances until the size of the fleet no longer exceeds the
    *             new target capacity. If the allocation strategy is <code>lowestPrice</code>, the Spot
@@ -15888,8 +15893,8 @@ export class EC2 extends EC2Client {
    *             Spot Instance pools. Alternatively, you can request that the Spot Fleet keep the fleet
    *             at its current size, but not replace any Spot Instances that are interrupted or that you
    *             terminate manually.</p>
-   *          <p>If you are finished with your Spot Fleet for now, but will use it again later, you can set the
-   *        target capacity to 0.</p>
+   *         <p>If you are finished with your Spot Fleet for now, but will use it again later, you can
+   *             set the target capacity to 0.</p>
    */
   public modifySpotFleetRequest(
     args: ModifySpotFleetRequestCommandInput,
@@ -17640,18 +17645,22 @@ export class EC2 extends EC2Client {
    *         <p>The Spot Fleet request specifies the total target capacity and the On-Demand target
    *             capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand
    *             capacity, and launches the difference as Spot capacity.</p>
-   *          <p>You can submit a single request that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p>
-   *          <p>By default, the Spot Fleet requests Spot Instances in the Spot Instance pool where the
+   *         <p>You can submit a single request that includes multiple launch specifications that vary
+   *             by instance type, AMI, Availability Zone, or subnet.</p>
+   *         <p>By default, the Spot Fleet requests Spot Instances in the Spot Instance pool where the
    *             price per unit is the lowest. Each launch specification can include its own instance
    *             weighting that reflects the value of the instance type to your application
    *             workload.</p>
-   *          <p>Alternatively, you can specify that the Spot Fleet distribute the target capacity across the Spot pools included in its launch specifications. By ensuring that the Spot Instances in your Spot Fleet are in different Spot pools, you can improve the availability of your fleet.</p>
-   *          <p>You can specify tags for the Spot Fleet request and instances launched by the fleet. You
-   *             cannot tag other resource types in a Spot Fleet request because only the
+   *         <p>Alternatively, you can specify that the Spot Fleet distribute the target capacity
+   *             across the Spot pools included in its launch specifications. By ensuring that the Spot
+   *             Instances in your Spot Fleet are in different Spot pools, you can improve the
+   *             availability of your fleet.</p>
+   *         <p>You can specify tags for the Spot Fleet request and instances launched by the fleet.
+   *             You cannot tag other resource types in a Spot Fleet request because only the
    *                 <code>spot-fleet-request</code> and <code>instance</code> resource types are
    *             supported.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot Fleet requests</a>
-   *        in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot Fleet requests</a>
+   *             in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   public requestSpotFleet(
     args: RequestSpotFleetCommandInput,
@@ -17684,7 +17693,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a Spot Instance request.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance requests</a> in
+   *             the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   public requestSpotInstances(
     args: RequestSpotInstancesCommandInput,
@@ -18415,12 +18425,9 @@ export class EC2 extends EC2Client {
    *             started. When an instance is stopped, the compute resources are released and you are not
    *             billed for instance usage. However, your root partition Amazon EBS volume remains and
    *             continues to persist your data, and you are charged for Amazon EBS volume usage. You can
-   *             restart your instance at any time. Every time you start your Windows instance, Amazon
-   *             EC2 charges you for a full instance hour. If you stop and restart your Windows instance,
-   *             a new instance hour begins and Amazon EC2 charges you for another full instance hour
-   *             even if you are still within the same 60-minute period when it was stopped. Every time
-   *             you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance
-   *             usage, and thereafter charges per second for instance usage.</p>
+   *             restart your instance at any time. Every time you start your instance, Amazon EC2
+   *             charges a one-minute minimum for instance usage, and thereafter charges per second for
+   *             instance usage.</p>
    *         <p>Before stopping an instance, make sure it is in a state from which it can be
    *             restarted. Stopping an instance does not preserve data stored in RAM.</p>
    *         <p>Performing this operation on an instance that uses an instance store as its root
@@ -18535,12 +18542,9 @@ export class EC2 extends EC2Client {
    *                 <i>Amazon EC2 User Guide</i>.</p>
    *         <p>We don't charge usage for a stopped instance, or data transfer fees; however, your
    *             root partition Amazon EBS volume remains and continues to persist your data, and you are
-   *             charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon
-   *             EC2 charges you for a full instance hour. If you stop and restart your Windows instance,
-   *             a new instance hour begins and Amazon EC2 charges you for another full instance hour
-   *             even if you are still within the same 60-minute period when it was stopped. Every time
-   *             you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance
-   *             usage, and thereafter charges per second for instance usage.</p>
+   *             charged for Amazon EBS volume usage. Every time you start your instance, Amazon EC2
+   *             charges a one-minute minimum for instance usage, and thereafter charges per second for
+   *             instance usage.</p>
    *         <p>You can't stop or hibernate instance store-backed instances. You can't use the Stop
    *             action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate
    *             Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating interrupted Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -18625,8 +18629,53 @@ export class EC2 extends EC2Client {
   /**
    * <p>Shuts down the specified instances. This operation is idempotent; if you terminate an
    *             instance more than once, each call succeeds. </p>
+   *
    *         <p>If you specify multiple instances and the request fails (for example, because of a
    *             single incorrect instance ID), none of the instances are terminated.</p>
+   *
+   *         <p>If you terminate multiple instances across multiple Availability Zones, and one or more
+   *             of the specified instances are enabled for termination protection, the request fails with
+   *             the following results:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>The specified instances that are in the same Availability Zone as the protected
+   *                     instance are not terminated.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The specified instances that are in different Availability Zones, where no other
+   *                     specified instances are protected, are successfully terminated.</p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>For example, say you have the following instances:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Instance A: <code>us-east-1a</code>; Not protected</p>
+   *             </li>
+   *             <li>
+   *                 <p>Instance B: <code>us-east-1a</code>; Not protected</p>
+   *             </li>
+   *             <li>
+   *                 <p>Instance C: <code>us-east-1b</code>; Protected</p>
+   *             </li>
+   *             <li>
+   *                 <p>Instance D: <code>us-east-1b</code>; not protected</p>
+   *             </li>
+   *          </ul>
+   *         <p>If you attempt to terminate all of these instances in the same request, the request reports
+   *             failure with the following results:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Instance A and Instance B are successfully terminated because none of the specified
+   *                     instances in <code>us-east-1a</code> are enabled for termination protection.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Instance C and Instance D fail to terminate because at least one of the specified
+   *                     instances in <code>us-east-1b</code> (Instance C) is enabled for termination protection.</p>
+   *             </li>
+   *          </ul>
+   *
+   *
    *         <p>Terminated instances remain visible after termination (for approximately one
    *             hour).</p>
    *         <p>By default, Amazon EC2 deletes all EBS volumes that were attached when the instance

@@ -22,7 +22,7 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
 
 /**
  * <p>Instantiates an auto-scaling virtual server based on the selected file transfer protocol
- *       in AWS. When you make updates to your file transfer protocol-enabled server or when you work
+ *       in Amazon Web Services. When you make updates to your file transfer protocol-enabled server or when you work
  *       with users, use the service-generated <code>ServerId</code> property that is assigned to the
  *       newly created server.</p>
  * @example

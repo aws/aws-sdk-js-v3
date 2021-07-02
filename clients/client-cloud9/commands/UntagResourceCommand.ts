@@ -21,7 +21,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes tags from an AWS Cloud9 development environment.</p>
+ * <p>Removes tags from an Cloud9 development environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

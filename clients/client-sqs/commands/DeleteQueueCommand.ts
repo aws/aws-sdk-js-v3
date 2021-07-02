@@ -29,7 +29,9 @@ export interface DeleteQueueCommandOutput extends __MetadataBearer {}
  *             </code> request might succeed, but after 60 seconds the queue and the message you sent no longer exist.</p>
  *          <p>When you delete a queue, you must wait at least 60 seconds before creating a queue with the same name.</p>
  *          <note>
- *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a user name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+ *             <p>Cross-account permissions don't apply to this action. For more information,
+ * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
+ * cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

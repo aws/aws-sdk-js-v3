@@ -22,7 +22,7 @@ export interface CreateAccessCommandOutput extends CreateAccessResponse, __Metad
 
 /**
  * <p>Used by administrators to choose which groups in the directory should have access to
- *       upload and download files over the enabled protocols using AWS Transfer Family. For example, a
+ *       upload and download files over the enabled protocols using Amazon Web Services Transfer Family. For example, a
  *       Microsoft Active Directory might contain 50,000 users, but only a small fraction might need
  *       the ability to transfer files to the server. An administrator can use
  *         <code>CreateAccess</code> to limit the access to the correct set of users who need this

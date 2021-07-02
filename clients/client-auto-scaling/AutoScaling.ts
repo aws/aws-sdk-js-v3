@@ -302,6 +302,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *
  *
  *
+ *
  *         <p>Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances
  *             based on user-defined scaling policies, scheduled actions, and health checks.</p>
  *         <p>For more information about Amazon EC2 Auto Scaling, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon EC2 Auto Scaling User Guide</a>. For information about granting IAM users required
@@ -512,8 +513,8 @@ export class AutoScaling extends AutoScalingClient {
    *             replacements that have already been completed, but it prevents new replacements from
    *             being started. </p>
    *         <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
-   *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling
-   *             group after you make configuration changes.</p>
+   *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
+   *             after you make configuration changes.</p>
    */
   public cancelInstanceRefresh(
     args: CancelInstanceRefreshCommandInput,
@@ -1001,7 +1002,9 @@ export class AutoScaling extends AutoScalingClient {
 
   /**
    * <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p>
-   *         <p>For information about requesting an increase, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service
+   *         <p>When you establish an account, the account has initial quotas on the maximum
+   *             number of Auto Scaling groups and launch configurations that you can create in a given Region.
+   *             For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service
    *                 quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   public describeAccountLimits(
@@ -1185,8 +1188,8 @@ export class AutoScaling extends AutoScalingClient {
   /**
    * <p>Gets information about the instance refreshes for the specified Auto Scaling group.</p>
    *         <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
-   *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling
-   *             group after you make configuration changes.</p>
+   *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
+   *             after you make configuration changes.</p>
    *         <p>To help you determine the status of an instance refresh, this operation returns
    *             information about the instance refreshes you previously initiated, including their
    *             status, end time, the percentage of the instance refresh that is complete, and the
@@ -2528,8 +2531,8 @@ export class AutoScaling extends AutoScalingClient {
    * <p>Starts a new instance refresh operation, which triggers a rolling replacement of
    *             previously launched instances in the Auto Scaling group with a new group of instances.</p>
    *         <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
-   *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling
-   *             group after you make configuration changes.</p>
+   *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
+   *             after you make configuration changes.</p>
    *         <p>If the call succeeds, it creates a new instance refresh request with a unique ID that
    *             you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a> API. To describe the instance refreshes that
    *             have already run, call the <a>DescribeInstanceRefreshes</a> API. To cancel an

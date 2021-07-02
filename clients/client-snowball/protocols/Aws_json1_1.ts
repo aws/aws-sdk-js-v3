@@ -113,12 +113,15 @@ import {
   ListLongTermPricingRequest,
   ListLongTermPricingResult,
   LongTermPricingListEntry,
+  NFSOnDeviceServiceConfiguration,
   Notification,
+  OnDeviceServiceConfiguration,
   ReturnShippingLabelAlreadyExistsException,
   S3Resource,
   Shipment,
   ShippingDetails,
   SnowconeDeviceConfiguration,
+  TargetOnDeviceService,
   TaxDocuments,
   UnsupportedAddressException,
   UpdateClusterRequest,
@@ -2308,6 +2311,15 @@ const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, c
     ...(input.KmsKeyARN !== undefined && input.KmsKeyARN !== null && { KmsKeyARN: input.KmsKeyARN }),
     ...(input.Notification !== undefined &&
       input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.OnDeviceServiceConfiguration !== undefined &&
+      input.OnDeviceServiceConfiguration !== null && {
+        OnDeviceServiceConfiguration: serializeAws_json1_1OnDeviceServiceConfiguration(
+          input.OnDeviceServiceConfiguration,
+          context
+        ),
+      }),
+    ...(input.RemoteManagement !== undefined &&
+      input.RemoteManagement !== null && { RemoteManagement: input.RemoteManagement }),
     ...(input.Resources !== undefined &&
       input.Resources !== null && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
     ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
@@ -2336,6 +2348,15 @@ const serializeAws_json1_1CreateJobRequest = (input: CreateJobRequest, context: 
       input.LongTermPricingId !== null && { LongTermPricingId: input.LongTermPricingId }),
     ...(input.Notification !== undefined &&
       input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.OnDeviceServiceConfiguration !== undefined &&
+      input.OnDeviceServiceConfiguration !== null && {
+        OnDeviceServiceConfiguration: serializeAws_json1_1OnDeviceServiceConfiguration(
+          input.OnDeviceServiceConfiguration,
+          context
+        ),
+      }),
+    ...(input.RemoteManagement !== undefined &&
+      input.RemoteManagement !== null && { RemoteManagement: input.RemoteManagement }),
     ...(input.Resources !== undefined &&
       input.Resources !== null && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
     ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
@@ -2588,6 +2609,16 @@ const serializeAws_json1_1ListLongTermPricingRequest = (
   };
 };
 
+const serializeAws_json1_1NFSOnDeviceServiceConfiguration = (
+  input: NFSOnDeviceServiceConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StorageLimit !== undefined && input.StorageLimit !== null && { StorageLimit: input.StorageLimit }),
+    ...(input.StorageUnit !== undefined && input.StorageUnit !== null && { StorageUnit: input.StorageUnit }),
+  };
+};
+
 const serializeAws_json1_1Notification = (input: Notification, context: __SerdeContext): any => {
   return {
     ...(input.JobStatesToNotify !== undefined &&
@@ -2599,11 +2630,27 @@ const serializeAws_json1_1Notification = (input: Notification, context: __SerdeC
   };
 };
 
+const serializeAws_json1_1OnDeviceServiceConfiguration = (
+  input: OnDeviceServiceConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NFSOnDeviceService !== undefined &&
+      input.NFSOnDeviceService !== null && {
+        NFSOnDeviceService: serializeAws_json1_1NFSOnDeviceServiceConfiguration(input.NFSOnDeviceService, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1S3Resource = (input: S3Resource, context: __SerdeContext): any => {
   return {
     ...(input.BucketArn !== undefined && input.BucketArn !== null && { BucketArn: input.BucketArn }),
     ...(input.KeyRange !== undefined &&
       input.KeyRange !== null && { KeyRange: serializeAws_json1_1KeyRange(input.KeyRange, context) }),
+    ...(input.TargetOnDeviceServices !== undefined &&
+      input.TargetOnDeviceServices !== null && {
+        TargetOnDeviceServices: serializeAws_json1_1TargetOnDeviceServiceList(input.TargetOnDeviceServices, context),
+      }),
   };
 };
 
@@ -2630,6 +2677,28 @@ const serializeAws_json1_1SnowconeDeviceConfiguration = (
   };
 };
 
+const serializeAws_json1_1TargetOnDeviceService = (input: TargetOnDeviceService, context: __SerdeContext): any => {
+  return {
+    ...(input.ServiceName !== undefined && input.ServiceName !== null && { ServiceName: input.ServiceName }),
+    ...(input.TransferOption !== undefined &&
+      input.TransferOption !== null && { TransferOption: input.TransferOption }),
+  };
+};
+
+const serializeAws_json1_1TargetOnDeviceServiceList = (
+  input: TargetOnDeviceService[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1TargetOnDeviceService(entry, context);
+    });
+};
+
 const serializeAws_json1_1TaxDocuments = (input: TaxDocuments, context: __SerdeContext): any => {
   return {
     ...(input.IND !== undefined &&
@@ -2646,6 +2715,13 @@ const serializeAws_json1_1UpdateClusterRequest = (input: UpdateClusterRequest, c
       input.ForwardingAddressId !== null && { ForwardingAddressId: input.ForwardingAddressId }),
     ...(input.Notification !== undefined &&
       input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.OnDeviceServiceConfiguration !== undefined &&
+      input.OnDeviceServiceConfiguration !== null && {
+        OnDeviceServiceConfiguration: serializeAws_json1_1OnDeviceServiceConfiguration(
+          input.OnDeviceServiceConfiguration,
+          context
+        ),
+      }),
     ...(input.Resources !== undefined &&
       input.Resources !== null && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
     ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
@@ -2663,6 +2739,13 @@ const serializeAws_json1_1UpdateJobRequest = (input: UpdateJobRequest, context: 
     ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
     ...(input.Notification !== undefined &&
       input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.OnDeviceServiceConfiguration !== undefined &&
+      input.OnDeviceServiceConfiguration !== null && {
+        OnDeviceServiceConfiguration: serializeAws_json1_1OnDeviceServiceConfiguration(
+          input.OnDeviceServiceConfiguration,
+          context
+        ),
+      }),
     ...(input.Resources !== undefined &&
       input.Resources !== null && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
     ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
@@ -2789,6 +2872,10 @@ const deserializeAws_json1_1ClusterMetadata = (output: any, context: __SerdeCont
     Notification:
       output.Notification !== undefined && output.Notification !== null
         ? deserializeAws_json1_1Notification(output.Notification, context)
+        : undefined,
+    OnDeviceServiceConfiguration:
+      output.OnDeviceServiceConfiguration !== undefined && output.OnDeviceServiceConfiguration !== null
+        ? deserializeAws_json1_1OnDeviceServiceConfiguration(output.OnDeviceServiceConfiguration, context)
         : undefined,
     Resources:
       output.Resources !== undefined && output.Resources !== null
@@ -3132,6 +3219,11 @@ const deserializeAws_json1_1JobMetadata = (output: any, context: __SerdeContext)
       output.Notification !== undefined && output.Notification !== null
         ? deserializeAws_json1_1Notification(output.Notification, context)
         : undefined,
+    OnDeviceServiceConfiguration:
+      output.OnDeviceServiceConfiguration !== undefined && output.OnDeviceServiceConfiguration !== null
+        ? deserializeAws_json1_1OnDeviceServiceConfiguration(output.OnDeviceServiceConfiguration, context)
+        : undefined,
+    RemoteManagement: __expectString(output.RemoteManagement),
     Resources:
       output.Resources !== undefined && output.Resources !== null
         ? deserializeAws_json1_1JobResource(output.Resources, context)
@@ -3334,6 +3426,16 @@ const deserializeAws_json1_1LongTermPricingListEntry = (
   } as any;
 };
 
+const deserializeAws_json1_1NFSOnDeviceServiceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): NFSOnDeviceServiceConfiguration => {
+  return {
+    StorageLimit: __expectNumber(output.StorageLimit),
+    StorageUnit: __expectString(output.StorageUnit),
+  } as any;
+};
+
 const deserializeAws_json1_1Notification = (output: any, context: __SerdeContext): Notification => {
   return {
     JobStatesToNotify:
@@ -3342,6 +3444,18 @@ const deserializeAws_json1_1Notification = (output: any, context: __SerdeContext
         : undefined,
     NotifyAll: __expectBoolean(output.NotifyAll),
     SnsTopicARN: __expectString(output.SnsTopicARN),
+  } as any;
+};
+
+const deserializeAws_json1_1OnDeviceServiceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): OnDeviceServiceConfiguration => {
+  return {
+    NFSOnDeviceService:
+      output.NFSOnDeviceService !== undefined && output.NFSOnDeviceService !== null
+        ? deserializeAws_json1_1NFSOnDeviceServiceConfiguration(output.NFSOnDeviceService, context)
+        : undefined,
   } as any;
 };
 
@@ -3360,6 +3474,10 @@ const deserializeAws_json1_1S3Resource = (output: any, context: __SerdeContext):
     KeyRange:
       output.KeyRange !== undefined && output.KeyRange !== null
         ? deserializeAws_json1_1KeyRange(output.KeyRange, context)
+        : undefined,
+    TargetOnDeviceServices:
+      output.TargetOnDeviceServices !== undefined && output.TargetOnDeviceServices !== null
+        ? deserializeAws_json1_1TargetOnDeviceServiceList(output.TargetOnDeviceServices, context)
         : undefined,
   } as any;
 };
@@ -3406,6 +3524,27 @@ const deserializeAws_json1_1SnowconeDeviceConfiguration = (
         ? deserializeAws_json1_1WirelessConnection(output.WirelessConnection, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1TargetOnDeviceService = (output: any, context: __SerdeContext): TargetOnDeviceService => {
+  return {
+    ServiceName: __expectString(output.ServiceName),
+    TransferOption: __expectString(output.TransferOption),
+  } as any;
+};
+
+const deserializeAws_json1_1TargetOnDeviceServiceList = (
+  output: any,
+  context: __SerdeContext
+): TargetOnDeviceService[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TargetOnDeviceService(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TaxDocuments = (output: any, context: __SerdeContext): TaxDocuments => {

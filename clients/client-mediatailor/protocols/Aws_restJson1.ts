@@ -84,6 +84,7 @@ import {
   PlaybackConfiguration,
   RequestOutputItem,
   ResponseOutputItem,
+  ScheduleAdBreak,
   ScheduleConfiguration,
   ScheduleEntry,
   SecretsManagerAccessTokenConfiguration,
@@ -3417,6 +3418,17 @@ const deserializeAws_restJson1__listOfPlaybackConfiguration = (
     });
 };
 
+const deserializeAws_restJson1__listOfScheduleAdBreak = (output: any, context: __SerdeContext): ScheduleAdBreak[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ScheduleAdBreak(entry, context);
+    });
+};
+
 const deserializeAws_restJson1__listOfScheduleEntry = (output: any, context: __SerdeContext): ScheduleEntry[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -3729,6 +3741,18 @@ const deserializeAws_restJson1ResponseOutputs = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_restJson1ScheduleAdBreak = (output: any, context: __SerdeContext): ScheduleAdBreak => {
+  return {
+    ApproximateDurationSeconds: __expectNumber(output.ApproximateDurationSeconds),
+    ApproximateStartTime:
+      output.ApproximateStartTime !== undefined && output.ApproximateStartTime !== null
+        ? new Date(Math.round(output.ApproximateStartTime * 1000))
+        : undefined,
+    SourceLocationName: __expectString(output.SourceLocationName),
+    VodSourceName: __expectString(output.VodSourceName),
+  } as any;
+};
+
 const deserializeAws_restJson1ScheduleEntry = (output: any, context: __SerdeContext): ScheduleEntry => {
   return {
     ApproximateDurationSeconds: __expectNumber(output.ApproximateDurationSeconds),
@@ -3739,6 +3763,10 @@ const deserializeAws_restJson1ScheduleEntry = (output: any, context: __SerdeCont
     Arn: __expectString(output.Arn),
     ChannelName: __expectString(output.ChannelName),
     ProgramName: __expectString(output.ProgramName),
+    ScheduleAdBreaks:
+      output.ScheduleAdBreaks !== undefined && output.ScheduleAdBreaks !== null
+        ? deserializeAws_restJson1__listOfScheduleAdBreak(output.ScheduleAdBreaks, context)
+        : undefined,
     SourceLocationName: __expectString(output.SourceLocationName),
     VodSourceName: __expectString(output.VodSourceName),
   } as any;

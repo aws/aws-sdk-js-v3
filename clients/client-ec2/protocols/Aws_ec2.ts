@@ -32746,6 +32746,9 @@ const serializeAws_ec2CreateFleetRequest = (input: CreateFleetRequest, context: 
       entries[loc] = value;
     });
   }
+  if (input.Context !== undefined && input.Context !== null) {
+    entries["Context"] = input.Context;
+  }
   return entries;
 };
 
@@ -42561,6 +42564,9 @@ const serializeAws_ec2ModifyFleetRequest = (input: ModifyFleetRequest, context: 
       entries[loc] = value;
     });
   }
+  if (input.Context !== undefined && input.Context !== null) {
+    entries["Context"] = input.Context;
+  }
   return entries;
 };
 
@@ -43143,6 +43149,9 @@ const serializeAws_ec2ModifySpotFleetRequestRequest = (
   }
   if (input.OnDemandTargetCapacity !== undefined && input.OnDemandTargetCapacity !== null) {
     entries["OnDemandTargetCapacity"] = input.OnDemandTargetCapacity;
+  }
+  if (input.Context !== undefined && input.Context !== null) {
+    entries["Context"] = input.Context;
   }
   return entries;
 };
@@ -44589,6 +44598,9 @@ const serializeAws_ec2ProvisionByoipCidrRequest = (input: ProvisionByoipCidrRequ
       const loc = `PoolTagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input.MultiRegion !== undefined && input.MultiRegion !== null) {
+    entries["MultiRegion"] = input.MultiRegion;
   }
   return entries;
 };
@@ -47109,6 +47121,9 @@ const serializeAws_ec2SpotFleetRequestConfigData = (
   }
   if (input.InstancePoolsToUseCount !== undefined && input.InstancePoolsToUseCount !== null) {
     entries["InstancePoolsToUseCount"] = input.InstancePoolsToUseCount;
+  }
+  if (input.Context !== undefined && input.Context !== null) {
+    entries["Context"] = input.Context;
   }
   if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
@@ -57443,6 +57458,7 @@ const deserializeAws_ec2FleetData = (output: any, context: __SerdeContext): Flee
     Tags: undefined,
     Errors: undefined,
     Instances: undefined,
+    Context: undefined,
   };
   if (output["activityStatus"] !== undefined) {
     contents.ActivityStatus = __expectString(output["activityStatus"]);
@@ -57527,6 +57543,9 @@ const deserializeAws_ec2FleetData = (output: any, context: __SerdeContext): Flee
       __getArrayIfSingleItem(output["fleetInstanceSet"]["item"]),
       context
     );
+  }
+  if (output["context"] !== undefined) {
+    contents.Context = __expectString(output["context"]);
   }
   return contents;
 };
@@ -67854,6 +67873,7 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
     InstanceInterruptionBehavior: undefined,
     LoadBalancersConfig: undefined,
     InstancePoolsToUseCount: undefined,
+    Context: undefined,
     TagSpecifications: undefined,
   };
   if (output["allocationStrategy"] !== undefined) {
@@ -67939,6 +67959,9 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
   }
   if (output["instancePoolsToUseCount"] !== undefined) {
     contents.InstancePoolsToUseCount = parseInt(output["instancePoolsToUseCount"]);
+  }
+  if (output["context"] !== undefined) {
+    contents.Context = __expectString(output["context"]);
   }
   if (output.TagSpecification === "") {
     contents.TagSpecifications = [];

@@ -1,3 +1,8 @@
+import { ActivateTypeCommandInput, ActivateTypeCommandOutput } from "../commands/ActivateTypeCommand";
+import {
+  BatchDescribeTypeConfigurationsCommandInput,
+  BatchDescribeTypeConfigurationsCommandOutput,
+} from "../commands/BatchDescribeTypeConfigurationsCommand";
 import { CancelUpdateStackCommandInput, CancelUpdateStackCommandOutput } from "../commands/CancelUpdateStackCommand";
 import {
   ContinueUpdateRollbackCommandInput,
@@ -10,6 +15,7 @@ import {
   CreateStackInstancesCommandOutput,
 } from "../commands/CreateStackInstancesCommand";
 import { CreateStackSetCommandInput, CreateStackSetCommandOutput } from "../commands/CreateStackSetCommand";
+import { DeactivateTypeCommandInput, DeactivateTypeCommandOutput } from "../commands/DeactivateTypeCommand";
 import { DeleteChangeSetCommandInput, DeleteChangeSetCommandOutput } from "../commands/DeleteChangeSetCommand";
 import { DeleteStackCommandInput, DeleteStackCommandOutput } from "../commands/DeleteStackCommand";
 import {
@@ -23,6 +29,7 @@ import {
   DescribeAccountLimitsCommandOutput,
 } from "../commands/DescribeAccountLimitsCommand";
 import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from "../commands/DescribeChangeSetCommand";
+import { DescribePublisherCommandInput, DescribePublisherCommandOutput } from "../commands/DescribePublisherCommand";
 import {
   DescribeStackDriftDetectionStatusCommandInput,
   DescribeStackDriftDetectionStatusCommandOutput,
@@ -96,12 +103,18 @@ import {
 } from "../commands/ListTypeRegistrationsCommand";
 import { ListTypeVersionsCommandInput, ListTypeVersionsCommandOutput } from "../commands/ListTypeVersionsCommand";
 import { ListTypesCommandInput, ListTypesCommandOutput } from "../commands/ListTypesCommand";
+import { PublishTypeCommandInput, PublishTypeCommandOutput } from "../commands/PublishTypeCommand";
 import {
   RecordHandlerProgressCommandInput,
   RecordHandlerProgressCommandOutput,
 } from "../commands/RecordHandlerProgressCommand";
+import { RegisterPublisherCommandInput, RegisterPublisherCommandOutput } from "../commands/RegisterPublisherCommand";
 import { RegisterTypeCommandInput, RegisterTypeCommandOutput } from "../commands/RegisterTypeCommand";
 import { SetStackPolicyCommandInput, SetStackPolicyCommandOutput } from "../commands/SetStackPolicyCommand";
+import {
+  SetTypeConfigurationCommandInput,
+  SetTypeConfigurationCommandOutput,
+} from "../commands/SetTypeConfigurationCommand";
 import {
   SetTypeDefaultVersionCommandInput,
   SetTypeDefaultVersionCommandOutput,
@@ -111,6 +124,7 @@ import {
   StopStackSetOperationCommandInput,
   StopStackSetOperationCommandOutput,
 } from "../commands/StopStackSetOperationCommand";
+import { TestTypeCommandInput, TestTypeCommandOutput } from "../commands/TestTypeCommand";
 import { UpdateStackCommandInput, UpdateStackCommandOutput } from "../commands/UpdateStackCommand";
 import {
   UpdateStackInstancesCommandInput,
@@ -125,8 +139,13 @@ import { ValidateTemplateCommandInput, ValidateTemplateCommandOutput } from "../
 import {
   AccountGateResult,
   AccountLimit,
+  ActivateTypeInput,
+  ActivateTypeOutput,
   AlreadyExistsException,
   AutoDeployment,
+  BatchDescribeTypeConfigurationsError,
+  BatchDescribeTypeConfigurationsInput,
+  BatchDescribeTypeConfigurationsOutput,
   CFNRegistryException,
   CancelUpdateStackInput,
   Capability,
@@ -144,6 +163,8 @@ import {
   CreateStackSetInput,
   CreateStackSetOutput,
   CreatedButModifiedException,
+  DeactivateTypeInput,
+  DeactivateTypeOutput,
   DeleteChangeSetInput,
   DeleteChangeSetOutput,
   DeleteStackInput,
@@ -158,6 +179,8 @@ import {
   DescribeAccountLimitsOutput,
   DescribeChangeSetInput,
   DescribeChangeSetOutput,
+  DescribePublisherInput,
+  DescribePublisherOutput,
   DescribeStackDriftDetectionStatusInput,
   DescribeStackDriftDetectionStatusOutput,
   DescribeStackEventsInput,
@@ -239,10 +262,15 @@ import {
   ParameterDeclaration,
   PhysicalResourceIdContextKeyValuePair,
   PropertyDifference,
+  PublishTypeInput,
+  PublishTypeOutput,
   RecordHandlerProgressInput,
   RecordHandlerProgressOutput,
+  RegisterPublisherInput,
+  RegisterPublisherOutput,
   RegisterTypeInput,
   RegisterTypeOutput,
+  RequiredActivatedType,
   ResourceAttribute,
   ResourceChange,
   ResourceChangeDetail,
@@ -252,6 +280,8 @@ import {
   RollbackConfiguration,
   RollbackTrigger,
   SetStackPolicyInput,
+  SetTypeConfigurationInput,
+  SetTypeConfigurationOutput,
   SetTypeDefaultVersionInput,
   SetTypeDefaultVersionOutput,
   SignalResourceInput,
@@ -288,7 +318,13 @@ import {
   Tag,
   TemplateParameter,
   TemplateStage,
+  TestTypeInput,
+  TestTypeOutput,
   TokenAlreadyExistsException,
+  TypeConfigurationDetails,
+  TypeConfigurationIdentifier,
+  TypeConfigurationNotFoundException,
+  TypeFilters,
   TypeNotFoundException,
   TypeSummary,
   TypeVersionSummary,
@@ -322,6 +358,38 @@ import {
 import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
+
+export const serializeAws_queryActivateTypeCommand = async (
+  input: ActivateTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryActivateTypeInput(input, context),
+    Action: "ActivateType",
+    Version: "2010-05-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryBatchDescribeTypeConfigurationsCommand = async (
+  input: BatchDescribeTypeConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryBatchDescribeTypeConfigurationsInput(input, context),
+    Action: "BatchDescribeTypeConfigurations",
+    Version: "2010-05-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_queryCancelUpdateStackCommand = async (
   input: CancelUpdateStackCommandInput,
@@ -414,6 +482,22 @@ export const serializeAws_queryCreateStackSetCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryCreateStackSetInput(input, context),
     Action: "CreateStackSet",
+    Version: "2010-05-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeactivateTypeCommand = async (
+  input: DeactivateTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeactivateTypeInput(input, context),
+    Action: "DeactivateType",
     Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -526,6 +610,22 @@ export const serializeAws_queryDescribeChangeSetCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeChangeSetInput(input, context),
     Action: "DescribeChangeSet",
+    Version: "2010-05-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribePublisherCommand = async (
+  input: DescribePublisherCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribePublisherInput(input, context),
+    Action: "DescribePublisher",
     Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1027,6 +1127,22 @@ export const serializeAws_queryListTypeVersionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryPublishTypeCommand = async (
+  input: PublishTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryPublishTypeInput(input, context),
+    Action: "PublishType",
+    Version: "2010-05-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryRecordHandlerProgressCommand = async (
   input: RecordHandlerProgressCommandInput,
   context: __SerdeContext
@@ -1038,6 +1154,22 @@ export const serializeAws_queryRecordHandlerProgressCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryRecordHandlerProgressInput(input, context),
     Action: "RecordHandlerProgress",
+    Version: "2010-05-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryRegisterPublisherCommand = async (
+  input: RegisterPublisherCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryRegisterPublisherInput(input, context),
+    Action: "RegisterPublisher",
     Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1070,6 +1202,22 @@ export const serializeAws_querySetStackPolicyCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_querySetStackPolicyInput(input, context),
     Action: "SetStackPolicy",
+    Version: "2010-05-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_querySetTypeConfigurationCommand = async (
+  input: SetTypeConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_querySetTypeConfigurationInput(input, context),
+    Action: "SetTypeConfiguration",
     Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1118,6 +1266,22 @@ export const serializeAws_queryStopStackSetOperationCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryStopStackSetOperationInput(input, context),
     Action: "StopStackSetOperation",
+    Version: "2010-05-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryTestTypeCommand = async (
+  input: TestTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryTestTypeInput(input, context),
+    Action: "TestType",
     Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1201,6 +1365,133 @@ export const serializeAws_queryValidateTemplateCommand = async (
     Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_queryActivateTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ActivateTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryActivateTypeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryActivateTypeOutput(data.ActivateTypeResult, context);
+  const response: ActivateTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryActivateTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ActivateTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CFNRegistryException":
+    case "com.amazonaws.cloudformation#CFNRegistryException":
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TypeNotFoundException":
+    case "com.amazonaws.cloudformation#TypeNotFoundException":
+      response = {
+        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryBatchDescribeTypeConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDescribeTypeConfigurationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryBatchDescribeTypeConfigurationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryBatchDescribeTypeConfigurationsOutput(
+    data.BatchDescribeTypeConfigurationsResult,
+    context
+  );
+  const response: BatchDescribeTypeConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryBatchDescribeTypeConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDescribeTypeConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CFNRegistryException":
+    case "com.amazonaws.cloudformation#CFNRegistryException":
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TypeConfigurationNotFoundException":
+    case "com.amazonaws.cloudformation#TypeConfigurationNotFoundException":
+      response = {
+        ...(await deserializeAws_queryTypeConfigurationNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCancelUpdateStackCommand = async (
@@ -1620,6 +1911,68 @@ const deserializeAws_queryCreateStackSetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDeactivateTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeactivateTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeactivateTypeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDeactivateTypeOutput(data.DeactivateTypeResult, context);
+  const response: DeactivateTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeactivateTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeactivateTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CFNRegistryException":
+    case "com.amazonaws.cloudformation#CFNRegistryException":
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TypeNotFoundException":
+    case "com.amazonaws.cloudformation#TypeNotFoundException":
+      response = {
+        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDeleteChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2014,6 +2367,60 @@ const deserializeAws_queryDescribeChangeSetCommandError = async (
     case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
       response = {
         ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribePublisherCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePublisherCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribePublisherCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribePublisherOutput(data.DescribePublisherResult, context);
+  const response: DescribePublisherCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribePublisherCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePublisherCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CFNRegistryException":
+    case "com.amazonaws.cloudformation#CFNRegistryException":
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3656,6 +4063,68 @@ const deserializeAws_queryListTypeVersionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryPublishTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryPublishTypeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryPublishTypeOutput(data.PublishTypeResult, context);
+  const response: PublishTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryPublishTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CFNRegistryException":
+    case "com.amazonaws.cloudformation#CFNRegistryException":
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TypeNotFoundException":
+    case "com.amazonaws.cloudformation#TypeNotFoundException":
+      response = {
+        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryRecordHandlerProgressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3697,6 +4166,60 @@ const deserializeAws_queryRecordHandlerProgressCommandError = async (
     case "com.amazonaws.cloudformation#OperationStatusCheckFailedException":
       response = {
         ...(await deserializeAws_queryOperationStatusCheckFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryRegisterPublisherCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterPublisherCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryRegisterPublisherCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryRegisterPublisherOutput(data.RegisterPublisherResult, context);
+  const response: RegisterPublisherCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryRegisterPublisherCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterPublisherCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CFNRegistryException":
+    case "com.amazonaws.cloudformation#CFNRegistryException":
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3798,6 +4321,68 @@ const deserializeAws_querySetStackPolicyCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_querySetTypeConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetTypeConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_querySetTypeConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_querySetTypeConfigurationOutput(data.SetTypeConfigurationResult, context);
+  const response: SetTypeConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_querySetTypeConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetTypeConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CFNRegistryException":
+    case "com.amazonaws.cloudformation#CFNRegistryException":
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TypeNotFoundException":
+    case "com.amazonaws.cloudformation#TypeNotFoundException":
+      response = {
+        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -3969,6 +4554,68 @@ const deserializeAws_queryStopStackSetOperationCommandError = async (
     case "com.amazonaws.cloudformation#StackSetNotFoundException":
       response = {
         ...(await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryTestTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryTestTypeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryTestTypeOutput(data.TestTypeResult, context);
+  const response: TestTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryTestTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CFNRegistryException":
+    case "com.amazonaws.cloudformation#CFNRegistryException":
+      response = {
+        ...(await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TypeNotFoundException":
+    case "com.amazonaws.cloudformation#TypeNotFoundException":
+      response = {
+        ...(await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4617,6 +5264,21 @@ const deserializeAws_queryTokenAlreadyExistsExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_queryTypeConfigurationNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TypeConfigurationNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryTypeConfigurationNotFoundException(body.Error, context);
+  const contents: TypeConfigurationNotFoundException = {
+    name: "TypeConfigurationNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryTypeNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4645,6 +5307,45 @@ const serializeAws_queryAccountList = (input: string[], context: __SerdeContext)
   return entries;
 };
 
+const serializeAws_queryActivateTypeInput = (input: ActivateTypeInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Type !== undefined && input.Type !== null) {
+    entries["Type"] = input.Type;
+  }
+  if (input.PublicTypeArn !== undefined && input.PublicTypeArn !== null) {
+    entries["PublicTypeArn"] = input.PublicTypeArn;
+  }
+  if (input.PublisherId !== undefined && input.PublisherId !== null) {
+    entries["PublisherId"] = input.PublisherId;
+  }
+  if (input.TypeName !== undefined && input.TypeName !== null) {
+    entries["TypeName"] = input.TypeName;
+  }
+  if (input.TypeNameAlias !== undefined && input.TypeNameAlias !== null) {
+    entries["TypeNameAlias"] = input.TypeNameAlias;
+  }
+  if (input.AutoUpdate !== undefined && input.AutoUpdate !== null) {
+    entries["AutoUpdate"] = input.AutoUpdate;
+  }
+  if (input.LoggingConfig !== undefined && input.LoggingConfig !== null) {
+    const memberEntries = serializeAws_queryLoggingConfig(input.LoggingConfig, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LoggingConfig.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ExecutionRoleArn !== undefined && input.ExecutionRoleArn !== null) {
+    entries["ExecutionRoleArn"] = input.ExecutionRoleArn;
+  }
+  if (input.VersionBump !== undefined && input.VersionBump !== null) {
+    entries["VersionBump"] = input.VersionBump;
+  }
+  if (input.MajorVersion !== undefined && input.MajorVersion !== null) {
+    entries["MajorVersion"] = input.MajorVersion;
+  }
+  return entries;
+};
+
 const serializeAws_queryAutoDeployment = (input: AutoDeployment, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Enabled !== undefined && input.Enabled !== null) {
@@ -4652,6 +5353,21 @@ const serializeAws_queryAutoDeployment = (input: AutoDeployment, context: __Serd
   }
   if (input.RetainStacksOnAccountRemoval !== undefined && input.RetainStacksOnAccountRemoval !== null) {
     entries["RetainStacksOnAccountRemoval"] = input.RetainStacksOnAccountRemoval;
+  }
+  return entries;
+};
+
+const serializeAws_queryBatchDescribeTypeConfigurationsInput = (
+  input: BatchDescribeTypeConfigurationsInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TypeConfigurationIdentifiers !== undefined && input.TypeConfigurationIdentifiers !== null) {
+    const memberEntries = serializeAws_queryTypeConfigurationIdentifiers(input.TypeConfigurationIdentifiers, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TypeConfigurationIdentifiers.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -4986,6 +5702,20 @@ const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, conte
   return entries;
 };
 
+const serializeAws_queryDeactivateTypeInput = (input: DeactivateTypeInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.TypeName !== undefined && input.TypeName !== null) {
+    entries["TypeName"] = input.TypeName;
+  }
+  if (input.Type !== undefined && input.Type !== null) {
+    entries["Type"] = input.Type;
+  }
+  if (input.Arn !== undefined && input.Arn !== null) {
+    entries["Arn"] = input.Arn;
+  }
+  return entries;
+};
+
 const serializeAws_queryDeleteChangeSetInput = (input: DeleteChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
@@ -5144,6 +5874,14 @@ const serializeAws_queryDescribeChangeSetInput = (input: DescribeChangeSetInput,
   return entries;
 };
 
+const serializeAws_queryDescribePublisherInput = (input: DescribePublisherInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.PublisherId !== undefined && input.PublisherId !== null) {
+    entries["PublisherId"] = input.PublisherId;
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeStackDriftDetectionStatusInput = (
   input: DescribeStackDriftDetectionStatusInput,
   context: __SerdeContext
@@ -5296,6 +6034,12 @@ const serializeAws_queryDescribeTypeInput = (input: DescribeTypeInput, context: 
   }
   if (input.VersionId !== undefined && input.VersionId !== null) {
     entries["VersionId"] = input.VersionId;
+  }
+  if (input.PublisherId !== undefined && input.PublisherId !== null) {
+    entries["PublisherId"] = input.PublisherId;
+  }
+  if (input.PublicVersionNumber !== undefined && input.PublicVersionNumber !== null) {
+    entries["PublicVersionNumber"] = input.PublicVersionNumber;
   }
   return entries;
 };
@@ -5627,6 +6371,13 @@ const serializeAws_queryListTypesInput = (input: ListTypesInput, context: __Serd
   if (input.Type !== undefined && input.Type !== null) {
     entries["Type"] = input.Type;
   }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_queryTypeFilters(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
@@ -5655,6 +6406,9 @@ const serializeAws_queryListTypeVersionsInput = (input: ListTypeVersionsInput, c
   }
   if (input.DeprecatedStatus !== undefined && input.DeprecatedStatus !== null) {
     entries["DeprecatedStatus"] = input.DeprecatedStatus;
+  }
+  if (input.PublisherId !== undefined && input.PublisherId !== null) {
+    entries["PublisherId"] = input.PublisherId;
   }
   return entries;
 };
@@ -5742,6 +6496,23 @@ const serializeAws_queryParameters = (input: Parameter[], context: __SerdeContex
   return entries;
 };
 
+const serializeAws_queryPublishTypeInput = (input: PublishTypeInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Type !== undefined && input.Type !== null) {
+    entries["Type"] = input.Type;
+  }
+  if (input.Arn !== undefined && input.Arn !== null) {
+    entries["Arn"] = input.Arn;
+  }
+  if (input.TypeName !== undefined && input.TypeName !== null) {
+    entries["TypeName"] = input.TypeName;
+  }
+  if (input.PublicVersionNumber !== undefined && input.PublicVersionNumber !== null) {
+    entries["PublicVersionNumber"] = input.PublicVersionNumber;
+  }
+  return entries;
+};
+
 const serializeAws_queryRecordHandlerProgressInput = (
   input: RecordHandlerProgressInput,
   context: __SerdeContext
@@ -5780,6 +6551,17 @@ const serializeAws_queryRegionList = (input: string[], context: __SerdeContext):
     }
     entries[`member.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryRegisterPublisherInput = (input: RegisterPublisherInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.AcceptTermsAndConditions !== undefined && input.AcceptTermsAndConditions !== null) {
+    entries["AcceptTermsAndConditions"] = input.AcceptTermsAndConditions;
+  }
+  if (input.ConnectionArn !== undefined && input.ConnectionArn !== null) {
+    entries["ConnectionArn"] = input.ConnectionArn;
   }
   return entries;
 };
@@ -5956,6 +6738,29 @@ const serializeAws_querySetStackPolicyInput = (input: SetStackPolicyInput, conte
   return entries;
 };
 
+const serializeAws_querySetTypeConfigurationInput = (
+  input: SetTypeConfigurationInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TypeArn !== undefined && input.TypeArn !== null) {
+    entries["TypeArn"] = input.TypeArn;
+  }
+  if (input.Configuration !== undefined && input.Configuration !== null) {
+    entries["Configuration"] = input.Configuration;
+  }
+  if (input.ConfigurationAlias !== undefined && input.ConfigurationAlias !== null) {
+    entries["ConfigurationAlias"] = input.ConfigurationAlias;
+  }
+  if (input.TypeName !== undefined && input.TypeName !== null) {
+    entries["TypeName"] = input.TypeName;
+  }
+  if (input.Type !== undefined && input.Type !== null) {
+    entries["Type"] = input.Type;
+  }
+  return entries;
+};
+
 const serializeAws_querySetTypeDefaultVersionInput = (
   input: SetTypeDefaultVersionInput,
   context: __SerdeContext
@@ -6119,6 +6924,82 @@ const serializeAws_queryTags = (input: Tag[], context: __SerdeContext): any => {
       entries[`member.${counter}.${key}`] = value;
     });
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryTestTypeInput = (input: TestTypeInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Arn !== undefined && input.Arn !== null) {
+    entries["Arn"] = input.Arn;
+  }
+  if (input.Type !== undefined && input.Type !== null) {
+    entries["Type"] = input.Type;
+  }
+  if (input.TypeName !== undefined && input.TypeName !== null) {
+    entries["TypeName"] = input.TypeName;
+  }
+  if (input.VersionId !== undefined && input.VersionId !== null) {
+    entries["VersionId"] = input.VersionId;
+  }
+  if (input.LogDeliveryBucket !== undefined && input.LogDeliveryBucket !== null) {
+    entries["LogDeliveryBucket"] = input.LogDeliveryBucket;
+  }
+  return entries;
+};
+
+const serializeAws_queryTypeConfigurationIdentifier = (
+  input: TypeConfigurationIdentifier,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TypeArn !== undefined && input.TypeArn !== null) {
+    entries["TypeArn"] = input.TypeArn;
+  }
+  if (input.TypeConfigurationAlias !== undefined && input.TypeConfigurationAlias !== null) {
+    entries["TypeConfigurationAlias"] = input.TypeConfigurationAlias;
+  }
+  if (input.TypeConfigurationArn !== undefined && input.TypeConfigurationArn !== null) {
+    entries["TypeConfigurationArn"] = input.TypeConfigurationArn;
+  }
+  if (input.Type !== undefined && input.Type !== null) {
+    entries["Type"] = input.Type;
+  }
+  if (input.TypeName !== undefined && input.TypeName !== null) {
+    entries["TypeName"] = input.TypeName;
+  }
+  return entries;
+};
+
+const serializeAws_queryTypeConfigurationIdentifiers = (
+  input: TypeConfigurationIdentifier[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_queryTypeConfigurationIdentifier(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryTypeFilters = (input: TypeFilters, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Category !== undefined && input.Category !== null) {
+    entries["Category"] = input.Category;
+  }
+  if (input.PublisherId !== undefined && input.PublisherId !== null) {
+    entries["PublisherId"] = input.PublisherId;
+  }
+  if (input.TypeNamePrefix !== undefined && input.TypeNamePrefix !== null) {
+    entries["TypeNamePrefix"] = input.TypeNamePrefix;
   }
   return entries;
 };
@@ -6424,6 +7305,16 @@ const deserializeAws_queryAccountList = (output: any, context: __SerdeContext): 
     });
 };
 
+const deserializeAws_queryActivateTypeOutput = (output: any, context: __SerdeContext): ActivateTypeOutput => {
+  let contents: any = {
+    Arn: undefined,
+  };
+  if (output["Arn"] !== undefined) {
+    contents.Arn = __expectString(output["Arn"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryAllowedValues = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -6455,6 +7346,86 @@ const deserializeAws_queryAutoDeployment = (output: any, context: __SerdeContext
   }
   if (output["RetainStacksOnAccountRemoval"] !== undefined) {
     contents.RetainStacksOnAccountRemoval = __parseBoolean(output["RetainStacksOnAccountRemoval"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBatchDescribeTypeConfigurationsError = (
+  output: any,
+  context: __SerdeContext
+): BatchDescribeTypeConfigurationsError => {
+  let contents: any = {
+    ErrorCode: undefined,
+    ErrorMessage: undefined,
+    TypeConfigurationIdentifier: undefined,
+  };
+  if (output["ErrorCode"] !== undefined) {
+    contents.ErrorCode = __expectString(output["ErrorCode"]);
+  }
+  if (output["ErrorMessage"] !== undefined) {
+    contents.ErrorMessage = __expectString(output["ErrorMessage"]);
+  }
+  if (output["TypeConfigurationIdentifier"] !== undefined) {
+    contents.TypeConfigurationIdentifier = deserializeAws_queryTypeConfigurationIdentifier(
+      output["TypeConfigurationIdentifier"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryBatchDescribeTypeConfigurationsErrors = (
+  output: any,
+  context: __SerdeContext
+): BatchDescribeTypeConfigurationsError[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryBatchDescribeTypeConfigurationsError(entry, context);
+    });
+};
+
+const deserializeAws_queryBatchDescribeTypeConfigurationsOutput = (
+  output: any,
+  context: __SerdeContext
+): BatchDescribeTypeConfigurationsOutput => {
+  let contents: any = {
+    Errors: undefined,
+    UnprocessedTypeConfigurations: undefined,
+    TypeConfigurations: undefined,
+  };
+  if (output.Errors === "") {
+    contents.Errors = [];
+  }
+  if (output["Errors"] !== undefined && output["Errors"]["member"] !== undefined) {
+    contents.Errors = deserializeAws_queryBatchDescribeTypeConfigurationsErrors(
+      __getArrayIfSingleItem(output["Errors"]["member"]),
+      context
+    );
+  }
+  if (output.UnprocessedTypeConfigurations === "") {
+    contents.UnprocessedTypeConfigurations = [];
+  }
+  if (
+    output["UnprocessedTypeConfigurations"] !== undefined &&
+    output["UnprocessedTypeConfigurations"]["member"] !== undefined
+  ) {
+    contents.UnprocessedTypeConfigurations = deserializeAws_queryUnprocessedTypeConfigurations(
+      __getArrayIfSingleItem(output["UnprocessedTypeConfigurations"]["member"]),
+      context
+    );
+  }
+  if (output.TypeConfigurations === "") {
+    contents.TypeConfigurations = [];
+  }
+  if (output["TypeConfigurations"] !== undefined && output["TypeConfigurations"]["member"] !== undefined) {
+    contents.TypeConfigurations = deserializeAws_queryTypeConfigurationDetailsList(
+      __getArrayIfSingleItem(output["TypeConfigurations"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -6651,6 +7622,11 @@ const deserializeAws_queryCreateStackSetOutput = (output: any, context: __SerdeC
   return contents;
 };
 
+const deserializeAws_queryDeactivateTypeOutput = (output: any, context: __SerdeContext): DeactivateTypeOutput => {
+  let contents: any = {};
+  return contents;
+};
+
 const deserializeAws_queryDeleteChangeSetOutput = (output: any, context: __SerdeContext): DeleteChangeSetOutput => {
   let contents: any = {};
   return contents;
@@ -6838,6 +7814,28 @@ const deserializeAws_queryDescribeChangeSetOutput = (output: any, context: __Ser
   return contents;
 };
 
+const deserializeAws_queryDescribePublisherOutput = (output: any, context: __SerdeContext): DescribePublisherOutput => {
+  let contents: any = {
+    PublisherId: undefined,
+    PublisherStatus: undefined,
+    IdentityProvider: undefined,
+    PublisherProfile: undefined,
+  };
+  if (output["PublisherId"] !== undefined) {
+    contents.PublisherId = __expectString(output["PublisherId"]);
+  }
+  if (output["PublisherStatus"] !== undefined) {
+    contents.PublisherStatus = __expectString(output["PublisherStatus"]);
+  }
+  if (output["IdentityProvider"] !== undefined) {
+    contents.IdentityProvider = __expectString(output["IdentityProvider"]);
+  }
+  if (output["PublisherProfile"] !== undefined) {
+    contents.PublisherProfile = __expectString(output["PublisherProfile"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryDescribeStackDriftDetectionStatusOutput = (
   output: any,
   context: __SerdeContext
@@ -7013,17 +8011,28 @@ const deserializeAws_queryDescribeTypeOutput = (output: any, context: __SerdeCon
     TypeName: undefined,
     DefaultVersionId: undefined,
     IsDefaultVersion: undefined,
+    TypeTestsStatus: undefined,
+    TypeTestsStatusDescription: undefined,
     Description: undefined,
     Schema: undefined,
     ProvisioningType: undefined,
     DeprecatedStatus: undefined,
     LoggingConfig: undefined,
+    RequiredActivatedTypes: undefined,
     ExecutionRoleArn: undefined,
     Visibility: undefined,
     SourceUrl: undefined,
     DocumentationUrl: undefined,
     LastUpdated: undefined,
     TimeCreated: undefined,
+    ConfigurationSchema: undefined,
+    PublisherId: undefined,
+    OriginalTypeName: undefined,
+    OriginalTypeArn: undefined,
+    PublicVersionNumber: undefined,
+    LatestPublicVersion: undefined,
+    IsActivated: undefined,
+    AutoUpdate: undefined,
   };
   if (output["Arn"] !== undefined) {
     contents.Arn = __expectString(output["Arn"]);
@@ -7040,6 +8049,12 @@ const deserializeAws_queryDescribeTypeOutput = (output: any, context: __SerdeCon
   if (output["IsDefaultVersion"] !== undefined) {
     contents.IsDefaultVersion = __parseBoolean(output["IsDefaultVersion"]);
   }
+  if (output["TypeTestsStatus"] !== undefined) {
+    contents.TypeTestsStatus = __expectString(output["TypeTestsStatus"]);
+  }
+  if (output["TypeTestsStatusDescription"] !== undefined) {
+    contents.TypeTestsStatusDescription = __expectString(output["TypeTestsStatusDescription"]);
+  }
   if (output["Description"] !== undefined) {
     contents.Description = __expectString(output["Description"]);
   }
@@ -7054,6 +8069,15 @@ const deserializeAws_queryDescribeTypeOutput = (output: any, context: __SerdeCon
   }
   if (output["LoggingConfig"] !== undefined) {
     contents.LoggingConfig = deserializeAws_queryLoggingConfig(output["LoggingConfig"], context);
+  }
+  if (output.RequiredActivatedTypes === "") {
+    contents.RequiredActivatedTypes = [];
+  }
+  if (output["RequiredActivatedTypes"] !== undefined && output["RequiredActivatedTypes"]["member"] !== undefined) {
+    contents.RequiredActivatedTypes = deserializeAws_queryRequiredActivatedTypes(
+      __getArrayIfSingleItem(output["RequiredActivatedTypes"]["member"]),
+      context
+    );
   }
   if (output["ExecutionRoleArn"] !== undefined) {
     contents.ExecutionRoleArn = __expectString(output["ExecutionRoleArn"]);
@@ -7072,6 +8096,30 @@ const deserializeAws_queryDescribeTypeOutput = (output: any, context: __SerdeCon
   }
   if (output["TimeCreated"] !== undefined) {
     contents.TimeCreated = new Date(output["TimeCreated"]);
+  }
+  if (output["ConfigurationSchema"] !== undefined) {
+    contents.ConfigurationSchema = __expectString(output["ConfigurationSchema"]);
+  }
+  if (output["PublisherId"] !== undefined) {
+    contents.PublisherId = __expectString(output["PublisherId"]);
+  }
+  if (output["OriginalTypeName"] !== undefined) {
+    contents.OriginalTypeName = __expectString(output["OriginalTypeName"]);
+  }
+  if (output["OriginalTypeArn"] !== undefined) {
+    contents.OriginalTypeArn = __expectString(output["OriginalTypeArn"]);
+  }
+  if (output["PublicVersionNumber"] !== undefined) {
+    contents.PublicVersionNumber = __expectString(output["PublicVersionNumber"]);
+  }
+  if (output["LatestPublicVersion"] !== undefined) {
+    contents.LatestPublicVersion = __expectString(output["LatestPublicVersion"]);
+  }
+  if (output["IsActivated"] !== undefined) {
+    contents.IsActivated = __parseBoolean(output["IsActivated"]);
+  }
+  if (output["AutoUpdate"] !== undefined) {
+    contents.AutoUpdate = __parseBoolean(output["AutoUpdate"]);
   }
   return contents;
 };
@@ -7927,6 +8975,16 @@ const deserializeAws_queryPropertyDifferences = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_queryPublishTypeOutput = (output: any, context: __SerdeContext): PublishTypeOutput => {
+  let contents: any = {
+    PublicTypeArn: undefined,
+  };
+  if (output["PublicTypeArn"] !== undefined) {
+    contents.PublicTypeArn = __expectString(output["PublicTypeArn"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryRecordHandlerProgressOutput = (
   output: any,
   context: __SerdeContext
@@ -7944,6 +9002,16 @@ const deserializeAws_queryRegionList = (output: any, context: __SerdeContext): s
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_queryRegisterPublisherOutput = (output: any, context: __SerdeContext): RegisterPublisherOutput => {
+  let contents: any = {
+    PublisherId: undefined,
+  };
+  if (output["PublisherId"] !== undefined) {
+    contents.PublisherId = __expectString(output["PublisherId"]);
+  }
+  return contents;
 };
 
 const deserializeAws_queryRegisterTypeOutput = (output: any, context: __SerdeContext): RegisterTypeOutput => {
@@ -7964,6 +9032,45 @@ const deserializeAws_queryRegistrationTokenList = (output: any, context: __Serde
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_queryRequiredActivatedType = (output: any, context: __SerdeContext): RequiredActivatedType => {
+  let contents: any = {
+    TypeNameAlias: undefined,
+    OriginalTypeName: undefined,
+    PublisherId: undefined,
+    SupportedMajorVersions: undefined,
+  };
+  if (output["TypeNameAlias"] !== undefined) {
+    contents.TypeNameAlias = __expectString(output["TypeNameAlias"]);
+  }
+  if (output["OriginalTypeName"] !== undefined) {
+    contents.OriginalTypeName = __expectString(output["OriginalTypeName"]);
+  }
+  if (output["PublisherId"] !== undefined) {
+    contents.PublisherId = __expectString(output["PublisherId"]);
+  }
+  if (output.SupportedMajorVersions === "") {
+    contents.SupportedMajorVersions = [];
+  }
+  if (output["SupportedMajorVersions"] !== undefined && output["SupportedMajorVersions"]["member"] !== undefined) {
+    contents.SupportedMajorVersions = deserializeAws_querySupportedMajorVersions(
+      __getArrayIfSingleItem(output["SupportedMajorVersions"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryRequiredActivatedTypes = (output: any, context: __SerdeContext): RequiredActivatedType[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryRequiredActivatedType(entry, context);
     });
 };
 
@@ -8195,6 +9302,19 @@ const deserializeAws_queryScope = (output: any, context: __SerdeContext): (Resou
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_querySetTypeConfigurationOutput = (
+  output: any,
+  context: __SerdeContext
+): SetTypeConfigurationOutput => {
+  let contents: any = {
+    ConfigurationArn: undefined,
+  };
+  if (output["ConfigurationArn"] !== undefined) {
+    contents.ConfigurationArn = __expectString(output["ConfigurationArn"]);
+  }
+  return contents;
 };
 
 const deserializeAws_querySetTypeDefaultVersionOutput = (
@@ -9336,6 +10456,17 @@ const deserializeAws_queryStopStackSetOperationOutput = (
   return contents;
 };
 
+const deserializeAws_querySupportedMajorVersions = (output: any, context: __SerdeContext): number[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return parseInt(entry);
+    });
+};
+
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
     Key: undefined,
@@ -9394,6 +10525,16 @@ const deserializeAws_queryTemplateParameters = (output: any, context: __SerdeCon
     });
 };
 
+const deserializeAws_queryTestTypeOutput = (output: any, context: __SerdeContext): TestTypeOutput => {
+  let contents: any = {
+    TypeVersionArn: undefined,
+  };
+  if (output["TypeVersionArn"] !== undefined) {
+    contents.TypeVersionArn = __expectString(output["TypeVersionArn"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryTokenAlreadyExistsException = (
   output: any,
   context: __SerdeContext
@@ -9416,6 +10557,99 @@ const deserializeAws_queryTransformsList = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_queryTypeConfigurationDetails = (
+  output: any,
+  context: __SerdeContext
+): TypeConfigurationDetails => {
+  let contents: any = {
+    Arn: undefined,
+    Alias: undefined,
+    Configuration: undefined,
+    LastUpdated: undefined,
+    TypeArn: undefined,
+    TypeName: undefined,
+    IsDefaultConfiguration: undefined,
+  };
+  if (output["Arn"] !== undefined) {
+    contents.Arn = __expectString(output["Arn"]);
+  }
+  if (output["Alias"] !== undefined) {
+    contents.Alias = __expectString(output["Alias"]);
+  }
+  if (output["Configuration"] !== undefined) {
+    contents.Configuration = __expectString(output["Configuration"]);
+  }
+  if (output["LastUpdated"] !== undefined) {
+    contents.LastUpdated = new Date(output["LastUpdated"]);
+  }
+  if (output["TypeArn"] !== undefined) {
+    contents.TypeArn = __expectString(output["TypeArn"]);
+  }
+  if (output["TypeName"] !== undefined) {
+    contents.TypeName = __expectString(output["TypeName"]);
+  }
+  if (output["IsDefaultConfiguration"] !== undefined) {
+    contents.IsDefaultConfiguration = __parseBoolean(output["IsDefaultConfiguration"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryTypeConfigurationDetailsList = (
+  output: any,
+  context: __SerdeContext
+): TypeConfigurationDetails[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTypeConfigurationDetails(entry, context);
+    });
+};
+
+const deserializeAws_queryTypeConfigurationIdentifier = (
+  output: any,
+  context: __SerdeContext
+): TypeConfigurationIdentifier => {
+  let contents: any = {
+    TypeArn: undefined,
+    TypeConfigurationAlias: undefined,
+    TypeConfigurationArn: undefined,
+    Type: undefined,
+    TypeName: undefined,
+  };
+  if (output["TypeArn"] !== undefined) {
+    contents.TypeArn = __expectString(output["TypeArn"]);
+  }
+  if (output["TypeConfigurationAlias"] !== undefined) {
+    contents.TypeConfigurationAlias = __expectString(output["TypeConfigurationAlias"]);
+  }
+  if (output["TypeConfigurationArn"] !== undefined) {
+    contents.TypeConfigurationArn = __expectString(output["TypeConfigurationArn"]);
+  }
+  if (output["Type"] !== undefined) {
+    contents.Type = __expectString(output["Type"]);
+  }
+  if (output["TypeName"] !== undefined) {
+    contents.TypeName = __expectString(output["TypeName"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryTypeConfigurationNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): TypeConfigurationNotFoundException => {
+  let contents: any = {
+    Message: undefined,
+  };
+  if (output["Message"] !== undefined) {
+    contents.Message = __expectString(output["Message"]);
+  }
+  return contents;
 };
 
 const deserializeAws_queryTypeNotFoundException = (output: any, context: __SerdeContext): TypeNotFoundException => {
@@ -9447,6 +10681,13 @@ const deserializeAws_queryTypeSummary = (output: any, context: __SerdeContext): 
     TypeArn: undefined,
     LastUpdated: undefined,
     Description: undefined,
+    PublisherId: undefined,
+    OriginalTypeName: undefined,
+    PublicVersionNumber: undefined,
+    LatestPublicVersion: undefined,
+    PublisherIdentity: undefined,
+    PublisherName: undefined,
+    IsActivated: undefined,
   };
   if (output["Type"] !== undefined) {
     contents.Type = __expectString(output["Type"]);
@@ -9465,6 +10706,27 @@ const deserializeAws_queryTypeSummary = (output: any, context: __SerdeContext): 
   }
   if (output["Description"] !== undefined) {
     contents.Description = __expectString(output["Description"]);
+  }
+  if (output["PublisherId"] !== undefined) {
+    contents.PublisherId = __expectString(output["PublisherId"]);
+  }
+  if (output["OriginalTypeName"] !== undefined) {
+    contents.OriginalTypeName = __expectString(output["OriginalTypeName"]);
+  }
+  if (output["PublicVersionNumber"] !== undefined) {
+    contents.PublicVersionNumber = __expectString(output["PublicVersionNumber"]);
+  }
+  if (output["LatestPublicVersion"] !== undefined) {
+    contents.LatestPublicVersion = __expectString(output["LatestPublicVersion"]);
+  }
+  if (output["PublisherIdentity"] !== undefined) {
+    contents.PublisherIdentity = __expectString(output["PublisherIdentity"]);
+  }
+  if (output["PublisherName"] !== undefined) {
+    contents.PublisherName = __expectString(output["PublisherName"]);
+  }
+  if (output["IsActivated"] !== undefined) {
+    contents.IsActivated = __parseBoolean(output["IsActivated"]);
   }
   return contents;
 };
@@ -9489,6 +10751,7 @@ const deserializeAws_queryTypeVersionSummary = (output: any, context: __SerdeCon
     Arn: undefined,
     TimeCreated: undefined,
     Description: undefined,
+    PublicVersionNumber: undefined,
   };
   if (output["Type"] !== undefined) {
     contents.Type = __expectString(output["Type"]);
@@ -9511,7 +10774,24 @@ const deserializeAws_queryTypeVersionSummary = (output: any, context: __SerdeCon
   if (output["Description"] !== undefined) {
     contents.Description = __expectString(output["Description"]);
   }
+  if (output["PublicVersionNumber"] !== undefined) {
+    contents.PublicVersionNumber = __expectString(output["PublicVersionNumber"]);
+  }
   return contents;
+};
+
+const deserializeAws_queryUnprocessedTypeConfigurations = (
+  output: any,
+  context: __SerdeContext
+): TypeConfigurationIdentifier[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTypeConfigurationIdentifier(entry, context);
+    });
 };
 
 const deserializeAws_queryUpdateStackInstancesOutput = (

@@ -22,7 +22,7 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that
- *             was created in Amazon SageMaker when you called the <a>CreateModel</a> API. It does not
+ *             was created in Amazon SageMaker when you called the <code>CreateModel</code> API. It does not
  *             delete model artifacts, inference code, or the IAM role that you specified when
  *             creating the model. </p>
  * @example

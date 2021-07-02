@@ -21,7 +21,7 @@ export interface ListModelPackageGroupsCommandInput extends ListModelPackageGrou
 export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGroupsOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the model groups in your AWS account.</p>
+ * <p>Gets a list of the model groups in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

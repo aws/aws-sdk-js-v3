@@ -24,10 +24,26 @@ import {
   Workteam,
 } from "./models_2";
 
+export interface UpdateModelPackageOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model.</p>
+   */
+  ModelPackageArn: string | undefined;
+}
+
+export namespace UpdateModelPackageOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateModelPackageOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateMonitoringScheduleRequest {
   /**
-   * <p>The name of the monitoring schedule. The name must be unique within an AWS Region within
-   *          an AWS account.</p>
+   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within
+   *          an Amazon Web Services account.</p>
    */
   MonitoringScheduleName: string | undefined;
 
@@ -112,7 +128,7 @@ export interface UpdateNotebookInstanceInput {
   /**
    * <p>The Git repository to associate with the notebook instance as its default code
    *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
    *             other Git repository. When you open a notebook instance, it opens in the directory that
    *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with Amazon SageMaker
    *                 Notebook Instances</a>.</p>
@@ -122,7 +138,7 @@ export interface UpdateNotebookInstanceInput {
   /**
    * <p>An array of up to three Git repositories to associate with the notebook instance.
    *             These can be either the names of Git repositories stored as resources in your account,
-   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
    *             other Git repository. These repositories are cloned at the same level as the default
    *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
    *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
@@ -576,7 +592,7 @@ export namespace UpdateWorkforceRequest {
 
 export interface UpdateWorkforceResponse {
   /**
-   * <p>A single private workforce. You can create one private work force in each AWS Region. By default,
+   * <p>A single private workforce. You can create one private work force in each Amazon Web Services Region. By default,
    *             any workforce-related API operation used in a specific region will apply to the
    *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
    */

@@ -21,7 +21,7 @@ export interface UpdateLongTermPricingCommandInput extends UpdateLongTermPricing
 export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricingResult, __MetadataBearer {}
 
 /**
- * <p>Updates the long term pricing type.</p>
+ * <p>Updates the long-term pricing type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

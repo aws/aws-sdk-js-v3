@@ -22,7 +22,7 @@ export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, _
 
 /**
  * <p>
- *       Gets a list ARNs for the report groups in the current AWS account.
+ *       Gets a list ARNs for the report groups in the current Amazon Web Services account.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

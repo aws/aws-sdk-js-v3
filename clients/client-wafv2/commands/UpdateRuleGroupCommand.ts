@@ -22,6 +22,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
 
 /**
  * <p>Updates the specified <a>RuleGroup</a>.</p>
+ *          <note>
+ *             <p>This operation completely replaces the mutable specifications that you already have for the rule group with the ones that you provide to this call. To modify the rule group, retrieve it by calling <a>GetRuleGroup</a>, update the settings as needed, and then provide the complete rule group specification to this call.</p>
+ *          </note>
  *          <p> A rule group defines a collection of rules to inspect and control web requests that you can use in a <a>WebACL</a>. When you create a rule group, you define an immutable capacity limit. If you update a rule group, you must stay within the capacity. This allows others to reuse the rule group with confidence in its capacity requirements. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

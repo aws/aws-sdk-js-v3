@@ -21,9 +21,10 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds tags to an AWS Cloud9 development environment.</p>
+ * <p>Adds tags to an Cloud9 development environment.</p>
  *          <important>
- *             <p>Tags that you add to an AWS Cloud9 environment by using this method will NOT be automatically propagated to underlying resources.</p>
+ *             <p>Tags that you add to an Cloud9 environment by using this method will NOT be
+ *         automatically propagated to underlying resources.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

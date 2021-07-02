@@ -22,10 +22,10 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
 
 /**
  * <p>Use this operation to create a workforce. This operation will return an error
- *       if a workforce already exists in the AWS Region that you specify. You can only
- *       create one workforce in each AWS Region per AWS account.</p>
+ *           if a workforce already exists in the Amazon Web Services Region that you specify. You can only
+ *           create one workforce in each Amazon Web Services Region per Amazon Web Services account.</p>
  *
- *          <p>If you want to create a new workforce in an AWS Region where
+ *         <p>If you want to create a new workforce in an Amazon Web Services Region where
  *       a workforce already exists, use the  API
  *       operation to delete the existing workforce and then use <code>CreateWorkforce</code>
  *       to create a new workforce.</p>

@@ -29,7 +29,7 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  *                <p>You can attach only one policy with each <code>PutPermissionPolicy</code> request.</p>
  *             </li>
  *             <li>
- *                <p>The ARN in the request must be a valid WAF <a>RuleGroup</a> ARN and the rule group must exist in the same region.</p>
+ *                <p>The ARN in the request must be a valid WAF <a>RuleGroup</a> ARN and the rule group must exist in the same Region.</p>
  *             </li>
  *             <li>
  *                <p>The user making the request must be the owner of the rule group.</p>

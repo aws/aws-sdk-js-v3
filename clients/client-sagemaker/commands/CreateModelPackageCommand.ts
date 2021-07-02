@@ -21,13 +21,13 @@ export interface CreateModelPackageCommandInput extends CreateModelPackageInput 
 export interface CreateModelPackageCommandOutput extends CreateModelPackageOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a model package that you can use to create Amazon SageMaker models or list on AWS
+ * <p>Creates a model package that you can use to create Amazon SageMaker models or list on Amazon Web Services
  *             Marketplace, or a versioned model that is part of a model group. Buyers can subscribe to
- *             model packages listed on AWS Marketplace to create models in Amazon SageMaker.</p>
+ *             model packages listed on Amazon Web Services Marketplace to create models in Amazon SageMaker.</p>
  *         <p>To create a model package by specifying a Docker container that contains your
  *             inference code and the Amazon S3 location of your model artifacts, provide values for
  *                 <code>InferenceSpecification</code>. To create a model from an algorithm resource
- *             that you created or subscribed to in AWS Marketplace, provide a value for
+ *             that you created or subscribed to in Amazon Web Services Marketplace, provide a value for
  *                 <code>SourceAlgorithmSpecification</code>.</p>
  *         <note>
  *             <p>There are two types of model packages:</p>

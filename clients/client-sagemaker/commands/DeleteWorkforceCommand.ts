@@ -23,7 +23,7 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
 /**
  * <p>Use this operation to delete a workforce.</p>
  *
- *          <p>If you want to create a new workforce in an AWS Region where
+ *          <p>If you want to create a new workforce in an Amazon Web Services Region where
  *       a workforce already exists, use this operation to delete the
  *       existing workforce and then use
  *       to create a new workforce.</p>

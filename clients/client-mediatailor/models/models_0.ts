@@ -540,6 +540,40 @@ export namespace PlaybackConfiguration {
 }
 
 /**
+ * <p>The schedule's ad break properties.</p>
+ */
+export interface ScheduleAdBreak {
+  /**
+   * <p>The approximate duration of the ad break, in seconds.</p>
+   */
+  ApproximateDurationSeconds?: number;
+
+  /**
+   * <p>The approximate time that the ad will start playing.</p>
+   */
+  ApproximateStartTime?: Date;
+
+  /**
+   * <p>The name of the source location containing the VOD source used for the ad break.</p>
+   */
+  SourceLocationName?: string;
+
+  /**
+   * <p>The name of the VOD source used for the ad break.</p>
+   */
+  VodSourceName?: string;
+}
+
+export namespace ScheduleAdBreak {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ScheduleAdBreak): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The properties for a schedule.</p>
  */
 export interface ScheduleEntry {
@@ -567,6 +601,11 @@ export interface ScheduleEntry {
    * <p>The name of the program.</p>
    */
   ProgramName: string | undefined;
+
+  /**
+   * <p>The schedule's ad break properties.</p>
+   */
+  ScheduleAdBreaks?: ScheduleAdBreak[];
 
   /**
    * <p>The name of the source location.</p>

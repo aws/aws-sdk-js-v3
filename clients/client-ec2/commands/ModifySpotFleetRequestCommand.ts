@@ -22,9 +22,10 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
 
 /**
  * <p>Modifies the specified Spot Fleet request.</p>
- *          <p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p>
- *          <p>While the Spot Fleet request is being modified, it is in the <code>modifying</code> state.</p>
- *          <p>To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the
+ *         <p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p>
+ *         <p>While the Spot Fleet request is being modified, it is in the <code>modifying</code>
+ *             state.</p>
+ *         <p>To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the
  *             additional Spot Instances according to the allocation strategy for the Spot Fleet
  *             request. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet launches
  *             instances using the Spot Instance pool with the lowest price. If the allocation strategy
@@ -32,7 +33,7 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  *             Instance pools. If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet
  *             launches instances from Spot Instance pools with optimal capacity for the number of instances
  *             that are launching.</p>
- *          <p>To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet
+ *         <p>To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet
  *             cancels any open requests that exceed the new target capacity. You can request that the
  *             Spot Fleet terminate Spot Instances until the size of the fleet no longer exceeds the
  *             new target capacity. If the allocation strategy is <code>lowestPrice</code>, the Spot
@@ -43,8 +44,8 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  *             Spot Instance pools. Alternatively, you can request that the Spot Fleet keep the fleet
  *             at its current size, but not replace any Spot Instances that are interrupted or that you
  *             terminate manually.</p>
- *          <p>If you are finished with your Spot Fleet for now, but will use it again later, you can set the
- *        target capacity to 0.</p>
+ *         <p>If you are finished with your Spot Fleet for now, but will use it again later, you can
+ *             set the target capacity to 0.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

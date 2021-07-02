@@ -95,20 +95,20 @@ import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } fr
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>AWS Transfer Family is a fully managed service that enables the transfer of files over the
+ * <p>Amazon Web Services Transfer Family is a fully managed service that enables the transfer of files over the
  *       File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH)
  *       File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon
- *       S3). AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer Family by
+ *       S3). Amazon Web Services helps you seamlessly migrate your file transfer workflows to Amazon Web Services Transfer Family by
  *       integrating with existing authentication systems, and providing DNS routing with Amazon Route
  *       53 so nothing changes for your customers and partners, or their applications. With your data
- *       in Amazon S3, you can use it with AWS services for processing, analytics, machine learning,
- *       and archiving. Getting started with AWS Transfer Family is easy since there is no
+ *       in Amazon S3, you can use it with Amazon Web Services services for processing, analytics, machine learning,
+ *       and archiving. Getting started with Amazon Web Services Transfer Family is easy since there is no
  *       infrastructure to buy and set up.</p>
  */
 export class Transfer extends TransferClient {
   /**
    * <p>Used by administrators to choose which groups in the directory should have access to
-   *       upload and download files over the enabled protocols using AWS Transfer Family. For example, a
+   *       upload and download files over the enabled protocols using Amazon Web Services Transfer Family. For example, a
    *       Microsoft Active Directory might contain 50,000 users, but only a small fraction might need
    *       the ability to transfer files to the server. An administrator can use
    *         <code>CreateAccess</code> to limit the access to the correct set of users who need this
@@ -142,7 +142,7 @@ export class Transfer extends TransferClient {
 
   /**
    * <p>Instantiates an auto-scaling virtual server based on the selected file transfer protocol
-   *       in AWS. When you make updates to your file transfer protocol-enabled server or when you work
+   *       in Amazon Web Services. When you make updates to your file transfer protocol-enabled server or when you work
    *       with users, use the service-generated <code>ServerId</code> property that is assigned to the
    *       newly created server.</p>
    */
@@ -177,7 +177,7 @@ export class Transfer extends TransferClient {
    *       You can only create and associate users with servers that have the
    *         <code>IdentityProviderType</code> set to <code>SERVICE_MANAGED</code>. Using parameters for
    *         <code>CreateUser</code>, you can specify the user name, set the home directory, store the
-   *       user's public key, and assign the user's AWS Identity and Access Management (IAM)
+   *       user's public key, and assign the user's Amazon Web Services Identity and Access Management (IAM)
    *       role. You can also optionally add a scope-down policy, and assign metadata with tags that can
    *       be used to group and search for users.</p>
    */
@@ -573,7 +573,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Lists the file transfer protocol-enabled servers that are associated with your AWS
+   * <p>Lists the file transfer protocol-enabled servers that are associated with your Amazon Web Services
    *       account.</p>
    */
   public listServers(args: ListServersCommandInput, options?: __HttpHandlerOptions): Promise<ListServersCommandOutput>;

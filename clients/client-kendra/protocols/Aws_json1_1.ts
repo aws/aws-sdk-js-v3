@@ -6211,6 +6211,10 @@ const serializeAws_json1_1SharePointConfiguration = (input: SharePointConfigurat
     ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
     ...(input.SharePointVersion !== undefined &&
       input.SharePointVersion !== null && { SharePointVersion: input.SharePointVersion }),
+    ...(input.SslCertificateS3Path !== undefined &&
+      input.SslCertificateS3Path !== null && {
+        SslCertificateS3Path: serializeAws_json1_1S3Path(input.SslCertificateS3Path, context),
+      }),
     ...(input.Urls !== undefined &&
       input.Urls !== null && { Urls: serializeAws_json1_1SharePointUrlList(input.Urls, context) }),
     ...(input.UseChangeLog !== undefined && input.UseChangeLog !== null && { UseChangeLog: input.UseChangeLog }),
@@ -8484,6 +8488,10 @@ const deserializeAws_json1_1SharePointConfiguration = (
         : undefined,
     SecretArn: __expectString(output.SecretArn),
     SharePointVersion: __expectString(output.SharePointVersion),
+    SslCertificateS3Path:
+      output.SslCertificateS3Path !== undefined && output.SslCertificateS3Path !== null
+        ? deserializeAws_json1_1S3Path(output.SslCertificateS3Path, context)
+        : undefined,
     Urls:
       output.Urls !== undefined && output.Urls !== null
         ? deserializeAws_json1_1SharePointUrlList(output.Urls, context)

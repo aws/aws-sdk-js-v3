@@ -25,7 +25,7 @@ export interface CreateTrialCommandOutput extends CreateTrialResponse, __Metadat
  *         <i>trial components</i> that produce a machine learning model. A trial is part
  *       of a single SageMaker <i>experiment</i>.</p>
  *          <p>When you use SageMaker Studio or the SageMaker Python SDK, all experiments, trials, and trial
- *       components are automatically tracked, logged, and indexed. When you use the AWS SDK for Python (Boto), you
+ *       components are automatically tracked, logged, and indexed. When you use the Amazon Web Services SDK for Python (Boto), you
  *       must use the logging APIs provided by the SDK.</p>
  *          <p>You can add tags to a trial and then use the <a>Search</a> API to search for
  *       the tags.</p>

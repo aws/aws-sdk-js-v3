@@ -42,10 +42,23 @@ export namespace ConflictException {
 /**
  * <p>Represents an object that contains entries and targets for
  *         <code>HomeDirectoryMappings</code>.</p>
+ *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
+ *          <p>
+ *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+ *          </p>
+ *
+ *          <note>
+ *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is
+ *         ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place
+ *         holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of
+ *         <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the
+ *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
+ *         sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p>
+ *          </note>
  */
 export interface HomeDirectoryMapEntry {
   /**
-   * <p>Represents an entry and a target for <code>HomeDirectoryMappings</code>.</p>
+   * <p>Represents an entry for <code>HomeDirectoryMappings</code>.</p>
    */
   Entry: string | undefined;
 
@@ -122,7 +135,7 @@ export interface CreateAccessRequest {
    *       be visible to your user and how you want to make them visible. You must specify the
    *         <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path
    *       is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you
-   *       only specify a target, it will be displayed as is. You also must ensure that your AWS Identity
+   *       only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity
    *       and Access Management (IAM) role provides access to paths in <code>Target</code>. This value
    *       can only be set when <code>HomeDirectoryType</code> is set to
    *       <i>LOGICAL</i>.</p>
@@ -136,20 +149,16 @@ export interface CreateAccessRequest {
    *         <code>HomeDirectory</code> parameter value.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
+   *
    *          <note>
-   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or Amazon EFS, the
-   *         entry will be ignored. As a workaround, you can use the Amazon S3 API or EFS API to create
-   *         0-byte objects as place holders for your directory. If using the AWS CLI, use the
-   *           <code>s3api</code> or <code>efsapi</code> call instead of <code>s3</code> or
-   *           <code>efs</code> so you can use the <code>put-object</code> operation. For example, you
-   *         can use the following.</p>
-   *             <p>
-   *                <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>
-   *             </p>
-   *             <p>The end of the key name must end in a <code>/</code> for it to be considered a
-   *         folder.</p>
+   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is
+   *         ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place
+   *         holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of
+   *         <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the
+   *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
+   *         sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p>
    *          </note>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
@@ -162,10 +171,10 @@ export interface CreateAccessRequest {
    *          <note>
    *             <p>This only applies when domain of <code>ServerId</code> is S3.
    *       Amazon EFS does not use scope-down policies.</p>
-   *             <p>For scope-down policies, AWS Transfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p>
+   *             <p>For scope-down policies, Amazon Web Services Transfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p>
    *             <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/scope-down-policy.html">Example
    *           scope-down policy</a>.</p>
-   *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>AWS Security Token Service API
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>Amazon Web Services Security Token Service API
    *           Reference</i>.</p>
    *          </note>
    */
@@ -196,7 +205,7 @@ export interface CreateAccessRequest {
   /**
    * <p>A unique identifier that is required to identify specific groups within your directory.
    *     The users of the group that you associate have access to your Amazon S3 or Amazon EFS
-   *     resources over the enabled protocols using AWS Transfer Family. If you know the group name,
+   *     resources over the enabled protocols using Amazon Web Services Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
    *
    *          <p>
@@ -228,7 +237,7 @@ export interface CreateAccessResponse {
 
   /**
    * <p>The external ID of the group whose users have access to your Amazon S3 or Amazon EFS
-   *       resources over the enabled protocols using AWS Transfer Family.</p>
+   *       resources over the enabled protocols using Amazon Web Services Transfer Family.</p>
    */
   ExternalId: string | undefined;
 }
@@ -243,7 +252,7 @@ export namespace CreateAccessResponse {
 }
 
 /**
- * <p>This exception is thrown when an error occurs in the AWS Transfer Family service.</p>
+ * <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
  */
 export interface InternalServiceError extends __SmithyException, $MetadataBearer {
   name: "InternalServiceError";
@@ -299,7 +308,7 @@ export namespace ResourceExistsException {
 }
 
 /**
- * <p>This exception is thrown when a resource is not found by the AWS Transfer Family
+ * <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
  *       service.</p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
@@ -320,7 +329,7 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- * <p>The request has failed because the AWS Transfer Family service is not available.</p>
+ * <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  */
 export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
@@ -350,9 +359,9 @@ export enum Domain {
  *       endpoint.</p>
  *          <note>
  *             <p> After May 19, 2021, you won't be able to create a server using
- *           <code>EndpointType=VPC_ENDPOINT</code> in your AWS account if your account hasn't already
+ *           <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount if your account hasn't already
  *       done so before May 19, 2021. If you have already created servers with
- *       <code>EndpointType=VPC_ENDPOINT</code> in your AWS account on or before May 19, 2021,
+ *       <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount on or before May 19, 2021,
  *         you will not be affected. After this date, use
  *         <code>EndpointType</code>=<code>VPC</code>.</p>
  *
@@ -456,7 +465,7 @@ export interface IdentityProviderDetails {
   InvocationRole?: string;
 
   /**
-   * <p>The identifier of the AWS Directory Service directory that you want to stop sharing.</p>
+   * <p>The identifier of the Amazon Web ServicesDirectory Service directory that you want to stop sharing.</p>
    */
   DirectoryId?: string;
 }
@@ -512,17 +521,17 @@ export namespace Tag {
 
 export interface CreateServerRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager (ACM) certificate. Required
    *       when <code>Protocols</code> is set to <code>FTPS</code>.</p>
    *
    *          <p>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request a public certificate</a>
-   *       in the <i> AWS Certificate Manager User Guide</i>.</p>
+   *       in the <i> Amazon Web Services Certificate Manager User Guide</i>.</p>
    *
    *          <p>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into ACM</a>
-   *       in the <i> AWS Certificate Manager User Guide</i>.</p>
+   *       in the <i> Amazon Web Services Certificate Manager User Guide</i>.</p>
    *
    *          <p>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request a
-   *         private certificate</a> in the <i> AWS Certificate Manager User
+   *         private certificate</a> in the <i> Amazon Web Services Certificate Manager User
    *       Guide</i>.</p>
    *
    *          <p>Certificates with the following cryptographic algorithms and key sizes are
@@ -579,9 +588,9 @@ export interface CreateServerRequest {
    *       resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.</p>
    *          <note>
    *             <p> After May 19, 2021, you won't be able to create a server using
-   *           <code>EndpointType=VPC_ENDPOINT</code> in your AWS account if your account hasn't already
+   *           <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Services account if your account hasn't already
    *       done so before May 19, 2021. If you have already created servers with
-   *       <code>EndpointType=VPC_ENDPOINT</code> in your AWS account on or before May 19, 2021,
+   *       <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Services account on or before May 19, 2021,
    *         you will not be affected. After this date, use
    *         <code>EndpointType</code>=<code>VPC</code>.</p>
    *
@@ -608,7 +617,7 @@ export interface CreateServerRequest {
    *
    *
    *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change the host key for your SFTP-enabled server</a> in the <i>AWS Transfer
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change the host key for your SFTP-enabled server</a> in the <i>Amazon Web Services Transfer
    *         Family User Guide</i>.</p>
    */
   HostKey?: string;
@@ -625,19 +634,21 @@ export interface CreateServerRequest {
   /**
    * <p>Specifies the mode of authentication for a server. The default value is
    *         <code>SERVICE_MANAGED</code>, which allows you to store and access user credentials within
-   *       the AWS Transfer Family service. Use <code>AWS_DIRECTORY_SERVICE</code> to provide access to
-   *       Active Directory groups in AWS Managed Active Directory or Microsoft Active Directory in your
-   *       on-premises environment or in AWS using AD Connectors. This option also requires you to
-   *       provide a Directory ID using the <code>IdentityProviderDetails</code> parameter. Use the
-   *         <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The
-   *         <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call
+   *       the Amazon Web Services Transfer Family service.</p>
+   *          <p>Use <code>AWS_DIRECTORY_SERVICE</code> to provide access to
+   *       Active Directory groups in Amazon Web Services Managed Active Directory or Microsoft Active Directory in your
+   *       on-premises environment or in Amazon Web Services using AD Connectors. This option also requires you to
+   *       provide a Directory ID using the <code>IdentityProviderDetails</code> parameter.</p>
+   *          <p>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The
+   *       <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call
    *       for authentication using the <code>IdentityProviderDetails</code> parameter.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
   /**
-   * <p>Allows the service to write your users' activity to your Amazon CloudWatch logs for
-   *       monitoring and auditing purposes.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that allows a server to turn
+   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, user activity can be viewed in
+   *       your CloudWatch logs.</p>
    */
   LoggingRole?: string;
 
@@ -663,8 +674,8 @@ export interface CreateServerRequest {
    *          </ul>
    *
    *          <note>
-   *             <p>If you select <code>FTPS</code>, you must choose a certificate stored in AWS Certificate
-   *         Manager (ACM) which will be used to identify your server when clients connect to it over
+   *             <p>If you select <code>FTPS</code>, you must choose a certificate stored in Amazon Web Services Certificate
+   *         Manager (ACM) which is used to identify your server when clients connect to it over
    *         FTPS.</p>
    *
    *             <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the
@@ -754,13 +765,14 @@ export interface CreateUserRequest {
   HomeDirectoryType?: HomeDirectoryType | string;
 
   /**
-   * <p>Logical directory mappings that specify what Amazon S3 or EFS paths and keys should be visible to
-   *       your user and how you want to make them visible. You will need to specify the
+   * <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should
+   *       be visible to your user and how you want to make them visible. You must specify the
    *         <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path
-   *       is made visible and <code>Target</code> is the actual Amazon S3 or EFS path. If you only specify a
-   *       target, it will be displayed as is. You will need to also make sure that your IAM role
-   *       provides access to paths in <code>Target</code>. This value can only be set when
-   *         <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *       is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you
+   *       only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity
+   *       and Access Management (IAM) role provides access to paths in <code>Target</code>. This value
+   *       can only be set when <code>HomeDirectoryType</code> is set to
+   *       <i>LOGICAL</i>.</p>
    *
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *
@@ -773,22 +785,18 @@ export interface CreateUserRequest {
    *       down to the designated home directory ("<code>chroot</code>"). To do this, you can set
    *         <code>Entry</code> to <code>/</code> and set <code>Target</code> to the HomeDirectory
    *       parameter value.</p>
-   *
-   *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for
-   *         <code>chroot</code>.</p>
-   *
+   *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    *
    *          <note>
-   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry will
-   *         be ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place
+   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is
+   *         ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place
    *         holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of
    *         <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the
    *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
-   *         sure that the end of the key name ends in a <code>/</code> for it to be considered a
-   *         folder.</p>
+   *         sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p>
    *          </note>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
@@ -800,7 +808,7 @@ export interface CreateUserRequest {
    *
    *          <note>
    *             <p>This only applies when domain of ServerId is S3. EFS does not use scope down policy.</p>
-   *             <p>For scope-down policies, AWS Transfer Family stores the policy as a JSON blob, instead
+   *             <p>For scope-down policies, Amazon Web Services Transfer Family stores the policy as a JSON blob, instead
    *         of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass
    *         it in the <code>Policy</code> argument.</p>
    *
@@ -811,7 +819,7 @@ export interface CreateUserRequest {
    *
    *
    *
-   *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>AWS
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>Amazon Web Services
    *           Security Token Service API Reference</i>.</p>
    *          </note>
    */
@@ -901,7 +909,7 @@ export interface DeleteAccessRequest {
   /**
    * <p>A unique identifier that is required to identify specific groups within your directory.
    *     The users of the group that you associate have access to your Amazon S3 or Amazon EFS
-   *     resources over the enabled protocols using AWS Transfer Family. If you know the group name,
+   *     resources over the enabled protocols using Amazon Web Services Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
    *
    *          <p>
@@ -999,7 +1007,7 @@ export interface DescribeAccessRequest {
   /**
    * <p>A unique identifier that is required to identify specific groups within your directory.
    *     The users of the group that you associate have access to your Amazon S3 or Amazon EFS
-   *     resources over the enabled protocols using AWS Transfer Family. If you know the group name,
+   *     resources over the enabled protocols using Amazon Web Services Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
    *
    *          <p>
@@ -1034,13 +1042,14 @@ export interface DescribedAccess {
   HomeDirectory?: string;
 
   /**
-   * <p>Specifies the logical directory mappings that specify what Amazon S3 or Amazon EFS paths
-   *       and keys should be visible to the associated access and how you want to make them visible. You
-   *       must specify the "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code>
-   *       shows how the path is made visible and <code>Target</code> is the actual Amazon S3 or EFS
-   *       path. If you only specify a target, it will be displayed as is. You also must ensure that your
-   *       AWS Identity and Access Management (IAM) role provides access to paths in
-   *       <code>Target</code>.</p>
+   * <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should
+   *       be visible to your user and how you want to make them visible. You must specify the
+   *         <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path
+   *       is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you
+   *       only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity
+   *       and Access Management (IAM) role provides access to paths in <code>Target</code>. This value
+   *       can only be set when <code>HomeDirectoryType</code> is set to
+   *       <i>LOGICAL</i>.</p>
    *
    *          <p>In most cases, you can use this value instead of the scope-down policy to lock down the
    *       associated access to the designated home directory ("<code>chroot</code>"). To do this, you
@@ -1084,7 +1093,7 @@ export interface DescribedAccess {
   /**
    * <p>A unique identifier that is required to identify specific groups within your directory.
    *     The users of the group that you associate have access to your Amazon S3 or Amazon EFS
-   *     resources over the enabled protocols using AWS Transfer Family. If you know the group name,
+   *     resources over the enabled protocols using Amazon Web Services Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
    *
    *          <p>
@@ -1180,6 +1189,44 @@ export namespace DescribedSecurityPolicy {
   });
 }
 
+/**
+ * <p>
+ *       The protocol settings that are configured for your server.
+ *     </p>
+ *          <note>
+ *             <p>
+ *         This type is only valid in the <code>UpdateServer</code> API.
+ *       </p>
+ *          </note>
+ */
+export interface ProtocolDetails {
+  /**
+   * <p>
+   *       Indicates passive mode, for FTP and FTPS protocols.
+   *       Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
+   *       For example:
+   *     </p>
+   *          <p>
+   *             <code>
+   *         aws transfer update-server --protocol-details PassiveIp=<i>0.0.0.0</i>
+   *             </code>
+   *          </p>
+   *          <p>Replace <code>
+   *                <i>0.0.0.0</i>
+   *             </code> in the example above with the actual IP address you want to use.</p>
+   */
+  PassiveIp?: string;
+}
+
+export namespace ProtocolDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProtocolDetails): any => ({
+    ...obj,
+  });
+}
+
 export enum State {
   OFFLINE = "OFFLINE",
   ONLINE = "ONLINE",
@@ -1200,10 +1247,21 @@ export interface DescribedServer {
   Arn: string | undefined;
 
   /**
-   * <p>Specifies the ARN of the AWS Certificate Manager (ACM) certificate. Required when
+   * <p>Specifies the ARN of the Amazon Web ServicesCertificate Manager (ACM) certificate. Required when
    *         <code>Protocols</code> is set to <code>FTPS</code>.</p>
    */
   Certificate?: string;
+
+  /**
+   * <p>
+   *       The protocol settings that are configured for your server.
+   *     </p>
+   *          <p>
+   *       Use the <code>PassiveIp</code> parameter to indicate passive mode.
+   *       Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
+   *     </p>
+   */
+  ProtocolDetails?: ProtocolDetails;
 
   /**
    * <p>Specifies the domain of the storage system that is used for file transfers.</p>
@@ -1211,8 +1269,11 @@ export interface DescribedServer {
   Domain?: Domain | string;
 
   /**
-   * <p>Specifies the virtual private cloud (VPC) endpoint settings that you configured for your
-   *       server.</p>
+   * <p>The virtual private cloud (VPC) endpoint settings that are configured for your server.
+   *       When you host your endpoint within your VPC, you can make it accessible only to resources
+   *       within your VPC, or you can attach Elastic IP addresses and make it accessible to clients over
+   *       the internet. Your VPC's default security groups are automatically assigned to your
+   *       endpoint.</p>
    */
   EndpointDetails?: EndpointDetails;
 
@@ -1237,18 +1298,21 @@ export interface DescribedServer {
   IdentityProviderDetails?: IdentityProviderDetails;
 
   /**
-   * <p>Specifies the mode of authentication method enabled for this service. A value of
-   *         <code>AWS_DIRECTORY_SERVICE</code> means that you are providing access to Active Directory
-   *       groups in AWS Managed Active Directory or Microsoft Active Directory in your on-premises
-   *       environment or in AWS using AD Connectors. A value of <code>SERVICE_MANAGED</code> means that
-   *       you are using this server to store and access user credentials within the service. A value of
-   *         <code>API_GATEWAY</code> indicates that you have integrated an API Gateway endpoint that
-   *       will be invoked for authenticating your user into the service.</p>
+   * <p>Specifies the mode of authentication for a server. The default value is
+   *         <code>SERVICE_MANAGED</code>, which allows you to store and access user credentials within
+   *       the Amazon Web Services Transfer Family service.</p>
+   *          <p>Use <code>AWS_DIRECTORY_SERVICE</code> to provide access to
+   *       Active Directory groups in Amazon Web Services Managed Active Directory or Microsoft Active Directory in your
+   *       on-premises environment or in Amazon Web Services using AD Connectors. This option also requires you to
+   *       provide a Directory ID using the <code>IdentityProviderDetails</code> parameter.</p>
+   *          <p>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The
+   *       <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call
+   *       for authentication using the <code>IdentityProviderDetails</code> parameter.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
   /**
-   * <p>Specifies the AWS Identity and Access Management (IAM) role that allows a server to turn
+   * <p>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that allows a server to turn
    *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, user activity can be viewed in
    *       your CloudWatch logs.</p>
    */
@@ -1374,12 +1438,14 @@ export interface DescribedUser {
   HomeDirectory?: string;
 
   /**
-   * <p>Specifies the logical directory mappings that specify what Amazon S3 or EFS paths and keys should
-   *       be visible to your user and how you want to make them visible. You will need to specify the
-   *         "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code> shows how the
-   *       path is made visible and <code>Target</code> is the actual Amazon S3 or EFS path. If you only specify
-   *       a target, it will be displayed as is. You will need to also make sure that your AWS Identity
-   *       and Access Management (IAM) role provides access to paths in <code>Target</code>.</p>
+   * <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should
+   *       be visible to your user and how you want to make them visible. You must specify the
+   *         <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path
+   *       is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you
+   *       only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity
+   *       and Access Management (IAM) role provides access to paths in <code>Target</code>. This value
+   *       can only be set when <code>HomeDirectoryType</code> is set to
+   *       <i>LOGICAL</i>.</p>
    *
    *          <p>In most cases, you can use this value instead of the scope-down policy to lock your user
    *       down to the designated home directory ("<code>chroot</code>"). To do this, you can set
@@ -1523,7 +1589,7 @@ export interface DescribeUserRequest {
 
   /**
    * <p>The name of the user assigned to one or more servers. User names are part of the sign-in
-   *       credentials to use the AWS Transfer Family service and perform file transfer tasks.</p>
+   *       credentials to use the Amazon Web Services Transfer Family service and perform file transfer tasks.</p>
    */
   UserName: string | undefined;
 }
@@ -1692,7 +1758,7 @@ export interface ListedAccess {
   /**
    * <p>A unique identifier that is required to identify specific groups within your directory.
    *     The users of the group that you associate have access to your Amazon S3 or Amazon EFS
-   *     resources over the enabled protocols using AWS Transfer Family. If you know the group name,
+   *     resources over the enabled protocols using Amazon Web Services Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
    *
    *          <p>
@@ -1761,22 +1827,29 @@ export interface ListedServer {
   Domain?: Domain | string;
 
   /**
-   * <p>Specifies the authentication method used to validate a user for a server that was
-   *       specified. This can include Secure Shell (SSH), Active Directory groups, user name and
-   *       password combinations, or your own custom authentication method. </p>
+   * <p>Specifies the mode of authentication for a server. The default value is
+   *         <code>SERVICE_MANAGED</code>, which allows you to store and access user credentials within
+   *       the Amazon Web Services Transfer Family service.</p>
+   *          <p>Use <code>AWS_DIRECTORY_SERVICE</code> to provide access to
+   *       Active Directory groups in Amazon Web Services Managed Active Directory or Microsoft Active Directory in your
+   *       on-premises environment or in Amazon Web Services using AD Connectors. This option also requires you to
+   *       provide a Directory ID using the <code>IdentityProviderDetails</code> parameter.</p>
+   *          <p>Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The
+   *       <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call
+   *       for authentication using the <code>IdentityProviderDetails</code> parameter.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
   /**
    * <p>Specifies the type of VPC endpoint that your server is connected to. If your server is
-   *       connected to a VPC endpoint, your server isn't accessible over the public
-   *       internet.</p>
+   *       connected to a VPC endpoint, your server isn't accessible over the public internet.</p>
    */
   EndpointType?: EndpointType | string;
 
   /**
-   * <p>Specifies the AWS Identity and Access Management (IAM) role that allows a server to turn
-   *       on Amazon CloudWatch logging.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that allows a server to turn
+   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, user activity can be viewed in
+   *       your CloudWatch logs.</p>
    */
   LoggingRole?: string;
 
@@ -1974,7 +2047,7 @@ export namespace ListServersResponse {
 export interface ListTagsForResourceRequest {
   /**
    * <p>Requests the tags associated with a particular Amazon Resource Name (ARN). An ARN is an
-   *       identifier for a specific AWS resource, such as a server, user, or role.</p>
+   *       identifier for a specific Amazon Web Services resource, such as a server, user, or role.</p>
    */
   Arn: string | undefined;
 
@@ -2125,7 +2198,7 @@ export namespace StopServerRequest {
 
 export interface TagResourceRequest {
   /**
-   * <p>An Amazon Resource Name (ARN) for a specific AWS resource, such as a server, user, or
+   * <p>An Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a server, user, or
    *       role.</p>
    */
   Arn: string | undefined;
@@ -2232,7 +2305,7 @@ export namespace TestIdentityProviderResponse {
 export interface UntagResourceRequest {
   /**
    * <p>The value of the resource that will have the tag removed. An Amazon Resource Name (ARN) is
-   *       an identifier for a specific AWS resource, such as a server, user, or role.</p>
+   *       an identifier for a specific Amazon Web Services resource, such as a server, user, or role.</p>
    */
   Arn: string | undefined;
 
@@ -2270,9 +2343,9 @@ export interface UpdateAccessRequest {
   /**
    * <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should
    *       be visible to your user and how you want to make them visible. You must specify the
-   *       <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path
+   *         <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path
    *       is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you
-   *       only specify a target, it will be displayed as is. You also must ensure that your AWS Identity
+   *       only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity
    *       and Access Management (IAM) role provides access to paths in <code>Target</code>. This value
    *       can only be set when <code>HomeDirectoryType</code> is set to
    *       <i>LOGICAL</i>.</p>
@@ -2286,20 +2359,16 @@ export interface UpdateAccessRequest {
    *         <code>HomeDirectory</code> parameter value.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
+   *
    *          <note>
-   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or Amazon EFS, the
-   *         entry will be ignored. As a workaround, you can use the Amazon S3 API or EFS API to create
-   *         0-byte objects as place holders for your directory. If using the AWS CLI, use the
-   *         <code>s3api</code> or <code>efsapi</code> call instead of <code>s3</code> or
-   *         <code>efs</code> so you can use the <code>put-object</code> operation. For example, you
-   *         can use the following.</p>
-   *             <p>
-   *                <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>
-   *             </p>
-   *             <p>The end of the key name must end in a <code>/</code> for it to be considered a
-   *           folder.</p>
+   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is
+   *         ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place
+   *         holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of
+   *         <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the
+   *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
+   *         sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p>
    *          </note>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
@@ -2312,10 +2381,10 @@ export interface UpdateAccessRequest {
    *          <note>
    *             <p>This only applies when domain of <code>ServerId</code> is S3. Amazon EFS does not use scope
    *       down policy.</p>
-   *             <p>For scope-down policies, AWS Transfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p>
+   *             <p>For scope-down policies, Amazon Web ServicesTransfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p>
    *             <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/scope-down-policy.html">Example
    *         scope-down policy</a>.</p>
-   *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>AWS Security Token Service API
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>Amazon Web ServicesSecurity Token Service API
    *           Reference</i>.</p>
    *          </note>
    */
@@ -2346,7 +2415,7 @@ export interface UpdateAccessRequest {
   /**
    * <p>A unique identifier that is required to identify specific groups within your directory.
    *     The users of the group that you associate have access to your Amazon S3 or Amazon EFS
-   *     resources over the enabled protocols using AWS Transfer Family. If you know the group name,
+   *     resources over the enabled protocols using Amazon Web Services Transfer Family. If you know the group name,
    *     you can view the SID values by running the following command using Windows PowerShell.</p>
    *
    *          <p>
@@ -2378,7 +2447,7 @@ export interface UpdateAccessResponse {
 
   /**
    * <p>The external ID of the group whose users have access to your Amazon S3 or Amazon EFS
-   *       resources over the enabled protocols using AWS Transfer Family.</p>
+   *       resources over the enabled protocols using Amazon Web ServicesTransfer Family.</p>
    */
   ExternalId: string | undefined;
 }
@@ -2394,17 +2463,17 @@ export namespace UpdateAccessResponse {
 
 export interface UpdateServerRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web ServicesCertificate Manager (ACM) certificate. Required
    *       when <code>Protocols</code> is set to <code>FTPS</code>.</p>
    *
    *          <p>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request a public certificate</a>
-   *       in the <i> AWS Certificate Manager User Guide</i>.</p>
+   *       in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</p>
    *
    *          <p>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into ACM</a>
-   *       in the <i> AWS Certificate Manager User Guide</i>.</p>
+   *       in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</p>
    *
    *          <p>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request a
-   *         private certificate</a> in the <i> AWS Certificate Manager User
+   *         private certificate</a> in the <i> Amazon Web ServicesCertificate Manager User
    *       Guide</i>.</p>
    *
    *          <p>Certificates with the following cryptographic algorithms and key sizes are
@@ -2436,10 +2505,22 @@ export interface UpdateServerRequest {
   Certificate?: string;
 
   /**
+   * <p>
+   *       The protocol settings that are configured for your server.
+   *     </p>
+   *          <p>
+   *       Use the <code>PassiveIp</code> parameter to indicate passive mode (for FTP and FTPS protocols).
+   *       Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
+   *     </p>
+   */
+  ProtocolDetails?: ProtocolDetails;
+
+  /**
    * <p>The virtual private cloud (VPC) endpoint settings that are configured for your server.
-   *       With a VPC endpoint, you can restrict access to your server to resources only within your VPC.
-   *       To control incoming internet traffic, you will need to associate one or more Elastic IP
-   *       addresses with your server's endpoint.</p>
+   *       When you host your endpoint within your VPC, you can make it accessible only to resources
+   *       within your VPC, or you can attach Elastic IP addresses and make it accessible to clients over
+   *       the internet. Your VPC's default security groups are automatically assigned to your
+   *       endpoint.</p>
    */
   EndpointDetails?: EndpointDetails;
 
@@ -2449,9 +2530,9 @@ export interface UpdateServerRequest {
    *       resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.</p>
    *          <note>
    *             <p> After May 19, 2021, you won't be able to create a server using
-   *           <code>EndpointType=VPC_ENDPOINT</code> in your AWS account if your account hasn't already
+   *           <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount if your account hasn't already
    *       done so before May 19, 2021. If you have already created servers with
-   *       <code>EndpointType=VPC_ENDPOINT</code> in your AWS account on or before May 19, 2021,
+   *       <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount on or before May 19, 2021,
    *         you will not be affected. After this date, use
    *         <code>EndpointType</code>=<code>VPC</code>.</p>
    *
@@ -2478,7 +2559,7 @@ export interface UpdateServerRequest {
    *
    *
    *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change the host key for your SFTP-enabled server</a> in the <i>AWS Transfer
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change the host key for your SFTP-enabled server</a> in the <i>Amazon Web ServicesTransfer
    *         Family User Guide</i>.</p>
    */
   HostKey?: string;
@@ -2490,8 +2571,9 @@ export interface UpdateServerRequest {
   IdentityProviderDetails?: IdentityProviderDetails;
 
   /**
-   * <p>Changes the AWS Identity and Access Management (IAM) role that allows Amazon S3 or Amazon EFS events to
-   *       be logged in Amazon CloudWatch, turning logging on or off.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that allows a server to turn
+   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, user activity can be viewed in
+   *       your CloudWatch logs.</p>
    */
   LoggingRole?: string;
 
@@ -2512,7 +2594,7 @@ export interface UpdateServerRequest {
    *          </ul>
    *
    *          <note>
-   *             <p>If you select <code>FTPS</code>, you must choose a certificate stored in AWS Certificate
+   *             <p>If you select <code>FTPS</code>, you must choose a certificate stored in Amazon Web ServicesCertificate
    *         Manager (ACM) which will be used to identify your server when clients connect to it over
    *         FTPS.</p>
    *
@@ -2586,16 +2668,19 @@ export interface UpdateUserRequest {
   HomeDirectoryType?: HomeDirectoryType | string;
 
   /**
-   * <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to
-   *       your user and how you want to make them visible. You will need to specify the
-   *         "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code> shows how the
-   *       path is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you only specify
-   *       a target, it will be displayed as is. You will need to also make sure that your IAM role
-   *       provides access to paths in <code>Target</code>. The following is an example.</p>
+   * <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should
+   *       be visible to your user and how you want to make them visible. You must specify the
+   *         <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path
+   *       is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you
+   *       only specify a target, it is displayed as is. You also must ensure that your Amazon Web Services Identity
+   *       and Access Management (IAM) role provides access to paths in <code>Target</code>. This value
+   *       can only be set when <code>HomeDirectoryType</code> is set to
+   *       <i>LOGICAL</i>.</p>
    *
+   *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *          <p>
-   *             <code>'[ "/bucket2/documentation", { "Entry": "your-personal-report.pdf", "Target":
-   *         "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]'</code>
+   *             <code>[ { "Entry": "your-personal-report.pdf", "Target":
+   *         "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]</code>
    *          </p>
    *
    *          <p>In most cases, you can use this value instead of the scope-down policy to lock down your
@@ -2603,14 +2688,18 @@ export interface UpdateUserRequest {
    *         <code>Entry</code> to '/' and set <code>Target</code> to the HomeDirectory
    *       parameter value.</p>
    *
+   *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
+   *          <p>
+   *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *          </p>
+   *
    *          <note>
-   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry
-   *         will be ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0-byte
-   *         objects as place holders for your directory. If using the AWS CLI, use the
-   *           <code>s3api</code> or <code>efsapi</code> call instead of <code>s3</code>
-   *                <code>efs</code> so you can use the put-object operation. For example, you use the
+   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is
+   *         ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place
+   *         holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of
+   *         <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the
    *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
-   *         sure that the end of the key name ends in a / for it to be considered a folder.</p>
+   *         sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p>
    *          </note>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
@@ -2624,7 +2713,7 @@ export interface UpdateUserRequest {
    *             <p>This only applies when domain of <code>ServerId</code> is S3.
    *       Amazon EFS does not use scope-down policies.</p>
    *
-   *             <p>For scope-down policies, AWS Transfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy.
+   *             <p>For scope-down policies, Amazon Web ServicesTransfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy.
    *         You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p>
    *
    *
@@ -2634,7 +2723,7 @@ export interface UpdateUserRequest {
    *
    *
    *
-   *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>AWS
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>Amazon Web Services
    *           Security Token Service API Reference</i>.</p>
    *          </note>
    */

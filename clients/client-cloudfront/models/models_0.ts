@@ -3061,6 +3061,7 @@ export type MinimumProtocolVersion =
   | "TLSv1.1_2016"
   | "TLSv1.2_2018"
   | "TLSv1.2_2019"
+  | "TLSv1.2_2021"
   | "TLSv1_2016";
 
 export type SSLSupportMethod = "sni-only" | "static-ip" | "vip";

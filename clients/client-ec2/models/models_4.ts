@@ -2013,12 +2013,12 @@ export namespace GetCapacityReservationUsageRequest {
  */
 export interface InstanceUsage {
   /**
-   * <p>The ID of the AWS account that is making use of the Capacity Reservation.</p>
+   * <p>The ID of the account that is making use of the Capacity Reservation.</p>
    */
   AccountId?: string;
 
   /**
-   * <p>The number of instances the AWS account currently has in the Capacity Reservation.</p>
+   * <p>The number of instances the account currently has in the Capacity Reservation.</p>
    */
   UsedInstanceCount?: number;
 }
@@ -2621,7 +2621,7 @@ export interface CapacityReservationGroup {
   GroupArn?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the resource group.</p>
+   * <p>The ID of the account that owns the resource group.</p>
    */
   OwnerId?: string;
 }
@@ -5088,6 +5088,11 @@ export interface ModifyFleetRequest {
    * <p>The size of the EC2 Fleet.</p>
    */
   TargetCapacitySpecification?: TargetCapacitySpecificationRequest;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  Context?: string;
 }
 
 export namespace ModifyFleetRequest {
@@ -5662,7 +5667,7 @@ export interface ModifyInstanceAttributeRequest {
   SriovNetSupport?: AttributeValue;
 
   /**
-   * <p>Changes the instance's user data to the specified value. If you are using an AWS SDK
+   * <p>Changes the instance's user data to the specified value. If you are using an Amazon Web Services SDK
    *             or command line tool, base64-encoding is performed for you, and you can load the text
    *             from a file. Otherwise, you must provide base64-encoded text.</p>
    */
@@ -6457,12 +6462,16 @@ export namespace ModifySnapshotAttributeRequest {
  */
 export interface ModifySpotFleetRequestRequest {
   /**
-   * <p>Indicates whether running Spot Instances should be terminated if the target capacity of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
+   * <p>Indicates whether running Spot Instances should be terminated if the target capacity
+   *             of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
    */
   ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | string;
 
   /**
-   * <p>The launch template and overrides. You can only use this parameter if you specified a launch template (<code>LaunchTemplateConfigs</code>) in your Spot Fleet request. If you specified <code>LaunchSpecifications</code> in your Spot Fleet request, then omit this parameter.</p>
+   * <p>The launch template and overrides. You can only use this parameter if you specified a
+   *             launch template (<code>LaunchTemplateConfigs</code>) in your Spot Fleet request. If you
+   *             specified <code>LaunchSpecifications</code> in your Spot Fleet request, then omit this
+   *             parameter.</p>
    */
   LaunchTemplateConfigs?: LaunchTemplateConfig[];
 
@@ -6480,6 +6489,11 @@ export interface ModifySpotFleetRequestRequest {
    * <p>The number of On-Demand Instances in the fleet.</p>
    */
   OnDemandTargetCapacity?: number;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  Context?: string;
 }
 
 export namespace ModifySpotFleetRequestRequest {
@@ -8205,6 +8219,11 @@ export interface ProvisionByoipCidrRequest {
    * <p>The tags to apply to the address pool.</p>
    */
   PoolTagSpecifications?: TagSpecification[];
+
+  /**
+   * <para>Reserved.</para>
+   */
+  MultiRegion?: boolean;
 }
 
 export namespace ProvisionByoipCidrRequest {
@@ -8389,7 +8408,9 @@ export namespace PurchaseReservedInstancesOfferingRequest {
  */
 export interface PurchaseReservedInstancesOfferingResult {
   /**
-   * <p>The IDs of the purchased Reserved Instances.</p>
+   * <p>The IDs of the purchased Reserved Instances. If your purchase crosses into a discounted
+   *       pricing tier, the final Reserved Instances IDs might change. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers">Crossing
+   *         pricing tiers</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   ReservedInstancesId?: string;
 }

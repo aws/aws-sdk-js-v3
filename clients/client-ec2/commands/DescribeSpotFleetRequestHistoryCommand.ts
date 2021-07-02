@@ -23,9 +23,11 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the events for the specified Spot Fleet request during the specified time.</p>
- *          <p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query
- *           by the last evaluated time and not miss a recorded event. Spot Fleet events are available for 48 hours.</p>
+ * <p>Describes the events for the specified Spot Fleet request during the specified
+ *             time.</p>
+ *         <p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This
+ *             ensures that you can query by the last evaluated time and not miss a recorded event.
+ *             Spot Fleet events are available for 48 hours.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

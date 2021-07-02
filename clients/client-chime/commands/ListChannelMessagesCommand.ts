@@ -21,9 +21,7 @@ export interface ListChannelMessagesCommandInput extends ListChannelMessagesRequ
 export interface ListChannelMessagesCommandOutput extends ListChannelMessagesResponse, __MetadataBearer {}
 
 /**
- * <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>.
- *             By default, sorted by creation timestamp in descending order.</p>
- *
+ * <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending order.</p>
  *          <note>
  *             <p>Redacted messages appear in the results as empty, since they are only redacted, not deleted.
  *                 Deleted messages do not appear in the results. This action always returns the latest

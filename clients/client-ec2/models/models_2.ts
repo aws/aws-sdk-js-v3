@@ -783,9 +783,10 @@ export namespace DeleteSnapshotRequest {
  */
 export interface DeleteSpotDatafeedSubscriptionRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -2645,7 +2646,7 @@ export interface DescribeCapacityReservationsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-id</code> - The ID of the AWS account that owns the Capacity Reservation.</p>
+   *                   <code>owner-id</code> - The ID of the account that owns the Capacity Reservation.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2666,11 +2667,11 @@ export interface DescribeCapacityReservationsRequest {
    * 	  			         <ul>
    *                   <li>
    *                      <p>
-   *                         <code>default</code> - The Capacity Reservation is created on hardware that is shared with other AWS accounts.</p>
+   *                         <code>default</code> - The Capacity Reservation is created on hardware that is shared with other accounts.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account.</p>
+   *                         <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single account.</p>
    *                   </li>
    *                </ul>
    * 	  			      </li>
@@ -5143,90 +5144,91 @@ export interface EventInformation {
   /**
    * <p>The event.</p>
    *
-   *          <p>The following are the <code>error</code> events:</p>
-   *          <ul>
+   *         <p>The following are the <code>error</code> events:</p>
+   *         <ul>
    *             <li>
-   *                <p>
+   *                 <p>
    *                     <code>iamFleetRoleInvalid</code> - The EC2 Fleet or Spot Fleet did not have the required
    *                     permissions either to launch or terminate an instance.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>spotFleetRequestConfigurationInvalid</code> - The configuration is not valid. For more information, see the description
-   *           of the event.</p>
+   *                 <p>
+   *                     <code>spotFleetRequestConfigurationInvalid</code> - The configuration is not
+   *                     valid. For more information, see the description of the event.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>spotInstanceCountLimitExceeded</code> - You've reached the limit on the number
-   *           of Spot Instances that you can launch.</p>
+   *                 <p>
+   *                     <code>spotInstanceCountLimitExceeded</code> - You've reached the limit on the
+   *                     number of Spot Instances that you can launch.</p>
    *             </li>
    *          </ul>
    *
-   *          <p>The following are the <code>fleetRequestChange</code> events:</p>
-   *          <ul>
+   *         <p>The following are the <code>fleetRequestChange</code> events:</p>
+   *         <ul>
    *             <li>
-   *                <p>
+   *                 <p>
    *                     <code>active</code> - The EC2 Fleet or Spot Fleet request has been validated and Amazon EC2 is
    *                     attempting to maintain the target number of running Spot Instances.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                     <code>cancelled</code> - The EC2 Fleet or Spot Fleet request is canceled and has no running
    *                     Spot Instances. The EC2 Fleet or Spot Fleet will be deleted two days after its instances
    *                     were terminated.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                     <code>cancelled_running</code> - The EC2 Fleet or Spot Fleet request is canceled and does
    *                     not launch additional Spot Instances. Existing Spot Instances continue to run
    *                     until they are interrupted or terminated.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                     <code>cancelled_terminating</code> - The EC2 Fleet or Spot Fleet request is canceled and
    *                     its Spot Instances are terminating.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                     <code>expired</code> - The EC2 Fleet or Spot Fleet request has expired. A subsequent event
    *                     indicates that the instances were terminated, if the request was created with
    *                         <code>TerminateInstancesWithExpiration</code> set.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                     <code>modify_in_progress</code> - A request to modify the EC2 Fleet or Spot Fleet request
    *                     was accepted and is in progress.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                     <code>modify_successful</code> - The EC2 Fleet or Spot Fleet request was modified.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>price_update</code> - The price for a launch configuration was adjusted because
-   *           it was too high. This change is permanent.</p>
+   *                 <p>
+   *                     <code>price_update</code> - The price for a launch configuration was adjusted
+   *                     because it was too high. This change is permanent.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                     <code>submitted</code> - The EC2 Fleet or Spot Fleet request is being evaluated and Amazon EC2
    *                     is preparing to launch the target number of Spot Instances.</p>
    *             </li>
    *          </ul>
    *
-   *          <p>The following are the <code>instanceChange</code> events:</p>
-   *          <ul>
+   *         <p>The following are the <code>instanceChange</code> events:</p>
+   *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>launched</code> - A request was fulfilled and a new instance was launched.</p>
+   *                 <p>
+   *                   <code>launched</code> - A request was fulfilled and a new instance was
+   *                     launched.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>terminated</code> - An instance was terminated by the user.</p>
    *             </li>
    *          </ul>
    *
-   *          <p>The following are the <code>Information</code> events:</p>
-   *          <ul>
+   *         <p>The following are the <code>Information</code> events:</p>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>launchSpecTemporarilyBlacklisted</code> - The configuration is not valid
@@ -5234,21 +5236,24 @@ export interface EventInformation {
    *                     the description of the event.</p>
    *             </li>
    *             <li>
-   *               <p>
-   *                   <code>launchSpecUnusable</code> - The price in a launch specification is not valid because it is
-   *                   below the Spot price or the Spot price is above the On-Demand price.</p>
+   *                 <p>
+   *                   <code>launchSpecUnusable</code> - The price in a launch specification is not
+   *                     valid because it is below the Spot price or the Spot price is above the
+   *                     On-Demand price.</p>
    *             </li>
    *             <li>
-   *               <p>
-   *                   <code>fleetProgressHalted</code> - The price in every launch specification is not valid. A launch
-   *                   specification might become valid if the Spot price changes.</p>
+   *                 <p>
+   *                   <code>fleetProgressHalted</code> - The price in every launch specification is
+   *                     not valid. A launch specification might become valid if the Spot price
+   *                     changes.</p>
    *             </li>
    *          </ul>
    */
   EventSubType?: string;
 
   /**
-   * <p>The ID of the instance. This information is available only for <code>instanceChange</code> events.</p>
+   * <p>The ID of the instance. This information is available only for
+   *                 <code>instanceChange</code> events.</p>
    */
   InstanceId?: string;
 }
@@ -5764,6 +5769,13 @@ export interface SpotOptions {
    *          when <b>AllocationStrategy</b> is set to
    *             <code>lowest-price</code>. EC2 Fleet selects the cheapest Spot pools and evenly allocates
    *          your target Spot capacity across the number of Spot pools that you specify.</p>
+   *          <p>Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a
+   *          best effort basis. If a pool runs out of Spot capacity before fulfilling your target
+   *          capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest
+   *          pool. To ensure that your target capacity is met, you might receive Spot Instances from more than
+   *          the number of pools that you specified. Similarly, if most of the pools have no Spot
+   *          capacity, you might receive your full target capacity from fewer than the number of pools
+   *          that you specified.</p>
    */
   InstancePoolsToUseCount?: number;
 
@@ -5978,6 +5990,11 @@ export interface FleetData {
    *             <b>Type</b> is set to <code>instant</code>.</p>
    */
   Instances?: DescribeFleetsInstances[];
+
+  /**
+   * <p>Reserved.</p>
+   */
+  Context?: string;
 }
 
 export namespace FleetData {
@@ -7123,7 +7140,7 @@ export interface HostInstance {
   InstanceType?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the instance.</p>
+   * <p>The ID of the account that owns the instance.</p>
    */
   OwnerId?: string;
 }
@@ -7216,7 +7233,7 @@ export interface Host {
   AllowsMultipleInstanceTypes?: AllowsMultipleInstanceTypes | string;
 
   /**
-   * <p>The ID of the AWS account that owns the Dedicated Host.</p>
+   * <p>The ID of the account that owns the Dedicated Host.</p>
    */
   OwnerId?: string;
 
@@ -8593,12 +8610,12 @@ export namespace AttributeBooleanValue {
 }
 
 /**
- * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves.</p>
+ * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
  */
 export interface EnclaveOptions {
   /**
-   * <p>If this parameter is set to <code>true</code>, the instance is enabled for AWS Nitro Enclaves;
-   *     		otherwise, it is not enabled for AWS Nitro Enclaves.</p>
+   * <p>If this parameter is set to <code>true</code>, the instance is enabled for Amazon Web Services Nitro Enclaves;
+   *             otherwise, it is not enabled for Amazon Web Services Nitro Enclaves.</p>
    */
   Enabled?: boolean;
 }
@@ -8638,7 +8655,7 @@ export interface InstanceAttribute {
   EnaSupport?: AttributeBooleanValue;
 
   /**
-   * <p>To enable the instance for AWS Nitro Enclaves, set this parameter to <code>true</code>; otherwise,
+   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to <code>true</code>; otherwise,
    * 		set it to <code>false</code>.</p>
    */
   EnclaveOptions?: EnclaveOptions;
@@ -9150,7 +9167,7 @@ export interface DescribeInstancesRequest {
    *             <li>
    *                 <p>
    *                   <code>network-interface.requester-managed</code> - Indicates whether the
-   *                     network interface is being managed by AWS.</p>
+   *                     network interface is being managed by Amazon Web Services.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -9181,7 +9198,7 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>owner-id</code> - The AWS account ID of the instance owner.</p>
+   *                     <code>owner-id</code> - The account ID of the instance owner.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -9231,7 +9248,7 @@ export interface DescribeInstancesRequest {
    *             <li>
    *                 <p>
    *                     <code>requester-id</code> - The ID of the entity that launched the instance on
-   *                     your behalf (for example, AWS Management Console, Auto Scaling, and so
+   *                     your behalf (for example, Management Console, Auto Scaling, and so
    *                     on).</p>
    *             </li>
    *             <li>
@@ -10158,7 +10175,7 @@ export interface Instance {
   MetadataOptions?: InstanceMetadataOptionsResponse;
 
   /**
-   * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves.</p>
+   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
    */
   EnclaveOptions?: EnclaveOptions;
 
@@ -10195,12 +10212,12 @@ export interface Reservation {
   Instances?: Instance[];
 
   /**
-   * <p>The ID of the AWS account that owns the reservation.</p>
+   * <p>The ID of the account that owns the reservation.</p>
    */
   OwnerId?: string;
 
   /**
-   * <p>The ID of the requester that launched the instances on your behalf (for example, AWS
+   * <p>The ID of the requester that launched the instances on your behalf (for example,
    *             Management Console or Auto Scaling).</p>
    */
   RequesterId?: string;

@@ -22,7 +22,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * <p>Removes one or more tags from the specified EventBridge resource. In Amazon EventBridge
- *       (CloudWatch Events, rules and event buses can be tagged.</p>
+ *       (CloudWatch Events), rules and event buses can be tagged.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

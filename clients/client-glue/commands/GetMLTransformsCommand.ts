@@ -21,10 +21,10 @@ export interface GetMLTransformsCommandInput extends GetMLTransformsRequest {}
 export interface GetMLTransformsCommandOutput extends GetMLTransformsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a sortable, filterable list of existing AWS Glue machine learning transforms. Machine
+ * <p>Gets a sortable, filterable list of existing Glue machine learning transforms. Machine
  *       learning transforms are a special type of transform that use machine learning to learn the
  *       details of the transformation to be performed by learning from examples provided by humans.
- *       These transformations are then saved by AWS Glue, and you can retrieve their metadata by
+ *       These transformations are then saved by Glue, and you can retrieve their metadata by
  *       calling <code>GetMLTransforms</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

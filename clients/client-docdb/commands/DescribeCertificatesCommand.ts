@@ -21,8 +21,7 @@ export interface DescribeCertificatesCommandInput extends DescribeCertificatesMe
 export interface DescribeCertificatesCommandOutput extends CertificateMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for
- *             this AWS account.</p>
+ * <p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

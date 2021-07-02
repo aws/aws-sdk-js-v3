@@ -36,7 +36,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  *                     <code>InProgress</code>, are selected (sorted according to the creation time,
  *                 from the most current to the oldest). Next, those with a status of
  *                     <code>InProgress</code> are returned.</p>
- *             <p>You can quickly test the API using the following AWS CLI code.</p>
+ *             <p>You can quickly test the API using the following Amazon Web Services CLI code.</p>
  *             <p>
  *                <code>aws sagemaker list-training-jobs --max-results 100 --status-equals
  *                     InProgress</code>

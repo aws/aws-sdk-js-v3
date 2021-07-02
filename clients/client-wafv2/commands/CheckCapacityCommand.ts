@@ -25,8 +25,8 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *          You can use this to check the capacity requirements for the rules you want to use in a
  *          <a>RuleGroup</a> or <a>WebACL</a>.
  *          </p>
- *          <p>AWS WAF uses WCUs to calculate and control the operating
- *          resources that are used to run your rules, rule groups, and web ACLs. AWS WAF
+ *          <p>WAF uses WCUs to calculate and control the operating
+ *          resources that are used to run your rules, rule groups, and web ACLs. WAF
  *          calculates capacity differently for each rule type, to reflect the relative cost of each rule.
  *          Simple rules that cost little to run use fewer WCUs than more complex rules
  * 				that use more processing power.

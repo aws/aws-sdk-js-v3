@@ -256,8 +256,8 @@ export class Snowball extends SnowballClient {
    *          <note>
    *             <p>Only the Snowball; Edge device type is supported when ordering clustered jobs.</p>
    *             <p>The device capacity is optional.</p>
-   *             <p>Availability of device types differ by AWS Region. For more
-   *         information about region availability, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4">AWS Regional Services</a>.</p>
+   *             <p>Availability of device types differ by AWS Region. For more information about Region
+   *         availability, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4">AWS Regional Services</a>.</p>
    *          </note>
    *
    *          <p></p>
@@ -277,6 +277,7 @@ export class Snowball extends SnowballClient {
    *                      <p>Description: Snowcone </p>
    *                   </li>
    *                </ul>
+   *
    *                <p></p>
    *             </li>
    *             <li>
@@ -404,8 +405,10 @@ export class Snowball extends SnowballClient {
   }
 
   /**
-   * <p>Creates a job with long term usage option for a device. The long term usage is a one year or three year long term pricing type for the device.
-   *       You are billed upfront and AWS give discounts for long term pricing. For detailed information see XXXXXXXX</p>
+   * <p>Creates a job with the long-term usage option for a device. The long-term usage is a
+   *       1-year or 3-year long-term pricing type for the device. You are billed upfront, and AWS
+   *       provides discounts for long-term pricing.
+   *       </p>
    */
   public createLongTermPricing(
     args: CreateLongTermPricingCommandInput,
@@ -922,7 +925,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
-   * <p>Lists all long term pricing types.</p>
+   * <p>Lists all long-term pricing types.</p>
    */
   public listLongTermPricing(
     args: ListLongTermPricingCommandInput,
@@ -1017,7 +1020,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
-   * <p>Updates the state when a the shipment states changes to a different state.</p>
+   * <p>Updates the state when a shipment state changes to a different state.</p>
    */
   public updateJobShipmentState(
     args: UpdateJobShipmentStateCommandInput,
@@ -1049,7 +1052,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
-   * <p>Updates the long term pricing type.</p>
+   * <p>Updates the long-term pricing type.</p>
    */
   public updateLongTermPricing(
     args: UpdateLongTermPricingCommandInput,
