@@ -29,6 +29,56 @@
     ]
   },
   "shapes": {
+    "com.amazonaws.docdb#AddSourceIdentifierToSubscription": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.docdb#AddSourceIdentifierToSubscriptionMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.docdb#AddSourceIdentifierToSubscriptionResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.docdb#SourceNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SubscriptionNotFoundFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Adds a source identifier to an existing event notification \n            subscription.</p>"
+      }
+    },
+    "com.amazonaws.docdb#AddSourceIdentifierToSubscriptionMessage": {
+      "type": "structure",
+      "members": {
+        "SubscriptionName": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon DocumentDB event notification subscription that you \n            want to add a source identifier to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SourceIdentifier": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the event source to be added:</p>\n        <ul>\n            <li>\n                <p>If the source type is an instance, a \n                    <code>DBInstanceIdentifier</code> must be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is a security group, a \n                    <code>DBSecurityGroupName</code> must be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is a parameter group, a\n                    <code>DBParameterGroupName</code> must be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is a snapshot, a \n                    <code>DBSnapshotIdentifier</code> must be provided.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the input to <a>AddSourceIdentifierToSubscription</a>.\n        </p>"
+      }
+    },
+    "com.amazonaws.docdb#AddSourceIdentifierToSubscriptionResult": {
+      "type": "structure",
+      "members": {
+        "EventSubscription": {
+          "target": "com.amazonaws.docdb#EventSubscription"
+        }
+      }
+    },
     "com.amazonaws.docdb#AddTagsToResource": {
       "type": "operation",
       "input": {
@@ -46,7 +96,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds metadata tags to an Amazon DocumentDB resource. You can use these tags \n            with cost allocation reporting to track costs that are associated \n            with Amazon DocumentDB resources. or in a <code>Condition</code> statement in \n            an AWS Identity and Access Management (IAM) policy for Amazon DocumentDB.</p>"
+        "smithy.api#documentation": "<p>Adds metadata tags to an Amazon DocumentDB resource. You can use these tags \n            with cost allocation reporting to track costs that are associated \n            with Amazon DocumentDB resources or in a <code>Condition</code> statement in \n            an Identity and Access Management (IAM) policy for Amazon DocumentDB.</p>"
       }
     },
     "com.amazonaws.docdb#AddTagsToResourceMessage": {
@@ -76,6 +126,9 @@
       "version": "2014-10-31",
       "operations": [
         {
+          "target": "com.amazonaws.docdb#AddSourceIdentifierToSubscription"
+        },
+        {
           "target": "com.amazonaws.docdb#AddTagsToResource"
         },
         {
@@ -103,6 +156,12 @@
           "target": "com.amazonaws.docdb#CreateDBSubnetGroup"
         },
         {
+          "target": "com.amazonaws.docdb#CreateEventSubscription"
+        },
+        {
+          "target": "com.amazonaws.docdb#CreateGlobalCluster"
+        },
+        {
           "target": "com.amazonaws.docdb#DeleteDBCluster"
         },
         {
@@ -116,6 +175,12 @@
         },
         {
           "target": "com.amazonaws.docdb#DeleteDBSubnetGroup"
+        },
+        {
+          "target": "com.amazonaws.docdb#DeleteEventSubscription"
+        },
+        {
+          "target": "com.amazonaws.docdb#DeleteGlobalCluster"
         },
         {
           "target": "com.amazonaws.docdb#DescribeCertificates"
@@ -154,6 +219,12 @@
           "target": "com.amazonaws.docdb#DescribeEvents"
         },
         {
+          "target": "com.amazonaws.docdb#DescribeEventSubscriptions"
+        },
+        {
+          "target": "com.amazonaws.docdb#DescribeGlobalClusters"
+        },
+        {
           "target": "com.amazonaws.docdb#DescribeOrderableDBInstanceOptions"
         },
         {
@@ -181,7 +252,19 @@
           "target": "com.amazonaws.docdb#ModifyDBSubnetGroup"
         },
         {
+          "target": "com.amazonaws.docdb#ModifyEventSubscription"
+        },
+        {
+          "target": "com.amazonaws.docdb#ModifyGlobalCluster"
+        },
+        {
           "target": "com.amazonaws.docdb#RebootDBInstance"
+        },
+        {
+          "target": "com.amazonaws.docdb#RemoveFromGlobalCluster"
+        },
+        {
+          "target": "com.amazonaws.docdb#RemoveSourceIdentifierFromSubscription"
         },
         {
           "target": "com.amazonaws.docdb#RemoveTagsFromResource"
@@ -313,7 +396,11 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The specified CIDR IP or Amazon EC2 security group isn't authorized for the\n            specified security group.</p>\n        <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf\n            using IAM.</p>",
+        "aws.protocols#awsQueryError": {
+          "code": "AuthorizationNotFound",
+          "httpResponseCode": 404
+        },
+        "smithy.api#documentation": "<p>The specified CIDR IP or Amazon EC2 security group isn't authorized for the specified security group.</p>\n        <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -400,7 +487,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A certificate authority (CA) certificate for an AWS account.</p>"
+        "smithy.api#documentation": "<p>A certificate authority (CA) certificate for an account.</p>"
       }
     },
     "com.amazonaws.docdb#CertificateList": {
@@ -418,13 +505,13 @@
         "Certificates": {
           "target": "com.amazonaws.docdb#CertificateList",
           "traits": {
-            "smithy.api#documentation": "<p>A list of certificates for this AWS account.</p>"
+            "smithy.api#documentation": "<p>A list of certificates for this account.</p>"
           }
         },
         "Marker": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>An optional pagination token provided if the number of records retrieved is greater than\n         <code>MaxRecords</code>.  If this parameter is specified, the marker specifies the next record\n         in the list. Including the value of <code>Marker</code> in the next call to \n         <code>DescribeCertificates</code> results in the next page of certificates.</p>"
+            "smithy.api#documentation": "<p>An optional pagination token provided if the number of records retrieved is greater than <code>MaxRecords</code>. If this parameter is specified, the marker specifies the next record in the list. Including the value of <code>Marker</code> in the next call to <code>DescribeCertificates</code> results in the next page of certificates.</p>"
           }
         }
       }
@@ -437,6 +524,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "CertificateNotFound",
+          "httpResponseCode": 404
+        },
         "smithy.api#documentation": "<p>\n            <code>CertificateIdentifier</code> doesn't refer to an existing certificate. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
@@ -491,7 +582,7 @@
         "SourceDBClusterParameterGroupIdentifier": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier or Amazon Resource Name (ARN) for the source cluster\n            parameter group.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must specify a valid cluster parameter group.</p>\n            </li>\n            <li>\n                <p>If the source cluster parameter group is in the same AWS \n                    Region as the copy, specify a valid parameter group \n                    identifier; for example, \n                    <code>my-db-cluster-param-group</code>, or a valid ARN.</p>\n            </li>\n            <li>\n                <p>If the source parameter group is in a different AWS Region \n                    than the copy, specify a valid cluster parameter group ARN; \n                    for example,\n                    <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must specify a valid cluster parameter group.</p>\n            </li>\n            <li>\n                <p>If the source cluster parameter group is in the same Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p>\n            </li>\n            <li>\n                <p>If the source parameter group is in a different Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -557,7 +648,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Copies a snapshot of a cluster.</p>\n        \n        <p>To copy a cluster snapshot from a shared manual cluster snapshot,\n            <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon \n            Resource Name (ARN) of the shared cluster snapshot. You can only \n            copy a shared DB cluster snapshot, whether encrypted or not, in the \n            same AWS Region.</p>\n            \n        <p>To cancel the copy operation after it is in progress, delete the \n            target cluster snapshot identified by \n            <code>TargetDBClusterSnapshotIdentifier</code> while that cluster \n            snapshot is in the <i>copying</i> status.</p>"
+        "smithy.api#documentation": "<p>Copies a snapshot of a cluster.</p>\n        \n        <p>To copy a cluster snapshot from a shared manual cluster snapshot,\n            <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon \n            Resource Name (ARN) of the shared cluster snapshot. You can only \n            copy a shared DB cluster snapshot, whether encrypted or not, in the \n            same Region.</p>\n            \n        <p>To cancel the copy operation after it is in progress, delete the \n            target cluster snapshot identified by \n            <code>TargetDBClusterSnapshotIdentifier</code> while that cluster \n            snapshot is in the <i>copying</i> status.</p>"
       }
     },
     "com.amazonaws.docdb#CopyDBClusterSnapshotMessage": {
@@ -566,7 +657,7 @@
         "SourceDBClusterSnapshotIdentifier": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the cluster snapshot to copy. This parameter is\n            not case sensitive.</p>\n            \n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must specify a valid system snapshot in the \n                    <i>available</i> state.</p>\n            </li>\n            <li>\n                <p>If the source snapshot is in the same AWS Region as the \n                    copy, specify a valid snapshot identifier.</p>\n            </li>\n            <li>\n                \n                <p>If the source snapshot is in a different AWS Region than\n                    the copy, specify a valid cluster snapshot ARN.</p>\n            </li>\n         </ul>\n        <p>Example: <code>my-cluster-snapshot1</code>\n        </p>",
+            "smithy.api#documentation": "<p>The identifier of the cluster snapshot to copy. This parameter is\n            not case sensitive.</p>\n            \n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must specify a valid system snapshot in the \n                    <i>available</i> state.</p>\n            </li>\n            <li>\n                <p>If the source snapshot is in the same Region as the copy, specify a valid snapshot identifier.</p>\n            </li>\n            <li>\n                \n                <p>If the source snapshot is in a different Region than the copy, specify a valid cluster snapshot ARN.</p>\n            </li>\n         </ul>\n        <p>Example: <code>my-cluster-snapshot1</code>\n        </p>",
             "smithy.api#required": {}
           }
         },
@@ -580,13 +671,13 @@
         "KmsKeyId": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key ID for an encrypted cluster snapshot. The AWS KMS\n            key ID is the Amazon Resource Name (ARN), AWS KMS key identifier, or\n            the AWS KMS key alias for the AWS KMS encryption key. </p>\n            \n        <p>If you copy an encrypted cluster snapshot from your AWS account, \n            you can specify a value for <code>KmsKeyId</code> to encrypt the \n            copy with a new AWS KMS encryption key. If you don't specify a value\n            for <code>KmsKeyId</code>, then the copy of the cluster snapshot is \n            encrypted with the same AWS KMS key as the source cluster snapshot.\n            </p>\n            \n        <p>If you copy an encrypted cluster snapshot that is shared from \n            another AWS account, then you must specify a value for \n            <code>KmsKeyId</code>.</p>\n        \n            \n        <p>To copy an encrypted cluster snapshot to another AWS Region, set\n            <code>KmsKeyId</code> to the AWS KMS key ID that you want to use to \n            encrypt the copy of the cluster snapshot in the destination Region. \n            AWS KMS encryption keys are specific to the AWS Region that they are \n            created in, and you can't use encryption keys from one AWS Region in \n            another AWS Region.</p>\n            \n        <p>If you copy an unencrypted cluster snapshot and specify a value \n            for the <code>KmsKeyId</code> parameter, an error is returned.</p>"
+            "smithy.api#documentation": "<p>The KMS key ID for an encrypted cluster snapshot. The KMS\n            key ID is the Amazon Resource Name (ARN), KMS key identifier, or\n            the KMS key alias for the KMS encryption key. </p>\n            \n        <p>If you copy an encrypted cluster snapshot from your account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you don't specify a value for <code>KmsKeyId</code>, then the copy of the cluster snapshot is encrypted with the same KMS key as the source cluster snapshot.</p>\n            \n        <p>If you copy an encrypted cluster snapshot that is shared from another account, then you must specify a value for <code>KmsKeyId</code>.</p>\n        \n        <p>To copy an encrypted cluster snapshot to another Region, set <code>KmsKeyId</code> to the KMS key ID that you want to use to encrypt the copy of the cluster snapshot in the destination Region. KMS encryption keys are specific to the Region that they are created in, and you can't use encryption keys from one Region in another Region.</p>\n            \n        <p>If you copy an unencrypted cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter, an error is returned.</p>"
           }
         },
         "PreSignedUrl": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The URL that contains a Signature Version 4 signed request for the\n            <code>CopyDBClusterSnapshot</code> API action in the AWS Region that \n            contains the source cluster snapshot to copy. You must use the \n            <code>PreSignedUrl</code> parameter when copying a cluster snapshot\n            from another AWS Region.</p>\n            \n        <p>If you are using an AWS SDK tool or the AWS CLI, you can specify \n            <code>SourceRegion</code> (or <code>--source-region</code> for the\n            AWS CLI) instead of specifying <code>PreSignedUrl</code> manually. \n            Specifying <code>SourceRegion</code> autogenerates a pre-signed URL \n            that is a valid request for the operation that can be executed in\n            the source AWS Region.</p>\n            \n        <p>The presigned URL must be a valid request for the \n            <code>CopyDBClusterSnapshot</code> API action that can be executed \n            in the source AWS Region that contains the cluster snapshot to be \n            copied. The presigned URL request must contain the following\n            parameter values:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>SourceRegion</code> - The ID of the region that \n                    contains the snapshot to be copied.</p>\n            </li>\n            <li>\n                <p>\n                  <code>SourceDBClusterSnapshotIdentifier</code> - The \n                    identifier for the the encrypted cluster snapshot to be \n                    copied. This identifier must be in the Amazon Resource Name\n                    (ARN) format for the source AWS Region. For example, if you \n                    are copying an encrypted cluster snapshot from the us-east-1\n                    AWS Region, then your \n                    <code>SourceDBClusterSnapshotIdentifier</code> looks \n                    something like the following: \n                    <code>arn:aws:rds:us-east-1:12345678012:sample-cluster:sample-cluster-snapshot</code>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>TargetDBClusterSnapshotIdentifier</code> - The \n                    identifier for the new cluster snapshot to be created. This\n                    parameter isn't case sensitive.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The URL that contains a Signature Version 4 signed request for the<code>CopyDBClusterSnapshot</code> API action in the Region that contains the source cluster snapshot to copy. You must use the <code>PreSignedUrl</code> parameter when copying a cluster snapshot from another Region.</p>\n            \n        <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify \n            <code>SourceRegion</code> (or <code>--source-region</code> for the\n            CLI) instead of specifying <code>PreSignedUrl</code> manually. \n            Specifying <code>SourceRegion</code> autogenerates a pre-signed URL \n            that is a valid request for the operation that can be executed in\n            the source Region.</p>\n            \n        <p>The presigned URL must be a valid request for the \n            <code>CopyDBClusterSnapshot</code> API action that can be executed \n            in the source Region that contains the cluster snapshot to be \n            copied. The presigned URL request must contain the following\n            parameter values:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>SourceRegion</code> - The ID of the region that \n                    contains the snapshot to be copied.</p>\n            </li>\n            <li>\n                <p>\n                  <code>SourceDBClusterSnapshotIdentifier</code> - The \n                    identifier for the the encrypted cluster snapshot to be \n                    copied. This identifier must be in the Amazon Resource Name\n                    (ARN) format for the source Region. For example, if you \n                    are copying an encrypted cluster snapshot from the us-east-1\n                    Region, then your \n                    <code>SourceDBClusterSnapshotIdentifier</code> looks \n                    something like the following: \n                    <code>arn:aws:rds:us-east-1:12345678012:sample-cluster:sample-cluster-snapshot</code>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>TargetDBClusterSnapshotIdentifier</code> - The \n                    identifier for the new cluster snapshot to be created. This\n                    parameter isn't case sensitive.</p>\n            </li>\n         </ul>"
           }
         },
         "CopyTags": {
@@ -645,6 +736,9 @@
           "target": "com.amazonaws.docdb#DBSubnetGroupNotFoundFault"
         },
         {
+          "target": "com.amazonaws.docdb#GlobalClusterNotFoundFault"
+        },
+        {
           "target": "com.amazonaws.docdb#InsufficientStorageClusterCapacityFault"
         },
         {
@@ -655,6 +749,9 @@
         },
         {
           "target": "com.amazonaws.docdb#InvalidDBSubnetGroupStateFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#InvalidGlobalClusterStateFault"
         },
         {
           "target": "com.amazonaws.docdb#InvalidSubnet"
@@ -723,7 +820,7 @@
         "EngineVersion": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The version number of the database engine to use. The --engine-version will default to the latest major engine version. For production workloads, we recommend explicitly declaring this parameter with the intended major engine version.</p>"
+            "smithy.api#documentation": "<p>The version number of the database engine to use. The <code>--engine-version</code> will default to the latest major engine version. For production workloads, we recommend explicitly declaring this parameter with the intended major engine version.</p>"
           }
         },
         "Port": {
@@ -735,27 +832,25 @@
         "MasterUsername": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the master user for the cluster.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must be from 1 to 63 letters or numbers.</p>\n            </li>\n            <li>\n                <p>The first character must be a letter.</p>\n            </li>\n            <li>\n                <p>Cannot be a reserved word for the chosen database engine.\n                    </p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The name of the master user for the cluster.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must be from 1 to 63 letters or numbers.</p>\n            </li>\n            <li>\n                <p>The first character must be a letter.</p>\n            </li>\n            <li>\n                <p>Cannot be a reserved word for the chosen database engine.\n                    </p>\n            </li>\n         </ul>"
           }
         },
         "MasterUserPassword": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The password for the master database user. This password can \n            contain any printable ASCII character except forward slash (/), \n            double quote (\"), or the \"at\" symbol (@).</p>\n        <p>Constraints: Must contain from 8 to 100 characters.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The password for the master database user. This password can \n            contain any printable ASCII character except forward slash (/), \n            double quote (\"), or the \"at\" symbol (@).</p>\n        <p>Constraints: Must contain from 8 to 100 characters.</p>"
           }
         },
         "PreferredBackupWindow": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The daily time range during which automated backups are created if\n            automated backups are enabled using the \n            <code>BackupRetentionPeriod</code> parameter. </p>\n        <p>The default is a 30-minute window selected at random from an 8-hour\n            block of time for each AWS Region. </p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p>\n            </li>\n            <li>\n                <p>Must be in Universal Coordinated Time (UTC).</p>\n            </li>\n            <li>\n                <p>Must not conflict with the preferred maintenance window.\n                    </p>\n            </li>\n            <li>\n                <p>Must be at least 30 minutes.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The daily time range during which automated backups are created if\n            automated backups are enabled using the <code>BackupRetentionPeriod</code> parameter. </p>\n        <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Region. </p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p>\n            </li>\n            <li>\n                <p>Must be in Universal Coordinated Time (UTC).</p>\n            </li>\n            <li>\n                <p>Must not conflict with the preferred maintenance window.\n                    </p>\n            </li>\n            <li>\n                <p>Must be at least 30 minutes.</p>\n            </li>\n         </ul>"
           }
         },
         "PreferredMaintenanceWindow": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The weekly time range during which system maintenance can occur, \n            in Universal Coordinated Time (UTC).</p>\n        <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>\n        </p>\n        <p>The default is a 30-minute window selected at random from an 8-hour\n            block of time for each AWS Region, occurring on a random day of the \n            week.</p>\n        <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>\n        <p>Constraints: Minimum 30-minute window.</p>"
+            "smithy.api#documentation": "<p>The weekly time range during which system maintenance can occur, \n            in Universal Coordinated Time (UTC).</p>\n        <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>\n        </p>\n        <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Region, occurring on a random day of the week.</p>\n        <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>\n        <p>Constraints: Minimum 30-minute window.</p>"
           }
         },
         "Tags": {
@@ -773,7 +868,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier for an encrypted cluster.</p>\n        <p>The AWS KMS key identifier is the Amazon Resource Name (ARN) for \n            the AWS KMS encryption key. If you are creating a cluster using the\n            same AWS account that owns the AWS KMS encryption key that is used \n            to encrypt the new cluster, you can use the AWS KMS key alias \n            instead of the ARN for the AWS KMS encryption key.</p>\n        <p>If an encryption key is not specified in <code>KmsKeyId</code>:\n            </p>\n        <ul>\n            <li>\n                <p>If the <code>StorageEncrypted</code> parameter is \n                    <code>true</code>, Amazon DocumentDB uses your default encryption key.\n                    </p>\n            </li>\n         </ul>\n        <p>AWS KMS creates the default encryption key for your AWS account. \n            Your AWS account has a different default encryption key for each AWS\n            Region.</p>"
+            "smithy.api#documentation": "<p>The KMS key identifier for an encrypted cluster.</p>\n        <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same account that owns the KMS encryption key that is used to encrypt the new cluster, you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>\n        <p>If an encryption key is not specified in <code>KmsKeyId</code>:\n            </p>\n        <ul>\n            <li>\n                <p>If the <code>StorageEncrypted</code> parameter is \n                    <code>true</code>, Amazon DocumentDB uses your default encryption key.\n                    </p>\n            </li>\n         </ul>\n        <p>KMS creates the default encryption key for your account. Your account has a different default encryption key for each Regions.</p>"
           }
         },
         "PreSignedUrl": {
@@ -792,6 +887,12 @@
           "target": "com.amazonaws.docdb#BooleanOptional",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether this cluster can be deleted. If \n            <code>DeletionProtection</code> is enabled, the cluster cannot be \n            deleted unless it is modified and <code>DeletionProtection</code> is \n            disabled. <code>DeletionProtection</code> protects clusters from \n            being accidentally deleted.</p>"
+          }
+        },
+        "GlobalClusterIdentifier": {
+          "target": "com.amazonaws.docdb#GlobalClusterIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The cluster identifier of the new global cluster.</p>"
           }
         }
       },
@@ -1021,19 +1122,19 @@
         "AvailabilityZone": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon EC2 Availability Zone that the instance is created in. </p>\n        <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</p>\n        <p>Example: <code>us-east-1d</code>\n         </p>"
+            "smithy.api#documentation": "<p>The Amazon EC2 Availability Zone that the instance is created in. </p>\n        <p>Default: A random, system-chosen Availability Zone in the endpoint's Region.</p>\n        <p>Example: <code>us-east-1d</code>\n         </p>"
           }
         },
         "PreferredMaintenanceWindow": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The time range each week during which system maintenance can occur, in Universal\n            Coordinated Time (UTC).</p>\n        <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>\n        </p>\n        <p>The default is a 30-minute window selected at random from an 8-hour block of time for\n            each AWS Region, occurring on a random day of the week. </p>\n        <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>\n        <p>Constraints: Minimum 30-minute window.</p>"
+            "smithy.api#documentation": "<p>The time range each week during which system maintenance can occur, in Universal\n            Coordinated Time (UTC).</p>\n        <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>\n        </p>\n        <p>The default is a 30-minute window selected at random from an 8-hour block of time for\n            each Region, occurring on a random day of the week. </p>\n        <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>\n        <p>Constraints: Minimum 30-minute window.</p>"
           }
         },
         "AutoMinorVersionUpgrade": {
           "target": "com.amazonaws.docdb#BooleanOptional",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates that minor engine upgrades are applied automatically to the instance\n            during the maintenance window.</p>\n        <p>Default: <code>true</code>\n        </p>"
+            "smithy.api#documentation": "<p>This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.</p>\n        <p>Default: <code>false</code>\n        </p>"
           }
         },
         "Tags": {
@@ -1094,7 +1195,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new subnet group. subnet groups must contain at least one subnet in at\n            least two Availability Zones in the AWS Region.</p>"
+        "smithy.api#documentation": "<p>Creates a new subnet group. subnet groups must contain at least one subnet in at\n            least two Availability Zones in the Region.</p>"
       }
     },
     "com.amazonaws.docdb#CreateDBSubnetGroupMessage": {
@@ -1140,6 +1241,186 @@
         }
       }
     },
+    "com.amazonaws.docdb#CreateEventSubscription": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.docdb#CreateEventSubscriptionMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.docdb#CreateEventSubscriptionResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.docdb#EventSubscriptionQuotaExceededFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SNSInvalidTopicFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SNSNoAuthorizationFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SNSTopicArnNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SourceNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SubscriptionAlreadyExistFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SubscriptionCategoryNotFoundFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates an Amazon DocumentDB event notification subscription. This action requires a topic Amazon Resource Name (ARN) created by using the Amazon DocumentDB console, the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in the Amazon SNS console.</p>\n        <p>You can specify the type of source (<code>SourceType</code>) that you want to be notified of. You can also provide a list of Amazon DocumentDB sources (<code>SourceIds</code>) that trigger the events, and you can provide a list of event categories (<code>EventCategories</code>) for events that you want to be notified of. For example, you can specify <code>SourceType = db-instance</code>, <code>SourceIds = mydbinstance1, mydbinstance2</code> and <code>EventCategories = Availability, Backup</code>.</p>\n        <p>If you specify both the <code>SourceType</code> and <code>SourceIds</code> (such as <code>SourceType = db-instance</code> and <code>SourceIdentifier = myDBInstance1</code>), you are notified of all the <code>db-instance</code> events for the specified source. If you specify a <code>SourceType</code> but do not specify a <code>SourceIdentifier</code>, you receive notice of the events for that source type for all your Amazon DocumentDB sources. If you do not specify either the <code>SourceType</code> or the <code>SourceIdentifier</code>, you are notified of events generated from all Amazon DocumentDB sources belonging to your customer account.</p>"
+      }
+    },
+    "com.amazonaws.docdb#CreateEventSubscriptionMessage": {
+      "type": "structure",
+      "members": {
+        "SubscriptionName": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the subscription.</p>\n        <p>Constraints: The name must be fewer than 255 characters.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SnsTopicArn": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. Amazon SNS creates the ARN when you create a topic and subscribe to it.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SourceType": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of source that is generating the events. For example, if you want to be notified of events generated by an instance, you would set this parameter to <code>db-instance</code>. If this value is not specified, all events are returned.</p>\n        <p>Valid values: <code>db-instance</code>, <code>db-cluster</code>,\n                <code>db-parameter-group</code>, <code>db-security-group</code>,\n                <code>db-cluster-snapshot</code>\n        </p>"
+          }
+        },
+        "EventCategories": {
+          "target": "com.amazonaws.docdb#EventCategoriesList",
+          "traits": {
+            "smithy.api#documentation": "<p> A list of event categories for a <code>SourceType</code> that you want to subscribe to. </p>"
+          }
+        },
+        "SourceIds": {
+          "target": "com.amazonaws.docdb#SourceIdsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of identifiers of the event sources for which events are returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a\n            hyphen or contain two consecutive hyphens.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>If <code>SourceIds</code> are provided, <code>SourceType</code> must also be\n                    provided.</p>\n            </li>\n            <li>\n                <p>If the source type is an instance, a <code>DBInstanceIdentifier</code> must\n                    be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is a security group, a <code>DBSecurityGroupName</code>\n                    must be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is a parameter group, a\n                        <code>DBParameterGroupName</code> must be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is a snapshot, a <code>DBSnapshotIdentifier</code> must\n                    be provided.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "Enabled": {
+          "target": "com.amazonaws.docdb#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p> A Boolean value; set to <code>true</code> to activate the subscription, set to <code>false</code> to create the subscription but not active it. </p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.docdb#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to be assigned to the event subscription.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the input to <a>CreateEventSubscription</a>.</p>"
+      }
+    },
+    "com.amazonaws.docdb#CreateEventSubscriptionResult": {
+      "type": "structure",
+      "members": {
+        "EventSubscription": {
+          "target": "com.amazonaws.docdb#EventSubscription"
+        }
+      }
+    },
+    "com.amazonaws.docdb#CreateGlobalCluster": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.docdb#CreateGlobalClusterMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.docdb#CreateGlobalClusterResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.docdb#DBClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#GlobalClusterAlreadyExistsFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#GlobalClusterQuotaExceededFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#InvalidDBClusterStateFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates an Amazon DocumentDB global cluster that can span multiple multiple Regions. The global cluster contains one primary cluster with read-write capability, and up-to give read-only secondary clusters. Global clusters uses storage-based fast replication across regions with latencies less than one second, using dedicated infrastructure with no impact to your workload’s performance.</p>\n        <p></p>\n        <p>You can create a global cluster that is initially empty, and then add a primary and a secondary to it. Or you can specify an existing cluster during the create operation, and this cluster becomes the primary of the global cluster. </p>\n        <note>\n            <p>This action only applies to Amazon DocumentDB clusters.</p>\n        </note>"
+      }
+    },
+    "com.amazonaws.docdb#CreateGlobalClusterMessage": {
+      "type": "structure",
+      "members": {
+        "GlobalClusterIdentifier": {
+          "target": "com.amazonaws.docdb#GlobalClusterIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The cluster identifier of the new global cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SourceDBClusterIdentifier": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) to use as the primary cluster of the global cluster. This parameter is optional.</p>"
+          }
+        },
+        "Engine": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database engine to be used for this cluster.</p>"
+          }
+        },
+        "EngineVersion": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The engine version of the global cluster.</p>"
+          }
+        },
+        "DeletionProtection": {
+          "target": "com.amazonaws.docdb#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The deletion protection setting for the new global cluster. The global cluster can't be deleted when deletion protection is enabled. </p>"
+          }
+        },
+        "DatabaseName": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon DocumentDB will not create a database in the global cluster you are creating.</p>"
+          }
+        },
+        "StorageEncrypted": {
+          "target": "com.amazonaws.docdb#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The storage encryption setting for the new global cluster. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the input to <a>CreateGlobalCluster</a>.</p>"
+      }
+    },
+    "com.amazonaws.docdb#CreateGlobalClusterResult": {
+      "type": "structure",
+      "members": {
+        "GlobalCluster": {
+          "target": "com.amazonaws.docdb#GlobalCluster"
+        }
+      }
+    },
     "com.amazonaws.docdb#DBCluster": {
       "type": "structure",
       "members": {
@@ -1170,7 +1451,7 @@
         "DBSubnetGroup": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies information on the subnet group that is associated with the cluster,\n            including the name, description, and subnets in the subnet group.</p>"
+            "smithy.api#documentation": "<p>Specifies information on the subnet group that is associated with the cluster, including the name, description, and subnets in the subnet group.</p>"
           }
         },
         "Status": {
@@ -1200,7 +1481,7 @@
         "ReaderEndpoint": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The reader endpoint for the cluster. The reader endpoint for a cluster load\n            balances connections across the Amazon DocumentDB replicas that are available in a cluster. As\n            clients request new connections to the reader endpoint, Amazon DocumentDB distributes the\n            connection requests among the Amazon DocumentDB replicas in the cluster. This functionality can\n            help balance your read workload across multiple Amazon DocumentDB replicas in your cluster. </p>\n        <p>If a failover occurs, and the Amazon DocumentDB replica that you are connected to is promoted to\n            be the primary instance, your connection is dropped. To continue sending your read\n            workload to other Amazon DocumentDB replicas in the cluster, you can then reconnect to the reader\n            endpoint.</p>"
+            "smithy.api#documentation": "<p>The reader endpoint for the cluster. The reader endpoint for a cluster load balances connections across the Amazon DocumentDB replicas that are available in a cluster. As clients request new connections to the reader endpoint, Amazon DocumentDB distributes the connection requests among the Amazon DocumentDB replicas in the cluster. This functionality can help balance your read workload across multiple Amazon DocumentDB replicas in your cluster. </p>\n        <p>If a failover occurs, and the Amazon DocumentDB replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Amazon DocumentDB replicas in the cluster, you can then reconnect to the reader endpoint.</p>"
           }
         },
         "MultiAZ": {
@@ -1251,6 +1532,18 @@
             "smithy.api#documentation": "<p>Specifies the weekly time range during which system maintenance can occur, in\n            Universal Coordinated Time (UTC).</p>"
           }
         },
+        "ReplicationSourceIdentifier": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the identifier of the source cluster if this cluster is a secondary cluster.</p>"
+          }
+        },
+        "ReadReplicaIdentifiers": {
+          "target": "com.amazonaws.docdb#ReadReplicaIdentifierList",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains one or more identifiers of the secondary clusters that are associated with this cluster.</p>"
+          }
+        },
         "DBClusterMembers": {
           "target": "com.amazonaws.docdb#DBClusterMemberList",
           "traits": {
@@ -1278,13 +1571,13 @@
         "KmsKeyId": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>If <code>StorageEncrypted</code> is <code>true</code>, the AWS KMS key identifier for\n            the encrypted cluster.</p>"
+            "smithy.api#documentation": "<p>If <code>StorageEncrypted</code> is <code>true</code>, the KMS key identifier for\n            the encrypted cluster.</p>"
           }
         },
         "DbClusterResourceId": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Region-unique, immutable identifier for the cluster. This identifier is\n            found in AWS CloudTrail log entries whenever the AWS KMS key for the cluster is\n            accessed.</p>"
+            "smithy.api#documentation": "<p>The Region-unique, immutable identifier for the cluster. This identifier is\n            found in CloudTrail log entries whenever the KMS key for the cluster is accessed.</p>"
           }
         },
         "DBClusterArn": {
@@ -1296,7 +1589,7 @@
         "AssociatedRoles": {
           "target": "com.amazonaws.docdb#DBClusterRoles",
           "traits": {
-            "smithy.api#documentation": "<p>Provides a list of the AWS Identity and Access Management (IAM) roles that are\n            associated with the cluster. IAM roles that are associated with a cluster grant\n            permission for the cluster to access other AWS services on your behalf.</p>"
+            "smithy.api#documentation": "<p>Provides a list of the Identity and Access Management (IAM) roles that are associated with the cluster. (IAM) roles that are associated with a cluster grant permission for the cluster to access other Amazon Web Services services on your behalf.</p>"
           }
         },
         "ClusterCreateTime": {
@@ -1330,6 +1623,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DBClusterAlreadyExistsFault",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>You already have a cluster with the given identifier.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -1413,6 +1710,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DBClusterNotFoundFault",
+          "httpResponseCode": 404
+        },
         "smithy.api#documentation": "<p>\n            <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
@@ -1501,7 +1802,11 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            <code>DBClusterParameterGroupName</code> doesn't refer to an existing cluster\n            parameter group. </p>",
+        "aws.protocols#awsQueryError": {
+          "code": "DBClusterParameterGroupNotFound",
+          "httpResponseCode": 404
+        },
+        "smithy.api#documentation": "<p>\n            <code>DBClusterParameterGroupName</code> doesn't refer to an existing cluster parameter group. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -1534,7 +1839,11 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The cluster can't be created because you have reached the maximum allowed quota of\n            clusters.</p>",
+        "aws.protocols#awsQueryError": {
+          "code": "DBClusterQuotaExceededFault",
+          "httpResponseCode": 403
+        },
+        "smithy.api#documentation": "<p>The cluster can't be created because you have reached the maximum allowed quota of clusters.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
       }
@@ -1545,18 +1854,18 @@
         "RoleArn": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that is associated with the DB\n            cluster.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAMrole that is associated with the DB\n            cluster.</p>"
           }
         },
         "Status": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the state of association between the IAM role and the cluster. The\n                <code>Status</code> property returns one of the following values:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>ACTIVE</code> - The IAM role ARN is associated with the cluster and\n                    can be used to access other AWS services on your behalf.</p>\n            </li>\n            <li>\n                <p>\n                  <code>PENDING</code> - The IAM role ARN is being associated with the DB\n                    cluster.</p>\n            </li>\n            <li>\n                <p>\n                  <code>INVALID</code> - The IAM role ARN is associated with the cluster, but\n                    the cluster cannot assume the IAM role to access other AWS services on your\n                    behalf.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>Describes the state of association between the IAMrole and the cluster. The <code>Status</code> property returns one of the following values:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>ACTIVE</code> - The IAMrole ARN is associated with the cluster and can be used to access other Amazon Web Services services on your behalf.</p>\n            </li>\n            <li>\n                <p>\n                  <code>PENDING</code> - The IAMrole ARN is being associated with the cluster.</p>\n            </li>\n            <li>\n                <p>\n                  <code>INVALID</code> - The IAMrole ARN is associated with the cluster, but the cluster cannot assume the IAMrole to access other Amazon Web Services services on your behalf.</p>\n            </li>\n         </ul>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes an AWS Identity and Access Management (IAM) role that is associated with a\n            cluster.</p>"
+        "smithy.api#documentation": "<p>Describes an Identity and Access Management (IAM) role that is associated with a\n            cluster.</p>"
       }
     },
     "com.amazonaws.docdb#DBClusterRoles": {
@@ -1658,7 +1967,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>If <code>StorageEncrypted</code> is <code>true</code>, the AWS KMS key identifier for\n            the encrypted cluster snapshot.</p>"
+            "smithy.api#documentation": "<p>If <code>StorageEncrypted</code> is <code>true</code>, the KMS key identifier for the encrypted cluster snapshot.</p>"
           }
         },
         "DBClusterSnapshotArn": {
@@ -1686,6 +1995,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DBClusterSnapshotAlreadyExistsFault",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>You already have a cluster snapshot with the given identifier.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -1697,18 +2010,18 @@
         "AttributeName": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the manual cluster snapshot attribute.</p>\n        <p>The attribute named <code>restore</code> refers to the list of AWS accounts that have\n            permission to copy or restore the manual cluster snapshot.</p>"
+            "smithy.api#documentation": "<p>The name of the manual cluster snapshot attribute.</p>\n        <p>The attribute named <code>restore</code> refers to the list of accounts that have permission to copy or restore the manual cluster snapshot.</p>"
           }
         },
         "AttributeValues": {
           "target": "com.amazonaws.docdb#AttributeValueList",
           "traits": {
-            "smithy.api#documentation": "<p>The values for the manual cluster snapshot attribute.</p>\n        <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this\n            element returns a list of IDs of the AWS accounts that are authorized to copy or restore\n            the manual cluster snapshot. If a value of <code>all</code> is in the list, then the\n            manual cluster snapshot is public and available for any AWS account to copy or\n            restore.</p>"
+            "smithy.api#documentation": "<p>The values for the manual cluster snapshot attribute.</p>\n        <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element returns a list of IDs of the accounts that are authorized to copy or restore the manual cluster snapshot. If a value of <code>all</code> is in the list, then the manual cluster snapshot is public and available for any account to copy or restore.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the name and values of a manual cluster snapshot attribute.</p>\n        <p>Manual cluster snapshot attributes are used to authorize other AWS accounts to\n            restore a manual cluster snapshot.</p>"
+        "smithy.api#documentation": "<p>Contains the name and values of a manual cluster snapshot attribute.</p>\n        <p>Manual cluster snapshot attributes are used to authorize other accounts to restore a manual cluster snapshot.</p>"
       }
     },
     "com.amazonaws.docdb#DBClusterSnapshotAttributeList": {
@@ -1777,7 +2090,11 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster\n            snapshot. </p>",
+        "aws.protocols#awsQueryError": {
+          "code": "DBClusterSnapshotNotFoundFault",
+          "httpResponseCode": 404
+        },
+        "smithy.api#documentation": "<p>\n            <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -1933,7 +2250,7 @@
         "DBSubnetGroup": {
           "target": "com.amazonaws.docdb#DBSubnetGroup",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies information on the subnet group that is associated with the instance,\n            including the name, description, and subnets in the subnet group.</p>"
+            "smithy.api#documentation": "<p>Specifies information on the subnet group that is associated with the instance, including the name, description, and subnets in the subnet group.</p>"
           }
         },
         "PreferredMaintenanceWindow": {
@@ -1945,7 +2262,7 @@
         "PendingModifiedValues": {
           "target": "com.amazonaws.docdb#PendingModifiedValues",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies that changes to the instance are pending. This element is included only\n            when changes are pending. Specific changes are identified by subelements.</p>"
+            "smithy.api#documentation": "<p>Specifies that changes to the instance are pending. This element is included only when changes are pending. Specific changes are identified by subelements.</p>"
           }
         },
         "LatestRestorableTime": {
@@ -1963,7 +2280,7 @@
         "AutoMinorVersionUpgrade": {
           "target": "com.amazonaws.docdb#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates that minor version patches are applied automatically.</p>"
+            "smithy.api#documentation": "<p>Does not apply. This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.</p>"
           }
         },
         "PubliclyAccessible": {
@@ -1993,13 +2310,13 @@
         "KmsKeyId": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p> If <code>StorageEncrypted</code> is <code>true</code>, the AWS KMS key identifier for\n            the encrypted instance. </p>"
+            "smithy.api#documentation": "<p> If <code>StorageEncrypted</code> is <code>true</code>, the KMS key identifier for\n            the encrypted instance. </p>"
           }
         },
         "DbiResourceId": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Region-unique, immutable identifier for the instance. This identifier is\n            found in AWS CloudTrail log entries whenever the AWS KMS key for the instance is\n            accessed.</p>"
+            "smithy.api#documentation": "<p>The Region-unique, immutable identifier for the instance. This identifier is found in CloudTrail log entries whenever the KMS key for the instance is\n            accessed.</p>"
           }
         },
         "CACertificateIdentifier": {
@@ -2023,7 +2340,7 @@
         "EnabledCloudwatchLogsExports": {
           "target": "com.amazonaws.docdb#LogTypeList",
           "traits": {
-            "smithy.api#documentation": "<p>A list of log types that this instance is configured to export to Amazon CloudWatch\n            Logs.</p>"
+            "smithy.api#documentation": "<p>A list of log types that this instance is configured to export to CloudWatch Logs.</p>"
           }
         }
       },
@@ -2039,6 +2356,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DBInstanceAlreadyExists",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>You already have a instance with the given identifier.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -2081,6 +2402,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DBInstanceNotFound",
+          "httpResponseCode": 404
+        },
         "smithy.api#documentation": "<p>\n            <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
@@ -2135,6 +2460,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DBParameterGroupAlreadyExists",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>A parameter group with the same name already exists.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -2148,7 +2477,11 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n            <code>DBParameterGroupName</code> doesn't refer to an existing parameter\n            group. </p>",
+        "aws.protocols#awsQueryError": {
+          "code": "DBParameterGroupNotFound",
+          "httpResponseCode": 404
+        },
+        "smithy.api#documentation": "<p>\n            <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -2161,7 +2494,11 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>This request would cause you to exceed the allowed number of parameter\n            groups.</p>",
+        "aws.protocols#awsQueryError": {
+          "code": "DBParameterGroupQuotaExceeded",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>This request would cause you to exceed the allowed number of parameter groups.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -2174,6 +2511,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DBSecurityGroupNotFound",
+          "httpResponseCode": 404
+        },
         "smithy.api#documentation": "<p>\n            <code>DBSecurityGroupName</code> doesn't refer to an existing security group. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
@@ -2187,6 +2528,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DBSnapshotAlreadyExists",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>\n            <code>DBSnapshotIdentifier</code> is already being used by an existing snapshot. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -2200,6 +2545,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DBSnapshotNotFound",
+          "httpResponseCode": 404
+        },
         "smithy.api#documentation": "<p>\n            <code>DBSnapshotIdentifier</code> doesn't refer to an existing snapshot. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
@@ -2257,6 +2606,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DBSubnetGroupAlreadyExists",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>\n            <code>DBSubnetGroupName</code> is already being used by an existing subnet group. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -2270,7 +2623,11 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Subnets in the subnet group should cover at least two Availability Zones unless\n            there is only one Availability Zone.</p>",
+        "aws.protocols#awsQueryError": {
+          "code": "DBSubnetGroupDoesNotCoverEnoughAZs",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>Subnets in the subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -2303,6 +2660,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DBSubnetGroupNotFoundFault",
+          "httpResponseCode": 404
+        },
         "smithy.api#documentation": "<p>\n            <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
@@ -2316,6 +2677,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DBSubnetGroupQuotaExceeded",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The request would cause you to exceed the allowed number of subnet groups.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -2338,7 +2703,11 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request would cause you to exceed the allowed number of subnets in a subnet\n            group.</p>",
+        "aws.protocols#awsQueryError": {
+          "code": "DBSubnetQuotaExceededFault",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>The request would cause you to exceed the allowed number of subnets in a subnet group.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -2351,6 +2720,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DBUpgradeDependencyFailure",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The upgrade failed because a resource that the depends on can't be\n            modified.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -2382,7 +2755,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a previously provisioned cluster. When you delete a cluster, all\n            automated backups for that cluster are deleted and can't be recovered. Manual DB\n            cluster snapshots of the specified cluster are not deleted.</p>\n        <p></p>"
+        "smithy.api#documentation": "<p>Deletes a previously provisioned cluster. When you delete a cluster, all automated backups for that cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified cluster are not deleted.</p>\n        <p></p>"
       }
     },
     "com.amazonaws.docdb#DeleteDBClusterMessage": {
@@ -2391,20 +2764,20 @@
         "DBClusterIdentifier": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The cluster identifier for the cluster to be deleted. This parameter isn't case\n            sensitive.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must match an existing <code>DBClusterIdentifier</code>.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The cluster identifier for the cluster to be deleted. This parameter isn't case sensitive.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must match an existing <code>DBClusterIdentifier</code>.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
         "SkipFinalSnapshot": {
           "target": "com.amazonaws.docdb#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p> Determines whether a final cluster snapshot is created before the cluster is\n            deleted. If <code>true</code> is specified, no cluster snapshot is created. If\n                <code>false</code> is specified, a cluster snapshot is created before the DB\n            cluster is deleted. </p>\n        <note>\n            <p>If <code>SkipFinalSnapshot</code> is <code>false</code>, you must specify a\n                    <code>FinalDBSnapshotIdentifier</code> parameter.</p>\n        </note>\n        <p>Default: <code>false</code>\n        </p>"
+            "smithy.api#documentation": "<p> Determines whether a final cluster snapshot is created before the cluster is deleted. If <code>true</code> is specified, no cluster snapshot is created. If <code>false</code> is specified, a cluster snapshot is created before the DB cluster is deleted. </p>\n        <note>\n            <p>If <code>SkipFinalSnapshot</code> is <code>false</code>, you must specify a <code>FinalDBSnapshotIdentifier</code> parameter.</p>\n        </note>\n        <p>Default: <code>false</code>\n        </p>"
           }
         },
         "FinalDBSnapshotIdentifier": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p> The cluster snapshot identifier of the new cluster snapshot created when\n                <code>SkipFinalSnapshot</code> is set to <code>false</code>. </p>\n        <note>\n            <p> Specifying this parameter and also setting the <code>SkipFinalShapshot</code>\n                parameter to <code>true</code> results in an error. </p>\n        </note>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must be from 1 to 255 letters, numbers, or hyphens.</p>\n            </li>\n            <li>\n                <p>The first character must be a letter.</p>\n            </li>\n            <li>\n                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p> The cluster snapshot identifier of the new cluster snapshot created when <code>SkipFinalSnapshot</code> is set to <code>false</code>. </p>\n        <note>\n            <p> Specifying this parameter and also setting the <code>SkipFinalShapshot</code> parameter to <code>true</code> results in an error. </p>\n        </note>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must be from 1 to 255 letters, numbers, or hyphens.</p>\n            </li>\n            <li>\n                <p>The first character must be a letter.</p>\n            </li>\n            <li>\n                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -2426,7 +2799,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a specified cluster parameter group. The cluster parameter group to be\n            deleted can't be associated with any clusters.</p>"
+        "smithy.api#documentation": "<p>Deletes a specified cluster parameter group. The cluster parameter group to be deleted can't be associated with any clusters.</p>"
       }
     },
     "com.amazonaws.docdb#DeleteDBClusterParameterGroupMessage": {
@@ -2469,7 +2842,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is\n            terminated.</p>\n        <note>\n            <p>The cluster snapshot must be in the <code>available</code> state to be\n                deleted.</p>\n        </note>"
+        "smithy.api#documentation": "<p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>\n        <note>\n            <p>The cluster snapshot must be in the <code>available</code> state to be deleted.</p>\n        </note>"
       }
     },
     "com.amazonaws.docdb#DeleteDBClusterSnapshotMessage": {
@@ -2478,7 +2851,7 @@
         "DBClusterSnapshotIdentifier": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the cluster snapshot to delete.</p>\n        <p>Constraints: Must be the name of an existing cluster snapshot in the\n                <code>available</code> state.</p>",
+            "smithy.api#documentation": "<p>The identifier of the cluster snapshot to delete.</p>\n        <p>Constraints: Must be the name of an existing cluster snapshot in the <code>available</code> state.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2521,7 +2894,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a previously provisioned instance.\n            </p>"
+        "smithy.api#documentation": "<p>Deletes a previously provisioned instance.</p>"
       }
     },
     "com.amazonaws.docdb#DeleteDBInstanceMessage": {
@@ -2573,13 +2946,99 @@
         "DBSubnetGroupName": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the database subnet group to delete.</p>\n        <note>\n            <p>You can't delete the default subnet group.</p>\n        </note>\n        <p>Constraints:</p>\n        <p>Must match the name of an existing <code>DBSubnetGroup</code>. Must not be\n            default.</p>\n        <p>Example: <code>mySubnetgroup</code>\n        </p>",
+            "smithy.api#documentation": "<p>The name of the database subnet group to delete.</p>\n        <note>\n            <p>You can't delete the default subnet group.</p>\n        </note>\n        <p>Constraints:</p>\n        <p>Must match the name of an existing <code>DBSubnetGroup</code>. Must not be default.</p>\n        <p>Example: <code>mySubnetgroup</code>\n        </p>",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Represents the input to <a>DeleteDBSubnetGroup</a>.</p>"
+      }
+    },
+    "com.amazonaws.docdb#DeleteEventSubscription": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.docdb#DeleteEventSubscriptionMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.docdb#DeleteEventSubscriptionResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.docdb#InvalidEventSubscriptionStateFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SubscriptionNotFoundFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes an Amazon DocumentDB event notification subscription.</p>"
+      }
+    },
+    "com.amazonaws.docdb#DeleteEventSubscriptionMessage": {
+      "type": "structure",
+      "members": {
+        "SubscriptionName": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon DocumentDB event notification subscription that you want to delete.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the input to <a>DeleteEventSubscription</a>.</p>"
+      }
+    },
+    "com.amazonaws.docdb#DeleteEventSubscriptionResult": {
+      "type": "structure",
+      "members": {
+        "EventSubscription": {
+          "target": "com.amazonaws.docdb#EventSubscription"
+        }
+      }
+    },
+    "com.amazonaws.docdb#DeleteGlobalCluster": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.docdb#DeleteGlobalClusterMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.docdb#DeleteGlobalClusterResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.docdb#GlobalClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#InvalidGlobalClusterStateFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a global cluster. The primary and secondary clusters must already be detached or deleted before attempting to delete a global cluster.</p>\n        <note>\n            <p>This action only applies to Amazon DocumentDB clusters.</p>\n        </note>"
+      }
+    },
+    "com.amazonaws.docdb#DeleteGlobalClusterMessage": {
+      "type": "structure",
+      "members": {
+        "GlobalClusterIdentifier": {
+          "target": "com.amazonaws.docdb#GlobalClusterIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The cluster identifier of the global cluster being deleted.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the input to <a>DeleteGlobalCluster</a>.</p>"
+      }
+    },
+    "com.amazonaws.docdb#DeleteGlobalClusterResult": {
+      "type": "structure",
+      "members": {
+        "GlobalCluster": {
+          "target": "com.amazonaws.docdb#GlobalCluster"
+        }
       }
     },
     "com.amazonaws.docdb#DescribeCertificates": {
@@ -2596,7 +3055,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for\n            this AWS account.</p>",
+        "smithy.api#documentation": "<p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for this account.</p>",
         "smithy.api#paginated": {
           "inputToken": "Marker",
           "outputToken": "Marker",
@@ -2611,7 +3070,7 @@
         "CertificateIdentifier": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The user-supplied certificate identifier. If this parameter is specified, information\n            for only the specified certificate is returned. If this parameter is omitted, a list of\n            up to <code>MaxRecords</code> certificates is returned. This parameter is not case\n            sensitive.</p>\n         <p>Constraints</p>\n         <ul>\n            <li>\n               <p>Must match an existing <code>CertificateIdentifier</code>.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The user-supplied certificate identifier. If this parameter is specified, information for only the specified certificate is returned. If this parameter is omitted, a list of up to <code>MaxRecords</code> certificates is returned. This parameter is not case sensitive.</p>\n         <p>Constraints</p>\n         <ul>\n            <li>\n               <p>Must match an existing <code>CertificateIdentifier</code>.</p>\n            </li>\n         </ul>"
           }
         },
         "Filters": {
@@ -2623,13 +3082,13 @@
         "MaxRecords": {
           "target": "com.amazonaws.docdb#IntegerOptional",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of records to include in the response. If more records \n         exist than the specified <code>MaxRecords</code> value, a pagination token \n         called a marker is included in the response so that the remaining results can \n         be retrieved.</p>\n         <p>Default: 100</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>Minimum: 20</p>\n            </li>\n            <li>\n               <p>Maximum: 100</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p>\n         <p>Default: 100</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>Minimum: 20</p>\n            </li>\n            <li>\n               <p>Maximum: 100</p>\n            </li>\n         </ul>"
           }
         },
         "Marker": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>An optional pagination token provided by a previous <code>DescribeCertificates</code> request. \n         If this parameter is specified, the response includes only records beyond the marker, up to the \n         value specified by <code>MaxRecords</code>.</p>"
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous <code>DescribeCertificates</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>"
           }
         }
       }
@@ -2648,7 +3107,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a\n                <code>DBClusterParameterGroupName</code> parameter is specified, the list contains\n            only the description of the specified cluster parameter group. </p>",
+        "smithy.api#documentation": "<p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a <code>DBClusterParameterGroupName</code> parameter is specified, the list contains only the description of the specified cluster parameter group. </p>",
         "smithy.api#paginated": {
           "inputToken": "Marker",
           "outputToken": "Marker",
@@ -2718,14 +3177,14 @@
         "DBClusterParameterGroupName": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of a specific cluster parameter group to return parameter details\n            for.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>If provided, must match the name of an existing\n                        <code>DBClusterParameterGroup</code>.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The name of a specific cluster parameter group to return parameter details for.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>If provided, must match the name of an existing <code>DBClusterParameterGroup</code>.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
         "Source": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p> A value that indicates to return only parameters for a specific source. Parameter\n            sources can be <code>engine</code>, <code>service</code>, or <code>customer</code>.\n        </p>"
+            "smithy.api#documentation": "<p> A value that indicates to return only parameters for a specific source. Parameter sources can be <code>engine</code>, <code>service</code>, or <code>customer</code>.\n        </p>"
           }
         },
         "Filters": {
@@ -2765,7 +3224,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of cluster snapshot attribute names and values for a manual DB\n            cluster snapshot.</p>\n        <p>When you share snapshots with other AWS accounts,\n                <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code>\n            attribute and a list of IDs for the AWS accounts that are authorized to copy or restore\n            the manual cluster snapshot. If <code>all</code> is included in the list of values\n            for the <code>restore</code> attribute, then the manual cluster snapshot is public\n            and can be copied or restored by all AWS accounts.</p>"
+        "smithy.api#documentation": "<p>Returns a list of cluster snapshot attribute names and values for a manual DB\n            cluster snapshot.</p>\n        <p>When you share snapshots with other accounts,\n                <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code> attribute and a list of IDs for the accounts that are authorized to copy or restore the manual cluster snapshot. If <code>all</code> is included in the list of values for the <code>restore</code> attribute, then the manual cluster snapshot is public and can be copied or restored by all accounts.</p>"
       }
     },
     "com.amazonaws.docdb#DescribeDBClusterSnapshotAttributesMessage": {
@@ -2805,7 +3264,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns information about cluster snapshots. This API operation supports\n            pagination.</p>",
+        "smithy.api#documentation": "<p>Returns information about cluster snapshots. This API operation supports pagination.</p>",
         "smithy.api#paginated": {
           "inputToken": "Marker",
           "outputToken": "Marker",
@@ -2820,19 +3279,19 @@
         "DBClusterIdentifier": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the cluster to retrieve the list of cluster snapshots for. This\n            parameter can't be used with the <code>DBClusterSnapshotIdentifier</code> parameter.\n            This parameter is not case sensitive. </p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>If provided, must match the identifier of an existing\n                    <code>DBCluster</code>.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The ID of the cluster to retrieve the list of cluster snapshots for. This parameter can't be used with the <code>DBClusterSnapshotIdentifier</code> parameter. This parameter is not case sensitive. </p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>If provided, must match the identifier of an existing\n                    <code>DBCluster</code>.</p>\n            </li>\n         </ul>"
           }
         },
         "DBClusterSnapshotIdentifier": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>A specific cluster snapshot identifier to describe. This parameter can't be used\n            with the <code>DBClusterIdentifier</code> parameter. This value is stored as a lowercase\n            string. </p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>If provided, must match the identifier of an existing\n                        <code>DBClusterSnapshot</code>.</p>\n            </li>\n            <li>\n                <p>If this identifier is for an automated snapshot, the <code>SnapshotType</code>\n                    parameter must also be specified.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>A specific cluster snapshot identifier to describe. This parameter can't be used with the <code>DBClusterIdentifier</code> parameter. This value is stored as a lowercase string. </p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>If provided, must match the identifier of an existing\n                        <code>DBClusterSnapshot</code>.</p>\n            </li>\n            <li>\n                <p>If this identifier is for an automated snapshot, the <code>SnapshotType</code>\n                    parameter must also be specified.</p>\n            </li>\n         </ul>"
           }
         },
         "SnapshotType": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The type of cluster snapshots to be returned. You can specify one of the following\n            values:</p>\n        <ul>\n            <li>\n                <p>\n                    <code>automated</code> - Return all cluster snapshots that Amazon DocumentDB has\n                    automatically created for your AWS account.</p>\n            </li>\n            <li>\n                <p>\n                    <code>manual</code> - Return all cluster snapshots that you have manually\n                    created for your AWS account.</p>\n            </li>\n            <li>\n                <p>\n                    <code>shared</code> - Return all manual cluster snapshots that have been\n                    shared to your AWS account.</p>\n            </li>\n            <li>\n                <p>\n                    <code>public</code> - Return all cluster snapshots that have been marked as\n                    public.</p>\n            </li>\n         </ul>\n        <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual\n            cluster snapshots are returned. You can include shared cluster snapshots with\n            these results by setting the <code>IncludeShared</code> parameter to <code>true</code>.\n            You can include public cluster snapshots with these results by setting the\n                <code>IncludePublic</code> parameter to <code>true</code>.</p>\n        <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply\n            for <code>SnapshotType</code> values of <code>manual</code> or <code>automated</code>.\n            The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is\n            set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when\n                <code>SnapshotType</code> is set to <code>public</code>.</p>"
+            "smithy.api#documentation": "<p>The type of cluster snapshots to be returned. You can specify one of the following values:</p>\n        <ul>\n            <li>\n                <p>\n                    <code>automated</code> - Return all cluster snapshots that Amazon DocumentDB has automatically created for your account.</p>\n            </li>\n            <li>\n                <p>\n                    <code>manual</code> - Return all cluster snapshots that you have manually created for your account.</p>\n            </li>\n            <li>\n                <p>\n                    <code>shared</code> - Return all manual cluster snapshots that have been shared to your account.</p>\n            </li>\n            <li>\n                <p>\n                    <code>public</code> - Return all cluster snapshots that have been marked as public.</p>\n            </li>\n         </ul>\n        <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual cluster snapshots are returned. You can include shared cluster snapshots with these results by setting the <code>IncludeShared</code> parameter to <code>true</code>. You can include public cluster snapshots with these results by setting the<code>IncludePublic</code> parameter to <code>true</code>.</p>\n        <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply for <code>SnapshotType</code> values of <code>manual</code> or <code>automated</code>. The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when <code>SnapshotType</code> is set to <code>public</code>.</p>"
           }
         },
         "Filters": {
@@ -2856,13 +3315,13 @@
         "IncludeShared": {
           "target": "com.amazonaws.docdb#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Set to <code>true</code> to include shared manual cluster snapshots from other AWS\n            accounts that this AWS account has been given permission to copy or restore, and\n            otherwise <code>false</code>. The default is <code>false</code>.</p>"
+            "smithy.api#documentation": "<p>Set to <code>true</code> to include shared manual cluster snapshots from other accounts that this account has been given permission to copy or restore, and otherwise <code>false</code>. The default is <code>false</code>.</p>"
           }
         },
         "IncludePublic": {
           "target": "com.amazonaws.docdb#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Set to <code>true</code> to include manual cluster snapshots that are public and\n            can be copied or restored by any AWS account, and otherwise <code>false</code>. The\n            default is <code>false</code>.</p>"
+            "smithy.api#documentation": "<p>Set to <code>true</code> to include manual cluster snapshots that are public and can be copied or restored by any account, and otherwise <code>false</code>. The default is <code>false</code>.</p>"
           }
         }
       },
@@ -2899,13 +3358,13 @@
         "DBClusterIdentifier": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The user-provided cluster identifier. If this parameter is specified, information\n            from only the specific cluster is returned. This parameter isn't case\n            sensitive.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>If provided, must match an existing <code>DBClusterIdentifier</code>.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The user-provided cluster identifier. If this parameter is specified, information from only the specific cluster is returned. This parameter isn't case sensitive.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>If provided, must match an existing <code>DBClusterIdentifier</code>.</p>\n            </li>\n         </ul>"
           }
         },
         "Filters": {
           "target": "com.amazonaws.docdb#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>A filter that specifies one or more clusters to describe.</p>\n        <p>Supported filters:</p>\n        <ul>\n            <li>\n                <p>\n                    <code>db-cluster-id</code> - Accepts cluster identifiers and cluster\n                    Amazon Resource Names (ARNs). The results list only includes information about\n                    the clusters identified by these ARNs.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>A filter that specifies one or more clusters to describe.</p>\n        <p>Supported filters:</p>\n        <ul>\n            <li>\n                <p>\n                    <code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource Names (ARNs). The results list only includes information about the clusters identified by these ARNs.</p>\n            </li>\n         </ul>"
           }
         },
         "MaxRecords": {
@@ -2991,13 +3450,13 @@
         "ListSupportedCharacterSets": {
           "target": "com.amazonaws.docdb#BooleanOptional",
           "traits": {
-            "smithy.api#documentation": "<p>If this parameter is specified and the requested engine supports the\n                <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the\n            response includes a list of supported character sets for each engine version. </p>"
+            "smithy.api#documentation": "<p>If this parameter is specified and the requested engine supports the <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the response includes a list of supported character sets for each engine version. </p>"
           }
         },
         "ListSupportedTimezones": {
           "target": "com.amazonaws.docdb#BooleanOptional",
           "traits": {
-            "smithy.api#documentation": "<p>If this parameter is specified and the requested engine supports the\n                <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response\n            includes a list of supported time zones for each engine version. </p>"
+            "smithy.api#documentation": "<p>If this parameter is specified and the requested engine supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response includes a list of supported time zones for each engine version. </p>"
           }
         }
       },
@@ -3019,7 +3478,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns information about provisioned Amazon DocumentDB instances. This API supports\n            pagination.</p>",
+        "smithy.api#documentation": "<p>Returns information about provisioned Amazon DocumentDB instances. This API supports pagination.</p>",
         "smithy.api#paginated": {
           "inputToken": "Marker",
           "outputToken": "Marker",
@@ -3101,13 +3560,13 @@
         "DBInstanceIdentifier": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The user-provided instance identifier. If this parameter is specified, information\n            from only the specific instance is returned. This parameter isn't case\n            sensitive.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>If provided, must match the identifier of an existing\n                    <code>DBInstance</code>.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The user-provided instance identifier. If this parameter is specified, information from only the specific instance is returned. This parameter isn't case sensitive.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>If provided, must match the identifier of an existing\n                    <code>DBInstance</code>.</p>\n            </li>\n         </ul>"
           }
         },
         "Filters": {
           "target": "com.amazonaws.docdb#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>A filter that specifies one or more instances to describe.</p>\n        <p>Supported filters:</p>\n        <ul>\n            <li>\n                <p>\n                    <code>db-cluster-id</code> - Accepts cluster identifiers and cluster\n                    Amazon Resource Names (ARNs). The results list includes only the information\n                    about the instances that are associated with the clusters that are\n                    identified by these ARNs.</p>\n            </li>\n            <li>\n                <p>\n                    <code>db-instance-id</code> - Accepts instance identifiers and instance\n                    ARNs. The results list includes only the information about the instances that\n                    are identified by these ARNs.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>A filter that specifies one or more instances to describe.</p>\n        <p>Supported filters:</p>\n        <ul>\n            <li>\n                <p>\n                    <code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource Names (ARNs). The results list includes only the information about the instances that are associated with the clusters that are identified by these ARNs.</p>\n            </li>\n            <li>\n                <p>\n                    <code>db-instance-id</code> - Accepts instance identifiers and instance ARNs. The results list includes only the information about the instances that are identified by these ARNs.</p>\n            </li>\n         </ul>"
           }
         },
         "MaxRecords": {
@@ -3141,7 +3600,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a\n                <code>DBSubnetGroupName</code> is specified, the list will contain only the\n            descriptions of the specified <code>DBSubnetGroup</code>.</p>",
+        "smithy.api#documentation": "<p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a\n                <code>DBSubnetGroupName</code> is specified, the list will contain only the descriptions of the specified <code>DBSubnetGroup</code>.</p>",
         "smithy.api#paginated": {
           "inputToken": "Marker",
           "outputToken": "Marker",
@@ -3253,7 +3712,7 @@
         "SourceType": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The type of source that is generating the events.</p>\n        <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>,\n                <code>db-security-group</code>, <code>db-snapshot</code>\n         </p>"
+            "smithy.api#documentation": "<p>The type of source that is generating the events.</p>\n        <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code>\n         </p>"
           }
         },
         "Filters": {
@@ -3267,6 +3726,61 @@
         "smithy.api#documentation": "<p>Represents the input to <a>DescribeEventCategories</a>.</p>"
       }
     },
+    "com.amazonaws.docdb#DescribeEventSubscriptions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.docdb#DescribeEventSubscriptionsMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.docdb#EventSubscriptionsMessage"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.docdb#SubscriptionNotFoundFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all the subscription descriptions for a customer account. The description for a subscription includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>, <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>, <code>CreationTime</code>, and <code>Status</code>.</p>\n        <p>If you specify a <code>SubscriptionName</code>, lists the description for that subscription.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "Marker",
+          "outputToken": "Marker",
+          "items": "EventSubscriptionsList",
+          "pageSize": "MaxRecords"
+        }
+      }
+    },
+    "com.amazonaws.docdb#DescribeEventSubscriptionsMessage": {
+      "type": "structure",
+      "members": {
+        "SubscriptionName": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon DocumentDB event notification subscription that you want to\n            describe.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.docdb#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>This parameter is not currently supported.</p>"
+          }
+        },
+        "MaxRecords": {
+          "target": "com.amazonaws.docdb#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p> The maximum number of records to include in the response. If more records exist than\n         the specified <code>MaxRecords</code> value, a pagination token (marker) is included\n         in the response so that the remaining results can be retrieved.</p>\n         <p>Default: 100</p>\n        <p>Constraints: Minimum 20, maximum 100.</p>"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If this parameter is specified, the response\n         includes only records beyond the marker, up to the value specified by\n         <code>MaxRecords</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the input to <a>DescribeEventSubscriptions</a>.</p>"
+      }
+    },
     "com.amazonaws.docdb#DescribeEvents": {
       "type": "operation",
       "input": {
@@ -3276,7 +3790,7 @@
         "target": "com.amazonaws.docdb#EventsMessage"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Returns events related to instances, security groups, snapshots, and DB\n            parameter groups for the past 14 days. You can obtain events specific to a particular DB\n            instance, security group, snapshot, or parameter group by providing the name as\n            a parameter. By default, the events of the past hour are returned.</p>",
+        "smithy.api#documentation": "<p>Returns events related to instances, security groups, snapshots, and DB parameter groups for the past 14 days. You can obtain events specific to a particular DB instance, security group, snapshot, or parameter group by providing the name as a parameter. By default, the events of the past hour are returned.</p>",
         "smithy.api#paginated": {
           "inputToken": "Marker",
           "outputToken": "Marker",
@@ -3291,19 +3805,19 @@
         "SourceIdentifier": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the event source for which events are returned. If not specified,\n            then all sources are included in the response.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>If <code>SourceIdentifier</code> is provided, <code>SourceType</code> must\n                    also be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is <code>DBInstance</code>, a\n                        <code>DBInstanceIdentifier</code> must be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is <code>DBSecurityGroup</code>, a\n                        <code>DBSecurityGroupName</code> must be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is <code>DBParameterGroup</code>, a\n                        <code>DBParameterGroupName</code> must be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is <code>DBSnapshot</code>, a\n                        <code>DBSnapshotIdentifier</code> must be provided.</p>\n            </li>\n            <li>\n                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The identifier of the event source for which events are returned. If not specified, then all sources are included in the response.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>If <code>SourceIdentifier</code> is provided, <code>SourceType</code> must also be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is <code>DBInstance</code>, a\n                        <code>DBInstanceIdentifier</code> must be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is <code>DBSecurityGroup</code>, a\n                        <code>DBSecurityGroupName</code> must be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is <code>DBParameterGroup</code>, a\n                        <code>DBParameterGroupName</code> must be provided.</p>\n            </li>\n            <li>\n                <p>If the source type is <code>DBSnapshot</code>, a\n                        <code>DBSnapshotIdentifier</code> must be provided.</p>\n            </li>\n            <li>\n                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>\n            </li>\n         </ul>"
           }
         },
         "SourceType": {
           "target": "com.amazonaws.docdb#SourceType",
           "traits": {
-            "smithy.api#documentation": "<p>The event source to retrieve events for. If no value is specified, all events are\n            returned.</p>"
+            "smithy.api#documentation": "<p>The event source to retrieve events for. If no value is specified, all events are returned.</p>"
           }
         },
         "StartTime": {
           "target": "com.amazonaws.docdb#TStamp",
           "traits": {
-            "smithy.api#documentation": "<p> The beginning of the time interval to retrieve events for, specified in ISO 8601\n            format. </p>\n        <p>Example: 2009-07-08T18:00Z</p>"
+            "smithy.api#documentation": "<p> The beginning of the time interval to retrieve events for, specified in ISO 8601 format. </p>\n        <p>Example: 2009-07-08T18:00Z</p>"
           }
         },
         "EndTime": {
@@ -3345,6 +3859,58 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Represents the input to <a>DescribeEvents</a>.</p>"
+      }
+    },
+    "com.amazonaws.docdb#DescribeGlobalClusters": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.docdb#DescribeGlobalClustersMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.docdb#GlobalClustersMessage"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.docdb#GlobalClusterNotFoundFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns information about Amazon DocumentDB global  clusters. This API supports pagination.</p>\n        <note>\n            <p>This action only applies to Amazon DocumentDB clusters.</p>\n        </note>",
+        "smithy.api#paginated": {
+          "inputToken": "Marker",
+          "outputToken": "Marker",
+          "items": "GlobalClusters",
+          "pageSize": "MaxRecords"
+        }
+      }
+    },
+    "com.amazonaws.docdb#DescribeGlobalClustersMessage": {
+      "type": "structure",
+      "members": {
+        "GlobalClusterIdentifier": {
+          "target": "com.amazonaws.docdb#GlobalClusterIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The user-supplied  cluster identifier. If this parameter is specified, information from only the specific cluster is returned. This parameter isn't case-sensitive.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.docdb#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that specifies one or more global DB clusters to describe.</p>\n        <p>Supported filters: <code>db-cluster-id</code> accepts  cluster identifiers and  cluster Amazon Resource Names (ARNs). The results list will only include information about the clusters identified by these ARNs.</p>"
+          }
+        },
+        "MaxRecords": {
+          "target": "com.amazonaws.docdb#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. </p>"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous <code>DescribeGlobalClusters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>"
+          }
+        }
       }
     },
     "com.amazonaws.docdb#DescribeOrderableDBInstanceOptions": {
@@ -3509,7 +4075,7 @@
         "DBParameterGroupFamily": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the cluster parameter group family to return the engine parameter\n            information for.</p>"
+            "smithy.api#documentation": "<p>The name of the cluster parameter group family to return the engine parameter information for.</p>"
           }
         },
         "Marker": {
@@ -3634,6 +4200,120 @@
         }
       }
     },
+    "com.amazonaws.docdb#EventSubscription": {
+      "type": "structure",
+      "members": {
+        "CustomerAwsId": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Web Services customer account that is associated with the Amazon DocumentDB event notification\n            subscription.</p>"
+          }
+        },
+        "CustSubscriptionId": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon DocumentDB event notification subscription ID.</p>"
+          }
+        },
+        "SnsTopicArn": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The topic ARN of the Amazon DocumentDB event notification subscription.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the Amazon DocumentDB event notification subscription.</p>\n        <p>Constraints:</p>\n        <p>Can be one of the following: <code>creating</code>, <code>modifying</code>,\n                <code>deleting</code>, <code>active</code>, <code>no-permission</code>,\n                <code>topic-not-exist</code>\n         </p>\n        <p>The <code>no-permission</code> status indicates that Amazon DocumentDB no longer has permission\n            to post to the SNS topic. The <code>topic-not-exist</code> status indicates that the\n            topic was deleted after the subscription was created.</p>"
+          }
+        },
+        "SubscriptionCreationTime": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the Amazon DocumentDB event notification subscription was created.</p>"
+          }
+        },
+        "SourceType": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The source type for the Amazon DocumentDB event notification subscription.</p>"
+          }
+        },
+        "SourceIdsList": {
+          "target": "com.amazonaws.docdb#SourceIdsList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of source IDs for the Amazon DocumentDB event notification subscription.</p>"
+          }
+        },
+        "EventCategoriesList": {
+          "target": "com.amazonaws.docdb#EventCategoriesList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of event categories for the Amazon DocumentDB event notification subscription.</p>"
+          }
+        },
+        "Enabled": {
+          "target": "com.amazonaws.docdb#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>A Boolean value indicating whether the subscription is enabled. A value of\n                <code>true</code> indicates that the subscription is enabled.</p>"
+          }
+        },
+        "EventSubscriptionArn": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the event subscription.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Detailed information about an event to which you have subscribed.</p>"
+      }
+    },
+    "com.amazonaws.docdb#EventSubscriptionQuotaExceededFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.docdb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "EventSubscriptionQuotaExceeded",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>You have reached the maximum number of event subscriptions. </p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.docdb#EventSubscriptionsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.docdb#EventSubscription",
+        "traits": {
+          "smithy.api#xmlName": "EventSubscription"
+        }
+      }
+    },
+    "com.amazonaws.docdb#EventSubscriptionsMessage": {
+      "type": "structure",
+      "members": {
+        "Marker": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If this parameter is specified, the response\n         includes only records beyond the marker, up to the value specified by\n         <code>MaxRecords</code>.</p>"
+          }
+        },
+        "EventSubscriptionsList": {
+          "target": "com.amazonaws.docdb#EventSubscriptionsList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of event subscriptions.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the output of <a>DescribeEventSubscriptions</a>.</p>"
+      }
+    },
     "com.amazonaws.docdb#EventsMessage": {
       "type": "structure",
       "members": {
@@ -3677,7 +4357,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Forces a failover for a cluster.</p>\n        <p>A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances)\n            in the cluster to be the primary instance (the cluster writer).</p>\n        <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica,\n            if one exists. You can force a failover when you want to simulate a failure of a primary\n            instance for\n            testing.</p>"
+        "smithy.api#documentation": "<p>Forces a failover for a cluster.</p>\n        <p>A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances) in the cluster to be the primary instance (the cluster writer).</p>\n        <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica, if one exists. You can force a failover when you want to simulate a failure of a primary instance for testing.</p>"
       }
     },
     "com.amazonaws.docdb#FailoverDBClusterMessage": {
@@ -3686,7 +4366,7 @@
         "DBClusterIdentifier": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>A cluster identifier to force a failover for. This parameter is not case\n            sensitive.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must match the identifier of an existing <code>DBCluster</code>.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>A cluster identifier to force a failover for. This parameter is not case sensitive.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must match the identifier of an existing <code>DBCluster</code>.</p>\n            </li>\n         </ul>"
           }
         },
         "TargetDBInstanceIdentifier": {
@@ -3748,6 +4428,196 @@
         }
       }
     },
+    "com.amazonaws.docdb#GlobalCluster": {
+      "type": "structure",
+      "members": {
+        "GlobalClusterIdentifier": {
+          "target": "com.amazonaws.docdb#GlobalClusterIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains a user-supplied global  cluster identifier. This identifier is the unique key that identifies a global cluster. </p>"
+          }
+        },
+        "GlobalClusterResourceId": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS customer master key (CMK) for the cluster is accessed. </p>"
+          }
+        },
+        "GlobalClusterArn": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the global cluster.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the current state of this global cluster.</p>"
+          }
+        },
+        "Engine": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon DocumentDB database engine used by the global cluster. </p>"
+          }
+        },
+        "EngineVersion": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the database engine version.</p>"
+          }
+        },
+        "DatabaseName": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The default database name within the new global cluster.</p>"
+          }
+        },
+        "StorageEncrypted": {
+          "target": "com.amazonaws.docdb#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The storage encryption setting for the global cluster.</p>"
+          }
+        },
+        "DeletionProtection": {
+          "target": "com.amazonaws.docdb#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The deletion protection setting for the new global cluster.</p>"
+          }
+        },
+        "GlobalClusterMembers": {
+          "target": "com.amazonaws.docdb#GlobalClusterMemberList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of cluster IDs for secondary clusters within the global cluster. Currently limited to one item. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A data type representing an Amazon DocumentDB global cluster.</p>"
+      }
+    },
+    "com.amazonaws.docdb#GlobalClusterAlreadyExistsFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.docdb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "GlobalClusterAlreadyExistsFault",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global cluster identifier (unique name) to create a new global cluster. </p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.docdb#GlobalClusterIdentifier": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[A-Za-z][0-9A-Za-z-:._]*$"
+      }
+    },
+    "com.amazonaws.docdb#GlobalClusterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.docdb#GlobalCluster",
+        "traits": {
+          "smithy.api#xmlName": "GlobalClusterMember"
+        }
+      }
+    },
+    "com.amazonaws.docdb#GlobalClusterMember": {
+      "type": "structure",
+      "members": {
+        "DBClusterArn": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for each Amazon DocumentDB cluster.</p>"
+          }
+        },
+        "Readers": {
+          "target": "com.amazonaws.docdb#ReadersArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Aurora global cluster.</p>"
+          }
+        },
+        "IsWriter": {
+          "target": "com.amazonaws.docdb#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p> Specifies whether the Amazon DocumentDB cluster is the primary cluster (that is, has read-write capability) for the Amazon DocumentDB global cluster with which it is associated. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A data structure with information about any primary and secondary clusters associated with an Amazon DocumentDB global clusters. </p>"
+      }
+    },
+    "com.amazonaws.docdb#GlobalClusterMemberList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.docdb#GlobalClusterMember",
+        "traits": {
+          "smithy.api#xmlName": "GlobalClusterMember"
+        }
+      }
+    },
+    "com.amazonaws.docdb#GlobalClusterNotFoundFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.docdb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "GlobalClusterNotFoundFault",
+          "httpResponseCode": 404
+        },
+        "smithy.api#documentation": "<p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.docdb#GlobalClusterQuotaExceededFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.docdb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "GlobalClusterQuotaExceededFault",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>The number of global  clusters for this account is already at the maximum allowed.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.docdb#GlobalClustersMessage": {
+      "type": "structure",
+      "members": {
+        "Marker": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        },
+        "GlobalClusters": {
+          "target": "com.amazonaws.docdb#GlobalClusterList",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.docdb#InstanceQuotaExceededFault": {
       "type": "structure",
       "members": {
@@ -3756,6 +4626,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InstanceQuotaExceeded",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The request would cause you to exceed the allowed number of instances.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3769,6 +4643,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InsufficientDBClusterCapacityFault",
+          "httpResponseCode": 403
+        },
         "smithy.api#documentation": "<p>The cluster doesn't have enough capacity for the current operation.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
@@ -3782,7 +4660,11 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The specified instance class isn't available in the specified Availability\n            Zone.</p>",
+        "aws.protocols#awsQueryError": {
+          "code": "InsufficientDBInstanceCapacity",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>The specified instance class isn't available in the specified Availability Zone.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -3795,7 +4677,11 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>There is not enough storage available for the current action. You might be able to\n            resolve this error by updating your subnet group to use different Availability Zones\n            that have more storage available. </p>",
+        "aws.protocols#awsQueryError": {
+          "code": "InsufficientStorageClusterCapacity",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>There is not enough storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -3817,6 +4703,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidDBClusterSnapshotStateFault",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The provided value isn't a valid cluster snapshot state.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3830,6 +4720,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidDBClusterStateFault",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The cluster isn't in a valid state.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3843,6 +4737,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidDBInstanceState",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p> The specified instance isn't in the <i>available</i> state.\n        </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3856,7 +4754,11 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The parameter group is in use, or it is in a state that is not valid. If you are\n            trying to delete the parameter group, you can't delete it when the parameter group\n            is in this state.</p>",
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidDBParameterGroupState",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -3869,6 +4771,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidDBSecurityGroupState",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The state of the security group doesn't allow deletion.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3882,6 +4788,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidDBSnapshotState",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The state of the snapshot doesn't allow deletion.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3895,6 +4805,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidDBSubnetGroupStateFault",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The subnet group can't be deleted because it's in use.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3908,7 +4822,45 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidDBSubnetStateFault",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p> The subnet isn't in the <i>available</i> state. </p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.docdb#InvalidEventSubscriptionStateFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.docdb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidEventSubscriptionState",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>Someone else might be modifying a subscription. Wait a few seconds, and try\n            again.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.docdb#InvalidGlobalClusterStateFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.docdb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidGlobalClusterStateFault",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>The requested operation can't be performed while the cluster is in this state.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -3921,6 +4873,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidRestoreFault",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>You cannot restore from a virtual private cloud (VPC) backup to a non-VPC DB\n            instance.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3934,6 +4890,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidSubnet",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The requested subnet is not valid, or multiple subnets were requested that are not all\n            in a common virtual private cloud (VPC).</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3947,6 +4907,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidVPCNetworkStateFault",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The subnet group doesn't cover all Availability Zones after it is created\n            because of changes that were made.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3960,7 +4924,11 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An error occurred when accessing an AWS KMS key.</p>",
+        "aws.protocols#awsQueryError": {
+          "code": "KMSKeyNotAccessibleFault",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>An error occurred when accessing an KMS key.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -4123,13 +5091,13 @@
         "PreferredBackupWindow": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The daily time range during which automated backups are created if automated backups\n            are enabled, using the <code>BackupRetentionPeriod</code> parameter. </p>\n        <p>The default is a 30-minute window selected at random from an 8-hour block of time for\n            each AWS Region. </p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p>\n            </li>\n            <li>\n                <p>Must be in Universal Coordinated Time (UTC).</p>\n            </li>\n            <li>\n                <p>Must not conflict with the preferred maintenance window.</p>\n            </li>\n            <li>\n                <p>Must be at least 30 minutes.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The daily time range during which automated backups are created if automated backups\n            are enabled, using the <code>BackupRetentionPeriod</code> parameter. </p>\n        <p>The default is a 30-minute window selected at random from an 8-hour block of time for\n            each Region. </p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p>\n            </li>\n            <li>\n                <p>Must be in Universal Coordinated Time (UTC).</p>\n            </li>\n            <li>\n                <p>Must not conflict with the preferred maintenance window.</p>\n            </li>\n            <li>\n                <p>Must be at least 30 minutes.</p>\n            </li>\n         </ul>"
           }
         },
         "PreferredMaintenanceWindow": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The weekly time range during which system maintenance can occur, in Universal\n            Coordinated Time (UTC).</p>\n        <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>\n        </p>\n        <p>The default is a 30-minute window selected at random from an 8-hour block of time for\n            each AWS Region, occurring on a random day of the week. </p>\n        <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>\n        <p>Constraints: Minimum 30-minute window.</p>"
+            "smithy.api#documentation": "<p>The weekly time range during which system maintenance can occur, in Universal\n            Coordinated Time (UTC).</p>\n        <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>\n        </p>\n        <p>The default is a 30-minute window selected at random from an 8-hour block of time for\n            each Region, occurring on a random day of the week. </p>\n        <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>\n        <p>Constraints: Minimum 30-minute window.</p>"
           }
         },
         "CloudwatchLogsExportConfiguration": {
@@ -4141,7 +5109,7 @@
         "EngineVersion": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The version number of the database engine to which you want to upgrade. Changing this\n            parameter results in an outage. The change is applied during the next maintenance window\n            unless the <code>ApplyImmediately</code> parameter is set to <code>true</code>.</p>"
+            "smithy.api#documentation": "<p>The version number of the database engine to which you want to upgrade. Modifying engine version is not supported on Amazon DocumentDB.</p>"
           }
         },
         "DeletionProtection": {
@@ -4225,7 +5193,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds an attribute and values to, or removes an attribute and values from, a manual DB\n            cluster snapshot.</p>\n        <p>To share a manual cluster snapshot with other AWS accounts, specify\n                <code>restore</code> as the <code>AttributeName</code>, and use the\n                <code>ValuesToAdd</code> parameter to add a list of IDs of the AWS accounts that are\n            authorized to restore the manual cluster snapshot. Use the value <code>all</code> to\n            make the manual cluster snapshot public, which means that it can be copied or\n            restored by all AWS accounts. Do not add the <code>all</code> value for any manual DB\n            cluster snapshots that contain private information that you don't want available to all\n            AWS accounts. If a manual cluster snapshot is encrypted, it can be shared, but only\n            by specifying a list of authorized AWS account IDs for the <code>ValuesToAdd</code>\n            parameter. You can't use <code>all</code> as a value for that parameter in this\n            case.</p>"
+        "smithy.api#documentation": "<p>Adds an attribute and values to, or removes an attribute and values from, a manual cluster snapshot.</p>\n        <p>To share a manual cluster snapshot with other accounts, specify <code>restore</code> as the <code>AttributeName</code>, and use the <code>ValuesToAdd</code> parameter to add a list of IDs of the accounts that are authorized to restore the manual cluster snapshot. Use the value <code>all</code> to make the manual cluster snapshot public, which means that it can be copied or restored by all accounts. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want available to all accounts. If a manual cluster snapshot is encrypted, it can be shared, but only by specifying a list of authorized account IDs for the <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value for that parameter in this case.</p>"
       }
     },
     "com.amazonaws.docdb#ModifyDBClusterSnapshotAttributeMessage": {
@@ -4241,20 +5209,20 @@
         "AttributeName": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the cluster snapshot attribute to modify.</p>\n        <p>To manage authorization for other AWS accounts to copy or restore a manual cluster\n            snapshot, set this value to <code>restore</code>.</p>",
+            "smithy.api#documentation": "<p>The name of the cluster snapshot attribute to modify.</p>\n        <p>To manage authorization for other accounts to copy or restore a manual cluster\n            snapshot, set this value to <code>restore</code>.</p>",
             "smithy.api#required": {}
           }
         },
         "ValuesToAdd": {
           "target": "com.amazonaws.docdb#AttributeValueList",
           "traits": {
-            "smithy.api#documentation": "<p>A list of cluster snapshot attributes to add to the attribute specified by\n                <code>AttributeName</code>.</p>\n        <p>To authorize other AWS accounts to copy or restore a manual cluster snapshot, set\n            this list to include one or more AWS account IDs. To make the manual cluster snapshot\n            restorable by any AWS account, set it to <code>all</code>. Do not add the\n                <code>all</code> value for any manual cluster snapshots that contain private\n            information that you don't want to be available to all AWS accounts.</p>"
+            "smithy.api#documentation": "<p>A list of cluster snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</p>\n        <p>To authorize other accounts to copy or restore a manual cluster snapshot, set this list to include one or more account IDs. To make the manual cluster snapshot restorable by any account, set it to <code>all</code>. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want to be available to all accounts.</p>"
           }
         },
         "ValuesToRemove": {
           "target": "com.amazonaws.docdb#AttributeValueList",
           "traits": {
-            "smithy.api#documentation": "<p>A list of cluster snapshot attributes to remove from the attribute specified by\n                <code>AttributeName</code>.</p>\n        <p>To remove authorization for other AWS accounts to copy or restore a manual cluster\n            snapshot, set this list to include one or more AWS account identifiers. To remove\n            authorization for any AWS account to copy or restore the cluster snapshot, set it to\n                <code>all</code> . If you specify <code>all</code>, an AWS account whose account ID\n            is explicitly added to the <code>restore</code> attribute can still copy or restore a\n            manual cluster snapshot.</p>"
+            "smithy.api#documentation": "<p>A list of cluster snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</p>\n        <p>To remove authorization for other accounts to copy or restore a manual cluster snapshot, set this list to include one or more account identifiers. To remove authorization for any account to copy or restore the cluster snapshot, set it to <code>all</code> . If you specify <code>all</code>, an account whose account ID is explicitly added to the <code>restore</code> attribute can still copy or restore a manual cluster snapshot.</p>"
           }
         }
       },
@@ -4320,7 +5288,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Modifies settings for an instance. You can change one or more database configuration\n            parameters by specifying these parameters and the new values in the request.</p>"
+        "smithy.api#documentation": "<p>Modifies settings for an instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.</p>"
       }
     },
     "com.amazonaws.docdb#ModifyDBInstanceMessage": {
@@ -4336,7 +5304,7 @@
         "DBInstanceClass": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The new compute and memory capacity of the instance; for example,\n                <code>db.r5.large</code>. Not all instance classes are available in all AWS\n            Regions. </p>\n        <p>If you modify the instance class, an outage occurs during the change. The change is\n            applied during the next maintenance window, unless <code>ApplyImmediately</code> is\n            specified as <code>true</code> for this request. </p>\n        <p>Default: Uses existing setting.</p>"
+            "smithy.api#documentation": "<p>The new compute and memory capacity of the instance; for example, <code>db.r5.large</code>. Not all instance classes are available in all Regions. </p>\n        <p>If you modify the instance class, an outage occurs during the change. The change is\n            applied during the next maintenance window, unless <code>ApplyImmediately</code> is\n            specified as <code>true</code> for this request. </p>\n        <p>Default: Uses existing setting.</p>"
           }
         },
         "ApplyImmediately": {
@@ -4354,13 +5322,13 @@
         "AutoMinorVersionUpgrade": {
           "target": "com.amazonaws.docdb#BooleanOptional",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates that minor version upgrades are applied automatically to the instance\n            during the maintenance window. Changing this parameter doesn't result in an outage\n            except in the following case, and the change is asynchronously applied as soon as\n            possible. An outage results if this parameter is set to <code>true</code> during the\n            maintenance window, and a newer minor version is available, and Amazon DocumentDB has enabled\n            automatic patching for that engine version. </p>"
+            "smithy.api#documentation": "<p>This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.</p>"
           }
         },
         "NewDBInstanceIdentifier": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p> The new instance identifier for the instance when renaming an instance. When\n            you change the instance identifier, an instance reboot occurs immediately if you set\n                <code>Apply Immediately</code> to <code>true</code>. It occurs during the next\n            maintenance window if you set <code>Apply Immediately</code> to <code>false</code>. This\n            value is stored as a lowercase string. </p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>\n            </li>\n            <li>\n                <p>The first character must be a letter.</p>\n            </li>\n            <li>\n                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>\n            </li>\n         </ul>\n        <p>Example: <code>mydbinstance</code>\n        </p>"
+            "smithy.api#documentation": "<p> The new instance identifier for the instance when renaming an instance. When you change the instance identifier, an instance reboot occurs immediately if you set <code>Apply Immediately</code> to <code>true</code>. It occurs during the next maintenance window if you set <code>Apply Immediately</code> to <code>false</code>. This value is stored as a lowercase string. </p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>\n            </li>\n            <li>\n                <p>The first character must be a letter.</p>\n            </li>\n            <li>\n                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>\n            </li>\n         </ul>\n        <p>Example: <code>mydbinstance</code>\n        </p>"
           }
         },
         "CACertificateIdentifier": {
@@ -4372,7 +5340,7 @@
         "PromotionTier": {
           "target": "com.amazonaws.docdb#IntegerOptional",
           "traits": {
-            "smithy.api#documentation": "<p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the\n            primary instance after a failure of the existing primary instance.</p>\n        <p>Default: 1</p>\n        <p>Valid values: 0-15</p>"
+            "smithy.api#documentation": "<p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the primary instance after a failure of the existing primary instance.</p>\n        <p>Default: 1</p>\n        <p>Valid values: 0-15</p>"
           }
         }
       },
@@ -4414,7 +5382,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Modifies an existing subnet group. subnet groups must contain at least one\n            subnet in at least two Availability Zones in the AWS Region.</p>"
+        "smithy.api#documentation": "<p>Modifies an existing subnet group. subnet groups must contain at least one subnet in at least two Availability Zones in the Region.</p>"
       }
     },
     "com.amazonaws.docdb#ModifyDBSubnetGroupMessage": {
@@ -4423,7 +5391,7 @@
         "DBSubnetGroupName": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name for the subnet group. This value is stored as a lowercase string. You\n            can't modify the default subnet group. </p>\n        <p>Constraints: Must match the name of an existing <code>DBSubnetGroup</code>. Must not\n            be default.</p>\n        <p>Example: <code>mySubnetgroup</code>\n        </p>",
+            "smithy.api#documentation": "<p>The name for the subnet group. This value is stored as a lowercase string. You can't modify the default subnet group. </p>\n        <p>Constraints: Must match the name of an existing <code>DBSubnetGroup</code>. Must not be default.</p>\n        <p>Example: <code>mySubnetgroup</code>\n        </p>",
             "smithy.api#required": {}
           }
         },
@@ -4450,6 +5418,140 @@
       "members": {
         "DBSubnetGroup": {
           "target": "com.amazonaws.docdb#DBSubnetGroup"
+        }
+      }
+    },
+    "com.amazonaws.docdb#ModifyEventSubscription": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.docdb#ModifyEventSubscriptionMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.docdb#ModifyEventSubscriptionResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.docdb#EventSubscriptionQuotaExceededFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SNSInvalidTopicFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SNSNoAuthorizationFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SNSTopicArnNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SubscriptionCategoryNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SubscriptionNotFoundFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Modifies an existing Amazon DocumentDB event notification subscription.</p>"
+      }
+    },
+    "com.amazonaws.docdb#ModifyEventSubscriptionMessage": {
+      "type": "structure",
+      "members": {
+        "SubscriptionName": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon DocumentDB event notification subscription.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SnsTopicArn": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. The\n            ARN is created by Amazon SNS when you create a topic and subscribe to it.</p>"
+          }
+        },
+        "SourceType": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of source that is generating the events. For example, if you want to be notified of events generated by an instance, set this parameter to <code>db-instance</code>. If this value is not specified, all events are returned.</p>\n        <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code>\n         </p>"
+          }
+        },
+        "EventCategories": {
+          "target": "com.amazonaws.docdb#EventCategoriesList",
+          "traits": {
+            "smithy.api#documentation": "<p> A list of event categories for a <code>SourceType</code> that you want to subscribe\n            to.</p>"
+          }
+        },
+        "Enabled": {
+          "target": "com.amazonaws.docdb#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p> A Boolean value; set to <code>true</code> to activate the subscription. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the input to <a>ModifyEventSubscription</a>.</p>"
+      }
+    },
+    "com.amazonaws.docdb#ModifyEventSubscriptionResult": {
+      "type": "structure",
+      "members": {
+        "EventSubscription": {
+          "target": "com.amazonaws.docdb#EventSubscription"
+        }
+      }
+    },
+    "com.amazonaws.docdb#ModifyGlobalCluster": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.docdb#ModifyGlobalClusterMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.docdb#ModifyGlobalClusterResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.docdb#GlobalClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#InvalidGlobalClusterStateFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Modify a setting for an Amazon DocumentDB global cluster. You can change one or more configuration parameters (for example: deletion protection), or the global cluster identifier by specifying these parameters and the new values in the request.</p>\n        <note>\n            <p>This action only applies to Amazon DocumentDB clusters.</p>\n        </note>"
+      }
+    },
+    "com.amazonaws.docdb#ModifyGlobalClusterMessage": {
+      "type": "structure",
+      "members": {
+        "GlobalClusterIdentifier": {
+          "target": "com.amazonaws.docdb#GlobalClusterIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the global cluster being modified. This parameter isn't case-sensitive.</p>\n\t\t       <p>Constraints:</p>\n        <ul>\n            <li>\n\t\t\t\t           <p>Must match the identifier of an existing global cluster.</p>\n\t\t\t         </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "NewGlobalClusterIdentifier": {
+          "target": "com.amazonaws.docdb#GlobalClusterIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The new identifier for a global cluster when you modify a global cluster. This value is stored as a lowercase string.</p>\n        <ul>\n            <li>\n\t\t\t\t           <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>\n\t\t\t\t           <p>The first character must be a letter</p>\n\t\t\t\t           <p>Can't end with a hyphen or contain two consecutive hyphens</p>\n\t\t\t         </li>\n         </ul>\n\t\t       <p>Example: <code>my-cluster2</code>\n         </p>"
+          }
+        },
+        "DeletionProtection": {
+          "target": "com.amazonaws.docdb#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates if the global cluster has deletion protection enabled. The global cluster can't be deleted when deletion protection is enabled. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the input to <a>ModifyGlobalCluster</a>.</p>"
+      }
+    },
+    "com.amazonaws.docdb#ModifyGlobalClusterResult": {
+      "type": "structure",
+      "members": {
+        "GlobalCluster": {
+          "target": "com.amazonaws.docdb#GlobalCluster"
         }
       }
     },
@@ -4797,6 +5899,21 @@
         "smithy.api#documentation": "<p> One or more modified settings for an instance. These modified settings have been\n            requested, but haven't been applied yet.</p>"
       }
     },
+    "com.amazonaws.docdb#ReadReplicaIdentifierList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.docdb#String",
+        "traits": {
+          "smithy.api#xmlName": "ReadReplicaIdentifier"
+        }
+      }
+    },
+    "com.amazonaws.docdb#ReadersArnList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.docdb#String"
+      }
+    },
     "com.amazonaws.docdb#RebootDBInstance": {
       "type": "operation",
       "input": {
@@ -4843,6 +5960,109 @@
       "members": {
         "DBInstance": {
           "target": "com.amazonaws.docdb#DBInstance"
+        }
+      }
+    },
+    "com.amazonaws.docdb#RemoveFromGlobalCluster": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.docdb#RemoveFromGlobalClusterMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.docdb#RemoveFromGlobalClusterResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.docdb#DBClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#GlobalClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#InvalidGlobalClusterStateFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Detaches an Amazon DocumentDB secondary cluster from a global cluster. The cluster becomes a standalone cluster with read-write capability instead of being read-only and receiving data from a primary in a different region. </p>\n        <note>\n            <p>This action only applies to Amazon DocumentDB clusters.</p>\n        </note>"
+      }
+    },
+    "com.amazonaws.docdb#RemoveFromGlobalClusterMessage": {
+      "type": "structure",
+      "members": {
+        "GlobalClusterIdentifier": {
+          "target": "com.amazonaws.docdb#GlobalClusterIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The cluster identifier to detach from the Amazon DocumentDB global cluster. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DbClusterIdentifier": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) identifying the cluster that was detached from the Amazon DocumentDB global cluster. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the input to <a>RemoveFromGlobalCluster</a>.</p>"
+      }
+    },
+    "com.amazonaws.docdb#RemoveFromGlobalClusterResult": {
+      "type": "structure",
+      "members": {
+        "GlobalCluster": {
+          "target": "com.amazonaws.docdb#GlobalCluster"
+        }
+      }
+    },
+    "com.amazonaws.docdb#RemoveSourceIdentifierFromSubscription": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.docdb#RemoveSourceIdentifierFromSubscriptionMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.docdb#RemoveSourceIdentifierFromSubscriptionResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.docdb#SourceNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.docdb#SubscriptionNotFoundFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Removes a source identifier from an existing Amazon DocumentDB event notification\n            subscription.</p>"
+      }
+    },
+    "com.amazonaws.docdb#RemoveSourceIdentifierFromSubscriptionMessage": {
+      "type": "structure",
+      "members": {
+        "SubscriptionName": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon DocumentDB event notification subscription that you want to remove a\n            source identifier from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SourceIdentifier": {
+          "target": "com.amazonaws.docdb#String",
+          "traits": {
+            "smithy.api#documentation": "<p> The source identifier to be removed from the subscription, such as the instance\n            identifier for an instance, or the name of a security group. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the input to <a>RemoveSourceIdentifierFromSubscription</a>.</p>"
+      }
+    },
+    "com.amazonaws.docdb#RemoveSourceIdentifierFromSubscriptionResult": {
+      "type": "structure",
+      "members": {
+        "EventSubscription": {
+          "target": "com.amazonaws.docdb#EventSubscription"
         }
       }
     },
@@ -4943,6 +6163,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ResourceNotFoundFault",
+          "httpResponseCode": 404
+        },
         "smithy.api#documentation": "<p>The specified resource ID was not found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
@@ -5021,7 +6245,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new cluster from a snapshot or cluster snapshot.</p>\n        <p>If a snapshot is specified, the target cluster is created from the source DB\n            snapshot with a default configuration and default security group.</p>\n        <p>If a cluster snapshot is specified, the target cluster is created from the\n            source cluster restore point with the same configuration as the original source DB\n            cluster, except that the new cluster is created with the default security\n            group.</p>"
+        "smithy.api#documentation": "<p>Creates a new cluster from a snapshot or cluster snapshot.</p>\n        <p>If a snapshot is specified, the target cluster is created from the source DB snapshot with a default configuration and default security group.</p>\n        <p>If a cluster snapshot is specified, the target cluster is created from the source cluster restore point with the same configuration as the original source DB cluster, except that the new cluster is created with the default security group.</p>"
       }
     },
     "com.amazonaws.docdb#RestoreDBClusterFromSnapshotMessage": {
@@ -5087,19 +6311,19 @@
         "KmsKeyId": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier to use when restoring an encrypted cluster from a DB\n            snapshot or cluster snapshot.</p>\n        <p>The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS\n            encryption key. If you are restoring a cluster with the same AWS account that owns\n            the AWS KMS encryption key used to encrypt the new cluster, then you can use the AWS\n            KMS key alias instead of the ARN for the AWS KMS encryption key.</p>\n        <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the\n            following occurs:</p>\n        <ul>\n            <li>\n                <p>If the snapshot or cluster snapshot in <code>SnapshotIdentifier</code>\n                    is encrypted, then the restored cluster is encrypted using the AWS KMS key\n                    that was used to encrypt the snapshot or the cluster snapshot.</p>\n            </li>\n            <li>\n                <p>If the snapshot or the cluster snapshot in\n                        <code>SnapshotIdentifier</code> is not encrypted, then the restored DB\n                    cluster is not encrypted.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The KMS key identifier to use when restoring an encrypted cluster from a DB snapshot or cluster snapshot.</p>\n        <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>\n        <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the\n            following occurs:</p>\n        <ul>\n            <li>\n                <p>If the snapshot or cluster snapshot in <code>SnapshotIdentifier</code> is encrypted, then the restored cluster is encrypted using the KMS key that was used to encrypt the snapshot or the cluster snapshot.</p>\n            </li>\n            <li>\n                <p>If the snapshot or the cluster snapshot in\n                        <code>SnapshotIdentifier</code> is not encrypted, then the restored DB\n                    cluster is not encrypted.</p>\n            </li>\n         </ul>"
           }
         },
         "EnableCloudwatchLogsExports": {
           "target": "com.amazonaws.docdb#LogTypeList",
           "traits": {
-            "smithy.api#documentation": "<p>A list of log types that must be enabled for exporting to Amazon CloudWatch\n            Logs.</p>"
+            "smithy.api#documentation": "<p>A list of log types that must be enabled for exporting to Amazon CloudWatch Logs.</p>"
           }
         },
         "DeletionProtection": {
           "target": "com.amazonaws.docdb#BooleanOptional",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is\n            enabled, the cluster cannot be deleted unless it is modified and\n                <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code>\n            protects clusters from being accidentally deleted.</p>"
+            "smithy.api#documentation": "<p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is enabled, the cluster cannot be deleted unless it is modified and <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code> protects clusters from being accidentally deleted.</p>"
           }
         }
       },
@@ -5194,7 +6418,7 @@
         "RestoreToTime": {
           "target": "com.amazonaws.docdb#TStamp",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time to restore the cluster to.</p>\n        <p>Valid values: A time in Universal Coordinated Time (UTC) format.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must be before the latest restorable time for the instance.</p>\n            </li>\n            <li>\n                <p>Must be specified if the <code>UseLatestRestorableTime</code> parameter is not\n                    provided.</p>\n            </li>\n            <li>\n                <p>Cannot be specified if the <code>UseLatestRestorableTime</code> parameter is\n                        <code>true</code>.</p>\n            </li>\n            <li>\n                <p>Cannot be specified if the <code>RestoreType</code> parameter is\n                        <code>copy-on-write</code>.</p>\n            </li>\n         </ul>\n        <p>Example: <code>2015-03-07T23:45:00Z</code>\n        </p>"
+            "smithy.api#documentation": "<p>The date and time to restore the cluster to.</p>\n        <p>Valid values: A time in Universal Coordinated Time (UTC) format.</p>\n        <p>Constraints:</p>\n        <ul>\n            <li>\n                <p>Must be before the latest restorable time for the instance.</p>\n            </li>\n            <li>\n                <p>Must be specified if the <code>UseLatestRestorableTime</code> parameter is not provided.</p>\n            </li>\n            <li>\n                <p>Cannot be specified if the <code>UseLatestRestorableTime</code> parameter is <code>true</code>.</p>\n            </li>\n            <li>\n                <p>Cannot be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code>.</p>\n            </li>\n         </ul>\n        <p>Example: <code>2015-03-07T23:45:00Z</code>\n        </p>"
           }
         },
         "UseLatestRestorableTime": {
@@ -5230,7 +6454,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS KMS key identifier to use when restoring an encrypted cluster from an\n            encrypted cluster.</p>\n        <p>The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS\n            encryption key. If you are restoring a cluster with the same AWS account that owns\n            the AWS KMS encryption key used to encrypt the new cluster, then you can use the AWS\n            KMS key alias instead of the ARN for the AWS KMS encryption key.</p>\n        <p>You can restore to a new cluster and encrypt the new cluster with an AWS KMS key\n            that is different from the AWS KMS key used to encrypt the source cluster. The new DB\n            cluster is encrypted with the AWS KMS key identified by the <code>KmsKeyId</code>\n            parameter.</p>\n        <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the\n            following occurs:</p>\n        <ul>\n            <li>\n                <p>If the cluster is encrypted, then the restored cluster is encrypted\n                    using the AWS KMS key that was used to encrypt the source cluster.</p>\n            </li>\n            <li>\n                <p>If the cluster is not encrypted, then the restored cluster is not\n                    encrypted.</p>\n            </li>\n         </ul>\n        <p>If <code>DBClusterIdentifier</code> refers to a cluster that is not encrypted, then\n            the restore request is rejected.</p>"
+            "smithy.api#documentation": "<p>The KMS key identifier to use when restoring an encrypted cluster from an encrypted cluster.</p>\n        <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>\n        <p>You can restore to a new cluster and encrypt the new cluster with an KMS key that is different from the KMS key used to encrypt the source cluster. The new DB cluster is encrypted with the KMS key identified by the <code>KmsKeyId</code> parameter.</p>\n        <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following occurs:</p>\n        <ul>\n            <li>\n                <p>If the cluster is encrypted, then the restored cluster is encrypted using the KMS key that was used to encrypt the source cluster.</p>\n            </li>\n            <li>\n                <p>If the cluster is not encrypted, then the restored cluster is not encrypted.</p>\n            </li>\n         </ul>\n        <p>If <code>DBClusterIdentifier</code> refers to a cluster that is not encrypted, then\n            the restore request is rejected.</p>"
           }
         },
         "EnableCloudwatchLogsExports": {
@@ -5242,7 +6466,7 @@
         "DeletionProtection": {
           "target": "com.amazonaws.docdb#BooleanOptional",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is\n            enabled, the cluster cannot be deleted unless it is modified and\n                <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code>\n            protects clusters from being accidentally deleted.</p>"
+            "smithy.api#documentation": "<p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is enabled, the cluster cannot be deleted unless it is modified and <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code> protects clusters from being accidentally deleted.</p>"
           }
         }
       },
@@ -5258,6 +6482,57 @@
         }
       }
     },
+    "com.amazonaws.docdb#SNSInvalidTopicFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.docdb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "SNSInvalidTopic",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>Amazon SNS has responded that there is a problem with the specified topic. </p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.docdb#SNSNoAuthorizationFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.docdb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "SNSNoAuthorization",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>You do not have permission to publish to the SNS topic Amazon Resource Name (ARN). </p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.docdb#SNSTopicArnNotFoundFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.docdb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "SNSTopicArnNotFound",
+          "httpResponseCode": 404
+        },
+        "smithy.api#documentation": "<p>The SNS topic Amazon Resource Name (ARN) does not exist. </p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
     "com.amazonaws.docdb#SharedSnapshotQuotaExceededFault": {
       "type": "structure",
       "members": {
@@ -5266,6 +6541,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "SharedSnapshotQuotaExceeded",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>You have exceeded the maximum number of accounts that you can share a manual DB\n            snapshot with. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -5279,9 +6558,39 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "SnapshotQuotaExceeded",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The request would cause you to exceed the allowed number of snapshots.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.docdb#SourceIdsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.docdb#String",
+        "traits": {
+          "smithy.api#xmlName": "SourceId"
+        }
+      }
+    },
+    "com.amazonaws.docdb#SourceNotFoundFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.docdb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "SourceNotFound",
+          "httpResponseCode": 404
+        },
+        "smithy.api#documentation": "<p>The requested source could not be found. </p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.docdb#SourceType": {
@@ -5409,6 +6718,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "StorageQuotaExceeded",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The request would cause you to exceed the allowed amount of storage available across\n            all instances.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -5422,6 +6735,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "StorageTypeNotSupported",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>Storage of the specified <code>StorageType</code> can't be associated with the DB\n            instance. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -5464,6 +6781,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "SubnetAlreadyInUse",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The subnet is already in use in the Availability Zone.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -5487,6 +6808,57 @@
         }
       }
     },
+    "com.amazonaws.docdb#SubscriptionAlreadyExistFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.docdb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "SubscriptionAlreadyExist",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>The provided subscription name already exists. </p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.docdb#SubscriptionCategoryNotFoundFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.docdb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "SubscriptionCategoryNotFound",
+          "httpResponseCode": 404
+        },
+        "smithy.api#documentation": "<p>The provided category does not exist. </p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.docdb#SubscriptionNotFoundFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.docdb#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "SubscriptionNotFound",
+          "httpResponseCode": 404
+        },
+        "smithy.api#documentation": "<p>The subscription name does not exist. </p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
     "com.amazonaws.docdb#TStamp": {
       "type": "timestamp"
     },
@@ -5496,13 +6868,13 @@
         "Key": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The required name of the tag. The string value can be from 1 to 128 Unicode characters\n            in length and can't be prefixed with \"aws:\" or \"rds:\". The string can contain only the\n            set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex:\n            \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-]*)$\").</p>"
+            "smithy.api#documentation": "<p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with \"<code>aws:</code>\" or \"<code>rds:</code>\". The string can contain only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-]*)$\").</p>"
           }
         },
         "Value": {
           "target": "com.amazonaws.docdb#String",
           "traits": {
-            "smithy.api#documentation": "<p>The optional value of the tag. The string value can be from 1 to 256 Unicode\n            characters in length and can't be prefixed with \"aws:\" or \"rds:\". The string can contain\n            only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java\n            regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-]*)$\").</p>"
+            "smithy.api#documentation": "<p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with \"<code>aws:</code>\" or \"<code>rds:</code>\". The string can contain only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-]*)$\").</p>"
           }
         }
       },
@@ -5557,7 +6929,7 @@
         "AutoUpgrade": {
           "target": "com.amazonaws.docdb#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>A value that indicates whether the target version is applied to any source DB\n            instances that have <code>AutoMinorVersionUpgrade</code> set to\n            <code>true</code>.</p>"
+            "smithy.api#documentation": "<p>A value that indicates whether the target version is applied to any source DB instances that have <code>AutoMinorVersionUpgrade</code> set to <code>true</code>.</p>"
           }
         },
         "IsMajorVersionUpgrade": {

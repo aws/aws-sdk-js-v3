@@ -2698,6 +2698,38 @@
         "target": "com.amazonaws.mediatailor#ResponseOutputItem"
       }
     },
+    "com.amazonaws.mediatailor#ScheduleAdBreak": {
+      "type": "structure",
+      "members": {
+        "ApproximateDurationSeconds": {
+          "target": "com.amazonaws.mediatailor#__long",
+          "traits": {
+            "smithy.api#documentation": "<p>The approximate duration of the ad break, in seconds.</p>"
+          }
+        },
+        "ApproximateStartTime": {
+          "target": "com.amazonaws.mediatailor#__timestampUnix",
+          "traits": {
+            "smithy.api#documentation": "<p>The approximate time that the ad will start playing.</p>"
+          }
+        },
+        "SourceLocationName": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the source location containing the VOD source used for the ad break.</p>"
+          }
+        },
+        "VodSourceName": {
+          "target": "com.amazonaws.mediatailor#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the VOD source used for the ad break.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The schedule's ad break properties.</p>"
+      }
+    },
     "com.amazonaws.mediatailor#ScheduleConfiguration": {
       "type": "structure",
       "members": {
@@ -2747,6 +2779,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the program.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ScheduleAdBreaks": {
+          "target": "com.amazonaws.mediatailor#__listOfScheduleAdBreak",
+          "traits": {
+            "smithy.api#documentation": "<p>The schedule's ad break properties.</p>"
           }
         },
         "SourceLocationName": {
@@ -3469,6 +3507,12 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.mediatailor#PlaybackConfiguration"
+      }
+    },
+    "com.amazonaws.mediatailor#__listOfScheduleAdBreak": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mediatailor#ScheduleAdBreak"
       }
     },
     "com.amazonaws.mediatailor#__listOfScheduleEntry": {
