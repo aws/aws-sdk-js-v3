@@ -22,8 +22,9 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
 
 /**
  * <p>Retrieves account settings for the specified Amazon Chime account ID, such as remote control
- *             and dialout settings. For more information about these settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use the Policies
- *                 Page</a> in the <i>Amazon Chime Administration Guide</i>.</p>
+ *             and dialout settings. For more information about these settings, see
+ *     <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use the Policies Page</a> in the <i>Amazon Chime Administration Guide</i>.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

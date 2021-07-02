@@ -734,6 +734,10 @@ export class EventBridge extends EventBridgeClient {
    *          <p>When you delete a rule, incoming events might continue to match to the deleted rule. Allow
    *       a short period of time for changes to take effect.</p>
    *
+   *          <p>If you call delete rule multiple times for the same rule, all calls will succeed. When you
+   *       call delete rule for a non-existent custom eventbus, <code>ResourceNotFoundException</code> is
+   *       returned.</p>
+   *
    *          <p>Managed rules are rules created and managed by another AWS service on your behalf. These
    *       rules are created by those other AWS services to support functionality in those services. You
    *       can delete these rules using the <code>Force</code> option, but you should do so only if you
@@ -1666,65 +1670,83 @@ export class EventBridge extends EventBridgeClient {
    *
    *          <ul>
    *             <li>
-   *                <p>EC2 instances</p>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html">API
+   *           destination</a>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>SSM Run Command</p>
+   *                <p>Amazon API Gateway REST API endpoints</p>
    *             </li>
    *             <li>
-   *                <p>SSM Automation</p>
+   *                <p>API Gateway</p>
    *             </li>
    *             <li>
-   *                <p>AWS Lambda functions</p>
+   *                <p>AWS Batch job queue</p>
    *             </li>
    *             <li>
-   *                <p>Data streams in Amazon Kinesis Data Streams</p>
+   *                <p>CloudWatch Logs group</p>
    *             </li>
    *             <li>
-   *                <p>Data delivery streams in Amazon Kinesis Data Firehose</p>
+   *                <p>CodeBuild project</p>
+   *             </li>
+   *             <li>
+   *                <p>CodePineline</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon EC2 <code>CreateSnapshot</code> API call</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon EC2 <code>RebootInstances</code> API call</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon EC2 <code>StopInstances</code> API call</p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon EC2 <code>TerminateInstances</code> API call</p>
    *             </li>
    *             <li>
    *                <p>Amazon ECS tasks</p>
    *             </li>
    *             <li>
-   *                <p>AWS Step Functions state machines</p>
+   *                <p>Event bus in a different AWS account or Region.</p>
+   *                <p>You can use an event bus in the US East (N. Virginia) us-east-1, US West (Oregon)
+   *           us-west-2, or Europe (Ireland) eu-west-1 Regions as a target for a rule.</p>
    *             </li>
    *             <li>
-   *                <p>AWS Batch jobs</p>
+   *                <p>Firehose delivery stream (Kinesis Data Firehose)</p>
    *             </li>
    *             <li>
-   *                <p>AWS CodeBuild projects</p>
+   *                <p>Inspector assessment template (Amazon Inspector)</p>
    *             </li>
    *             <li>
-   *                <p>Pipelines in AWS CodePipeline</p>
+   *                <p>Kinesis stream (Kinesis Data Stream)</p>
    *             </li>
    *             <li>
-   *                <p>Amazon Inspector assessment templates</p>
+   *                <p>AWS Lambda function</p>
    *             </li>
    *             <li>
-   *                <p>Amazon SNS topics</p>
+   *                <p>Redshift clusters (Data API statement execution)</p>
    *             </li>
    *             <li>
-   *                <p>Amazon SQS queues, including FIFO queues</p>
+   *                <p>Amazon SNS topic</p>
    *             </li>
    *             <li>
-   *                <p>The default event bus of another AWS account</p>
+   *                <p>Amazon SQS queues (includes FIFO queues</p>
    *             </li>
    *             <li>
-   *                <p>Amazon API Gateway REST APIs</p>
+   *                <p>SSM Automation</p>
    *             </li>
    *             <li>
-   *                <p>Redshift Clusters to invoke Data API ExecuteStatement on</p>
+   *                <p>SSM OpsItem</p>
    *             </li>
    *             <li>
-   *                <p>Custom/SaaS HTTPS APIs via EventBridge API Destinations</p>
+   *                <p>SSM Run Command</p>
    *             </li>
    *             <li>
-   *                <p>Amazon SageMaker Model Building Pipelines</p>
+   *                <p>Step Functions state machines</p>
    *             </li>
    *          </ul>
-   *
-   *
    *
    *          <p>Creating rules with built-in targets is supported only in the AWS Management Console. The
    *       built-in targets are <code>EC2 CreateSnapshot API call</code>, <code>EC2 RebootInstances API
@@ -2014,7 +2036,7 @@ export class EventBridge extends EventBridgeClient {
 
   /**
    * <p>Removes one or more tags from the specified EventBridge resource. In Amazon EventBridge
-   *       (CloudWatch Events, rules and event buses can be tagged.</p>
+   *       (CloudWatch Events), rules and event buses can be tagged.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,

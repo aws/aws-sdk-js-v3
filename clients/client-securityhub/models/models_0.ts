@@ -1332,6 +1332,11 @@ export namespace AwsApiGatewayV2RouteSettings {
  */
 export interface AwsApiGatewayV2StageDetails {
   /**
+   * <p>The identifier of a client certificate for a stage. Supported only for WebSocket API calls.</p>
+   */
+  ClientCertificateId?: string;
+
+  /**
    * <p>Indicates when the stage was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces. For example,
@@ -2310,7 +2315,7 @@ export namespace AwsCloudTrailTrailDetails {
  */
 export interface AwsCodeBuildProjectEnvironmentRegistryCredential {
   /**
-   * <p>The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets
+   * <p>The ARN or name of credentials created using AWS Secrets
    *          Manager.</p>
    *          <note>
    *             <p>The credential can use the name of the credentials only if they exist in your current
@@ -2542,7 +2547,7 @@ export interface AwsCodeBuildProjectDetails {
   /**
    * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) used to encrypt the
    *          build output artifacts.</p>
-   *          <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the
+   *          <p>You can specify either the ARN of the CMK or, if available, the
    *          CMK alias (using the format alias/alias-name). </p>
    */
   EncryptionKey?: string;
@@ -3199,7 +3204,26 @@ export namespace AwsEc2EipDetails {
 }
 
 /**
- * <p>The details of an Amazon EC2 instance.</p>
+ * <p>Identifies a network interface for the EC2 instance.</p>
+ */
+export interface AwsEc2InstanceNetworkInterfacesDetails {
+  /**
+   * <p>The identifier of the network interface. The details are in a corresponding <code>AwsEc2NetworkInterfacesDetails</code> object.</p>
+   */
+  NetworkInterfaceId?: string;
+}
+
+export namespace AwsEc2InstanceNetworkInterfacesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2InstanceNetworkInterfacesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of an EC2 instance.</p>
  */
 export interface AwsEc2InstanceDetails {
   /**
@@ -3249,6 +3273,11 @@ export interface AwsEc2InstanceDetails {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   LaunchedAt?: string;
+
+  /**
+   * <p>The identifiers of the network interfaces for the EC2 instance. The details for each network interface are in a corresponding <code>AwsEc2NetworkInterfacesDetails</code> object.</p>
+   */
+  NetworkInterfaces?: AwsEc2InstanceNetworkInterfacesDetails[];
 }
 
 export namespace AwsEc2InstanceDetails {
@@ -3698,7 +3727,7 @@ export interface AwsEc2SecurityGroupUserIdGroupPair {
    *          security group is returned in the response. If the referenced security group is deleted,
    *          this value is not returned.</p>
    *          <p>[EC2-Classic] Required when adding or removing rules that reference a security group in
-   *          another AWS. </p>
+   *          another VPC. </p>
    */
   UserId?: string;
 
@@ -4092,6 +4121,1375 @@ export namespace AwsEc2VpcDetails {
 }
 
 /**
+ * <p>Indicates whether to enable CloudWatch Container Insights for the ECS cluster.</p>
+ */
+export interface AwsEcsClusterClusterSettingsDetails {
+  /**
+   * <p>The name of the setting.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The value of the setting.</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsEcsClusterClusterSettingsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsClusterClusterSettingsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The log configuration for the results of the run command actions.</p>
+ */
+export interface AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails {
+  /**
+   * <p>Whether to enable encryption on the CloudWatch logs.</p>
+   */
+  CloudWatchEncryptionEnabled?: boolean;
+
+  /**
+   * <p>The name of the CloudWatch log group to send the logs to.</p>
+   */
+  CloudWatchLogGroupName?: string;
+
+  /**
+   * <p>The name of the S3 bucket to send logs to.</p>
+   */
+  S3BucketName?: string;
+
+  /**
+   * <p>Whether to encrypt the logs that are sent to the S3 bucket.</p>
+   */
+  S3EncryptionEnabled?: boolean;
+
+  /**
+   * <p>Identifies the folder in the S3 bucket to send the logs to.</p>
+   */
+  S3KeyPrefix?: string;
+}
+
+export namespace AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the run command configuration for the cluster.</p>
+ */
+export interface AwsEcsClusterConfigurationExecuteCommandConfigurationDetails {
+  /**
+   * <p>The identifier of the KMS key that is used to encrypt the data between the local client and the container.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The log configuration for the results of the run command actions. Required if <code>Logging</code> is <code>NONE</code>.</p>
+   */
+  LogConfiguration?: AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails;
+
+  /**
+   * <p>The log setting to use for redirecting logs for run command results.</p>
+   */
+  Logging?: string;
+}
+
+export namespace AwsEcsClusterConfigurationExecuteCommandConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsClusterConfigurationExecuteCommandConfigurationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The run command configuration for the cluster.</p>
+ */
+export interface AwsEcsClusterConfigurationDetails {
+  /**
+   * <p>Contains the run command configuration for the cluster.</p>
+   */
+  ExecuteCommandConfiguration?: AwsEcsClusterConfigurationExecuteCommandConfigurationDetails;
+}
+
+export namespace AwsEcsClusterConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsClusterConfigurationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The default capacity provider strategy for the cluster. The default capacity provider strategy is used when services or tasks are run without a specified launch type or capacity provider strategy.</p>
+ */
+export interface AwsEcsClusterDefaultCapacityProviderStrategyDetails {
+  /**
+   * <p>The minimum number of tasks to run on the specified capacity provider.</p>
+   */
+  Base?: number;
+
+  /**
+   * <p>The name of the capacity provider.</p>
+   */
+  CapacityProvider?: string;
+
+  /**
+   * <p>The relative percentage of the total number of tasks launched that should use the capacity provider.</p>
+   */
+  Weight?: number;
+}
+
+export namespace AwsEcsClusterDefaultCapacityProviderStrategyDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsClusterDefaultCapacityProviderStrategyDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>provides details about an ECS cluster.</p>
+ */
+export interface AwsEcsClusterDetails {
+  /**
+   * <p>The short name of one or more capacity providers to associate with the cluster.</p>
+   */
+  CapacityProviders?: string[];
+
+  /**
+   * <p>The setting to use to create the cluster. Specifically used to configure whether to enable CloudWatch Container Insights for the cluster.</p>
+   */
+  ClusterSettings?: AwsEcsClusterClusterSettingsDetails[];
+
+  /**
+   * <p>The run command configuration for the cluster.</p>
+   */
+  Configuration?: AwsEcsClusterConfigurationDetails;
+
+  /**
+   * <p>The default capacity provider strategy for the cluster. The default capacity provider strategy is used when services or tasks are run without a specified launch type or capacity provider strategy.</p>
+   */
+  DefaultCapacityProviderStrategy?: AwsEcsClusterDefaultCapacityProviderStrategyDetails[];
+}
+
+export namespace AwsEcsClusterDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsClusterDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A dependency that is defined for container startup and shutdown.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails {
+  /**
+   * <p>The dependency condition of the dependent container. Indicates the required status of the dependent container before the current container can start.</p>
+   */
+  Condition?: string;
+
+  /**
+   * <p>The name of the dependent container.</p>
+   */
+  ContainerName?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An environment variable to pass to the container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails {
+  /**
+   * <p>The name of the environment variable.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The value of the environment variable.</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A file that contain environment variables to pass to a container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails {
+  /**
+   * <p>The type of environment file.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The ARN of the S3 object that contains the environment variable file.</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A hostname and IP address mapping to append to the <b>/etc/hosts</b> file on the container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
+  /**
+   * <p>The hostname to use in the <b>/etc/hosts</b> entry.</p>
+   */
+  Hostname?: string;
+
+  /**
+   * <p>The IP address to use in the <b>/etc/hosts</b> entry.</p>
+   */
+  IpAddress?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The FireLens configuration for the container. The configuration specifies and configures a log router for container logs.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails {
+  /**
+   * <p>The options to use to configure the log router.</p>
+   *          <p>The valid option keys are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>enable-ecs-log-metadata</code>. The value can be <code>true</code> or
+   *                <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>config-file-type</code>. The value can be <code>s3</code> or
+   *                <code>file</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>config-file-value</code>. The value is either an S3 ARN or a file path.</p>
+   *             </li>
+   *          </ul>
+   */
+  Options?: { [key: string]: string };
+
+  /**
+   * <p>The log router to use. </p>
+   */
+  Type?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The container health check command and associated configuration parameters for the container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
+  /**
+   * <p>The command that the container runs to determine whether it is healthy.</p>
+   */
+  Command?: string[];
+
+  /**
+   * <p>The time period in seconds between each health check execution. The default value is 30 seconds.</p>
+   */
+  Interval?: number;
+
+  /**
+   * <p>The number of times to retry a failed health check before the container is considered unhealthy. The default value is 3.</p>
+   */
+  Retries?: number;
+
+  /**
+   * <p>The optional grace period in seconds that allows containers time to bootstrap before failed health checks count towards the maximum number of retries.</p>
+   */
+  StartPeriod?: number;
+
+  /**
+   * <p>The time period in seconds to wait for a health check to succeed before it is considered a failure. The default value is 5.</p>
+   */
+  Timeout?: number;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails {
+  /**
+   * <p>The Linux capabilities for the container that are added to the default configuration provided by Docker.</p>
+   */
+  Add?: string[];
+
+  /**
+   * <p>The Linux capabilities for the container that are dropped from the default configuration provided by Docker.</p>
+   */
+  Drop?: string[];
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A host device to expose to the container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails {
+  /**
+   * <p>The path inside the container at which to expose the host device.</p>
+   */
+  ContainerPath?: string;
+
+  /**
+   * <p>The path for the device on the host container instance.</p>
+   */
+  HostPath?: string;
+
+  /**
+   * <p>The explicit permissions to provide to the container for the device. By default, the container has permissions for read, write, and <code>mknod</code> for the device.</p>
+   */
+  Permissions?: string[];
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The container path, mount options, and size (in MiB) of a tmpfs mount.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails {
+  /**
+   * <p>The absolute file path where the tmpfs volume is to be mounted.</p>
+   */
+  ContainerPath?: string;
+
+  /**
+   * <p>The list of tmpfs volume mount options.</p>
+   */
+  MountOptions?: string[];
+
+  /**
+   * <p>The maximum size (in MiB) of the tmpfs volume.</p>
+   */
+  Size?: number;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails {
+  /**
+   * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
+   */
+  Capabilities?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails;
+
+  /**
+   * <p>The host devices to expose to the container.</p>
+   */
+  Devices?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails[];
+
+  /**
+   * <p>Whether to run an <code>init</code> process inside the container that forwards signals and reaps processes. </p>
+   */
+  InitProcessEnabled?: boolean;
+
+  /**
+   * <p>The total amount of swap memory (in MiB) that a container can use.</p>
+   */
+  MaxSwap?: number;
+
+  /**
+   * <p>The value for the size (in MiB) of the <b>/dev/shm</b> volume.</p>
+   */
+  SharedMemorySize?: number;
+
+  /**
+   * <p>Configures the container's memory swappiness behavior. Determines how aggressively pages are swapped. The higher the value, the more aggressive the swappiness. The default is 60.</p>
+   */
+  Swappiness?: number;
+
+  /**
+   * <p>The container path, mount options, and size (in MiB) of the tmpfs mount.</p>
+   */
+  Tmpfs?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails[];
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A secret to pass to the log configuration.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails {
+  /**
+   * <p>The name of the secret.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The secret to expose to the container.</p>
+   *          <p>The value is either the full ARN of the Secrets Manager secret or the full ARN of the
+   *          parameter in the Systems Manager Parameter Store.</p>
+   */
+  ValueFrom?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The log configuration specification for the container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
+  /**
+   * <p>The log driver to use for the container.</p>
+   */
+  LogDriver?: string;
+
+  /**
+   * <p>The configuration options to send to the log driver. Requires version 1.19 of the Docker Remote API or greater on your container instance.</p>
+   */
+  Options?: { [key: string]: string };
+
+  /**
+   * <p>The secrets to pass to the log configuration.</p>
+   */
+  SecretOptions?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails[];
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A mount point for the data volumes in the container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
+  /**
+   * <p>The path on the container to mount the host volume at.</p>
+   */
+  ContainerPath?: string;
+
+  /**
+   * <p>Whether the container has read-only access to the volume.</p>
+   */
+  ReadOnly?: boolean;
+
+  /**
+   * <p>The name of the volume to mount. Must match the name of a volume listed in <code>VolumeDetails</code> for the task definition.</p>
+   */
+  SourceVolume?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A port mapping for the container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
+  /**
+   * <p>The port number on the container that is bound to the user-specified or automatically assigned host port.</p>
+   */
+  ContainerPort?: number;
+
+  /**
+   * <p>The port number on the container instance to reserve for the container.</p>
+   */
+  HostPort?: number;
+
+  /**
+   * <p>The protocol used for the port mapping. The default is <code>tcp</code>.</p>
+   */
+  Protocol?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The private repository authentication credentials to use.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails {
+  /**
+   * <p>The ARN of the secret that contains the private repository credentials.</p>
+   */
+  CredentialsParameter?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A resource to assign to a container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails {
+  /**
+   * <p>The type of resource to assign to a container.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The value for the specified resource type.</p>
+   *          <p>For <code>GPU</code>, the value is the number of physical GPUs the Amazon ECS container agent
+   *          reserves for the container.</p>
+   *          <p>For <code>InferenceAccelerator</code>, the value should match the <code>DeviceName</code>
+   *          attribute of an entry in <code>InferenceAccelerators</code>.</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A secret to pass to the container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
+  /**
+   * <p>The name of the secret.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The secret to expose to the container. The value is either the full ARN of the Secrets Manager
+   *          secret or the full ARN of the parameter in the Systems Manager Parameter Store.</p>
+   */
+  ValueFrom?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A namespaced kernel parameter to set in the container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
+  /**
+   * <p>The namespaced kernel parameter for which to set a value.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>The value of the parameter.</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A ulimit to set in the container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
+  /**
+   * <p>The hard limit for the ulimit type.</p>
+   */
+  HardLimit?: number;
+
+  /**
+   * <p>The type of the ulimit.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The soft limit for the ulimit type.</p>
+   */
+  SoftLimit?: number;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A data volume to mount from another container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
+  /**
+   * <p>Whether the container has read-only access to the volume.</p>
+   */
+  ReadOnly?: boolean;
+
+  /**
+   * <p>The name of another container within the same task definition from which to mount volumes.</p>
+   */
+  SourceContainer?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A container definition that describes a container in the task.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
+  /**
+   * <p>The command that is passed to the container.</p>
+   */
+  Command?: string[];
+
+  /**
+   * <p>The number of CPU units reserved for the container.</p>
+   */
+  Cpu?: number;
+
+  /**
+   * <p>The dependencies that are defined for container startup and shutdown.</p>
+   */
+  DependsOn?: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails[];
+
+  /**
+   * <p>Whether to disable networking within the container.</p>
+   */
+  DisableNetworking?: boolean;
+
+  /**
+   * <p>A list of DNS search domains that are presented to the container.</p>
+   */
+  DnsSearchDomains?: string[];
+
+  /**
+   * <p>A list of DNS servers that are presented to the container.</p>
+   */
+  DnsServers?: string[];
+
+  /**
+   * <p>A key-value map of labels to add to the container.</p>
+   */
+  DockerLabels?: { [key: string]: string };
+
+  /**
+   * <p>A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.</p>
+   */
+  DockerSecurityOptions?: string[];
+
+  /**
+   * <p>The entry point that is passed to the container.</p>
+   */
+  EntryPoint?: string[];
+
+  /**
+   * <p>The environment variables to pass to a container.</p>
+   */
+  Environment?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails[];
+
+  /**
+   * <p>A list of files containing the environment variables to pass to a container.</p>
+   */
+  EnvironmentFiles?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails[];
+
+  /**
+   * <p>Whether the container is essential. All tasks must have at least one essential container.</p>
+   */
+  Essential?: boolean;
+
+  /**
+   * <p>A list of hostnames and IP address mappings to append to the <b>/etc/hosts</b> file on the container.</p>
+   */
+  ExtraHosts?: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails[];
+
+  /**
+   * <p>The FireLens configuration for the container. Specifies and configures a log router for container logs.</p>
+   */
+  FirelensConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails;
+
+  /**
+   * <p>The container health check command and associated configuration parameters for the container.</p>
+   */
+  HealthCheck?: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails;
+
+  /**
+   * <p>The hostname to use for the container.</p>
+   */
+  Hostname?: string;
+
+  /**
+   * <p>The image used to start the container.</p>
+   */
+  Image?: string;
+
+  /**
+   * <p>If set to true, then containerized applications can be deployed that require <code>stdin</code> or a <code>tty</code> to be allocated.</p>
+   */
+  Interactive?: boolean;
+
+  /**
+   * <p>A list of links for the container in the form <code>
+   *                <i>container_name</i>:<i>alias</i>
+   *             </code>. Allows containers to communicate with each other without the need for port mappings.</p>
+   */
+  Links?: string[];
+
+  /**
+   * <p>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
+   */
+  LinuxParameters?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails;
+
+  /**
+   * <p>The log configuration specification for the container.</p>
+   */
+  LogConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails;
+
+  /**
+   * <p>The amount (in MiB) of memory to present to the container. If the container attempts to exceed the memory specified here, the container is shut down. The total amount of memory reserved for all containers within a task must be lower than the task memory value, if one is specified.</p>
+   */
+  Memory?: number;
+
+  /**
+   * <p>The soft limit (in MiB) of memory to reserve for the container.</p>
+   */
+  MemoryReservation?: number;
+
+  /**
+   * <p>The mount points for the data volumes in the container.</p>
+   */
+  MountPoints?: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails[];
+
+  /**
+   * <p>The name of the container.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The list of port mappings for the container.</p>
+   */
+  PortMappings?: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails[];
+
+  /**
+   * <p>Whether the container is given elevated privileges on the host container instance. The elevated privileges are similar to the root user.</p>
+   */
+  Privileged?: boolean;
+
+  /**
+   * <p>Whether to allocate a TTY to the container.</p>
+   */
+  PseudoTerminal?: boolean;
+
+  /**
+   * <p>Whether the container is given read-only access to its root file system.</p>
+   */
+  ReadonlyRootFilesystem?: boolean;
+
+  /**
+   * <p>The private repository authentication credentials to use.</p>
+   */
+  RepositoryCredentials?: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails;
+
+  /**
+   * <p>The type and amount of a resource to assign to a container. The only supported resource is a GPU.</p>
+   */
+  ResourceRequirements?: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails[];
+
+  /**
+   * <p>The secrets to pass to the container.</p>
+   */
+  Secrets?: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails[];
+
+  /**
+   * <p>The number of seconds to wait before giving up on resolving dependencies for a container. </p>
+   */
+  StartTimeout?: number;
+
+  /**
+   * <p>The number of seconds to wait before the container is stopped if it doesn't shut down normally on its own.</p>
+   */
+  StopTimeout?: number;
+
+  /**
+   * <p>A list of namespaced kernel parameters to set in the container.</p>
+   */
+  SystemControls?: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails[];
+
+  /**
+   * <p>A list of ulimits to set in the container. </p>
+   */
+  Ulimits?: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails[];
+
+  /**
+   * <p>The user to use inside the container.</p>
+   *          <p>The value can use one of the following formats.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>user</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>user</i>
+   *                   </code>:<code>
+   *                      <i>group</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>uid</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>uid</i>
+   *                   </code>:<code>
+   *                      <i>gid</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>user</i>
+   *                   </code>:<code>
+   *                      <i>gid</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>uid</i>
+   *                   </code>:<code>
+   *                      <i>group</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  User?: string;
+
+  /**
+   * <p>Data volumes to mount from another container.</p>
+   */
+  VolumesFrom?: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails[];
+
+  /**
+   * <p>The working directory in which to run commands inside the container.</p>
+   */
+  WorkingDirectory?: string;
+}
+
+export namespace AwsEcsTaskDefinitionContainerDefinitionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An Elastic Inference accelerator to use
+ *          for the containers in the task.</p>
+ */
+export interface AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
+  /**
+   * <p>The Elastic Inference accelerator device name.</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>The Elastic Inference accelerator type to use.</p>
+   */
+  DeviceType?: string;
+}
+
+export namespace AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionInferenceAcceleratorsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A placement constraint object to use for tasks.</p>
+ */
+export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
+  /**
+   * <p>A cluster query language expression to apply to the constraint.</p>
+   */
+  Expression?: string;
+
+  /**
+   * <p>The type of constraint.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsEcsTaskDefinitionPlacementConstraintsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionPlacementConstraintsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A network configuration parameter to provide to the Container Network Interface (CNI) plugin.</p>
+ */
+export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails {
+  /**
+   * <p>The name of the property.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The value of the property.</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration details for the App Mesh
+ *          proxy.</p>
+ */
+export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
+  /**
+   * <p>The name of the container that will serve as the App Mesh proxy.</p>
+   */
+  ContainerName?: string;
+
+  /**
+   * <p>The set of network configuration parameters to provide to the Container Network Interface (CNI) plugin, specified as key-value pairs.</p>
+   */
+  ProxyConfigurationProperties?: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[];
+
+  /**
+   * <p>The proxy type.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsEcsTaskDefinitionProxyConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionProxyConfigurationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a Docker volume.</p>
+ */
+export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
+  /**
+   * <p>Whether to create the Docker volume automatically if it does not already exist.</p>
+   */
+  Autoprovision?: boolean;
+
+  /**
+   * <p>The Docker volume driver to use.</p>
+   */
+  Driver?: string;
+
+  /**
+   * <p>A map of Docker driver-specific options that are passed through.</p>
+   */
+  DriverOpts?: { [key: string]: string };
+
+  /**
+   * <p>Custom metadata to add to the Docker volume.</p>
+   */
+  Labels?: { [key: string]: string };
+
+  /**
+   * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a task are provisioned automatically when the task starts and destroyed when the task stops. Docker volumes that are shared persist after the task stops.</p>
+   */
+  Scope?: string;
+}
+
+export namespace AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
+  /**
+   * <p>The Amazon EFS access point identifier to use.</p>
+   */
+  AccessPointId?: string;
+
+  /**
+   * <p>Whether to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.</p>
+   */
+  Iam?: string;
+}
+
+export namespace AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
+ */
+export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
+  /**
+   * <p>The authorization configuration details for the Amazon EFS file system.</p>
+   */
+  AuthorizationConfig?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails;
+
+  /**
+   * <p>The Amazon EFS file system identifier to use.</p>
+   */
+  FilesystemId?: string;
+
+  /**
+   * <p>The directory within the Amazon EFS file system to mount as the root directory inside the host.</p>
+   */
+  RootDirectory?: string;
+
+  /**
+   * <p>Whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. </p>
+   */
+  TransitEncryption?: string;
+
+  /**
+   * <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.</p>
+   */
+  TransitEncryptionPort?: number;
+}
+
+export namespace AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a bind mount host volume.</p>
+ */
+export interface AwsEcsTaskDefinitionVolumesHostDetails {
+  /**
+   * <p>The path on the host container instance that is presented to the container.</p>
+   */
+  SourcePath?: string;
+}
+
+export namespace AwsEcsTaskDefinitionVolumesHostDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesHostDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A data volume to mount from another container.</p>
+ */
+export interface AwsEcsTaskDefinitionVolumesDetails {
+  /**
+   * <p>Information about a Docker volume.</p>
+   */
+  DockerVolumeConfiguration?: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails;
+
+  /**
+   * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
+   */
+  EfsVolumeConfiguration?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails;
+
+  /**
+   * <p>Information about a bind mount host volume.</p>
+   */
+  Host?: AwsEcsTaskDefinitionVolumesHostDetails;
+
+  /**
+   * <p>The name of the data volume.</p>
+   */
+  Name?: string;
+}
+
+export namespace AwsEcsTaskDefinitionVolumesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>details about a task definition. A task definition describes the container and volume definitions of an Amazon Elastic Container Service task.</p>
+ */
+export interface AwsEcsTaskDefinitionDetails {
+  /**
+   * <p>The container definitions that describe the containers that make up the task.</p>
+   */
+  ContainerDefinitions?: AwsEcsTaskDefinitionContainerDefinitionsDetails[];
+
+  /**
+   * <p>The number of CPU units used by the task.</p>
+   */
+  Cpu?: string;
+
+  /**
+   * <p>The ARN of the task execution role that grants the container agent permission to make API calls on behalf of the container user.</p>
+   */
+  ExecutionRoleArn?: string;
+
+  /**
+   * <p>The name of a family that this task definition is registered to.</p>
+   */
+  Family?: string;
+
+  /**
+   * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
+   */
+  InferenceAccelerators?: AwsEcsTaskDefinitionInferenceAcceleratorsDetails[];
+
+  /**
+   * <p>The IPC resource namespace to use for the containers in the task.</p>
+   */
+  IpcMode?: string;
+
+  /**
+   * <p>The amount (in MiB) of memory used by the task.</p>
+   */
+  Memory?: string;
+
+  /**
+   * <p>The Docker networking mode to use for the containers in the task.</p>
+   */
+  NetworkMode?: string;
+
+  /**
+   * <p>The process namespace to use for the containers in the task.</p>
+   */
+  PidMode?: string;
+
+  /**
+   * <p>The placement constraint objects to use for tasks.</p>
+   */
+  PlacementConstraints?: AwsEcsTaskDefinitionPlacementConstraintsDetails[];
+
+  /**
+   * <p>The configuration details for the App Mesh proxy.</p>
+   */
+  ProxyConfiguration?: AwsEcsTaskDefinitionProxyConfigurationDetails;
+
+  /**
+   * <p>The task launch types that the task definition was validated against.</p>
+   */
+  RequiresCompatibilities?: string[];
+
+  /**
+   * <p>The short name or ARN of the IAM role that grants containers in the task permission to call AWS API operations on your behalf.</p>
+   */
+  TaskRoleArn?: string;
+
+  /**
+   * <p>The data volume definitions for the task.</p>
+   */
+  Volumes?: AwsEcsTaskDefinitionVolumesDetails[];
+}
+
+export namespace AwsEcsTaskDefinitionDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Contains information about a link to another environment that is in the same group.</p>
  */
 export interface AwsElasticBeanstalkEnvironmentEnvironmentLink {
@@ -4334,6 +5732,57 @@ export namespace AwsElasticsearchDomainEncryptionAtRestOptions {
 }
 
 /**
+ * <p>The log configuration.</p>
+ */
+export interface AwsElasticsearchDomainLogPublishingOptionsLogConfig {
+  /**
+   * <p>The ARN of the CloudWatch Logs group to publish the logs to.</p>
+   */
+  CloudWatchLogsLogGroupArn?: string;
+
+  /**
+   * <p>Whether the log publishing is enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace AwsElasticsearchDomainLogPublishingOptionsLogConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsElasticsearchDomainLogPublishingOptionsLogConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>configures the CloudWatch Logs to publish for the
+ *          Elasticsearch domain.</p>
+ */
+export interface AwsElasticsearchDomainLogPublishingOptions {
+  /**
+   * <p>Configures the Elasticsearch index logs
+   *          publishing.</p>
+   */
+  IndexSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
+
+  /**
+   * <p>Configures the Elasticsearch search slow log
+   *          publishing.</p>
+   */
+  SearchSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
+}
+
+export namespace AwsElasticsearchDomainLogPublishingOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsElasticsearchDomainLogPublishingOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Details about the configuration for node-to-node encryption.</p>
  */
 export interface AwsElasticsearchDomainNodeToNodeEncryptionOptions {
@@ -4348,6 +5797,56 @@ export namespace AwsElasticsearchDomainNodeToNodeEncryptionOptions {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsElasticsearchDomainNodeToNodeEncryptionOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the state of the domain relative to the latest service software.</p>
+ */
+export interface AwsElasticsearchDomainServiceSoftwareOptions {
+  /**
+   * <p>The epoch time when the deployment window closes for required updates. After this time,
+   *          Amazon Elasticsearch Service schedules the software upgrade automatically.</p>
+   */
+  AutomatedUpdateDate?: string;
+
+  /**
+   * <p>Whether a request to update the domain can be canceled.</p>
+   */
+  Cancellable?: boolean;
+
+  /**
+   * <p>The version of the service software that is currently installed on the domain.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * <p>A more detailed description of the service software status.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The most recent version of the service software.</p>
+   */
+  NewVersion?: string;
+
+  /**
+   * <p>Whether a service software update is available for the domain.</p>
+   */
+  UpdateAvailable?: boolean;
+
+  /**
+   * <p>The status of the service software update.</p>
+   */
+  UpdateStatus?: string;
+}
+
+export namespace AwsElasticsearchDomainServiceSoftwareOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsElasticsearchDomainServiceSoftwareOptions): any => ({
     ...obj,
   });
 }
@@ -4439,9 +5938,19 @@ export interface AwsElasticsearchDomainDetails {
   EncryptionAtRestOptions?: AwsElasticsearchDomainEncryptionAtRestOptions;
 
   /**
+   * <p>Configures the CloudWatch Logs to publish for the Elasticsearch domain.</p>
+   */
+  LogPublishingOptions?: AwsElasticsearchDomainLogPublishingOptions;
+
+  /**
    * <p>Details about the configuration for node-to-node encryption.</p>
    */
   NodeToNodeEncryptionOptions?: AwsElasticsearchDomainNodeToNodeEncryptionOptions;
+
+  /**
+   * <p>Information about the status of a domain relative to the latest service software.</p>
+   */
+  ServiceSoftwareOptions?: AwsElasticsearchDomainServiceSoftwareOptions;
 
   /**
    * <p>Information that Amazon ES derives based on <code>VPCOptions</code> for the
@@ -5829,7 +7338,7 @@ export namespace AwsLambdaFunctionCode {
  */
 export interface AwsLambdaFunctionDeadLetterConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.</p>
+   * <p>The ARN of an Amazon SQS queue or Amazon SNS topic.</p>
    */
   TargetArn?: string;
 }
@@ -5844,7 +7353,7 @@ export namespace AwsLambdaFunctionDeadLetterConfig {
 }
 
 /**
- * <p>Error messages for environment variables that couldn't be applied.</p>
+ * <p>Error messages for environment variables that could not be applied.</p>
  */
 export interface AwsLambdaFunctionEnvironmentError {
   /**
@@ -5896,7 +7405,7 @@ export namespace AwsLambdaFunctionEnvironment {
  */
 export interface AwsLambdaFunctionLayer {
   /**
-   * <p>The Amazon Resource Name (ARN) of the function layer.</p>
+   * <p>The ARN of the function layer.</p>
    */
   Arn?: string;
 
@@ -5935,7 +7444,7 @@ export namespace AwsLambdaFunctionTracingConfig {
 }
 
 /**
- * <p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see VPC Settings.</p>
+ * <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
  */
 export interface AwsLambdaFunctionVpcConfig {
   /**
@@ -6021,7 +7530,7 @@ export interface AwsLambdaFunctionDetails {
   MasterArn?: string;
 
   /**
-   * <p>The memory that's allocated to the function.</p>
+   * <p>The memory that is allocated to the function.</p>
    */
   MemorySize?: number;
 
@@ -6585,7 +8094,7 @@ export namespace AwsRdsDbClusterSnapshotDetails {
  */
 export interface AwsRdsDbInstanceAssociatedRole {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that is associated with the DB
+   * <p>The ARN of the IAM role that is associated with the DB
    *          instance.</p>
    */
   RoleArn?: string;
@@ -8298,6 +9807,318 @@ export namespace AwsS3AccountPublicAccessBlockDetails {
 }
 
 /**
+ * <p>Information about what Amazon S3
+ *          does when a multipart upload is incomplete.</p>
+ */
+export interface AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails {
+  /**
+   * <p>The number of days after which Amazon S3 cancels an incomplete multipart upload.</p>
+   */
+  DaysAfterInitiation?: number;
+}
+
+export namespace AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A tag that is assigned to matching objects.</p>
+ */
+export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails {
+  /**
+   * <p>The tag key.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The tag value.</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A value to use for the filter.</p>
+ */
+export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails {
+  /**
+   * <p>Prefix text for matching objects.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>A tag that is assigned to matching objects.</p>
+   */
+  Tag?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails;
+
+  /**
+   * <p>The type of filter value.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A tag filter.</p>
+ */
+export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails {
+  /**
+   * <p>The tag key.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The tag value</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration for the filter.</p>
+ */
+export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails {
+  /**
+   * <p>The values to use for the filter.</p>
+   */
+  Operands?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails[];
+
+  /**
+   * <p>A prefix filter.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>A tag filter.</p>
+   */
+  Tag?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails;
+
+  /**
+   * <p>Whether to use <code>AND</code> or <code>OR</code> to join the operands.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Identifies the objects that a rule applies to.</p>
+ */
+export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails {
+  /**
+   * <p>The configuration for the filter.</p>
+   */
+  Predicate?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails;
+}
+
+export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A transition rule that describes when noncurrent objects transition to a specified storage class.</p>
+ */
+export interface AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails {
+  /**
+   * <p>The number of days that an object is noncurrent before Amazon S3 can perform the associated action.</p>
+   */
+  Days?: number;
+
+  /**
+   * <p>The class of storage to change the object to after the object is noncurrent for the specified number of days.</p>
+   */
+  StorageClass?: string;
+}
+
+export namespace AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A rule for when objects transition to specific storage classes.</p>
+ */
+export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails {
+  /**
+   * <p>A date on which to transition objects to the specified storage class. If you provide <code>Date</code>, you cannot provide <code>Days</code>.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  Date?: string;
+
+  /**
+   * <p>The number of days after which to transition the object to the specified storage class. If you provide <code>Days</code>, you cannot provide <code>Date</code>.</p>
+   */
+  Days?: number;
+
+  /**
+   * <p>The storage class to transition the object to.</p>
+   */
+  StorageClass?: string;
+}
+
+export namespace AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration for a lifecycle rule.</p>
+ */
+export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
+  /**
+   * <p>How Amazon S3 responds when a multipart upload is incomplete. Specifically, provides a number
+   *          of days before Amazon S3 cancels the entire upload.</p>
+   */
+  AbortIncompleteMultipartUpload?: AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails;
+
+  /**
+   * <p>The date when objects are moved or deleted.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  ExpirationDate?: string;
+
+  /**
+   * <p>The length in days of the lifetime for objects that are subject to the rule.</p>
+   */
+  ExpirationInDays?: number;
+
+  /**
+   * <p>Whether Amazon S3 removes a delete marker that has no noncurrent versions. If set to
+   *          <code>true</code>, the delete marker is expired. If set to <code>false</code>, the policy
+   *          takes no action.</p>
+   *          <p>If you provide <code>ExpiredObjectDeleteMarker</code>, you cannot provide
+   *          <code>ExpirationInDays</code> or <code>ExpirationDate</code>.</p>
+   */
+  ExpiredObjectDeleteMarker?: boolean;
+
+  /**
+   * <p>Identifies the objects that a rule applies to.</p>
+   */
+  Filter?: AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails;
+
+  /**
+   * <p>The unique identifier of the rule.</p>
+   */
+  ID?: string;
+
+  /**
+   * <p>The number of days that an object is noncurrent before Amazon S3 can perform the associated action.</p>
+   */
+  NoncurrentVersionExpirationInDays?: number;
+
+  /**
+   * <p>Transition rules that describe when noncurrent objects transition to a specified storage class.</p>
+   */
+  NoncurrentVersionTransitions?: AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails[];
+
+  /**
+   * <p>A prefix that identifies one or more objects that the rule applies to.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>The current status of the rule. Indicates whether the rule is currently being applied.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>Transition rules that indicate when objects transition to a specified storage class.</p>
+   */
+  Transitions?: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails[];
+}
+
+export namespace AwsS3BucketBucketLifecycleConfigurationRulesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationRulesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The lifecycle configuration for the objects in the S3 bucket.</p>
+ */
+export interface AwsS3BucketBucketLifecycleConfigurationDetails {
+  /**
+   * <p>The lifecycle rules.</p>
+   */
+  Rules?: AwsS3BucketBucketLifecycleConfigurationRulesDetails[];
+}
+
+export namespace AwsS3BucketBucketLifecycleConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies the default server-side encryption to apply to new objects in the
  *          bucket.</p>
  */
@@ -8388,6 +10209,11 @@ export interface AwsS3BucketDetails {
    * <p>The encryption rules that are applied to the S3 bucket.</p>
    */
   ServerSideEncryptionConfiguration?: AwsS3BucketServerSideEncryptionConfiguration;
+
+  /**
+   * <p>The lifecycle configuration for objects in the S3 bucket.</p>
+   */
+  BucketLifecycleConfiguration?: AwsS3BucketBucketLifecycleConfigurationDetails;
 
   /**
    * <p>Provides information about the Amazon S3 Public Access Block configuration for the S3 bucket.</p>
@@ -9580,7 +11406,7 @@ export namespace AwsSnsTopicSubscription {
 }
 
 /**
- * <p>A wrapper type for the topic's Amazon Resource Name (ARN).</p>
+ * <p>A wrapper type for the topic's ARN.</p>
  */
 export interface AwsSnsTopicDetails {
   /**
@@ -9635,7 +11461,7 @@ export interface AwsSqsQueueDetails {
   QueueName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the dead-letter queue to which Amazon SQS moves
+   * <p>The ARN of the dead-letter queue to which Amazon SQS moves
    *          messages after the value of <code>maxReceiveCount</code> is exceeded. </p>
    */
   DeadLetterTargetArn?: string;
@@ -10071,7 +11897,7 @@ export interface ResourceDetails {
   AwsCloudFrontDistribution?: AwsCloudFrontDistributionDetails;
 
   /**
-   * <p>Details about an Amazon EC2 instance related to a finding.</p>
+   * <p>Details about an EC2 instance related to a finding.</p>
    */
   AwsEc2Instance?: AwsEc2InstanceDetails;
 
@@ -10271,6 +12097,16 @@ export interface ResourceDetails {
   AwsRdsDbCluster?: AwsRdsDbClusterDetails;
 
   /**
+   * <p>Details about an ECS cluster.</p>
+   */
+  AwsEcsCluster?: AwsEcsClusterDetails;
+
+  /**
+   * <p>Details about a task definition. A task definition describes the container and volume definitions of an Amazon Elastic Container Service task.</p>
+   */
+  AwsEcsTaskDefinition?: AwsEcsTaskDefinitionDetails;
+
+  /**
    * <p>Details about a container resource related to a finding.</p>
    */
   Container?: ContainerDetails;
@@ -10364,2277 +12200,6 @@ export namespace Resource {
    * @internal
    */
   export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The severity of the finding.</p>
- *          <p>The finding provider can provide the initial severity. The finding provider can only
- *          update the severity if it has not been updated using
- *          <code>BatchUpdateFindings</code>.</p>
- *          <p>The finding must have either <code>Label</code> or <code>Normalized</code> populated. If
- *          only one of these attributes is populated, then Security Hub automatically populates the other
- *          one. If neither attribute is populated, then the finding is invalid. <code>Label</code> is
- *          the preferred attribute.</p>
- */
-export interface Severity {
-  /**
-   * <p>Deprecated. This attribute is being deprecated. Instead of providing
-   *             <code>Product</code>, provide <code>Original</code>.</p>
-   *          <p>The native severity as defined by the AWS service or integrated partner product that
-   *          generated the finding.</p>
-   */
-  Product?: number;
-
-  /**
-   * <p>The severity value of the finding. The allowed values are the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INFORMATIONAL</code> - No issue was found.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LOW</code> - The issue does not require action on its own.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIUM</code> - The issue must be addressed but not urgently.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIGH</code> - The issue must be addressed as a priority.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CRITICAL</code> - The issue must be remediated immediately to avoid it
-   *                escalating.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you provide <code>Normalized</code> and do not provide <code>Label</code>, then
-   *             <code>Label</code> is set automatically as follows. </p>
-   *          <ul>
-   *             <li>
-   *                <p>0 - <code>INFORMATIONAL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>1–39 - <code>LOW</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>40–69 - <code>MEDIUM</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>70–89 - <code>HIGH</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>90–100 - <code>CRITICAL</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Label?: SeverityLabel | string;
-
-  /**
-   * <p>Deprecated. The normalized severity of a finding. This attribute is being deprecated.
-   *          Instead of providing <code>Normalized</code>, provide <code>Label</code>.</p>
-   *          <p>If you provide <code>Label</code> and do not provide <code>Normalized</code>, then
-   *             <code>Normalized</code> is set automatically as follows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INFORMATIONAL</code> - 0</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LOW</code> - 1</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIUM</code> - 40</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIGH</code> - 70</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CRITICAL</code> - 90</p>
-   *             </li>
-   *          </ul>
-   */
-  Normalized?: number;
-
-  /**
-   * <p>The native severity from the finding product that generated the finding.</p>
-   */
-  Original?: string;
-}
-
-export namespace Severity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Severity): any => ({
-    ...obj,
-  });
-}
-
-export enum ThreatIntelIndicatorCategory {
-  BACKDOOR = "BACKDOOR",
-  CARD_STEALER = "CARD_STEALER",
-  COMMAND_AND_CONTROL = "COMMAND_AND_CONTROL",
-  DROP_SITE = "DROP_SITE",
-  EXPLOIT_SITE = "EXPLOIT_SITE",
-  KEYLOGGER = "KEYLOGGER",
-}
-
-export enum ThreatIntelIndicatorType {
-  DOMAIN = "DOMAIN",
-  EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  HASH_MD5 = "HASH_MD5",
-  HASH_SHA1 = "HASH_SHA1",
-  HASH_SHA256 = "HASH_SHA256",
-  HASH_SHA512 = "HASH_SHA512",
-  IPV4_ADDRESS = "IPV4_ADDRESS",
-  IPV6_ADDRESS = "IPV6_ADDRESS",
-  MUTEX = "MUTEX",
-  PROCESS = "PROCESS",
-  URL = "URL",
-}
-
-/**
- * <p>Details about the threat intelligence related to a finding.</p>
- */
-export interface ThreatIntelIndicator {
-  /**
-   * <p>The type of threat intelligence indicator.</p>
-   */
-  Type?: ThreatIntelIndicatorType | string;
-
-  /**
-   * <p>The value of a threat intelligence indicator.</p>
-   */
-  Value?: string;
-
-  /**
-   * <p>The category of a threat intelligence indicator.</p>
-   */
-  Category?: ThreatIntelIndicatorCategory | string;
-
-  /**
-   * <p>Indicates when the most recent instance of a threat intelligence indicator was
-   *          observed.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  LastObservedAt?: string;
-
-  /**
-   * <p>The source of the threat intelligence indicator.</p>
-   */
-  Source?: string;
-
-  /**
-   * <p>The URL to the page or site where you can get more information about the threat
-   *          intelligence indicator.</p>
-   */
-  SourceUrl?: string;
-}
-
-export namespace ThreatIntelIndicator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThreatIntelIndicator): any => ({
-    ...obj,
-  });
-}
-
-export enum VerificationState {
-  BENIGN_POSITIVE = "BENIGN_POSITIVE",
-  FALSE_POSITIVE = "FALSE_POSITIVE",
-  TRUE_POSITIVE = "TRUE_POSITIVE",
-  UNKNOWN = "UNKNOWN",
-}
-
-/**
- * <p>CVSS scores from the advisory related to the vulnerability.</p>
- */
-export interface Cvss {
-  /**
-   * <p>The version of CVSS for the CVSS score.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>The base CVSS score.</p>
-   */
-  BaseScore?: number;
-
-  /**
-   * <p>The base scoring vector for the CVSS score.</p>
-   */
-  BaseVector?: string;
-}
-
-export namespace Cvss {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cvss): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A vendor that generates a vulnerability report.</p>
- */
-export interface VulnerabilityVendor {
-  /**
-   * <p>The name of the vendor.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The URL of the vulnerability advisory.</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The severity that the vendor assigned to the vulnerability.</p>
-   */
-  VendorSeverity?: string;
-
-  /**
-   * <p>Indicates when the vulnerability advisory was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  VendorCreatedAt?: string;
-
-  /**
-   * <p>Indicates when the vulnerability advisory was last updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  VendorUpdatedAt?: string;
-}
-
-export namespace VulnerabilityVendor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VulnerabilityVendor): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a software package.</p>
- */
-export interface SoftwarePackage {
-  /**
-   * <p>The name of the software package.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The version of the software package.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>The epoch of the software package.</p>
-   */
-  Epoch?: string;
-
-  /**
-   * <p>The release of the software package.</p>
-   */
-  Release?: string;
-
-  /**
-   * <p>The architecture used for the software package.</p>
-   */
-  Architecture?: string;
-}
-
-export namespace SoftwarePackage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SoftwarePackage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A vulnerability associated with a finding.</p>
- */
-export interface Vulnerability {
-  /**
-   * <p>The identifier of the vulnerability.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>List of software packages that have the vulnerability.</p>
-   */
-  VulnerablePackages?: SoftwarePackage[];
-
-  /**
-   * <p>CVSS scores from the advisory related to the vulnerability.</p>
-   */
-  Cvss?: Cvss[];
-
-  /**
-   * <p>List of vulnerabilities that are related to this vulnerability.</p>
-   */
-  RelatedVulnerabilities?: string[];
-
-  /**
-   * <p>Information about the vendor that generates the vulnerability report.</p>
-   */
-  Vendor?: VulnerabilityVendor;
-
-  /**
-   * <p>A list of URLs that provide additional information about the vulnerability.</p>
-   */
-  ReferenceUrls?: string[];
-}
-
-export namespace Vulnerability {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Vulnerability): any => ({
-    ...obj,
-  });
-}
-
-export enum WorkflowStatus {
-  NEW = "NEW",
-  NOTIFIED = "NOTIFIED",
-  RESOLVED = "RESOLVED",
-  SUPPRESSED = "SUPPRESSED",
-}
-
-/**
- * <p>Provides information about the status of the investigation into a finding.</p>
- */
-export interface Workflow {
-  /**
-   * <p>The status of the investigation into the finding. The allowed values are the
-   *          following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NEW</code> - The initial state of a finding, before it is reviewed.</p>
-   *                <p>Security Hub also resets the workflow status from <code>NOTIFIED</code> or
-   *                   <code>RESOLVED</code> to <code>NEW</code> in the following cases:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>RecordState</code> changes from <code>ARCHIVED</code> to
-   *                         <code>ACTIVE</code>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>ComplianceStatus</code> changes from <code>PASSED</code> to either
-   *                         <code>WARNING</code>, <code>FAILED</code>, or
-   *                      <code>NOT_AVAILABLE</code>.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOTIFIED</code> - Indicates that you notified the resource owner about the
-   *                security issue. Used when the initial reviewer is not the resource owner, and needs
-   *                intervention from the resource owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUPPRESSED</code> - The finding will not be reviewed again and will not be
-   *                acted upon.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESOLVED</code> - The finding was reviewed and remediated and is now
-   *                considered resolved. </p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: WorkflowStatus | string;
-}
-
-export namespace Workflow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Workflow): any => ({
-    ...obj,
-  });
-}
-
-export enum WorkflowState {
-  ASSIGNED = "ASSIGNED",
-  DEFERRED = "DEFERRED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NEW = "NEW",
-  RESOLVED = "RESOLVED",
-}
-
-/**
- * <p>Provides consistent format for the contents of the Security Hub-aggregated findings.
- *             <code>AwsSecurityFinding</code> format enables you to share findings between AWS
- *          security services and third-party solutions, and security standards checks.</p>
- *          <note>
- *             <p>A finding is a potential security issue generated either by AWS services (Amazon
- *             GuardDuty, Amazon Inspector, and Amazon Macie) or by the integrated third-party
- *             solutions and standards checks.</p>
- *          </note>
- */
-export interface AwsSecurityFinding {
-  /**
-   * <p>The schema version that a finding is formatted for.</p>
-   */
-  SchemaVersion: string | undefined;
-
-  /**
-   * <p>The security findings provider-specific identifier for a finding.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The ARN generated by Security Hub that uniquely identifies a product that generates findings.
-   *          This can be the ARN for a third-party product that is integrated with Security Hub, or the ARN for
-   *          a custom integration.</p>
-   */
-  ProductArn: string | undefined;
-
-  /**
-   * <p>The identifier for the solution-specific component (a discrete unit of logic) that
-   *          generated a finding. In various security-findings providers' solutions, this generator can
-   *          be called a rule, a check, a detector, a plugin, etc. </p>
-   */
-  GeneratorId: string | undefined;
-
-  /**
-   * <p>The AWS account ID that a finding is generated in.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>One or more finding types in the format of <code>namespace/category/classifier</code>
-   *          that classify a finding.</p>
-   *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
-   *          Behaviors | Sensitive Data Identifications</p>
-   */
-  Types?: string[];
-
-  /**
-   * <p>Indicates when the security-findings provider first observed the potential security
-   *          issue that a finding captured.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  FirstObservedAt?: string;
-
-  /**
-   * <p>Indicates when the security-findings provider most recently observed the potential
-   *          security issue that a finding captured.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  LastObservedAt?: string;
-
-  /**
-   * <p>Indicates when the security-findings provider created the potential security issue that
-   *          a finding captured.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreatedAt: string | undefined;
-
-  /**
-   * <p>Indicates when the security-findings provider last updated the finding record.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  UpdatedAt: string | undefined;
-
-  /**
-   * <p>A finding's severity.</p>
-   */
-  Severity?: Severity;
-
-  /**
-   * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
-   *          accurately identifies the behavior or issue that it was intended to identify.</p>
-   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
-   *          confidence and 100 means 100 percent confidence.</p>
-   */
-  Confidence?: number;
-
-  /**
-   * <p>The level of importance assigned to the resources associated with the finding.</p>
-   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
-   *          is reserved for the most critical resources.</p>
-   */
-  Criticality?: number;
-
-  /**
-   * <p>A finding's title.</p>
-   *          <note>
-   *             <p>In this release, <code>Title</code> is a required property.</p>
-   *          </note>
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>A finding's description.</p>
-   *          <note>
-   *             <p>In this release, <code>Description</code> is a required property.</p>
-   *          </note>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>A data type that describes the remediation options for a finding.</p>
-   */
-  Remediation?: Remediation;
-
-  /**
-   * <p>A URL that links to a page about the current finding in the security-findings provider's
-   *          solution.</p>
-   */
-  SourceUrl?: string;
-
-  /**
-   * <p>A data type where security-findings providers can include additional solution-specific
-   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
-   */
-  ProductFields?: { [key: string]: string };
-
-  /**
-   * <p>A list of name/value string pairs associated with the finding. These are custom,
-   *          user-defined fields added to a finding. </p>
-   */
-  UserDefinedFields?: { [key: string]: string };
-
-  /**
-   * <p>A list of malware related to a finding.</p>
-   */
-  Malware?: Malware[];
-
-  /**
-   * <p>The details of network-related information about a finding.</p>
-   */
-  Network?: Network;
-
-  /**
-   * <p>Provides information about a network path that is relevant to a finding. Each entry
-   *          under <code>NetworkPath</code> represents a component of that path.</p>
-   */
-  NetworkPath?: NetworkPathComponent[];
-
-  /**
-   * <p>The details of process-related information about a finding.</p>
-   */
-  Process?: ProcessDetails;
-
-  /**
-   * <p>Threat intelligence details related to a finding.</p>
-   */
-  ThreatIntelIndicators?: ThreatIntelIndicator[];
-
-  /**
-   * <p>A set of resource data types that describe the resources that the finding refers
-   *          to.</p>
-   */
-  Resources: Resource[] | undefined;
-
-  /**
-   * <p>This data type is exclusive to findings that are generated as the result of a check run
-   *          against a specific rule in a supported security standard, such as CIS AWS Foundations.
-   *          Contains security standard-related finding details.</p>
-   */
-  Compliance?: Compliance;
-
-  /**
-   * <p>Indicates the veracity of a finding. </p>
-   */
-  VerificationState?: VerificationState | string;
-
-  /**
-   * @deprecated
-   *
-   * <p>The workflow state of a finding. </p>
-   */
-  WorkflowState?: WorkflowState | string;
-
-  /**
-   * <p>Provides information about the status of the investigation into a finding.</p>
-   */
-  Workflow?: Workflow;
-
-  /**
-   * <p>The record state of a finding.</p>
-   */
-  RecordState?: RecordState | string;
-
-  /**
-   * <p>A list of related findings.</p>
-   */
-  RelatedFindings?: RelatedFinding[];
-
-  /**
-   * <p>A user-defined note added to a finding.</p>
-   */
-  Note?: Note;
-
-  /**
-   * <p>Provides a list of vulnerabilities associated with the findings.</p>
-   */
-  Vulnerabilities?: Vulnerability[];
-
-  /**
-   * <p>Provides an overview of the patch compliance status for an instance against a selected
-   *          compliance standard.</p>
-   */
-  PatchSummary?: PatchSummary;
-
-  /**
-   * <p>Provides details about an action that affects or that was taken on a resource.</p>
-   */
-  Action?: Action;
-
-  /**
-   * <p>In a <code>BatchImportFindings</code> request, finding providers use <code>FindingProviderFields</code> to provide and update their own values for confidence, criticality, related findings, severity, and types.</p>
-   */
-  FindingProviderFields?: FindingProviderFields;
-}
-
-export namespace AwsSecurityFinding {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSecurityFinding): any => ({
-    ...obj,
-  });
-}
-
-export enum StringFilterComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-  PREFIX = "PREFIX",
-  PREFIX_NOT_EQUALS = "PREFIX_NOT_EQUALS",
-}
-
-/**
- * <p>A string filter for querying findings.</p>
- */
-export interface StringFilter {
-  /**
-   * <p>The string filter value. Filter values are case sensitive. For example, the product name
-   *          for control-based findings is <code>Security Hub</code>. If you provide <code>security hub</code>
-   *          as the filter text, then there is no match.</p>
-   */
-  Value?: string;
-
-  /**
-   * <p>The condition to apply to a string value when querying for findings. To search for
-   *          values that contain the filter criteria value, use one of the following comparison
-   *          operators:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To search for values that exactly match the filter value, use
-   *                <code>EQUALS</code>.</p>
-   *                <p>For example, the filter <code>ResourceType EQUALS AwsEc2SecurityGroup</code> only
-   *                matches findings that have a resource type of
-   *                <code>AwsEc2SecurityGroup</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To search for values that start with the filter value, use
-   *                <code>PREFIX</code>.</p>
-   *                <p>For example, the filter <code>ResourceType PREFIX AwsIam</code> matches findings
-   *                that have a resource type that starts with <code>AwsIam</code>. Findings with a
-   *                resource type of <code>AwsIamPolicy</code>, <code>AwsIamRole</code>, or
-   *                   <code>AwsIamUser</code> would all match.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>EQUALS</code> and <code>PREFIX</code> filters on the same field are joined by
-   *             <code>OR</code>. A finding matches if it matches any one of those filters.</p>
-   *          <p>To search for values that do not contain the filter criteria value, use one of the
-   *          following comparison operators:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To search for values that do not exactly match the filter value, use
-   *                   <code>NOT_EQUALS</code>.</p>
-   *                <p>For example, the filter <code>ResourceType NOT_EQUALS AwsIamPolicy</code> matches
-   *                findings that have a resource type other than <code>AwsIamPolicy</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To search for values that do not start with the filter value, use
-   *                   <code>PREFIX_NOT_EQUALS</code>.</p>
-   *                <p>For example, the filter <code>ResourceType PREFIX_NOT_EQUALS AwsIam</code> matches
-   *                findings that have a resource type that does not start with <code>AwsIam</code>.
-   *                Findings with a resource type of <code>AwsIamPolicy</code>, <code>AwsIamRole</code>,
-   *                or <code>AwsIamUser</code> would all be excluded from the results.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>NOT_EQUALS</code> and <code>PREFIX_NOT_EQUALS</code> filters on the same field are
-   *          joined by <code>AND</code>. A finding matches only if it matches all of those
-   *          filters.</p>
-   *          <p>For filters on the same field, you cannot provide both an <code>EQUALS</code> filter and
-   *          a <code>NOT_EQUALS</code> or <code>PREFIX_NOT_EQUALS</code> filter. Combining filters in
-   *          this way always returns an error, even if the provided filter values would return valid
-   *          results.</p>
-   *          <p>You can combine <code>PREFIX</code> filters with <code>NOT_EQUALS</code> or
-   *             <code>PREFIX_NOT_EQUALS</code> filters for the same field. Security Hub first processes the
-   *             <code>PREFIX</code> filters, then the <code>NOT_EQUALS</code> or
-   *             <code>PREFIX_NOT_EQUALS</code> filters.</p>
-   *          <p> For example, for the following filter, Security Hub first identifies findings that have
-   *          resource types that start with either <code>AwsIAM</code> or <code>AwsEc2</code>. It then
-   *          excludes findings that have a resource type of <code>AwsIamPolicy</code> and findings that
-   *          have a resource type of <code>AwsEc2NetworkInterface</code>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType PREFIX AwsIam</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType PREFIX AwsEc2</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType NOT_EQUALS AwsIamPolicy</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType NOT_EQUALS AwsEc2NetworkInterface</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Comparison?: StringFilterComparison | string;
-}
-
-export namespace StringFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StringFilter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A number filter for querying findings.</p>
- */
-export interface NumberFilter {
-  /**
-   * <p>The greater-than-equal condition to be applied to a single field when querying for
-   *          findings. </p>
-   */
-  Gte?: number;
-
-  /**
-   * <p>The less-than-equal condition to be applied to a single field when querying for
-   *          findings. </p>
-   */
-  Lte?: number;
-
-  /**
-   * <p>The equal-to condition to be applied to a single field when querying for
-   *          findings.</p>
-   */
-  Eq?: number;
-}
-
-export namespace NumberFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NumberFilter): any => ({
-    ...obj,
-  });
-}
-
-export enum DateRangeUnit {
-  DAYS = "DAYS",
-}
-
-/**
- * <p>A date range for the date filter.</p>
- */
-export interface DateRange {
-  /**
-   * <p>A date range value for the date filter.</p>
-   */
-  Value?: number;
-
-  /**
-   * <p>A date range unit for the date filter.</p>
-   */
-  Unit?: DateRangeUnit | string;
-}
-
-export namespace DateRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DateRange): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A date filter for querying findings.</p>
- */
-export interface DateFilter {
-  /**
-   * <p>A start date for the date filter.</p>
-   */
-  Start?: string;
-
-  /**
-   * <p>An end date for the date filter.</p>
-   */
-  End?: string;
-
-  /**
-   * <p>A date range for the date filter.</p>
-   */
-  DateRange?: DateRange;
-}
-
-export namespace DateFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DateFilter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A keyword filter for querying findings.</p>
- */
-export interface KeywordFilter {
-  /**
-   * <p>A value for the keyword.</p>
-   */
-  Value?: string;
-}
-
-export namespace KeywordFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeywordFilter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The IP filter for querying findings.</p>
- */
-export interface IpFilter {
-  /**
-   * <p>A finding's CIDR value.</p>
-   */
-  Cidr?: string;
-}
-
-export namespace IpFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpFilter): any => ({
-    ...obj,
-  });
-}
-
-export enum MapFilterComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-}
-
-/**
- * <p>A map filter for querying findings. Each map filter provides the field to check, the
- *          value to look for, and the comparison operator.</p>
- */
-export interface MapFilter {
-  /**
-   * <p>The key of the map filter. For example, for <code>ResourceTags</code>, <code>Key</code>
-   *          identifies the name of the tag. For <code>UserDefinedFields</code>, <code>Key</code> is the
-   *          name of the field.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The value for the key in the map filter. Filter values are case sensitive. For example,
-   *          one of the values for a tag called <code>Department</code> might be <code>Security</code>.
-   *          If you provide <code>security</code> as the filter value, then there is no match.</p>
-   */
-  Value?: string;
-
-  /**
-   * <p>The condition to apply to the key value when querying for findings with a map
-   *          filter.</p>
-   *          <p>To search for values that exactly match the filter value, use <code>EQUALS</code>. For
-   *          example, for the <code>ResourceTags</code> field, the filter <code>Department EQUALS
-   *             Security</code> matches findings that have the value <code>Security</code> for the tag
-   *             <code>Department</code>.</p>
-   *          <p>To search for values other than the filter value, use <code>NOT_EQUALS</code>. For
-   *          example, for the <code>ResourceTags</code> field, the filter <code>Department NOT_EQUALS
-   *             Finance</code> matches findings that do not have the value <code>Finance</code> for the
-   *          tag <code>Department</code>.</p>
-   *          <p>
-   *             <code>EQUALS</code> filters on the same field are joined by <code>OR</code>. A finding
-   *          matches if it matches any one of those filters.</p>
-   *          <p>
-   *             <code>NOT_EQUALS</code> filters on the same field are joined by <code>AND</code>. A
-   *          finding matches only if it matches all of those filters.</p>
-   *          <p>You cannot have both an <code>EQUALS</code> filter and a <code>NOT_EQUALS</code> filter
-   *          on the same field.</p>
-   */
-  Comparison?: MapFilterComparison | string;
-}
-
-export namespace MapFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MapFilter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A collection of attributes that are applied to all active Security Hub-aggregated findings and
- *          that result in a subset of findings that are included in this insight.</p>
- *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
- *          20 filter values.</p>
- */
-export interface AwsSecurityFindingFilters {
-  /**
-   * <p>The ARN generated by Security Hub that uniquely identifies a third-party company
-   *          (security findings provider) after this provider's product (solution that generates
-   *          findings) is registered with Security Hub.</p>
-   */
-  ProductArn?: StringFilter[];
-
-  /**
-   * <p>The AWS account ID that a finding is generated in.</p>
-   */
-  AwsAccountId?: StringFilter[];
-
-  /**
-   * <p>The security findings provider-specific identifier for a finding.</p>
-   */
-  Id?: StringFilter[];
-
-  /**
-   * <p>The identifier for the solution-specific component (a discrete unit of logic) that
-   *          generated a finding. In various security-findings providers' solutions, this generator can
-   *          be called a rule, a check, a detector, a plugin, etc.</p>
-   */
-  GeneratorId?: StringFilter[];
-
-  /**
-   * <p>A finding type in the format of <code>namespace/category/classifier</code> that
-   *          classifies a finding.</p>
-   */
-  Type?: StringFilter[];
-
-  /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider first
-   *          observed the potential security issue that a finding captured.</p>
-   */
-  FirstObservedAt?: DateFilter[];
-
-  /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider most
-   *          recently observed the potential security issue that a finding captured.</p>
-   */
-  LastObservedAt?: DateFilter[];
-
-  /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider
-   *          captured the potential security issue that a finding captured.</p>
-   */
-  CreatedAt?: DateFilter[];
-
-  /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider last
-   *          updated the finding record. </p>
-   */
-  UpdatedAt?: DateFilter[];
-
-  /**
-   * @deprecated
-   *
-   * <p>The native severity as defined by the security-findings provider's solution that
-   *          generated the finding.</p>
-   */
-  SeverityProduct?: NumberFilter[];
-
-  /**
-   * @deprecated
-   *
-   * <p>The normalized severity of a finding.</p>
-   */
-  SeverityNormalized?: NumberFilter[];
-
-  /**
-   * <p>The label of a finding's severity.</p>
-   */
-  SeverityLabel?: StringFilter[];
-
-  /**
-   * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
-   *          accurately identifies the behavior or issue that it was intended to identify.</p>
-   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
-   *          confidence and 100 means 100 percent confidence.</p>
-   */
-  Confidence?: NumberFilter[];
-
-  /**
-   * <p>The level of importance assigned to the resources associated with the finding.</p>
-   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
-   *          is reserved for the most critical resources.</p>
-   */
-  Criticality?: NumberFilter[];
-
-  /**
-   * <p>A finding's title.</p>
-   */
-  Title?: StringFilter[];
-
-  /**
-   * <p>A finding's description.</p>
-   */
-  Description?: StringFilter[];
-
-  /**
-   * <p>The recommendation of what to do about the issue described in a finding.</p>
-   */
-  RecommendationText?: StringFilter[];
-
-  /**
-   * <p>A URL that links to a page about the current finding in the security-findings provider's
-   *          solution.</p>
-   */
-  SourceUrl?: StringFilter[];
-
-  /**
-   * <p>A data type where security-findings providers can include additional solution-specific
-   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
-   */
-  ProductFields?: MapFilter[];
-
-  /**
-   * <p>The name of the solution (product) that generates findings.</p>
-   */
-  ProductName?: StringFilter[];
-
-  /**
-   * <p>The name of the findings provider (company) that owns the solution (product) that
-   *          generates findings.</p>
-   */
-  CompanyName?: StringFilter[];
-
-  /**
-   * <p>A list of name/value string pairs associated with the finding. These are custom,
-   *          user-defined fields added to a finding. </p>
-   */
-  UserDefinedFields?: MapFilter[];
-
-  /**
-   * <p>The name of the malware that was observed.</p>
-   */
-  MalwareName?: StringFilter[];
-
-  /**
-   * <p>The type of the malware that was observed.</p>
-   */
-  MalwareType?: StringFilter[];
-
-  /**
-   * <p>The filesystem path of the malware that was observed.</p>
-   */
-  MalwarePath?: StringFilter[];
-
-  /**
-   * <p>The state of the malware that was observed.</p>
-   */
-  MalwareState?: StringFilter[];
-
-  /**
-   * <p>Indicates the direction of network traffic associated with a finding.</p>
-   */
-  NetworkDirection?: StringFilter[];
-
-  /**
-   * <p>The protocol of network-related information about a finding.</p>
-   */
-  NetworkProtocol?: StringFilter[];
-
-  /**
-   * <p>The source IPv4 address of network-related information about a finding.</p>
-   */
-  NetworkSourceIpV4?: IpFilter[];
-
-  /**
-   * <p>The source IPv6 address of network-related information about a finding.</p>
-   */
-  NetworkSourceIpV6?: IpFilter[];
-
-  /**
-   * <p>The source port of network-related information about a finding.</p>
-   */
-  NetworkSourcePort?: NumberFilter[];
-
-  /**
-   * <p>The source domain of network-related information about a finding.</p>
-   */
-  NetworkSourceDomain?: StringFilter[];
-
-  /**
-   * <p>The source media access control (MAC) address of network-related information about a
-   *          finding.</p>
-   */
-  NetworkSourceMac?: StringFilter[];
-
-  /**
-   * <p>The destination IPv4 address of network-related information about a finding.</p>
-   */
-  NetworkDestinationIpV4?: IpFilter[];
-
-  /**
-   * <p>The destination IPv6 address of network-related information about a finding.</p>
-   */
-  NetworkDestinationIpV6?: IpFilter[];
-
-  /**
-   * <p>The destination port of network-related information about a finding.</p>
-   */
-  NetworkDestinationPort?: NumberFilter[];
-
-  /**
-   * <p>The destination domain of network-related information about a finding.</p>
-   */
-  NetworkDestinationDomain?: StringFilter[];
-
-  /**
-   * <p>The name of the process.</p>
-   */
-  ProcessName?: StringFilter[];
-
-  /**
-   * <p>The path to the process executable.</p>
-   */
-  ProcessPath?: StringFilter[];
-
-  /**
-   * <p>The process ID.</p>
-   */
-  ProcessPid?: NumberFilter[];
-
-  /**
-   * <p>The parent process ID.</p>
-   */
-  ProcessParentPid?: NumberFilter[];
-
-  /**
-   * <p>The date/time that the process was launched.</p>
-   */
-  ProcessLaunchedAt?: DateFilter[];
-
-  /**
-   * <p>The date/time that the process was terminated.</p>
-   */
-  ProcessTerminatedAt?: DateFilter[];
-
-  /**
-   * <p>The type of a threat intelligence indicator.</p>
-   */
-  ThreatIntelIndicatorType?: StringFilter[];
-
-  /**
-   * <p>The value of a threat intelligence indicator.</p>
-   */
-  ThreatIntelIndicatorValue?: StringFilter[];
-
-  /**
-   * <p>The category of a threat intelligence indicator.</p>
-   */
-  ThreatIntelIndicatorCategory?: StringFilter[];
-
-  /**
-   * <p>The date/time of the last observation of a threat intelligence indicator.</p>
-   */
-  ThreatIntelIndicatorLastObservedAt?: DateFilter[];
-
-  /**
-   * <p>The source of the threat intelligence.</p>
-   */
-  ThreatIntelIndicatorSource?: StringFilter[];
-
-  /**
-   * <p>The URL for more details from the source of the threat intelligence.</p>
-   */
-  ThreatIntelIndicatorSourceUrl?: StringFilter[];
-
-  /**
-   * <p>Specifies the type of the resource that details are provided for.</p>
-   */
-  ResourceType?: StringFilter[];
-
-  /**
-   * <p>The canonical identifier for the given resource type.</p>
-   */
-  ResourceId?: StringFilter[];
-
-  /**
-   * <p>The canonical AWS partition name that the Region is assigned to.</p>
-   */
-  ResourcePartition?: StringFilter[];
-
-  /**
-   * <p>The canonical AWS external Region name where this resource is located.</p>
-   */
-  ResourceRegion?: StringFilter[];
-
-  /**
-   * <p>A list of AWS tags associated with a resource at the time the finding was
-   *          processed.</p>
-   */
-  ResourceTags?: MapFilter[];
-
-  /**
-   * <p>The instance type of the instance.</p>
-   */
-  ResourceAwsEc2InstanceType?: StringFilter[];
-
-  /**
-   * <p>The Amazon Machine Image (AMI) ID of the instance.</p>
-   */
-  ResourceAwsEc2InstanceImageId?: StringFilter[];
-
-  /**
-   * <p>The IPv4 addresses associated with the instance.</p>
-   */
-  ResourceAwsEc2InstanceIpV4Addresses?: IpFilter[];
-
-  /**
-   * <p>The IPv6 addresses associated with the instance.</p>
-   */
-  ResourceAwsEc2InstanceIpV6Addresses?: IpFilter[];
-
-  /**
-   * <p>The key name associated with the instance.</p>
-   */
-  ResourceAwsEc2InstanceKeyName?: StringFilter[];
-
-  /**
-   * <p>The IAM profile ARN of the instance.</p>
-   */
-  ResourceAwsEc2InstanceIamInstanceProfileArn?: StringFilter[];
-
-  /**
-   * <p>The identifier of the VPC that the instance was launched in.</p>
-   */
-  ResourceAwsEc2InstanceVpcId?: StringFilter[];
-
-  /**
-   * <p>The identifier of the subnet that the instance was launched in.</p>
-   */
-  ResourceAwsEc2InstanceSubnetId?: StringFilter[];
-
-  /**
-   * <p>The date and time the instance was launched.</p>
-   */
-  ResourceAwsEc2InstanceLaunchedAt?: DateFilter[];
-
-  /**
-   * <p>The canonical user ID of the owner of the S3 bucket.</p>
-   */
-  ResourceAwsS3BucketOwnerId?: StringFilter[];
-
-  /**
-   * <p>The display name of the owner of the S3 bucket.</p>
-   */
-  ResourceAwsS3BucketOwnerName?: StringFilter[];
-
-  /**
-   * <p>The user associated with the IAM access key related to a finding.</p>
-   */
-  ResourceAwsIamAccessKeyUserName?: StringFilter[];
-
-  /**
-   * <p>The status of the IAM access key related to a finding.</p>
-   */
-  ResourceAwsIamAccessKeyStatus?: StringFilter[];
-
-  /**
-   * <p>The creation date/time of the IAM access key related to a finding.</p>
-   */
-  ResourceAwsIamAccessKeyCreatedAt?: DateFilter[];
-
-  /**
-   * <p>The name of the container related to a finding.</p>
-   */
-  ResourceContainerName?: StringFilter[];
-
-  /**
-   * <p>The identifier of the image related to a finding.</p>
-   */
-  ResourceContainerImageId?: StringFilter[];
-
-  /**
-   * <p>The name of the image related to a finding.</p>
-   */
-  ResourceContainerImageName?: StringFilter[];
-
-  /**
-   * <p>The date/time that the container was started.</p>
-   */
-  ResourceContainerLaunchedAt?: DateFilter[];
-
-  /**
-   * <p>The details of a resource that doesn't have a specific subfield for the resource type
-   *          defined.</p>
-   */
-  ResourceDetailsOther?: MapFilter[];
-
-  /**
-   * <p>Exclusive to findings that are generated as the result of a check run against a specific
-   *          rule in a supported standard, such as CIS AWS Foundations. Contains security
-   *          standard-related finding details.</p>
-   */
-  ComplianceStatus?: StringFilter[];
-
-  /**
-   * <p>The veracity of a finding.</p>
-   */
-  VerificationState?: StringFilter[];
-
-  /**
-   * <p>The workflow state of a finding.</p>
-   *          <p>Note that this field is deprecated. To search for a finding based on its workflow
-   *          status, use <code>WorkflowStatus</code>.</p>
-   */
-  WorkflowState?: StringFilter[];
-
-  /**
-   * <p>The status of the investigation into a finding. Allowed values are the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NEW</code> - The initial state of a finding, before it is reviewed.</p>
-   *                <p>Security Hub also resets the workflow status from <code>NOTIFIED</code> or
-   *                   <code>RESOLVED</code> to <code>NEW</code> in the following cases:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The record state changes from <code>ARCHIVED</code> to <code>ACTIVE</code>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The compliance status changes from <code>PASSED</code> to either <code>WARNING</code>,
-   *                         <code>FAILED</code>, or <code>NOT_AVAILABLE</code>.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOTIFIED</code> - Indicates that the resource owner has been notified about
-   *                the security issue. Used when the initial reviewer is not the resource owner, and
-   *                needs intervention from the resource owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUPPRESSED</code> - The finding will not be reviewed again and will not be
-   *                acted upon.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESOLVED</code> - The finding was reviewed and remediated and is now
-   *                considered resolved. </p>
-   *             </li>
-   *          </ul>
-   */
-  WorkflowStatus?: StringFilter[];
-
-  /**
-   * <p>The updated record state for the finding.</p>
-   */
-  RecordState?: StringFilter[];
-
-  /**
-   * <p>The ARN of the solution that generated a related finding.</p>
-   */
-  RelatedFindingsProductArn?: StringFilter[];
-
-  /**
-   * <p>The solution-generated identifier for a related finding.</p>
-   */
-  RelatedFindingsId?: StringFilter[];
-
-  /**
-   * <p>The text of a note.</p>
-   */
-  NoteText?: StringFilter[];
-
-  /**
-   * <p>The timestamp of when the note was updated.</p>
-   */
-  NoteUpdatedAt?: DateFilter[];
-
-  /**
-   * <p>The principal that created a note.</p>
-   */
-  NoteUpdatedBy?: StringFilter[];
-
-  /**
-   * <p>A keyword for a finding.</p>
-   */
-  Keyword?: KeywordFilter[];
-
-  /**
-   * <p>The finding provider value for the finding confidence. Confidence is defined as the likelihood
-   *          that a finding accurately identifies the behavior or issue that it was intended to
-   *          identify.</p>
-   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
-   *          confidence and 100 means 100 percent confidence.</p>
-   */
-  FindingProviderFieldsConfidence?: NumberFilter[];
-
-  /**
-   * <p>The finding provider value for the level of importance assigned to the resources associated with
-   *          the findings.</p>
-   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
-   *          is reserved for the most critical resources. </p>
-   */
-  FindingProviderFieldsCriticality?: NumberFilter[];
-
-  /**
-   * <p>The finding identifier of a related finding that is identified by the finding provider.</p>
-   */
-  FindingProviderFieldsRelatedFindingsId?: StringFilter[];
-
-  /**
-   * <p>The ARN of the solution that generated a related finding that is identified by the finding provider.</p>
-   */
-  FindingProviderFieldsRelatedFindingsProductArn?: StringFilter[];
-
-  /**
-   * <p>The finding provider value for the severity label.</p>
-   */
-  FindingProviderFieldsSeverityLabel?: StringFilter[];
-
-  /**
-   * <p>The finding provider's original value for the severity.</p>
-   */
-  FindingProviderFieldsSeverityOriginal?: StringFilter[];
-
-  /**
-   * <p>One or more finding types that the finding provider assigned to the finding. Uses the format of <code>namespace/category/classifier</code>
-   *          that classify a finding.</p>
-   *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
-   *          Behaviors | Sensitive Data Identifications</p>
-   */
-  FindingProviderFieldsTypes?: StringFilter[];
-}
-
-export namespace AwsSecurityFindingFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSecurityFindingFilters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Identifies a finding to update using <code>BatchUpdateFindings</code>.</p>
- */
-export interface AwsSecurityFindingIdentifier {
-  /**
-   * <p>The identifier of the finding that was specified by the finding provider.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The ARN generated by Security Hub that uniquely identifies a product that generates findings.
-   *          This can be the ARN for a third-party product that is integrated with Security Hub, or the ARN for
-   *          a custom integration.</p>
-   */
-  ProductArn: string | undefined;
-}
-
-export namespace AwsSecurityFindingIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSecurityFindingIdentifier): any => ({
-    ...obj,
-  });
-}
-
-export interface BatchDisableStandardsRequest {
-  /**
-   * <p>The ARNs of the standards subscriptions to disable.</p>
-   */
-  StandardsSubscriptionArns: string[] | undefined;
-}
-
-export namespace BatchDisableStandardsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisableStandardsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum StandardsStatus {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INCOMPLETE = "INCOMPLETE",
-  PENDING = "PENDING",
-  READY = "READY",
-}
-
-/**
- * <p>A resource that represents your subscription to a supported standard.</p>
- */
-export interface StandardsSubscription {
-  /**
-   * <p>The ARN of a resource that represents your subscription to a supported standard.</p>
-   */
-  StandardsSubscriptionArn: string | undefined;
-
-  /**
-   * <p>The ARN of a standard.</p>
-   */
-  StandardsArn: string | undefined;
-
-  /**
-   * <p>A key-value pair of input for the standard.</p>
-   */
-  StandardsInput: { [key: string]: string } | undefined;
-
-  /**
-   * <p>The status of the standard subscription.</p>
-   *          <p>The status values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> - Standard is in the process of being enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>READY</code> - Standard is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INCOMPLETE</code> - Standard could not be enabled completely. Some controls may not be available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code> - Standard is in the process of being disabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> - Standard could not be disabled.</p>
-   *             </li>
-   *          </ul>
-   */
-  StandardsStatus: StandardsStatus | string | undefined;
-}
-
-export namespace StandardsSubscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StandardsSubscription): any => ({
-    ...obj,
-  });
-}
-
-export interface BatchDisableStandardsResponse {
-  /**
-   * <p>The details of the standards subscriptions that were disabled.</p>
-   */
-  StandardsSubscriptions?: StandardsSubscription[];
-}
-
-export namespace BatchDisableStandardsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisableStandardsResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The standard that you want to enable.</p>
- */
-export interface StandardsSubscriptionRequest {
-  /**
-   * <p>The ARN of the standard that you want to enable. To view the list of available standards
-   *          and their ARNs, use the <code>
-   *                <a>DescribeStandards</a>
-   *             </code> operation.</p>
-   */
-  StandardsArn: string | undefined;
-
-  /**
-   * <p>A key-value pair of input for the standard.</p>
-   */
-  StandardsInput?: { [key: string]: string };
-}
-
-export namespace StandardsSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StandardsSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface BatchEnableStandardsRequest {
-  /**
-   * <p>The list of standards checks to enable.</p>
-   */
-  StandardsSubscriptionRequests: StandardsSubscriptionRequest[] | undefined;
-}
-
-export namespace BatchEnableStandardsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEnableStandardsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface BatchEnableStandardsResponse {
-  /**
-   * <p>The details of the standards subscriptions that were enabled.</p>
-   */
-  StandardsSubscriptions?: StandardsSubscription[];
-}
-
-export namespace BatchEnableStandardsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEnableStandardsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface BatchImportFindingsRequest {
-  /**
-   * <p>A list of findings to import. To successfully import a finding, it must follow the
-   *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">AWS Security Finding Format</a>. Maximum of 100 findings per request.</p>
-   */
-  Findings: AwsSecurityFinding[] | undefined;
-}
-
-export namespace BatchImportFindingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchImportFindingsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The list of the findings that cannot be imported. For each finding, the list provides
- *          the error.</p>
- */
-export interface ImportFindingsError {
-  /**
-   * <p>The identifier of the finding that could not be updated.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The code of the error returned by the <code>BatchImportFindings</code> operation.</p>
-   */
-  ErrorCode: string | undefined;
-
-  /**
-   * <p>The message of the error returned by the <code>BatchImportFindings</code>
-   *          operation.</p>
-   */
-  ErrorMessage: string | undefined;
-}
-
-export namespace ImportFindingsError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportFindingsError): any => ({
-    ...obj,
-  });
-}
-
-export interface BatchImportFindingsResponse {
-  /**
-   * <p>The number of findings that failed to import.</p>
-   */
-  FailedCount: number | undefined;
-
-  /**
-   * <p>The number of findings that were successfully imported.</p>
-   */
-  SuccessCount: number | undefined;
-
-  /**
-   * <p>The list of findings that failed to import.</p>
-   */
-  FailedFindings?: ImportFindingsError[];
-}
-
-export namespace BatchImportFindingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchImportFindingsResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The updated note.</p>
- */
-export interface NoteUpdate {
-  /**
-   * <p>The updated note text.</p>
-   */
-  Text: string | undefined;
-
-  /**
-   * <p>The principal that updated the note.</p>
-   */
-  UpdatedBy: string | undefined;
-}
-
-export namespace NoteUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoteUpdate): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Updates to the severity information for a finding.</p>
- */
-export interface SeverityUpdate {
-  /**
-   * <p>The normalized severity for the finding. This attribute is to be deprecated in favor of
-   *             <code>Label</code>.</p>
-   *          <p>If you provide <code>Normalized</code> and do not provide <code>Label</code>,
-   *             <code>Label</code> is set automatically as follows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>0 - <code>INFORMATIONAL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>1–39 - <code>LOW</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>40–69 - <code>MEDIUM</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>70–89 - <code>HIGH</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>90–100 - <code>CRITICAL</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Normalized?: number;
-
-  /**
-   * <p>The native severity as defined by the AWS service or integrated partner product that
-   *          generated the finding.</p>
-   */
-  Product?: number;
-
-  /**
-   * <p>The severity value of the finding. The allowed values are the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INFORMATIONAL</code> - No issue was found.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LOW</code> - The issue does not require action on its own.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIUM</code> - The issue must be addressed but not urgently.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIGH</code> - The issue must be addressed as a priority.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CRITICAL</code> - The issue must be remediated immediately to avoid it
-   *                escalating.</p>
-   *             </li>
-   *          </ul>
-   */
-  Label?: SeverityLabel | string;
-}
-
-export namespace SeverityUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SeverityUpdate): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Used to update information about the investigation into the finding.</p>
- */
-export interface WorkflowUpdate {
-  /**
-   * <p>The status of the investigation into the finding. The allowed values are the
-   *          following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NEW</code> - The initial state of a finding, before it is reviewed.</p>
-   *                <p>Security Hub also resets <code>WorkFlowStatus</code> from <code>NOTIFIED</code> or
-   *                   <code>RESOLVED</code> to <code>NEW</code> in the following cases:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The record state changes from <code>ARCHIVED</code> to
-   *                      <code>ACTIVE</code>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The compliance status changes from <code>PASSED</code> to either
-   *                         <code>WARNING</code>, <code>FAILED</code>, or
-   *                      <code>NOT_AVAILABLE</code>.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOTIFIED</code> - Indicates that you notified the resource owner about the
-   *                security issue. Used when the initial reviewer is not the resource owner, and needs
-   *                intervention from the resource owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESOLVED</code> - The finding was reviewed and remediated and is now
-   *                considered resolved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUPPRESSED</code> - The finding will not be reviewed again and will not be
-   *                acted upon.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: WorkflowStatus | string;
-}
-
-export namespace WorkflowUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowUpdate): any => ({
-    ...obj,
-  });
-}
-
-export interface BatchUpdateFindingsRequest {
-  /**
-   * <p>The list of findings to update. <code>BatchUpdateFindings</code> can be used to update
-   *          up to 100 findings at a time.</p>
-   *          <p>For each finding, the list provides the finding identifier and the ARN of the finding
-   *          provider.</p>
-   */
-  FindingIdentifiers: AwsSecurityFindingIdentifier[] | undefined;
-
-  /**
-   * <p>The updated note.</p>
-   */
-  Note?: NoteUpdate;
-
-  /**
-   * <p>Used to update the finding severity.</p>
-   */
-  Severity?: SeverityUpdate;
-
-  /**
-   * <p>Indicates the veracity of a finding.</p>
-   *          <p>The available values for <code>VerificationState</code> are  as follows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>UNKNOWN</code> – The default disposition of a security finding</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TRUE_POSITIVE</code> – The security finding is confirmed</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FALSE_POSITIVE</code> – The security finding was determined to be a false
-   *                alarm</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BENIGN_POSITIVE</code> – A special case of <code>TRUE_POSITIVE</code> where
-   *                the finding doesn't pose any threat, is expected, or both</p>
-   *             </li>
-   *          </ul>
-   */
-  VerificationState?: VerificationState | string;
-
-  /**
-   * <p>The updated value for the finding confidence. Confidence is defined as the likelihood
-   *          that a finding accurately identifies the behavior or issue that it was intended to
-   *          identify.</p>
-   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
-   *          confidence and 100 means 100 percent confidence.</p>
-   */
-  Confidence?: number;
-
-  /**
-   * <p>The updated value for the level of importance assigned to the resources associated with
-   *          the findings.</p>
-   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
-   *          is reserved for the most critical resources. </p>
-   */
-  Criticality?: number;
-
-  /**
-   * <p>One or more finding types in the format of namespace/category/classifier that classify a
-   *          finding.</p>
-   *          <p>Valid namespace values are as follows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Software and Configuration Checks</p>
-   *             </li>
-   *             <li>
-   *                <p>TTPs</p>
-   *             </li>
-   *             <li>
-   *                <p>Effects</p>
-   *             </li>
-   *             <li>
-   *                <p>Unusual Behaviors</p>
-   *             </li>
-   *             <li>
-   *                <p>Sensitive Data Identifications </p>
-   *             </li>
-   *          </ul>
-   */
-  Types?: string[];
-
-  /**
-   * <p>A list of name/value string pairs associated with the finding. These are custom,
-   *          user-defined fields added to a finding.</p>
-   */
-  UserDefinedFields?: { [key: string]: string };
-
-  /**
-   * <p>Used to update the workflow status of a finding.</p>
-   *          <p>The workflow status indicates the progress of the investigation into the finding. </p>
-   */
-  Workflow?: WorkflowUpdate;
-
-  /**
-   * <p>A list of findings that are related to the updated findings.</p>
-   */
-  RelatedFindings?: RelatedFinding[];
-}
-
-export namespace BatchUpdateFindingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateFindingsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A finding from a <code>BatchUpdateFindings</code> request that Security Hub was unable to
- *          update.</p>
- */
-export interface BatchUpdateFindingsUnprocessedFinding {
-  /**
-   * <p>The identifier of the finding that was not updated.</p>
-   */
-  FindingIdentifier: AwsSecurityFindingIdentifier | undefined;
-
-  /**
-   * <p>The code associated with the error.</p>
-   */
-  ErrorCode: string | undefined;
-
-  /**
-   * <p>The message associated with the error.</p>
-   */
-  ErrorMessage: string | undefined;
-}
-
-export namespace BatchUpdateFindingsUnprocessedFinding {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateFindingsUnprocessedFinding): any => ({
-    ...obj,
-  });
-}
-
-export interface BatchUpdateFindingsResponse {
-  /**
-   * <p>The list of findings that were updated successfully.</p>
-   */
-  ProcessedFindings: AwsSecurityFindingIdentifier[] | undefined;
-
-  /**
-   * <p>The list of findings that were not updated.</p>
-   */
-  UnprocessedFindings: BatchUpdateFindingsUnprocessedFinding[] | undefined;
-}
-
-export namespace BatchUpdateFindingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateFindingsResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum ControlStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export interface CreateActionTargetRequest {
-  /**
-   * <p>The name of the custom action target.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The description for the custom action target.</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>The ID for the custom action target.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace CreateActionTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateActionTargetRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateActionTargetResponse {
-  /**
-   * <p>The ARN for the custom action target.</p>
-   */
-  ActionTargetArn: string | undefined;
-}
-
-export namespace CreateActionTargetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateActionTargetResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The resource specified in the request conflicts with an existing resource.</p>
- */
-export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
-  name: "ResourceConflictException";
-  $fault: "client";
-  Message?: string;
-  Code?: string;
-}
-
-export namespace ResourceConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateInsightRequest {
-  /**
-   * <p>The name of the custom insight to create.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>One or more attributes used to filter the findings included in the insight. The insight
-   *          only includes findings that match the criteria defined in the filters.</p>
-   */
-  Filters: AwsSecurityFindingFilters | undefined;
-
-  /**
-   * <p>The attribute used to group the findings for the insight. The grouping attribute
-   *          identifies the type of item that the insight applies to. For example, if an insight is
-   *          grouped by resource identifier, then the insight produces a list of resource
-   *          identifiers.</p>
-   */
-  GroupByAttribute: string | undefined;
-}
-
-export namespace CreateInsightRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInsightRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateInsightResponse {
-  /**
-   * <p>The ARN of the insight created.</p>
-   */
-  InsightArn: string | undefined;
-}
-
-export namespace CreateInsightResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInsightResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateMembersRequest {
-  /**
-   * <p>The list of accounts to associate with the Security Hub administrator account. For each account, the
-   *          list includes the account ID and optionally the email address.</p>
-   */
-  AccountDetails: AccountDetails[] | undefined;
-}
-
-export namespace CreateMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMembersRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about the account that was not processed.</p>
- */
-export interface Result {
-  /**
-   * <p>An AWS account ID of the account that was not processed.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The reason that the account was not processed.</p>
-   */
-  ProcessingResult?: string;
-}
-
-export namespace Result {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Result): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateMembersResponse {
-  /**
-   * <p>The list of AWS accounts that were not processed. For each account, the list includes
-   *          the account ID and the email address.</p>
-   */
-  UnprocessedAccounts?: Result[];
-}
-
-export namespace CreateMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMembersResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeclineInvitationsRequest {
-  /**
-   * <p>The list of account IDs for the accounts from which to decline the invitations to
-   *          Security Hub.</p>
-   */
-  AccountIds: string[] | undefined;
-}
-
-export namespace DeclineInvitationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeclineInvitationsRequest): any => ({
     ...obj,
   });
 }

@@ -1300,6 +1300,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ContactNotFoundException",
+          "httpResponseCode": 410
+        },
         "smithy.api#documentation": "<p>The contact with the specified ID is not active or does not exist.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 410
@@ -1767,7 +1771,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This API is in preview release for Amazon Connect and is subject to change.</p>\n         <p>Creates a quick connect for the specified Amazon Connect instance.</p>",
+        "smithy.api#documentation": "<p>Creates a quick connect for the specified Amazon Connect instance.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/quick-connects/{InstanceId}",
@@ -1826,7 +1830,7 @@
         "QuickConnectId": {
           "target": "com.amazonaws.connect#QuickConnectId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier for the quick connect.</p>"
+            "smithy.api#documentation": "<p>The identifier for the quick connect. \n  </p>"
           }
         }
       }
@@ -2527,7 +2531,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This API is in preview release for Amazon Connect and is subject to change.</p>\n         <p>Deletes a quick connect.</p>",
+        "smithy.api#documentation": "<p>Deletes a quick connect.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/quick-connects/{InstanceId}/{QuickConnectId}",
@@ -3139,7 +3143,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This API is in preview release for Amazon Connect and is subject to change.</p>\n         <p>Describes the quick connect.</p>",
+        "smithy.api#documentation": "<p>Describes the quick connect.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/quick-connects/{InstanceId}/{QuickConnectId}",
@@ -3455,6 +3459,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DestinationNotAllowedException",
+          "httpResponseCode": 403
+        },
         "smithy.api#documentation": "<p>Outbound calls to the destination number are not allowed.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
@@ -5683,6 +5691,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "LimitExceededException",
+          "httpResponseCode": 429
+        },
         "smithy.api#documentation": "<p>The allowed limit for the resource has been exceeded.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
@@ -6929,7 +6941,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This API is in preview release for Amazon Connect and is subject to change.</p>\n         <p>Provides information about the quick connects for the specified Amazon Connect instance. </p>",
+        "smithy.api#documentation": "<p>Provides information about the quick connects for the specified Amazon Connect instance. </p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/quick-connects/{InstanceId}",
@@ -7737,7 +7749,7 @@
         "Concurrency": {
           "target": "com.amazonaws.connect#Concurrency",
           "traits": {
-            "smithy.api#documentation": "<p>The number of contacts an agent can have on a channel simultaneously.</p>\n         <p>Valid Range for <code>VOICE</code>: Minimum value of 1. Maximum value of 1.</p>\n         <p>Valid Range for <code>CHAT</code>: Minimum value of 1. Maximum value of 5.</p>\n         <p>Valid Range for <code>TASK</code>: Minimum value of 1. Maximum value of 10.</p>",
+            "smithy.api#documentation": "<p>The number of contacts an agent can have on a channel simultaneously.</p>\n         <p>Valid Range for <code>VOICE</code>: Minimum value of 1. Maximum value of 1.</p>\n         <p>Valid Range for <code>CHAT</code>: Minimum value of 1. Maximum value of 10.</p>\n         <p>Valid Range for <code>TASK</code>: Minimum value of 1. Maximum value of 10.</p>",
             "smithy.api#required": {}
           }
         }
@@ -7837,6 +7849,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "OutboundContactNotPermittedException",
+          "httpResponseCode": 403
+        },
         "smithy.api#documentation": "<p>The contact is not permitted.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
@@ -9374,7 +9390,7 @@
       "type": "string",
       "traits": {
         "smithy.api#length": {
-          "min": 0,
+          "min": 1,
           "max": 250
         }
       }
@@ -10787,6 +10803,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ThrottlingException",
+          "httpResponseCode": 429
+        },
         "smithy.api#documentation": "<p>The throttling limit has been exceeded.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
@@ -11519,7 +11539,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This API is in preview release for Amazon Connect and is subject to change.</p>\n         <p>Updates the configuration settings for the specified quick connect.</p>",
+        "smithy.api#documentation": "<p>Updates the configuration settings for the specified quick connect.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/quick-connects/{InstanceId}/{QuickConnectId}/config",
@@ -11555,6 +11575,15 @@
         }
       }
     },
+    "com.amazonaws.connect#UpdateQuickConnectDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 250
+        }
+      }
+    },
     "com.amazonaws.connect#UpdateQuickConnectName": {
       "type": "operation",
       "input": {
@@ -11578,7 +11607,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This API is in preview release for Amazon Connect and is subject to change.</p>\n         <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>",
+        "smithy.api#documentation": "<p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/quick-connects/{InstanceId}/{QuickConnectId}/name",
@@ -11612,7 +11641,7 @@
           }
         },
         "Description": {
-          "target": "com.amazonaws.connect#QuickConnectDescription",
+          "target": "com.amazonaws.connect#UpdateQuickConnectDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description of the quick connect.</p>"
           }

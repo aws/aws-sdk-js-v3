@@ -23,9 +23,9 @@ export interface GetDevEndpointCommandOutput extends GetDevEndpointResponse, __M
 /**
  * <p>Retrieves information about a specified development endpoint.</p>
  *          <note>
- *             <p>When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only
+ *             <p>When you create a development endpoint in a virtual private cloud (VPC), Glue returns only
  *         a private IP address, and the public IP address field is not populated. When you create a
- *         non-VPC development endpoint, AWS Glue returns only a public IP address.</p>
+ *         non-VPC development endpoint, Glue returns only a public IP address.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

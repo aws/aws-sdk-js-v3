@@ -21,8 +21,7 @@ export interface DeleteDBClusterParameterGroupCommandInput extends DeleteDBClust
 export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a specified cluster parameter group. The cluster parameter group to be
- *             deleted can't be associated with any clusters.</p>
+ * <p>Deletes a specified cluster parameter group. The cluster parameter group to be deleted can't be associated with any clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

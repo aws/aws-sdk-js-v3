@@ -23,7 +23,7 @@ export interface ListCuratedEnvironmentImagesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets information about Docker images that are managed by AWS CodeBuild.</p>
+ * <p>Gets information about Docker images that are managed by CodeBuild.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

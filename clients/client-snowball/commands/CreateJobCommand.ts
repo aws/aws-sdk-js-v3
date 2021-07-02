@@ -26,8 +26,8 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *          <note>
  *             <p>Only the Snowball; Edge device type is supported when ordering clustered jobs.</p>
  *             <p>The device capacity is optional.</p>
- *             <p>Availability of device types differ by AWS Region. For more
- *         information about region availability, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4">AWS Regional Services</a>.</p>
+ *             <p>Availability of device types differ by AWS Region. For more information about Region
+ *         availability, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4">AWS Regional Services</a>.</p>
  *          </note>
  *
  *          <p></p>
@@ -47,6 +47,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                      <p>Description: Snowcone </p>
  *                   </li>
  *                </ul>
+ *
  *                <p></p>
  *             </li>
  *             <li>

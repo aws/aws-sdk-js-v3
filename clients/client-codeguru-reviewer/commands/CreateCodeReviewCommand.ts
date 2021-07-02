@@ -26,7 +26,7 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse,
  *                <code>CodeReviewType</code>
  *             </a>
  *          of <code>RepositoryAnalysis</code>. This type of code review analyzes all code under a specified branch in an associated repository.
- *          <code>PullRequest</code> code reviews are automatically triggered by a pull request so cannot be created using this method.
+ *          <code>PullRequest</code> code reviews are automatically triggered by a pull request.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

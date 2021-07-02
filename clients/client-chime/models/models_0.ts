@@ -91,8 +91,8 @@ export interface Account {
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Chime account type. For more information about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your
-   *                 Amazon Chime Accounts</a> in the <i>Amazon Chime Administration
+   * <p>The Amazon Chime account type. For more information about different account types, see
+   *     <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration
    *                 Guide</i>.</p>
    */
   AccountType?: AccountType | string;
@@ -129,9 +129,8 @@ export namespace Account {
 
 /**
  * <p>Settings related to the Amazon Chime account. This includes settings that start or stop
- *             remote control of shared screens, or start or stop the dial-out option in the Amazon
- *             Chime web application. For more information about these settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use the Policies
- *                 Page</a> in the <i>Amazon Chime Administration Guide</i>.</p>
+ *             remote control of shared screens, or start or stop the dial-out option in the Amazon Chime web application. For more information about these settings, see
+ *     <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use the Policies Page</a> in the <i>Amazon Chime Administration Guide</i>.</p>
  */
 export interface AccountSettings {
   /**
@@ -140,9 +139,8 @@ export interface AccountSettings {
   DisableRemoteControl?: boolean;
 
   /**
-   * <p>Setting that allows meeting participants to choose the <b>Call me at a
-   *                 phone number</b> option. For more information, see <a href="https://docs.aws.amazon.com/chime/latest/ug/chime-join-meeting.html">Join a Meeting
-   *                 without the Amazon Chime App</a>.</p>
+   * <p>Setting that allows meeting participants to choose the <b>Call me at a phone number</b> option. For more information, see
+   *     <a href="https://docs.aws.amazon.com/chime/latest/ug/chime-join-meeting.html">Join a Meeting without the Amazon Chime App</a>.</p>
    */
   EnableDialOut?: boolean;
 }
@@ -1068,7 +1066,6 @@ export interface BatchCreateChannelMembershipRequest {
 
   /**
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
-   *         <p></p>
    */
   ChimeBearer?: string;
 }
@@ -1289,8 +1286,8 @@ export namespace BatchSuspendUserRequest {
 }
 
 /**
- * <p>The list of errors returned when errors are encountered during the <a>BatchSuspendUser</a>, <a>BatchUnsuspendUser</a>, or <a>BatchUpdateUser</a> actions. This includes user IDs, error codes, and error
- *             messages.</p>
+ * <p>The list of errors returned when errors are encountered during the <a>BatchSuspendUser</a>, <a>BatchUnsuspendUser</a>, or
+ *     <a>BatchUpdateUser</a> actions. This includes user IDs, error codes, and error messages.</p>
  */
 export interface UserError {
   /**
@@ -2810,6 +2807,11 @@ export interface MediaPlacement {
    * <p>The turn control URL.</p>
    */
   TurnControlUrl?: string;
+
+  /**
+   * <p>The event ingestion URL.</p>
+   */
+  EventIngestionUrl?: string;
 }
 
 export namespace MediaPlacement {
@@ -2899,9 +2901,7 @@ export interface CreateMeetingDialOutRequest {
   ToPhoneNumber: string | undefined;
 
   /**
-   * <p>Token used by the Amazon Chime SDK attendee. Call the
-   *     <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html">CreateAttendee</a> action to
-   *     get a join token.</p>
+   * <p>Token used by the Amazon Chime SDK attendee. Call the <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html">CreateAttendee</a> action to get a join token.</p>
    */
   JoinToken: string | undefined;
 }

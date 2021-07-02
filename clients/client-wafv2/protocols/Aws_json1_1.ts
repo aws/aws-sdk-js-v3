@@ -5139,6 +5139,7 @@ const serializeAws_json1_1GetRegexPatternSetRequest = (
 
 const serializeAws_json1_1GetRuleGroupRequest = (input: GetRuleGroupRequest, context: __SerdeContext): any => {
   return {
+    ...(input.ARN !== undefined && input.ARN !== null && { ARN: input.ARN }),
     ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Scope !== undefined && input.Scope !== null && { Scope: input.Scope }),

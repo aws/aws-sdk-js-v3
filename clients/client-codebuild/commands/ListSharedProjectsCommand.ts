@@ -21,7 +21,7 @@ export interface ListSharedProjectsCommandInput extends ListSharedProjectsInput 
 export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutput, __MetadataBearer {}
 
 /**
- * <p> Gets a list of projects that are shared with other AWS accounts or users. </p>
+ * <p> Gets a list of projects that are shared with other Amazon Web Services accounts or users. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

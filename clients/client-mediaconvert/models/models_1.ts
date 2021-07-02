@@ -1,16 +1,8 @@
 import {
   AccelerationSettings,
   AccelerationStatus,
-  AfdSignaling,
-  AntiAlias,
   AudioDescription,
   AutomatedEncodingSettings,
-  Av1AdaptiveQuantization,
-  Av1FramerateControl,
-  Av1FramerateConversionAlgorithm,
-  Av1QvbrSettings,
-  Av1RateControlMode,
-  Av1SpatialAdaptiveQuantization,
   AvailBlanking,
   BillingTagsSource,
   CaptionDescription,
@@ -19,6 +11,7 @@ import {
   Endpoint,
   EsamSettings,
   Hdr10Metadata,
+  HlsSettings,
   HopDestination,
   Id3Insertion,
   ImageInserter,
@@ -32,12 +25,94 @@ import {
   NielsenNonLinearWatermarkSettings,
   OutputGroupDetail,
   OutputGroupSettings,
-  OutputSettings,
   QueueTransition,
   Rectangle,
 } from "./models_0";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+/**
+ * Specific settings for this type of output.
+ */
+export interface OutputSettings {
+  /**
+   * Settings for HLS output groups
+   */
+  HlsSettings?: HlsSettings;
+}
+
+export namespace OutputSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OutputSettings): any => ({
+    ...obj,
+  });
+}
+
+export enum AfdSignaling {
+  AUTO = "AUTO",
+  FIXED = "FIXED",
+  NONE = "NONE",
+}
+
+export enum AntiAlias {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum Av1AdaptiveQuantization {
+  HIGH = "HIGH",
+  HIGHER = "HIGHER",
+  LOW = "LOW",
+  MAX = "MAX",
+  MEDIUM = "MEDIUM",
+  OFF = "OFF",
+}
+
+export enum Av1FramerateControl {
+  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
+  SPECIFIED = "SPECIFIED",
+}
+
+export enum Av1FramerateConversionAlgorithm {
+  DUPLICATE_DROP = "DUPLICATE_DROP",
+  FRAMEFORMER = "FRAMEFORMER",
+  INTERPOLATE = "INTERPOLATE",
+}
+
+/**
+ * Settings for quality-defined variable bitrate encoding with the AV1 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
+ */
+export interface Av1QvbrSettings {
+  /**
+   * Required when you use QVBR rate control mode. That is, when you specify qvbrSettings within av1Settings. Specify the general target quality level for this output, from 1 to 10. Use higher numbers for greater quality. Level 10 results in nearly lossless compression. The quality level for most broadcast-quality transcodes is between 6 and 9. Optionally, to specify a value between whole numbers, also provide a value for the setting qvbrQualityLevelFineTune. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33.
+   */
+  QvbrQualityLevel?: number;
+
+  /**
+   * Optional. Specify a value here to set the QVBR quality to a level that is between whole numbers. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality level to the nearest third of a whole number. For example, if you set qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your actual QVBR quality level is 7.33.
+   */
+  QvbrQualityLevelFineTune?: number;
+}
+
+export namespace Av1QvbrSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Av1QvbrSettings): any => ({
+    ...obj,
+  });
+}
+
+export enum Av1RateControlMode {
+  QVBR = "QVBR",
+}
+
+export enum Av1SpatialAdaptiveQuantization {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
 
 /**
  * Required when you set Codec, under VideoDescription>CodecSettings to the value AV1.
@@ -253,6 +328,7 @@ export enum VideoCodec {
   VC3 = "VC3",
   VP8 = "VP8",
   VP9 = "VP9",
+  XAVC = "XAVC",
 }
 
 /**
@@ -1365,11 +1441,18 @@ export namespace Mpeg2Settings {
   });
 }
 
+export enum ProresChromaSampling {
+  PRESERVE_444_SAMPLING = "PRESERVE_444_SAMPLING",
+  SUBSAMPLE_TO_422 = "SUBSAMPLE_TO_422",
+}
+
 export enum ProresCodecProfile {
   APPLE_PRORES_422 = "APPLE_PRORES_422",
   APPLE_PRORES_422_HQ = "APPLE_PRORES_422_HQ",
   APPLE_PRORES_422_LT = "APPLE_PRORES_422_LT",
   APPLE_PRORES_422_PROXY = "APPLE_PRORES_422_PROXY",
+  APPLE_PRORES_4444 = "APPLE_PRORES_4444",
+  APPLE_PRORES_4444_XQ = "APPLE_PRORES_4444_XQ",
 }
 
 export enum ProresFramerateControl {
@@ -1415,6 +1498,11 @@ export enum ProresTelecine {
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value PRORES.
  */
 export interface ProresSettings {
+  /**
+   * This setting applies only to ProRes 4444 and ProRes 4444 XQ outputs that you create from inputs that use 4:4:4 chroma sampling. Set Preserve 4:4:4 sampling (PRESERVE_444_SAMPLING) to allow outputs to also use 4:4:4 chroma sampling. You must specify a value for this setting when your output codec profile supports 4:4:4 chroma sampling. Related Settings: When you set Chroma sampling to Preserve 4:4:4 sampling (PRESERVE_444_SAMPLING), you must choose an output codec profile that supports 4:4:4 chroma sampling. These values for Profile (CodecProfile) support 4:4:4 chroma sampling: Apple ProRes 4444 (APPLE_PRORES_4444) or Apple ProRes 4444 XQ (APPLE_PRORES_4444_XQ). When you set Chroma sampling to Preserve 4:4:4 sampling, you must disable all video preprocessors except for Nexguard file marker (PartnerWatermarking). When you set Chroma sampling to Preserve 4:4:4 sampling and use framerate conversion, you must set Frame rate conversion algorithm (FramerateConversionAlgorithm) to Drop duplicate (DUPLICATE_DROP).
+   */
+  ChromaSampling?: ProresChromaSampling | string;
+
   /**
    * Use Profile (ProResCodecProfile) to specify the type of Apple ProRes codec to use for this output.
    */
@@ -1789,8 +1877,392 @@ export namespace Vp9Settings {
   });
 }
 
+export enum XavcAdaptiveQuantization {
+  AUTO = "AUTO",
+  HIGH = "HIGH",
+  HIGHER = "HIGHER",
+  LOW = "LOW",
+  MAX = "MAX",
+  MEDIUM = "MEDIUM",
+  OFF = "OFF",
+}
+
+export enum XavcEntropyEncoding {
+  AUTO = "AUTO",
+  CABAC = "CABAC",
+  CAVLC = "CAVLC",
+}
+
+export enum XavcFramerateControl {
+  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
+  SPECIFIED = "SPECIFIED",
+}
+
+export enum XavcFramerateConversionAlgorithm {
+  DUPLICATE_DROP = "DUPLICATE_DROP",
+  FRAMEFORMER = "FRAMEFORMER",
+  INTERPOLATE = "INTERPOLATE",
+}
+
+export enum XavcProfile {
+  XAVC_4K = "XAVC_4K",
+  XAVC_4K_INTRA_CBG = "XAVC_4K_INTRA_CBG",
+  XAVC_4K_INTRA_VBR = "XAVC_4K_INTRA_VBR",
+  XAVC_HD = "XAVC_HD",
+  XAVC_HD_INTRA_CBG = "XAVC_HD_INTRA_CBG",
+}
+
+export enum XavcSlowPal {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum XavcSpatialAdaptiveQuantization {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum XavcTemporalAdaptiveQuantization {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum Xavc4kIntraCbgProfileClass {
+  CLASS_100 = "CLASS_100",
+  CLASS_300 = "CLASS_300",
+  CLASS_480 = "CLASS_480",
+}
+
 /**
- * Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings
+ * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K_INTRA_CBG.
+ */
+export interface Xavc4kIntraCbgProfileSettings {
+  /**
+   * Specify the XAVC Intra 4k (CBG) Class to set the bitrate of your output. Outputs of the same class have similar image quality over the operating points that are valid for that class.
+   */
+  XavcClass?: Xavc4kIntraCbgProfileClass | string;
+}
+
+export namespace Xavc4kIntraCbgProfileSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Xavc4kIntraCbgProfileSettings): any => ({
+    ...obj,
+  });
+}
+
+export enum Xavc4kIntraVbrProfileClass {
+  CLASS_100 = "CLASS_100",
+  CLASS_300 = "CLASS_300",
+  CLASS_480 = "CLASS_480",
+}
+
+/**
+ * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K_INTRA_VBR.
+ */
+export interface Xavc4kIntraVbrProfileSettings {
+  /**
+   * Specify the XAVC Intra 4k (VBR) Class to set the bitrate of your output. Outputs of the same class have similar image quality over the operating points that are valid for that class.
+   */
+  XavcClass?: Xavc4kIntraVbrProfileClass | string;
+}
+
+export namespace Xavc4kIntraVbrProfileSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Xavc4kIntraVbrProfileSettings): any => ({
+    ...obj,
+  });
+}
+
+export enum Xavc4kProfileBitrateClass {
+  BITRATE_CLASS_100 = "BITRATE_CLASS_100",
+  BITRATE_CLASS_140 = "BITRATE_CLASS_140",
+  BITRATE_CLASS_200 = "BITRATE_CLASS_200",
+}
+
+export enum Xavc4kProfileCodecProfile {
+  HIGH = "HIGH",
+  HIGH_422 = "HIGH_422",
+}
+
+export enum XavcFlickerAdaptiveQuantization {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum XavcGopBReference {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum Xavc4kProfileQualityTuningLevel {
+  MULTI_PASS_HQ = "MULTI_PASS_HQ",
+  SINGLE_PASS = "SINGLE_PASS",
+  SINGLE_PASS_HQ = "SINGLE_PASS_HQ",
+}
+
+/**
+ * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K.
+ */
+export interface Xavc4kProfileSettings {
+  /**
+   * Specify the XAVC 4k (Long GOP) Bitrate Class to set the bitrate of your output. Outputs of the same class have similar image quality over the operating points that are valid for that class.
+   */
+  BitrateClass?: Xavc4kProfileBitrateClass | string;
+
+  /**
+   * Specify the codec profile for this output. Choose High, 8-bit, 4:2:0 (HIGH) or High, 10-bit, 4:2:2 (HIGH_422). These profiles are specified in ITU-T H.264.
+   */
+  CodecProfile?: Xavc4kProfileCodecProfile | string;
+
+  /**
+   * The best way to set up adaptive quantization is to keep the default value, Auto (AUTO), for the setting Adaptive quantization (XavcAdaptiveQuantization). When you do so, MediaConvert automatically applies the best types of quantization for your video content. Include this setting in your JSON job specification only when you choose to change the default value for Adaptive quantization. Enable this setting to have the encoder reduce I-frame pop. I-frame pop appears as a visual flicker that can arise when the encoder saves bits by copying some macroblocks many times from frame to frame, and then refreshes them at the I-frame. When you enable this setting, the encoder updates these macroblocks slightly more often to smooth out the flicker. This setting is disabled by default. Related setting: In addition to enabling this setting, you must also set Adaptive quantization (adaptiveQuantization) to a value other than Off (OFF) or Auto (AUTO). Use Adaptive quantization to adjust the degree of smoothing that Flicker adaptive quantization provides.
+   */
+  FlickerAdaptiveQuantization?: XavcFlickerAdaptiveQuantization | string;
+
+  /**
+   * Specify whether the encoder uses B-frames as reference frames for other pictures in the same GOP. Choose Allow (ENABLED) to allow the encoder to use B-frames as reference frames. Choose Don't allow (DISABLED) to prevent the encoder from using B-frames as reference frames.
+   */
+  GopBReference?: XavcGopBReference | string;
+
+  /**
+   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
+   */
+  GopClosedCadence?: number;
+
+  /**
+   * Specify the size of the buffer that MediaConvert uses in the HRD buffer model for this output. Specify this value in bits; for example, enter five megabits as 5000000. When you don't set this value, or you set it to zero, MediaConvert calculates the default by doubling the bitrate of this output point.
+   */
+  HrdBufferSize?: number;
+
+  /**
+   * Optional. Use Quality tuning level (qualityTuningLevel) to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, single-pass encoding.
+   */
+  QualityTuningLevel?: Xavc4kProfileQualityTuningLevel | string;
+
+  /**
+   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+   */
+  Slices?: number;
+}
+
+export namespace Xavc4kProfileSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Xavc4kProfileSettings): any => ({
+    ...obj,
+  });
+}
+
+export enum XavcHdIntraCbgProfileClass {
+  CLASS_100 = "CLASS_100",
+  CLASS_200 = "CLASS_200",
+  CLASS_50 = "CLASS_50",
+}
+
+/**
+ * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD_INTRA_CBG.
+ */
+export interface XavcHdIntraCbgProfileSettings {
+  /**
+   * Specify the XAVC Intra HD (CBG) Class to set the bitrate of your output. Outputs of the same class have similar image quality over the operating points that are valid for that class.
+   */
+  XavcClass?: XavcHdIntraCbgProfileClass | string;
+}
+
+export namespace XavcHdIntraCbgProfileSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: XavcHdIntraCbgProfileSettings): any => ({
+    ...obj,
+  });
+}
+
+export enum XavcHdProfileBitrateClass {
+  BITRATE_CLASS_25 = "BITRATE_CLASS_25",
+  BITRATE_CLASS_35 = "BITRATE_CLASS_35",
+  BITRATE_CLASS_50 = "BITRATE_CLASS_50",
+}
+
+export enum XavcInterlaceMode {
+  BOTTOM_FIELD = "BOTTOM_FIELD",
+  FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
+  FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
+  PROGRESSIVE = "PROGRESSIVE",
+  TOP_FIELD = "TOP_FIELD",
+}
+
+export enum XavcHdProfileQualityTuningLevel {
+  MULTI_PASS_HQ = "MULTI_PASS_HQ",
+  SINGLE_PASS = "SINGLE_PASS",
+  SINGLE_PASS_HQ = "SINGLE_PASS_HQ",
+}
+
+export enum XavcHdProfileTelecine {
+  HARD = "HARD",
+  NONE = "NONE",
+}
+
+/**
+ * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD.
+ */
+export interface XavcHdProfileSettings {
+  /**
+   * Specify the XAVC HD (Long GOP) Bitrate Class to set the bitrate of your output. Outputs of the same class have similar image quality over the operating points that are valid for that class.
+   */
+  BitrateClass?: XavcHdProfileBitrateClass | string;
+
+  /**
+   * The best way to set up adaptive quantization is to keep the default value, Auto (AUTO), for the setting Adaptive quantization (XavcAdaptiveQuantization). When you do so, MediaConvert automatically applies the best types of quantization for your video content. Include this setting in your JSON job specification only when you choose to change the default value for Adaptive quantization. Enable this setting to have the encoder reduce I-frame pop. I-frame pop appears as a visual flicker that can arise when the encoder saves bits by copying some macroblocks many times from frame to frame, and then refreshes them at the I-frame. When you enable this setting, the encoder updates these macroblocks slightly more often to smooth out the flicker. This setting is disabled by default. Related setting: In addition to enabling this setting, you must also set Adaptive quantization (adaptiveQuantization) to a value other than Off (OFF) or Auto (AUTO). Use Adaptive quantization to adjust the degree of smoothing that Flicker adaptive quantization provides.
+   */
+  FlickerAdaptiveQuantization?: XavcFlickerAdaptiveQuantization | string;
+
+  /**
+   * Specify whether the encoder uses B-frames as reference frames for other pictures in the same GOP. Choose Allow (ENABLED) to allow the encoder to use B-frames as reference frames. Choose Don't allow (DISABLED) to prevent the encoder from using B-frames as reference frames.
+   */
+  GopBReference?: XavcGopBReference | string;
+
+  /**
+   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
+   */
+  GopClosedCadence?: number;
+
+  /**
+   * Specify the size of the buffer that MediaConvert uses in the HRD buffer model for this output. Specify this value in bits; for example, enter five megabits as 5000000. When you don't set this value, or you set it to zero, MediaConvert calculates the default by doubling the bitrate of this output point.
+   */
+  HrdBufferSize?: number;
+
+  /**
+   * Choose the scan line type for the output. Keep the default value, Progressive (PROGRESSIVE) to create a progressive output, regardless of the scan type of your input. Use Top field first (TOP_FIELD) or Bottom field first (BOTTOM_FIELD) to create an output that's interlaced with the same field polarity throughout. Use Follow, default top (FOLLOW_TOP_FIELD) or Follow, default bottom (FOLLOW_BOTTOM_FIELD) to produce outputs with the same field polarity as the source. For jobs that have multiple inputs, the output field polarity might change over the course of the output. Follow behavior depends on the input scan type. If the source is interlaced, the output will be interlaced with the same polarity as the source. If the source is progressive, the output will be interlaced with top field bottom field first, depending on which of the Follow options you choose.
+   */
+  InterlaceMode?: XavcInterlaceMode | string;
+
+  /**
+   * Optional. Use Quality tuning level (qualityTuningLevel) to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, single-pass encoding.
+   */
+  QualityTuningLevel?: XavcHdProfileQualityTuningLevel | string;
+
+  /**
+   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+   */
+  Slices?: number;
+
+  /**
+   * Ignore this setting unless you set Frame rate (framerateNumerator divided by framerateDenominator) to 29.970. If your input framerate is 23.976, choose Hard (HARD). Otherwise, keep the default value None (NONE). For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-telecine-and-inverse-telecine.html.
+   */
+  Telecine?: XavcHdProfileTelecine | string;
+}
+
+export namespace XavcHdProfileSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: XavcHdProfileSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value XAVC.
+ */
+export interface XavcSettings {
+  /**
+   * Keep the default value, Auto (AUTO), for this setting to have MediaConvert automatically apply the best types of quantization for your video content. When you want to apply your quantization settings manually, you must set Adaptive quantization (adaptiveQuantization) to a value other than Auto (AUTO). Use this setting to specify the strength of any adaptive quantization filters that you enable. If you don't want MediaConvert to do any adaptive quantization in this transcode, set Adaptive quantization to Off (OFF). Related settings: The value that you choose here applies to the following settings: Flicker adaptive quantization (flickerAdaptiveQuantization), Spatial adaptive quantization (spatialAdaptiveQuantization), and Temporal adaptive quantization (temporalAdaptiveQuantization).
+   */
+  AdaptiveQuantization?: XavcAdaptiveQuantization | string;
+
+  /**
+   * Optional. Choose a specific entropy encoding mode only when you want to override XAVC recommendations. If you choose the value auto, MediaConvert uses the mode that the XAVC file format specifies given this output's operating point.
+   */
+  EntropyEncoding?: XavcEntropyEncoding | string;
+
+  /**
+   * If you are using the console, use the Frame rate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list. The framerates shown in the dropdown list are decimal approximations of fractions. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate that you specify in the settings FramerateNumerator and FramerateDenominator.
+   */
+  FramerateControl?: XavcFramerateControl | string;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
+   */
+  FramerateConversionAlgorithm?: XavcFramerateConversionAlgorithm | string;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Frame rate. In this example, specify 23.976.
+   */
+  FramerateDenominator?: number;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   */
+  FramerateNumerator?: number;
+
+  /**
+   * Specify the XAVC profile for this output. For more information, see the Sony documentation at https://www.xavc-info.org/. Note that MediaConvert doesn't support the interlaced video XAVC operating points for XAVC_HD_INTRA_CBG. To create an interlaced XAVC output, choose the profile XAVC_HD.
+   */
+  Profile?: XavcProfile | string;
+
+  /**
+   * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output by relabeling the video frames and resampling your audio. Note that enabling this setting will slightly reduce the duration of your video. Related settings: You must also set Frame rate to 25. In your JSON job specification, set (framerateControl) to (SPECIFIED), (framerateNumerator) to 25 and (framerateDenominator) to 1.
+   */
+  SlowPal?: XavcSlowPal | string;
+
+  /**
+   * Ignore this setting unless your downstream workflow requires that you specify it explicitly. Otherwise, we recommend that you adjust the softness of your output by using a lower value for the setting Sharpness (sharpness) or by enabling a noise reducer filter (noiseReducerFilter). The Softness (softness) setting specifies the quantization matrices that the encoder uses. Keep the default value, 0, for flat quantization. Choose the value 1 or 16 to use the default JVT softening quantization matricies from the H.264 specification. Choose a value from 17 to 128 to use planar interpolation. Increasing values from 17 to 128 result in increasing reduction of high-frequency data. The value 128 results in the softest video.
+   */
+  Softness?: number;
+
+  /**
+   * The best way to set up adaptive quantization is to keep the default value, Auto (AUTO), for the setting Adaptive quantization (adaptiveQuantization). When you do so, MediaConvert automatically applies the best types of quantization for your video content. Include this setting in your JSON job specification only when you choose to change the default value for Adaptive quantization. For this setting, keep the default value, Enabled (ENABLED), to adjust quantization within each frame based on spatial variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas that can sustain more distortion with no noticeable visual degradation and uses more bits on areas where any small distortion will be noticeable. For example, complex textured blocks are encoded with fewer bits and smooth textured blocks are encoded with more bits. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen with a lot of complex texture, you might choose to disable this feature. Related setting: When you enable spatial adaptive quantization, set the value for Adaptive quantization (adaptiveQuantization) depending on your content. For homogeneous content, such as cartoons and video games, set it to Low. For content with a wider variety of textures, set it to High or Higher.
+   */
+  SpatialAdaptiveQuantization?: XavcSpatialAdaptiveQuantization | string;
+
+  /**
+   * The best way to set up adaptive quantization is to keep the default value, Auto (AUTO), for the setting Adaptive quantization (adaptiveQuantization). When you do so, MediaConvert automatically applies the best types of quantization for your video content. Include this setting in your JSON job specification only when you choose to change the default value for Adaptive quantization. For this setting, keep the default value, Enabled (ENABLED), to adjust quantization within each frame based on temporal variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas of the frame that aren't moving and uses more bits on complex objects with sharp edges that move a lot. For example, this feature improves the readability of text tickers on newscasts and scoreboards on sports matches. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen that doesn't have moving objects with sharp edges, such as sports athletes' faces, you might choose to disable this feature. Related setting: When you enable temporal adaptive quantization, adjust the strength of the filter with the setting Adaptive quantization (adaptiveQuantization).
+   */
+  TemporalAdaptiveQuantization?: XavcTemporalAdaptiveQuantization | string;
+
+  /**
+   * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K_INTRA_CBG.
+   */
+  Xavc4kIntraCbgProfileSettings?: Xavc4kIntraCbgProfileSettings;
+
+  /**
+   * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K_INTRA_VBR.
+   */
+  Xavc4kIntraVbrProfileSettings?: Xavc4kIntraVbrProfileSettings;
+
+  /**
+   * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K.
+   */
+  Xavc4kProfileSettings?: Xavc4kProfileSettings;
+
+  /**
+   * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD_INTRA_CBG.
+   */
+  XavcHdIntraCbgProfileSettings?: XavcHdIntraCbgProfileSettings;
+
+  /**
+   * Required when you set (Profile) under (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD.
+   */
+  XavcHdProfileSettings?: XavcHdProfileSettings;
+}
+
+export namespace XavcSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: XavcSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
  */
 export interface VideoCodecSettings {
   /**
@@ -1847,6 +2319,11 @@ export interface VideoCodecSettings {
    * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP9.
    */
   Vp9Settings?: Vp9Settings;
+
+  /**
+   * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value XAVC.
+   */
+  XavcSettings?: XavcSettings;
 }
 
 export namespace VideoCodecSettings {
@@ -1892,6 +2369,11 @@ export enum ColorSpaceConversion {
   NONE = "NONE",
 }
 
+export enum SampleRangeConversion {
+  LIMITED_RANGE_SQUEEZE = "LIMITED_RANGE_SQUEEZE",
+  NONE = "NONE",
+}
+
 /**
  * Settings for color correction.
  */
@@ -1920,6 +2402,11 @@ export interface ColorCorrector {
    * Hue in degrees.
    */
   Hue?: number;
+
+  /**
+   * Specify the video color sample range for this output. To create a full range output, you must start with a full range YUV input and keep the default value, None (NONE). To create a limited range output from a full range input, choose Limited range (LIMITED_RANGE_SQUEEZE). With RGB inputs, your output is always limited range, regardless of your choice here. When you create a limited range output from a full range input, MediaConvert limits the active pixel values in a way that depends on the output's bit depth: 8-bit outputs contain only values from 16 through 235 and 10-bit outputs contain only values from 64 through 940. With this conversion, MediaConvert also changes the output metadata to note the limited range.
+   */
+  SampleRangeConversion?: SampleRangeConversion | string;
 
   /**
    * Saturation level.
@@ -2042,6 +2529,30 @@ export namespace DolbyVision {
    * @internal
    */
   export const filterSensitiveLog = (obj: DolbyVision): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Setting for HDR10+ metadata insertion
+ */
+export interface Hdr10Plus {
+  /**
+   * Specify the HDR10+ mastering display normalized peak luminance, in nits. This is the normalized actual peak luminance of the mastering display, as defined by ST 2094-40.
+   */
+  MasteringMonitorNits?: number;
+
+  /**
+   * Specify the HDR10+ target display nominal peak luminance, in nits. This is the nominal maximum luminance of the target display as defined by ST 2094-40.
+   */
+  TargetMonitorNits?: number;
+}
+
+export namespace Hdr10Plus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Hdr10Plus): any => ({
     ...obj,
   });
 }
@@ -2301,6 +2812,11 @@ export interface VideoPreprocessor {
   DolbyVision?: DolbyVision;
 
   /**
+   * Enable HDR10+ analyis and metadata injection. Compatible with HEVC only.
+   */
+  Hdr10Plus?: Hdr10Plus;
+
+  /**
    * Enable the Image inserter (ImageInserter) feature to include a graphic overlay on your video. Enable or disable this feature for each output individually. This setting is disabled by default.
    */
   ImageInserter?: ImageInserter;
@@ -2345,7 +2861,7 @@ export interface VideoDescription {
   AntiAlias?: AntiAlias | string;
 
   /**
-   * Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings
+   * Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
    */
   CodecSettings?: VideoCodecSettings;
 

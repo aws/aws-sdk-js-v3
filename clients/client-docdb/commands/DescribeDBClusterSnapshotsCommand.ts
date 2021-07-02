@@ -21,8 +21,7 @@ export interface DescribeDBClusterSnapshotsCommandInput extends DescribeDBCluste
 export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapshotMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about cluster snapshots. This API operation supports
- *             pagination.</p>
+ * <p>Returns information about cluster snapshots. This API operation supports pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,8 +21,10 @@ export interface CreateLongTermPricingCommandInput extends CreateLongTermPricing
 export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricingResult, __MetadataBearer {}
 
 /**
- * <p>Creates a job with long term usage option for a device. The long term usage is a one year or three year long term pricing type for the device.
- *       You are billed upfront and AWS give discounts for long term pricing. For detailed information see XXXXXXXX</p>
+ * <p>Creates a job with the long-term usage option for a device. The long-term usage is a
+ *       1-year or 3-year long-term pricing type for the device. You are billed upfront, and AWS
+ *       provides discounts for long-term pricing.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1208,8 +1208,8 @@ export interface CreateAutoScalingGroupType {
   /**
    * <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to
    *             call other Amazon Web Services on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role
-   *             named AWSServiceRoleForAutoScaling, which it creates if it does not exist. For more
-   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked
+   *             named <code>AWSServiceRoleForAutoScaling</code>, which it creates if it does not exist.
+   *             For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked
    *                 roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   ServiceLinkedRoleARN?: string;
@@ -1221,6 +1221,11 @@ export interface CreateAutoScalingGroupType {
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   MaxInstanceLifetime?: number;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  Context?: string;
 }
 
 export namespace CreateAutoScalingGroupType {
@@ -1310,7 +1315,7 @@ export interface Ebs {
    *             <code>Iops</code> is supported when the volume type is <code>gp3</code> or
    *                 <code>io1</code> and required only when the volume type is <code>io1</code>. (Not
    *             used with <code>standard</code>, <code>gp2</code>, <code>st1</code>, or <code>sc1</code>
-   *             volumes.)  </p>
+   *             volumes.) </p>
    */
   Iops?: number;
 
@@ -1323,13 +1328,13 @@ export interface Ebs {
    *             <p>If you are creating a volume from a snapshot, you cannot specify an encryption
    *                 value. Volumes that are created from encrypted snapshots are automatically
    *                 encrypted, and volumes that are created from unencrypted snapshots are automatically
-   *                 unencrypted. By default, encrypted snapshots use the AWS managed CMK that is used
+   *                 unencrypted. By default, encrypted snapshots use the Amazon Web Services managed CMK that is used
    *                 for EBS encryption, but you can specify a custom CMK when you create the snapshot.
    *                 The ability to encrypt a snapshot during copying also allows you to apply a new CMK
    *                 to an already-encrypted snapshot. Volumes restored from the
    *                 resulting copy are only accessible using the new CMK.</p>
    *             <p>Enabling <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">encryption by default</a> results in all EBS volumes being encrypted with
-   *                 the AWS managed CMK or a customer managed CMK, whether or not the snapshot was
+   *                 the Amazon Web Services managed CMK or a customer managed CMK, whether or not the snapshot was
    *                 encrypted.</p>
    *         </note>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Using Encryption with EBS-Backed
@@ -2486,6 +2491,11 @@ export interface AutoScalingGroup {
    * <p>The current size of the warm pool.</p>
    */
   WarmPoolSize?: number;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  Context?: string;
 }
 
 export namespace AutoScalingGroup {
@@ -3831,14 +3841,14 @@ export interface PredictiveScalingPredefinedLoadMetric {
   PredefinedMetricType: PredefinedLoadMetricType | string | undefined;
 
   /**
-   * <p>A label that uniquely identifies a specific Application Load Balancer target
-   *             group from which to determine the request count served by your Auto Scaling group. You can't specify a resource label
+   * <p>A label that uniquely identifies a specific Application Load Balancer target group from which to determine
+   *             the request count served by your Auto Scaling group. You can't specify a resource label
    *             unless the target group is attached to the Auto Scaling group.</p>
-   *         <p>You create the resource label by appending the final portion of the load balancer ARN
+   *          <p>You create the resource label by appending the final portion of the load balancer ARN
    *             and the final portion of the target group ARN into a single value, separated by a forward
    *             slash (/). The format of the resource label is:</p>
    *         <p>
-   *             <code>app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d</code>.</p>
+   *             <code>app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff</code>.</p>
    *         <p>Where:</p>
    *         <ul>
    *             <li>
@@ -3885,14 +3895,14 @@ export interface PredictiveScalingPredefinedMetricPair {
   PredefinedMetricType: PredefinedMetricPairType | string | undefined;
 
   /**
-   * <p>A label that uniquely identifies a specific Application Load Balancer target
-   *             group from which to determine the request count served by your Auto Scaling group. You can't specify a resource label
-   *             unless the target group is attached to the Auto Scaling group.</p>
+   * <p>A label that uniquely identifies a specific Application Load Balancer target group from which to determine
+   *             the total and average request count served by your Auto Scaling group. You can't specify a
+   *             resource label unless the target group is attached to the Auto Scaling group.</p>
    *         <p>You create the resource label by appending the final portion of the load balancer ARN
    *             and the final portion of the target group ARN into a single value, separated by a forward
    *             slash (/). The format of the resource label is:</p>
    *         <p>
-   *             <code>app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d</code>.</p>
+   *             <code>app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff</code>.</p>
    *         <p>Where:</p>
    *         <ul>
    *             <li>
@@ -3939,14 +3949,14 @@ export interface PredictiveScalingPredefinedScalingMetric {
   PredefinedMetricType: PredefinedScalingMetricType | string | undefined;
 
   /**
-   * <p>A label that uniquely identifies a specific Application Load Balancer target
-   *             group from which to determine the request count served by your Auto Scaling group. You can't specify a resource label
-   *             unless the target group is attached to the Auto Scaling group.</p>
-   *         <p>You create the resource label by appending the final portion of the load balancer ARN
+   * <p>A label that uniquely identifies a specific Application Load Balancer target group from which to determine
+   *             the average request count served by your Auto Scaling group. You can't specify a resource
+   *             label unless the target group is attached to the Auto Scaling group.</p>
+   *          <p>You create the resource label by appending the final portion of the load balancer ARN
    *             and the final portion of the target group ARN into a single value, separated by a forward
    *             slash (/). The format of the resource label is:</p>
    *         <p>
-   *             <code>app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d</code>.</p>
+   *             <code>app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff</code>.</p>
    *         <p>Where:</p>
    *         <ul>
    *             <li>
@@ -4336,28 +4346,27 @@ export interface PredefinedMetricSpecification {
   PredefinedMetricType: MetricType | string | undefined;
 
   /**
-   * <p>Identifies the resource associated with the metric type. You can't specify a resource
-   *             label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is a
-   *             target group attached to the Auto Scaling group.</p>
+   * <p>A label that uniquely identifies a specific Application Load Balancer target group
+   *             from which to determine the average request count served by your Auto Scaling group. You can't
+   *             specify a resource label unless the target group is attached to the Auto Scaling group.</p>
    *         <p>You create the resource label by appending the final portion of the load balancer ARN
-   *             and the final portion of the target group ARN into a single value, separated by a
-   *             forward slash (/). The format is
-   *             app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>,
-   *             where:</p>
+   *             and the final portion of the target group ARN into a single value, separated by a forward
+   *             slash (/). The format of the resource label is:</p>
+   *         <p>
+   *             <code>app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff</code>.</p>
+   *         <p>Where:</p>
    *         <ul>
    *             <li>
-   *                 <p>app/<load-balancer-name>/<load-balancer-id> is the final portion
-   *                     of the load balancer ARN</p>
+   *                 <p>app/<load-balancer-name>/<load-balancer-id> is the final portion of
+   *                     the load balancer ARN</p>
    *             </li>
    *             <li>
-   *                 <p>targetgroup/<target-group-name>/<target-group-id> is the final
-   *                     portion of the target group ARN.</p>
+   *                 <p>targetgroup/<target-group-name>/<target-group-id> is the final portion
+   *                     of the target group ARN.</p>
    *             </li>
    *          </ul>
-   *         <p>This is an example:
-   *             app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d.</p>
-   *         <p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group,
-   *             use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
+   *         <p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group, use
+   *             the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    */
   ResourceLabel?: string;
 }
@@ -6581,6 +6590,11 @@ export interface UpdateAutoScalingGroupType {
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   CapacityRebalance?: boolean;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  Context?: string;
 }
 
 export namespace UpdateAutoScalingGroupType {

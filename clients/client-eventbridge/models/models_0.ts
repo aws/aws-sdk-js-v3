@@ -782,8 +782,8 @@ export interface CreateConnectionAuthRequestParameters {
 
   /**
    * <p>A <code>ConnectionHttpParameters</code> object that contains the API key authorization
-   *       parameters to use for the connection. Note that if you include additional parameters for
-   *       the target of a rule via <code>HttpParameters</code>, including query strings, the parameters
+   *       parameters to use for the connection. Note that if you include additional parameters for the
+   *       target of a rule via <code>HttpParameters</code>, including query strings, the parameters
    *       added for the connection take precedence.</p>
    */
   InvocationHttpParameters?: ConnectionHttpParameters;
@@ -1441,7 +1441,8 @@ export namespace DescribeConnectionRequest {
  */
 export interface ConnectionApiKeyAuthResponseParameters {
   /**
-   * <p>The name of the header to use for the <code>APIKeyValue</code> used for authorization.</p>
+   * <p>The name of the header to use for the <code>APIKeyValue</code> used for
+   *       authorization.</p>
    */
   ApiKeyName?: string;
 }
@@ -2280,10 +2281,10 @@ export namespace ListEventBusesRequest {
 
 /**
  * <p>An event bus receives events from a source and routes them to rules associated with that
- *       event bus. Your account's default event bus receives rules from AWS services. A custom event
- *       bus can receive rules from AWS services as well as your custom applications and services. A
- *       partner event bus receives events from an event source created by an SaaS partner. These
- *       events come from the partners services or applications.</p>
+ *       event bus. Your account's default event bus receives events from AWS services. A custom event
+ *       bus can receive events from your custom applications and services. A partner event bus
+ *       receives events from an event source created by an SaaS partner. These events come from the
+ *       partners services or applications.</p>
  */
 export interface EventBus {
   /**
@@ -3054,6 +3055,39 @@ export namespace DeadLetterConfig {
   });
 }
 
+/**
+ * <p>The details of a capacity provider strategy. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html">CapacityProviderStrategyItem</a> in the Amazon ECS API Reference.</p>
+ */
+export interface CapacityProviderStrategyItem {
+  /**
+   * <p>The short name of the capacity provider.</p>
+   */
+  capacityProvider: string | undefined;
+
+  /**
+   * <p>The weight value designates the relative percentage of the total number of tasks launched
+   *       that should use the specified capacity provider. The weight value is taken into consideration
+   *       after the base value, if defined, is satisfied.</p>
+   */
+  weight?: number;
+
+  /**
+   * <p>The base value designates how many tasks, at a minimum, to run on the specified capacity
+   *       provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+   *       If no value is specified, the default value of 0 is used. </p>
+   */
+  base?: number;
+}
+
+export namespace CapacityProviderStrategyItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CapacityProviderStrategyItem): any => ({
+    ...obj,
+  });
+}
+
 export enum LaunchType {
   EC2 = "EC2",
   FARGATE = "FARGATE",
@@ -3116,6 +3150,84 @@ export namespace NetworkConfiguration {
   });
 }
 
+export enum PlacementConstraintType {
+  DISTINCT_INSTANCE = "distinctInstance",
+  MEMBER_OF = "memberOf",
+}
+
+/**
+ * <p>An object representing a constraint on task placement. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the Amazon Elastic Container Service Developer
+ *       Guide.</p>
+ */
+export interface PlacementConstraint {
+  /**
+   * <p>The type of constraint. Use distinctInstance to ensure that each task in a particular
+   *       group is running on a different container instance. Use memberOf to restrict the selection to
+   *       a group of valid candidates. </p>
+   */
+  type?: PlacementConstraintType | string;
+
+  /**
+   * <p>A cluster query language expression to apply to the constraint. You cannot specify an
+   *       expression if the constraint type is <code>distinctInstance</code>. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the Amazon Elastic Container Service Developer Guide.
+   *     </p>
+   */
+  expression?: string;
+}
+
+export namespace PlacementConstraint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PlacementConstraint): any => ({
+    ...obj,
+  });
+}
+
+export enum PlacementStrategyType {
+  BINPACK = "binpack",
+  RANDOM = "random",
+  SPREAD = "spread",
+}
+
+/**
+ * <p>The task placement strategy for a task or service. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task Placement Strategies</a> in the Amazon Elastic Container Service Developer
+ *       Guide.</p>
+ */
+export interface PlacementStrategy {
+  /**
+   * <p>The type of placement strategy. The random placement strategy randomly places tasks on
+   *       available candidates. The spread placement strategy spreads placement across available
+   *       candidates evenly based on the field parameter. The binpack strategy places tasks on available
+   *       candidates that have the least available amount of the resource that is specified with the
+   *       field parameter. For example, if you binpack on memory, a task is placed on the instance with
+   *       the least amount of remaining memory (but still enough to run the task). </p>
+   */
+  type?: PlacementStrategyType | string;
+
+  /**
+   * <p>The field to apply the placement strategy against. For the spread placement strategy,
+   *       valid values are instanceId (or host, which has the same effect), or any platform or custom
+   *       attribute that is applied to a container instance, such as attribute:ecs.availability-zone.
+   *       For the binpack placement strategy, valid values are cpu and memory. For the random placement
+   *       strategy, this field is not used. </p>
+   */
+  field?: string;
+}
+
+export namespace PlacementStrategy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PlacementStrategy): any => ({
+    ...obj,
+  });
+}
+
+export enum PropagateTags {
+  TASK_DEFINITION = "TASK_DEFINITION",
+}
+
 /**
  * <p>The custom parameters to be used when the target is an Amazon ECS task.</p>
  */
@@ -3165,6 +3277,59 @@ export interface EcsParameters {
    * <p>Specifies an ECS task group for the task. The maximum length is 255 characters.</p>
    */
   Group?: string;
+
+  /**
+   * <p>The capacity provider strategy to use for the task.</p>
+   *          <p>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
+   *       parameter must be omitted. If no <code>capacityProviderStrategy</code> or launchType is
+   *       specified, the <code>defaultCapacityProviderStrategy</code> for the cluster is used. </p>
+   */
+  CapacityProviderStrategy?: CapacityProviderStrategyItem[];
+
+  /**
+   * <p>Specifies whether to enable Amazon ECS managed tags for the task. For more information,
+   *       see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS Resources</a> in the Amazon Elastic Container Service Developer
+   *       Guide. </p>
+   */
+  EnableECSManagedTags?: boolean;
+
+  /**
+   * <p>Whether or not to enable the execute command functionality for the containers in this
+   *       task. If true, this enables execute command functionality on all containers in the
+   *       task.</p>
+   */
+  EnableExecuteCommand?: boolean;
+
+  /**
+   * <p>An array of placement constraint objects to use for the task. You can specify up to 10
+   *       constraints per task (including constraints in the task definition and those specified at
+   *       runtime).</p>
+   */
+  PlacementConstraints?: PlacementConstraint[];
+
+  /**
+   * <p>The placement strategy objects to use for the task. You can specify a maximum of five
+   *       strategy rules per task. </p>
+   */
+  PlacementStrategy?: PlacementStrategy[];
+
+  /**
+   * <p>Specifies whether to propagate the tags from the task definition to the task. If no value
+   *       is specified, the tags are not propagated. Tags can only be propagated to the task during task
+   *       creation. To add tags to a task after task creation, use the TagResource API action. </p>
+   */
+  PropagateTags?: PropagateTags | string;
+
+  /**
+   * <p>The reference ID to use for the task.</p>
+   */
+  ReferenceId?: string;
+
+  /**
+   * <p>The metadata that you apply to the task to help you categorize and organize them. Each tag
+   *       consists of a key and an optional value, both of which you define. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags">RunTask</a> in the Amazon ECS API Reference.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace EcsParameters {
@@ -3177,20 +3342,21 @@ export namespace EcsParameters {
 }
 
 /**
- * <p>These are custom parameter to be used when the target is an API Gateway REST APIs
- *       or EventBridge ApiDestinations. In the latter case, these are merged with any InvocationParameters
- *       specified on the Connection, with any values from the Connection taking precedence.</p>
+ * <p>These are custom parameter to be used when the target is an API Gateway REST APIs or
+ *       EventBridge ApiDestinations. In the latter case, these are merged with any
+ *       InvocationParameters specified on the Connection, with any values from the Connection taking
+ *       precedence.</p>
  */
 export interface HttpParameters {
   /**
-   * <p>The path parameter values to be used to populate API Gateway REST API or
-   *       EventBridge ApiDestination path wildcards ("*").</p>
+   * <p>The path parameter values to be used to populate API Gateway REST API or EventBridge
+   *       ApiDestination path wildcards ("*").</p>
    */
   PathParameterValues?: string[];
 
   /**
-   * <p>The headers that need to be sent as part of request invoking the API Gateway REST
-   *       API or EventBridge ApiDestination.</p>
+   * <p>The headers that need to be sent as part of request invoking the API Gateway REST API or
+   *       EventBridge ApiDestination.</p>
    */
   HeaderParameters?: { [key: string]: string };
 
@@ -3276,8 +3442,8 @@ export interface InputTransformer {
    *          <p>
    *             <code>}</code>
    *          </p>
-   *          <p>The <code>InputTemplate</code> can also be valid JSON with varibles in quotes or out,
-   *       as in the following example:</p>
+   *          <p>The <code>InputTemplate</code> can also be valid JSON with varibles in quotes or out, as
+   *       in the following example:</p>
    *          <p>
    *             <code> "InputTransformer":</code>
    *          </p>
@@ -3289,8 +3455,8 @@ export interface InputTransformer {
    *         "$.detail.status"},</code>
    *          </p>
    *          <p>
-   *             <code>"InputTemplate": '{"myInstance": <instance>,"myStatus":
-   *         "<instance> is in state \"<status>\""}'</code>
+   *             <code>"InputTemplate": '{"myInstance": <instance>,"myStatus": "<instance> is
+   *         in state \"<status>\""}'</code>
    *          </p>
    *          <p>
    *             <code>}</code>
@@ -3609,13 +3775,13 @@ export interface Target {
   SqsParameters?: SqsParameters;
 
   /**
-   * <p>Contains the HTTP parameters to use when the target is a API Gateway REST endpoint
-   *       or EventBridge ApiDestination.</p>
-   *          <p>If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you
-   *       can use this parameter to specify headers, path parameters, and query string keys/values
-   *       as part of your target invoking request. If you're using ApiDestinations, the corresponding
-   *       Connection can also have these values configured. In case of any conflicting keys, values
-   *       from the Connection take precedence.</p>
+   * <p>Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or
+   *       EventBridge ApiDestination.</p>
+   *          <p>If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can
+   *       use this parameter to specify headers, path parameters, and query string keys/values as part
+   *       of your target invoking request. If you're using ApiDestinations, the corresponding Connection
+   *       can also have these values configured. In case of any conflicting keys, values from the
+   *       Connection take precedence.</p>
    */
   HttpParameters?: HttpParameters;
 
@@ -3718,7 +3884,8 @@ export interface PutEventsRequestEntry {
   EventBusName?: string;
 
   /**
-   * <p>An AWS X-Ray trade header, which is an http header (X-Amzn-Trace-Id) that contains the trace-id associated with the event.</p>
+   * <p>An AWS X-Ray trade header, which is an http header (X-Amzn-Trace-Id) that contains the
+   *       trace-id associated with the event.</p>
    *          <p>To learn more about X-Ray trace headers, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader">Tracing header</a> in the AWS X-Ray Developer Guide.</p>
    */
   TraceHeader?: string;

@@ -21,7 +21,7 @@ export interface ListNamespacesCommandInput extends ListNamespacesRequest {}
 export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists summary information about the namespaces that were created by the current AWS account.</p>
+ * <p>Lists summary information about the namespaces that were created by the current account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

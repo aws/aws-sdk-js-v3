@@ -531,6 +531,12 @@
         },
         {
           "target": "com.amazonaws.cloudsearch#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.cloudsearch#ResourceAlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.cloudsearch#ValidationException"
         }
       ],
       "traits": {
@@ -2827,6 +2833,22 @@
           {
             "value": "search.2xlarge",
             "name": "search_2xlarge"
+          },
+          {
+            "value": "search.previousgeneration.small",
+            "name": "search_previousgeneration_small"
+          },
+          {
+            "value": "search.previousgeneration.large",
+            "name": "search_previousgeneration_large"
+          },
+          {
+            "value": "search.previousgeneration.xlarge",
+            "name": "search_previousgeneration_xlarge"
+          },
+          {
+            "value": "search.previousgeneration.2xlarge",
+            "name": "search_previousgeneration_2xlarge"
           }
         ]
       }
@@ -2835,6 +2857,26 @@
       "type": "string",
       "traits": {
         "smithy.api#documentation": "<p>Access rules for a domain's document or search service endpoints. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html\" target=\"_blank\">Configuring Access for a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>. The maximum size of a policy document is 100 KB.</p>"
+      }
+    },
+    "com.amazonaws.cloudsearch#ResourceAlreadyExistsException": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.cloudsearch#ErrorCode"
+        },
+        "Message": {
+          "target": "com.amazonaws.cloudsearch#ErrorMessage"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ResourceAlreadyExists",
+          "httpResponseCode": 409
+        },
+        "smithy.api#documentation": "<p>The request was rejected because it attempted to create a resource that already exists.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.cloudsearch#ResourceNotFoundException": {

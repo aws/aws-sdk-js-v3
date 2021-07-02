@@ -22,6 +22,9 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
 
 /**
  * <p>Updates the specified <a>RegexPatternSet</a>.</p>
+ *          <note>
+ *             <p>This operation completely replaces the mutable specifications that you already have for the regex pattern set with the ones that you provide to this call. To modify the regex pattern set, retrieve it by calling <a>GetRegexPatternSet</a>, update the settings as needed, and then provide the complete regex pattern set specification to this call.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

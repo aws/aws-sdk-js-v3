@@ -127,6 +127,118 @@ import {
   _InstanceType,
 } from "./models_1";
 
+export interface DescribeTrialComponentResponse {
+  /**
+   * <p>The name of the trial component.</p>
+   */
+  TrialComponentName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
+   */
+  TrialComponentArn?: string;
+
+  /**
+   * <p>The name of the component as displayed. If <code>DisplayName</code> isn't specified,
+   *         <code>TrialComponentName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the job type.</p>
+   */
+  Source?: TrialComponentSource;
+
+  /**
+   * <p>The status of the component. States include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>InProgress</p>
+   *             </li>
+   *             <li>
+   *                <p>Completed</p>
+   *             </li>
+   *             <li>
+   *                <p>Failed</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: TrialComponentStatus;
+
+  /**
+   * <p>When the component started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>When the component ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>When the component was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Who created the component.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>When the component was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Who last modified the component.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>The hyperparameters of the component.</p>
+   */
+  Parameters?: { [key: string]: TrialComponentParameterValue };
+
+  /**
+   * <p>The input artifacts of the component.</p>
+   */
+  InputArtifacts?: { [key: string]: TrialComponentArtifact };
+
+  /**
+   * <p>The output artifacts of the component.</p>
+   */
+  OutputArtifacts?: { [key: string]: TrialComponentArtifact };
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   */
+  MetadataProperties?: MetadataProperties;
+
+  /**
+   * <p>The metrics for the component.</p>
+   */
+  Metrics?: TrialComponentMetricSummary[];
+}
+
+export namespace DescribeTrialComponentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrialComponentResponse): any => ({
+    ...obj,
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce(
+        (acc: any, [key, value]: [string, TrialComponentParameterValue]) => ({
+          ...acc,
+          [key]: TrialComponentParameterValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
+  });
+}
+
 export interface DescribeUserProfileRequest {
   /**
    * <p>The domain ID.</p>
@@ -293,7 +405,7 @@ export namespace OidcConfigForResponse {
 
 /**
  * <p>A single private workforce, which is automatically created when you create your first
- *             private work team. You can create one private work force in each AWS Region. By default,
+ *             private work team. You can create one private work force in each Amazon Web Services Region. By default,
  *             any workforce-related API operation used in a specific region will apply to the
  *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
  */
@@ -357,7 +469,7 @@ export namespace Workforce {
 export interface DescribeWorkforceResponse {
   /**
    * <p>A single private workforce, which is automatically created when you create your first
-   *             private work team. You can create one private work force in each AWS Region. By default,
+   *             private work team. You can create one private work force in each Amazon Web Services Region. By default,
    *             any workforce-related API operation used in a specific region will apply to the
    *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
    */
@@ -523,7 +635,7 @@ export interface Device {
   Description?: string;
 
   /**
-   * <p>AWS Internet of Things (IoT) object name.</p>
+   * <p>Amazon Web Services Internet of Things (IoT) object name.</p>
    */
   IotThingName?: string;
 }
@@ -644,7 +756,7 @@ export interface DeviceSummary {
   DeviceFleetName?: string;
 
   /**
-   * <p>The AWS Internet of Things (IoT) object thing name associated with the device..</p>
+   * <p>The Amazon Web Services Internet of Things (IoT) object thing name associated with the device..</p>
    */
   IotThingName?: string;
 
@@ -981,8 +1093,8 @@ export interface MonitoringSchedule {
   LastMonitoringExecutionSummary?: MonitoringExecutionSummary;
 
   /**
-   * <p>A list of the tags associated with the monitoring schedlue. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             resources</a> in the <i>AWS General Reference Guide</i>.</p>
+   * <p>A list of the tags associated with the monitoring schedlue. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -1053,8 +1165,8 @@ export interface Endpoint {
   MonitoringSchedules?: MonitoringSchedule[];
 
   /**
-   * <p>A list of the tags associated with the endpoint. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *                 resources</a> in the <i>AWS General Reference Guide</i>.</p>
+   * <p>A list of the tags associated with the endpoint. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -1363,7 +1475,7 @@ export interface FeatureGroup {
   CreationTime?: Date;
 
   /**
-   * <p>Use this to specify the AWS Key Management Service (KMS) Key ID, or
+   * <p>Use this to specify the Amazon Web Services Key Management Service (KMS) Key ID, or
    *             <code>KMSKeyId</code>, for at rest data encryption. You can turn
    *             <code>OnlineStore</code> on or off by specifying the <code>EnableOnlineStore</code> flag
    *          at General Assembly; the default value is <code>False</code>.</p>
@@ -1374,7 +1486,7 @@ export interface FeatureGroup {
    * <p>The configuration of an <code>OfflineStore</code>.</p>
    *          <p>Provide an <code>OfflineStoreConfig</code> in a request to
    *             <code>CreateFeatureGroup</code> to create an <code>OfflineStore</code>.</p>
-   *          <p>To encrypt an <code>OfflineStore</code> using at rest data encryption, specify AWS Key
+   *          <p>To encrypt an <code>OfflineStore</code> using at rest data encryption, specify Amazon Web Services Key
    *          Management Service (KMS) key ID, or <code>KMSKeyId</code>, in
    *          <code>S3StorageConfig</code>.</p>
    */
@@ -1992,7 +2104,7 @@ export namespace GetSearchSuggestionsResponse {
  */
 export interface GitConfigForUpdate {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
    *             credentials used to access the git repository. The secret must have a staging label of
    *                 <code>AWSCURRENT</code> and must be in the following format:</p>
    *         <p>
@@ -2297,7 +2409,7 @@ export interface LabelingJobForWorkteamSummary {
   JobReferenceCode: string | undefined;
 
   /**
-   * <p>The AWS account ID of the account used to start the labeling job.</p>
+   * <p>The Amazon Web Services account ID of the account used to start the labeling job.</p>
    */
   WorkRequesterAccountId: string | undefined;
 
@@ -3116,7 +3228,7 @@ export interface ListCodeRepositoriesOutput {
    *             </li>
    *             <li>
    *                 <p>Configuration information, including the URL location of the repository and
-   *                     the ARN of the AWS Secrets Manager secret that contains the credentials used
+   *                     the ARN of the Amazon Web Services Secrets Manager secret that contains the credentials used
    *                     to access the repository.</p>
    *             </li>
    *          </ul>
@@ -4837,7 +4949,7 @@ export namespace ModelPackageGroupSummary {
 
 export interface ListModelPackageGroupsOutput {
   /**
-   * <p>A list of summaries of the model groups in your AWS account.</p>
+   * <p>A list of summaries of the model groups in your Amazon Web Services account.</p>
    */
   ModelPackageGroupSummaryList: ModelPackageGroupSummary[] | undefined;
 
@@ -5802,7 +5914,7 @@ export interface NotebookInstanceSummary {
   /**
    * <p>The Git repository associated with the notebook instance as its default code
    *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
    *             other Git repository. When you open a notebook instance, it opens in the directory that
    *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with Amazon SageMaker
    *                 Notebook Instances</a>.</p>
@@ -5812,7 +5924,7 @@ export interface NotebookInstanceSummary {
   /**
    * <p>An array of up to three Git repositories associated with the notebook instance. These
    *             can be either the names of Git repositories stored as resources in your account, or the
-   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
    *             other Git repository. These repositories are cloned at the same level as the default
    *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
    *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
@@ -7793,9 +7905,9 @@ export interface ModelPackage {
   ModelPackageStatusDetails?: ModelPackageStatusDetails;
 
   /**
-   * <p>Whether the model package is to be certified to be listed on AWS Marketplace. For
-   *             information about listing model packages on AWS Marketplace, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html">List Your
-   *                 Algorithm or Model Package on AWS Marketplace</a>.</p>
+   * <p>Whether the model package is to be certified to be listed on Amazon Web Services Marketplace. For
+   *             information about listing model packages on Amazon Web Services Marketplace, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html">List Your
+   *                 Algorithm or Model Package on Amazon Web Services Marketplace</a>.</p>
    */
   CertifyForMarketplace?: boolean;
 
@@ -7852,8 +7964,8 @@ export interface ModelPackage {
   ApprovalDescription?: string;
 
   /**
-   * <p>A list of the tags associated with the model package. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             resources</a> in the <i>AWS General Reference Guide</i>.</p>
+   * <p>A list of the tags associated with the model package. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -7930,8 +8042,8 @@ export interface ModelPackageGroup {
   ModelPackageGroupStatus?: ModelPackageGroupStatus | string;
 
   /**
-   * <p>A list of the tags associated with the model group. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *             resources</a> in the <i>AWS General Reference Guide</i>.</p>
+   * <p>A list of the tags associated with the model group. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -8305,7 +8417,7 @@ export interface ProcessingJob {
   TrainingJobArn?: string;
 
   /**
-   * <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
+   * <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
    *                 User Guide</i>.</p>
    */
   Tags?: Tag[];
@@ -8719,7 +8831,7 @@ export interface TrainingJob {
   AlgorithmSpecification?: AlgorithmSpecification;
 
   /**
-   * <p>The AWS Identity and Access Management (IAM) role configured for the training job.</p>
+   * <p>The Amazon Web Services Identity and Access Management (IAM) role configured for the training job.</p>
    */
   RoleArn?: string;
 
@@ -8893,9 +9005,9 @@ export interface TrainingJob {
   RetryStrategy?: RetryStrategy;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
    *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 Resources</a>.</p>
    */
   Tags?: Tag[];
@@ -9981,7 +10093,7 @@ export interface UpdateCodeRepositoryInput {
 
   /**
    * <p>The configuration of the git repository, including the URL and the Amazon Resource
-   *             Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to
+   *             Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to
    *             access the repository. The secret must have a staging label of <code>AWSCURRENT</code>
    *             and must be in the following format:</p>
    *         <p>
@@ -10086,7 +10198,7 @@ export interface UpdateDeviceFleetRequest {
   OutputConfig: EdgeOutputConfig | undefined;
 
   /**
-   * <p>Whether to create an AWS IoT Role Alias during device fleet creation.
+   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
    *       The name of the role alias generated will match this pattern:
    *       "SageMakerEdge-{DeviceFleetName}".</p>
    *          <p>For example, if your device fleet is called "demo-fleet", the name of
@@ -10424,22 +10536,6 @@ export namespace UpdateModelPackageInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateModelPackageInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateModelPackageOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model.</p>
-   */
-  ModelPackageArn: string | undefined;
-}
-
-export namespace UpdateModelPackageOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateModelPackageOutput): any => ({
     ...obj,
   });
 }

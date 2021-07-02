@@ -26,7 +26,7 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  *         <p>If
  *             you choose to host your model using Amazon SageMaker hosting services, you can use the resulting
  *             model artifacts as part of the model. You can also use the artifacts with
- *             AWS
+ *             Amazon Web Services
  *             IoT Greengrass. In that case, deploy them as an ML
  *             resource.</p>
  *         <p>In the request body, you provide the following:</p>

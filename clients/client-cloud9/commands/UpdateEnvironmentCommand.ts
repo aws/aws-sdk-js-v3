@@ -21,7 +21,7 @@ export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentRequest 
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResult, __MetadataBearer {}
 
 /**
- * <p>Changes the settings of an existing AWS Cloud9 development environment.</p>
+ * <p>Changes the settings of an existing Cloud9 development environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

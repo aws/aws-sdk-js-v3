@@ -22,7 +22,7 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
 
 /**
  * <p>
- *       Returns a list of ARNs for the reports in the current AWS account.
+ *       Returns a list of ARNs for the reports in the current Amazon Web Services account.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

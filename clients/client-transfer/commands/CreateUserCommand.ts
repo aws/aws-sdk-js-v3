@@ -25,7 +25,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *       You can only create and associate users with servers that have the
  *         <code>IdentityProviderType</code> set to <code>SERVICE_MANAGED</code>. Using parameters for
  *         <code>CreateUser</code>, you can specify the user name, set the home directory, store the
- *       user's public key, and assign the user's AWS Identity and Access Management (IAM)
+ *       user's public key, and assign the user's Amazon Web Services Identity and Access Management (IAM)
  *       role. You can also optionally add a scope-down policy, and assign metadata with tags that can
  *       be used to group and search for users.</p>
  * @example

@@ -1,5 +1,10 @@
 import { DocDBClient } from "./DocDBClient";
 import {
+  AddSourceIdentifierToSubscriptionCommand,
+  AddSourceIdentifierToSubscriptionCommandInput,
+  AddSourceIdentifierToSubscriptionCommandOutput,
+} from "./commands/AddSourceIdentifierToSubscriptionCommand";
+import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
   AddTagsToResourceCommandOutput,
@@ -45,6 +50,16 @@ import {
   CreateDBSubnetGroupCommandOutput,
 } from "./commands/CreateDBSubnetGroupCommand";
 import {
+  CreateEventSubscriptionCommand,
+  CreateEventSubscriptionCommandInput,
+  CreateEventSubscriptionCommandOutput,
+} from "./commands/CreateEventSubscriptionCommand";
+import {
+  CreateGlobalClusterCommand,
+  CreateGlobalClusterCommandInput,
+  CreateGlobalClusterCommandOutput,
+} from "./commands/CreateGlobalClusterCommand";
+import {
   DeleteDBClusterCommand,
   DeleteDBClusterCommandInput,
   DeleteDBClusterCommandOutput,
@@ -69,6 +84,16 @@ import {
   DeleteDBSubnetGroupCommandInput,
   DeleteDBSubnetGroupCommandOutput,
 } from "./commands/DeleteDBSubnetGroupCommand";
+import {
+  DeleteEventSubscriptionCommand,
+  DeleteEventSubscriptionCommandInput,
+  DeleteEventSubscriptionCommandOutput,
+} from "./commands/DeleteEventSubscriptionCommand";
+import {
+  DeleteGlobalClusterCommand,
+  DeleteGlobalClusterCommandInput,
+  DeleteGlobalClusterCommandOutput,
+} from "./commands/DeleteGlobalClusterCommand";
 import {
   DescribeCertificatesCommand,
   DescribeCertificatesCommandInput,
@@ -125,10 +150,20 @@ import {
   DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
 import {
+  DescribeEventSubscriptionsCommand,
+  DescribeEventSubscriptionsCommandInput,
+  DescribeEventSubscriptionsCommandOutput,
+} from "./commands/DescribeEventSubscriptionsCommand";
+import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
+import {
+  DescribeGlobalClustersCommand,
+  DescribeGlobalClustersCommandInput,
+  DescribeGlobalClustersCommandOutput,
+} from "./commands/DescribeGlobalClustersCommand";
 import {
   DescribeOrderableDBInstanceOptionsCommand,
   DescribeOrderableDBInstanceOptionsCommandInput,
@@ -175,10 +210,30 @@ import {
   ModifyDBSubnetGroupCommandOutput,
 } from "./commands/ModifyDBSubnetGroupCommand";
 import {
+  ModifyEventSubscriptionCommand,
+  ModifyEventSubscriptionCommandInput,
+  ModifyEventSubscriptionCommandOutput,
+} from "./commands/ModifyEventSubscriptionCommand";
+import {
+  ModifyGlobalClusterCommand,
+  ModifyGlobalClusterCommandInput,
+  ModifyGlobalClusterCommandOutput,
+} from "./commands/ModifyGlobalClusterCommand";
+import {
   RebootDBInstanceCommand,
   RebootDBInstanceCommandInput,
   RebootDBInstanceCommandOutput,
 } from "./commands/RebootDBInstanceCommand";
+import {
+  RemoveFromGlobalClusterCommand,
+  RemoveFromGlobalClusterCommandInput,
+  RemoveFromGlobalClusterCommandOutput,
+} from "./commands/RemoveFromGlobalClusterCommand";
+import {
+  RemoveSourceIdentifierFromSubscriptionCommand,
+  RemoveSourceIdentifierFromSubscriptionCommandInput,
+  RemoveSourceIdentifierFromSubscriptionCommandOutput,
+} from "./commands/RemoveSourceIdentifierFromSubscriptionCommand";
 import {
   RemoveTagsFromResourceCommand,
   RemoveTagsFromResourceCommandInput,
@@ -216,10 +271,43 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class DocDB extends DocDBClient {
   /**
+   * <p>Adds a source identifier to an existing event notification
+   *             subscription.</p>
+   */
+  public addSourceIdentifierToSubscription(
+    args: AddSourceIdentifierToSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddSourceIdentifierToSubscriptionCommandOutput>;
+  public addSourceIdentifierToSubscription(
+    args: AddSourceIdentifierToSubscriptionCommandInput,
+    cb: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
+  ): void;
+  public addSourceIdentifierToSubscription(
+    args: AddSourceIdentifierToSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
+  ): void;
+  public addSourceIdentifierToSubscription(
+    args: AddSourceIdentifierToSubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
+  ): Promise<AddSourceIdentifierToSubscriptionCommandOutput> | void {
+    const command = new AddSourceIdentifierToSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds metadata tags to an Amazon DocumentDB resource. You can use these tags
    *             with cost allocation reporting to track costs that are associated
-   *             with Amazon DocumentDB resources. or in a <code>Condition</code> statement in
-   *             an AWS Identity and Access Management (IAM) policy for Amazon DocumentDB.</p>
+   *             with Amazon DocumentDB resources or in a <code>Condition</code> statement in
+   *             an Identity and Access Management (IAM) policy for Amazon DocumentDB.</p>
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -322,7 +410,7 @@ export class DocDB extends DocDBClient {
    *             <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon
    *             Resource Name (ARN) of the shared cluster snapshot. You can only
    *             copy a shared DB cluster snapshot, whether encrypted or not, in the
-   *             same AWS Region.</p>
+   *             same Region.</p>
    *
    *         <p>To cancel the copy operation after it is in progress, delete the
    *             target cluster snapshot identified by
@@ -506,7 +594,7 @@ export class DocDB extends DocDBClient {
 
   /**
    * <p>Creates a new subnet group. subnet groups must contain at least one subnet in at
-   *             least two Availability Zones in the AWS Region.</p>
+   *             least two Availability Zones in the Region.</p>
    */
   public createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
@@ -538,9 +626,78 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Deletes a previously provisioned cluster. When you delete a cluster, all
-   *             automated backups for that cluster are deleted and can't be recovered. Manual DB
-   *             cluster snapshots of the specified cluster are not deleted.</p>
+   * <p>Creates an Amazon DocumentDB event notification subscription. This action requires a topic Amazon Resource Name (ARN) created by using the Amazon DocumentDB console, the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in the Amazon SNS console.</p>
+   *         <p>You can specify the type of source (<code>SourceType</code>) that you want to be notified of. You can also provide a list of Amazon DocumentDB sources (<code>SourceIds</code>) that trigger the events, and you can provide a list of event categories (<code>EventCategories</code>) for events that you want to be notified of. For example, you can specify <code>SourceType = db-instance</code>, <code>SourceIds = mydbinstance1, mydbinstance2</code> and <code>EventCategories = Availability, Backup</code>.</p>
+   *         <p>If you specify both the <code>SourceType</code> and <code>SourceIds</code> (such as <code>SourceType = db-instance</code> and <code>SourceIdentifier = myDBInstance1</code>), you are notified of all the <code>db-instance</code> events for the specified source. If you specify a <code>SourceType</code> but do not specify a <code>SourceIdentifier</code>, you receive notice of the events for that source type for all your Amazon DocumentDB sources. If you do not specify either the <code>SourceType</code> or the <code>SourceIdentifier</code>, you are notified of events generated from all Amazon DocumentDB sources belonging to your customer account.</p>
+   */
+  public createEventSubscription(
+    args: CreateEventSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEventSubscriptionCommandOutput>;
+  public createEventSubscription(
+    args: CreateEventSubscriptionCommandInput,
+    cb: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
+  ): void;
+  public createEventSubscription(
+    args: CreateEventSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
+  ): void;
+  public createEventSubscription(
+    args: CreateEventSubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEventSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
+  ): Promise<CreateEventSubscriptionCommandOutput> | void {
+    const command = new CreateEventSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an Amazon DocumentDB global cluster that can span multiple multiple Regions. The global cluster contains one primary cluster with read-write capability, and up-to give read-only secondary clusters. Global clusters uses storage-based fast replication across regions with latencies less than one second, using dedicated infrastructure with no impact to your workload’s performance.</p>
+   *         <p></p>
+   *         <p>You can create a global cluster that is initially empty, and then add a primary and a secondary to it. Or you can specify an existing cluster during the create operation, and this cluster becomes the primary of the global cluster. </p>
+   *         <note>
+   *             <p>This action only applies to Amazon DocumentDB clusters.</p>
+   *         </note>
+   */
+  public createGlobalCluster(
+    args: CreateGlobalClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGlobalClusterCommandOutput>;
+  public createGlobalCluster(
+    args: CreateGlobalClusterCommandInput,
+    cb: (err: any, data?: CreateGlobalClusterCommandOutput) => void
+  ): void;
+  public createGlobalCluster(
+    args: CreateGlobalClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGlobalClusterCommandOutput) => void
+  ): void;
+  public createGlobalCluster(
+    args: CreateGlobalClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGlobalClusterCommandOutput) => void),
+    cb?: (err: any, data?: CreateGlobalClusterCommandOutput) => void
+  ): Promise<CreateGlobalClusterCommandOutput> | void {
+    const command = new CreateGlobalClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a previously provisioned cluster. When you delete a cluster, all automated backups for that cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified cluster are not deleted.</p>
    *         <p></p>
    */
   public deleteDBCluster(
@@ -573,8 +730,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Deletes a specified cluster parameter group. The cluster parameter group to be
-   *             deleted can't be associated with any clusters.</p>
+   * <p>Deletes a specified cluster parameter group. The cluster parameter group to be deleted can't be associated with any clusters.</p>
    */
   public deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
@@ -606,11 +762,9 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is
-   *             terminated.</p>
+   * <p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>
    *         <note>
-   *             <p>The cluster snapshot must be in the <code>available</code> state to be
-   *                 deleted.</p>
+   *             <p>The cluster snapshot must be in the <code>available</code> state to be deleted.</p>
    *         </note>
    */
   public deleteDBClusterSnapshot(
@@ -643,8 +797,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Deletes a previously provisioned instance.
-   *             </p>
+   * <p>Deletes a previously provisioned instance.</p>
    */
   public deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
@@ -712,8 +865,74 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for
-   *             this AWS account.</p>
+   * <p>Deletes an Amazon DocumentDB event notification subscription.</p>
+   */
+  public deleteEventSubscription(
+    args: DeleteEventSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventSubscriptionCommandOutput>;
+  public deleteEventSubscription(
+    args: DeleteEventSubscriptionCommandInput,
+    cb: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
+  ): void;
+  public deleteEventSubscription(
+    args: DeleteEventSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
+  ): void;
+  public deleteEventSubscription(
+    args: DeleteEventSubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
+  ): Promise<DeleteEventSubscriptionCommandOutput> | void {
+    const command = new DeleteEventSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a global cluster. The primary and secondary clusters must already be detached or deleted before attempting to delete a global cluster.</p>
+   *         <note>
+   *             <p>This action only applies to Amazon DocumentDB clusters.</p>
+   *         </note>
+   */
+  public deleteGlobalCluster(
+    args: DeleteGlobalClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGlobalClusterCommandOutput>;
+  public deleteGlobalCluster(
+    args: DeleteGlobalClusterCommandInput,
+    cb: (err: any, data?: DeleteGlobalClusterCommandOutput) => void
+  ): void;
+  public deleteGlobalCluster(
+    args: DeleteGlobalClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGlobalClusterCommandOutput) => void
+  ): void;
+  public deleteGlobalCluster(
+    args: DeleteGlobalClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGlobalClusterCommandOutput) => void),
+    cb?: (err: any, data?: DeleteGlobalClusterCommandOutput) => void
+  ): Promise<DeleteGlobalClusterCommandOutput> | void {
+    const command = new DeleteGlobalClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for this account.</p>
    */
   public describeCertificates(
     args: DescribeCertificatesCommandInput,
@@ -745,9 +964,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
-   *                 <code>DBClusterParameterGroupName</code> parameter is specified, the list contains
-   *             only the description of the specified cluster parameter group. </p>
+   * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a <code>DBClusterParameterGroupName</code> parameter is specified, the list contains only the description of the specified cluster parameter group. </p>
    */
   public describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
@@ -851,12 +1068,8 @@ export class DocDB extends DocDBClient {
   /**
    * <p>Returns a list of cluster snapshot attribute names and values for a manual DB
    *             cluster snapshot.</p>
-   *         <p>When you share snapshots with other AWS accounts,
-   *                 <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code>
-   *             attribute and a list of IDs for the AWS accounts that are authorized to copy or restore
-   *             the manual cluster snapshot. If <code>all</code> is included in the list of values
-   *             for the <code>restore</code> attribute, then the manual cluster snapshot is public
-   *             and can be copied or restored by all AWS accounts.</p>
+   *         <p>When you share snapshots with other accounts,
+   *                 <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code> attribute and a list of IDs for the accounts that are authorized to copy or restore the manual cluster snapshot. If <code>all</code> is included in the list of values for the <code>restore</code> attribute, then the manual cluster snapshot is public and can be copied or restored by all accounts.</p>
    */
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
@@ -888,8 +1101,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns information about cluster snapshots. This API operation supports
-   *             pagination.</p>
+   * <p>Returns information about cluster snapshots. This API operation supports pagination.</p>
    */
   public describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
@@ -953,8 +1165,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns information about provisioned Amazon DocumentDB instances. This API supports
-   *             pagination.</p>
+   * <p>Returns information about provisioned Amazon DocumentDB instances. This API supports pagination.</p>
    */
   public describeDBInstances(
     args: DescribeDBInstancesCommandInput,
@@ -987,8 +1198,7 @@ export class DocDB extends DocDBClient {
 
   /**
    * <p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a
-   *                 <code>DBSubnetGroupName</code> is specified, the list will contain only the
-   *             descriptions of the specified <code>DBSubnetGroup</code>.</p>
+   *                 <code>DBSubnetGroupName</code> is specified, the list will contain only the descriptions of the specified <code>DBSubnetGroup</code>.</p>
    */
   public describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
@@ -1088,10 +1298,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns events related to instances, security groups, snapshots, and DB
-   *             parameter groups for the past 14 days. You can obtain events specific to a particular DB
-   *             instance, security group, snapshot, or parameter group by providing the name as
-   *             a parameter. By default, the events of the past hour are returned.</p>
+   * <p>Returns events related to instances, security groups, snapshots, and DB parameter groups for the past 14 days. You can obtain events specific to a particular DB instance, security group, snapshot, or parameter group by providing the name as a parameter. By default, the events of the past hour are returned.</p>
    */
   public describeEvents(
     args: DescribeEventsCommandInput,
@@ -1112,6 +1319,74 @@ export class DocDB extends DocDBClient {
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the subscription descriptions for a customer account. The description for a subscription includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>, <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>, <code>CreationTime</code>, and <code>Status</code>.</p>
+   *         <p>If you specify a <code>SubscriptionName</code>, lists the description for that subscription.</p>
+   */
+  public describeEventSubscriptions(
+    args: DescribeEventSubscriptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEventSubscriptionsCommandOutput>;
+  public describeEventSubscriptions(
+    args: DescribeEventSubscriptionsCommandInput,
+    cb: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
+  ): void;
+  public describeEventSubscriptions(
+    args: DescribeEventSubscriptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
+  ): void;
+  public describeEventSubscriptions(
+    args: DescribeEventSubscriptionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventSubscriptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
+  ): Promise<DescribeEventSubscriptionsCommandOutput> | void {
+    const command = new DescribeEventSubscriptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about Amazon DocumentDB global  clusters. This API supports pagination.</p>
+   *         <note>
+   *             <p>This action only applies to Amazon DocumentDB clusters.</p>
+   *         </note>
+   */
+  public describeGlobalClusters(
+    args: DescribeGlobalClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGlobalClustersCommandOutput>;
+  public describeGlobalClusters(
+    args: DescribeGlobalClustersCommandInput,
+    cb: (err: any, data?: DescribeGlobalClustersCommandOutput) => void
+  ): void;
+  public describeGlobalClusters(
+    args: DescribeGlobalClustersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGlobalClustersCommandOutput) => void
+  ): void;
+  public describeGlobalClusters(
+    args: DescribeGlobalClustersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGlobalClustersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeGlobalClustersCommandOutput) => void
+  ): Promise<DescribeGlobalClustersCommandOutput> | void {
+    const command = new DescribeGlobalClustersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1189,12 +1464,8 @@ export class DocDB extends DocDBClient {
 
   /**
    * <p>Forces a failover for a cluster.</p>
-   *         <p>A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances)
-   *             in the cluster to be the primary instance (the cluster writer).</p>
-   *         <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica,
-   *             if one exists. You can force a failover when you want to simulate a failure of a primary
-   *             instance for
-   *             testing.</p>
+   *         <p>A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances) in the cluster to be the primary instance (the cluster writer).</p>
+   *         <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica, if one exists. You can force a failover when you want to simulate a failure of a primary instance for testing.</p>
    */
   public failoverDBCluster(
     args: FailoverDBClusterCommandInput,
@@ -1342,19 +1613,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB
-   *             cluster snapshot.</p>
-   *         <p>To share a manual cluster snapshot with other AWS accounts, specify
-   *                 <code>restore</code> as the <code>AttributeName</code>, and use the
-   *                 <code>ValuesToAdd</code> parameter to add a list of IDs of the AWS accounts that are
-   *             authorized to restore the manual cluster snapshot. Use the value <code>all</code> to
-   *             make the manual cluster snapshot public, which means that it can be copied or
-   *             restored by all AWS accounts. Do not add the <code>all</code> value for any manual DB
-   *             cluster snapshots that contain private information that you don't want available to all
-   *             AWS accounts. If a manual cluster snapshot is encrypted, it can be shared, but only
-   *             by specifying a list of authorized AWS account IDs for the <code>ValuesToAdd</code>
-   *             parameter. You can't use <code>all</code> as a value for that parameter in this
-   *             case.</p>
+   * <p>Adds an attribute and values to, or removes an attribute and values from, a manual cluster snapshot.</p>
+   *         <p>To share a manual cluster snapshot with other accounts, specify <code>restore</code> as the <code>AttributeName</code>, and use the <code>ValuesToAdd</code> parameter to add a list of IDs of the accounts that are authorized to restore the manual cluster snapshot. Use the value <code>all</code> to make the manual cluster snapshot public, which means that it can be copied or restored by all accounts. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want available to all accounts. If a manual cluster snapshot is encrypted, it can be shared, but only by specifying a list of authorized account IDs for the <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value for that parameter in this case.</p>
    */
   public modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
@@ -1386,8 +1646,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Modifies settings for an instance. You can change one or more database configuration
-   *             parameters by specifying these parameters and the new values in the request.</p>
+   * <p>Modifies settings for an instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.</p>
    */
   public modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
@@ -1419,8 +1678,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Modifies an existing subnet group. subnet groups must contain at least one
-   *             subnet in at least two Availability Zones in the AWS Region.</p>
+   * <p>Modifies an existing subnet group. subnet groups must contain at least one subnet in at least two Availability Zones in the Region.</p>
    */
   public modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
@@ -1441,6 +1699,73 @@ export class DocDB extends DocDBClient {
     cb?: (err: any, data?: ModifyDBSubnetGroupCommandOutput) => void
   ): Promise<ModifyDBSubnetGroupCommandOutput> | void {
     const command = new ModifyDBSubnetGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies an existing Amazon DocumentDB event notification subscription.</p>
+   */
+  public modifyEventSubscription(
+    args: ModifyEventSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyEventSubscriptionCommandOutput>;
+  public modifyEventSubscription(
+    args: ModifyEventSubscriptionCommandInput,
+    cb: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
+  ): void;
+  public modifyEventSubscription(
+    args: ModifyEventSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
+  ): void;
+  public modifyEventSubscription(
+    args: ModifyEventSubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyEventSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
+  ): Promise<ModifyEventSubscriptionCommandOutput> | void {
+    const command = new ModifyEventSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modify a setting for an Amazon DocumentDB global cluster. You can change one or more configuration parameters (for example: deletion protection), or the global cluster identifier by specifying these parameters and the new values in the request.</p>
+   *         <note>
+   *             <p>This action only applies to Amazon DocumentDB clusters.</p>
+   *         </note>
+   */
+  public modifyGlobalCluster(
+    args: ModifyGlobalClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyGlobalClusterCommandOutput>;
+  public modifyGlobalCluster(
+    args: ModifyGlobalClusterCommandInput,
+    cb: (err: any, data?: ModifyGlobalClusterCommandOutput) => void
+  ): void;
+  public modifyGlobalCluster(
+    args: ModifyGlobalClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyGlobalClusterCommandOutput) => void
+  ): void;
+  public modifyGlobalCluster(
+    args: ModifyGlobalClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyGlobalClusterCommandOutput) => void),
+    cb?: (err: any, data?: ModifyGlobalClusterCommandOutput) => void
+  ): Promise<ModifyGlobalClusterCommandOutput> | void {
+    const command = new ModifyGlobalClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1479,6 +1804,76 @@ export class DocDB extends DocDBClient {
     cb?: (err: any, data?: RebootDBInstanceCommandOutput) => void
   ): Promise<RebootDBInstanceCommandOutput> | void {
     const command = new RebootDBInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Detaches an Amazon DocumentDB secondary cluster from a global cluster. The cluster becomes a standalone cluster with read-write capability instead of being read-only and receiving data from a primary in a different region. </p>
+   *         <note>
+   *             <p>This action only applies to Amazon DocumentDB clusters.</p>
+   *         </note>
+   */
+  public removeFromGlobalCluster(
+    args: RemoveFromGlobalClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveFromGlobalClusterCommandOutput>;
+  public removeFromGlobalCluster(
+    args: RemoveFromGlobalClusterCommandInput,
+    cb: (err: any, data?: RemoveFromGlobalClusterCommandOutput) => void
+  ): void;
+  public removeFromGlobalCluster(
+    args: RemoveFromGlobalClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveFromGlobalClusterCommandOutput) => void
+  ): void;
+  public removeFromGlobalCluster(
+    args: RemoveFromGlobalClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveFromGlobalClusterCommandOutput) => void),
+    cb?: (err: any, data?: RemoveFromGlobalClusterCommandOutput) => void
+  ): Promise<RemoveFromGlobalClusterCommandOutput> | void {
+    const command = new RemoveFromGlobalClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes a source identifier from an existing Amazon DocumentDB event notification
+   *             subscription.</p>
+   */
+  public removeSourceIdentifierFromSubscription(
+    args: RemoveSourceIdentifierFromSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput>;
+  public removeSourceIdentifierFromSubscription(
+    args: RemoveSourceIdentifierFromSubscriptionCommandInput,
+    cb: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
+  ): void;
+  public removeSourceIdentifierFromSubscription(
+    args: RemoveSourceIdentifierFromSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
+  ): void;
+  public removeSourceIdentifierFromSubscription(
+    args: RemoveSourceIdentifierFromSubscriptionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
+  ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> | void {
+    const command = new RemoveSourceIdentifierFromSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1562,12 +1957,8 @@ export class DocDB extends DocDBClient {
 
   /**
    * <p>Creates a new cluster from a snapshot or cluster snapshot.</p>
-   *         <p>If a snapshot is specified, the target cluster is created from the source DB
-   *             snapshot with a default configuration and default security group.</p>
-   *         <p>If a cluster snapshot is specified, the target cluster is created from the
-   *             source cluster restore point with the same configuration as the original source DB
-   *             cluster, except that the new cluster is created with the default security
-   *             group.</p>
+   *         <p>If a snapshot is specified, the target cluster is created from the source DB snapshot with a default configuration and default security group.</p>
+   *         <p>If a cluster snapshot is specified, the target cluster is created from the source cluster restore point with the same configuration as the original source DB cluster, except that the new cluster is created with the default security group.</p>
    */
   public restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,

@@ -24,7 +24,7 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * <p>Submits a request to change the health status of a custom health check to healthy or unhealthy.</p>
  *          <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for custom health checks,
  *    which you define using <code>HealthCheckCustomConfig</code> when you create a service. You can't use it to change the
- *    status for Route 53 health checks, which you define using <code>HealthCheckConfig</code>.</p>
+ *    status for Route 53 health checks, which you define using <code>HealthCheckConfig</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html">HealthCheckCustomConfig</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

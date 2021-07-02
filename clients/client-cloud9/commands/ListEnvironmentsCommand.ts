@@ -21,7 +21,7 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, __MetadataBearer {}
 
 /**
- * <p>Gets a list of AWS Cloud9 development environment identifiers.</p>
+ * <p>Gets a list of Cloud9 development environment identifiers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

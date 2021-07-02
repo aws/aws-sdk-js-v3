@@ -1,5 +1,15 @@
 import { CloudFormationClient } from "./CloudFormationClient";
 import {
+  ActivateTypeCommand,
+  ActivateTypeCommandInput,
+  ActivateTypeCommandOutput,
+} from "./commands/ActivateTypeCommand";
+import {
+  BatchDescribeTypeConfigurationsCommand,
+  BatchDescribeTypeConfigurationsCommandInput,
+  BatchDescribeTypeConfigurationsCommandOutput,
+} from "./commands/BatchDescribeTypeConfigurationsCommand";
+import {
   CancelUpdateStackCommand,
   CancelUpdateStackCommandInput,
   CancelUpdateStackCommandOutput,
@@ -25,6 +35,11 @@ import {
   CreateStackSetCommandInput,
   CreateStackSetCommandOutput,
 } from "./commands/CreateStackSetCommand";
+import {
+  DeactivateTypeCommand,
+  DeactivateTypeCommandInput,
+  DeactivateTypeCommandOutput,
+} from "./commands/DeactivateTypeCommand";
 import {
   DeleteChangeSetCommand,
   DeleteChangeSetCommandInput,
@@ -56,6 +71,11 @@ import {
   DescribeChangeSetCommandInput,
   DescribeChangeSetCommandOutput,
 } from "./commands/DescribeChangeSetCommand";
+import {
+  DescribePublisherCommand,
+  DescribePublisherCommandInput,
+  DescribePublisherCommandOutput,
+} from "./commands/DescribePublisherCommand";
 import {
   DescribeStackDriftDetectionStatusCommand,
   DescribeStackDriftDetectionStatusCommandInput,
@@ -191,11 +211,17 @@ import {
   ListTypeVersionsCommandOutput,
 } from "./commands/ListTypeVersionsCommand";
 import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
+import { PublishTypeCommand, PublishTypeCommandInput, PublishTypeCommandOutput } from "./commands/PublishTypeCommand";
 import {
   RecordHandlerProgressCommand,
   RecordHandlerProgressCommandInput,
   RecordHandlerProgressCommandOutput,
 } from "./commands/RecordHandlerProgressCommand";
+import {
+  RegisterPublisherCommand,
+  RegisterPublisherCommandInput,
+  RegisterPublisherCommandOutput,
+} from "./commands/RegisterPublisherCommand";
 import {
   RegisterTypeCommand,
   RegisterTypeCommandInput,
@@ -206,6 +232,11 @@ import {
   SetStackPolicyCommandInput,
   SetStackPolicyCommandOutput,
 } from "./commands/SetStackPolicyCommand";
+import {
+  SetTypeConfigurationCommand,
+  SetTypeConfigurationCommandInput,
+  SetTypeConfigurationCommandOutput,
+} from "./commands/SetTypeConfigurationCommand";
 import {
   SetTypeDefaultVersionCommand,
   SetTypeDefaultVersionCommandInput,
@@ -221,6 +252,7 @@ import {
   StopStackSetOperationCommandInput,
   StopStackSetOperationCommandOutput,
 } from "./commands/StopStackSetOperationCommand";
+import { TestTypeCommand, TestTypeCommandInput, TestTypeCommandOutput } from "./commands/TestTypeCommand";
 import { UpdateStackCommand, UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 import {
   UpdateStackInstancesCommand,
@@ -262,6 +294,69 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          documentation at <a href="https://docs.aws.amazon.com/">docs.aws.amazon.com</a>.</p>
  */
 export class CloudFormation extends CloudFormationClient {
+  /**
+   * <p>Activates a public third-party extension, making it available for use in stack templates. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html">Using public extensions</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>Once you have activated a public third-party extension in your account and region, use <a href="AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a> to specify configuration properties for the extension. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the <i>CloudFormation User Guide</i>.</p>
+   */
+  public activateType(
+    args: ActivateTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ActivateTypeCommandOutput>;
+  public activateType(args: ActivateTypeCommandInput, cb: (err: any, data?: ActivateTypeCommandOutput) => void): void;
+  public activateType(
+    args: ActivateTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ActivateTypeCommandOutput) => void
+  ): void;
+  public activateType(
+    args: ActivateTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ActivateTypeCommandOutput) => void),
+    cb?: (err: any, data?: ActivateTypeCommandOutput) => void
+  ): Promise<ActivateTypeCommandOutput> | void {
+    const command = new ActivateTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns configuration data for the specified CloudFormation extensions, from the CloudFormation registry for the account and region.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the <i>CloudFormation User Guide</i>.</p>
+   */
+  public batchDescribeTypeConfigurations(
+    args: BatchDescribeTypeConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDescribeTypeConfigurationsCommandOutput>;
+  public batchDescribeTypeConfigurations(
+    args: BatchDescribeTypeConfigurationsCommandInput,
+    cb: (err: any, data?: BatchDescribeTypeConfigurationsCommandOutput) => void
+  ): void;
+  public batchDescribeTypeConfigurations(
+    args: BatchDescribeTypeConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDescribeTypeConfigurationsCommandOutput) => void
+  ): void;
+  public batchDescribeTypeConfigurations(
+    args: BatchDescribeTypeConfigurationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDescribeTypeConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: BatchDescribeTypeConfigurationsCommandOutput) => void
+  ): Promise<BatchDescribeTypeConfigurationsCommandOutput> | void {
+    const command = new BatchDescribeTypeConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Cancels an update on the specified stack. If the call completes successfully, the
    *          stack rolls back the update and reverts to the previous stack configuration.</p>
@@ -474,6 +569,39 @@ export class CloudFormation extends CloudFormationClient {
     cb?: (err: any, data?: CreateStackSetCommandOutput) => void
   ): Promise<CreateStackSetCommandOutput> | void {
     const command = new CreateStackSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deactivates a public extension that was previously activated in this account and region.</p>
+   *          <p>Once deactivated, an extension cannot be used in any CloudFormation operation. This includes stack update operations where the stack template includes the extension, even if no updates are being made to the extension. In addition, deactivated extensions are not automatically updated if a new version of the extension is released.</p>
+   */
+  public deactivateType(
+    args: DeactivateTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeactivateTypeCommandOutput>;
+  public deactivateType(
+    args: DeactivateTypeCommandInput,
+    cb: (err: any, data?: DeactivateTypeCommandOutput) => void
+  ): void;
+  public deactivateType(
+    args: DeactivateTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeactivateTypeCommandOutput) => void
+  ): void;
+  public deactivateType(
+    args: DeactivateTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeactivateTypeCommandOutput) => void),
+    cb?: (err: any, data?: DeactivateTypeCommandOutput) => void
+  ): Promise<DeactivateTypeCommandOutput> | void {
+    const command = new DeactivateTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -709,6 +837,52 @@ export class CloudFormation extends CloudFormationClient {
     cb?: (err: any, data?: DescribeChangeSetCommandOutput) => void
   ): Promise<DescribeChangeSetCommandOutput> | void {
     const command = new DescribeChangeSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a CloudFormation extension publisher.</p>
+   *          <p>If you do not supply a <code>PublisherId</code>, and you have registered as an extension publisher, <code>DescribePublisher</code> returns information about your own publisher account. </p>
+   *          <p>For more information on registering as a publisher, see:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html">RegisterPublisher</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions to make them available for public use</a> in the <i>CloudFormation CLI User Guide</i>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public describePublisher(
+    args: DescribePublisherCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePublisherCommandOutput>;
+  public describePublisher(
+    args: DescribePublisherCommandInput,
+    cb: (err: any, data?: DescribePublisherCommandOutput) => void
+  ): void;
+  public describePublisher(
+    args: DescribePublisherCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePublisherCommandOutput) => void
+  ): void;
+  public describePublisher(
+    args: DescribePublisherCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePublisherCommandOutput) => void),
+    cb?: (err: any, data?: DescribePublisherCommandOutput) => void
+  ): Promise<DescribePublisherCommandOutput> | void {
+    const command = new DescribePublisherCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1880,6 +2054,33 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * <p>Publishes the specified extension to the CloudFormation registry as a public extension in this region. Public extensions are available for use by all CloudFormation users. For more information on publishing extensions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions to make them available for public use</a> in the <i>CloudFormation CLI User Guide</i>.</p>
+   *          <p>To publish an extension, you must be registered as a publisher with CloudFormation. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html">RegisterPublisher</a>.</p>
+   */
+  public publishType(args: PublishTypeCommandInput, options?: __HttpHandlerOptions): Promise<PublishTypeCommandOutput>;
+  public publishType(args: PublishTypeCommandInput, cb: (err: any, data?: PublishTypeCommandOutput) => void): void;
+  public publishType(
+    args: PublishTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PublishTypeCommandOutput) => void
+  ): void;
+  public publishType(
+    args: PublishTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PublishTypeCommandOutput) => void),
+    cb?: (err: any, data?: PublishTypeCommandOutput) => void
+  ): Promise<PublishTypeCommandOutput> | void {
+    const command = new PublishTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Reports progress of a resource handler to CloudFormation.</p>
    *          <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. Do not use this API in your code.</p>
    */
@@ -1913,6 +2114,40 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * <p>Registers your account as a publisher of public extensions in the CloudFormation registry. Public extensions are available for use by all CloudFormation users. This publisher ID applies to your account in all AWS regions.</p>
+   *          <p>For information on requirements for registering as a public extension publisher, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Registering your account to publish CloudFormation extensions</a> in the <i>CloudFormation CLI User Guide</i>.</p>
+   *          <p></p>
+   */
+  public registerPublisher(
+    args: RegisterPublisherCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterPublisherCommandOutput>;
+  public registerPublisher(
+    args: RegisterPublisherCommandInput,
+    cb: (err: any, data?: RegisterPublisherCommandOutput) => void
+  ): void;
+  public registerPublisher(
+    args: RegisterPublisherCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterPublisherCommandOutput) => void
+  ): void;
+  public registerPublisher(
+    args: RegisterPublisherCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterPublisherCommandOutput) => void),
+    cb?: (err: any, data?: RegisterPublisherCommandOutput) => void
+  ): Promise<RegisterPublisherCommandOutput> | void {
+    const command = new RegisterPublisherCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Registers an extension with the CloudFormation service. Registering an extension makes it available for use in CloudFormation templates in your AWS account, and includes:</p>
    *          <ul>
    *             <li>
@@ -1932,6 +2167,7 @@ export class CloudFormation extends CloudFormationClient {
    *             </code>, you can use <code>
    *                <a>DescribeTypeRegistration</a>
    *             </code> to monitor the progress of the registration request.</p>
+   *          <p>Once you have registered a private extension in your account and region, use <a href="AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a> to specify configuration properties for the extension. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the <i>CloudFormation User Guide</i>.</p>
    */
   public registerType(
     args: RegisterTypeCommandInput,
@@ -1981,6 +2217,42 @@ export class CloudFormation extends CloudFormationClient {
     cb?: (err: any, data?: SetStackPolicyCommandOutput) => void
   ): Promise<SetStackPolicyCommandOutput> | void {
     const command = new SetStackPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Specifies the configuration data for a registered CloudFormation extension, in the given account and region.</p>
+   *          <p>To view the current configuration data for an extension, refer to the <code>ConfigurationSchema</code> element of <a href="AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <important>
+   *             <p>It is strongly recommended that you use dynamic references to restrict sensitive configuration definitions, such as third-party credentials. For more details on dynamic references, see <a href="https://docs.aws.amazon.com/">Using dynamic references to specify template values</a> in the <i>AWS CloudFormation User Guide</i>.</p>
+   *          </important>
+   */
+  public setTypeConfiguration(
+    args: SetTypeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetTypeConfigurationCommandOutput>;
+  public setTypeConfiguration(
+    args: SetTypeConfigurationCommandInput,
+    cb: (err: any, data?: SetTypeConfigurationCommandOutput) => void
+  ): void;
+  public setTypeConfiguration(
+    args: SetTypeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetTypeConfigurationCommandOutput) => void
+  ): void;
+  public setTypeConfiguration(
+    args: SetTypeConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetTypeConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: SetTypeConfigurationCommandOutput) => void
+  ): Promise<SetTypeConfigurationCommandOutput> | void {
+    const command = new SetTypeConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2082,6 +2354,47 @@ export class CloudFormation extends CloudFormationClient {
     cb?: (err: any, data?: StopStackSetOperationCommandOutput) => void
   ): Promise<StopStackSetOperationCommandOutput> | void {
     const command = new StopStackSetOperationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Tests a registered extension to make sure it meets all necessary requirements for being published in the CloudFormation registry.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For resource types, this includes passing all contracts tests defined for the
+   *             type.</p>
+   *             </li>
+   *             <li>
+   *                <p>For modules, this includes determining if the module's model meets all necessary
+   *             requirements.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-testing">Testing your public extension prior to publishing</a> in the <i>CloudFormation CLI User Guide</i>.</p>
+   *          <p>If you do not specify a version, CloudFormation uses the default version of the extension in your account and region for testing.</p>
+   *          <p>To perform testing, CloudFormation assumes the execution role specified when the test was registered. For more information, see <a href="AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
+   *          <p>Once you've initiated testing on an extension using <code>TestType</code>, you can use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a> to monitor the current test status and test status description for the extension.</p>
+   *          <p>An extension must have a test status of <code>PASSED</code> before it can be published. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-publish.html">Publishing extensions to make them available for public use</a> in the <i>CloudFormation CLI User Guide</i>.</p>
+   */
+  public testType(args: TestTypeCommandInput, options?: __HttpHandlerOptions): Promise<TestTypeCommandOutput>;
+  public testType(args: TestTypeCommandInput, cb: (err: any, data?: TestTypeCommandOutput) => void): void;
+  public testType(
+    args: TestTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestTypeCommandOutput) => void
+  ): void;
+  public testType(
+    args: TestTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestTypeCommandOutput) => void),
+    cb?: (err: any, data?: TestTypeCommandOutput) => void
+  ): Promise<TestTypeCommandOutput> | void {
+    const command = new TestTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -21,11 +21,9 @@ export interface DeleteDBClusterSnapshotCommandInput extends DeleteDBClusterSnap
 export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is
- *             terminated.</p>
+ * <p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>
  *         <note>
- *             <p>The cluster snapshot must be in the <code>available</code> state to be
- *                 deleted.</p>
+ *             <p>The cluster snapshot must be in the <code>available</code> state to be deleted.</p>
  *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

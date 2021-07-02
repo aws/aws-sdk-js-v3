@@ -21,7 +21,7 @@ export interface ImportSourceCredentialsCommandInput extends ImportSourceCredent
 export interface ImportSourceCredentialsCommandOutput extends ImportSourceCredentialsOutput, __MetadataBearer {}
 
 /**
- * <p> Imports the source repository credentials for an AWS CodeBuild project that has its
+ * <p> Imports the source repository credentials for an CodeBuild project that has its
  *             source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

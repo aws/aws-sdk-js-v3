@@ -2337,7 +2337,7 @@ export namespace UploadSettings {
 }
 
 /**
- * <p>A physical table type for as S3 data source.</p>
+ * <p>A physical table type for an S3 data source.</p>
  */
 export interface S3Source {
   /**
@@ -2351,7 +2351,10 @@ export interface S3Source {
   UploadSettings?: UploadSettings;
 
   /**
-   * <p>A physical table type for as S3 data source.</p>
+   * <p>A physical table type for an S3 data source.</p>
+   *         <note>
+   *             <p>For non-JSON files, only <code>STRING</code> data types are supported in input columns.</p>
+   *         </note>
    */
   InputColumns: InputColumn[] | undefined;
 }
@@ -4012,6 +4015,177 @@ export namespace CreateDataSourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateDataSourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum FolderType {
+  SHARED = "SHARED",
+}
+
+export interface CreateFolderRequest {
+  /**
+   * <p>The AWS Account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The folder ID.</p>
+   */
+  FolderId: string | undefined;
+
+  /**
+   * <p>The name of the folder.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of folder. By default, <code>folderType</code> is <code>SHARED</code>.</p>
+   */
+  FolderType?: FolderType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the parent folder.</p>
+   * 	        <p>
+   *             <code>ParentFolderArn</code> can be null. An empty <code>parentFolderArn</code> creates a root-level folder.</p>
+   */
+  ParentFolderArn?: string;
+
+  /**
+   * <p>A structure that describes the principals and the resource-level permissions of a folder.</p>
+   * 	        <p>To specify no permissions, omit <code>Permissions</code>.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>Tags for the folder.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateFolderRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFolderRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFolderResponse {
+  /**
+   * <p>The status of the newly created folder. If succeeded, the status is <code>SC_OK (200)</code>.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the newly created folder.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The folder ID for the newly created folder.</p>
+   */
+  FolderId?: string;
+
+  /**
+   * <p>The request ID for the newly created folder.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace CreateFolderResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFolderResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum MemberType {
+  ANALYSIS = "ANALYSIS",
+  DASHBOARD = "DASHBOARD",
+  DATASET = "DATASET",
+}
+
+export interface CreateFolderMembershipRequest {
+  /**
+   * <p>The AWS Account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The folder ID.</p>
+   */
+  FolderId: string | undefined;
+
+  /**
+   * <p>The ID of the asset (the dashboard, analysis, or dataset).</p>
+   */
+  MemberId: string | undefined;
+
+  /**
+   * <p>The type of the member, including <code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code>.</p>
+   */
+  MemberType: MemberType | string | undefined;
+}
+
+export namespace CreateFolderMembershipRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFolderMembershipRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An asset in a folder, such as a dashboard, analysis, or dataset.</p>
+ */
+export interface FolderMember {
+  /**
+   * <p>The ID of the asset.</p>
+   */
+  MemberId?: string;
+
+  /**
+   * <p>The type of the asset.</p>
+   */
+  MemberType?: MemberType | string;
+}
+
+export namespace FolderMember {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FolderMember): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFolderMembershipResponse {
+  /**
+   * <p>The status of the folder membership. If succeeded, the status is <code>SC_OK (200)</code>.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>Information about the member in the folder.</p>
+   */
+  FolderMember?: FolderMember;
+
+  /**
+   * <p>The request ID.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace CreateFolderMembershipResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFolderMembershipResponse): any => ({
     ...obj,
   });
 }
@@ -6160,6 +6334,111 @@ export namespace DeleteDataSourceResponse {
   });
 }
 
+export interface DeleteFolderRequest {
+  /**
+   * <p>The AWS Account ID for the folder.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The folder ID.</p>
+   */
+  FolderId: string | undefined;
+}
+
+export namespace DeleteFolderRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFolderRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFolderResponse {
+  /**
+   * <p>The status of deleting the folder. If succeeded, the status is <code>SC_OK (200)</code>.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Resource Name of the deleted folder.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The folder ID.</p>
+   */
+  FolderId?: string;
+
+  /**
+   * <p>The request ID.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace DeleteFolderResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFolderResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFolderMembershipRequest {
+  /**
+   * <p>The AWS Account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Folder ID.</p>
+   */
+  FolderId: string | undefined;
+
+  /**
+   * <p>The ID of the asset (the dashboard, analysis, or dataset) that you want to delete.</p>
+   */
+  MemberId: string | undefined;
+
+  /**
+   * <p>The type of the member, including <code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code>
+   *          </p>
+   */
+  MemberType: MemberType | string | undefined;
+}
+
+export namespace DeleteFolderMembershipRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFolderMembershipRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFolderMembershipResponse {
+  /**
+   * <p>The status of deleting the asset. If succeeded, the status is <code>SC_OK (200)</code>.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The request ID.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace DeleteFolderMembershipResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFolderMembershipResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteGroupRequest {
   /**
    * <p>The name of the group that you want to delete.</p>
@@ -7254,6 +7533,217 @@ export namespace DescribeDataSourcePermissionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeDataSourcePermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFolderRequest {
+  /**
+   * <p>The AWS account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The folder ID.</p>
+   */
+  FolderId: string | undefined;
+}
+
+export namespace DescribeFolderRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFolderRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A folder.</p>
+ */
+export interface Folder {
+  /**
+   * <p>The folder ID.</p>
+   */
+  FolderId?: string;
+
+  /**
+   * <p>The folder Amazon Resource Name (ARN).</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A display name for the folder.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of the folder.</p>
+   */
+  FolderType?: FolderType | string;
+
+  /**
+   * <p>An array of ancestor folder ARN strings.</p>
+   */
+  FolderPath?: string[];
+
+  /**
+   * <p>The time that the folder was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The time that the folder was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+}
+
+export namespace Folder {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Folder): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFolderResponse {
+  /**
+   * <p>The status. If succeeded, the status is <code>SC_OK (200)</code>.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>Information about the folder.</p>
+   */
+  Folder?: Folder;
+
+  /**
+   * <p>The request ID.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace DescribeFolderResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFolderResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFolderPermissionsRequest {
+  /**
+   * <p>The AWS Account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The folder ID.</p>
+   */
+  FolderId: string | undefined;
+}
+
+export namespace DescribeFolderPermissionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFolderPermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFolderPermissionsResponse {
+  /**
+   * <p>The status. If succeeded, the status is <code>SC_OK</code>.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The folder ID.</p>
+   */
+  FolderId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the folder.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Information about the permissions on the folder.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The request ID.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace DescribeFolderPermissionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFolderPermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFolderResolvedPermissionsRequest {
+  /**
+   * <p>The AWS account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The folder ID.</p>
+   */
+  FolderId: string | undefined;
+}
+
+export namespace DescribeFolderResolvedPermissionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFolderResolvedPermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFolderResolvedPermissionsResponse {
+  /**
+   * <p>The status. If succeeded, the status is <code>SC_OK</code>
+   *          </p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The folder ID.</p>
+   */
+  FolderId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN).</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Information about the permissions on the dashboard.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The request ID.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace DescribeFolderResolvedPermissionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFolderResolvedPermissionsResponse): any => ({
     ...obj,
   });
 }
@@ -8633,6 +9123,107 @@ export enum EmbeddingIdentityType {
   QUICKSIGHT = "QUICKSIGHT",
 }
 
+export enum FolderFilterAttribute {
+  PARENT_FOLDER_ARN = "PARENT_FOLDER_ARN",
+}
+
+/**
+ * <p>An object that consists of the member Amazon Resource Name (ARN) and member ID.</p>
+ */
+export interface MemberIdArnPair {
+  /**
+   * <p>The ID of the member.</p>
+   */
+  MemberId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the member.</p>
+   */
+  MemberArn?: string;
+}
+
+export namespace MemberIdArnPair {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemberIdArnPair): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Searches a folder by a filter.</p>
+ */
+export interface FolderSearchFilter {
+  /**
+   * <p>The comparison operator that you want to use as a filter. For example, <code>"Operator": "StringEquals"</code>.</p>
+   */
+  Operator?: FilterOperator | string;
+
+  /**
+   * <p>The name of the value that you want to use as a filter. For example, <code>"Name": "PARENT_FOLDER_ARN"</code>.</p>
+   */
+  Name?: FolderFilterAttribute | string;
+
+  /**
+   * <p>The value of the named item (in this example, <code>PARENT_FOLDER_ARN</code>), that you want to use as a filter. For example, <code>"Value": "arn:aws:quicksight:us-east-1:1:folder/folderId"</code>.</p>
+   */
+  Value?: string;
+}
+
+export namespace FolderSearchFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FolderSearchFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A summary of the folder. </p>
+ */
+export interface FolderSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN).</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The folder ID.</p>
+   */
+  FolderId?: string;
+
+  /**
+   * <p>The display name of the folder.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of folder.</p>
+   */
+  FolderType?: FolderType | string;
+
+  /**
+   * <p>The time that the folder was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The time that the folder was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+}
+
+export namespace FolderSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FolderSummary): any => ({
+    ...obj,
+  });
+}
+
 export interface GetDashboardEmbedUrlRequest {
   /**
    * <p>The ID for the AWS account that contains the dashboard that you're embedding.</p>
@@ -8825,728 +9416,6 @@ export namespace SessionLifetimeInMinutesInvalidException {
    * @internal
    */
   export const filterSensitiveLog = (obj: SessionLifetimeInMinutesInvalidException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
- * 			without the required pricing plan on your AWS account. Before you can use embedding
- * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to QuickSight. You
- * 		    can do this on the <b>Manage QuickSight</b> page. </p>
- *         <p>After capacity pricing is added, you can use the
- *             <a>GetDashboardEmbedUrl</a> API operation with the
- *             <code>--identity-type ANONYMOUS</code> option.</p>
- */
-export interface UnsupportedPricingPlanException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedPricingPlanException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace UnsupportedPricingPlanException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedPricingPlanException): any => ({
-    ...obj,
-  });
-}
-
-export interface GetSessionEmbedUrlRequest {
-  /**
-   * <p>The ID for the AWS account associated with your QuickSight subscription.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The URL you use to access the embedded session. The entry point URL is constrained to
-   *           the following paths:</p>
-   *          <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>/start</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>/start/analyses</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>/start/dashboards</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>/start/favorites</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>/dashboards/<i>DashboardId</i>
-   *                   </code> - where <code>DashboardId</code> is the actual ID key from the QuickSight console URL of the dashboard</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>/analyses/<i>AnalysisId</i>
-   *                   </code> - where <code>AnalysisId</code> is the actual ID key from the QuickSight console URL of the analysis</p>
-   *             </li>
-   *          </ul>
-   */
-  EntryPoint?: string;
-
-  /**
-   * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
-   */
-  SessionLifetimeInMinutes?: number;
-
-  /**
-   * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
-   * 			You can use this for any type of Amazon QuickSight users in your account (readers, authors, or
-   * 			admins). They need to be authenticated as one of the following:</p>
-   * 		       <ol>
-   *             <li>
-   * 				           <p>Active Directory (AD) users or group members</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>Invited nonfederated users</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>AWS Identity and Access Management (IAM) users and IAM role-based sessions authenticated
-   *                     through Federated Single Sign-On using SAML, OpenID Connect, or IAM
-   *                     federation</p>
-   * 			         </li>
-   *          </ol>
-   *          <p>Omit this parameter for users in the third group, IAM users and IAM role-based
-   *             sessions.</p>
-   */
-  UserArn?: string;
-}
-
-export namespace GetSessionEmbedUrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSessionEmbedUrlRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetSessionEmbedUrlResponse {
-  /**
-   * <p>A single-use URL that you can put into your server-side web page to embed your
-   * 			QuickSight session. This URL is valid for 5 minutes. The API operation provides the URL with an
-   * 			<code>auth_code</code> value that enables one (and only one) sign-on to a user session
-   * 			that is valid for 10 hours. </p>
-   */
-  EmbedUrl?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace GetSessionEmbedUrlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSessionEmbedUrlResponse): any => ({
-    ...obj,
-    ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-  });
-}
-
-/**
- * <p>IAM policy assignment summary.</p>
- */
-export interface IAMPolicyAssignmentSummary {
-  /**
-   * <p>Assignment name.</p>
-   */
-  AssignmentName?: string;
-
-  /**
-   * <p>Assignment status.</p>
-   */
-  AssignmentStatus?: AssignmentStatus | string;
-}
-
-export namespace IAMPolicyAssignmentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IAMPolicyAssignmentSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAnalysesRequest {
-  /**
-   * <p>The ID of the AWS account that contains the analyses.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListAnalysesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnalysesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAnalysesResponse {
-  /**
-   * <p>Metadata describing each of the analyses that are listed.</p>
-   */
-  AnalysisSummaryList?: AnalysisSummary[];
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace ListAnalysesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnalysesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDashboardsRequest {
-  /**
-   * <p>The ID of the AWS account that contains the dashboards that you're
-   *             listing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListDashboardsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDashboardsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDashboardsResponse {
-  /**
-   * <p>A structure that contains all of the dashboards in your AWS account. This structure
-   *             provides basic information about the dashboards.</p>
-   */
-  DashboardSummaryList?: DashboardSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace ListDashboardsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDashboardsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDashboardVersionsRequest {
-  /**
-   * <p>The ID of the AWS account that contains the dashboard that you're listing versions
-   *             for.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListDashboardVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDashboardVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDashboardVersionsResponse {
-  /**
-   * <p>A structure that contains information about each version of the dashboard.</p>
-   */
-  DashboardVersionSummaryList?: DashboardVersionSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace ListDashboardVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDashboardVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDataSetsRequest {
-  /**
-   * <p>The AWS account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListDataSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSetsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDataSetsResponse {
-  /**
-   * <p>The list of dataset summaries.</p>
-   */
-  DataSetSummaries?: DataSetSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-export namespace ListDataSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSetsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDataSourcesRequest {
-  /**
-   * <p>The AWS account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListDataSourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListDataSourcesResponse {
-  /**
-   * <p>A list of data sources.</p>
-   */
-  DataSources?: DataSource[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-export namespace ListDataSourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
-    ...obj,
-    ...(obj.DataSources && { DataSources: obj.DataSources.map((item) => DataSource.filterSensitiveLog(item)) }),
-  });
-}
-
-export interface ListGroupMembershipsRequest {
-  /**
-   * <p>The name of the group that you want to see a membership list of.</p>
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return from this request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
-   * 			account that contains your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   */
-  Namespace: string | undefined;
-}
-
-export namespace ListGroupMembershipsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupMembershipsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListGroupMembershipsResponse {
-  /**
-   * <p>The list of the members of the group.</p>
-   */
-  GroupMemberList?: GroupMember[];
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-export namespace ListGroupMembershipsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupMembershipsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListGroupsRequest {
-  /**
-   * <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
-   * 			account that contains your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   */
-  Namespace: string | undefined;
-}
-
-export namespace ListGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListGroupsResponse {
-  /**
-   * <p>The list of the groups.</p>
-   */
-  GroupList?: Group[];
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-export namespace ListGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListIAMPolicyAssignmentsRequest {
-  /**
-   * <p>The ID of the AWS account that contains these IAM policy assignments.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The status of the assignments.</p>
-   */
-  AssignmentStatus?: AssignmentStatus | string;
-
-  /**
-   * <p>The namespace for the assignments.</p>
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListIAMPolicyAssignmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListIAMPolicyAssignmentsResponse {
-  /**
-   * <p>Information describing the IAM policy assignments.</p>
-   */
-  IAMPolicyAssignments?: IAMPolicyAssignmentSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-export namespace ListIAMPolicyAssignmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListIAMPolicyAssignmentsForUserRequest {
-  /**
-   * <p>The ID of the AWS account that contains the assignments.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the user.</p>
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The namespace of the assignment.</p>
-   */
-  Namespace: string | undefined;
-}
-
-export namespace ListIAMPolicyAssignmentsForUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsForUserRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListIAMPolicyAssignmentsForUserResponse {
-  /**
-   * <p>The active assignments for this user.</p>
-   */
-  ActiveAssignments?: ActiveIAMPolicyAssignment[];
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-export namespace ListIAMPolicyAssignmentsForUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsForUserResponse): any => ({
     ...obj,
   });
 }

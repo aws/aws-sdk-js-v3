@@ -21,7 +21,7 @@ export interface ListLongTermPricingCommandInput extends ListLongTermPricingRequ
 export interface ListLongTermPricingCommandOutput extends ListLongTermPricingResult, __MetadataBearer {}
 
 /**
- * <p>Lists all long term pricing types.</p>
+ * <p>Lists all long-term pricing types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

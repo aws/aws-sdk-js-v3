@@ -23,8 +23,8 @@ export interface DescribeCapacityReservationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the AWS
- * 			Region that you're currently using.</p>
+ * <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the
+ * 		    	Region that you're currently using.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

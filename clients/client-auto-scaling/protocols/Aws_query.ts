@@ -5503,6 +5503,9 @@ const serializeAws_queryCreateAutoScalingGroupType = (
   if (input.MaxInstanceLifetime !== undefined && input.MaxInstanceLifetime !== null) {
     entries["MaxInstanceLifetime"] = input.MaxInstanceLifetime;
   }
+  if (input.Context !== undefined && input.Context !== null) {
+    entries["Context"] = input.Context;
+  }
   return entries;
 };
 
@@ -7249,6 +7252,9 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
   if (input.CapacityRebalance !== undefined && input.CapacityRebalance !== null) {
     entries["CapacityRebalance"] = input.CapacityRebalance;
   }
+  if (input.Context !== undefined && input.Context !== null) {
+    entries["Context"] = input.Context;
+  }
   return entries;
 };
 
@@ -7477,6 +7483,7 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
     CapacityRebalance: undefined,
     WarmPoolConfiguration: undefined,
     WarmPoolSize: undefined,
+    Context: undefined,
   };
   if (output["AutoScalingGroupName"] !== undefined) {
     contents.AutoScalingGroupName = __expectString(output["AutoScalingGroupName"]);
@@ -7612,6 +7619,9 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
   }
   if (output["WarmPoolSize"] !== undefined) {
     contents.WarmPoolSize = parseInt(output["WarmPoolSize"]);
+  }
+  if (output["Context"] !== undefined) {
+    contents.Context = __expectString(output["Context"]);
   }
   return contents;
 };

@@ -203,15 +203,15 @@ export namespace ResourceNotFound {
 
 /**
  * <p>A tag object that consists of a key and an optional value, used to manage metadata
- *             for Amazon SageMaker AWS resources.</p>
+ *             for Amazon SageMaker Amazon Web Services resources.</p>
  *         <p>You can add tags to notebook instances, training jobs, hyperparameter tuning jobs,
  *             batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and
  *             endpoints. For more information on adding tags to Amazon SageMaker resources, see <a>AddTags</a>.</p>
- *         <p>For more information on adding metadata to your AWS resources with tagging, see
- *                 <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
- *                 resources</a>. For advice on best practices for managing AWS resources with
+ *         <p>For more information on adding metadata to your Amazon Web Services resources with tagging, see
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+ *                 resources</a>. For advice on best practices for managing Amazon Web Services resources with
  *             tagging, see <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
- *                 Best Practices: Implement an Effective AWS Resource Tagging Strategy</a>.</p>
+ *                 Best Practices: Implement an Effective Amazon Web Services Resource Tagging Strategy</a>.</p>
  */
 export interface Tag {
   /**
@@ -241,9 +241,9 @@ export interface AddTagsInput {
   ResourceArn: string | undefined;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
    *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 Resources</a>.</p>
    */
   Tags: Tag[] | undefined;
@@ -383,7 +383,7 @@ export interface AlgorithmSpecification {
 
   /**
    * <p>The name of the algorithm resource to use for the training job. This must be an
-   *             algorithm resource that you created or subscribe to on AWS Marketplace. If you specify a value for
+   *             algorithm resource that you created or subscribe to on Amazon Web Services Marketplace. If you specify a value for
    *             this parameter, you can't specify a value for <code>TrainingImage</code>.</p>
    */
   AlgorithmName?: string;
@@ -881,7 +881,7 @@ export namespace Channel {
  */
 export interface OutputDataConfig {
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using
    *             Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following
    *             formats: </p>
    *         <ul>
@@ -925,7 +925,7 @@ export interface OutputDataConfig {
    *                 <code>CreateTrainingJob</code>, <code>CreateTransformJob</code>, or
    *                 <code>CreateHyperParameterTuningJob</code> requests. For more information, see
    *                 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
-   *                 Key Policies in AWS KMS</a> in the <i>AWS Key Management Service Developer
+   *                     Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer
    *                 Guide</i>.</p>
    */
   KmsKeyId?: string;
@@ -1028,7 +1028,7 @@ export interface ResourceConfig {
   VolumeSizeInGB: number | undefined;
 
   /**
-   * <p>The AWS KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML
+   * <p>The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML
    *             compute instance(s) that run the training job.</p>
    *         <note>
    *             <p>Certain Nitro-based instances include local storage, dependent on the instance
@@ -1409,7 +1409,7 @@ export interface TransformOutput {
   AssembleWith?: AssemblyType | string;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using
    *             Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following
    *             formats: </p>
    *         <ul>
@@ -1441,7 +1441,7 @@ export interface TransformOutput {
    *          </p>
    *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
    *                 <a>CreateModel</a> request. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
-   *                 Key Policies in AWS KMS</a> in the <i>AWS Key Management Service Developer
+   *                     Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer
    *                 Guide</i>.</p>
    */
   KmsKeyId?: string;
@@ -1515,7 +1515,7 @@ export interface TransformResources {
   InstanceCount: number | undefined;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume
    *             attached to the ML compute instance(s) that run the batch transform job.</p>
    *         <note>
    *             <p>Certain Nitro-based instances include local storage, dependent on the instance
@@ -1622,7 +1622,7 @@ export namespace TransformJobDefinition {
 /**
  * <p>Defines a training job and a batch transform job that Amazon SageMaker runs to validate your
  *             algorithm.</p>
- *         <p>The data provided in the validation profile is made available to your buyers on AWS
+ *         <p>The data provided in the validation profile is made available to your buyers on Amazon Web Services
  *             Marketplace.</p>
  */
 export interface AlgorithmValidationProfile {
@@ -3724,7 +3724,7 @@ export interface AthenaDatasetDefinition {
   OutputS3Uri: string | undefined;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data generated from
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data generated from
    *             an Athena query execution.</p>
    */
   KmsKeyId?: string;
@@ -4414,7 +4414,7 @@ export namespace AutoMLJobSummary {
  */
 export interface AutoMLOutputDataConfig {
   /**
-   * <p>The AWS KMS encryption key ID.</p>
+   * <p>The Amazon Web Services KMS encryption key ID.</p>
    */
   KmsKeyId?: string;
 
@@ -4877,7 +4877,7 @@ export enum CodeRepositorySortOrder {
 }
 
 /**
- * <p>Specifies configuration details for a Git repository in your AWS account.</p>
+ * <p>Specifies configuration details for a Git repository in your Amazon Web Services account.</p>
  */
 export interface GitConfig {
   /**
@@ -4891,7 +4891,7 @@ export interface GitConfig {
   Branch?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
    *             credentials used to access the git repository. The secret must have a staging label of
    *                 <code>AWSCURRENT</code> and must be in the following format:</p>
    *         <p>
@@ -4937,7 +4937,7 @@ export interface CodeRepositorySummary {
 
   /**
    * <p>Configuration details for the Git repository, including the URL where it is located
-   *             and the ARN of the AWS Secrets Manager secret that contains the credentials used to
+   *             and the ARN of the Amazon Web Services Secrets Manager secret that contains the credentials used to
    *             access the repository.</p>
    */
   GitConfig?: GitConfig;
@@ -5054,6 +5054,7 @@ export enum CompilationJobStatus {
 export enum TargetDevice {
   AISAGE = "aisage",
   AMBA_CV22 = "amba_cv22",
+  AMBA_CV25 = "amba_cv25",
   COREML = "coreml",
   DEEPLENS = "deeplens",
   IMX8QM = "imx8qm",
@@ -5232,10 +5233,10 @@ export enum RepositoryAccessMode {
  */
 export interface RepositoryAuthConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services Lambda function that provides credentials to
    *             authenticate to the private Docker registry where your model image is hosted. For
-   *             information about how to create an AWS Lambda function, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html">Create a Lambda function
-   *                 with the console</a> in the <i>AWS Lambda Developer
+   *             information about how to create an Amazon Web Services Lambda function, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html">Create a Lambda function
+   *                 with the console</a> in the <i>Amazon Web Services Lambda Developer
    *             Guide</i>.</p>
    */
   RepositoryCredentialsProviderArn: string | undefined;
@@ -5381,11 +5382,11 @@ export interface ContainerDefinition {
    *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
    *                 model or endpoint you are creating.</p>
    *         </note>
-   *         <p>If you provide a value for this parameter, Amazon SageMaker uses AWS Security Token Service to
-   *             download model artifacts from the S3 path you provide. AWS STS is activated in your
-   *             IAM user account by default. If you previously deactivated AWS STS for a region, you
-   *             need to reactivate AWS STS for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
-   *                 Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management User
+   *         <p>If you provide a value for this parameter, Amazon SageMaker uses Amazon Web Services Security Token Service to
+   *             download model artifacts from the S3 path you provide. Amazon Web Services STS is activated in your
+   *             IAM user account by default. If you previously deactivated Amazon Web Services STS for a region, you
+   *             need to reactivate Amazon Web Services STS for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+   *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>Amazon Web Services Identity and Access Management User
    *                 Guide</i>.</p>
    *         <important>
    *             <p>If you use a built-in algorithm to create a model, Amazon SageMaker requires that you provide
@@ -5633,7 +5634,7 @@ export namespace MetadataProperties {
 
 export interface CreateActionRequest {
   /**
-   * <p>The name of the action. Must be unique to your account in an AWS Region.</p>
+   * <p>The name of the action. Must be unique to your account in an Amazon Web Services Region.</p>
    */
   ActionName: string | undefined;
 
@@ -5735,9 +5736,16 @@ export interface ModelPackageContainerDefinition {
   ModelDataUrl?: string;
 
   /**
-   * <p>The AWS Marketplace product ID of the model package.</p>
+   * <p>The Amazon Web Services Marketplace product ID of the model package.</p>
    */
   ProductId?: string;
+
+  /**
+   * <p>The environment variables to set in the Docker container. Each key and value in the
+   *             <code>Environment</code> string to string map can have length of up to 1024. We
+   *             support up to 16 entries in the map.</p>
+   */
+  Environment?: { [key: string]: string };
 }
 
 export namespace ModelPackageContainerDefinition {
@@ -6149,14 +6157,14 @@ export interface CreateAlgorithmInput {
   ValidationSpecification?: AlgorithmValidationSpecification;
 
   /**
-   * <p>Whether to certify the algorithm so that it can be listed in AWS Marketplace.</p>
+   * <p>Whether to certify the algorithm so that it can be listed in Amazon Web Services Marketplace.</p>
    */
   CertifyForMarketplace?: boolean;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
    *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 Resources</a>.</p>
    */
   Tags?: Tag[];
@@ -6338,7 +6346,7 @@ export namespace CreateAppImageConfigResponse {
 
 export interface CreateArtifactRequest {
   /**
-   * <p>The name of the artifact. Must be unique to your account in an AWS Region.</p>
+   * <p>The name of the artifact. Must be unique to your account in an Amazon Web Services Region.</p>
    */
   ArtifactName?: string;
 
@@ -6540,9 +6548,9 @@ export interface CreateCodeRepositoryInput {
   GitConfig: GitConfig | undefined;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
    *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 Resources</a>.</p>
    */
   Tags?: Tag[];
@@ -7283,9 +7291,13 @@ export interface OutputConfig {
   CompilerOptions?: string;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume
-   *         after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account</p>
-   *         <p>The KmsKeyId can be any of the following formats: </p>
+   * <p>The Amazon Web Services Key Management Service key (Amazon Web Services KMS) that Amazon SageMaker uses to encrypt your output models with Amazon S3 server-side encryption
+   *         after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+   *         For more information, see
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption
+   *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>
+   *         </p>
+   * 	        <p>The KmsKeyId can be any of the following formats: </p>
    *         <ul>
    *             <li>
    *                 <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
@@ -7319,10 +7331,39 @@ export namespace OutputConfig {
   });
 }
 
+/**
+ * <p>The <a>VpcConfig</a> configuration object that specifies the VPC that you
+ *             want the compilation jobs to connect to. For more information on
+ *             controlling access to your Amazon S3 buckets used for compilation job, see
+ *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Give Amazon SageMaker Compilation Jobs Access to Resources in Your Amazon VPC</a>.</p>
+ */
+export interface NeoVpcConfig {
+  /**
+   * <p>The VPC security group IDs. IDs have the form of <code>sg-xxxxxxxx</code>.
+   *             Specify the security groups for the VPC that is specified in the <code>Subnets</code> field.</p>
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the subnets in the VPC that you want to connect the
+   *             compilation job to for accessing the model in Amazon S3.</p>
+   */
+  Subnets: string[] | undefined;
+}
+
+export namespace NeoVpcConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NeoVpcConfig): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateCompilationJobRequest {
   /**
-   * <p>A name for the model compilation job. The name must be unique within the AWS Region
-   *             and within your AWS account. </p>
+   * <p>A name for the model compilation job. The name must be unique within the Amazon Web Services Region
+   *             and within your Amazon Web Services account. </p>
    */
   CompilationJobName: string | undefined;
 
@@ -7365,6 +7406,14 @@ export interface CreateCompilationJobRequest {
   OutputConfig: OutputConfig | undefined;
 
   /**
+   * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your
+   *             compilation job to connect to. Control access to your models by
+   *             configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon
+   *                 Virtual Private Cloud</a>.</p>
+   */
+  VpcConfig?: NeoVpcConfig;
+
+  /**
    * <p>Specifies a limit to how long a model compilation job can run. When the job reaches
    *             the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training
    *             costs.</p>
@@ -7372,9 +7421,9 @@ export interface CreateCompilationJobRequest {
   StoppingCondition: StoppingCondition | undefined;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
    *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 Resources</a>.</p>
    */
   Tags?: Tag[];
@@ -7415,7 +7464,7 @@ export namespace CreateCompilationJobResponse {
 
 export interface CreateContextRequest {
   /**
-   * <p>The name of the context. Must be unique to your account in an AWS Region.</p>
+   * <p>The name of the context. Must be unique to your account in an Amazon Web Services Region.</p>
    */
   ContextName: string | undefined;
 
@@ -7759,7 +7808,7 @@ export interface MonitoringOutputConfig {
   MonitoringOutputs: MonitoringOutput[] | undefined;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the model
    *          artifacts at rest using Amazon S3 server-side encryption.</p>
    */
   KmsKeyId?: string;
@@ -7843,7 +7892,7 @@ export interface MonitoringClusterConfig {
   VolumeSizeInGB: number | undefined;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data
    *          on the storage volume attached to the ML compute instance(s) that run the model monitoring
    *          job.</p>
    */
@@ -7986,7 +8035,7 @@ export interface CreateDataQualityJobDefinitionRequest {
   StoppingCondition?: MonitoringStoppingCondition;
 
   /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
    *             User Guide</i>.</p>
    */
   Tags?: Tag[];
@@ -8031,13 +8080,14 @@ export interface EdgeOutputConfig {
   S3OutputLocation: string | undefined;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.</p>
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job.
+   *      If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.</p>
    */
   KmsKeyId?: string;
 
   /**
    * <p>The deployment type SageMaker Edge Manager will create.
-   *       Currently only supports AWS IoT Greengrass Version 2 components.</p>
+   *       Currently only supports Amazon Web Services IoT Greengrass Version 2 components.</p>
    */
   PresetDeploymentType?: EdgePresetDeploymentType | string;
 
@@ -8059,7 +8109,7 @@ export interface EdgeOutputConfig {
    *                <p>
    *                   <code>ComponentVersion</code> (optional) - The version of the component.</p>
    *                <note>
-   *                   <p>AWS IoT Greengrass uses semantic versions for components. Semantic versions follow a<i>
+   *                   <p>Amazon Web Services IoT Greengrass uses semantic versions for components. Semantic versions follow a<i>
    *        major.minor.patch</i> number system. For example, version 1.0.0 represents the first
    *         major release for a component. For more information, see the <a href="https://semver.org/">semantic version specification</a>.</p>
    *                </note>
@@ -8096,7 +8146,7 @@ export interface CreateDeviceFleetRequest {
   DeviceFleetName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).</p>
+   * <p>The Amazon Resource Name (ARN) that has access to Amazon Web Services Internet of Things (IoT).</p>
    */
   RoleArn?: string;
 
@@ -8116,7 +8166,7 @@ export interface CreateDeviceFleetRequest {
   Tags?: Tag[];
 
   /**
-   * <p>Whether to create an AWS IoT Role Alias during device fleet creation.
+   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
    *      The name of the role alias generated will match this pattern:
    *      "SageMakerEdge-{DeviceFleetName}".</p>
    *          <p>For example, if your device fleet is called "demo-fleet", the name of
@@ -8233,7 +8283,7 @@ export interface SharingSettings {
   S3OutputPath?: string;
 
   /**
-   * <p>When <code>NotebookOutputOption</code> is <code>Allowed</code>, the AWS Key Management Service (KMS)
+   * <p>When <code>NotebookOutputOption</code> is <code>Allowed</code>, the Amazon Web Services Key Management Service (KMS)
    *          encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.</p>
    */
   S3KmsKeyId?: string;
@@ -8388,7 +8438,7 @@ export interface CreateDomainRequest {
   HomeEfsFileSystemKmsKeyId?: string;
 
   /**
-   * <p>SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed
+   * <p>SageMaker uses Amazon Web Services KMS to encrypt the EFS volume attached to the domain with an Amazon Web Services managed
    *          customer master key (CMK) by default. For more control, specify a customer managed CMK.</p>
    */
   KmsKeyId?: string;
@@ -8477,7 +8527,7 @@ export namespace CreateEdgePackagingJobRequest {
 
 export interface CreateEndpointInput {
   /**
-   * <p>The name of the endpoint.The name must be unique within an AWS Region in your AWS
+   * <p>The name of the endpoint.The name must be unique within an Amazon Web Services Region in your Amazon Web Services
    *             account. The name is case-insensitive in <code>CreateEndpoint</code>, but the case is
    *             preserved and must be matched in .</p>
    */
@@ -8489,9 +8539,9 @@ export interface CreateEndpointInput {
   EndpointConfigName: string | undefined;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
    *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 Resources</a>.</p>
    */
   Tags?: Tag[];
@@ -8586,7 +8636,7 @@ export interface ProductionVariantCoreDumpConfig {
   DestinationS3Uri: string | undefined;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the core dump data at rest using
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the core dump data at rest using
    *             Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following
    *             formats: </p>
    *         <ul>
@@ -8628,8 +8678,8 @@ export interface ProductionVariantCoreDumpConfig {
    *          </p>
    *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
    *                 <code>CreateEndpoint</code> and <code>UpdateEndpoint</code> requests. For more
-   *             information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using Key Policies in AWS
-   *                 KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using Key Policies in Amazon Web Services
+   *                 KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
    */
   KmsKeyId?: string;
 }
@@ -8721,15 +8771,15 @@ export interface CreateEndpointConfigInput {
   DataCaptureConfig?: DataCaptureConfig;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
    *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 Resources</a>.</p>
    */
   Tags?: Tag[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that Amazon SageMaker uses to encrypt data on
    *             the storage volume attached to the ML compute instance that hosts the endpoint.</p>
    *         <p>The KmsKeyId can be any of the following formats: </p>
    *         <ul>
@@ -8754,8 +8804,8 @@ export interface CreateEndpointConfigInput {
    *          </ul>
    *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
    *                 <code>CreateEndpoint</code>, <code>UpdateEndpoint</code> requests. For more
-   *             information, refer to the AWS Key Management Service section<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html"> Using Key
-   *                 Policies in AWS KMS </a>
+   *             information, refer to the Amazon Web Services Key Management Service section<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html"> Using Key
+   *                 Policies in Amazon Web Services KMS </a>
    *          </p>
    *         <note>
    *             <p>Certain Nitro-based instances include local storage, dependent on the instance
@@ -8801,7 +8851,7 @@ export namespace CreateEndpointConfigOutput {
 
 export interface CreateExperimentRequest {
   /**
-   * <p>The name of the experiment. The name must be unique in your AWS account and is not
+   * <p>The name of the experiment. The name must be unique in your Amazon Web Services account and is not
    *       case-sensitive.</p>
    */
   ExperimentName: string | undefined;
@@ -8925,7 +8975,7 @@ export interface S3StorageConfig {
   S3Uri: string | undefined;
 
   /**
-   * <p>The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects
+   * <p>The Amazon Web Services Key Management Service (KMS) key ID of the key used to encrypt any objects
    *          written into the <code>OfflineStore</code> S3 location.</p>
    *          <p>The IAM <code>roleARN</code> that is passed as a parameter to
    *             <code>CreateFeatureGroup</code> must have below permissions to the
@@ -8959,7 +9009,7 @@ export namespace S3StorageConfig {
  * <p>The configuration of an <code>OfflineStore</code>.</p>
  *          <p>Provide an <code>OfflineStoreConfig</code> in a request to
  *             <code>CreateFeatureGroup</code> to create an <code>OfflineStore</code>.</p>
- *          <p>To encrypt an <code>OfflineStore</code> using at rest data encryption, specify AWS Key
+ *          <p>To encrypt an <code>OfflineStore</code> using at rest data encryption, specify Amazon Web Services Key
  *          Management Service (KMS) key ID, or <code>KMSKeyId</code>, in
  *          <code>S3StorageConfig</code>.</p>
  */
@@ -8970,7 +9020,7 @@ export interface OfflineStoreConfig {
   S3StorageConfig: S3StorageConfig | undefined;
 
   /**
-   * <p>Set to <code>True</code> to disable the automatic creation of an AWS Glue table when
+   * <p>Set to <code>True</code> to disable the automatic creation of an Amazon Web Services Glue table when
    *        configuring an <code>OfflineStore</code>.</p>
    */
   DisableGlueTableCreation?: boolean;
@@ -8996,7 +9046,7 @@ export namespace OfflineStoreConfig {
  */
 export interface OnlineStoreSecurityConfig {
   /**
-   * <p>The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses
+   * <p>The ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker Feature Store uses
    *          to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.</p>
    *          <p>The caller (either IAM user or IAM role) of <code>CreateFeatureGroup</code> must have
    *          below permissions to the <code>OnlineStore</code>
@@ -9082,7 +9132,7 @@ export namespace OnlineStoreSecurityConfig {
 }
 
 /**
- * <p>Use this to specify the AWS Key Management Service (KMS) Key ID, or
+ * <p>Use this to specify the Amazon Web Services Key Management Service (KMS) Key ID, or
  *             <code>KMSKeyId</code>, for at rest data encryption. You can turn
  *             <code>OnlineStore</code> on or off by specifying the <code>EnableOnlineStore</code> flag
  *          at General Assembly; the default value is <code>False</code>.</p>
@@ -9115,8 +9165,8 @@ export namespace OnlineStoreConfig {
 
 export interface CreateFeatureGroupRequest {
   /**
-   * <p>The name of the <code>FeatureGroup</code>. The name must be unique within an AWS Region
-   *          in an AWS account. The name:</p>
+   * <p>The name of the <code>FeatureGroup</code>. The name must be unique within an Amazon Web Services Region
+   *          in an Amazon Web Services account. The name:</p>
    *          <ul>
    *             <li>
    *                <p>Must start and end with an alphanumeric character.</p>
@@ -9196,7 +9246,7 @@ export interface CreateFeatureGroupRequest {
    * <p>You can turn the <code>OnlineStore</code> on or off by specifying <code>True</code> for
    *          the <code>EnableOnlineStore</code> flag in <code>OnlineStoreConfig</code>; the default
    *          value is <code>False</code>.</p>
-   *          <p>You can also include an AWS KMS key ID (<code>KMSKeyId</code>) for at-rest encryption of
+   *          <p>You can also include an Amazon Web Services KMS key ID (<code>KMSKeyId</code>) for at-rest encryption of
    *          the <code>OnlineStore</code>.</p>
    */
   OnlineStoreConfig?: OnlineStoreConfig;
@@ -9210,7 +9260,7 @@ export interface CreateFeatureGroupRequest {
    *                   <code>OfflineStore</code>.</p>
    *             </li>
    *             <li>
-   *                <p>A configuration for an AWS Glue or AWS Hive data cataolgue. </p>
+   *                <p>A configuration for an Amazon Web Services Glue or Amazon Web Services Hive data cataolgue. </p>
    *             </li>
    *             <li>
    *                <p>An KMS encryption key to encrypt the Amazon S3 location used for
@@ -10768,8 +10818,8 @@ export namespace HyperParameterTuningJobWarmStartConfig {
 export interface CreateHyperParameterTuningJobRequest {
   /**
    * <p>The name of the tuning job. This name is the prefix for the names of all training jobs
-   *             that this tuning job launches. The name must be unique within the same AWS account and
-   *             AWS Region. The name must have 1 to 32 characters. Valid characters are a-z, A-Z, 0-9,
+   *             that this tuning job launches. The name must be unique within the same Amazon Web Services account and
+   *             Amazon Web Services Region. The name must have 1 to 32 characters. Valid characters are a-z, A-Z, 0-9,
    *             and : + = @ _ % - (hyphen). The name is not case sensitive.</p>
    */
   HyperParameterTuningJobName: string | undefined;
@@ -10818,9 +10868,9 @@ export interface CreateHyperParameterTuningJobRequest {
   WarmStartConfig?: HyperParameterTuningJobWarmStartConfig;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
    *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 Resources</a>.</p>
    *         <p>Tags that you specify for the tuning job are also added to all training jobs that the
    *             tuning job launches.</p>
@@ -10917,7 +10967,7 @@ export interface CreateImageVersionRequest {
   BaseImage: string | undefined;
 
   /**
-   * <p>A unique ID. If not specified, the AWS CLI and AWS SDKs, such as the SDK for Python
+   * <p>A unique ID. If not specified, the Amazon Web Services CLI and Amazon Web Services SDKs, such as the SDK for Python
    *         (Boto3), add a unique value to the call.</p>
    */
   ClientToken?: string;
@@ -10971,7 +11021,7 @@ export interface UiConfig {
    *         <p>Use this parameter when you are creating a labeling job for 3D point cloud and video
    *             fram labeling jobs. Use your labeling job task type to select one of the following ARNs
    *             and use it with this parameter when you create a labeling job. Replace
-   *                 <code>aws-region</code> with the AWS region you are creating your labeling job
+   *             <code>aws-region</code> with the Amazon Web Services region you are creating your labeling job
    *             in.</p>
    *
    *         <p>
@@ -12619,7 +12669,7 @@ export interface HumanTaskConfig {
    *             <li>
    *                 <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html">3D point cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html">video frame</a> labeling jobs,
    *                     the maximum is 7 days (604,800 seconds). If you want to change these limits,
-   *                     contact AWS Support.</p>
+   *                     contact Amazon Web Services Support.</p>
    *             </li>
    *          </ul>
    */
@@ -12637,7 +12687,7 @@ export interface HumanTaskConfig {
    *             <li>
    *                 <p>If you choose a private or vendor workforce, the default value is 10 days
    *                     (864,000 seconds). For most users, the maximum is also 10 days. If you want to
-   *                     change this limit, contact AWS Support.</p>
+   *                     change this limit, contact Amazon Web Services Support.</p>
    *             </li>
    *          </ul>
    */
@@ -12811,12 +12861,12 @@ export namespace LabelingJobInputConfig {
  */
 export interface LabelingJobResourceConfig {
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume
    *             attached to the ML compute instance(s) that run the training and inference jobs used for
    *             automated data labeling. </p>
    *         <p>You can only specify a <code>VolumeKmsKeyId</code> when you create a labeling job with
    *             automated data labeling enabled using the API operation <code>CreateLabelingJob</code>.
-   *             You cannot specify an AWS KMS customer managed CMK to encrypt the storage volume used for
+   *             You cannot specify an Amazon Web Services KMS customer managed CMK to encrypt the storage volume used for
    *             automated data labeling model training and inference when you create a labeling job
    *             using the console. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security.html">Output Data and Storage Volume
    *                 Encryption</a>.</p>
@@ -12926,10 +12976,10 @@ export interface LabelingJobOutputConfig {
   S3OutputPath: string | undefined;
 
   /**
-   * <p>The AWS Key Management Service ID of the key used to encrypt the output data, if any.</p>
+   * <p>The Amazon Web Services Key Management Service ID of the key used to encrypt the output data, if any.</p>
    *         <p>If you provide your own KMS key ID, you must add the required permissions to your KMS
-   *             key described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-permission.html#sms-security-kms-permissions">Encrypt Output Data and Storage Volume with AWS KMS</a>.</p>
-   *         <p>If you don't provide a KMS key ID, Amazon SageMaker uses the default AWS KMS key for Amazon S3 for your
+   *             key described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-permission.html#sms-security-kms-permissions">Encrypt Output Data and Storage Volume with Amazon Web Services KMS</a>.</p>
+   *         <p>If you don't provide a KMS key ID, Amazon SageMaker uses the default Amazon Web Services KMS key for Amazon S3 for your
    *             role's account to encrypt your output data.</p>
    *         <p>If you use a bucket policy with an <code>s3:PutObject</code> permission that only
    *             allows objects with server-side encryption, set the condition key of
@@ -12994,7 +13044,7 @@ export namespace LabelingJobStoppingConditions {
 export interface CreateLabelingJobRequest {
   /**
    * <p>The name of the labeling job. This name is used to identify the job in a list of
-   *             labeling jobs. Labeling job names must be unique within an AWS account and region.
+   *             labeling jobs. Labeling job names must be unique within an Amazon Web Services account and region.
    *                 <code>LabelingJobName</code> is not case sensitive. For example, Example-job and
    *             example-job are considered the same labeling job name by Ground Truth.</p>
    */
@@ -13086,7 +13136,7 @@ export interface CreateLabelingJobRequest {
   InputConfig: LabelingJobInputConfig | undefined;
 
   /**
-   * <p>The location of the output data and the AWS Key Management Service key ID for the key used to encrypt
+   * <p>The location of the output data and the Amazon Web Services Key Management Service key ID for the key used to encrypt
    *             the output data, if any.</p>
    */
   OutputConfig: LabelingJobOutputConfig | undefined;
@@ -13163,7 +13213,7 @@ export interface CreateLabelingJobRequest {
   HumanTaskConfig: HumanTaskConfig | undefined;
 
   /**
-   * <p>An array of key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
+   * <p>An array of key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
    *                 User Guide</i>.</p>
    */
   Tags?: Tag[];
@@ -13267,9 +13317,9 @@ export interface CreateModelInput {
   ExecutionRoleArn: string | undefined;
 
   /**
-   * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
    *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 Resources</a>.</p>
    */
   Tags?: Tag[];
@@ -13415,8 +13465,8 @@ export namespace ModelBiasJobInput {
 
 export interface CreateModelBiasJobDefinitionRequest {
   /**
-   * <p>The name of the bias job definition. The name must be unique within an AWS Region in the
-   *          AWS account.</p>
+   * <p>The name of the bias job definition. The name must be unique within an Amazon Web Services Region in the
+   *          Amazon Web Services account.</p>
    */
   JobDefinitionName: string | undefined;
 
@@ -13462,7 +13512,7 @@ export interface CreateModelBiasJobDefinitionRequest {
   StoppingCondition?: MonitoringStoppingCondition;
 
   /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
    *             User Guide</i>.</p>
    */
   Tags?: Tag[];
@@ -13563,71 +13613,6 @@ export namespace ModelExplainabilityJobInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: ModelExplainabilityJobInput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelExplainabilityJobDefinitionRequest {
-  /**
-   * <p> The name of the model explainability job definition. The name must be unique within an
-   *          AWS Region in the AWS account.</p>
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The baseline configuration for a model explainability job.</p>
-   */
-  ModelExplainabilityBaselineConfig?: ModelExplainabilityBaselineConfig;
-
-  /**
-   * <p>Configures the model explainability job to run a specified Docker container
-   *          image.</p>
-   */
-  ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecification | undefined;
-
-  /**
-   * <p>Inputs for the model explainability job.</p>
-   */
-  ModelExplainabilityJobInput: ModelExplainabilityJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   */
-  ModelExplainabilityJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Networking options for a model explainability job.</p>
-   */
-  NetworkConfig?: MonitoringNetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-   *          perform tasks on your behalf.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
-   *             User Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateModelExplainabilityJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelExplainabilityJobDefinitionRequest): any => ({
     ...obj,
   });
 }

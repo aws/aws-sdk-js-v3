@@ -23,7 +23,7 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
 /**
  * <p>Starts a task to estimate the quality of the transform. </p>
  *
- * 	        <p>When you provide label sets as examples of truth, AWS Glue machine learning uses some of
+ * 	        <p>When you provide label sets as examples of truth, Glue machine learning uses some of
  *       those examples to learn from them. The rest of the labels are used as a test to estimate
  *       quality.</p>
  *

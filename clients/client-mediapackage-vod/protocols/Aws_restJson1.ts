@@ -2443,6 +2443,10 @@ const serializeAws_restJson1Authorization = (input: Authorization, context: __Se
 
 const serializeAws_restJson1CmafEncryption = (input: CmafEncryption, context: __SerdeContext): any => {
   return {
+    ...(input.ConstantInitializationVector !== undefined &&
+      input.ConstantInitializationVector !== null && {
+        constantInitializationVector: input.ConstantInitializationVector,
+      }),
     ...(input.SpekeKeyProvider !== undefined &&
       input.SpekeKeyProvider !== null && {
         spekeKeyProvider: serializeAws_restJson1SpekeKeyProvider(input.SpekeKeyProvider, context),
@@ -2773,6 +2777,7 @@ const deserializeAws_restJson1Authorization = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1CmafEncryption = (output: any, context: __SerdeContext): CmafEncryption => {
   return {
+    ConstantInitializationVector: __expectString(output.constantInitializationVector),
     SpekeKeyProvider:
       output.spekeKeyProvider !== undefined && output.spekeKeyProvider !== null
         ? deserializeAws_restJson1SpekeKeyProvider(output.spekeKeyProvider, context)

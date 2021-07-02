@@ -269,13 +269,13 @@ type SQSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
 export interface SQSClientResolvedConfig extends SQSClientResolvedConfigType {}
 
 /**
- * <p>Welcome to the <i>Amazon Simple Queue Service API Reference</i>.</p>
- *         <p>Amazon Simple Queue Service (Amazon SQS) is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.</p>
+ * <p>Welcome to the <i>Amazon SQS API Reference</i>.</p>
+ *         <p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.</p>
  *         <p>For information on the permissions you need to use this API, see
  *             <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html">Identity and
- *             access management</a> in the <i>Amazon Simple Queue Service Developer Guide.</i>
+ *             access management</a> in the <i>Amazon SQS Developer Guide.</i>
  *          </p>
- *         <p>You can use <a href="http://aws.amazon.com/tools/#sdk">AWS SDKs</a> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:</p>
+ *         <p>You can use <a href="http://aws.amazon.com/tools/#sdk">Amazon Web Services SDKs</a> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:</p>
  *         <ul>
  *             <li>
  *                 <p>Cryptographically sign your service requests</p>
@@ -299,7 +299,7 @@ export interface SQSClientResolvedConfig extends SQSClientResolvedConfigType {}
  *             </li>
  *             <li>
  *                 <p>
- *                   <i>Amazon Simple Queue Service Developer Guide</i>
+ *                   <i>Amazon SQS Developer Guide</i>
  *                </p>
  *                 <ul>
  *                   <li>
@@ -321,7 +321,7 @@ export interface SQSClientResolvedConfig extends SQSClientResolvedConfigType {}
  *             </li>
  *             <li>
  *                 <p>
- *                   <a href="http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html">Amazon SQS in the <i>AWS CLI Command Reference</i>
+ *                   <a href="http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html">Amazon SQS in the <i>Command Line Interface</i>
  *                   </a>
  *                </p>
  *             </li>

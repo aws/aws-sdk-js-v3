@@ -27,7 +27,8 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Puts emergency calling configuration details to the specified Amazon Chime Voice Connector, such as emergency phone numbers and calling countries. Origination and termination settings must be enabled for the Amazon Chime Voice Connector before emergency calling can be configured.</p>
+ * <p>Puts emergency calling configuration details to the specified Amazon Chime Voice Connector, such as emergency phone numbers and calling countries. Origination and termination settings must be enabled for
+ *     the Amazon Chime Voice Connector before emergency calling can be configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

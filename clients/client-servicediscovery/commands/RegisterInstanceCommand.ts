@@ -41,7 +41,7 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  *     same service ID and instance ID.</p>
  *          </important>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html">CreateService</a>.</p>
- *          <p>When AWS Cloud Map receives a DNS query for the specified DNS name, it returns the applicable value:</p>
+ *          <p>When Cloud Map receives a DNS query for the specified DNS name, it returns the applicable value:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -59,8 +59,8 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  *             </li>
  *          </ul>
  *          <p>For the current quota on the number of instances that you can register using the same namespace and using the
- *    same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map
- *     Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
+ *    same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map
+ *     quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,8 +21,8 @@ export interface DeleteWebhookCommandInput extends DeleteWebhookInput {}
 export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __MetadataBearer {}
 
 /**
- * <p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or
- *             Bitbucket repository, stops AWS CodeBuild from rebuilding the source code every time a code
+ * <p>For an existing CodeBuild build project that has its source code stored in a GitHub or
+ *             Bitbucket repository, stops CodeBuild from rebuilding the source code every time a code
  *             change is pushed to the repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

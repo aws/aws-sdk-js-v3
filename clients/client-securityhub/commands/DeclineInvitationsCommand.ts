@@ -1,6 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { DeclineInvitationsRequest } from "../models/models_0";
-import { DeclineInvitationsResponse } from "../models/models_1";
+import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeclineInvitationsCommand,
   serializeAws_restJson1DeclineInvitationsCommand,

@@ -21,7 +21,7 @@ export interface DeleteEnvironmentMembershipCommandInput extends DeleteEnvironme
 export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironmentMembershipResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an environment member from an AWS Cloud9 development environment.</p>
+ * <p>Deletes an environment member from an Cloud9 development environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

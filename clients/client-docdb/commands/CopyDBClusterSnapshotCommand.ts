@@ -28,7 +28,7 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  *             <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon
  *             Resource Name (ARN) of the shared cluster snapshot. You can only
  *             copy a shared DB cluster snapshot, whether encrypted or not, in the
- *             same AWS Region.</p>
+ *             same Region.</p>
  *
  *         <p>To cancel the copy operation after it is in progress, delete the
  *             target cluster snapshot identified by

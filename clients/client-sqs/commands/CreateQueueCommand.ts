@@ -28,7 +28,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *                         an existing standard queue into a FIFO queue. You must either create a new
  *                         FIFO queue for your application or delete your existing standard queue and
  *                         recreate it as a FIFO queue. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-moving">Moving From a Standard Queue to a FIFO Queue</a> in the
- *                             <i>Amazon Simple Queue Service Developer Guide</i>. </p>
+ *                             <i>Amazon SQS Developer Guide</i>. </p>
  *               </note>
  *             </li>
  *             <li>
@@ -66,7 +66,9 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *             <code>&AttributeName.2=second</code>
  *          </p>
  *          <note>
- *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a user name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+ *             <p>Cross-account permissions don't apply to this action. For more information,
+ * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
+ * cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -31,7 +31,7 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  *                     your organization or when a specific set of skills is required.</p>
  *             </li>
  *             <li>
- *                 <p>One or more vendors that you select from the AWS Marketplace. Vendors provide
+ *                 <p>One or more vendors that you select from the Amazon Web Services Marketplace. Vendors provide
  *                     expertise in specific areas. </p>
  *             </li>
  *             <li>

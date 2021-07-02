@@ -29,7 +29,7 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  * <p>Starts the active learning workflow for your machine learning transform to improve the
  *       transform's quality by generating label sets and adding labels.</p>
  *
- * 	        <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, AWS Glue will have
+ * 	        <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
  *       generated a "labeling set" or a set of questions for humans to answer.</p>
  *
  *          <p>In the case of the <code>FindMatches</code> transform, these questions are of the form,

@@ -22,12 +22,8 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
 
 /**
  * <p>Forces a failover for a cluster.</p>
- *         <p>A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances)
- *             in the cluster to be the primary instance (the cluster writer).</p>
- *         <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica,
- *             if one exists. You can force a failover when you want to simulate a failure of a primary
- *             instance for
- *             testing.</p>
+ *         <p>A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances) in the cluster to be the primary instance (the cluster writer).</p>
+ *         <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica, if one exists. You can force a failover when you want to simulate a failure of a primary instance for testing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

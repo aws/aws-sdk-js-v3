@@ -21,8 +21,7 @@ export interface CreateRecipeJobCommandInput extends CreateRecipeJobRequest {}
 export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new job to transform input data, using steps defined in an existing AWS Glue
- *             DataBrew recipe</p>
+ * <p>Creates a new job to transform input data, using steps defined in an existing Glue DataBrew recipe</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

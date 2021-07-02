@@ -83,6 +83,7 @@ import {
   ListedUser,
   PosixProfile,
   Protocol,
+  ProtocolDetails,
   ResourceExistsException,
   ResourceNotFoundException,
   ServiceUnavailableException,
@@ -2895,6 +2896,12 @@ const serializeAws_json1_1PosixProfile = (input: PosixProfile, context: __SerdeC
   };
 };
 
+const serializeAws_json1_1ProtocolDetails = (input: ProtocolDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.PassiveIp !== undefined && input.PassiveIp !== null && { PassiveIp: input.PassiveIp }),
+  };
+};
+
 const serializeAws_json1_1Protocols = (input: (Protocol | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3041,6 +3048,10 @@ const serializeAws_json1_1UpdateServerRequest = (input: UpdateServerRequest, con
         IdentityProviderDetails: serializeAws_json1_1IdentityProviderDetails(input.IdentityProviderDetails, context),
       }),
     ...(input.LoggingRole !== undefined && input.LoggingRole !== null && { LoggingRole: input.LoggingRole }),
+    ...(input.ProtocolDetails !== undefined &&
+      input.ProtocolDetails !== null && {
+        ProtocolDetails: serializeAws_json1_1ProtocolDetails(input.ProtocolDetails, context),
+      }),
     ...(input.Protocols !== undefined &&
       input.Protocols !== null && { Protocols: serializeAws_json1_1Protocols(input.Protocols, context) }),
     ...(input.SecurityPolicyName !== undefined &&
@@ -3181,6 +3192,10 @@ const deserializeAws_json1_1DescribedServer = (output: any, context: __SerdeCont
         : undefined,
     IdentityProviderType: __expectString(output.IdentityProviderType),
     LoggingRole: __expectString(output.LoggingRole),
+    ProtocolDetails:
+      output.ProtocolDetails !== undefined && output.ProtocolDetails !== null
+        ? deserializeAws_json1_1ProtocolDetails(output.ProtocolDetails, context)
+        : undefined,
     Protocols:
       output.Protocols !== undefined && output.Protocols !== null
         ? deserializeAws_json1_1Protocols(output.Protocols, context)
@@ -3464,6 +3479,12 @@ const deserializeAws_json1_1PosixProfile = (output: any, context: __SerdeContext
         ? deserializeAws_json1_1SecondaryGids(output.SecondaryGids, context)
         : undefined,
     Uid: __expectNumber(output.Uid),
+  } as any;
+};
+
+const deserializeAws_json1_1ProtocolDetails = (output: any, context: __SerdeContext): ProtocolDetails => {
+  return {
+    PassiveIp: __expectString(output.PassiveIp),
   } as any;
 };
 

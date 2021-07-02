@@ -23,8 +23,7 @@ export interface DisassociatePhoneNumberFromUserCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime
- *             user.</p>
+ * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

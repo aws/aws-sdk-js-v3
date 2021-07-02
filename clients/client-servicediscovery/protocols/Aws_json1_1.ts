@@ -35,9 +35,21 @@ import { RegisterInstanceCommandInput, RegisterInstanceCommandOutput } from "../
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateHttpNamespaceCommandInput,
+  UpdateHttpNamespaceCommandOutput,
+} from "../commands/UpdateHttpNamespaceCommand";
+import {
   UpdateInstanceCustomHealthStatusCommandInput,
   UpdateInstanceCustomHealthStatusCommandOutput,
 } from "../commands/UpdateInstanceCustomHealthStatusCommand";
+import {
+  UpdatePrivateDnsNamespaceCommandInput,
+  UpdatePrivateDnsNamespaceCommandOutput,
+} from "../commands/UpdatePrivateDnsNamespaceCommand";
+import {
+  UpdatePublicDnsNamespaceCommandInput,
+  UpdatePublicDnsNamespaceCommandOutput,
+} from "../commands/UpdatePublicDnsNamespaceCommand";
 import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "../commands/UpdateServiceCommand";
 import {
   CreateHttpNamespaceRequest,
@@ -76,6 +88,7 @@ import {
   HealthCheckCustomConfig,
   HealthStatus,
   HttpInstanceSummary,
+  HttpNamespaceChange,
   HttpProperties,
   Instance,
   InstanceNotFound,
@@ -102,12 +115,24 @@ import {
   OperationNotFound,
   OperationSummary,
   OperationTargetType,
+  PrivateDnsNamespaceChange,
+  PrivateDnsNamespaceProperties,
+  PrivateDnsNamespacePropertiesChange,
+  PrivateDnsPropertiesMutable,
+  PrivateDnsPropertiesMutableChange,
+  PublicDnsNamespaceChange,
+  PublicDnsNamespaceProperties,
+  PublicDnsNamespacePropertiesChange,
+  PublicDnsPropertiesMutable,
+  PublicDnsPropertiesMutableChange,
   RegisterInstanceRequest,
   RegisterInstanceResponse,
   RequestLimitExceeded,
   ResourceInUse,
   ResourceLimitExceeded,
   ResourceNotFoundException,
+  SOA,
+  SOAChange,
   Service,
   ServiceAlreadyExists,
   ServiceChange,
@@ -120,7 +145,13 @@ import {
   TooManyTagsException,
   UntagResourceRequest,
   UntagResourceResponse,
+  UpdateHttpNamespaceRequest,
+  UpdateHttpNamespaceResponse,
   UpdateInstanceCustomHealthStatusRequest,
+  UpdatePrivateDnsNamespaceRequest,
+  UpdatePrivateDnsNamespaceResponse,
+  UpdatePublicDnsNamespaceRequest,
+  UpdatePublicDnsNamespaceResponse,
   UpdateServiceRequest,
   UpdateServiceResponse,
 } from "../models/models_0";
@@ -423,6 +454,19 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateHttpNamespaceCommand = async (
+  input: UpdateHttpNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Route53AutoNaming_v20170314.UpdateHttpNamespace",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateHttpNamespaceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateInstanceCustomHealthStatusCommand = async (
   input: UpdateInstanceCustomHealthStatusCommandInput,
   context: __SerdeContext
@@ -433,6 +477,32 @@ export const serializeAws_json1_1UpdateInstanceCustomHealthStatusCommand = async
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdatePrivateDnsNamespaceCommand = async (
+  input: UpdatePrivateDnsNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Route53AutoNaming_v20170314.UpdatePrivateDnsNamespace",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdatePrivateDnsNamespaceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdatePublicDnsNamespaceCommand = async (
+  input: UpdatePublicDnsNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Route53AutoNaming_v20170314.UpdatePublicDnsNamespace",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdatePublicDnsNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1935,6 +2005,84 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateHttpNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHttpNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateHttpNamespaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateHttpNamespaceResponse(data, context);
+  const response: UpdateHttpNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateHttpNamespaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHttpNamespaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DuplicateRequest":
+    case "com.amazonaws.servicediscovery#DuplicateRequest":
+      response = {
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInput":
+    case "com.amazonaws.servicediscovery#InvalidInput":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NamespaceNotFound":
+    case "com.amazonaws.servicediscovery#NamespaceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUse":
+    case "com.amazonaws.servicediscovery#ResourceInUse":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1989,6 +2137,162 @@ const deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError = async
     case "com.amazonaws.servicediscovery#ServiceNotFound":
       response = {
         ...(await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdatePrivateDnsNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePrivateDnsNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdatePrivateDnsNamespaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdatePrivateDnsNamespaceResponse(data, context);
+  const response: UpdatePrivateDnsNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdatePrivateDnsNamespaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePrivateDnsNamespaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DuplicateRequest":
+    case "com.amazonaws.servicediscovery#DuplicateRequest":
+      response = {
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInput":
+    case "com.amazonaws.servicediscovery#InvalidInput":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NamespaceNotFound":
+    case "com.amazonaws.servicediscovery#NamespaceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUse":
+    case "com.amazonaws.servicediscovery#ResourceInUse":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdatePublicDnsNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePublicDnsNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdatePublicDnsNamespaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdatePublicDnsNamespaceResponse(data, context);
+  const response: UpdatePublicDnsNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdatePublicDnsNamespaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePublicDnsNamespaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DuplicateRequest":
+    case "com.amazonaws.servicediscovery#DuplicateRequest":
+      response = {
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInput":
+    case "com.amazonaws.servicediscovery#InvalidInput":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NamespaceNotFound":
+    case "com.amazonaws.servicediscovery#NamespaceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUse":
+    case "com.amazonaws.servicediscovery#ResourceInUse":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2322,6 +2626,10 @@ const serializeAws_json1_1CreatePrivateDnsNamespaceRequest = (
     CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Properties !== undefined &&
+      input.Properties !== null && {
+        Properties: serializeAws_json1_1PrivateDnsNamespaceProperties(input.Properties, context),
+      }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.Vpc !== undefined && input.Vpc !== null && { Vpc: input.Vpc }),
   };
@@ -2335,6 +2643,10 @@ const serializeAws_json1_1CreatePublicDnsNamespaceRequest = (
     CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Properties !== undefined &&
+      input.Properties !== null && {
+        Properties: serializeAws_json1_1PublicDnsNamespaceProperties(input.Properties, context),
+      }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
@@ -2501,6 +2813,12 @@ const serializeAws_json1_1HealthCheckCustomConfig = (input: HealthCheckCustomCon
   };
 };
 
+const serializeAws_json1_1HttpNamespaceChange = (input: HttpNamespaceChange, context: __SerdeContext): any => {
+  return {
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+  };
+};
+
 const serializeAws_json1_1InstanceIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -2596,6 +2914,116 @@ const serializeAws_json1_1OperationFilters = (input: OperationFilter[], context:
     });
 };
 
+const serializeAws_json1_1PrivateDnsNamespaceChange = (
+  input: PrivateDnsNamespaceChange,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Properties !== undefined &&
+      input.Properties !== null && {
+        Properties: serializeAws_json1_1PrivateDnsNamespacePropertiesChange(input.Properties, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1PrivateDnsNamespaceProperties = (
+  input: PrivateDnsNamespaceProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DnsProperties !== undefined &&
+      input.DnsProperties !== null && {
+        DnsProperties: serializeAws_json1_1PrivateDnsPropertiesMutable(input.DnsProperties, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1PrivateDnsNamespacePropertiesChange = (
+  input: PrivateDnsNamespacePropertiesChange,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DnsProperties !== undefined &&
+      input.DnsProperties !== null && {
+        DnsProperties: serializeAws_json1_1PrivateDnsPropertiesMutableChange(input.DnsProperties, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1PrivateDnsPropertiesMutable = (
+  input: PrivateDnsPropertiesMutable,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SOA !== undefined && input.SOA !== null && { SOA: serializeAws_json1_1SOA(input.SOA, context) }),
+  };
+};
+
+const serializeAws_json1_1PrivateDnsPropertiesMutableChange = (
+  input: PrivateDnsPropertiesMutableChange,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SOA !== undefined && input.SOA !== null && { SOA: serializeAws_json1_1SOAChange(input.SOA, context) }),
+  };
+};
+
+const serializeAws_json1_1PublicDnsNamespaceChange = (
+  input: PublicDnsNamespaceChange,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Properties !== undefined &&
+      input.Properties !== null && {
+        Properties: serializeAws_json1_1PublicDnsNamespacePropertiesChange(input.Properties, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1PublicDnsNamespaceProperties = (
+  input: PublicDnsNamespaceProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DnsProperties !== undefined &&
+      input.DnsProperties !== null && {
+        DnsProperties: serializeAws_json1_1PublicDnsPropertiesMutable(input.DnsProperties, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1PublicDnsNamespacePropertiesChange = (
+  input: PublicDnsNamespacePropertiesChange,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DnsProperties !== undefined &&
+      input.DnsProperties !== null && {
+        DnsProperties: serializeAws_json1_1PublicDnsPropertiesMutableChange(input.DnsProperties, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1PublicDnsPropertiesMutable = (
+  input: PublicDnsPropertiesMutable,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SOA !== undefined && input.SOA !== null && { SOA: serializeAws_json1_1SOA(input.SOA, context) }),
+  };
+};
+
+const serializeAws_json1_1PublicDnsPropertiesMutableChange = (
+  input: PublicDnsPropertiesMutableChange,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SOA !== undefined && input.SOA !== null && { SOA: serializeAws_json1_1SOAChange(input.SOA, context) }),
+  };
+};
+
 const serializeAws_json1_1RegisterInstanceRequest = (input: RegisterInstanceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Attributes !== undefined &&
@@ -2636,6 +3064,18 @@ const serializeAws_json1_1ServiceFilters = (input: ServiceFilter[], context: __S
       }
       return serializeAws_json1_1ServiceFilter(entry, context);
     });
+};
+
+const serializeAws_json1_1SOA = (input: SOA, context: __SerdeContext): any => {
+  return {
+    ...(input.TTL !== undefined && input.TTL !== null && { TTL: input.TTL }),
+  };
+};
+
+const serializeAws_json1_1SOAChange = (input: SOAChange, context: __SerdeContext): any => {
+  return {
+    ...(input.TTL !== undefined && input.TTL !== null && { TTL: input.TTL }),
+  };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -2682,6 +3122,18 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
   };
 };
 
+const serializeAws_json1_1UpdateHttpNamespaceRequest = (
+  input: UpdateHttpNamespaceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Namespace !== undefined &&
+      input.Namespace !== null && { Namespace: serializeAws_json1_1HttpNamespaceChange(input.Namespace, context) }),
+    UpdaterRequestId: input.UpdaterRequestId ?? generateIdempotencyToken(),
+  };
+};
+
 const serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest = (
   input: UpdateInstanceCustomHealthStatusRequest,
   context: __SerdeContext
@@ -2690,6 +3142,34 @@ const serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest = (
     ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
     ...(input.ServiceId !== undefined && input.ServiceId !== null && { ServiceId: input.ServiceId }),
     ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+  };
+};
+
+const serializeAws_json1_1UpdatePrivateDnsNamespaceRequest = (
+  input: UpdatePrivateDnsNamespaceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Namespace !== undefined &&
+      input.Namespace !== null && {
+        Namespace: serializeAws_json1_1PrivateDnsNamespaceChange(input.Namespace, context),
+      }),
+    UpdaterRequestId: input.UpdaterRequestId ?? generateIdempotencyToken(),
+  };
+};
+
+const serializeAws_json1_1UpdatePublicDnsNamespaceRequest = (
+  input: UpdatePublicDnsNamespaceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Namespace !== undefined &&
+      input.Namespace !== null && {
+        Namespace: serializeAws_json1_1PublicDnsNamespaceChange(input.Namespace, context),
+      }),
+    UpdaterRequestId: input.UpdaterRequestId ?? generateIdempotencyToken(),
   };
 };
 
@@ -2803,6 +3283,7 @@ const deserializeAws_json1_1DnsConfig = (output: any, context: __SerdeContext): 
 const deserializeAws_json1_1DnsProperties = (output: any, context: __SerdeContext): DnsProperties => {
   return {
     HostedZoneId: __expectString(output.HostedZoneId),
+    SOA: output.SOA !== undefined && output.SOA !== null ? deserializeAws_json1_1SOA(output.SOA, context) : undefined,
   } as any;
 };
 
@@ -3293,6 +3774,12 @@ const deserializeAws_json1_1ServiceSummary = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1SOA = (output: any, context: __SerdeContext): SOA => {
+  return {
+    TTL: __expectNumber(output.TTL),
+  } as any;
+};
+
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
@@ -3324,6 +3811,33 @@ const deserializeAws_json1_1TooManyTagsException = (output: any, context: __Serd
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1UpdateHttpNamespaceResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateHttpNamespaceResponse => {
+  return {
+    OperationId: __expectString(output.OperationId),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdatePrivateDnsNamespaceResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdatePrivateDnsNamespaceResponse => {
+  return {
+    OperationId: __expectString(output.OperationId),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdatePublicDnsNamespaceResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdatePublicDnsNamespaceResponse => {
+  return {
+    OperationId: __expectString(output.OperationId),
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateServiceResponse = (output: any, context: __SerdeContext): UpdateServiceResponse => {

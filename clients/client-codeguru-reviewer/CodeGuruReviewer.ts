@@ -69,8 +69,8 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations. CodeGuru Reviewer is a service
- *          that uses program analysis and machine learning to detect potential defects that are difficult for developers to find and recommendations to
- *          address them in your Java and Python code.</p>
+ *          that uses program analysis and machine learning to detect potential defects that are difficult for developers to find and recommends
+ *          fixes in your Java and Python code.</p>
  *
  *          <p>By proactively detecting and providing recommendations for addressing code defects and implementing best practices, CodeGuru Reviewer
  *             improves the overall quality and maintainability of your code base during the code review stage. For more information about CodeGuru Reviewer, see the
@@ -96,7 +96,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
    *             Amazon CodeGuru Reviewer</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i>
    *         </p>
    *
-   *          <p>If you associate a CodeCommit repository, it must be in the same
+   *          <p>If you associate a CodeCommit or S3 repository, it must be in the same
    *          AWS Region and AWS account where its CodeGuru Reviewer code reviews are configured.</p>
    *
    *          <p>Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar
@@ -148,7 +148,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
    *                <code>CodeReviewType</code>
    *             </a>
    *          of <code>RepositoryAnalysis</code>. This type of code review analyzes all code under a specified branch in an associated repository.
-   *          <code>PullRequest</code> code reviews are automatically triggered by a pull request so cannot be created using this method.
+   *          <code>PullRequest</code> code reviews are automatically triggered by a pull request.
    *       </p>
    */
   public createCodeReview(

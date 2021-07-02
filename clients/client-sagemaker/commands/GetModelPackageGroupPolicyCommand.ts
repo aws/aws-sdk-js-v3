@@ -23,7 +23,7 @@ export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackage
 /**
  * <p>Gets a resource policy that manages access for a model group. For information about
  *             resource policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based
- *                 policies and resource-based policies</a> in the <i>AWS Identity and
+ *                 policies and resource-based policies</a> in the <i>Amazon Web Services Identity and
  *                     Access Management User Guide.</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

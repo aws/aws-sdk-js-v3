@@ -21,8 +21,7 @@ export interface DescribeQuickConnectCommandInput extends DescribeQuickConnectRe
 export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Describes the quick connect.</p>
+ * <p>Describes the quick connect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

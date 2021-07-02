@@ -4538,15 +4538,17 @@ export namespace CreateSnapshotsResult {
  */
 export interface CreateSpotDatafeedSubscriptionRequest {
   /**
-   * <p>The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For more information
-   *          about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules">Rules for bucket naming</a> in the <i>Amazon S3 Developer Guide</i>.</p>
+   * <p>The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For
+   *             more information about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules">Rules for bucket
+   *                 naming</a> in the <i>Amazon S3 Developer Guide</i>.</p>
    */
   Bucket: string | undefined;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -4606,7 +4608,7 @@ export interface SpotDatafeedSubscription {
   Fault?: SpotInstanceStateFault;
 
   /**
-   * <p>The AWS account ID of the account.</p>
+   * <p>The account ID of the account.</p>
    */
   OwnerId?: string;
 

@@ -1,14 +1,2297 @@
 import {
+  AccountDetails,
+  Action,
   ActionTarget,
   AdminAccount,
-  AwsSecurityFinding,
-  AwsSecurityFindingFilters,
-  ControlStatus,
-  NoteUpdate,
+  Compliance,
+  FindingProviderFields,
+  Malware,
+  Network,
+  NetworkPathComponent,
+  Note,
+  PatchSummary,
+  ProcessDetails,
   RecordState,
-  Result,
-  StandardsSubscription,
+  RelatedFinding,
+  Remediation,
+  Resource,
+  SeverityLabel,
 } from "./models_0";
+import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+/**
+ * <p>The severity of the finding.</p>
+ *          <p>The finding provider can provide the initial severity. The finding provider can only
+ *          update the severity if it has not been updated using
+ *          <code>BatchUpdateFindings</code>.</p>
+ *          <p>The finding must have either <code>Label</code> or <code>Normalized</code> populated. If
+ *          only one of these attributes is populated, then Security Hub automatically populates the other
+ *          one. If neither attribute is populated, then the finding is invalid. <code>Label</code> is
+ *          the preferred attribute.</p>
+ */
+export interface Severity {
+  /**
+   * <p>Deprecated. This attribute is being deprecated. Instead of providing
+   *             <code>Product</code>, provide <code>Original</code>.</p>
+   *          <p>The native severity as defined by the AWS service or integrated partner product that
+   *          generated the finding.</p>
+   */
+  Product?: number;
+
+  /**
+   * <p>The severity value of the finding. The allowed values are the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INFORMATIONAL</code> - No issue was found.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code> - The issue does not require action on its own.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code> - The issue must be addressed but not urgently.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code> - The issue must be addressed as a priority.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CRITICAL</code> - The issue must be remediated immediately to avoid it
+   *                escalating.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you provide <code>Normalized</code> and do not provide <code>Label</code>, then
+   *             <code>Label</code> is set automatically as follows. </p>
+   *          <ul>
+   *             <li>
+   *                <p>0 - <code>INFORMATIONAL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>1–39 - <code>LOW</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>40–69 - <code>MEDIUM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>70–89 - <code>HIGH</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>90–100 - <code>CRITICAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Label?: SeverityLabel | string;
+
+  /**
+   * <p>Deprecated. The normalized severity of a finding. This attribute is being deprecated.
+   *          Instead of providing <code>Normalized</code>, provide <code>Label</code>.</p>
+   *          <p>If you provide <code>Label</code> and do not provide <code>Normalized</code>, then
+   *             <code>Normalized</code> is set automatically as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INFORMATIONAL</code> - 0</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code> - 1</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code> - 40</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code> - 70</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CRITICAL</code> - 90</p>
+   *             </li>
+   *          </ul>
+   */
+  Normalized?: number;
+
+  /**
+   * <p>The native severity from the finding product that generated the finding.</p>
+   */
+  Original?: string;
+}
+
+export namespace Severity {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Severity): any => ({
+    ...obj,
+  });
+}
+
+export enum ThreatIntelIndicatorCategory {
+  BACKDOOR = "BACKDOOR",
+  CARD_STEALER = "CARD_STEALER",
+  COMMAND_AND_CONTROL = "COMMAND_AND_CONTROL",
+  DROP_SITE = "DROP_SITE",
+  EXPLOIT_SITE = "EXPLOIT_SITE",
+  KEYLOGGER = "KEYLOGGER",
+}
+
+export enum ThreatIntelIndicatorType {
+  DOMAIN = "DOMAIN",
+  EMAIL_ADDRESS = "EMAIL_ADDRESS",
+  HASH_MD5 = "HASH_MD5",
+  HASH_SHA1 = "HASH_SHA1",
+  HASH_SHA256 = "HASH_SHA256",
+  HASH_SHA512 = "HASH_SHA512",
+  IPV4_ADDRESS = "IPV4_ADDRESS",
+  IPV6_ADDRESS = "IPV6_ADDRESS",
+  MUTEX = "MUTEX",
+  PROCESS = "PROCESS",
+  URL = "URL",
+}
+
+/**
+ * <p>Details about the threat intelligence related to a finding.</p>
+ */
+export interface ThreatIntelIndicator {
+  /**
+   * <p>The type of threat intelligence indicator.</p>
+   */
+  Type?: ThreatIntelIndicatorType | string;
+
+  /**
+   * <p>The value of a threat intelligence indicator.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>The category of a threat intelligence indicator.</p>
+   */
+  Category?: ThreatIntelIndicatorCategory | string;
+
+  /**
+   * <p>Indicates when the most recent instance of a threat intelligence indicator was
+   *          observed.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  LastObservedAt?: string;
+
+  /**
+   * <p>The source of the threat intelligence indicator.</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>The URL to the page or site where you can get more information about the threat
+   *          intelligence indicator.</p>
+   */
+  SourceUrl?: string;
+}
+
+export namespace ThreatIntelIndicator {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThreatIntelIndicator): any => ({
+    ...obj,
+  });
+}
+
+export enum VerificationState {
+  BENIGN_POSITIVE = "BENIGN_POSITIVE",
+  FALSE_POSITIVE = "FALSE_POSITIVE",
+  TRUE_POSITIVE = "TRUE_POSITIVE",
+  UNKNOWN = "UNKNOWN",
+}
+
+/**
+ * <p>CVSS scores from the advisory related to the vulnerability.</p>
+ */
+export interface Cvss {
+  /**
+   * <p>The version of CVSS for the CVSS score.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The base CVSS score.</p>
+   */
+  BaseScore?: number;
+
+  /**
+   * <p>The base scoring vector for the CVSS score.</p>
+   */
+  BaseVector?: string;
+}
+
+export namespace Cvss {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Cvss): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A vendor that generates a vulnerability report.</p>
+ */
+export interface VulnerabilityVendor {
+  /**
+   * <p>The name of the vendor.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The URL of the vulnerability advisory.</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The severity that the vendor assigned to the vulnerability.</p>
+   */
+  VendorSeverity?: string;
+
+  /**
+   * <p>Indicates when the vulnerability advisory was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  VendorCreatedAt?: string;
+
+  /**
+   * <p>Indicates when the vulnerability advisory was last updated.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  VendorUpdatedAt?: string;
+}
+
+export namespace VulnerabilityVendor {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VulnerabilityVendor): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a software package.</p>
+ */
+export interface SoftwarePackage {
+  /**
+   * <p>The name of the software package.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The version of the software package.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The epoch of the software package.</p>
+   */
+  Epoch?: string;
+
+  /**
+   * <p>The release of the software package.</p>
+   */
+  Release?: string;
+
+  /**
+   * <p>The architecture used for the software package.</p>
+   */
+  Architecture?: string;
+}
+
+export namespace SoftwarePackage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SoftwarePackage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A vulnerability associated with a finding.</p>
+ */
+export interface Vulnerability {
+  /**
+   * <p>The identifier of the vulnerability.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>List of software packages that have the vulnerability.</p>
+   */
+  VulnerablePackages?: SoftwarePackage[];
+
+  /**
+   * <p>CVSS scores from the advisory related to the vulnerability.</p>
+   */
+  Cvss?: Cvss[];
+
+  /**
+   * <p>List of vulnerabilities that are related to this vulnerability.</p>
+   */
+  RelatedVulnerabilities?: string[];
+
+  /**
+   * <p>Information about the vendor that generates the vulnerability report.</p>
+   */
+  Vendor?: VulnerabilityVendor;
+
+  /**
+   * <p>A list of URLs that provide additional information about the vulnerability.</p>
+   */
+  ReferenceUrls?: string[];
+}
+
+export namespace Vulnerability {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Vulnerability): any => ({
+    ...obj,
+  });
+}
+
+export enum WorkflowStatus {
+  NEW = "NEW",
+  NOTIFIED = "NOTIFIED",
+  RESOLVED = "RESOLVED",
+  SUPPRESSED = "SUPPRESSED",
+}
+
+/**
+ * <p>Provides information about the status of the investigation into a finding.</p>
+ */
+export interface Workflow {
+  /**
+   * <p>The status of the investigation into the finding. The allowed values are the
+   *          following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code> - The initial state of a finding, before it is reviewed.</p>
+   *                <p>Security Hub also resets the workflow status from <code>NOTIFIED</code> or
+   *                   <code>RESOLVED</code> to <code>NEW</code> in the following cases:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>RecordState</code> changes from <code>ARCHIVED</code> to
+   *                         <code>ACTIVE</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ComplianceStatus</code> changes from <code>PASSED</code> to either
+   *                         <code>WARNING</code>, <code>FAILED</code>, or
+   *                      <code>NOT_AVAILABLE</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTIFIED</code> - Indicates that you notified the resource owner about the
+   *                security issue. Used when the initial reviewer is not the resource owner, and needs
+   *                intervention from the resource owner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUPPRESSED</code> - The finding will not be reviewed again and will not be
+   *                acted upon.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESOLVED</code> - The finding was reviewed and remediated and is now
+   *                considered resolved. </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: WorkflowStatus | string;
+}
+
+export namespace Workflow {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Workflow): any => ({
+    ...obj,
+  });
+}
+
+export enum WorkflowState {
+  ASSIGNED = "ASSIGNED",
+  DEFERRED = "DEFERRED",
+  IN_PROGRESS = "IN_PROGRESS",
+  NEW = "NEW",
+  RESOLVED = "RESOLVED",
+}
+
+/**
+ * <p>Provides consistent format for the contents of the Security Hub-aggregated findings.
+ *             <code>AwsSecurityFinding</code> format enables you to share findings between AWS
+ *          security services and third-party solutions, and security standards checks.</p>
+ *          <note>
+ *             <p>A finding is a potential security issue generated either by AWS services (Amazon
+ *             GuardDuty, Amazon Inspector, and Amazon Macie) or by the integrated third-party
+ *             solutions and standards checks.</p>
+ *          </note>
+ */
+export interface AwsSecurityFinding {
+  /**
+   * <p>The schema version that a finding is formatted for.</p>
+   */
+  SchemaVersion: string | undefined;
+
+  /**
+   * <p>The security findings provider-specific identifier for a finding.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ARN generated by Security Hub that uniquely identifies a product that generates findings.
+   *          This can be the ARN for a third-party product that is integrated with Security Hub, or the ARN for
+   *          a custom integration.</p>
+   */
+  ProductArn: string | undefined;
+
+  /**
+   * <p>The identifier for the solution-specific component (a discrete unit of logic) that
+   *          generated a finding. In various security-findings providers' solutions, this generator can
+   *          be called a rule, a check, a detector, a plugin, etc. </p>
+   */
+  GeneratorId: string | undefined;
+
+  /**
+   * <p>The AWS account ID that a finding is generated in.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>One or more finding types in the format of <code>namespace/category/classifier</code>
+   *          that classify a finding.</p>
+   *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
+   *          Behaviors | Sensitive Data Identifications</p>
+   */
+  Types?: string[];
+
+  /**
+   * <p>Indicates when the security-findings provider first observed the potential security
+   *          issue that a finding captured.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  FirstObservedAt?: string;
+
+  /**
+   * <p>Indicates when the security-findings provider most recently observed the potential
+   *          security issue that a finding captured.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  LastObservedAt?: string;
+
+  /**
+   * <p>Indicates when the security-findings provider created the potential security issue that
+   *          a finding captured.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreatedAt: string | undefined;
+
+  /**
+   * <p>Indicates when the security-findings provider last updated the finding record.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  UpdatedAt: string | undefined;
+
+  /**
+   * <p>A finding's severity.</p>
+   */
+  Severity?: Severity;
+
+  /**
+   * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
+   *          accurately identifies the behavior or issue that it was intended to identify.</p>
+   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
+   *          confidence and 100 means 100 percent confidence.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>The level of importance assigned to the resources associated with the finding.</p>
+   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
+   *          is reserved for the most critical resources.</p>
+   */
+  Criticality?: number;
+
+  /**
+   * <p>A finding's title.</p>
+   *          <note>
+   *             <p>In this release, <code>Title</code> is a required property.</p>
+   *          </note>
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>A finding's description.</p>
+   *          <note>
+   *             <p>In this release, <code>Description</code> is a required property.</p>
+   *          </note>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>A data type that describes the remediation options for a finding.</p>
+   */
+  Remediation?: Remediation;
+
+  /**
+   * <p>A URL that links to a page about the current finding in the security-findings provider's
+   *          solution.</p>
+   */
+  SourceUrl?: string;
+
+  /**
+   * <p>A data type where security-findings providers can include additional solution-specific
+   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
+   */
+  ProductFields?: { [key: string]: string };
+
+  /**
+   * <p>A list of name/value string pairs associated with the finding. These are custom,
+   *          user-defined fields added to a finding. </p>
+   */
+  UserDefinedFields?: { [key: string]: string };
+
+  /**
+   * <p>A list of malware related to a finding.</p>
+   */
+  Malware?: Malware[];
+
+  /**
+   * <p>The details of network-related information about a finding.</p>
+   */
+  Network?: Network;
+
+  /**
+   * <p>Provides information about a network path that is relevant to a finding. Each entry
+   *          under <code>NetworkPath</code> represents a component of that path.</p>
+   */
+  NetworkPath?: NetworkPathComponent[];
+
+  /**
+   * <p>The details of process-related information about a finding.</p>
+   */
+  Process?: ProcessDetails;
+
+  /**
+   * <p>Threat intelligence details related to a finding.</p>
+   */
+  ThreatIntelIndicators?: ThreatIntelIndicator[];
+
+  /**
+   * <p>A set of resource data types that describe the resources that the finding refers
+   *          to.</p>
+   */
+  Resources: Resource[] | undefined;
+
+  /**
+   * <p>This data type is exclusive to findings that are generated as the result of a check run
+   *          against a specific rule in a supported security standard, such as CIS AWS Foundations.
+   *          Contains security standard-related finding details.</p>
+   */
+  Compliance?: Compliance;
+
+  /**
+   * <p>Indicates the veracity of a finding. </p>
+   */
+  VerificationState?: VerificationState | string;
+
+  /**
+   * @deprecated
+   *
+   * <p>The workflow state of a finding. </p>
+   */
+  WorkflowState?: WorkflowState | string;
+
+  /**
+   * <p>Provides information about the status of the investigation into a finding.</p>
+   */
+  Workflow?: Workflow;
+
+  /**
+   * <p>The record state of a finding.</p>
+   */
+  RecordState?: RecordState | string;
+
+  /**
+   * <p>A list of related findings.</p>
+   */
+  RelatedFindings?: RelatedFinding[];
+
+  /**
+   * <p>A user-defined note added to a finding.</p>
+   */
+  Note?: Note;
+
+  /**
+   * <p>Provides a list of vulnerabilities associated with the findings.</p>
+   */
+  Vulnerabilities?: Vulnerability[];
+
+  /**
+   * <p>Provides an overview of the patch compliance status for an instance against a selected
+   *          compliance standard.</p>
+   */
+  PatchSummary?: PatchSummary;
+
+  /**
+   * <p>Provides details about an action that affects or that was taken on a resource.</p>
+   */
+  Action?: Action;
+
+  /**
+   * <p>In a <code>BatchImportFindings</code> request, finding providers use <code>FindingProviderFields</code> to provide and update their own values for confidence, criticality, related findings, severity, and types.</p>
+   */
+  FindingProviderFields?: FindingProviderFields;
+}
+
+export namespace AwsSecurityFinding {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsSecurityFinding): any => ({
+    ...obj,
+  });
+}
+
+export enum StringFilterComparison {
+  EQUALS = "EQUALS",
+  NOT_EQUALS = "NOT_EQUALS",
+  PREFIX = "PREFIX",
+  PREFIX_NOT_EQUALS = "PREFIX_NOT_EQUALS",
+}
+
+/**
+ * <p>A string filter for querying findings.</p>
+ */
+export interface StringFilter {
+  /**
+   * <p>The string filter value. Filter values are case sensitive. For example, the product name
+   *          for control-based findings is <code>Security Hub</code>. If you provide <code>security hub</code>
+   *          as the filter text, then there is no match.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>The condition to apply to a string value when querying for findings. To search for
+   *          values that contain the filter criteria value, use one of the following comparison
+   *          operators:</p>
+   *          <ul>
+   *             <li>
+   *                <p>To search for values that exactly match the filter value, use
+   *                <code>EQUALS</code>.</p>
+   *                <p>For example, the filter <code>ResourceType EQUALS AwsEc2SecurityGroup</code> only
+   *                matches findings that have a resource type of
+   *                <code>AwsEc2SecurityGroup</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To search for values that start with the filter value, use
+   *                <code>PREFIX</code>.</p>
+   *                <p>For example, the filter <code>ResourceType PREFIX AwsIam</code> matches findings
+   *                that have a resource type that starts with <code>AwsIam</code>. Findings with a
+   *                resource type of <code>AwsIamPolicy</code>, <code>AwsIamRole</code>, or
+   *                   <code>AwsIamUser</code> would all match.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>EQUALS</code> and <code>PREFIX</code> filters on the same field are joined by
+   *             <code>OR</code>. A finding matches if it matches any one of those filters.</p>
+   *          <p>To search for values that do not contain the filter criteria value, use one of the
+   *          following comparison operators:</p>
+   *          <ul>
+   *             <li>
+   *                <p>To search for values that do not exactly match the filter value, use
+   *                   <code>NOT_EQUALS</code>.</p>
+   *                <p>For example, the filter <code>ResourceType NOT_EQUALS AwsIamPolicy</code> matches
+   *                findings that have a resource type other than <code>AwsIamPolicy</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To search for values that do not start with the filter value, use
+   *                   <code>PREFIX_NOT_EQUALS</code>.</p>
+   *                <p>For example, the filter <code>ResourceType PREFIX_NOT_EQUALS AwsIam</code> matches
+   *                findings that have a resource type that does not start with <code>AwsIam</code>.
+   *                Findings with a resource type of <code>AwsIamPolicy</code>, <code>AwsIamRole</code>,
+   *                or <code>AwsIamUser</code> would all be excluded from the results.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>NOT_EQUALS</code> and <code>PREFIX_NOT_EQUALS</code> filters on the same field are
+   *          joined by <code>AND</code>. A finding matches only if it matches all of those
+   *          filters.</p>
+   *          <p>For filters on the same field, you cannot provide both an <code>EQUALS</code> filter and
+   *          a <code>NOT_EQUALS</code> or <code>PREFIX_NOT_EQUALS</code> filter. Combining filters in
+   *          this way always returns an error, even if the provided filter values would return valid
+   *          results.</p>
+   *          <p>You can combine <code>PREFIX</code> filters with <code>NOT_EQUALS</code> or
+   *             <code>PREFIX_NOT_EQUALS</code> filters for the same field. Security Hub first processes the
+   *             <code>PREFIX</code> filters, then the <code>NOT_EQUALS</code> or
+   *             <code>PREFIX_NOT_EQUALS</code> filters.</p>
+   *          <p> For example, for the following filter, Security Hub first identifies findings that have
+   *          resource types that start with either <code>AwsIAM</code> or <code>AwsEc2</code>. It then
+   *          excludes findings that have a resource type of <code>AwsIamPolicy</code> and findings that
+   *          have a resource type of <code>AwsEc2NetworkInterface</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceType PREFIX AwsIam</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceType PREFIX AwsEc2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceType NOT_EQUALS AwsIamPolicy</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceType NOT_EQUALS AwsEc2NetworkInterface</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Comparison?: StringFilterComparison | string;
+}
+
+export namespace StringFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StringFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A number filter for querying findings.</p>
+ */
+export interface NumberFilter {
+  /**
+   * <p>The greater-than-equal condition to be applied to a single field when querying for
+   *          findings. </p>
+   */
+  Gte?: number;
+
+  /**
+   * <p>The less-than-equal condition to be applied to a single field when querying for
+   *          findings. </p>
+   */
+  Lte?: number;
+
+  /**
+   * <p>The equal-to condition to be applied to a single field when querying for
+   *          findings.</p>
+   */
+  Eq?: number;
+}
+
+export namespace NumberFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NumberFilter): any => ({
+    ...obj,
+  });
+}
+
+export enum DateRangeUnit {
+  DAYS = "DAYS",
+}
+
+/**
+ * <p>A date range for the date filter.</p>
+ */
+export interface DateRange {
+  /**
+   * <p>A date range value for the date filter.</p>
+   */
+  Value?: number;
+
+  /**
+   * <p>A date range unit for the date filter.</p>
+   */
+  Unit?: DateRangeUnit | string;
+}
+
+export namespace DateRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DateRange): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A date filter for querying findings.</p>
+ */
+export interface DateFilter {
+  /**
+   * <p>A start date for the date filter.</p>
+   */
+  Start?: string;
+
+  /**
+   * <p>An end date for the date filter.</p>
+   */
+  End?: string;
+
+  /**
+   * <p>A date range for the date filter.</p>
+   */
+  DateRange?: DateRange;
+}
+
+export namespace DateFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DateFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A keyword filter for querying findings.</p>
+ */
+export interface KeywordFilter {
+  /**
+   * <p>A value for the keyword.</p>
+   */
+  Value?: string;
+}
+
+export namespace KeywordFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KeywordFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The IP filter for querying findings.</p>
+ */
+export interface IpFilter {
+  /**
+   * <p>A finding's CIDR value.</p>
+   */
+  Cidr?: string;
+}
+
+export namespace IpFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IpFilter): any => ({
+    ...obj,
+  });
+}
+
+export enum MapFilterComparison {
+  EQUALS = "EQUALS",
+  NOT_EQUALS = "NOT_EQUALS",
+}
+
+/**
+ * <p>A map filter for querying findings. Each map filter provides the field to check, the
+ *          value to look for, and the comparison operator.</p>
+ */
+export interface MapFilter {
+  /**
+   * <p>The key of the map filter. For example, for <code>ResourceTags</code>, <code>Key</code>
+   *          identifies the name of the tag. For <code>UserDefinedFields</code>, <code>Key</code> is the
+   *          name of the field.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value for the key in the map filter. Filter values are case sensitive. For example,
+   *          one of the values for a tag called <code>Department</code> might be <code>Security</code>.
+   *          If you provide <code>security</code> as the filter value, then there is no match.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>The condition to apply to the key value when querying for findings with a map
+   *          filter.</p>
+   *          <p>To search for values that exactly match the filter value, use <code>EQUALS</code>. For
+   *          example, for the <code>ResourceTags</code> field, the filter <code>Department EQUALS
+   *             Security</code> matches findings that have the value <code>Security</code> for the tag
+   *             <code>Department</code>.</p>
+   *          <p>To search for values other than the filter value, use <code>NOT_EQUALS</code>. For
+   *          example, for the <code>ResourceTags</code> field, the filter <code>Department NOT_EQUALS
+   *             Finance</code> matches findings that do not have the value <code>Finance</code> for the
+   *          tag <code>Department</code>.</p>
+   *          <p>
+   *             <code>EQUALS</code> filters on the same field are joined by <code>OR</code>. A finding
+   *          matches if it matches any one of those filters.</p>
+   *          <p>
+   *             <code>NOT_EQUALS</code> filters on the same field are joined by <code>AND</code>. A
+   *          finding matches only if it matches all of those filters.</p>
+   *          <p>You cannot have both an <code>EQUALS</code> filter and a <code>NOT_EQUALS</code> filter
+   *          on the same field.</p>
+   */
+  Comparison?: MapFilterComparison | string;
+}
+
+export namespace MapFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MapFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A collection of attributes that are applied to all active Security Hub-aggregated findings and
+ *          that result in a subset of findings that are included in this insight.</p>
+ *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
+ *          20 filter values.</p>
+ */
+export interface AwsSecurityFindingFilters {
+  /**
+   * <p>The ARN generated by Security Hub that uniquely identifies a third-party company
+   *          (security findings provider) after this provider's product (solution that generates
+   *          findings) is registered with Security Hub.</p>
+   */
+  ProductArn?: StringFilter[];
+
+  /**
+   * <p>The AWS account ID that a finding is generated in.</p>
+   */
+  AwsAccountId?: StringFilter[];
+
+  /**
+   * <p>The security findings provider-specific identifier for a finding.</p>
+   */
+  Id?: StringFilter[];
+
+  /**
+   * <p>The identifier for the solution-specific component (a discrete unit of logic) that
+   *          generated a finding. In various security-findings providers' solutions, this generator can
+   *          be called a rule, a check, a detector, a plugin, etc.</p>
+   */
+  GeneratorId?: StringFilter[];
+
+  /**
+   * <p>A finding type in the format of <code>namespace/category/classifier</code> that
+   *          classifies a finding.</p>
+   */
+  Type?: StringFilter[];
+
+  /**
+   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider first
+   *          observed the potential security issue that a finding captured.</p>
+   */
+  FirstObservedAt?: DateFilter[];
+
+  /**
+   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider most
+   *          recently observed the potential security issue that a finding captured.</p>
+   */
+  LastObservedAt?: DateFilter[];
+
+  /**
+   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider
+   *          captured the potential security issue that a finding captured.</p>
+   */
+  CreatedAt?: DateFilter[];
+
+  /**
+   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider last
+   *          updated the finding record. </p>
+   */
+  UpdatedAt?: DateFilter[];
+
+  /**
+   * @deprecated
+   *
+   * <p>The native severity as defined by the security-findings provider's solution that
+   *          generated the finding.</p>
+   */
+  SeverityProduct?: NumberFilter[];
+
+  /**
+   * @deprecated
+   *
+   * <p>The normalized severity of a finding.</p>
+   */
+  SeverityNormalized?: NumberFilter[];
+
+  /**
+   * <p>The label of a finding's severity.</p>
+   */
+  SeverityLabel?: StringFilter[];
+
+  /**
+   * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
+   *          accurately identifies the behavior or issue that it was intended to identify.</p>
+   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
+   *          confidence and 100 means 100 percent confidence.</p>
+   */
+  Confidence?: NumberFilter[];
+
+  /**
+   * <p>The level of importance assigned to the resources associated with the finding.</p>
+   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
+   *          is reserved for the most critical resources.</p>
+   */
+  Criticality?: NumberFilter[];
+
+  /**
+   * <p>A finding's title.</p>
+   */
+  Title?: StringFilter[];
+
+  /**
+   * <p>A finding's description.</p>
+   */
+  Description?: StringFilter[];
+
+  /**
+   * <p>The recommendation of what to do about the issue described in a finding.</p>
+   */
+  RecommendationText?: StringFilter[];
+
+  /**
+   * <p>A URL that links to a page about the current finding in the security-findings provider's
+   *          solution.</p>
+   */
+  SourceUrl?: StringFilter[];
+
+  /**
+   * <p>A data type where security-findings providers can include additional solution-specific
+   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
+   */
+  ProductFields?: MapFilter[];
+
+  /**
+   * <p>The name of the solution (product) that generates findings.</p>
+   */
+  ProductName?: StringFilter[];
+
+  /**
+   * <p>The name of the findings provider (company) that owns the solution (product) that
+   *          generates findings.</p>
+   */
+  CompanyName?: StringFilter[];
+
+  /**
+   * <p>A list of name/value string pairs associated with the finding. These are custom,
+   *          user-defined fields added to a finding. </p>
+   */
+  UserDefinedFields?: MapFilter[];
+
+  /**
+   * <p>The name of the malware that was observed.</p>
+   */
+  MalwareName?: StringFilter[];
+
+  /**
+   * <p>The type of the malware that was observed.</p>
+   */
+  MalwareType?: StringFilter[];
+
+  /**
+   * <p>The filesystem path of the malware that was observed.</p>
+   */
+  MalwarePath?: StringFilter[];
+
+  /**
+   * <p>The state of the malware that was observed.</p>
+   */
+  MalwareState?: StringFilter[];
+
+  /**
+   * <p>Indicates the direction of network traffic associated with a finding.</p>
+   */
+  NetworkDirection?: StringFilter[];
+
+  /**
+   * <p>The protocol of network-related information about a finding.</p>
+   */
+  NetworkProtocol?: StringFilter[];
+
+  /**
+   * <p>The source IPv4 address of network-related information about a finding.</p>
+   */
+  NetworkSourceIpV4?: IpFilter[];
+
+  /**
+   * <p>The source IPv6 address of network-related information about a finding.</p>
+   */
+  NetworkSourceIpV6?: IpFilter[];
+
+  /**
+   * <p>The source port of network-related information about a finding.</p>
+   */
+  NetworkSourcePort?: NumberFilter[];
+
+  /**
+   * <p>The source domain of network-related information about a finding.</p>
+   */
+  NetworkSourceDomain?: StringFilter[];
+
+  /**
+   * <p>The source media access control (MAC) address of network-related information about a
+   *          finding.</p>
+   */
+  NetworkSourceMac?: StringFilter[];
+
+  /**
+   * <p>The destination IPv4 address of network-related information about a finding.</p>
+   */
+  NetworkDestinationIpV4?: IpFilter[];
+
+  /**
+   * <p>The destination IPv6 address of network-related information about a finding.</p>
+   */
+  NetworkDestinationIpV6?: IpFilter[];
+
+  /**
+   * <p>The destination port of network-related information about a finding.</p>
+   */
+  NetworkDestinationPort?: NumberFilter[];
+
+  /**
+   * <p>The destination domain of network-related information about a finding.</p>
+   */
+  NetworkDestinationDomain?: StringFilter[];
+
+  /**
+   * <p>The name of the process.</p>
+   */
+  ProcessName?: StringFilter[];
+
+  /**
+   * <p>The path to the process executable.</p>
+   */
+  ProcessPath?: StringFilter[];
+
+  /**
+   * <p>The process ID.</p>
+   */
+  ProcessPid?: NumberFilter[];
+
+  /**
+   * <p>The parent process ID.</p>
+   */
+  ProcessParentPid?: NumberFilter[];
+
+  /**
+   * <p>The date/time that the process was launched.</p>
+   */
+  ProcessLaunchedAt?: DateFilter[];
+
+  /**
+   * <p>The date/time that the process was terminated.</p>
+   */
+  ProcessTerminatedAt?: DateFilter[];
+
+  /**
+   * <p>The type of a threat intelligence indicator.</p>
+   */
+  ThreatIntelIndicatorType?: StringFilter[];
+
+  /**
+   * <p>The value of a threat intelligence indicator.</p>
+   */
+  ThreatIntelIndicatorValue?: StringFilter[];
+
+  /**
+   * <p>The category of a threat intelligence indicator.</p>
+   */
+  ThreatIntelIndicatorCategory?: StringFilter[];
+
+  /**
+   * <p>The date/time of the last observation of a threat intelligence indicator.</p>
+   */
+  ThreatIntelIndicatorLastObservedAt?: DateFilter[];
+
+  /**
+   * <p>The source of the threat intelligence.</p>
+   */
+  ThreatIntelIndicatorSource?: StringFilter[];
+
+  /**
+   * <p>The URL for more details from the source of the threat intelligence.</p>
+   */
+  ThreatIntelIndicatorSourceUrl?: StringFilter[];
+
+  /**
+   * <p>Specifies the type of the resource that details are provided for.</p>
+   */
+  ResourceType?: StringFilter[];
+
+  /**
+   * <p>The canonical identifier for the given resource type.</p>
+   */
+  ResourceId?: StringFilter[];
+
+  /**
+   * <p>The canonical AWS partition name that the Region is assigned to.</p>
+   */
+  ResourcePartition?: StringFilter[];
+
+  /**
+   * <p>The canonical AWS external Region name where this resource is located.</p>
+   */
+  ResourceRegion?: StringFilter[];
+
+  /**
+   * <p>A list of AWS tags associated with a resource at the time the finding was
+   *          processed.</p>
+   */
+  ResourceTags?: MapFilter[];
+
+  /**
+   * <p>The instance type of the instance.</p>
+   */
+  ResourceAwsEc2InstanceType?: StringFilter[];
+
+  /**
+   * <p>The Amazon Machine Image (AMI) ID of the instance.</p>
+   */
+  ResourceAwsEc2InstanceImageId?: StringFilter[];
+
+  /**
+   * <p>The IPv4 addresses associated with the instance.</p>
+   */
+  ResourceAwsEc2InstanceIpV4Addresses?: IpFilter[];
+
+  /**
+   * <p>The IPv6 addresses associated with the instance.</p>
+   */
+  ResourceAwsEc2InstanceIpV6Addresses?: IpFilter[];
+
+  /**
+   * <p>The key name associated with the instance.</p>
+   */
+  ResourceAwsEc2InstanceKeyName?: StringFilter[];
+
+  /**
+   * <p>The IAM profile ARN of the instance.</p>
+   */
+  ResourceAwsEc2InstanceIamInstanceProfileArn?: StringFilter[];
+
+  /**
+   * <p>The identifier of the VPC that the instance was launched in.</p>
+   */
+  ResourceAwsEc2InstanceVpcId?: StringFilter[];
+
+  /**
+   * <p>The identifier of the subnet that the instance was launched in.</p>
+   */
+  ResourceAwsEc2InstanceSubnetId?: StringFilter[];
+
+  /**
+   * <p>The date and time the instance was launched.</p>
+   */
+  ResourceAwsEc2InstanceLaunchedAt?: DateFilter[];
+
+  /**
+   * <p>The canonical user ID of the owner of the S3 bucket.</p>
+   */
+  ResourceAwsS3BucketOwnerId?: StringFilter[];
+
+  /**
+   * <p>The display name of the owner of the S3 bucket.</p>
+   */
+  ResourceAwsS3BucketOwnerName?: StringFilter[];
+
+  /**
+   * <p>The user associated with the IAM access key related to a finding.</p>
+   */
+  ResourceAwsIamAccessKeyUserName?: StringFilter[];
+
+  /**
+   * <p>The status of the IAM access key related to a finding.</p>
+   */
+  ResourceAwsIamAccessKeyStatus?: StringFilter[];
+
+  /**
+   * <p>The creation date/time of the IAM access key related to a finding.</p>
+   */
+  ResourceAwsIamAccessKeyCreatedAt?: DateFilter[];
+
+  /**
+   * <p>The name of the container related to a finding.</p>
+   */
+  ResourceContainerName?: StringFilter[];
+
+  /**
+   * <p>The identifier of the image related to a finding.</p>
+   */
+  ResourceContainerImageId?: StringFilter[];
+
+  /**
+   * <p>The name of the image related to a finding.</p>
+   */
+  ResourceContainerImageName?: StringFilter[];
+
+  /**
+   * <p>The date/time that the container was started.</p>
+   */
+  ResourceContainerLaunchedAt?: DateFilter[];
+
+  /**
+   * <p>The details of a resource that doesn't have a specific subfield for the resource type
+   *          defined.</p>
+   */
+  ResourceDetailsOther?: MapFilter[];
+
+  /**
+   * <p>Exclusive to findings that are generated as the result of a check run against a specific
+   *          rule in a supported standard, such as CIS AWS Foundations. Contains security
+   *          standard-related finding details.</p>
+   */
+  ComplianceStatus?: StringFilter[];
+
+  /**
+   * <p>The veracity of a finding.</p>
+   */
+  VerificationState?: StringFilter[];
+
+  /**
+   * <p>The workflow state of a finding.</p>
+   *          <p>Note that this field is deprecated. To search for a finding based on its workflow
+   *          status, use <code>WorkflowStatus</code>.</p>
+   */
+  WorkflowState?: StringFilter[];
+
+  /**
+   * <p>The status of the investigation into a finding. Allowed values are the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code> - The initial state of a finding, before it is reviewed.</p>
+   *                <p>Security Hub also resets the workflow status from <code>NOTIFIED</code> or
+   *                   <code>RESOLVED</code> to <code>NEW</code> in the following cases:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The record state changes from <code>ARCHIVED</code> to <code>ACTIVE</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The compliance status changes from <code>PASSED</code> to either <code>WARNING</code>,
+   *                         <code>FAILED</code>, or <code>NOT_AVAILABLE</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTIFIED</code> - Indicates that the resource owner has been notified about
+   *                the security issue. Used when the initial reviewer is not the resource owner, and
+   *                needs intervention from the resource owner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUPPRESSED</code> - The finding will not be reviewed again and will not be
+   *                acted upon.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESOLVED</code> - The finding was reviewed and remediated and is now
+   *                considered resolved. </p>
+   *             </li>
+   *          </ul>
+   */
+  WorkflowStatus?: StringFilter[];
+
+  /**
+   * <p>The updated record state for the finding.</p>
+   */
+  RecordState?: StringFilter[];
+
+  /**
+   * <p>The ARN of the solution that generated a related finding.</p>
+   */
+  RelatedFindingsProductArn?: StringFilter[];
+
+  /**
+   * <p>The solution-generated identifier for a related finding.</p>
+   */
+  RelatedFindingsId?: StringFilter[];
+
+  /**
+   * <p>The text of a note.</p>
+   */
+  NoteText?: StringFilter[];
+
+  /**
+   * <p>The timestamp of when the note was updated.</p>
+   */
+  NoteUpdatedAt?: DateFilter[];
+
+  /**
+   * <p>The principal that created a note.</p>
+   */
+  NoteUpdatedBy?: StringFilter[];
+
+  /**
+   * @deprecated
+   *
+   * <p>A keyword for a finding.</p>
+   */
+  Keyword?: KeywordFilter[];
+
+  /**
+   * <p>The finding provider value for the finding confidence. Confidence is defined as the likelihood
+   *          that a finding accurately identifies the behavior or issue that it was intended to
+   *          identify.</p>
+   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
+   *          confidence and 100 means 100 percent confidence.</p>
+   */
+  FindingProviderFieldsConfidence?: NumberFilter[];
+
+  /**
+   * <p>The finding provider value for the level of importance assigned to the resources associated with
+   *          the findings.</p>
+   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
+   *          is reserved for the most critical resources. </p>
+   */
+  FindingProviderFieldsCriticality?: NumberFilter[];
+
+  /**
+   * <p>The finding identifier of a related finding that is identified by the finding provider.</p>
+   */
+  FindingProviderFieldsRelatedFindingsId?: StringFilter[];
+
+  /**
+   * <p>The ARN of the solution that generated a related finding that is identified by the finding provider.</p>
+   */
+  FindingProviderFieldsRelatedFindingsProductArn?: StringFilter[];
+
+  /**
+   * <p>The finding provider value for the severity label.</p>
+   */
+  FindingProviderFieldsSeverityLabel?: StringFilter[];
+
+  /**
+   * <p>The finding provider's original value for the severity.</p>
+   */
+  FindingProviderFieldsSeverityOriginal?: StringFilter[];
+
+  /**
+   * <p>One or more finding types that the finding provider assigned to the finding. Uses the format of <code>namespace/category/classifier</code>
+   *          that classify a finding.</p>
+   *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
+   *          Behaviors | Sensitive Data Identifications</p>
+   */
+  FindingProviderFieldsTypes?: StringFilter[];
+}
+
+export namespace AwsSecurityFindingFilters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsSecurityFindingFilters): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Identifies a finding to update using <code>BatchUpdateFindings</code>.</p>
+ */
+export interface AwsSecurityFindingIdentifier {
+  /**
+   * <p>The identifier of the finding that was specified by the finding provider.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ARN generated by Security Hub that uniquely identifies a product that generates findings.
+   *          This can be the ARN for a third-party product that is integrated with Security Hub, or the ARN for
+   *          a custom integration.</p>
+   */
+  ProductArn: string | undefined;
+}
+
+export namespace AwsSecurityFindingIdentifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsSecurityFindingIdentifier): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchDisableStandardsRequest {
+  /**
+   * <p>The ARNs of the standards subscriptions to disable.</p>
+   */
+  StandardsSubscriptionArns: string[] | undefined;
+}
+
+export namespace BatchDisableStandardsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDisableStandardsRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum StandardsStatus {
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  INCOMPLETE = "INCOMPLETE",
+  PENDING = "PENDING",
+  READY = "READY",
+}
+
+/**
+ * <p>A resource that represents your subscription to a supported standard.</p>
+ */
+export interface StandardsSubscription {
+  /**
+   * <p>The ARN of a resource that represents your subscription to a supported standard.</p>
+   */
+  StandardsSubscriptionArn: string | undefined;
+
+  /**
+   * <p>The ARN of a standard.</p>
+   */
+  StandardsArn: string | undefined;
+
+  /**
+   * <p>A key-value pair of input for the standard.</p>
+   */
+  StandardsInput: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The status of the standard subscription.</p>
+   *          <p>The status values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - Standard is in the process of being enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READY</code> - Standard is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INCOMPLETE</code> - Standard could not be enabled completely. Some controls may not be available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - Standard is in the process of being disabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - Standard could not be disabled.</p>
+   *             </li>
+   *          </ul>
+   */
+  StandardsStatus: StandardsStatus | string | undefined;
+}
+
+export namespace StandardsSubscription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StandardsSubscription): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchDisableStandardsResponse {
+  /**
+   * <p>The details of the standards subscriptions that were disabled.</p>
+   */
+  StandardsSubscriptions?: StandardsSubscription[];
+}
+
+export namespace BatchDisableStandardsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDisableStandardsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The standard that you want to enable.</p>
+ */
+export interface StandardsSubscriptionRequest {
+  /**
+   * <p>The ARN of the standard that you want to enable. To view the list of available standards
+   *          and their ARNs, use the <code>
+   *                <a>DescribeStandards</a>
+   *             </code> operation.</p>
+   */
+  StandardsArn: string | undefined;
+
+  /**
+   * <p>A key-value pair of input for the standard.</p>
+   */
+  StandardsInput?: { [key: string]: string };
+}
+
+export namespace StandardsSubscriptionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StandardsSubscriptionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchEnableStandardsRequest {
+  /**
+   * <p>The list of standards checks to enable.</p>
+   */
+  StandardsSubscriptionRequests: StandardsSubscriptionRequest[] | undefined;
+}
+
+export namespace BatchEnableStandardsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchEnableStandardsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchEnableStandardsResponse {
+  /**
+   * <p>The details of the standards subscriptions that were enabled.</p>
+   */
+  StandardsSubscriptions?: StandardsSubscription[];
+}
+
+export namespace BatchEnableStandardsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchEnableStandardsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchImportFindingsRequest {
+  /**
+   * <p>A list of findings to import. To successfully import a finding, it must follow the
+   *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">AWS Security Finding Format</a>. Maximum of 100 findings per request.</p>
+   */
+  Findings: AwsSecurityFinding[] | undefined;
+}
+
+export namespace BatchImportFindingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchImportFindingsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The list of the findings that cannot be imported. For each finding, the list provides
+ *          the error.</p>
+ */
+export interface ImportFindingsError {
+  /**
+   * <p>The identifier of the finding that could not be updated.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The code of the error returned by the <code>BatchImportFindings</code> operation.</p>
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The message of the error returned by the <code>BatchImportFindings</code>
+   *          operation.</p>
+   */
+  ErrorMessage: string | undefined;
+}
+
+export namespace ImportFindingsError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportFindingsError): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchImportFindingsResponse {
+  /**
+   * <p>The number of findings that failed to import.</p>
+   */
+  FailedCount: number | undefined;
+
+  /**
+   * <p>The number of findings that were successfully imported.</p>
+   */
+  SuccessCount: number | undefined;
+
+  /**
+   * <p>The list of findings that failed to import.</p>
+   */
+  FailedFindings?: ImportFindingsError[];
+}
+
+export namespace BatchImportFindingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchImportFindingsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The updated note.</p>
+ */
+export interface NoteUpdate {
+  /**
+   * <p>The updated note text.</p>
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The principal that updated the note.</p>
+   */
+  UpdatedBy: string | undefined;
+}
+
+export namespace NoteUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NoteUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Updates to the severity information for a finding.</p>
+ */
+export interface SeverityUpdate {
+  /**
+   * <p>The normalized severity for the finding. This attribute is to be deprecated in favor of
+   *             <code>Label</code>.</p>
+   *          <p>If you provide <code>Normalized</code> and do not provide <code>Label</code>,
+   *             <code>Label</code> is set automatically as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>0 - <code>INFORMATIONAL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>1–39 - <code>LOW</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>40–69 - <code>MEDIUM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>70–89 - <code>HIGH</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>90–100 - <code>CRITICAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Normalized?: number;
+
+  /**
+   * <p>The native severity as defined by the AWS service or integrated partner product that
+   *          generated the finding.</p>
+   */
+  Product?: number;
+
+  /**
+   * <p>The severity value of the finding. The allowed values are the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INFORMATIONAL</code> - No issue was found.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code> - The issue does not require action on its own.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code> - The issue must be addressed but not urgently.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code> - The issue must be addressed as a priority.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CRITICAL</code> - The issue must be remediated immediately to avoid it
+   *                escalating.</p>
+   *             </li>
+   *          </ul>
+   */
+  Label?: SeverityLabel | string;
+}
+
+export namespace SeverityUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SeverityUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Used to update information about the investigation into the finding.</p>
+ */
+export interface WorkflowUpdate {
+  /**
+   * <p>The status of the investigation into the finding. The allowed values are the
+   *          following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code> - The initial state of a finding, before it is reviewed.</p>
+   *                <p>Security Hub also resets <code>WorkFlowStatus</code> from <code>NOTIFIED</code> or
+   *                   <code>RESOLVED</code> to <code>NEW</code> in the following cases:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The record state changes from <code>ARCHIVED</code> to
+   *                      <code>ACTIVE</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The compliance status changes from <code>PASSED</code> to either
+   *                         <code>WARNING</code>, <code>FAILED</code>, or
+   *                      <code>NOT_AVAILABLE</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTIFIED</code> - Indicates that you notified the resource owner about the
+   *                security issue. Used when the initial reviewer is not the resource owner, and needs
+   *                intervention from the resource owner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESOLVED</code> - The finding was reviewed and remediated and is now
+   *                considered resolved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUPPRESSED</code> - The finding will not be reviewed again and will not be
+   *                acted upon.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: WorkflowStatus | string;
+}
+
+export namespace WorkflowUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WorkflowUpdate): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchUpdateFindingsRequest {
+  /**
+   * <p>The list of findings to update. <code>BatchUpdateFindings</code> can be used to update
+   *          up to 100 findings at a time.</p>
+   *          <p>For each finding, the list provides the finding identifier and the ARN of the finding
+   *          provider.</p>
+   */
+  FindingIdentifiers: AwsSecurityFindingIdentifier[] | undefined;
+
+  /**
+   * <p>The updated note.</p>
+   */
+  Note?: NoteUpdate;
+
+  /**
+   * <p>Used to update the finding severity.</p>
+   */
+  Severity?: SeverityUpdate;
+
+  /**
+   * <p>Indicates the veracity of a finding.</p>
+   *          <p>The available values for <code>VerificationState</code> are  as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code> – The default disposition of a security finding</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRUE_POSITIVE</code> – The security finding is confirmed</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FALSE_POSITIVE</code> – The security finding was determined to be a false
+   *                alarm</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BENIGN_POSITIVE</code> – A special case of <code>TRUE_POSITIVE</code> where
+   *                the finding doesn't pose any threat, is expected, or both</p>
+   *             </li>
+   *          </ul>
+   */
+  VerificationState?: VerificationState | string;
+
+  /**
+   * <p>The updated value for the finding confidence. Confidence is defined as the likelihood
+   *          that a finding accurately identifies the behavior or issue that it was intended to
+   *          identify.</p>
+   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
+   *          confidence and 100 means 100 percent confidence.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>The updated value for the level of importance assigned to the resources associated with
+   *          the findings.</p>
+   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
+   *          is reserved for the most critical resources. </p>
+   */
+  Criticality?: number;
+
+  /**
+   * <p>One or more finding types in the format of namespace/category/classifier that classify a
+   *          finding.</p>
+   *          <p>Valid namespace values are as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Software and Configuration Checks</p>
+   *             </li>
+   *             <li>
+   *                <p>TTPs</p>
+   *             </li>
+   *             <li>
+   *                <p>Effects</p>
+   *             </li>
+   *             <li>
+   *                <p>Unusual Behaviors</p>
+   *             </li>
+   *             <li>
+   *                <p>Sensitive Data Identifications </p>
+   *             </li>
+   *          </ul>
+   */
+  Types?: string[];
+
+  /**
+   * <p>A list of name/value string pairs associated with the finding. These are custom,
+   *          user-defined fields added to a finding.</p>
+   */
+  UserDefinedFields?: { [key: string]: string };
+
+  /**
+   * <p>Used to update the workflow status of a finding.</p>
+   *          <p>The workflow status indicates the progress of the investigation into the finding. </p>
+   */
+  Workflow?: WorkflowUpdate;
+
+  /**
+   * <p>A list of findings that are related to the updated findings.</p>
+   */
+  RelatedFindings?: RelatedFinding[];
+}
+
+export namespace BatchUpdateFindingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchUpdateFindingsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A finding from a <code>BatchUpdateFindings</code> request that Security Hub was unable to
+ *          update.</p>
+ */
+export interface BatchUpdateFindingsUnprocessedFinding {
+  /**
+   * <p>The identifier of the finding that was not updated.</p>
+   */
+  FindingIdentifier: AwsSecurityFindingIdentifier | undefined;
+
+  /**
+   * <p>The code associated with the error.</p>
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The message associated with the error.</p>
+   */
+  ErrorMessage: string | undefined;
+}
+
+export namespace BatchUpdateFindingsUnprocessedFinding {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchUpdateFindingsUnprocessedFinding): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchUpdateFindingsResponse {
+  /**
+   * <p>The list of findings that were updated successfully.</p>
+   */
+  ProcessedFindings: AwsSecurityFindingIdentifier[] | undefined;
+
+  /**
+   * <p>The list of findings that were not updated.</p>
+   */
+  UnprocessedFindings: BatchUpdateFindingsUnprocessedFinding[] | undefined;
+}
+
+export namespace BatchUpdateFindingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchUpdateFindingsResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum ControlStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export interface CreateActionTargetRequest {
+  /**
+   * <p>The name of the custom action target. Can contain up to 20 characters.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description for the custom action target.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The ID for the custom action target. Can contain up to 20 alphanumeric characters.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace CreateActionTargetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateActionTargetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateActionTargetResponse {
+  /**
+   * <p>The ARN for the custom action target.</p>
+   */
+  ActionTargetArn: string | undefined;
+}
+
+export namespace CreateActionTargetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateActionTargetResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource specified in the request conflicts with an existing resource.</p>
+ */
+export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
+  name: "ResourceConflictException";
+  $fault: "client";
+  Message?: string;
+  Code?: string;
+}
+
+export namespace ResourceConflictException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateInsightRequest {
+  /**
+   * <p>The name of the custom insight to create.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>One or more attributes used to filter the findings included in the insight. The insight
+   *          only includes findings that match the criteria defined in the filters.</p>
+   */
+  Filters: AwsSecurityFindingFilters | undefined;
+
+  /**
+   * <p>The attribute used to group the findings for the insight. The grouping attribute
+   *          identifies the type of item that the insight applies to. For example, if an insight is
+   *          grouped by resource identifier, then the insight produces a list of resource
+   *          identifiers.</p>
+   */
+  GroupByAttribute: string | undefined;
+}
+
+export namespace CreateInsightRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInsightRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateInsightResponse {
+  /**
+   * <p>The ARN of the insight created.</p>
+   */
+  InsightArn: string | undefined;
+}
+
+export namespace CreateInsightResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInsightResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateMembersRequest {
+  /**
+   * <p>The list of accounts to associate with the Security Hub administrator account. For each account, the
+   *          list includes the account ID and optionally the email address.</p>
+   */
+  AccountDetails: AccountDetails[] | undefined;
+}
+
+export namespace CreateMembersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMembersRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the account that was not processed.</p>
+ */
+export interface Result {
+  /**
+   * <p>An AWS account ID of the account that was not processed.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The reason that the account was not processed.</p>
+   */
+  ProcessingResult?: string;
+}
+
+export namespace Result {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Result): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateMembersResponse {
+  /**
+   * <p>The list of AWS accounts that were not processed. For each account, the list includes
+   *          the account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+export namespace CreateMembersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeclineInvitationsRequest {
+  /**
+   * <p>The list of account IDs for the accounts from which to decline the invitations to
+   *          Security Hub.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+export namespace DeclineInvitationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeclineInvitationsRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface DeclineInvitationsResponse {
   /**

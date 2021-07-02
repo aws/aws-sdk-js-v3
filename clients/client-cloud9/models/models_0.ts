@@ -47,7 +47,11 @@ export enum ConnectionType {
 }
 
 /**
- * <p>Metadata that is associated with AWS resources. In particular, a name-value pair that can be associated with an AWS Cloud9 development environment. There are two types of tags: <i>user tags</i> and <i>system tags</i>. A user tag is created by the user. A system tag is automatically created by AWS services. A system tag is prefixed with "aws:" and cannot be modified by the user.</p>
+ * <p>Metadata that is associated with Amazon Web Services resources. In particular, a name-value pair that
+ *       can be associated with an Cloud9 development environment. There are two types of tags:
+ *         <i>user tags</i> and <i>system tags</i>. A user tag is created
+ *       by the user. A system tag is automatically created by Amazon Web Services services. A system tag is prefixed
+ *       with <code>"aws:"</code> and cannot be modified by the user.</p>
  */
 export interface Tag {
   /**
@@ -75,7 +79,7 @@ export namespace Tag {
 export interface CreateEnvironmentEC2Request {
   /**
    * <p>The name of the environment to create.</p>
-   *          <p>This name is visible to other AWS IAM users in the same AWS account.</p>
+   *          <p>This name is visible to other IAM users in the same Amazon Web Services account.</p>
    */
   name: string | undefined;
 
@@ -85,32 +89,40 @@ export interface CreateEnvironmentEC2Request {
   description?: string;
 
   /**
-   * <p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p>
-   *          <p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>
+   * <p>A unique, case-sensitive string that helps Cloud9 to ensure this operation completes no
+   *       more than one time.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Client Tokens</a> in the
+   *         <i>Amazon EC2 API Reference</i>.</p>
    */
   clientRequestToken?: string;
 
   /**
-   * <p>The type of instance to connect to the environment (for example, <code>t2.micro</code>).</p>
+   * <p>The type of instance to connect to the environment (for example,
+   *       <code>t2.micro</code>).</p>
    */
   instanceType: string | undefined;
 
   /**
-   * <p>The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.</p>
+   * <p>The ID of the subnet in Amazon VPC that Cloud9 will use to communicate with the Amazon EC2
+   *       instance.</p>
    */
   subnetId?: string;
 
   /**
-   * <p>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. To choose an AMI for the instance, you must specify a valid AMI alias or a valid AWS Systems Manager (SSM) path.</p>
+   * <p>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
+   *       To choose an AMI for the instance, you must specify a valid AMI alias or a valid Amazon EC2 Systems Manager (SSM)
+   *       path.</p>
    *          <p>The default AMI is used if the parameter isn't explicitly assigned a value in the request.
-   *    </p>
+   *       Because Amazon Linux AMI has ended standard support as of December 31, 2020, we recommend you
+   *       choose Amazon Linux 2, which includes long term support through 2023.</p>
    *          <p>
    *             <b>AMI aliases </b>
    *          </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Amazon Linux (default): <code>amazonlinux-1-x86_64</code>
+   *                   <b>Amazon Linux (default):
+   *             <code>amazonlinux-1-x86_64</code>
    *                   </b>
    *                </p>
    *             </li>
@@ -123,23 +135,25 @@ export interface CreateEnvironmentEC2Request {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>
    *             <b>SSM paths</b>
    *          </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Amazon Linux (default): <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code>
+   *                   <b>Amazon Linux (default):
+   *               <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code>
    *                   </b>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Amazon Linux 2: <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code>
+   *                <p>Amazon Linux 2:
+   *           <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Ubuntu 18.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code>
+   *                <p>Ubuntu 18.04:
+   *           <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -147,23 +161,30 @@ export interface CreateEnvironmentEC2Request {
   imageId?: string;
 
   /**
-   * <p>The number of minutes until the running instance is shut down after the environment has last been used.</p>
+   * <p>The number of minutes until the running instance is shut down after the environment has
+   *       last been used.</p>
    */
   automaticStopTimeMinutes?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.</p>
+   * <p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any
+   *       IAM principal. If this value is not specified, the ARN defaults to this environment's
+   *       creator.</p>
    */
   ownerArn?: string;
 
   /**
-   * <p>An array of key-value pairs that will be associated with the new AWS Cloud9 development environment.</p>
+   * <p>An array of key-value pairs that will be associated with the new Cloud9 development
+   *       environment.</p>
    */
   tags?: Tag[];
 
   /**
-   * <p>The connection type used for connecting to an Amazon EC2 environment. Valid values are <code>CONNECT_SSH</code> (default) and <code>CONNECT_SSM</code> (connected through AWS Systems Manager).</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html">Accessing no-ingress EC2 instances with AWS Systems Manager</a> in the <i>AWS Cloud9 User Guide</i>.</p>
+   * <p>The connection type used for connecting to an Amazon EC2 environment. Valid values are
+   *         <code>CONNECT_SSH</code> (default) and <code>CONNECT_SSM</code> (connected through
+   *       Amazon EC2 Systems Manager).</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html">Accessing no-ingress EC2 instances with
+   *         Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.</p>
    */
   connectionType?: ConnectionType | string;
 }
@@ -312,7 +333,8 @@ export interface CreateEnvironmentMembershipRequest {
   userArn: string | undefined;
 
   /**
-   * <p>The type of environment member permissions you want to associate with this environment member. Available values include:</p>
+   * <p>The type of environment member permissions you want to associate with this environment
+   *       member. Available values include:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -343,11 +365,12 @@ export enum Permissions {
 }
 
 /**
- * <p>Information about an environment member for an AWS Cloud9 development environment.</p>
+ * <p>Information about an environment member for an Cloud9 development environment.</p>
  */
 export interface EnvironmentMember {
   /**
-   * <p>The type of environment member permissions associated with this environment member. Available values include:</p>
+   * <p>The type of environment member permissions associated with this environment member.
+   *       Available values include:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -366,7 +389,7 @@ export interface EnvironmentMember {
   permissions: Permissions | string | undefined;
 
   /**
-   * <p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>
+   * <p>The user ID in Identity and Access Management (IAM) of the environment member.</p>
    */
   userId: string | undefined;
 
@@ -381,7 +404,8 @@ export interface EnvironmentMember {
   environmentId: string | undefined;
 
   /**
-   * <p>The time, expressed in epoch time format, when the environment member last opened the environment.</p>
+   * <p>The time, expressed in epoch time format, when the environment member last opened the
+   *       environment.</p>
    */
   lastAccess?: Date;
 }
@@ -445,7 +469,8 @@ export interface DeleteEnvironmentMembershipRequest {
   environmentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the environment member to delete from the environment.</p>
+   * <p>The Amazon Resource Name (ARN) of the environment member to delete from the
+   *       environment.</p>
    */
   userArn: string | undefined;
 }
@@ -472,7 +497,9 @@ export namespace DeleteEnvironmentMembershipResult {
 
 export interface DescribeEnvironmentMembershipsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>
+   * <p>The Amazon Resource Name (ARN) of an individual environment member to get information
+   *       about. If no value is specified, information about all environment members are
+   *       returned.</p>
    */
   userArn?: string;
 
@@ -482,7 +509,8 @@ export interface DescribeEnvironmentMembershipsRequest {
   environmentId?: string;
 
   /**
-   * <p>The type of environment member permissions to get information about. Available values include:</p>
+   * <p>The type of environment member permissions to get information about. Available values
+   *       include:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -502,7 +530,11 @@ export interface DescribeEnvironmentMembershipsRequest {
   permissions?: (Permissions | string)[];
 
   /**
-   * <p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
+   * <p>During a previous call, if there are more than 25 items in the list, only the first 25
+   *       items are returned, along with a unique string called a <i>next token</i>. To
+   *       get the next batch of items in the list, call this operation again, adding the next token to
+   *       the call. To get all of the items in the list, keep calling this operation with each
+   *       subsequent next token that is returned, until no more next tokens are returned.</p>
    */
   nextToken?: string;
 
@@ -528,7 +560,9 @@ export interface DescribeEnvironmentMembershipsResult {
   memberships?: EnvironmentMember[];
 
   /**
-   * <p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>
+   * <p>If there are more than 25 items in the list, only the first 25 items are returned, along
+   *       with a unique string called a <i>next token</i>. To get the next batch of items
+   *       in the list, call this operation again, adding the next token to the call.</p>
    */
   nextToken?: string;
 }
@@ -567,7 +601,8 @@ export enum EnvironmentLifecycleStatus {
 }
 
 /**
- * <p>Information about the current creation or deletion lifecycle state of an AWS Cloud9 development environment.</p>
+ * <p>Information about the current creation or deletion lifecycle state of an Cloud9 development
+ *       environment.</p>
  */
 export interface EnvironmentLifecycle {
   /**
@@ -603,7 +638,8 @@ export interface EnvironmentLifecycle {
   reason?: string;
 
   /**
-   * <p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>
+   * <p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related Amazon Web Services
+   *       resource.</p>
    */
   failureResource?: string;
 }
@@ -637,7 +673,7 @@ export enum EnvironmentType {
 }
 
 /**
- * <p>Information about an AWS Cloud9 development environment.</p>
+ * <p>Information about an Cloud9 development environment.</p>
  */
 export interface Environment {
   /**
@@ -671,7 +707,8 @@ export interface Environment {
   type: EnvironmentType | string | undefined;
 
   /**
-   * <p>The connection type used for connecting to an Amazon EC2 environment. <code>CONNECT_SSH</code> is selected by default.</p>
+   * <p>The connection type used for connecting to an Amazon EC2 environment. <code>CONNECT_SSH</code>
+   *       is selected by default.</p>
    */
   connectionType?: ConnectionType | string;
 
@@ -691,8 +728,8 @@ export interface Environment {
   lifecycle?: EnvironmentLifecycle;
 
   /**
-   * <p>Describes the status of AWS managed temporary credentials for the AWS Cloud9 environment. Available values
-   *       are:</p>
+   * <p>Describes the status of Amazon Web Services managed temporary credentials for the Cloud9 environment.
+   *       Available values are:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -855,7 +892,11 @@ export namespace DescribeEnvironmentStatusResult {
 
 export interface ListEnvironmentsRequest {
   /**
-   * <p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
+   * <p>During a previous call, if there are more than 25 items in the list, only the first 25
+   *       items are returned, along with a unique string called a <i>next token</i>. To
+   *       get the next batch of items in the list, call this operation again, adding the next token to
+   *       the call. To get all of the items in the list, keep calling this operation with each
+   *       subsequent next token that is returned, until no more next tokens are returned.</p>
    */
   nextToken?: string;
 
@@ -876,7 +917,9 @@ export namespace ListEnvironmentsRequest {
 
 export interface ListEnvironmentsResult {
   /**
-   * <p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>
+   * <p>If there are more than 25 items in the list, only the first 25 items are returned, along
+   *       with a unique string called a <i>next token</i>. To get the next batch of items
+   *       in the list, call this operation again, adding the next token to the call.</p>
    */
   nextToken?: string;
 
@@ -897,7 +940,8 @@ export namespace ListEnvironmentsResult {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to get the tags for.</p>
+   * <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to get the tags
+   *       for.</p>
    */
   ResourceARN: string | undefined;
 }
@@ -913,7 +957,7 @@ export namespace ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The list of tags associated with the AWS Cloud9 development environment.</p>
+   * <p>The list of tags associated with the Cloud9 development environment.</p>
    */
   Tags?: Tag[];
 }
@@ -950,12 +994,13 @@ export namespace ConcurrentAccessException {
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to add tags to.</p>
+   * <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to add tags
+   *       to.</p>
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The list of tags to add to the given AWS Cloud9 development environment.</p>
+   * <p>The list of tags to add to the given Cloud9 development environment.</p>
    */
   Tags: Tag[] | undefined;
 }
@@ -983,12 +1028,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to remove tags from.</p>
+   * <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to remove tags
+   *       from.</p>
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The tag names of the tags to remove from the given AWS Cloud9 development environment.</p>
+   * <p>The tag names of the tags to remove from the given Cloud9 development
+   *       environment.</p>
    */
   TagKeys: string[] | undefined;
 }
@@ -1054,17 +1101,20 @@ export namespace UpdateEnvironmentResult {
 
 export interface UpdateEnvironmentMembershipRequest {
   /**
-   * <p>The ID of the environment for the environment member whose settings you want to change.</p>
+   * <p>The ID of the environment for the environment member whose settings you want to
+   *       change.</p>
    */
   environmentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>
+   * <p>The Amazon Resource Name (ARN) of the environment member whose settings you want to
+   *       change.</p>
    */
   userArn: string | undefined;
 
   /**
-   * <p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p>
+   * <p>The replacement type of environment member permissions you want to associate with this
+   *       environment member. Available values include:</p>
    *          <ul>
    *             <li>
    *                <p>

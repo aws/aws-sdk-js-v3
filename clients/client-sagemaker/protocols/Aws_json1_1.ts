@@ -687,7 +687,6 @@ import {
   CreateLabelingJobResponse,
   CreateModelBiasJobDefinitionRequest,
   CreateModelBiasJobDefinitionResponse,
-  CreateModelExplainabilityJobDefinitionRequest,
   CreateModelInput,
   CreateModelOutput,
   CustomImage,
@@ -757,6 +756,7 @@ import {
   MonitoringStatisticsResource,
   MonitoringStoppingCondition,
   MultiModelConfig,
+  NeoVpcConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OnlineStoreSecurityConfig,
@@ -807,6 +807,7 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateModelExplainabilityJobDefinitionRequest,
   CreateModelExplainabilityJobDefinitionResponse,
   CreateModelPackageGroupInput,
   CreateModelPackageGroupOutput,
@@ -988,7 +989,6 @@ import {
   DescribeTransformJobRequest,
   DescribeTransformJobResponse,
   DescribeTrialComponentRequest,
-  DescribeTrialComponentResponse,
   DescribeTrialRequest,
   DescribeTrialResponse,
   EdgeModel,
@@ -1067,6 +1067,7 @@ import {
   UiTemplateInfo,
 } from "../models/models_1";
 import {
+  DescribeTrialComponentResponse,
   DescribeUserProfileRequest,
   DescribeUserProfileResponse,
   DescribeWorkforceRequest,
@@ -1313,7 +1314,6 @@ import {
   UpdateImageRequest,
   UpdateImageResponse,
   UpdateModelPackageInput,
-  UpdateModelPackageOutput,
   UserProfileDetails,
   VariantProperty,
   Workforce,
@@ -1322,6 +1322,7 @@ import {
 import {
   SearchExpression,
   SearchRequest,
+  UpdateModelPackageOutput,
   UpdateMonitoringScheduleRequest,
   UpdateMonitoringScheduleResponse,
   UpdateNotebookInstanceInput,
@@ -8385,6 +8386,14 @@ const deserializeAws_json1_1DeleteModelPackageGroupCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -8713,6 +8722,14 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -17598,6 +17615,8 @@ const serializeAws_json1_1CreateCompilationJobRequest = (
         StoppingCondition: serializeAws_json1_1StoppingCondition(input.StoppingCondition, context),
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VpcConfig !== undefined &&
+      input.VpcConfig !== null && { VpcConfig: serializeAws_json1_1NeoVpcConfig(input.VpcConfig, context) }),
   };
 };
 
@@ -21725,6 +21744,8 @@ const serializeAws_json1_1ModelPackageContainerDefinition = (
   return {
     ...(input.ContainerHostname !== undefined &&
       input.ContainerHostname !== null && { ContainerHostname: input.ContainerHostname }),
+    ...(input.Environment !== undefined &&
+      input.Environment !== null && { Environment: serializeAws_json1_1EnvironmentMap(input.Environment, context) }),
     ...(input.Image !== undefined && input.Image !== null && { Image: input.Image }),
     ...(input.ImageDigest !== undefined && input.ImageDigest !== null && { ImageDigest: input.ImageDigest }),
     ...(input.ModelDataUrl !== undefined && input.ModelDataUrl !== null && { ModelDataUrl: input.ModelDataUrl }),
@@ -22110,6 +22131,39 @@ const serializeAws_json1_1MultiModelConfig = (input: MultiModelConfig, context: 
     ...(input.ModelCacheSetting !== undefined &&
       input.ModelCacheSetting !== null && { ModelCacheSetting: input.ModelCacheSetting }),
   };
+};
+
+const serializeAws_json1_1NeoVpcConfig = (input: NeoVpcConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.SecurityGroupIds !== undefined &&
+      input.SecurityGroupIds !== null && {
+        SecurityGroupIds: serializeAws_json1_1NeoVpcSecurityGroupIds(input.SecurityGroupIds, context),
+      }),
+    ...(input.Subnets !== undefined &&
+      input.Subnets !== null && { Subnets: serializeAws_json1_1NeoVpcSubnets(input.Subnets, context) }),
+  };
+};
+
+const serializeAws_json1_1NeoVpcSecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1NeoVpcSubnets = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1NestedFilters = (input: NestedFilters, context: __SerdeContext): any => {
@@ -26152,6 +26206,7 @@ const deserializeAws_json1_1DescribeCompilationJobResponse = (
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
+    InferenceImage: __expectString(output.InferenceImage),
     InputConfig:
       output.InputConfig !== undefined && output.InputConfig !== null
         ? deserializeAws_json1_1InputConfig(output.InputConfig, context)
@@ -26176,6 +26231,10 @@ const deserializeAws_json1_1DescribeCompilationJobResponse = (
     StoppingCondition:
       output.StoppingCondition !== undefined && output.StoppingCondition !== null
         ? deserializeAws_json1_1StoppingCondition(output.StoppingCondition, context)
+        : undefined,
+    VpcConfig:
+      output.VpcConfig !== undefined && output.VpcConfig !== null
+        ? deserializeAws_json1_1NeoVpcConfig(output.VpcConfig, context)
         : undefined,
   } as any;
 };
@@ -30047,6 +30106,10 @@ const deserializeAws_json1_1ModelPackageContainerDefinition = (
 ): ModelPackageContainerDefinition => {
   return {
     ContainerHostname: __expectString(output.ContainerHostname),
+    Environment:
+      output.Environment !== undefined && output.Environment !== null
+        ? deserializeAws_json1_1EnvironmentMap(output.Environment, context)
+        : undefined,
     Image: __expectString(output.Image),
     ImageDigest: __expectString(output.ImageDigest),
     ModelDataUrl: __expectString(output.ModelDataUrl),
@@ -30717,6 +30780,41 @@ const deserializeAws_json1_1MultiModelConfig = (output: any, context: __SerdeCon
   return {
     ModelCacheSetting: __expectString(output.ModelCacheSetting),
   } as any;
+};
+
+const deserializeAws_json1_1NeoVpcConfig = (output: any, context: __SerdeContext): NeoVpcConfig => {
+  return {
+    SecurityGroupIds:
+      output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
+        ? deserializeAws_json1_1NeoVpcSecurityGroupIds(output.SecurityGroupIds, context)
+        : undefined,
+    Subnets:
+      output.Subnets !== undefined && output.Subnets !== null
+        ? deserializeAws_json1_1NeoVpcSubnets(output.Subnets, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1NeoVpcSecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_json1_1NeoVpcSubnets = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_json1_1NetworkConfig = (output: any, context: __SerdeContext): NetworkConfig => {

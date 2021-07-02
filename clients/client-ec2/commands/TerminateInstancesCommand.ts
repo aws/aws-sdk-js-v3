@@ -23,8 +23,53 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
 /**
  * <p>Shuts down the specified instances. This operation is idempotent; if you terminate an
  *             instance more than once, each call succeeds. </p>
+ *
  *         <p>If you specify multiple instances and the request fails (for example, because of a
  *             single incorrect instance ID), none of the instances are terminated.</p>
+ *
+ *         <p>If you terminate multiple instances across multiple Availability Zones, and one or more
+ *             of the specified instances are enabled for termination protection, the request fails with
+ *             the following results:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>The specified instances that are in the same Availability Zone as the protected
+ *                     instance are not terminated.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The specified instances that are in different Availability Zones, where no other
+ *                     specified instances are protected, are successfully terminated.</p>
+ *             </li>
+ *          </ul>
+ *
+ *         <p>For example, say you have the following instances:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>Instance A: <code>us-east-1a</code>; Not protected</p>
+ *             </li>
+ *             <li>
+ *                 <p>Instance B: <code>us-east-1a</code>; Not protected</p>
+ *             </li>
+ *             <li>
+ *                 <p>Instance C: <code>us-east-1b</code>; Protected</p>
+ *             </li>
+ *             <li>
+ *                 <p>Instance D: <code>us-east-1b</code>; not protected</p>
+ *             </li>
+ *          </ul>
+ *         <p>If you attempt to terminate all of these instances in the same request, the request reports
+ *             failure with the following results:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>Instance A and Instance B are successfully terminated because none of the specified
+ *                     instances in <code>us-east-1a</code> are enabled for termination protection.</p>
+ *             </li>
+ *             <li>
+ *                 <p>Instance C and Instance D fail to terminate because at least one of the specified
+ *                     instances in <code>us-east-1b</code> (Instance C) is enabled for termination protection.</p>
+ *             </li>
+ *          </ul>
+ *
+ *
  *         <p>Terminated instances remain visible after termination (for approximately one
  *             hour).</p>
  *         <p>By default, Amazon EC2 deletes all EBS volumes that were attached when the instance

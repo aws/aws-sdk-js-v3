@@ -165,7 +165,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>AWS Glue DataBrew is a visual, cloud-scale data-preparation service. DataBrew
+ * <p>Glue DataBrew is a visual, cloud-scale data-preparation service. DataBrew
  *             simplifies data preparation tasks, targeting data issues that are hard to spot and
  *             time-consuming to fix. DataBrew empowers users of all technical levels to visualize the
  *             data and perform one-click data transformations, with no coding required.</p>
@@ -369,8 +369,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Creates a new job to transform input data, using steps defined in an existing AWS Glue
-   *             DataBrew recipe</p>
+   * <p>Creates a new job to transform input data, using steps defined in an existing Glue DataBrew recipe</p>
    */
   public createRecipeJob(
     args: CreateRecipeJobCommandInput,

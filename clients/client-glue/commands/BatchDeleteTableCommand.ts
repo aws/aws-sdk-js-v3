@@ -24,7 +24,7 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  * <p>Deletes multiple tables at once.</p>
  *          <note>
  *             <p>After completing this operation, you no longer have access to the table versions and
- *         partitions that belong to the deleted table. AWS Glue deletes these "orphaned" resources
+ *         partitions that belong to the deleted table. Glue deletes these "orphaned" resources
  *         asynchronously in a timely manner, at the discretion of the service.</p>
  *             <p>To ensure the immediate deletion of all related resources, before calling
  *           <code>BatchDeleteTable</code>, use <code>DeleteTableVersion</code> or

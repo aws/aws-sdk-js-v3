@@ -926,8 +926,8 @@ export interface ActiveInstance {
 
   /**
    * <p>The health status of the instance. If the status of either the instance status check
-   *           or the system status check is <code>impaired</code>, the health status of the instance
-   *           is <code>unhealthy</code>. Otherwise, the health status is <code>healthy</code>.</p>
+   *             or the system status check is <code>impaired</code>, the health status of the instance
+   *             is <code>unhealthy</code>. Otherwise, the health status is <code>healthy</code>.</p>
    */
   InstanceHealth?: InstanceHealthStatus | string;
 }
@@ -1238,6 +1238,7 @@ export type ResourceType =
   | "natgateway"
   | "network-acl"
   | "network-insights-analysis"
+  | "network-insights-boundary"
   | "network-insights-path"
   | "network-interface"
   | "placement-group"
@@ -4048,9 +4049,10 @@ export namespace CancelReservedInstancesListingResult {
  */
 export interface CancelSpotFleetRequestsRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -4060,7 +4062,8 @@ export interface CancelSpotFleetRequestsRequest {
   SpotFleetRequestIds: string[] | undefined;
 
   /**
-   * <p>Indicates whether to terminate instances for a Spot Fleet request if it is canceled successfully.</p>
+   * <p>Indicates whether to terminate instances for a Spot Fleet request if it is canceled
+   *             successfully.</p>
    */
   TerminateInstances: boolean | undefined;
 }
@@ -4197,9 +4200,10 @@ export namespace CancelSpotFleetRequestsResponse {
  */
 export interface CancelSpotInstanceRequestsRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -4293,7 +4297,7 @@ export namespace ConfirmProductInstanceRequest {
 
 export interface ConfirmProductInstanceResult {
   /**
-   * <p>The AWS account ID of the instance owner. This is only present if the product code is
+   * <p>The account ID of the instance owner. This is only present if the product code is
    *             attached to the instance.</p>
    */
   OwnerId?: string;
@@ -4672,11 +4676,11 @@ export interface CreateCapacityReservationRequest {
    * 		       <ul>
    *             <li>
    *                <p>
-   *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other AWS accounts.</p>
+   *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other accounts.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account.</p>
+   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single account.</p>
    *             </li>
    *          </ul>
    */
@@ -4793,7 +4797,7 @@ export interface CapacityReservation {
   CapacityReservationId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the Capacity Reservation.</p>
+   * <p>The ID of the account that owns the Capacity Reservation.</p>
    */
   OwnerId?: string;
 
@@ -4827,11 +4831,11 @@ export interface CapacityReservation {
    * 		       <ul>
    *             <li>
    *                <p>
-   *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other AWS accounts.</p>
+   *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other accounts.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account.</p>
+   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single account.</p>
    *             </li>
    *          </ul>
    */
@@ -6966,6 +6970,13 @@ export interface SpotOptionsRequest {
    *          when Spot <b>AllocationStrategy</b> is set to
    *             <code>lowest-price</code>. EC2 Fleet selects the cheapest Spot pools and evenly allocates
    *          your target Spot capacity across the number of Spot pools that you specify.</p>
+   *          <p>Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a
+   *          best effort basis. If a pool runs out of Spot capacity before fulfilling your target
+   *          capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest
+   *          pool. To ensure that your target capacity is met, you might receive Spot Instances from more than
+   *          the number of pools that you specified. Similarly, if most of the pools have no Spot
+   *          capacity, you might receive your full target capacity from fewer than the number of pools
+   *          that you specified.</p>
    */
   InstancePoolsToUseCount?: number;
 
@@ -7107,7 +7118,7 @@ export interface CreateFleetRequest {
   TerminateInstancesWithExpiration?: boolean;
 
   /**
-   * <p>The type of request. The default value is <code>maintain</code>.</p>
+   * <p>The fleet type. The default value is <code>maintain</code>.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -7156,13 +7167,20 @@ export interface CreateFleetRequest {
   ReplaceUnhealthyInstances?: boolean;
 
   /**
-   * <p>The key-value pair for tagging the EC2 Fleet request on creation. The value for
-   *             <code>ResourceType</code> must be <code>fleet</code>, otherwise the fleet request fails.
-   *          To tag instances at launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
-   *             template</a>. For information about tagging after launch, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging your
-   *             resources</a>.</p>
+   * <p>The key-value pair for tagging the EC2 Fleet request on creation. For more information, see
+   *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging your resources</a>.</p>
+   *          <p>If the fleet type is <code>instant</code>, specify a resource type of <code>fleet</code>
+   *          to tag the fleet or <code>instance</code> to tag the instances at launch.</p>
+   *          <p>If the fleet type is <code>maintain</code> or <code>request</code>, specify a resource
+   *          type of <code>fleet</code> to tag the fleet. You cannot specify a resource type of
+   *             <code>instance</code>. To tag instances at launch, specify the tags in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch template</a>.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Reserved.</p>
+   */
+  Context?: string;
 }
 
 export namespace CreateFleetRequest {
@@ -7175,26 +7193,31 @@ export namespace CreateFleetRequest {
 }
 
 /**
- * <p>Describes the Amazon EC2 launch template and the launch template version that can be used by
- *             a Spot Fleet request to configure Amazon EC2 instances. For information about launch templates, see
- *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a launch template</a> in the
+ * <p>Describes the Amazon EC2 launch template and the launch template version that can be used
+ *             by a Spot Fleet request to configure Amazon EC2 instances. For information about launch templates,
+ *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a launch template</a> in the
  *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  */
 export interface FleetLaunchTemplateSpecification {
   /**
-   * <p>The ID of the launch template. If you specify the template ID, you can't specify the template name.</p>
+   * <p>The ID of the launch template. If you specify the template ID, you can't specify the
+   *             template name.</p>
    */
   LaunchTemplateId?: string;
 
   /**
-   * <p>The name of the launch template. If you specify the template name, you can't specify the template ID.</p>
+   * <p>The name of the launch template. If you specify the template name, you can't specify
+   *             the template ID.</p>
    */
   LaunchTemplateName?: string;
 
   /**
-   * <p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>. You must specify a value, otherwise the request fails.</p>
-   *          <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch template.</p>
-   *          <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch template.</p>
+   * <p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>.
+   *             You must specify a value, otherwise the request fails.</p>
+   *         <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch
+   *             template.</p>
+   *         <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch
+   *             template.</p>
    */
   Version?: string;
 }
@@ -7404,14 +7427,14 @@ export interface CreateFleetResult {
   FleetId?: string;
 
   /**
-   * <p>Information about the instances that could not be launched by the fleet. Valid only when
-   *             <b>Type</b> is set to <code>instant</code>.</p>
+   * <p>Information about the instances that could not be launched by the fleet. Supported only for
+   *             fleets of type <code>instant</code>.</p>
    */
   Errors?: CreateFleetError[];
 
   /**
-   * <p>Information about the instances that were launched by the fleet. Valid only when
-   *             <b>Type</b> is set to <code>instant</code>.</p>
+   * <p>Information about the instances that were launched by the fleet. Supported only for
+   *             fleets of type <code>instant</code>.</p>
    */
   Instances?: CreateFleetInstance[];
 }

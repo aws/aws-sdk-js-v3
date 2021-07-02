@@ -46,7 +46,6 @@ import {
   AudioSelectorGroup,
   AutomatedAbrSettings,
   AutomatedEncodingSettings,
-  Av1QvbrSettings,
   AvailBlanking,
   BurninDestinationSettings,
   CaptionDescription,
@@ -87,6 +86,7 @@ import {
   HlsCaptionLanguageMapping,
   HlsEncryptionSettings,
   HlsGroupSettings,
+  HlsRenditionGroupSettings,
   HlsSettings,
   HopDestination,
   Id3Insertion,
@@ -114,6 +114,7 @@ import {
   MsSmoothEncryptionSettings,
   MsSmoothGroupSettings,
   MxfSettings,
+  MxfXavcProfileSettings,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   OpusSettings,
@@ -121,7 +122,6 @@ import {
   OutputDetail,
   OutputGroupDetail,
   OutputGroupSettings,
-  OutputSettings,
   QueueTransition,
   Rectangle,
   RemixSettings,
@@ -142,8 +142,10 @@ import {
   VorbisSettings,
   WavSettings,
   WebvttDestinationSettings,
+  WebvttHlsSourceSettings,
 } from "../models/models_0";
 import {
+  Av1QvbrSettings,
   Av1Settings,
   AvcIntraSettings,
   AvcIntraUhdSettings,
@@ -159,6 +161,7 @@ import {
   H264Settings,
   H265QvbrSettings,
   H265Settings,
+  Hdr10Plus,
   InternalServerErrorException,
   Job,
   JobSettings,
@@ -173,6 +176,7 @@ import {
   NotFoundException,
   Output,
   OutputGroup,
+  OutputSettings,
   PartnerWatermarking,
   Preset,
   PresetSettings,
@@ -192,6 +196,12 @@ import {
   VideoPreprocessor,
   Vp8Settings,
   Vp9Settings,
+  Xavc4kIntraCbgProfileSettings,
+  Xavc4kIntraVbrProfileSettings,
+  Xavc4kProfileSettings,
+  XavcHdIntraCbgProfileSettings,
+  XavcHdProfileSettings,
+  XavcSettings,
 } from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -4020,6 +4030,13 @@ const serializeAws_restJson1AudioSelector = (input: AudioSelector, context: __Se
       input.DefaultSelection !== null && { defaultSelection: input.DefaultSelection }),
     ...(input.ExternalAudioFileInput !== undefined &&
       input.ExternalAudioFileInput !== null && { externalAudioFileInput: input.ExternalAudioFileInput }),
+    ...(input.HlsRenditionGroupSettings !== undefined &&
+      input.HlsRenditionGroupSettings !== null && {
+        hlsRenditionGroupSettings: serializeAws_restJson1HlsRenditionGroupSettings(
+          input.HlsRenditionGroupSettings,
+          context
+        ),
+      }),
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { languageCode: input.LanguageCode }),
     ...(input.Offset !== undefined && input.Offset !== null && { offset: input.Offset }),
     ...(input.Pids !== undefined &&
@@ -4316,6 +4333,10 @@ const serializeAws_restJson1CaptionSourceSettings = (input: CaptionSourceSetting
       input.TrackSourceSettings !== null && {
         trackSourceSettings: serializeAws_restJson1TrackSourceSettings(input.TrackSourceSettings, context),
       }),
+    ...(input.WebvttHlsSourceSettings !== undefined &&
+      input.WebvttHlsSourceSettings !== null && {
+        webvttHlsSourceSettings: serializeAws_restJson1WebvttHlsSourceSettings(input.WebvttHlsSourceSettings, context),
+      }),
   };
 };
 
@@ -4384,6 +4405,8 @@ const serializeAws_restJson1CmafGroupSettings = (input: CmafGroupSettings, conte
       }),
     ...(input.FragmentLength !== undefined &&
       input.FragmentLength !== null && { fragmentLength: input.FragmentLength }),
+    ...(input.ImageBasedTrickPlay !== undefined &&
+      input.ImageBasedTrickPlay !== null && { imageBasedTrickPlay: input.ImageBasedTrickPlay }),
     ...(input.ManifestCompression !== undefined &&
       input.ManifestCompression !== null && { manifestCompression: input.ManifestCompression }),
     ...(input.ManifestDurationFormat !== undefined &&
@@ -4438,6 +4461,8 @@ const serializeAws_restJson1ColorCorrector = (input: ColorCorrector, context: __
         hdr10Metadata: serializeAws_restJson1Hdr10Metadata(input.Hdr10Metadata, context),
       }),
     ...(input.Hue !== undefined && input.Hue !== null && { hue: input.Hue }),
+    ...(input.SampleRangeConversion !== undefined &&
+      input.SampleRangeConversion !== null && { sampleRangeConversion: input.SampleRangeConversion }),
     ...(input.Saturation !== undefined && input.Saturation !== null && { saturation: input.Saturation }),
   };
 };
@@ -4513,6 +4538,8 @@ const serializeAws_restJson1DashIsoGroupSettings = (input: DashIsoGroupSettings,
       input.FragmentLength !== null && { fragmentLength: input.FragmentLength }),
     ...(input.HbbtvCompliance !== undefined &&
       input.HbbtvCompliance !== null && { hbbtvCompliance: input.HbbtvCompliance }),
+    ...(input.ImageBasedTrickPlay !== undefined &&
+      input.ImageBasedTrickPlay !== null && { imageBasedTrickPlay: input.ImageBasedTrickPlay }),
     ...(input.MinBufferTime !== undefined && input.MinBufferTime !== null && { minBufferTime: input.MinBufferTime }),
     ...(input.MinFinalSegmentLength !== undefined &&
       input.MinFinalSegmentLength !== null && { minFinalSegmentLength: __serializeFloat(input.MinFinalSegmentLength) }),
@@ -4642,10 +4669,14 @@ const serializeAws_restJson1Eac3AtmosSettings = (input: Eac3AtmosSettings, conte
     ...(input.CodingMode !== undefined && input.CodingMode !== null && { codingMode: input.CodingMode }),
     ...(input.DialogueIntelligence !== undefined &&
       input.DialogueIntelligence !== null && { dialogueIntelligence: input.DialogueIntelligence }),
+    ...(input.DownmixControl !== undefined &&
+      input.DownmixControl !== null && { downmixControl: input.DownmixControl }),
     ...(input.DynamicRangeCompressionLine !== undefined &&
       input.DynamicRangeCompressionLine !== null && { dynamicRangeCompressionLine: input.DynamicRangeCompressionLine }),
     ...(input.DynamicRangeCompressionRf !== undefined &&
       input.DynamicRangeCompressionRf !== null && { dynamicRangeCompressionRf: input.DynamicRangeCompressionRf }),
+    ...(input.DynamicRangeControl !== undefined &&
+      input.DynamicRangeControl !== null && { dynamicRangeControl: input.DynamicRangeControl }),
     ...(input.LoRoCenterMixLevel !== undefined &&
       input.LoRoCenterMixLevel !== null && { loRoCenterMixLevel: __serializeFloat(input.LoRoCenterMixLevel) }),
     ...(input.LoRoSurroundMixLevel !== undefined &&
@@ -5005,6 +5036,15 @@ const serializeAws_restJson1Hdr10Metadata = (input: Hdr10Metadata, context: __Se
   };
 };
 
+const serializeAws_restJson1Hdr10Plus = (input: Hdr10Plus, context: __SerdeContext): any => {
+  return {
+    ...(input.MasteringMonitorNits !== undefined &&
+      input.MasteringMonitorNits !== null && { masteringMonitorNits: input.MasteringMonitorNits }),
+    ...(input.TargetMonitorNits !== undefined &&
+      input.TargetMonitorNits !== null && { targetMonitorNits: input.TargetMonitorNits }),
+  };
+};
+
 const serializeAws_restJson1HlsAdditionalManifest = (input: HlsAdditionalManifest, context: __SerdeContext): any => {
   return {
     ...(input.ManifestNameModifier !== undefined &&
@@ -5091,6 +5131,8 @@ const serializeAws_restJson1HlsGroupSettings = (input: HlsGroupSettings, context
       input.Encryption !== null && {
         encryption: serializeAws_restJson1HlsEncryptionSettings(input.Encryption, context),
       }),
+    ...(input.ImageBasedTrickPlay !== undefined &&
+      input.ImageBasedTrickPlay !== null && { imageBasedTrickPlay: input.ImageBasedTrickPlay }),
     ...(input.ManifestCompression !== undefined &&
       input.ManifestCompression !== null && { manifestCompression: input.ManifestCompression }),
     ...(input.ManifestDurationFormat !== undefined &&
@@ -5118,6 +5160,19 @@ const serializeAws_restJson1HlsGroupSettings = (input: HlsGroupSettings, context
       input.TimedMetadataId3Period !== null && { timedMetadataId3Period: input.TimedMetadataId3Period }),
     ...(input.TimestampDeltaMilliseconds !== undefined &&
       input.TimestampDeltaMilliseconds !== null && { timestampDeltaMilliseconds: input.TimestampDeltaMilliseconds }),
+  };
+};
+
+const serializeAws_restJson1HlsRenditionGroupSettings = (
+  input: HlsRenditionGroupSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RenditionGroupId !== undefined &&
+      input.RenditionGroupId !== null && { renditionGroupId: input.RenditionGroupId }),
+    ...(input.RenditionLanguageCode !== undefined &&
+      input.RenditionLanguageCode !== null && { renditionLanguageCode: input.RenditionLanguageCode }),
+    ...(input.RenditionName !== undefined && input.RenditionName !== null && { renditionName: input.RenditionName }),
   };
 };
 
@@ -5745,6 +5800,18 @@ const serializeAws_restJson1MxfSettings = (input: MxfSettings, context: __SerdeC
   return {
     ...(input.AfdSignaling !== undefined && input.AfdSignaling !== null && { afdSignaling: input.AfdSignaling }),
     ...(input.Profile !== undefined && input.Profile !== null && { profile: input.Profile }),
+    ...(input.XavcProfileSettings !== undefined &&
+      input.XavcProfileSettings !== null && {
+        xavcProfileSettings: serializeAws_restJson1MxfXavcProfileSettings(input.XavcProfileSettings, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1MxfXavcProfileSettings = (input: MxfXavcProfileSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.DurationMode !== undefined && input.DurationMode !== null && { durationMode: input.DurationMode }),
+    ...(input.MaxAncDataSize !== undefined &&
+      input.MaxAncDataSize !== null && { maxAncDataSize: input.MaxAncDataSize }),
   };
 };
 
@@ -5989,6 +6056,8 @@ const serializeAws_restJson1PresetSettings = (input: PresetSettings, context: __
 
 const serializeAws_restJson1ProresSettings = (input: ProresSettings, context: __SerdeContext): any => {
   return {
+    ...(input.ChromaSampling !== undefined &&
+      input.ChromaSampling !== null && { chromaSampling: input.ChromaSampling }),
     ...(input.CodecProfile !== undefined && input.CodecProfile !== null && { codecProfile: input.CodecProfile }),
     ...(input.FramerateControl !== undefined &&
       input.FramerateControl !== null && { framerateControl: input.FramerateControl }),
@@ -6245,6 +6314,8 @@ const serializeAws_restJson1VideoCodecSettings = (input: VideoCodecSettings, con
       input.Vp8Settings !== null && { vp8Settings: serializeAws_restJson1Vp8Settings(input.Vp8Settings, context) }),
     ...(input.Vp9Settings !== undefined &&
       input.Vp9Settings !== null && { vp9Settings: serializeAws_restJson1Vp9Settings(input.Vp9Settings, context) }),
+    ...(input.XavcSettings !== undefined &&
+      input.XavcSettings !== null && { xavcSettings: serializeAws_restJson1XavcSettings(input.XavcSettings, context) }),
   };
 };
 
@@ -6289,6 +6360,8 @@ const serializeAws_restJson1VideoPreprocessor = (input: VideoPreprocessor, conte
       input.Deinterlacer !== null && { deinterlacer: serializeAws_restJson1Deinterlacer(input.Deinterlacer, context) }),
     ...(input.DolbyVision !== undefined &&
       input.DolbyVision !== null && { dolbyVision: serializeAws_restJson1DolbyVision(input.DolbyVision, context) }),
+    ...(input.Hdr10Plus !== undefined &&
+      input.Hdr10Plus !== null && { hdr10Plus: serializeAws_restJson1Hdr10Plus(input.Hdr10Plus, context) }),
     ...(input.ImageInserter !== undefined &&
       input.ImageInserter !== null && {
         imageInserter: serializeAws_restJson1ImageInserter(input.ImageInserter, context),
@@ -6401,6 +6474,136 @@ const serializeAws_restJson1WebvttDestinationSettings = (
   return {
     ...(input.StylePassthrough !== undefined &&
       input.StylePassthrough !== null && { stylePassthrough: input.StylePassthrough }),
+  };
+};
+
+const serializeAws_restJson1WebvttHlsSourceSettings = (
+  input: WebvttHlsSourceSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RenditionGroupId !== undefined &&
+      input.RenditionGroupId !== null && { renditionGroupId: input.RenditionGroupId }),
+    ...(input.RenditionLanguageCode !== undefined &&
+      input.RenditionLanguageCode !== null && { renditionLanguageCode: input.RenditionLanguageCode }),
+    ...(input.RenditionName !== undefined && input.RenditionName !== null && { renditionName: input.RenditionName }),
+  };
+};
+
+const serializeAws_restJson1Xavc4kIntraCbgProfileSettings = (
+  input: Xavc4kIntraCbgProfileSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.XavcClass !== undefined && input.XavcClass !== null && { xavcClass: input.XavcClass }),
+  };
+};
+
+const serializeAws_restJson1Xavc4kIntraVbrProfileSettings = (
+  input: Xavc4kIntraVbrProfileSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.XavcClass !== undefined && input.XavcClass !== null && { xavcClass: input.XavcClass }),
+  };
+};
+
+const serializeAws_restJson1Xavc4kProfileSettings = (input: Xavc4kProfileSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.BitrateClass !== undefined && input.BitrateClass !== null && { bitrateClass: input.BitrateClass }),
+    ...(input.CodecProfile !== undefined && input.CodecProfile !== null && { codecProfile: input.CodecProfile }),
+    ...(input.FlickerAdaptiveQuantization !== undefined &&
+      input.FlickerAdaptiveQuantization !== null && { flickerAdaptiveQuantization: input.FlickerAdaptiveQuantization }),
+    ...(input.GopBReference !== undefined && input.GopBReference !== null && { gopBReference: input.GopBReference }),
+    ...(input.GopClosedCadence !== undefined &&
+      input.GopClosedCadence !== null && { gopClosedCadence: input.GopClosedCadence }),
+    ...(input.HrdBufferSize !== undefined && input.HrdBufferSize !== null && { hrdBufferSize: input.HrdBufferSize }),
+    ...(input.QualityTuningLevel !== undefined &&
+      input.QualityTuningLevel !== null && { qualityTuningLevel: input.QualityTuningLevel }),
+    ...(input.Slices !== undefined && input.Slices !== null && { slices: input.Slices }),
+  };
+};
+
+const serializeAws_restJson1XavcHdIntraCbgProfileSettings = (
+  input: XavcHdIntraCbgProfileSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.XavcClass !== undefined && input.XavcClass !== null && { xavcClass: input.XavcClass }),
+  };
+};
+
+const serializeAws_restJson1XavcHdProfileSettings = (input: XavcHdProfileSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.BitrateClass !== undefined && input.BitrateClass !== null && { bitrateClass: input.BitrateClass }),
+    ...(input.FlickerAdaptiveQuantization !== undefined &&
+      input.FlickerAdaptiveQuantization !== null && { flickerAdaptiveQuantization: input.FlickerAdaptiveQuantization }),
+    ...(input.GopBReference !== undefined && input.GopBReference !== null && { gopBReference: input.GopBReference }),
+    ...(input.GopClosedCadence !== undefined &&
+      input.GopClosedCadence !== null && { gopClosedCadence: input.GopClosedCadence }),
+    ...(input.HrdBufferSize !== undefined && input.HrdBufferSize !== null && { hrdBufferSize: input.HrdBufferSize }),
+    ...(input.InterlaceMode !== undefined && input.InterlaceMode !== null && { interlaceMode: input.InterlaceMode }),
+    ...(input.QualityTuningLevel !== undefined &&
+      input.QualityTuningLevel !== null && { qualityTuningLevel: input.QualityTuningLevel }),
+    ...(input.Slices !== undefined && input.Slices !== null && { slices: input.Slices }),
+    ...(input.Telecine !== undefined && input.Telecine !== null && { telecine: input.Telecine }),
+  };
+};
+
+const serializeAws_restJson1XavcSettings = (input: XavcSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.AdaptiveQuantization !== undefined &&
+      input.AdaptiveQuantization !== null && { adaptiveQuantization: input.AdaptiveQuantization }),
+    ...(input.EntropyEncoding !== undefined &&
+      input.EntropyEncoding !== null && { entropyEncoding: input.EntropyEncoding }),
+    ...(input.FramerateControl !== undefined &&
+      input.FramerateControl !== null && { framerateControl: input.FramerateControl }),
+    ...(input.FramerateConversionAlgorithm !== undefined &&
+      input.FramerateConversionAlgorithm !== null && {
+        framerateConversionAlgorithm: input.FramerateConversionAlgorithm,
+      }),
+    ...(input.FramerateDenominator !== undefined &&
+      input.FramerateDenominator !== null && { framerateDenominator: input.FramerateDenominator }),
+    ...(input.FramerateNumerator !== undefined &&
+      input.FramerateNumerator !== null && { framerateNumerator: input.FramerateNumerator }),
+    ...(input.Profile !== undefined && input.Profile !== null && { profile: input.Profile }),
+    ...(input.SlowPal !== undefined && input.SlowPal !== null && { slowPal: input.SlowPal }),
+    ...(input.Softness !== undefined && input.Softness !== null && { softness: input.Softness }),
+    ...(input.SpatialAdaptiveQuantization !== undefined &&
+      input.SpatialAdaptiveQuantization !== null && { spatialAdaptiveQuantization: input.SpatialAdaptiveQuantization }),
+    ...(input.TemporalAdaptiveQuantization !== undefined &&
+      input.TemporalAdaptiveQuantization !== null && {
+        temporalAdaptiveQuantization: input.TemporalAdaptiveQuantization,
+      }),
+    ...(input.Xavc4kIntraCbgProfileSettings !== undefined &&
+      input.Xavc4kIntraCbgProfileSettings !== null && {
+        xavc4kIntraCbgProfileSettings: serializeAws_restJson1Xavc4kIntraCbgProfileSettings(
+          input.Xavc4kIntraCbgProfileSettings,
+          context
+        ),
+      }),
+    ...(input.Xavc4kIntraVbrProfileSettings !== undefined &&
+      input.Xavc4kIntraVbrProfileSettings !== null && {
+        xavc4kIntraVbrProfileSettings: serializeAws_restJson1Xavc4kIntraVbrProfileSettings(
+          input.Xavc4kIntraVbrProfileSettings,
+          context
+        ),
+      }),
+    ...(input.Xavc4kProfileSettings !== undefined &&
+      input.Xavc4kProfileSettings !== null && {
+        xavc4kProfileSettings: serializeAws_restJson1Xavc4kProfileSettings(input.Xavc4kProfileSettings, context),
+      }),
+    ...(input.XavcHdIntraCbgProfileSettings !== undefined &&
+      input.XavcHdIntraCbgProfileSettings !== null && {
+        xavcHdIntraCbgProfileSettings: serializeAws_restJson1XavcHdIntraCbgProfileSettings(
+          input.XavcHdIntraCbgProfileSettings,
+          context
+        ),
+      }),
+    ...(input.XavcHdProfileSettings !== undefined &&
+      input.XavcHdProfileSettings !== null && {
+        xavcHdProfileSettings: serializeAws_restJson1XavcHdProfileSettings(input.XavcHdProfileSettings, context),
+      }),
   };
 };
 
@@ -7055,6 +7258,10 @@ const deserializeAws_restJson1AudioSelector = (output: any, context: __SerdeCont
     CustomLanguageCode: __expectString(output.customLanguageCode),
     DefaultSelection: __expectString(output.defaultSelection),
     ExternalAudioFileInput: __expectString(output.externalAudioFileInput),
+    HlsRenditionGroupSettings:
+      output.hlsRenditionGroupSettings !== undefined && output.hlsRenditionGroupSettings !== null
+        ? deserializeAws_restJson1HlsRenditionGroupSettings(output.hlsRenditionGroupSettings, context)
+        : undefined,
     LanguageCode: __expectString(output.languageCode),
     Offset: __expectNumber(output.offset),
     Pids:
@@ -7302,6 +7509,10 @@ const deserializeAws_restJson1CaptionSourceSettings = (output: any, context: __S
       output.trackSourceSettings !== undefined && output.trackSourceSettings !== null
         ? deserializeAws_restJson1TrackSourceSettings(output.trackSourceSettings, context)
         : undefined,
+    WebvttHlsSourceSettings:
+      output.webvttHlsSourceSettings !== undefined && output.webvttHlsSourceSettings !== null
+        ? deserializeAws_restJson1WebvttHlsSourceSettings(output.webvttHlsSourceSettings, context)
+        : undefined,
   } as any;
 };
 
@@ -7366,6 +7577,7 @@ const deserializeAws_restJson1CmafGroupSettings = (output: any, context: __Serde
         ? deserializeAws_restJson1CmafEncryptionSettings(output.encryption, context)
         : undefined,
     FragmentLength: __expectNumber(output.fragmentLength),
+    ImageBasedTrickPlay: __expectString(output.imageBasedTrickPlay),
     ManifestCompression: __expectString(output.manifestCompression),
     ManifestDurationFormat: __expectString(output.manifestDurationFormat),
     MinBufferTime: __expectNumber(output.minBufferTime),
@@ -7404,6 +7616,7 @@ const deserializeAws_restJson1ColorCorrector = (output: any, context: __SerdeCon
         ? deserializeAws_restJson1Hdr10Metadata(output.hdr10Metadata, context)
         : undefined,
     Hue: __expectNumber(output.hue),
+    SampleRangeConversion: __expectString(output.sampleRangeConversion),
     Saturation: __expectNumber(output.saturation),
   } as any;
 };
@@ -7491,6 +7704,7 @@ const deserializeAws_restJson1DashIsoGroupSettings = (output: any, context: __Se
         : undefined,
     FragmentLength: __expectNumber(output.fragmentLength),
     HbbtvCompliance: __expectString(output.hbbtvCompliance),
+    ImageBasedTrickPlay: __expectString(output.imageBasedTrickPlay),
     MinBufferTime: __expectNumber(output.minBufferTime),
     MinFinalSegmentLength: __handleFloat(output.minFinalSegmentLength),
     MpdProfile: __expectString(output.mpdProfile),
@@ -7605,8 +7819,10 @@ const deserializeAws_restJson1Eac3AtmosSettings = (output: any, context: __Serde
     BitstreamMode: __expectString(output.bitstreamMode),
     CodingMode: __expectString(output.codingMode),
     DialogueIntelligence: __expectString(output.dialogueIntelligence),
+    DownmixControl: __expectString(output.downmixControl),
     DynamicRangeCompressionLine: __expectString(output.dynamicRangeCompressionLine),
     DynamicRangeCompressionRf: __expectString(output.dynamicRangeCompressionRf),
+    DynamicRangeControl: __expectString(output.dynamicRangeControl),
     LoRoCenterMixLevel: __handleFloat(output.loRoCenterMixLevel),
     LoRoSurroundMixLevel: __handleFloat(output.loRoSurroundMixLevel),
     LtRtCenterMixLevel: __handleFloat(output.ltRtCenterMixLevel),
@@ -7874,6 +8090,13 @@ const deserializeAws_restJson1Hdr10Metadata = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1Hdr10Plus = (output: any, context: __SerdeContext): Hdr10Plus => {
+  return {
+    MasteringMonitorNits: __expectNumber(output.masteringMonitorNits),
+    TargetMonitorNits: __expectNumber(output.targetMonitorNits),
+  } as any;
+};
+
 const deserializeAws_restJson1HlsAdditionalManifest = (output: any, context: __SerdeContext): HlsAdditionalManifest => {
   return {
     ManifestNameModifier: __expectString(output.manifestNameModifier),
@@ -7943,6 +8166,7 @@ const deserializeAws_restJson1HlsGroupSettings = (output: any, context: __SerdeC
       output.encryption !== undefined && output.encryption !== null
         ? deserializeAws_restJson1HlsEncryptionSettings(output.encryption, context)
         : undefined,
+    ImageBasedTrickPlay: __expectString(output.imageBasedTrickPlay),
     ManifestCompression: __expectString(output.manifestCompression),
     ManifestDurationFormat: __expectString(output.manifestDurationFormat),
     MinFinalSegmentLength: __handleFloat(output.minFinalSegmentLength),
@@ -7957,6 +8181,17 @@ const deserializeAws_restJson1HlsGroupSettings = (output: any, context: __SerdeC
     TimedMetadataId3Frame: __expectString(output.timedMetadataId3Frame),
     TimedMetadataId3Period: __expectNumber(output.timedMetadataId3Period),
     TimestampDeltaMilliseconds: __expectNumber(output.timestampDeltaMilliseconds),
+  } as any;
+};
+
+const deserializeAws_restJson1HlsRenditionGroupSettings = (
+  output: any,
+  context: __SerdeContext
+): HlsRenditionGroupSettings => {
+  return {
+    RenditionGroupId: __expectString(output.renditionGroupId),
+    RenditionLanguageCode: __expectString(output.renditionLanguageCode),
+    RenditionName: __expectString(output.renditionName),
   } as any;
 };
 
@@ -8622,6 +8857,20 @@ const deserializeAws_restJson1MxfSettings = (output: any, context: __SerdeContex
   return {
     AfdSignaling: __expectString(output.afdSignaling),
     Profile: __expectString(output.profile),
+    XavcProfileSettings:
+      output.xavcProfileSettings !== undefined && output.xavcProfileSettings !== null
+        ? deserializeAws_restJson1MxfXavcProfileSettings(output.xavcProfileSettings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MxfXavcProfileSettings = (
+  output: any,
+  context: __SerdeContext
+): MxfXavcProfileSettings => {
+  return {
+    DurationMode: __expectString(output.durationMode),
+    MaxAncDataSize: __expectNumber(output.maxAncDataSize),
   } as any;
 };
 
@@ -8889,6 +9138,7 @@ const deserializeAws_restJson1PresetSettings = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1ProresSettings = (output: any, context: __SerdeContext): ProresSettings => {
   return {
+    ChromaSampling: __expectString(output.chromaSampling),
     CodecProfile: __expectString(output.codecProfile),
     FramerateControl: __expectString(output.framerateControl),
     FramerateConversionAlgorithm: __expectString(output.framerateConversionAlgorithm),
@@ -9208,6 +9458,10 @@ const deserializeAws_restJson1VideoCodecSettings = (output: any, context: __Serd
       output.vp9Settings !== undefined && output.vp9Settings !== null
         ? deserializeAws_restJson1Vp9Settings(output.vp9Settings, context)
         : undefined,
+    XavcSettings:
+      output.xavcSettings !== undefined && output.xavcSettings !== null
+        ? deserializeAws_restJson1XavcSettings(output.xavcSettings, context)
+        : undefined,
   } as any;
 };
 
@@ -9263,6 +9517,10 @@ const deserializeAws_restJson1VideoPreprocessor = (output: any, context: __Serde
     DolbyVision:
       output.dolbyVision !== undefined && output.dolbyVision !== null
         ? deserializeAws_restJson1DolbyVision(output.dolbyVision, context)
+        : undefined,
+    Hdr10Plus:
+      output.hdr10Plus !== undefined && output.hdr10Plus !== null
+        ? deserializeAws_restJson1Hdr10Plus(output.hdr10Plus, context)
         : undefined,
     ImageInserter:
       output.imageInserter !== undefined && output.imageInserter !== null
@@ -9358,6 +9616,107 @@ const deserializeAws_restJson1WebvttDestinationSettings = (
 ): WebvttDestinationSettings => {
   return {
     StylePassthrough: __expectString(output.stylePassthrough),
+  } as any;
+};
+
+const deserializeAws_restJson1WebvttHlsSourceSettings = (
+  output: any,
+  context: __SerdeContext
+): WebvttHlsSourceSettings => {
+  return {
+    RenditionGroupId: __expectString(output.renditionGroupId),
+    RenditionLanguageCode: __expectString(output.renditionLanguageCode),
+    RenditionName: __expectString(output.renditionName),
+  } as any;
+};
+
+const deserializeAws_restJson1Xavc4kIntraCbgProfileSettings = (
+  output: any,
+  context: __SerdeContext
+): Xavc4kIntraCbgProfileSettings => {
+  return {
+    XavcClass: __expectString(output.xavcClass),
+  } as any;
+};
+
+const deserializeAws_restJson1Xavc4kIntraVbrProfileSettings = (
+  output: any,
+  context: __SerdeContext
+): Xavc4kIntraVbrProfileSettings => {
+  return {
+    XavcClass: __expectString(output.xavcClass),
+  } as any;
+};
+
+const deserializeAws_restJson1Xavc4kProfileSettings = (output: any, context: __SerdeContext): Xavc4kProfileSettings => {
+  return {
+    BitrateClass: __expectString(output.bitrateClass),
+    CodecProfile: __expectString(output.codecProfile),
+    FlickerAdaptiveQuantization: __expectString(output.flickerAdaptiveQuantization),
+    GopBReference: __expectString(output.gopBReference),
+    GopClosedCadence: __expectNumber(output.gopClosedCadence),
+    HrdBufferSize: __expectNumber(output.hrdBufferSize),
+    QualityTuningLevel: __expectString(output.qualityTuningLevel),
+    Slices: __expectNumber(output.slices),
+  } as any;
+};
+
+const deserializeAws_restJson1XavcHdIntraCbgProfileSettings = (
+  output: any,
+  context: __SerdeContext
+): XavcHdIntraCbgProfileSettings => {
+  return {
+    XavcClass: __expectString(output.xavcClass),
+  } as any;
+};
+
+const deserializeAws_restJson1XavcHdProfileSettings = (output: any, context: __SerdeContext): XavcHdProfileSettings => {
+  return {
+    BitrateClass: __expectString(output.bitrateClass),
+    FlickerAdaptiveQuantization: __expectString(output.flickerAdaptiveQuantization),
+    GopBReference: __expectString(output.gopBReference),
+    GopClosedCadence: __expectNumber(output.gopClosedCadence),
+    HrdBufferSize: __expectNumber(output.hrdBufferSize),
+    InterlaceMode: __expectString(output.interlaceMode),
+    QualityTuningLevel: __expectString(output.qualityTuningLevel),
+    Slices: __expectNumber(output.slices),
+    Telecine: __expectString(output.telecine),
+  } as any;
+};
+
+const deserializeAws_restJson1XavcSettings = (output: any, context: __SerdeContext): XavcSettings => {
+  return {
+    AdaptiveQuantization: __expectString(output.adaptiveQuantization),
+    EntropyEncoding: __expectString(output.entropyEncoding),
+    FramerateControl: __expectString(output.framerateControl),
+    FramerateConversionAlgorithm: __expectString(output.framerateConversionAlgorithm),
+    FramerateDenominator: __expectNumber(output.framerateDenominator),
+    FramerateNumerator: __expectNumber(output.framerateNumerator),
+    Profile: __expectString(output.profile),
+    SlowPal: __expectString(output.slowPal),
+    Softness: __expectNumber(output.softness),
+    SpatialAdaptiveQuantization: __expectString(output.spatialAdaptiveQuantization),
+    TemporalAdaptiveQuantization: __expectString(output.temporalAdaptiveQuantization),
+    Xavc4kIntraCbgProfileSettings:
+      output.xavc4kIntraCbgProfileSettings !== undefined && output.xavc4kIntraCbgProfileSettings !== null
+        ? deserializeAws_restJson1Xavc4kIntraCbgProfileSettings(output.xavc4kIntraCbgProfileSettings, context)
+        : undefined,
+    Xavc4kIntraVbrProfileSettings:
+      output.xavc4kIntraVbrProfileSettings !== undefined && output.xavc4kIntraVbrProfileSettings !== null
+        ? deserializeAws_restJson1Xavc4kIntraVbrProfileSettings(output.xavc4kIntraVbrProfileSettings, context)
+        : undefined,
+    Xavc4kProfileSettings:
+      output.xavc4kProfileSettings !== undefined && output.xavc4kProfileSettings !== null
+        ? deserializeAws_restJson1Xavc4kProfileSettings(output.xavc4kProfileSettings, context)
+        : undefined,
+    XavcHdIntraCbgProfileSettings:
+      output.xavcHdIntraCbgProfileSettings !== undefined && output.xavcHdIntraCbgProfileSettings !== null
+        ? deserializeAws_restJson1XavcHdIntraCbgProfileSettings(output.xavcHdIntraCbgProfileSettings, context)
+        : undefined,
+    XavcHdProfileSettings:
+      output.xavcHdProfileSettings !== undefined && output.xavcHdProfileSettings !== null
+        ? deserializeAws_restJson1XavcHdProfileSettings(output.xavcHdProfileSettings, context)
+        : undefined,
   } as any;
 };
 

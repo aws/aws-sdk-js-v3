@@ -7,6 +7,11 @@ import { CreateAnalysisCommandInput, CreateAnalysisCommandOutput } from "./comma
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import { CreateFolderCommandInput, CreateFolderCommandOutput } from "./commands/CreateFolderCommand";
+import {
+  CreateFolderMembershipCommandInput,
+  CreateFolderMembershipCommandOutput,
+} from "./commands/CreateFolderMembershipCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateGroupMembershipCommandInput,
@@ -33,6 +38,11 @@ import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "./comma
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "./commands/DeleteFolderCommand";
+import {
+  DeleteFolderMembershipCommandInput,
+  DeleteFolderMembershipCommandOutput,
+} from "./commands/DeleteFolderMembershipCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteGroupMembershipCommandInput,
@@ -83,6 +93,15 @@ import {
   DescribeDataSourcePermissionsCommandInput,
   DescribeDataSourcePermissionsCommandOutput,
 } from "./commands/DescribeDataSourcePermissionsCommand";
+import { DescribeFolderCommandInput, DescribeFolderCommandOutput } from "./commands/DescribeFolderCommand";
+import {
+  DescribeFolderPermissionsCommandInput,
+  DescribeFolderPermissionsCommandOutput,
+} from "./commands/DescribeFolderPermissionsCommand";
+import {
+  DescribeFolderResolvedPermissionsCommandInput,
+  DescribeFolderResolvedPermissionsCommandOutput,
+} from "./commands/DescribeFolderResolvedPermissionsCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand";
 import {
   DescribeIAMPolicyAssignmentCommandInput,
@@ -119,6 +138,8 @@ import {
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
 import { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "./commands/ListDataSetsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import { ListFolderMembersCommandInput, ListFolderMembersCommandOutput } from "./commands/ListFolderMembersCommand";
+import { ListFoldersCommandInput, ListFoldersCommandOutput } from "./commands/ListFoldersCommand";
 import {
   ListGroupMembershipsCommandInput,
   ListGroupMembershipsCommandOutput,
@@ -156,6 +177,7 @@ import { RegisterUserCommandInput, RegisterUserCommandOutput } from "./commands/
 import { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "./commands/RestoreAnalysisCommand";
 import { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "./commands/SearchAnalysesCommand";
 import { SearchDashboardsCommandInput, SearchDashboardsCommandOutput } from "./commands/SearchDashboardsCommand";
+import { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "./commands/SearchFoldersCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -190,6 +212,11 @@ import {
   UpdateDataSourcePermissionsCommandInput,
   UpdateDataSourcePermissionsCommandOutput,
 } from "./commands/UpdateDataSourcePermissionsCommand";
+import { UpdateFolderCommandInput, UpdateFolderCommandOutput } from "./commands/UpdateFolderCommand";
+import {
+  UpdateFolderPermissionsCommandInput,
+  UpdateFolderPermissionsCommandOutput,
+} from "./commands/UpdateFolderPermissionsCommand";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateIAMPolicyAssignmentCommandInput,
@@ -269,6 +296,8 @@ export type ServiceInputTypes =
   | CreateDashboardCommandInput
   | CreateDataSetCommandInput
   | CreateDataSourceCommandInput
+  | CreateFolderCommandInput
+  | CreateFolderMembershipCommandInput
   | CreateGroupCommandInput
   | CreateGroupMembershipCommandInput
   | CreateIAMPolicyAssignmentCommandInput
@@ -283,6 +312,8 @@ export type ServiceInputTypes =
   | DeleteDashboardCommandInput
   | DeleteDataSetCommandInput
   | DeleteDataSourceCommandInput
+  | DeleteFolderCommandInput
+  | DeleteFolderMembershipCommandInput
   | DeleteGroupCommandInput
   | DeleteGroupMembershipCommandInput
   | DeleteIAMPolicyAssignmentCommandInput
@@ -303,6 +334,9 @@ export type ServiceInputTypes =
   | DescribeDataSetPermissionsCommandInput
   | DescribeDataSourceCommandInput
   | DescribeDataSourcePermissionsCommandInput
+  | DescribeFolderCommandInput
+  | DescribeFolderPermissionsCommandInput
+  | DescribeFolderResolvedPermissionsCommandInput
   | DescribeGroupCommandInput
   | DescribeIAMPolicyAssignmentCommandInput
   | DescribeIngestionCommandInput
@@ -321,6 +355,8 @@ export type ServiceInputTypes =
   | ListDashboardsCommandInput
   | ListDataSetsCommandInput
   | ListDataSourcesCommandInput
+  | ListFolderMembersCommandInput
+  | ListFoldersCommandInput
   | ListGroupMembershipsCommandInput
   | ListGroupsCommandInput
   | ListIAMPolicyAssignmentsCommandInput
@@ -340,6 +376,7 @@ export type ServiceInputTypes =
   | RestoreAnalysisCommandInput
   | SearchAnalysesCommandInput
   | SearchDashboardsCommandInput
+  | SearchFoldersCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccountCustomizationCommandInput
@@ -353,6 +390,8 @@ export type ServiceInputTypes =
   | UpdateDataSetPermissionsCommandInput
   | UpdateDataSourceCommandInput
   | UpdateDataSourcePermissionsCommandInput
+  | UpdateFolderCommandInput
+  | UpdateFolderPermissionsCommandInput
   | UpdateGroupCommandInput
   | UpdateIAMPolicyAssignmentCommandInput
   | UpdateTemplateAliasCommandInput
@@ -370,6 +409,8 @@ export type ServiceOutputTypes =
   | CreateDashboardCommandOutput
   | CreateDataSetCommandOutput
   | CreateDataSourceCommandOutput
+  | CreateFolderCommandOutput
+  | CreateFolderMembershipCommandOutput
   | CreateGroupCommandOutput
   | CreateGroupMembershipCommandOutput
   | CreateIAMPolicyAssignmentCommandOutput
@@ -384,6 +425,8 @@ export type ServiceOutputTypes =
   | DeleteDashboardCommandOutput
   | DeleteDataSetCommandOutput
   | DeleteDataSourceCommandOutput
+  | DeleteFolderCommandOutput
+  | DeleteFolderMembershipCommandOutput
   | DeleteGroupCommandOutput
   | DeleteGroupMembershipCommandOutput
   | DeleteIAMPolicyAssignmentCommandOutput
@@ -404,6 +447,9 @@ export type ServiceOutputTypes =
   | DescribeDataSetPermissionsCommandOutput
   | DescribeDataSourceCommandOutput
   | DescribeDataSourcePermissionsCommandOutput
+  | DescribeFolderCommandOutput
+  | DescribeFolderPermissionsCommandOutput
+  | DescribeFolderResolvedPermissionsCommandOutput
   | DescribeGroupCommandOutput
   | DescribeIAMPolicyAssignmentCommandOutput
   | DescribeIngestionCommandOutput
@@ -422,6 +468,8 @@ export type ServiceOutputTypes =
   | ListDashboardsCommandOutput
   | ListDataSetsCommandOutput
   | ListDataSourcesCommandOutput
+  | ListFolderMembersCommandOutput
+  | ListFoldersCommandOutput
   | ListGroupMembershipsCommandOutput
   | ListGroupsCommandOutput
   | ListIAMPolicyAssignmentsCommandOutput
@@ -441,6 +489,7 @@ export type ServiceOutputTypes =
   | RestoreAnalysisCommandOutput
   | SearchAnalysesCommandOutput
   | SearchDashboardsCommandOutput
+  | SearchFoldersCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccountCustomizationCommandOutput
@@ -454,6 +503,8 @@ export type ServiceOutputTypes =
   | UpdateDataSetPermissionsCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateDataSourcePermissionsCommandOutput
+  | UpdateFolderCommandOutput
+  | UpdateFolderPermissionsCommandOutput
   | UpdateGroupCommandOutput
   | UpdateIAMPolicyAssignmentCommandOutput
   | UpdateTemplateAliasCommandOutput

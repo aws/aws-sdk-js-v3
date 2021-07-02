@@ -21,7 +21,7 @@ export interface ListProjectsCommandInput extends ListProjectsInput {}
 export interface ListProjectsCommandOutput extends ListProjectsOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the projects in an AWS account.</p>
+ * <p>Gets a list of the projects in an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

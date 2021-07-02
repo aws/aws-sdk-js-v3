@@ -21,7 +21,7 @@ export interface GetBackendAuthCommandInput extends GetBackendAuthRequest {}
 export interface GetBackendAuthCommandOutput extends GetBackendAuthResponse, __MetadataBearer {}
 
 /**
- * <p>Gets backend auth details.</p>
+ * <p>Gets a backend auth details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

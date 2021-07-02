@@ -23,8 +23,8 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Adds metadata tags to an Amazon DocumentDB resource. You can use these tags
  *             with cost allocation reporting to track costs that are associated
- *             with Amazon DocumentDB resources. or in a <code>Condition</code> statement in
- *             an AWS Identity and Access Management (IAM) policy for Amazon DocumentDB.</p>
+ *             with Amazon DocumentDB resources or in a <code>Condition</code> statement in
+ *             an Identity and Access Management (IAM) policy for Amazon DocumentDB.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

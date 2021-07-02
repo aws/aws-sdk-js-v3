@@ -369,12 +369,20 @@ export enum Eac3AtmosBitstreamMode {
 }
 
 export enum Eac3AtmosCodingMode {
+  CODING_MODE_5_1_4 = "CODING_MODE_5_1_4",
+  CODING_MODE_7_1_4 = "CODING_MODE_7_1_4",
   CODING_MODE_9_1_6 = "CODING_MODE_9_1_6",
+  CODING_MODE_AUTO = "CODING_MODE_AUTO",
 }
 
 export enum Eac3AtmosDialogueIntelligence {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
+}
+
+export enum Eac3AtmosDownmixControl {
+  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
+  SPECIFIED = "SPECIFIED",
 }
 
 export enum Eac3AtmosDynamicRangeCompressionLine {
@@ -393,6 +401,11 @@ export enum Eac3AtmosDynamicRangeCompressionRf {
   MUSIC_STANDARD = "MUSIC_STANDARD",
   NONE = "NONE",
   SPEECH = "SPEECH",
+}
+
+export enum Eac3AtmosDynamicRangeControl {
+  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
+  SPECIFIED = "SPECIFIED",
 }
 
 export enum Eac3AtmosMeteringMode {
@@ -421,8 +434,7 @@ export enum Eac3AtmosSurroundExMode {
  */
 export interface Eac3AtmosSettings {
   /**
-   * Specify the average bitrate in bits per second.
-   * Valid values: 384k, 448k, 640k, 768k
+   * Specify the average bitrate for this output in bits per second. Valid values: 384k, 448k, 576k, 640k, 768k, 1024k Default value: 448k Note that MediaConvert supports 384k only with channel-based immersive (CBI) 7.1.4 and 5.1.4 inputs. For CBI 9.1.6 and other input types, MediaConvert automatically increases your output bitrate to 448k.
    */
   Bitrate?: number;
 
@@ -432,7 +444,7 @@ export interface Eac3AtmosSettings {
   BitstreamMode?: Eac3AtmosBitstreamMode | string;
 
   /**
-   * The coding mode for Dolby Digital Plus JOC (Atmos) is always 9.1.6 (CODING_MODE_9_1_6).
+   * The coding mode for Dolby Digital Plus JOC (Atmos).
    */
   CodingMode?: Eac3AtmosCodingMode | string;
 
@@ -442,35 +454,42 @@ export interface Eac3AtmosSettings {
   DialogueIntelligence?: Eac3AtmosDialogueIntelligence | string;
 
   /**
-   * Specify the absolute peak level for a signal with dynamic range compression.
+   * Specify whether MediaConvert should use any downmix metadata from your input file. Keep the default value, Custom (SPECIFIED) to provide downmix values in your job settings. Choose Follow source (INITIALIZE_FROM_SOURCE) to use the metadata from your input. Related settings--Use these settings to specify your downmix values: Left only/Right only surround (LoRoSurroundMixLevel), Left total/Right total surround (LtRtSurroundMixLevel), Left total/Right total center (LtRtCenterMixLevel), Left only/Right only center (LoRoCenterMixLevel),  and Stereo downmix (StereoDownmix). When you keep Custom (SPECIFIED) for Downmix control (DownmixControl) and you don't specify values for the related settings, MediaConvert uses default values for those settings.
+   */
+  DownmixControl?: Eac3AtmosDownmixControl | string;
+
+  /**
+   * Choose the Dolby dynamic range control (DRC) profile that MediaConvert uses when encoding the metadata in the Dolby stream for the line operating mode. Default value: Film light (ATMOS_STORAGE_DDP_COMPR_FILM_LIGHT) Related setting: To have MediaConvert use the value you specify here, keep the default value, Custom (SPECIFIED) for the setting Dynamic range control (DynamicRangeControl). Otherwise, MediaConvert ignores Dynamic range compression line (DynamicRangeCompressionLine). For information about the Dolby DRC operating modes and profiles, see the Dynamic Range Control chapter of the Dolby Metadata Guide at https://developer.dolby.com/globalassets/professional/documents/dolby-metadata-guide.pdf.
    */
   DynamicRangeCompressionLine?: Eac3AtmosDynamicRangeCompressionLine | string;
 
   /**
-   * Specify how the service limits the audio dynamic range when compressing the audio.
+   * Choose the Dolby dynamic range control (DRC) profile that MediaConvert uses when encoding the metadata in the Dolby stream for the RF operating mode. Default value: Film light (ATMOS_STORAGE_DDP_COMPR_FILM_LIGHT) Related setting: To have MediaConvert use the value you specify here, keep the default value, Custom (SPECIFIED) for the setting Dynamic range control (DynamicRangeControl). Otherwise, MediaConvert ignores Dynamic range compression RF (DynamicRangeCompressionRf). For information about the Dolby DRC operating modes and profiles, see the Dynamic Range Control chapter of the Dolby Metadata Guide at https://developer.dolby.com/globalassets/professional/documents/dolby-metadata-guide.pdf.
    */
   DynamicRangeCompressionRf?: Eac3AtmosDynamicRangeCompressionRf | string;
 
   /**
-   * Specify a value for the following Dolby Atmos setting: Left only/Right only center mix
-   * (Lo/Ro center). MediaConvert uses this value for downmixing. How the service uses this
-   * value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix).
-   * Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, and -6.0.
+   * Specify whether MediaConvert should use any dynamic range control metadata from your input file. Keep the default value, Custom (SPECIFIED), to provide dynamic range control values in your job settings. Choose Follow source (INITIALIZE_FROM_SOURCE) to use the metadata from your input. Related settings--Use these settings to specify your dynamic range control values: Dynamic range compression line (DynamicRangeCompressionLine) and Dynamic range compression RF (DynamicRangeCompressionRf). When you keep the value Custom (SPECIFIED) for Dynamic range control (DynamicRangeControl) and you don't specify values for the related settings, MediaConvert uses default values for those settings.
+   */
+  DynamicRangeControl?: Eac3AtmosDynamicRangeControl | string;
+
+  /**
+   * Specify a value for the following Dolby Atmos setting: Left only/Right only center mix (Lo/Ro center). MediaConvert uses this value for downmixing. Default value: -3 dB (ATMOS_STORAGE_DDP_MIXLEV_MINUS_3_DB). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, and -6.0. Related setting: How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Related setting: To have MediaConvert use this value, keep the default value, Custom (SPECIFIED) for the setting Downmix control (DownmixControl). Otherwise, MediaConvert ignores Left only/Right only center (LoRoCenterMixLevel).
    */
   LoRoCenterMixLevel?: number;
 
   /**
-   * Specify a value for the following Dolby Atmos setting: Left only/Right only (Lo/Ro surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel.
+   * Specify a value for the following Dolby Atmos setting: Left only/Right only (Lo/Ro surround). MediaConvert uses this value for downmixing. Default value: -3 dB (ATMOS_STORAGE_DDP_MIXLEV_MINUS_3_DB). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. Related setting: How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Related setting: To have MediaConvert use this value, keep the default value, Custom (SPECIFIED) for the setting Downmix control (DownmixControl). Otherwise, MediaConvert ignores Left only/Right only surround (LoRoSurroundMixLevel).
    */
   LoRoSurroundMixLevel?: number;
 
   /**
-   * Specify a value for the following Dolby Atmos setting: Left total/Right total center mix (Lt/Rt center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, and -6.0.
+   * Specify a value for the following Dolby Atmos setting: Left total/Right total center mix (Lt/Rt center). MediaConvert uses this value for downmixing. Default value: -3 dB (ATMOS_STORAGE_DDP_MIXLEV_MINUS_3_DB) Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, and -6.0. Related setting: How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Related setting: To have MediaConvert use this value, keep the default value, Custom (SPECIFIED) for the setting Downmix control (DownmixControl). Otherwise, MediaConvert ignores Left total/Right total center (LtRtCenterMixLevel).
    */
   LtRtCenterMixLevel?: number;
 
   /**
-   * Specify a value for the following Dolby Atmos setting: Left total/Right total surround mix (Lt/Rt surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel.
+   * Specify a value for the following Dolby Atmos setting: Left total/Right total surround mix (Lt/Rt surround). MediaConvert uses this value for downmixing. Default value: -3 dB (ATMOS_STORAGE_DDP_MIXLEV_MINUS_3_DB) Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. Related setting: How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Related setting: To have MediaConvert use this value, keep the default value, Custom (SPECIFIED) for the setting Downmix control (DownmixControl). Otherwise, the service ignores Left total/Right total surround (LtRtSurroundMixLevel).
    */
   LtRtSurroundMixLevel?: number;
 
@@ -485,12 +504,12 @@ export interface Eac3AtmosSettings {
   SampleRate?: number;
 
   /**
-   * Specify the percentage of audio content that must be speech before the encoder uses the measured speech loudness as the overall program loudness.
+   * Specify the percentage of audio content, from 0% to 100%, that must be speech in order for the encoder to use the measured speech loudness as the overall program loudness. Default value: 15%
    */
   SpeechThreshold?: number;
 
   /**
-   * Choose how the service does stereo downmixing.
+   * Choose how the service does stereo downmixing. Default value: Not indicated (ATMOS_STORAGE_DDP_DMIXMOD_NOT_INDICATED) Related setting: To have MediaConvert use this value, keep the default value, Custom (SPECIFIED) for the setting Downmix control (DownmixControl). Otherwise, MediaConvert ignores Stereo downmix (StereoDownmix).
    */
   StereoDownmix?: Eac3AtmosStereoDownmix | string;
 
@@ -2135,7 +2154,37 @@ export enum AudioDefaultSelection {
   NOT_DEFAULT = "NOT_DEFAULT",
 }
 
+/**
+ * Settings specific to audio sources in an HLS alternate rendition group. Specify the properties (renditionGroupId, renditionName or renditionLanguageCode) to identify the unique audio track among the alternative rendition groups present in the HLS manifest. If no unique track is found, or multiple tracks match the properties provided, the job fails. If no properties in hlsRenditionGroupSettings are specified, the default audio track within the video segment is chosen. If there is no audio within video segment, the alternative audio with DEFAULT=YES is chosen instead.
+ */
+export interface HlsRenditionGroupSettings {
+  /**
+   * Optional. Specify alternative group ID
+   */
+  RenditionGroupId?: string;
+
+  /**
+   * Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
+   */
+  RenditionLanguageCode?: LanguageCode | string;
+
+  /**
+   * Optional. Specify media name
+   */
+  RenditionName?: string;
+}
+
+export namespace HlsRenditionGroupSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HlsRenditionGroupSettings): any => ({
+    ...obj,
+  });
+}
+
 export enum AudioSelectorType {
+  HLS_RENDITION_GROUP = "HLS_RENDITION_GROUP",
   LANGUAGE_CODE = "LANGUAGE_CODE",
   PID = "PID",
   TRACK = "TRACK",
@@ -2159,6 +2208,11 @@ export interface AudioSelector {
    * Specifies audio data from an external file source.
    */
   ExternalAudioFileInput?: string;
+
+  /**
+   * Settings specific to audio sources in an HLS alternate rendition group. Specify the properties (renditionGroupId, renditionName or renditionLanguageCode) to identify the unique audio track among the alternative rendition groups present in the HLS manifest. If no unique track is found, or multiple tracks match the properties provided, the job fails. If no properties in hlsRenditionGroupSettings are specified, the default audio track within the video segment is chosen. If there is no audio within video segment, the alternative audio with DEFAULT=YES is chosen instead.
+   */
+  HlsRenditionGroupSettings?: HlsRenditionGroupSettings;
 
   /**
    * Selects a specific language code from within an audio source.
@@ -2351,7 +2405,7 @@ export interface FileSourceSettings {
   Framerate?: CaptionSourceFramerate;
 
   /**
-   * External caption file used for loading captions. Accepted file extensions are 'scc', 'ttml', 'dfxp', 'stl', 'srt', 'xml', 'smi', and 'vtt'.
+   * External caption file used for loading captions. Accepted file extensions are 'scc', 'ttml', 'dfxp', 'stl', 'srt', 'xml', 'smi', 'webvtt', and 'vtt'.
    */
   SourceFile?: string;
 
@@ -2426,6 +2480,35 @@ export namespace TrackSourceSettings {
 }
 
 /**
+ * Settings specific to WebVTT sources in HLS alternative rendition group. Specify the properties (renditionGroupId, renditionName or renditionLanguageCode) to identify the unique subtitle track among the alternative rendition groups present in the HLS manifest. If no unique track is found, or multiple tracks match the specified properties, the job fails. If there is only one subtitle track in the rendition group, the settings can be left empty and the default subtitle track will be chosen. If your caption source is a sidecar file, use FileSourceSettings instead of WebvttHlsSourceSettings.
+ */
+export interface WebvttHlsSourceSettings {
+  /**
+   * Optional. Specify alternative group ID
+   */
+  RenditionGroupId?: string;
+
+  /**
+   * Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
+   */
+  RenditionLanguageCode?: LanguageCode | string;
+
+  /**
+   * Optional. Specify media name
+   */
+  RenditionName?: string;
+}
+
+export namespace WebvttHlsSourceSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WebvttHlsSourceSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
  * If your input captions are SCC, TTML, STL, SMI, SRT, or IMSC in an xml file, specify the URI of the input captions source file. If your input captions are IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
  */
 export interface CaptionSourceSettings {
@@ -2463,6 +2546,11 @@ export interface CaptionSourceSettings {
    * Settings specific to caption sources that are specified by track number. Currently, this is only IMSC captions in an IMF package. If your caption source is IMSC 1.1 in a separate xml file, use FileSourceSettings instead of TrackSourceSettings.
    */
   TrackSourceSettings?: TrackSourceSettings;
+
+  /**
+   * Settings specific to WebVTT sources in HLS alternative rendition group. Specify the properties (renditionGroupId, renditionName or renditionLanguageCode) to identify the unique subtitle track among the alternative rendition groups present in the HLS manifest. If no unique track is found, or multiple tracks match the specified properties, the job fails. If there is only one subtitle track in the rendition group, the settings can be left empty and the default subtitle track will be chosen. If your caption source is a sidecar file, use FileSourceSettings instead of WebvttHlsSourceSettings.
+   */
+  WebvttHlsSourceSettings?: WebvttHlsSourceSettings;
 }
 
 export namespace CaptionSourceSettings {
@@ -3923,6 +4011,12 @@ export namespace CmafEncryptionSettings {
   });
 }
 
+export enum CmafImageBasedTrickPlay {
+  NONE = "NONE",
+  THUMBNAIL = "THUMBNAIL",
+  THUMBNAIL_AND_FULLFRAME = "THUMBNAIL_AND_FULLFRAME",
+}
+
 export enum CmafManifestCompression {
   GZIP = "GZIP",
   NONE = "NONE",
@@ -4011,6 +4105,11 @@ export interface CmafGroupSettings {
    * Length of fragments to generate (in seconds). Fragment length must be compatible with GOP size and Framerate. Note that fragments will end on the next keyframe after this number of seconds, so actual fragment length may be longer. When Emit Single File is checked, the fragmentation is internal to a single output file and it does not cause the creation of many output files as in other output types.
    */
   FragmentLength?: number;
+
+  /**
+   * Specify whether MediaConvert generates images for trick play. Keep the default value, None (NONE), to not generate any images. Choose Thumbnail (THUMBNAIL) to generate tiled thumbnails. Choose Thumbnail and full frame (THUMBNAIL_AND_FULLFRAME) to generate tiled thumbnails and full-resolution images of single frames. When you enable Write HLS manifest (WriteHlsManifest), MediaConvert creates a child manifest for each set of images that you generate and adds corresponding entries to the parent manifest. When you enable Write DASH manifest (WriteDashManifest), MediaConvert adds an entry in the .mpd manifest for each set of images that you generate. A common application for these images is Roku trick mode. The thumbnails and full-frame images that MediaConvert creates with this feature are compatible with this Roku specification: https://developer.roku.com/docs/developer-program/media-playback/trick-mode/hls-and-dash.md
+   */
+  ImageBasedTrickPlay?: CmafImageBasedTrickPlay | string;
 
   /**
    * When set to GZIP, compresses HLS playlist.
@@ -4156,6 +4255,12 @@ export enum DashIsoHbbtvCompliance {
   NONE = "NONE",
 }
 
+export enum DashIsoImageBasedTrickPlay {
+  NONE = "NONE",
+  THUMBNAIL = "THUMBNAIL",
+  THUMBNAIL_AND_FULLFRAME = "THUMBNAIL_AND_FULLFRAME",
+}
+
 export enum DashIsoMpdProfile {
   MAIN_PROFILE = "MAIN_PROFILE",
   ON_DEMAND_PROFILE = "ON_DEMAND_PROFILE",
@@ -4219,6 +4324,11 @@ export interface DashIsoGroupSettings {
    * Supports HbbTV specification as indicated
    */
   HbbtvCompliance?: DashIsoHbbtvCompliance | string;
+
+  /**
+   * Specify whether MediaConvert generates images for trick play. Keep the default value, None (NONE), to not generate any images. Choose Thumbnail (THUMBNAIL) to generate tiled thumbnails. Choose Thumbnail and full frame (THUMBNAIL_AND_FULLFRAME) to generate tiled thumbnails and full-resolution images of single frames. MediaConvert adds an entry in the .mpd manifest for each set of images that you generate. A common application for these images is Roku trick mode. The thumbnails and full-frame images that MediaConvert creates with this feature are compatible with this Roku specification: https://developer.roku.com/docs/developer-program/media-playback/trick-mode/hls-and-dash.md
+   */
+  ImageBasedTrickPlay?: DashIsoImageBasedTrickPlay | string;
 
   /**
    * Minimum time of initially buffered media that is needed to ensure smooth playout.
@@ -4384,6 +4494,12 @@ export namespace HlsEncryptionSettings {
   });
 }
 
+export enum HlsImageBasedTrickPlay {
+  NONE = "NONE",
+  THUMBNAIL = "THUMBNAIL",
+  THUMBNAIL_AND_FULLFRAME = "THUMBNAIL_AND_FULLFRAME",
+}
+
 export enum HlsManifestCompression {
   GZIP = "GZIP",
   NONE = "NONE",
@@ -4483,6 +4599,11 @@ export interface HlsGroupSettings {
    * DRM settings.
    */
   Encryption?: HlsEncryptionSettings;
+
+  /**
+   * Specify whether MediaConvert generates images for trick play. Keep the default value, None (NONE), to not generate any images. Choose Thumbnail (THUMBNAIL) to generate tiled thumbnails. Choose Thumbnail and full frame (THUMBNAIL_AND_FULLFRAME) to generate tiled thumbnails and full-resolution images of single frames. MediaConvert creates a child manifest for each set of images that you generate and adds corresponding entries to the parent manifest. A common application for these images is Roku trick mode. The thumbnails and full-frame images that MediaConvert creates with this feature are compatible with this Roku specification: https://developer.roku.com/docs/developer-program/media-playback/trick-mode/hls-and-dash.md
+   */
+  ImageBasedTrickPlay?: HlsImageBasedTrickPlay | string;
 
   /**
    * When set to GZIP, compresses HLS playlist.
@@ -5541,7 +5662,37 @@ export enum MxfAfdSignaling {
 export enum MxfProfile {
   D_10 = "D_10",
   OP1A = "OP1A",
+  XAVC = "XAVC",
   XDCAM = "XDCAM",
+}
+
+export enum MxfXavcDurationMode {
+  ALLOW_ANY_DURATION = "ALLOW_ANY_DURATION",
+  DROP_FRAMES_FOR_COMPLIANCE = "DROP_FRAMES_FOR_COMPLIANCE",
+}
+
+/**
+ * Specify the XAVC profile settings for MXF outputs when you set your MXF profile to XAVC.
+ */
+export interface MxfXavcProfileSettings {
+  /**
+   * To create an output that complies with the XAVC file format guidelines for interoperability, keep the default value, Drop frames for compliance (DROP_FRAMES_FOR_COMPLIANCE). To include all frames from your input in this output, keep the default setting, Allow any duration (ALLOW_ANY_DURATION). The number of frames that MediaConvert excludes when you set this to Drop frames for compliance depends on the output frame rate and duration.
+   */
+  DurationMode?: MxfXavcDurationMode | string;
+
+  /**
+   * Specify a value for this setting only for outputs that you set up with one of these two XAVC profiles: XAVC HD Intra CBG (XAVC_HD_INTRA_CBG) or XAVC 4K Intra CBG (XAVC_4K_INTRA_CBG). Specify the amount of space in each frame that the service reserves for ancillary data, such as teletext captions. The default value for this setting is 1492 bytes per frame. This should be sufficient to prevent overflow unless you have multiple pages of teletext captions data. If you have a large amount of teletext data, specify a larger number.
+   */
+  MaxAncDataSize?: number;
+}
+
+export namespace MxfXavcProfileSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MxfXavcProfileSettings): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -5557,6 +5708,11 @@ export interface MxfSettings {
    * Specify the MXF profile, also called shim, for this output. When you choose Auto, MediaConvert chooses a profile based on the video codec and resolution. For a list of codecs supported with each MXF profile, see https://docs.aws.amazon.com/mediaconvert/latest/ug/codecs-supported-with-each-mxf-profile.html. For more information about the automatic selection behavior, see https://docs.aws.amazon.com/mediaconvert/latest/ug/default-automatic-selection-of-mxf-profiles.html.
    */
   Profile?: MxfProfile | string;
+
+  /**
+   * Specify the XAVC profile settings for MXF outputs when you set your MXF profile to XAVC.
+   */
+  XavcProfileSettings?: MxfXavcProfileSettings;
 }
 
 export namespace MxfSettings {
@@ -5696,87 +5852,4 @@ export namespace HlsSettings {
   export const filterSensitiveLog = (obj: HlsSettings): any => ({
     ...obj,
   });
-}
-
-/**
- * Specific settings for this type of output.
- */
-export interface OutputSettings {
-  /**
-   * Settings for HLS output groups
-   */
-  HlsSettings?: HlsSettings;
-}
-
-export namespace OutputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputSettings): any => ({
-    ...obj,
-  });
-}
-
-export enum AfdSignaling {
-  AUTO = "AUTO",
-  FIXED = "FIXED",
-  NONE = "NONE",
-}
-
-export enum AntiAlias {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum Av1AdaptiveQuantization {
-  HIGH = "HIGH",
-  HIGHER = "HIGHER",
-  LOW = "LOW",
-  MAX = "MAX",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
-
-export enum Av1FramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum Av1FramerateConversionAlgorithm {
-  DUPLICATE_DROP = "DUPLICATE_DROP",
-  FRAMEFORMER = "FRAMEFORMER",
-  INTERPOLATE = "INTERPOLATE",
-}
-
-/**
- * Settings for quality-defined variable bitrate encoding with the AV1 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
- */
-export interface Av1QvbrSettings {
-  /**
-   * Required when you use QVBR rate control mode. That is, when you specify qvbrSettings within av1Settings. Specify the general target quality level for this output, from 1 to 10. Use higher numbers for greater quality. Level 10 results in nearly lossless compression. The quality level for most broadcast-quality transcodes is between 6 and 9. Optionally, to specify a value between whole numbers, also provide a value for the setting qvbrQualityLevelFineTune. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33.
-   */
-  QvbrQualityLevel?: number;
-
-  /**
-   * Optional. Specify a value here to set the QVBR quality to a level that is between whole numbers. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality level to the nearest third of a whole number. For example, if you set qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your actual QVBR quality level is 7.33.
-   */
-  QvbrQualityLevelFineTune?: number;
-}
-
-export namespace Av1QvbrSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Av1QvbrSettings): any => ({
-    ...obj,
-  });
-}
-
-export enum Av1RateControlMode {
-  QVBR = "QVBR",
-}
-
-export enum Av1SpatialAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
 }

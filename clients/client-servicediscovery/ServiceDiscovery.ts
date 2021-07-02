@@ -93,10 +93,25 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateHttpNamespaceCommand,
+  UpdateHttpNamespaceCommandInput,
+  UpdateHttpNamespaceCommandOutput,
+} from "./commands/UpdateHttpNamespaceCommand";
+import {
   UpdateInstanceCustomHealthStatusCommand,
   UpdateInstanceCustomHealthStatusCommandInput,
   UpdateInstanceCustomHealthStatusCommandOutput,
 } from "./commands/UpdateInstanceCustomHealthStatusCommand";
+import {
+  UpdatePrivateDnsNamespaceCommand,
+  UpdatePrivateDnsNamespaceCommandInput,
+  UpdatePrivateDnsNamespaceCommandOutput,
+} from "./commands/UpdatePrivateDnsNamespaceCommand";
+import {
+  UpdatePublicDnsNamespaceCommand,
+  UpdatePublicDnsNamespaceCommandInput,
+  UpdatePublicDnsNamespaceCommandOutput,
+} from "./commands/UpdatePublicDnsNamespaceCommand";
 import {
   UpdateServiceCommand,
   UpdateServiceCommandInput,
@@ -105,9 +120,10 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>With AWS Cloud Map, you can configure public DNS, private DNS, or HTTP namespaces that your microservice
- *    applications run in. When an instance becomes available, you can call the AWS Cloud Map API to register the instance
- *    with AWS Cloud Map. For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional
+ * <fullname>Cloud Map</fullname>
+ *          <p>With Cloud Map, you can configure public DNS, private DNS, or HTTP namespaces that your microservice
+ *    applications run in. When an instance becomes available, you can call the Cloud Map API to register the instance
+ *    with Cloud Map. For public or private DNS namespaces, Cloud Map automatically creates DNS records and an optional
  *    health check. Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer
  *    that contains up to eight healthy records. </p>
  */
@@ -115,8 +131,9 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   /**
    * <p>Creates an HTTP namespace. Service instances registered using an HTTP namespace can be discovered using a
    *     <code>DiscoverInstances</code> request but can't be discovered using DNS.</p>
-   *          <p>For the current quota on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map quotas</a> in the
-   *     <i>AWS Cloud Map Developer Guide</i>.</p>
+   *          <p>For the current quota on the number of namespaces that you can create using the same account,
+   *    see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
+   *     <i>Cloud Map Developer Guide</i>.</p>
    */
   public createHttpNamespace(
     args: CreateHttpNamespaceCommandInput,
@@ -153,7 +170,8 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    *    service <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. Service
    *    instances that are registered using a private DNS namespace can be discovered using either a
    *     <code>DiscoverInstances</code> request or using DNS. For the current quota on the number of namespaces that you can
-   *    create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
+   *    create using the same account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
+   *     <i>Cloud Map Developer Guide</i>.</p>
    */
   public createPrivateDnsNamespace(
     args: CreatePrivateDnsNamespaceCommandInput,
@@ -189,9 +207,8 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    *    naming scheme. For example, if you name your namespace <code>example.com</code> and name your service
    *     <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. You can discover
    *    instances that were registered with a public DNS namespace by using either a <code>DiscoverInstances</code> request
-   *    or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account, see
-   *     <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Quotas</a>in the
-   *     <i>AWS Cloud Map Developer Guide</i>.</p>
+   *    or using DNS. For the current quota on the number of namespaces that you can create using the same account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map
+   *     quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
    */
   public createPublicDnsNamespace(
     args: CreatePublicDnsNamespaceCommandInput,
@@ -226,7 +243,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    * <p>Creates a service. This action defines the configuration for the following entities:</p>
    *          <ul>
    *             <li>
-   *                <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:</p>
+   *                <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:</p>
    *                <ul>
    *                   <li>
    *                      <p>
@@ -259,11 +276,11 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    *                <p>Optionally, a health check</p>
    *             </li>
    *          </ul>
-   *          <p>After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request, and AWS Cloud Map uses the
+   *          <p>After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request, and Cloud Map uses the
    *    values in the configuration to create the specified entities.</p>
    *          <p>For the current quota on the number of instances that you can register using the same namespace and using the
-   *    same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map
-   *     Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
+   *    same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map
+   *     quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
    */
   public createService(
     args: CreateServiceCommandInput,
@@ -361,7 +378,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified
+   * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map created for the specified
    *    instance.</p>
    */
   public deregisterInstance(
@@ -611,7 +628,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   * <p>Lists summary information about the namespaces that were created by the current AWS account.</p>
+   * <p>Lists summary information about the namespaces that were created by the current account.</p>
    */
   public listNamespaces(
     args: ListNamespacesCommandInput,
@@ -756,7 +773,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    *     same service ID and instance ID.</p>
    *          </important>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html">CreateService</a>.</p>
-   *          <p>When AWS Cloud Map receives a DNS query for the specified DNS name, it returns the applicable value:</p>
+   *          <p>When Cloud Map receives a DNS query for the specified DNS name, it returns the applicable value:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -774,8 +791,8 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    *             </li>
    *          </ul>
    *          <p>For the current quota on the number of instances that you can register using the same namespace and using the
-   *    same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map
-   *     Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
+   *    same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map
+   *     quotas</a> in the <i>Cloud Map Developer Guide</i>.</p>
    */
   public registerInstance(
     args: RegisterInstanceCommandInput,
@@ -865,10 +882,43 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
+   * <p>Updates an HTTP
+   *    namespace.</p>
+   */
+  public updateHttpNamespace(
+    args: UpdateHttpNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHttpNamespaceCommandOutput>;
+  public updateHttpNamespace(
+    args: UpdateHttpNamespaceCommandInput,
+    cb: (err: any, data?: UpdateHttpNamespaceCommandOutput) => void
+  ): void;
+  public updateHttpNamespace(
+    args: UpdateHttpNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHttpNamespaceCommandOutput) => void
+  ): void;
+  public updateHttpNamespace(
+    args: UpdateHttpNamespaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateHttpNamespaceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateHttpNamespaceCommandOutput) => void
+  ): Promise<UpdateHttpNamespaceCommandOutput> | void {
+    const command = new UpdateHttpNamespaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Submits a request to change the health status of a custom health check to healthy or unhealthy.</p>
    *          <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for custom health checks,
    *    which you define using <code>HealthCheckCustomConfig</code> when you create a service. You can't use it to change the
-   *    status for Route 53 health checks, which you define using <code>HealthCheckConfig</code>.</p>
+   *    status for Route 53 health checks, which you define using <code>HealthCheckConfig</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html">HealthCheckCustomConfig</a>.</p>
    */
   public updateInstanceCustomHealthStatus(
@@ -890,6 +940,72 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
     cb?: (err: any, data?: UpdateInstanceCustomHealthStatusCommandOutput) => void
   ): Promise<UpdateInstanceCustomHealthStatusCommandOutput> | void {
     const command = new UpdateInstanceCustomHealthStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a private DNS
+   *    namespace.</p>
+   */
+  public updatePrivateDnsNamespace(
+    args: UpdatePrivateDnsNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePrivateDnsNamespaceCommandOutput>;
+  public updatePrivateDnsNamespace(
+    args: UpdatePrivateDnsNamespaceCommandInput,
+    cb: (err: any, data?: UpdatePrivateDnsNamespaceCommandOutput) => void
+  ): void;
+  public updatePrivateDnsNamespace(
+    args: UpdatePrivateDnsNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePrivateDnsNamespaceCommandOutput) => void
+  ): void;
+  public updatePrivateDnsNamespace(
+    args: UpdatePrivateDnsNamespaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePrivateDnsNamespaceCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePrivateDnsNamespaceCommandOutput) => void
+  ): Promise<UpdatePrivateDnsNamespaceCommandOutput> | void {
+    const command = new UpdatePrivateDnsNamespaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a public DNS
+   *    namespace.</p>
+   */
+  public updatePublicDnsNamespace(
+    args: UpdatePublicDnsNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePublicDnsNamespaceCommandOutput>;
+  public updatePublicDnsNamespace(
+    args: UpdatePublicDnsNamespaceCommandInput,
+    cb: (err: any, data?: UpdatePublicDnsNamespaceCommandOutput) => void
+  ): void;
+  public updatePublicDnsNamespace(
+    args: UpdatePublicDnsNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePublicDnsNamespaceCommandOutput) => void
+  ): void;
+  public updatePublicDnsNamespace(
+    args: UpdatePublicDnsNamespaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePublicDnsNamespaceCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePublicDnsNamespaceCommandOutput) => void
+  ): Promise<UpdatePublicDnsNamespaceCommandOutput> | void {
+    const command = new UpdatePublicDnsNamespaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -924,7 +1040,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    *      request, the configuration isn't deleted from the service.</p>
    *             </li>
    *          </ul>
-   *          <p>When you update settings for a service, AWS Cloud Map also updates the corresponding settings in all the records
+   *          <p>When you update settings for a service, Cloud Map also updates the corresponding settings in all the records
    *    and health checks that were created by using the specified service.</p>
    */
   public updateService(

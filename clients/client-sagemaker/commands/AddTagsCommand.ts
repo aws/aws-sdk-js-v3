@@ -23,7 +23,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *             jobs, models, labeling jobs, work teams, endpoint configurations, and
  *             endpoints.</p>
  *         <p>Each tag consists of a key and an optional value. Tag keys must be unique per
- *             resource. For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
+ *             resource. For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Amazon Web Services
  *                 Tagging Strategies</a>.</p>
  *         <note>
  *             <p>Tags that you add to a hyperparameter tuning job by calling this API are also

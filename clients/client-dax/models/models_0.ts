@@ -38,6 +38,11 @@ export namespace ClusterQuotaForCustomerExceededFault {
   });
 }
 
+export enum ClusterEndpointEncryptionType {
+  NONE = "NONE",
+  TLS = "TLS",
+}
+
 /**
  * <p>Represents the settings used to enable server-side encryption.</p>
  */
@@ -239,6 +244,21 @@ export interface CreateClusterRequest {
    * <p>Represents the settings used to enable server-side encryption on the cluster.</p>
    */
   SSESpecification?: SSESpecification;
+
+  /**
+   * <p>The type of encryption the cluster's endpoint should support. Values are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>NONE</code> for no encryption</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TLS</code> for Transport Layer Security</p>
+   *             </li>
+   *          </ul>
+   */
+  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType | string;
 }
 
 export namespace CreateClusterRequest {
@@ -252,8 +272,7 @@ export namespace CreateClusterRequest {
 
 /**
  * <p>Represents the information required for client programs to connect to the
- *             configuration endpoint for a DAX cluster, or to an individual node within the
- *             cluster.</p>
+ *             endpoint for a DAX cluster.</p>
  */
 export interface Endpoint {
   /**
@@ -265,6 +284,12 @@ export interface Endpoint {
    * <p>The port number that applications should use to connect to the endpoint.</p>
    */
   Port?: number;
+
+  /**
+   * <p>The URL that applications should use to connect to the endpoint. The default
+   *             ports are 8111 for the "dax" protocol and 9111 for the "daxs" protocol.</p>
+   */
+  URL?: string;
 }
 
 export namespace Endpoint {
@@ -336,7 +361,9 @@ export interface NotificationConfiguration {
   TopicArn?: string;
 
   /**
-   * <p>The current state of the topic.</p>
+   * <p>The current state of the topic. A value of “active” means that notifications will
+   *         be sent to the topic. A value of “inactive” means that notifications will not be sent to the
+   *         topic.</p>
    */
   TopicStatus?: string;
 }
@@ -485,10 +512,9 @@ export interface Cluster {
   Status?: string;
 
   /**
-   * <p>The configuration endpoint for this DAX cluster, consisting of a DNS name and a
-   *             port number. Client applications can specify this endpoint, rather than an individual
-   *             node endpoint, and allow the DAX client software to intelligently route requests and
-   *             responses to nodes in the DAX cluster.</p>
+   * <p>The endpoint for this DAX cluster, consisting of a DNS name, a port number,
+   *              and a URL. Applications should use the URL to configure the DAX client to find
+   *              their cluster.</p>
    */
   ClusterDiscoveryEndpoint?: Endpoint;
 
@@ -542,6 +568,19 @@ export interface Cluster {
    * <p>The description of the server-side encryption status on the specified DAX cluster.</p>
    */
   SSEDescription?: SSEDescription;
+
+  /**
+   * <p>The type of encryption supported by the cluster's endpoint. Values are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>NONE</code> for no encryption</p>
+   *                 <p>
+   *                   <code>TLS</code> for Transport Layer Security</p>
+   *             </li>
+   *          </ul>
+   */
+  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType | string;
 }
 
 export namespace Cluster {
@@ -749,6 +788,25 @@ export namespace ServiceLinkedRoleNotFoundFault {
    * @internal
    */
   export const filterSensitiveLog = (obj: ServiceLinkedRoleNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You have reached the maximum number of x509 certificates that can be created for
+ *             encrypted clusters in a 30 day period. Contact AWS customer support to discuss options
+ *             for continuing to create encrypted clusters.</p>
+ */
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
+  name: "ServiceQuotaExceededException";
+  $fault: "client";
+}
+
+export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
 }
@@ -2023,7 +2081,9 @@ export interface UpdateClusterRequest {
   NotificationTopicArn?: string;
 
   /**
-   * <p>The current state of the topic.</p>
+   * <p>The current state of the topic. A value of “active” means that notifications will
+   *         be sent to the topic. A value of “inactive” means that notifications will not be sent to the
+   *         topic.</p>
    */
   NotificationTopicStatus?: string;
 
@@ -2097,6 +2157,10 @@ export interface UpdateParameterGroupRequest {
   /**
    * <p>An array of name-value pairs for the parameters in the group. Each element in the
    *             array represents a single parameter.</p>
+   *             <note>
+   *             <p>
+   *                <code>record-ttl-millis</code> and <code>query-ttl-millis</code> are the only supported parameter names. For more details, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.cluster-management.html#DAX.cluster-management.custom-settings.ttl">Configuring TTL Settings</a>.</p>
+   *         </note>
    */
   ParameterNameValues: ParameterNameValue[] | undefined;
 }

@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { ListGroupMembershipsRequest, ListGroupMembershipsResponse } from "../models/models_0";
+import { ListGroupMembershipsRequest, ListGroupMembershipsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListGroupMembershipsCommand,
   serializeAws_restJson1ListGroupMembershipsCommand,

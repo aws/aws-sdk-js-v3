@@ -70,7 +70,7 @@ export interface CloneBackendResponse {
   BackendEnvironmentName?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -127,12 +127,12 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   /**
-   * <p>An error message to inform that the request failed.</p>
+   * <p>An error message to inform that the request has failed.</p>
    */
   Message?: string;
 
   /**
-   * <p>The type of resource that wasn't found.</p>
+   * <p>The type of resource that is not found.</p>
    */
   ResourceType?: string;
 }
@@ -147,7 +147,7 @@ export namespace NotFoundException {
 }
 
 /**
- * <p>An error that is returned when a limit of a specific type is exceeded.</p>
+ * <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  */
 export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
@@ -158,7 +158,7 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   LimitType?: string;
 
   /**
-   * <p>An error message to inform that the request failed.</p>
+   * <p>An error message to inform that the request has failed.</p>
    */
   Message?: string;
 }
@@ -206,7 +206,7 @@ export interface CreateBackendRequest {
   BackendEnvironmentName: string | undefined;
 
   /**
-   * <p>The resource configuration for the backend creation request.</p>
+   * <p>The resource configuration for the create backend request.</p>
    */
   ResourceConfig?: ResourceConfig;
 
@@ -237,7 +237,7 @@ export interface CreateBackendResponse {
   BackendEnvironmentName?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -278,17 +278,17 @@ export enum Mode {
  */
 export interface BackendAPIAppSyncAuthSettings {
   /**
-   * <p>The Amazon Cognito user pool ID, if Amazon Cognito is used as an authentication setting to access your data models.</p>
+   * <p>The Amazon Cognito user pool ID, if Amazon Cognito was used as an authentication setting to access your data models.</p>
    */
   CognitoUserPoolId?: string;
 
   /**
-   * <p>The API key description for API_KEY, if it is used as an authentication mechanism to access your data models.</p>
+   * <p>The API key description for API_KEY, if it was used as an authentication mechanism to access your data models.</p>
    */
   Description?: string;
 
   /**
-   * <p>The API key expiration time for API_KEY, if it is used as an authentication mechanism to access your data models.</p>
+   * <p>The API key expiration time for API_KEY, if it was used as an authentication mechanism to access your data models.</p>
    */
   ExpirationTime?: number;
 
@@ -298,7 +298,7 @@ export interface BackendAPIAppSyncAuthSettings {
   OpenIDAuthTTL?: string;
 
   /**
-   * <p>The clientID for openID, if openID is used as an authentication setting to access your data models.</p>
+   * <p>The clientID for openID, if openID was used as an authentication setting to access your data models.</p>
    */
   OpenIDClientId?: string;
 
@@ -308,12 +308,12 @@ export interface BackendAPIAppSyncAuthSettings {
   OpenIDIatTTL?: string;
 
   /**
-   * <p>The openID issuer URL, if openID is used as an authentication setting to access your data models.</p>
+   * <p>The openID issuer URL, if openID was used as an authentication setting to access your data models.</p>
    */
   OpenIDIssueURL?: string;
 
   /**
-   * <p>The openID provider name, if openID is used as an authentication mechanism to access your data models.</p>
+   * <p>The OpenID provider name, if OpenID was used as an authentication mechanism to access your data models.</p>
    */
   OpenIDProviderName?: string;
 }
@@ -359,7 +359,7 @@ export enum ResolutionStrategy {
 }
 
 /**
- * <p>Describes the conflict resolution configuration for the data model configured in your Amplify project.</p>
+ * <p>Describes the conflict resolution configuration for your data model configured in your Amplify project.</p>
  */
 export interface BackendAPIConflictResolution {
   /**
@@ -378,7 +378,7 @@ export namespace BackendAPIConflictResolution {
 }
 
 /**
- * <p>The resource configuration for the data model, configured as a part of the Amplify project.</p>
+ * <p>The resource config for the data model, configured as a part of the Amplify project.</p>
  */
 export interface BackendAPIResourceConfig {
   /**
@@ -387,7 +387,7 @@ export interface BackendAPIResourceConfig {
   AdditionalAuthTypes?: BackendAPIAuthType[];
 
   /**
-   * <p>The API name used to interact with the data model, configured as a part of the Amplify project.</p>
+   * <p>The API name used to interact with the data model, configured as a part of the amplify project.</p>
    */
   ApiName?: string;
 
@@ -467,7 +467,7 @@ export interface CreateBackendAPIResponse {
   BackendEnvironmentName?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -506,7 +506,7 @@ export enum AuthResources {
  */
 export interface CreateBackendAuthIdentityPoolConfig {
   /**
-   * <p>Name of the identity pool used for authorization.</p>
+   * <p>Name of the Amazon Cognito identity pool used for authorization.</p>
    */
   IdentityPoolName: string | undefined;
 
@@ -582,7 +582,7 @@ export namespace SmsSettings {
  */
 export interface CreateBackendAuthForgotPasswordConfig {
   /**
-   * <p>Describes which method to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>
+   * <p>Describes which mode to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>
    */
   DeliveryMethod: DeliveryMethod | string | undefined;
 
@@ -642,11 +642,11 @@ export namespace Settings {
 }
 
 /**
- * <p>Describes whether to apply multi-factor authentication (MFA) policies for your Amazon Cognito user pool that's configured as a part of your Amplify project.</p>
+ * <p>Describes whether multi-factor authentication policies should be applied for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
  */
 export interface CreateBackendAuthMFAConfig {
   /**
-   * <p>Describes whether MFA should be [ON, OFF, or OPTIONAL] for authentication in your Amplify project.</p>
+   * <p>Describes whether MFA should be [ON, OFF, OPTIONAL] for authentication in your Amplify project.</p>
    */
   MFAMode: MFAMode | string | undefined;
 
@@ -683,12 +683,12 @@ export enum OAuthScopesElement {
  */
 export interface BackendAuthSocialProviderConfig {
   /**
-   * <p>Describes the client_id that can be obtained from the third-party social federation provider.</p>
+   * <p>Describes the client_id which can be obtained from the third-party social federation provider.</p>
    */
   ClientId?: string;
 
   /**
-   * <p>Describes the client_secret that can be obtained from third-party social federation providers.</p>
+   * <p>Describes the client_secret which can be obtained from third-party social federation providers.</p>
    */
   ClientSecret?: string;
 }
@@ -746,7 +746,7 @@ export interface CreateBackendAuthOAuthConfig {
   OAuthGrantType: OAuthGrantType | string | undefined;
 
   /**
-   * <p>List of OAuth-related flows that allow your app users to authenticate from your Amplify app.</p>
+   * <p>List of OAuth-related flows used to allow your app users to authenticate from your Amplify app.</p>
    */
   OAuthScopes: (OAuthScopesElement | string)[] | undefined;
 
@@ -756,12 +756,12 @@ export interface CreateBackendAuthOAuthConfig {
   RedirectSignInURIs: string[] | undefined;
 
   /**
-   * <p>Redirect URLs that OAuth uses when a user signs out of an Amplify app.</p>
+   * <p>Redirect URLs used by OAuth when a user signs out of an Amplify app.</p>
    */
   RedirectSignOutURIs: string[] | undefined;
 
   /**
-   * <p>The settings for using social identity providers for access to your Amplify app.</p>
+   * <p>The settings for using social providers to access your Amplify app.</p>
    */
   SocialProviderSettings?: SocialProviderSettings;
 }
@@ -776,7 +776,7 @@ export namespace CreateBackendAuthOAuthConfig {
 }
 
 /**
- * <p>The password policy configuration for the backend of your Amplify project.</p>
+ * <p>The password policy configuration for the backend to your Amplify project.</p>
  */
 export interface CreateBackendAuthPasswordPolicyConfig {
   /**
@@ -836,7 +836,7 @@ export interface CreateBackendAuthUserPoolConfig {
   ForgotPassword?: CreateBackendAuthForgotPasswordConfig;
 
   /**
-   * <p>Describes whether to apply multi-factor authentication (MFA) policies for your Amazon Cognito user pool that's configured as a part of your Amplify project.</p>
+   * <p>Describes whether multi-factor authentication policies should be applied for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
    */
   Mfa?: CreateBackendAuthMFAConfig;
 
@@ -851,12 +851,12 @@ export interface CreateBackendAuthUserPoolConfig {
   PasswordPolicy?: CreateBackendAuthPasswordPolicyConfig;
 
   /**
-   * <p>The required attributes to sign up new users in the Amazon Cognito user pool.</p>
+   * <p>The required attributes to sign up new users in the user pool.</p>
    */
   RequiredSignUpAttributes: (RequiredSignUpAttributesElement | string)[] | undefined;
 
   /**
-   * <p>Describes the sign-in methods that your Amplify app users to log in using the Amazon Cognito user pool that's configured as a part of your Amplify project.</p>
+   * <p>Describes the sign-in methods that your Amplify app users use to log in using the Amazon Cognito user pool, configured as a part of your Amplify project.</p>
    */
   SignInMethod: SignInMethod | string | undefined;
 
@@ -885,7 +885,7 @@ export interface CreateBackendAuthResourceConfig {
   AuthResources: AuthResources | string | undefined;
 
   /**
-   * <p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of the auth resource in your Amplify project.</p>
+   * <p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of your auth resource in the Amplify project.</p>
    */
   IdentityPoolConfigs?: CreateBackendAuthIdentityPoolConfig;
 
@@ -895,7 +895,7 @@ export interface CreateBackendAuthResourceConfig {
   Service: Service | string | undefined;
 
   /**
-   * <p>Describes the authentication configuration for the Amazon Cognito user pool, provisioned as a part of the auth resource in your Amplify project.</p>
+   * <p>Describes authentication configuration for the Amazon Cognito user pool, provisioned as a part of your auth resource in the Amplify project.</p>
    */
   UserPoolConfigs: CreateBackendAuthUserPoolConfig | undefined;
 }
@@ -955,7 +955,7 @@ export interface CreateBackendAuthResponse {
   BackendEnvironmentName?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -1119,7 +1119,7 @@ export interface DeleteBackendResponse {
   BackendEnvironmentName?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -1194,7 +1194,7 @@ export interface DeleteBackendAPIResponse {
   BackendEnvironmentName?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -1264,7 +1264,7 @@ export interface DeleteBackendAuthResponse {
   BackendEnvironmentName?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -1371,7 +1371,7 @@ export interface GenerateBackendAPIModelsResponse {
   BackendEnvironmentName?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -1426,7 +1426,7 @@ export namespace GetBackendRequest {
 
 export interface GetBackendResponse {
   /**
-   * <p>A stringified version of the current configurations for your Amplify project.</p>
+   * <p>A stringified version of the current configs for your Amplify project.</p>
    */
   AmplifyMetaConfig?: string;
 
@@ -1511,7 +1511,7 @@ export interface GetBackendAPIResponse {
   BackendEnvironmentName?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -1571,7 +1571,7 @@ export enum Status {
 
 export interface GetBackendAPIModelsResponse {
   /**
-   * <p>Stringified JSON of the DataStore model.</p>
+   * <p>Stringified JSON of the datastore model.</p>
    */
   Models?: string;
 
@@ -1631,7 +1631,7 @@ export interface GetBackendAuthResponse {
   BackendEnvironmentName?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -1698,7 +1698,7 @@ export interface GetBackendJobResponse {
   CreateTime?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -1785,6 +1785,91 @@ export namespace GetTokenResponse {
 }
 
 /**
+ * <p>The request body for ImportBackendAuth.</p>
+ */
+export interface ImportBackendAuthRequest {
+  /**
+   * <p>The app ID.</p>
+   */
+  AppId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment.</p>
+   */
+  BackendEnvironmentName: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Cognito identity pool.</p>
+   */
+  IdentityPoolId?: string;
+
+  /**
+   * <p>The ID of the Amazon Cognito native client.</p>
+   */
+  NativeClientId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Cognito user pool.</p>
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Cognito web client.</p>
+   */
+  WebClientId: string | undefined;
+}
+
+export namespace ImportBackendAuthRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportBackendAuthRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ImportBackendAuthResponse {
+  /**
+   * <p>The app ID.</p>
+   */
+  AppId?: string;
+
+  /**
+   * <p>The name of the backend environment.</p>
+   */
+  BackendEnvironmentName?: string;
+
+  /**
+   * <p>If the request fails, this error is returned.</p>
+   */
+  Error?: string;
+
+  /**
+   * <p>The ID for the job.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The name of the operation.</p>
+   */
+  Operation?: string;
+
+  /**
+   * <p>The current status of the request.</p>
+   */
+  Status?: string;
+}
+
+export namespace ImportBackendAuthResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportBackendAuthResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The request body for ListBackendJobs.</p>
  */
 export interface ListBackendJobsRequest {
@@ -1853,7 +1938,7 @@ export interface BackendJobRespObj {
   CreateTime?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -1939,7 +2024,7 @@ export interface RemoveAllBackendsResponse {
   AppId?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -1986,7 +2071,7 @@ export namespace RemoveBackendConfigRequest {
 
 export interface RemoveBackendConfigResponse {
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 }
@@ -2046,7 +2131,7 @@ export interface UpdateBackendAPIResponse {
   BackendEnvironmentName?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -2080,7 +2165,7 @@ export namespace UpdateBackendAPIResponse {
  */
 export interface UpdateBackendAuthIdentityPoolConfig {
   /**
-   * <p>A Boolean value that you can set to allow or disallow guest-level authorization into your Amplify app.</p>
+   * <p>A boolean value which can be set to allow or disallow guest-level authorization into your Amplify app.</p>
    */
   UnauthenticatedLogin?: boolean;
 }
@@ -2099,7 +2184,7 @@ export namespace UpdateBackendAuthIdentityPoolConfig {
  */
 export interface UpdateBackendAuthForgotPasswordConfig {
   /**
-   * <p>Describes which method to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>
+   * <p>Describes which mode to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>
    */
   DeliveryMethod?: DeliveryMethod | string;
 
@@ -2167,12 +2252,12 @@ export interface UpdateBackendAuthOAuthConfig {
   OAuthScopes?: (OAuthScopesElement | string)[];
 
   /**
-   * <p>Redirect URLs that OAuth uses when a user signs in to an Amplify app.</p>
+   * <p>Redirect URLs used by OAuth when a user signs in to an Amplify app.</p>
    */
   RedirectSignInURIs?: string[];
 
   /**
-   * <p>Redirect URLs that OAuth uses when a user signs out of an Amplify app.</p>
+   * <p>Redirect URLs used by OAuth when a user signs out of an Amplify app.</p>
    */
   RedirectSignOutURIs?: string[];
 
@@ -2192,11 +2277,11 @@ export namespace UpdateBackendAuthOAuthConfig {
 }
 
 /**
- * <p>Describes the password policy for your Amazon Cognito user pool that's configured as a part of your Amplify project.</p>
+ * <p>Describes the password policy for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
  */
 export interface UpdateBackendAuthPasswordPolicyConfig {
   /**
-   * <p>Describes additional constrains on the password requirements to sign in to the auth resource, configured as a part of your Amplify project.</p>
+   * <p>Describes additional constraints on password requirements to sign in to the auth resource, configured as a part of your Amplify project.</p>
    */
   AdditionalConstraints?: (AdditionalConstraintsElement | string)[];
 
@@ -2216,7 +2301,7 @@ export namespace UpdateBackendAuthPasswordPolicyConfig {
 }
 
 /**
- * <p>Describes the Amazon Cognito user pool configuration to configure the authorization resource for your Amplify project on an update.</p>
+ * <p>Describes the Amazon Cognito user pool configuration for the authorization resource to be configured for your Amplify project on an update.</p>
  */
 export interface UpdateBackendAuthUserPoolConfig {
   /**
@@ -2225,7 +2310,7 @@ export interface UpdateBackendAuthUserPoolConfig {
   ForgotPassword?: UpdateBackendAuthForgotPasswordConfig;
 
   /**
-   * <p>Describes whether to apply multi-factor authentication (MFA) policies for your Amazon Cognito user pool that's configured as a part of your Amplify project.</p>
+   * <p>Describes whether multi-factor authentication policies should be applied for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
    */
   Mfa?: UpdateBackendAuthMFAConfig;
 
@@ -2259,7 +2344,7 @@ export interface UpdateBackendAuthResourceConfig {
   AuthResources: AuthResources | string | undefined;
 
   /**
-   * <p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of the auth resource in your Amplify project.</p>
+   * <p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of your auth resource in the Amplify project.</p>
    */
   IdentityPoolConfigs?: UpdateBackendAuthIdentityPoolConfig;
 
@@ -2269,7 +2354,7 @@ export interface UpdateBackendAuthResourceConfig {
   Service: Service | string | undefined;
 
   /**
-   * <p>Describes the authentication configuration for the Amazon Cognito user pool, provisioned as a part of the auth resource in your Amplify project.</p>
+   * <p>Describes the authentication configuration for the Amazon Cognito user pool, provisioned as a part of your auth resource in the Amplify project.</p>
    */
   UserPoolConfigs: UpdateBackendAuthUserPoolConfig | undefined;
 }
@@ -2329,7 +2414,7 @@ export interface UpdateBackendAuthResponse {
   BackendEnvironmentName?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -2363,7 +2448,7 @@ export namespace UpdateBackendAuthResponse {
  */
 export interface LoginAuthConfigReqObj {
   /**
-   * <p>The Amazon Cognito identity pool ID used for Amplify Admin UI login authorization.</p>
+   * <p>The Amazon Cognito identity pool ID used for the Amplify Admin UI login authorization.</p>
    */
   AwsCognitoIdentityPoolId?: string;
 
@@ -2428,7 +2513,7 @@ export interface UpdateBackendConfigResponse {
   BackendManagerAppId?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 
@@ -2467,7 +2552,7 @@ export interface UpdateBackendJobRequest {
   JobId: string | undefined;
 
   /**
-   * <p>Filters the list of response objects to include only those with the specified operation name.</p>
+   * <p>Filters the list of response objects to only include those with the specified operation name.</p>
    */
   Operation?: string;
 
@@ -2503,7 +2588,7 @@ export interface UpdateBackendJobResponse {
   CreateTime?: string;
 
   /**
-   * <p>If the request failed, this is the returned error.</p>
+   * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
 

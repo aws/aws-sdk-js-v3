@@ -291,6 +291,58 @@ export namespace LimitExceededException {
   });
 }
 
+/**
+ * <p>The request was rejected because it attempted to create a resource that already exists.</p>
+ */
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  /**
+   * <p>A machine-parsable string error or warning code.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>A human-readable string error or warning message.</p>
+   */
+  Message?: string;
+}
+
+export namespace ResourceAlreadyExistsException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request was rejected because it has invalid parameters.</p>
+ */
+export interface ValidationException extends __SmithyException, $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  /**
+   * <p>A machine-parsable string error or warning code.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>A human-readable string error or warning message.</p>
+   */
+  Message?: string;
+}
+
+export namespace ValidationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj,
+  });
+}
+
 export type AlgorithmicStemming = "full" | "light" | "minimal" | "none";
 
 /**
@@ -2055,6 +2107,10 @@ export type PartitionInstanceType =
   | "search.m3.medium"
   | "search.m3.xlarge"
   | "search.medium"
+  | "search.previousgeneration.2xlarge"
+  | "search.previousgeneration.large"
+  | "search.previousgeneration.small"
+  | "search.previousgeneration.xlarge"
   | "search.small"
   | "search.xlarge";
 
@@ -2342,32 +2398,6 @@ export namespace UpdateAvailabilityOptionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateAvailabilityOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request was rejected because it has invalid parameters.</p>
- */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  /**
-   * <p>A machine-parsable string error or warning code.</p>
-   */
-  Code?: string;
-
-  /**
-   * <p>A human-readable string error or warning message.</p>
-   */
-  Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
 }

@@ -107,6 +107,7 @@ import {
   BatchRetryStrategy,
   CancelReplayRequest,
   CancelReplayResponse,
+  CapacityProviderStrategyItem,
   ConcurrentModificationException,
   Condition,
   Connection,
@@ -205,6 +206,8 @@ import {
   OperationDisabledException,
   PartnerEventSource,
   PartnerEventSourceAccount,
+  PlacementConstraint,
+  PlacementStrategy,
   PolicyLengthExceededException,
   PutEventsRequest,
   PutEventsRequestEntry,
@@ -4779,6 +4782,32 @@ const serializeAws_json1_1CancelReplayRequest = (input: CancelReplayRequest, con
   };
 };
 
+const serializeAws_json1_1CapacityProviderStrategy = (
+  input: CapacityProviderStrategyItem[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1CapacityProviderStrategyItem(entry, context);
+    });
+};
+
+const serializeAws_json1_1CapacityProviderStrategyItem = (
+  input: CapacityProviderStrategyItem,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.base !== undefined && input.base !== null && { base: input.base }),
+    ...(input.capacityProvider !== undefined &&
+      input.capacityProvider !== null && { capacityProvider: input.capacityProvider }),
+    ...(input.weight !== undefined && input.weight !== null && { weight: input.weight }),
+  };
+};
+
 const serializeAws_json1_1Condition = (input: Condition, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
@@ -5164,14 +5193,33 @@ const serializeAws_json1_1DisableRuleRequest = (input: DisableRuleRequest, conte
 
 const serializeAws_json1_1EcsParameters = (input: EcsParameters, context: __SerdeContext): any => {
   return {
+    ...(input.CapacityProviderStrategy !== undefined &&
+      input.CapacityProviderStrategy !== null && {
+        CapacityProviderStrategy: serializeAws_json1_1CapacityProviderStrategy(input.CapacityProviderStrategy, context),
+      }),
+    ...(input.EnableECSManagedTags !== undefined &&
+      input.EnableECSManagedTags !== null && { EnableECSManagedTags: input.EnableECSManagedTags }),
+    ...(input.EnableExecuteCommand !== undefined &&
+      input.EnableExecuteCommand !== null && { EnableExecuteCommand: input.EnableExecuteCommand }),
     ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
     ...(input.LaunchType !== undefined && input.LaunchType !== null && { LaunchType: input.LaunchType }),
     ...(input.NetworkConfiguration !== undefined &&
       input.NetworkConfiguration !== null && {
         NetworkConfiguration: serializeAws_json1_1NetworkConfiguration(input.NetworkConfiguration, context),
       }),
+    ...(input.PlacementConstraints !== undefined &&
+      input.PlacementConstraints !== null && {
+        PlacementConstraints: serializeAws_json1_1PlacementConstraints(input.PlacementConstraints, context),
+      }),
+    ...(input.PlacementStrategy !== undefined &&
+      input.PlacementStrategy !== null && {
+        PlacementStrategy: serializeAws_json1_1PlacementStrategies(input.PlacementStrategy, context),
+      }),
     ...(input.PlatformVersion !== undefined &&
       input.PlatformVersion !== null && { PlatformVersion: input.PlatformVersion }),
+    ...(input.PropagateTags !== undefined && input.PropagateTags !== null && { PropagateTags: input.PropagateTags }),
+    ...(input.ReferenceId !== undefined && input.ReferenceId !== null && { ReferenceId: input.ReferenceId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.TaskCount !== undefined && input.TaskCount !== null && { TaskCount: input.TaskCount }),
     ...(input.TaskDefinitionArn !== undefined &&
       input.TaskDefinitionArn !== null && { TaskDefinitionArn: input.TaskDefinitionArn }),
@@ -5385,6 +5433,42 @@ const serializeAws_json1_1PathParameterList = (input: string[], context: __Serde
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1PlacementConstraint = (input: PlacementConstraint, context: __SerdeContext): any => {
+  return {
+    ...(input.expression !== undefined && input.expression !== null && { expression: input.expression }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+  };
+};
+
+const serializeAws_json1_1PlacementConstraints = (input: PlacementConstraint[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1PlacementConstraint(entry, context);
+    });
+};
+
+const serializeAws_json1_1PlacementStrategies = (input: PlacementStrategy[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1PlacementStrategy(entry, context);
+    });
+};
+
+const serializeAws_json1_1PlacementStrategy = (input: PlacementStrategy, context: __SerdeContext): any => {
+  return {
+    ...(input.field !== undefined && input.field !== null && { field: input.field }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+  };
 };
 
 const serializeAws_json1_1PutEventsRequest = (input: PutEventsRequest, context: __SerdeContext): any => {
@@ -6045,6 +6129,31 @@ const deserializeAws_json1_1CancelReplayResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1CapacityProviderStrategy = (
+  output: any,
+  context: __SerdeContext
+): CapacityProviderStrategyItem[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CapacityProviderStrategyItem(entry, context);
+    });
+};
+
+const deserializeAws_json1_1CapacityProviderStrategyItem = (
+  output: any,
+  context: __SerdeContext
+): CapacityProviderStrategyItem => {
+  return {
+    base: __expectNumber(output.base),
+    capacityProvider: __expectString(output.capacityProvider),
+    weight: __expectNumber(output.weight),
+  } as any;
+};
+
 const deserializeAws_json1_1ConcurrentModificationException = (
   output: any,
   context: __SerdeContext
@@ -6545,13 +6654,33 @@ const deserializeAws_json1_1DescribeRuleResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1EcsParameters = (output: any, context: __SerdeContext): EcsParameters => {
   return {
+    CapacityProviderStrategy:
+      output.CapacityProviderStrategy !== undefined && output.CapacityProviderStrategy !== null
+        ? deserializeAws_json1_1CapacityProviderStrategy(output.CapacityProviderStrategy, context)
+        : undefined,
+    EnableECSManagedTags: __expectBoolean(output.EnableECSManagedTags),
+    EnableExecuteCommand: __expectBoolean(output.EnableExecuteCommand),
     Group: __expectString(output.Group),
     LaunchType: __expectString(output.LaunchType),
     NetworkConfiguration:
       output.NetworkConfiguration !== undefined && output.NetworkConfiguration !== null
         ? deserializeAws_json1_1NetworkConfiguration(output.NetworkConfiguration, context)
         : undefined,
+    PlacementConstraints:
+      output.PlacementConstraints !== undefined && output.PlacementConstraints !== null
+        ? deserializeAws_json1_1PlacementConstraints(output.PlacementConstraints, context)
+        : undefined,
+    PlacementStrategy:
+      output.PlacementStrategy !== undefined && output.PlacementStrategy !== null
+        ? deserializeAws_json1_1PlacementStrategies(output.PlacementStrategy, context)
+        : undefined,
     PlatformVersion: __expectString(output.PlatformVersion),
+    PropagateTags: __expectString(output.PropagateTags),
+    ReferenceId: __expectString(output.ReferenceId),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined,
     TaskCount: __expectNumber(output.TaskCount),
     TaskDefinitionArn: __expectString(output.TaskDefinitionArn),
   } as any;
@@ -6908,6 +7037,42 @@ const deserializeAws_json1_1PathParameterList = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_json1_1PlacementConstraint = (output: any, context: __SerdeContext): PlacementConstraint => {
+  return {
+    expression: __expectString(output.expression),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_json1_1PlacementConstraints = (output: any, context: __SerdeContext): PlacementConstraint[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PlacementConstraint(entry, context);
+    });
+};
+
+const deserializeAws_json1_1PlacementStrategies = (output: any, context: __SerdeContext): PlacementStrategy[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PlacementStrategy(entry, context);
+    });
+};
+
+const deserializeAws_json1_1PlacementStrategy = (output: any, context: __SerdeContext): PlacementStrategy => {
+  return {
+    field: __expectString(output.field),
+    type: __expectString(output.type),
+  } as any;
 };
 
 const deserializeAws_json1_1PolicyLengthExceededException = (

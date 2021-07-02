@@ -21,7 +21,7 @@ export interface UpdateWebhookCommandInput extends UpdateWebhookInput {}
 export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __MetadataBearer {}
 
 /**
- * <p> Updates the webhook associated with an AWS CodeBuild build project. </p>
+ * <p> Updates the webhook associated with an CodeBuild build project. </p>
  *          <note>
  *             <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored.
  *       </p>

@@ -24,6 +24,7 @@ import { GetBackendAuthCommandInput, GetBackendAuthCommandOutput } from "./comma
 import { GetBackendCommandInput, GetBackendCommandOutput } from "./commands/GetBackendCommand";
 import { GetBackendJobCommandInput, GetBackendJobCommandOutput } from "./commands/GetBackendJobCommand";
 import { GetTokenCommandInput, GetTokenCommandOutput } from "./commands/GetTokenCommand";
+import { ImportBackendAuthCommandInput, ImportBackendAuthCommandOutput } from "./commands/ImportBackendAuthCommand";
 import { ListBackendJobsCommandInput, ListBackendJobsCommandOutput } from "./commands/ListBackendJobsCommand";
 import { RemoveAllBackendsCommandInput, RemoveAllBackendsCommandOutput } from "./commands/RemoveAllBackendsCommand";
 import {
@@ -106,6 +107,7 @@ export type ServiceInputTypes =
   | GetBackendCommandInput
   | GetBackendJobCommandInput
   | GetTokenCommandInput
+  | ImportBackendAuthCommandInput
   | ListBackendJobsCommandInput
   | RemoveAllBackendsCommandInput
   | RemoveBackendConfigCommandInput
@@ -132,6 +134,7 @@ export type ServiceOutputTypes =
   | GetBackendCommandOutput
   | GetBackendJobCommandOutput
   | GetTokenCommandOutput
+  | ImportBackendAuthCommandOutput
   | ListBackendJobsCommandOutput
   | RemoveAllBackendsCommandOutput
   | RemoveBackendConfigCommandOutput

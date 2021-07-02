@@ -2613,8 +2613,7 @@ export interface SearchAvailablePhoneNumbersRequest {
   Country?: string;
 
   /**
-   * <p>The state used to filter results. Required only if you provide <code>City</code>. Only
-   *             applies to the US.</p>
+   * <p>The state used to filter results. Required only if you provide <code>City</code>. Only applies to the US.</p>
    */
   State?: string;
 

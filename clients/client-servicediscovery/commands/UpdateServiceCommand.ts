@@ -44,7 +44,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *      request, the configuration isn't deleted from the service.</p>
  *             </li>
  *          </ul>
- *          <p>When you update settings for a service, AWS Cloud Map also updates the corresponding settings in all the records
+ *          <p>When you update settings for a service, Cloud Map also updates the corresponding settings in all the records
  *    and health checks that were created by using the specified service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

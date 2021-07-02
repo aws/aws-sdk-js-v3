@@ -26,7 +26,7 @@ export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryO
  *             notebooks you create. The Git repository is a resource in your Amazon SageMaker account, so it can
  *             be associated with more than one notebook instance, and it persists independently from
  *             the lifecycle of any notebook instances it is associated with.</p>
- *         <p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+ *         <p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
  *             other Git repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

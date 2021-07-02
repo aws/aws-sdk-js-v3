@@ -17,6 +17,7 @@ export * from "./commands/GetBackendAPIModelsCommand";
 export * from "./commands/GetBackendAuthCommand";
 export * from "./commands/GetBackendJobCommand";
 export * from "./commands/GetTokenCommand";
+export * from "./commands/ImportBackendAuthCommand";
 export * from "./commands/ListBackendJobsCommand";
 export * from "./commands/RemoveAllBackendsCommand";
 export * from "./commands/RemoveBackendConfigCommand";

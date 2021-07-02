@@ -23,19 +23,8 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB
- *             cluster snapshot.</p>
- *         <p>To share a manual cluster snapshot with other AWS accounts, specify
- *                 <code>restore</code> as the <code>AttributeName</code>, and use the
- *                 <code>ValuesToAdd</code> parameter to add a list of IDs of the AWS accounts that are
- *             authorized to restore the manual cluster snapshot. Use the value <code>all</code> to
- *             make the manual cluster snapshot public, which means that it can be copied or
- *             restored by all AWS accounts. Do not add the <code>all</code> value for any manual DB
- *             cluster snapshots that contain private information that you don't want available to all
- *             AWS accounts. If a manual cluster snapshot is encrypted, it can be shared, but only
- *             by specifying a list of authorized AWS account IDs for the <code>ValuesToAdd</code>
- *             parameter. You can't use <code>all</code> as a value for that parameter in this
- *             case.</p>
+ * <p>Adds an attribute and values to, or removes an attribute and values from, a manual cluster snapshot.</p>
+ *         <p>To share a manual cluster snapshot with other accounts, specify <code>restore</code> as the <code>AttributeName</code>, and use the <code>ValuesToAdd</code> parameter to add a list of IDs of the accounts that are authorized to restore the manual cluster snapshot. Use the value <code>all</code> to make the manual cluster snapshot public, which means that it can be copied or restored by all accounts. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want available to all accounts. If a manual cluster snapshot is encrypted, it can be shared, but only by specifying a list of authorized account IDs for the <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value for that parameter in this case.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

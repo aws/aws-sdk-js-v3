@@ -23,7 +23,7 @@ export interface DescribeEnvironmentMembershipsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets information about environment members for an AWS Cloud9 development environment.</p>
+ * <p>Gets information about environment members for an Cloud9 development environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

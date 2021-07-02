@@ -69,6 +69,11 @@ import {
 } from "./commands/GetBackendJobCommand";
 import { GetTokenCommand, GetTokenCommandInput, GetTokenCommandOutput } from "./commands/GetTokenCommand";
 import {
+  ImportBackendAuthCommand,
+  ImportBackendAuthCommandInput,
+  ImportBackendAuthCommandOutput,
+} from "./commands/ImportBackendAuthCommand";
+import {
   ListBackendJobsCommand,
   ListBackendJobsCommandInput,
   ListBackendJobsCommandOutput,
@@ -537,7 +542,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
-   * <p>Gets backend auth details.</p>
+   * <p>Gets a backend auth details.</p>
    */
   public getBackendAuth(
     args: GetBackendAuthCommandInput,
@@ -627,6 +632,38 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
+   * <p>Imports an existing backend authentication resource.</p>
+   */
+  public importBackendAuth(
+    args: ImportBackendAuthCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportBackendAuthCommandOutput>;
+  public importBackendAuth(
+    args: ImportBackendAuthCommandInput,
+    cb: (err: any, data?: ImportBackendAuthCommandOutput) => void
+  ): void;
+  public importBackendAuth(
+    args: ImportBackendAuthCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportBackendAuthCommandOutput) => void
+  ): void;
+  public importBackendAuth(
+    args: ImportBackendAuthCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportBackendAuthCommandOutput) => void),
+    cb?: (err: any, data?: ImportBackendAuthCommandOutput) => void
+  ): Promise<ImportBackendAuthCommandOutput> | void {
+    const command = new ImportBackendAuthCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the jobs for the backend of an Amplify app.</p>
    */
   public listBackendJobs(
@@ -691,7 +728,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
-   * <p>Removes the AWS resources that are required to access the Amplify Admin UI.</p>
+   * <p>Removes the AWS resources required to access the Amplify Admin UI.</p>
    */
   public removeBackendConfig(
     args: RemoveBackendConfigCommandInput,
@@ -787,7 +824,7 @@ export class AmplifyBackend extends AmplifyBackendClient {
   }
 
   /**
-   * <p>Updates the AWS resources that are required to access the Amplify Admin UI.</p>
+   * <p>Updates the AWS resources required to access the Amplify Admin UI.</p>
    */
   public updateBackendConfig(
     args: UpdateBackendConfigCommandInput,

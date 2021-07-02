@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { GetSessionEmbedUrlRequest, GetSessionEmbedUrlResponse } from "../models/models_0";
+import { GetSessionEmbedUrlRequest, GetSessionEmbedUrlResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetSessionEmbedUrlCommand,
   serializeAws_restJson1GetSessionEmbedUrlCommand,
