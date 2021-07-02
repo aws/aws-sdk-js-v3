@@ -129,10 +129,12 @@ export const serializeAws_restJson1AddFlowMediaStreamsCommand = async (
   input: AddFlowMediaStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/flows/{FlowArn}/mediaStreams";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/mediaStreams";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -149,7 +151,6 @@ export const serializeAws_restJson1AddFlowMediaStreamsCommand = async (
         mediaStreams: serializeAws_restJson1__listOfAddMediaStreamRequest(input.MediaStreams, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -165,10 +166,12 @@ export const serializeAws_restJson1AddFlowOutputsCommand = async (
   input: AddFlowOutputsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/flows/{FlowArn}/outputs";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/outputs";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -183,7 +186,6 @@ export const serializeAws_restJson1AddFlowOutputsCommand = async (
     ...(input.Outputs !== undefined &&
       input.Outputs !== null && { outputs: serializeAws_restJson1__listOfAddOutputRequest(input.Outputs, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -199,10 +201,12 @@ export const serializeAws_restJson1AddFlowSourcesCommand = async (
   input: AddFlowSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/flows/{FlowArn}/source";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/source";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -217,7 +221,6 @@ export const serializeAws_restJson1AddFlowSourcesCommand = async (
     ...(input.Sources !== undefined &&
       input.Sources !== null && { sources: serializeAws_restJson1__listOfSetSourceRequest(input.Sources, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -233,10 +236,12 @@ export const serializeAws_restJson1AddFlowVpcInterfacesCommand = async (
   input: AddFlowVpcInterfacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/flows/{FlowArn}/vpcInterfaces";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/vpcInterfaces";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -253,7 +258,6 @@ export const serializeAws_restJson1AddFlowVpcInterfacesCommand = async (
         vpcInterfaces: serializeAws_restJson1__listOfVpcInterfaceRequest(input.VpcInterfaces, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -269,10 +273,11 @@ export const serializeAws_restJson1CreateFlowCommand = async (
   input: CreateFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/flows";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows";
   let body: any;
   body = JSON.stringify({
     ...(input.AvailabilityZone !== undefined &&
@@ -301,7 +306,6 @@ export const serializeAws_restJson1CreateFlowCommand = async (
         vpcInterfaces: serializeAws_restJson1__listOfVpcInterfaceRequest(input.VpcInterfaces, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -317,8 +321,9 @@ export const serializeAws_restJson1DeleteFlowCommand = async (
   input: DeleteFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/flows/{FlowArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -329,7 +334,6 @@ export const serializeAws_restJson1DeleteFlowCommand = async (
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -345,8 +349,9 @@ export const serializeAws_restJson1DescribeFlowCommand = async (
   input: DescribeFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/flows/{FlowArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -357,7 +362,6 @@ export const serializeAws_restJson1DescribeFlowCommand = async (
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -373,8 +377,10 @@ export const serializeAws_restJson1DescribeOfferingCommand = async (
   input: DescribeOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/offerings/{OfferingArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/offerings/{OfferingArn}";
   if (input.OfferingArn !== undefined) {
     const labelValue: string = input.OfferingArn;
     if (labelValue.length <= 0) {
@@ -385,7 +391,6 @@ export const serializeAws_restJson1DescribeOfferingCommand = async (
     throw new Error("No value provided for input HTTP label: OfferingArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -401,8 +406,10 @@ export const serializeAws_restJson1DescribeReservationCommand = async (
   input: DescribeReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/reservations/{ReservationArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/reservations/{ReservationArn}";
   if (input.ReservationArn !== undefined) {
     const labelValue: string = input.ReservationArn;
     if (labelValue.length <= 0) {
@@ -413,7 +420,6 @@ export const serializeAws_restJson1DescribeReservationCommand = async (
     throw new Error("No value provided for input HTTP label: ReservationArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -429,10 +435,12 @@ export const serializeAws_restJson1GrantFlowEntitlementsCommand = async (
   input: GrantFlowEntitlementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/flows/{FlowArn}/entitlements";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/entitlements";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -449,7 +457,6 @@ export const serializeAws_restJson1GrantFlowEntitlementsCommand = async (
         entitlements: serializeAws_restJson1__listOfGrantEntitlementRequest(input.Entitlements, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -465,14 +472,14 @@ export const serializeAws_restJson1ListEntitlementsCommand = async (
   input: ListEntitlementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/entitlements";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/entitlements";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -489,14 +496,14 @@ export const serializeAws_restJson1ListFlowsCommand = async (
   input: ListFlowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/flows";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -513,14 +520,14 @@ export const serializeAws_restJson1ListOfferingsCommand = async (
   input: ListOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/offerings";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/offerings";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -537,14 +544,14 @@ export const serializeAws_restJson1ListReservationsCommand = async (
   input: ListReservationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/reservations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/reservations";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -561,8 +568,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -573,7 +581,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -589,10 +596,12 @@ export const serializeAws_restJson1PurchaseOfferingCommand = async (
   input: PurchaseOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/offerings/{OfferingArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/offerings/{OfferingArn}";
   if (input.OfferingArn !== undefined) {
     const labelValue: string = input.OfferingArn;
     if (labelValue.length <= 0) {
@@ -608,7 +617,6 @@ export const serializeAws_restJson1PurchaseOfferingCommand = async (
       input.ReservationName !== null && { reservationName: input.ReservationName }),
     ...(input.Start !== undefined && input.Start !== null && { start: input.Start }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -624,8 +632,11 @@ export const serializeAws_restJson1RemoveFlowMediaStreamCommand = async (
   input: RemoveFlowMediaStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/flows/{FlowArn}/mediaStreams/{MediaStreamName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/flows/{FlowArn}/mediaStreams/{MediaStreamName}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -645,7 +656,6 @@ export const serializeAws_restJson1RemoveFlowMediaStreamCommand = async (
     throw new Error("No value provided for input HTTP label: MediaStreamName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -661,8 +671,10 @@ export const serializeAws_restJson1RemoveFlowOutputCommand = async (
   input: RemoveFlowOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/flows/{FlowArn}/outputs/{OutputArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/outputs/{OutputArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -682,7 +694,6 @@ export const serializeAws_restJson1RemoveFlowOutputCommand = async (
     throw new Error("No value provided for input HTTP label: OutputArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -698,8 +709,10 @@ export const serializeAws_restJson1RemoveFlowSourceCommand = async (
   input: RemoveFlowSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/flows/{FlowArn}/source/{SourceArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/source/{SourceArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -719,7 +732,6 @@ export const serializeAws_restJson1RemoveFlowSourceCommand = async (
     throw new Error("No value provided for input HTTP label: SourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -735,8 +747,11 @@ export const serializeAws_restJson1RemoveFlowVpcInterfaceCommand = async (
   input: RemoveFlowVpcInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/flows/{FlowArn}/vpcInterfaces/{VpcInterfaceName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/flows/{FlowArn}/vpcInterfaces/{VpcInterfaceName}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -756,7 +771,6 @@ export const serializeAws_restJson1RemoveFlowVpcInterfaceCommand = async (
     throw new Error("No value provided for input HTTP label: VpcInterfaceName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -772,8 +786,11 @@ export const serializeAws_restJson1RevokeFlowEntitlementCommand = async (
   input: RevokeFlowEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}";
   if (input.EntitlementArn !== undefined) {
     const labelValue: string = input.EntitlementArn;
     if (labelValue.length <= 0) {
@@ -793,7 +810,6 @@ export const serializeAws_restJson1RevokeFlowEntitlementCommand = async (
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -809,8 +825,10 @@ export const serializeAws_restJson1StartFlowCommand = async (
   input: StartFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/flows/start/{FlowArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/start/{FlowArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -821,7 +839,6 @@ export const serializeAws_restJson1StartFlowCommand = async (
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -837,8 +854,9 @@ export const serializeAws_restJson1StopFlowCommand = async (
   input: StopFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/flows/stop/{FlowArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/stop/{FlowArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -849,7 +867,6 @@ export const serializeAws_restJson1StopFlowCommand = async (
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -865,10 +882,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -883,7 +901,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -899,8 +916,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -914,7 +932,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -931,10 +948,11 @@ export const serializeAws_restJson1UpdateFlowCommand = async (
   input: UpdateFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/flows/{FlowArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -951,7 +969,6 @@ export const serializeAws_restJson1UpdateFlowCommand = async (
         sourceFailoverConfig: serializeAws_restJson1UpdateFailoverConfig(input.SourceFailoverConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -967,10 +984,13 @@ export const serializeAws_restJson1UpdateFlowEntitlementCommand = async (
   input: UpdateFlowEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}";
   if (input.EntitlementArn !== undefined) {
     const labelValue: string = input.EntitlementArn;
     if (labelValue.length <= 0) {
@@ -1001,7 +1021,6 @@ export const serializeAws_restJson1UpdateFlowEntitlementCommand = async (
         subscribers: serializeAws_restJson1__listOf__string(input.Subscribers, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1017,10 +1036,13 @@ export const serializeAws_restJson1UpdateFlowMediaStreamCommand = async (
   input: UpdateFlowMediaStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/flows/{FlowArn}/mediaStreams/{MediaStreamName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/flows/{FlowArn}/mediaStreams/{MediaStreamName}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -1051,7 +1073,6 @@ export const serializeAws_restJson1UpdateFlowMediaStreamCommand = async (
       input.MediaStreamType !== null && { mediaStreamType: input.MediaStreamType }),
     ...(input.VideoFormat !== undefined && input.VideoFormat !== null && { videoFormat: input.VideoFormat }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1067,10 +1088,12 @@ export const serializeAws_restJson1UpdateFlowOutputCommand = async (
   input: UpdateFlowOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/flows/{FlowArn}/outputs/{OutputArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/outputs/{OutputArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -1119,7 +1142,6 @@ export const serializeAws_restJson1UpdateFlowOutputCommand = async (
         vpcInterfaceAttachment: serializeAws_restJson1VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1135,10 +1157,12 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
   input: UpdateFlowSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/flows/{FlowArn}/source/{SourceArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}/source/{SourceArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -1182,7 +1206,6 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
       input.VpcInterfaceName !== null && { vpcInterfaceName: input.VpcInterfaceName }),
     ...(input.WhitelistCidr !== undefined && input.WhitelistCidr !== null && { whitelistCidr: input.WhitelistCidr }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

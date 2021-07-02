@@ -404,10 +404,12 @@ export const serializeAws_restJson1AssociateApprovedOriginCommand = async (
   input: AssociateApprovedOriginCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/instance/{InstanceId}/approved-origin";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/approved-origin";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -421,7 +423,6 @@ export const serializeAws_restJson1AssociateApprovedOriginCommand = async (
   body = JSON.stringify({
     ...(input.Origin !== undefined && input.Origin !== null && { Origin: input.Origin }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -437,10 +438,12 @@ export const serializeAws_restJson1AssociateBotCommand = async (
   input: AssociateBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/instance/{InstanceId}/bot";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/bot";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -457,7 +460,6 @@ export const serializeAws_restJson1AssociateBotCommand = async (
     ...(input.LexV2Bot !== undefined &&
       input.LexV2Bot !== null && { LexV2Bot: serializeAws_restJson1LexV2Bot(input.LexV2Bot, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -473,10 +475,12 @@ export const serializeAws_restJson1AssociateInstanceStorageConfigCommand = async
   input: AssociateInstanceStorageConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/instance/{InstanceId}/storage-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/storage-config";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -494,7 +498,6 @@ export const serializeAws_restJson1AssociateInstanceStorageConfigCommand = async
         StorageConfig: serializeAws_restJson1InstanceStorageConfig(input.StorageConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -510,10 +513,12 @@ export const serializeAws_restJson1AssociateLambdaFunctionCommand = async (
   input: AssociateLambdaFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/instance/{InstanceId}/lambda-function";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lambda-function";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -527,7 +532,6 @@ export const serializeAws_restJson1AssociateLambdaFunctionCommand = async (
   body = JSON.stringify({
     ...(input.FunctionArn !== undefined && input.FunctionArn !== null && { FunctionArn: input.FunctionArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -543,10 +547,12 @@ export const serializeAws_restJson1AssociateLexBotCommand = async (
   input: AssociateLexBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/instance/{InstanceId}/lex-bot";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lex-bot";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -561,7 +567,6 @@ export const serializeAws_restJson1AssociateLexBotCommand = async (
     ...(input.LexBot !== undefined &&
       input.LexBot !== null && { LexBot: serializeAws_restJson1LexBot(input.LexBot, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -577,10 +582,13 @@ export const serializeAws_restJson1AssociateQueueQuickConnectsCommand = async (
   input: AssociateQueueQuickConnectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/queues/{InstanceId}/{QueueId}/associate-quick-connects";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/queues/{InstanceId}/{QueueId}/associate-quick-connects";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -606,7 +614,6 @@ export const serializeAws_restJson1AssociateQueueQuickConnectsCommand = async (
         QuickConnectIds: serializeAws_restJson1QuickConnectsList(input.QuickConnectIds, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -622,10 +629,13 @@ export const serializeAws_restJson1AssociateRoutingProfileQueuesCommand = async 
   input: AssociateRoutingProfileQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/associate-queues";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/routing-profiles/{InstanceId}/{RoutingProfileId}/associate-queues";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -651,7 +661,6 @@ export const serializeAws_restJson1AssociateRoutingProfileQueuesCommand = async 
         QueueConfigs: serializeAws_restJson1RoutingProfileQueueConfigList(input.QueueConfigs, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -667,10 +676,12 @@ export const serializeAws_restJson1AssociateSecurityKeyCommand = async (
   input: AssociateSecurityKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/instance/{InstanceId}/security-key";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/security-key";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -684,7 +695,6 @@ export const serializeAws_restJson1AssociateSecurityKeyCommand = async (
   body = JSON.stringify({
     ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -700,10 +710,12 @@ export const serializeAws_restJson1CreateContactFlowCommand = async (
   input: CreateContactFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/contact-flows/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact-flows/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -721,7 +733,6 @@ export const serializeAws_restJson1CreateContactFlowCommand = async (
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -737,10 +748,11 @@ export const serializeAws_restJson1CreateInstanceCommand = async (
   input: CreateInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/instance";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance";
   let body: any;
   body = JSON.stringify({
     ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
@@ -753,7 +765,6 @@ export const serializeAws_restJson1CreateInstanceCommand = async (
     ...(input.OutboundCallsEnabled !== undefined &&
       input.OutboundCallsEnabled !== null && { OutboundCallsEnabled: input.OutboundCallsEnabled }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -769,10 +780,13 @@ export const serializeAws_restJson1CreateIntegrationAssociationCommand = async (
   input: CreateIntegrationAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/instance/{InstanceId}/integration-associations";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/instance/{InstanceId}/integration-associations";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -795,7 +809,6 @@ export const serializeAws_restJson1CreateIntegrationAssociationCommand = async (
     ...(input.SourceType !== undefined && input.SourceType !== null && { SourceType: input.SourceType }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -811,10 +824,11 @@ export const serializeAws_restJson1CreateQueueCommand = async (
   input: CreateQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/queues/{InstanceId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queues/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -841,7 +855,6 @@ export const serializeAws_restJson1CreateQueueCommand = async (
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -857,10 +870,12 @@ export const serializeAws_restJson1CreateQuickConnectCommand = async (
   input: CreateQuickConnectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/quick-connects/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/quick-connects/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -880,7 +895,6 @@ export const serializeAws_restJson1CreateQuickConnectCommand = async (
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -896,10 +910,12 @@ export const serializeAws_restJson1CreateRoutingProfileCommand = async (
   input: CreateRoutingProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/routing-profiles/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routing-profiles/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -925,7 +941,6 @@ export const serializeAws_restJson1CreateRoutingProfileCommand = async (
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -941,10 +956,13 @@ export const serializeAws_restJson1CreateUseCaseCommand = async (
   input: CreateUseCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -968,7 +986,6 @@ export const serializeAws_restJson1CreateUseCaseCommand = async (
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
     ...(input.UseCaseType !== undefined && input.UseCaseType !== null && { UseCaseType: input.UseCaseType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -984,10 +1001,11 @@ export const serializeAws_restJson1CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/users/{InstanceId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1019,7 +1037,6 @@ export const serializeAws_restJson1CreateUserCommand = async (
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
     ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1035,10 +1052,12 @@ export const serializeAws_restJson1CreateUserHierarchyGroupCommand = async (
   input: CreateUserHierarchyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/user-hierarchy-groups/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user-hierarchy-groups/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1053,7 +1072,6 @@ export const serializeAws_restJson1CreateUserHierarchyGroupCommand = async (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.ParentGroupId !== undefined && input.ParentGroupId !== null && { ParentGroupId: input.ParentGroupId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1069,8 +1087,9 @@ export const serializeAws_restJson1DeleteInstanceCommand = async (
   input: DeleteInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1081,7 +1100,6 @@ export const serializeAws_restJson1DeleteInstanceCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1097,8 +1115,11 @@ export const serializeAws_restJson1DeleteIntegrationAssociationCommand = async (
   input: DeleteIntegrationAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1118,7 +1139,6 @@ export const serializeAws_restJson1DeleteIntegrationAssociationCommand = async (
     throw new Error("No value provided for input HTTP label: IntegrationAssociationId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1134,8 +1154,11 @@ export const serializeAws_restJson1DeleteQuickConnectCommand = async (
   input: DeleteQuickConnectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/quick-connects/{InstanceId}/{QuickConnectId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/quick-connects/{InstanceId}/{QuickConnectId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1155,7 +1178,6 @@ export const serializeAws_restJson1DeleteQuickConnectCommand = async (
     throw new Error("No value provided for input HTTP label: QuickConnectId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1171,8 +1193,11 @@ export const serializeAws_restJson1DeleteUseCaseCommand = async (
   input: DeleteUseCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases/{UseCaseId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases/{UseCaseId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1201,7 +1226,6 @@ export const serializeAws_restJson1DeleteUseCaseCommand = async (
     throw new Error("No value provided for input HTTP label: UseCaseId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1217,8 +1241,10 @@ export const serializeAws_restJson1DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/users/{InstanceId}/{UserId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users/{InstanceId}/{UserId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1238,7 +1264,6 @@ export const serializeAws_restJson1DeleteUserCommand = async (
     throw new Error("No value provided for input HTTP label: UserId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1254,8 +1279,11 @@ export const serializeAws_restJson1DeleteUserHierarchyGroupCommand = async (
   input: DeleteUserHierarchyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}";
   if (input.HierarchyGroupId !== undefined) {
     const labelValue: string = input.HierarchyGroupId;
     if (labelValue.length <= 0) {
@@ -1275,7 +1303,6 @@ export const serializeAws_restJson1DeleteUserHierarchyGroupCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1291,8 +1318,11 @@ export const serializeAws_restJson1DescribeContactFlowCommand = async (
   input: DescribeContactFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/contact-flows/{InstanceId}/{ContactFlowId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/contact-flows/{InstanceId}/{ContactFlowId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1312,7 +1342,6 @@ export const serializeAws_restJson1DescribeContactFlowCommand = async (
     throw new Error("No value provided for input HTTP label: ContactFlowId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1328,8 +1357,11 @@ export const serializeAws_restJson1DescribeHoursOfOperationCommand = async (
   input: DescribeHoursOfOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/hours-of-operations/{InstanceId}/{HoursOfOperationId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/hours-of-operations/{InstanceId}/{HoursOfOperationId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1349,7 +1381,6 @@ export const serializeAws_restJson1DescribeHoursOfOperationCommand = async (
     throw new Error("No value provided for input HTTP label: HoursOfOperationId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1365,8 +1396,9 @@ export const serializeAws_restJson1DescribeInstanceCommand = async (
   input: DescribeInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1377,7 +1409,6 @@ export const serializeAws_restJson1DescribeInstanceCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1393,8 +1424,11 @@ export const serializeAws_restJson1DescribeInstanceAttributeCommand = async (
   input: DescribeInstanceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/attribute/{AttributeType}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/instance/{InstanceId}/attribute/{AttributeType}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1414,7 +1448,6 @@ export const serializeAws_restJson1DescribeInstanceAttributeCommand = async (
     throw new Error("No value provided for input HTTP label: AttributeType.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1430,8 +1463,11 @@ export const serializeAws_restJson1DescribeInstanceStorageConfigCommand = async 
   input: DescribeInstanceStorageConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/storage-config/{AssociationId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/instance/{InstanceId}/storage-config/{AssociationId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1454,7 +1490,6 @@ export const serializeAws_restJson1DescribeInstanceStorageConfigCommand = async 
     ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1471,8 +1506,10 @@ export const serializeAws_restJson1DescribeQueueCommand = async (
   input: DescribeQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/queues/{InstanceId}/{QueueId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queues/{InstanceId}/{QueueId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1492,7 +1529,6 @@ export const serializeAws_restJson1DescribeQueueCommand = async (
     throw new Error("No value provided for input HTTP label: QueueId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1508,8 +1544,11 @@ export const serializeAws_restJson1DescribeQuickConnectCommand = async (
   input: DescribeQuickConnectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/quick-connects/{InstanceId}/{QuickConnectId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/quick-connects/{InstanceId}/{QuickConnectId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1529,7 +1568,6 @@ export const serializeAws_restJson1DescribeQuickConnectCommand = async (
     throw new Error("No value provided for input HTTP label: QuickConnectId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1545,8 +1583,11 @@ export const serializeAws_restJson1DescribeRoutingProfileCommand = async (
   input: DescribeRoutingProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/routing-profiles/{InstanceId}/{RoutingProfileId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1566,7 +1607,6 @@ export const serializeAws_restJson1DescribeRoutingProfileCommand = async (
     throw new Error("No value provided for input HTTP label: RoutingProfileId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1582,8 +1622,10 @@ export const serializeAws_restJson1DescribeUserCommand = async (
   input: DescribeUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/users/{InstanceId}/{UserId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users/{InstanceId}/{UserId}";
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -1603,7 +1645,6 @@ export const serializeAws_restJson1DescribeUserCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1619,8 +1660,11 @@ export const serializeAws_restJson1DescribeUserHierarchyGroupCommand = async (
   input: DescribeUserHierarchyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}";
   if (input.HierarchyGroupId !== undefined) {
     const labelValue: string = input.HierarchyGroupId;
     if (labelValue.length <= 0) {
@@ -1640,7 +1684,6 @@ export const serializeAws_restJson1DescribeUserHierarchyGroupCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1656,8 +1699,10 @@ export const serializeAws_restJson1DescribeUserHierarchyStructureCommand = async
   input: DescribeUserHierarchyStructureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/user-hierarchy-structure/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user-hierarchy-structure/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1668,7 +1713,6 @@ export const serializeAws_restJson1DescribeUserHierarchyStructureCommand = async
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1684,8 +1728,10 @@ export const serializeAws_restJson1DisassociateApprovedOriginCommand = async (
   input: DisassociateApprovedOriginCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/approved-origin";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/approved-origin";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1699,7 +1745,6 @@ export const serializeAws_restJson1DisassociateApprovedOriginCommand = async (
     ...(input.Origin !== undefined && { origin: input.Origin }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1716,10 +1761,12 @@ export const serializeAws_restJson1DisassociateBotCommand = async (
   input: DisassociateBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/instance/{InstanceId}/bot";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/bot";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1736,7 +1783,6 @@ export const serializeAws_restJson1DisassociateBotCommand = async (
     ...(input.LexV2Bot !== undefined &&
       input.LexV2Bot !== null && { LexV2Bot: serializeAws_restJson1LexV2Bot(input.LexV2Bot, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1752,8 +1798,11 @@ export const serializeAws_restJson1DisassociateInstanceStorageConfigCommand = as
   input: DisassociateInstanceStorageConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/storage-config/{AssociationId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/instance/{InstanceId}/storage-config/{AssociationId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1776,7 +1825,6 @@ export const serializeAws_restJson1DisassociateInstanceStorageConfigCommand = as
     ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1793,8 +1841,10 @@ export const serializeAws_restJson1DisassociateLambdaFunctionCommand = async (
   input: DisassociateLambdaFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/lambda-function";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lambda-function";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1808,7 +1858,6 @@ export const serializeAws_restJson1DisassociateLambdaFunctionCommand = async (
     ...(input.FunctionArn !== undefined && { functionArn: input.FunctionArn }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1825,8 +1874,10 @@ export const serializeAws_restJson1DisassociateLexBotCommand = async (
   input: DisassociateLexBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/lex-bot";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lex-bot";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1841,7 +1892,6 @@ export const serializeAws_restJson1DisassociateLexBotCommand = async (
     ...(input.LexRegion !== undefined && { lexRegion: input.LexRegion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1858,10 +1908,13 @@ export const serializeAws_restJson1DisassociateQueueQuickConnectsCommand = async
   input: DisassociateQueueQuickConnectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/queues/{InstanceId}/{QueueId}/disassociate-quick-connects";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/queues/{InstanceId}/{QueueId}/disassociate-quick-connects";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1887,7 +1940,6 @@ export const serializeAws_restJson1DisassociateQueueQuickConnectsCommand = async
         QuickConnectIds: serializeAws_restJson1QuickConnectsList(input.QuickConnectIds, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1903,10 +1955,13 @@ export const serializeAws_restJson1DisassociateRoutingProfileQueuesCommand = asy
   input: DisassociateRoutingProfileQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/disassociate-queues";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/routing-profiles/{InstanceId}/{RoutingProfileId}/disassociate-queues";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1932,7 +1987,6 @@ export const serializeAws_restJson1DisassociateRoutingProfileQueuesCommand = asy
         QueueReferences: serializeAws_restJson1RoutingProfileQueueReferenceList(input.QueueReferences, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1948,8 +2002,11 @@ export const serializeAws_restJson1DisassociateSecurityKeyCommand = async (
   input: DisassociateSecurityKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/security-key/{AssociationId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/instance/{InstanceId}/security-key/{AssociationId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1969,7 +2026,6 @@ export const serializeAws_restJson1DisassociateSecurityKeyCommand = async (
     throw new Error("No value provided for input HTTP label: AssociationId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1985,8 +2041,11 @@ export const serializeAws_restJson1GetContactAttributesCommand = async (
   input: GetContactAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/contact/attributes/{InstanceId}/{InitialContactId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/contact/attributes/{InstanceId}/{InitialContactId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2006,7 +2065,6 @@ export const serializeAws_restJson1GetContactAttributesCommand = async (
     throw new Error("No value provided for input HTTP label: InitialContactId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2022,10 +2080,12 @@ export const serializeAws_restJson1GetCurrentMetricDataCommand = async (
   input: GetCurrentMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/metrics/current/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metrics/current/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2048,7 +2108,6 @@ export const serializeAws_restJson1GetCurrentMetricDataCommand = async (
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2064,8 +2123,10 @@ export const serializeAws_restJson1GetFederationTokenCommand = async (
   input: GetFederationTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/user/federate/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/federate/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2076,7 +2137,6 @@ export const serializeAws_restJson1GetFederationTokenCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2092,10 +2152,12 @@ export const serializeAws_restJson1GetMetricDataCommand = async (
   input: GetMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/metrics/historical/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metrics/historical/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2122,7 +2184,6 @@ export const serializeAws_restJson1GetMetricDataCommand = async (
     ...(input.StartTime !== undefined &&
       input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2138,8 +2199,10 @@ export const serializeAws_restJson1ListApprovedOriginsCommand = async (
   input: ListApprovedOriginsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/approved-origins";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/approved-origins";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2154,7 +2217,6 @@ export const serializeAws_restJson1ListApprovedOriginsCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2171,8 +2233,10 @@ export const serializeAws_restJson1ListBotsCommand = async (
   input: ListBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/bots";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/bots";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2188,7 +2252,6 @@ export const serializeAws_restJson1ListBotsCommand = async (
     ...(input.LexVersion !== undefined && { lexVersion: input.LexVersion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2205,8 +2268,10 @@ export const serializeAws_restJson1ListContactFlowsCommand = async (
   input: ListContactFlowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/contact-flows-summary/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact-flows-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2224,7 +2289,6 @@ export const serializeAws_restJson1ListContactFlowsCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2241,8 +2305,10 @@ export const serializeAws_restJson1ListHoursOfOperationsCommand = async (
   input: ListHoursOfOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/hours-of-operations-summary/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/hours-of-operations-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2257,7 +2323,6 @@ export const serializeAws_restJson1ListHoursOfOperationsCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2274,8 +2339,10 @@ export const serializeAws_restJson1ListInstanceAttributesCommand = async (
   input: ListInstanceAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/attributes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/attributes";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2290,7 +2357,6 @@ export const serializeAws_restJson1ListInstanceAttributesCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2307,14 +2373,14 @@ export const serializeAws_restJson1ListInstancesCommand = async (
   input: ListInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2331,8 +2397,10 @@ export const serializeAws_restJson1ListInstanceStorageConfigsCommand = async (
   input: ListInstanceStorageConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/storage-configs";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/storage-configs";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2348,7 +2416,6 @@ export const serializeAws_restJson1ListInstanceStorageConfigsCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2365,8 +2432,11 @@ export const serializeAws_restJson1ListIntegrationAssociationsCommand = async (
   input: ListIntegrationAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/integration-associations";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/instance/{InstanceId}/integration-associations";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2381,7 +2451,6 @@ export const serializeAws_restJson1ListIntegrationAssociationsCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2398,8 +2467,10 @@ export const serializeAws_restJson1ListLambdaFunctionsCommand = async (
   input: ListLambdaFunctionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/lambda-functions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lambda-functions";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2414,7 +2485,6 @@ export const serializeAws_restJson1ListLambdaFunctionsCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2431,8 +2501,10 @@ export const serializeAws_restJson1ListLexBotsCommand = async (
   input: ListLexBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/lex-bots";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lex-bots";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2447,7 +2519,6 @@ export const serializeAws_restJson1ListLexBotsCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2464,8 +2535,10 @@ export const serializeAws_restJson1ListPhoneNumbersCommand = async (
   input: ListPhoneNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/phone-numbers-summary/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-numbers-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2486,7 +2559,6 @@ export const serializeAws_restJson1ListPhoneNumbersCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2503,8 +2575,10 @@ export const serializeAws_restJson1ListPromptsCommand = async (
   input: ListPromptsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/prompts-summary/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prompts-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2519,7 +2593,6 @@ export const serializeAws_restJson1ListPromptsCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2536,8 +2609,11 @@ export const serializeAws_restJson1ListQueueQuickConnectsCommand = async (
   input: ListQueueQuickConnectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/queues/{InstanceId}/{QueueId}/quick-connects";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/queues/{InstanceId}/{QueueId}/quick-connects";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2561,7 +2637,6 @@ export const serializeAws_restJson1ListQueueQuickConnectsCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2578,8 +2653,10 @@ export const serializeAws_restJson1ListQueuesCommand = async (
   input: ListQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/queues-summary/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queues-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2595,7 +2672,6 @@ export const serializeAws_restJson1ListQueuesCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2612,8 +2688,10 @@ export const serializeAws_restJson1ListQuickConnectsCommand = async (
   input: ListQuickConnectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/quick-connects/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/quick-connects/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2631,7 +2709,6 @@ export const serializeAws_restJson1ListQuickConnectsCommand = async (
     }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2648,8 +2725,11 @@ export const serializeAws_restJson1ListRoutingProfileQueuesCommand = async (
   input: ListRoutingProfileQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2673,7 +2753,6 @@ export const serializeAws_restJson1ListRoutingProfileQueuesCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2690,8 +2769,10 @@ export const serializeAws_restJson1ListRoutingProfilesCommand = async (
   input: ListRoutingProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/routing-profiles-summary/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routing-profiles-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2706,7 +2787,6 @@ export const serializeAws_restJson1ListRoutingProfilesCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2723,8 +2803,10 @@ export const serializeAws_restJson1ListSecurityKeysCommand = async (
   input: ListSecurityKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/security-keys";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/security-keys";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2739,7 +2821,6 @@ export const serializeAws_restJson1ListSecurityKeysCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2756,8 +2837,10 @@ export const serializeAws_restJson1ListSecurityProfilesCommand = async (
   input: ListSecurityProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/security-profiles-summary/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/security-profiles-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2772,7 +2855,6 @@ export const serializeAws_restJson1ListSecurityProfilesCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2789,8 +2871,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -2801,7 +2884,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2817,8 +2899,11 @@ export const serializeAws_restJson1ListUseCasesCommand = async (
   input: ListUseCasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2842,7 +2927,6 @@ export const serializeAws_restJson1ListUseCasesCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2859,8 +2943,11 @@ export const serializeAws_restJson1ListUserHierarchyGroupsCommand = async (
   input: ListUserHierarchyGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/user-hierarchy-groups-summary/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/user-hierarchy-groups-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2875,7 +2962,6 @@ export const serializeAws_restJson1ListUserHierarchyGroupsCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2892,8 +2978,10 @@ export const serializeAws_restJson1ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/users-summary/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -2908,7 +2996,6 @@ export const serializeAws_restJson1ListUsersCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2925,10 +3012,12 @@ export const serializeAws_restJson1ResumeContactRecordingCommand = async (
   input: ResumeContactRecordingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/contact/resume-recording";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/resume-recording";
   let body: any;
   body = JSON.stringify({
     ...(input.ContactId !== undefined && input.ContactId !== null && { ContactId: input.ContactId }),
@@ -2936,7 +3025,6 @@ export const serializeAws_restJson1ResumeContactRecordingCommand = async (
       input.InitialContactId !== null && { InitialContactId: input.InitialContactId }),
     ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2952,10 +3040,11 @@ export const serializeAws_restJson1StartChatContactCommand = async (
   input: StartChatContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/contact/chat";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/chat";
   let body: any;
   body = JSON.stringify({
     ...(input.Attributes !== undefined &&
@@ -2972,7 +3061,6 @@ export const serializeAws_restJson1StartChatContactCommand = async (
         ParticipantDetails: serializeAws_restJson1ParticipantDetails(input.ParticipantDetails, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2988,10 +3076,11 @@ export const serializeAws_restJson1StartContactRecordingCommand = async (
   input: StartContactRecordingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/contact/start-recording";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/start-recording";
   let body: any;
   body = JSON.stringify({
     ...(input.ContactId !== undefined && input.ContactId !== null && { ContactId: input.ContactId }),
@@ -3006,7 +3095,6 @@ export const serializeAws_restJson1StartContactRecordingCommand = async (
         ),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3022,10 +3110,11 @@ export const serializeAws_restJson1StartOutboundVoiceContactCommand = async (
   input: StartOutboundVoiceContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/contact/outbound-voice";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/outbound-voice";
   let body: any;
   body = JSON.stringify({
     ...(input.Attributes !== undefined &&
@@ -3039,7 +3128,6 @@ export const serializeAws_restJson1StartOutboundVoiceContactCommand = async (
     ...(input.SourcePhoneNumber !== undefined &&
       input.SourcePhoneNumber !== null && { SourcePhoneNumber: input.SourcePhoneNumber }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3055,10 +3143,11 @@ export const serializeAws_restJson1StartTaskContactCommand = async (
   input: StartTaskContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/contact/task";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/task";
   let body: any;
   body = JSON.stringify({
     ...(input.Attributes !== undefined &&
@@ -3073,7 +3162,6 @@ export const serializeAws_restJson1StartTaskContactCommand = async (
     ...(input.References !== undefined &&
       input.References !== null && { References: serializeAws_restJson1ContactReferences(input.References, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3089,16 +3177,16 @@ export const serializeAws_restJson1StopContactCommand = async (
   input: StopContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/contact/stop";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/stop";
   let body: any;
   body = JSON.stringify({
     ...(input.ContactId !== undefined && input.ContactId !== null && { ContactId: input.ContactId }),
     ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3114,10 +3202,11 @@ export const serializeAws_restJson1StopContactRecordingCommand = async (
   input: StopContactRecordingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/contact/stop-recording";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/stop-recording";
   let body: any;
   body = JSON.stringify({
     ...(input.ContactId !== undefined && input.ContactId !== null && { ContactId: input.ContactId }),
@@ -3125,7 +3214,6 @@ export const serializeAws_restJson1StopContactRecordingCommand = async (
       input.InitialContactId !== null && { InitialContactId: input.InitialContactId }),
     ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3141,10 +3229,12 @@ export const serializeAws_restJson1SuspendContactRecordingCommand = async (
   input: SuspendContactRecordingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/contact/suspend-recording";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/suspend-recording";
   let body: any;
   body = JSON.stringify({
     ...(input.ContactId !== undefined && input.ContactId !== null && { ContactId: input.ContactId }),
@@ -3152,7 +3242,6 @@ export const serializeAws_restJson1SuspendContactRecordingCommand = async (
       input.InitialContactId !== null && { InitialContactId: input.InitialContactId }),
     ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3168,10 +3257,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -3185,7 +3275,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3201,8 +3290,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -3216,7 +3306,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3233,10 +3322,11 @@ export const serializeAws_restJson1UpdateContactAttributesCommand = async (
   input: UpdateContactAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/contact/attributes";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/attributes";
   let body: any;
   body = JSON.stringify({
     ...(input.Attributes !== undefined &&
@@ -3245,7 +3335,6 @@ export const serializeAws_restJson1UpdateContactAttributesCommand = async (
       input.InitialContactId !== null && { InitialContactId: input.InitialContactId }),
     ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3261,10 +3350,13 @@ export const serializeAws_restJson1UpdateContactFlowContentCommand = async (
   input: UpdateContactFlowContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/contact-flows/{InstanceId}/{ContactFlowId}/content";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/contact-flows/{InstanceId}/{ContactFlowId}/content";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3287,7 +3379,6 @@ export const serializeAws_restJson1UpdateContactFlowContentCommand = async (
   body = JSON.stringify({
     ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3303,10 +3394,13 @@ export const serializeAws_restJson1UpdateContactFlowNameCommand = async (
   input: UpdateContactFlowNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/contact-flows/{InstanceId}/{ContactFlowId}/name";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/contact-flows/{InstanceId}/{ContactFlowId}/name";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3330,7 +3424,6 @@ export const serializeAws_restJson1UpdateContactFlowNameCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3346,10 +3439,13 @@ export const serializeAws_restJson1UpdateInstanceAttributeCommand = async (
   input: UpdateInstanceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/instance/{InstanceId}/attribute/{AttributeType}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/instance/{InstanceId}/attribute/{AttributeType}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3372,7 +3468,6 @@ export const serializeAws_restJson1UpdateInstanceAttributeCommand = async (
   body = JSON.stringify({
     ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3388,10 +3483,13 @@ export const serializeAws_restJson1UpdateInstanceStorageConfigCommand = async (
   input: UpdateInstanceStorageConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/instance/{InstanceId}/storage-config/{AssociationId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/instance/{InstanceId}/storage-config/{AssociationId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3420,7 +3518,6 @@ export const serializeAws_restJson1UpdateInstanceStorageConfigCommand = async (
         StorageConfig: serializeAws_restJson1InstanceStorageConfig(input.StorageConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3437,10 +3534,13 @@ export const serializeAws_restJson1UpdateQueueHoursOfOperationCommand = async (
   input: UpdateQueueHoursOfOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/queues/{InstanceId}/{QueueId}/hours-of-operation";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/queues/{InstanceId}/{QueueId}/hours-of-operation";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3464,7 +3564,6 @@ export const serializeAws_restJson1UpdateQueueHoursOfOperationCommand = async (
     ...(input.HoursOfOperationId !== undefined &&
       input.HoursOfOperationId !== null && { HoursOfOperationId: input.HoursOfOperationId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3480,10 +3579,13 @@ export const serializeAws_restJson1UpdateQueueMaxContactsCommand = async (
   input: UpdateQueueMaxContactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/queues/{InstanceId}/{QueueId}/max-contacts";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/queues/{InstanceId}/{QueueId}/max-contacts";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3506,7 +3608,6 @@ export const serializeAws_restJson1UpdateQueueMaxContactsCommand = async (
   body = JSON.stringify({
     ...(input.MaxContacts !== undefined && input.MaxContacts !== null && { MaxContacts: input.MaxContacts }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3522,10 +3623,12 @@ export const serializeAws_restJson1UpdateQueueNameCommand = async (
   input: UpdateQueueNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/queues/{InstanceId}/{QueueId}/name";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queues/{InstanceId}/{QueueId}/name";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3549,7 +3652,6 @@ export const serializeAws_restJson1UpdateQueueNameCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3565,10 +3667,13 @@ export const serializeAws_restJson1UpdateQueueOutboundCallerConfigCommand = asyn
   input: UpdateQueueOutboundCallerConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/queues/{InstanceId}/{QueueId}/outbound-caller-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/queues/{InstanceId}/{QueueId}/outbound-caller-config";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3594,7 +3699,6 @@ export const serializeAws_restJson1UpdateQueueOutboundCallerConfigCommand = asyn
         OutboundCallerConfig: serializeAws_restJson1OutboundCallerConfig(input.OutboundCallerConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3610,10 +3714,12 @@ export const serializeAws_restJson1UpdateQueueStatusCommand = async (
   input: UpdateQueueStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/queues/{InstanceId}/{QueueId}/status";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queues/{InstanceId}/{QueueId}/status";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3636,7 +3742,6 @@ export const serializeAws_restJson1UpdateQueueStatusCommand = async (
   body = JSON.stringify({
     ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3652,10 +3757,13 @@ export const serializeAws_restJson1UpdateQuickConnectConfigCommand = async (
   input: UpdateQuickConnectConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/quick-connects/{InstanceId}/{QuickConnectId}/config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/quick-connects/{InstanceId}/{QuickConnectId}/config";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3681,7 +3789,6 @@ export const serializeAws_restJson1UpdateQuickConnectConfigCommand = async (
         QuickConnectConfig: serializeAws_restJson1QuickConnectConfig(input.QuickConnectConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3697,10 +3804,13 @@ export const serializeAws_restJson1UpdateQuickConnectNameCommand = async (
   input: UpdateQuickConnectNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/quick-connects/{InstanceId}/{QuickConnectId}/name";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/quick-connects/{InstanceId}/{QuickConnectId}/name";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3724,7 +3834,6 @@ export const serializeAws_restJson1UpdateQuickConnectNameCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3740,10 +3849,13 @@ export const serializeAws_restJson1UpdateRoutingProfileConcurrencyCommand = asyn
   input: UpdateRoutingProfileConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/routing-profiles/{InstanceId}/{RoutingProfileId}/concurrency";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3769,7 +3881,6 @@ export const serializeAws_restJson1UpdateRoutingProfileConcurrencyCommand = asyn
         MediaConcurrencies: serializeAws_restJson1MediaConcurrencies(input.MediaConcurrencies, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3785,10 +3896,13 @@ export const serializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueComma
   input: UpdateRoutingProfileDefaultOutboundQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/default-outbound-queue";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/routing-profiles/{InstanceId}/{RoutingProfileId}/default-outbound-queue";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3812,7 +3926,6 @@ export const serializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueComma
     ...(input.DefaultOutboundQueueId !== undefined &&
       input.DefaultOutboundQueueId !== null && { DefaultOutboundQueueId: input.DefaultOutboundQueueId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3828,10 +3941,13 @@ export const serializeAws_restJson1UpdateRoutingProfileNameCommand = async (
   input: UpdateRoutingProfileNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/name";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/routing-profiles/{InstanceId}/{RoutingProfileId}/name";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3855,7 +3971,6 @@ export const serializeAws_restJson1UpdateRoutingProfileNameCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3871,10 +3986,13 @@ export const serializeAws_restJson1UpdateRoutingProfileQueuesCommand = async (
   input: UpdateRoutingProfileQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -3900,7 +4018,6 @@ export const serializeAws_restJson1UpdateRoutingProfileQueuesCommand = async (
         QueueConfigs: serializeAws_restJson1RoutingProfileQueueConfigList(input.QueueConfigs, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3916,10 +4033,12 @@ export const serializeAws_restJson1UpdateUserHierarchyCommand = async (
   input: UpdateUserHierarchyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/users/{InstanceId}/{UserId}/hierarchy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users/{InstanceId}/{UserId}/hierarchy";
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -3943,7 +4062,6 @@ export const serializeAws_restJson1UpdateUserHierarchyCommand = async (
     ...(input.HierarchyGroupId !== undefined &&
       input.HierarchyGroupId !== null && { HierarchyGroupId: input.HierarchyGroupId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3959,10 +4077,13 @@ export const serializeAws_restJson1UpdateUserHierarchyGroupNameCommand = async (
   input: UpdateUserHierarchyGroupNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}/name";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}/name";
   if (input.HierarchyGroupId !== undefined) {
     const labelValue: string = input.HierarchyGroupId;
     if (labelValue.length <= 0) {
@@ -3985,7 +4106,6 @@ export const serializeAws_restJson1UpdateUserHierarchyGroupNameCommand = async (
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4001,10 +4121,12 @@ export const serializeAws_restJson1UpdateUserHierarchyStructureCommand = async (
   input: UpdateUserHierarchyStructureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/user-hierarchy-structure/{InstanceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user-hierarchy-structure/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -4021,7 +4143,6 @@ export const serializeAws_restJson1UpdateUserHierarchyStructureCommand = async (
         HierarchyStructure: serializeAws_restJson1HierarchyStructureUpdate(input.HierarchyStructure, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4037,10 +4158,13 @@ export const serializeAws_restJson1UpdateUserIdentityInfoCommand = async (
   input: UpdateUserIdentityInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/users/{InstanceId}/{UserId}/identity-info";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/users/{InstanceId}/{UserId}/identity-info";
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -4066,7 +4190,6 @@ export const serializeAws_restJson1UpdateUserIdentityInfoCommand = async (
         IdentityInfo: serializeAws_restJson1UserIdentityInfo(input.IdentityInfo, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4082,10 +4205,12 @@ export const serializeAws_restJson1UpdateUserPhoneConfigCommand = async (
   input: UpdateUserPhoneConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/users/{InstanceId}/{UserId}/phone-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users/{InstanceId}/{UserId}/phone-config";
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -4109,7 +4234,6 @@ export const serializeAws_restJson1UpdateUserPhoneConfigCommand = async (
     ...(input.PhoneConfig !== undefined &&
       input.PhoneConfig !== null && { PhoneConfig: serializeAws_restJson1UserPhoneConfig(input.PhoneConfig, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4125,10 +4249,13 @@ export const serializeAws_restJson1UpdateUserRoutingProfileCommand = async (
   input: UpdateUserRoutingProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/users/{InstanceId}/{UserId}/routing-profile";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/users/{InstanceId}/{UserId}/routing-profile";
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -4152,7 +4279,6 @@ export const serializeAws_restJson1UpdateUserRoutingProfileCommand = async (
     ...(input.RoutingProfileId !== undefined &&
       input.RoutingProfileId !== null && { RoutingProfileId: input.RoutingProfileId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4168,10 +4294,13 @@ export const serializeAws_restJson1UpdateUserSecurityProfilesCommand = async (
   input: UpdateUserSecurityProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/users/{InstanceId}/{UserId}/security-profiles";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/users/{InstanceId}/{UserId}/security-profiles";
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -4197,7 +4326,6 @@ export const serializeAws_restJson1UpdateUserSecurityProfilesCommand = async (
         SecurityProfileIds: serializeAws_restJson1SecurityProfileIds(input.SecurityProfileIds, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

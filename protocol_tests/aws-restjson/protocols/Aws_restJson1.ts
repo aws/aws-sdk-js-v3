@@ -159,8 +159,10 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
   input: AllQueryStringTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/AllQueryStringTypesInput";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AllQueryStringTypesInput";
   const query: any = {
     ...(input.queryParamsMapOfStrings !== undefined && input.queryParamsMapOfStrings),
     ...(input.queryString !== undefined && { String: input.queryString }),
@@ -203,7 +205,6 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
     ...(input.queryEnumList !== undefined && { EnumList: (input.queryEnumList || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -220,15 +221,16 @@ export const serializeAws_restJson1ConstantAndVariableQueryStringCommand = async
   input: ConstantAndVariableQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/ConstantAndVariableQueryString";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ConstantAndVariableQueryString";
   const query: any = {
     foo: "bar",
     ...(input.baz !== undefined && { baz: input.baz }),
     ...(input.maybeSet !== undefined && { maybeSet: input.maybeSet }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -245,8 +247,10 @@ export const serializeAws_restJson1ConstantQueryStringCommand = async (
   input: ConstantQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/ConstantQueryString/{hello}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ConstantQueryString/{hello}";
   if (input.hello !== undefined) {
     const labelValue: string = input.hello;
     if (labelValue.length <= 0) {
@@ -261,7 +265,6 @@ export const serializeAws_restJson1ConstantQueryStringCommand = async (
     hello: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -278,17 +281,17 @@ export const serializeAws_restJson1DocumentTypeCommand = async (
   input: DocumentTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/DocumentType";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DocumentType";
   let body: any;
   body = JSON.stringify({
     ...(input.documentValue !== undefined &&
       input.documentValue !== null && { documentValue: serializeAws_restJson1Document(input.documentValue, context) }),
     ...(input.stringValue !== undefined && input.stringValue !== null && { stringValue: input.stringValue }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -304,10 +307,11 @@ export const serializeAws_restJson1DocumentTypeAsPayloadCommand = async (
   input: DocumentTypeAsPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/DocumentTypeAsPayload";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DocumentTypeAsPayload";
   let body: any;
   if (input.documentValue !== undefined) {
     if (input.documentValue === null) {
@@ -317,7 +321,6 @@ export const serializeAws_restJson1DocumentTypeAsPayloadCommand = async (
     }
   }
   body = JSON.stringify(body);
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -333,13 +336,14 @@ export const serializeAws_restJson1EmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/EmptyInputAndEmptyOutput";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EmptyInputAndEmptyOutput";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -355,10 +359,11 @@ export const serializeAws_restJson1EndpointOperationCommand = async (
   input: EndpointOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/EndpointOperation";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EndpointOperation";
   let body: any;
   body = "";
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -368,7 +373,6 @@ export const serializeAws_restJson1EndpointOperationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -384,10 +388,12 @@ export const serializeAws_restJson1EndpointWithHostLabelOperationCommand = async
   input: EndpointWithHostLabelOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/EndpointWithHostLabelOperation";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EndpointWithHostLabelOperation";
   let body: any;
   body = JSON.stringify({
     ...(input.label !== undefined && input.label !== null && { label: input.label }),
@@ -403,7 +409,6 @@ export const serializeAws_restJson1EndpointWithHostLabelOperationCommand = async
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -419,13 +424,13 @@ export const serializeAws_restJson1GreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/GreetingWithErrors";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GreetingWithErrors";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -441,15 +446,15 @@ export const serializeAws_restJson1HttpEnumPayloadCommand = async (
   input: HttpEnumPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "text/plain",
   };
-  let resolvedPath = "/EnumPayload";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EnumPayload";
   let body: any;
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -465,16 +470,16 @@ export const serializeAws_restJson1HttpPayloadTraitsCommand = async (
   input: HttpPayloadTraitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/HttpPayloadTraits";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadTraits";
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -490,16 +495,17 @@ export const serializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand = async
   input: HttpPayloadTraitsWithMediaTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "text/plain",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/HttpPayloadTraitsWithMediaType";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadTraitsWithMediaType";
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -515,10 +521,12 @@ export const serializeAws_restJson1HttpPayloadWithStructureCommand = async (
   input: HttpPayloadWithStructureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/HttpPayloadWithStructure";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithStructure";
   let body: any;
   if (input.nested !== undefined) {
     body = serializeAws_restJson1NestedPayload(input.nested, context);
@@ -527,7 +535,6 @@ export const serializeAws_restJson1HttpPayloadWithStructureCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -543,6 +550,7 @@ export const serializeAws_restJson1HttpPrefixHeadersCommand = async (
   input: HttpPrefixHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
     ...(input.fooMap !== undefined &&
@@ -554,9 +562,8 @@ export const serializeAws_restJson1HttpPrefixHeadersCommand = async (
         {}
       )),
   };
-  let resolvedPath = "/HttpPrefixHeaders";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPrefixHeaders";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -572,13 +579,14 @@ export const serializeAws_restJson1HttpPrefixHeadersResponseCommand = async (
   input: HttpPrefixHeadersResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/HttpPrefixHeadersResponse";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPrefixHeadersResponse";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -594,8 +602,10 @@ export const serializeAws_restJson1HttpRequestWithFloatLabelsCommand = async (
   input: HttpRequestWithFloatLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/FloatHttpLabels/{float}/{double}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FloatHttpLabels/{float}/{double}";
   if (input.float !== undefined) {
     const labelValue: string = input.float % 1 == 0 ? input.float + ".0" : input.float.toString();
     if (labelValue.length <= 0) {
@@ -615,7 +625,6 @@ export const serializeAws_restJson1HttpRequestWithFloatLabelsCommand = async (
     throw new Error("No value provided for input HTTP label: double.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -631,8 +640,11 @@ export const serializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand = asy
   input: HttpRequestWithGreedyLabelInPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}";
   if (input.foo !== undefined) {
     const labelValue: string = input.foo;
     if (labelValue.length <= 0) {
@@ -658,7 +670,6 @@ export const serializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand = asy
     throw new Error("No value provided for input HTTP label: baz.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -674,8 +685,11 @@ export const serializeAws_restJson1HttpRequestWithLabelsCommand = async (
   input: HttpRequestWithLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}";
   if (input.string !== undefined) {
     const labelValue: string = input.string;
     if (labelValue.length <= 0) {
@@ -749,7 +763,6 @@ export const serializeAws_restJson1HttpRequestWithLabelsCommand = async (
     throw new Error("No value provided for input HTTP label: timestamp.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -765,8 +778,10 @@ export const serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatComman
   input: HttpRequestWithLabelsAndTimestampFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/HttpRequestWithLabelsAndTimestampFormat/{memberEpochSeconds}/{memberHttpDate}/{memberDateTime}/{defaultFormat}/{targetEpochSeconds}/{targetHttpDate}/{targetDateTime}";
   if (input.memberEpochSeconds !== undefined) {
     const labelValue: string = Math.round(input.memberEpochSeconds.getTime() / 1000).toString();
@@ -832,7 +847,6 @@ export const serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatComman
     throw new Error("No value provided for input HTTP label: targetDateTime.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -848,13 +862,13 @@ export const serializeAws_restJson1HttpResponseCodeCommand = async (
   input: HttpResponseCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/HttpResponseCode";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpResponseCode";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -870,15 +884,15 @@ export const serializeAws_restJson1HttpStringPayloadCommand = async (
   input: HttpStringPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "text/plain",
   };
-  let resolvedPath = "/StringPayload";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StringPayload";
   let body: any;
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -894,13 +908,14 @@ export const serializeAws_restJson1IgnoreQueryParamsInResponseCommand = async (
   input: IgnoreQueryParamsInResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/IgnoreQueryParamsInResponse";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/IgnoreQueryParamsInResponse";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -916,6 +931,7 @@ export const serializeAws_restJson1InputAndOutputWithHeadersCommand = async (
   input: InputAndOutputWithHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.headerString) && { "x-string": input.headerString! }),
     ...(isSerializableHeaderValue(input.headerByte) && { "x-byte": input.headerByte!.toString() }),
@@ -952,9 +968,9 @@ export const serializeAws_restJson1InputAndOutputWithHeadersCommand = async (
       "x-enumlist": (input.headerEnumList! || []).map((_entry) => _entry).join(", "),
     }),
   };
-  let resolvedPath = "/InputAndOutputWithHeaders";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/InputAndOutputWithHeaders";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -970,15 +986,15 @@ export const serializeAws_restJson1JsonBlobsCommand = async (
   input: JsonBlobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/JsonBlobs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonBlobs";
   let body: any;
   body = JSON.stringify({
     ...(input.data !== undefined && input.data !== null && { data: context.base64Encoder(input.data) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -994,10 +1010,11 @@ export const serializeAws_restJson1JsonEnumsCommand = async (
   input: JsonEnumsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/JsonEnums";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonEnums";
   let body: any;
   body = JSON.stringify({
     ...(input.fooEnum1 !== undefined && input.fooEnum1 !== null && { fooEnum1: input.fooEnum1 }),
@@ -1010,7 +1027,6 @@ export const serializeAws_restJson1JsonEnumsCommand = async (
     ...(input.fooEnumSet !== undefined &&
       input.fooEnumSet !== null && { fooEnumSet: serializeAws_restJson1FooEnumSet(input.fooEnumSet, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1026,10 +1042,11 @@ export const serializeAws_restJson1JsonListsCommand = async (
   input: JsonListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/JsonLists";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonLists";
   let body: any;
   body = JSON.stringify({
     ...(input.booleanList !== undefined &&
@@ -1059,7 +1076,6 @@ export const serializeAws_restJson1JsonListsCommand = async (
         timestampList: serializeAws_restJson1TimestampList(input.timestampList, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1075,10 +1091,11 @@ export const serializeAws_restJson1JsonMapsCommand = async (
   input: JsonMapsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/JsonMaps";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonMaps";
   let body: any;
   body = JSON.stringify({
     ...(input.denseBooleanMap !== undefined &&
@@ -1118,7 +1135,6 @@ export const serializeAws_restJson1JsonMapsCommand = async (
         sparseStructMap: serializeAws_restJson1SparseStructMap(input.sparseStructMap, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1134,10 +1150,11 @@ export const serializeAws_restJson1JsonTimestampsCommand = async (
   input: JsonTimestampsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/JsonTimestamps";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonTimestamps";
   let body: any;
   body = JSON.stringify({
     ...(input.dateTime !== undefined &&
@@ -1147,7 +1164,6 @@ export const serializeAws_restJson1JsonTimestampsCommand = async (
     ...(input.httpDate !== undefined && input.httpDate !== null && { httpDate: __dateToUtcString(input.httpDate) }),
     ...(input.normal !== undefined && input.normal !== null && { normal: Math.round(input.normal.getTime() / 1000) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1163,16 +1179,16 @@ export const serializeAws_restJson1JsonUnionsCommand = async (
   input: JsonUnionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/JsonUnions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonUnions";
   let body: any;
   body = JSON.stringify({
     ...(input.contents !== undefined &&
       input.contents !== null && { contents: serializeAws_restJson1MyUnion(input.contents, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1188,14 +1204,14 @@ export const serializeAws_restJson1MediaTypeHeaderCommand = async (
   input: MediaTypeHeaderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.json) && {
       "x-json": Buffer.from(__LazyJsonString.fromObject(input.json!)).toString("base64"),
     }),
   };
-  let resolvedPath = "/MediaTypeHeader";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MediaTypeHeader";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1211,13 +1227,13 @@ export const serializeAws_restJson1NoInputAndNoOutputCommand = async (
   input: NoInputAndNoOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/NoInputAndNoOutput";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NoInputAndNoOutput";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1233,13 +1249,13 @@ export const serializeAws_restJson1NoInputAndOutputCommand = async (
   input: NoInputAndOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/NoInputAndOutputOutput";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NoInputAndOutputOutput";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1255,14 +1271,15 @@ export const serializeAws_restJson1NullAndEmptyHeadersClientCommand = async (
   input: NullAndEmptyHeadersClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.a) && { "x-a": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "x-b": input.b! }),
     ...(isSerializableHeaderValue(input.c) && { "x-c": (input.c! || []).map((_entry) => _entry).join(", ") }),
   };
-  let resolvedPath = "/NullAndEmptyHeadersClient";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NullAndEmptyHeadersClient";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1278,14 +1295,15 @@ export const serializeAws_restJson1NullAndEmptyHeadersServerCommand = async (
   input: NullAndEmptyHeadersServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.a) && { "x-a": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "x-b": input.b! }),
     ...(isSerializableHeaderValue(input.c) && { "x-c": (input.c! || []).map((_entry) => _entry).join(", ") }),
   };
-  let resolvedPath = "/NullAndEmptyHeadersServer";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NullAndEmptyHeadersServer";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1301,14 +1319,15 @@ export const serializeAws_restJson1OmitsNullSerializesEmptyStringCommand = async
   input: OmitsNullSerializesEmptyStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/OmitsNullSerializesEmptyString";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/OmitsNullSerializesEmptyString";
   const query: any = {
     ...(input.nullValue !== undefined && { Null: input.nullValue }),
     ...(input.emptyString !== undefined && { Empty: input.emptyString }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1325,13 +1344,14 @@ export const serializeAws_restJson1QueryIdempotencyTokenAutoFillCommand = async 
   input: QueryIdempotencyTokenAutoFillCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/QueryIdempotencyTokenAutoFill";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/QueryIdempotencyTokenAutoFill";
   const query: any = {
     ...(input.token !== undefined && { token: input.token }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1348,14 +1368,14 @@ export const serializeAws_restJson1QueryParamsAsStringListMapCommand = async (
   input: QueryParamsAsStringListMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/StringListMap";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StringListMap";
   const query: any = {
     ...(input.foo !== undefined && input.foo),
     ...(input.qux !== undefined && { corge: input.qux }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1372,14 +1392,14 @@ export const serializeAws_restJson1QueryPrecedenceCommand = async (
   input: QueryPrecedenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/Precedence";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/Precedence";
   const query: any = {
     ...(input.baz !== undefined && input.baz),
     ...(input.foo !== undefined && { bar: input.foo }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1396,10 +1416,11 @@ export const serializeAws_restJson1RecursiveShapesCommand = async (
   input: RecursiveShapesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/RecursiveShapes";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RecursiveShapes";
   let body: any;
   body = JSON.stringify({
     ...(input.nested !== undefined &&
@@ -1407,7 +1428,6 @@ export const serializeAws_restJson1RecursiveShapesCommand = async (
         nested: serializeAws_restJson1RecursiveShapesInputOutputNested1(input.nested, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1423,11 +1443,12 @@ export const serializeAws_restJson1SimpleScalarPropertiesCommand = async (
   input: SimpleScalarPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/SimpleScalarProperties";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SimpleScalarProperties";
   let body: any;
   body = JSON.stringify({
     ...(input.byteValue !== undefined && input.byteValue !== null && { byteValue: input.byteValue }),
@@ -1444,7 +1465,6 @@ export const serializeAws_restJson1SimpleScalarPropertiesCommand = async (
     ...(input.trueBooleanValue !== undefined &&
       input.trueBooleanValue !== null && { trueBooleanValue: input.trueBooleanValue }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1460,16 +1480,16 @@ export const serializeAws_restJson1StreamingTraitsCommand = async (
   input: StreamingTraitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/StreamingTraits";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StreamingTraits";
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1485,16 +1505,17 @@ export const serializeAws_restJson1StreamingTraitsRequireLengthCommand = async (
   input: StreamingTraitsRequireLengthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/StreamingTraitsRequireLength";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StreamingTraitsRequireLength";
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1510,16 +1531,17 @@ export const serializeAws_restJson1StreamingTraitsWithMediaTypeCommand = async (
   input: StreamingTraitsWithMediaTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "text/plain",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/StreamingTraitsWithMediaType";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StreamingTraitsWithMediaType";
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1535,6 +1557,7 @@ export const serializeAws_restJson1TimestampFormatHeadersCommand = async (
   input: TimestampFormatHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.memberEpochSeconds) && {
       "x-memberepochseconds": Math.round(input.memberEpochSeconds!.getTime() / 1000).toString(),
@@ -1558,9 +1581,8 @@ export const serializeAws_restJson1TimestampFormatHeadersCommand = async (
       "x-targetdatetime": (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
     }),
   };
-  let resolvedPath = "/TimestampFormatHeaders";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TimestampFormatHeaders";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

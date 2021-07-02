@@ -36,8 +36,10 @@ export const serializeAws_restJson1DeleteThingShadowCommand = async (
   input: DeleteThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/things/{thingName}/shadow";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -51,7 +53,6 @@ export const serializeAws_restJson1DeleteThingShadowCommand = async (
     ...(input.shadowName !== undefined && { name: input.shadowName }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -68,8 +69,10 @@ export const serializeAws_restJson1GetThingShadowCommand = async (
   input: GetThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/things/{thingName}/shadow";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -83,7 +86,6 @@ export const serializeAws_restJson1GetThingShadowCommand = async (
     ...(input.shadowName !== undefined && { name: input.shadowName }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -100,8 +102,11 @@ export const serializeAws_restJson1ListNamedShadowsForThingCommand = async (
   input: ListNamedShadowsForThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/api/things/shadow/ListNamedShadowsForThing/{thingName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/api/things/shadow/ListNamedShadowsForThing/{thingName}";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -116,7 +121,6 @@ export const serializeAws_restJson1ListNamedShadowsForThingCommand = async (
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -133,10 +137,11 @@ export const serializeAws_restJson1PublishCommand = async (
   input: PublishCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  let resolvedPath = "/topics/{topic}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/topics/{topic}";
   if (input.topic !== undefined) {
     const labelValue: string = input.topic;
     if (labelValue.length <= 0) {
@@ -153,7 +158,6 @@ export const serializeAws_restJson1PublishCommand = async (
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -170,10 +174,12 @@ export const serializeAws_restJson1UpdateThingShadowCommand = async (
   input: UpdateThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  let resolvedPath = "/things/{thingName}/shadow";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -190,7 +196,6 @@ export const serializeAws_restJson1UpdateThingShadowCommand = async (
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

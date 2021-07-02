@@ -94,10 +94,13 @@ export const serializeAws_restJson1CloneBackendCommand = async (
   input: CloneBackendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/environments/{BackendEnvironmentName}/clone";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/environments/{BackendEnvironmentName}/clone";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -121,7 +124,6 @@ export const serializeAws_restJson1CloneBackendCommand = async (
     ...(input.TargetEnvironmentName !== undefined &&
       input.TargetEnvironmentName !== null && { targetEnvironmentName: input.TargetEnvironmentName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -137,10 +139,11 @@ export const serializeAws_restJson1CreateBackendCommand = async (
   input: CreateBackendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend";
   let body: any;
   body = JSON.stringify({
     ...(input.AppId !== undefined && input.AppId !== null && { appId: input.AppId }),
@@ -153,7 +156,6 @@ export const serializeAws_restJson1CreateBackendCommand = async (
       }),
     ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -169,10 +171,11 @@ export const serializeAws_restJson1CreateBackendAPICommand = async (
   input: CreateBackendAPICommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/api";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/api";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -192,7 +195,6 @@ export const serializeAws_restJson1CreateBackendAPICommand = async (
       }),
     ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -208,10 +210,11 @@ export const serializeAws_restJson1CreateBackendAuthCommand = async (
   input: CreateBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/auth";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/auth";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -231,7 +234,6 @@ export const serializeAws_restJson1CreateBackendAuthCommand = async (
       }),
     ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -247,10 +249,11 @@ export const serializeAws_restJson1CreateBackendConfigCommand = async (
   input: CreateBackendConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/config";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/config";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -265,7 +268,6 @@ export const serializeAws_restJson1CreateBackendConfigCommand = async (
     ...(input.BackendManagerAppId !== undefined &&
       input.BackendManagerAppId !== null && { backendManagerAppId: input.BackendManagerAppId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -281,8 +283,10 @@ export const serializeAws_restJson1CreateTokenCommand = async (
   input: CreateTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/backend/{AppId}/challenge";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/challenge";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -293,7 +297,6 @@ export const serializeAws_restJson1CreateTokenCommand = async (
     throw new Error("No value provided for input HTTP label: AppId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -309,8 +312,11 @@ export const serializeAws_restJson1DeleteBackendCommand = async (
   input: DeleteBackendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/backend/{AppId}/environments/{BackendEnvironmentName}/remove";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/environments/{BackendEnvironmentName}/remove";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -330,7 +336,6 @@ export const serializeAws_restJson1DeleteBackendCommand = async (
     throw new Error("No value provided for input HTTP label: BackendEnvironmentName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -346,10 +351,13 @@ export const serializeAws_restJson1DeleteBackendAPICommand = async (
   input: DeleteBackendAPICommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/api/{BackendEnvironmentName}/remove";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/api/{BackendEnvironmentName}/remove";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -376,7 +384,6 @@ export const serializeAws_restJson1DeleteBackendAPICommand = async (
       }),
     ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -392,10 +399,13 @@ export const serializeAws_restJson1DeleteBackendAuthCommand = async (
   input: DeleteBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/auth/{BackendEnvironmentName}/remove";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/auth/{BackendEnvironmentName}/remove";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -418,7 +428,6 @@ export const serializeAws_restJson1DeleteBackendAuthCommand = async (
   body = JSON.stringify({
     ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -434,8 +443,11 @@ export const serializeAws_restJson1DeleteTokenCommand = async (
   input: DeleteTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/backend/{AppId}/challenge/{SessionId}/remove";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/challenge/{SessionId}/remove";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -455,7 +467,6 @@ export const serializeAws_restJson1DeleteTokenCommand = async (
     throw new Error("No value provided for input HTTP label: SessionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -471,10 +482,13 @@ export const serializeAws_restJson1GenerateBackendAPIModelsCommand = async (
   input: GenerateBackendAPIModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/api/{BackendEnvironmentName}/generateModels";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/api/{BackendEnvironmentName}/generateModels";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -497,7 +511,6 @@ export const serializeAws_restJson1GenerateBackendAPIModelsCommand = async (
   body = JSON.stringify({
     ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -513,10 +526,11 @@ export const serializeAws_restJson1GetBackendCommand = async (
   input: GetBackendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/details";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/details";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -531,7 +545,6 @@ export const serializeAws_restJson1GetBackendCommand = async (
     ...(input.BackendEnvironmentName !== undefined &&
       input.BackendEnvironmentName !== null && { backendEnvironmentName: input.BackendEnvironmentName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -547,10 +560,13 @@ export const serializeAws_restJson1GetBackendAPICommand = async (
   input: GetBackendAPICommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/api/{BackendEnvironmentName}/details";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/api/{BackendEnvironmentName}/details";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -577,7 +593,6 @@ export const serializeAws_restJson1GetBackendAPICommand = async (
       }),
     ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -593,10 +608,13 @@ export const serializeAws_restJson1GetBackendAPIModelsCommand = async (
   input: GetBackendAPIModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/api/{BackendEnvironmentName}/getModels";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/api/{BackendEnvironmentName}/getModels";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -619,7 +637,6 @@ export const serializeAws_restJson1GetBackendAPIModelsCommand = async (
   body = JSON.stringify({
     ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -635,10 +652,13 @@ export const serializeAws_restJson1GetBackendAuthCommand = async (
   input: GetBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/auth/{BackendEnvironmentName}/details";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/auth/{BackendEnvironmentName}/details";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -661,7 +681,6 @@ export const serializeAws_restJson1GetBackendAuthCommand = async (
   body = JSON.stringify({
     ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -677,8 +696,11 @@ export const serializeAws_restJson1GetBackendJobCommand = async (
   input: GetBackendJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -707,7 +729,6 @@ export const serializeAws_restJson1GetBackendJobCommand = async (
     throw new Error("No value provided for input HTTP label: JobId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -723,8 +744,10 @@ export const serializeAws_restJson1GetTokenCommand = async (
   input: GetTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/backend/{AppId}/challenge/{SessionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/challenge/{SessionId}";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -744,7 +767,6 @@ export const serializeAws_restJson1GetTokenCommand = async (
     throw new Error("No value provided for input HTTP label: SessionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -760,10 +782,13 @@ export const serializeAws_restJson1ImportBackendAuthCommand = async (
   input: ImportBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/auth/{BackendEnvironmentName}/import";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/auth/{BackendEnvironmentName}/import";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -791,7 +816,6 @@ export const serializeAws_restJson1ImportBackendAuthCommand = async (
     ...(input.UserPoolId !== undefined && input.UserPoolId !== null && { userPoolId: input.UserPoolId }),
     ...(input.WebClientId !== undefined && input.WebClientId !== null && { webClientId: input.WebClientId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -807,10 +831,13 @@ export const serializeAws_restJson1ListBackendJobsCommand = async (
   input: ListBackendJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/job/{BackendEnvironmentName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/job/{BackendEnvironmentName}";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -837,7 +864,6 @@ export const serializeAws_restJson1ListBackendJobsCommand = async (
     ...(input.Operation !== undefined && input.Operation !== null && { operation: input.Operation }),
     ...(input.Status !== undefined && input.Status !== null && { status: input.Status }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -853,10 +879,11 @@ export const serializeAws_restJson1RemoveAllBackendsCommand = async (
   input: RemoveAllBackendsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/remove";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/remove";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -871,7 +898,6 @@ export const serializeAws_restJson1RemoveAllBackendsCommand = async (
     ...(input.CleanAmplifyApp !== undefined &&
       input.CleanAmplifyApp !== null && { cleanAmplifyApp: input.CleanAmplifyApp }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -887,8 +913,10 @@ export const serializeAws_restJson1RemoveBackendConfigCommand = async (
   input: RemoveBackendConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/backend/{AppId}/config/remove";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/config/remove";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -899,7 +927,6 @@ export const serializeAws_restJson1RemoveBackendConfigCommand = async (
     throw new Error("No value provided for input HTTP label: AppId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -915,10 +942,13 @@ export const serializeAws_restJson1UpdateBackendAPICommand = async (
   input: UpdateBackendAPICommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/api/{BackendEnvironmentName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/api/{BackendEnvironmentName}";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -945,7 +975,6 @@ export const serializeAws_restJson1UpdateBackendAPICommand = async (
       }),
     ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -961,10 +990,13 @@ export const serializeAws_restJson1UpdateBackendAuthCommand = async (
   input: UpdateBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/auth/{BackendEnvironmentName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/auth/{BackendEnvironmentName}";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -991,7 +1023,6 @@ export const serializeAws_restJson1UpdateBackendAuthCommand = async (
       }),
     ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1007,10 +1038,12 @@ export const serializeAws_restJson1UpdateBackendConfigCommand = async (
   input: UpdateBackendConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/config/update";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/config/update";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -1027,7 +1060,6 @@ export const serializeAws_restJson1UpdateBackendConfigCommand = async (
         loginAuthConfig: serializeAws_restJson1LoginAuthConfigReqObj(input.LoginAuthConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1043,10 +1075,13 @@ export const serializeAws_restJson1UpdateBackendJobCommand = async (
   input: UpdateBackendJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}";
   if (input.AppId !== undefined) {
     const labelValue: string = input.AppId;
     if (labelValue.length <= 0) {
@@ -1079,7 +1114,6 @@ export const serializeAws_restJson1UpdateBackendJobCommand = async (
     ...(input.Operation !== undefined && input.Operation !== null && { operation: input.Operation }),
     ...(input.Status !== undefined && input.Status !== null && { status: input.Status }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

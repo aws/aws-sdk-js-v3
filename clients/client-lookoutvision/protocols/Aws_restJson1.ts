@@ -70,11 +70,14 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
   input: CreateDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}/datasets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-11-20/projects/{ProjectName}/datasets";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -92,7 +95,6 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
       }),
     ...(input.DatasetType !== undefined && input.DatasetType !== null && { DatasetType: input.DatasetType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -108,11 +110,13 @@ export const serializeAws_restJson1CreateModelCommand = async (
   input: CreateModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}/models";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-11-20/projects/{ProjectName}/models";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -131,7 +135,6 @@ export const serializeAws_restJson1CreateModelCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -147,16 +150,16 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
-  let resolvedPath = "/2020-11-20/projects";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-11-20/projects";
   let body: any;
   body = JSON.stringify({
     ...(input.ProjectName !== undefined && input.ProjectName !== null && { ProjectName: input.ProjectName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -172,10 +175,13 @@ export const serializeAws_restJson1DeleteDatasetCommand = async (
   input: DeleteDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -195,7 +201,6 @@ export const serializeAws_restJson1DeleteDatasetCommand = async (
     throw new Error("No value provided for input HTTP label: DatasetType.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -211,10 +216,13 @@ export const serializeAws_restJson1DeleteModelCommand = async (
   input: DeleteModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}/models/{ModelVersion}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-11-20/projects/{ProjectName}/models/{ModelVersion}";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -234,7 +242,6 @@ export const serializeAws_restJson1DeleteModelCommand = async (
     throw new Error("No value provided for input HTTP label: ModelVersion.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -250,10 +257,12 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-11-20/projects/{ProjectName}";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -264,7 +273,6 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
     throw new Error("No value provided for input HTTP label: ProjectName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -280,8 +288,11 @@ export const serializeAws_restJson1DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -301,7 +312,6 @@ export const serializeAws_restJson1DescribeDatasetCommand = async (
     throw new Error("No value provided for input HTTP label: DatasetType.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -317,8 +327,11 @@ export const serializeAws_restJson1DescribeModelCommand = async (
   input: DescribeModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}/models/{ModelVersion}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-11-20/projects/{ProjectName}/models/{ModelVersion}";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -338,7 +351,6 @@ export const serializeAws_restJson1DescribeModelCommand = async (
     throw new Error("No value provided for input HTTP label: ModelVersion.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -354,8 +366,10 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-11-20/projects/{ProjectName}";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -366,7 +380,6 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
     throw new Error("No value provided for input HTTP label: ProjectName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -382,11 +395,14 @@ export const serializeAws_restJson1DetectAnomaliesCommand = async (
   input: DetectAnomaliesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.ContentType) && { "content-type": input.ContentType! }),
   };
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/detect";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/detect";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -409,7 +425,6 @@ export const serializeAws_restJson1DetectAnomaliesCommand = async (
   if (input.Body !== undefined) {
     body = input.Body;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -425,8 +440,11 @@ export const serializeAws_restJson1ListDatasetEntriesCommand = async (
   input: ListDatasetEntriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}/entries";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}/entries";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -459,7 +477,6 @@ export const serializeAws_restJson1ListDatasetEntriesCommand = async (
     ...(input.SourceRefContains !== undefined && { sourceRefContains: input.SourceRefContains }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -476,8 +493,10 @@ export const serializeAws_restJson1ListModelsCommand = async (
   input: ListModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}/models";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-11-20/projects/{ProjectName}/models";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -492,7 +511,6 @@ export const serializeAws_restJson1ListModelsCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -509,14 +527,14 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-11-20/projects";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-11-20/projects";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -533,8 +551,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-11-20/tags/{ResourceArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-11-20/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -545,7 +565,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -561,11 +580,14 @@ export const serializeAws_restJson1StartModelCommand = async (
   input: StartModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/start";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/start";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -589,7 +611,6 @@ export const serializeAws_restJson1StartModelCommand = async (
     ...(input.MinInferenceUnits !== undefined &&
       input.MinInferenceUnits !== null && { MinInferenceUnits: input.MinInferenceUnits }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -605,10 +626,13 @@ export const serializeAws_restJson1StopModelCommand = async (
   input: StopModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/stop";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/stop";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -628,7 +652,6 @@ export const serializeAws_restJson1StopModelCommand = async (
     throw new Error("No value provided for input HTTP label: ModelVersion.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -644,10 +667,12 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2020-11-20/tags/{ResourceArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-11-20/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -662,7 +687,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -678,8 +702,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-11-20/tags/{ResourceArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-11-20/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -693,7 +719,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -710,11 +735,14 @@ export const serializeAws_restJson1UpdateDatasetEntriesCommand = async (
   input: UpdateDatasetEntriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
-  let resolvedPath = "/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}/entries";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}/entries";
   if (input.ProjectName !== undefined) {
     const labelValue: string = input.ProjectName;
     if (labelValue.length <= 0) {
@@ -737,7 +765,6 @@ export const serializeAws_restJson1UpdateDatasetEntriesCommand = async (
   body = JSON.stringify({
     ...(input.Changes !== undefined && input.Changes !== null && { Changes: context.base64Encoder(input.Changes) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

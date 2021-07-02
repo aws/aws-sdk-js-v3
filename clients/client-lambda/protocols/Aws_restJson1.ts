@@ -254,10 +254,13 @@ export const serializeAws_restJson1AddLayerVersionPermissionCommand = async (
   input: AddLayerVersionPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -287,7 +290,6 @@ export const serializeAws_restJson1AddLayerVersionPermissionCommand = async (
     ...(input.Principal !== undefined && input.Principal !== null && { Principal: input.Principal }),
     ...(input.StatementId !== undefined && input.StatementId !== null && { StatementId: input.StatementId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -304,10 +306,13 @@ export const serializeAws_restJson1AddPermissionCommand = async (
   input: AddPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/policy";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -331,7 +336,6 @@ export const serializeAws_restJson1AddPermissionCommand = async (
     ...(input.SourceArn !== undefined && input.SourceArn !== null && { SourceArn: input.SourceArn }),
     ...(input.StatementId !== undefined && input.StatementId !== null && { StatementId: input.StatementId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -348,10 +352,13 @@ export const serializeAws_restJson1CreateAliasCommand = async (
   input: CreateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/aliases";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -372,7 +379,6 @@ export const serializeAws_restJson1CreateAliasCommand = async (
         RoutingConfig: serializeAws_restJson1AliasRoutingConfiguration(input.RoutingConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -388,10 +394,12 @@ export const serializeAws_restJson1CreateCodeSigningConfigCommand = async (
   input: CreateCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2020-04-22/code-signing-configs";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-04-22/code-signing-configs";
   let body: any;
   body = JSON.stringify({
     ...(input.AllowedPublishers !== undefined &&
@@ -404,7 +412,6 @@ export const serializeAws_restJson1CreateCodeSigningConfigCommand = async (
       }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -420,10 +427,12 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
   input: CreateEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/event-source-mappings";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings";
   let body: any;
   body = JSON.stringify({
     ...(input.BatchSize !== undefined && input.BatchSize !== null && { BatchSize: input.BatchSize }),
@@ -475,7 +484,6 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
     ...(input.TumblingWindowInSeconds !== undefined &&
       input.TumblingWindowInSeconds !== null && { TumblingWindowInSeconds: input.TumblingWindowInSeconds }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -491,10 +499,11 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
   input: CreateFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions";
   let body: any;
   body = JSON.stringify({
     ...(input.Code !== undefined &&
@@ -533,7 +542,6 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
     ...(input.VpcConfig !== undefined &&
       input.VpcConfig !== null && { VpcConfig: serializeAws_restJson1VpcConfig(input.VpcConfig, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -549,8 +557,11 @@ export const serializeAws_restJson1DeleteAliasCommand = async (
   input: DeleteAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -570,7 +581,6 @@ export const serializeAws_restJson1DeleteAliasCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -586,8 +596,11 @@ export const serializeAws_restJson1DeleteCodeSigningConfigCommand = async (
   input: DeleteCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
   if (input.CodeSigningConfigArn !== undefined) {
     const labelValue: string = input.CodeSigningConfigArn;
     if (labelValue.length <= 0) {
@@ -598,7 +611,6 @@ export const serializeAws_restJson1DeleteCodeSigningConfigCommand = async (
     throw new Error("No value provided for input HTTP label: CodeSigningConfigArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -614,8 +626,10 @@ export const serializeAws_restJson1DeleteEventSourceMappingCommand = async (
   input: DeleteEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/event-source-mappings/{UUID}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings/{UUID}";
   if (input.UUID !== undefined) {
     const labelValue: string = input.UUID;
     if (labelValue.length <= 0) {
@@ -626,7 +640,6 @@ export const serializeAws_restJson1DeleteEventSourceMappingCommand = async (
     throw new Error("No value provided for input HTTP label: UUID.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -642,8 +655,10 @@ export const serializeAws_restJson1DeleteFunctionCommand = async (
   input: DeleteFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions/{FunctionName}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -657,7 +672,6 @@ export const serializeAws_restJson1DeleteFunctionCommand = async (
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -674,8 +688,11 @@ export const serializeAws_restJson1DeleteFunctionCodeSigningConfigCommand = asyn
   input: DeleteFunctionCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-06-30/functions/{FunctionName}/code-signing-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-06-30/functions/{FunctionName}/code-signing-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -686,7 +703,6 @@ export const serializeAws_restJson1DeleteFunctionCodeSigningConfigCommand = asyn
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -702,8 +718,11 @@ export const serializeAws_restJson1DeleteFunctionConcurrencyCommand = async (
   input: DeleteFunctionConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2017-10-31/functions/{FunctionName}/concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2017-10-31/functions/{FunctionName}/concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -714,7 +733,6 @@ export const serializeAws_restJson1DeleteFunctionConcurrencyCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -730,8 +748,11 @@ export const serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand = asyn
   input: DeleteFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -745,7 +766,6 @@ export const serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand = asyn
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -762,8 +782,11 @@ export const serializeAws_restJson1DeleteLayerVersionCommand = async (
   input: DeleteLayerVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -783,7 +806,6 @@ export const serializeAws_restJson1DeleteLayerVersionCommand = async (
     throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -799,8 +821,11 @@ export const serializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand = a
   input: DeleteProvisionedConcurrencyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -814,7 +839,6 @@ export const serializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand = a
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -831,13 +855,14 @@ export const serializeAws_restJson1GetAccountSettingsCommand = async (
   input: GetAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2016-08-19/account-settings";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2016-08-19/account-settings";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -853,8 +878,11 @@ export const serializeAws_restJson1GetAliasCommand = async (
   input: GetAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -874,7 +902,6 @@ export const serializeAws_restJson1GetAliasCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -890,8 +917,11 @@ export const serializeAws_restJson1GetCodeSigningConfigCommand = async (
   input: GetCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
   if (input.CodeSigningConfigArn !== undefined) {
     const labelValue: string = input.CodeSigningConfigArn;
     if (labelValue.length <= 0) {
@@ -902,7 +932,6 @@ export const serializeAws_restJson1GetCodeSigningConfigCommand = async (
     throw new Error("No value provided for input HTTP label: CodeSigningConfigArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -918,8 +947,10 @@ export const serializeAws_restJson1GetEventSourceMappingCommand = async (
   input: GetEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/event-source-mappings/{UUID}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings/{UUID}";
   if (input.UUID !== undefined) {
     const labelValue: string = input.UUID;
     if (labelValue.length <= 0) {
@@ -930,7 +961,6 @@ export const serializeAws_restJson1GetEventSourceMappingCommand = async (
     throw new Error("No value provided for input HTTP label: UUID.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -946,8 +976,10 @@ export const serializeAws_restJson1GetFunctionCommand = async (
   input: GetFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions/{FunctionName}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -961,7 +993,6 @@ export const serializeAws_restJson1GetFunctionCommand = async (
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -978,8 +1009,11 @@ export const serializeAws_restJson1GetFunctionCodeSigningConfigCommand = async (
   input: GetFunctionCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-06-30/functions/{FunctionName}/code-signing-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-06-30/functions/{FunctionName}/code-signing-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -990,7 +1024,6 @@ export const serializeAws_restJson1GetFunctionCodeSigningConfigCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1006,8 +1039,11 @@ export const serializeAws_restJson1GetFunctionConcurrencyCommand = async (
   input: GetFunctionConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-30/functions/{FunctionName}/concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-30/functions/{FunctionName}/concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1018,7 +1054,6 @@ export const serializeAws_restJson1GetFunctionConcurrencyCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1034,8 +1069,11 @@ export const serializeAws_restJson1GetFunctionConfigurationCommand = async (
   input: GetFunctionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/configuration";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1049,7 +1087,6 @@ export const serializeAws_restJson1GetFunctionConfigurationCommand = async (
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1066,8 +1103,11 @@ export const serializeAws_restJson1GetFunctionEventInvokeConfigCommand = async (
   input: GetFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1081,7 +1121,6 @@ export const serializeAws_restJson1GetFunctionEventInvokeConfigCommand = async (
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1098,8 +1137,11 @@ export const serializeAws_restJson1GetLayerVersionCommand = async (
   input: GetLayerVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -1119,7 +1161,6 @@ export const serializeAws_restJson1GetLayerVersionCommand = async (
     throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1135,14 +1176,14 @@ export const serializeAws_restJson1GetLayerVersionByArnCommand = async (
   input: GetLayerVersionByArnCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers";
   const query: any = {
     find: "LayerVersion",
     ...(input.Arn !== undefined && { Arn: input.Arn }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1159,8 +1200,11 @@ export const serializeAws_restJson1GetLayerVersionPolicyCommand = async (
   input: GetLayerVersionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -1180,7 +1224,6 @@ export const serializeAws_restJson1GetLayerVersionPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1196,8 +1239,11 @@ export const serializeAws_restJson1GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/policy";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1211,7 +1257,6 @@ export const serializeAws_restJson1GetPolicyCommand = async (
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1228,8 +1273,11 @@ export const serializeAws_restJson1GetProvisionedConcurrencyConfigCommand = asyn
   input: GetProvisionedConcurrencyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1243,7 +1291,6 @@ export const serializeAws_restJson1GetProvisionedConcurrencyConfigCommand = asyn
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1260,13 +1307,16 @@ export const serializeAws_restJson1InvokeCommand = async (
   input: InvokeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.InvocationType) && { "x-amz-invocation-type": input.InvocationType! }),
     ...(isSerializableHeaderValue(input.LogType) && { "x-amz-log-type": input.LogType! }),
     ...(isSerializableHeaderValue(input.ClientContext) && { "x-amz-client-context": input.ClientContext! }),
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/invocations";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/invocations";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1283,7 +1333,6 @@ export const serializeAws_restJson1InvokeCommand = async (
   if (input.Payload !== undefined) {
     body = input.Payload;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1300,10 +1349,13 @@ export const serializeAws_restJson1InvokeAsyncCommand = async (
   input: InvokeAsyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  let resolvedPath = "/2014-11-13/functions/{FunctionName}/invoke-async";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2014-11-13/functions/{FunctionName}/invoke-async";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1317,7 +1369,6 @@ export const serializeAws_restJson1InvokeAsyncCommand = async (
   if (input.InvokeArgs !== undefined) {
     body = input.InvokeArgs;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1333,8 +1384,11 @@ export const serializeAws_restJson1ListAliasesCommand = async (
   input: ListAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/aliases";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1350,7 +1404,6 @@ export const serializeAws_restJson1ListAliasesCommand = async (
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1367,14 +1420,15 @@ export const serializeAws_restJson1ListCodeSigningConfigsCommand = async (
   input: ListCodeSigningConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-04-22/code-signing-configs";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-04-22/code-signing-configs";
   const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1391,8 +1445,10 @@ export const serializeAws_restJson1ListEventSourceMappingsCommand = async (
   input: ListEventSourceMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/event-source-mappings";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings";
   const query: any = {
     ...(input.EventSourceArn !== undefined && { EventSourceArn: input.EventSourceArn }),
     ...(input.FunctionName !== undefined && { FunctionName: input.FunctionName }),
@@ -1400,7 +1456,6 @@ export const serializeAws_restJson1ListEventSourceMappingsCommand = async (
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1417,8 +1472,11 @@ export const serializeAws_restJson1ListFunctionEventInvokeConfigsCommand = async
   input: ListFunctionEventInvokeConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config/list";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-25/functions/{FunctionName}/event-invoke-config/list";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1433,7 +1491,6 @@ export const serializeAws_restJson1ListFunctionEventInvokeConfigsCommand = async
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1450,8 +1507,9 @@ export const serializeAws_restJson1ListFunctionsCommand = async (
   input: ListFunctionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions";
   const query: any = {
     ...(input.MasterRegion !== undefined && { MasterRegion: input.MasterRegion }),
     ...(input.FunctionVersion !== undefined && { FunctionVersion: input.FunctionVersion }),
@@ -1459,7 +1517,6 @@ export const serializeAws_restJson1ListFunctionsCommand = async (
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1476,8 +1533,11 @@ export const serializeAws_restJson1ListFunctionsByCodeSigningConfigCommand = asy
   input: ListFunctionsByCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions";
   if (input.CodeSigningConfigArn !== undefined) {
     const labelValue: string = input.CodeSigningConfigArn;
     if (labelValue.length <= 0) {
@@ -1492,7 +1552,6 @@ export const serializeAws_restJson1ListFunctionsByCodeSigningConfigCommand = asy
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1509,15 +1568,15 @@ export const serializeAws_restJson1ListLayersCommand = async (
   input: ListLayersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers";
   const query: any = {
     ...(input.CompatibleRuntime !== undefined && { CompatibleRuntime: input.CompatibleRuntime }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1534,8 +1593,10 @@ export const serializeAws_restJson1ListLayerVersionsCommand = async (
   input: ListLayerVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers/{LayerName}/versions";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -1551,7 +1612,6 @@ export const serializeAws_restJson1ListLayerVersionsCommand = async (
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1568,8 +1628,11 @@ export const serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand = as
   input: ListProvisionedConcurrencyConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1585,7 +1648,6 @@ export const serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand = as
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1602,8 +1664,10 @@ export const serializeAws_restJson1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2017-03-31/tags/{Resource}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-03-31/tags/{Resource}";
   if (input.Resource !== undefined) {
     const labelValue: string = input.Resource;
     if (labelValue.length <= 0) {
@@ -1614,7 +1678,6 @@ export const serializeAws_restJson1ListTagsCommand = async (
     throw new Error("No value provided for input HTTP label: Resource.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1630,8 +1693,11 @@ export const serializeAws_restJson1ListVersionsByFunctionCommand = async (
   input: ListVersionsByFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/versions";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1646,7 +1712,6 @@ export const serializeAws_restJson1ListVersionsByFunctionCommand = async (
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1663,10 +1728,12 @@ export const serializeAws_restJson1PublishLayerVersionCommand = async (
   input: PublishLayerVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers/{LayerName}/versions";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -1687,7 +1754,6 @@ export const serializeAws_restJson1PublishLayerVersionCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.LicenseInfo !== undefined && input.LicenseInfo !== null && { LicenseInfo: input.LicenseInfo }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1703,10 +1769,13 @@ export const serializeAws_restJson1PublishVersionCommand = async (
   input: PublishVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/versions";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1722,7 +1791,6 @@ export const serializeAws_restJson1PublishVersionCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1738,10 +1806,13 @@ export const serializeAws_restJson1PutFunctionCodeSigningConfigCommand = async (
   input: PutFunctionCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2020-06-30/functions/{FunctionName}/code-signing-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-06-30/functions/{FunctionName}/code-signing-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1756,7 +1827,6 @@ export const serializeAws_restJson1PutFunctionCodeSigningConfigCommand = async (
     ...(input.CodeSigningConfigArn !== undefined &&
       input.CodeSigningConfigArn !== null && { CodeSigningConfigArn: input.CodeSigningConfigArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1772,10 +1842,13 @@ export const serializeAws_restJson1PutFunctionConcurrencyCommand = async (
   input: PutFunctionConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2017-10-31/functions/{FunctionName}/concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2017-10-31/functions/{FunctionName}/concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1792,7 +1865,6 @@ export const serializeAws_restJson1PutFunctionConcurrencyCommand = async (
         ReservedConcurrentExecutions: input.ReservedConcurrentExecutions,
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1808,10 +1880,13 @@ export const serializeAws_restJson1PutFunctionEventInvokeConfigCommand = async (
   input: PutFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1835,7 +1910,6 @@ export const serializeAws_restJson1PutFunctionEventInvokeConfigCommand = async (
     ...(input.MaximumRetryAttempts !== undefined &&
       input.MaximumRetryAttempts !== null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1852,10 +1926,13 @@ export const serializeAws_restJson1PutProvisionedConcurrencyConfigCommand = asyn
   input: PutProvisionedConcurrencyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1875,7 +1952,6 @@ export const serializeAws_restJson1PutProvisionedConcurrencyConfigCommand = asyn
         ProvisionedConcurrentExecutions: input.ProvisionedConcurrentExecutions,
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1892,8 +1968,11 @@ export const serializeAws_restJson1RemoveLayerVersionPermissionCommand = async (
   input: RemoveLayerVersionPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -1925,7 +2004,6 @@ export const serializeAws_restJson1RemoveLayerVersionPermissionCommand = async (
     ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1942,8 +2020,11 @@ export const serializeAws_restJson1RemovePermissionCommand = async (
   input: RemovePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/policy/{StatementId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/policy/{StatementId}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1967,7 +2048,6 @@ export const serializeAws_restJson1RemovePermissionCommand = async (
     ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1984,10 +2064,12 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2017-03-31/tags/{Resource}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-03-31/tags/{Resource}";
   if (input.Resource !== undefined) {
     const labelValue: string = input.Resource;
     if (labelValue.length <= 0) {
@@ -2001,7 +2083,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2017,8 +2098,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2017-03-31/tags/{Resource}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-03-31/tags/{Resource}";
   if (input.Resource !== undefined) {
     const labelValue: string = input.Resource;
     if (labelValue.length <= 0) {
@@ -2032,7 +2115,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2049,10 +2131,13 @@ export const serializeAws_restJson1UpdateAliasCommand = async (
   input: UpdateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -2082,7 +2167,6 @@ export const serializeAws_restJson1UpdateAliasCommand = async (
         RoutingConfig: serializeAws_restJson1AliasRoutingConfiguration(input.RoutingConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2098,10 +2182,13 @@ export const serializeAws_restJson1UpdateCodeSigningConfigCommand = async (
   input: UpdateCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
   if (input.CodeSigningConfigArn !== undefined) {
     const labelValue: string = input.CodeSigningConfigArn;
     if (labelValue.length <= 0) {
@@ -2123,7 +2210,6 @@ export const serializeAws_restJson1UpdateCodeSigningConfigCommand = async (
       }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2139,10 +2225,12 @@ export const serializeAws_restJson1UpdateEventSourceMappingCommand = async (
   input: UpdateEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/event-source-mappings/{UUID}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings/{UUID}";
   if (input.UUID !== undefined) {
     const labelValue: string = input.UUID;
     if (labelValue.length <= 0) {
@@ -2187,7 +2275,6 @@ export const serializeAws_restJson1UpdateEventSourceMappingCommand = async (
     ...(input.TumblingWindowInSeconds !== undefined &&
       input.TumblingWindowInSeconds !== null && { TumblingWindowInSeconds: input.TumblingWindowInSeconds }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2203,10 +2290,12 @@ export const serializeAws_restJson1UpdateFunctionCodeCommand = async (
   input: UpdateFunctionCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/code";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions/{FunctionName}/code";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -2228,7 +2317,6 @@ export const serializeAws_restJson1UpdateFunctionCodeCommand = async (
       input.S3ObjectVersion !== null && { S3ObjectVersion: input.S3ObjectVersion }),
     ...(input.ZipFile !== undefined && input.ZipFile !== null && { ZipFile: context.base64Encoder(input.ZipFile) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2244,10 +2332,13 @@ export const serializeAws_restJson1UpdateFunctionConfigurationCommand = async (
   input: UpdateFunctionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/configuration";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -2288,7 +2379,6 @@ export const serializeAws_restJson1UpdateFunctionConfigurationCommand = async (
     ...(input.VpcConfig !== undefined &&
       input.VpcConfig !== null && { VpcConfig: serializeAws_restJson1VpcConfig(input.VpcConfig, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2304,10 +2394,13 @@ export const serializeAws_restJson1UpdateFunctionEventInvokeConfigCommand = asyn
   input: UpdateFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -2331,7 +2424,6 @@ export const serializeAws_restJson1UpdateFunctionEventInvokeConfigCommand = asyn
     ...(input.MaximumRetryAttempts !== undefined &&
       input.MaximumRetryAttempts !== null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

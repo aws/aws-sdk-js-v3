@@ -224,6 +224,7 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Response", async () => {
 it("Ec2QueryEndpointTrait:Request", async () => {
   const client = new EC2ProtocolClient({
     ...clientParams,
+    endpoint: "https://example.com",
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -260,6 +261,7 @@ it("Ec2QueryEndpointTrait:Request", async () => {
 it("Ec2QueryEndpointTraitWithHostLabel:Request", async () => {
   const client = new EC2ProtocolClient({
     ...clientParams,
+    endpoint: "https://example.com",
     requestHandler: new RequestSerializationTestHandler(),
   });
 

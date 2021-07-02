@@ -177,10 +177,13 @@ export const serializeAws_restJson1AssociateTrackerConsumerCommand = async (
   input: AssociateTrackerConsumerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tracking/v0/trackers/{TrackerName}/consumers";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/tracking/v0/trackers/{TrackerName}/consumers";
   if (input.TrackerName !== undefined) {
     const labelValue: string = input.TrackerName;
     if (labelValue.length <= 0) {
@@ -201,7 +204,6 @@ export const serializeAws_restJson1AssociateTrackerConsumerCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -217,10 +219,13 @@ export const serializeAws_restJson1BatchDeleteDevicePositionHistoryCommand = asy
   input: BatchDeleteDevicePositionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tracking/v0/trackers/{TrackerName}/delete-positions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/tracking/v0/trackers/{TrackerName}/delete-positions";
   if (input.TrackerName !== undefined) {
     const labelValue: string = input.TrackerName;
     if (labelValue.length <= 0) {
@@ -242,7 +247,6 @@ export const serializeAws_restJson1BatchDeleteDevicePositionHistoryCommand = asy
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -258,10 +262,13 @@ export const serializeAws_restJson1BatchDeleteGeofenceCommand = async (
   input: BatchDeleteGeofenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/geofencing/v0/collections/{CollectionName}/delete-geofences";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/geofencing/v0/collections/{CollectionName}/delete-geofences";
   if (input.CollectionName !== undefined) {
     const labelValue: string = input.CollectionName;
     if (labelValue.length <= 0) {
@@ -283,7 +290,6 @@ export const serializeAws_restJson1BatchDeleteGeofenceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -299,10 +305,13 @@ export const serializeAws_restJson1BatchEvaluateGeofencesCommand = async (
   input: BatchEvaluateGeofencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/geofencing/v0/collections/{CollectionName}/positions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/geofencing/v0/collections/{CollectionName}/positions";
   if (input.CollectionName !== undefined) {
     const labelValue: string = input.CollectionName;
     if (labelValue.length <= 0) {
@@ -326,7 +335,6 @@ export const serializeAws_restJson1BatchEvaluateGeofencesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -342,10 +350,13 @@ export const serializeAws_restJson1BatchGetDevicePositionCommand = async (
   input: BatchGetDevicePositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tracking/v0/trackers/{TrackerName}/get-positions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/tracking/v0/trackers/{TrackerName}/get-positions";
   if (input.TrackerName !== undefined) {
     const labelValue: string = input.TrackerName;
     if (labelValue.length <= 0) {
@@ -367,7 +378,6 @@ export const serializeAws_restJson1BatchGetDevicePositionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -383,10 +393,13 @@ export const serializeAws_restJson1BatchPutGeofenceCommand = async (
   input: BatchPutGeofenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/geofencing/v0/collections/{CollectionName}/put-geofences";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/geofencing/v0/collections/{CollectionName}/put-geofences";
   if (input.CollectionName !== undefined) {
     const labelValue: string = input.CollectionName;
     if (labelValue.length <= 0) {
@@ -410,7 +423,6 @@ export const serializeAws_restJson1BatchPutGeofenceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -426,10 +438,13 @@ export const serializeAws_restJson1BatchUpdateDevicePositionCommand = async (
   input: BatchUpdateDevicePositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tracking/v0/trackers/{TrackerName}/positions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/tracking/v0/trackers/{TrackerName}/positions";
   if (input.TrackerName !== undefined) {
     const labelValue: string = input.TrackerName;
     if (labelValue.length <= 0) {
@@ -451,7 +466,6 @@ export const serializeAws_restJson1BatchUpdateDevicePositionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -467,10 +481,13 @@ export const serializeAws_restJson1CalculateRouteCommand = async (
   input: CalculateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/routes/v0/calculators/{CalculatorName}/calculate/route";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/routes/v0/calculators/{CalculatorName}/calculate/route";
   if (input.CalculatorName !== undefined) {
     const labelValue: string = input.CalculatorName;
     if (labelValue.length <= 0) {
@@ -517,7 +534,6 @@ export const serializeAws_restJson1CalculateRouteCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -533,10 +549,12 @@ export const serializeAws_restJson1CreateGeofenceCollectionCommand = async (
   input: CreateGeofenceCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/geofencing/v0/collections";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/geofencing/v0/collections";
   let body: any;
   body = JSON.stringify({
     ...(input.CollectionName !== undefined &&
@@ -555,7 +573,6 @@ export const serializeAws_restJson1CreateGeofenceCollectionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -571,10 +588,11 @@ export const serializeAws_restJson1CreateMapCommand = async (
   input: CreateMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/maps/v0/maps";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps";
   let body: any;
   body = JSON.stringify({
     ...(input.Configuration !== undefined &&
@@ -593,7 +611,6 @@ export const serializeAws_restJson1CreateMapCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -609,10 +626,11 @@ export const serializeAws_restJson1CreatePlaceIndexCommand = async (
   input: CreatePlaceIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/places/v0/indexes";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/indexes";
   let body: any;
   body = JSON.stringify({
     ...(input.DataSource !== undefined && input.DataSource !== null && { DataSource: input.DataSource }),
@@ -632,7 +650,6 @@ export const serializeAws_restJson1CreatePlaceIndexCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -648,10 +665,11 @@ export const serializeAws_restJson1CreateRouteCalculatorCommand = async (
   input: CreateRouteCalculatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/routes/v0/calculators";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/calculators";
   let body: any;
   body = JSON.stringify({
     ...(input.CalculatorName !== undefined &&
@@ -668,7 +686,6 @@ export const serializeAws_restJson1CreateRouteCalculatorCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -684,10 +701,11 @@ export const serializeAws_restJson1CreateTrackerCommand = async (
   input: CreateTrackerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tracking/v0/trackers";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/trackers";
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
@@ -705,7 +723,6 @@ export const serializeAws_restJson1CreateTrackerCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -721,8 +738,11 @@ export const serializeAws_restJson1DeleteGeofenceCollectionCommand = async (
   input: DeleteGeofenceCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/geofencing/v0/collections/{CollectionName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/geofencing/v0/collections/{CollectionName}";
   if (input.CollectionName !== undefined) {
     const labelValue: string = input.CollectionName;
     if (labelValue.length <= 0) {
@@ -740,7 +760,6 @@ export const serializeAws_restJson1DeleteGeofenceCollectionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -756,8 +775,9 @@ export const serializeAws_restJson1DeleteMapCommand = async (
   input: DeleteMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/maps/v0/maps/{MapName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps/{MapName}";
   if (input.MapName !== undefined) {
     const labelValue: string = input.MapName;
     if (labelValue.length <= 0) {
@@ -775,7 +795,6 @@ export const serializeAws_restJson1DeleteMapCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -791,8 +810,10 @@ export const serializeAws_restJson1DeletePlaceIndexCommand = async (
   input: DeletePlaceIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/places/v0/indexes/{IndexName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/indexes/{IndexName}";
   if (input.IndexName !== undefined) {
     const labelValue: string = input.IndexName;
     if (labelValue.length <= 0) {
@@ -810,7 +831,6 @@ export const serializeAws_restJson1DeletePlaceIndexCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -826,8 +846,10 @@ export const serializeAws_restJson1DeleteRouteCalculatorCommand = async (
   input: DeleteRouteCalculatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/routes/v0/calculators/{CalculatorName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/calculators/{CalculatorName}";
   if (input.CalculatorName !== undefined) {
     const labelValue: string = input.CalculatorName;
     if (labelValue.length <= 0) {
@@ -845,7 +867,6 @@ export const serializeAws_restJson1DeleteRouteCalculatorCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -861,8 +882,10 @@ export const serializeAws_restJson1DeleteTrackerCommand = async (
   input: DeleteTrackerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tracking/v0/trackers/{TrackerName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/trackers/{TrackerName}";
   if (input.TrackerName !== undefined) {
     const labelValue: string = input.TrackerName;
     if (labelValue.length <= 0) {
@@ -880,7 +903,6 @@ export const serializeAws_restJson1DeleteTrackerCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -896,8 +918,11 @@ export const serializeAws_restJson1DescribeGeofenceCollectionCommand = async (
   input: DescribeGeofenceCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/geofencing/v0/collections/{CollectionName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/geofencing/v0/collections/{CollectionName}";
   if (input.CollectionName !== undefined) {
     const labelValue: string = input.CollectionName;
     if (labelValue.length <= 0) {
@@ -915,7 +940,6 @@ export const serializeAws_restJson1DescribeGeofenceCollectionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -931,8 +955,9 @@ export const serializeAws_restJson1DescribeMapCommand = async (
   input: DescribeMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/maps/v0/maps/{MapName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps/{MapName}";
   if (input.MapName !== undefined) {
     const labelValue: string = input.MapName;
     if (labelValue.length <= 0) {
@@ -950,7 +975,6 @@ export const serializeAws_restJson1DescribeMapCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -966,8 +990,10 @@ export const serializeAws_restJson1DescribePlaceIndexCommand = async (
   input: DescribePlaceIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/places/v0/indexes/{IndexName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/indexes/{IndexName}";
   if (input.IndexName !== undefined) {
     const labelValue: string = input.IndexName;
     if (labelValue.length <= 0) {
@@ -985,7 +1011,6 @@ export const serializeAws_restJson1DescribePlaceIndexCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1001,8 +1026,10 @@ export const serializeAws_restJson1DescribeRouteCalculatorCommand = async (
   input: DescribeRouteCalculatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/routes/v0/calculators/{CalculatorName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/calculators/{CalculatorName}";
   if (input.CalculatorName !== undefined) {
     const labelValue: string = input.CalculatorName;
     if (labelValue.length <= 0) {
@@ -1020,7 +1047,6 @@ export const serializeAws_restJson1DescribeRouteCalculatorCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1036,8 +1062,10 @@ export const serializeAws_restJson1DescribeTrackerCommand = async (
   input: DescribeTrackerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tracking/v0/trackers/{TrackerName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/trackers/{TrackerName}";
   if (input.TrackerName !== undefined) {
     const labelValue: string = input.TrackerName;
     if (labelValue.length <= 0) {
@@ -1055,7 +1083,6 @@ export const serializeAws_restJson1DescribeTrackerCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1071,8 +1098,11 @@ export const serializeAws_restJson1DisassociateTrackerConsumerCommand = async (
   input: DisassociateTrackerConsumerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tracking/v0/trackers/{TrackerName}/consumers/{ConsumerArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/tracking/v0/trackers/{TrackerName}/consumers/{ConsumerArn}";
   if (input.TrackerName !== undefined) {
     const labelValue: string = input.TrackerName;
     if (labelValue.length <= 0) {
@@ -1099,7 +1129,6 @@ export const serializeAws_restJson1DisassociateTrackerConsumerCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1115,8 +1144,11 @@ export const serializeAws_restJson1GetDevicePositionCommand = async (
   input: GetDevicePositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/positions/latest";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/positions/latest";
   if (input.TrackerName !== undefined) {
     const labelValue: string = input.TrackerName;
     if (labelValue.length <= 0) {
@@ -1143,7 +1175,6 @@ export const serializeAws_restJson1GetDevicePositionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1159,10 +1190,13 @@ export const serializeAws_restJson1GetDevicePositionHistoryCommand = async (
   input: GetDevicePositionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/list-positions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/list-positions";
   if (input.TrackerName !== undefined) {
     const labelValue: string = input.TrackerName;
     if (labelValue.length <= 0) {
@@ -1200,7 +1234,6 @@ export const serializeAws_restJson1GetDevicePositionHistoryCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1216,8 +1249,11 @@ export const serializeAws_restJson1GetGeofenceCommand = async (
   input: GetGeofenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}";
   if (input.CollectionName !== undefined) {
     const labelValue: string = input.CollectionName;
     if (labelValue.length <= 0) {
@@ -1244,7 +1280,6 @@ export const serializeAws_restJson1GetGeofenceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1260,8 +1295,11 @@ export const serializeAws_restJson1GetMapGlyphsCommand = async (
   input: GetMapGlyphsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}";
   if (input.MapName !== undefined) {
     const labelValue: string = input.MapName;
     if (labelValue.length <= 0) {
@@ -1297,7 +1335,6 @@ export const serializeAws_restJson1GetMapGlyphsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1313,8 +1350,11 @@ export const serializeAws_restJson1GetMapSpritesCommand = async (
   input: GetMapSpritesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/maps/v0/maps/{MapName}/sprites/{FileName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/maps/v0/maps/{MapName}/sprites/{FileName}";
   if (input.MapName !== undefined) {
     const labelValue: string = input.MapName;
     if (labelValue.length <= 0) {
@@ -1341,7 +1381,6 @@ export const serializeAws_restJson1GetMapSpritesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1357,8 +1396,10 @@ export const serializeAws_restJson1GetMapStyleDescriptorCommand = async (
   input: GetMapStyleDescriptorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/maps/v0/maps/{MapName}/style-descriptor";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps/{MapName}/style-descriptor";
   if (input.MapName !== undefined) {
     const labelValue: string = input.MapName;
     if (labelValue.length <= 0) {
@@ -1376,7 +1417,6 @@ export const serializeAws_restJson1GetMapStyleDescriptorCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1392,8 +1432,10 @@ export const serializeAws_restJson1GetMapTileCommand = async (
   input: GetMapTileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}";
   if (input.MapName !== undefined) {
     const labelValue: string = input.MapName;
     if (labelValue.length <= 0) {
@@ -1438,7 +1480,6 @@ export const serializeAws_restJson1GetMapTileCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1454,10 +1495,13 @@ export const serializeAws_restJson1ListDevicePositionsCommand = async (
   input: ListDevicePositionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tracking/v0/trackers/{TrackerName}/list-positions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/tracking/v0/trackers/{TrackerName}/list-positions";
   if (input.TrackerName !== undefined) {
     const labelValue: string = input.TrackerName;
     if (labelValue.length <= 0) {
@@ -1479,7 +1523,6 @@ export const serializeAws_restJson1ListDevicePositionsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1495,10 +1538,12 @@ export const serializeAws_restJson1ListGeofenceCollectionsCommand = async (
   input: ListGeofenceCollectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/geofencing/v0/list-collections";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/geofencing/v0/list-collections";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -1511,7 +1556,6 @@ export const serializeAws_restJson1ListGeofenceCollectionsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1527,10 +1571,13 @@ export const serializeAws_restJson1ListGeofencesCommand = async (
   input: ListGeofencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/geofencing/v0/collections/{CollectionName}/list-geofences";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/geofencing/v0/collections/{CollectionName}/list-geofences";
   if (input.CollectionName !== undefined) {
     const labelValue: string = input.CollectionName;
     if (labelValue.length <= 0) {
@@ -1551,7 +1598,6 @@ export const serializeAws_restJson1ListGeofencesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1567,10 +1613,11 @@ export const serializeAws_restJson1ListMapsCommand = async (
   input: ListMapsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/maps/v0/list-maps";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/list-maps";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -1583,7 +1630,6 @@ export const serializeAws_restJson1ListMapsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1599,10 +1645,11 @@ export const serializeAws_restJson1ListPlaceIndexesCommand = async (
   input: ListPlaceIndexesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/places/v0/list-indexes";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/list-indexes";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -1615,7 +1662,6 @@ export const serializeAws_restJson1ListPlaceIndexesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1631,10 +1677,12 @@ export const serializeAws_restJson1ListRouteCalculatorsCommand = async (
   input: ListRouteCalculatorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/routes/v0/list-calculators";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/list-calculators";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -1647,7 +1695,6 @@ export const serializeAws_restJson1ListRouteCalculatorsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1663,8 +1710,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -1682,7 +1730,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1698,10 +1745,13 @@ export const serializeAws_restJson1ListTrackerConsumersCommand = async (
   input: ListTrackerConsumersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tracking/v0/trackers/{TrackerName}/list-consumers";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/tracking/v0/trackers/{TrackerName}/list-consumers";
   if (input.TrackerName !== undefined) {
     const labelValue: string = input.TrackerName;
     if (labelValue.length <= 0) {
@@ -1723,7 +1773,6 @@ export const serializeAws_restJson1ListTrackerConsumersCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1739,10 +1788,12 @@ export const serializeAws_restJson1ListTrackersCommand = async (
   input: ListTrackersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tracking/v0/list-trackers";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/list-trackers";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -1755,7 +1806,6 @@ export const serializeAws_restJson1ListTrackersCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1771,10 +1821,13 @@ export const serializeAws_restJson1PutGeofenceCommand = async (
   input: PutGeofenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}";
   if (input.CollectionName !== undefined) {
     const labelValue: string = input.CollectionName;
     if (labelValue.length <= 0) {
@@ -1805,7 +1858,6 @@ export const serializeAws_restJson1PutGeofenceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1821,10 +1873,13 @@ export const serializeAws_restJson1SearchPlaceIndexForPositionCommand = async (
   input: SearchPlaceIndexForPositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/places/v0/indexes/{IndexName}/search/position";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/places/v0/indexes/{IndexName}/search/position";
   if (input.IndexName !== undefined) {
     const labelValue: string = input.IndexName;
     if (labelValue.length <= 0) {
@@ -1847,7 +1902,6 @@ export const serializeAws_restJson1SearchPlaceIndexForPositionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1863,10 +1917,13 @@ export const serializeAws_restJson1SearchPlaceIndexForTextCommand = async (
   input: SearchPlaceIndexForTextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/places/v0/indexes/{IndexName}/search/text";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/places/v0/indexes/{IndexName}/search/text";
   if (input.IndexName !== undefined) {
     const labelValue: string = input.IndexName;
     if (labelValue.length <= 0) {
@@ -1896,7 +1953,6 @@ export const serializeAws_restJson1SearchPlaceIndexForTextCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1912,10 +1968,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -1936,7 +1993,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1952,8 +2008,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -1974,7 +2031,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,

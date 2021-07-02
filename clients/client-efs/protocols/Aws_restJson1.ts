@@ -131,10 +131,12 @@ export const serializeAws_restJson1CreateAccessPointCommand = async (
   input: CreateAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/access-points";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/access-points";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
@@ -147,7 +149,6 @@ export const serializeAws_restJson1CreateAccessPointCommand = async (
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -163,10 +164,11 @@ export const serializeAws_restJson1CreateFileSystemCommand = async (
   input: CreateFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/file-systems";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems";
   let body: any;
   body = JSON.stringify({
     ...(input.AvailabilityZoneName !== undefined &&
@@ -185,7 +187,6 @@ export const serializeAws_restJson1CreateFileSystemCommand = async (
     ...(input.ThroughputMode !== undefined &&
       input.ThroughputMode !== null && { ThroughputMode: input.ThroughputMode }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -201,10 +202,12 @@ export const serializeAws_restJson1CreateMountTargetCommand = async (
   input: CreateMountTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/mount-targets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/mount-targets";
   let body: any;
   body = JSON.stringify({
     ...(input.FileSystemId !== undefined && input.FileSystemId !== null && { FileSystemId: input.FileSystemId }),
@@ -215,7 +218,6 @@ export const serializeAws_restJson1CreateMountTargetCommand = async (
       }),
     ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -231,10 +233,12 @@ export const serializeAws_restJson1CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/create-tags/{FileSystemId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/create-tags/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -248,7 +252,6 @@ export const serializeAws_restJson1CreateTagsCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -264,8 +267,10 @@ export const serializeAws_restJson1DeleteAccessPointCommand = async (
   input: DeleteAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/access-points/{AccessPointId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/access-points/{AccessPointId}";
   if (input.AccessPointId !== undefined) {
     const labelValue: string = input.AccessPointId;
     if (labelValue.length <= 0) {
@@ -276,7 +281,6 @@ export const serializeAws_restJson1DeleteAccessPointCommand = async (
     throw new Error("No value provided for input HTTP label: AccessPointId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -292,8 +296,10 @@ export const serializeAws_restJson1DeleteFileSystemCommand = async (
   input: DeleteFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -304,7 +310,6 @@ export const serializeAws_restJson1DeleteFileSystemCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -320,8 +325,11 @@ export const serializeAws_restJson1DeleteFileSystemPolicyCommand = async (
   input: DeleteFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -332,7 +340,6 @@ export const serializeAws_restJson1DeleteFileSystemPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -348,8 +355,10 @@ export const serializeAws_restJson1DeleteMountTargetCommand = async (
   input: DeleteMountTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/mount-targets/{MountTargetId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/mount-targets/{MountTargetId}";
   if (input.MountTargetId !== undefined) {
     const labelValue: string = input.MountTargetId;
     if (labelValue.length <= 0) {
@@ -360,7 +369,6 @@ export const serializeAws_restJson1DeleteMountTargetCommand = async (
     throw new Error("No value provided for input HTTP label: MountTargetId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -376,10 +384,12 @@ export const serializeAws_restJson1DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/delete-tags/{FileSystemId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/delete-tags/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -394,7 +404,6 @@ export const serializeAws_restJson1DeleteTagsCommand = async (
     ...(input.TagKeys !== undefined &&
       input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -410,8 +419,10 @@ export const serializeAws_restJson1DescribeAccessPointsCommand = async (
   input: DescribeAccessPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/access-points";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/access-points";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -419,7 +430,6 @@ export const serializeAws_restJson1DescribeAccessPointsCommand = async (
     ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -436,16 +446,17 @@ export const serializeAws_restJson1DescribeAccountPreferencesCommand = async (
   input: DescribeAccountPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/account-preferences";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/account-preferences";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -461,8 +472,11 @@ export const serializeAws_restJson1DescribeBackupPolicyCommand = async (
   input: DescribeBackupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -473,7 +487,6 @@ export const serializeAws_restJson1DescribeBackupPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -489,8 +502,11 @@ export const serializeAws_restJson1DescribeFileSystemPolicyCommand = async (
   input: DescribeFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -501,7 +517,6 @@ export const serializeAws_restJson1DescribeFileSystemPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -517,8 +532,9 @@ export const serializeAws_restJson1DescribeFileSystemsCommand = async (
   input: DescribeFileSystemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/file-systems";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems";
   const query: any = {
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
@@ -526,7 +542,6 @@ export const serializeAws_restJson1DescribeFileSystemsCommand = async (
     ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -543,8 +558,11 @@ export const serializeAws_restJson1DescribeLifecycleConfigurationCommand = async
   input: DescribeLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -555,7 +573,6 @@ export const serializeAws_restJson1DescribeLifecycleConfigurationCommand = async
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -571,8 +588,10 @@ export const serializeAws_restJson1DescribeMountTargetsCommand = async (
   input: DescribeMountTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/mount-targets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/mount-targets";
   const query: any = {
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
@@ -581,7 +600,6 @@ export const serializeAws_restJson1DescribeMountTargetsCommand = async (
     ...(input.AccessPointId !== undefined && { AccessPointId: input.AccessPointId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -598,8 +616,11 @@ export const serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand = as
   input: DescribeMountTargetSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
   if (input.MountTargetId !== undefined) {
     const labelValue: string = input.MountTargetId;
     if (labelValue.length <= 0) {
@@ -610,7 +631,6 @@ export const serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand = as
     throw new Error("No value provided for input HTTP label: MountTargetId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -626,8 +646,10 @@ export const serializeAws_restJson1DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/tags/{FileSystemId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/tags/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -642,7 +664,6 @@ export const serializeAws_restJson1DescribeTagsCommand = async (
     ...(input.Marker !== undefined && { Marker: input.Marker }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -659,8 +680,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/resource-tags/{ResourceId}";
   if (input.ResourceId !== undefined) {
     const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
@@ -675,7 +698,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -692,10 +714,13 @@ export const serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = asyn
   input: ModifyMountTargetSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
   if (input.MountTargetId !== undefined) {
     const labelValue: string = input.MountTargetId;
     if (labelValue.length <= 0) {
@@ -712,7 +737,6 @@ export const serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = asyn
         SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -728,16 +752,17 @@ export const serializeAws_restJson1PutAccountPreferencesCommand = async (
   input: PutAccountPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/account-preferences";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/account-preferences";
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceIdType !== undefined &&
       input.ResourceIdType !== null && { ResourceIdType: input.ResourceIdType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -753,10 +778,13 @@ export const serializeAws_restJson1PutBackupPolicyCommand = async (
   input: PutBackupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -771,7 +799,6 @@ export const serializeAws_restJson1PutBackupPolicyCommand = async (
     ...(input.BackupPolicy !== undefined &&
       input.BackupPolicy !== null && { BackupPolicy: serializeAws_restJson1BackupPolicy(input.BackupPolicy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -787,10 +814,13 @@ export const serializeAws_restJson1PutFileSystemPolicyCommand = async (
   input: PutFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -808,7 +838,6 @@ export const serializeAws_restJson1PutFileSystemPolicyCommand = async (
       }),
     ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -824,10 +853,13 @@ export const serializeAws_restJson1PutLifecycleConfigurationCommand = async (
   input: PutLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -844,7 +876,6 @@ export const serializeAws_restJson1PutLifecycleConfigurationCommand = async (
         LifecyclePolicies: serializeAws_restJson1LifecyclePolicies(input.LifecyclePolicies, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -860,10 +891,12 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/resource-tags/{ResourceId}";
   if (input.ResourceId !== undefined) {
     const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
@@ -877,7 +910,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -893,8 +925,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/resource-tags/{ResourceId}";
   if (input.ResourceId !== undefined) {
     const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
@@ -908,7 +942,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -925,10 +958,12 @@ export const serializeAws_restJson1UpdateFileSystemCommand = async (
   input: UpdateFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -947,7 +982,6 @@ export const serializeAws_restJson1UpdateFileSystemCommand = async (
     ...(input.ThroughputMode !== undefined &&
       input.ThroughputMode !== null && { ThroughputMode: input.ThroughputMode }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

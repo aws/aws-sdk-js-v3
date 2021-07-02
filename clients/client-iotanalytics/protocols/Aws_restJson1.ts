@@ -161,17 +161,17 @@ export const serializeAws_restJson1BatchPutMessageCommand = async (
   input: BatchPutMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/messages/batch";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/messages/batch";
   let body: any;
   body = JSON.stringify({
     ...(input.channelName !== undefined && input.channelName !== null && { channelName: input.channelName }),
     ...(input.messages !== undefined &&
       input.messages !== null && { messages: serializeAws_restJson1Messages(input.messages, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -187,8 +187,11 @@ export const serializeAws_restJson1CancelPipelineReprocessingCommand = async (
   input: CancelPipelineReprocessingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/pipelines/{pipelineName}/reprocessing/{reprocessingId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/pipelines/{pipelineName}/reprocessing/{reprocessingId}";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
@@ -208,7 +211,6 @@ export const serializeAws_restJson1CancelPipelineReprocessingCommand = async (
     throw new Error("No value provided for input HTTP label: reprocessingId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -224,10 +226,11 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   input: CreateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/channels";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
   let body: any;
   body = JSON.stringify({
     ...(input.channelName !== undefined && input.channelName !== null && { channelName: input.channelName }),
@@ -242,7 +245,6 @@ export const serializeAws_restJson1CreateChannelCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -258,10 +260,11 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
   input: CreateDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/datasets";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets";
   let body: any;
   body = JSON.stringify({
     ...(input.actions !== undefined &&
@@ -288,7 +291,6 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
         versioningConfiguration: serializeAws_restJson1VersioningConfiguration(input.versioningConfiguration, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -304,10 +306,12 @@ export const serializeAws_restJson1CreateDatasetContentCommand = async (
   input: CreateDatasetContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/datasets/{datasetName}/content";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
@@ -321,7 +325,6 @@ export const serializeAws_restJson1CreateDatasetContentCommand = async (
   body = JSON.stringify({
     ...(input.versionId !== undefined && input.versionId !== null && { versionId: input.versionId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -337,10 +340,11 @@ export const serializeAws_restJson1CreateDatastoreCommand = async (
   input: CreateDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/datastores";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datastores";
   let body: any;
   body = JSON.stringify({
     ...(input.datastoreName !== undefined && input.datastoreName !== null && { datastoreName: input.datastoreName }),
@@ -363,7 +367,6 @@ export const serializeAws_restJson1CreateDatastoreCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -379,10 +382,11 @@ export const serializeAws_restJson1CreatePipelineCommand = async (
   input: CreatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/pipelines";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pipelines";
   let body: any;
   body = JSON.stringify({
     ...(input.pipelineActivities !== undefined &&
@@ -393,7 +397,6 @@ export const serializeAws_restJson1CreatePipelineCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -409,8 +412,9 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channels/{channelName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{channelName}";
   if (input.channelName !== undefined) {
     const labelValue: string = input.channelName;
     if (labelValue.length <= 0) {
@@ -421,7 +425,6 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
     throw new Error("No value provided for input HTTP label: channelName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -437,8 +440,9 @@ export const serializeAws_restJson1DeleteDatasetCommand = async (
   input: DeleteDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/datasets/{datasetName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
@@ -449,7 +453,6 @@ export const serializeAws_restJson1DeleteDatasetCommand = async (
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -465,8 +468,10 @@ export const serializeAws_restJson1DeleteDatasetContentCommand = async (
   input: DeleteDatasetContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/datasets/{datasetName}/content";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
@@ -480,7 +485,6 @@ export const serializeAws_restJson1DeleteDatasetContentCommand = async (
     ...(input.versionId !== undefined && { versionId: input.versionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -497,8 +501,10 @@ export const serializeAws_restJson1DeleteDatastoreCommand = async (
   input: DeleteDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/datastores/{datastoreName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
     const labelValue: string = input.datastoreName;
     if (labelValue.length <= 0) {
@@ -509,7 +515,6 @@ export const serializeAws_restJson1DeleteDatastoreCommand = async (
     throw new Error("No value provided for input HTTP label: datastoreName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -525,8 +530,10 @@ export const serializeAws_restJson1DeletePipelineCommand = async (
   input: DeletePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/pipelines/{pipelineName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
@@ -537,7 +544,6 @@ export const serializeAws_restJson1DeletePipelineCommand = async (
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -553,8 +559,9 @@ export const serializeAws_restJson1DescribeChannelCommand = async (
   input: DescribeChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channels/{channelName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{channelName}";
   if (input.channelName !== undefined) {
     const labelValue: string = input.channelName;
     if (labelValue.length <= 0) {
@@ -568,7 +575,6 @@ export const serializeAws_restJson1DescribeChannelCommand = async (
     ...(input.includeStatistics !== undefined && { includeStatistics: input.includeStatistics.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -585,8 +591,9 @@ export const serializeAws_restJson1DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/datasets/{datasetName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
@@ -597,7 +604,6 @@ export const serializeAws_restJson1DescribeDatasetCommand = async (
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -613,8 +619,10 @@ export const serializeAws_restJson1DescribeDatastoreCommand = async (
   input: DescribeDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/datastores/{datastoreName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
     const labelValue: string = input.datastoreName;
     if (labelValue.length <= 0) {
@@ -628,7 +636,6 @@ export const serializeAws_restJson1DescribeDatastoreCommand = async (
     ...(input.includeStatistics !== undefined && { includeStatistics: input.includeStatistics.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -645,13 +652,13 @@ export const serializeAws_restJson1DescribeLoggingOptionsCommand = async (
   input: DescribeLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/logging";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logging";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -667,8 +674,10 @@ export const serializeAws_restJson1DescribePipelineCommand = async (
   input: DescribePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/pipelines/{pipelineName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
@@ -679,7 +688,6 @@ export const serializeAws_restJson1DescribePipelineCommand = async (
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -695,8 +703,10 @@ export const serializeAws_restJson1GetDatasetContentCommand = async (
   input: GetDatasetContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/datasets/{datasetName}/content";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
@@ -710,7 +720,6 @@ export const serializeAws_restJson1GetDatasetContentCommand = async (
     ...(input.versionId !== undefined && { versionId: input.versionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -727,14 +736,14 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channels";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -751,8 +760,10 @@ export const serializeAws_restJson1ListDatasetContentsCommand = async (
   input: ListDatasetContentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/datasets/{datasetName}/contents";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetName}/contents";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
@@ -773,7 +784,6 @@ export const serializeAws_restJson1ListDatasetContentsCommand = async (
     }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -790,14 +800,14 @@ export const serializeAws_restJson1ListDatasetsCommand = async (
   input: ListDatasetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/datasets";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -814,14 +824,14 @@ export const serializeAws_restJson1ListDatastoresCommand = async (
   input: ListDatastoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/datastores";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datastores";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -838,14 +848,14 @@ export const serializeAws_restJson1ListPipelinesCommand = async (
   input: ListPipelinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/pipelines";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pipelines";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -862,13 +872,13 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -885,10 +895,11 @@ export const serializeAws_restJson1PutLoggingOptionsCommand = async (
   input: PutLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/logging";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logging";
   let body: any;
   body = JSON.stringify({
     ...(input.loggingOptions !== undefined &&
@@ -896,7 +907,6 @@ export const serializeAws_restJson1PutLoggingOptionsCommand = async (
         loggingOptions: serializeAws_restJson1LoggingOptions(input.loggingOptions, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -912,10 +922,11 @@ export const serializeAws_restJson1RunPipelineActivityCommand = async (
   input: RunPipelineActivityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/pipelineactivities/run";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pipelineactivities/run";
   let body: any;
   body = JSON.stringify({
     ...(input.payloads !== undefined &&
@@ -925,7 +936,6 @@ export const serializeAws_restJson1RunPipelineActivityCommand = async (
         pipelineActivity: serializeAws_restJson1PipelineActivity(input.pipelineActivity, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -941,8 +951,10 @@ export const serializeAws_restJson1SampleChannelDataCommand = async (
   input: SampleChannelDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channels/{channelName}/sample";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{channelName}/sample";
   if (input.channelName !== undefined) {
     const labelValue: string = input.channelName;
     if (labelValue.length <= 0) {
@@ -958,7 +970,6 @@ export const serializeAws_restJson1SampleChannelDataCommand = async (
     ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -975,10 +986,12 @@ export const serializeAws_restJson1StartPipelineReprocessingCommand = async (
   input: StartPipelineReprocessingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/pipelines/{pipelineName}/reprocessing";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pipelines/{pipelineName}/reprocessing";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
@@ -999,7 +1012,6 @@ export const serializeAws_restJson1StartPipelineReprocessingCommand = async (
     ...(input.startTime !== undefined &&
       input.startTime !== null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1015,10 +1027,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
@@ -1027,7 +1040,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1044,14 +1056,14 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1068,10 +1080,11 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   input: UpdateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/channels/{channelName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{channelName}";
   if (input.channelName !== undefined) {
     const labelValue: string = input.channelName;
     if (labelValue.length <= 0) {
@@ -1092,7 +1105,6 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
         retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1108,10 +1120,11 @@ export const serializeAws_restJson1UpdateDatasetCommand = async (
   input: UpdateDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/datasets/{datasetName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
     if (labelValue.length <= 0) {
@@ -1144,7 +1157,6 @@ export const serializeAws_restJson1UpdateDatasetCommand = async (
         versioningConfiguration: serializeAws_restJson1VersioningConfiguration(input.versioningConfiguration, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1160,10 +1172,12 @@ export const serializeAws_restJson1UpdateDatastoreCommand = async (
   input: UpdateDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/datastores/{datastoreName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
     const labelValue: string = input.datastoreName;
     if (labelValue.length <= 0) {
@@ -1188,7 +1202,6 @@ export const serializeAws_restJson1UpdateDatastoreCommand = async (
         retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1204,10 +1217,12 @@ export const serializeAws_restJson1UpdatePipelineCommand = async (
   input: UpdatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/pipelines/{pipelineName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
     if (labelValue.length <= 0) {
@@ -1224,7 +1239,6 @@ export const serializeAws_restJson1UpdatePipelineCommand = async (
         pipelineActivities: serializeAws_restJson1PipelineActivities(input.pipelineActivities, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

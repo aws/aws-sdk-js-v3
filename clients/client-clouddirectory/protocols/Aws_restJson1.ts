@@ -292,11 +292,14 @@ export const serializeAws_restJson1AddFacetToObjectCommand = async (
   input: AddFacetToObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/facets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/facets";
   let body: any;
   body = JSON.stringify({
     ...(input.ObjectAttributeList !== undefined &&
@@ -310,7 +313,6 @@ export const serializeAws_restJson1AddFacetToObjectCommand = async (
     ...(input.SchemaFacet !== undefined &&
       input.SchemaFacet !== null && { SchemaFacet: serializeAws_restJson1SchemaFacet(input.SchemaFacet, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -326,17 +328,19 @@ export const serializeAws_restJson1ApplySchemaCommand = async (
   input: ApplySchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/apply";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/schema/apply";
   let body: any;
   body = JSON.stringify({
     ...(input.PublishedSchemaArn !== undefined &&
       input.PublishedSchemaArn !== null && { PublishedSchemaArn: input.PublishedSchemaArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -352,11 +356,14 @@ export const serializeAws_restJson1AttachObjectCommand = async (
   input: AttachObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attach";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/attach";
   let body: any;
   body = JSON.stringify({
     ...(input.ChildReference !== undefined &&
@@ -369,7 +376,6 @@ export const serializeAws_restJson1AttachObjectCommand = async (
         ParentReference: serializeAws_restJson1ObjectReference(input.ParentReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -385,11 +391,14 @@ export const serializeAws_restJson1AttachPolicyCommand = async (
   input: AttachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attach";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/policy/attach";
   let body: any;
   body = JSON.stringify({
     ...(input.ObjectReference !== undefined &&
@@ -401,7 +410,6 @@ export const serializeAws_restJson1AttachPolicyCommand = async (
         PolicyReference: serializeAws_restJson1ObjectReference(input.PolicyReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -417,11 +425,14 @@ export const serializeAws_restJson1AttachToIndexCommand = async (
   input: AttachToIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/index/attach";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/index/attach";
   let body: any;
   body = JSON.stringify({
     ...(input.IndexReference !== undefined &&
@@ -433,7 +444,6 @@ export const serializeAws_restJson1AttachToIndexCommand = async (
         TargetReference: serializeAws_restJson1ObjectReference(input.TargetReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -449,11 +459,14 @@ export const serializeAws_restJson1AttachTypedLinkCommand = async (
   input: AttachTypedLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/attach";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/typedlink/attach";
   let body: any;
   body = JSON.stringify({
     ...(input.Attributes !== undefined &&
@@ -473,7 +486,6 @@ export const serializeAws_restJson1AttachTypedLinkCommand = async (
         TypedLinkFacet: serializeAws_restJson1TypedLinkSchemaAndFacetName(input.TypedLinkFacet, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -489,12 +501,15 @@ export const serializeAws_restJson1BatchReadCommand = async (
   input: BatchReadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/batchread";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/batchread";
   let body: any;
   body = JSON.stringify({
     ...(input.Operations !== undefined &&
@@ -502,7 +517,6 @@ export const serializeAws_restJson1BatchReadCommand = async (
         Operations: serializeAws_restJson1BatchReadOperationList(input.Operations, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -518,11 +532,14 @@ export const serializeAws_restJson1BatchWriteCommand = async (
   input: BatchWriteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/batchwrite";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/batchwrite";
   let body: any;
   body = JSON.stringify({
     ...(input.Operations !== undefined &&
@@ -530,7 +547,6 @@ export const serializeAws_restJson1BatchWriteCommand = async (
         Operations: serializeAws_restJson1BatchWriteOperationList(input.Operations, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -546,16 +562,18 @@ export const serializeAws_restJson1CreateDirectoryCommand = async (
   input: CreateDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/create";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/directory/create";
   let body: any;
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -571,11 +589,14 @@ export const serializeAws_restJson1CreateFacetCommand = async (
   input: CreateFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/create";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/facet/create";
   let body: any;
   body = JSON.stringify({
     ...(input.Attributes !== undefined &&
@@ -584,7 +605,6 @@ export const serializeAws_restJson1CreateFacetCommand = async (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.ObjectType !== undefined && input.ObjectType !== null && { ObjectType: input.ObjectType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -600,11 +620,13 @@ export const serializeAws_restJson1CreateIndexCommand = async (
   input: CreateIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/index";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/index";
   let body: any;
   body = JSON.stringify({
     ...(input.IsUnique !== undefined && input.IsUnique !== null && { IsUnique: input.IsUnique }),
@@ -618,7 +640,6 @@ export const serializeAws_restJson1CreateIndexCommand = async (
         ParentReference: serializeAws_restJson1ObjectReference(input.ParentReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -634,11 +655,13 @@ export const serializeAws_restJson1CreateObjectCommand = async (
   input: CreateObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/object";
   let body: any;
   body = JSON.stringify({
     ...(input.LinkName !== undefined && input.LinkName !== null && { LinkName: input.LinkName }),
@@ -655,7 +678,6 @@ export const serializeAws_restJson1CreateObjectCommand = async (
         SchemaFacets: serializeAws_restJson1SchemaFacetList(input.SchemaFacets, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -671,15 +693,17 @@ export const serializeAws_restJson1CreateSchemaCommand = async (
   input: CreateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/create";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/schema/create";
   let body: any;
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -695,17 +719,19 @@ export const serializeAws_restJson1CreateTypedLinkFacetCommand = async (
   input: CreateTypedLinkFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/create";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/typedlink/facet/create";
   let body: any;
   body = JSON.stringify({
     ...(input.Facet !== undefined &&
       input.Facet !== null && { Facet: serializeAws_restJson1TypedLinkFacet(input.Facet, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -721,12 +747,14 @@ export const serializeAws_restJson1DeleteDirectoryCommand = async (
   input: DeleteDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/directory";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/directory";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -742,16 +770,18 @@ export const serializeAws_restJson1DeleteFacetCommand = async (
   input: DeleteFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/delete";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/facet/delete";
   let body: any;
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -767,11 +797,14 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/delete";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/delete";
   let body: any;
   body = JSON.stringify({
     ...(input.ObjectReference !== undefined &&
@@ -779,7 +812,6 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
         ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -795,12 +827,13 @@ export const serializeAws_restJson1DeleteSchemaCommand = async (
   input: DeleteSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/schema";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -816,16 +849,18 @@ export const serializeAws_restJson1DeleteTypedLinkFacetCommand = async (
   input: DeleteTypedLinkFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/delete";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/typedlink/facet/delete";
   let body: any;
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -841,11 +876,14 @@ export const serializeAws_restJson1DetachFromIndexCommand = async (
   input: DetachFromIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/index/detach";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/index/detach";
   let body: any;
   body = JSON.stringify({
     ...(input.IndexReference !== undefined &&
@@ -857,7 +895,6 @@ export const serializeAws_restJson1DetachFromIndexCommand = async (
         TargetReference: serializeAws_restJson1ObjectReference(input.TargetReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -873,11 +910,14 @@ export const serializeAws_restJson1DetachObjectCommand = async (
   input: DetachObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/detach";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/detach";
   let body: any;
   body = JSON.stringify({
     ...(input.LinkName !== undefined && input.LinkName !== null && { LinkName: input.LinkName }),
@@ -886,7 +926,6 @@ export const serializeAws_restJson1DetachObjectCommand = async (
         ParentReference: serializeAws_restJson1ObjectReference(input.ParentReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -902,11 +941,14 @@ export const serializeAws_restJson1DetachPolicyCommand = async (
   input: DetachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/detach";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/policy/detach";
   let body: any;
   body = JSON.stringify({
     ...(input.ObjectReference !== undefined &&
@@ -918,7 +960,6 @@ export const serializeAws_restJson1DetachPolicyCommand = async (
         PolicyReference: serializeAws_restJson1ObjectReference(input.PolicyReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -934,11 +975,14 @@ export const serializeAws_restJson1DetachTypedLinkCommand = async (
   input: DetachTypedLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/detach";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/typedlink/detach";
   let body: any;
   body = JSON.stringify({
     ...(input.TypedLinkSpecifier !== undefined &&
@@ -946,7 +990,6 @@ export const serializeAws_restJson1DetachTypedLinkCommand = async (
         TypedLinkSpecifier: serializeAws_restJson1TypedLinkSpecifier(input.TypedLinkSpecifier, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -962,12 +1005,14 @@ export const serializeAws_restJson1DisableDirectoryCommand = async (
   input: DisableDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/disable";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/directory/disable";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -983,12 +1028,14 @@ export const serializeAws_restJson1EnableDirectoryCommand = async (
   input: EnableDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/enable";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/directory/enable";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1004,15 +1051,17 @@ export const serializeAws_restJson1GetAppliedSchemaVersionCommand = async (
   input: GetAppliedSchemaVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/getappliedschema";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/schema/getappliedschema";
   let body: any;
   body = JSON.stringify({
     ...(input.SchemaArn !== undefined && input.SchemaArn !== null && { SchemaArn: input.SchemaArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1028,12 +1077,14 @@ export const serializeAws_restJson1GetDirectoryCommand = async (
   input: GetDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/get";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/directory/get";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1049,16 +1100,17 @@ export const serializeAws_restJson1GetFacetCommand = async (
   input: GetFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/facet";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1074,11 +1126,14 @@ export const serializeAws_restJson1GetLinkAttributesCommand = async (
   input: GetLinkAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/attributes/get";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/typedlink/attributes/get";
   let body: any;
   body = JSON.stringify({
     ...(input.AttributeNames !== undefined &&
@@ -1092,7 +1147,6 @@ export const serializeAws_restJson1GetLinkAttributesCommand = async (
         TypedLinkSpecifier: serializeAws_restJson1TypedLinkSpecifier(input.TypedLinkSpecifier, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1108,12 +1162,15 @@ export const serializeAws_restJson1GetObjectAttributesCommand = async (
   input: GetObjectAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes/get";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/attributes/get";
   let body: any;
   body = JSON.stringify({
     ...(input.AttributeNames !== undefined &&
@@ -1127,7 +1184,6 @@ export const serializeAws_restJson1GetObjectAttributesCommand = async (
     ...(input.SchemaFacet !== undefined &&
       input.SchemaFacet !== null && { SchemaFacet: serializeAws_restJson1SchemaFacet(input.SchemaFacet, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1143,12 +1199,15 @@ export const serializeAws_restJson1GetObjectInformationCommand = async (
   input: GetObjectInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/information";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/information";
   let body: any;
   body = JSON.stringify({
     ...(input.ObjectReference !== undefined &&
@@ -1156,7 +1215,6 @@ export const serializeAws_restJson1GetObjectInformationCommand = async (
         ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1172,12 +1230,14 @@ export const serializeAws_restJson1GetSchemaAsJsonCommand = async (
   input: GetSchemaAsJsonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/json";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1193,16 +1253,18 @@ export const serializeAws_restJson1GetTypedLinkFacetInformationCommand = async (
   input: GetTypedLinkFacetInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/get";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/typedlink/facet/get";
   let body: any;
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1218,10 +1280,13 @@ export const serializeAws_restJson1ListAppliedSchemaArnsCommand = async (
   input: ListAppliedSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/applied";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/schema/applied";
   let body: any;
   body = JSON.stringify({
     ...(input.DirectoryArn !== undefined && input.DirectoryArn !== null && { DirectoryArn: input.DirectoryArn }),
@@ -1229,7 +1294,6 @@ export const serializeAws_restJson1ListAppliedSchemaArnsCommand = async (
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.SchemaArn !== undefined && input.SchemaArn !== null && { SchemaArn: input.SchemaArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1245,12 +1309,15 @@ export const serializeAws_restJson1ListAttachedIndicesCommand = async (
   input: ListAttachedIndicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/indices";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/indices";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -1260,7 +1327,6 @@ export const serializeAws_restJson1ListAttachedIndicesCommand = async (
         TargetReference: serializeAws_restJson1ObjectReference(input.TargetReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1276,16 +1342,18 @@ export const serializeAws_restJson1ListDevelopmentSchemaArnsCommand = async (
   input: ListDevelopmentSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/development";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/schema/development";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1301,17 +1369,19 @@ export const serializeAws_restJson1ListDirectoriesCommand = async (
   input: ListDirectoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/list";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/directory/list";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.state !== undefined && input.state !== null && { state: input.state }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1327,18 +1397,20 @@ export const serializeAws_restJson1ListFacetAttributesCommand = async (
   input: ListFacetAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/attributes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/facet/attributes";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1354,17 +1426,19 @@ export const serializeAws_restJson1ListFacetNamesCommand = async (
   input: ListFacetNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/list";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/facet/list";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1380,11 +1454,14 @@ export const serializeAws_restJson1ListIncomingTypedLinksCommand = async (
   input: ListIncomingTypedLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/incoming";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/typedlink/incoming";
   let body: any;
   body = JSON.stringify({
     ...(input.ConsistencyLevel !== undefined &&
@@ -1404,7 +1481,6 @@ export const serializeAws_restJson1ListIncomingTypedLinksCommand = async (
         ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1420,12 +1496,15 @@ export const serializeAws_restJson1ListIndexCommand = async (
   input: ListIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/index/targets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/index/targets";
   let body: any;
   body = JSON.stringify({
     ...(input.IndexReference !== undefined &&
@@ -1439,7 +1518,6 @@ export const serializeAws_restJson1ListIndexCommand = async (
         RangesOnIndexedValues: serializeAws_restJson1ObjectAttributeRangeList(input.RangesOnIndexedValues, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1455,17 +1533,19 @@ export const serializeAws_restJson1ListManagedSchemaArnsCommand = async (
   input: ListManagedSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/managed";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/schema/managed";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.SchemaArn !== undefined && input.SchemaArn !== null && { SchemaArn: input.SchemaArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1481,12 +1561,15 @@ export const serializeAws_restJson1ListObjectAttributesCommand = async (
   input: ListObjectAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/attributes";
   let body: any;
   body = JSON.stringify({
     ...(input.FacetFilter !== undefined &&
@@ -1498,7 +1581,6 @@ export const serializeAws_restJson1ListObjectAttributesCommand = async (
         ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1514,12 +1596,15 @@ export const serializeAws_restJson1ListObjectChildrenCommand = async (
   input: ListObjectChildrenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/children";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/children";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -1529,7 +1614,6 @@ export const serializeAws_restJson1ListObjectChildrenCommand = async (
         ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1545,11 +1629,14 @@ export const serializeAws_restJson1ListObjectParentPathsCommand = async (
   input: ListObjectParentPathsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parentpaths";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/parentpaths";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -1559,7 +1646,6 @@ export const serializeAws_restJson1ListObjectParentPathsCommand = async (
         ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1575,12 +1661,15 @@ export const serializeAws_restJson1ListObjectParentsCommand = async (
   input: ListObjectParentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parent";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/parent";
   let body: any;
   body = JSON.stringify({
     ...(input.IncludeAllLinksToEachParent !== undefined &&
@@ -1592,7 +1681,6 @@ export const serializeAws_restJson1ListObjectParentsCommand = async (
         ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1608,12 +1696,15 @@ export const serializeAws_restJson1ListObjectPoliciesCommand = async (
   input: ListObjectPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/policy";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -1623,7 +1714,6 @@ export const serializeAws_restJson1ListObjectPoliciesCommand = async (
         ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1639,11 +1729,14 @@ export const serializeAws_restJson1ListOutgoingTypedLinksCommand = async (
   input: ListOutgoingTypedLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/outgoing";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/typedlink/outgoing";
   let body: any;
   body = JSON.stringify({
     ...(input.ConsistencyLevel !== undefined &&
@@ -1663,7 +1756,6 @@ export const serializeAws_restJson1ListOutgoingTypedLinksCommand = async (
         ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1679,12 +1771,15 @@ export const serializeAws_restJson1ListPolicyAttachmentsCommand = async (
   input: ListPolicyAttachmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attachment";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/policy/attachment";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -1694,7 +1789,6 @@ export const serializeAws_restJson1ListPolicyAttachmentsCommand = async (
         PolicyReference: serializeAws_restJson1ObjectReference(input.PolicyReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1710,17 +1804,19 @@ export const serializeAws_restJson1ListPublishedSchemaArnsCommand = async (
   input: ListPublishedSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/published";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/schema/published";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.SchemaArn !== undefined && input.SchemaArn !== null && { SchemaArn: input.SchemaArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1736,17 +1832,18 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/tags";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/tags";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1762,18 +1859,20 @@ export const serializeAws_restJson1ListTypedLinkFacetAttributesCommand = async (
   input: ListTypedLinkFacetAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1789,17 +1888,19 @@ export const serializeAws_restJson1ListTypedLinkFacetNamesCommand = async (
   input: ListTypedLinkFacetNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/list";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/typedlink/facet/list";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1815,11 +1916,14 @@ export const serializeAws_restJson1LookupPolicyCommand = async (
   input: LookupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/lookup";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/policy/lookup";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -1829,7 +1933,6 @@ export const serializeAws_restJson1LookupPolicyCommand = async (
         ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1845,20 +1948,22 @@ export const serializeAws_restJson1PublishSchemaCommand = async (
   input: PublishSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DevelopmentSchemaArn) && {
       "x-amz-data-partition": input.DevelopmentSchemaArn!,
     }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/publish";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/schema/publish";
   let body: any;
   body = JSON.stringify({
     ...(input.MinorVersion !== undefined && input.MinorVersion !== null && { MinorVersion: input.MinorVersion }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1874,16 +1979,18 @@ export const serializeAws_restJson1PutSchemaFromJsonCommand = async (
   input: PutSchemaFromJsonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/json";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
   body = JSON.stringify({
     ...(input.Document !== undefined && input.Document !== null && { Document: input.Document }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1899,11 +2006,14 @@ export const serializeAws_restJson1RemoveFacetFromObjectCommand = async (
   input: RemoveFacetFromObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/facets/delete";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/facets/delete";
   let body: any;
   body = JSON.stringify({
     ...(input.ObjectReference !== undefined &&
@@ -1913,7 +2023,6 @@ export const serializeAws_restJson1RemoveFacetFromObjectCommand = async (
     ...(input.SchemaFacet !== undefined &&
       input.SchemaFacet !== null && { SchemaFacet: serializeAws_restJson1SchemaFacet(input.SchemaFacet, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1929,17 +2038,18 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/tags/add";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/tags/add";
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1955,17 +2065,19 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/tags/remove";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/tags/remove";
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
     ...(input.TagKeys !== undefined &&
       input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1981,11 +2093,13 @@ export const serializeAws_restJson1UpdateFacetCommand = async (
   input: UpdateFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/facet";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
   body = JSON.stringify({
     ...(input.AttributeUpdates !== undefined &&
@@ -1995,7 +2109,6 @@ export const serializeAws_restJson1UpdateFacetCommand = async (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.ObjectType !== undefined && input.ObjectType !== null && { ObjectType: input.ObjectType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2011,11 +2124,14 @@ export const serializeAws_restJson1UpdateLinkAttributesCommand = async (
   input: UpdateLinkAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/attributes/update";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/typedlink/attributes/update";
   let body: any;
   body = JSON.stringify({
     ...(input.AttributeUpdates !== undefined &&
@@ -2027,7 +2143,6 @@ export const serializeAws_restJson1UpdateLinkAttributesCommand = async (
         TypedLinkSpecifier: serializeAws_restJson1TypedLinkSpecifier(input.TypedLinkSpecifier, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2043,11 +2158,14 @@ export const serializeAws_restJson1UpdateObjectAttributesCommand = async (
   input: UpdateObjectAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/object/update";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/object/update";
   let body: any;
   body = JSON.stringify({
     ...(input.AttributeUpdates !== undefined &&
@@ -2059,7 +2177,6 @@ export const serializeAws_restJson1UpdateObjectAttributesCommand = async (
         ObjectReference: serializeAws_restJson1ObjectReference(input.ObjectReference, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2075,16 +2192,18 @@ export const serializeAws_restJson1UpdateSchemaCommand = async (
   input: UpdateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/update";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/schema/update";
   let body: any;
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2100,11 +2219,14 @@ export const serializeAws_restJson1UpdateTypedLinkFacetCommand = async (
   input: UpdateTypedLinkFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/typedlink/facet";
   let body: any;
   body = JSON.stringify({
     ...(input.AttributeUpdates !== undefined &&
@@ -2117,7 +2239,6 @@ export const serializeAws_restJson1UpdateTypedLinkFacetCommand = async (
       }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2133,10 +2254,13 @@ export const serializeAws_restJson1UpgradeAppliedSchemaCommand = async (
   input: UpgradeAppliedSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/upgradeapplied";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/schema/upgradeapplied";
   let body: any;
   body = JSON.stringify({
     ...(input.DirectoryArn !== undefined && input.DirectoryArn !== null && { DirectoryArn: input.DirectoryArn }),
@@ -2144,7 +2268,6 @@ export const serializeAws_restJson1UpgradeAppliedSchemaCommand = async (
     ...(input.PublishedSchemaArn !== undefined &&
       input.PublishedSchemaArn !== null && { PublishedSchemaArn: input.PublishedSchemaArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2160,10 +2283,13 @@ export const serializeAws_restJson1UpgradePublishedSchemaCommand = async (
   input: UpgradePublishedSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/upgradepublished";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/amazonclouddirectory/2017-01-11/schema/upgradepublished";
   let body: any;
   body = JSON.stringify({
     ...(input.DevelopmentSchemaArn !== undefined &&
@@ -2173,7 +2299,6 @@ export const serializeAws_restJson1UpgradePublishedSchemaCommand = async (
     ...(input.PublishedSchemaArn !== undefined &&
       input.PublishedSchemaArn !== null && { PublishedSchemaArn: input.PublishedSchemaArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

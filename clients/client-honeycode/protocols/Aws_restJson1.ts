@@ -86,10 +86,13 @@ export const serializeAws_restJson1BatchCreateTableRowsCommand = async (
   input: BatchCreateTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/rows/batchcreate";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workbooks/{workbookId}/tables/{tableId}/rows/batchcreate";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
     if (labelValue.length <= 0) {
@@ -117,7 +120,6 @@ export const serializeAws_restJson1BatchCreateTableRowsCommand = async (
         rowsToCreate: serializeAws_restJson1CreateRowDataList(input.rowsToCreate, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -133,10 +135,13 @@ export const serializeAws_restJson1BatchDeleteTableRowsCommand = async (
   input: BatchDeleteTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/rows/batchdelete";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workbooks/{workbookId}/tables/{tableId}/rows/batchdelete";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
     if (labelValue.length <= 0) {
@@ -162,7 +167,6 @@ export const serializeAws_restJson1BatchDeleteTableRowsCommand = async (
     ...(input.rowIds !== undefined &&
       input.rowIds !== null && { rowIds: serializeAws_restJson1RowIdList(input.rowIds, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -178,10 +182,13 @@ export const serializeAws_restJson1BatchUpdateTableRowsCommand = async (
   input: BatchUpdateTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/rows/batchupdate";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workbooks/{workbookId}/tables/{tableId}/rows/batchupdate";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
     if (labelValue.length <= 0) {
@@ -209,7 +216,6 @@ export const serializeAws_restJson1BatchUpdateTableRowsCommand = async (
         rowsToUpdate: serializeAws_restJson1UpdateRowDataList(input.rowsToUpdate, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -225,10 +231,13 @@ export const serializeAws_restJson1BatchUpsertTableRowsCommand = async (
   input: BatchUpsertTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/rows/batchupsert";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workbooks/{workbookId}/tables/{tableId}/rows/batchupsert";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
     if (labelValue.length <= 0) {
@@ -256,7 +265,6 @@ export const serializeAws_restJson1BatchUpsertTableRowsCommand = async (
         rowsToUpsert: serializeAws_restJson1UpsertRowDataList(input.rowsToUpsert, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -272,8 +280,11 @@ export const serializeAws_restJson1DescribeTableDataImportJobCommand = async (
   input: DescribeTableDataImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/import/{jobId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workbooks/{workbookId}/tables/{tableId}/import/{jobId}";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
     if (labelValue.length <= 0) {
@@ -302,7 +313,6 @@ export const serializeAws_restJson1DescribeTableDataImportJobCommand = async (
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -318,10 +328,11 @@ export const serializeAws_restJson1GetScreenDataCommand = async (
   input: GetScreenDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/screendata";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/screendata";
   let body: any;
   body = JSON.stringify({
     ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
@@ -332,7 +343,6 @@ export const serializeAws_restJson1GetScreenDataCommand = async (
       input.variables !== null && { variables: serializeAws_restJson1VariableValueMap(input.variables, context) }),
     ...(input.workbookId !== undefined && input.workbookId !== null && { workbookId: input.workbookId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -348,10 +358,13 @@ export const serializeAws_restJson1InvokeScreenAutomationCommand = async (
   input: InvokeScreenAutomationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workbooks/{workbookId}/apps/{appId}/screens/{screenId}/automations/{screenAutomationId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workbooks/{workbookId}/apps/{appId}/screens/{screenId}/automations/{screenAutomationId}";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
     if (labelValue.length <= 0) {
@@ -396,7 +409,6 @@ export const serializeAws_restJson1InvokeScreenAutomationCommand = async (
     ...(input.variables !== undefined &&
       input.variables !== null && { variables: serializeAws_restJson1VariableValueMap(input.variables, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -412,8 +424,11 @@ export const serializeAws_restJson1ListTableColumnsCommand = async (
   input: ListTableColumnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/columns";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workbooks/{workbookId}/tables/{tableId}/columns";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
     if (labelValue.length <= 0) {
@@ -436,7 +451,6 @@ export const serializeAws_restJson1ListTableColumnsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -453,10 +467,13 @@ export const serializeAws_restJson1ListTableRowsCommand = async (
   input: ListTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/rows/list";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workbooks/{workbookId}/tables/{tableId}/rows/list";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
     if (labelValue.length <= 0) {
@@ -482,7 +499,6 @@ export const serializeAws_restJson1ListTableRowsCommand = async (
     ...(input.rowIds !== undefined &&
       input.rowIds !== null && { rowIds: serializeAws_restJson1RowIdList(input.rowIds, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -498,8 +514,10 @@ export const serializeAws_restJson1ListTablesCommand = async (
   input: ListTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workbooks/{workbookId}/tables";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workbooks/{workbookId}/tables";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
     if (labelValue.length <= 0) {
@@ -514,7 +532,6 @@ export const serializeAws_restJson1ListTablesCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -531,10 +548,13 @@ export const serializeAws_restJson1QueryTableRowsCommand = async (
   input: QueryTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/rows/query";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workbooks/{workbookId}/tables/{tableId}/rows/query";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
     if (labelValue.length <= 0) {
@@ -560,7 +580,6 @@ export const serializeAws_restJson1QueryTableRowsCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -576,10 +595,13 @@ export const serializeAws_restJson1StartTableDataImportJobCommand = async (
   input: StartTableDataImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workbooks/{workbookId}/tables/{destinationTableId}/import";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workbooks/{workbookId}/tables/{destinationTableId}/import";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
     if (labelValue.length <= 0) {
@@ -610,7 +632,6 @@ export const serializeAws_restJson1StartTableDataImportJobCommand = async (
         importOptions: serializeAws_restJson1ImportOptions(input.importOptions, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

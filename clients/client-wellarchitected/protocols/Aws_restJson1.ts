@@ -109,10 +109,12 @@ export const serializeAws_restJson1AssociateLensesCommand = async (
   input: AssociateLensesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/associateLenses";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/associateLenses";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -127,7 +129,6 @@ export const serializeAws_restJson1AssociateLensesCommand = async (
     ...(input.LensAliases !== undefined &&
       input.LensAliases !== null && { LensAliases: serializeAws_restJson1LensAliases(input.LensAliases, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -143,10 +144,12 @@ export const serializeAws_restJson1CreateMilestoneCommand = async (
   input: CreateMilestoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/milestones";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/milestones";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -161,7 +164,6 @@ export const serializeAws_restJson1CreateMilestoneCommand = async (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.MilestoneName !== undefined && input.MilestoneName !== null && { MilestoneName: input.MilestoneName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -177,10 +179,11 @@ export const serializeAws_restJson1CreateWorkloadCommand = async (
   input: CreateWorkloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads";
   let body: any;
   body = JSON.stringify({
     ...(input.AccountIds !== undefined &&
@@ -209,7 +212,6 @@ export const serializeAws_restJson1CreateWorkloadCommand = async (
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
     ...(input.WorkloadName !== undefined && input.WorkloadName !== null && { WorkloadName: input.WorkloadName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -225,10 +227,12 @@ export const serializeAws_restJson1CreateWorkloadShareCommand = async (
   input: CreateWorkloadShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/shares";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/shares";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -245,7 +249,6 @@ export const serializeAws_restJson1CreateWorkloadShareCommand = async (
       input.PermissionType !== null && { PermissionType: input.PermissionType }),
     ...(input.SharedWith !== undefined && input.SharedWith !== null && { SharedWith: input.SharedWith }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -261,8 +264,9 @@ export const serializeAws_restJson1DeleteWorkloadCommand = async (
   input: DeleteWorkloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -276,7 +280,6 @@ export const serializeAws_restJson1DeleteWorkloadCommand = async (
     ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -293,8 +296,10 @@ export const serializeAws_restJson1DeleteWorkloadShareCommand = async (
   input: DeleteWorkloadShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/shares/{ShareId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/shares/{ShareId}";
   if (input.ShareId !== undefined) {
     const labelValue: string = input.ShareId;
     if (labelValue.length <= 0) {
@@ -317,7 +322,6 @@ export const serializeAws_restJson1DeleteWorkloadShareCommand = async (
     ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -334,10 +338,13 @@ export const serializeAws_restJson1DisassociateLensesCommand = async (
   input: DisassociateLensesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/disassociateLenses";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/disassociateLenses";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -352,7 +359,6 @@ export const serializeAws_restJson1DisassociateLensesCommand = async (
     ...(input.LensAliases !== undefined &&
       input.LensAliases !== null && { LensAliases: serializeAws_restJson1LensAliases(input.LensAliases, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -368,8 +374,11 @@ export const serializeAws_restJson1GetAnswerCommand = async (
   input: GetAnswerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -401,7 +410,6 @@ export const serializeAws_restJson1GetAnswerCommand = async (
     ...(input.MilestoneNumber !== undefined && { MilestoneNumber: input.MilestoneNumber.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -418,8 +426,11 @@ export const serializeAws_restJson1GetLensReviewCommand = async (
   input: GetLensReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -442,7 +453,6 @@ export const serializeAws_restJson1GetLensReviewCommand = async (
     ...(input.MilestoneNumber !== undefined && { MilestoneNumber: input.MilestoneNumber.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -459,8 +469,11 @@ export const serializeAws_restJson1GetLensReviewReportCommand = async (
   input: GetLensReviewReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}/report";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/report";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -483,7 +496,6 @@ export const serializeAws_restJson1GetLensReviewReportCommand = async (
     ...(input.MilestoneNumber !== undefined && { MilestoneNumber: input.MilestoneNumber.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -500,8 +512,10 @@ export const serializeAws_restJson1GetLensVersionDifferenceCommand = async (
   input: GetLensVersionDifferenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/lenses/{LensAlias}/versionDifference";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}/versionDifference";
   if (input.LensAlias !== undefined) {
     const labelValue: string = input.LensAlias;
     if (labelValue.length <= 0) {
@@ -515,7 +529,6 @@ export const serializeAws_restJson1GetLensVersionDifferenceCommand = async (
     ...(input.BaseLensVersion !== undefined && { BaseLensVersion: input.BaseLensVersion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -532,8 +545,11 @@ export const serializeAws_restJson1GetMilestoneCommand = async (
   input: GetMilestoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/milestones/{MilestoneNumber}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/milestones/{MilestoneNumber}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -553,7 +569,6 @@ export const serializeAws_restJson1GetMilestoneCommand = async (
     throw new Error("No value provided for input HTTP label: MilestoneNumber.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -569,8 +584,9 @@ export const serializeAws_restJson1GetWorkloadCommand = async (
   input: GetWorkloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -581,7 +597,6 @@ export const serializeAws_restJson1GetWorkloadCommand = async (
     throw new Error("No value provided for input HTTP label: WorkloadId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -597,8 +612,11 @@ export const serializeAws_restJson1ListAnswersCommand = async (
   input: ListAnswersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -624,7 +642,6 @@ export const serializeAws_restJson1ListAnswersCommand = async (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -641,14 +658,14 @@ export const serializeAws_restJson1ListLensesCommand = async (
   input: ListLensesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/lenses";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -665,8 +682,11 @@ export const serializeAws_restJson1ListLensReviewImprovementsCommand = async (
   input: ListLensReviewImprovementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -692,7 +712,6 @@ export const serializeAws_restJson1ListLensReviewImprovementsCommand = async (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -709,8 +728,10 @@ export const serializeAws_restJson1ListLensReviewsCommand = async (
   input: ListLensReviewsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/lensReviews";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -726,7 +747,6 @@ export const serializeAws_restJson1ListLensReviewsCommand = async (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -743,10 +763,13 @@ export const serializeAws_restJson1ListMilestonesCommand = async (
   input: ListMilestonesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/milestonesSummaries";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/milestonesSummaries";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -761,7 +784,6 @@ export const serializeAws_restJson1ListMilestonesCommand = async (
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -777,17 +799,17 @@ export const serializeAws_restJson1ListNotificationsCommand = async (
   input: ListNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/notifications";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/notifications";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.WorkloadId !== undefined && input.WorkloadId !== null && { WorkloadId: input.WorkloadId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -803,15 +825,15 @@ export const serializeAws_restJson1ListShareInvitationsCommand = async (
   input: ListShareInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/shareInvitations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/shareInvitations";
   const query: any = {
     ...(input.WorkloadNamePrefix !== undefined && { WorkloadNamePrefix: input.WorkloadNamePrefix }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -828,8 +850,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{WorkloadArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{WorkloadArn}";
   if (input.WorkloadArn !== undefined) {
     const labelValue: string = input.WorkloadArn;
     if (labelValue.length <= 0) {
@@ -840,7 +863,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: WorkloadArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -856,10 +878,11 @@ export const serializeAws_restJson1ListWorkloadsCommand = async (
   input: ListWorkloadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloadsSummaries";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloadsSummaries";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -867,7 +890,6 @@ export const serializeAws_restJson1ListWorkloadsCommand = async (
     ...(input.WorkloadNamePrefix !== undefined &&
       input.WorkloadNamePrefix !== null && { WorkloadNamePrefix: input.WorkloadNamePrefix }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -883,8 +905,10 @@ export const serializeAws_restJson1ListWorkloadSharesCommand = async (
   input: ListWorkloadSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/shares";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/shares";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -900,7 +924,6 @@ export const serializeAws_restJson1ListWorkloadSharesCommand = async (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -917,10 +940,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{WorkloadArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{WorkloadArn}";
   if (input.WorkloadArn !== undefined) {
     const labelValue: string = input.WorkloadArn;
     if (labelValue.length <= 0) {
@@ -934,7 +958,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -950,8 +973,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{WorkloadArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{WorkloadArn}";
   if (input.WorkloadArn !== undefined) {
     const labelValue: string = input.WorkloadArn;
     if (labelValue.length <= 0) {
@@ -965,7 +989,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -982,10 +1005,13 @@ export const serializeAws_restJson1UpdateAnswerCommand = async (
   input: UpdateAnswerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -1022,7 +1048,6 @@ export const serializeAws_restJson1UpdateAnswerCommand = async (
         SelectedChoices: serializeAws_restJson1SelectedChoices(input.SelectedChoices, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1038,10 +1063,13 @@ export const serializeAws_restJson1UpdateLensReviewCommand = async (
   input: UpdateLensReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -1066,7 +1094,6 @@ export const serializeAws_restJson1UpdateLensReviewCommand = async (
     ...(input.PillarNotes !== undefined &&
       input.PillarNotes !== null && { PillarNotes: serializeAws_restJson1PillarNotes(input.PillarNotes, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1082,10 +1109,12 @@ export const serializeAws_restJson1UpdateShareInvitationCommand = async (
   input: UpdateShareInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/shareInvitations/{ShareInvitationId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/shareInvitations/{ShareInvitationId}";
   if (input.ShareInvitationId !== undefined) {
     const labelValue: string = input.ShareInvitationId;
     if (labelValue.length <= 0) {
@@ -1100,7 +1129,6 @@ export const serializeAws_restJson1UpdateShareInvitationCommand = async (
     ...(input.ShareInvitationAction !== undefined &&
       input.ShareInvitationAction !== null && { ShareInvitationAction: input.ShareInvitationAction }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1116,10 +1144,11 @@ export const serializeAws_restJson1UpdateWorkloadCommand = async (
   input: UpdateWorkloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -1159,7 +1188,6 @@ export const serializeAws_restJson1UpdateWorkloadCommand = async (
     ...(input.ReviewOwner !== undefined && input.ReviewOwner !== null && { ReviewOwner: input.ReviewOwner }),
     ...(input.WorkloadName !== undefined && input.WorkloadName !== null && { WorkloadName: input.WorkloadName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1175,10 +1203,12 @@ export const serializeAws_restJson1UpdateWorkloadShareCommand = async (
   input: UpdateWorkloadShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/shares/{ShareId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/shares/{ShareId}";
   if (input.ShareId !== undefined) {
     const labelValue: string = input.ShareId;
     if (labelValue.length <= 0) {
@@ -1202,7 +1232,6 @@ export const serializeAws_restJson1UpdateWorkloadShareCommand = async (
     ...(input.PermissionType !== undefined &&
       input.PermissionType !== null && { PermissionType: input.PermissionType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1218,10 +1247,13 @@ export const serializeAws_restJson1UpgradeLensReviewCommand = async (
   input: UpgradeLensReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -1246,7 +1278,6 @@ export const serializeAws_restJson1UpgradeLensReviewCommand = async (
       input.ClientRequestToken !== null && { ClientRequestToken: input.ClientRequestToken }),
     ...(input.MilestoneName !== undefined && input.MilestoneName !== null && { MilestoneName: input.MilestoneName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

@@ -343,6 +343,7 @@ it("json_1_1_service_responds_with_no_payload:Response", async () => {
 it("AwsJson11EndpointTrait:Request", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
+    endpoint: "https://example.com",
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -376,6 +377,7 @@ it("AwsJson11EndpointTrait:Request", async () => {
 it("AwsJson11EndpointTraitWithHostLabel:Request", async () => {
   const client = new JsonProtocolClient({
     ...clientParams,
+    endpoint: "https://example.com",
     requestHandler: new RequestSerializationTestHandler(),
   });
 

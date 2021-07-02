@@ -35,10 +35,11 @@ export const serializeAws_restJson1CreateTokenCommand = async (
   input: CreateTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/token";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/token";
   let body: any;
   body = JSON.stringify({
     ...(input.clientId !== undefined && input.clientId !== null && { clientId: input.clientId }),
@@ -51,7 +52,6 @@ export const serializeAws_restJson1CreateTokenCommand = async (
     ...(input.scope !== undefined &&
       input.scope !== null && { scope: serializeAws_restJson1Scopes(input.scope, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -67,10 +67,11 @@ export const serializeAws_restJson1RegisterClientCommand = async (
   input: RegisterClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/client/register";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/client/register";
   let body: any;
   body = JSON.stringify({
     ...(input.clientName !== undefined && input.clientName !== null && { clientName: input.clientName }),
@@ -78,7 +79,6 @@ export const serializeAws_restJson1RegisterClientCommand = async (
     ...(input.scopes !== undefined &&
       input.scopes !== null && { scopes: serializeAws_restJson1Scopes(input.scopes, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -94,17 +94,17 @@ export const serializeAws_restJson1StartDeviceAuthorizationCommand = async (
   input: StartDeviceAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/device_authorization";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device_authorization";
   let body: any;
   body = JSON.stringify({
     ...(input.clientId !== undefined && input.clientId !== null && { clientId: input.clientId }),
     ...(input.clientSecret !== undefined && input.clientSecret !== null && { clientSecret: input.clientSecret }),
     ...(input.startUrl !== undefined && input.startUrl !== null && { startUrl: input.startUrl }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

@@ -49,10 +49,11 @@ export const serializeAws_restJson1GetClipCommand = async (
   input: GetClipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/getClip";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getClip";
   let body: any;
   body = JSON.stringify({
     ...(input.ClipFragmentSelector !== undefined &&
@@ -62,7 +63,6 @@ export const serializeAws_restJson1GetClipCommand = async (
     ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
     ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -78,10 +78,12 @@ export const serializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
   input: GetDASHStreamingSessionURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/getDASHStreamingSessionURL";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getDASHStreamingSessionURL";
   let body: any;
   body = JSON.stringify({
     ...(input.DASHFragmentSelector !== undefined &&
@@ -99,7 +101,6 @@ export const serializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
     ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
     ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -115,10 +116,12 @@ export const serializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
   input: GetHLSStreamingSessionURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/getHLSStreamingSessionURL";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getHLSStreamingSessionURL";
   let body: any;
   body = JSON.stringify({
     ...(input.ContainerFormat !== undefined &&
@@ -140,7 +143,6 @@ export const serializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
     ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
     ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -156,10 +158,11 @@ export const serializeAws_restJson1GetMediaForFragmentListCommand = async (
   input: GetMediaForFragmentListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/getMediaForFragmentList";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getMediaForFragmentList";
   let body: any;
   body = JSON.stringify({
     ...(input.Fragments !== undefined &&
@@ -167,7 +170,6 @@ export const serializeAws_restJson1GetMediaForFragmentListCommand = async (
     ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
     ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -183,10 +185,11 @@ export const serializeAws_restJson1ListFragmentsCommand = async (
   input: ListFragmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listFragments";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listFragments";
   let body: any;
   body = JSON.stringify({
     ...(input.FragmentSelector !== undefined &&
@@ -198,7 +201,6 @@ export const serializeAws_restJson1ListFragmentsCommand = async (
     ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
     ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

@@ -36,6 +36,7 @@ export const serializeAws_restJson1CompleteSnapshotCommand = async (
   input: CompleteSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ChangedBlocksCount) && {
       "x-amz-changedblockscount": input.ChangedBlocksCount!.toString(),
@@ -46,7 +47,8 @@ export const serializeAws_restJson1CompleteSnapshotCommand = async (
       "x-amz-checksum-aggregation-method": input.ChecksumAggregationMethod!,
     }),
   };
-  let resolvedPath = "/snapshots/completion/{SnapshotId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/snapshots/completion/{SnapshotId}";
   if (input.SnapshotId !== undefined) {
     const labelValue: string = input.SnapshotId;
     if (labelValue.length <= 0) {
@@ -57,7 +59,6 @@ export const serializeAws_restJson1CompleteSnapshotCommand = async (
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -73,8 +74,11 @@ export const serializeAws_restJson1GetSnapshotBlockCommand = async (
   input: GetSnapshotBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
   if (input.SnapshotId !== undefined) {
     const labelValue: string = input.SnapshotId;
     if (labelValue.length <= 0) {
@@ -97,7 +101,6 @@ export const serializeAws_restJson1GetSnapshotBlockCommand = async (
     ...(input.BlockToken !== undefined && { blockToken: input.BlockToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -114,8 +117,11 @@ export const serializeAws_restJson1ListChangedBlocksCommand = async (
   input: ListChangedBlocksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/snapshots/{SecondSnapshotId}/changedblocks";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/snapshots/{SecondSnapshotId}/changedblocks";
   if (input.SecondSnapshotId !== undefined) {
     const labelValue: string = input.SecondSnapshotId;
     if (labelValue.length <= 0) {
@@ -132,7 +138,6 @@ export const serializeAws_restJson1ListChangedBlocksCommand = async (
     ...(input.StartingBlockIndex !== undefined && { startingBlockIndex: input.StartingBlockIndex.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -149,8 +154,10 @@ export const serializeAws_restJson1ListSnapshotBlocksCommand = async (
   input: ListSnapshotBlocksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/snapshots/{SnapshotId}/blocks";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/snapshots/{SnapshotId}/blocks";
   if (input.SnapshotId !== undefined) {
     const labelValue: string = input.SnapshotId;
     if (labelValue.length <= 0) {
@@ -166,7 +173,6 @@ export const serializeAws_restJson1ListSnapshotBlocksCommand = async (
     ...(input.StartingBlockIndex !== undefined && { startingBlockIndex: input.StartingBlockIndex.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -183,6 +189,7 @@ export const serializeAws_restJson1PutSnapshotBlockCommand = async (
   input: PutSnapshotBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
@@ -191,7 +198,9 @@ export const serializeAws_restJson1PutSnapshotBlockCommand = async (
     ...(isSerializableHeaderValue(input.Checksum) && { "x-amz-checksum": input.Checksum! }),
     ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && { "x-amz-checksum-algorithm": input.ChecksumAlgorithm! }),
   };
-  let resolvedPath = "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
   if (input.SnapshotId !== undefined) {
     const labelValue: string = input.SnapshotId;
     if (labelValue.length <= 0) {
@@ -214,7 +223,6 @@ export const serializeAws_restJson1PutSnapshotBlockCommand = async (
   if (input.BlockData !== undefined) {
     body = input.BlockData;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -230,10 +238,11 @@ export const serializeAws_restJson1StartSnapshotCommand = async (
   input: StartSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/snapshots";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/snapshots";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
@@ -246,7 +255,6 @@ export const serializeAws_restJson1StartSnapshotCommand = async (
     ...(input.Timeout !== undefined && input.Timeout !== null && { Timeout: input.Timeout }),
     ...(input.VolumeSize !== undefined && input.VolumeSize !== null && { VolumeSize: input.VolumeSize }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

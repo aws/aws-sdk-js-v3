@@ -30,10 +30,11 @@ export const serializeAws_restJson1BatchGetRecordCommand = async (
   input: BatchGetRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/BatchGetRecord";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGetRecord";
   let body: any;
   body = JSON.stringify({
     ...(input.Identifiers !== undefined &&
@@ -41,7 +42,6 @@ export const serializeAws_restJson1BatchGetRecordCommand = async (
         Identifiers: serializeAws_restJson1BatchGetRecordIdentifiers(input.Identifiers, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -57,8 +57,10 @@ export const serializeAws_restJson1DeleteRecordCommand = async (
   input: DeleteRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/FeatureGroup/{FeatureGroupName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FeatureGroup/{FeatureGroupName}";
   if (input.FeatureGroupName !== undefined) {
     const labelValue: string = input.FeatureGroupName;
     if (labelValue.length <= 0) {
@@ -75,7 +77,6 @@ export const serializeAws_restJson1DeleteRecordCommand = async (
     ...(input.EventTime !== undefined && { EventTime: input.EventTime }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -92,8 +93,10 @@ export const serializeAws_restJson1GetRecordCommand = async (
   input: GetRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/FeatureGroup/{FeatureGroupName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FeatureGroup/{FeatureGroupName}";
   if (input.FeatureGroupName !== undefined) {
     const labelValue: string = input.FeatureGroupName;
     if (labelValue.length <= 0) {
@@ -110,7 +113,6 @@ export const serializeAws_restJson1GetRecordCommand = async (
     ...(input.FeatureNames !== undefined && { FeatureName: (input.FeatureNames || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -127,10 +129,12 @@ export const serializeAws_restJson1PutRecordCommand = async (
   input: PutRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/FeatureGroup/{FeatureGroupName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FeatureGroup/{FeatureGroupName}";
   if (input.FeatureGroupName !== undefined) {
     const labelValue: string = input.FeatureGroupName;
     if (labelValue.length <= 0) {
@@ -145,7 +149,6 @@ export const serializeAws_restJson1PutRecordCommand = async (
     ...(input.Record !== undefined &&
       input.Record !== null && { Record: serializeAws_restJson1Record(input.Record, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

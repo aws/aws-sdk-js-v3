@@ -79,8 +79,11 @@ export const serializeAws_restJson1AssociateAttributeGroupCommand = async (
   input: AssociateAttributeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{application}/attribute-groups/{attributeGroup}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/applications/{application}/attribute-groups/{attributeGroup}";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
     if (labelValue.length <= 0) {
@@ -100,7 +103,6 @@ export const serializeAws_restJson1AssociateAttributeGroupCommand = async (
     throw new Error("No value provided for input HTTP label: attributeGroup.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -116,8 +118,11 @@ export const serializeAws_restJson1AssociateResourceCommand = async (
   input: AssociateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{application}/resources/{resourceType}/{resource}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/applications/{application}/resources/{resourceType}/{resource}";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
     if (labelValue.length <= 0) {
@@ -146,7 +151,6 @@ export const serializeAws_restJson1AssociateResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resource.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -162,10 +166,11 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/applications";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
@@ -173,7 +178,6 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -189,10 +193,11 @@ export const serializeAws_restJson1CreateAttributeGroupCommand = async (
   input: CreateAttributeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/attribute-groups";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attribute-groups";
   let body: any;
   body = JSON.stringify({
     ...(input.attributes !== undefined && input.attributes !== null && { attributes: input.attributes }),
@@ -201,7 +206,6 @@ export const serializeAws_restJson1CreateAttributeGroupCommand = async (
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -217,8 +221,10 @@ export const serializeAws_restJson1DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{application}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{application}";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
     if (labelValue.length <= 0) {
@@ -229,7 +235,6 @@ export const serializeAws_restJson1DeleteApplicationCommand = async (
     throw new Error("No value provided for input HTTP label: application.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -245,8 +250,10 @@ export const serializeAws_restJson1DeleteAttributeGroupCommand = async (
   input: DeleteAttributeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/attribute-groups/{attributeGroup}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attribute-groups/{attributeGroup}";
   if (input.attributeGroup !== undefined) {
     const labelValue: string = input.attributeGroup;
     if (labelValue.length <= 0) {
@@ -257,7 +264,6 @@ export const serializeAws_restJson1DeleteAttributeGroupCommand = async (
     throw new Error("No value provided for input HTTP label: attributeGroup.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -273,8 +279,11 @@ export const serializeAws_restJson1DisassociateAttributeGroupCommand = async (
   input: DisassociateAttributeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{application}/attribute-groups/{attributeGroup}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/applications/{application}/attribute-groups/{attributeGroup}";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
     if (labelValue.length <= 0) {
@@ -294,7 +303,6 @@ export const serializeAws_restJson1DisassociateAttributeGroupCommand = async (
     throw new Error("No value provided for input HTTP label: attributeGroup.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -310,8 +318,11 @@ export const serializeAws_restJson1DisassociateResourceCommand = async (
   input: DisassociateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{application}/resources/{resourceType}/{resource}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/applications/{application}/resources/{resourceType}/{resource}";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
     if (labelValue.length <= 0) {
@@ -340,7 +351,6 @@ export const serializeAws_restJson1DisassociateResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resource.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -356,8 +366,10 @@ export const serializeAws_restJson1GetApplicationCommand = async (
   input: GetApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{application}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{application}";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
     if (labelValue.length <= 0) {
@@ -368,7 +380,6 @@ export const serializeAws_restJson1GetApplicationCommand = async (
     throw new Error("No value provided for input HTTP label: application.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -384,8 +395,10 @@ export const serializeAws_restJson1GetAttributeGroupCommand = async (
   input: GetAttributeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/attribute-groups/{attributeGroup}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attribute-groups/{attributeGroup}";
   if (input.attributeGroup !== undefined) {
     const labelValue: string = input.attributeGroup;
     if (labelValue.length <= 0) {
@@ -396,7 +409,6 @@ export const serializeAws_restJson1GetAttributeGroupCommand = async (
     throw new Error("No value provided for input HTTP label: attributeGroup.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -412,14 +424,14 @@ export const serializeAws_restJson1ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -436,8 +448,11 @@ export const serializeAws_restJson1ListAssociatedAttributeGroupsCommand = async 
   input: ListAssociatedAttributeGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{application}/attribute-groups";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/applications/{application}/attribute-groups";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
     if (labelValue.length <= 0) {
@@ -452,7 +467,6 @@ export const serializeAws_restJson1ListAssociatedAttributeGroupsCommand = async 
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -469,8 +483,10 @@ export const serializeAws_restJson1ListAssociatedResourcesCommand = async (
   input: ListAssociatedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{application}/resources";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{application}/resources";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
     if (labelValue.length <= 0) {
@@ -485,7 +501,6 @@ export const serializeAws_restJson1ListAssociatedResourcesCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -502,14 +517,14 @@ export const serializeAws_restJson1ListAttributeGroupsCommand = async (
   input: ListAttributeGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/attribute-groups";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attribute-groups";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -526,8 +541,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -538,7 +554,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -554,8 +569,10 @@ export const serializeAws_restJson1SyncResourceCommand = async (
   input: SyncResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/sync/{resourceType}/{resource}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sync/{resourceType}/{resource}";
   if (input.resourceType !== undefined) {
     const labelValue: string = input.resourceType;
     if (labelValue.length <= 0) {
@@ -575,7 +592,6 @@ export const serializeAws_restJson1SyncResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resource.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -591,10 +607,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -608,7 +625,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -624,8 +640,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -639,7 +656,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -656,10 +672,12 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/applications/{application}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{application}";
   if (input.application !== undefined) {
     const labelValue: string = input.application;
     if (labelValue.length <= 0) {
@@ -674,7 +692,6 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -690,10 +707,12 @@ export const serializeAws_restJson1UpdateAttributeGroupCommand = async (
   input: UpdateAttributeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/attribute-groups/{attributeGroup}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attribute-groups/{attributeGroup}";
   if (input.attributeGroup !== undefined) {
     const labelValue: string = input.attributeGroup;
     if (labelValue.length <= 0) {
@@ -709,7 +728,6 @@ export const serializeAws_restJson1UpdateAttributeGroupCommand = async (
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

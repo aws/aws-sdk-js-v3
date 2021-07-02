@@ -31,8 +31,9 @@ export const serializeAws_restJson1GetRawMessageContentCommand = async (
   input: GetRawMessageContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/messages/{messageId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/messages/{messageId}";
   if (input.messageId !== undefined) {
     const labelValue: string = input.messageId;
     if (labelValue.length <= 0) {
@@ -43,7 +44,6 @@ export const serializeAws_restJson1GetRawMessageContentCommand = async (
     throw new Error("No value provided for input HTTP label: messageId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -59,10 +59,11 @@ export const serializeAws_restJson1PutRawMessageContentCommand = async (
   input: PutRawMessageContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/messages/{messageId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/messages/{messageId}";
   if (input.messageId !== undefined) {
     const labelValue: string = input.messageId;
     if (labelValue.length <= 0) {
@@ -77,7 +78,6 @@ export const serializeAws_restJson1PutRawMessageContentCommand = async (
     ...(input.content !== undefined &&
       input.content !== null && { content: serializeAws_restJson1RawMessageContent(input.content, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

@@ -21,10 +21,11 @@ export const serializeAws_restJson1GetMediaCommand = async (
   input: GetMediaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/getMedia";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getMedia";
   let body: any;
   body = JSON.stringify({
     ...(input.StartSelector !== undefined &&
@@ -34,7 +35,6 @@ export const serializeAws_restJson1GetMediaCommand = async (
     ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
     ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

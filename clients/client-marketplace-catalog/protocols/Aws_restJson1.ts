@@ -39,14 +39,14 @@ export const serializeAws_restJson1CancelChangeSetCommand = async (
   input: CancelChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/CancelChangeSet";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CancelChangeSet";
   const query: any = {
     ...(input.Catalog !== undefined && { catalog: input.Catalog }),
     ...(input.ChangeSetId !== undefined && { changeSetId: input.ChangeSetId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -63,14 +63,14 @@ export const serializeAws_restJson1DescribeChangeSetCommand = async (
   input: DescribeChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/DescribeChangeSet";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeChangeSet";
   const query: any = {
     ...(input.Catalog !== undefined && { catalog: input.Catalog }),
     ...(input.ChangeSetId !== undefined && { changeSetId: input.ChangeSetId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -87,14 +87,14 @@ export const serializeAws_restJson1DescribeEntityCommand = async (
   input: DescribeEntityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/DescribeEntity";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeEntity";
   const query: any = {
     ...(input.Catalog !== undefined && { catalog: input.Catalog }),
     ...(input.EntityId !== undefined && { entityId: input.EntityId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -111,10 +111,11 @@ export const serializeAws_restJson1ListChangeSetsCommand = async (
   input: ListChangeSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/ListChangeSets";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListChangeSets";
   let body: any;
   body = JSON.stringify({
     ...(input.Catalog !== undefined && input.Catalog !== null && { Catalog: input.Catalog }),
@@ -124,7 +125,6 @@ export const serializeAws_restJson1ListChangeSetsCommand = async (
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.Sort !== undefined && input.Sort !== null && { Sort: serializeAws_restJson1Sort(input.Sort, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -140,10 +140,11 @@ export const serializeAws_restJson1ListEntitiesCommand = async (
   input: ListEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/ListEntities";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListEntities";
   let body: any;
   body = JSON.stringify({
     ...(input.Catalog !== undefined && input.Catalog !== null && { Catalog: input.Catalog }),
@@ -154,7 +155,6 @@ export const serializeAws_restJson1ListEntitiesCommand = async (
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.Sort !== undefined && input.Sort !== null && { Sort: serializeAws_restJson1Sort(input.Sort, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -170,10 +170,11 @@ export const serializeAws_restJson1StartChangeSetCommand = async (
   input: StartChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/StartChangeSet";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartChangeSet";
   let body: any;
   body = JSON.stringify({
     ...(input.Catalog !== undefined && input.Catalog !== null && { Catalog: input.Catalog }),
@@ -183,7 +184,6 @@ export const serializeAws_restJson1StartChangeSetCommand = async (
     ...(input.ClientRequestToken !== undefined &&
       input.ClientRequestToken !== null && { ClientRequestToken: input.ClientRequestToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

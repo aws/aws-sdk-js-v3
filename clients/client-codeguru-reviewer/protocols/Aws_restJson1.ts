@@ -94,10 +94,11 @@ export const serializeAws_restJson1AssociateRepositoryCommand = async (
   input: AssociateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/associations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations";
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
@@ -109,7 +110,6 @@ export const serializeAws_restJson1AssociateRepositoryCommand = async (
       input.Repository !== null && { Repository: serializeAws_restJson1Repository(input.Repository, context) }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -125,10 +125,11 @@ export const serializeAws_restJson1CreateCodeReviewCommand = async (
   input: CreateCodeReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/codereviews";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/codereviews";
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
@@ -138,7 +139,6 @@ export const serializeAws_restJson1CreateCodeReviewCommand = async (
     ...(input.Type !== undefined &&
       input.Type !== null && { Type: serializeAws_restJson1CodeReviewType(input.Type, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -154,8 +154,10 @@ export const serializeAws_restJson1DescribeCodeReviewCommand = async (
   input: DescribeCodeReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/codereviews/{CodeReviewArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/codereviews/{CodeReviewArn}";
   if (input.CodeReviewArn !== undefined) {
     const labelValue: string = input.CodeReviewArn;
     if (labelValue.length <= 0) {
@@ -166,7 +168,6 @@ export const serializeAws_restJson1DescribeCodeReviewCommand = async (
     throw new Error("No value provided for input HTTP label: CodeReviewArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -182,8 +183,10 @@ export const serializeAws_restJson1DescribeRecommendationFeedbackCommand = async
   input: DescribeRecommendationFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/feedback/{CodeReviewArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/feedback/{CodeReviewArn}";
   if (input.CodeReviewArn !== undefined) {
     const labelValue: string = input.CodeReviewArn;
     if (labelValue.length <= 0) {
@@ -198,7 +201,6 @@ export const serializeAws_restJson1DescribeRecommendationFeedbackCommand = async
     ...(input.UserId !== undefined && { UserId: input.UserId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -215,8 +217,10 @@ export const serializeAws_restJson1DescribeRepositoryAssociationCommand = async 
   input: DescribeRepositoryAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/associations/{AssociationArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
     const labelValue: string = input.AssociationArn;
     if (labelValue.length <= 0) {
@@ -227,7 +231,6 @@ export const serializeAws_restJson1DescribeRepositoryAssociationCommand = async 
     throw new Error("No value provided for input HTTP label: AssociationArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -243,8 +246,10 @@ export const serializeAws_restJson1DisassociateRepositoryCommand = async (
   input: DisassociateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/associations/{AssociationArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
     const labelValue: string = input.AssociationArn;
     if (labelValue.length <= 0) {
@@ -255,7 +260,6 @@ export const serializeAws_restJson1DisassociateRepositoryCommand = async (
     throw new Error("No value provided for input HTTP label: AssociationArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -271,8 +275,9 @@ export const serializeAws_restJson1ListCodeReviewsCommand = async (
   input: ListCodeReviewsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/codereviews";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/codereviews";
   const query: any = {
     ...(input.ProviderTypes !== undefined && { ProviderTypes: (input.ProviderTypes || []).map((_entry) => _entry) }),
     ...(input.States !== undefined && { States: (input.States || []).map((_entry) => _entry) }),
@@ -284,7 +289,6 @@ export const serializeAws_restJson1ListCodeReviewsCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -301,8 +305,11 @@ export const serializeAws_restJson1ListRecommendationFeedbackCommand = async (
   input: ListRecommendationFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/feedback/{CodeReviewArn}/RecommendationFeedback";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/feedback/{CodeReviewArn}/RecommendationFeedback";
   if (input.CodeReviewArn !== undefined) {
     const labelValue: string = input.CodeReviewArn;
     if (labelValue.length <= 0) {
@@ -321,7 +328,6 @@ export const serializeAws_restJson1ListRecommendationFeedbackCommand = async (
     }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -338,8 +344,11 @@ export const serializeAws_restJson1ListRecommendationsCommand = async (
   input: ListRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/codereviews/{CodeReviewArn}/Recommendations";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/codereviews/{CodeReviewArn}/Recommendations";
   if (input.CodeReviewArn !== undefined) {
     const labelValue: string = input.CodeReviewArn;
     if (labelValue.length <= 0) {
@@ -354,7 +363,6 @@ export const serializeAws_restJson1ListRecommendationsCommand = async (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -371,8 +379,9 @@ export const serializeAws_restJson1ListRepositoryAssociationsCommand = async (
   input: ListRepositoryAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/associations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations";
   const query: any = {
     ...(input.ProviderTypes !== undefined && { ProviderType: (input.ProviderTypes || []).map((_entry) => _entry) }),
     ...(input.States !== undefined && { State: (input.States || []).map((_entry) => _entry) }),
@@ -382,7 +391,6 @@ export const serializeAws_restJson1ListRepositoryAssociationsCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -399,8 +407,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -411,7 +420,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -427,10 +435,11 @@ export const serializeAws_restJson1PutRecommendationFeedbackCommand = async (
   input: PutRecommendationFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/feedback";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/feedback";
   let body: any;
   body = JSON.stringify({
     ...(input.CodeReviewArn !== undefined && input.CodeReviewArn !== null && { CodeReviewArn: input.CodeReviewArn }),
@@ -439,7 +448,6 @@ export const serializeAws_restJson1PutRecommendationFeedbackCommand = async (
     ...(input.RecommendationId !== undefined &&
       input.RecommendationId !== null && { RecommendationId: input.RecommendationId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -455,10 +463,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -472,7 +481,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -488,8 +496,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -503,7 +512,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

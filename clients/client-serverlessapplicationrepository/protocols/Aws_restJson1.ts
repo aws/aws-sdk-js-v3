@@ -74,10 +74,11 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/applications";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   let body: any;
   body = JSON.stringify({
     ...(input.Author !== undefined && input.Author !== null && { author: input.Author }),
@@ -99,7 +100,6 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
     ...(input.TemplateBody !== undefined && input.TemplateBody !== null && { templateBody: input.TemplateBody }),
     ...(input.TemplateUrl !== undefined && input.TemplateUrl !== null && { templateUrl: input.TemplateUrl }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -115,10 +115,13 @@ export const serializeAws_restJson1CreateApplicationVersionCommand = async (
   input: CreateApplicationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/applications/{ApplicationId}/versions/{SemanticVersion}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/applications/{ApplicationId}/versions/{SemanticVersion}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -145,7 +148,6 @@ export const serializeAws_restJson1CreateApplicationVersionCommand = async (
     ...(input.TemplateBody !== undefined && input.TemplateBody !== null && { templateBody: input.TemplateBody }),
     ...(input.TemplateUrl !== undefined && input.TemplateUrl !== null && { templateUrl: input.TemplateUrl }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -161,10 +163,12 @@ export const serializeAws_restJson1CreateCloudFormationChangeSetCommand = async 
   input: CreateCloudFormationChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/applications/{ApplicationId}/changesets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}/changesets";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -206,7 +210,6 @@ export const serializeAws_restJson1CreateCloudFormationChangeSetCommand = async 
       input.Tags !== null && { tags: serializeAws_restJson1__listOfTag(input.Tags, context) }),
     ...(input.TemplateId !== undefined && input.TemplateId !== null && { templateId: input.TemplateId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -222,10 +225,12 @@ export const serializeAws_restJson1CreateCloudFormationTemplateCommand = async (
   input: CreateCloudFormationTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/applications/{ApplicationId}/templates";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}/templates";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -240,7 +245,6 @@ export const serializeAws_restJson1CreateCloudFormationTemplateCommand = async (
     ...(input.SemanticVersion !== undefined &&
       input.SemanticVersion !== null && { semanticVersion: input.SemanticVersion }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -256,8 +260,10 @@ export const serializeAws_restJson1DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{ApplicationId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -268,7 +274,6 @@ export const serializeAws_restJson1DeleteApplicationCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -284,8 +289,10 @@ export const serializeAws_restJson1GetApplicationCommand = async (
   input: GetApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{ApplicationId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -299,7 +306,6 @@ export const serializeAws_restJson1GetApplicationCommand = async (
     ...(input.SemanticVersion !== undefined && { semanticVersion: input.SemanticVersion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -316,8 +322,10 @@ export const serializeAws_restJson1GetApplicationPolicyCommand = async (
   input: GetApplicationPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{ApplicationId}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}/policy";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -328,7 +336,6 @@ export const serializeAws_restJson1GetApplicationPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -344,8 +351,11 @@ export const serializeAws_restJson1GetCloudFormationTemplateCommand = async (
   input: GetCloudFormationTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{ApplicationId}/templates/{TemplateId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/applications/{ApplicationId}/templates/{TemplateId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -365,7 +375,6 @@ export const serializeAws_restJson1GetCloudFormationTemplateCommand = async (
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -381,8 +390,11 @@ export const serializeAws_restJson1ListApplicationDependenciesCommand = async (
   input: ListApplicationDependenciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{ApplicationId}/dependencies";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/applications/{ApplicationId}/dependencies";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -398,7 +410,6 @@ export const serializeAws_restJson1ListApplicationDependenciesCommand = async (
     ...(input.SemanticVersion !== undefined && { semanticVersion: input.SemanticVersion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -415,14 +426,14 @@ export const serializeAws_restJson1ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   const query: any = {
     ...(input.MaxItems !== undefined && { maxItems: input.MaxItems.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -439,8 +450,10 @@ export const serializeAws_restJson1ListApplicationVersionsCommand = async (
   input: ListApplicationVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/applications/{ApplicationId}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}/versions";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -455,7 +468,6 @@ export const serializeAws_restJson1ListApplicationVersionsCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -472,10 +484,12 @@ export const serializeAws_restJson1PutApplicationPolicyCommand = async (
   input: PutApplicationPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/applications/{ApplicationId}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}/policy";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -492,7 +506,6 @@ export const serializeAws_restJson1PutApplicationPolicyCommand = async (
         statements: serializeAws_restJson1__listOfApplicationPolicyStatement(input.Statements, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -508,10 +521,12 @@ export const serializeAws_restJson1UnshareApplicationCommand = async (
   input: UnshareApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/applications/{ApplicationId}/unshare";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}/unshare";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -526,7 +541,6 @@ export const serializeAws_restJson1UnshareApplicationCommand = async (
     ...(input.OrganizationId !== undefined &&
       input.OrganizationId !== null && { organizationId: input.OrganizationId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -542,10 +556,12 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/applications/{ApplicationId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -565,7 +581,6 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
     ...(input.ReadmeBody !== undefined && input.ReadmeBody !== null && { readmeBody: input.ReadmeBody }),
     ...(input.ReadmeUrl !== undefined && input.ReadmeUrl !== null && { readmeUrl: input.ReadmeUrl }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

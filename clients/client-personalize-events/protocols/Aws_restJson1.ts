@@ -27,10 +27,11 @@ export const serializeAws_restJson1PutEventsCommand = async (
   input: PutEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/events";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/events";
   let body: any;
   body = JSON.stringify({
     ...(input.eventList !== undefined &&
@@ -39,7 +40,6 @@ export const serializeAws_restJson1PutEventsCommand = async (
     ...(input.trackingId !== undefined && input.trackingId !== null && { trackingId: input.trackingId }),
     ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -55,17 +55,17 @@ export const serializeAws_restJson1PutItemsCommand = async (
   input: PutItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/items";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/items";
   let body: any;
   body = JSON.stringify({
     ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
     ...(input.items !== undefined &&
       input.items !== null && { items: serializeAws_restJson1ItemList(input.items, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -81,17 +81,17 @@ export const serializeAws_restJson1PutUsersCommand = async (
   input: PutUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/users";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users";
   let body: any;
   body = JSON.stringify({
     ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
     ...(input.users !== undefined &&
       input.users !== null && { users: serializeAws_restJson1UserList(input.users, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

@@ -212,6 +212,7 @@ it("AwsJson10EmptyInputAndEmptyOutputSendJsonObject:Response", async () => {
 it("AwsJson10EndpointTrait:Request", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
+    endpoint: "https://example.com",
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -245,6 +246,7 @@ it("AwsJson10EndpointTrait:Request", async () => {
 it("AwsJson10EndpointTraitWithHostLabel:Request", async () => {
   const client = new JSONRPC10Client({
     ...clientParams,
+    endpoint: "https://example.com",
     requestHandler: new RequestSerializationTestHandler(),
   });
 

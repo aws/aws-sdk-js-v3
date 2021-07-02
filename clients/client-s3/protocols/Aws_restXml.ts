@@ -414,13 +414,14 @@ export const serializeAws_restXmlAbortMultipartUploadCommand = async (
   input: AbortMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -450,7 +451,6 @@ export const serializeAws_restXmlAbortMultipartUploadCommand = async (
     ...(input.UploadId !== undefined && { uploadId: input.UploadId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -467,6 +467,7 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
   input: CompleteMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
@@ -474,7 +475,7 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -514,7 +515,6 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -531,6 +531,7 @@ export const serializeAws_restXmlCopyObjectCommand = async (
   input: CopyObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
     ...(isSerializableHeaderValue(input.CacheControl) && { "cache-control": input.CacheControl! }),
@@ -618,7 +619,7 @@ export const serializeAws_restXmlCopyObjectCommand = async (
         {}
       )),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -647,7 +648,6 @@ export const serializeAws_restXmlCopyObjectCommand = async (
     "x-id": "CopyObject",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -664,6 +664,7 @@ export const serializeAws_restXmlCreateBucketCommand = async (
   input: CreateBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
@@ -676,7 +677,7 @@ export const serializeAws_restXmlCreateBucketCommand = async (
       "x-amz-bucket-object-lock-enabled": input.ObjectLockEnabledForBucket!.toString(),
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -697,7 +698,6 @@ export const serializeAws_restXmlCreateBucketCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -713,6 +713,7 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
   input: CreateMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
     ...(isSerializableHeaderValue(input.CacheControl) && { "cache-control": input.CacheControl! }),
@@ -773,7 +774,7 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
         {}
       )),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -803,7 +804,6 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
     "x-id": "CreateMultipartUpload",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -820,12 +820,13 @@ export const serializeAws_restXmlDeleteBucketCommand = async (
   input: DeleteBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -836,7 +837,6 @@ export const serializeAws_restXmlDeleteBucketCommand = async (
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -852,12 +852,13 @@ export const serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand = asy
   input: DeleteBucketAnalyticsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -872,7 +873,6 @@ export const serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand = asy
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -889,12 +889,13 @@ export const serializeAws_restXmlDeleteBucketCorsCommand = async (
   input: DeleteBucketCorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -908,7 +909,6 @@ export const serializeAws_restXmlDeleteBucketCorsCommand = async (
     cors: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -925,12 +925,13 @@ export const serializeAws_restXmlDeleteBucketEncryptionCommand = async (
   input: DeleteBucketEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -944,7 +945,6 @@ export const serializeAws_restXmlDeleteBucketEncryptionCommand = async (
     encryption: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -961,8 +961,9 @@ export const serializeAws_restXmlDeleteBucketIntelligentTieringConfigurationComm
   input: DeleteBucketIntelligentTieringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -977,7 +978,6 @@ export const serializeAws_restXmlDeleteBucketIntelligentTieringConfigurationComm
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -994,12 +994,13 @@ export const serializeAws_restXmlDeleteBucketInventoryConfigurationCommand = asy
   input: DeleteBucketInventoryConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1014,7 +1015,6 @@ export const serializeAws_restXmlDeleteBucketInventoryConfigurationCommand = asy
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1031,12 +1031,13 @@ export const serializeAws_restXmlDeleteBucketLifecycleCommand = async (
   input: DeleteBucketLifecycleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1050,7 +1051,6 @@ export const serializeAws_restXmlDeleteBucketLifecycleCommand = async (
     lifecycle: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1067,12 +1067,13 @@ export const serializeAws_restXmlDeleteBucketMetricsConfigurationCommand = async
   input: DeleteBucketMetricsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1087,7 +1088,6 @@ export const serializeAws_restXmlDeleteBucketMetricsConfigurationCommand = async
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1104,12 +1104,13 @@ export const serializeAws_restXmlDeleteBucketOwnershipControlsCommand = async (
   input: DeleteBucketOwnershipControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1123,7 +1124,6 @@ export const serializeAws_restXmlDeleteBucketOwnershipControlsCommand = async (
     ownershipControls: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1140,12 +1140,13 @@ export const serializeAws_restXmlDeleteBucketPolicyCommand = async (
   input: DeleteBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1159,7 +1160,6 @@ export const serializeAws_restXmlDeleteBucketPolicyCommand = async (
     policy: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1176,12 +1176,13 @@ export const serializeAws_restXmlDeleteBucketReplicationCommand = async (
   input: DeleteBucketReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1195,7 +1196,6 @@ export const serializeAws_restXmlDeleteBucketReplicationCommand = async (
     replication: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1212,12 +1212,13 @@ export const serializeAws_restXmlDeleteBucketTaggingCommand = async (
   input: DeleteBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1231,7 +1232,6 @@ export const serializeAws_restXmlDeleteBucketTaggingCommand = async (
     tagging: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1248,12 +1248,13 @@ export const serializeAws_restXmlDeleteBucketWebsiteCommand = async (
   input: DeleteBucketWebsiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1267,7 +1268,6 @@ export const serializeAws_restXmlDeleteBucketWebsiteCommand = async (
     website: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1284,6 +1284,7 @@ export const serializeAws_restXmlDeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.MFA) && { "x-amz-mfa": input.MFA! }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
@@ -1294,7 +1295,7 @@ export const serializeAws_restXmlDeleteObjectCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1324,7 +1325,6 @@ export const serializeAws_restXmlDeleteObjectCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1341,6 +1341,7 @@ export const serializeAws_restXmlDeleteObjectsCommand = async (
   input: DeleteObjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.MFA) && { "x-amz-mfa": input.MFA! }),
@@ -1352,7 +1353,7 @@ export const serializeAws_restXmlDeleteObjectsCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1377,7 +1378,6 @@ export const serializeAws_restXmlDeleteObjectsCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1394,12 +1394,13 @@ export const serializeAws_restXmlDeleteObjectTaggingCommand = async (
   input: DeleteObjectTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1429,7 +1430,6 @@ export const serializeAws_restXmlDeleteObjectTaggingCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1446,12 +1446,13 @@ export const serializeAws_restXmlDeletePublicAccessBlockCommand = async (
   input: DeletePublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1465,7 +1466,6 @@ export const serializeAws_restXmlDeletePublicAccessBlockCommand = async (
     publicAccessBlock: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1482,12 +1482,13 @@ export const serializeAws_restXmlGetBucketAccelerateConfigurationCommand = async
   input: GetBucketAccelerateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1501,7 +1502,6 @@ export const serializeAws_restXmlGetBucketAccelerateConfigurationCommand = async
     accelerate: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1518,12 +1518,13 @@ export const serializeAws_restXmlGetBucketAclCommand = async (
   input: GetBucketAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1537,7 +1538,6 @@ export const serializeAws_restXmlGetBucketAclCommand = async (
     acl: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1554,12 +1554,13 @@ export const serializeAws_restXmlGetBucketAnalyticsConfigurationCommand = async 
   input: GetBucketAnalyticsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1575,7 +1576,6 @@ export const serializeAws_restXmlGetBucketAnalyticsConfigurationCommand = async 
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1592,12 +1592,13 @@ export const serializeAws_restXmlGetBucketCorsCommand = async (
   input: GetBucketCorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1611,7 +1612,6 @@ export const serializeAws_restXmlGetBucketCorsCommand = async (
     cors: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1628,12 +1628,13 @@ export const serializeAws_restXmlGetBucketEncryptionCommand = async (
   input: GetBucketEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1647,7 +1648,6 @@ export const serializeAws_restXmlGetBucketEncryptionCommand = async (
     encryption: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1664,8 +1664,9 @@ export const serializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand
   input: GetBucketIntelligentTieringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1681,7 +1682,6 @@ export const serializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1698,12 +1698,13 @@ export const serializeAws_restXmlGetBucketInventoryConfigurationCommand = async 
   input: GetBucketInventoryConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1719,7 +1720,6 @@ export const serializeAws_restXmlGetBucketInventoryConfigurationCommand = async 
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1736,12 +1736,13 @@ export const serializeAws_restXmlGetBucketLifecycleConfigurationCommand = async 
   input: GetBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1755,7 +1756,6 @@ export const serializeAws_restXmlGetBucketLifecycleConfigurationCommand = async 
     lifecycle: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1772,12 +1772,13 @@ export const serializeAws_restXmlGetBucketLocationCommand = async (
   input: GetBucketLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1791,7 +1792,6 @@ export const serializeAws_restXmlGetBucketLocationCommand = async (
     location: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1808,12 +1808,13 @@ export const serializeAws_restXmlGetBucketLoggingCommand = async (
   input: GetBucketLoggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1827,7 +1828,6 @@ export const serializeAws_restXmlGetBucketLoggingCommand = async (
     logging: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1844,12 +1844,13 @@ export const serializeAws_restXmlGetBucketMetricsConfigurationCommand = async (
   input: GetBucketMetricsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1865,7 +1866,6 @@ export const serializeAws_restXmlGetBucketMetricsConfigurationCommand = async (
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1882,12 +1882,13 @@ export const serializeAws_restXmlGetBucketNotificationConfigurationCommand = asy
   input: GetBucketNotificationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1901,7 +1902,6 @@ export const serializeAws_restXmlGetBucketNotificationConfigurationCommand = asy
     notification: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1918,12 +1918,13 @@ export const serializeAws_restXmlGetBucketOwnershipControlsCommand = async (
   input: GetBucketOwnershipControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1937,7 +1938,6 @@ export const serializeAws_restXmlGetBucketOwnershipControlsCommand = async (
     ownershipControls: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1954,12 +1954,13 @@ export const serializeAws_restXmlGetBucketPolicyCommand = async (
   input: GetBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1973,7 +1974,6 @@ export const serializeAws_restXmlGetBucketPolicyCommand = async (
     policy: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1990,12 +1990,13 @@ export const serializeAws_restXmlGetBucketPolicyStatusCommand = async (
   input: GetBucketPolicyStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2009,7 +2010,6 @@ export const serializeAws_restXmlGetBucketPolicyStatusCommand = async (
     policyStatus: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2026,12 +2026,13 @@ export const serializeAws_restXmlGetBucketReplicationCommand = async (
   input: GetBucketReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2045,7 +2046,6 @@ export const serializeAws_restXmlGetBucketReplicationCommand = async (
     replication: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2062,12 +2062,13 @@ export const serializeAws_restXmlGetBucketRequestPaymentCommand = async (
   input: GetBucketRequestPaymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2081,7 +2082,6 @@ export const serializeAws_restXmlGetBucketRequestPaymentCommand = async (
     requestPayment: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2098,12 +2098,13 @@ export const serializeAws_restXmlGetBucketTaggingCommand = async (
   input: GetBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2117,7 +2118,6 @@ export const serializeAws_restXmlGetBucketTaggingCommand = async (
     tagging: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2134,12 +2134,13 @@ export const serializeAws_restXmlGetBucketVersioningCommand = async (
   input: GetBucketVersioningCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2153,7 +2154,6 @@ export const serializeAws_restXmlGetBucketVersioningCommand = async (
     versioning: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2170,12 +2170,13 @@ export const serializeAws_restXmlGetBucketWebsiteCommand = async (
   input: GetBucketWebsiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2189,7 +2190,6 @@ export const serializeAws_restXmlGetBucketWebsiteCommand = async (
     website: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2206,6 +2206,7 @@ export const serializeAws_restXmlGetObjectCommand = async (
   input: GetObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
     ...(isSerializableHeaderValue(input.IfModifiedSince) && {
@@ -2230,7 +2231,7 @@ export const serializeAws_restXmlGetObjectCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2271,7 +2272,6 @@ export const serializeAws_restXmlGetObjectCommand = async (
     ...(input.PartNumber !== undefined && { partNumber: input.PartNumber.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2288,13 +2288,14 @@ export const serializeAws_restXmlGetObjectAclCommand = async (
   input: GetObjectAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2324,7 +2325,6 @@ export const serializeAws_restXmlGetObjectAclCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2341,13 +2341,14 @@ export const serializeAws_restXmlGetObjectLegalHoldCommand = async (
   input: GetObjectLegalHoldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2377,7 +2378,6 @@ export const serializeAws_restXmlGetObjectLegalHoldCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2394,12 +2394,13 @@ export const serializeAws_restXmlGetObjectLockConfigurationCommand = async (
   input: GetObjectLockConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2413,7 +2414,6 @@ export const serializeAws_restXmlGetObjectLockConfigurationCommand = async (
     "object-lock": "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2430,13 +2430,14 @@ export const serializeAws_restXmlGetObjectRetentionCommand = async (
   input: GetObjectRetentionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2466,7 +2467,6 @@ export const serializeAws_restXmlGetObjectRetentionCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2483,13 +2483,14 @@ export const serializeAws_restXmlGetObjectTaggingCommand = async (
   input: GetObjectTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2519,7 +2520,6 @@ export const serializeAws_restXmlGetObjectTaggingCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2536,13 +2536,14 @@ export const serializeAws_restXmlGetObjectTorrentCommand = async (
   input: GetObjectTorrentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2571,7 +2572,6 @@ export const serializeAws_restXmlGetObjectTorrentCommand = async (
     torrent: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2588,12 +2588,13 @@ export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
   input: GetPublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2607,7 +2608,6 @@ export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
     publicAccessBlock: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2624,12 +2624,13 @@ export const serializeAws_restXmlHeadBucketCommand = async (
   input: HeadBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2640,7 +2641,6 @@ export const serializeAws_restXmlHeadBucketCommand = async (
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2656,6 +2656,7 @@ export const serializeAws_restXmlHeadObjectCommand = async (
   input: HeadObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
     ...(isSerializableHeaderValue(input.IfModifiedSince) && {
@@ -2680,7 +2681,7 @@ export const serializeAws_restXmlHeadObjectCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2710,7 +2711,6 @@ export const serializeAws_restXmlHeadObjectCommand = async (
     ...(input.PartNumber !== undefined && { partNumber: input.PartNumber.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2727,12 +2727,13 @@ export const serializeAws_restXmlListBucketAnalyticsConfigurationsCommand = asyn
   input: ListBucketAnalyticsConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2748,7 +2749,6 @@ export const serializeAws_restXmlListBucketAnalyticsConfigurationsCommand = asyn
     ...(input.ContinuationToken !== undefined && { "continuation-token": input.ContinuationToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2765,8 +2765,9 @@ export const serializeAws_restXmlListBucketIntelligentTieringConfigurationsComma
   input: ListBucketIntelligentTieringConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2782,7 +2783,6 @@ export const serializeAws_restXmlListBucketIntelligentTieringConfigurationsComma
     ...(input.ContinuationToken !== undefined && { "continuation-token": input.ContinuationToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2799,12 +2799,13 @@ export const serializeAws_restXmlListBucketInventoryConfigurationsCommand = asyn
   input: ListBucketInventoryConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2820,7 +2821,6 @@ export const serializeAws_restXmlListBucketInventoryConfigurationsCommand = asyn
     ...(input.ContinuationToken !== undefined && { "continuation-token": input.ContinuationToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2837,12 +2837,13 @@ export const serializeAws_restXmlListBucketMetricsConfigurationsCommand = async 
   input: ListBucketMetricsConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2858,7 +2859,6 @@ export const serializeAws_restXmlListBucketMetricsConfigurationsCommand = async 
     ...(input.ContinuationToken !== undefined && { "continuation-token": input.ContinuationToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2875,13 +2875,13 @@ export const serializeAws_restXmlListBucketsCommand = async (
   input: ListBucketsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2897,12 +2897,13 @@ export const serializeAws_restXmlListMultipartUploadsCommand = async (
   input: ListMultipartUploadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2922,7 +2923,6 @@ export const serializeAws_restXmlListMultipartUploadsCommand = async (
     ...(input.UploadIdMarker !== undefined && { "upload-id-marker": input.UploadIdMarker }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2939,13 +2939,14 @@ export const serializeAws_restXmlListObjectsCommand = async (
   input: ListObjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2963,7 +2964,6 @@ export const serializeAws_restXmlListObjectsCommand = async (
     ...(input.Prefix !== undefined && { prefix: input.Prefix }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2980,13 +2980,14 @@ export const serializeAws_restXmlListObjectsV2Command = async (
   input: ListObjectsV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3007,7 +3008,6 @@ export const serializeAws_restXmlListObjectsV2Command = async (
     ...(input.StartAfter !== undefined && { "start-after": input.StartAfter }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3024,12 +3024,13 @@ export const serializeAws_restXmlListObjectVersionsCommand = async (
   input: ListObjectVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3049,7 +3050,6 @@ export const serializeAws_restXmlListObjectVersionsCommand = async (
     ...(input.VersionIdMarker !== undefined && { "version-id-marker": input.VersionIdMarker }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3066,13 +3066,14 @@ export const serializeAws_restXmlListPartsCommand = async (
   input: ListPartsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3104,7 +3105,6 @@ export const serializeAws_restXmlListPartsCommand = async (
     ...(input.UploadId !== undefined && { uploadId: input.UploadId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3121,13 +3121,14 @@ export const serializeAws_restXmlPutBucketAccelerateConfigurationCommand = async
   input: PutBucketAccelerateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3151,7 +3152,6 @@ export const serializeAws_restXmlPutBucketAccelerateConfigurationCommand = async
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3168,6 +3168,7 @@ export const serializeAws_restXmlPutBucketAclCommand = async (
   input: PutBucketAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
@@ -3181,7 +3182,7 @@ export const serializeAws_restXmlPutBucketAclCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3205,7 +3206,6 @@ export const serializeAws_restXmlPutBucketAclCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3222,13 +3222,14 @@ export const serializeAws_restXmlPutBucketAnalyticsConfigurationCommand = async 
   input: PutBucketAnalyticsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3253,7 +3254,6 @@ export const serializeAws_restXmlPutBucketAnalyticsConfigurationCommand = async 
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3270,6 +3270,7 @@ export const serializeAws_restXmlPutBucketCorsCommand = async (
   input: PutBucketCorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3277,7 +3278,7 @@ export const serializeAws_restXmlPutBucketCorsCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3301,7 +3302,6 @@ export const serializeAws_restXmlPutBucketCorsCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3318,6 +3318,7 @@ export const serializeAws_restXmlPutBucketEncryptionCommand = async (
   input: PutBucketEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3325,7 +3326,7 @@ export const serializeAws_restXmlPutBucketEncryptionCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3349,7 +3350,6 @@ export const serializeAws_restXmlPutBucketEncryptionCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3366,10 +3366,11 @@ export const serializeAws_restXmlPutBucketIntelligentTieringConfigurationCommand
   input: PutBucketIntelligentTieringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3394,7 +3395,6 @@ export const serializeAws_restXmlPutBucketIntelligentTieringConfigurationCommand
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3411,13 +3411,14 @@ export const serializeAws_restXmlPutBucketInventoryConfigurationCommand = async 
   input: PutBucketInventoryConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3442,7 +3443,6 @@ export const serializeAws_restXmlPutBucketInventoryConfigurationCommand = async 
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3459,13 +3459,14 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
   input: PutBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3489,7 +3490,6 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3506,6 +3506,7 @@ export const serializeAws_restXmlPutBucketLoggingCommand = async (
   input: PutBucketLoggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3513,7 +3514,7 @@ export const serializeAws_restXmlPutBucketLoggingCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3537,7 +3538,6 @@ export const serializeAws_restXmlPutBucketLoggingCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3554,13 +3554,14 @@ export const serializeAws_restXmlPutBucketMetricsConfigurationCommand = async (
   input: PutBucketMetricsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3585,7 +3586,6 @@ export const serializeAws_restXmlPutBucketMetricsConfigurationCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3602,13 +3602,14 @@ export const serializeAws_restXmlPutBucketNotificationConfigurationCommand = asy
   input: PutBucketNotificationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3632,7 +3633,6 @@ export const serializeAws_restXmlPutBucketNotificationConfigurationCommand = asy
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3649,6 +3649,7 @@ export const serializeAws_restXmlPutBucketOwnershipControlsCommand = async (
   input: PutBucketOwnershipControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3656,7 +3657,7 @@ export const serializeAws_restXmlPutBucketOwnershipControlsCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3680,7 +3681,6 @@ export const serializeAws_restXmlPutBucketOwnershipControlsCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3697,6 +3697,7 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
   input: PutBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "text/plain",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3707,7 +3708,7 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3729,7 +3730,6 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
     contents = input.Policy;
     body = contents;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3746,6 +3746,7 @@ export const serializeAws_restXmlPutBucketReplicationCommand = async (
   input: PutBucketReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3754,7 +3755,7 @@ export const serializeAws_restXmlPutBucketReplicationCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3778,7 +3779,6 @@ export const serializeAws_restXmlPutBucketReplicationCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3795,6 +3795,7 @@ export const serializeAws_restXmlPutBucketRequestPaymentCommand = async (
   input: PutBucketRequestPaymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3802,7 +3803,7 @@ export const serializeAws_restXmlPutBucketRequestPaymentCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3826,7 +3827,6 @@ export const serializeAws_restXmlPutBucketRequestPaymentCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3843,6 +3843,7 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
   input: PutBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3850,7 +3851,7 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3874,7 +3875,6 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3891,6 +3891,7 @@ export const serializeAws_restXmlPutBucketVersioningCommand = async (
   input: PutBucketVersioningCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3899,7 +3900,7 @@ export const serializeAws_restXmlPutBucketVersioningCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3923,7 +3924,6 @@ export const serializeAws_restXmlPutBucketVersioningCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3940,6 +3940,7 @@ export const serializeAws_restXmlPutBucketWebsiteCommand = async (
   input: PutBucketWebsiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3947,7 +3948,7 @@ export const serializeAws_restXmlPutBucketWebsiteCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3971,7 +3972,6 @@ export const serializeAws_restXmlPutBucketWebsiteCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3988,6 +3988,7 @@ export const serializeAws_restXmlPutObjectCommand = async (
   input: PutObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
@@ -4051,7 +4052,7 @@ export const serializeAws_restXmlPutObjectCommand = async (
         {}
       )),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4088,7 +4089,6 @@ export const serializeAws_restXmlPutObjectCommand = async (
     contents = input.Body;
     body = contents;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4105,6 +4105,7 @@ export const serializeAws_restXmlPutObjectAclCommand = async (
   input: PutObjectAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
@@ -4119,7 +4120,7 @@ export const serializeAws_restXmlPutObjectAclCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4159,7 +4160,6 @@ export const serializeAws_restXmlPutObjectAclCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4176,6 +4176,7 @@ export const serializeAws_restXmlPutObjectLegalHoldCommand = async (
   input: PutObjectLegalHoldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
@@ -4184,7 +4185,7 @@ export const serializeAws_restXmlPutObjectLegalHoldCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4224,7 +4225,6 @@ export const serializeAws_restXmlPutObjectLegalHoldCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4241,6 +4241,7 @@ export const serializeAws_restXmlPutObjectLockConfigurationCommand = async (
   input: PutObjectLockConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
@@ -4250,7 +4251,7 @@ export const serializeAws_restXmlPutObjectLockConfigurationCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4274,7 +4275,6 @@ export const serializeAws_restXmlPutObjectLockConfigurationCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4291,6 +4291,7 @@ export const serializeAws_restXmlPutObjectRetentionCommand = async (
   input: PutObjectRetentionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
@@ -4302,7 +4303,7 @@ export const serializeAws_restXmlPutObjectRetentionCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4342,7 +4343,6 @@ export const serializeAws_restXmlPutObjectRetentionCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4359,6 +4359,7 @@ export const serializeAws_restXmlPutObjectTaggingCommand = async (
   input: PutObjectTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -4367,7 +4368,7 @@ export const serializeAws_restXmlPutObjectTaggingCommand = async (
     }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4407,7 +4408,6 @@ export const serializeAws_restXmlPutObjectTaggingCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4424,6 +4424,7 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
   input: PutPublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -4431,7 +4432,7 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4455,7 +4456,6 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4472,6 +4472,7 @@ export const serializeAws_restXmlRestoreObjectCommand = async (
   input: RestoreObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
@@ -4479,7 +4480,7 @@ export const serializeAws_restXmlRestoreObjectCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4520,7 +4521,6 @@ export const serializeAws_restXmlRestoreObjectCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4537,6 +4537,7 @@ export const serializeAws_restXmlSelectObjectContentCommand = async (
   input: SelectObjectContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.SSECustomerAlgorithm) && {
@@ -4552,7 +4553,7 @@ export const serializeAws_restXmlSelectObjectContentCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4617,7 +4618,6 @@ export const serializeAws_restXmlSelectObjectContentCommand = async (
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4634,6 +4634,7 @@ export const serializeAws_restXmlUploadPartCommand = async (
   input: UploadPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.ContentLength) && { "content-length": input.ContentLength!.toString() }),
@@ -4652,7 +4653,7 @@ export const serializeAws_restXmlUploadPartCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4691,7 +4692,6 @@ export const serializeAws_restXmlUploadPartCommand = async (
     contents = input.Body;
     body = contents;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4708,6 +4708,7 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
   input: UploadPartCopyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.CopySource) && { "x-amz-copy-source": input.CopySource! }),
     ...(isSerializableHeaderValue(input.CopySourceIfMatch) && {
@@ -4749,7 +4750,7 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
       "x-amz-source-expected-bucket-owner": input.ExpectedSourceBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4780,7 +4781,6 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
     ...(input.UploadId !== undefined && { uploadId: input.UploadId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4797,6 +4797,7 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
   input: WriteGetObjectResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
@@ -4885,7 +4886,7 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
         {}
       )),
   };
-  let resolvedPath = "/WriteGetObjectResponse";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/WriteGetObjectResponse";
   const query: any = {
     "x-id": "WriteGetObjectResponse",
   };
@@ -4909,7 +4910,6 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,

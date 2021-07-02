@@ -25,8 +25,10 @@ export const serializeAws_restJson1DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/@connections/{ConnectionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
@@ -37,7 +39,6 @@ export const serializeAws_restJson1DeleteConnectionCommand = async (
     throw new Error("No value provided for input HTTP label: ConnectionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -53,8 +54,10 @@ export const serializeAws_restJson1GetConnectionCommand = async (
   input: GetConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/@connections/{ConnectionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
@@ -65,7 +68,6 @@ export const serializeAws_restJson1GetConnectionCommand = async (
     throw new Error("No value provided for input HTTP label: ConnectionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -81,10 +83,12 @@ export const serializeAws_restJson1PostToConnectionCommand = async (
   input: PostToConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  let resolvedPath = "/@connections/{ConnectionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
@@ -98,7 +102,6 @@ export const serializeAws_restJson1PostToConnectionCommand = async (
   if (input.Data !== undefined) {
     body = input.Data;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

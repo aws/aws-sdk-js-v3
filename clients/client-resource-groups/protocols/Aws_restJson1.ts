@@ -61,10 +61,11 @@ export const serializeAws_restJson1CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/groups";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/groups";
   let body: any;
   body = JSON.stringify({
     ...(input.Configuration !== undefined &&
@@ -79,7 +80,6 @@ export const serializeAws_restJson1CreateGroupCommand = async (
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -95,16 +95,16 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/delete-group";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-group";
   let body: any;
   body = JSON.stringify({
     ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
     ...(input.GroupName !== undefined && input.GroupName !== null && { GroupName: input.GroupName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -120,16 +120,16 @@ export const serializeAws_restJson1GetGroupCommand = async (
   input: GetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/get-group";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-group";
   let body: any;
   body = JSON.stringify({
     ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
     ...(input.GroupName !== undefined && input.GroupName !== null && { GroupName: input.GroupName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -145,15 +145,15 @@ export const serializeAws_restJson1GetGroupConfigurationCommand = async (
   input: GetGroupConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/get-group-configuration";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-group-configuration";
   let body: any;
   body = JSON.stringify({
     ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -169,16 +169,16 @@ export const serializeAws_restJson1GetGroupQueryCommand = async (
   input: GetGroupQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/get-group-query";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-group-query";
   let body: any;
   body = JSON.stringify({
     ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
     ...(input.GroupName !== undefined && input.GroupName !== null && { GroupName: input.GroupName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -194,8 +194,9 @@ export const serializeAws_restJson1GetTagsCommand = async (
   input: GetTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/resources/{Arn}/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/{Arn}/tags";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
     if (labelValue.length <= 0) {
@@ -206,7 +207,6 @@ export const serializeAws_restJson1GetTagsCommand = async (
     throw new Error("No value provided for input HTTP label: Arn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -222,10 +222,11 @@ export const serializeAws_restJson1GroupResourcesCommand = async (
   input: GroupResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/group-resources";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group-resources";
   let body: any;
   body = JSON.stringify({
     ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
@@ -234,7 +235,6 @@ export const serializeAws_restJson1GroupResourcesCommand = async (
         ResourceArns: serializeAws_restJson1ResourceArnList(input.ResourceArns, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -250,10 +250,11 @@ export const serializeAws_restJson1ListGroupResourcesCommand = async (
   input: ListGroupResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/list-group-resources";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-group-resources";
   let body: any;
   body = JSON.stringify({
     ...(input.Filters !== undefined &&
@@ -263,7 +264,6 @@ export const serializeAws_restJson1ListGroupResourcesCommand = async (
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -279,10 +279,11 @@ export const serializeAws_restJson1ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/groups-list";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/groups-list";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -292,7 +293,6 @@ export const serializeAws_restJson1ListGroupsCommand = async (
     ...(input.Filters !== undefined &&
       input.Filters !== null && { Filters: serializeAws_restJson1GroupFilterList(input.Filters, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -309,10 +309,11 @@ export const serializeAws_restJson1PutGroupConfigurationCommand = async (
   input: PutGroupConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/put-group-configuration";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/put-group-configuration";
   let body: any;
   body = JSON.stringify({
     ...(input.Configuration !== undefined &&
@@ -321,7 +322,6 @@ export const serializeAws_restJson1PutGroupConfigurationCommand = async (
       }),
     ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -337,10 +337,11 @@ export const serializeAws_restJson1SearchResourcesCommand = async (
   input: SearchResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/resources/search";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/search";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -350,7 +351,6 @@ export const serializeAws_restJson1SearchResourcesCommand = async (
         ResourceQuery: serializeAws_restJson1ResourceQuery(input.ResourceQuery, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -366,10 +366,11 @@ export const serializeAws_restJson1TagCommand = async (
   input: TagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/resources/{Arn}/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/{Arn}/tags";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
     if (labelValue.length <= 0) {
@@ -383,7 +384,6 @@ export const serializeAws_restJson1TagCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -399,10 +399,11 @@ export const serializeAws_restJson1UngroupResourcesCommand = async (
   input: UngroupResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/ungroup-resources";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ungroup-resources";
   let body: any;
   body = JSON.stringify({
     ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
@@ -411,7 +412,6 @@ export const serializeAws_restJson1UngroupResourcesCommand = async (
         ResourceArns: serializeAws_restJson1ResourceArnList(input.ResourceArns, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -427,10 +427,11 @@ export const serializeAws_restJson1UntagCommand = async (
   input: UntagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/resources/{Arn}/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/{Arn}/tags";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
     if (labelValue.length <= 0) {
@@ -445,7 +446,6 @@ export const serializeAws_restJson1UntagCommand = async (
     ...(input.Keys !== undefined &&
       input.Keys !== null && { Keys: serializeAws_restJson1TagKeyList(input.Keys, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -461,17 +461,17 @@ export const serializeAws_restJson1UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/update-group";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-group";
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
     ...(input.GroupName !== undefined && input.GroupName !== null && { GroupName: input.GroupName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -487,10 +487,11 @@ export const serializeAws_restJson1UpdateGroupQueryCommand = async (
   input: UpdateGroupQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/update-group-query";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-group-query";
   let body: any;
   body = JSON.stringify({
     ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
@@ -500,7 +501,6 @@ export const serializeAws_restJson1UpdateGroupQueryCommand = async (
         ResourceQuery: serializeAws_restJson1ResourceQuery(input.ResourceQuery, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

@@ -65,8 +65,9 @@ export const serializeAws_restJson1DeleteLexiconCommand = async (
   input: DeleteLexiconCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/lexicons/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -77,7 +78,6 @@ export const serializeAws_restJson1DeleteLexiconCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -93,8 +93,9 @@ export const serializeAws_restJson1DescribeVoicesCommand = async (
   input: DescribeVoicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/voices";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/voices";
   const query: any = {
     ...(input.Engine !== undefined && { Engine: input.Engine }),
     ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
@@ -104,7 +105,6 @@ export const serializeAws_restJson1DescribeVoicesCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -121,8 +121,9 @@ export const serializeAws_restJson1GetLexiconCommand = async (
   input: GetLexiconCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/lexicons/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -133,7 +134,6 @@ export const serializeAws_restJson1GetLexiconCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -149,8 +149,10 @@ export const serializeAws_restJson1GetSpeechSynthesisTaskCommand = async (
   input: GetSpeechSynthesisTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/synthesisTasks/{TaskId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/synthesisTasks/{TaskId}";
   if (input.TaskId !== undefined) {
     const labelValue: string = input.TaskId;
     if (labelValue.length <= 0) {
@@ -161,7 +163,6 @@ export const serializeAws_restJson1GetSpeechSynthesisTaskCommand = async (
     throw new Error("No value provided for input HTTP label: TaskId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -177,13 +178,13 @@ export const serializeAws_restJson1ListLexiconsCommand = async (
   input: ListLexiconsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/lexicons";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/lexicons";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -200,15 +201,15 @@ export const serializeAws_restJson1ListSpeechSynthesisTasksCommand = async (
   input: ListSpeechSynthesisTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/synthesisTasks";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/synthesisTasks";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.Status !== undefined && { Status: input.Status }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -225,10 +226,11 @@ export const serializeAws_restJson1PutLexiconCommand = async (
   input: PutLexiconCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/lexicons/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -242,7 +244,6 @@ export const serializeAws_restJson1PutLexiconCommand = async (
   body = JSON.stringify({
     ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -258,10 +259,11 @@ export const serializeAws_restJson1StartSpeechSynthesisTaskCommand = async (
   input: StartSpeechSynthesisTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/synthesisTasks";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/synthesisTasks";
   let body: any;
   body = JSON.stringify({
     ...(input.Engine !== undefined && input.Engine !== null && { Engine: input.Engine }),
@@ -285,7 +287,6 @@ export const serializeAws_restJson1StartSpeechSynthesisTaskCommand = async (
     ...(input.TextType !== undefined && input.TextType !== null && { TextType: input.TextType }),
     ...(input.VoiceId !== undefined && input.VoiceId !== null && { VoiceId: input.VoiceId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -301,10 +302,11 @@ export const serializeAws_restJson1SynthesizeSpeechCommand = async (
   input: SynthesizeSpeechCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/speech";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/speech";
   let body: any;
   body = JSON.stringify({
     ...(input.Engine !== undefined && input.Engine !== null && { Engine: input.Engine }),
@@ -323,7 +325,6 @@ export const serializeAws_restJson1SynthesizeSpeechCommand = async (
     ...(input.TextType !== undefined && input.TextType !== null && { TextType: input.TextType }),
     ...(input.VoiceId !== undefined && input.VoiceId !== null && { VoiceId: input.VoiceId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

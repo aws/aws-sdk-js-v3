@@ -46,8 +46,11 @@ export const serializeAws_restJson1DeleteSessionCommand = async (
   input: DeleteSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -76,7 +79,6 @@ export const serializeAws_restJson1DeleteSessionCommand = async (
     throw new Error("No value provided for input HTTP label: userId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -92,8 +94,11 @@ export const serializeAws_restJson1GetSessionCommand = async (
   input: GetSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -125,7 +130,6 @@ export const serializeAws_restJson1GetSessionCommand = async (
     ...(input.checkpointLabelFilter !== undefined && { checkpointLabelFilter: input.checkpointLabelFilter }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -142,6 +146,7 @@ export const serializeAws_restJson1PostContentCommand = async (
   input: PostContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
@@ -161,7 +166,9 @@ export const serializeAws_restJson1PostContentCommand = async (
       "x-amz-lex-active-contexts": Buffer.from(__LazyJsonString.fromObject(input.activeContexts!)).toString("base64"),
     }),
   };
-  let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/content";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bot/{botName}/alias/{botAlias}/user/{userId}/content";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -193,7 +200,6 @@ export const serializeAws_restJson1PostContentCommand = async (
   if (input.inputStream !== undefined) {
     body = input.inputStream;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -209,10 +215,13 @@ export const serializeAws_restJson1PostTextCommand = async (
   input: PostTextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/text";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bot/{botName}/alias/{botAlias}/user/{userId}/text";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -256,7 +265,6 @@ export const serializeAws_restJson1PostTextCommand = async (
         sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -272,11 +280,14 @@ export const serializeAws_restJson1PutSessionCommand = async (
   input: PutSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.accept) && { accept: input.accept! }),
   };
-  let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -321,7 +332,6 @@ export const serializeAws_restJson1PutSessionCommand = async (
         sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

@@ -113,10 +113,11 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   input: CreateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/channel/{ChannelName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
   if (input.ChannelName !== undefined) {
     const labelValue: string = input.ChannelName;
     if (labelValue.length <= 0) {
@@ -134,7 +135,6 @@ export const serializeAws_restJson1CreateChannelCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -150,10 +150,13 @@ export const serializeAws_restJson1CreateProgramCommand = async (
   input: CreateProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/channel/{ChannelName}/program/{ProgramName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/channel/{ChannelName}/program/{ProgramName}";
   if (input.ChannelName !== undefined) {
     const labelValue: string = input.ChannelName;
     if (labelValue.length <= 0) {
@@ -184,7 +187,6 @@ export const serializeAws_restJson1CreateProgramCommand = async (
       input.SourceLocationName !== null && { SourceLocationName: input.SourceLocationName }),
     ...(input.VodSourceName !== undefined && input.VodSourceName !== null && { VodSourceName: input.VodSourceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -200,10 +202,12 @@ export const serializeAws_restJson1CreateSourceLocationCommand = async (
   input: CreateSourceLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/sourceLocation/{SourceLocationName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocation/{SourceLocationName}";
   if (input.SourceLocationName !== undefined) {
     const labelValue: string = input.SourceLocationName;
     if (labelValue.length <= 0) {
@@ -233,7 +237,6 @@ export const serializeAws_restJson1CreateSourceLocationCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -249,10 +252,13 @@ export const serializeAws_restJson1CreateVodSourceCommand = async (
   input: CreateVodSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
   if (input.SourceLocationName !== undefined) {
     const labelValue: string = input.SourceLocationName;
     if (labelValue.length <= 0) {
@@ -283,7 +289,6 @@ export const serializeAws_restJson1CreateVodSourceCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -299,8 +304,9 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channel/{ChannelName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
   if (input.ChannelName !== undefined) {
     const labelValue: string = input.ChannelName;
     if (labelValue.length <= 0) {
@@ -311,7 +317,6 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
     throw new Error("No value provided for input HTTP label: ChannelName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -327,8 +332,10 @@ export const serializeAws_restJson1DeleteChannelPolicyCommand = async (
   input: DeleteChannelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channel/{ChannelName}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/policy";
   if (input.ChannelName !== undefined) {
     const labelValue: string = input.ChannelName;
     if (labelValue.length <= 0) {
@@ -339,7 +346,6 @@ export const serializeAws_restJson1DeleteChannelPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: ChannelName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -355,8 +361,10 @@ export const serializeAws_restJson1DeletePlaybackConfigurationCommand = async (
   input: DeletePlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/playbackConfiguration/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/playbackConfiguration/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -367,7 +375,6 @@ export const serializeAws_restJson1DeletePlaybackConfigurationCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -383,8 +390,11 @@ export const serializeAws_restJson1DeleteProgramCommand = async (
   input: DeleteProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channel/{ChannelName}/program/{ProgramName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/channel/{ChannelName}/program/{ProgramName}";
   if (input.ChannelName !== undefined) {
     const labelValue: string = input.ChannelName;
     if (labelValue.length <= 0) {
@@ -404,7 +414,6 @@ export const serializeAws_restJson1DeleteProgramCommand = async (
     throw new Error("No value provided for input HTTP label: ProgramName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -420,8 +429,10 @@ export const serializeAws_restJson1DeleteSourceLocationCommand = async (
   input: DeleteSourceLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/sourceLocation/{SourceLocationName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocation/{SourceLocationName}";
   if (input.SourceLocationName !== undefined) {
     const labelValue: string = input.SourceLocationName;
     if (labelValue.length <= 0) {
@@ -432,7 +443,6 @@ export const serializeAws_restJson1DeleteSourceLocationCommand = async (
     throw new Error("No value provided for input HTTP label: SourceLocationName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -448,8 +458,11 @@ export const serializeAws_restJson1DeleteVodSourceCommand = async (
   input: DeleteVodSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
   if (input.SourceLocationName !== undefined) {
     const labelValue: string = input.SourceLocationName;
     if (labelValue.length <= 0) {
@@ -469,7 +482,6 @@ export const serializeAws_restJson1DeleteVodSourceCommand = async (
     throw new Error("No value provided for input HTTP label: VodSourceName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -485,8 +497,9 @@ export const serializeAws_restJson1DescribeChannelCommand = async (
   input: DescribeChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channel/{ChannelName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
   if (input.ChannelName !== undefined) {
     const labelValue: string = input.ChannelName;
     if (labelValue.length <= 0) {
@@ -497,7 +510,6 @@ export const serializeAws_restJson1DescribeChannelCommand = async (
     throw new Error("No value provided for input HTTP label: ChannelName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -513,8 +525,11 @@ export const serializeAws_restJson1DescribeProgramCommand = async (
   input: DescribeProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channel/{ChannelName}/program/{ProgramName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/channel/{ChannelName}/program/{ProgramName}";
   if (input.ChannelName !== undefined) {
     const labelValue: string = input.ChannelName;
     if (labelValue.length <= 0) {
@@ -534,7 +549,6 @@ export const serializeAws_restJson1DescribeProgramCommand = async (
     throw new Error("No value provided for input HTTP label: ProgramName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -550,8 +564,10 @@ export const serializeAws_restJson1DescribeSourceLocationCommand = async (
   input: DescribeSourceLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/sourceLocation/{SourceLocationName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocation/{SourceLocationName}";
   if (input.SourceLocationName !== undefined) {
     const labelValue: string = input.SourceLocationName;
     if (labelValue.length <= 0) {
@@ -562,7 +578,6 @@ export const serializeAws_restJson1DescribeSourceLocationCommand = async (
     throw new Error("No value provided for input HTTP label: SourceLocationName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -578,8 +593,11 @@ export const serializeAws_restJson1DescribeVodSourceCommand = async (
   input: DescribeVodSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
   if (input.SourceLocationName !== undefined) {
     const labelValue: string = input.SourceLocationName;
     if (labelValue.length <= 0) {
@@ -599,7 +617,6 @@ export const serializeAws_restJson1DescribeVodSourceCommand = async (
     throw new Error("No value provided for input HTTP label: VodSourceName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -615,8 +632,10 @@ export const serializeAws_restJson1GetChannelPolicyCommand = async (
   input: GetChannelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channel/{ChannelName}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/policy";
   if (input.ChannelName !== undefined) {
     const labelValue: string = input.ChannelName;
     if (labelValue.length <= 0) {
@@ -627,7 +646,6 @@ export const serializeAws_restJson1GetChannelPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: ChannelName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -643,8 +661,10 @@ export const serializeAws_restJson1GetChannelScheduleCommand = async (
   input: GetChannelScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channel/{ChannelName}/schedule";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/schedule";
   if (input.ChannelName !== undefined) {
     const labelValue: string = input.ChannelName;
     if (labelValue.length <= 0) {
@@ -660,7 +680,6 @@ export const serializeAws_restJson1GetChannelScheduleCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -677,8 +696,10 @@ export const serializeAws_restJson1GetPlaybackConfigurationCommand = async (
   input: GetPlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/playbackConfiguration/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/playbackConfiguration/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -689,7 +710,6 @@ export const serializeAws_restJson1GetPlaybackConfigurationCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -705,14 +725,14 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channels";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -729,14 +749,14 @@ export const serializeAws_restJson1ListPlaybackConfigurationsCommand = async (
   input: ListPlaybackConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/playbackConfigurations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/playbackConfigurations";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -753,14 +773,14 @@ export const serializeAws_restJson1ListSourceLocationsCommand = async (
   input: ListSourceLocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/sourceLocations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocations";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -777,8 +797,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -789,7 +810,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -805,8 +825,11 @@ export const serializeAws_restJson1ListVodSourcesCommand = async (
   input: ListVodSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/sourceLocation/{SourceLocationName}/vodSources";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sourceLocation/{SourceLocationName}/vodSources";
   if (input.SourceLocationName !== undefined) {
     const labelValue: string = input.SourceLocationName;
     if (labelValue.length <= 0) {
@@ -821,7 +844,6 @@ export const serializeAws_restJson1ListVodSourcesCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -838,10 +860,12 @@ export const serializeAws_restJson1PutChannelPolicyCommand = async (
   input: PutChannelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/channel/{ChannelName}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/policy";
   if (input.ChannelName !== undefined) {
     const labelValue: string = input.ChannelName;
     if (labelValue.length <= 0) {
@@ -855,7 +879,6 @@ export const serializeAws_restJson1PutChannelPolicyCommand = async (
   body = JSON.stringify({
     ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -871,10 +894,11 @@ export const serializeAws_restJson1PutPlaybackConfigurationCommand = async (
   input: PutPlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/playbackConfiguration";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/playbackConfiguration";
   let body: any;
   body = JSON.stringify({
     ...(input.AdDecisionServerUrl !== undefined &&
@@ -921,7 +945,6 @@ export const serializeAws_restJson1PutPlaybackConfigurationCommand = async (
     ...(input.VideoContentSourceUrl !== undefined &&
       input.VideoContentSourceUrl !== null && { VideoContentSourceUrl: input.VideoContentSourceUrl }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -937,8 +960,10 @@ export const serializeAws_restJson1StartChannelCommand = async (
   input: StartChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channel/{ChannelName}/start";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/start";
   if (input.ChannelName !== undefined) {
     const labelValue: string = input.ChannelName;
     if (labelValue.length <= 0) {
@@ -949,7 +974,6 @@ export const serializeAws_restJson1StartChannelCommand = async (
     throw new Error("No value provided for input HTTP label: ChannelName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -965,8 +989,10 @@ export const serializeAws_restJson1StopChannelCommand = async (
   input: StopChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/channel/{ChannelName}/stop";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/stop";
   if (input.ChannelName !== undefined) {
     const labelValue: string = input.ChannelName;
     if (labelValue.length <= 0) {
@@ -977,7 +1003,6 @@ export const serializeAws_restJson1StopChannelCommand = async (
     throw new Error("No value provided for input HTTP label: ChannelName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -993,10 +1018,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -1011,7 +1037,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1027,8 +1052,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -1042,7 +1068,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1059,10 +1084,11 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   input: UpdateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/channel/{ChannelName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
   if (input.ChannelName !== undefined) {
     const labelValue: string = input.ChannelName;
     if (labelValue.length <= 0) {
@@ -1077,7 +1103,6 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
     ...(input.Outputs !== undefined &&
       input.Outputs !== null && { Outputs: serializeAws_restJson1RequestOutputs(input.Outputs, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1093,10 +1118,12 @@ export const serializeAws_restJson1UpdateSourceLocationCommand = async (
   input: UpdateSourceLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/sourceLocation/{SourceLocationName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocation/{SourceLocationName}";
   if (input.SourceLocationName !== undefined) {
     const labelValue: string = input.SourceLocationName;
     if (labelValue.length <= 0) {
@@ -1124,7 +1151,6 @@ export const serializeAws_restJson1UpdateSourceLocationCommand = async (
         HttpConfiguration: serializeAws_restJson1HttpConfiguration(input.HttpConfiguration, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1140,10 +1166,13 @@ export const serializeAws_restJson1UpdateVodSourceCommand = async (
   input: UpdateVodSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
   if (input.SourceLocationName !== undefined) {
     const labelValue: string = input.SourceLocationName;
     if (labelValue.length <= 0) {
@@ -1172,7 +1201,6 @@ export const serializeAws_restJson1UpdateVodSourceCommand = async (
         ),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

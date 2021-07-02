@@ -33,10 +33,13 @@ export const serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand = 
   input: ListRealtimeContactAnalysisSegmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/realtime-contact-analysis/analysis-segments";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/realtime-contact-analysis/analysis-segments";
   let body: any;
   body = JSON.stringify({
     ...(input.ContactId !== undefined && input.ContactId !== null && { ContactId: input.ContactId }),
@@ -44,7 +47,6 @@ export const serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand = 
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

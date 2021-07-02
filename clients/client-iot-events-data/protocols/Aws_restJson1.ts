@@ -73,10 +73,11 @@ export const serializeAws_restJson1BatchAcknowledgeAlarmCommand = async (
   input: BatchAcknowledgeAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/alarms/acknowledge";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/acknowledge";
   let body: any;
   body = JSON.stringify({
     ...(input.acknowledgeActionRequests !== undefined &&
@@ -87,7 +88,6 @@ export const serializeAws_restJson1BatchAcknowledgeAlarmCommand = async (
         ),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -103,10 +103,11 @@ export const serializeAws_restJson1BatchDisableAlarmCommand = async (
   input: BatchDisableAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/alarms/disable";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/disable";
   let body: any;
   body = JSON.stringify({
     ...(input.disableActionRequests !== undefined &&
@@ -114,7 +115,6 @@ export const serializeAws_restJson1BatchDisableAlarmCommand = async (
         disableActionRequests: serializeAws_restJson1DisableAlarmActionRequests(input.disableActionRequests, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -130,10 +130,11 @@ export const serializeAws_restJson1BatchEnableAlarmCommand = async (
   input: BatchEnableAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/alarms/enable";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/enable";
   let body: any;
   body = JSON.stringify({
     ...(input.enableActionRequests !== undefined &&
@@ -141,7 +142,6 @@ export const serializeAws_restJson1BatchEnableAlarmCommand = async (
         enableActionRequests: serializeAws_restJson1EnableAlarmActionRequests(input.enableActionRequests, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -157,16 +157,16 @@ export const serializeAws_restJson1BatchPutMessageCommand = async (
   input: BatchPutMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/inputs/messages";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/inputs/messages";
   let body: any;
   body = JSON.stringify({
     ...(input.messages !== undefined &&
       input.messages !== null && { messages: serializeAws_restJson1Messages(input.messages, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -182,10 +182,11 @@ export const serializeAws_restJson1BatchResetAlarmCommand = async (
   input: BatchResetAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/alarms/reset";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/reset";
   let body: any;
   body = JSON.stringify({
     ...(input.resetActionRequests !== undefined &&
@@ -193,7 +194,6 @@ export const serializeAws_restJson1BatchResetAlarmCommand = async (
         resetActionRequests: serializeAws_restJson1ResetAlarmActionRequests(input.resetActionRequests, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -209,10 +209,11 @@ export const serializeAws_restJson1BatchSnoozeAlarmCommand = async (
   input: BatchSnoozeAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/alarms/snooze";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/snooze";
   let body: any;
   body = JSON.stringify({
     ...(input.snoozeActionRequests !== undefined &&
@@ -220,7 +221,6 @@ export const serializeAws_restJson1BatchSnoozeAlarmCommand = async (
         snoozeActionRequests: serializeAws_restJson1SnoozeAlarmActionRequests(input.snoozeActionRequests, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -236,10 +236,11 @@ export const serializeAws_restJson1BatchUpdateDetectorCommand = async (
   input: BatchUpdateDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/detectors";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detectors";
   let body: any;
   body = JSON.stringify({
     ...(input.detectors !== undefined &&
@@ -247,7 +248,6 @@ export const serializeAws_restJson1BatchUpdateDetectorCommand = async (
         detectors: serializeAws_restJson1UpdateDetectorRequests(input.detectors, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -263,8 +263,10 @@ export const serializeAws_restJson1DescribeAlarmCommand = async (
   input: DescribeAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/alarms/{alarmModelName}/keyValues";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/{alarmModelName}/keyValues";
   if (input.alarmModelName !== undefined) {
     const labelValue: string = input.alarmModelName;
     if (labelValue.length <= 0) {
@@ -278,7 +280,6 @@ export const serializeAws_restJson1DescribeAlarmCommand = async (
     ...(input.keyValue !== undefined && { keyValue: input.keyValue }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -295,8 +296,10 @@ export const serializeAws_restJson1DescribeDetectorCommand = async (
   input: DescribeDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/detectors/{detectorModelName}/keyValues";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detectors/{detectorModelName}/keyValues";
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
@@ -310,7 +313,6 @@ export const serializeAws_restJson1DescribeDetectorCommand = async (
     ...(input.keyValue !== undefined && { keyValue: input.keyValue }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -327,8 +329,9 @@ export const serializeAws_restJson1ListAlarmsCommand = async (
   input: ListAlarmsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/alarms/{alarmModelName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/{alarmModelName}";
   if (input.alarmModelName !== undefined) {
     const labelValue: string = input.alarmModelName;
     if (labelValue.length <= 0) {
@@ -343,7 +346,6 @@ export const serializeAws_restJson1ListAlarmsCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -360,8 +362,10 @@ export const serializeAws_restJson1ListDetectorsCommand = async (
   input: ListDetectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/detectors/{detectorModelName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detectors/{detectorModelName}";
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
@@ -377,7 +381,6 @@ export const serializeAws_restJson1ListDetectorsCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

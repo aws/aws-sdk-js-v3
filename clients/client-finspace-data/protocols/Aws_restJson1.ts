@@ -32,10 +32,12 @@ export const serializeAws_restJson1CreateChangesetCommand = async (
   input: CreateChangesetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/datasets/{datasetId}/changesets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetId}/changesets";
   if (input.datasetId !== undefined) {
     const labelValue: string = input.datasetId;
     if (labelValue.length <= 0) {
@@ -57,7 +59,6 @@ export const serializeAws_restJson1CreateChangesetCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1stringMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -73,14 +74,15 @@ export const serializeAws_restJson1GetProgrammaticAccessCredentialsCommand = asy
   input: GetProgrammaticAccessCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/credentials/programmatic";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/credentials/programmatic";
   const query: any = {
     ...(input.durationInMinutes !== undefined && { durationInMinutes: input.durationInMinutes.toString() }),
     ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -97,15 +99,15 @@ export const serializeAws_restJson1GetWorkingLocationCommand = async (
   input: GetWorkingLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workingLocationV1";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workingLocationV1";
   let body: any;
   body = JSON.stringify({
     ...(input.locationType !== undefined && input.locationType !== null && { locationType: input.locationType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

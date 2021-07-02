@@ -49,6 +49,7 @@ export const serializeAws_restJson1StartMedicalStreamTranscriptionCommand = asyn
   input: StartMedicalStreamTranscriptionCommandInput,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
     ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
@@ -74,14 +75,14 @@ export const serializeAws_restJson1StartMedicalStreamTranscriptionCommand = asyn
       "x-amzn-transcribe-content-identification-type": input.ContentIdentificationType!,
     }),
   };
-  let resolvedPath = "/medical-stream-transcription";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/medical-stream-transcription";
   let body: any;
   if (input.AudioStream !== undefined) {
     body = context.eventStreamMarshaller.serialize(input.AudioStream, (event) =>
       serializeAws_restJson1AudioStream_event(event, context)
     );
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -97,6 +98,7 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
   input: StartStreamTranscriptionCommandInput,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
     ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
@@ -129,14 +131,13 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
       "x-amzn-transcribe-partial-results-stability": input.PartialResultsStability!,
     }),
   };
-  let resolvedPath = "/stream-transcription";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stream-transcription";
   let body: any;
   if (input.AudioStream !== undefined) {
     body = context.eventStreamMarshaller.serialize(input.AudioStream, (event) =>
       serializeAws_restJson1AudioStream_event(event, context)
     );
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,

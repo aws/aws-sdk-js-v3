@@ -148,10 +148,12 @@ export const serializeAws_restJson1BatchAssociateScramSecretCommand = async (
   input: BatchAssociateScramSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/clusters/{ClusterArn}/scram-secrets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/scram-secrets";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -168,7 +170,6 @@ export const serializeAws_restJson1BatchAssociateScramSecretCommand = async (
         secretArnList: serializeAws_restJson1__listOf__string(input.SecretArnList, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -184,10 +185,12 @@ export const serializeAws_restJson1BatchDisassociateScramSecretCommand = async (
   input: BatchDisassociateScramSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/clusters/{ClusterArn}/scram-secrets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/scram-secrets";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -204,7 +207,6 @@ export const serializeAws_restJson1BatchDisassociateScramSecretCommand = async (
         secretArnList: serializeAws_restJson1__listOf__string(input.SecretArnList, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -220,10 +222,11 @@ export const serializeAws_restJson1CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/clusters";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters";
   let body: any;
   body = JSON.stringify({
     ...(input.BrokerNodeGroupInfo !== undefined &&
@@ -257,7 +260,6 @@ export const serializeAws_restJson1CreateClusterCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -273,10 +275,11 @@ export const serializeAws_restJson1CreateConfigurationCommand = async (
   input: CreateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/configurations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations";
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
@@ -288,7 +291,6 @@ export const serializeAws_restJson1CreateConfigurationCommand = async (
     ...(input.ServerProperties !== undefined &&
       input.ServerProperties !== null && { serverProperties: context.base64Encoder(input.ServerProperties) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -304,8 +306,10 @@ export const serializeAws_restJson1DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/clusters/{ClusterArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -319,7 +323,6 @@ export const serializeAws_restJson1DeleteClusterCommand = async (
     ...(input.CurrentVersion !== undefined && { currentVersion: input.CurrentVersion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -336,8 +339,9 @@ export const serializeAws_restJson1DeleteConfigurationCommand = async (
   input: DeleteConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/configurations/{Arn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
     if (labelValue.length <= 0) {
@@ -348,7 +352,6 @@ export const serializeAws_restJson1DeleteConfigurationCommand = async (
     throw new Error("No value provided for input HTTP label: Arn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -364,8 +367,10 @@ export const serializeAws_restJson1DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/clusters/{ClusterArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -376,7 +381,6 @@ export const serializeAws_restJson1DescribeClusterCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -392,8 +396,10 @@ export const serializeAws_restJson1DescribeClusterOperationCommand = async (
   input: DescribeClusterOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/operations/{ClusterOperationArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/operations/{ClusterOperationArn}";
   if (input.ClusterOperationArn !== undefined) {
     const labelValue: string = input.ClusterOperationArn;
     if (labelValue.length <= 0) {
@@ -404,7 +410,6 @@ export const serializeAws_restJson1DescribeClusterOperationCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterOperationArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -420,8 +425,9 @@ export const serializeAws_restJson1DescribeConfigurationCommand = async (
   input: DescribeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/configurations/{Arn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
     if (labelValue.length <= 0) {
@@ -432,7 +438,6 @@ export const serializeAws_restJson1DescribeConfigurationCommand = async (
     throw new Error("No value provided for input HTTP label: Arn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -448,8 +453,11 @@ export const serializeAws_restJson1DescribeConfigurationRevisionCommand = async 
   input: DescribeConfigurationRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/configurations/{Arn}/revisions/{Revision}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/configurations/{Arn}/revisions/{Revision}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
     if (labelValue.length <= 0) {
@@ -469,7 +477,6 @@ export const serializeAws_restJson1DescribeConfigurationRevisionCommand = async 
     throw new Error("No value provided for input HTTP label: Revision.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -485,8 +492,11 @@ export const serializeAws_restJson1GetBootstrapBrokersCommand = async (
   input: GetBootstrapBrokersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/clusters/{ClusterArn}/bootstrap-brokers";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/clusters/{ClusterArn}/bootstrap-brokers";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -497,7 +507,6 @@ export const serializeAws_restJson1GetBootstrapBrokersCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -513,13 +522,14 @@ export const serializeAws_restJson1GetCompatibleKafkaVersionsCommand = async (
   input: GetCompatibleKafkaVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/compatible-kafka-versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/compatible-kafka-versions";
   const query: any = {
     ...(input.ClusterArn !== undefined && { clusterArn: input.ClusterArn }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -536,8 +546,10 @@ export const serializeAws_restJson1ListClusterOperationsCommand = async (
   input: ListClusterOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/clusters/{ClusterArn}/operations";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/operations";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -552,7 +564,6 @@ export const serializeAws_restJson1ListClusterOperationsCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -569,15 +580,15 @@ export const serializeAws_restJson1ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/clusters";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters";
   const query: any = {
     ...(input.ClusterNameFilter !== undefined && { clusterNameFilter: input.ClusterNameFilter }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -594,8 +605,10 @@ export const serializeAws_restJson1ListConfigurationRevisionsCommand = async (
   input: ListConfigurationRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/configurations/{Arn}/revisions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}/revisions";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
     if (labelValue.length <= 0) {
@@ -610,7 +623,6 @@ export const serializeAws_restJson1ListConfigurationRevisionsCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -627,14 +639,14 @@ export const serializeAws_restJson1ListConfigurationsCommand = async (
   input: ListConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/configurations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -651,14 +663,14 @@ export const serializeAws_restJson1ListKafkaVersionsCommand = async (
   input: ListKafkaVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/kafka-versions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/kafka-versions";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -675,8 +687,10 @@ export const serializeAws_restJson1ListNodesCommand = async (
   input: ListNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/clusters/{ClusterArn}/nodes";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -691,7 +705,6 @@ export const serializeAws_restJson1ListNodesCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -708,8 +721,10 @@ export const serializeAws_restJson1ListScramSecretsCommand = async (
   input: ListScramSecretsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/clusters/{ClusterArn}/scram-secrets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/scram-secrets";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -724,7 +739,6 @@ export const serializeAws_restJson1ListScramSecretsCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -741,8 +755,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -753,7 +768,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -769,10 +783,12 @@ export const serializeAws_restJson1RebootBrokerCommand = async (
   input: RebootBrokerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/clusters/{ClusterArn}/reboot-broker";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/reboot-broker";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -787,7 +803,6 @@ export const serializeAws_restJson1RebootBrokerCommand = async (
     ...(input.BrokerIds !== undefined &&
       input.BrokerIds !== null && { brokerIds: serializeAws_restJson1__listOf__string(input.BrokerIds, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -803,10 +818,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -821,7 +837,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -837,8 +852,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -852,7 +868,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -869,10 +884,12 @@ export const serializeAws_restJson1UpdateBrokerCountCommand = async (
   input: UpdateBrokerCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/clusters/{ClusterArn}/nodes/count";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes/count";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -889,7 +906,6 @@ export const serializeAws_restJson1UpdateBrokerCountCommand = async (
     ...(input.TargetNumberOfBrokerNodes !== undefined &&
       input.TargetNumberOfBrokerNodes !== null && { targetNumberOfBrokerNodes: input.TargetNumberOfBrokerNodes }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -905,10 +921,12 @@ export const serializeAws_restJson1UpdateBrokerStorageCommand = async (
   input: UpdateBrokerStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/clusters/{ClusterArn}/nodes/storage";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes/storage";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -930,7 +948,6 @@ export const serializeAws_restJson1UpdateBrokerStorageCommand = async (
         ),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -946,10 +963,12 @@ export const serializeAws_restJson1UpdateBrokerTypeCommand = async (
   input: UpdateBrokerTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/clusters/{ClusterArn}/nodes/type";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes/type";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -966,7 +985,6 @@ export const serializeAws_restJson1UpdateBrokerTypeCommand = async (
     ...(input.TargetInstanceType !== undefined &&
       input.TargetInstanceType !== null && { targetInstanceType: input.TargetInstanceType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -982,10 +1000,12 @@ export const serializeAws_restJson1UpdateClusterConfigurationCommand = async (
   input: UpdateClusterConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/clusters/{ClusterArn}/configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/configuration";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -1004,7 +1024,6 @@ export const serializeAws_restJson1UpdateClusterConfigurationCommand = async (
     ...(input.CurrentVersion !== undefined &&
       input.CurrentVersion !== null && { currentVersion: input.CurrentVersion }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1020,10 +1039,12 @@ export const serializeAws_restJson1UpdateClusterKafkaVersionCommand = async (
   input: UpdateClusterKafkaVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/clusters/{ClusterArn}/version";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/version";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -1044,7 +1065,6 @@ export const serializeAws_restJson1UpdateClusterKafkaVersionCommand = async (
     ...(input.TargetKafkaVersion !== undefined &&
       input.TargetKafkaVersion !== null && { targetKafkaVersion: input.TargetKafkaVersion }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1060,10 +1080,11 @@ export const serializeAws_restJson1UpdateConfigurationCommand = async (
   input: UpdateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/configurations/{Arn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
     if (labelValue.length <= 0) {
@@ -1079,7 +1100,6 @@ export const serializeAws_restJson1UpdateConfigurationCommand = async (
     ...(input.ServerProperties !== undefined &&
       input.ServerProperties !== null && { serverProperties: context.base64Encoder(input.ServerProperties) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1095,10 +1115,12 @@ export const serializeAws_restJson1UpdateMonitoringCommand = async (
   input: UpdateMonitoringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/clusters/{ClusterArn}/monitoring";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/monitoring";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -1121,7 +1143,6 @@ export const serializeAws_restJson1UpdateMonitoringCommand = async (
         openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
