@@ -1,7 +1,5 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -13,7 +11,7 @@ import software.amazon.smithy.model.node.Node;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
 import software.amazon.smithy.typescript.codegen.TypeScriptServerCodegenPlugin;
 
-public class AwsPackageFixturesGeneratorIntegrationTest {
+public class AwsEndpointGeneratorIntegrationTest {
     @Test
     public void awsClient() {
         Model model = Model.assembler()
@@ -23,54 +21,41 @@ public class AwsPackageFixturesGeneratorIntegrationTest {
                 .unwrap();
         MockManifest manifest = new MockManifest();
         PluginContext context = PluginContext.builder()
+                .pluginClassLoader(getClass().getClassLoader())
                 .model(model)
                 .fileManifest(manifest)
                 .settings(Node.objectNodeBuilder()
-                        .withMember("service", Node.from("smithy.example#OriginalName"))
-                        .withMember("package", Node.from("example"))
-                        .withMember("packageVersion", Node.from("1.0.0"))
-                        .build())
+                                  .withMember("service", Node.from("smithy.example#OriginalName"))
+                                  .withMember("package", Node.from("example"))
+                                  .withMember("packageVersion", Node.from("1.0.0"))
+                                  .build())
                 .build();
-
         new TypeScriptCodegenPlugin().execute(context);
 
-        assertTrue(manifest.hasFile("LICENSE"));
-        assertTrue(manifest.hasFile(".gitignore"));
-        assertTrue(manifest.hasFile(".npmignore"));
-        assertTrue(manifest.hasFile("README.md"));
-
-        String readme = manifest.getFileString("README.md").get();
-        assertThat(readme, containsString("AWS SDK for JavaScript NotSame Client"));    // Description
-        assertThat(readme, containsString("`NotSameClient`"));  // Modular Client name
-        assertThat(readme, containsString("`GetFooCommand`"));  // Command name
-        assertThat(readme, containsString("AWS.NotSame"));      // v2 compatible client name
-        assertThat(readme, containsString("client.getFoo"));    // v2 compatible operation name                        
+        assertTrue(manifest.getFileString("endpoints.ts").isPresent());
     }
 
     @Test
     public void genericClient() {
         Model model = Model.assembler()
-                .addImport(getClass().getResource("SsdkExample.smithy"))
+                .addImport(getClass().getResource("NonAwsService.smithy"))
                 .discoverModels()
                 .assemble()
                 .unwrap();
         MockManifest manifest = new MockManifest();
         PluginContext context = PluginContext.builder()
+                .pluginClassLoader(getClass().getClassLoader())
                 .model(model)
                 .fileManifest(manifest)
                 .settings(Node.objectNodeBuilder()
-                        .withMember("service", Node.from("smithy.example#SsdkExample"))
+                        .withMember("service", Node.from("smithy.example#ExampleService"))
                         .withMember("package", Node.from("example"))
                         .withMember("packageVersion", Node.from("1.0.0"))
                         .build())
                 .build();
-
         new TypeScriptCodegenPlugin().execute(context);
 
-        assertTrue(manifest.hasFile("LICENSE"));
-        assertTrue(manifest.hasFile(".gitignore"));
-        assertTrue(manifest.hasFile(".npmignore"));
-        assertFalse(manifest.hasFile("README.md"));
+        assertFalse(manifest.getFileString("endpoints.ts").isPresent());
     }
 
     @Test
@@ -82,6 +67,7 @@ public class AwsPackageFixturesGeneratorIntegrationTest {
                 .unwrap();
         MockManifest manifest = new MockManifest();
         PluginContext context = PluginContext.builder()
+                .pluginClassLoader(getClass().getClassLoader())
                 .model(model)
                 .fileManifest(manifest)
                 .settings(Node.objectNodeBuilder()
@@ -91,12 +77,8 @@ public class AwsPackageFixturesGeneratorIntegrationTest {
                         .withMember("disableDefaultValidation", Node.from(true))
                         .build())
                 .build();
-
         new TypeScriptServerCodegenPlugin().execute(context);
 
-        assertTrue(manifest.hasFile("LICENSE"));
-        assertTrue(manifest.hasFile(".gitignore"));
-        assertTrue(manifest.hasFile(".npmignore"));
-        assertFalse(manifest.hasFile("README.md"));
+        assertFalse(manifest.getFileString("endpoints.ts").isPresent());
     }
 }
