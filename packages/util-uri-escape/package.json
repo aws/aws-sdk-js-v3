@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-uri-escape",
-  "version": "3.18.0",
+  "version": "3.20.0",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
