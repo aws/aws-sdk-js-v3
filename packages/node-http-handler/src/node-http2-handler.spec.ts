@@ -106,23 +106,6 @@ describe(NodeHttp2Handler.name, () => {
         expect(connectSpy).toHaveBeenNthCalledWith(2, `${authorityPrefix}:${port2}`);
         mockH2Server2.close();
       });
-
-      it("closes and removes session on sessionTimeout", async (done) => {
-        const sessionTimeout = 500;
-        nodeH2Handler = new NodeHttp2Handler({ sessionTimeout });
-        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-
-        const authority = `${protocol}//${hostname}:${port}`;
-        // @ts-ignore: access private property
-        const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(authority);
-        expect(session.closed).toBe(false);
-        setTimeout(() => {
-          expect(session.closed).toBe(true);
-          // @ts-ignore: access private property
-          expect(nodeH2Handler.connectionPool.get(authority)).not.toBeDefined();
-          done();
-        }, sessionTimeout + 100);
-      });
     });
 
     describe("errors", () => {
@@ -318,6 +301,29 @@ describe(NodeHttp2Handler.name, () => {
         expect(requestSpy.mock.calls.length).toBe(1);
       });
       */
+    });
+  });
+
+  describe("sessionTimeout", () => {
+    const sessionTimeout = 500;
+
+    beforeEach(() => {
+      nodeH2Handler = new NodeHttp2Handler({ sessionTimeout });
+    });
+
+    it("closes and removes session on sessionTimeout", async (done) => {
+      await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+      const authority = `${protocol}//${hostname}:${port}`;
+      // @ts-ignore: access private property
+      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(authority);
+      expect(session.closed).toBe(false);
+      setTimeout(() => {
+        expect(session.closed).toBe(true);
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.connectionPool.get(authority)).not.toBeDefined();
+        done();
+      }, sessionTimeout + 100);
     });
   });
 
