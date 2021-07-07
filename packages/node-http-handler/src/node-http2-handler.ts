@@ -22,17 +22,28 @@ export interface NodeHttp2HandlerOptions {
    * https://nodejs.org/docs/latest-v12.x/api/http2.html#http2_http2session_and_sockets
    */
   sessionTimeout?: number;
+
+  /**
+   * Disables sharing ClientHttp2Session instance between different HTTP/2 requests
+   * sent to the same URL. When set to true, it will create a new session instance for
+   * each request to a URL. **Default:** false.
+   * https://nodejs.org/api/http2.html#http2_class_clienthttp2session
+   */
+  disableSessionCache?: boolean;
 }
 
 export class NodeHttp2Handler implements HttpHandler {
   private readonly requestTimeout?: number;
   private readonly sessionTimeout?: number;
+  private readonly disableSessionCache?: boolean;
+
   private readonly connectionPool: Map<string, ClientHttp2Session>;
   public readonly metadata = { handlerProtocol: "h2" };
 
-  constructor({ requestTimeout, sessionTimeout }: NodeHttp2HandlerOptions = {}) {
+  constructor({ requestTimeout, sessionTimeout, disableSessionCache }: NodeHttp2HandlerOptions = {}) {
     this.requestTimeout = requestTimeout;
     this.sessionTimeout = sessionTimeout;
+    this.disableSessionCache = disableSessionCache;
     this.connectionPool = new Map<string, ClientHttp2Session>();
   }
 
