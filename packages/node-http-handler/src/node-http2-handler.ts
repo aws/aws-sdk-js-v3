@@ -60,10 +60,19 @@ export class NodeHttp2Handler implements HttpHandler {
       // It's redundant to track fulfilled because promises use the first resolution/rejection
       // but avoids generating unnecessary stack traces in the "close" event handler.
       let fulfilled = false;
+
+      const { hostname, method, port, protocol, path, query } = request;
+      const authority = `${protocol}//${hostname}${port ? `:${port}` : ""}`;
+      const session = this.disableSessionCache ? this.getSession(authority) : this.getSessionFromPool(authority);
+
       const reject = (err: Error) => {
+        if (this.disableSessionCache) {
+          this.destroySession(session);
+        }
         fulfilled = true;
         rejectOriginal(err);
       };
+
       // if the request was already aborted, prevent doing extra work
       if (abortSignal?.aborted) {
         const abortError = new Error("Request aborted");
@@ -72,11 +81,9 @@ export class NodeHttp2Handler implements HttpHandler {
         return;
       }
 
-      const { hostname, method, port, protocol, path, query } = request;
       const queryString = buildQueryString(query || {});
-
       // create the http2 request
-      const req = this.getSession(`${protocol}//${hostname}${port ? `:${port}` : ""}`).request({
+      const req = session.request({
         ...request.headers,
         [constants.HTTP2_HEADER_PATH]: queryString ? `${path}?${queryString}` : path,
         [constants.HTTP2_HEADER_METHOD]: method,
@@ -129,15 +136,44 @@ export class NodeHttp2Handler implements HttpHandler {
     });
   }
 
+  /**
+   * Returns a new session for the given URL.
+   * @param authority The URL to create a session for.
+   * @returns A new session for the given URL.
+   */
   private getSession(authority: string): ClientHttp2Session {
+    const newSession = connect(authority);
+    const destroySessionCb = () => {
+      this.destroySession(newSession);
+    };
+    newSession.on("goaway", destroySessionCb);
+    newSession.on("error", destroySessionCb);
+    newSession.on("frameError", destroySessionCb);
+
+    const sessionTimeout = this.sessionTimeout;
+    if (sessionTimeout) {
+      newSession.setTimeout(sessionTimeout, () => {
+        newSession.close();
+      });
+    }
+
+    return newSession;
+  }
+
+  /**
+   * Returns a session for the given URL. If the session is not cached, it will be created.
+   * @param authority The URL to create a session for.
+   * @returns A session for the given URL.
+   */
+  private getSessionFromPool(authority: string): ClientHttp2Session {
     const connectionPool = this.connectionPool;
     const existingSession = connectionPool.get(authority);
     if (existingSession) return existingSession;
 
-    const newSession = connect(authority);
+    const newSession = this.getSession(authority);
     connectionPool.set(authority, newSession);
     const destroySessionCb = () => {
-      this.destroySession(authority, newSession);
+      this.deleteSessionFromPool(authority, newSession);
     };
     newSession.on("goaway", destroySessionCb);
     newSession.on("error", destroySessionCb);
@@ -147,7 +183,6 @@ export class NodeHttp2Handler implements HttpHandler {
     if (sessionTimeout) {
       newSession.setTimeout(sessionTimeout, () => {
         if (connectionPool.get(authority) === newSession) {
-          newSession.close();
           connectionPool.delete(authority);
         }
       });
@@ -156,22 +191,25 @@ export class NodeHttp2Handler implements HttpHandler {
   }
 
   /**
-   * Destroy a session immediately and remove it from the http2 pool.
-   *
-   * This check ensures that the session is only closed once
-   * and that an event on one session does not close a different session.
+   * Destroys a session.
+   * @param session The session to destroy.
    */
-  private destroySession(authority: string, session: ClientHttp2Session): void {
-    if (this.connectionPool.get(authority) !== session) {
-      // Already closed?
-      return;
-    }
-    this.connectionPool.delete(authority);
-    session.removeAllListeners("goaway");
-    session.removeAllListeners("error");
-    session.removeAllListeners("frameError");
+  private destroySession(session: ClientHttp2Session): void {
     if (!session.destroyed) {
       session.destroy();
     }
+  }
+
+  /**
+   * Delete a session from the connection pool.
+   * @param authority The authority of the session to delete.
+   * @param session The session to delete.
+   */
+  private deleteSessionFromPool(authority: string, session: ClientHttp2Session): void {
+    if (this.connectionPool.get(authority) !== session) {
+      // If the session is not in the pool, it has already been destroyed.
+      return;
+    }
+    this.connectionPool.delete(authority);
   }
 }
