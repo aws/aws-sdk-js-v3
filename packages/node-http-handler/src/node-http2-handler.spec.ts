@@ -5,7 +5,7 @@ import { constants, Http2Stream } from "http2";
 import { NodeHttp2Handler } from "./node-http2-handler";
 import { createMockHttp2Server, createResponseFunction } from "./server.mock";
 
-describe("NodeHttp2Handler", () => {
+describe(NodeHttp2Handler.name, () => {
   let nodeH2Handler: NodeHttp2Handler;
 
   const protocol = "http:";
