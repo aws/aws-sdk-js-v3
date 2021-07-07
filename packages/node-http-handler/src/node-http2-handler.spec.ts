@@ -74,7 +74,7 @@ describe(NodeHttp2Handler.name, () => {
         ).toBeDefined();
       });
 
-      it("reuses existing session if request is made on same authority again", async () => {
+      it("reuses existing session if multiple requests are made on same URL", async () => {
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
         // @ts-ignore: access private property
         expect(nodeH2Handler.connectionPool.size).toBe(1);
@@ -89,7 +89,7 @@ describe(NodeHttp2Handler.name, () => {
         expect(requestSpy.mock.calls.length).toBe(1);
       });
 
-      it("creates new session if request is made on new authority", async () => {
+      it("creates new session if requests are made on different URLs", async () => {
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
         // @ts-ignore: access private property
         expect(nodeH2Handler.connectionPool.size).toBe(1);
@@ -320,6 +320,50 @@ describe(NodeHttp2Handler.name, () => {
         expect(requestSpy.mock.calls.length).toBe(1);
       });
       */
+    });
+  });
+
+  describe("disableSessionCache", () => {
+    beforeEach(() => {
+      nodeH2Handler = new NodeHttp2Handler({
+        disableSessionCache: true,
+      });
+    });
+
+    describe("connectionPool", () => {
+      it("is empty on initialization", () => {
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.connectionPool.size).toBe(0);
+      });
+
+      it("is empty when request is made", async () => {
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.connectionPool.size).toBe(0);
+      });
+
+      it("is empty if multiple requests are made on same URL", async () => {
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.connectionPool.size).toBe(0);
+      });
+
+      it("is empty if requests are made on different URLs", async () => {
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.connectionPool.size).toBe(0);
+
+        const port2 = port + 1;
+        const mockH2Server2 = createMockHttp2Server().listen(port2);
+        mockH2Server2.on("request", createResponseFunction(mockResponse));
+
+        await nodeH2Handler.handle(new HttpRequest({ ...getMockReqOptions(), port: port2 }), {});
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.connectionPool.size).toBe(0);
+
+        mockH2Server2.close();
+      });
     });
   });
 });
