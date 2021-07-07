@@ -37,21 +37,20 @@ export class NodeHttp2Handler implements HttpHandler {
   private readonly sessionTimeout?: number;
   private readonly disableSessionCache?: boolean;
 
-  private readonly connectionPool: Map<string, ClientHttp2Session>;
   public readonly metadata = { handlerProtocol: "h2" };
+  private connections: ClientHttp2Session[];
+  private connectionPool: Map<string, ClientHttp2Session>;
 
   constructor({ requestTimeout, sessionTimeout, disableSessionCache }: NodeHttp2HandlerOptions = {}) {
     this.requestTimeout = requestTimeout;
     this.sessionTimeout = sessionTimeout;
     this.disableSessionCache = disableSessionCache;
+    this.connections = [];
     this.connectionPool = new Map<string, ClientHttp2Session>();
   }
 
   destroy(): void {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    for (const [_, http2Session] of this.connectionPool) {
-      http2Session.destroy();
-    }
+    this.connections.forEach(this.destroySession);
     this.connectionPool.clear();
   }
 
@@ -158,6 +157,7 @@ export class NodeHttp2Handler implements HttpHandler {
       });
     }
 
+    this.connections.push(newSession);
     return newSession;
   }
 

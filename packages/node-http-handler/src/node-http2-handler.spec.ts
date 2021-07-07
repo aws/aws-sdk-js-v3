@@ -305,25 +305,41 @@ describe(NodeHttp2Handler.name, () => {
   });
 
   describe("sessionTimeout", () => {
-    const sessionTimeout = 500;
+    const sessionTimeout = 200;
 
-    beforeEach(() => {
-      nodeH2Handler = new NodeHttp2Handler({ sessionTimeout });
-    });
+    describe("destroys session on sessionTimeout", () => {
+      it("disableSessionCache: false (default)", async (done) => {
+        nodeH2Handler = new NodeHttp2Handler({ sessionTimeout });
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
-    it("closes and removes session on sessionTimeout", async (done) => {
-      await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-
-      const authority = `${protocol}//${hostname}:${port}`;
-      // @ts-ignore: access private property
-      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(authority);
-      expect(session.closed).toBe(false);
-      setTimeout(() => {
-        expect(session.closed).toBe(true);
+        const authority = `${protocol}//${hostname}:${port}`;
         // @ts-ignore: access private property
-        expect(nodeH2Handler.connectionPool.get(authority)).not.toBeDefined();
-        done();
-      }, sessionTimeout + 100);
+        const session: ClientHttp2Session = nodeH2Handler.connections[0];
+        expect(session.closed).toBe(false);
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.connectionPool.get(authority)).toBeDefined();
+        setTimeout(() => {
+          expect(session.closed).toBe(true);
+          expect(session.destroyed).toBe(false);
+          // @ts-ignore: access private property
+          expect(nodeH2Handler.connectionPool.get(authority)).not.toBeDefined();
+          done();
+        }, sessionTimeout + 100);
+      });
+
+      it("disableSessionCache: true", async (done) => {
+        nodeH2Handler = new NodeHttp2Handler({ sessionTimeout, disableSessionCache: true });
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+        // @ts-ignore: access private property
+        const session: ClientHttp2Session = nodeH2Handler.connections[0];
+        expect(session.closed).toBe(false);
+        setTimeout(() => {
+          expect(session.closed).toBe(true);
+          expect(session.destroyed).toBe(false);
+          done();
+        }, sessionTimeout + 100);
+      });
     });
   });
 
