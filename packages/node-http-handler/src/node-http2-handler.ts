@@ -61,6 +61,15 @@ export class NodeHttp2Handler implements HttpHandler {
       // but avoids generating unnecessary stack traces in the "close" event handler.
       let fulfilled = false;
 
+      // if the request was already aborted, prevent doing extra work
+      if (abortSignal?.aborted) {
+        fulfilled = true;
+        const abortError = new Error("Request aborted");
+        abortError.name = "AbortError";
+        rejectOriginal(abortError);
+        return;
+      }
+
       const { hostname, method, port, protocol, path, query } = request;
       const authority = `${protocol}//${hostname}${port ? `:${port}` : ""}`;
       const session = this.disableSessionCache ? this.getSession(authority) : this.getSessionFromPool(authority);
@@ -72,14 +81,6 @@ export class NodeHttp2Handler implements HttpHandler {
         fulfilled = true;
         rejectOriginal(err);
       };
-
-      // if the request was already aborted, prevent doing extra work
-      if (abortSignal?.aborted) {
-        const abortError = new Error("Request aborted");
-        abortError.name = "AbortError";
-        reject(abortError);
-        return;
-      }
 
       const queryString = buildQueryString(query || {});
       // create the http2 request
