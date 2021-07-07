@@ -1,6 +1,6 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { rejects } from "assert";
-import { constants, Http2Stream } from "http2";
+import http2, { constants, Http2Stream } from "http2";
 
 import { NodeHttp2Handler } from "./node-http2-handler";
 import { createMockHttp2Server, createResponseFunction } from "./server.mock";
@@ -33,6 +33,7 @@ describe(NodeHttp2Handler.name, () => {
 
   afterEach(() => {
     mockH2Server.removeAllListeners("request");
+    jest.clearAllMocks();
   });
 
   afterAll(() => {
@@ -57,55 +58,52 @@ describe(NodeHttp2Handler.name, () => {
       expect(nodeH2Handler.metadata.handlerProtocol).toContain("h2");
     });
 
-    describe("connectionPool", () => {
-      it("is empty on initialization", () => {
-        // @ts-ignore: access private property
-        expect(nodeH2Handler.connectionPool.size).toBe(0);
+    describe("number calls to http2.connect", () => {
+      it("is zero on initialization", () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+        expect(connectSpy).not.toHaveBeenCalled();
       });
 
-      it("creates and stores session when request is made", async () => {
+      it("is one when request is made", async () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+
+        // Make single request.
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
-        // @ts-ignore: access private property
-        expect(nodeH2Handler.connectionPool.size).toBe(1);
-        expect(
-          // @ts-ignore: access private property
-          nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port}`)
-        ).toBeDefined();
+        const authority = `${protocol}//${hostname}:${port}`;
+        expect(connectSpy).toHaveBeenCalledTimes(1);
+        expect(connectSpy).toHaveBeenCalledWith(authority);
       });
 
-      it("reuses existing session if multiple requests are made on same URL", async () => {
-        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-        // @ts-ignore: access private property
-        expect(nodeH2Handler.connectionPool.size).toBe(1);
+      it("is one if multiple requests are made on same URL", async () => {
+        const connectSpy = jest.spyOn(http2, "connect");
 
-        // @ts-ignore: access private property
-        const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port}`);
-        const requestSpy = jest.spyOn(session, "request");
-
+        // Make two requests.
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-        // @ts-ignore: access private property
-        expect(nodeH2Handler.connectionPool.size).toBe(1);
-        expect(requestSpy.mock.calls.length).toBe(1);
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+        const authority = `${protocol}//${hostname}:${port}`;
+        expect(connectSpy).toHaveBeenCalledTimes(1);
+        expect(connectSpy).toHaveBeenCalledWith(authority);
       });
 
-      it("creates new session if requests are made on different URLs", async () => {
+      it("is many if requests are made on different URLs", async () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+
+        // Make first request on default URL.
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-        // @ts-ignore: access private property
-        expect(nodeH2Handler.connectionPool.size).toBe(1);
 
         const port2 = port + 1;
         const mockH2Server2 = createMockHttp2Server().listen(port2);
         mockH2Server2.on("request", createResponseFunction(mockResponse));
 
+        // Make second request on URL with port2.
         await nodeH2Handler.handle(new HttpRequest({ ...getMockReqOptions(), port: port2 }), {});
-        // @ts-ignore: access private property
-        expect(nodeH2Handler.connectionPool.size).toBe(2);
-        expect(
-          // @ts-ignore: access private property
-          nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port2}`)
-        ).toBeDefined();
 
+        const authorityPrefix = `${protocol}//${hostname}`;
+        expect(connectSpy).toHaveBeenCalledTimes(2);
+        expect(connectSpy).toHaveBeenNthCalledWith(1, `${authorityPrefix}:${port}`);
+        expect(connectSpy).toHaveBeenNthCalledWith(2, `${authorityPrefix}:${port2}`);
         mockH2Server2.close();
       });
 
@@ -330,38 +328,53 @@ describe(NodeHttp2Handler.name, () => {
       });
     });
 
-    describe("connectionPool", () => {
-      it("is empty on initialization", () => {
-        // @ts-ignore: access private property
-        expect(nodeH2Handler.connectionPool.size).toBe(0);
+    describe("number calls to http2.connect", () => {
+      it("is zero on initialization", () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+        expect(connectSpy).not.toHaveBeenCalled();
       });
 
-      it("is empty when request is made", async () => {
+      it("is one when request is made", async () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+
+        // Make single request.
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-        // @ts-ignore: access private property
-        expect(nodeH2Handler.connectionPool.size).toBe(0);
+
+        const authority = `${protocol}//${hostname}:${port}`;
+        expect(connectSpy).toHaveBeenCalledTimes(1);
+        expect(connectSpy).toHaveBeenCalledWith(authority);
       });
 
-      it("is empty if multiple requests are made on same URL", async () => {
+      it("is many if multiple requests are made on same URL", async () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+
+        // Make two requests.
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-        // @ts-ignore: access private property
-        expect(nodeH2Handler.connectionPool.size).toBe(0);
+
+        const authority = `${protocol}//${hostname}:${port}`;
+        expect(connectSpy).toHaveBeenCalledTimes(2);
+        expect(connectSpy).toHaveBeenNthCalledWith(1, authority);
+        expect(connectSpy).toHaveBeenNthCalledWith(2, authority);
       });
 
-      it("is empty if requests are made on different URLs", async () => {
+      it("is many if requests are made on different URLs", async () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+
+        // Make first request on default URL.
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-        // @ts-ignore: access private property
-        expect(nodeH2Handler.connectionPool.size).toBe(0);
 
         const port2 = port + 1;
         const mockH2Server2 = createMockHttp2Server().listen(port2);
         mockH2Server2.on("request", createResponseFunction(mockResponse));
 
+        // Make second request on URL with port2.
         await nodeH2Handler.handle(new HttpRequest({ ...getMockReqOptions(), port: port2 }), {});
-        // @ts-ignore: access private property
-        expect(nodeH2Handler.connectionPool.size).toBe(0);
 
+        const authorityPrefix = `${protocol}//${hostname}`;
+        expect(connectSpy).toHaveBeenCalledTimes(2);
+        expect(connectSpy).toHaveBeenNthCalledWith(1, `${authorityPrefix}:${port}`);
+        expect(connectSpy).toHaveBeenNthCalledWith(2, `${authorityPrefix}:${port2}`);
         mockH2Server2.close();
       });
     });
