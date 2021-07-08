@@ -361,7 +361,8 @@ describe(NodeHttp2Handler.name, () => {
 
         // @ts-ignore: access private property
         const session: ClientHttp2Session = nodeH2Handler.sessionList[0];
-        expect(session.closed).toBe(false);
+        // When disableSessionCache:true, session is closed as soon as request gets response.
+        expect(session.closed).toBe(true);
         setTimeout(() => {
           expect(session.closed).toBe(true);
           expect(session.destroyed).toBe(false);

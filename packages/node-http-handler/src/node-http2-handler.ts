@@ -97,6 +97,11 @@ export class NodeHttp2Handler implements HttpHandler {
         });
         fulfilled = true;
         resolve({ response: httpResponse });
+        if (this.disableSessionCache) {
+          // Gracefully closes the Http2Session, allowing any existing streams to complete
+          // on their own and preventing new Http2Stream instances from being created.
+          session.close();
+        }
       });
 
       const requestTimeout = this.requestTimeout;
