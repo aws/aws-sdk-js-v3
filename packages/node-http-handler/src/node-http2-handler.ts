@@ -38,20 +38,20 @@ export class NodeHttp2Handler implements HttpHandler {
   private readonly disableSessionCache?: boolean;
 
   public readonly metadata = { handlerProtocol: "h2" };
-  private connections: ClientHttp2Session[];
-  private connectionPool: Map<string, ClientHttp2Session>;
+  private sessions: ClientHttp2Session[];
+  private sessionPool: Map<string, ClientHttp2Session>;
 
   constructor({ requestTimeout, sessionTimeout, disableSessionCache }: NodeHttp2HandlerOptions = {}) {
     this.requestTimeout = requestTimeout;
     this.sessionTimeout = sessionTimeout;
     this.disableSessionCache = disableSessionCache;
-    this.connections = [];
-    this.connectionPool = new Map<string, ClientHttp2Session>();
+    this.sessions = [];
+    this.sessionPool = new Map<string, ClientHttp2Session>();
   }
 
   destroy(): void {
-    this.connections.forEach((session) => this.destroySession(session));
-    this.connectionPool.clear();
+    this.sessions.forEach((session) => this.destroySession(session));
+    this.sessionPool.clear();
   }
 
   handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
@@ -157,7 +157,7 @@ export class NodeHttp2Handler implements HttpHandler {
       });
     }
 
-    this.connections.push(newSession);
+    this.sessions.push(newSession);
     return newSession;
   }
 
@@ -167,7 +167,7 @@ export class NodeHttp2Handler implements HttpHandler {
    * @returns A session for the given URL.
    */
   private getSessionFromPool(authority: string): ClientHttp2Session {
-    const connectionPool = this.connectionPool;
+    const connectionPool = this.sessionPool;
     const existingSession = connectionPool.get(authority);
     if (existingSession) return existingSession;
 
@@ -199,7 +199,7 @@ export class NodeHttp2Handler implements HttpHandler {
     if (!session.destroyed) {
       session.destroy();
     }
-    this.connections = this.connections.filter((s) => s !== session);
+    this.sessions = this.sessions.filter((s) => s !== session);
   }
 
   /**
@@ -208,10 +208,10 @@ export class NodeHttp2Handler implements HttpHandler {
    * @param session The session to delete.
    */
   private deleteSessionFromPool(authority: string, session: ClientHttp2Session): void {
-    if (this.connectionPool.get(authority) !== session) {
+    if (this.sessionPool.get(authority) !== session) {
       // If the session is not in the pool, it has already been deleted.
       return;
     }
-    this.connectionPool.delete(authority);
+    this.sessionPool.delete(authority);
   }
 }
