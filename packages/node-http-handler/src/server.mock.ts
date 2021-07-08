@@ -1,4 +1,4 @@
-import { HttpResponse } from "@aws-sdk/types";
+import { HeaderBag, HttpResponse } from "@aws-sdk/types";
 import { readFileSync } from "fs";
 import { createServer as createHttpServer, IncomingMessage, Server as HttpServer, ServerResponse } from "http";
 import { createServer as createHttp2Server, Http2Server } from "http2";
@@ -8,20 +8,33 @@ import { Readable } from "stream";
 
 const fixturesDir = join(__dirname, "..", "fixtures");
 
-export function createResponseFunction(httpResp: HttpResponse) {
-  return function (request: IncomingMessage, response: ServerResponse) {
+const setResponseHeaders = (response: ServerResponse, headers: HeaderBag) => {
+  for (const [key, value] of Object.entries(headers)) {
+    response.setHeader(key, value);
+  }
+};
+
+const setResponseBody = (response: ServerResponse, body: Readable | string) => {
+  if (body instanceof Readable) {
+    body.pipe(response);
+  } else {
+    response.end(body);
+  }
+};
+
+export const createResponseFunction =
+  (httpResp: HttpResponse) => (request: IncomingMessage, response: ServerResponse) => {
     response.statusCode = httpResp.statusCode;
-    for (const name of Object.keys(httpResp.headers)) {
-      const values = httpResp.headers[name];
-      response.setHeader(name, values);
-    }
-    if (httpResp.body instanceof Readable) {
-      httpResp.body.pipe(response);
-    } else {
-      response.end(httpResp.body);
-    }
+    setResponseHeaders(response, httpResp.headers);
+    setResponseBody(response, httpResp.body);
   };
-}
+
+export const createResponseFunctionWithDelay =
+  (httpResp: HttpResponse, delay: number) => (request: IncomingMessage, response: ServerResponse) => {
+    response.statusCode = httpResp.statusCode;
+    setResponseHeaders(response, httpResp.headers);
+    setTimeout(() => setResponseBody(response, httpResp.body), delay);
+  };
 
 export function createContinueResponseFunction(httpResp: HttpResponse) {
   return function (request: IncomingMessage, response: ServerResponse) {

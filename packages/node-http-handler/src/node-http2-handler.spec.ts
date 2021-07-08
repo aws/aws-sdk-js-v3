@@ -3,7 +3,7 @@ import { rejects } from "assert";
 import http2, { constants, Http2Stream } from "http2";
 
 import { NodeHttp2Handler } from "./node-http2-handler";
-import { createMockHttp2Server, createResponseFunction } from "./server.mock";
+import { createMockHttp2Server, createResponseFunction, createResponseFunctionWithDelay } from "./server.mock";
 
 describe(NodeHttp2Handler.name, () => {
   let nodeH2Handler: NodeHttp2Handler;
@@ -301,6 +301,52 @@ describe(NodeHttp2Handler.name, () => {
         expect(requestSpy.mock.calls.length).toBe(1);
       });
       */
+    });
+  });
+
+  describe("requestTimeout", () => {
+    const requestTimeout = 200;
+
+    describe("does not throw error when request not timed out", () => {
+      it("disableSessionCache: false (default)", async () => {
+        mockH2Server.removeAllListeners("request");
+        mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout - 100));
+
+        nodeH2Handler = new NodeHttp2Handler({ requestTimeout });
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+      });
+
+      it("disableSessionCache: true", async () => {
+        mockH2Server.removeAllListeners("request");
+        mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout - 100));
+
+        nodeH2Handler = new NodeHttp2Handler({ requestTimeout, disableSessionCache: true });
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+      });
+    });
+
+    describe("throws timeoutError on requestTimeout", () => {
+      it("disableSessionCache: false (default)", async () => {
+        mockH2Server.removeAllListeners("request");
+        mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout + 100));
+
+        nodeH2Handler = new NodeHttp2Handler({ requestTimeout });
+        await rejects(nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {}), {
+          name: "TimeoutError",
+          message: `Stream timed out because of no activity for ${requestTimeout} ms`,
+        });
+      });
+
+      it("disableSessionCache: true", async () => {
+        mockH2Server.removeAllListeners("request");
+        mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout + 100));
+
+        nodeH2Handler = new NodeHttp2Handler({ requestTimeout, disableSessionCache: true });
+        await rejects(nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {}), {
+          name: "TimeoutError",
+          message: `Stream timed out because of no activity for ${requestTimeout} ms`,
+        });
+      });
     });
   });
 

@@ -208,7 +208,7 @@ export class NodeHttp2Handler implements HttpHandler {
    */
   private deleteSessionFromPool(authority: string, session: ClientHttp2Session): void {
     if (this.connectionPool.get(authority) !== session) {
-      // If the session is not in the pool, it has already been destroyed.
+      // If the session is not in the pool, it has already been deleted.
       return;
     }
     this.connectionPool.delete(authority);
