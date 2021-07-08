@@ -290,7 +290,7 @@ describe(NodeHttp2Handler.name, () => {
     const requestTimeout = 200;
 
     describe("does not throw error when request not timed out", () => {
-      it("disableSessionCache: false (default)", async () => {
+      it("disableConcurrentStreams: false (default)", async () => {
         mockH2Server.removeAllListeners("request");
         mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout - 100));
 
@@ -298,17 +298,17 @@ describe(NodeHttp2Handler.name, () => {
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
       });
 
-      it("disableSessionCache: true", async () => {
+      it("disableConcurrentStreams: true", async () => {
         mockH2Server.removeAllListeners("request");
         mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout - 100));
 
-        nodeH2Handler = new NodeHttp2Handler({ requestTimeout, disableSessionCache: true });
+        nodeH2Handler = new NodeHttp2Handler({ requestTimeout, disableConcurrentStreams: true });
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
       });
     });
 
     describe("throws timeoutError on requestTimeout", () => {
-      it("disableSessionCache: false (default)", async () => {
+      it("disableConcurrentStreams: false (default)", async () => {
         mockH2Server.removeAllListeners("request");
         mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout + 100));
 
@@ -319,11 +319,11 @@ describe(NodeHttp2Handler.name, () => {
         });
       });
 
-      it("disableSessionCache: true", async () => {
+      it("disableConcurrentStreams: true", async () => {
         mockH2Server.removeAllListeners("request");
         mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout + 100));
 
-        nodeH2Handler = new NodeHttp2Handler({ requestTimeout, disableSessionCache: true });
+        nodeH2Handler = new NodeHttp2Handler({ requestTimeout, disableConcurrentStreams: true });
         await rejects(nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {}), {
           name: "TimeoutError",
           message: `Stream timed out because of no activity for ${requestTimeout} ms`,
@@ -336,7 +336,7 @@ describe(NodeHttp2Handler.name, () => {
     const sessionTimeout = 200;
 
     describe("destroys session on sessionTimeout", () => {
-      it("disableSessionCache: false (default)", async (done) => {
+      it("disableConcurrentStreams: false (default)", async (done) => {
         nodeH2Handler = new NodeHttp2Handler({ sessionTimeout });
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
@@ -354,8 +354,8 @@ describe(NodeHttp2Handler.name, () => {
         }, sessionTimeout + 100);
       });
 
-      it("disableSessionCache: true", async (done) => {
-        nodeH2Handler = new NodeHttp2Handler({ sessionTimeout, disableSessionCache: true });
+      it("disableConcurrentStreams: true", async (done) => {
+        nodeH2Handler = new NodeHttp2Handler({ sessionTimeout, disableConcurrentStreams: true });
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
         // @ts-ignore: access private property
@@ -369,10 +369,10 @@ describe(NodeHttp2Handler.name, () => {
     });
   });
 
-  describe("disableSessionCache", () => {
+  describe("disableConcurrentStreams", () => {
     beforeEach(() => {
       nodeH2Handler = new NodeHttp2Handler({
-        disableSessionCache: true,
+        disableConcurrentStreams: true,
       });
     });
 

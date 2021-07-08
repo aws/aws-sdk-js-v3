@@ -24,27 +24,27 @@ export interface NodeHttp2HandlerOptions {
   sessionTimeout?: number;
 
   /**
-   * Disables sharing ClientHttp2Session instance between different HTTP/2 requests
-   * sent to the same URL. When set to true, it will create a new session instance for
-   * each request to a URL. **Default:** false.
+   * Disables processing concurrent streams on a ClientHttp2Session instance. When set
+   * to true, the handler will create a new session instance for each request to a URL.
+   * **Default:** false.
    * https://nodejs.org/api/http2.html#http2_class_clienthttp2session
    */
-  disableSessionCache?: boolean;
+  disableConcurrentStreams?: boolean;
 }
 
 export class NodeHttp2Handler implements HttpHandler {
   private readonly requestTimeout?: number;
   private readonly sessionTimeout?: number;
-  private readonly disableSessionCache?: boolean;
+  private readonly disableConcurrentStreams?: boolean;
 
   public readonly metadata = { handlerProtocol: "h2" };
   private sessionList: ClientHttp2Session[];
   private sessionCache: Map<string, ClientHttp2Session>;
 
-  constructor({ requestTimeout, sessionTimeout, disableSessionCache }: NodeHttp2HandlerOptions = {}) {
+  constructor({ requestTimeout, sessionTimeout, disableConcurrentStreams }: NodeHttp2HandlerOptions = {}) {
     this.requestTimeout = requestTimeout;
     this.sessionTimeout = sessionTimeout;
-    this.disableSessionCache = disableSessionCache;
+    this.disableConcurrentStreams = disableConcurrentStreams;
     this.sessionList = [];
     this.sessionCache = new Map<string, ClientHttp2Session>();
   }
@@ -71,10 +71,10 @@ export class NodeHttp2Handler implements HttpHandler {
 
       const { hostname, method, port, protocol, path, query } = request;
       const authority = `${protocol}//${hostname}${port ? `:${port}` : ""}`;
-      const session = this.disableSessionCache ? this.getSession(authority) : this.getSessionFromCache(authority);
+      const session = this.disableConcurrentStreams ? this.getSession(authority) : this.getSessionFromCache(authority);
 
       const reject = (err: Error) => {
-        if (this.disableSessionCache) {
+        if (this.disableConcurrentStreams) {
           this.destroySession(session);
         }
         fulfilled = true;
@@ -97,7 +97,7 @@ export class NodeHttp2Handler implements HttpHandler {
         });
         fulfilled = true;
         resolve({ response: httpResponse });
-        if (this.disableSessionCache) {
+        if (this.disableConcurrentStreams) {
           // Gracefully closes the Http2Session, allowing any existing streams to complete
           // on their own and preventing new Http2Stream instances from being created.
           session.close();
