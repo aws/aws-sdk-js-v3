@@ -1,3 +1,4 @@
+import { AbortController } from "@aws-sdk/abort-controller";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { rejects } from "assert";
 import http2, { constants, Http2Stream } from "http2";
@@ -251,10 +252,11 @@ describe(NodeHttp2Handler.name, () => {
       });
 
       it("will not create request on session if request already aborted", async () => {
+        // Create a session by sending a request.
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
         // @ts-ignore: access private property
-        const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port}`);
+        const session: ClientHttp2Session = nodeH2Handler.connections[0];
         const requestSpy = jest.spyOn(session, "request");
 
         await expect(
@@ -268,39 +270,20 @@ describe(NodeHttp2Handler.name, () => {
         expect(requestSpy.mock.calls.length).toBe(0);
       });
 
-      /* Commenting out as the test is flaky https://github.com/aws/aws-sdk-js-v3/issues/487
       it("will close request on session when aborted", async () => {
-        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-  
-        // @ts-ignore: access private property
-        const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(
-          `${protocol}//${hostname}:${port}`
-        );
-        const requestSpy = jest.spyOn(session, "request");
-  
         const abortController = new AbortController();
-        // Delay response so that onabort is called earlier
-        setTimeout(() => {
+        mockH2Server.removeAllListeners("request");
+        mockH2Server.on("request", (request: any, response: any) => {
           abortController.abort();
-        }, 0);
-        mockH2Server.on(
-          "request",
-          async () =>
-            new Promise(resolve => {
-              setTimeout(() => {
-                resolve(createResponseFunction(mockResponse));
-              }, 1000);
-            })
-        );
-  
+          return createResponseFunction(mockResponse);
+        });
+
         await expect(
           nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {
-            abortSignal: abortController.signal
+            abortSignal: abortController.signal,
           })
         ).rejects.toHaveProperty("name", "AbortError");
-        expect(requestSpy.mock.calls.length).toBe(1);
       });
-      */
     });
   });
 
