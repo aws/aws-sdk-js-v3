@@ -158,7 +158,7 @@ export class NodeHttp2Handler implements HttpHandler {
     const sessionTimeout = this.sessionTimeout;
     if (sessionTimeout) {
       newSession.setTimeout(sessionTimeout, () => {
-        newSession.close();
+        this.destroySession(newSession);
       });
     }
 

@@ -343,12 +343,11 @@ describe(NodeHttp2Handler.name, () => {
         const authority = `${protocol}//${hostname}:${port}`;
         // @ts-ignore: access private property
         const session: ClientHttp2Session = nodeH2Handler.sessionList[0];
-        expect(session.closed).toBe(false);
+        expect(session.destroyed).toBe(false);
         // @ts-ignore: access private property
         expect(nodeH2Handler.sessionCache.get(authority)).toBeDefined();
         setTimeout(() => {
-          expect(session.closed).toBe(true);
-          expect(session.destroyed).toBe(false);
+          expect(session.destroyed).toBe(true);
           // @ts-ignore: access private property
           expect(nodeH2Handler.sessionCache.get(authority)).not.toBeDefined();
           done();
@@ -361,11 +360,9 @@ describe(NodeHttp2Handler.name, () => {
 
         // @ts-ignore: access private property
         const session: ClientHttp2Session = nodeH2Handler.sessionList[0];
-        // When disableSessionCache:true, session is closed as soon as request gets response.
-        expect(session.closed).toBe(true);
+        expect(session.destroyed).toBe(false);
         setTimeout(() => {
-          expect(session.closed).toBe(true);
-          expect(session.destroyed).toBe(false);
+          expect(session.destroyed).toBe(true);
           done();
         }, sessionTimeout + 100);
       });
