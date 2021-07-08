@@ -47,12 +47,7 @@ describe(NodeHttp2Handler.name, () => {
     });
 
     afterEach(() => {
-      // @ts-ignore: access private property
-      const sessionPool = nodeH2Handler.sessionPool;
-      for (const [, session] of sessionPool) {
-        session.destroy();
-      }
-      sessionPool.clear();
+      nodeH2Handler.destroy();
     });
 
     it("has metadata", () => {
@@ -219,22 +214,22 @@ describe(NodeHttp2Handler.name, () => {
     });
 
     describe("destroy", () => {
-      it("destroys session and clears sessionPool", async () => {
+      it("destroys session and clears sessionCache", async () => {
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
         // @ts-ignore: access private property
-        const session: ClientHttp2Session = nodeH2Handler.sessions[0];
+        const session: ClientHttp2Session = nodeH2Handler.sessionList[0];
 
         // @ts-ignore: access private property
-        expect(nodeH2Handler.sessionPool.size).toBe(1);
+        expect(nodeH2Handler.sessionCache.size).toBe(1);
         // @ts-ignore: access private property
-        expect(nodeH2Handler.sessions.length).toBe(1);
+        expect(nodeH2Handler.sessionList.length).toBe(1);
         expect(session.destroyed).toBe(false);
         nodeH2Handler.destroy();
         // @ts-ignore: access private property
-        expect(nodeH2Handler.sessionPool.size).toBe(0);
+        expect(nodeH2Handler.sessionCache.size).toBe(0);
         // @ts-ignore: access private property
-        expect(nodeH2Handler.sessions.length).toBe(0);
+        expect(nodeH2Handler.sessionList.length).toBe(0);
         expect(session.destroyed).toBe(true);
       });
     });
@@ -242,7 +237,7 @@ describe(NodeHttp2Handler.name, () => {
     describe("abortSignal", () => {
       it("will not create session if request already aborted", async () => {
         // @ts-ignore: access private property
-        expect(nodeH2Handler.sessionPool.size).toBe(0);
+        expect(nodeH2Handler.sessionCache.size).toBe(0);
         await expect(
           nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {
             abortSignal: {
@@ -252,7 +247,7 @@ describe(NodeHttp2Handler.name, () => {
           })
         ).rejects.toHaveProperty("name", "AbortError");
         // @ts-ignore: access private property
-        expect(nodeH2Handler.sessionPool.size).toBe(0);
+        expect(nodeH2Handler.sessionCache.size).toBe(0);
       });
 
       it("will not create request on session if request already aborted", async () => {
@@ -260,7 +255,7 @@ describe(NodeHttp2Handler.name, () => {
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
         // @ts-ignore: access private property
-        const session: ClientHttp2Session = nodeH2Handler.sessions[0];
+        const session: ClientHttp2Session = nodeH2Handler.sessionList[0];
         const requestSpy = jest.spyOn(session, "request");
 
         await expect(
@@ -347,15 +342,15 @@ describe(NodeHttp2Handler.name, () => {
 
         const authority = `${protocol}//${hostname}:${port}`;
         // @ts-ignore: access private property
-        const session: ClientHttp2Session = nodeH2Handler.sessions[0];
+        const session: ClientHttp2Session = nodeH2Handler.sessionList[0];
         expect(session.closed).toBe(false);
         // @ts-ignore: access private property
-        expect(nodeH2Handler.sessionPool.get(authority)).toBeDefined();
+        expect(nodeH2Handler.sessionCache.get(authority)).toBeDefined();
         setTimeout(() => {
           expect(session.closed).toBe(true);
           expect(session.destroyed).toBe(false);
           // @ts-ignore: access private property
-          expect(nodeH2Handler.sessionPool.get(authority)).not.toBeDefined();
+          expect(nodeH2Handler.sessionCache.get(authority)).not.toBeDefined();
           done();
         }, sessionTimeout + 100);
       });
@@ -365,7 +360,7 @@ describe(NodeHttp2Handler.name, () => {
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
         // @ts-ignore: access private property
-        const session: ClientHttp2Session = nodeH2Handler.sessions[0];
+        const session: ClientHttp2Session = nodeH2Handler.sessionList[0];
         expect(session.closed).toBe(false);
         setTimeout(() => {
           expect(session.closed).toBe(true);
@@ -435,18 +430,18 @@ describe(NodeHttp2Handler.name, () => {
     });
 
     describe("destroy", () => {
-      it("destroys session and clears connections", async () => {
+      it("destroys session and empties sessionList", async () => {
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
         // @ts-ignore: access private property
-        const session: ClientHttp2Session = nodeH2Handler.sessions[0];
+        const session: ClientHttp2Session = nodeH2Handler.sessionList[0];
 
         // @ts-ignore: access private property
-        expect(nodeH2Handler.sessions.length).toBe(1);
+        expect(nodeH2Handler.sessionList.length).toBe(1);
         expect(session.destroyed).toBe(false);
         nodeH2Handler.destroy();
         // @ts-ignore: access private property
-        expect(nodeH2Handler.sessions.length).toBe(0);
+        expect(nodeH2Handler.sessionList.length).toBe(0);
         expect(session.destroyed).toBe(true);
       });
     });
