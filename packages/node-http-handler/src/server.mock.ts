@@ -36,29 +36,28 @@ export const createResponseFunctionWithDelay =
     setTimeout(() => setResponseBody(response, httpResp.body), delay);
   };
 
-export function createContinueResponseFunction(httpResp: HttpResponse) {
-  return function (request: IncomingMessage, response: ServerResponse) {
+export const createContinueResponseFunction =
+  (httpResp: HttpResponse) => (request: IncomingMessage, response: ServerResponse) => {
     response.writeContinue();
     setTimeout(() => {
       createResponseFunction(httpResp)(request, response);
     }, 100);
   };
-}
 
-export function createMockHttpsServer(): HttpsServer {
+export const createMockHttpsServer = (): HttpsServer => {
   const server = createHttpsServer({
     key: readFileSync(join(fixturesDir, "test-server-key.pem")),
     cert: readFileSync(join(fixturesDir, "test-server-cert.pem")),
   });
   return server;
-}
+};
 
-export function createMockHttpServer(): HttpServer {
+export const createMockHttpServer = (): HttpServer => {
   const server = createHttpServer();
   return server;
-}
+};
 
-export function createMockHttp2Server(): Http2Server {
+export const createMockHttp2Server = (): Http2Server => {
   const server = createHttp2Server();
   return server;
-}
+};
