@@ -50,7 +50,7 @@ export class NodeHttp2Handler implements HttpHandler {
   }
 
   destroy(): void {
-    this.connections.forEach(this.destroySession);
+    this.connections.forEach((session) => this.destroySession(session));
     this.connectionPool.clear();
   }
 
@@ -199,6 +199,7 @@ export class NodeHttp2Handler implements HttpHandler {
     if (!session.destroyed) {
       session.destroy();
     }
+    this.connections = this.connections.filter((s) => s !== session);
   }
 
   /**

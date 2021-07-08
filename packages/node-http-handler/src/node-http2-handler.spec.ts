@@ -219,18 +219,22 @@ describe(NodeHttp2Handler.name, () => {
     });
 
     describe("destroy", () => {
-      it("destroys sessions and clears connectionPool", async () => {
+      it("destroys session and clears connectionPool", async () => {
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
         // @ts-ignore: access private property
-        const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port}`);
+        const session: ClientHttp2Session = nodeH2Handler.connections[0];
 
         // @ts-ignore: access private property
         expect(nodeH2Handler.connectionPool.size).toBe(1);
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.connections.length).toBe(1);
         expect(session.destroyed).toBe(false);
         nodeH2Handler.destroy();
         // @ts-ignore: access private property
         expect(nodeH2Handler.connectionPool.size).toBe(0);
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.connections.length).toBe(0);
         expect(session.destroyed).toBe(true);
       });
     });
@@ -427,6 +431,23 @@ describe(NodeHttp2Handler.name, () => {
         expect(connectSpy).toHaveBeenNthCalledWith(1, `${authorityPrefix}:${port}`);
         expect(connectSpy).toHaveBeenNthCalledWith(2, `${authorityPrefix}:${port2}`);
         mockH2Server2.close();
+      });
+    });
+
+    describe("destroy", () => {
+      it("destroys session and clears connections", async () => {
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+        // @ts-ignore: access private property
+        const session: ClientHttp2Session = nodeH2Handler.connections[0];
+
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.connections.length).toBe(1);
+        expect(session.destroyed).toBe(false);
+        nodeH2Handler.destroy();
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.connections.length).toBe(0);
+        expect(session.destroyed).toBe(true);
       });
     });
   });
