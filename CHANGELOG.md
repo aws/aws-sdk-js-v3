@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.21.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.20.0...v3.21.0) (2021-07-09)
+
+
+### Bug Fixes
+
+* **transcirbe-streaming:** set max concurrenccy to 1 ([#2563](https://github.com/aws/aws-sdk-js-v3/issues/2563)) ([fb42522](https://github.com/aws/aws-sdk-js-v3/commit/fb425225c6d2a27508333c4dd693fc1e71c56049))
+
+
+### Features
+
+* **clients:** update clients as of 07/08/2021 ([#2565](https://github.com/aws/aws-sdk-js-v3/issues/2565)) ([c9bd983](https://github.com/aws/aws-sdk-js-v3/commit/c9bd98328765c540b778f9085d0ec8870e5af6c9))
+* **node-http-handler:** configure disableConcurrentStreams in NodeHttp2Handler ([#2553](https://github.com/aws/aws-sdk-js-v3/issues/2553)) ([9303bf7](https://github.com/aws/aws-sdk-js-v3/commit/9303bf7cccbfca1ac7b81d15728d03b5757e5805))
+
+
+
+
+
 # [3.20.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.19.0...v3.20.0) (2021-07-02)
 
 
