@@ -1133,6 +1133,14 @@ const deserializeAws_restJson1CreateReplicationConfigurationTemplateCommandError
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.mgn#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UninitializedAccountException":
     case "com.amazonaws.mgn#UninitializedAccountException":
       response = {
@@ -2987,6 +2995,14 @@ const deserializeAws_restJson1UpdateReplicationConfigurationCommandError = async
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.mgn#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ConflictException":
     case "com.amazonaws.mgn#ConflictException":
       response = {
@@ -3125,6 +3141,14 @@ const deserializeAws_restJson1UpdateReplicationConfigurationTemplateCommandError
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.mgn#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.mgn#ResourceNotFoundException":
       response = {

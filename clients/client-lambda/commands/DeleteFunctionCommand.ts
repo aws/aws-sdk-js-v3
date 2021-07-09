@@ -25,7 +25,7 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  *       Otherwise, all versions and aliases are deleted.</p>
  *
  *          <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>.
- *       For AWS services and resources that invoke your function directly, delete the trigger in the service where you
+ *       For Amazon Web Services services and resources that invoke your function directly, delete the trigger in the service where you
  *       originally configured it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

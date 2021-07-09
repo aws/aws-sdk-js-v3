@@ -21,7 +21,7 @@ export interface CreateUserCommandInput extends CreateUserRequest {}
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
- * Creates an ActiveMQ user.
+ * <p>Creates an ActiveMQ user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

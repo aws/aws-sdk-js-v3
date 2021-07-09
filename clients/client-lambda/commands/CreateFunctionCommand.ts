@@ -22,8 +22,18 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
 
 /**
  * <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The
- *       deployment package is a .zip file  archive or container image that contains your function code. The execution role grants the function permission to use AWS
- *       services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p>
+ *       deployment package is a .zip file  archive or container image that contains your function code. The execution role grants the function permission to use Amazon Web Services
+ *       services, such as Amazon CloudWatch Logs for log streaming and X-Ray for request tracing.</p>
+ *
+ *          <p>You set the package type to <code>Image</code> if the deployment package is a
+ *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a>. For a container image,
+ *       the code property must include the URI of a container image in the Amazon ECR registry.
+ *       You do not need to specify the handler and runtime properties. </p>
+ *
+ *          <p>You set the package type to <code>Zip</code> if the deployment package is a
+ *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file archive</a>.
+ *       For a .zip file archive, the code property specifies the location of the .zip file. You must also specify the handler and
+ *       runtime properties.</p>
  *
  *          <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If
  *       your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or
@@ -49,12 +59,12 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *       package has a valid signature from a trusted publisher. The code-signing configuration
  *       includes set set of signing profiles, which define the trusted publishers for this function.</p>
  *
- *          <p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant
+ *          <p>If another account or an Amazon Web Services service invokes your function, use <a>AddPermission</a> to grant
  *       permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version,
  *       or on an alias.</p>
  *
  *          <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events
- *       in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a
+ *       in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a
  *       function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

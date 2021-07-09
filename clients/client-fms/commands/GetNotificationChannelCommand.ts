@@ -23,7 +23,7 @@ export interface GetNotificationChannelCommandOutput extends GetNotificationChan
 /**
  * <p>Information
  *       about the Amazon Simple Notification Service (SNS) topic that is used to
- *       record AWS Firewall Manager SNS logs.</p>
+ *       record Firewall Manager SNS logs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

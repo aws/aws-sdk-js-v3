@@ -21,7 +21,7 @@ export interface ListConfigurationsCommandInput extends ListConfigurationsReques
 export interface ListConfigurationsCommandOutput extends ListConfigurationsResponse, __MetadataBearer {}
 
 /**
- * Returns a list of all configurations.
+ * <p>Returns a list of all configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

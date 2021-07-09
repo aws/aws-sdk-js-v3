@@ -25,7 +25,7 @@ export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachedi
  *          only supported in the cached volume gateway types.</p>
  *
  *          <p>The list of gateway volumes in the request must be from one gateway. In the response,
- *          AWS Storage Gateway returns volume information sorted by volume Amazon Resource Name
+ *          Storage Gateway returns volume information sorted by volume Amazon Resource Name
  *          (ARN).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

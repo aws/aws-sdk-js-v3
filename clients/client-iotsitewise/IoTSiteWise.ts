@@ -137,6 +137,11 @@ import {
   DescribeProjectCommandOutput,
 } from "./commands/DescribeProjectCommand";
 import {
+  DescribeStorageConfigurationCommand,
+  DescribeStorageConfigurationCommandInput,
+  DescribeStorageConfigurationCommandOutput,
+} from "./commands/DescribeStorageConfigurationCommand";
+import {
   DisassociateAssetsCommand,
   DisassociateAssetsCommandInput,
   DisassociateAssetsCommandOutput,
@@ -218,6 +223,11 @@ import {
   PutLoggingOptionsCommandInput,
   PutLoggingOptionsCommandOutput,
 } from "./commands/PutLoggingOptionsCommand";
+import {
+  PutStorageConfigurationCommand,
+  PutStorageConfigurationCommandInput,
+  PutStorageConfigurationCommandOutput,
+} from "./commands/PutStorageConfigurationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -268,14 +278,14 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>Welcome to the AWS IoT SiteWise API Reference. AWS IoT SiteWise is an AWS service that connects <a href="https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications">Industrial Internet of Things (IIoT)</a> devices to the power of the AWS Cloud. For more information, see the
- *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/">AWS IoT SiteWise User Guide</a>. For information about AWS IoT SiteWise quotas, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ * <p>Welcome to the IoT SiteWise API Reference. IoT SiteWise is an Amazon Web Services service that connects <a href="https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications">Industrial Internet of Things (IIoT)</a> devices to the power of the Amazon Web Services Cloud. For more information, see the
+ *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/">IoT SiteWise User Guide</a>. For information about IoT SiteWise quotas, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
 export class IoTSiteWise extends IoTSiteWiseClient {
   /**
    * <p>Associates a child asset with the given parent asset through a hierarchy defined in the
    *       parent asset's model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html">Associating assets</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   public associateAssets(
     args: AssociateAssetsCommandInput,
@@ -307,7 +317,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Associates a group (batch) of assets with an AWS IoT SiteWise Monitor project.</p>
+   * <p>Associates a group (batch) of assets with an IoT SiteWise Monitor project.</p>
    */
   public batchAssociateProjectAssets(
     args: BatchAssociateProjectAssetsCommandInput,
@@ -339,7 +349,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Disassociates a group (batch) of assets from an AWS IoT SiteWise Monitor project.</p>
+   * <p>Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.</p>
    */
   public batchDisassociateProjectAssets(
     args: BatchDisassociateProjectAssetsCommandInput,
@@ -371,9 +381,9 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Sends a list of asset property values to AWS IoT SiteWise. Each value is a timestamp-quality-value
+   * <p>Sends a list of asset property values to IoT SiteWise. Each value is a timestamp-quality-value
    *       (TQV) data point. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html">Ingesting data using the API</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    *          <p>To identify an asset property, you must specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -385,17 +395,17 @@ export class IoTSiteWise extends IoTSiteWiseClient {
    *             </li>
    *          </ul>
    *          <important>
-   *             <p>With respect to Unix epoch time, AWS IoT SiteWise accepts only TQVs that have a timestamp of no more
-   *         than 7 days in the past and no more than 10 minutes in the future. AWS IoT SiteWise rejects timestamps
+   *             <p>With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a timestamp of no more
+   *         than 7 days in the past and no more than 10 minutes in the future. IoT SiteWise rejects timestamps
    *         outside of the inclusive range of [-7 days, +10 minutes] and returns a
    *           <code>TimestampOutOfRangeException</code> error.</p>
-   *             <p>For each asset property, AWS IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer
+   *             <p>For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer
    *         TQV has a different quality. For example, if you store a TQV <code>{T1, GOOD, V1}</code>,
    *         then storing <code>{T1, GOOD, V2}</code> replaces the existing TQV.</p>
    *          </important>
-   *          <p>AWS IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually.
+   *          <p>IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually.
    *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action">BatchPutAssetPropertyValue authorization</a> in the
-   *       <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       <i>IoT SiteWise User Guide</i>.</p>
    */
   public batchPutAssetPropertyValue(
     args: BatchPutAssetPropertyValueCommandInput,
@@ -427,8 +437,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Creates an access policy that grants the specified identity (AWS SSO user, AWS SSO group, or
-   *       IAM user) access to the specified AWS IoT SiteWise Monitor portal or project resource.</p>
+   * <p>Creates an access policy that grants the specified identity (Amazon Web Services SSO user, Amazon Web Services SSO group, or
+   *       IAM user) access to the specified IoT SiteWise Monitor portal or project resource.</p>
    */
   public createAccessPolicy(
     args: CreateAccessPolicyCommandInput,
@@ -461,7 +471,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Creates an asset from an existing asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html">Creating assets</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   public createAsset(args: CreateAssetCommandInput, options?: __HttpHandlerOptions): Promise<CreateAssetCommandOutput>;
   public createAsset(args: CreateAssetCommandInput, cb: (err: any, data?: CreateAssetCommandOutput) => void): void;
@@ -491,7 +501,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
    *       assets from asset models. With asset models, you can easily create assets of the same type
    *       that have standardized definitions. Each asset created from a model inherits the asset model's
    *       property and hierarchy definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html">Defining asset models</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   public createAssetModel(
     args: CreateAssetModelCommandInput,
@@ -523,7 +533,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Creates a dashboard in an AWS IoT SiteWise Monitor project.</p>
+   * <p>Creates a dashboard in an IoT SiteWise Monitor project.</p>
    */
   public createDashboard(
     args: CreateDashboardCommandInput,
@@ -556,8 +566,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Creates a gateway, which is a virtual or edge device that delivers industrial data streams
-   *       from local servers to AWS IoT SiteWise. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html">Ingesting data using a gateway</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       from local servers to IoT SiteWise. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html">Ingesting data using a gateway</a> in the
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   public createGateway(
     args: CreateGatewayCommandInput,
@@ -589,12 +599,12 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Creates a portal, which can contain projects and dashboards. AWS IoT SiteWise Monitor uses AWS SSO or IAM
+   * <p>Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses Amazon Web Services SSO or IAM
    *       to authenticate portal users and manage user permissions.</p>
    *          <note>
    *             <p>Before you can sign in to a new portal, you must add at least one identity to that
    *         portal. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins">Adding or removing portal
-   *           administrators</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *           administrators</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          </note>
    */
   public createPortal(
@@ -657,7 +667,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Deletes an access policy that grants the specified identity access to the specified
-   *       AWS IoT SiteWise Monitor resource. You can use this operation to revoke access to an AWS IoT SiteWise Monitor
+   *       IoT SiteWise Monitor resource. You can use this operation to revoke access to an IoT SiteWise Monitor
    *       resource.</p>
    */
   public deleteAccessPolicy(
@@ -691,8 +701,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Deletes an asset. This action can't be undone. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and
-   *         models</a> in the <i>AWS IoT SiteWise User Guide</i>.
-   *       </p>
+   *         models</a> in the <i>IoT SiteWise User Guide</i>. </p>
    *          <note>
    *             <p>You can't delete an asset that's associated to another asset. For more information, see
    *           <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DisassociateAssets.html">DisassociateAssets</a>.</p>
@@ -726,7 +735,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
    *       from an asset model before you can delete the model. Also, you can't delete an asset model if
    *       a parent asset model exists that contains a property formula expression that depends on the
    *       asset model that you want to delete. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and models</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   public deleteAssetModel(
     args: DeleteAssetModelCommandInput,
@@ -758,7 +767,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Deletes a dashboard from AWS IoT SiteWise Monitor.</p>
+   * <p>Deletes a dashboard from IoT SiteWise Monitor.</p>
    */
   public deleteDashboard(
     args: DeleteDashboardCommandInput,
@@ -790,7 +799,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Deletes a gateway from AWS IoT SiteWise. When you delete a gateway, some of the gateway's files remain
+   * <p>Deletes a gateway from IoT SiteWise. When you delete a gateway, some of the gateway's files remain
    *       in your gateway's file system.</p>
    */
   public deleteGateway(
@@ -823,7 +832,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Deletes a portal from AWS IoT SiteWise Monitor.</p>
+   * <p>Deletes a portal from IoT SiteWise Monitor.</p>
    */
   public deletePortal(
     args: DeletePortalCommandInput,
@@ -852,7 +861,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Deletes a project from AWS IoT SiteWise Monitor.</p>
+   * <p>Deletes a project from IoT SiteWise Monitor.</p>
    */
   public deleteProject(
     args: DeleteProjectCommandInput,
@@ -884,7 +893,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Describes an access policy, which specifies an identity's access to an AWS IoT SiteWise Monitor portal or
+   * <p>Describes an access policy, which specifies an identity's access to an IoT SiteWise Monitor portal or
    *       project.</p>
    */
   public describeAccessPolicy(
@@ -1052,9 +1061,9 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Retrieves information about the default encryption configuration for the
-   *       AWS account in the default or specified region. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a>
-   *       in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   * <p>Retrieves information about the default encryption configuration for the Amazon Web Services account in
+   *       the default or specified Region. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a> in the
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   public describeDefaultEncryptionConfiguration(
     args: DescribeDefaultEncryptionConfigurationCommandInput,
@@ -1123,7 +1132,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
    * <p>Retrieves information about a gateway capability configuration.
    *       Each gateway capability defines data sources for a gateway. A capability configuration
    *       can contain multiple data source configurations. If you define OPC-UA sources for a gateway in
-   *       the AWS IoT SiteWise console, all of your OPC-UA sources are stored in one capability configuration. To
+   *       the IoT SiteWise console, all of your OPC-UA sources are stored in one capability configuration. To
    *       list all capability configurations for a gateway, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html">DescribeGateway</a>.</p>
    */
   public describeGatewayCapabilityConfiguration(
@@ -1158,7 +1167,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Retrieves the current AWS IoT SiteWise logging options.</p>
+   * <p>Retrieves the current IoT SiteWise logging options.</p>
    */
   public describeLoggingOptions(
     args: DescribeLoggingOptionsCommandInput,
@@ -1254,6 +1263,38 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
+   * <p>Retrieves information about the storage configuration for IoT SiteWise.</p>
+   */
+  public describeStorageConfiguration(
+    args: DescribeStorageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStorageConfigurationCommandOutput>;
+  public describeStorageConfiguration(
+    args: DescribeStorageConfigurationCommandInput,
+    cb: (err: any, data?: DescribeStorageConfigurationCommandOutput) => void
+  ): void;
+  public describeStorageConfiguration(
+    args: DescribeStorageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStorageConfigurationCommandOutput) => void
+  ): void;
+  public describeStorageConfiguration(
+    args: DescribeStorageConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStorageConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStorageConfigurationCommandOutput) => void
+  ): Promise<DescribeStorageConfigurationCommandOutput> | void {
+    const command = new DescribeStorageConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates a child asset from the given parent asset through a hierarchy defined in the
    *       parent asset's model.</p>
    */
@@ -1288,7 +1329,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Gets aggregated values for an asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying
-   *         aggregates</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>To identify an asset property, you must specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -1331,7 +1372,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Gets an asset property's current value. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
-   *         current values</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>To identify an asset property, you must specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -1374,7 +1415,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Gets the history of an asset property's values. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying
-   *         historical values</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>To identify an asset property, you must specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -1416,12 +1457,9 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Get interpolated values for an asset property for a specified time interval, during a
-   *       period of time. For example, you can use the this operation to return the interpolated temperature values for a wind turbine every 24 hours
+   * <p>Get interpolated values for an asset property for a specified time interval, during a period of time.
+   *       For example, you can use the this operation to return the interpolated temperature values for a wind turbine every 24 hours
    *       over a duration of 7 days.</p>
-   *          <note>
-   *             <p>This API isn't available in China (Beijing).</p>
-   *          </note>
    *          <p>To identify an asset property, you must specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -1463,8 +1501,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Retrieves a paginated list of access policies for an identity (an AWS SSO user, an AWS SSO
-   *       group, or an IAM user) or an AWS IoT SiteWise Monitor resource (a portal or project).</p>
+   * <p>Retrieves a paginated list of access policies for an identity (an Amazon Web Services SSO user, an Amazon Web Services SSO
+   *       group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or project).</p>
    */
   public listAccessPolicies(
     args: ListAccessPoliciesCommandInput,
@@ -1641,7 +1679,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Retrieves a paginated list of dashboards for an AWS IoT SiteWise Monitor project.</p>
+   * <p>Retrieves a paginated list of dashboards for an IoT SiteWise Monitor project.</p>
    */
   public listDashboards(
     args: ListDashboardsCommandInput,
@@ -1702,7 +1740,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Retrieves a paginated list of AWS IoT SiteWise Monitor portals.</p>
+   * <p>Retrieves a paginated list of IoT SiteWise Monitor portals.</p>
    */
   public listPortals(args: ListPortalsCommandInput, options?: __HttpHandlerOptions): Promise<ListPortalsCommandOutput>;
   public listPortals(args: ListPortalsCommandInput, cb: (err: any, data?: ListPortalsCommandOutput) => void): void;
@@ -1728,7 +1766,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Retrieves a paginated list of assets associated with an AWS IoT SiteWise Monitor project.</p>
+   * <p>Retrieves a paginated list of assets associated with an IoT SiteWise Monitor project.</p>
    */
   public listProjectAssets(
     args: ListProjectAssetsCommandInput,
@@ -1760,7 +1798,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Retrieves a paginated list of projects for an AWS IoT SiteWise Monitor portal.</p>
+   * <p>Retrieves a paginated list of projects for an IoT SiteWise Monitor portal.</p>
    */
   public listProjects(
     args: ListProjectsCommandInput,
@@ -1789,7 +1827,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Retrieves the list of tags for an AWS IoT SiteWise resource.</p>
+   * <p>Retrieves the list of tags for an IoT SiteWise resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1821,9 +1859,9 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Sets the default encryption configuration for the AWS
-   *       account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a>
-   *       in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   * <p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a> in
+   *       the <i>IoT SiteWise User Guide</i>.</p>
    */
   public putDefaultEncryptionConfiguration(
     args: PutDefaultEncryptionConfigurationCommandInput,
@@ -1855,7 +1893,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Sets logging options for AWS IoT SiteWise.</p>
+   * <p>Sets logging options for IoT SiteWise.</p>
    */
   public putLoggingOptions(
     args: PutLoggingOptionsCommandInput,
@@ -1887,7 +1925,39 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Adds tags to an AWS IoT SiteWise resource. If a tag already exists for the resource, this operation
+   * <p>Configures storage settings for IoT SiteWise.</p>
+   */
+  public putStorageConfiguration(
+    args: PutStorageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutStorageConfigurationCommandOutput>;
+  public putStorageConfiguration(
+    args: PutStorageConfigurationCommandInput,
+    cb: (err: any, data?: PutStorageConfigurationCommandOutput) => void
+  ): void;
+  public putStorageConfiguration(
+    args: PutStorageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutStorageConfigurationCommandOutput) => void
+  ): void;
+  public putStorageConfiguration(
+    args: PutStorageConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutStorageConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutStorageConfigurationCommandOutput) => void
+  ): Promise<PutStorageConfigurationCommandOutput> | void {
+    const command = new PutStorageConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds tags to an IoT SiteWise resource. If a tag already exists for the resource, this operation
    *       updates the tag's value.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1914,7 +1984,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Removes a tag from an AWS IoT SiteWise resource.</p>
+   * <p>Removes a tag from an IoT SiteWise resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1946,7 +2016,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Updates an existing access policy that specifies an identity's access to an AWS IoT SiteWise Monitor
+   * <p>Updates an existing access policy that specifies an identity's access to an IoT SiteWise Monitor
    *       portal or project resource.</p>
    */
   public updateAccessPolicy(
@@ -1980,7 +2050,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Updates an asset's name. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   public updateAsset(args: UpdateAssetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAssetCommandOutput>;
   public updateAsset(args: UpdateAssetCommandInput, cb: (err: any, data?: UpdateAssetCommandOutput) => void): void;
@@ -2009,13 +2079,13 @@ export class IoTSiteWise extends IoTSiteWiseClient {
    * <p>Updates an asset model and all of the assets that were created from the model. Each asset
    *       created from the model inherits the updated asset model's property and hierarchy definitions.
    *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    *          <important>
    *             <p>This operation overwrites the existing model with the provided model. To avoid deleting
    *         your asset model's properties or hierarchies, you must include their IDs and definitions in
    *         the updated asset model payload. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html">DescribeAssetModel</a>.</p>
-   *             <p>If you remove a property from an asset model, AWS IoT SiteWise deletes all previous data for that
-   *         property. If you remove a hierarchy definition from an asset model, AWS IoT SiteWise disassociates every
+   *             <p>If you remove a property from an asset model, IoT SiteWise deletes all previous data for that
+   *         property. If you remove a hierarchy definition from an asset model, IoT SiteWise disassociates every
    *         asset associated with that hierarchy. You can't change the type or data type of an existing
    *         property.</p>
    *          </important>
@@ -2087,7 +2157,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Updates an AWS IoT SiteWise Monitor dashboard.</p>
+   * <p>Updates an IoT SiteWise Monitor dashboard.</p>
    */
   public updateDashboard(
     args: UpdateDashboardCommandInput,
@@ -2154,7 +2224,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
    * <p>Updates a gateway capability configuration or defines a new capability configuration.
    *       Each gateway capability defines data sources for a gateway. A capability configuration
    *       can contain multiple data source configurations. If you define OPC-UA sources for a gateway in
-   *       the AWS IoT SiteWise console, all of your OPC-UA sources are stored in one capability configuration. To
+   *       the IoT SiteWise console, all of your OPC-UA sources are stored in one capability configuration. To
    *       list all capability configurations for a gateway, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html">DescribeGateway</a>.</p>
    */
   public updateGatewayCapabilityConfiguration(
@@ -2187,7 +2257,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Updates an AWS IoT SiteWise Monitor portal.</p>
+   * <p>Updates an IoT SiteWise Monitor portal.</p>
    */
   public updatePortal(
     args: UpdatePortalCommandInput,
@@ -2216,7 +2286,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Updates an AWS IoT SiteWise Monitor project.</p>
+   * <p>Updates an IoT SiteWise Monitor project.</p>
    */
   public updateProject(
     args: UpdateProjectCommandInput,

@@ -26,7 +26,7 @@ export interface PutFindingsPublicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the configuration settings for publishing findings to AWS Security Hub.</p>
+ * <p>Updates the configuration settings for publishing findings to Security Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

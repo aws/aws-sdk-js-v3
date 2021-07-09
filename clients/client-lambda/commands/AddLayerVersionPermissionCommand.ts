@@ -21,10 +21,10 @@ export interface AddLayerVersionPermissionCommandInput extends AddLayerVersionPe
 export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionPermissionResponse, __MetadataBearer {}
 
 /**
- * <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ * <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. Use this action to grant layer
- *       usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all
- *       accounts in an organization.</p>
+ *       usage permission to other accounts. You can grant permission to a single account, all accounts in an organization,
+ *       or all Amazon Web Services accounts.  </p>
  *          <p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you
  *       specified when you added it.</p>
  * @example

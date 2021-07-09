@@ -22,7 +22,7 @@ export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropert
 
 /**
  * <p>Gets aggregated values for an asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying
- *         aggregates</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ *         aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
  *          <ul>
  *             <li>

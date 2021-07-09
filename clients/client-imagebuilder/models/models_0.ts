@@ -1,6 +1,60 @@
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+/**
+ * <p>Contains settings for the SSM agent on your build instance.</p>
+ */
+export interface SystemsManagerAgent {
+  /**
+   * <p>This property defaults to true. If Image Builder installs the SSM agent on a build
+   * 			instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.</p>
+   */
+  uninstallAfterBuild?: boolean;
+}
+
+export namespace SystemsManagerAgent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SystemsManagerAgent): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>In addition to your infrastruction configuration, these settings provide an extra layer of
+ * 			control over your build instances. For instances where Image Builder installs the SSM agent,
+ * 			you can choose whether to keep it for the AMI that you create. You can also specify commands
+ * 			to run on launch for all of your build instances.</p>
+ */
+export interface AdditionalInstanceConfiguration {
+  /**
+   * <p>Contains settings for the SSM agent on your build instance.</p>
+   */
+  systemsManagerAgent?: SystemsManagerAgent;
+
+  /**
+   * <p>Use this property to provide commands or a command script to run when you launch
+   * 			your build instance.</p>
+   * 		       <note>
+   * 			         <p>The userDataOverride property replaces any commands that Image Builder might have added to ensure
+   * 				that SSM is installed on your Linux build instance. If you override the user data,
+   * 				make sure that you add commands to install SSM, if it is not pre-installed on your
+   * 				source image.</p>
+   * 		       </note>
+   */
+  userDataOverride?: string;
+}
+
+export namespace AdditionalInstanceConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AdditionalInstanceConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum ImageStatus {
   AVAILABLE = "AVAILABLE",
   BUILDING = "BUILDING",
@@ -40,26 +94,26 @@ export namespace ImageState {
 }
 
 /**
- * <p> Details of an EC2 AMI.</p>
+ * <p> Details of an Amazon EC2 AMI.</p>
  */
 export interface Ami {
   /**
-   * <p>The AWS Region of the EC2 AMI.</p>
+   * <p>The Region of the Amazon EC2 AMI.</p>
    */
   region?: string;
 
   /**
-   * <p>The AMI ID of the EC2 AMI.</p>
+   * <p>The AMI ID of the Amazon EC2 AMI.</p>
    */
   image?: string;
 
   /**
-   * <p>The name of the EC2 AMI.</p>
+   * <p>The name of the Amazon EC2 AMI.</p>
    */
   name?: string;
 
   /**
-   * <p>The description of the EC2 AMI. Minimum and maximum length are in characters.</p>
+   * <p>The description of the Amazon EC2 AMI. Minimum and maximum length are in characters.</p>
    */
   description?: string;
 
@@ -85,14 +139,14 @@ export namespace Ami {
 
 /**
  * <p>Describes the configuration for a launch permission. The launch permission modification request is sent to the
- *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">EC2 ModifyImageAttribute</a>
+ *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>
  *       API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public,
  *       set the launch permission authorized accounts to <code>all</code>. See the examples for making an AMI public at
- *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">EC2 ModifyImageAttribute</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>.</p>
  */
 export interface LaunchPermissionConfiguration {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The account ID.</p>
    */
   userIds?: string[];
 
@@ -141,7 +195,7 @@ export interface AmiDistributionConfiguration {
   kmsKeyId?: string;
 
   /**
-   * <p> Launch permissions can be used to configure which AWS accounts can use the AMI to launch
+   * <p> Launch permissions can be used to configure which accounts can use the AMI to launch
    *       instances.</p>
    */
   launchPermission?: LaunchPermissionConfiguration;
@@ -351,6 +405,40 @@ export namespace ServiceUnavailableException {
   });
 }
 
+/**
+ * <p>Defines a parameter that is used to provide configuration details for the component.</p>
+ */
+export interface ComponentParameterDetail {
+  /**
+   * <p>The name of this input parameter.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of input this parameter provides. The currently supported value is "string".</p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The default value of this parameter if no input is provided.</p>
+   */
+  defaultValue?: string[];
+
+  /**
+   * <p>Describes this parameter.</p>
+   */
+  description?: string;
+}
+
+export namespace ComponentParameterDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ComponentParameterDetail): any => ({
+    ...obj,
+  });
+}
+
 export enum Platform {
   LINUX = "Linux",
   WINDOWS = "Windows",
@@ -409,6 +497,11 @@ export interface Component {
   supportedOsVersions?: string[];
 
   /**
+   * <p>Contains parameter details for each of the parameters that are defined for the component.</p>
+   */
+  parameters?: ComponentParameterDetail[];
+
+  /**
    * <p>The owner of the component.</p>
    */
   owner?: string;
@@ -449,6 +542,30 @@ export namespace Component {
 }
 
 /**
+ * <p>Contains a key/value pair that sets the named component parameter.</p>
+ */
+export interface ComponentParameter {
+  /**
+   * <p>The name of the component parameter to set.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Sets the value for the named component parameter.</p>
+   */
+  value: string[] | undefined;
+}
+
+export namespace ComponentParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ComponentParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> Configuration details of the component.</p>
  */
 export interface ComponentConfiguration {
@@ -456,6 +573,11 @@ export interface ComponentConfiguration {
    * <p>The Amazon Resource Name (ARN) of the component.</p>
    */
   componentArn: string | undefined;
+
+  /**
+   * <p>A group of parameter settings that are used to configure the component for a specific recipe.</p>
+   */
+  parameters?: ComponentParameter[];
 }
 
 export namespace ComponentConfiguration {
@@ -1005,8 +1127,8 @@ export interface CreateComponentRequest {
   data?: string;
 
   /**
-   * <p>The uri of the component. Must be an S3 URL and the requester must have permission to
-   *       access the S3 bucket. If you use S3, you can specify component content up to your service
+   * <p>The uri of the component. Must be an Amazon S3 URL and the requester must have permission to
+   *       access the Amazon S3 bucket. If you use Amazon S3, you can specify component content up to your service
    *       quota. Either <code>data</code> or <code>uri</code> can be used to specify the data within the
    *       component.</p>
    */
@@ -1155,7 +1277,7 @@ export interface CreateContainerRecipeRequest {
   dockerfileTemplateData?: string;
 
   /**
-   * <p>The S3 URI for the Dockerfile that will be used to build your container image.</p>
+   * <p>The Amazon S3 URI for the Dockerfile that will be used to build your container image.</p>
    */
   dockerfileTemplateUri?: string;
 
@@ -1254,11 +1376,11 @@ export namespace ResourceAlreadyExistsException {
 }
 
 /**
- * <p>Identifies an EC2 launch template to use for a specific account.</p>
+ * <p>Identifies an Amazon EC2 launch template to use for a specific account.</p>
  */
 export interface LaunchTemplateConfiguration {
   /**
-   * <p>Identifies the EC2 launch template to use.</p>
+   * <p>Identifies the Amazon EC2 launch template to use.</p>
    */
   launchTemplateId: string | undefined;
 
@@ -1268,7 +1390,7 @@ export interface LaunchTemplateConfiguration {
   accountId?: string;
 
   /**
-   * <p>Set the specified EC2 launch template as the default launch template for the specified account.</p>
+   * <p>Set the specified Amazon EC2 launch template as the default launch template for the specified account.</p>
    */
   setDefaultVersion?: boolean;
 }
@@ -1671,10 +1793,10 @@ export interface CreateImageRecipeRequest {
   /**
    * <p>The parent image of the image recipe. The value of the string can be the ARN of the parent
    *       image or an AMI ID. The format for the ARN follows this example:
-   *         <code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/x.x.x</code>.
-   *       You can provide the specific version that you want to use, or you can use a wildcard in all of
-   *       the fields. If you enter an AMI ID for the string value, you must have access to the AMI, and
-   *       the AMI must be in the same Region in which you are using Image Builder.</p>
+   *     	<code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/x.x.x</code>.
+   *     	You can provide the specific version that you want to use, or you can use a wildcard in
+   *     	all of the fields. If you enter an AMI ID for the string value, you must have access to the AMI,
+   *     	and the AMI must be in the same Region in which you are using Image Builder.</p>
    */
   parentImage: string | undefined;
 
@@ -1689,9 +1811,14 @@ export interface CreateImageRecipeRequest {
   tags?: { [key: string]: string };
 
   /**
-   * <p>The working directory to be used during build and test workflows.</p>
+   * <p>The working directory used during build and test workflows.</p>
    */
   workingDirectory?: string;
+
+  /**
+   * <p>Specify additional settings and launch scripts for your build instances.</p>
+   */
+  additionalInstanceConfiguration?: AdditionalInstanceConfiguration;
 
   /**
    * <p>The idempotency token used to make this request idempotent.</p>
@@ -1796,17 +1923,17 @@ export interface CreateInfrastructureConfigurationRequest {
   instanceTypes?: string[];
 
   /**
-   * <p>The instance profile to associate with the instance used to customize your EC2 AMI.</p>
+   * <p>The instance profile to associate with the instance used to customize your Amazon EC2 AMI.</p>
    */
   instanceProfileName: string | undefined;
 
   /**
-   * <p>The security group IDs to associate with the instance used to customize your EC2 AMI.</p>
+   * <p>The security group IDs to associate with the instance used to customize your Amazon EC2 AMI.</p>
    */
   securityGroupIds?: string[];
 
   /**
-   * <p>The subnet ID in which to place the instance used to customize your EC2 AMI.</p>
+   * <p>The subnet ID in which to place the instance used to customize your Amazon EC2 AMI.</p>
    */
   subnetId?: string;
 
@@ -2529,7 +2656,8 @@ export interface ImageRecipe {
   arn?: string;
 
   /**
-   * <p>Specifies which type of image is created by the recipe - an AMI or a container image.</p>
+   * <p>Specifies which type of image is created by the recipe - an AMI or a
+   *     	container image.</p>
    */
   type?: ImageType | string;
 
@@ -2587,6 +2715,14 @@ export interface ImageRecipe {
    * <p>The working directory to be used during build and test workflows.</p>
    */
   workingDirectory?: string;
+
+  /**
+   * <p>Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to
+   *     	build and test your image configuration. Instance configuration adds a layer
+   *     	of control over those instances. You can define settings and add scripts to
+   *     	run when an instance is launched from your AMI.</p>
+   */
+  additionalInstanceConfiguration?: AdditionalInstanceConfiguration;
 }
 
 export namespace ImageRecipe {
@@ -2643,7 +2779,7 @@ export interface InfrastructureConfiguration {
   logging?: Logging;
 
   /**
-   * <p>The EC2 key pair of the infrastructure configuration.</p>
+   * <p>The Amazon EC2 key pair of the infrastructure configuration.</p>
    */
   keyPair?: string;
 
@@ -2693,7 +2829,7 @@ export namespace InfrastructureConfiguration {
  */
 export interface OutputResources {
   /**
-   * <p>The EC2 AMIs created by this image.</p>
+   * <p>The Amazon EC2 AMIs created by this image.</p>
    */
   amis?: Ami[];
 
@@ -3183,8 +3319,8 @@ export interface ImportComponentRequest {
   data?: string;
 
   /**
-   * <p>The uri of the component. Must be an S3 URL and the requester must have permission to
-   *       access the S3 bucket. If you use S3, you can specify component content up to your service
+   * <p>The uri of the component. Must be an Amazon S3 URL and the requester must have permission to
+   *       access the Amazon S3 bucket. If you use Amazon S3, you can specify component content up to your service
    *       quota. Either <code>data</code> or <code>uri</code> can be used to specify the data within the
    *       component.</p>
    */
@@ -4095,7 +4231,7 @@ export namespace ListInfrastructureConfigurationsRequest {
 }
 
 /**
- * <p>The infrastructure used when building EC2 AMIs.</p>
+ * <p>The infrastructure used when building Amazon EC2 AMIs.</p>
  */
 export interface InfrastructureConfigurationSummary {
   /**
@@ -4704,17 +4840,17 @@ export interface UpdateInfrastructureConfigurationRequest {
   instanceTypes?: string[];
 
   /**
-   * <p>The instance profile to associate with the instance used to customize your EC2 AMI.</p>
+   * <p>The instance profile to associate with the instance used to customize your Amazon EC2 AMI.</p>
    */
   instanceProfileName: string | undefined;
 
   /**
-   * <p>The security group IDs to associate with the instance used to customize your EC2 AMI.</p>
+   * <p>The security group IDs to associate with the instance used to customize your Amazon EC2 AMI.</p>
    */
   securityGroupIds?: string[];
 
   /**
-   * <p>The subnet ID to place the instance used to customize your EC2 AMI in.</p>
+   * <p>The subnet ID to place the instance used to customize your Amazon EC2 AMI in.</p>
    */
   subnetId?: string;
 

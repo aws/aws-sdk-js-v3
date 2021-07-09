@@ -19,7 +19,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
 
 /**
  * <p>Lists the IAM users that have the specified path prefix. If no path prefix is
- *             specified, the operation returns all users in the AWS account. If there are none, the
+ *             specified, the operation returns all users in the account. If there are none, the
  *             operation returns an empty list.</p>
  *         <note>
  *             <p>IAM resource-listing operations return a subset of the available

@@ -21,7 +21,7 @@ export interface DeleteAppsListCommandInput extends DeleteAppsListRequest {}
 export interface DeleteAppsListCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Permanently deletes an AWS Firewall Manager applications list.</p>
+ * <p>Permanently deletes an Firewall Manager applications list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

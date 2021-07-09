@@ -98,6 +98,45 @@ export namespace AdBreak {
 }
 
 /**
+ * <p>Alert configuration parameters.</p>
+ */
+export interface Alert {
+  /**
+   * <p>The code for the alert. For example, NOT_PROCESSED.</p>
+   */
+  AlertCode: string | undefined;
+
+  /**
+   * <p>If an alert is generated for a resource, an explanation of the reason for the alert.</p>
+   */
+  AlertMessage: string | undefined;
+
+  /**
+   * <p>The timestamp when the alert was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) related to this alert.</p>
+   */
+  RelatedResourceArns: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace Alert {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Alert): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Dash manifest configuration parameters.</p>
  */
 export interface DashPlaylistSettings {
@@ -1968,6 +2007,53 @@ export namespace GetPlaybackConfigurationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetPlaybackConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAlertsRequest {
+  /**
+   * <p>Upper bound on number of records to return. The maximum number of results is 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Pagination token from the GET list request. Use the token to fetch the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListAlertsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAlertsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAlertsResponse {
+  /**
+   * <p>An array of alerts that are associated with this resource.</p>
+   */
+  Items?: Alert[];
+
+  /**
+   * <p>Pagination token from the list request. Use the token to fetch the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAlertsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAlertsResponse): any => ({
     ...obj,
   });
 }

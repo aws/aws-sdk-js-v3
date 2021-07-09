@@ -8,6 +8,7 @@ export enum AddonIssueCode {
   CONFIGURATION_CONFLICT = "ConfigurationConflict",
   INSUFFICIENT_NUMBER_OF_REPLICAS = "InsufficientNumberOfReplicas",
   INTERNAL_FAILURE = "InternalFailure",
+  UNSUPPORTED_ADDON_MODIFICATION = "UnsupportedAddonModification",
 }
 
 /**
@@ -313,6 +314,7 @@ export enum ErrorCode {
   SECURITY_GROUP_NOT_FOUND = "SecurityGroupNotFound",
   SUBNET_NOT_FOUND = "SubnetNotFound",
   UNKNOWN = "Unknown",
+  UNSUPPORTED_ADDON_MODIFICATION = "UnsupportedAddonModification",
   VPC_ID_NOT_FOUND = "VpcIdNotFound",
 }
 

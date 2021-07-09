@@ -21,7 +21,7 @@ export interface CreateDashboardCommandInput extends CreateDashboardRequest {}
 export interface CreateDashboardCommandOutput extends CreateDashboardResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a dashboard in an AWS IoT SiteWise Monitor project.</p>
+ * <p>Creates a dashboard in an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

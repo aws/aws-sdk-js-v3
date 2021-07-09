@@ -21,7 +21,7 @@ export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Permanently deletes an AWS Firewall Manager policy. </p>
+ * <p>Permanently deletes an Firewall Manager policy. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

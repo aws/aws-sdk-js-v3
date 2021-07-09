@@ -23,7 +23,7 @@ export interface BatchDisassociateProjectAssetsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disassociates a group (batch) of assets from an AWS IoT SiteWise Monitor project.</p>
+ * <p>Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

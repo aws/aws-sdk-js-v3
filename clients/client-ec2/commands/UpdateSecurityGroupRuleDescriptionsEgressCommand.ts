@@ -29,10 +29,8 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
 /**
  * <p>[VPC only] Updates the description of an egress (outbound) security group rule. You
  * 			can replace an existing description, or add a description to a rule that did not have one
- * 			previously.</p>
- * 		       <p>You specify the description as part of the IP permissions structure. You can remove a
- * 			description for a security group rule by omitting the description parameter in the
- * 			request.</p>
+ * 			previously. You can remove a description for a security group rule by omitting the
+ * 			description parameter in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

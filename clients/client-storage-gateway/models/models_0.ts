@@ -81,7 +81,7 @@ export interface ActivateGatewayInput {
    *
    *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html">Getting activation
-   *             key</a> in the <i>AWS Storage Gateway User Guide</i>.</p>
+   *          key</a> in the <i>Storage Gateway User Guide</i>.</p>
    */
   ActivationKey: string | undefined;
 
@@ -100,15 +100,16 @@ export interface ActivateGatewayInput {
   GatewayTimezone: string | undefined;
 
   /**
-   * <p>A value that indicates the AWS Region where you want to store your data. The gateway AWS
-   *          Region specified must be the same AWS Region as the AWS Region in your <code>Host</code>
-   *          header in the request. For more information about available AWS Regions and endpoints for
-   *          AWS Storage Gateway, see <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">AWS
-   *             Storage Gateway endpoints and quotas</a> in the <i>AWS General
+   * <p>A value that indicates the Region where you want to store your data.
+   *          The gateway Region specified must be the same Region
+   *          as the Region in your <code>Host</code>
+   *          header in the request. For more information about available Regions and endpoints for
+   *          Storage Gateway, see <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">
+   *             Storage Gateway endpoints and quotas</a> in the <i>Amazon Web Services General
    *             Reference</i>.</p>
    *
-   *          <p>Valid Values: See <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">AWS
-   *             Storage Gateway endpoints and quotas</a> in the <i>AWS General
+   *          <p>Valid Values: See <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">
+   *          Storage Gateway endpoints and quotas</a> in the <i>Amazon Web Services General
    *             Reference</i>.
    *
    *       </p>
@@ -121,7 +122,7 @@ export interface ActivateGatewayInput {
    *          value is <code>CACHED</code>.</p>
    *
    *          <p>Valid Values: <code>STORED</code> | <code>CACHED</code> | <code>VTL</code> |
-   *             <code>FILE_S3</code>
+   *          <code>FILE_S3</code> | <code>FILE_FSX_SMB|</code>
    *          </p>
    */
   GatewayType?: string;
@@ -169,8 +170,8 @@ export namespace ActivateGatewayInput {
 }
 
 /**
- * <p>AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It
- *          is a string made of information such as your account, gateway name, and AWS Region. This
+ * <p>Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It
+ *          is a string made of information such as your account, gateway name, and Region. This
  *          ARN is used to reference the gateway in other API operations as well as resource-based
  *          authorization.</p>
  *
@@ -183,7 +184,7 @@ export namespace ActivateGatewayInput {
 export interface ActivateGatewayOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -355,7 +356,7 @@ export type ActiveDirectoryStatus =
 export interface AddCacheInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -379,7 +380,7 @@ export namespace AddCacheInput {
 export interface AddCacheOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -447,7 +448,7 @@ export namespace AddTagsToResourceOutput {
 export interface AddUploadBufferInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -471,7 +472,7 @@ export namespace AddUploadBufferInput {
 export interface AddUploadBufferOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -499,7 +500,7 @@ export namespace AddUploadBufferOutput {
 export interface AddWorkingStorageInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -527,7 +528,7 @@ export namespace AddWorkingStorageInput {
 export interface AddWorkingStorageOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -600,7 +601,7 @@ export namespace AssignTapePoolOutput {
 }
 
 /**
- * <p>The refresh cache information for the file share.</p>
+ * <p>The refresh cache information for the file share or FSx file systems.</p>
  */
 export interface CacheAttributes {
   /**
@@ -609,7 +610,7 @@ export interface CacheAttributes {
    *          gateway to first refresh that directory's contents from the Amazon S3 bucket or Amazon FSx file system. The TTL
    *          duration is in seconds.</p>
    *
-   *          <p>Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)</p>
+   *          <p>Valid Values:0, 300 to 2,592,000 seconds (5 minutes to 30 days)</p>
    */
   CacheStaleTimeoutInSeconds?: number;
 }
@@ -619,6 +620,29 @@ export namespace CacheAttributes {
    * @internal
    */
   export const filterSensitiveLog = (obj: CacheAttributes): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies network configuration information for the gateway associated with the
+ *          Amazon FSx file system.</p>
+ */
+export interface EndpointNetworkConfiguration {
+  /**
+   * <p>A list of gateway IP addresses on which the associated Amazon FSx file system is available.</p>
+   *          <note>
+   *             <p>If multiple file systems are associated with this gateway, this field is required.</p>
+   *          </note>
+   */
+  IpAddresses?: string[];
+}
+
+export namespace EndpointNetworkConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EndpointNetworkConfiguration): any => ({
     ...obj,
   });
 }
@@ -637,20 +661,20 @@ export interface AssociateFileSystemInput {
   Password: string | undefined;
 
   /**
-   * <p>A unique string value that you supply that is used by the file gateway to ensure
+   * <p>A unique string value that you supply that is used by the FSx File Gateway to ensure
    *          idempotent file system association creation.</p>
    */
   ClientToken: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the
-   *          Amazon FSx file gateway.</p>
+   *          FSx File Gateway.</p>
    */
   LocationARN: string | undefined;
 
@@ -665,9 +689,17 @@ export interface AssociateFileSystemInput {
   AuditDestinationARN?: string;
 
   /**
-   * <p>The refresh cache information for the file share.</p>
+   * <p>The refresh cache information for the file share or FSx file systems.</p>
    */
   CacheAttributes?: CacheAttributes;
+
+  /**
+   * <p>Specifies the network configuration information for the gateway associated with the Amazon FSx file system.</p>
+   *          <note>
+   *             <p>If multiple file systems are associated with this gateway, this parameter's <code>IpAddresses</code> field is required.</p>
+   *          </note>
+   */
+  EndpointNetworkConfiguration?: EndpointNetworkConfiguration;
 }
 
 export namespace AssociateFileSystemInput {
@@ -846,7 +878,7 @@ export interface AutomaticTapeCreationPolicyInfo {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -1055,8 +1087,7 @@ export interface CachediSCSIVolume {
   VolumeUsedInBytes?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
@@ -1089,7 +1120,7 @@ export namespace CachediSCSIVolume {
 export interface CancelArchivalInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -1135,7 +1166,7 @@ export namespace CancelArchivalOutput {
 export interface CancelRetrievalInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -1221,7 +1252,7 @@ export namespace ChapInfo {
 export interface CreateCachediSCSIVolumeInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -1274,7 +1305,7 @@ export interface CreateCachediSCSIVolumeInput {
   ClientToken: string | undefined;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
@@ -1283,8 +1314,7 @@ export interface CreateCachediSCSIVolumeInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
@@ -1339,7 +1369,7 @@ export namespace CreateCachediSCSIVolumeOutput {
  *          as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions
  *          assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that
  *          represent files and folders are assigned these default Unix permissions. This operation is
- *          only supported for file gateways.</p>
+ *          only supported for S3 File Gateways.</p>
  */
 export interface NFSFileShareDefaults {
   /**
@@ -1391,7 +1421,7 @@ export type ObjectACL =
  */
 export interface CreateNFSFileShareInput {
   /**
-   * <p>A unique string value that you supply that is used by file gateway to ensure idempotent
+   * <p>A unique string value that you supply that is used by S3 File Gateway to ensure idempotent
    *          file share creation.</p>
    */
   ClientToken: string | undefined;
@@ -1402,13 +1432,13 @@ export interface CreateNFSFileShareInput {
   NFSFileShareDefaults?: NFSFileShareDefaults;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the file gateway on which you want to create a file
+   * <p>The Amazon Resource Name (ARN) of the S3 File Gateway on which you want to create a file
    *          share.</p>
    */
   GatewayARN: string | undefined;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
@@ -1417,14 +1447,13 @@ export interface CreateNFSFileShareInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
 
   /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes
+   * <p>The ARN of the Identity and Access Management (IAM) role that an S3 File Gateway assumes
    *          when it accesses the underlying storage.</p>
    */
   Role: string | undefined;
@@ -1432,11 +1461,21 @@ export interface CreateNFSFileShareInput {
   /**
    * <p>The ARN of the backend storage used for storing file data. A prefix name can be added to
    *          the S3 bucket name. It must end with a "/".</p>
+   *          <note>
+   *             <p>You can specify a bucket attached to an access point using a complete ARN that includes the
+   *             bucket region as shown:</p>
+   *             <p>
+   *                <code>arn:aws:s3:<i>region</i>:<i>account-id</i>:accesspoint/<i>access-point-name</i>
+   *                </code>
+   *             </p>
+   *             <p>If you specify a bucket attached to an access point, the bucket policy must be
+   *             configured to delegate access control to the access point. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control">Delegating access control to access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          </note>
    */
   LocationARN: string | undefined;
 
   /**
-   * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
+   * <p>The default storage class for objects put into an Amazon S3 bucket by the S3 File Gateway.
    *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
    *
    *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
@@ -1447,12 +1486,12 @@ export interface CreateNFSFileShareInput {
 
   /**
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
-   *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
+   *          that a S3 File Gateway puts objects into. The default value is <code>private</code>.</p>
    */
   ObjectACL?: ObjectACL | string;
 
   /**
-   * <p>The list of clients that are allowed to access the file gateway. The list must contain
+   * <p>The list of clients that are allowed to access the S3 File Gateway. The list must contain
    *          either valid IP addresses or valid CIDR blocks.</p>
    */
   ClientList?: string[];
@@ -1572,6 +1611,25 @@ export interface CreateNFSFileShareInput {
    *          </p>
    */
   NotificationPolicy?: string;
+
+  /**
+   * <p>Specifies the DNS name for the VPC endpoint that the NFS file share uses to connect to
+   *          Amazon S3.</p>
+   *          <note>
+   *             <p>This parameter is required for NFS file shares that connect to Amazon S3
+   *             through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p>
+   *          </note>
+   */
+  VPCEndpointDNSName?: string;
+
+  /**
+   * <p>Specifies the Region of the S3 bucket where the NFS file share stores files.</p>
+   *          <note>
+   *             <p>This parameter is required for NFS file shares that connect to Amazon S3
+   *             through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p>
+   *          </note>
+   */
+  BucketRegion?: string;
 }
 
 export namespace CreateNFSFileShareInput {
@@ -1607,18 +1665,18 @@ export namespace CreateNFSFileShareOutput {
  */
 export interface CreateSMBFileShareInput {
   /**
-   * <p>A unique string value that you supply that is used by file gateway to ensure idempotent
+   * <p>A unique string value that you supply that is used by S3 File Gateway to ensure idempotent
    *          file share creation.</p>
    */
   ClientToken: string | undefined;
 
   /**
-   * <p>The ARN of the file gateway on which you want to create a file share.</p>
+   * <p>The ARN of the S3 File Gateway on which you want to create a file share.</p>
    */
   GatewayARN: string | undefined;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
@@ -1627,14 +1685,13 @@ export interface CreateSMBFileShareInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
 
   /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes
+   * <p>The ARN of the Identity and Access Management (IAM) role that an S3 File Gateway assumes
    *          when it accesses the underlying storage.</p>
    */
   Role: string | undefined;
@@ -1642,11 +1699,21 @@ export interface CreateSMBFileShareInput {
   /**
    * <p>The ARN of the backend storage used for storing file data. A prefix name can be added to
    *          the S3 bucket name. It must end with a "/".</p>
+   *          <note>
+   *             <p>You can specify a bucket attached to an access point using a complete ARN that includes the
+   *          bucket region as shown:</p>
+   *             <p>
+   *                <code>arn:aws:s3:<i>region</i>:<i>account-id</i>:accesspoint/<i>access-point-name</i>
+   *                </code>
+   *             </p>
+   *             <p>If you specify a bucket attached to an access point, the bucket policy must be
+   *             configured to delegate access control to the access point. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control">Delegating access control to access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          </note>
    */
   LocationARN: string | undefined;
 
   /**
-   * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
+   * <p>The default storage class for objects put into an Amazon S3 bucket by the S3 File Gateway.
    *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
    *
    *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
@@ -1657,7 +1724,7 @@ export interface CreateSMBFileShareInput {
 
   /**
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
-   *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
+   *          that a S3 File Gateway puts objects into. The default value is <code>private</code>.</p>
    */
   ObjectACL?: ObjectACL | string;
 
@@ -1706,7 +1773,7 @@ export interface CreateSMBFileShareInput {
    *
    *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using Microsoft Windows ACLs to
-   *             control access to an SMB file share</a> in the <i>AWS Storage Gateway User
+   *             control access to an SMB file share</a> in the <i>Storage Gateway User
    *             Guide</i>.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
@@ -1828,6 +1895,35 @@ export interface CreateSMBFileShareInput {
    *          </p>
    */
   NotificationPolicy?: string;
+
+  /**
+   * <p>Specifies the DNS name for the VPC endpoint that the SMB file share uses to connect to Amazon S3.</p>
+   *          <note>
+   *             <p>This parameter is required for SMB file shares that connect to Amazon S3
+   *             through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p>
+   *          </note>
+   */
+  VPCEndpointDNSName?: string;
+
+  /**
+   * <p>Specifies the Region of the S3 bucket where the SMB file share stores files.</p>
+   *          <note>
+   *             <p>This parameter is required for SMB file shares that connect to Amazon S3
+   *             through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p>
+   *          </note>
+   */
+  BucketRegion?: string;
+
+  /**
+   * <p>Specifies whether opportunistic locking is enabled for the SMB file share.</p>
+   *          <note>
+   *             <p>Enabling opportunistic locking on case-sensitive shares is not recommended for workloads that involve
+   *             access to files with the same name in different case.</p>
+   *          </note>
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  OplocksEnabled?: boolean;
 }
 
 export namespace CreateSMBFileShareInput {
@@ -1884,7 +1980,7 @@ export interface CreateSnapshotInput {
   /**
    * <p>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic
    *          Block Store snapshots panel in the <b>Description</b> field, and
-   *          in the AWS Storage Gateway snapshot <b>Details</b> pane,
+   *          in the Storage Gateway snapshot <b>Details</b> pane,
    *             <b>Description</b> field.</p>
    */
   SnapshotDescription: string | undefined;
@@ -1976,7 +2072,7 @@ export interface CreateSnapshotFromVolumeRecoveryPointInput {
   /**
    * <p>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic
    *          Block Store snapshots panel in the <b>Description</b> field, and
-   *          in the AWS Storage Gateway snapshot <b>Details</b> pane,
+   *          in the Storage Gateway snapshot <b>Details</b> pane,
    *             <b>Description</b> field.</p>
    */
   SnapshotDescription: string | undefined;
@@ -2065,7 +2161,7 @@ export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
 export interface CreateStorediSCSIVolumeInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -2115,7 +2211,7 @@ export interface CreateStorediSCSIVolumeInput {
   NetworkInterfaceId: string | undefined;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
@@ -2124,8 +2220,7 @@ export interface CreateStorediSCSIVolumeInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
@@ -2202,9 +2297,9 @@ export interface CreateTapePoolInput {
 
   /**
    * <p>Tape retention lock can be configured in two modes. When configured in governance mode,
-   *          AWS accounts with specific IAM permissions are authorized to remove the tape retention lock
+   *          accounts with specific IAM permissions are authorized to remove the tape retention lock
    *          from archived virtual tapes. When configured in compliance mode, the tape retention lock
-   *          cannot be removed by any user, including the root AWS account.</p>
+   *          cannot be removed by any user, including the root account.</p>
    */
   RetentionLockType?: RetentionLockType | string;
 
@@ -2241,7 +2336,7 @@ export interface CreateTapePoolOutput {
   /**
    * <p>The unique Amazon Resource Name (ARN) that represents the custom tape pool. Use the
    *             <a>ListTapePools</a> operation to return a list of tape pools for your
-   *          account and AWS Region.</p>
+   *          account and Region.</p>
    */
   PoolARN?: string;
 }
@@ -2262,7 +2357,7 @@ export interface CreateTapesInput {
   /**
    * <p>The unique Amazon Resource Name (ARN) that represents the gateway to associate the
    *          virtual tapes with. Use the <a>ListGateways</a> operation to return a list of
-   *          gateways for your account and AWS Region.</p>
+   *          gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -2303,7 +2398,7 @@ export interface CreateTapesInput {
   TapeBarcodePrefix: string | undefined;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
@@ -2312,8 +2407,7 @@ export interface CreateTapesInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
@@ -2385,7 +2479,7 @@ export interface CreateTapeWithBarcodeInput {
   /**
    * <p>The unique Amazon Resource Name (ARN) that represents the gateway to associate the
    *          virtual tape with. Use the <a>ListGateways</a> operation to return a list of
-   *          gateways for your account and AWS Region.</p>
+   *          gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -2409,7 +2503,7 @@ export interface CreateTapeWithBarcodeInput {
   TapeBarcode: string | undefined;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
@@ -2418,8 +2512,7 @@ export interface CreateTapeWithBarcodeInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
@@ -2487,7 +2580,7 @@ export namespace CreateTapeWithBarcodeOutput {
 export interface DeleteAutomaticTapeCreationPolicyInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -2504,7 +2597,7 @@ export namespace DeleteAutomaticTapeCreationPolicyInput {
 export interface DeleteAutomaticTapeCreationPolicyOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -2532,7 +2625,7 @@ export namespace DeleteAutomaticTapeCreationPolicyOutput {
 export interface DeleteBandwidthRateLimitInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -2562,7 +2655,7 @@ export namespace DeleteBandwidthRateLimitInput {
 export interface DeleteBandwidthRateLimitOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -2649,8 +2742,8 @@ export interface DeleteFileShareInput {
 
   /**
    * <p>If this value is set to <code>true</code>, the operation deletes a file share
-   *          immediately and aborts all data uploads to AWS. Otherwise, the file share is not deleted
-   *          until all data is uploaded to AWS. This process aborts the data upload process, and the
+   *          immediately and aborts all data uploads to Amazon Web Services. Otherwise, the file share is not deleted
+   *          until all data is uploaded to Amazon Web Services. This process aborts the data upload process, and the
    *          file share enters the <code>FORCE_DELETING</code> status.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
@@ -2693,7 +2786,7 @@ export namespace DeleteFileShareOutput {
 export interface DeleteGatewayInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -2713,7 +2806,7 @@ export namespace DeleteGatewayInput {
 export interface DeleteGatewayOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -2766,7 +2859,7 @@ export interface DeleteTapeInput {
   /**
    * <p>The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete is
    *          associated with. Use the <a>ListGateways</a> operation to return a list of
-   *          gateways for your account and AWS Region.</p>
+   *          gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -2937,7 +3030,7 @@ export namespace DeleteVolumeOutput {
 export interface DescribeAvailabilityMonitorTestInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -2954,7 +3047,7 @@ export namespace DescribeAvailabilityMonitorTestInput {
 export interface DescribeAvailabilityMonitorTestOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -2986,7 +3079,7 @@ export namespace DescribeAvailabilityMonitorTestOutput {
 export interface DescribeBandwidthRateLimitInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -3006,7 +3099,7 @@ export namespace DescribeBandwidthRateLimitInput {
 export interface DescribeBandwidthRateLimitOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -3035,7 +3128,7 @@ export namespace DescribeBandwidthRateLimitOutput {
 export interface DescribeBandwidthRateLimitScheduleInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -3052,7 +3145,7 @@ export namespace DescribeBandwidthRateLimitScheduleInput {
 export interface DescribeBandwidthRateLimitScheduleOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -3076,7 +3169,7 @@ export namespace DescribeBandwidthRateLimitScheduleOutput {
 export interface DescribeCacheInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -3093,7 +3186,7 @@ export namespace DescribeCacheInput {
 export interface DescribeCacheOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -3117,7 +3210,7 @@ export interface DescribeCacheOutput {
 
   /**
    * <p>The file share's contribution to the overall percentage of the gateway's cache
-   *          that has not been persisted to AWS. The sample is taken at the end of the reporting
+   *          that has not been persisted to Amazon Web Services. The sample is taken at the end of the reporting
    *          period.</p>
    */
   CacheDirtyPercentage?: number;
@@ -3291,7 +3384,7 @@ export interface FileSystemAssociationInfo {
   /**
    * <p>The status of the file system association.
    *          Valid Values: <code>AVAILABLE</code> | <code>CREATING</code> | <code>DELETING</code> |
-   *          <code>FORCE_DELETING</code> | <code>MISCONFIGURED</code> | <code>UPDATING</code> | <code>UNAVAILABLE</code>
+   *          <code>FORCE_DELETING</code> | <code>UPDATING</code> | <code>ERROR</code>
    *          </p>
    */
   FileSystemAssociationStatus?: string;
@@ -3303,7 +3396,7 @@ export interface FileSystemAssociationInfo {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -3313,9 +3406,19 @@ export interface FileSystemAssociationInfo {
   Tags?: Tag[];
 
   /**
-   * <p>The refresh cache information for the file share.</p>
+   * <p>The refresh cache information for the file share or FSx file systems.</p>
    */
   CacheAttributes?: CacheAttributes;
+
+  /**
+   * <p>Specifies network configuration information for the gateway associated with the
+   *          Amazon FSx file system.</p>
+   *          <note>
+   *             <p>If multiple file systems are associated with this gateway, this parameter's <code>IpAddresses</code>
+   *             field is required.</p>
+   *          </note>
+   */
+  EndpointNetworkConfiguration?: EndpointNetworkConfiguration;
 }
 
 export namespace FileSystemAssociationInfo {
@@ -3350,7 +3453,7 @@ export namespace DescribeFileSystemAssociationsOutput {
 export interface DescribeGatewayInformationInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -3362,6 +3465,12 @@ export namespace DescribeGatewayInformationInput {
   export const filterSensitiveLog = (obj: DescribeGatewayInformationInput): any => ({
     ...obj,
   });
+}
+
+export enum GatewayCapacity {
+  Large = "Large",
+  Medium = "Medium",
+  Small = "Small",
 }
 
 /**
@@ -3406,7 +3515,7 @@ export type HostEnvironment = "EC2" | "HYPER-V" | "KVM" | "OTHER" | "VMWARE";
 export interface DescribeGatewayInformationOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -3462,7 +3571,7 @@ export interface DescribeGatewayInformationOutput {
   Ec2InstanceId?: string;
 
   /**
-   * <p>The AWS Region where the Amazon EC2 instance is located.</p>
+   * <p>The Region where the Amazon EC2 instance is located.</p>
    */
   Ec2InstanceRegion?: string;
 
@@ -3508,6 +3617,16 @@ export interface DescribeGatewayInformationOutput {
    *          fixes.</p>
    */
   DeprecationDate?: string;
+
+  /**
+   * <p>Specifies the size of the gateway's metadata cache.</p>
+   */
+  GatewayCapacity?: GatewayCapacity | string;
+
+  /**
+   * <p>A list of the metadata cache sizes that the gateway can support based on its current hardware specifications.</p>
+   */
+  SupportedGatewayCapacities?: (GatewayCapacity | string)[];
 }
 
 export namespace DescribeGatewayInformationOutput {
@@ -3525,7 +3644,7 @@ export namespace DescribeGatewayInformationOutput {
 export interface DescribeMaintenanceStartTimeInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -3573,7 +3692,7 @@ export namespace DescribeMaintenanceStartTimeInput {
 export interface DescribeMaintenanceStartTimeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -3643,8 +3762,8 @@ export namespace DescribeNFSFileSharesInput {
 
 /**
  * <p>The Unix file permissions and ownership information assigned, by default, to native S3
- *          objects when file gateway discovers them in S3 buckets. This operation is only supported in
- *          file gateways.</p>
+ *          objects when an S3 File Gateway discovers them in S3 buckets. This operation is only supported in
+ *          S3 File Gateways.</p>
  */
 export interface NFSFileShareInfo {
   /**
@@ -3652,7 +3771,7 @@ export interface NFSFileShareInfo {
    *          as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions
    *          assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that
    *          represent files and folders are assigned these default Unix permissions. This operation is
-   *          only supported for file gateways.</p>
+   *          only supported for S3 File Gateways.</p>
    */
   NFSFileShareDefaults?: NFSFileShareDefaults;
 
@@ -3677,12 +3796,12 @@ export interface NFSFileShareInfo {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
@@ -3691,8 +3810,7 @@ export interface NFSFileShareInfo {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
@@ -3703,7 +3821,7 @@ export interface NFSFileShareInfo {
   Path?: string;
 
   /**
-   * <p>The ARN of the IAM role that file gateway assumes when it accesses the underlying
+   * <p>The ARN of the IAM role that an S3 File Gateway assumes when it accesses the underlying
    *          storage.</p>
    */
   Role?: string;
@@ -3715,7 +3833,7 @@ export interface NFSFileShareInfo {
   LocationARN?: string;
 
   /**
-   * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
+   * <p>The default storage class for objects put into an Amazon S3 bucket by the S3 File Gateway.
    *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
    *
    *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
@@ -3726,12 +3844,12 @@ export interface NFSFileShareInfo {
 
   /**
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
-   *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
+   *          that an S3 File Gateway puts objects into. The default value is <code>private</code>.</p>
    */
   ObjectACL?: ObjectACL | string;
 
   /**
-   * <p>The list of clients that are allowed to access the file gateway. The list must contain
+   * <p>The list of clients that are allowed to access the S3 File Gateway. The list must contain
    *          either valid IP addresses or valid CIDR blocks.</p>
    */
   ClientList?: string[];
@@ -3843,6 +3961,26 @@ export interface NFSFileShareInfo {
    *          </p>
    */
   NotificationPolicy?: string;
+
+  /**
+   * <p>Specifies the DNS name for the VPC endpoint that the NFS file share uses to connect to Amazon S3.</p>
+   *          <note>
+   *             <p>This parameter is required for NFS file shares that connect to Amazon S3
+   *             through a VPC endpoint, a VPC access point, or an access point alias that points to a
+   *             VPC access point.</p>
+   *          </note>
+   */
+  VPCEndpointDNSName?: string;
+
+  /**
+   * <p>Specifies the Region of the S3 bucket where the NFS file share stores files.</p>
+   *          <note>
+   *             <p>This parameter is required for NFS file shares that connect to Amazon S3
+   *             through a VPC endpoint, a VPC access point, or an access point alias that points to a
+   *             VPC access point.</p>
+   *          </note>
+   */
+  BucketRegion?: string;
 }
 
 export namespace NFSFileShareInfo {
@@ -3895,8 +4033,8 @@ export namespace DescribeSMBFileSharesInput {
 
 /**
  * <p>The Windows file permissions and ownership information assigned, by default, to native
- *          S3 objects when file gateway discovers them in S3 buckets. This operation is only supported
- *          for file gateways.</p>
+ *          S3 objects when S3 File Gateway discovers them in S3 buckets. This operation is only supported
+ *          for S3 File Gateways.</p>
  */
 export interface SMBFileShareInfo {
   /**
@@ -3920,12 +4058,12 @@ export interface SMBFileShareInfo {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
@@ -3934,8 +4072,7 @@ export interface SMBFileShareInfo {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
@@ -3946,7 +4083,7 @@ export interface SMBFileShareInfo {
   Path?: string;
 
   /**
-   * <p>The ARN of the IAM role that file gateway assumes when it accesses the underlying
+   * <p>The ARN of the IAM role that an S3 File Gateway assumes when it accesses the underlying
    *          storage.</p>
    */
   Role?: string;
@@ -3958,7 +4095,7 @@ export interface SMBFileShareInfo {
   LocationARN?: string;
 
   /**
-   * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
+   * <p>The default storage class for objects put into an Amazon S3 bucket by the S3 File Gateway.
    *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
    *
    *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
@@ -3969,7 +4106,7 @@ export interface SMBFileShareInfo {
 
   /**
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
-   *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
+   *          that an S3 File Gateway puts objects into. The default value is <code>private</code>.</p>
    */
   ObjectACL?: ObjectACL | string;
 
@@ -4018,7 +4155,7 @@ export interface SMBFileShareInfo {
    *
    *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using Microsoft Windows ACLs to
-   *             control access to an SMB file share</a> in the <i>AWS Storage Gateway User
+   *             control access to an SMB file share</a> in the <i>Storage Gateway User
    *             Guide</i>.</p>
    */
   SMBACLEnabled?: boolean;
@@ -4126,6 +4263,35 @@ export interface SMBFileShareInfo {
    *          </p>
    */
   NotificationPolicy?: string;
+
+  /**
+   * <p>Specifies the DNS name for the VPC endpoint that the SMB file share uses to connect to Amazon S3.</p>
+   *          <note>
+   *             <p>This parameter is required for SMB file shares that connect to Amazon S3
+   *             through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p>
+   *          </note>
+   */
+  VPCEndpointDNSName?: string;
+
+  /**
+   * <p>Specifies the Region of the S3 bucket where the SMB file share stores files.</p>
+   *          <note>
+   *             <p>This parameter is required for SMB file shares that connect to Amazon S3
+   *             through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p>
+   *          </note>
+   */
+  BucketRegion?: string;
+
+  /**
+   * <p>Specifies whether opportunistic locking is enabled for the SMB file share.</p>
+   *          <note>
+   *             <p>Enabling opportunistic locking on case-sensitive shares is not recommended for workloads that involve
+   *             access to files with the same name in different case.</p>
+   *          </note>
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  OplocksEnabled?: boolean;
 }
 
 export namespace SMBFileShareInfo {
@@ -4159,7 +4325,7 @@ export namespace DescribeSMBFileSharesOutput {
 export interface DescribeSMBSettingsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -4178,7 +4344,7 @@ export type SMBSecurityStrategy = "ClientSpecified" | "MandatoryEncryption" | "M
 export interface DescribeSMBSettingsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -4232,7 +4398,7 @@ export interface DescribeSMBSettingsOutput {
 
   /**
    * <p>This value is <code>true</code> if a password for the guest user <code>smbguest</code>
-   *          is set, otherwise <code>false</code>.</p>
+   *          is set, otherwise <code>false</code>. Only supported for S3 File Gateways.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
@@ -4247,7 +4413,7 @@ export interface DescribeSMBSettingsOutput {
    *                <p>
    *                   <code>ClientSpecified</code>: If you use this option, requests are established
    *                based on what is negotiated by the client. This option is recommended when you want
-   *                to maximize compatibility across different clients in your environment.</p>
+   *                to maximize compatibility across different clients in your environment. Only supported for S3 File Gateways.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4267,7 +4433,7 @@ export interface DescribeSMBSettingsOutput {
   SMBSecurityStrategy?: SMBSecurityStrategy | string;
 
   /**
-   * <p>The shares on this gateway appear when listing shares.</p>
+   * <p>The shares on this gateway appear when listing shares. Only supported for S3 File Gateways. </p>
    */
   FileSharesVisible?: boolean;
 }
@@ -4457,8 +4623,7 @@ export interface StorediSCSIVolume {
   VolumeUsedInBytes?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
@@ -4671,8 +4836,7 @@ export interface TapeArchive {
   TapeUsedInBytes?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
@@ -4752,7 +4916,7 @@ export namespace DescribeTapeArchivesOutput {
 export interface DescribeTapeRecoveryPointsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -4822,7 +4986,7 @@ export namespace TapeRecoveryPointInfo {
 export interface DescribeTapeRecoveryPointsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -4857,7 +5021,7 @@ export namespace DescribeTapeRecoveryPointsOutput {
 export interface DescribeTapesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -4948,8 +5112,7 @@ export interface Tape {
   TapeUsedInBytes?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
@@ -5022,7 +5185,7 @@ export namespace DescribeTapesOutput {
 export interface DescribeUploadBufferInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -5039,7 +5202,7 @@ export namespace DescribeUploadBufferInput {
 export interface DescribeUploadBufferOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -5077,7 +5240,7 @@ export namespace DescribeUploadBufferOutput {
 export interface DescribeVTLDevicesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -5195,7 +5358,7 @@ export namespace VTLDevice {
 export interface DescribeVTLDevicesOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -5229,7 +5392,7 @@ export namespace DescribeVTLDevicesOutput {
 export interface DescribeWorkingStorageInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -5249,7 +5412,7 @@ export namespace DescribeWorkingStorageInput {
 export interface DescribeWorkingStorageOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -5338,7 +5501,7 @@ export namespace DetachVolumeOutput {
 export interface DisableGatewayInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -5380,8 +5543,7 @@ export interface DisassociateFileSystemInput {
   /**
    * <p>If this value is set to true, the operation disassociates an Amazon FSx file system
    *          immediately. It ends all data uploads to the file system, and the file system association
-   *          enters the <code>FORCE_DELETING</code> status. If this value is set to false, the Amazon
-   *          FSx file system does not disassociate until all data is uploaded.</p>
+   *          enters the <code>FORCE_DELETING</code> status. If this value is set to false, the Amazon FSx file system does not disassociate until all data is uploaded.</p>
    */
   ForceDelete?: boolean;
 }
@@ -5474,7 +5636,7 @@ export namespace Disk {
 export type FileShareType = "NFS" | "SMB";
 
 /**
- * <p>Describes a file share.</p>
+ * <p>Describes a file share. Only supported S3 File Gateway.</p>
  */
 export interface FileShareInfo {
   /**
@@ -5503,7 +5665,7 @@ export interface FileShareInfo {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -5534,14 +5696,14 @@ export interface FileSystemAssociationSummary {
 
   /**
    * <p>The status of the file share. Valid Values: <code>AVAILABLE</code> | <code>CREATING</code> | <code>DELETING</code> |
-   *          <code>FORCE_DELETING</code> | <code>MISCONFIGURED</code> | <code>UPDATING</code> | <code>UNAVAILABLE</code>
+   *          <code>FORCE_DELETING</code> | <code>UPDATING</code> | <code>ERROR</code>
    *          </p>
    */
   FileSystemAssociationStatus?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -5568,7 +5730,7 @@ export interface GatewayInfo {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -5596,7 +5758,7 @@ export interface GatewayInfo {
   Ec2InstanceId?: string;
 
   /**
-   * <p>The AWS Region where the Amazon EC2 instance is located.</p>
+   * <p>The Region where the Amazon EC2 instance is located.</p>
    */
   Ec2InstanceRegion?: string;
 }
@@ -5616,7 +5778,7 @@ export namespace GatewayInfo {
 export interface JoinDomainInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <code>ListGateways</code>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -5734,7 +5896,7 @@ export namespace JoinDomainOutput {
 export interface ListAutomaticTapeCreationPoliciesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -5817,7 +5979,7 @@ export interface ListFileSharesOutput {
   NextMarker?: string;
 
   /**
-   * <p>An array of information about the file gateway's file shares.</p>
+   * <p>An array of information about the S3 File Gateway's file shares.</p>
    */
   FileShareInfoList?: FileShareInfo[];
 }
@@ -5834,7 +5996,7 @@ export namespace ListFileSharesOutput {
 export interface ListFileSystemAssociationsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -5952,7 +6114,7 @@ export namespace ListGatewaysOutput {
 export interface ListLocalDisksInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -5969,7 +6131,7 @@ export namespace ListLocalDisksInput {
 export interface ListLocalDisksOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -6093,7 +6255,7 @@ export type PoolStatus = "ACTIVE" | "DELETED";
 export interface PoolInfo {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom tape pool. Use the <a>ListTapePools</a> operation to return a list of custom tape pools for your
-   *          account and AWS Region.</p>
+   *          account and Region.</p>
    */
   PoolARN?: string;
 
@@ -6112,9 +6274,9 @@ export interface PoolInfo {
 
   /**
    * <p>Tape retention lock type, which can be configured in two modes. When configured in
-   *          governance mode, AWS accounts with specific IAM permissions are authorized to remove the
+   *          governance mode, accounts with specific IAM permissions are authorized to remove the
    *          tape retention lock from archived virtual tapes. When configured in compliance mode, the
-   *          tape retention lock cannot be removed by any user, including the root AWS account.</p>
+   *          tape retention lock cannot be removed by any user, including the root account.</p>
    */
   RetentionLockType?: RetentionLockType | string;
 
@@ -6240,7 +6402,7 @@ export interface TapeInfo {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -6360,7 +6522,7 @@ export namespace ListVolumeInitiatorsOutput {
 export interface ListVolumeRecoveryPointsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -6416,7 +6578,7 @@ export namespace VolumeRecoveryPointInfo {
 export interface ListVolumeRecoveryPointsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -6454,7 +6616,7 @@ export namespace ListVolumeRecoveryPointsOutput {
 export interface ListVolumesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -6506,7 +6668,7 @@ export interface VolumeInfo {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -6565,7 +6727,7 @@ export namespace VolumeInfo {
 export interface ListVolumesOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -6641,8 +6803,7 @@ export interface RefreshCacheInput {
 
   /**
    * <p>A comma-separated list of the paths of folders to refresh in the cache. The default is
-   *             [<code>"/"</code>]. The default refreshes objects and folders at the root of the Amazon
-   *          S3 bucket. If <code>Recursive</code> is set to <code>true</code>, the entire S3 bucket that
+   *             [<code>"/"</code>]. The default refreshes objects and folders at the root of the Amazon S3 bucket. If <code>Recursive</code> is set to <code>true</code>, the entire S3 bucket that
    *          the file share has access to is refreshed.</p>
    */
   FolderList?: string[];
@@ -6743,7 +6904,7 @@ export namespace RemoveTagsFromResourceOutput {
 export interface ResetCacheInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -6760,7 +6921,7 @@ export namespace ResetCacheInput {
 export interface ResetCacheOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -6787,7 +6948,7 @@ export interface RetrieveTapeArchiveInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape to.
    *          Use the <a>ListGateways</a> operation to return a list of gateways for your
-   *          account and AWS Region.</p>
+   *          account and Region.</p>
    *
    *          <p>You retrieve archived virtual tapes to only one gateway and the gateway must be a tape
    *          gateway.</p>
@@ -6835,7 +6996,7 @@ export interface RetrieveTapeRecoveryPointInput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -6875,7 +7036,7 @@ export namespace RetrieveTapeRecoveryPointOutput {
 export interface SetLocalConsolePasswordInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -6898,7 +7059,7 @@ export namespace SetLocalConsolePasswordInput {
 export interface SetLocalConsolePasswordOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -6917,7 +7078,7 @@ export namespace SetLocalConsolePasswordOutput {
  */
 export interface SetSMBGuestPasswordInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the file gateway the SMB file share is associated
+   * <p>The Amazon Resource Name (ARN) of the S3 File Gateway the SMB file share is associated
    *          with.</p>
    */
   GatewayARN: string | undefined;
@@ -6941,7 +7102,7 @@ export namespace SetSMBGuestPasswordInput {
 export interface SetSMBGuestPasswordOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -6962,7 +7123,7 @@ export namespace SetSMBGuestPasswordOutput {
 export interface ShutdownGatewayInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -6983,7 +7144,7 @@ export namespace ShutdownGatewayInput {
 export interface ShutdownGatewayOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -7000,7 +7161,7 @@ export namespace ShutdownGatewayOutput {
 export interface StartAvailabilityMonitorTestInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -7017,7 +7178,7 @@ export namespace StartAvailabilityMonitorTestInput {
 export interface StartAvailabilityMonitorTestOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -7037,7 +7198,7 @@ export namespace StartAvailabilityMonitorTestOutput {
 export interface StartGatewayInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -7058,7 +7219,7 @@ export namespace StartGatewayInput {
 export interface StartGatewayOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -7081,7 +7242,7 @@ export interface UpdateAutomaticTapeCreationPolicyInput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -7098,7 +7259,7 @@ export namespace UpdateAutomaticTapeCreationPolicyInput {
 export interface UpdateAutomaticTapeCreationPolicyOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -7131,7 +7292,7 @@ export namespace UpdateAutomaticTapeCreationPolicyOutput {
 export interface UpdateBandwidthRateLimitInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -7162,7 +7323,7 @@ export namespace UpdateBandwidthRateLimitInput {
 export interface UpdateBandwidthRateLimitOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -7179,7 +7340,7 @@ export namespace UpdateBandwidthRateLimitOutput {
 export interface UpdateBandwidthRateLimitScheduleInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -7204,7 +7365,7 @@ export namespace UpdateBandwidthRateLimitScheduleInput {
 export interface UpdateBandwidthRateLimitScheduleOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -7341,7 +7502,7 @@ export interface UpdateFileSystemAssociationInput {
   AuditDestinationARN?: string;
 
   /**
-   * <p>The refresh cache information for the file share.</p>
+   * <p>The refresh cache information for the file share or FSx file systems.</p>
    */
   CacheAttributes?: CacheAttributes;
 }
@@ -7375,7 +7536,7 @@ export namespace UpdateFileSystemAssociationOutput {
 export interface UpdateGatewayInformationInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -7398,6 +7559,11 @@ export interface UpdateGatewayInformationInput {
    *          </p>
    */
   CloudWatchLogGroupARN?: string;
+
+  /**
+   * <p>Specifies the size of the gateway's metadata cache.</p>
+   */
+  GatewayCapacity?: GatewayCapacity | string;
 }
 
 export namespace UpdateGatewayInformationInput {
@@ -7416,7 +7582,7 @@ export namespace UpdateGatewayInformationInput {
 export interface UpdateGatewayInformationOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 
@@ -7441,7 +7607,7 @@ export namespace UpdateGatewayInformationOutput {
 export interface UpdateGatewaySoftwareNowInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 }
@@ -7462,7 +7628,7 @@ export namespace UpdateGatewaySoftwareNowInput {
 export interface UpdateGatewaySoftwareNowOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -7505,7 +7671,7 @@ export namespace UpdateGatewaySoftwareNowOutput {
 export interface UpdateMaintenanceStartTimeInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -7553,7 +7719,7 @@ export namespace UpdateMaintenanceStartTimeInput {
 export interface UpdateMaintenanceStartTimeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -7577,7 +7743,7 @@ export interface UpdateNFSFileShareInput {
   FileShareARN: string | undefined;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
@@ -7586,8 +7752,7 @@ export interface UpdateNFSFileShareInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
@@ -7598,7 +7763,7 @@ export interface UpdateNFSFileShareInput {
   NFSFileShareDefaults?: NFSFileShareDefaults;
 
   /**
-   * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
+   * <p>The default storage class for objects put into an Amazon S3 bucket by the S3 File Gateway.
    *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
    *
    *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
@@ -7609,12 +7774,12 @@ export interface UpdateNFSFileShareInput {
 
   /**
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
-   *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
+   *          that a S3 File Gateway puts objects into. The default value is <code>private</code>.</p>
    */
   ObjectACL?: ObjectACL | string;
 
   /**
-   * <p>The list of clients that are allowed to access the file gateway. The list must contain
+   * <p>The list of clients that are allowed to access the S3 File Gateway. The list must contain
    *          either valid IP addresses or valid CIDR blocks.</p>
    */
   ClientList?: string[];
@@ -7761,7 +7926,7 @@ export interface UpdateSMBFileShareInput {
   FileShareARN: string | undefined;
 
   /**
-   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
+   * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
@@ -7770,14 +7935,13 @@ export interface UpdateSMBFileShareInput {
   KMSEncrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-   *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
    *          only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
    */
   KMSKey?: string;
 
   /**
-   * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
+   * <p>The default storage class for objects put into an Amazon S3 bucket by the S3 File Gateway.
    *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
    *
    *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
@@ -7788,7 +7952,7 @@ export interface UpdateSMBFileShareInput {
 
   /**
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
-   *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
+   *          that a S3 File Gateway puts objects into. The default value is <code>private</code>.</p>
    */
   ObjectACL?: ObjectACL | string;
 
@@ -7837,7 +8001,7 @@ export interface UpdateSMBFileShareInput {
    *
    *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using Microsoft Windows ACLs to
-   *             control access to an SMB file share</a> in the <i>AWS Storage Gateway User
+   *             control access to an SMB file share</a> in the <i>Storage Gateway User
    *             Guide</i>.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
@@ -7933,6 +8097,17 @@ export interface UpdateSMBFileShareInput {
    *          </p>
    */
   NotificationPolicy?: string;
+
+  /**
+   * <p>Specifies whether opportunistic locking is enabled for the SMB file share.</p>
+   *          <note>
+   *             <p>Enabling opportunistic locking on case-sensitive shares is not recommended for workloads that involve
+   *             access to files with the same name in different case.</p>
+   *          </note>
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   */
+  OplocksEnabled?: boolean;
 }
 
 export namespace UpdateSMBFileShareInput {
@@ -7966,7 +8141,7 @@ export namespace UpdateSMBFileShareOutput {
 export interface UpdateSMBFileShareVisibilityInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -7988,7 +8163,7 @@ export namespace UpdateSMBFileShareVisibilityInput {
 export interface UpdateSMBFileShareVisibilityOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }
@@ -8005,7 +8180,7 @@ export namespace UpdateSMBFileShareVisibilityOutput {
 export interface UpdateSMBSecurityStrategyInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN: string | undefined;
 
@@ -8014,7 +8189,7 @@ export interface UpdateSMBSecurityStrategyInput {
    *
    *          <p>ClientSpecified: if you use this option, requests are established based on what is
    *          negotiated by the client. This option is recommended when you want to maximize
-   *          compatibility across different clients in your environment.</p>
+   *          compatibility across different clients in your environment. Supported only in S3 File Gateway.</p>
    *
    *          <p>MandatorySigning: if you use this option, file gateway only allows connections from
    *          SMBv2 or SMBv3 clients that have signing enabled. This option works with SMB clients on
@@ -8040,7 +8215,7 @@ export namespace UpdateSMBSecurityStrategyInput {
 export interface UpdateSMBSecurityStrategyOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *          operation to return a list of gateways for your account and Region.</p>
    */
   GatewayARN?: string;
 }

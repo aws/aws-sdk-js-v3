@@ -33,6 +33,7 @@ import {
   GetPlaybackConfigurationCommandInput,
   GetPlaybackConfigurationCommandOutput,
 } from "./commands/GetPlaybackConfigurationCommand";
+import { ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
 import {
   ListPlaybackConfigurationsCommandInput,
@@ -131,6 +132,7 @@ export type ServiceInputTypes =
   | GetChannelPolicyCommandInput
   | GetChannelScheduleCommandInput
   | GetPlaybackConfigurationCommandInput
+  | ListAlertsCommandInput
   | ListChannelsCommandInput
   | ListPlaybackConfigurationsCommandInput
   | ListSourceLocationsCommandInput
@@ -164,6 +166,7 @@ export type ServiceOutputTypes =
   | GetChannelPolicyCommandOutput
   | GetChannelScheduleCommandOutput
   | GetPlaybackConfigurationCommandOutput
+  | ListAlertsCommandOutput
   | ListChannelsCommandOutput
   | ListPlaybackConfigurationsCommandOutput
   | ListSourceLocationsCommandOutput

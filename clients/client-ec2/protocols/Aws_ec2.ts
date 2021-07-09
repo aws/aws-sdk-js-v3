@@ -797,6 +797,10 @@ import {
   DescribeSecurityGroupReferencesCommandOutput,
 } from "../commands/DescribeSecurityGroupReferencesCommand";
 import {
+  DescribeSecurityGroupRulesCommandInput,
+  DescribeSecurityGroupRulesCommandOutput,
+} from "../commands/DescribeSecurityGroupRulesCommand";
+import {
   DescribeSecurityGroupsCommandInput,
   DescribeSecurityGroupsCommandOutput,
 } from "../commands/DescribeSecurityGroupsCommand";
@@ -1253,6 +1257,10 @@ import {
   ModifyReservedInstancesCommandOutput,
 } from "../commands/ModifyReservedInstancesCommand";
 import {
+  ModifySecurityGroupRulesCommandInput,
+  ModifySecurityGroupRulesCommandOutput,
+} from "../commands/ModifySecurityGroupRulesCommand";
+import {
   ModifySnapshotAttributeCommandInput,
   ModifySnapshotAttributeCommandOutput,
 } from "../commands/ModifySnapshotAttributeCommand";
@@ -1580,7 +1588,9 @@ import {
   AuthorizeClientVpnIngressRequest,
   AuthorizeClientVpnIngressResult,
   AuthorizeSecurityGroupEgressRequest,
+  AuthorizeSecurityGroupEgressResult,
   AuthorizeSecurityGroupIngressRequest,
+  AuthorizeSecurityGroupIngressResult,
   BlockDeviceMapping,
   BundleInstanceRequest,
   BundleInstanceResult,
@@ -1694,10 +1704,6 @@ import {
   LaunchTemplateCapacityReservationSpecificationRequest,
   LaunchTemplateCpuOptionsRequest,
   LaunchTemplateEbsBlockDeviceRequest,
-  LaunchTemplateElasticInferenceAccelerator,
-  LaunchTemplateEnclaveOptionsRequest,
-  LaunchTemplateHibernationOptionsRequest,
-  LaunchTemplateIamInstanceProfileSpecificationRequest,
   NewDhcpConfiguration,
   OnDemandOptionsRequest,
   PeeringAttachmentStatus,
@@ -1707,9 +1713,11 @@ import {
   PrefixListId,
   PriceSchedule,
   PtrUpdateStatus,
+  ReferencedSecurityGroup,
   ReservedInstancesListing,
   RouteTableAssociationState,
   S3Storage,
+  SecurityGroupRule,
   SpotOptionsRequest,
   Storage,
   StorageLocation,
@@ -1858,9 +1866,6 @@ import {
   DeleteInternetGatewayRequest,
   DeleteKeyPairRequest,
   DeleteLaunchTemplateRequest,
-  DeleteLaunchTemplateResult,
-  DeleteLaunchTemplateVersionsRequest,
-  DeleteLaunchTemplateVersionsResponseSuccessItem,
   DnsEntry,
   ElasticGpuSpecificationResponse,
   GroupIdentifier,
@@ -1876,10 +1881,14 @@ import {
   LaunchTemplateCapacityReservationSpecificationResponse,
   LaunchTemplateCpuOptions,
   LaunchTemplateEbsBlockDevice,
+  LaunchTemplateElasticInferenceAccelerator,
   LaunchTemplateElasticInferenceAcceleratorResponse,
   LaunchTemplateEnclaveOptions,
+  LaunchTemplateEnclaveOptionsRequest,
   LaunchTemplateHibernationOptions,
+  LaunchTemplateHibernationOptionsRequest,
   LaunchTemplateIamInstanceProfileSpecification,
+  LaunchTemplateIamInstanceProfileSpecificationRequest,
   LaunchTemplateInstanceMarketOptions,
   LaunchTemplateInstanceMarketOptionsRequest,
   LaunchTemplateInstanceMetadataOptions,
@@ -2004,7 +2013,10 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeleteLaunchTemplateResult,
+  DeleteLaunchTemplateVersionsRequest,
   DeleteLaunchTemplateVersionsResponseErrorItem,
+  DeleteLaunchTemplateVersionsResponseSuccessItem,
   DeleteLaunchTemplateVersionsResult,
   DeleteLocalGatewayRouteRequest,
   DeleteLocalGatewayRouteResult,
@@ -2223,7 +2235,6 @@ import {
   InstanceNetworkInterfaceAttachment,
   InstancePrivateIpAddress,
   InstanceState,
-  InstanceStatusDetails,
   InstanceStatusEvent,
   InstanceTagNotificationAttribute,
   LaunchPermission,
@@ -2334,6 +2345,8 @@ import {
   DescribeScheduledInstancesResult,
   DescribeSecurityGroupReferencesRequest,
   DescribeSecurityGroupReferencesResult,
+  DescribeSecurityGroupRulesRequest,
+  DescribeSecurityGroupRulesResult,
   DescribeSecurityGroupsRequest,
   DescribeSecurityGroupsResult,
   DescribeSnapshotAttributeRequest,
@@ -2418,12 +2431,6 @@ import {
   DescribeVpnConnectionsResult,
   DescribeVpnGatewaysRequest,
   DescribeVpnGatewaysResult,
-  DetachClassicLinkVpcRequest,
-  DetachClassicLinkVpcResult,
-  DetachInternetGatewayRequest,
-  DetachNetworkInterfaceRequest,
-  DetachVolumeRequest,
-  DetachVpnGatewayRequest,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -2440,6 +2447,7 @@ import {
   InferenceDeviceInfo,
   InstanceNetworkInterfaceSpecification,
   InstanceStatus,
+  InstanceStatusDetails,
   InstanceStatusSummary,
   InstanceStorageInfo,
   InstanceTypeInfo,
@@ -2532,6 +2540,12 @@ import {
   ClientData,
   CoipAddressUsage,
   CreateVolumePermissionModifications,
+  DetachClassicLinkVpcRequest,
+  DetachClassicLinkVpcResult,
+  DetachInternetGatewayRequest,
+  DetachNetworkInterfaceRequest,
+  DetachVolumeRequest,
+  DetachVpnGatewayRequest,
   DisableEbsEncryptionByDefaultRequest,
   DisableEbsEncryptionByDefaultResult,
   DisableFastSnapshotRestoreErrorItem,
@@ -2712,6 +2726,8 @@ import {
   ModifyNetworkInterfaceAttributeRequest,
   ModifyReservedInstancesRequest,
   ModifyReservedInstancesResult,
+  ModifySecurityGroupRulesRequest,
+  ModifySecurityGroupRulesResult,
   ModifySnapshotAttributeRequest,
   ModifySpotFleetRequestRequest,
   ModifySpotFleetRequestResponse,
@@ -2781,19 +2797,12 @@ import {
   RegisterInstanceEventNotificationAttributesResult,
   RegisterInstanceTagAttributeRequest,
   RegisterTransitGatewayMulticastGroupMembersRequest,
-  RegisterTransitGatewayMulticastGroupMembersResult,
-  RegisterTransitGatewayMulticastGroupSourcesRequest,
-  RegisterTransitGatewayMulticastGroupSourcesResult,
-  RejectTransitGatewayMulticastDomainAssociationsRequest,
-  RejectTransitGatewayMulticastDomainAssociationsResult,
-  RejectTransitGatewayPeeringAttachmentRequest,
-  RejectTransitGatewayPeeringAttachmentResult,
-  RejectTransitGatewayVpcAttachmentRequest,
-  RejectTransitGatewayVpcAttachmentResult,
   RemovePrefixListEntry,
   ReservationValue,
   ReservedInstanceLimitPrice,
   ReservedInstanceReservationValue,
+  SecurityGroupRuleRequest,
+  SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
   SuccessfulInstanceCreditSpecificationItem,
   TargetConfiguration,
@@ -2803,7 +2812,6 @@ import {
   TransitGatewayAttachmentPropagation,
   TransitGatewayMulticastDomainAssociation,
   TransitGatewayMulticastRegisteredGroupMembers,
-  TransitGatewayMulticastRegisteredGroupSources,
   TransitGatewayPropagation,
   TransitGatewayRouteTableAssociation,
   TransitGatewayRouteTablePropagation,
@@ -2823,6 +2831,15 @@ import {
   InstanceStateChange,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  RegisterTransitGatewayMulticastGroupMembersResult,
+  RegisterTransitGatewayMulticastGroupSourcesRequest,
+  RegisterTransitGatewayMulticastGroupSourcesResult,
+  RejectTransitGatewayMulticastDomainAssociationsRequest,
+  RejectTransitGatewayMulticastDomainAssociationsResult,
+  RejectTransitGatewayPeeringAttachmentRequest,
+  RejectTransitGatewayPeeringAttachmentResult,
+  RejectTransitGatewayVpcAttachmentRequest,
+  RejectTransitGatewayVpcAttachmentResult,
   RejectVpcEndpointConnectionsRequest,
   RejectVpcEndpointConnectionsResult,
   RejectVpcPeeringConnectionRequest,
@@ -2885,6 +2902,7 @@ import {
   SearchTransitGatewayMulticastGroupsResult,
   SearchTransitGatewayRoutesRequest,
   SearchTransitGatewayRoutesResult,
+  SecurityGroupRuleDescription,
   SendDiagnosticInterruptRequest,
   SpotMarketOptions,
   StartInstancesRequest,
@@ -2901,6 +2919,7 @@ import {
   TerminateInstancesRequest,
   TerminateInstancesResult,
   TransitGatewayMulticastGroup,
+  TransitGatewayMulticastRegisteredGroupSources,
   UnassignIpv6AddressesRequest,
   UnassignIpv6AddressesResult,
   UnassignPrivateIpAddressesRequest,
@@ -6870,6 +6889,22 @@ export const serializeAws_ec2DescribeSecurityGroupReferencesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DescribeSecurityGroupRulesCommand = async (
+  input: DescribeSecurityGroupRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeSecurityGroupRulesRequest(input, context),
+    Action: "DescribeSecurityGroupRules",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DescribeSecurityGroupsCommand = async (
   input: DescribeSecurityGroupsCommandInput,
   context: __SerdeContext
@@ -8929,6 +8964,22 @@ export const serializeAws_ec2ModifyReservedInstancesCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2ModifyReservedInstancesRequest(input, context),
     Action: "ModifyReservedInstances",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifySecurityGroupRulesCommand = async (
+  input: ModifySecurityGroupRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifySecurityGroupRulesRequest(input, context),
+    Action: "ModifySecurityGroupRules",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -11533,9 +11584,12 @@ export const deserializeAws_ec2AuthorizeSecurityGroupEgressCommand = async (
   if (output.statusCode >= 300) {
     return deserializeAws_ec2AuthorizeSecurityGroupEgressCommandError(output, context);
   }
-  await collectBody(output.body, context);
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2AuthorizeSecurityGroupEgressResult(data, context);
   const response: AuthorizeSecurityGroupEgressCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -11576,9 +11630,12 @@ export const deserializeAws_ec2AuthorizeSecurityGroupIngressCommand = async (
   if (output.statusCode >= 300) {
     return deserializeAws_ec2AuthorizeSecurityGroupIngressCommandError(output, context);
   }
-  await collectBody(output.body, context);
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2AuthorizeSecurityGroupIngressResult(data, context);
   const response: AuthorizeSecurityGroupIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -21427,6 +21484,52 @@ const deserializeAws_ec2DescribeSecurityGroupReferencesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2DescribeSecurityGroupRulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSecurityGroupRulesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeSecurityGroupRulesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeSecurityGroupRulesResult(data, context);
+  const response: DescribeSecurityGroupRulesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeSecurityGroupRulesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSecurityGroupRulesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2DescribeSecurityGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -27322,6 +27425,52 @@ const deserializeAws_ec2ModifyReservedInstancesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2ModifySecurityGroupRulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifySecurityGroupRulesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifySecurityGroupRulesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifySecurityGroupRulesResult(data, context);
+  const response: ModifySecurityGroupRulesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifySecurityGroupRulesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifySecurityGroupRulesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2ModifySnapshotAttributeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -31686,6 +31835,13 @@ const serializeAws_ec2AuthorizeSecurityGroupEgressRequest = (
       entries[loc] = value;
     });
   }
+  if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   if (input.CidrIp !== undefined && input.CidrIp !== null) {
     entries["CidrIp"] = input.CidrIp;
   }
@@ -31745,6 +31901,13 @@ const serializeAws_ec2AuthorizeSecurityGroupIngressRequest = (
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -37756,6 +37919,37 @@ const serializeAws_ec2DescribeSecurityGroupReferencesRequest = (
   return entries;
 };
 
+const serializeAws_ec2DescribeSecurityGroupRulesRequest = (
+  input: DescribeSecurityGroupRulesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SecurityGroupRuleIds !== undefined && input.SecurityGroupRuleIds !== null) {
+    const memberEntries = serializeAws_ec2SecurityGroupRuleIdList(input.SecurityGroupRuleIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupRuleId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DescribeSecurityGroupsRequest = (
   input: DescribeSecurityGroupsRequest,
   context: __SerdeContext
@@ -43085,6 +43279,27 @@ const serializeAws_ec2ModifyReservedInstancesRequest = (
   return entries;
 };
 
+const serializeAws_ec2ModifySecurityGroupRulesRequest = (
+  input: ModifySecurityGroupRulesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.GroupId !== undefined && input.GroupId !== null) {
+    entries["GroupId"] = input.GroupId;
+  }
+  if (input.SecurityGroupRules !== undefined && input.SecurityGroupRules !== null) {
+    const memberEntries = serializeAws_ec2SecurityGroupRuleUpdateList(input.SecurityGroupRules, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupRule.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2ModifySnapshotAttributeRequest = (
   input: ModifySnapshotAttributeRequest,
   context: __SerdeContext
@@ -46035,6 +46250,13 @@ const serializeAws_ec2RevokeSecurityGroupEgressRequest = (
       entries[loc] = value;
     });
   }
+  if (input.SecurityGroupRuleIds !== undefined && input.SecurityGroupRuleIds !== null) {
+    const memberEntries = serializeAws_ec2SecurityGroupRuleIdList(input.SecurityGroupRuleIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupRuleId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   if (input.CidrIp !== undefined && input.CidrIp !== null) {
     entries["CidrIp"] = input.CidrIp;
   }
@@ -46094,6 +46316,13 @@ const serializeAws_ec2RevokeSecurityGroupIngressRequest = (
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.SecurityGroupRuleIds !== undefined && input.SecurityGroupRuleIds !== null) {
+    const memberEntries = serializeAws_ec2SecurityGroupRuleIdList(input.SecurityGroupRuleIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupRuleId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -46838,6 +47067,115 @@ const serializeAws_ec2SecurityGroupIdStringList = (input: string[], context: __S
       continue;
     }
     entries[`SecurityGroupId.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2SecurityGroupRuleDescription = (
+  input: SecurityGroupRuleDescription,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SecurityGroupRuleId !== undefined && input.SecurityGroupRuleId !== null) {
+    entries["SecurityGroupRuleId"] = input.SecurityGroupRuleId;
+  }
+  if (input.Description !== undefined && input.Description !== null) {
+    entries["Description"] = input.Description;
+  }
+  return entries;
+};
+
+const serializeAws_ec2SecurityGroupRuleDescriptionList = (
+  input: SecurityGroupRuleDescription[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_ec2SecurityGroupRuleDescription(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Item.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2SecurityGroupRuleIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2SecurityGroupRuleRequest = (input: SecurityGroupRuleRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.IpProtocol !== undefined && input.IpProtocol !== null) {
+    entries["IpProtocol"] = input.IpProtocol;
+  }
+  if (input.FromPort !== undefined && input.FromPort !== null) {
+    entries["FromPort"] = input.FromPort;
+  }
+  if (input.ToPort !== undefined && input.ToPort !== null) {
+    entries["ToPort"] = input.ToPort;
+  }
+  if (input.CidrIpv4 !== undefined && input.CidrIpv4 !== null) {
+    entries["CidrIpv4"] = input.CidrIpv4;
+  }
+  if (input.CidrIpv6 !== undefined && input.CidrIpv6 !== null) {
+    entries["CidrIpv6"] = input.CidrIpv6;
+  }
+  if (input.PrefixListId !== undefined && input.PrefixListId !== null) {
+    entries["PrefixListId"] = input.PrefixListId;
+  }
+  if (input.ReferencedGroupId !== undefined && input.ReferencedGroupId !== null) {
+    entries["ReferencedGroupId"] = input.ReferencedGroupId;
+  }
+  if (input.Description !== undefined && input.Description !== null) {
+    entries["Description"] = input.Description;
+  }
+  return entries;
+};
+
+const serializeAws_ec2SecurityGroupRuleUpdate = (input: SecurityGroupRuleUpdate, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.SecurityGroupRuleId !== undefined && input.SecurityGroupRuleId !== null) {
+    entries["SecurityGroupRuleId"] = input.SecurityGroupRuleId;
+  }
+  if (input.SecurityGroupRule !== undefined && input.SecurityGroupRule !== null) {
+    const memberEntries = serializeAws_ec2SecurityGroupRuleRequest(input.SecurityGroupRule, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupRule.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2SecurityGroupRuleUpdateList = (
+  input: SecurityGroupRuleUpdate[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_ec2SecurityGroupRuleUpdate(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Item.${counter}.${key}`] = value;
+    });
     counter++;
   }
   return entries;
@@ -47916,6 +48254,16 @@ const serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressRequest = (
       entries[loc] = value;
     });
   }
+  if (input.SecurityGroupRuleDescriptions !== undefined && input.SecurityGroupRuleDescriptions !== null) {
+    const memberEntries = serializeAws_ec2SecurityGroupRuleDescriptionList(
+      input.SecurityGroupRuleDescriptions,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupRuleDescription.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -47937,6 +48285,16 @@ const serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressRequest = (
     const memberEntries = serializeAws_ec2IpPermissionList(input.IpPermissions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpPermissions.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SecurityGroupRuleDescriptions !== undefined && input.SecurityGroupRuleDescriptions !== null) {
+    const memberEntries = serializeAws_ec2SecurityGroupRuleDescriptionList(
+      input.SecurityGroupRuleDescriptions,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupRuleDescription.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -49504,6 +49862,52 @@ const deserializeAws_ec2AuthorizeClientVpnIngressResult = (
   };
   if (output["status"] !== undefined) {
     contents.Status = deserializeAws_ec2ClientVpnAuthorizationRuleStatus(output["status"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AuthorizeSecurityGroupEgressResult = (
+  output: any,
+  context: __SerdeContext
+): AuthorizeSecurityGroupEgressResult => {
+  let contents: any = {
+    Return: undefined,
+    SecurityGroupRules: undefined,
+  };
+  if (output["return"] !== undefined) {
+    contents.Return = __parseBoolean(output["return"]);
+  }
+  if (output.securityGroupRuleSet === "") {
+    contents.SecurityGroupRules = [];
+  }
+  if (output["securityGroupRuleSet"] !== undefined && output["securityGroupRuleSet"]["item"] !== undefined) {
+    contents.SecurityGroupRules = deserializeAws_ec2SecurityGroupRuleList(
+      __getArrayIfSingleItem(output["securityGroupRuleSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AuthorizeSecurityGroupIngressResult = (
+  output: any,
+  context: __SerdeContext
+): AuthorizeSecurityGroupIngressResult => {
+  let contents: any = {
+    Return: undefined,
+    SecurityGroupRules: undefined,
+  };
+  if (output["return"] !== undefined) {
+    contents.Return = __parseBoolean(output["return"]);
+  }
+  if (output.securityGroupRuleSet === "") {
+    contents.SecurityGroupRules = [];
+  }
+  if (output["securityGroupRuleSet"] !== undefined && output["securityGroupRuleSet"]["item"] !== undefined) {
+    contents.SecurityGroupRules = deserializeAws_ec2SecurityGroupRuleList(
+      __getArrayIfSingleItem(output["securityGroupRuleSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -54710,6 +55114,29 @@ const deserializeAws_ec2DescribeSecurityGroupReferencesResult = (
       __getArrayIfSingleItem(output["securityGroupReferenceSet"]["item"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeSecurityGroupRulesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeSecurityGroupRulesResult => {
+  let contents: any = {
+    SecurityGroupRules: undefined,
+    NextToken: undefined,
+  };
+  if (output.securityGroupRuleSet === "") {
+    contents.SecurityGroupRules = [];
+  }
+  if (output["securityGroupRuleSet"] !== undefined && output["securityGroupRuleSet"]["item"] !== undefined) {
+    contents.SecurityGroupRules = deserializeAws_ec2SecurityGroupRuleList(
+      __getArrayIfSingleItem(output["securityGroupRuleSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
   }
   return contents;
 };
@@ -63056,6 +63483,19 @@ const deserializeAws_ec2ModifyReservedInstancesResult = (
   return contents;
 };
 
+const deserializeAws_ec2ModifySecurityGroupRulesResult = (
+  output: any,
+  context: __SerdeContext
+): ModifySecurityGroupRulesResult => {
+  let contents: any = {
+    Return: undefined,
+  };
+  if (output["return"] !== undefined) {
+    contents.Return = __parseBoolean(output["return"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2ModifySpotFleetRequestResponse = (
   output: any,
   context: __SerdeContext
@@ -65344,6 +65784,32 @@ const deserializeAws_ec2RecurringChargesList = (output: any, context: __SerdeCon
     });
 };
 
+const deserializeAws_ec2ReferencedSecurityGroup = (output: any, context: __SerdeContext): ReferencedSecurityGroup => {
+  let contents: any = {
+    GroupId: undefined,
+    PeeringStatus: undefined,
+    UserId: undefined,
+    VpcId: undefined,
+    VpcPeeringConnectionId: undefined,
+  };
+  if (output["groupId"] !== undefined) {
+    contents.GroupId = __expectString(output["groupId"]);
+  }
+  if (output["peeringStatus"] !== undefined) {
+    contents.PeeringStatus = __expectString(output["peeringStatus"]);
+  }
+  if (output["userId"] !== undefined) {
+    contents.UserId = __expectString(output["userId"]);
+  }
+  if (output["vpcId"] !== undefined) {
+    contents.VpcId = __expectString(output["vpcId"]);
+  }
+  if (output["vpcPeeringConnectionId"] !== undefined) {
+    contents.VpcPeeringConnectionId = __expectString(output["vpcPeeringConnectionId"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2Region = (output: any, context: __SerdeContext): Region => {
   let contents: any = {
     Endpoint: undefined,
@@ -67179,6 +67645,78 @@ const deserializeAws_ec2SecurityGroupReferences = (output: any, context: __Serde
         return null as any;
       }
       return deserializeAws_ec2SecurityGroupReference(entry, context);
+    });
+};
+
+const deserializeAws_ec2SecurityGroupRule = (output: any, context: __SerdeContext): SecurityGroupRule => {
+  let contents: any = {
+    SecurityGroupRuleId: undefined,
+    GroupId: undefined,
+    GroupOwnerId: undefined,
+    IsEgress: undefined,
+    IpProtocol: undefined,
+    FromPort: undefined,
+    ToPort: undefined,
+    CidrIpv4: undefined,
+    CidrIpv6: undefined,
+    PrefixListId: undefined,
+    ReferencedGroupInfo: undefined,
+    Description: undefined,
+    Tags: undefined,
+  };
+  if (output["securityGroupRuleId"] !== undefined) {
+    contents.SecurityGroupRuleId = __expectString(output["securityGroupRuleId"]);
+  }
+  if (output["groupId"] !== undefined) {
+    contents.GroupId = __expectString(output["groupId"]);
+  }
+  if (output["groupOwnerId"] !== undefined) {
+    contents.GroupOwnerId = __expectString(output["groupOwnerId"]);
+  }
+  if (output["isEgress"] !== undefined) {
+    contents.IsEgress = __parseBoolean(output["isEgress"]);
+  }
+  if (output["ipProtocol"] !== undefined) {
+    contents.IpProtocol = __expectString(output["ipProtocol"]);
+  }
+  if (output["fromPort"] !== undefined) {
+    contents.FromPort = parseInt(output["fromPort"]);
+  }
+  if (output["toPort"] !== undefined) {
+    contents.ToPort = parseInt(output["toPort"]);
+  }
+  if (output["cidrIpv4"] !== undefined) {
+    contents.CidrIpv4 = __expectString(output["cidrIpv4"]);
+  }
+  if (output["cidrIpv6"] !== undefined) {
+    contents.CidrIpv6 = __expectString(output["cidrIpv6"]);
+  }
+  if (output["prefixListId"] !== undefined) {
+    contents.PrefixListId = __expectString(output["prefixListId"]);
+  }
+  if (output["referencedGroupInfo"] !== undefined) {
+    contents.ReferencedGroupInfo = deserializeAws_ec2ReferencedSecurityGroup(output["referencedGroupInfo"], context);
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  }
+  if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2SecurityGroupRuleList = (output: any, context: __SerdeContext): SecurityGroupRule[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2SecurityGroupRule(entry, context);
     });
 };
 

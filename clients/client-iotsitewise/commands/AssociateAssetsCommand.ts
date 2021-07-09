@@ -23,7 +23,7 @@ export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
 /**
  * <p>Associates a child asset with the given parent asset through a hierarchy defined in the
  *       parent asset's model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html">Associating assets</a> in the
- *         <i>AWS IoT SiteWise User Guide</i>.</p>
+ *         <i>IoT SiteWise User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

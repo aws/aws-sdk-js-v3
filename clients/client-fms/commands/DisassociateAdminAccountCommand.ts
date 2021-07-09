@@ -21,7 +21,7 @@ export interface DisassociateAdminAccountCommandInput extends DisassociateAdminA
 export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociates the account that has been set as the AWS Firewall Manager administrator
+ * <p>Disassociates the account that has been set as the Firewall Manager administrator
  *       account. To set a different account as the administrator account, you must submit an
  *         <code>AssociateAdminAccount</code> request.</p>
  * @example

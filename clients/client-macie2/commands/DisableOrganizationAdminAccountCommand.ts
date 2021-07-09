@@ -23,7 +23,7 @@ export interface DisableOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disables an account as the delegated Amazon Macie administrator account for an AWS organization.</p>
+ * <p>Disables an account as the delegated Amazon Macie administrator account for an Amazon Web Services organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

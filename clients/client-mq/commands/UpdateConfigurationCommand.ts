@@ -21,7 +21,7 @@ export interface UpdateConfigurationCommandInput extends UpdateConfigurationRequ
 export interface UpdateConfigurationCommandOutput extends UpdateConfigurationResponse, __MetadataBearer {}
 
 /**
- * Updates the specified configuration.
+ * <p>Updates the specified configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

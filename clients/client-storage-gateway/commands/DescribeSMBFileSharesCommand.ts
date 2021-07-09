@@ -21,8 +21,8 @@ export interface DescribeSMBFileSharesCommandInput extends DescribeSMBFileShares
 export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileSharesOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a description for one or more Server Message Block (SMB) file shares from a file
- *          gateway. This operation is only supported for file gateways.</p>
+ * <p>Gets a description for one or more Server Message Block (SMB) file shares from a S3 File
+ *          Gateway. This operation is only supported for S3 File Gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

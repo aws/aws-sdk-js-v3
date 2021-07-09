@@ -21,7 +21,7 @@ export interface UpdateUserCommandInput extends UpdateUserRequest {}
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
- * Updates the information for an ActiveMQ user.
+ * <p>Updates the information for an ActiveMQ user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

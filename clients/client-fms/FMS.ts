@@ -112,24 +112,20 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <fullname>AWS Firewall Manager</fullname>
- *          <p>This is the <i>AWS Firewall Manager API Reference</i>. This guide is for
- *       developers who need detailed information about the AWS Firewall Manager API actions, data
- *       types, and errors. For detailed information about AWS Firewall Manager features, see the
- *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">AWS Firewall Manager Developer Guide</a>.</p>
+ * <p>This is the <i>Firewall Manager API Reference</i>. This guide is for
+ *       developers who need detailed information about the Firewall Manager API actions, data
+ *       types, and errors. For detailed information about Firewall Manager features, see the
+ *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">Firewall Manager Developer Guide</a>.</p>
  *          <p>Some API actions require explicit resource permissions. For information, see the developer guide topic
  *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions for API actions</a>.
  * </p>
  */
 export class FMS extends FMSClient {
   /**
-   * <p>Sets the AWS Firewall Manager administrator account. AWS Firewall Manager must be
-   *       associated with the master account of your AWS organization or associated with a member
-   *       account that has the appropriate permissions. If the account ID that you submit is not an AWS
-   *       Organizations master account, AWS Firewall Manager will set the appropriate permissions for
-   *       the given member account.</p>
-   *          <p>The account that you associate with AWS Firewall Manager is called the AWS Firewall
-   *       Manager administrator account. </p>
+   * <p>Sets the Firewall Manager administrator account. The account must be
+   *       a member of the organization in Organizations whose resources you want to protect.
+   *           Firewall Manager sets the permissions that allow the account to administer your Firewall Manager policies.</p>
+   *          <p>The account that you associate with Firewall Manager is called the Firewall Manager administrator account. </p>
    */
   public associateAdminAccount(
     args: AssociateAdminAccountCommandInput,
@@ -161,7 +157,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Permanently deletes an AWS Firewall Manager applications list.</p>
+   * <p>Permanently deletes an Firewall Manager applications list.</p>
    */
   public deleteAppsList(
     args: DeleteAppsListCommandInput,
@@ -193,8 +189,8 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Deletes an AWS Firewall Manager association with the IAM role and the Amazon Simple
-   *       Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.</p>
+   * <p>Deletes an Firewall Manager association with the IAM role and the Amazon Simple
+   *       Notification Service (SNS) topic that is used to record Firewall Manager SNS logs.</p>
    */
   public deleteNotificationChannel(
     args: DeleteNotificationChannelCommandInput,
@@ -226,7 +222,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Permanently deletes an AWS Firewall Manager policy. </p>
+   * <p>Permanently deletes an Firewall Manager policy. </p>
    */
   public deletePolicy(
     args: DeletePolicyCommandInput,
@@ -255,7 +251,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Permanently deletes an AWS Firewall Manager protocols list.</p>
+   * <p>Permanently deletes an Firewall Manager protocols list.</p>
    */
   public deleteProtocolsList(
     args: DeleteProtocolsListCommandInput,
@@ -287,7 +283,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Disassociates the account that has been set as the AWS Firewall Manager administrator
+   * <p>Disassociates the account that has been set as the Firewall Manager administrator
    *       account. To set a different account as the administrator account, you must submit an
    *         <code>AssociateAdminAccount</code> request.</p>
    */
@@ -321,8 +317,8 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Returns the AWS Organizations master account that is associated with AWS Firewall Manager
-   *       as the AWS Firewall Manager administrator.</p>
+   * <p>Returns the Organizations account that is associated with Firewall Manager
+   *       as the Firewall Manager administrator.</p>
    */
   public getAdminAccount(
     args: GetAdminAccountCommandInput,
@@ -354,7 +350,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Returns information about the specified AWS Firewall Manager applications list.</p>
+   * <p>Returns information about the specified Firewall Manager applications list.</p>
    */
   public getAppsList(args: GetAppsListCommandInput, options?: __HttpHandlerOptions): Promise<GetAppsListCommandOutput>;
   public getAppsList(args: GetAppsListCommandInput, cb: (err: any, data?: GetAppsListCommandOutput) => void): void;
@@ -381,14 +377,29 @@ export class FMS extends FMSClient {
 
   /**
    * <p>Returns detailed compliance information about the specified member account. Details
-   *       include resources that are in and out of compliance with the specified policy. Resources are
-   *       considered noncompliant for AWS WAF and Shield Advanced policies if the specified policy has
-   *       not been applied to them. Resources are considered noncompliant for security group policies if
-   *       they are in scope of the policy, they violate one or more of the policy rules, and remediation
-   *         is disabled or not possible. Resources are considered noncompliant for Network Firewall policies
-   *         if a firewall is missing in the VPC, if the firewall endpoint isn't set up in an expected Availability Zone and subnet,
-   *         if a subnet created by the Firewall Manager doesn't have the expected route table,
-   *         and for modifications to a firewall policy that violate the Firewall Manager policy's rules. </p>
+   *       include resources that are in and out of compliance with the specified policy. </p>
+   *          <ul>
+   *             <li>
+   *               <p>Resources are
+   *               considered noncompliant for WAF and Shield Advanced policies if the specified policy has
+   *               not been applied to them.</p>
+   *             </li>
+   *             <li>
+   *               <p>Resources are considered noncompliant for security group policies if
+   *               they are in scope of the policy, they violate one or more of the policy rules, and remediation
+   *               is disabled or not possible.</p>
+   *             </li>
+   *             <li>
+   *               <p>Resources are considered noncompliant for Network Firewall policies
+   *                 if a firewall is missing in the VPC, if the firewall endpoint isn't set up in an expected Availability Zone and subnet,
+   *                 if a subnet created by the Firewall Manager doesn't have the expected route table,
+   *                 and for modifications to a firewall policy that violate the Firewall Manager policy's rules.</p>
+   *             </li>
+   *             <li>
+   *               <p>Resources are considered noncompliant for DNS Firewall policies
+   *               if a DNS Firewall rule group is missing from the rule group associations for the VPC. </p>
+   *             </li>
+   *          </ul>
    */
   public getComplianceDetail(
     args: GetComplianceDetailCommandInput,
@@ -422,7 +433,7 @@ export class FMS extends FMSClient {
   /**
    * <p>Information
    *       about the Amazon Simple Notification Service (SNS) topic that is used to
-   *       record AWS Firewall Manager SNS logs.</p>
+   *       record Firewall Manager SNS logs.</p>
    */
   public getNotificationChannel(
     args: GetNotificationChannelCommandInput,
@@ -454,7 +465,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Returns information about the specified AWS Firewall Manager policy.</p>
+   * <p>Returns information about the specified Firewall Manager policy.</p>
    */
   public getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
   public getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
@@ -513,7 +524,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Returns information about the specified AWS Firewall Manager protocols list.</p>
+   * <p>Returns information about the specified Firewall Manager protocols list.</p>
    */
   public getProtocolsList(
     args: GetProtocolsListCommandInput,
@@ -545,7 +556,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Retrieves violations for a resource based on the specified AWS Firewall Manager policy and AWS account.</p>
+   * <p>Retrieves violations for a resource based on the specified Firewall Manager policy and Amazon Web Services account.</p>
    */
   public getViolationDetails(
     args: GetViolationDetailsCommandInput,
@@ -644,9 +655,9 @@ export class FMS extends FMSClient {
 
   /**
    * <p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the
-   *       administrator's AWS organization.</p>
+   *       administrator's Amazon Web Services organization.</p>
    *          <p>The <code>ListMemberAccounts</code> must be submitted by the account that is set as the
-   *       AWS Firewall Manager administrator.</p>
+   *       Firewall Manager administrator.</p>
    */
   public listMemberAccounts(
     args: ListMemberAccountsCommandInput,
@@ -739,7 +750,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Retrieves the list of tags for the specified AWS resource.   </p>
+   * <p>Retrieves the list of tags for the specified Amazon Web Services resource.   </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -771,7 +782,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Creates an AWS Firewall Manager applications list.</p>
+   * <p>Creates an Firewall Manager applications list.</p>
    */
   public putAppsList(args: PutAppsListCommandInput, options?: __HttpHandlerOptions): Promise<PutAppsListCommandOutput>;
   public putAppsList(args: PutAppsListCommandInput, cb: (err: any, data?: PutAppsListCommandOutput) => void): void;
@@ -797,11 +808,11 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS
+   * <p>Designates the IAM role and Amazon Simple Notification Service (SNS) topic that
    *       Firewall Manager uses to record SNS logs.</p>
    *          <p>To perform this action outside of the console, you must configure the SNS topic to allow the Firewall Manager
    *       role <code>AWSServiceRoleForFMS</code> to publish SNS logs. For more information, see
-   *       <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions for API actions</a> in the <i>AWS Firewall Manager Developer Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions for API actions</a> in the <i>Firewall Manager Developer Guide</i>.</p>
    */
   public putNotificationChannel(
     args: PutNotificationChannelCommandInput,
@@ -833,27 +844,31 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Creates an AWS Firewall Manager policy.</p>
+   * <p>Creates an Firewall Manager policy.</p>
    *          <p>Firewall Manager provides the following types of policies: </p>
    *          <ul>
    *             <li>
-   *                <p>An AWS WAF policy (type WAFV2), which defines rule groups to run first in the
-   *               corresponding AWS WAF web ACL and rule groups to run last in the web ACL.</p>
+   *                <p>An WAF policy (type WAFV2), which defines rule groups to run first in the
+   *               corresponding WAF web ACL and rule groups to run last in the web ACL.</p>
    *             </li>
    *             <li>
-   *                <p>An AWS WAF Classic policy (type WAF), which defines a rule group. </p>
+   *                <p>An WAF Classic policy (type WAF), which defines a rule group. </p>
    *             </li>
    *             <li>
    *                <p>A Shield Advanced policy, which applies Shield Advanced protection to specified
    *           accounts and resources.</p>
    *             </li>
    *             <li>
-   *                <p>A security group policy, which manages VPC security groups across your AWS
+   *                <p>A security group policy, which manages VPC security groups across your Amazon Web Services
    *           organization. </p>
    *             </li>
    *             <li>
-   *                <p>An AWS Network Firewall policy, which provides firewall rules to filter network traffic in specified
+   *                <p>An Network Firewall policy, which provides firewall rules to filter network traffic in specified
    *           Amazon VPCs.</p>
+   *             </li>
+   *             <li>
+   *                <p>A DNS Firewall policy, which provides Route 53 Resolver DNS Firewall rules to filter DNS queries for
+   *             specified VPCs.</p>
    *             </li>
    *          </ul>
    *          <p>Each policy is specific to one of the types. If you want to enforce more than one
@@ -887,7 +902,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Creates an AWS Firewall Manager protocols list.</p>
+   * <p>Creates an Firewall Manager protocols list.</p>
    */
   public putProtocolsList(
     args: PutProtocolsListCommandInput,
@@ -919,7 +934,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Adds one or more tags to an AWS resource.</p>
+   * <p>Adds one or more tags to an Amazon Web Services resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -945,7 +960,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Removes one or more tags from an AWS resource.</p>
+   * <p>Removes one or more tags from an Amazon Web Services resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,

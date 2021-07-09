@@ -84,6 +84,7 @@ import {
   GetPlaybackConfigurationCommandInput,
   GetPlaybackConfigurationCommandOutput,
 } from "./commands/GetPlaybackConfigurationCommand";
+import { ListAlertsCommand, ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
 import {
   ListChannelsCommand,
   ListChannelsCommandInput,
@@ -686,6 +687,32 @@ export class MediaTailor extends MediaTailorClient {
     cb?: (err: any, data?: GetPlaybackConfigurationCommandOutput) => void
   ): Promise<GetPlaybackConfigurationCommandOutput> | void {
     const command = new GetPlaybackConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of alerts for the given resource.</p>
+   */
+  public listAlerts(args: ListAlertsCommandInput, options?: __HttpHandlerOptions): Promise<ListAlertsCommandOutput>;
+  public listAlerts(args: ListAlertsCommandInput, cb: (err: any, data?: ListAlertsCommandOutput) => void): void;
+  public listAlerts(
+    args: ListAlertsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAlertsCommandOutput) => void
+  ): void;
+  public listAlerts(
+    args: ListAlertsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAlertsCommandOutput) => void),
+    cb?: (err: any, data?: ListAlertsCommandOutput) => void
+  ): Promise<ListAlertsCommandOutput> | void {
+    const command = new ListAlertsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

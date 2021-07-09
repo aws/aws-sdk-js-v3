@@ -21,7 +21,7 @@ export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
 export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a project from AWS IoT SiteWise Monitor.</p>
+ * <p>Deletes a project from IoT SiteWise Monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

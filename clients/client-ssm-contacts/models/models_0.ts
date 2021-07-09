@@ -679,7 +679,7 @@ export namespace ServiceQuotaExceededException {
 
 export interface CreateContactChannelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the contact channel.</p>
+   * <p>The Amazon Resource Name (ARN) of the contact you are adding the contact channel to.</p>
    */
   ContactId: string | undefined;
 

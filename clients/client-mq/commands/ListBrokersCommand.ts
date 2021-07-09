@@ -21,7 +21,7 @@ export interface ListBrokersCommandInput extends ListBrokersRequest {}
 export interface ListBrokersCommandOutput extends ListBrokersResponse, __MetadataBearer {}
 
 /**
- * Returns a list of all brokers.
+ * <p>Returns a list of all brokers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

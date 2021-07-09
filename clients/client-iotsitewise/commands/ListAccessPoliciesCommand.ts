@@ -21,8 +21,8 @@ export interface ListAccessPoliciesCommandInput extends ListAccessPoliciesReques
 export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of access policies for an identity (an AWS SSO user, an AWS SSO
- *       group, or an IAM user) or an AWS IoT SiteWise Monitor resource (a portal or project).</p>
+ * <p>Retrieves a paginated list of access policies for an identity (an Amazon Web Services SSO user, an Amazon Web Services SSO
+ *       group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or project).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

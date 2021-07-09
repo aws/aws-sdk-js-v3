@@ -22,6 +22,7 @@ export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __Metad
 
 /**
  * <p>Creates an Outpost.</p>
+ *          <p>You can specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

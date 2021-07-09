@@ -1,5 +1,10 @@
 import { CloudFrontClient } from "./CloudFrontClient";
 import {
+  AssociateAliasCommand,
+  AssociateAliasCommandInput,
+  AssociateAliasCommandOutput,
+} from "./commands/AssociateAliasCommand";
+import {
   CreateCachePolicyCommand,
   CreateCachePolicyCommandInput,
   CreateCachePolicyCommandOutput,
@@ -252,6 +257,11 @@ import {
   ListCloudFrontOriginAccessIdentitiesCommandOutput,
 } from "./commands/ListCloudFrontOriginAccessIdentitiesCommand";
 import {
+  ListConflictingAliasesCommand,
+  ListConflictingAliasesCommandInput,
+  ListConflictingAliasesCommandOutput,
+} from "./commands/ListConflictingAliasesCommand";
+import {
   ListDistributionsByCachePolicyIdCommand,
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
@@ -406,10 +416,53 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon CloudFront</fullname>
- * 		       <p>This is the <i>Amazon CloudFront API Reference</i>. This guide is for developers who need detailed information about
+ * 		       <p>This is the <i>Amazon CloudFront API Reference</i>. This guide
+ *             is for developers who need detailed information about
  * 			CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the <i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export class CloudFront extends CloudFrontClient {
+  /**
+   * <p>Associates an alias (also known as a CNAME or an alternate domain name) with a CloudFront
+   * 			distribution.</p>
+   * 		       <p>With this operation you can move an alias that’s already in use on a CloudFront distribution
+   * 			to a different distribution in one step. This prevents the downtime that could occur if
+   * 			you first remove the alias from one distribution and then separately add the alias to
+   * 			another distribution.</p>
+   * 		       <p>To use this operation to associate an alias with a distribution, you provide the alias
+   * 			and the ID of the target distribution for the alias. For more information, including how
+   * 			to set up the target distribution, prerequisites that you must complete, and other
+   * 			restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move">Moving an alternate domain name to a different distribution</a>
+   * 			in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  public associateAlias(
+    args: AssociateAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateAliasCommandOutput>;
+  public associateAlias(
+    args: AssociateAliasCommandInput,
+    cb: (err: any, data?: AssociateAliasCommandOutput) => void
+  ): void;
+  public associateAlias(
+    args: AssociateAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateAliasCommandOutput) => void
+  ): void;
+  public associateAlias(
+    args: AssociateAliasCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateAliasCommandOutput) => void),
+    cb?: (err: any, data?: AssociateAliasCommandOutput) => void
+  ): Promise<AssociateAliasCommandOutput> | void {
+    const command = new AssociateAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates a cache policy.</p>
    * 		       <p>After you create a cache policy, you can attach it to one or more cache behaviors. When it’s
@@ -2220,8 +2273,8 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Gets a list of cache policies.</p>
-   * 		       <p>You can optionally apply a filter to return only the managed policies created by AWS, or
-   * 			only the custom policies created in your AWS account.</p>
+   * 		       <p>You can optionally apply a filter to return only the managed policies created by Amazon Web Services, or
+   * 			only the custom policies created in your account.</p>
    * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
    * 			the total number of items in the list exceeds the maximum that you specify, or the
    * 			default maximum, the response is paginated. To get the next page of items, send a
@@ -2279,6 +2332,60 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: ListCloudFrontOriginAccessIdentitiesCommandOutput) => void
   ): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> | void {
     const command = new ListCloudFrontOriginAccessIdentitiesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of aliases (also called CNAMEs or alternate domain names) that conflict or
+   * 			overlap with the provided alias, and the associated CloudFront distributions and Amazon Web Services
+   * 			accounts for each conflicting alias. In the returned list, the distribution and account
+   * 			IDs are partially hidden, which allows you to identify the distributions and accounts
+   * 			that you own, but helps to protect the information of ones that you don’t own.</p>
+   * 		       <p>Use this operation to find aliases that are in use in CloudFront that conflict or overlap
+   * 			with the provided alias. For example, if you provide <code>www.example.com</code> as
+   * 			input, the returned list can include <code>www.example.com</code> and the overlapping
+   * 			wildcard alternate domain name (<code>*.example.com</code>), if they exist. If you
+   * 			provide <code>*.example.com</code> as input, the returned list can include
+   * 			<code>*.example.com</code> and any alternate domain names covered by that wildcard (for
+   * 			example, <code>www.example.com</code>, <code>test.example.com</code>,
+   * 			<code>dev.example.com</code>, and so on), if they exist.</p>
+   * 		       <p>To list conflicting aliases, you provide the alias to search and the ID of a distribution in
+   * 			your account that has an attached SSL/TLS certificate that includes the provided alias.
+   * 			For more information, including how to set up the distribution and certificate, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move">Moving an alternate domain name to a different distribution</a>
+   * 			in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listConflictingAliases(
+    args: ListConflictingAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConflictingAliasesCommandOutput>;
+  public listConflictingAliases(
+    args: ListConflictingAliasesCommandInput,
+    cb: (err: any, data?: ListConflictingAliasesCommandOutput) => void
+  ): void;
+  public listConflictingAliases(
+    args: ListConflictingAliasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConflictingAliasesCommandOutput) => void
+  ): void;
+  public listConflictingAliases(
+    args: ListConflictingAliasesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConflictingAliasesCommandOutput) => void),
+    cb?: (err: any, data?: ListConflictingAliasesCommandOutput) => void
+  ): Promise<ListConflictingAliasesCommandOutput> | void {
+    const command = new ListConflictingAliasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2479,7 +2586,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>List the distributions that are associated with a specified AWS WAF web ACL. </p>
+   * <p>List the distributions that are associated with a specified WAF web ACL.</p>
    */
   public listDistributionsByWebACLId(
     args: ListDistributionsByWebACLIdCommandInput,
@@ -2575,7 +2682,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Gets a list of all CloudFront functions in your AWS account.</p>
+   * <p>Gets a list of all CloudFront functions in your account.</p>
    * 		       <p>You can optionally apply a filter to return only the functions that are in the
    * 			specified stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -2684,8 +2791,8 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Gets a list of origin request policies.</p>
-   * 		       <p>You can optionally apply a filter to return only the managed policies created by AWS, or
-   * 			only the custom policies created in your AWS account.</p>
+   * 		       <p>You can optionally apply a filter to return only the managed policies created by Amazon Web Services, or
+   * 			only the custom policies created in your account.</p>
    * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
    * 			the total number of items in the list exceeds the maximum that you specify, or the
    * 			default maximum, the response is paginated. To get the next page of items, send a

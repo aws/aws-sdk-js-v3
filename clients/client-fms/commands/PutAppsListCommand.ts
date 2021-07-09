@@ -21,7 +21,7 @@ export interface PutAppsListCommandInput extends PutAppsListRequest {}
 export interface PutAppsListCommandOutput extends PutAppsListResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an AWS Firewall Manager applications list.</p>
+ * <p>Creates an Firewall Manager applications list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

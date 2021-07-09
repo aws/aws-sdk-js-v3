@@ -21,7 +21,7 @@ export interface DeleteProtocolsListCommandInput extends DeleteProtocolsListRequ
 export interface DeleteProtocolsListCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Permanently deletes an AWS Firewall Manager protocols list.</p>
+ * <p>Permanently deletes an Firewall Manager protocols list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

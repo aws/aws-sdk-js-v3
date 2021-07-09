@@ -19,7 +19,7 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
 
 /**
  * <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or
- *             if the endpoint and the topic are not in the same AWS account, the endpoint owner must
+ *             if the endpoint and the topic are not in the same account, the endpoint owner must
  *             run the <code>ConfirmSubscription</code> action to confirm the subscription.</p>
  *         <p>You call the <code>ConfirmSubscription</code> action with the token from the
  *             subscription response. Confirmation tokens are valid for three days.</p>

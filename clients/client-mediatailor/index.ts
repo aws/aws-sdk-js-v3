@@ -18,6 +18,8 @@ export * from "./commands/GetChannelPolicyCommand";
 export * from "./commands/GetChannelScheduleCommand";
 export * from "./pagination/GetChannelSchedulePaginator";
 export * from "./commands/GetPlaybackConfigurationCommand";
+export * from "./commands/ListAlertsCommand";
+export * from "./pagination/ListAlertsPaginator";
 export * from "./commands/ListChannelsCommand";
 export * from "./pagination/ListChannelsPaginator";
 export * from "./commands/ListPlaybackConfigurationsCommand";

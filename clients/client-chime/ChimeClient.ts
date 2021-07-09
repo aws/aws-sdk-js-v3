@@ -59,6 +59,10 @@ import {
   CreateChannelModeratorCommandInput,
   CreateChannelModeratorCommandOutput,
 } from "./commands/CreateChannelModeratorCommand";
+import {
+  CreateMediaCapturePipelineCommandInput,
+  CreateMediaCapturePipelineCommandOutput,
+} from "./commands/CreateMediaCapturePipelineCommand";
 import { CreateMeetingCommandInput, CreateMeetingCommandOutput } from "./commands/CreateMeetingCommand";
 import {
   CreateMeetingDialOutCommandInput,
@@ -129,6 +133,10 @@ import {
   DeleteEventsConfigurationCommandInput,
   DeleteEventsConfigurationCommandOutput,
 } from "./commands/DeleteEventsConfigurationCommand";
+import {
+  DeleteMediaCapturePipelineCommandInput,
+  DeleteMediaCapturePipelineCommandOutput,
+} from "./commands/DeleteMediaCapturePipelineCommand";
 import { DeleteMeetingCommandInput, DeleteMeetingCommandOutput } from "./commands/DeleteMeetingCommand";
 import { DeletePhoneNumberCommandInput, DeletePhoneNumberCommandOutput } from "./commands/DeletePhoneNumberCommand";
 import { DeleteProxySessionCommandInput, DeleteProxySessionCommandOutput } from "./commands/DeleteProxySessionCommand";
@@ -238,6 +246,10 @@ import {
   GetEventsConfigurationCommandOutput,
 } from "./commands/GetEventsConfigurationCommand";
 import { GetGlobalSettingsCommandInput, GetGlobalSettingsCommandOutput } from "./commands/GetGlobalSettingsCommand";
+import {
+  GetMediaCapturePipelineCommandInput,
+  GetMediaCapturePipelineCommandOutput,
+} from "./commands/GetMediaCapturePipelineCommand";
 import { GetMeetingCommandInput, GetMeetingCommandOutput } from "./commands/GetMeetingCommand";
 import {
   GetMessagingSessionEndpointCommandInput,
@@ -338,6 +350,10 @@ import {
   ListChannelsModeratedByAppInstanceUserCommandInput,
   ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "./commands/ListChannelsModeratedByAppInstanceUserCommand";
+import {
+  ListMediaCapturePipelinesCommandInput,
+  ListMediaCapturePipelinesCommandOutput,
+} from "./commands/ListMediaCapturePipelinesCommand";
 import { ListMeetingTagsCommandInput, ListMeetingTagsCommandOutput } from "./commands/ListMeetingTagsCommand";
 import { ListMeetingsCommandInput, ListMeetingsCommandOutput } from "./commands/ListMeetingsCommand";
 import {
@@ -580,6 +596,7 @@ export type ServiceInputTypes =
   | CreateChannelCommandInput
   | CreateChannelMembershipCommandInput
   | CreateChannelModeratorCommandInput
+  | CreateMediaCapturePipelineCommandInput
   | CreateMeetingCommandInput
   | CreateMeetingDialOutCommandInput
   | CreateMeetingWithAttendeesCommandInput
@@ -605,6 +622,7 @@ export type ServiceInputTypes =
   | DeleteChannelMessageCommandInput
   | DeleteChannelModeratorCommandInput
   | DeleteEventsConfigurationCommandInput
+  | DeleteMediaCapturePipelineCommandInput
   | DeleteMeetingCommandInput
   | DeletePhoneNumberCommandInput
   | DeleteProxySessionCommandInput
@@ -642,6 +660,7 @@ export type ServiceInputTypes =
   | GetChannelMessageCommandInput
   | GetEventsConfigurationCommandInput
   | GetGlobalSettingsCommandInput
+  | GetMediaCapturePipelineCommandInput
   | GetMeetingCommandInput
   | GetMessagingSessionEndpointCommandInput
   | GetPhoneNumberCommandInput
@@ -679,6 +698,7 @@ export type ServiceInputTypes =
   | ListChannelModeratorsCommandInput
   | ListChannelsCommandInput
   | ListChannelsModeratedByAppInstanceUserCommandInput
+  | ListMediaCapturePipelinesCommandInput
   | ListMeetingTagsCommandInput
   | ListMeetingsCommandInput
   | ListPhoneNumberOrdersCommandInput
@@ -766,6 +786,7 @@ export type ServiceOutputTypes =
   | CreateChannelCommandOutput
   | CreateChannelMembershipCommandOutput
   | CreateChannelModeratorCommandOutput
+  | CreateMediaCapturePipelineCommandOutput
   | CreateMeetingCommandOutput
   | CreateMeetingDialOutCommandOutput
   | CreateMeetingWithAttendeesCommandOutput
@@ -791,6 +812,7 @@ export type ServiceOutputTypes =
   | DeleteChannelMessageCommandOutput
   | DeleteChannelModeratorCommandOutput
   | DeleteEventsConfigurationCommandOutput
+  | DeleteMediaCapturePipelineCommandOutput
   | DeleteMeetingCommandOutput
   | DeletePhoneNumberCommandOutput
   | DeleteProxySessionCommandOutput
@@ -828,6 +850,7 @@ export type ServiceOutputTypes =
   | GetChannelMessageCommandOutput
   | GetEventsConfigurationCommandOutput
   | GetGlobalSettingsCommandOutput
+  | GetMediaCapturePipelineCommandOutput
   | GetMeetingCommandOutput
   | GetMessagingSessionEndpointCommandOutput
   | GetPhoneNumberCommandOutput
@@ -865,6 +888,7 @@ export type ServiceOutputTypes =
   | ListChannelModeratorsCommandOutput
   | ListChannelsCommandOutput
   | ListChannelsModeratedByAppInstanceUserCommandOutput
+  | ListMediaCapturePipelinesCommandOutput
   | ListMeetingTagsCommandOutput
   | ListMeetingsCommandOutput
   | ListPhoneNumberOrdersCommandOutput

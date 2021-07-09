@@ -197,6 +197,15 @@ export const serializeAws_restJson1ListOutpostsCommand = async (
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
+    ...(input.LifeCycleStatusFilter !== undefined && {
+      LifeCycleStatusFilter: (input.LifeCycleStatusFilter || []).map((_entry) => _entry),
+    }),
+    ...(input.AvailabilityZoneFilter !== undefined && {
+      AvailabilityZoneFilter: (input.AvailabilityZoneFilter || []).map((_entry) => _entry),
+    }),
+    ...(input.AvailabilityZoneIdFilter !== undefined && {
+      AvailabilityZoneIdFilter: (input.AvailabilityZoneIdFilter || []).map((_entry) => _entry),
+    }),
   };
   let body: any;
   return new __HttpRequest({

@@ -22,8 +22,8 @@ export interface ListFileSystemAssociationsCommandOutput extends ListFileSystemA
 
 /**
  * <p>Gets a list of <code>FileSystemAssociationSummary</code> objects. Each object contains a
- *          summary of a file system association. This operation is only supported for Amazon FSx file
- *          gateways.</p>
+ *          summary of a file system association. This operation is only supported for FSx File
+ *          Gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

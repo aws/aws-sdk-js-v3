@@ -19,7 +19,7 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
 
 /**
  * <p>Configures one or more gateway local disks as cache for a gateway. This operation is
- *          only supported in the cached volume, tape, and file gateway type (see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html">How AWS Storage Gateway works (architecture)</a>.</p>
+ *          only supported in the cached volume, tape, and file gateway type (see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html">How Storage Gateway works (architecture)</a>.</p>
  *
  *          <p>In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to
  *          add cache, and one or more disk IDs that you want to configure as cache.</p>

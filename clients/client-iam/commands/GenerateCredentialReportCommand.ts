@@ -21,7 +21,7 @@ export interface GenerateCredentialReportCommandInput {}
 export interface GenerateCredentialReportCommandOutput extends GenerateCredentialReportResponse, __MetadataBearer {}
 
 /**
- * <p> Generates a credential report for the AWS account. For more information about the
+ * <p> Generates a credential report for the account. For more information about the
  *             credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in
  *             the <i>IAM User Guide</i>.</p>
  * @example

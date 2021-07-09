@@ -68,13 +68,11 @@ export interface CreateOutpostInput {
 
   /**
    * <p>The Availability Zone.</p>
-   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
    */
   AvailabilityZone?: string;
 
   /**
    * <p>The ID of the Availability Zone.</p>
-   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
    */
   AvailabilityZoneId?: string;
 
@@ -134,13 +132,11 @@ export interface Outpost {
 
   /**
    * <p>The Availability Zone.</p>
-   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
    */
   AvailabilityZone?: string;
 
   /**
    * <p>The ID of the Availability Zone.</p>
-   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
    */
   AvailabilityZoneId?: string;
 
@@ -424,6 +420,36 @@ export interface ListOutpostsInput {
    * <p>The maximum page size.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>
+   *       A filter for the lifecycle status of the Outpost.
+   *     </p>
+   *          <p> Filter values are case sensitive. If you specify multiple values for a filter, the values
+   *       are joined with an <code>OR</code>, and the request returns all results that match any of the
+   *       specified values. </p>
+   */
+  LifeCycleStatusFilter?: string[];
+
+  /**
+   * <p> A filter for the Availibility Zone (<code>us-east-1a</code>) of the Outpost. </p>
+   *
+   *          <p> Filter values are case sensitive. If you specify multiple values for a filter, the values
+   *       are joined with an <code>OR</code>, and the request returns all results that match any of the
+   *       specified values. </p>
+   */
+  AvailabilityZoneFilter?: string[];
+
+  /**
+   * <p>
+   *       A filter for the AZ IDs (<code>use1-az1</code>) of the Outpost.
+   *     </p>
+   *
+   *          <p> Filter values are case sensitive. If you specify multiple values for a filter, the values
+   *       are joined with an <code>OR</code>, and the request returns all results that match any of the
+   *       specified values. </p>
+   */
+  AvailabilityZoneIdFilter?: string[];
 }
 
 export namespace ListOutpostsInput {

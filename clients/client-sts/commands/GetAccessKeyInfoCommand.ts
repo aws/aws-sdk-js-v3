@@ -28,9 +28,9 @@ export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse,
  *                 <code>wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</code>). For more information about
  *             access keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html">Managing Access Keys for IAM
  *                 Users</a> in the <i>IAM User Guide</i>.</p>
- *         <p>When you pass an access key ID to this operation, it returns the ID of the AWS
+ *         <p>When you pass an access key ID to this operation, it returns the ID of the Amazon Web Services
  *             account to which the keys belong. Access key IDs beginning with <code>AKIA</code> are
- *             long-term credentials for an IAM user or the AWS account root user. Access key IDs
+ *             long-term credentials for an IAM user or the Amazon Web Services account root user. Access key IDs
  *             beginning with <code>ASIA</code> are temporary credentials that are created using STS
  *             operations. If the account in the response belongs to you, you can sign in as the root
  *             user and review your root user access keys. Then, you can pull a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">credentials report</a> to learn which IAM user owns the keys. To learn who

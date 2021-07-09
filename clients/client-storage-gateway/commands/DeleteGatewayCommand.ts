@@ -36,7 +36,7 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  *             snapshots. You can choose to remove all remaining Amazon EBS snapshots by canceling your
  *             Amazon EC2 subscription.  If you prefer not to cancel your Amazon EC2 subscription, you
  *             can delete your snapshots using the Amazon EC2 console. For more information, see the
- *                <a href="http://aws.amazon.com/storagegateway">AWS Storage Gateway detail
+ *                <a href="http://aws.amazon.com/storagegateway">Storage Gateway detail
  *             page</a>.</p>
  *          </important>
  * @example

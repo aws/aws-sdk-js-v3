@@ -24,7 +24,7 @@ export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesO
  * <p>Returns a description of specified virtual tapes in the virtual tape shelf (VTS). This
  *          operation is only supported in the tape gateway type.</p>
  *
- *          <p>If a specific <code>TapeARN</code> is not specified, AWS Storage Gateway returns a
+ *          <p>If a specific <code>TapeARN</code> is not specified, Storage Gateway returns a
  *          description of all virtual tapes found in the VTS associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

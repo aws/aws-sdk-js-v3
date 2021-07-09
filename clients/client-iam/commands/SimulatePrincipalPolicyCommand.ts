@@ -22,7 +22,7 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
 
 /**
  * <p>Simulate how a set of IAM policies attached to an IAM entity works with a list of
- *             API operations and AWS resources to determine the policies' effective permissions. The
+ *             API operations and Amazon Web Services resources to determine the policies' effective permissions. The
  *             entity can be an IAM user, group, or role. If you specify a user, then the simulation
  *             also includes all of the policies that are attached to groups that the user belongs to.
  *             You can simulate resources that don't exist in your account.</p>
@@ -38,7 +38,7 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  *             permissions granted to other users. If you do not want users to see other user's
  *             permissions, then consider allowing them to use <a>SimulateCustomPolicy</a>
  *             instead.</p>
- *         <p>Context keys are variables maintained by AWS and its services that provide details
+ *         <p>Context keys are variables maintained by Amazon Web Services and its services that provide details
  *             about the context of an API query request. You can use the <code>Condition</code>
  *             element of an IAM policy to evaluate context keys. To get the list of context keys
  *             that the policies require for correct simulation, use <a>GetContextKeysForPrincipalPolicy</a>.</p>

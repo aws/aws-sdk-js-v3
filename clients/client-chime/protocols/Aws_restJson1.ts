@@ -59,6 +59,10 @@ import {
   CreateChannelModeratorCommandInput,
   CreateChannelModeratorCommandOutput,
 } from "../commands/CreateChannelModeratorCommand";
+import {
+  CreateMediaCapturePipelineCommandInput,
+  CreateMediaCapturePipelineCommandOutput,
+} from "../commands/CreateMediaCapturePipelineCommand";
 import { CreateMeetingCommandInput, CreateMeetingCommandOutput } from "../commands/CreateMeetingCommand";
 import {
   CreateMeetingDialOutCommandInput,
@@ -129,6 +133,10 @@ import {
   DeleteEventsConfigurationCommandInput,
   DeleteEventsConfigurationCommandOutput,
 } from "../commands/DeleteEventsConfigurationCommand";
+import {
+  DeleteMediaCapturePipelineCommandInput,
+  DeleteMediaCapturePipelineCommandOutput,
+} from "../commands/DeleteMediaCapturePipelineCommand";
 import { DeleteMeetingCommandInput, DeleteMeetingCommandOutput } from "../commands/DeleteMeetingCommand";
 import { DeletePhoneNumberCommandInput, DeletePhoneNumberCommandOutput } from "../commands/DeletePhoneNumberCommand";
 import { DeleteProxySessionCommandInput, DeleteProxySessionCommandOutput } from "../commands/DeleteProxySessionCommand";
@@ -238,6 +246,10 @@ import {
   GetEventsConfigurationCommandOutput,
 } from "../commands/GetEventsConfigurationCommand";
 import { GetGlobalSettingsCommandInput, GetGlobalSettingsCommandOutput } from "../commands/GetGlobalSettingsCommand";
+import {
+  GetMediaCapturePipelineCommandInput,
+  GetMediaCapturePipelineCommandOutput,
+} from "../commands/GetMediaCapturePipelineCommand";
 import { GetMeetingCommandInput, GetMeetingCommandOutput } from "../commands/GetMeetingCommand";
 import {
   GetMessagingSessionEndpointCommandInput,
@@ -338,6 +350,10 @@ import {
   ListChannelsModeratedByAppInstanceUserCommandInput,
   ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "../commands/ListChannelsModeratedByAppInstanceUserCommand";
+import {
+  ListMediaCapturePipelinesCommandInput,
+  ListMediaCapturePipelinesCommandOutput,
+} from "../commands/ListMediaCapturePipelinesCommand";
 import { ListMeetingTagsCommandInput, ListMeetingTagsCommandOutput } from "../commands/ListMeetingTagsCommand";
 import { ListMeetingsCommandInput, ListMeetingsCommandOutput } from "../commands/ListMeetingsCommand";
 import {
@@ -553,6 +569,7 @@ import {
   Identity,
   License,
   LoggingConfiguration,
+  MediaCapturePipeline,
   MediaPlacement,
   Meeting,
   MeetingNotificationConfiguration,
@@ -562,8 +579,6 @@ import {
   MessagingSessionEndpoint,
   NotFoundException,
   OrderedPhoneNumber,
-  Origination,
-  OriginationRoute,
   Participant,
   PhoneNumber,
   PhoneNumberAssociation,
@@ -571,7 +586,6 @@ import {
   PhoneNumberError,
   PhoneNumberOrder,
   PhoneNumberType,
-  Proxy,
   ProxySession,
   ResourceLimitExceededException,
   RetentionSettings,
@@ -604,7 +618,10 @@ import {
 } from "../models/models_0";
 import {
   Invite,
+  Origination,
+  OriginationRoute,
   PhoneNumberCountry,
+  Proxy,
   StreamingConfiguration,
   StreamingNotificationTarget,
   Termination,
@@ -1497,6 +1514,34 @@ export const serializeAws_restJson1CreateChannelModeratorCommand = async (
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateMediaCapturePipelineCommand = async (
+  input: CreateMediaCapturePipelineCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-capture-pipelines";
+  let body: any;
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.SinkArn !== undefined && input.SinkArn !== null && { SinkArn: input.SinkArn }),
+    ...(input.SinkType !== undefined && input.SinkType !== null && { SinkType: input.SinkType }),
+    ...(input.SourceArn !== undefined && input.SourceArn !== null && { SourceArn: input.SourceArn }),
+    ...(input.SourceType !== undefined && input.SourceType !== null && { SourceType: input.SourceType }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
     port,
     method: "POST",
     headers,
@@ -2447,6 +2492,36 @@ export const serializeAws_restJson1DeleteEventsConfigurationCommand = async (
     resolvedPath = resolvedPath.replace("{BotId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BotId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteMediaCapturePipelineCommand = async (
+  input: DeleteMediaCapturePipelineCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-capture-pipelines/{MediaPipelineId}";
+  if (input.MediaPipelineId !== undefined) {
+    const labelValue: string = input.MediaPipelineId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MediaPipelineId.");
+    }
+    resolvedPath = resolvedPath.replace("{MediaPipelineId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MediaPipelineId.");
   }
   let body: any;
   return new __HttpRequest({
@@ -3804,6 +3879,36 @@ export const serializeAws_restJson1GetGlobalSettingsCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetMediaCapturePipelineCommand = async (
+  input: GetMediaCapturePipelineCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-capture-pipelines/{MediaPipelineId}";
+  if (input.MediaPipelineId !== undefined) {
+    const labelValue: string = input.MediaPipelineId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MediaPipelineId.");
+    }
+    resolvedPath = resolvedPath.replace("{MediaPipelineId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MediaPipelineId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetMeetingCommand = async (
   input: GetMeetingCommandInput,
   context: __SerdeContext
@@ -5035,6 +5140,30 @@ export const serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListMediaCapturePipelinesCommand = async (
+  input: ListMediaCapturePipelinesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-capture-pipelines";
+  const query: any = {
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
     port,
     method: "GET",
     headers,
@@ -9830,6 +9959,109 @@ const deserializeAws_restJson1CreateChannelModeratorCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateMediaCapturePipelineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaCapturePipelineCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateMediaCapturePipelineCommandError(output, context);
+  }
+  const contents: CreateMediaCapturePipelineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    MediaCapturePipeline: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.MediaCapturePipeline !== undefined && data.MediaCapturePipeline !== null) {
+    contents.MediaCapturePipeline = deserializeAws_restJson1MediaCapturePipeline(data.MediaCapturePipeline, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateMediaCapturePipelineCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaCapturePipelineCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chime#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CreateMeetingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12379,6 +12611,105 @@ const deserializeAws_restJson1DeleteEventsConfigurationCommandError = async (
     case "com.amazonaws.chime#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteMediaCapturePipelineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMediaCapturePipelineCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteMediaCapturePipelineCommandError(output, context);
+  }
+  const contents: DeleteMediaCapturePipelineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteMediaCapturePipelineCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMediaCapturePipelineCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -16091,6 +16422,109 @@ const deserializeAws_restJson1GetGlobalSettingsCommandError = async (
     case "com.amazonaws.chime#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetMediaCapturePipelineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMediaCapturePipelineCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetMediaCapturePipelineCommandError(output, context);
+  }
+  const contents: GetMediaCapturePipelineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    MediaCapturePipeline: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.MediaCapturePipeline !== undefined && data.MediaCapturePipeline !== null) {
+    contents.MediaCapturePipeline = deserializeAws_restJson1MediaCapturePipeline(data.MediaCapturePipeline, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetMediaCapturePipelineCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMediaCapturePipelineCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -19880,6 +20314,108 @@ const deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListMediaCapturePipelinesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMediaCapturePipelinesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListMediaCapturePipelinesCommandError(output, context);
+  }
+  const contents: ListMediaCapturePipelinesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    MediaCapturePipelines: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.MediaCapturePipelines !== undefined && data.MediaCapturePipelines !== null) {
+    contents.MediaCapturePipelines = deserializeAws_restJson1MediaCapturePipelineList(
+      data.MediaCapturePipelines,
+      context
+    );
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListMediaCapturePipelinesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMediaCapturePipelinesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -28223,6 +28759,39 @@ const deserializeAws_restJson1LoggingConfiguration = (output: any, context: __Se
   return {
     EnableSIPLogs: __expectBoolean(output.EnableSIPLogs),
   } as any;
+};
+
+const deserializeAws_restJson1MediaCapturePipeline = (output: any, context: __SerdeContext): MediaCapturePipeline => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(output.CreatedTimestamp)
+        : undefined,
+    MediaPipelineId: __expectString(output.MediaPipelineId),
+    SinkArn: __expectString(output.SinkArn),
+    SinkType: __expectString(output.SinkType),
+    SourceArn: __expectString(output.SourceArn),
+    SourceType: __expectString(output.SourceType),
+    Status: __expectString(output.Status),
+    UpdatedTimestamp:
+      output.UpdatedTimestamp !== undefined && output.UpdatedTimestamp !== null
+        ? new Date(output.UpdatedTimestamp)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MediaCapturePipelineList = (
+  output: any,
+  context: __SerdeContext
+): MediaCapturePipeline[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MediaCapturePipeline(entry, context);
+    });
 };
 
 const deserializeAws_restJson1MediaPlacement = (output: any, context: __SerdeContext): MediaPlacement => {

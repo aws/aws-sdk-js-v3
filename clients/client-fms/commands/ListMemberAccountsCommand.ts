@@ -22,9 +22,9 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsRespo
 
 /**
  * <p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the
- *       administrator's AWS organization.</p>
+ *       administrator's Amazon Web Services organization.</p>
  *          <p>The <code>ListMemberAccounts</code> must be submitted by the account that is set as the
- *       AWS Firewall Manager administrator.</p>
+ *       Firewall Manager administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

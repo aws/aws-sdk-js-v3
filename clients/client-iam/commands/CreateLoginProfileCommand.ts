@@ -22,11 +22,11 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
 
 /**
  * <p>Creates a password for the specified IAM user. A password allows an IAM user to
- *             access AWS services through the AWS Management Console.</p>
- *         <p>You can use the AWS CLI, the AWS API, or the <b>Users</b> page in the IAM console to create a password for any IAM user.
+ *             access Amazon Web Services services through the Management Console.</p>
+ *         <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b> page in the IAM console to create a password for any IAM user.
  *             Use <a>ChangePassword</a> to update your own existing password in the
  *                 <b>My Security Credentials</b> page in the
- *             AWS Management Console.</p>
+ *             Management Console.</p>
  *         <p>For more information about managing passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing passwords</a> in the
  *                 <i>IAM User Guide</i>.</p>
  * @example

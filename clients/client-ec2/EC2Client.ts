@@ -797,6 +797,10 @@ import {
   DescribeSecurityGroupReferencesCommandOutput,
 } from "./commands/DescribeSecurityGroupReferencesCommand";
 import {
+  DescribeSecurityGroupRulesCommandInput,
+  DescribeSecurityGroupRulesCommandOutput,
+} from "./commands/DescribeSecurityGroupRulesCommand";
+import {
   DescribeSecurityGroupsCommandInput,
   DescribeSecurityGroupsCommandOutput,
 } from "./commands/DescribeSecurityGroupsCommand";
@@ -1252,6 +1256,10 @@ import {
   ModifyReservedInstancesCommandInput,
   ModifyReservedInstancesCommandOutput,
 } from "./commands/ModifyReservedInstancesCommand";
+import {
+  ModifySecurityGroupRulesCommandInput,
+  ModifySecurityGroupRulesCommandOutput,
+} from "./commands/ModifySecurityGroupRulesCommand";
 import {
   ModifySnapshotAttributeCommandInput,
   ModifySnapshotAttributeCommandOutput,
@@ -1809,6 +1817,7 @@ export type ServiceInputTypes =
   | DescribeScheduledInstanceAvailabilityCommandInput
   | DescribeScheduledInstancesCommandInput
   | DescribeSecurityGroupReferencesCommandInput
+  | DescribeSecurityGroupRulesCommandInput
   | DescribeSecurityGroupsCommandInput
   | DescribeSnapshotAttributeCommandInput
   | DescribeSnapshotsCommandInput
@@ -1938,6 +1947,7 @@ export type ServiceInputTypes =
   | ModifyManagedPrefixListCommandInput
   | ModifyNetworkInterfaceAttributeCommandInput
   | ModifyReservedInstancesCommandInput
+  | ModifySecurityGroupRulesCommandInput
   | ModifySnapshotAttributeCommandInput
   | ModifySpotFleetRequestCommandInput
   | ModifySubnetAttributeCommandInput
@@ -2265,6 +2275,7 @@ export type ServiceOutputTypes =
   | DescribeScheduledInstanceAvailabilityCommandOutput
   | DescribeScheduledInstancesCommandOutput
   | DescribeSecurityGroupReferencesCommandOutput
+  | DescribeSecurityGroupRulesCommandOutput
   | DescribeSecurityGroupsCommandOutput
   | DescribeSnapshotAttributeCommandOutput
   | DescribeSnapshotsCommandOutput
@@ -2394,6 +2405,7 @@ export type ServiceOutputTypes =
   | ModifyManagedPrefixListCommandOutput
   | ModifyNetworkInterfaceAttributeCommandOutput
   | ModifyReservedInstancesCommandOutput
+  | ModifySecurityGroupRulesCommandOutput
   | ModifySnapshotAttributeCommandOutput
   | ModifySpotFleetRequestCommandOutput
   | ModifySubnetAttributeCommandOutput

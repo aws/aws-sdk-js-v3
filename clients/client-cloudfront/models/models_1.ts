@@ -47,6 +47,43 @@ import {
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export interface GetFieldLevelEncryptionConfigRequest {
+  /**
+   * <p>Request the ID for the field-level encryption configuration information.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetFieldLevelEncryptionConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFieldLevelEncryptionConfigResult {
+  /**
+   * <p>Return the field-level encryption configuration information.</p>
+   */
+  FieldLevelEncryptionConfig?: FieldLevelEncryptionConfig;
+
+  /**
+   * <p>The current version of the field level encryption configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetFieldLevelEncryptionConfigResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionConfigResult): any => ({
+    ...obj,
+  });
+}
+
 export interface GetFieldLevelEncryptionProfileRequest {
   /**
    * <p>Get the ID for the field-level encryption profile information.</p>
@@ -628,12 +665,11 @@ export interface ListCachePoliciesRequest {
    * 		       <ul>
    *             <li>
    * 				           <p>
-   *                   <code>managed</code> – Returns only the managed policies created by AWS.</p>
+   *                   <code>managed</code> – Returns only the managed policies created by Amazon Web Services.</p>
    * 			         </li>
    *             <li>
    * 				           <p>
-   *                   <code>custom</code> – Returns only the custom policies created in your AWS
-   * 					account.</p>
+   *                   <code>custom</code> – Returns only the custom policies created in your account.</p>
    * 			         </li>
    *          </ul>
    */
@@ -779,15 +815,13 @@ export interface CloudFrontOriginAccessIdentityList {
   IsTruncated: boolean | undefined;
 
   /**
-   * <p>The number of CloudFront origin access identities that were created by the current AWS
-   * 			account. </p>
+   * <p>The number of CloudFront origin access identities that were created by the current account.</p>
    */
   Quantity: number | undefined;
 
   /**
    * <p>A complex type that contains one <code>CloudFrontOriginAccessIdentitySummary</code>
-   * 			element for each origin access identity that was created by the current AWS
-   * 			account.</p>
+   * 			element for each origin access identity that was created by the current account.</p>
    */
   Items?: CloudFrontOriginAccessIdentitySummary[];
 }
@@ -816,6 +850,129 @@ export namespace ListCloudFrontOriginAccessIdentitiesResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListCloudFrontOriginAccessIdentitiesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ListConflictingAliasesRequest {
+  /**
+   * <p>The ID of a distribution in your account that has an attached SSL/TLS certificate that
+   * 			includes the provided alias.</p>
+   */
+  DistributionId: string | undefined;
+
+  /**
+   * <p>The alias (also called a CNAME) to search for conflicting aliases.</p>
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in the list of
+   * 			conflicting aliases. The response includes conflicting aliases in the list that occur
+   * 			after the marker. To get the next page of the list, set this field’s value to the value
+   * 			of <code>NextMarker</code> from the current page’s response.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of conflicting aliases that you want in the response.</p>
+   */
+  MaxItems?: number;
+}
+
+export namespace ListConflictingAliasesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListConflictingAliasesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An alias (also called a CNAME) and the CloudFront distribution and Amazon Web Services account ID that it’s
+ * 			associated with. The distribution and account IDs are partially hidden, which allows you
+ * 			to identify the distributions and accounts that you own, but helps to protect the
+ * 			information of ones that you don’t own.</p>
+ */
+export interface ConflictingAlias {
+  /**
+   * <p>An alias (also called a CNAME).</p>
+   */
+  Alias?: string;
+
+  /**
+   * <p>The (partially hidden) ID of the CloudFront distribution associated with the alias.</p>
+   */
+  DistributionId?: string;
+
+  /**
+   * <p>The (partially hidden) ID of the Amazon Web Services account that owns the distribution that’s
+   * 			associated with the alias.</p>
+   */
+  AccountId?: string;
+}
+
+export namespace ConflictingAlias {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConflictingAlias): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of aliases (also called CNAMEs) and the CloudFront distributions and Amazon Web Services accounts that
+ * 			they are associated with. In the list, the distribution and account IDs are partially
+ * 			hidden, which allows you to identify the distributions and accounts that you own, but
+ * 			helps to protect the information of ones that you don’t own.</p>
+ */
+export interface ConflictingAliasesList {
+  /**
+   * <p>If there are more items in the list than are in this response, this element is present. It
+   * 			contains the value that you should use in the <code>Marker</code> field of a subsequent
+   * 			request to continue listing conflicting aliases where you left off.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>The maximum number of conflicting aliases requested.</p>
+   */
+  MaxItems?: number;
+
+  /**
+   * <p>The number of conflicting aliases returned in the response.</p>
+   */
+  Quantity?: number;
+
+  /**
+   * <p>Contains the conflicting aliases in the list.</p>
+   */
+  Items?: ConflictingAlias[];
+}
+
+export namespace ConflictingAliasesList {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConflictingAliasesList): any => ({
+    ...obj,
+  });
+}
+
+export interface ListConflictingAliasesResult {
+  /**
+   * <p>A list of conflicting aliases.</p>
+   */
+  ConflictingAliasesList?: ConflictingAliasesList;
+}
+
+export namespace ListConflictingAliasesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListConflictingAliasesResult): any => ({
     ...obj,
   });
 }
@@ -861,7 +1018,7 @@ export interface DistributionSummary {
   /**
    * <p>The ARN (Amazon Resource Name) for the distribution. For example:
    * 				<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
-   * 				<code>123456789012</code> is your AWS account ID.</p>
+   * 				<code>123456789012</code> is your account ID.</p>
    */
   ARN: string | undefined;
 
@@ -965,11 +1122,11 @@ export interface DistributionSummary {
   IsIPV6Enabled: boolean | undefined;
 
   /**
-   * <p>AWS services in China customers must file for an Internet Content Provider (ICP) recordal if they want to serve content
+   * <p>Amazon Web Services services in China customers must file for an Internet Content Provider (ICP) recordal if they want to serve content
    * 			publicly on an alternate domain name, also known as a CNAME, that they've added to CloudFront. AliasICPRecordal provides the ICP
    * 			recordal status for CNAMEs associated with distributions.</p>
    * 		       <p>For more information about ICP recordals, see  <a href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
-   * 			Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in China</i>.</p>
+   * 			Signup, Accounts, and Credentials</a> in <i>Getting Started with Amazon Web Services services in China</i>.</p>
    */
   AliasICPRecordals?: AliasICPRecordal[];
 }
@@ -1012,13 +1169,13 @@ export interface DistributionList {
   IsTruncated: boolean | undefined;
 
   /**
-   * <p>The number of distributions that were created by the current AWS account. </p>
+   * <p>The number of distributions that were created by the current account.</p>
    */
   Quantity: number | undefined;
 
   /**
    * <p>A complex type that contains one <code>DistributionSummary</code> element for each
-   * 			distribution that was created by the current AWS account.</p>
+   * 			distribution that was created by the current account.</p>
    */
   Items?: DistributionSummary[];
 }
@@ -1287,8 +1444,8 @@ export namespace ListDistributionsByRealtimeLogConfigResult {
 }
 
 /**
- * <p>The request to list distributions that are associated with a specified AWS WAF web
- * 			ACL. </p>
+ * <p>The request to list distributions that are associated with a specified WAF web
+ * 			ACL.</p>
  */
 export interface ListDistributionsByWebACLIdRequest {
   /**
@@ -1307,9 +1464,9 @@ export interface ListDistributionsByWebACLIdRequest {
   MaxItems?: number;
 
   /**
-   * <p>The ID of the AWS WAF web ACL that you want to list the associated distributions.
+   * <p>The ID of the WAF web ACL that you want to list the associated distributions.
    * 			If you specify "null" for the ID, the request returns a list of the distributions that aren't
-   * 			associated with a web ACL. </p>
+   * 			associated with a web ACL.</p>
    */
   WebACLId: string | undefined;
 }
@@ -1325,7 +1482,7 @@ export namespace ListDistributionsByWebACLIdRequest {
 
 /**
  * <p>The response to a request to list the distributions that are associated with a
- * 			specified AWS WAF web ACL. </p>
+ * 			specified WAF web ACL.</p>
  */
 export interface ListDistributionsByWebACLIdResult {
   /**
@@ -1756,14 +1913,14 @@ export interface InvalidationList {
   IsTruncated: boolean | undefined;
 
   /**
-   * <p>The number of invalidation batches that were created by the current AWS account.
+   * <p>The number of invalidation batches that were created by the current account.
    * 		</p>
    */
   Quantity: number | undefined;
 
   /**
    * <p>A complex type that contains one <code>InvalidationSummary</code> element for each
-   * 			invalidation batch created by the current AWS account.</p>
+   * 			invalidation batch created by the current account.</p>
    */
   Items?: InvalidationSummary[];
 }
@@ -1900,12 +2057,11 @@ export interface ListOriginRequestPoliciesRequest {
    * 		       <ul>
    *             <li>
    * 				           <p>
-   *                   <code>managed</code> – Returns only the managed policies created by AWS.</p>
+   *                   <code>managed</code> – Returns only the managed policies created by Amazon Web Services.</p>
    * 			         </li>
    *             <li>
    * 				           <p>
-   *                   <code>custom</code> – Returns only the custom policies created in your AWS
-   * 					account.</p>
+   *                   <code>custom</code> – Returns only the custom policies created in your account.</p>
    * 			         </li>
    *          </ul>
    */
@@ -1939,8 +2095,8 @@ export namespace ListOriginRequestPoliciesRequest {
  */
 export interface OriginRequestPolicySummary {
   /**
-   * <p>The type of origin request policy, either <code>managed</code> (created by AWS) or
-   * 			<code>custom</code> (created in this AWS account).</p>
+   * <p>The type of origin request policy, either <code>managed</code> (created by Amazon Web Services) or
+   * 			<code>custom</code> (created in this account).</p>
    */
   Type: OriginRequestPolicyType | string | undefined;
 
@@ -2246,7 +2402,7 @@ export interface StreamingDistributionSummary {
   /**
    * <p> The ARN (Amazon Resource Name) for the streaming distribution. For example:
    * 				<code>arn:aws:cloudfront::123456789012:streaming-distribution/EDFDVBD632BHDS5</code>, where
-   * 				<code>123456789012</code> is your AWS account ID.</p>
+   * 				<code>123456789012</code> is your account ID.</p>
    */
   ARN: string | undefined;
 
@@ -2280,7 +2436,7 @@ export interface StreamingDistributionSummary {
   Aliases: Aliases | undefined;
 
   /**
-   * <p>A complex type that specifies the AWS accounts, if any, that you want to allow to
+   * <p>A complex type that specifies the accounts, if any, that you want to allow to
    * 			create signed URLs for private content. If you want to require signed URLs in requests for
    * 			objects in the target origin that match the <code>PathPattern</code> for this cache behavior,
    * 			specify <code>true</code> for <code>Enabled</code>, and specify the applicable values for
@@ -2351,14 +2507,14 @@ export interface StreamingDistributionList {
   IsTruncated: boolean | undefined;
 
   /**
-   * <p>The number of streaming distributions that were created by the current AWS account.
+   * <p>The number of streaming distributions that were created by the current account.
    * 		</p>
    */
   Quantity: number | undefined;
 
   /**
    * <p>A complex type that contains one <code>StreamingDistributionSummary</code> element for
-   * 			each distribution that was created by the current AWS account.</p>
+   * 			each distribution that was created by the current account.</p>
    */
   Items?: StreamingDistributionSummary[];
 }
@@ -2645,24 +2801,6 @@ export namespace UntagResourceRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The update contains modifications that are not allowed.</p>
- */
-export interface IllegalUpdate extends __SmithyException, $MetadataBearer {
-  name: "IllegalUpdate";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace IllegalUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IllegalUpdate): any => ({
     ...obj,
   });
 }

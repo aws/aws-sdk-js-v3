@@ -21,7 +21,7 @@ export interface DeleteDashboardCommandInput extends DeleteDashboardRequest {}
 export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a dashboard from AWS IoT SiteWise Monitor.</p>
+ * <p>Deletes a dashboard from IoT SiteWise Monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,7 +21,7 @@ export interface PutLoggingOptionsCommandInput extends PutLoggingOptionsRequest 
 export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Sets logging options for AWS IoT SiteWise.</p>
+ * <p>Sets logging options for IoT SiteWise.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -186,7 +186,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class SNS extends SNSClient {
   /**
    * <p>Adds a statement to a topic's access control policy, granting access for the specified
-   *             AWS accounts to the specified actions.</p>
+   *             accounts to the specified actions.</p>
    */
   public addPermission(
     args: AddPermissionCommandInput,
@@ -406,9 +406,9 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Adds a destination phone number to an AWS account in the SMS sandbox and sends a
+   * <p>Adds a destination phone number to an account in the SMS sandbox and sends a
    *             one-time password (OTP) to that phone number.</p>
-   *         <p>When you start using Amazon SNS to send SMS messages, your AWS account is in the
+   *         <p>When you start using Amazon SNS to send SMS messages, your account is in the
    *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
    *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
    *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
@@ -448,7 +448,8 @@ export class SNS extends SNSClient {
 
   /**
    * <p>Creates a topic to which notifications can be published. Users can create at most
-   *             100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. This action is
+   *             100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html">Creating an Amazon SNS
+   *                 topic</a> in the <i>Amazon SNS Developer Guide</i>. This action is
    *             idempotent, so if the requester already owns a topic with the specified name, that
    *             topic's ARN is returned without creating a new topic.</p>
    */
@@ -547,8 +548,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Deletes an AWS account's verified or pending phone number from the SMS sandbox.</p>
-   *         <p>When you start using Amazon SNS to send SMS messages, your AWS account is in the
+   * <p>Deletes an account's verified or pending phone number from the SMS sandbox.</p>
+   *         <p>When you start using Amazon SNS to send SMS messages, your account is in the
    *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
    *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
    *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
@@ -717,9 +718,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Retrieves the SMS sandbox status for the calling AWS account in the target AWS
-   *             Region.</p>
-   *         <p>When you start using Amazon SNS to send SMS messages, your AWS account is in the
+   * <p>Retrieves the SMS sandbox status for the calling account in the target Region.</p>
+   *         <p>When you start using Amazon SNS to send SMS messages, your account is in the
    *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
    *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
    *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
@@ -864,7 +864,7 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Lists the calling AWS account's dedicated origination numbers and their metadata. For
+   * <p>Lists the calling account's dedicated origination numbers and their metadata. For
    *             more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer
    *             Guide</i>.</p>
    */
@@ -978,9 +978,9 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Lists the calling AWS account's current verified and pending destination phone numbers
+   * <p>Lists the calling account's current verified and pending destination phone numbers
    *             in the SMS sandbox.</p>
-   *         <p>When you start using Amazon SNS to send SMS messages, your AWS account is in the
+   *         <p>When you start using Amazon SNS to send SMS messages, your account is in the
    *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
    *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
    *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
@@ -1199,13 +1199,11 @@ export class SNS extends SNSClient {
    *         <p>To use the <code>Publish</code> action for sending a message to a mobile endpoint,
    *             such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for
    *             the TargetArn parameter. The EndpointArn is returned when making a call with the
-   *                 <code>CreatePlatformEndpoint</code> action.
-   *       </p>
+   *                 <code>CreatePlatformEndpoint</code> action. </p>
    *         <p>For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom
    *                 Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
    *         <important>
-   *             <p>You can publish messages only to topics and endpoints in the same AWS
-   *                 Region.</p>
+   *             <p>You can publish messages only to topics and endpoints in the same Region.</p>
    *         </important>
    */
   public publish(args: PublishCommandInput, options?: __HttpHandlerOptions): Promise<PublishCommandOutput>;
@@ -1442,7 +1440,7 @@ export class SNS extends SNSClient {
 
   /**
    * <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or
-   *             if the endpoint and the topic are not in the same AWS account, the endpoint owner must
+   *             if the endpoint and the topic are not in the same account, the endpoint owner must
    *             run the <code>ConfirmSubscription</code> action to confirm the subscription.</p>
    *         <p>You call the <code>ConfirmSubscription</code> action with the token from the
    *             subscription response. Confirmation tokens are valid for three days.</p>
@@ -1491,7 +1489,7 @@ export class SNS extends SNSClient {
    *                     existing tag.</p>
    *             </li>
    *             <li>
-   *                 <p>Tagging actions are limited to 10 TPS per AWS account, per AWS region. If your
+   *                 <p>Tagging actions are limited to 10 TPS per account, per Region. If your
    *                     application requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p>
    *             </li>
    *          </ul>
@@ -1521,7 +1519,7 @@ export class SNS extends SNSClient {
 
   /**
    * <p>Deletes a subscription. If the subscription requires authentication for deletion, only
-   *             the owner of the subscription or the topic's owner can unsubscribe, and an AWS signature
+   *             the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services signature
    *             is required. If the <code>Unsubscribe</code> call does not require authentication and
    *             the requester is not the subscription owner, a final cancellation message is delivered
    *             to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the
@@ -1585,9 +1583,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Verifies a destination phone number with a one-time password (OTP) for the calling AWS
-   *             account.</p>
-   *         <p>When you start using Amazon SNS to send SMS messages, your AWS account is in the
+   * <p>Verifies a destination phone number with a one-time password (OTP) for the calling account.</p>
+   *         <p>When you start using Amazon SNS to send SMS messages, your account is in the
    *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
    *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
    *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send

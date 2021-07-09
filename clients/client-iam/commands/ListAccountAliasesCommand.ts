@@ -21,9 +21,9 @@ export interface ListAccountAliasesCommandInput extends ListAccountAliasesReques
 export interface ListAccountAliasesCommandOutput extends ListAccountAliasesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the account alias associated with the AWS account (Note: you can have only
- *             one). For information about using an AWS account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your
- *                 AWS account ID</a> in the <i>IAM User Guide</i>.</p>
+ * <p>Lists the account alias associated with the account (Note: you can have only
+ *             one). For information about using an account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your
+ *                 account ID</a> in the <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

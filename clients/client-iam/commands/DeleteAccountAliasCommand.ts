@@ -21,8 +21,8 @@ export interface DeleteAccountAliasCommandInput extends DeleteAccountAliasReques
 export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Deletes the specified AWS account alias. For information about using an AWS
- *             account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your AWS account ID</a> in the
+ * <p> Deletes the specified account alias. For information about using an Amazon Web Services
+ *             account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your account ID</a> in the
  *                 <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

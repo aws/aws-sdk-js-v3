@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AuthorizeSecurityGroupEgressRequest } from "../models/models_0";
+import { AuthorizeSecurityGroupEgressRequest, AuthorizeSecurityGroupEgressResult } from "../models/models_0";
 import {
   deserializeAws_ec2AuthorizeSecurityGroupEgressCommand,
   serializeAws_ec2AuthorizeSecurityGroupEgressCommand,
@@ -18,18 +18,20 @@ import {
 } from "@aws-sdk/types";
 
 export interface AuthorizeSecurityGroupEgressCommandInput extends AuthorizeSecurityGroupEgressRequest {}
-export interface AuthorizeSecurityGroupEgressCommandOutput extends __MetadataBearer {}
+export interface AuthorizeSecurityGroupEgressCommandOutput
+  extends AuthorizeSecurityGroupEgressResult,
+    __MetadataBearer {}
 
 /**
- * <p>[VPC only] Adds the specified egress rules to a security group for use with a VPC.</p>
- *          <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR
- *       address ranges, or to the instances associated with the specified destination security groups.</p>
+ * <p>[VPC only] Adds the specified outbound (egress) rules to a security group for use with a VPC.</p>
+ *          <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address
+ *       ranges, or to the instances that are associated with the specified destination security groups.</p>
  *          <p>You specify a protocol for each rule (for example, TCP).
  *        For the TCP and UDP protocols, you must also specify the destination port or port range.
  *        For the ICMP protocol, you must also specify the ICMP type and code.
  *        You can use -1 for the type or code to mean all types or all codes.</p>
  *          <p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p>
- *          <p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
+ *          <p>For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,7 +81,7 @@ export class AuthorizeSecurityGroupEgressCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AuthorizeSecurityGroupEgressRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: AuthorizeSecurityGroupEgressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -24,7 +24,7 @@ export interface GetAssetPropertyValueHistoryCommandOutput
 
 /**
  * <p>Gets the history of an asset property's values. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying
- *         historical values</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ *         historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
  *          <ul>
  *             <li>

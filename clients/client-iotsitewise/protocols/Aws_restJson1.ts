@@ -51,6 +51,10 @@ import {
 } from "../commands/DescribeLoggingOptionsCommand";
 import { DescribePortalCommandInput, DescribePortalCommandOutput } from "../commands/DescribePortalCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "../commands/DescribeProjectCommand";
+import {
+  DescribeStorageConfigurationCommandInput,
+  DescribeStorageConfigurationCommandOutput,
+} from "../commands/DescribeStorageConfigurationCommand";
 import { DisassociateAssetsCommandInput, DisassociateAssetsCommandOutput } from "../commands/DisassociateAssetsCommand";
 import {
   GetAssetPropertyAggregatesCommandInput,
@@ -93,6 +97,10 @@ import {
   PutDefaultEncryptionConfigurationCommandOutput,
 } from "../commands/PutDefaultEncryptionConfigurationCommand";
 import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "../commands/PutLoggingOptionsCommand";
+import {
+  PutStorageConfigurationCommandInput,
+  PutStorageConfigurationCommandOutput,
+} from "../commands/PutStorageConfigurationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAccessPolicyCommandInput, UpdateAccessPolicyCommandOutput } from "../commands/UpdateAccessPolicyCommand";
@@ -140,6 +148,7 @@ import {
   ConfigurationErrorDetails,
   ConfigurationStatus,
   ConflictingOperationException,
+  CustomerManagedS3Storage,
   DashboardSummary,
   ErrorDetails,
   ExpressionVariable,
@@ -163,6 +172,7 @@ import {
   Metric,
   MetricWindow,
   MonitorErrorDetails,
+  MultiLayerStorage,
   PortalResource,
   PortalStatus,
   PortalSummary,
@@ -1324,6 +1334,29 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeStorageConfigurationCommand = async (
+  input: DescribeStorageConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration/account/storage";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DisassociateAssetsCommand = async (
   input: DisassociateAssetsCommandInput,
   context: __SerdeContext
@@ -1950,6 +1983,35 @@ export const serializeAws_restJson1PutLoggingOptionsCommand = async (
     hostname: resolvedHostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutStorageConfigurationCommand = async (
+  input: PutStorageConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration/account/storage";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.multiLayerStorage !== undefined &&
+      input.multiLayerStorage !== null && {
+        multiLayerStorage: serializeAws_restJson1MultiLayerStorage(input.multiLayerStorage, context),
+      }),
+    ...(input.storageType !== undefined && input.storageType !== null && { storageType: input.storageType }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -5182,6 +5244,113 @@ const deserializeAws_restJson1DescribeProjectCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeStorageConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStorageConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeStorageConfigurationCommandError(output, context);
+  }
+  const contents: DescribeStorageConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    configurationStatus: undefined,
+    lastUpdateDate: undefined,
+    multiLayerStorage: undefined,
+    storageType: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.configurationStatus !== undefined && data.configurationStatus !== null) {
+    contents.configurationStatus = deserializeAws_restJson1ConfigurationStatus(data.configurationStatus, context);
+  }
+  if (data.lastUpdateDate !== undefined && data.lastUpdateDate !== null) {
+    contents.lastUpdateDate = new Date(Math.round(data.lastUpdateDate * 1000));
+  }
+  if (data.multiLayerStorage !== undefined && data.multiLayerStorage !== null) {
+    contents.multiLayerStorage = deserializeAws_restJson1MultiLayerStorage(data.multiLayerStorage, context);
+  }
+  if (data.storageType !== undefined && data.storageType !== null) {
+    contents.storageType = __expectString(data.storageType);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeStorageConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStorageConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iotsitewise#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DisassociateAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6689,6 +6858,117 @@ const deserializeAws_restJson1PutLoggingOptionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1PutStorageConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutStorageConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutStorageConfigurationCommandError(output, context);
+  }
+  const contents: PutStorageConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    configurationStatus: undefined,
+    multiLayerStorage: undefined,
+    storageType: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.configurationStatus !== undefined && data.configurationStatus !== null) {
+    contents.configurationStatus = deserializeAws_restJson1ConfigurationStatus(data.configurationStatus, context);
+  }
+  if (data.multiLayerStorage !== undefined && data.multiLayerStorage !== null) {
+    contents.multiLayerStorage = deserializeAws_restJson1MultiLayerStorage(data.multiLayerStorage, context);
+  }
+  if (data.storageType !== undefined && data.storageType !== null) {
+    contents.storageType = __expectString(data.storageType);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutStorageConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutStorageConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iotsitewise#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8049,6 +8329,16 @@ const serializeAws_restJson1Attribute = (input: Attribute, context: __SerdeConte
   };
 };
 
+const serializeAws_restJson1CustomerManagedS3Storage = (
+  input: CustomerManagedS3Storage,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
+    ...(input.s3ResourceArn !== undefined && input.s3ResourceArn !== null && { s3ResourceArn: input.s3ResourceArn }),
+  };
+};
+
 const serializeAws_restJson1ExpressionVariable = (input: ExpressionVariable, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
@@ -8162,6 +8452,18 @@ const serializeAws_restJson1MetricWindow = (input: MetricWindow, context: __Serd
   return {
     ...(input.tumbling !== undefined &&
       input.tumbling !== null && { tumbling: serializeAws_restJson1TumblingWindow(input.tumbling, context) }),
+  };
+};
+
+const serializeAws_restJson1MultiLayerStorage = (input: MultiLayerStorage, context: __SerdeContext): any => {
+  return {
+    ...(input.customerManagedS3Storage !== undefined &&
+      input.customerManagedS3Storage !== null && {
+        customerManagedS3Storage: serializeAws_restJson1CustomerManagedS3Storage(
+          input.customerManagedS3Storage,
+          context
+        ),
+      }),
   };
 };
 
@@ -8836,6 +9138,16 @@ const deserializeAws_restJson1ConfigurationStatus = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_restJson1CustomerManagedS3Storage = (
+  output: any,
+  context: __SerdeContext
+): CustomerManagedS3Storage => {
+  return {
+    roleArn: __expectString(output.roleArn),
+    s3ResourceArn: __expectString(output.s3ResourceArn),
+  } as any;
+};
+
 const deserializeAws_restJson1DashboardSummaries = (output: any, context: __SerdeContext): DashboardSummary[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -9073,6 +9385,15 @@ const deserializeAws_restJson1MonitorErrorDetails = (output: any, context: __Ser
   return {
     code: __expectString(output.code),
     message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_restJson1MultiLayerStorage = (output: any, context: __SerdeContext): MultiLayerStorage => {
+  return {
+    customerManagedS3Storage:
+      output.customerManagedS3Storage !== undefined && output.customerManagedS3Storage !== null
+        ? deserializeAws_restJson1CustomerManagedS3Storage(output.customerManagedS3Storage, context)
+        : undefined,
   } as any;
 };
 

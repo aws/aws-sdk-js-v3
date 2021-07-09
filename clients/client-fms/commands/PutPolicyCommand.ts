@@ -18,27 +18,31 @@ export interface PutPolicyCommandInput extends PutPolicyRequest {}
 export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an AWS Firewall Manager policy.</p>
+ * <p>Creates an Firewall Manager policy.</p>
  *          <p>Firewall Manager provides the following types of policies: </p>
  *          <ul>
  *             <li>
- *                <p>An AWS WAF policy (type WAFV2), which defines rule groups to run first in the
- *               corresponding AWS WAF web ACL and rule groups to run last in the web ACL.</p>
+ *                <p>An WAF policy (type WAFV2), which defines rule groups to run first in the
+ *               corresponding WAF web ACL and rule groups to run last in the web ACL.</p>
  *             </li>
  *             <li>
- *                <p>An AWS WAF Classic policy (type WAF), which defines a rule group. </p>
+ *                <p>An WAF Classic policy (type WAF), which defines a rule group. </p>
  *             </li>
  *             <li>
  *                <p>A Shield Advanced policy, which applies Shield Advanced protection to specified
  *           accounts and resources.</p>
  *             </li>
  *             <li>
- *                <p>A security group policy, which manages VPC security groups across your AWS
+ *                <p>A security group policy, which manages VPC security groups across your Amazon Web Services
  *           organization. </p>
  *             </li>
  *             <li>
- *                <p>An AWS Network Firewall policy, which provides firewall rules to filter network traffic in specified
+ *                <p>An Network Firewall policy, which provides firewall rules to filter network traffic in specified
  *           Amazon VPCs.</p>
+ *             </li>
+ *             <li>
+ *                <p>A DNS Firewall policy, which provides Route 53 Resolver DNS Firewall rules to filter DNS queries for
+ *             specified VPCs.</p>
  *             </li>
  *          </ul>
  *          <p>Each policy is specific to one of the types. If you want to enforce more than one

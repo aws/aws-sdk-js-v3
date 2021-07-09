@@ -18,7 +18,7 @@ export interface CreateRoleCommandInput extends CreateRoleRequest {}
 export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new role for your AWS account. For more information about roles, see
+ * <p>Creates a new role for your account. For more information about roles, see
  *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
  *                 roles</a>. For information about quotas for role names and the number of roles
  *             you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS quotas</a> in the

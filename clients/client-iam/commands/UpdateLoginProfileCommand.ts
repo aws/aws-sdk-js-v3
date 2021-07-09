@@ -21,11 +21,11 @@ export interface UpdateLoginProfileCommandInput extends UpdateLoginProfileReques
 export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Changes the password for the specified IAM user. You can use the AWS CLI, the
- *             AWS API, or the <b>Users</b> page in the IAM console to
- *             change the password for any IAM user. Use <a>ChangePassword</a> to change
- *             your own password in the <b>My Security Credentials</b> page
- *             in the AWS Management Console.</p>
+ * <p>Changes the password for the specified IAM user. You can use the CLI,
+ *             the Amazon Web Services API, or the <b>Users</b> page in the IAM console
+ *             to change the password for any IAM user. Use <a>ChangePassword</a> to
+ *             change your own password in the <b>My Security Credentials</b>
+ *             page in the Management Console.</p>
  *         <p>For more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing passwords</a> in the
  *                 <i>IAM User Guide</i>.</p>
  * @example

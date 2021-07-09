@@ -21,7 +21,7 @@ export interface UpdateBrokerCommandInput extends UpdateBrokerRequest {}
 export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __MetadataBearer {}
 
 /**
- * Adds a pending configuration change to a broker.
+ * <p>Adds a pending configuration change to a broker.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

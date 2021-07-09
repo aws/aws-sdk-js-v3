@@ -21,7 +21,7 @@ export interface SearchResourcesCommandInput extends SearchResourcesRequest {}
 export interface SearchResourcesCommandOutput extends SearchResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves (queries) statistical data and other information about AWS resources that Amazon Macie monitors and analyzes.</p>
+ * <p>Retrieves (queries) statistical data and other information about Amazon Web Services resources that Amazon Macie monitors and analyzes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

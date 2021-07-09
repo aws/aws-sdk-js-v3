@@ -19,6 +19,8 @@ export * from "./commands/DescribeClusterCommand";
 export * from "./waiters/waitForClusterActive";
 export * from "./waiters/waitForClusterDeleted";
 export * from "./commands/DescribeFargateProfileCommand";
+export * from "./waiters/waitForFargateProfileActive";
+export * from "./waiters/waitForFargateProfileDeleted";
 export * from "./commands/DescribeIdentityProviderConfigCommand";
 export * from "./commands/DescribeNodegroupCommand";
 export * from "./waiters/waitForNodegroupActive";

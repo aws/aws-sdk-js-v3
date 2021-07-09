@@ -1,3 +1,4 @@
+import { AssociateAliasCommandInput, AssociateAliasCommandOutput } from "../commands/AssociateAliasCommand";
 import { CreateCachePolicyCommandInput, CreateCachePolicyCommandOutput } from "../commands/CreateCachePolicyCommand";
 import {
   CreateCloudFrontOriginAccessIdentityCommandInput,
@@ -143,6 +144,10 @@ import {
   ListCloudFrontOriginAccessIdentitiesCommandInput,
   ListCloudFrontOriginAccessIdentitiesCommandOutput,
 } from "../commands/ListCloudFrontOriginAccessIdentitiesCommand";
+import {
+  ListConflictingAliasesCommandInput,
+  ListConflictingAliasesCommandOutput,
+} from "../commands/ListConflictingAliasesCommand";
 import {
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
@@ -292,6 +297,7 @@ import {
   Headers,
   IllegalDelete,
   IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
+  IllegalUpdate,
   InconsistentQuantities,
   InvalidArgument,
   InvalidDefaultRootObject,
@@ -447,6 +453,8 @@ import {
 import {
   CloudFrontOriginAccessIdentityList,
   CloudFrontOriginAccessIdentitySummary,
+  ConflictingAlias,
+  ConflictingAliasesList,
   DistributionIdList,
   DistributionList,
   DistributionSummary,
@@ -455,7 +463,6 @@ import {
   FieldLevelEncryptionProfileSummary,
   FieldLevelEncryptionSummary,
   FunctionList,
-  IllegalUpdate,
   InvalidationList,
   InvalidationSummary,
   KeyGroupList,
@@ -490,6 +497,40 @@ import {
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
 import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
+
+export const serializeAws_restXmlAssociateAliasCommand = async (
+  input: AssociateAliasCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-05-31/distribution/{TargetDistributionId}/associate-alias";
+  if (input.TargetDistributionId !== undefined) {
+    const labelValue: string = input.TargetDistributionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: TargetDistributionId.");
+    }
+    resolvedPath = resolvedPath.replace("{TargetDistributionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: TargetDistributionId.");
+  }
+  const query: any = {
+    ...(input.Alias !== undefined && { Alias: input.Alias }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
 
 export const serializeAws_restXmlCreateCachePolicyCommand = async (
   input: CreateCachePolicyCommandInput,
@@ -2155,6 +2196,33 @@ export const serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand = a
   });
 };
 
+export const serializeAws_restXmlListConflictingAliasesCommand = async (
+  input: ListConflictingAliasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/conflicting-alias";
+  const query: any = {
+    ...(input.DistributionId !== undefined && { DistributionId: input.DistributionId }),
+    ...(input.Alias !== undefined && { Alias: input.Alias }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restXmlListDistributionsCommand = async (
   input: ListDistributionsCommandInput,
   context: __SerdeContext
@@ -3259,6 +3327,89 @@ export const serializeAws_restXmlUpdateStreamingDistributionCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restXmlAssociateAliasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateAliasCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlAssociateAliasCommandError(output, context);
+  }
+  const contents: AssociateAliasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlAssociateAliasCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateAliasCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IllegalUpdate":
+    case "com.amazonaws.cloudfront#IllegalUpdate":
+      response = {
+        ...(await deserializeAws_restXmlIllegalUpdateResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchDistribution":
+    case "com.amazonaws.cloudfront#NoSuchDistribution":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchDistributionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyDistributionCNAMEs":
+    case "com.amazonaws.cloudfront#TooManyDistributionCNAMEs":
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionCNAMEsResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlCreateCachePolicyCommand = async (
@@ -4817,6 +4968,14 @@ const deserializeAws_restXmlCreateFunctionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedOperation":
+    case "com.amazonaws.cloudfront#UnsupportedOperation":
+      response = {
+        ...(await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -6153,6 +6312,14 @@ const deserializeAws_restXmlDeleteFunctionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedOperation":
+    case "com.amazonaws.cloudfront#UnsupportedOperation":
+      response = {
+        ...(await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -6680,6 +6847,14 @@ const deserializeAws_restXmlDescribeFunctionCommandError = async (
     case "com.amazonaws.cloudfront#NoSuchFunctionExists":
       response = {
         ...(await deserializeAws_restXmlNoSuchFunctionExistsResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperation":
+    case "com.amazonaws.cloudfront#UnsupportedOperation":
+      response = {
+        ...(await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7394,6 +7569,14 @@ const deserializeAws_restXmlGetFunctionCommandError = async (
     case "com.amazonaws.cloudfront#NoSuchFunctionExists":
       response = {
         ...(await deserializeAws_restXmlNoSuchFunctionExistsResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperation":
+    case "com.amazonaws.cloudfront#UnsupportedOperation":
+      response = {
+        ...(await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -8250,6 +8433,67 @@ const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError = a
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlListConflictingAliasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConflictingAliasesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlListConflictingAliasesCommandError(output, context);
+  }
+  const contents: ListConflictingAliasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ConflictingAliasesList: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.ConflictingAliasesList = deserializeAws_restXmlConflictingAliasesList(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlListConflictingAliasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConflictingAliasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchDistribution":
+    case "com.amazonaws.cloudfront#NoSuchDistribution":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchDistributionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlListDistributionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8754,6 +8998,14 @@ const deserializeAws_restXmlListFunctionsCommandError = async (
     case "com.amazonaws.cloudfront#InvalidArgument":
       response = {
         ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperation":
+    case "com.amazonaws.cloudfront#UnsupportedOperation":
+      response = {
+        ...(await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9278,6 +9530,14 @@ const deserializeAws_restXmlPublishFunctionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedOperation":
+    case "com.amazonaws.cloudfront#UnsupportedOperation":
+      response = {
+        ...(await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -9426,6 +9686,14 @@ const deserializeAws_restXmlTestFunctionCommandError = async (
     case "com.amazonaws.cloudfront#TestFunctionFailed":
       response = {
         ...(await deserializeAws_restXmlTestFunctionFailedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperation":
+    case "com.amazonaws.cloudfront#UnsupportedOperation":
+      response = {
+        ...(await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10636,6 +10904,14 @@ const deserializeAws_restXmlUpdateFunctionCommandError = async (
     case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
         ...(await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperation":
+    case "com.amazonaws.cloudfront#UnsupportedOperation":
+      response = {
+        ...(await deserializeAws_restXmlUnsupportedOperationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -15832,6 +16108,63 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentitySummaryList = (
       }
       return deserializeAws_restXmlCloudFrontOriginAccessIdentitySummary(entry, context);
     });
+};
+
+const deserializeAws_restXmlConflictingAlias = (output: any, context: __SerdeContext): ConflictingAlias => {
+  let contents: any = {
+    Alias: undefined,
+    DistributionId: undefined,
+    AccountId: undefined,
+  };
+  if (output["Alias"] !== undefined) {
+    contents.Alias = __expectString(output["Alias"]);
+  }
+  if (output["DistributionId"] !== undefined) {
+    contents.DistributionId = __expectString(output["DistributionId"]);
+  }
+  if (output["AccountId"] !== undefined) {
+    contents.AccountId = __expectString(output["AccountId"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlConflictingAliases = (output: any, context: __SerdeContext): ConflictingAlias[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlConflictingAlias(entry, context);
+    });
+};
+
+const deserializeAws_restXmlConflictingAliasesList = (output: any, context: __SerdeContext): ConflictingAliasesList => {
+  let contents: any = {
+    NextMarker: undefined,
+    MaxItems: undefined,
+    Quantity: undefined,
+    Items: undefined,
+  };
+  if (output["NextMarker"] !== undefined) {
+    contents.NextMarker = __expectString(output["NextMarker"]);
+  }
+  if (output["MaxItems"] !== undefined) {
+    contents.MaxItems = parseInt(output["MaxItems"]);
+  }
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = parseInt(output["Quantity"]);
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+  }
+  if (output["Items"] !== undefined && output["Items"]["ConflictingAlias"] !== undefined) {
+    contents.Items = deserializeAws_restXmlConflictingAliases(
+      __getArrayIfSingleItem(output["Items"]["ConflictingAlias"]),
+      context
+    );
+  }
+  return contents;
 };
 
 const deserializeAws_restXmlContentTypeProfile = (output: any, context: __SerdeContext): ContentTypeProfile => {

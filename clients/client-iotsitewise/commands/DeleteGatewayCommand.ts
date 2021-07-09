@@ -21,7 +21,7 @@ export interface DeleteGatewayCommandInput extends DeleteGatewayRequest {}
 export interface DeleteGatewayCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a gateway from AWS IoT SiteWise. When you delete a gateway, some of the gateway's files remain
+ * <p>Deletes a gateway from IoT SiteWise. When you delete a gateway, some of the gateway's files remain
  *       in your gateway's file system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

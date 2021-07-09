@@ -25,7 +25,7 @@ export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
  *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
  *          <note>
- *             <p>For certificates in a Region supported by AWS Certificate Manager (ACM), we
+ *             <p>For certificates in a Region supported by Certificate Manager (ACM), we
  *         recommend that you don't use IAM server certificates. Instead, use ACM to provision,
  *         manage, and deploy your server certificates. For more information about IAM server
  *         certificates, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working with server

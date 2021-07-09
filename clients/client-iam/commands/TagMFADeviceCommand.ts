@@ -49,7 +49,7 @@ export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
  *       <i>IAM User Guide</i>.</p>
  *                </li>
  *                <li>
- *                   <p>AWS always interprets the tag <code>Value</code> as a single string. If you
+ *                   <p>Amazon Web Services always interprets the tag <code>Value</code> as a single string. If you
  *             need to store an array, you can store comma-separated values in the string. However, you
  *             must interpret the value in your code.</p>
  *                </li>

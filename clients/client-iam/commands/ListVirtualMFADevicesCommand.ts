@@ -21,7 +21,7 @@ export interface ListVirtualMFADevicesCommandInput extends ListVirtualMFADevices
 export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the virtual MFA devices defined in the AWS account by assignment status. If
+ * <p>Lists the virtual MFA devices defined in the account by assignment status. If
  *             you do not specify an assignment status, the operation returns a list of all virtual MFA
  *             devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>, or
  *                 <code>Any</code>.</p>

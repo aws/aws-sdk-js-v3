@@ -21,7 +21,7 @@ export interface ListConfigurationRevisionsCommandInput extends ListConfiguratio
 export interface ListConfigurationRevisionsCommandOutput extends ListConfigurationRevisionsResponse, __MetadataBearer {}
 
 /**
- * Returns a list of all revisions for the specified configuration.
+ * <p>Returns a list of all revisions for the specified configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

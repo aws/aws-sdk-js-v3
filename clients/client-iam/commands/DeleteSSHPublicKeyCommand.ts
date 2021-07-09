@@ -23,9 +23,9 @@ export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the specified SSH public key.</p>
  *         <p>The SSH public key deleted by this operation is used only for authenticating the
- *             associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys
- *             to authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for
- *                 SSH connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
+ *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
+ *             to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for
+ *                 SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

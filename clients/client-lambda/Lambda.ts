@@ -244,20 +244,20 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <fullname>AWS Lambda</fullname>
+ * <fullname>Lambda</fullname>
  *          <p>
  *             <b>Overview</b>
  *          </p>
- *          <p>This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides additional
+ *          <p>This is the <i>Lambda API Reference</i>. The Lambda Developer Guide provides additional
  *       information. For the service overview, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is
- *         AWS Lambda</a>, and for information about how the service works, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a> in the <b>AWS Lambda Developer Guide</b>.</p>
+ *         Lambda</a>, and for information about how the service works, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">Lambda: How it Works</a> in the <b>Lambda Developer Guide</b>.</p>
  */
 export class Lambda extends LambdaClient {
   /**
-   * <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+   * <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>. Use this action to grant layer
-   *       usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all
-   *       accounts in an organization.</p>
+   *       usage permission to other accounts. You can grant permission to a single account, all accounts in an organization,
+   *       or all Amazon Web Services accounts.  </p>
    *          <p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you
    *       specified when you added it.</p>
    */
@@ -291,13 +291,13 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Grants an AWS service or another account permission to use a function. You can apply the policy at the
+   * <p>Grants an Amazon Web Services service or another account permission to use a function. You can apply the policy at the
    *       function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier,
    *       the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.</p>
    *
-   *          <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For AWS
+   *          <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For Amazon Web Services
    *       services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or
-   *         <code>sns.amazonaws.com</code>. For AWS services, you can also specify the ARN of the associated resource as the
+   *         <code>sns.amazonaws.com</code>. For Amazon Web Services services, you can also specify the ARN of the associated resource as the
    *         <code>SourceArn</code>. If you grant permission to a service principal without specifying the source, other
    *       accounts could potentially configure resources in their account to invoke your Lambda function.</p>
    *
@@ -399,42 +399,45 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source
+   * <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source
    *       and triggers the function.</p>
-   *          <p>For details about each event source type, see the following topics.</p>
+   *          <p>For details about each event source type, see the following topics. In particular, each of the topics
+   *       describes the required and optional parameters for the specific event source. </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon
-   *           DynamoDB</a>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping">
+   *           Configuring a Dynamo DB stream as an event source</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS Lambda with Amazon
-   *           Kinesis</a>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping">
+   *           Configuring a Kinesis stream as an event source</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda with Amazon
-   *           SQS</a>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
+   *           Configuring an SQS queue as an event source</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Using AWS Lambda with Amazon
-   *           MQ</a>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
+   *           Configuring an MQ broker as an event source</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda with Amazon MSK</a>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">
+   *           Configuring MSK as an event source</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">Using AWS Lambda with Self-Managed Apache Kafka</a>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">
+   *           Configuring Self-Managed Apache Kafka as an event source</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -493,8 +496,18 @@ export class Lambda extends LambdaClient {
 
   /**
    * <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The
-   *       deployment package is a .zip file  archive or container image that contains your function code. The execution role grants the function permission to use AWS
-   *       services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p>
+   *       deployment package is a .zip file  archive or container image that contains your function code. The execution role grants the function permission to use Amazon Web Services
+   *       services, such as Amazon CloudWatch Logs for log streaming and X-Ray for request tracing.</p>
+   *
+   *          <p>You set the package type to <code>Image</code> if the deployment package is a
+   *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a>. For a container image,
+   *       the code property must include the URI of a container image in the Amazon ECR registry.
+   *       You do not need to specify the handler and runtime properties. </p>
+   *
+   *          <p>You set the package type to <code>Zip</code> if the deployment package is a
+   *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file archive</a>.
+   *       For a .zip file archive, the code property specifies the location of the .zip file. You must also specify the handler and
+   *       runtime properties.</p>
    *
    *          <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If
    *       your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or
@@ -520,12 +533,12 @@ export class Lambda extends LambdaClient {
    *       package has a valid signature from a trusted publisher. The code-signing configuration
    *       includes set set of signing profiles, which define the trusted publishers for this function.</p>
    *
-   *          <p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant
+   *          <p>If another account or an Amazon Web Services service invokes your function, use <a>AddPermission</a> to grant
    *       permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version,
    *       or on an alias.</p>
    *
    *          <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events
-   *       in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a
+   *       in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a
    *       function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
    */
   public createFunction(
@@ -655,7 +668,7 @@ export class Lambda extends LambdaClient {
    *       Otherwise, all versions and aliases are deleted.</p>
    *
    *          <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>.
-   *       For AWS services and resources that invoke your function directly, delete the trigger in the service where you
+   *       For Amazon Web Services services and resources that invoke your function directly, delete the trigger in the service where you
    *       originally configured it.</p>
    */
   public deleteFunction(
@@ -785,7 +798,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+   * <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid
    *       breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
    */
@@ -851,7 +864,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in an AWS Region.</p>
+   * <p>Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in an Amazon Web Services Region.</p>
    */
   public getAccountSettings(
     args: GetAccountSettingsCommandInput,
@@ -1133,7 +1146,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+   * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>, with a link to download the layer archive
    *         that's valid for 10 minutes.</p>
    */
@@ -1167,7 +1180,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+   * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>, with a link to download the layer archive
    *         that's valid for 10 minutes.</p>
    */
@@ -1201,7 +1214,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+   * <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
    */
   public getLayerVersionPolicy(
@@ -1575,7 +1588,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+   * <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layers</a> and shows information about the latest version of each. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only layers
    *       that indicate that they're compatible with that runtime.</p>
    */
@@ -1603,7 +1616,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+   * <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only
    *       versions that indicate that they're compatible with that runtime.</p>
    */
@@ -1729,7 +1742,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+   * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same
    *       layer name, a new version is created.</p>
    *          <p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
@@ -1768,7 +1781,7 @@ export class Lambda extends LambdaClient {
    *       current code and configuration of a function. Use versions to create a snapshot of your function code and
    *       configuration that doesn't change.</p>
    *
-   *          <p>AWS Lambda doesn't publish a version if the function's configuration and code haven't changed since the last
+   *          <p>Lambda doesn't publish a version if the function's configuration and code haven't changed since the last
    *       version. Use <a>UpdateFunctionCode</a> or <a>UpdateFunctionConfiguration</a> to update the
    *       function before publishing a version.</p>
    *
@@ -1951,7 +1964,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+   * <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
    *         layer</a>. For more information, see
    *         <a>AddLayerVersionPermission</a>.</p>
    */
@@ -1985,7 +1998,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Revokes function-use permission from an AWS service or another account. You can get the ID of the statement
+   * <p>Revokes function-use permission from an Amazon Web Services service or another account. You can get the ID of the statement
    *       from the output of <a>GetPolicy</a>.</p>
    */
   public removePermission(
@@ -2135,7 +2148,7 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.</p>
+   * <p>Updates an event source mapping. You can change the function that Lambda invokes, or pause invocation and resume later from the same location.</p>
    *          <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>
    *          <ul>
    *             <li>
@@ -2244,7 +2257,7 @@ export class Lambda extends LambdaClient {
    *       modify the configuration of a published version, only the unpublished version.</p>
    *
    *          <p>To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke permissions
-   *       to an account or AWS service, use <a>AddPermission</a>.</p>
+   *       to an account or Amazon Web Services service, use <a>AddPermission</a>.</p>
    */
   public updateFunctionConfiguration(
     args: UpdateFunctionConfigurationCommandInput,

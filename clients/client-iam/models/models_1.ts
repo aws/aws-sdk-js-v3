@@ -6,8 +6,8 @@ export interface UntagPolicyRequest {
   /**
    * <p>The ARN of the IAM customer managed policy from which you want to remove
    *       tags.</p>
-   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: =,.@-</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   PolicyArn: string | undefined;
 
@@ -55,8 +55,8 @@ export interface UntagSAMLProviderRequest {
   /**
    * <p>The ARN of the SAML identity provider in IAM from which you want to remove
    *       tags.</p>
-   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: =,.@-</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   SAMLProviderArn: string | undefined;
 
@@ -79,8 +79,8 @@ export namespace UntagSAMLProviderRequest {
 export interface UntagServerCertificateRequest {
   /**
    * <p>The name of the IAM server certificate from which you want to remove tags.</p>
-   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: =,.@-</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   ServerCertificateName: string | undefined;
 
@@ -103,8 +103,8 @@ export namespace UntagServerCertificateRequest {
 export interface UntagUserRequest {
   /**
    * <p>The name of the IAM user from which you want to remove tags.</p>
-   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: =,.@-</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   UserName: string | undefined;
 
@@ -141,7 +141,7 @@ export interface UpdateAccessKeyRequest {
 
   /**
    * <p> The status you want to assign to the secret access key. <code>Active</code> means
-   *             that the key can be used for programmatic calls to AWS, while <code>Inactive</code>
+   *             that the key can be used for programmatic calls to Amazon Web Services, while <code>Inactive</code>
    *             means that the key cannot be used.</p>
    */
   Status: StatusType | string | undefined;
@@ -202,7 +202,7 @@ export interface UpdateAccountPasswordPolicyRequest {
   RequireLowercaseCharacters?: boolean;
 
   /**
-   * <p> Allows all IAM users in your account to use the AWS Management Console to change their own
+   * <p> Allows all IAM users in your account to use the Management Console to change their own
    *             passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html">Letting IAM users change their own
    *                 passwords</a> in the <i>IAM User Guide</i>.</p>
    *         <p>If you do not specify a value for this parameter, then the operation uses the default
@@ -256,9 +256,8 @@ export interface UpdateAssumeRolePolicyRequest {
 
   /**
    * <p>The policy that grants an entity permission to assume the role.</p>
-   *         <p>You must provide policies in JSON format in IAM. However, for AWS CloudFormation
-   *             templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS
-   *             CloudFormation always converts a YAML policy to JSON format before submitting it to
+   *         <p>You must provide policies in JSON format in IAM. However, for CloudFormation
+   *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
    *             IAM.</p>
    *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     used to validate this parameter is a string of characters consisting of the following:</p>
@@ -352,7 +351,7 @@ export interface UpdateLoginProfileRequest {
    *             </li>
    *          </ul>
    *         <p>However, the format can be further restricted by the account administrator by setting
-   *             a password policy on the AWS account. For more information, see <a>UpdateAccountPasswordPolicy</a>.</p>
+   *             a password policy on the account. For more information, see <a>UpdateAccountPasswordPolicy</a>.</p>
    */
   Password?: string;
 
@@ -378,7 +377,7 @@ export interface UpdateOpenIDConnectProviderThumbprintRequest {
    * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which
    *             you want to update the thumbprint. You can get a list of OIDC provider ARNs by using the
    *                 <a>ListOpenIDConnectProviders</a> operation.</p>
-   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   OpenIDConnectProviderArn: string | undefined;
 
@@ -413,7 +412,7 @@ export interface UpdateRoleRequest {
    * <p>The maximum session duration (in seconds) that you want to set for the specified role.
    *             If you do not specify a value for this setting, the default maximum of one hour is
    *             applied. This setting can have a value from 1 hour to 12 hours.</p>
-   *         <p>Anyone who assumes the role from the AWS CLI or API can use the
+   *         <p>Anyone who assumes the role from the CLI or API can use the
    *                 <code>DurationSeconds</code> API parameter or the <code>duration-seconds</code> CLI
    *             parameter to request a longer session. The <code>MaxSessionDuration</code> setting
    *             determines the maximum duration that can be requested using the
@@ -496,7 +495,7 @@ export interface UpdateSAMLProviderRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the SAML provider to update.</p>
-   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   SAMLProviderArn: string | undefined;
 }
@@ -615,7 +614,7 @@ export interface UpdateSigningCertificateRequest {
 
   /**
    * <p> The status you want to assign to the certificate. <code>Active</code> means that the
-   *             certificate can be used for programmatic calls to AWS <code>Inactive</code> means that
+   *             certificate can be used for programmatic calls to Amazon Web Services <code>Inactive</code> means that
    *             the certificate cannot be used.</p>
    */
   Status: StatusType | string | undefined;
@@ -647,7 +646,7 @@ export interface UpdateSSHPublicKeyRequest {
 
   /**
    * <p>The status to assign to the SSH public key. <code>Active</code> means that the key can
-   *             be used for authentication with an AWS CodeCommit repository. <code>Inactive</code> means that
+   *             be used for authentication with an CodeCommit repository. <code>Inactive</code> means that
    *             the key cannot be used.</p>
    */
   Status: StatusType | string | undefined;

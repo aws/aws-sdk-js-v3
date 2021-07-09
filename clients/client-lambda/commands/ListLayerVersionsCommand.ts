@@ -21,7 +21,7 @@ export interface ListLayerVersionsCommandInput extends ListLayerVersionsRequest 
 export interface ListLayerVersionsCommandOutput extends ListLayerVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ * <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only
  *       versions that indicate that they're compatible with that runtime.</p>
  * @example

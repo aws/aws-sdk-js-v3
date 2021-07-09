@@ -15,10 +15,6 @@ import {
   LaunchTemplateBlockDeviceMappingRequest,
   LaunchTemplateCapacityReservationSpecificationRequest,
   LaunchTemplateCpuOptionsRequest,
-  LaunchTemplateElasticInferenceAccelerator,
-  LaunchTemplateEnclaveOptionsRequest,
-  LaunchTemplateHibernationOptionsRequest,
-  LaunchTemplateIamInstanceProfileSpecificationRequest,
   ReservedInstancesListing,
   ResourceType,
   RouteTableAssociationState,
@@ -38,6 +34,105 @@ import {
   VpcPeeringConnection,
   _InstanceType,
 } from "./models_0";
+
+/**
+ * <p>
+ *             Describes an elastic inference accelerator.
+ *         </p>
+ */
+export interface LaunchTemplateElasticInferenceAccelerator {
+  /**
+   * <p>
+   *             The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
+   *         </p>
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>
+   *     		The number of elastic inference accelerators to attach to the instance.
+   *     	</p>
+   *     	    <p>Default: 1</p>
+   */
+  Count?: number;
+}
+
+export namespace LaunchTemplateElasticInferenceAccelerator {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateElasticInferenceAccelerator): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information,
+ * 		see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">
+ * 			What is AWS Nitro Enclaves?</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p>
+ */
+export interface LaunchTemplateEnclaveOptionsRequest {
+  /**
+   * <p>To enable the instance for AWS Nitro Enclaves, set this parameter to <code>true</code>.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace LaunchTemplateEnclaveOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateEnclaveOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates whether the instance is configured for hibernation. This parameter is valid only
+ *             if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
+ *                 prerequisites</a>.</p>
+ */
+export interface LaunchTemplateHibernationOptionsRequest {
+  /**
+   * <p>If you set this parameter to <code>true</code>, the instance is enabled for hibernation.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  Configured?: boolean;
+}
+
+export namespace LaunchTemplateHibernationOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateHibernationOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An IAM instance profile.</p>
+ */
+export interface LaunchTemplateIamInstanceProfileSpecificationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the instance profile.</p>
+   */
+  Name?: string;
+}
+
+export namespace LaunchTemplateIamInstanceProfileSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateIamInstanceProfileSpecificationRequest): any => ({
+    ...obj,
+  });
+}
 
 export type ShutdownBehavior = "stop" | "terminate";
 
@@ -9344,94 +9439,4 @@ export namespace DeleteLaunchTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteLaunchTemplateRequest): any => ({
     ...obj,
   });
-}
-
-export interface DeleteLaunchTemplateResult {
-  /**
-   * <p>Information about the launch template.</p>
-   */
-  LaunchTemplate?: LaunchTemplate;
-}
-
-export namespace DeleteLaunchTemplateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchTemplateResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteLaunchTemplateVersionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the launch template. You must specify either the launch template ID or
-   *             launch template name in the request.</p>
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template. You must specify either the launch template ID or
-   *             launch template name in the request.</p>
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>The version numbers of one or more launch template versions to delete.</p>
-   */
-  Versions: string[] | undefined;
-}
-
-export namespace DeleteLaunchTemplateVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a launch template version that was successfully deleted.</p>
- */
-export interface DeleteLaunchTemplateVersionsResponseSuccessItem {
-  /**
-   * <p>The ID of the launch template.</p>
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template.</p>
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>The version number of the launch template.</p>
-   */
-  VersionNumber?: number;
-}
-
-export namespace DeleteLaunchTemplateVersionsResponseSuccessItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsResponseSuccessItem): any => ({
-    ...obj,
-  });
-}
-
-export enum LaunchTemplateErrorCode {
-  LAUNCH_TEMPLATE_ID_DOES_NOT_EXIST = "launchTemplateIdDoesNotExist",
-  LAUNCH_TEMPLATE_ID_MALFORMED = "launchTemplateIdMalformed",
-  LAUNCH_TEMPLATE_NAME_DOES_NOT_EXIST = "launchTemplateNameDoesNotExist",
-  LAUNCH_TEMPLATE_NAME_MALFORMED = "launchTemplateNameMalformed",
-  LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST = "launchTemplateVersionDoesNotExist",
-  UNEXPECTED_ERROR = "unexpectedError",
 }

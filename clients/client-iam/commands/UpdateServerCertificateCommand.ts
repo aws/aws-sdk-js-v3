@@ -25,7 +25,7 @@ export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {
  *             IAM.</p>
  *         <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
  *                 with server certificates</a> in the <i>IAM User Guide</i>. This
- *             topic also includes a list of AWS services that can use the server certificates that
+ *             topic also includes a list of Amazon Web Services services that can use the server certificates that
  *             you manage with IAM.</p>
  *         <important>
  *             <p>You should understand the implications of changing a server certificate's path or

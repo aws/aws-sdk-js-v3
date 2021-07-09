@@ -21,13 +21,13 @@ export interface AddPermissionCommandInput extends AddPermissionRequest {}
 export interface AddPermissionCommandOutput extends AddPermissionResponse, __MetadataBearer {}
 
 /**
- * <p>Grants an AWS service or another account permission to use a function. You can apply the policy at the
+ * <p>Grants an Amazon Web Services service or another account permission to use a function. You can apply the policy at the
  *       function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier,
  *       the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.</p>
  *
- *          <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For AWS
+ *          <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For Amazon Web Services
  *       services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or
- *         <code>sns.amazonaws.com</code>. For AWS services, you can also specify the ARN of the associated resource as the
+ *         <code>sns.amazonaws.com</code>. For Amazon Web Services services, you can also specify the ARN of the associated resource as the
  *         <code>SourceArn</code>. If you grant permission to a service principal without specifying the source, other
  *       accounts could potentially configure resources in their account to invoke your Lambda function.</p>
  *

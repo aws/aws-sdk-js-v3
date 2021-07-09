@@ -21,7 +21,7 @@ export interface DescribeUserCommandInput extends DescribeUserRequest {}
 export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
- * Returns information about an ActiveMQ user.
+ * <p>Returns information about an ActiveMQ user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

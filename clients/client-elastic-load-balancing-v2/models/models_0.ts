@@ -1639,7 +1639,8 @@ export namespace SubnetNotFoundException {
 }
 
 /**
- * <p>You've reached the limit on the number of load balancers for your AWS account.</p>
+ * <p>You've reached the limit on the number of load balancers for your Amazon Web Services
+ *       account.</p>
  */
 export interface TooManyLoadBalancersException extends __SmithyException, $MetadataBearer {
   name: "TooManyLoadBalancersException";
@@ -2117,7 +2118,8 @@ export namespace TooManyRulesException {
 }
 
 /**
- * <p>You've reached the limit on the number of target groups for your AWS account.</p>
+ * <p>You've reached the limit on the number of target groups for your Amazon Web Services
+ *       account.</p>
  */
 export interface TooManyTargetGroupsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTargetGroupsException";
@@ -2236,7 +2238,7 @@ export interface CreateTargetGroupInput {
    * <p>[HTTP/HTTPS health checks] The destination for health checks on the targets.</p>
    *          <p>[HTTP1 or HTTP2 protocol version] The ping path. The default is /.</p>
    *          <p>[GRPC protocol version] The path of a custom health check method with the format
-   *       /package.service/method. The default is /AWS.ALB/healthcheck.</p>
+   *       /package.service/method. The default is /Amazon Web Services.ALB/healthcheck.</p>
    */
   HealthCheckPath?: string;
 
@@ -2710,7 +2712,8 @@ export namespace DescribeAccountLimitsInput {
 }
 
 /**
- * <p>Information about an Elastic Load Balancing resource limit for your AWS account.</p>
+ * <p>Information about an Elastic Load Balancing resource limit for your Amazon Web Services
+ *       account.</p>
  */
 export interface Limit {
   /**
@@ -3000,9 +3003,8 @@ export interface LoadBalancerAttribute {
    *             <li>
    *                <p>
    *                   <code>waf.fail_open.enabled</code> - Indicates whether to allow a WAF-enabled load
-   *           balancer to route requests to targets if it is unable to forward the request to AWS WAF.
-   *           The value is <code>true</code> or <code>false</code>. The default is
-   *           <code>false</code>.</p>
+   *           balancer to route requests to targets if it is unable to forward the request to Amazon Web Services WAF. The value is <code>true</code> or <code>false</code>. The default is
+   *             <code>false</code>.</p>
    *             </li>
    *          </ul>
    *
@@ -3366,8 +3368,8 @@ export interface TargetGroupAttribute {
    *             <li>
    *                <p>
    *                   <code>stickiness.app_cookie.cookie_name</code> - Indicates the name of the
-   *           application-based cookie. Names that start with the following names are not allowed:
-   *             <code>AWSALB</code>, <code>AWSALBAPP</code>, and <code>AWSALBTG</code>. They're reserved
+   *           application-based cookie. Names that start with the following prefixes are not allowed:
+   *             <code>AWSALB</code>, <code>AWSALBAPP</code>, and <code>AWSALBTG</code>; they're reserved
    *           for use by the load balancer.</p>
    *             </li>
    *             <li>
@@ -3936,10 +3938,12 @@ export interface ModifyTargetGroupInput {
   TargetGroupArn: string | undefined;
 
   /**
-   * <p>The protocol the load balancer uses when performing health checks on targets. The TCP
-   *       protocol is supported for health checks only if the protocol of the target group is TCP, TLS,
-   *       UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health
-   *       checks.</p>
+   * <p>The protocol the load balancer uses when performing health checks on targets. For
+   *       Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load
+   *       Balancers, the default is TCP. The TCP protocol is not supported for health checks if the
+   *       protocol of the target group is HTTP or HTTPS. It is supported for health checks only if the
+   *       protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP
+   *       protocols are not supported for health checks.</p>
    *          <p>With Network Load Balancers, you can't modify this setting.</p>
    */
   HealthCheckProtocol?: ProtocolEnum | string;
@@ -3953,7 +3957,7 @@ export interface ModifyTargetGroupInput {
    * <p>[HTTP/HTTPS health checks] The destination for health checks on the targets.</p>
    *          <p>[HTTP1 or HTTP2 protocol version] The ping path. The default is /.</p>
    *          <p>[GRPC protocol version] The path of a custom health check method with the format
-   *       /package.service/method. The default is /AWS.ALB/healthcheck.</p>
+   *       /package.service/method. The default is /Amazon Web Services.ALB/healthcheck.</p>
    */
   HealthCheckPath?: string;
 

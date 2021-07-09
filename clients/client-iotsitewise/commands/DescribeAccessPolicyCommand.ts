@@ -21,7 +21,7 @@ export interface DescribeAccessPolicyCommandInput extends DescribeAccessPolicyRe
 export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an access policy, which specifies an identity's access to an AWS IoT SiteWise Monitor portal or
+ * <p>Describes an access policy, which specifies an identity's access to an IoT SiteWise Monitor portal or
  *       project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

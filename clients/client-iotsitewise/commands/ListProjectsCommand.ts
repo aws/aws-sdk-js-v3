@@ -21,7 +21,7 @@ export interface ListProjectsCommandInput extends ListProjectsRequest {}
 export interface ListProjectsCommandOutput extends ListProjectsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of projects for an AWS IoT SiteWise Monitor portal.</p>
+ * <p>Retrieves a paginated list of projects for an IoT SiteWise Monitor portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

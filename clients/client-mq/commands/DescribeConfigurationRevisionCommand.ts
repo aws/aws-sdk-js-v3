@@ -23,7 +23,7 @@ export interface DescribeConfigurationRevisionCommandOutput
     __MetadataBearer {}
 
 /**
- * Returns the specified configuration revision for the specified configuration.
+ * <p>Returns the specified configuration revision for the specified configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

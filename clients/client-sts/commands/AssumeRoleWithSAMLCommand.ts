@@ -23,14 +23,14 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
 /**
  * <p>Returns a set of temporary security credentials for users who have been authenticated
  *          via a SAML authentication response. This operation provides a mechanism for tying an
- *          enterprise identity store or directory to role-based AWS access without user-specific
+ *          enterprise identity store or directory to role-based Amazon Web Services access without user-specific
  *          credentials or configuration. For a comparison of <code>AssumeRoleWithSAML</code> with the
  *          other API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
  *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
- *             AWS STS API operations</a> in the <i>IAM User Guide</i>.</p>
+ *             STS API operations</a> in the <i>IAM User Guide</i>.</p>
  *          <p>The temporary security credentials returned by this operation consist of an access key
  *          ID, a secret access key, and a security token. Applications can use these temporary
- *          security credentials to sign calls to AWS services.</p>
+ *          security credentials to sign calls to Amazon Web Services services.</p>
  *          <p>
  *             <b>Session Duration</b>
  *          </p>
@@ -50,7 +50,7 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *             <i>IAM User Guide</i>.</p>
  *          <note>
  *            <p>
- *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-role-chaining">Role chaining</a> limits your AWS CLI or AWS API
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-role-chaining">Role chaining</a> limits your CLI or Amazon Web Services API
  *                role session to a maximum of one hour. When you use the <code>AssumeRole</code> API
  *                operation to assume a role, you can specify the duration of your role session with
  *                the <code>DurationSeconds</code> parameter. You can specify a parameter value of up
@@ -63,7 +63,7 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *             <b>Permissions</b>
  *          </p>
  *          <p>The temporary security credentials created by <code>AssumeRoleWithSAML</code> can be
- *          used to make API calls to any AWS service with the following exception: you cannot call
+ *          used to make API calls to any Amazon Web Services service with the following exception: you cannot call
  *          the STS <code>GetFederationToken</code> or <code>GetSessionToken</code> API
  *          operations.</p>
  *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
@@ -73,16 +73,16 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *          characters. Passing policies to this operation returns new
  *          temporary credentials. The resulting session's permissions are the intersection of the
  *          role's identity-based policy and the session policies. You can use the role's temporary
- *          credentials in subsequent AWS API calls to access resources in the account that owns
+ *          credentials in subsequent Amazon Web Services API calls to access resources in the account that owns
  *          the role. You cannot use session policies to grant more permissions than those allowed
  *          by the identity-based policy of the role that is being assumed. For more information, see
  *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
  *             Policies</a> in the <i>IAM User Guide</i>.</p>
- *          <p>Calling <code>AssumeRoleWithSAML</code> does not require the use of AWS security
+ *          <p>Calling <code>AssumeRoleWithSAML</code> does not require the use of Amazon Web Services security
  *          credentials. The identity of the caller is validated by using keys in the metadata document
  *          that is uploaded for the SAML provider entity for your identity provider. </p>
  *          <important>
- *             <p>Calling <code>AssumeRoleWithSAML</code> can result in an entry in your AWS CloudTrail logs.
+ *             <p>Calling <code>AssumeRoleWithSAML</code> can result in an entry in your CloudTrail logs.
  *             The entry includes the value in the <code>NameID</code> element of the SAML assertion.
  *             We recommend that you use a <code>NameIDType</code> that is not associated with any
  *             personally identifiable information (PII). For example, you could instead use the
@@ -102,7 +102,7 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
  *
  *          <note>
- *             <p>An AWS conversion compresses the passed session policies and session tags into a
+ *             <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
  *             packed binary format that has a separate limit. Your request can fail for this limit
  *             even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
  *             response element indicates by percentage how close the policies and tags for your
@@ -124,8 +124,8 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *             <b>SAML Configuration</b>
  *          </p>
  *          <p>Before your application can call <code>AssumeRoleWithSAML</code>, you must configure
- *          your SAML identity provider (IdP) to issue the claims required by AWS. Additionally, you
- *          must use AWS Identity and Access Management (IAM) to create a SAML provider entity in your AWS account that
+ *          your SAML identity provider (IdP) to issue the claims required by Amazon Web Services. Additionally, you
+ *          must use Identity and Access Management (IAM) to create a SAML provider entity in your Amazon Web Services account that
  *          represents your identity provider. You must also create an IAM role that specifies this
  *          SAML provider in its trust policy. </p>
  *          <p>For more information, see the following resources:</p>

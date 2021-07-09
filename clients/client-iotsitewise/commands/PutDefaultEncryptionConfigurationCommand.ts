@@ -26,9 +26,9 @@ export interface PutDefaultEncryptionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Sets the default encryption configuration for the AWS
- *       account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a>
- *       in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ * <p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see
+ *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a> in
+ *       the <i>IoT SiteWise User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

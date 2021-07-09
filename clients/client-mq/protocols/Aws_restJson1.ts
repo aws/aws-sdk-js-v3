@@ -757,6 +757,10 @@ export const serializeAws_restJson1UpdateBrokerCommand = async (
         ldapServerMetadata: serializeAws_restJson1LdapServerMetadataInput(input.LdapServerMetadata, context),
       }),
     ...(input.Logs !== undefined && input.Logs !== null && { logs: serializeAws_restJson1Logs(input.Logs, context) }),
+    ...(input.MaintenanceWindowStartTime !== undefined &&
+      input.MaintenanceWindowStartTime !== null && {
+        maintenanceWindowStartTime: serializeAws_restJson1WeeklyStartTime(input.MaintenanceWindowStartTime, context),
+      }),
     ...(input.SecurityGroups !== undefined &&
       input.SecurityGroups !== null && {
         securityGroups: serializeAws_restJson1__listOf__string(input.SecurityGroups, context),
@@ -2593,6 +2597,7 @@ export const deserializeAws_restJson1UpdateBrokerCommand = async (
     HostInstanceType: undefined,
     LdapServerMetadata: undefined,
     Logs: undefined,
+    MaintenanceWindowStartTime: undefined,
     SecurityGroups: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2619,6 +2624,12 @@ export const deserializeAws_restJson1UpdateBrokerCommand = async (
   }
   if (data.logs !== undefined && data.logs !== null) {
     contents.Logs = deserializeAws_restJson1Logs(data.logs, context);
+  }
+  if (data.maintenanceWindowStartTime !== undefined && data.maintenanceWindowStartTime !== null) {
+    contents.MaintenanceWindowStartTime = deserializeAws_restJson1WeeklyStartTime(
+      data.maintenanceWindowStartTime,
+      context
+    );
   }
   if (data.securityGroups !== undefined && data.securityGroups !== null) {
     contents.SecurityGroups = deserializeAws_restJson1__listOf__string(data.securityGroups, context);
