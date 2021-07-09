@@ -258,6 +258,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.mgn#AccessDeniedException"
+        },
+        {
           "target": "com.amazonaws.mgn#UninitializedAccountException"
         },
         {
@@ -2561,10 +2564,6 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "NONE",
-            "name": "NONE"
-          },
-          {
             "value": "DEFAULT",
             "name": "DEFAULT"
           },
@@ -3620,6 +3619,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.mgn#AccessDeniedException"
+        },
+        {
           "target": "com.amazonaws.mgn#ConflictException"
         },
         {
@@ -3747,6 +3749,9 @@
         "target": "com.amazonaws.mgn#ReplicationConfigurationTemplate"
       },
       "errors": [
+        {
+          "target": "com.amazonaws.mgn#AccessDeniedException"
+        },
         {
           "target": "com.amazonaws.mgn#ResourceNotFoundException"
         },
