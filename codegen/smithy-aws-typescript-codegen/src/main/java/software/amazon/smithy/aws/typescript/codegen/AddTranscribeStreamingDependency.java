@@ -24,6 +24,7 @@ import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
@@ -76,6 +77,14 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
                 });
 
         switch (target) {
+            case NODE:
+                return MapUtils.of(
+                    "requestHandler", writer -> {
+                        writer.addDependency(TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER);
+                        writer.addImport("NodeHttp2Handler", "NodeHttp2Handler",
+                            TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER.packageName);
+                         writer.write("requestHandler: new NodeHttp2Handler({ disableConcurrentStreams: true }),");
+                    });
             case REACT_NATIVE:
             case BROWSER:
                 return transcribeStreamingHandlerConfig;
