@@ -22,7 +22,7 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
 
 /**
  * <p>Deletes an access policy that grants the specified identity access to the specified
- *       AWS IoT SiteWise Monitor resource. You can use this operation to revoke access to an AWS IoT SiteWise Monitor
+ *       IoT SiteWise Monitor resource. You can use this operation to revoke access to an IoT SiteWise Monitor
  *       resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

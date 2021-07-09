@@ -21,7 +21,7 @@ export interface UpdateAccessPolicyCommandInput extends UpdateAccessPolicyReques
 export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing access policy that specifies an identity's access to an AWS IoT SiteWise Monitor
+ * <p>Updates an existing access policy that specifies an identity's access to an IoT SiteWise Monitor
  *       portal or project resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

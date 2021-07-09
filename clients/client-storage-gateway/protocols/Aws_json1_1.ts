@@ -350,9 +350,11 @@ import {
   DisassociateFileSystemInput,
   DisassociateFileSystemOutput,
   Disk,
+  EndpointNetworkConfiguration,
   FileShareInfo,
   FileSystemAssociationInfo,
   FileSystemAssociationSummary,
+  GatewayCapacity,
   GatewayInfo,
   InternalServerError,
   InvalidGatewayRequestException,
@@ -7267,6 +7269,13 @@ const serializeAws_json1_1AssociateFileSystemInput = (
         CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
       }),
     ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.EndpointNetworkConfiguration !== undefined &&
+      input.EndpointNetworkConfiguration !== null && {
+        EndpointNetworkConfiguration: serializeAws_json1_1EndpointNetworkConfiguration(
+          input.EndpointNetworkConfiguration,
+          context
+        ),
+      }),
     ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
     ...(input.LocationARN !== undefined && input.LocationARN !== null && { LocationARN: input.LocationARN }),
     ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
@@ -7399,6 +7408,7 @@ const serializeAws_json1_1CreateCachediSCSIVolumeInput = (
 
 const serializeAws_json1_1CreateNFSFileShareInput = (input: CreateNFSFileShareInput, context: __SerdeContext): any => {
   return {
+    ...(input.BucketRegion !== undefined && input.BucketRegion !== null && { BucketRegion: input.BucketRegion }),
     ...(input.CacheAttributes !== undefined &&
       input.CacheAttributes !== null && {
         CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
@@ -7427,6 +7437,8 @@ const serializeAws_json1_1CreateNFSFileShareInput = (input: CreateNFSFileShareIn
     ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
     ...(input.Squash !== undefined && input.Squash !== null && { Squash: input.Squash }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VPCEndpointDNSName !== undefined &&
+      input.VPCEndpointDNSName !== null && { VPCEndpointDNSName: input.VPCEndpointDNSName }),
   };
 };
 
@@ -7440,6 +7452,7 @@ const serializeAws_json1_1CreateSMBFileShareInput = (input: CreateSMBFileShareIn
       input.AuditDestinationARN !== null && { AuditDestinationARN: input.AuditDestinationARN }),
     ...(input.Authentication !== undefined &&
       input.Authentication !== null && { Authentication: input.Authentication }),
+    ...(input.BucketRegion !== undefined && input.BucketRegion !== null && { BucketRegion: input.BucketRegion }),
     ...(input.CacheAttributes !== undefined &&
       input.CacheAttributes !== null && {
         CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
@@ -7463,11 +7476,15 @@ const serializeAws_json1_1CreateSMBFileShareInput = (input: CreateSMBFileShareIn
     ...(input.NotificationPolicy !== undefined &&
       input.NotificationPolicy !== null && { NotificationPolicy: input.NotificationPolicy }),
     ...(input.ObjectACL !== undefined && input.ObjectACL !== null && { ObjectACL: input.ObjectACL }),
+    ...(input.OplocksEnabled !== undefined &&
+      input.OplocksEnabled !== null && { OplocksEnabled: input.OplocksEnabled }),
     ...(input.ReadOnly !== undefined && input.ReadOnly !== null && { ReadOnly: input.ReadOnly }),
     ...(input.RequesterPays !== undefined && input.RequesterPays !== null && { RequesterPays: input.RequesterPays }),
     ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
     ...(input.SMBACLEnabled !== undefined && input.SMBACLEnabled !== null && { SMBACLEnabled: input.SMBACLEnabled }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VPCEndpointDNSName !== undefined &&
+      input.VPCEndpointDNSName !== null && { VPCEndpointDNSName: input.VPCEndpointDNSName }),
     ...(input.ValidUserList !== undefined &&
       input.ValidUserList !== null && { ValidUserList: serializeAws_json1_1UserList(input.ValidUserList, context) }),
   };
@@ -7886,6 +7903,16 @@ const serializeAws_json1_1DiskIds = (input: string[], context: __SerdeContext): 
     });
 };
 
+const serializeAws_json1_1EndpointNetworkConfiguration = (
+  input: EndpointNetworkConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IpAddresses !== undefined &&
+      input.IpAddresses !== null && { IpAddresses: serializeAws_json1_1IpAddressList(input.IpAddresses, context) }),
+  };
+};
+
 const serializeAws_json1_1FileShareARNList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7931,6 +7958,17 @@ const serializeAws_json1_1FolderList = (input: string[], context: __SerdeContext
 };
 
 const serializeAws_json1_1Hosts = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1IpAddressList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8299,6 +8337,8 @@ const serializeAws_json1_1UpdateGatewayInformationInput = (
     ...(input.CloudWatchLogGroupARN !== undefined &&
       input.CloudWatchLogGroupARN !== null && { CloudWatchLogGroupARN: input.CloudWatchLogGroupARN }),
     ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayCapacity !== undefined &&
+      input.GatewayCapacity !== null && { GatewayCapacity: input.GatewayCapacity }),
     ...(input.GatewayName !== undefined && input.GatewayName !== null && { GatewayName: input.GatewayName }),
     ...(input.GatewayTimezone !== undefined &&
       input.GatewayTimezone !== null && { GatewayTimezone: input.GatewayTimezone }),
@@ -8385,6 +8425,8 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (input: UpdateSMBFileShareIn
     ...(input.NotificationPolicy !== undefined &&
       input.NotificationPolicy !== null && { NotificationPolicy: input.NotificationPolicy }),
     ...(input.ObjectACL !== undefined && input.ObjectACL !== null && { ObjectACL: input.ObjectACL }),
+    ...(input.OplocksEnabled !== undefined &&
+      input.OplocksEnabled !== null && { OplocksEnabled: input.OplocksEnabled }),
     ...(input.ReadOnly !== undefined && input.ReadOnly !== null && { ReadOnly: input.ReadOnly }),
     ...(input.RequesterPays !== undefined && input.RequesterPays !== null && { RequesterPays: input.RequesterPays }),
     ...(input.SMBACLEnabled !== undefined && input.SMBACLEnabled !== null && { SMBACLEnabled: input.SMBACLEnabled }),
@@ -8957,6 +8999,7 @@ const deserializeAws_json1_1DescribeGatewayInformationOutput = (
     Ec2InstanceRegion: __expectString(output.Ec2InstanceRegion),
     EndpointType: __expectString(output.EndpointType),
     GatewayARN: __expectString(output.GatewayARN),
+    GatewayCapacity: __expectString(output.GatewayCapacity),
     GatewayId: __expectString(output.GatewayId),
     GatewayName: __expectString(output.GatewayName),
     GatewayNetworkInterfaces:
@@ -8970,6 +9013,10 @@ const deserializeAws_json1_1DescribeGatewayInformationOutput = (
     LastSoftwareUpdate: __expectString(output.LastSoftwareUpdate),
     NextUpdateAvailabilityDate: __expectString(output.NextUpdateAvailabilityDate),
     SoftwareUpdatesEndDate: __expectString(output.SoftwareUpdatesEndDate),
+    SupportedGatewayCapacities:
+      output.SupportedGatewayCapacities !== undefined && output.SupportedGatewayCapacities !== null
+        ? deserializeAws_json1_1SupportedGatewayCapacities(output.SupportedGatewayCapacities, context)
+        : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     VPCEndpoint: __expectString(output.VPCEndpoint),
@@ -9215,6 +9262,18 @@ const deserializeAws_json1_1Disks = (output: any, context: __SerdeContext): Disk
     });
 };
 
+const deserializeAws_json1_1EndpointNetworkConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EndpointNetworkConfiguration => {
+  return {
+    IpAddresses:
+      output.IpAddresses !== undefined && output.IpAddresses !== null
+        ? deserializeAws_json1_1IpAddressList(output.IpAddresses, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1errorDetails = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -9268,6 +9327,10 @@ const deserializeAws_json1_1FileSystemAssociationInfo = (
     CacheAttributes:
       output.CacheAttributes !== undefined && output.CacheAttributes !== null
         ? deserializeAws_json1_1CacheAttributes(output.CacheAttributes, context)
+        : undefined,
+    EndpointNetworkConfiguration:
+      output.EndpointNetworkConfiguration !== undefined && output.EndpointNetworkConfiguration !== null
+        ? deserializeAws_json1_1EndpointNetworkConfiguration(output.EndpointNetworkConfiguration, context)
         : undefined,
     FileSystemAssociationARN: __expectString(output.FileSystemAssociationARN),
     FileSystemAssociationStatus: __expectString(output.FileSystemAssociationStatus),
@@ -9384,6 +9447,17 @@ const deserializeAws_json1_1InvalidGatewayRequestException = (
         : undefined,
     message: __expectString(output.message),
   } as any;
+};
+
+const deserializeAws_json1_1IpAddressList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_json1_1JoinDomainOutput = (output: any, context: __SerdeContext): JoinDomainOutput => {
@@ -9537,6 +9611,7 @@ const deserializeAws_json1_1NFSFileShareDefaults = (output: any, context: __Serd
 
 const deserializeAws_json1_1NFSFileShareInfo = (output: any, context: __SerdeContext): NFSFileShareInfo => {
   return {
+    BucketRegion: __expectString(output.BucketRegion),
     CacheAttributes:
       output.CacheAttributes !== undefined && output.CacheAttributes !== null
         ? deserializeAws_json1_1CacheAttributes(output.CacheAttributes, context)
@@ -9568,6 +9643,7 @@ const deserializeAws_json1_1NFSFileShareInfo = (output: any, context: __SerdeCon
     Squash: __expectString(output.Squash),
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    VPCEndpointDNSName: __expectString(output.VPCEndpointDNSName),
   } as any;
 };
 
@@ -9700,6 +9776,7 @@ const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeCon
         : undefined,
     AuditDestinationARN: __expectString(output.AuditDestinationARN),
     Authentication: __expectString(output.Authentication),
+    BucketRegion: __expectString(output.BucketRegion),
     CacheAttributes:
       output.CacheAttributes !== undefined && output.CacheAttributes !== null
         ? deserializeAws_json1_1CacheAttributes(output.CacheAttributes, context)
@@ -9721,6 +9798,7 @@ const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeCon
     LocationARN: __expectString(output.LocationARN),
     NotificationPolicy: __expectString(output.NotificationPolicy),
     ObjectACL: __expectString(output.ObjectACL),
+    OplocksEnabled: __expectBoolean(output.OplocksEnabled),
     Path: __expectString(output.Path),
     ReadOnly: __expectBoolean(output.ReadOnly),
     RequesterPays: __expectBoolean(output.RequesterPays),
@@ -9728,6 +9806,7 @@ const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeCon
     SMBACLEnabled: __expectBoolean(output.SMBACLEnabled),
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    VPCEndpointDNSName: __expectString(output.VPCEndpointDNSName),
     ValidUserList:
       output.ValidUserList !== undefined && output.ValidUserList !== null
         ? deserializeAws_json1_1UserList(output.ValidUserList, context)
@@ -9805,6 +9884,20 @@ const deserializeAws_json1_1StorediSCSIVolumes = (output: any, context: __SerdeC
         return null as any;
       }
       return deserializeAws_json1_1StorediSCSIVolume(entry, context);
+    });
+};
+
+const deserializeAws_json1_1SupportedGatewayCapacities = (
+  output: any,
+  context: __SerdeContext
+): (GatewayCapacity | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
 };
 

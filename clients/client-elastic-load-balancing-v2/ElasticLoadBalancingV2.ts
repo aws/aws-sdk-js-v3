@@ -635,7 +635,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
-   * <p>Describes the current Elastic Load Balancing resource limits for your AWS account.</p>
+   * <p>Describes the current Elastic Load Balancing resource limits for your Amazon Web Services
+   *       account.</p>
    *          <p>For more information, see the following:</p>
    *          <ul>
    *             <li>

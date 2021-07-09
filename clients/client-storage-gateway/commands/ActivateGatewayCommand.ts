@@ -22,7 +22,7 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
 
 /**
  * <p>Activates the gateway you previously deployed on your host. In the activation process,
- *          you specify information such as the AWS Region that you want to use for storing snapshots
+ *          you specify information such as the Region that you want to use for storing snapshots
  *          or tapes, the time zone for scheduled snapshots the gateway snapshot schedule window, an
  *          activation key, and a name for your gateway. The activation process also associates your
  *          gateway with your account. For more information, see <a>UpdateGatewayInformation</a>.</p>

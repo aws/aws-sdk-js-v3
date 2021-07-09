@@ -1194,6 +1194,11 @@ import {
   DescribeSecurityGroupReferencesCommandOutput,
 } from "./commands/DescribeSecurityGroupReferencesCommand";
 import {
+  DescribeSecurityGroupRulesCommand,
+  DescribeSecurityGroupRulesCommandInput,
+  DescribeSecurityGroupRulesCommandOutput,
+} from "./commands/DescribeSecurityGroupRulesCommand";
+import {
   DescribeSecurityGroupsCommand,
   DescribeSecurityGroupsCommandInput,
   DescribeSecurityGroupsCommandOutput,
@@ -1822,6 +1827,11 @@ import {
   ModifyReservedInstancesCommandInput,
   ModifyReservedInstancesCommandOutput,
 } from "./commands/ModifyReservedInstancesCommand";
+import {
+  ModifySecurityGroupRulesCommand,
+  ModifySecurityGroupRulesCommandInput,
+  ModifySecurityGroupRulesCommandOutput,
+} from "./commands/ModifySecurityGroupRulesCommand";
 import {
   ModifySnapshotAttributeCommand,
   ModifySnapshotAttributeCommandInput,
@@ -2815,21 +2825,21 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate.
+   * <p>Associates an Identity and Access Management (IAM) role with an Certificate Manager (ACM) certificate.
    * 			This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">AWS Certificate
-   * 				Manager for Nitro Enclaves</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p>
+   * 			information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Web Services Nitro Enclaves
+   * 					User Guide</i>.</p>
    *
    * 		       <p>When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted
    * 			private key are placed in an Amazon S3 bucket that only the associated IAM role can access. The private key of the certificate
-   * 			is encrypted with an AWS-managed KMS customer master (CMK) that has an attached attestation-based CMK policy.</p>
+   * 			is encrypted with an Amazon Web Services managed key that has an attached attestation-based key policy.</p>
    *
    * 		       <p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code>
-   * 			on the Amazon S3 bucket returned by the command. To enable the IAM role to access the AWS KMS CMK, you must
-   * 			grant it permission to call <code>kms:Decrypt</code> on the AWS KMS CMK returned by the command. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
+   * 			on the Amazon S3 bucket returned by the command. To enable the IAM role to access the KMS key,
+   * 			you must grant it permission to call <code>kms:Decrypt</code> on the KMS key returned by the command.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
    * 				Grant the role permission to access the certificate and encryption key</a> in the
-   * 			<i>AWS Nitro Enclaves User Guide</i>.</p>
+   * 			<i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
    */
   public associateEnclaveCertificateIamRole(
     args: AssociateEnclaveCertificateIamRoleCommandInput,
@@ -3333,15 +3343,15 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>[VPC only] Adds the specified egress rules to a security group for use with a VPC.</p>
-   *          <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR
-   *       address ranges, or to the instances associated with the specified destination security groups.</p>
+   * <p>[VPC only] Adds the specified outbound (egress) rules to a security group for use with a VPC.</p>
+   *          <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address
+   *       ranges, or to the instances that are associated with the specified destination security groups.</p>
    *          <p>You specify a protocol for each rule (for example, TCP).
    *        For the TCP and UDP protocols, you must also specify the destination port or port range.
    *        For the ICMP protocol, you must also specify the ICMP type and code.
    *        You can use -1 for the type or code to mean all types or all codes.</p>
    *          <p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p>
-   *          <p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
+   *          <p>For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
    */
   public authorizeSecurityGroupEgress(
     args: AuthorizeSecurityGroupEgressCommandInput,
@@ -3373,16 +3383,17 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Adds the specified ingress rules to a security group.</p>
+   * <p>Adds the specified inbound (ingress) rules to a security group.</p>
    *          <p>An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 CIDR
-   *        address ranges, or from the instances associated with the specified destination security groups.</p>
+   *        address range, or from the instances that are associated with the specified destination security
+   *        groups.</p>
    *          <p>You specify a protocol for each rule (for example, TCP).
    *        For TCP and UDP, you must also specify the destination port or port range.
    *        For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code.
    *        You can use -1 to mean all types or all codes.</p>
    *          <p>Rule changes are propagated to instances within the security group as quickly as possible.
    *          However, a small delay might occur.</p>
-   *          <p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
+   *          <p>For more information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
    */
   public authorizeSecurityGroupIngress(
     args: AuthorizeSecurityGroupIngressCommandInput,
@@ -11177,6 +11188,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes one or more of your security group rules.</p>
+   */
+  public describeSecurityGroupRules(
+    args: DescribeSecurityGroupRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSecurityGroupRulesCommandOutput>;
+  public describeSecurityGroupRules(
+    args: DescribeSecurityGroupRulesCommandInput,
+    cb: (err: any, data?: DescribeSecurityGroupRulesCommandOutput) => void
+  ): void;
+  public describeSecurityGroupRules(
+    args: DescribeSecurityGroupRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSecurityGroupRulesCommandOutput) => void
+  ): void;
+  public describeSecurityGroupRules(
+    args: DescribeSecurityGroupRulesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSecurityGroupRulesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSecurityGroupRulesCommandOutput) => void
+  ): Promise<DescribeSecurityGroupRulesCommandOutput> | void {
+    const command = new DescribeSecurityGroupRulesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the specified security groups or all of your security groups.</p>
    *          <p>A security group is for use with instances either in the EC2-Classic platform
    * 				or in a specific VPC. For more information, see
@@ -13218,11 +13261,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Disassociates an IAM role from an AWS Certificate Manager (ACM) certificate. Disassociating an IAM role
+   * <p>Disassociates an IAM role from an Certificate Manager (ACM) certificate. Disassociating an IAM role
    * 			from an ACM certificate removes the Amazon S3 object that contains the certificate, certificate chain, and
    * 			encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the
-   * 			AWS Key Management Service (KMS) customer master key (CMK) used to encrypt the private key. This effectively revokes the role's
-   * 			permission to use the certificate. </p>
+   * 			KMS key used to encrypt the private key. This effectively revokes the role's permission
+   * 			to use the certificate.</p>
    */
   public disassociateEnclaveCertificateIamRole(
     args: DisassociateEnclaveCertificateIamRoleCommandInput,
@@ -13948,9 +13991,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Returns the IAM roles that are associated with the specified AWS Certificate Manager (ACM) certificate.
-   * 			It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate, certificate chain,
-   * 			and encrypted private key bundle are stored, and the ARN of the AWS Key Management Service (KMS) customer master key (CMK)
+   * <p>Returns the IAM roles that are associated with the specified ACM (ACM) certificate.
+   * 			It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate,
+   * 			certificate chain, and encrypted private key bundle are stored, and the ARN of the KMS key
    * 			that's used to encrypt the private key.</p>
    */
   public getAssociatedEnclaveCertificateIamRoles(
@@ -14868,9 +14911,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Imports the public key from an RSA key pair that you created with a third-party tool.
-   *         Compare this with <a>CreateKeyPair</a>, in which AWS creates the key pair and gives the keys to you
-   *         (AWS keeps a copy of the public key). With ImportKeyPair, you create the key pair and give AWS just the public key.
-   *         The private key is never transferred between you and AWS.</p>
+   *         Compare this with <a>CreateKeyPair</a>, in which Amazon Web Services creates the key pair and gives the keys to you
+   *         (Amazon Web Services keeps a copy of the public key). With ImportKeyPair, you create the key pair and give Amazon Web Services just the public key.
+   *         The private key is never transferred between you and Amazon Web Services.</p>
    *          <p>For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pairs</a>
    * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -15820,6 +15863,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ModifyReservedInstancesCommandOutput) => void
   ): Promise<ModifyReservedInstancesCommandOutput> | void {
     const command = new ModifyReservedInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the rules of a security group.</p>
+   */
+  public modifySecurityGroupRules(
+    args: ModifySecurityGroupRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifySecurityGroupRulesCommandOutput>;
+  public modifySecurityGroupRules(
+    args: ModifySecurityGroupRulesCommandInput,
+    cb: (err: any, data?: ModifySecurityGroupRulesCommandOutput) => void
+  ): void;
+  public modifySecurityGroupRules(
+    args: ModifySecurityGroupRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifySecurityGroupRulesCommandOutput) => void
+  ): void;
+  public modifySecurityGroupRules(
+    args: ModifySecurityGroupRulesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifySecurityGroupRulesCommandOutput) => void),
+    cb?: (err: any, data?: ModifySecurityGroupRulesCommandOutput) => void
+  ): Promise<ModifySecurityGroupRulesCommandOutput> | void {
+    const command = new ModifySecurityGroupRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -18065,21 +18140,22 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>[VPC only] Removes the specified egress rules from a security group for EC2-VPC.
-   *        This action does not apply to security groups for use in EC2-Classic. To remove a rule, the
-   *        values that you specify (for example, ports) must match the existing rule's values
-   *        exactly.</p>
-   *          <note>
-   *             <p>[Default VPC] If the values you specify do not match the existing rule's values, no error is
-   *                 returned, and the output describes the security group rules that were not revoked. </p>
-   *             <p>AWS recommends that you use <a>DescribeSecurityGroups</a> to verify
-   *                 that the rule has been removed.</p>
-   *          </note>
-   *          <p>Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security
-   *       group. For the TCP and UDP protocols, you must also specify the destination port or range of
-   *       ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule
-   *       has a description, you do not have to specify the description to revoke the rule.</p>
-   *          <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
+   * <p>[VPC only] Removes the specified outbound (egress) rules from a security group for EC2-VPC.
+   *        This action does not apply to security groups for use in EC2-Classic.</p>
+   *
+   *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
+   *          rule properties, the values that you specify (for example, ports) must match the existing rule's
+   *          values exactly. Each rule has a protocol, from and to ports, and destination (CIDR range,
+   *          security group, or prefix list). For the TCP and UDP protocols, you must also specify the
+   *          destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type
+   *          and code. If the security group rule has a description, you do not need to specify the description
+   *          to revoke the rule.</p>
+   *          <p>[Default VPC] If the values you specify do not match the existing rule's values, no error is
+   *          returned, and the output describes the security group rules that were not revoked.</p>
+   *          <p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p>
+   *
+   *          <p>Rule changes are propagated to instances within the security group as quickly as possible. However,
+   *          a small delay might occur.</p>
    */
   public revokeSecurityGroupEgress(
     args: RevokeSecurityGroupEgressCommandInput,
@@ -18111,18 +18187,19 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Removes the specified ingress rules from a security group. To remove a rule, the values
-   *        that you specify (for example, ports) must match the existing rule's values exactly.</p>
+   * <p>Removes the specified inbound (ingress) rules from a security group.</p>
    *
-   *    	     <note>
-   *             <p>[EC2-Classic , default VPC] If the values you specify do not match the existing rule's values,
-   *                 no error is returned, and the output describes the security group rules that were
-   *                 not revoked. </p>
-   *             <p>AWS recommends that you use <a>DescribeSecurityGroups</a> to verify
-   *                 that the rule has been removed.</p>
-   *          </note>
+   *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
+   *            rule properties, the values that you specify (for example, ports) must match the existing rule's
+   *            values exactly. Each rule has a protocol, from and to ports, and source (CIDR range,
+   *            security group, or prefix list). For the TCP and UDP protocols, you must also specify the
+   *            destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type
+   *            and code. If the security group rule has a description, you do not need to specify the description
+   *            to revoke the rule.</p>
+   *          <p>[EC2-Classic, default VPC] If the values you specify do not match the existing rule's values, no error is
+   *            returned, and the output describes the security group rules that were not revoked.</p>
+   *          <p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p>
    *
-   *          <p>Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.</p>
    *          <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
    */
   public revokeSecurityGroupIngress(
@@ -18819,10 +18896,8 @@ export class EC2 extends EC2Client {
   /**
    * <p>[VPC only] Updates the description of an egress (outbound) security group rule. You
    * 			can replace an existing description, or add a description to a rule that did not have one
-   * 			previously.</p>
-   * 		       <p>You specify the description as part of the IP permissions structure. You can remove a
-   * 			description for a security group rule by omitting the description parameter in the
-   * 			request.</p>
+   * 			previously. You can remove a description for a security group rule by omitting the
+   * 			description parameter in the request.</p>
    */
   public updateSecurityGroupRuleDescriptionsEgress(
     args: UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
@@ -18857,11 +18932,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Updates the description of an ingress (inbound) security group rule. You can replace an
-   * 			existing description, or add a description to a rule that did not have one
-   * 			previously.</p>
-   * 		       <p>You specify the description as part of the IP permissions structure. You can remove a
-   * 			description for a security group rule by omitting the description parameter in the
-   * 			request.</p>
+   * 			existing description, or add a description to a rule that did not have one previously.
+   * 		    You can remove a description for a security group rule by omitting the description
+   * 		    parameter in the request.</p>
    */
   public updateSecurityGroupRuleDescriptionsIngress(
     args: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,

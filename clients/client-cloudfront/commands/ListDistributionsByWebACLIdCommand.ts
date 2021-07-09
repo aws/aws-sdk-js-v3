@@ -21,7 +21,7 @@ export interface ListDistributionsByWebACLIdCommandInput extends ListDistributio
 export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributionsByWebACLIdResult, __MetadataBearer {}
 
 /**
- * <p>List the distributions that are associated with a specified AWS WAF web ACL. </p>
+ * <p>List the distributions that are associated with a specified WAF web ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

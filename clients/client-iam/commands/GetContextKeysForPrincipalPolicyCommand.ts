@@ -34,7 +34,7 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
  *             <b>Note:</b> This operation discloses information about the
  *             permissions granted to other users. If you do not want users to see other user's
  *             permissions, then consider allowing them to use <a>GetContextKeysForCustomPolicy</a> instead.</p>
- *         <p>Context keys are variables maintained by AWS and its services that provide details
+ *         <p>Context keys are variables maintained by Amazon Web Services and its services that provide details
  *             about the context of an API query request. Context keys can be evaluated by testing
  *             against a value in an IAM policy. Use <a>GetContextKeysForPrincipalPolicy</a> to understand what key names and values you must supply when you call <a>SimulatePrincipalPolicy</a>.</p>
  * @example

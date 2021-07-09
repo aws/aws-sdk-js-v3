@@ -25,7 +25,7 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  *       from an asset model before you can delete the model. Also, you can't delete an asset model if
  *       a parent asset model exists that contains a property formula expression that depends on the
  *       asset model that you want to delete. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and models</a> in the
- *         <i>AWS IoT SiteWise User Guide</i>.</p>
+ *         <i>IoT SiteWise User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

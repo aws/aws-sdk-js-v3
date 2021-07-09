@@ -1,5 +1,6 @@
 export * from "./CloudFrontClient";
 export * from "./CloudFront";
+export * from "./commands/AssociateAliasCommand";
 export * from "./commands/CreateCachePolicyCommand";
 export * from "./commands/CreateCloudFrontOriginAccessIdentityCommand";
 export * from "./commands/CreateDistributionCommand";
@@ -56,6 +57,7 @@ export * from "./commands/GetStreamingDistributionConfigCommand";
 export * from "./commands/ListCachePoliciesCommand";
 export * from "./commands/ListCloudFrontOriginAccessIdentitiesCommand";
 export * from "./pagination/ListCloudFrontOriginAccessIdentitiesPaginator";
+export * from "./commands/ListConflictingAliasesCommand";
 export * from "./commands/ListDistributionsCommand";
 export * from "./pagination/ListDistributionsPaginator";
 export * from "./commands/ListDistributionsByCachePolicyIdCommand";

@@ -6,7 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface GroupIdentity {
   /**
-   * <p>The AWS SSO ID of the group.</p>
+   * <p>The Amazon Web Services SSO ID of the group.</p>
    */
   id: string | undefined;
 }
@@ -21,13 +21,13 @@ export namespace GroupIdentity {
 }
 
 /**
- * <p>Contains information about an AWS Identity and Access Management (IAM) role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
- *       <i>IAM User Guide</i>.</p>
+ * <p>Contains information about an Identity and Access Management role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
+ *         <i>IAM User Guide</i>.</p>
  */
 export interface IAMRoleIdentity {
   /**
    * <p>The ARN of the IAM role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM ARNs</a> in the
-   *       <i>IAM User Guide</i>.</p>
+   *         <i>IAM User Guide</i>.</p>
    */
   arn: string | undefined;
 }
@@ -42,12 +42,12 @@ export namespace IAMRoleIdentity {
 }
 
 /**
- * <p>Contains information about an AWS Identity and Access Management (IAM) user.</p>
+ * <p>Contains information about an Identity and Access Management user.</p>
  */
 export interface IAMUserIdentity {
   /**
    * <p>The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM ARNs</a> in the
-   *       <i>IAM User Guide</i>.</p>
+   *         <i>IAM User Guide</i>.</p>
    *          <note>
    *             <p>If you delete the IAM user, access policies that contain this identity include an
    *         empty <code>arn</code>. You can delete the access policy for the IAM user that no longer
@@ -71,7 +71,7 @@ export namespace IAMUserIdentity {
  */
 export interface UserIdentity {
   /**
-   * <p>The AWS SSO ID of the user.</p>
+   * <p>The Amazon Web Services SSO ID of the user.</p>
    */
   id: string | undefined;
 }
@@ -86,20 +86,20 @@ export namespace UserIdentity {
 }
 
 /**
- * <p>Contains an identity that can access an AWS IoT SiteWise Monitor resource.</p>
+ * <p>Contains an identity that can access an IoT SiteWise Monitor resource.</p>
  *          <note>
- *             <p>Currently, you can't use AWS APIs to retrieve AWS SSO identity IDs. You can find the
- *         AWS SSO identity IDs in the URL of user and group pages in the <a href="https://console.aws.amazon.com/singlesignon">AWS SSO console</a>.</p>
+ *             <p>Currently, you can't use Amazon Web Services APIs to retrieve Amazon Web Services SSO identity IDs. You can find the
+ *         Amazon Web Services SSO identity IDs in the URL of user and group pages in the <a href="https://console.aws.amazon.com/singlesignon">Amazon Web Services SSO console</a>.</p>
  *          </note>
  */
 export interface Identity {
   /**
-   * <p>An AWS SSO user identity.</p>
+   * <p>An Amazon Web Services SSO user identity.</p>
    */
   user?: UserIdentity;
 
   /**
-   * <p>An AWS SSO group identity.</p>
+   * <p>An Amazon Web Services SSO group identity.</p>
    */
   group?: GroupIdentity;
 
@@ -129,7 +129,7 @@ export enum Permission {
 }
 
 /**
- * <p>Identifies an AWS IoT SiteWise Monitor portal.</p>
+ * <p>Identifies an IoT SiteWise Monitor portal.</p>
  */
 export interface PortalResource {
   /**
@@ -148,7 +148,7 @@ export namespace PortalResource {
 }
 
 /**
- * <p>Identifies a specific AWS IoT SiteWise Monitor project.</p>
+ * <p>Identifies a specific IoT SiteWise Monitor project.</p>
  */
 export interface ProjectResource {
   /**
@@ -167,7 +167,7 @@ export namespace ProjectResource {
 }
 
 /**
- * <p>Contains an AWS IoT SiteWise Monitor resource ID for a portal or project.</p>
+ * <p>Contains an IoT SiteWise Monitor resource ID for a portal or project.</p>
  */
 export interface Resource {
   /**
@@ -191,7 +191,7 @@ export namespace Resource {
 }
 
 /**
- * <p>Contains an access policy that defines an identity's access to an AWS IoT SiteWise Monitor
+ * <p>Contains an access policy that defines an identity's access to an IoT SiteWise Monitor
  *       resource.</p>
  */
 export interface AccessPolicySummary {
@@ -201,12 +201,12 @@ export interface AccessPolicySummary {
   id: string | undefined;
 
   /**
-   * <p>The identity (an AWS SSO user, an AWS SSO group, or an IAM user).</p>
+   * <p>The identity (an Amazon Web Services SSO user, an Amazon Web Services SSO group, or an IAM user).</p>
    */
   identity: Identity | undefined;
 
   /**
-   * <p>The AWS IoT SiteWise Monitor resource (a portal or project).</p>
+   * <p>The IoT SiteWise Monitor resource (a portal or project).</p>
    */
   resource: Resource | undefined;
 
@@ -326,18 +326,21 @@ export enum AggregateType {
 }
 
 /**
- * <p>Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal.
- *   You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see .</p>
+ * <p>Contains the configuration information of an alarm created in an IoT SiteWise Monitor portal.
+ *   You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+ *   For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html">Monitoring with alarms</a> in the <i>IoT SiteWise Application Guide</i>.</p>
  */
 export interface Alarms {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IAM role that allows the alarm to perform actions and access AWS resources, including AWS IoT Events.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IAM role that allows the alarm to perform actions and access Amazon Web Services
+   *       resources and services, such as IoT Events.</p>
    */
   alarmRoleArn: string | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the AWS Lambda function that manages alarm notifications. For more information, see <a href="https://docs.aws.amazon.com/">Managing alarm notifications</a>
-   *       in the <i>AWS IoT Events Developer Guide</i>.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the Lambda function that manages alarm notifications. For more
+   *       information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html">Managing alarm
+   *         notifications</a> in the <i>IoT Events Developer Guide</i>.</p>
    */
   notificationLambdaArn?: string;
 }
@@ -365,12 +368,12 @@ export enum PropertyNotificationState {
 }
 
 /**
- * <p>Contains asset property value notification information. When the notification state is enabled, AWS IoT SiteWise publishes property value
- *       updates to a unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting with other services</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ * <p>Contains asset property value notification information. When the notification state is enabled, IoT SiteWise publishes property value
+ *       updates to a unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting with other services</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
 export interface PropertyNotification {
   /**
-   * <p>The MQTT topic to which AWS IoT SiteWise publishes property value update notifications.</p>
+   * <p>The MQTT topic to which IoT SiteWise publishes property value update notifications.</p>
    */
   topic: string | undefined;
 
@@ -404,10 +407,10 @@ export interface AssetProperty {
   name: string | undefined;
 
   /**
-   * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
+   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   alias?: string;
 
@@ -563,14 +566,14 @@ export namespace AssetHierarchyInfo {
 
 /**
  * <p>Contains an asset attribute property. For more information, see
- *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#attributes">Attributes</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#attributes">Attributes</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
 export interface Attribute {
   /**
    * <p>The default value of the asset model property attribute. All assets that you create from
    *       the asset model contain this attribute value. You can update an attribute's value after you
    *       create an asset. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html">Updating attribute values</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   defaultValue?: string;
 }
@@ -586,7 +589,7 @@ export namespace Attribute {
 
 /**
  * <p>Contains an asset measurement property. For more information, see
- *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#measurements">Measurements</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#measurements">Measurements</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
 export interface Measurement {}
 
@@ -615,7 +618,7 @@ export interface VariableValue {
    *          <p>You use a hierarchy ID instead of a model ID because you can have several hierarchies
    *       using the same model and therefore the same <code>propertyId</code>. For example, you might
    *       have separately grouped assets that come from the same asset model. For more information, see
-   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   hierarchyId?: string;
 }
@@ -661,11 +664,11 @@ export interface TumblingWindow {
   /**
    * <p>The time interval for the tumbling window. Note that <code>w</code> represents weeks,
    *         <code>d</code> represents days, <code>h</code> represents hours, and <code>m</code>
-   *       represents minutes. AWS IoT SiteWise computes the <code>1w</code> interval the end of Sunday at midnight
+   *       represents minutes. IoT SiteWise computes the <code>1w</code> interval the end of Sunday at midnight
    *       each week (UTC), the <code>1d</code> interval at the end of each day at midnight (UTC), the
    *         <code>1h</code> interval at the end of each hour, and so on. </p>
-   *          <p>When AWS IoT SiteWise aggregates data points for metric computations, the start of each interval is
-   *       exclusive and the end of each interval is inclusive. AWS IoT SiteWise places the computed data point at
+   *          <p>When IoT SiteWise aggregates data points for metric computations, the start of each interval is
+   *       exclusive and the end of each interval is inclusive. IoT SiteWise places the computed data point at
    *       the end of the interval.</p>
    */
   interval: string | undefined;
@@ -709,14 +712,14 @@ export namespace MetricWindow {
  *       up to 10 cascading metrics in its computational dependency
  *       tree. Additionally, a metric can only have a data type of <code>DOUBLE</code> and consume
  *       properties with data types of <code>INTEGER</code> or <code>DOUBLE</code>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#metrics">Metrics</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#metrics">Metrics</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
 export interface Metric {
   /**
    * <p>The mathematical expression that defines the metric aggregation function. You can specify
    *       up to 10 variables per expression. You can specify up to 10 functions
    *       per expression. </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   expression: string | undefined;
 
@@ -726,8 +729,8 @@ export interface Metric {
   variables: ExpressionVariable[] | undefined;
 
   /**
-   * <p>The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression.
-   *       AWS IoT SiteWise computes one data point per <code>window</code>.</p>
+   * <p>The window (time interval) over which IoT SiteWise computes the metric's aggregation expression.
+   *       IoT SiteWise computes one data point per <code>window</code>.</p>
    */
   window: MetricWindow | undefined;
 }
@@ -747,14 +750,14 @@ export namespace Metric {
  *       Celsius data stream to Fahrenheit by applying the transformation expression to each data point
  *       of the Celsius stream. A transform can only have a data type of <code>DOUBLE</code> and
  *       consume properties with data types of <code>INTEGER</code> or <code>DOUBLE</code>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms">Transforms</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms">Transforms</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
 export interface Transform {
   /**
    * <p>The mathematical expression that defines the transformation function. You can specify up
    *       to 10 variables per expression. You can specify up to 10 functions per
    *       expression. </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   expression: string | undefined;
 
@@ -877,7 +880,7 @@ export interface AssetModelCompositeModel {
 
   /**
    * <p>The type of the composite model. For alarm composite models, this type is
-   *       <code>AWS/ALARM</code>.</p>
+   *         <code>AWS/ALARM</code>.</p>
    */
   type: string | undefined;
 
@@ -961,7 +964,7 @@ export interface AssetModelCompositeModelDefinition {
 
   /**
    * <p>The type of the composite model. For alarm composite models, this type is
-   *       <code>AWS/ALARM</code>.</p>
+   *         <code>AWS/ALARM</code>.</p>
    */
   type: string | undefined;
 
@@ -1053,7 +1056,7 @@ export enum ErrorCode {
 }
 
 /**
- * <p>Contains the details of an AWS IoT SiteWise error.</p>
+ * <p>Contains the details of an IoT SiteWise error.</p>
  */
 export interface ErrorDetails {
   /**
@@ -1078,7 +1081,7 @@ export namespace ErrorDetails {
 
 /**
  * <p>Contains current status information for an asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-and-model-states.html">Asset and model
- *         states</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ *         states</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
 export interface AssetModelStatus {
   /**
@@ -1106,7 +1109,7 @@ export namespace AssetModelStatus {
  */
 export interface AssetModelSummary {
   /**
-   * <p>The ID of the asset model (used with AWS IoT SiteWise APIs).</p>
+   * <p>The ID of the asset model (used with IoT SiteWise APIs).</p>
    */
   id: string | undefined;
 
@@ -1291,7 +1294,7 @@ export enum AssetState {
 /**
  * <p>Contains information about the current status of an asset. For more information, see
  *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-and-model-states.html">Asset and model
- *         states</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ *         states</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
 export interface AssetStatus {
   /**
@@ -1380,7 +1383,7 @@ export interface AssociateAssetsRequest {
   /**
    * <p>The ID of a hierarchy in the parent asset's model. Hierarchies allow different groupings
    *       of assets to be formed that all come from the same asset model. For more information, see
-   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   hierarchyId: string | undefined;
 
@@ -1433,7 +1436,7 @@ export namespace ConflictingOperationException {
 }
 
 /**
- * <p>AWS IoT SiteWise can't process your request right now. Try again later.</p>
+ * <p>IoT SiteWise can't process your request right now. Try again later.</p>
  */
 export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
@@ -1473,7 +1476,7 @@ export namespace InvalidRequestException {
  * <p>You've reached the limit for a resource. For example, this can occur if you're trying to
  *       associate more than the allowed number of child assets or attempting to create more than the
  *       allowed number of properties for an asset model.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
@@ -1510,9 +1513,9 @@ export namespace ResourceNotFoundException {
 
 /**
  * <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
- *       AWS IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
  *       on.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
 export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
@@ -1698,10 +1701,10 @@ export interface PutAssetPropertyValueEntry {
   propertyId?: string;
 
   /**
-   * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
+   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   propertyAlias?: string;
 
@@ -1841,12 +1844,12 @@ export namespace ServiceUnavailableException {
 
 export interface CreateAccessPolicyRequest {
   /**
-   * <p>The identity for this access policy. Choose an AWS SSO user, an AWS SSO group, or an IAM user.</p>
+   * <p>The identity for this access policy. Choose an Amazon Web Services SSO user, an Amazon Web Services SSO group, or an IAM user.</p>
    */
   accessPolicyIdentity: Identity | undefined;
 
   /**
-   * <p>The AWS IoT SiteWise Monitor resource for this access policy. Choose either a portal or a project.</p>
+   * <p>The IoT SiteWise Monitor resource for this access policy. Choose either a portal or a project.</p>
    */
   accessPolicyResource: Resource | undefined;
 
@@ -1863,7 +1866,7 @@ export interface CreateAccessPolicyRequest {
   /**
    * <p>A list of key-value pairs that contain metadata for the access policy. For more
    *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your
-   *         AWS IoT SiteWise resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -1919,8 +1922,8 @@ export interface CreateAssetRequest {
 
   /**
    * <p>A list of key-value pairs that contain metadata for the asset. For more information, see
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise
-   *         resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
+   *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -1936,8 +1939,8 @@ export namespace CreateAssetRequest {
 
 export interface CreateAssetResponse {
   /**
-   * <p>The ID of the asset. This ID uniquely identifies the asset within AWS IoT SiteWise and can be used with other
-   *       AWS IoT SiteWise APIs.</p>
+   * <p>The ID of the asset. This ID uniquely identifies the asset within IoT SiteWise and can be used with other
+   *       IoT SiteWise APIs.</p>
    */
   assetId: string | undefined;
 
@@ -2005,18 +2008,18 @@ export interface CreateAssetModelRequest {
 
   /**
    * <p>The property definitions of the asset model. For more information, see
-   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html">Asset properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html">Asset properties</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>You can specify up to 200 properties per asset model. For more
-   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   assetModelProperties?: AssetModelPropertyDefinition[];
 
   /**
    * <p>The hierarchy definitions of the asset model. Each hierarchy specifies an asset model
    *       whose assets can be children of any other assets created from this asset model. For more
-   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>You can specify up to 10 hierarchies per asset model. For more
-   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   assetModelHierarchies?: AssetModelHierarchyDefinition[];
 
@@ -2035,8 +2038,8 @@ export interface CreateAssetModelRequest {
 
   /**
    * <p>A list of key-value pairs that contain metadata for the asset model. For more information,
-   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise
-   *         resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
+   *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -2052,7 +2055,7 @@ export namespace CreateAssetModelRequest {
 
 export interface CreateAssetModelResponse {
   /**
-   * <p>The ID of the asset model. You can use this ID when you call other AWS IoT SiteWise APIs.</p>
+   * <p>The ID of the asset model. You can use this ID when you call other IoT SiteWise APIs.</p>
    */
   assetModelId: string | undefined;
 
@@ -2098,7 +2101,7 @@ export interface CreateDashboardRequest {
 
   /**
    * <p>The dashboard definition specified in a JSON literal. For detailed information, see
-   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html">Creating dashboards (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html">Creating dashboards (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   dashboardDefinition: string | undefined;
 
@@ -2109,8 +2112,8 @@ export interface CreateDashboardRequest {
 
   /**
    * <p>A list of key-value pairs that contain metadata for the dashboard. For more information,
-   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise
-   *         resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
+   *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -2149,16 +2152,16 @@ export namespace CreateDashboardResponse {
 }
 
 /**
- * <p>Contains details for a gateway that runs on AWS IoT Greengrass. To create a gateway that runs on AWS IoT Greengrass,
+ * <p>Contains details for a gateway that runs on IoT Greengrass. To create a gateway that runs on IoT Greengrass,
  *       you must add the IoT SiteWise connector to a Greengrass group and deploy it. Your Greengrass
- *       group must also have permissions to upload data to AWS IoT SiteWise. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html">Ingesting data using a
- *         gateway</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ *       group must also have permissions to upload data to IoT SiteWise. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html">Ingesting data using a
+ *         gateway</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
 export interface Greengrass {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the Greengrass group. For more information about how to find a group's
    *       ARN, see <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/listgroups-get.html">ListGroups</a> and <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/getgroup-get.html">GetGroup</a> in the
-   *         <i>AWS IoT Greengrass API Reference</i>.</p>
+   *         <i>IoT Greengrass API Reference</i>.</p>
    */
   groupArn: string | undefined;
 }
@@ -2177,7 +2180,7 @@ export namespace Greengrass {
  */
 export interface GatewayPlatform {
   /**
-   * <p>A gateway that runs on AWS IoT Greengrass.</p>
+   * <p>A gateway that runs on IoT Greengrass.</p>
    */
   greengrass: Greengrass | undefined;
 }
@@ -2204,8 +2207,8 @@ export interface CreateGatewayRequest {
 
   /**
    * <p>A list of key-value pairs that contain metadata for the gateway. For more information, see
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise
-   *         resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
+   *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -2221,7 +2224,7 @@ export namespace CreateGatewayRequest {
 
 export interface CreateGatewayResponse {
   /**
-   * <p>The ID of the gateway device. You can use this ID when you call other AWS IoT SiteWise APIs.</p>
+   * <p>The ID of the gateway device. You can use this ID when you call other IoT SiteWise APIs.</p>
    */
   gatewayId: string | undefined;
 
@@ -2284,7 +2287,7 @@ export interface CreatePortalRequest {
   portalDescription?: string;
 
   /**
-   * <p>The AWS administrator's contact email address.</p>
+   * <p>The Amazon Web Services administrator's contact email address.</p>
    */
   portalContactEmail: string | undefined;
 
@@ -2300,16 +2303,16 @@ export interface CreatePortalRequest {
   portalLogoImageFile?: ImageFile;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of a service role that allows the portal's users to access your AWS IoT SiteWise
-   *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for AWS IoT SiteWise Monitor</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of a service role that allows the portal's users to access your IoT SiteWise
+   *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for IoT SiteWise Monitor</a> in the
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   roleArn: string | undefined;
 
   /**
    * <p>A list of key-value pairs that contain metadata for the portal. For more information, see
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise
-   *         resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
+   *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   tags?: { [key: string]: string };
 
@@ -2319,15 +2322,15 @@ export interface CreatePortalRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>SSO</code> – The portal uses AWS Single Sign-On to authenticate users and manage
-   *           user permissions. Before you can create a portal that uses AWS SSO, you must enable AWS SSO.
-   *           For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling AWS SSO</a> in the
-   *             <i>AWS IoT SiteWise User Guide</i>. This option is only available in AWS Regions other than
+   *                   <code>SSO</code> – The portal uses Amazon Web Services Single Sign On to authenticate users and manage
+   *           user permissions. Before you can create a portal that uses Amazon Web Services SSO, you must enable Amazon Web Services SSO.
+   *           For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling Amazon Web Services SSO</a> in the
+   *             <i>IoT SiteWise User Guide</i>. This option is only available in Amazon Web Services Regions other than
    *           the China Regions.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IAM</code> – The portal uses AWS Identity and Access Management (IAM) to authenticate users and manage
+   *                   <code>IAM</code> – The portal uses Identity and Access Management to authenticate users and manage
    *           user permissions. This option is only available in the China Regions.</p>
    *             </li>
    *          </ul>
@@ -2340,15 +2343,17 @@ export interface CreatePortalRequest {
   /**
    * <p>The email address that sends alarm notifications.</p>
    *          <important>
-   *             <p>If you use the AWS IoT Events managed AWS Lambda function to manage your emails, you must
-   *         <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">verify the sender email address in Amazon SES</a>.</p>
+   *             <p>If you use the <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html">IoT Events managed Lambda
+   *           function</a> to manage your emails, you must <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">verify the sender email
+   *           address in Amazon SES</a>.</p>
    *          </important>
    */
   notificationSenderEmail?: string;
 
   /**
-   * <p>Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal.
-   *   You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see .</p>
+   * <p>Contains the configuration information of an alarm created in an IoT SiteWise Monitor portal.
+   *   You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+   *   For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html">Monitoring with alarms</a> in the <i>IoT SiteWise Application Guide</i>.</p>
    */
   alarms?: Alarms;
 }
@@ -2369,7 +2374,7 @@ export enum MonitorErrorCode {
 }
 
 /**
- * <p>Contains AWS IoT SiteWise Monitor error details.</p>
+ * <p>Contains IoT SiteWise Monitor error details.</p>
  */
 export interface MonitorErrorDetails {
   /**
@@ -2439,9 +2444,9 @@ export interface CreatePortalResponse {
   portalArn: string | undefined;
 
   /**
-   * <p>The URL for the AWS IoT SiteWise Monitor portal. You can use this URL to access portals that
-   *       use AWS SSO for authentication. For portals that use IAM for authentication, you must use the
-   *       AWS IoT SiteWise console to get a URL that you can use to access the portal.</p>
+   * <p>The URL for the IoT SiteWise Monitor portal. You can use this URL to access portals that
+   *       use Amazon Web Services SSO for authentication. For portals that use IAM for authentication, you must use the
+   *       IoT SiteWise console to get a URL that you can use to access the portal.</p>
    */
   portalStartUrl: string | undefined;
 
@@ -2452,7 +2457,7 @@ export interface CreatePortalResponse {
   portalStatus: PortalStatus | undefined;
 
   /**
-   * <p>The associated AWS SSO application ID, if the portal uses AWS SSO.</p>
+   * <p>The associated Amazon Web Services SSO application ID, if the portal uses Amazon Web Services SSO.</p>
    */
   ssoApplicationId: string | undefined;
 }
@@ -2489,8 +2494,8 @@ export interface CreateProjectRequest {
 
   /**
    * <p>A list of key-value pairs that contain metadata for the project. For more information, see
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise
-   *         resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
+   *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -2785,13 +2790,13 @@ export interface DescribeAccessPolicyResponse {
   accessPolicyArn: string | undefined;
 
   /**
-   * <p>The identity (AWS SSO user, AWS SSO group, or IAM user) to which this access policy
+   * <p>The identity (Amazon Web Services SSO user, Amazon Web Services SSO group, or IAM user) to which this access policy
    *       applies.</p>
    */
   accessPolicyIdentity: Identity | undefined;
 
   /**
-   * <p>The AWS IoT SiteWise Monitor resource (portal or project) to which this access policy provides
+   * <p>The IoT SiteWise Monitor resource (portal or project) to which this access policy provides
    *       access.</p>
    */
   accessPolicyResource: Resource | undefined;
@@ -3025,10 +3030,10 @@ export interface Property {
   name: string | undefined;
 
   /**
-   * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
+   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   alias?: string;
 
@@ -3178,7 +3183,7 @@ export interface DescribeDashboardResponse {
 
   /**
    * <p>The dashboard's definition JSON literal. For detailed information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html">Creating
-   *         dashboards (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         dashboards (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   dashboardDefinition: string | undefined;
 
@@ -3214,7 +3219,7 @@ export namespace DescribeDefaultEncryptionConfigurationRequest {
 }
 
 /**
- * <p>Contains the details of an AWS IoT SiteWise configuration error.</p>
+ * <p>Contains the details of an IoT SiteWise configuration error.</p>
  */
 export interface ConfigurationErrorDetails {
   /**
@@ -3279,15 +3284,15 @@ export interface DescribeDefaultEncryptionConfigurationResponse {
   encryptionType: EncryptionType | string | undefined;
 
   /**
-   * <p>The key ARN of the customer managed customer master key (CMK) used for AWS KMS encryption
-   *       if you use <code>KMS_BASED_ENCRYPTION</code>.</p>
+   * <p>The key ARN of the customer managed customer master key (CMK) used for KMS encryption if
+   *       you use <code>KMS_BASED_ENCRYPTION</code>.</p>
    */
   kmsKeyArn?: string;
 
   /**
    * <p>The status of the account configuration. This contains the
-   *       <code>ConfigurationState</code>. If
-   *       there's an error, it also contains the <code>ErrorDetails</code>.</p>
+   *       <code>ConfigurationState</code>. If there's an error, it also contains the
+   *         <code>ErrorDetails</code>.</p>
    */
   configurationStatus: ConfigurationStatus | undefined;
 }
@@ -3330,7 +3335,7 @@ export interface GatewayCapabilitySummary {
   /**
    * <p>The namespace of the capability configuration.
    *       For example, if you configure OPC-UA
-   *       sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace
+   *       sources from the IoT SiteWise console, your OPC-UA capability configuration has the namespace
    *         <code>iotsitewise:opcuacollector:version</code>, where <code>version</code> is a number such as
    *         <code>1</code>.</p>
    */
@@ -3425,7 +3430,7 @@ export interface DescribeGatewayCapabilityConfigurationRequest {
   /**
    * <p>The namespace of the capability configuration.
    *       For example, if you configure OPC-UA
-   *       sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace
+   *       sources from the IoT SiteWise console, your OPC-UA capability configuration has the namespace
    *         <code>iotsitewise:opcuacollector:version</code>, where <code>version</code> is a number such as
    *         <code>1</code>.</p>
    */
@@ -3454,7 +3459,7 @@ export interface DescribeGatewayCapabilityConfigurationResponse {
 
   /**
    * <p>The JSON document that defines the gateway capability's configuration. For more
-   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli">Configuring data sources (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli">Configuring data sources (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   capabilityConfiguration: string | undefined;
 
@@ -3509,7 +3514,7 @@ export enum LoggingLevel {
  */
 export interface LoggingOptions {
   /**
-   * <p>The AWS IoT SiteWise logging verbosity level.</p>
+   * <p>The IoT SiteWise logging verbosity level.</p>
    */
   level: LoggingLevel | string | undefined;
 }
@@ -3556,7 +3561,7 @@ export namespace DescribePortalRequest {
 }
 
 /**
- * <p>Contains an image that is uploaded to AWS IoT SiteWise and available at a URL.</p>
+ * <p>Contains an image that is uploaded to IoT SiteWise and available at a URL.</p>
  */
 export interface ImageLocation {
   /**
@@ -3605,20 +3610,20 @@ export interface DescribePortalResponse {
   portalDescription?: string;
 
   /**
-   * <p>The AWS SSO application generated client ID (used with AWS SSO APIs). AWS IoT SiteWise includes
-   *         <code>portalClientId</code> for only portals that use AWS SSO to authenticate users.</p>
+   * <p>The Amazon Web Services SSO application generated client ID (used with Amazon Web Services SSO APIs). IoT SiteWise includes
+   *         <code>portalClientId</code> for only portals that use Amazon Web Services SSO to authenticate users.</p>
    */
   portalClientId: string | undefined;
 
   /**
-   * <p>The URL for the AWS IoT SiteWise Monitor portal. You can use this URL to access portals that
-   *       use AWS SSO for authentication. For portals that use IAM for authentication, you must use the
-   *       AWS IoT SiteWise console to get a URL that you can use to access the portal.</p>
+   * <p>The URL for the IoT SiteWise Monitor portal. You can use this URL to access portals that
+   *       use Amazon Web Services SSO for authentication. For portals that use IAM for authentication, you must use the
+   *       IoT SiteWise console to get a URL that you can use to access the portal.</p>
    */
   portalStartUrl: string | undefined;
 
   /**
-   * <p>The AWS administrator's contact email address.</p>
+   * <p>The Amazon Web Services administrator's contact email address.</p>
    */
   portalContactEmail: string | undefined;
 
@@ -3643,9 +3648,9 @@ export interface DescribePortalResponse {
   portalLogoImageLocation?: ImageLocation;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the service role that allows the portal's users to access your AWS IoT SiteWise
-   *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for AWS IoT SiteWise Monitor</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the service role that allows the portal's users to access your IoT SiteWise
+   *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for IoT SiteWise Monitor</a> in the
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   roleArn?: string;
 
@@ -3660,7 +3665,7 @@ export interface DescribePortalResponse {
   notificationSenderEmail?: string;
 
   /**
-   * <p>Contains the configuration information of an alarm created in a AWS IoT SiteWise Monitor portal.</p>
+   * <p>Contains the configuration information of an alarm created in an IoT SiteWise Monitor portal.</p>
    */
   alarms?: Alarms;
 }
@@ -3739,6 +3744,108 @@ export namespace DescribeProjectResponse {
   });
 }
 
+export interface DescribeStorageConfigurationRequest {}
+
+export namespace DescribeStorageConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStorageConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a customer managed Amazon S3 bucket.</p>
+ */
+export interface CustomerManagedS3Storage {
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the Amazon S3 object. For more information about how to find the ARN for an
+   *       Amazon S3 object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-arn-format.html">Amazon S3 resources</a> in the
+   *       <i>Amazon Simple Storage Service User Guide</i>.</p>
+   */
+  s3ResourceArn: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the Identity and Access Management role that allows IoT SiteWise to send data to Amazon S3.</p>
+   */
+  roleArn: string | undefined;
+}
+
+export namespace CustomerManagedS3Storage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomerManagedS3Storage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the storage destination.</p>
+ */
+export interface MultiLayerStorage {
+  /**
+   * <p>Contains information about a customer managed Amazon S3 bucket.</p>
+   */
+  customerManagedS3Storage: CustomerManagedS3Storage | undefined;
+}
+
+export namespace MultiLayerStorage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MultiLayerStorage): any => ({
+    ...obj,
+  });
+}
+
+export enum StorageType {
+  MULTI_LAYER_STORAGE = "MULTI_LAYER_STORAGE",
+  SITEWISE_DEFAULT_STORAGE = "SITEWISE_DEFAULT_STORAGE",
+}
+
+export interface DescribeStorageConfigurationResponse {
+  /**
+   * <p>The type of storage that you specified for your data. The storage type can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise replicates your data into a service managed database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise replicates your data into a service managed database and saves a copy of your raw data and metadata in an Amazon S3 object that you specified.</p>
+   *             </li>
+   *          </ul>
+   */
+  storageType: StorageType | string | undefined;
+
+  /**
+   * <p>Contains information about the storage destination.</p>
+   */
+  multiLayerStorage?: MultiLayerStorage;
+
+  /**
+   * <p>Contains current status information for the configuration.</p>
+   */
+  configurationStatus: ConfigurationStatus | undefined;
+
+  /**
+   * <p>The date the storage configuration was last updated, in Unix epoch time.</p>
+   */
+  lastUpdateDate?: Date;
+}
+
+export namespace DescribeStorageConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStorageConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DisassociateAssetsRequest {
   /**
    * <p>The ID of the parent asset from which to disassociate the child asset.</p>
@@ -3749,7 +3856,7 @@ export interface DisassociateAssetsRequest {
    * <p>The ID of a hierarchy in the parent asset's model. Hierarchies allow different groupings
    *       of assets to be formed that all come from the same asset model. You can use the hierarchy ID
    *       to identify the correct asset to disassociate. For more information, see
-   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   hierarchyId: string | undefined;
 
@@ -3790,10 +3897,10 @@ export interface GetAssetPropertyAggregatesRequest {
   propertyId?: string;
 
   /**
-   * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
+   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   propertyAlias?: string;
 
@@ -3835,7 +3942,7 @@ export interface GetAssetPropertyAggregatesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
+   * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 100</p>
    */
   maxResults?: number;
@@ -3883,10 +3990,10 @@ export interface GetAssetPropertyValueRequest {
   propertyId?: string;
 
   /**
-   * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
+   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   propertyAlias?: string;
 }
@@ -3928,10 +4035,10 @@ export interface GetAssetPropertyValueHistoryRequest {
   propertyId?: string;
 
   /**
-   * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
+   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   propertyAlias?: string;
 
@@ -3963,7 +4070,7 @@ export interface GetAssetPropertyValueHistoryRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
+   * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 100</p>
    */
   maxResults?: number;
@@ -4011,10 +4118,10 @@ export interface GetInterpolatedAssetPropertyValuesRequest {
   propertyId?: string;
 
   /**
-   * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
+   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   propertyAlias?: string;
 
@@ -4058,8 +4165,7 @@ export interface GetInterpolatedAssetPropertyValuesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.
-   *       If not specified, the default value is 10.</p>
+   * <p>The maximum number of results to return for each paginated request. If not specified, the default value is 10.</p>
    */
   maxResults?: number;
 
@@ -4138,7 +4244,7 @@ export enum ResourceType {
 
 export interface ListAccessPoliciesRequest {
   /**
-   * <p>The type of identity (AWS SSO user, AWS SSO group, or IAM user). This parameter is required
+   * <p>The type of identity (Amazon Web Services SSO user, Amazon Web Services SSO group, or IAM user). This parameter is required
    *       if you specify <code>identityId</code>.</p>
    */
   identityType?: IdentityType | string;
@@ -4174,7 +4280,7 @@ export interface ListAccessPoliciesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
+   * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
    */
   maxResults?: number;
@@ -4217,7 +4323,7 @@ export interface ListAssetModelsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
+   * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
    */
   maxResults?: number;
@@ -4283,7 +4389,7 @@ export interface ListAssetRelationshipsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
+   * <p>The maximum number of results to return for each paginated request.</p>
    */
   maxResults?: number;
 }
@@ -4330,7 +4436,7 @@ export interface ListAssetsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
+   * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
    */
   maxResults?: number;
@@ -4408,7 +4514,7 @@ export interface ListAssociatedAssetsRequest {
    *       hierarchy ID, use the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html">DescribeAsset</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html">DescribeAssetModel</a> operations. This
    *       parameter is required if you choose <code>CHILD</code> for
    *       <code>traversalDirection</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   hierarchyId?: string;
 
@@ -4437,7 +4543,7 @@ export interface ListAssociatedAssetsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
+   * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
    */
   maxResults?: number;
@@ -4485,7 +4591,7 @@ export interface ListDashboardsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
+   * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
    */
   maxResults?: number;
@@ -4567,7 +4673,7 @@ export interface ListGatewaysRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
+   * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
    */
   maxResults?: number;
@@ -4651,7 +4757,7 @@ export interface ListPortalsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
+   * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
    */
   maxResults?: number;
@@ -4686,9 +4792,9 @@ export interface PortalSummary {
   description?: string;
 
   /**
-   * <p>The URL for the AWS IoT SiteWise Monitor portal. You can use this URL to access portals that
-   *       use AWS SSO for authentication. For portals that use IAM for authentication, you must use the
-   *       AWS IoT SiteWise console to get a URL that you can use to access the portal.</p>
+   * <p>The URL for the IoT SiteWise Monitor portal. You can use this URL to access portals that
+   *       use Amazon Web Services SSO for authentication. For portals that use IAM for authentication, you must use the
+   *       IoT SiteWise console to get a URL that you can use to access the portal.</p>
    */
   startUrl: string | undefined;
 
@@ -4703,9 +4809,9 @@ export interface PortalSummary {
   lastUpdateDate?: Date;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the service role that allows the portal's users to access your AWS IoT SiteWise
-   *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for AWS IoT SiteWise Monitor</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the service role that allows the portal's users to access your IoT SiteWise
+   *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for IoT SiteWise Monitor</a> in the
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   roleArn?: string;
 
@@ -4757,7 +4863,7 @@ export interface ListProjectAssetsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
+   * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
    */
   maxResults?: number;
@@ -4805,7 +4911,7 @@ export interface ListProjectsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
+   * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
    */
   maxResults?: number;
@@ -4899,8 +5005,8 @@ export namespace ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of key-value pairs that contain metadata for the resource. For more information,
-   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise
-   *         resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
+   *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -4939,8 +5045,8 @@ export interface PutDefaultEncryptionConfigurationRequest {
   encryptionType: EncryptionType | string | undefined;
 
   /**
-   * <p>The Key ID of the customer managed customer master key (CMK) used for AWS KMS encryption. This is required if you use
-   *       <code>KMS_BASED_ENCRYPTION</code>.</p>
+   * <p>The Key ID of the customer managed customer master key (CMK) used for KMS encryption.
+   *       This is required if you use <code>KMS_BASED_ENCRYPTION</code>.</p>
    */
   kmsKeyId?: string;
 }
@@ -4961,8 +5067,8 @@ export interface PutDefaultEncryptionConfigurationResponse {
   encryptionType: EncryptionType | string | undefined;
 
   /**
-   * <p>The Key ARN of the AWS KMS CMK used for AWS KMS encryption if you use
-   *       <code>KMS_BASED_ENCRYPTION</code>.</p>
+   * <p>The Key ARN of the KMS CMK used for KMS encryption if you use
+   *         <code>KMS_BASED_ENCRYPTION</code>.</p>
    */
   kmsKeyArn?: string;
 
@@ -5010,6 +5116,74 @@ export namespace PutLoggingOptionsResponse {
   });
 }
 
+export interface PutStorageConfigurationRequest {
+  /**
+   * <p>The type of storage that you specified for your data. The storage type can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise replicates your data into a service managed database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise replicates your data into a service managed database and saves a copy of your raw data and metadata in an Amazon S3 object that you specified.</p>
+   *             </li>
+   *          </ul>
+   */
+  storageType: StorageType | string | undefined;
+
+  /**
+   * <p>Identifies a storage destination. If you specified <code>MULTI_LAYER_STORAGE</code> for the storage type,
+   *       you must specify a <code>MultiLayerStorage</code> object.</p>
+   */
+  multiLayerStorage?: MultiLayerStorage;
+}
+
+export namespace PutStorageConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutStorageConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutStorageConfigurationResponse {
+  /**
+   * <p>The type of storage that you specified for your data. The storage type can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise replicates your data into a service managed database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise replicates your data into a service managed database and saves a copy of your raw data and metadata in an Amazon S3 object that you specified.</p>
+   *             </li>
+   *          </ul>
+   */
+  storageType: StorageType | string | undefined;
+
+  /**
+   * <p>Contains information about the storage destination.</p>
+   */
+  multiLayerStorage?: MultiLayerStorage;
+
+  /**
+   * <p>Contains current status information for the configuration.</p>
+   */
+  configurationStatus: ConfigurationStatus | undefined;
+}
+
+export namespace PutStorageConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutStorageConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface TagResourceRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource to tag.</p>
@@ -5018,8 +5192,8 @@ export interface TagResourceRequest {
 
   /**
    * <p>A list of key-value pairs that contain metadata for the resource. For more information,
-   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise
-   *         resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
+   *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   tags: { [key: string]: string } | undefined;
 }
@@ -5047,7 +5221,7 @@ export namespace TagResourceResponse {
 /**
  * <p>You've reached the limit for the number of tags allowed for a resource. For more
  *       information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag naming limits and
- *         requirements</a> in the <i>AWS General Reference</i>.</p>
+ *         requirements</a> in the <i>Amazon Web Services General Reference</i>.</p>
  */
 export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
@@ -5107,12 +5281,12 @@ export interface UpdateAccessPolicyRequest {
   accessPolicyId: string | undefined;
 
   /**
-   * <p>The identity for this access policy. Choose an AWS SSO user, an AWS SSO group, or an IAM user.</p>
+   * <p>The identity for this access policy. Choose an Amazon Web Services SSO user, an Amazon Web Services SSO group, or an IAM user.</p>
    */
   accessPolicyIdentity: Identity | undefined;
 
   /**
-   * <p>The AWS IoT SiteWise Monitor resource for this access policy. Choose either a portal or a project.</p>
+   * <p>The IoT SiteWise Monitor resource for this access policy. Choose either a portal or a project.</p>
    */
   accessPolicyResource: Resource | undefined;
 
@@ -5208,18 +5382,18 @@ export interface UpdateAssetModelRequest {
 
   /**
    * <p>The updated property definitions of the asset model. For more information, see
-   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html">Asset properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html">Asset properties</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>You can specify up to 200 properties per asset model. For more
-   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   assetModelProperties?: AssetModelProperty[];
 
   /**
    * <p>The updated hierarchy definitions of the asset model. Each hierarchy specifies an asset
    *       model whose assets can be children of any other assets created from this asset model. For more
-   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>You can specify up to 10 hierarchies per asset model. For more
-   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   assetModelHierarchies?: AssetModelHierarchy[];
 
@@ -5275,18 +5449,18 @@ export interface UpdateAssetPropertyRequest {
   propertyId: string | undefined;
 
   /**
-   * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
+   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *         <i>IoT SiteWise User Guide</i>.</p>
    *          <p>If you omit this parameter, the alias is removed from the property.</p>
    */
   propertyAlias?: string;
 
   /**
    * <p>The MQTT notification state (enabled or disabled) for this asset property.
-   *       When the notification state is enabled, AWS IoT SiteWise publishes property value
-   *       updates to a unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting with other services</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       When the notification state is enabled, IoT SiteWise publishes property value
+   *       updates to a unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting with other services</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>If you omit this parameter, the notification state is set to <code>DISABLED</code>.</p>
    */
   propertyNotificationState?: PropertyNotificationState | string;
@@ -5324,7 +5498,7 @@ export interface UpdateDashboardRequest {
 
   /**
    * <p>The new dashboard definition, as specified in a JSON literal. For detailed information,
-   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html">Creating dashboards (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html">Creating dashboards (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   dashboardDefinition: string | undefined;
 
@@ -5384,7 +5558,7 @@ export interface UpdateGatewayCapabilityConfigurationRequest {
   /**
    * <p>The namespace of the gateway capability configuration to be updated.
    *       For example, if you configure OPC-UA
-   *       sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace
+   *       sources from the IoT SiteWise console, your OPC-UA capability configuration has the namespace
    *         <code>iotsitewise:opcuacollector:version</code>, where <code>version</code> is a number such as
    *         <code>1</code>.</p>
    */
@@ -5392,7 +5566,7 @@ export interface UpdateGatewayCapabilityConfigurationRequest {
 
   /**
    * <p>The JSON document that defines the configuration for the gateway capability. For more
-   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli">Configuring data sources (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli">Configuring data sources (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
    */
   capabilityConfiguration: string | undefined;
 }
@@ -5492,7 +5666,7 @@ export interface UpdatePortalRequest {
   portalDescription?: string;
 
   /**
-   * <p>The AWS administrator's contact email address.</p>
+   * <p>The Amazon Web Services administrator's contact email address.</p>
    */
   portalContactEmail: string | undefined;
 
@@ -5510,9 +5684,9 @@ export interface UpdatePortalRequest {
   portalLogoImage?: Image;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of a service role that allows the portal's users to access your AWS IoT SiteWise
-   *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for AWS IoT SiteWise Monitor</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of a service role that allows the portal's users to access your IoT SiteWise
+   *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for IoT SiteWise Monitor</a> in the
+   *         <i>IoT SiteWise User Guide</i>.</p>
    */
   roleArn: string | undefined;
 
@@ -5527,8 +5701,9 @@ export interface UpdatePortalRequest {
   notificationSenderEmail?: string;
 
   /**
-   * <p>Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal.
-   *   You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see .</p>
+   * <p>Contains the configuration information of an alarm created in an IoT SiteWise Monitor portal.
+   *   You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+   *   For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html">Monitoring with alarms</a> in the <i>IoT SiteWise Application Guide</i>.</p>
    */
   alarms?: Alarms;
 }

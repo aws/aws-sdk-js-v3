@@ -21,7 +21,7 @@ export interface RemoveLayerVersionPermissionCommandInput extends RemoveLayerVer
 export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ * <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. For more information, see
  *         <a>AddLayerVersionPermission</a>.</p>
  * @example

@@ -1,3 +1,4 @@
+import { AssociateAliasCommandInput, AssociateAliasCommandOutput } from "./commands/AssociateAliasCommand";
 import { CreateCachePolicyCommandInput, CreateCachePolicyCommandOutput } from "./commands/CreateCachePolicyCommand";
 import {
   CreateCloudFrontOriginAccessIdentityCommandInput,
@@ -144,6 +145,10 @@ import {
   ListCloudFrontOriginAccessIdentitiesCommandOutput,
 } from "./commands/ListCloudFrontOriginAccessIdentitiesCommand";
 import {
+  ListConflictingAliasesCommandInput,
+  ListConflictingAliasesCommandOutput,
+} from "./commands/ListConflictingAliasesCommand";
+import {
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "./commands/ListDistributionsByCachePolicyIdCommand";
@@ -277,6 +282,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AssociateAliasCommandInput
   | CreateCachePolicyCommandInput
   | CreateCloudFrontOriginAccessIdentityCommandInput
   | CreateDistributionCommandInput
@@ -329,6 +335,7 @@ export type ServiceInputTypes =
   | GetStreamingDistributionConfigCommandInput
   | ListCachePoliciesCommandInput
   | ListCloudFrontOriginAccessIdentitiesCommandInput
+  | ListConflictingAliasesCommandInput
   | ListDistributionsByCachePolicyIdCommandInput
   | ListDistributionsByKeyGroupCommandInput
   | ListDistributionsByOriginRequestPolicyIdCommandInput
@@ -362,6 +369,7 @@ export type ServiceInputTypes =
   | UpdateStreamingDistributionCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateAliasCommandOutput
   | CreateCachePolicyCommandOutput
   | CreateCloudFrontOriginAccessIdentityCommandOutput
   | CreateDistributionCommandOutput
@@ -414,6 +422,7 @@ export type ServiceOutputTypes =
   | GetStreamingDistributionConfigCommandOutput
   | ListCachePoliciesCommandOutput
   | ListCloudFrontOriginAccessIdentitiesCommandOutput
+  | ListConflictingAliasesCommandOutput
   | ListDistributionsByCachePolicyIdCommandOutput
   | ListDistributionsByKeyGroupCommandOutput
   | ListDistributionsByOriginRequestPolicyIdCommandOutput
@@ -587,7 +596,8 @@ export interface CloudFrontClientResolvedConfig extends CloudFrontClientResolved
 
 /**
  * <fullname>Amazon CloudFront</fullname>
- * 		       <p>This is the <i>Amazon CloudFront API Reference</i>. This guide is for developers who need detailed information about
+ * 		       <p>This is the <i>Amazon CloudFront API Reference</i>. This guide
+ *             is for developers who need detailed information about
  * 			CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the <i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export class CloudFrontClient extends __Client<

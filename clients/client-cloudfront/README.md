@@ -9,7 +9,8 @@ AWS SDK for JavaScript CloudFront Client for Node.js, Browser and React Native.
 
 <fullname>Amazon CloudFront</fullname>
 
-<p>This is the <i>Amazon CloudFront API Reference</i>. This guide is for developers who need detailed information about
+<p>This is the <i>Amazon CloudFront API Reference</i>. This guide
+is for developers who need detailed information about
 CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the <i>Amazon CloudFront Developer Guide</i>.</p>
 
 ## Installing
@@ -27,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudFrontClient` and
-the commands you need, for example `CreateCachePolicyCommand`:
+the commands you need, for example `AssociateAliasCommand`:
 
 ```js
 // ES5 example
-const { CloudFrontClient, CreateCachePolicyCommand } = require("@aws-sdk/client-cloudfront");
+const { CloudFrontClient, AssociateAliasCommand } = require("@aws-sdk/client-cloudfront");
 ```
 
 ```ts
 // ES6+ example
-import { CloudFrontClient, CreateCachePolicyCommand } from "@aws-sdk/client-cloudfront";
+import { CloudFrontClient, AssociateAliasCommand } from "@aws-sdk/client-cloudfront";
 ```
 
 ### Usage
@@ -55,7 +56,7 @@ const client = new CloudFrontClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateCachePolicyCommand(params);
+const command = new AssociateAliasCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +135,7 @@ const client = new AWS.CloudFront({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createCachePolicy(params);
+  const data = await client.associateAlias(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +143,7 @@ try {
 
 // Promises.
 client
-  .createCachePolicy(params)
+  .associateAlias(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +152,7 @@ client
   });
 
 // callbacks.
-client.createCachePolicy(params, (err, data) => {
+client.associateAlias(params, (err, data) => {
   // proccess err and data.
 });
 ```

@@ -15,6 +15,7 @@ import {
   IpPermission,
   ReservedInstancesListing,
   ResourceType,
+  SecurityGroupRule,
   Subnet,
   Tag,
   TagSpecification,
@@ -79,13 +80,47 @@ import {
   Filter,
   IdFormat,
   InstanceState,
-  InstanceStatusDetails,
   InstanceStatusEvent,
   PermissionGroup,
   ProductCode,
-  SummaryStatus,
   VirtualizationType,
 } from "./models_2";
+
+export type StatusName = "reachability";
+
+export type StatusType = "failed" | "initializing" | "insufficient-data" | "passed";
+
+/**
+ * <p>Describes the instance status.</p>
+ */
+export interface InstanceStatusDetails {
+  /**
+   * <p>The time when a status check failed. For an instance that was launched and impaired,
+   *             this is the time when the instance was launched.</p>
+   */
+  ImpairedSince?: Date;
+
+  /**
+   * <p>The type of instance status.</p>
+   */
+  Name?: StatusName | string;
+
+  /**
+   * <p>The status.</p>
+   */
+  Status?: StatusType | string;
+}
+
+export namespace InstanceStatusDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceStatusDetails): any => ({
+    ...obj,
+  });
+}
+
+export type SummaryStatus = "impaired" | "initializing" | "insufficient-data" | "not-applicable" | "ok";
 
 /**
  * <p>Describes the status of an instance.</p>
@@ -1535,7 +1570,7 @@ export interface DescribeKeyPairsRequest {
 
   /**
    * <p>The key pair names.</p>
-   *          <p>Default: Describes all your key pairs.</p>
+   *          <p>Default: Describes all of your key pairs.</p>
    */
   KeyNames?: string[];
 
@@ -1572,7 +1607,7 @@ export interface KeyPairInfo {
 
   /**
    * <p>If you used <a>CreateKeyPair</a> to create the key pair, this is the SHA-1 digest of the DER encoded private key.
-   *         If you used <a>ImportKeyPair</a> to provide AWS the public key, this is the MD5 public key fingerprint as specified in section 4 of RFC4716.</p>
+   *         If you used <a>ImportKeyPair</a> to provide Amazon Web Services the public key, this is the MD5 public key fingerprint as specified in section 4 of RFC4716.</p>
    */
   KeyFingerprint?: string;
 
@@ -6387,6 +6422,83 @@ export namespace DescribeSecurityGroupReferencesResult {
   });
 }
 
+export interface DescribeSecurityGroupRulesRequest {
+  /**
+   * <p>One or more filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>group-id</code> - The ID of the security group.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>security-group-rule-id</code> - The ID of the security group rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The IDs of the security group rules.</p>
+   */
+  SecurityGroupRuleIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another request with the returned <code>NextToken</code> value. This value
+   *             can be between 5 and 1000. If this parameter is not specified, then all results are
+   *             returned.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeSecurityGroupRulesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSecurityGroupRulesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSecurityGroupRulesResult {
+  /**
+   * <p>Information about security group rules.</p>
+   */
+  SecurityGroupRules?: SecurityGroupRule[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeSecurityGroupRulesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSecurityGroupRulesResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeSecurityGroupsRequest {
   /**
    * <p>The filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.</p>
@@ -6438,7 +6550,7 @@ export interface DescribeSecurityGroupsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>egress.ip-permission.user-id</code> - The ID of an AWS account that
+   *                   <code>egress.ip-permission.user-id</code> - The ID of an Amazon Web Services account that
    *                     has been referenced in an outbound security group rule.</p>
    *             </li>
    *             <li>
@@ -6491,12 +6603,12 @@ export interface DescribeSecurityGroupsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ip-permission.user-id</code> - The ID of an AWS account that has been
+   *                   <code>ip-permission.user-id</code> - The ID of an Amazon Web Services account that has been
    *                     referenced in an inbound security group rule.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-id</code> - The AWS account ID of the owner of the security group.</p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner of the security group.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6517,7 +6629,7 @@ export interface DescribeSecurityGroupsRequest {
 
   /**
    * <p>The IDs of the security groups. Required for security groups in a nondefault VPC.</p>
-   *          <p>Default: Describes all your security groups.</p>
+   *          <p>Default: Describes all of your security groups.</p>
    */
   GroupIds?: string[];
 
@@ -6525,7 +6637,7 @@ export interface DescribeSecurityGroupsRequest {
    * <p>[EC2-Classic and default VPC only] The names of the security groups. You can specify either
    * 			the security group name or the security group ID. For security groups in a nondefault VPC, use
    * 			the <code>group-name</code> filter to describe security groups by name.</p>
-   *          <p>Default: Describes all your security groups.</p>
+   *          <p>Default: Describes all of your security groups.</p>
    */
   GroupNames?: string[];
 
@@ -6560,7 +6672,7 @@ export namespace DescribeSecurityGroupsRequest {
 }
 
 /**
- * <p>Describes a security group</p>
+ * <p>Describes a security group.</p>
  */
 export interface SecurityGroup {
   /**
@@ -6579,7 +6691,7 @@ export interface SecurityGroup {
   IpPermissions?: IpPermission[];
 
   /**
-   * <p>The AWS account ID of the owner of the security group.</p>
+   * <p>The Amazon Web Services account ID of the owner of the security group.</p>
    */
   OwnerId?: string;
 
@@ -12473,200 +12585,6 @@ export namespace DescribeVpnGatewaysResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeVpnGatewaysResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DetachClassicLinkVpcRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the instance to unlink from the VPC.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC to which the instance is linked.</p>
-   */
-  VpcId: string | undefined;
-}
-
-export namespace DetachClassicLinkVpcRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachClassicLinkVpcRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DetachClassicLinkVpcResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace DetachClassicLinkVpcResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachClassicLinkVpcResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DetachInternetGatewayRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the internet gateway.</p>
-   */
-  InternetGatewayId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-}
-
-export namespace DetachInternetGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachInternetGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for DetachNetworkInterface.</p>
- */
-export interface DetachNetworkInterfaceRequest {
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  AttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Specifies whether to force a detachment.</p>
-   *         <note>
-   *             <ul>
-   *                <li>
-   *                     <p>Use the <code>Force</code> parameter only as a last resort to detach a network interface from a failed instance. </p>
-   *                 </li>
-   *                <li>
-   *                     <p>If you use the <code>Force</code> parameter to detach a network interface, you might not be able to attach a different network interface to the same index on the instance without first stopping and starting the instance.</p>
-   *                 </li>
-   *                <li>
-   *                     <p>If you force the detachment of a network interface, the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">instance metadata</a>
-   *                         might not get updated. This means that the attributes associated
-   *                         with the detached network interface might still be visible. The
-   *                         instance metadata will get updated when you stop and start the
-   *                         instance.</p>
-   *                 </li>
-   *             </ul>
-   *         </note>
-   */
-  Force?: boolean;
-}
-
-export namespace DetachNetworkInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachNetworkInterfaceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DetachVolumeRequest {
-  /**
-   * <p>The device name.</p>
-   */
-  Device?: string;
-
-  /**
-   * <p>Forces detachment if the previous detachment attempt did not occur cleanly (for example,
-   *       logging into an instance, unmounting the volume, and detaching normally). This option can lead
-   *       to data loss or a corrupted file system. Use this option only as a last resort to detach a
-   *       volume from a failed instance. The instance won't have an opportunity to flush file system
-   *       caches or file system metadata. If you use this option, you must perform file system check and
-   *       repair procedures.</p>
-   */
-  Force?: boolean;
-
-  /**
-   * <p>The ID of the instance. If you are detaching a Multi-Attach enabled volume, you must specify an instance ID.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DetachVolumeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachVolumeRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for DetachVpnGateway.</p>
- */
-export interface DetachVpnGatewayRequest {
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The ID of the virtual private gateway.</p>
-   */
-  VpnGatewayId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DetachVpnGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachVpnGatewayRequest): any => ({
     ...obj,
   });
 }

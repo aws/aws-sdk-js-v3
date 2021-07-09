@@ -22,7 +22,7 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds a statement to a topic's access control policy, granting access for the specified
- *             AWS accounts to the specified actions.</p>
+ *             accounts to the specified actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

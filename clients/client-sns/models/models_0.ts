@@ -13,8 +13,8 @@ export interface AddPermissionInput {
   Label: string | undefined;
 
   /**
-   * <p>The AWS account IDs of the users (principals) who will be given access to the
-   *             specified actions. The users must have AWS accounts, but do not need to be signed up for
+   * <p>The account IDs of the users (principals) who will be given access to the
+   *             specified actions. The users must have account, but do not need to be signed up for
    *             this service.</p>
    */
   AWSAccountId: string[] | undefined;
@@ -196,9 +196,9 @@ export interface ConfirmSubscriptionInput {
 
   /**
    * <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this
-   *             parameter is <code>true</code> and the request has an AWS signature, then only the topic
+   *             parameter is <code>true</code> and the request has an Amazon Web Services signature, then only the topic
    *             owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action
-   *             requires AWS authentication. </p>
+   *             requires Amazon Web Services authentication. </p>
    */
   AuthenticateOnUnsubscribe?: string;
 }
@@ -232,8 +232,8 @@ export namespace ConfirmSubscriptionResponse {
 }
 
 /**
- * <p>Indicates that the number of filter polices in your AWS account exceeds the limit. To
- *             add more filter polices, submit an SNS Limit Increase case in the AWS Support
+ * <p>Indicates that the number of filter polices in your account exceeds the limit. To
+ *             add more filter polices, submit an SNS Limit Increase case in the Amazon Web Services Support
  *             Center.</p>
  */
 export interface FilterPolicyLimitExceededException extends __SmithyException, $MetadataBearer {
@@ -432,7 +432,7 @@ export namespace CreateSMSSandboxPhoneNumberResult {
 
 /**
  * <p>Indicates that the specified phone number opted out of receiving SMS messages from
- *             your AWS account. You can't send SMS messages to phone numbers that opt out.</p>
+ *             your account. You can't send SMS messages to phone numbers that opt out.</p>
  */
 export interface OptedOutException extends __SmithyException, $MetadataBearer {
   name: "OptedOutException";
@@ -557,9 +557,9 @@ export interface CreateTopicInput {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>KmsMasterKeyId</code> – The ID of an AWS managed customer master
+   *                     <code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master
    *                     key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
-   *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API
+   *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API
    *                         Reference</i>. </p>
    *             </li>
    *          </ul>
@@ -574,7 +574,7 @@ export interface CreateTopicInput {
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication for
+   *                     <code>ContentBasedDeduplication</code> – Enables content-based deduplication for
    *                     FIFO topics.</p>
    *
    *                 <ul>
@@ -1073,7 +1073,7 @@ export interface GetSubscriptionAttributesResponse {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>Owner</code> – The AWS account ID of the subscription's
+   *                     <code>Owner</code> – The account ID of the subscription's
    *                     owner.</p>
    *             </li>
    *             <li>
@@ -1176,7 +1176,7 @@ export interface GetTopicAttributesResponse {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>Owner</code> – The AWS account ID of the topic's owner.</p>
+   *                   <code>Owner</code> – The account ID of the topic's owner.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1213,9 +1213,9 @@ export interface GetTopicAttributesResponse {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key
+   *                   <code>KmsMasterKeyId</code> - The ID of an Amazon Web Services managed customer master key
    *                     (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
-   *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API
+   *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API
    *                         Reference</i>.</p>
    *             </li>
    *          </ul>
@@ -1230,7 +1230,7 @@ export interface GetTopicAttributesResponse {
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication for
+   *                     <code>ContentBasedDeduplication</code> – Enables content-based deduplication for
    *                     FIFO topics.</p>
    *
    *                 <ul>
@@ -1602,7 +1602,7 @@ export enum SMSSandboxPhoneNumberVerificationStatus {
 
 /**
  * <p>A verified or pending destination phone number in the SMS sandbox.</p>
- *         <p>When you start using Amazon SNS to send SMS messages, your AWS account is in the
+ *         <p>When you start using Amazon SNS to send SMS messages, your account is in the
  *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
  *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
  *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
@@ -1997,7 +1997,7 @@ export namespace KMSDisabledException {
 /**
  * <p>The request was rejected because the state of the specified resource isn't valid for
  *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
- *                 Customer Master Key</a> in the <i>AWS Key Management Service Developer
+ *                 Customer Master Key</a> in the <i>Key Management Service Developer
  *                 Guide</i>.</p>
  */
 export interface KMSInvalidStateException extends __SmithyException, $MetadataBearer {
@@ -2035,7 +2035,7 @@ export namespace KMSNotFoundException {
 }
 
 /**
- * <p>The AWS access key ID needs a subscription for the service.</p>
+ * <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
  */
 export interface KMSOptInRequired extends __SmithyException, $MetadataBearer {
   name: "KMSOptInRequired";
@@ -2055,7 +2055,7 @@ export namespace KMSOptInRequired {
 /**
  * <p>The request was denied due to request throttling. For more information about
  *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
- *             the <i>AWS Key Management Service Developer Guide.</i>
+ *             the <i>Key Management Service Developer Guide.</i>
  *          </p>
  */
 export interface KMSThrottlingException extends __SmithyException, $MetadataBearer {
@@ -2569,7 +2569,7 @@ export interface SetSMSAttributesInput {
    *             </li>
    *          </ul>
    *         <p>To receive the report, the bucket must have a policy that allows the Amazon SNS service
-   *             principle to perform the <code>s3:PutObject</code> and <code>s3:GetBucketLocation</code>
+   *             principal to perform the <code>s3:PutObject</code> and <code>s3:GetBucketLocation</code>
    *             actions.</p>
    *         <p>For an example bucket policy and usage report, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html">Monitoring SMS Activity</a> in the
    *                 <i>Amazon SNS Developer Guide</i>.</p>
@@ -2714,9 +2714,9 @@ export interface SetTopicAttributesInput {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master
+   *                     <code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master
    *                     key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
-   *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API
+   *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API
    *                         Reference</i>. </p>
    *             </li>
    *          </ul>
@@ -2726,7 +2726,7 @@ export interface SetTopicAttributesInput {
    *         <ul>
    *             <li>
    *                <p>
-   *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication for
+   *                     <code>ContentBasedDeduplication</code> – Enables content-based deduplication for
    *                     FIFO topics.</p>
    *
    *                 <ul>
@@ -2812,7 +2812,7 @@ export interface SubscribeInput {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>lambda</code> – delivery of JSON-encoded message to an AWS Lambda
+   *                   <code>lambda</code> – delivery of JSON-encoded message to an Lambda
    *                     function</p>
    *             </li>
    *             <li>
@@ -2856,7 +2856,7 @@ export interface SubscribeInput {
    *                     a mobile app and device.</p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>lambda</code> protocol, the endpoint is the ARN of an AWS Lambda
+   *                 <p>For the <code>lambda</code> protocol, the endpoint is the ARN of an Lambda
    *                     function.</p>
    *             </li>
    *             <li>
@@ -2870,7 +2870,7 @@ export interface SubscribeInput {
   /**
    * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
-   *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
+   *             parameters that the <code>Subscribe</code> action uses:</p>
    *         <ul>
    *             <li>
    *                 <p>

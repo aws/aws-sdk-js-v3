@@ -21,7 +21,7 @@ export interface PutProtocolsListCommandInput extends PutProtocolsListRequest {}
 export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an AWS Firewall Manager protocols list.</p>
+ * <p>Creates an Firewall Manager protocols list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

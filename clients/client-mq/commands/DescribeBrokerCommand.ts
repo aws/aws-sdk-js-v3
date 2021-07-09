@@ -21,7 +21,7 @@ export interface DescribeBrokerCommandInput extends DescribeBrokerRequest {}
 export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __MetadataBearer {}
 
 /**
- * Returns information about the specified broker.
+ * <p>Returns information about the specified broker.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -7,11 +7,11 @@ export enum AdminStatus {
 }
 
 /**
- * <p>Provides information about the delegated Amazon Macie administrator account for an AWS organization.</p>
+ * <p>Provides information about the delegated Amazon Macie administrator account for an Amazon Web Services organization.</p>
  */
 export interface AdminAccount {
   /**
-   * <p>The AWS account ID for the account.</p>
+   * <p>The Amazon Web Services account ID for the account.</p>
    */
   accountId?: string;
 
@@ -136,7 +136,7 @@ export interface ObjectCountByEncryptionType {
   customerManaged?: number;
 
   /**
-   * <p>The total number of objects that are encrypted with an AWS Key Management Service (AWS KMS) customer master key (CMK). The objects use AWS managed AWS KMS encryption (AWS-KMS) or customer managed AWS KMS encryption (SSE-KMS).</p>
+   * <p>The total number of objects that are encrypted with an Key Management Service (KMS) customer master key (CMK). The objects use Amazon Web Services managed KMS encryption (AWS-KMS) or customer managed KMS encryption (SSE-KMS).</p>
    */
   kmsManaged?: number;
 
@@ -210,7 +210,7 @@ export namespace BlockPublicAccess {
  */
 export interface AccountLevelPermissions {
   /**
-   * <p>The block public access settings for the AWS account that owns the bucket.</p>
+   * <p>The block public access settings for the Amazon Web Services account that owns the bucket.</p>
    */
   blockPublicAccess?: BlockPublicAccess;
 }
@@ -350,7 +350,7 @@ export namespace BucketPublicAccess {
 }
 
 /**
- * <p>Provides information about settings that define whether one or more objects in an S3 bucket are replicated to S3 buckets for other AWS accounts and, if so, which accounts.</p>
+ * <p>Provides information about settings that define whether one or more objects in an S3 bucket are replicated to S3 buckets for other Amazon Web Services accounts and, if so, which accounts.</p>
  */
 export interface ReplicationDetails {
   /**
@@ -359,12 +359,12 @@ export interface ReplicationDetails {
   replicated?: boolean;
 
   /**
-   * <p>Specifies whether the bucket is configured to replicate one or more objects to an AWS account that isn't part of the same Amazon Macie organization.</p>
+   * <p>Specifies whether the bucket is configured to replicate one or more objects to an Amazon Web Services account that isn't part of the same Amazon Macie organization.</p>
    */
   replicatedExternally?: boolean;
 
   /**
-   * <p>An array of AWS account IDs, one for each AWS account that the bucket is configured to replicate one or more objects to.</p>
+   * <p>An array of Amazon Web Services account IDs, one for each Amazon Web Services account that the bucket is configured to replicate one or more objects to.</p>
    */
   replicationAccounts?: string[];
 }
@@ -389,12 +389,12 @@ export enum Type {
  */
 export interface BucketServerSideEncryption {
   /**
-   * <p>The Amazon Resource Name (ARN) or unique identifier (key ID) for the AWS Key Management Service (AWS KMS) customer master key (CMK) that's used by default to encrypt objects that are added to the bucket. This value is null if the bucket uses an Amazon S3 managed key to encrypt new objects or the bucket doesn't encrypt new objects by default.</p>
+   * <p>The Amazon Resource Name (ARN) or unique identifier (key ID) for the Key Management Service (KMS) customer master key (CMK) that's used by default to encrypt objects that are added to the bucket. This value is null if the bucket uses an Amazon S3 managed key to encrypt new objects or the bucket doesn't encrypt new objects by default.</p>
    */
   kmsMasterKeyId?: string;
 
   /**
-   * <p>The type of server-side encryption that's used by default when storing new objects in the bucket. Possible values are:</p> <ul><li><p>AES256 - New objects are encrypted with an Amazon S3 managed key and use Amazon S3 managed encryption (SSE-S3).</p></li> <li><p>aws:kms - New objects are encrypted with an AWS KMS CMK, specified by the kmsMasterKeyId property, and use AWS managed AWS KMS encryption (AWS-KMS) or customer managed AWS KMS encryption (SSE-KMS).</p></li> <li><p>NONE - New objects aren't encrypted by default. Default encryption is disabled for the bucket.</p></li></ul>
+   * <p>The type of server-side encryption that's used by default when storing new objects in the bucket. Possible values are:</p> <ul><li><p>AES256 - New objects are encrypted with an Amazon S3 managed key and use Amazon S3 managed encryption (SSE-S3).</p></li> <li><p>aws:kms - New objects are encrypted with an KMS CMK, specified by the kmsMasterKeyId property, and use Amazon Web Services managed KMS encryption (AWS-KMS) or customer managed KMS encryption (SSE-KMS).</p></li> <li><p>NONE - New objects aren't encrypted by default. Default encryption is disabled for the bucket.</p></li></ul>
    */
   type?: Type | string;
 }
@@ -473,7 +473,7 @@ export namespace ObjectLevelStatistics {
  */
 export interface BucketMetadata {
   /**
-   * <p>The unique identifier for the AWS account that owns the bucket.</p>
+   * <p>The unique identifier for the Amazon Web Services account that owns the bucket.</p>
    */
   accountId?: string;
 
@@ -533,12 +533,12 @@ export interface BucketMetadata {
   publicAccess?: BucketPublicAccess;
 
   /**
-   * <p>The AWS Region that hosts the bucket.</p>
+   * <p>The Amazon Web Services Region that hosts the bucket.</p>
    */
   region?: string;
 
   /**
-   * <p>Specifies whether the bucket is configured to replicate one or more objects to buckets for other AWS accounts and, if so, which accounts.</p>
+   * <p>Specifies whether the bucket is configured to replicate one or more objects to buckets for other Amazon Web Services accounts and, if so, which accounts.</p>
    */
   replicationDetails?: ReplicationDetails;
 
@@ -548,7 +548,7 @@ export interface BucketMetadata {
   serverSideEncryption?: BucketServerSideEncryption;
 
   /**
-   * <p>Specifies whether the bucket is shared with another AWS account. Possible values are:</p> <ul><li><p>EXTERNAL - The bucket is shared with an AWS account that isn't part of the same Amazon Macie organization.</p></li> <li><p>INTERNAL - The bucket is shared with an AWS account that's part of the same Amazon Macie organization.</p></li> <li><p>NOT_SHARED - The bucket isn't shared with other AWS accounts.</p></li> <li><p>UNKNOWN - Amazon Macie wasn't able to evaluate the shared access settings for the bucket.</p></li></ul>
+   * <p>Specifies whether the bucket is shared with another Amazon Web Services account. Possible values are:</p> <ul><li><p>EXTERNAL - The bucket is shared with an Amazon Web Services account that isn't part of the same Amazon Macie organization.</p></li> <li><p>INTERNAL - The bucket is shared with an Amazon Web Services account that's part of the same Amazon Macie organization.</p></li> <li><p>NOT_SHARED - The bucket isn't shared with other Amazon Web Services accounts.</p></li> <li><p>UNKNOWN - Amazon Macie wasn't able to evaluate the shared access settings for the bucket.</p></li></ul>
    */
   sharedAccess?: SharedAccess | string;
 
@@ -625,7 +625,7 @@ export interface SimpleCriterionForJob {
   key?: SimpleCriterionKeyForJob | string;
 
   /**
-   * <p>An array that lists one or more values to use in the condition. If you specify multiple values, Amazon Macie uses OR logic to join the values. Valid values for each supported property (key) are:</p> <ul><li><p>ACCOUNT_ID - A string that represents the unique identifier for the AWS account that owns the bucket.</p></li> <li><p>S3_BUCKET_EFFECTIVE_PERMISSION - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketpublicaccess-effectivepermission">BucketPublicAccess.effectivePermission</a> property of a bucket.</p></li> <li><p>S3_BUCKET_NAME - A string that represents the name of a bucket.</p></li> <li><p>S3_BUCKET_SHARED_ACCESS - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketmetadata-sharedaccess">BucketMetadata.sharedAccess</a> property of a bucket.</p></li></ul> <p>Values are case sensitive. Also, Macie doesn't support use of partial values or wildcard characters in these values.</p>
+   * <p>An array that lists one or more values to use in the condition. If you specify multiple values, Amazon Macie uses OR logic to join the values. Valid values for each supported property (key) are:</p> <ul><li><p>ACCOUNT_ID - A string that represents the unique identifier for the Amazon Web Services account that owns the bucket.</p></li> <li><p>S3_BUCKET_EFFECTIVE_PERMISSION - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketpublicaccess-effectivepermission">BucketPublicAccess.effectivePermission</a> property of a bucket.</p></li> <li><p>S3_BUCKET_NAME - A string that represents the name of a bucket.</p></li> <li><p>S3_BUCKET_SHARED_ACCESS - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketmetadata-sharedaccess">BucketMetadata.sharedAccess</a> property of a bucket.</p></li></ul> <p>Values are case sensitive. Also, Macie doesn't support use of partial values or wildcard characters in these values.</p>
    */
   values?: string[];
 }
@@ -760,22 +760,22 @@ export enum FindingCategory {
  */
 export interface Cell {
   /**
-   * <p>The location of the cell, as an absolute cell reference, that contains the data. For example, Sheet2!C5 for cell C5 on Sheet2 in a Microsoft Excel workbook. This value is null for CSV and TSV files.</p>
+   * <p>The location of the cell, as an absolute cell reference, that contains the sensitive data, for example Sheet2!C5 for cell C5 on Sheet2 in a Microsoft Excel workbook. This value is null for CSV and TSV files.</p>
    */
   cellReference?: string;
 
   /**
-   * <p>The column number of the column that contains the data. For a Microsoft Excel workbook, this value correlates to the alphabetical character(s) for a column identifier. For example, 1 for column A, 2 for column B, and so on.</p>
+   * <p>The column number of the column that contains the sensitive data. For a Microsoft Excel workbook, this value correlates to the alphabetical character(s) for a column identifier, for example: 1 for column A, 2 for column B, and so on.</p>
    */
   column?: number;
 
   /**
-   * <p>The name of the column that contains the data, if available. This value is also null if Amazon Macie detects sensitive data in the name of any column in the file.</p>
+   * <p>The name of the column that contains the sensitive data, if available.</p>
    */
   columnName?: string;
 
   /**
-   * <p>The row number of the row that contains the data.</p>
+   * <p>The row number of the row that contains the sensitive data.</p>
    */
   row?: number;
 }
@@ -790,7 +790,7 @@ export namespace Cell {
 }
 
 /**
- * <p>Provides details about the location of an occurrence of sensitive data in a Microsoft Word document or non-binary text file.</p>
+ * <p>Specifies the location of an occurrence of sensitive data in a non-binary text file, such as an HTML, TXT, or XML file.</p>
  */
 export interface Range {
   /**
@@ -804,7 +804,7 @@ export interface Range {
   start?: number;
 
   /**
-   * <p>The column number for the column that contains the data, if the file contains structured data.</p>
+   * <p>The number of characters, with spaces and starting from 1, from the beginning of the first line that contains the sensitive data (start) to the beginning of the sensitive data.</p>
    */
   startColumn?: number;
 }
@@ -833,7 +833,7 @@ export interface Page {
   offsetRange?: Range;
 
   /**
-   * <p>The page number of the page that contains the data.</p>
+   * <p>The page number of the page that contains the sensitive data.</p>
    */
   pageNumber?: number;
 }
@@ -848,16 +848,16 @@ export namespace Page {
 }
 
 /**
- * <p>Specifies the location of an occurrence of sensitive data in an Apache Avro object container or Apache Parquet file.</p>
+ * <p>Specifies the location of an occurrence of sensitive data in an Apache Avro object container, Apache Parquet file, JSON file, or JSON Lines file.</p>
  */
 export interface _Record {
   /**
-   * <p>The path, as a JSONPath expression, to the field in the record that contains the data. If Amazon Macie detects sensitive data in the name of any element in the path, Macie omits this field.</p> <p>If the name of an element exceeds 20 characters, Macie truncates the name by removing characters from the beginning of the name. If the resulting full path exceeds 250 characters, Macie also truncates the path, starting with the first element in the path, until the path contains 250 or fewer characters.</p>
+   * <p>The path, as a JSONPath expression, to the sensitive data. For an Avro object container or Parquet file, this is the path to the field in the record (recordIndex) that contains the data. For a JSON or JSON Lines file, this is the path to the field or array that contains the data. If the data is a value in an array, the path also indicates which value contains the data.</p> <p>If Amazon Macie detects sensitive data in the name of any element in the path, Macie omits this field. If the name of an element exceeds 20 characters, Macie truncates the name by removing characters from the beginning of the name. If the resulting full path exceeds 250 characters, Macie also truncates the path, starting with the first element in the path, until the path contains 250 or fewer characters.</p>
    */
   jsonPath?: string;
 
   /**
-   * <p>The record index, starting from 0, for the record that contains the data.</p>
+   * <p>For an Avro object container or Parquet file, the record index, starting from 0, for the record that contains the sensitive data. For a JSON Lines file, the line index, starting from 0, for the line that contains the sensitive data. This value is always 0 for JSON files.</p>
    */
   recordIndex?: number;
 }
@@ -876,12 +876,12 @@ export namespace _Record {
  */
 export interface Occurrences {
   /**
-   * <p>An array of objects, one for each occurrence of sensitive data in a Microsoft Excel workbook, CSV file, or TSV file. Each object specifies the cell or field that contains the data. This value is null for all other types of files.</p>
+   * <p>An array of objects, one for each occurrence of sensitive data in a Microsoft Excel workbook, CSV file, or TSV file. This value is null for all other types of files.</p><p>Each Cell object specifies a cell or field that contains the sensitive data.</p>
    */
   cells?: Cell[];
 
   /**
-   * <p>An array of objects, one for each occurrence of sensitive data in a Microsoft Word document or non-binary text file, such as an HTML, JSON, TXT, or XML file. Each object specifies the line that contains the data, and the position of the data on that line.</p> <p>This value is often null for file types that are supported by Cell, Page, or Record objects. Exceptions are the locations of data in: unstructured sections of an otherwise structured file, such as a comment in a file; a malformed file that Amazon Macie analyzes as plain text; and, a CSV or TSV file that has any column names that contain sensitive data.</p>
+   * <p>An array of objects, one for each occurrence of sensitive data in a non-binary text file, such as an HTML, TXT, or XML file. Each Range object specifies a line or inclusive range of lines that contains the sensitive data, and the position of the data on the specified line or lines.</p> <p>This value is often null for file types that are supported by Cell, Page, or Record objects. Exceptions are the location of sensitive data in: unstructured sections of an otherwise structured file, such as a comment in a file; a malformed file that Amazon Macie analyzes as plain text; and, a CSV or TSV file that has any column names that contain sensitive data.</p>
    */
   lineRanges?: Range[];
 
@@ -891,12 +891,12 @@ export interface Occurrences {
   offsetRanges?: Range[];
 
   /**
-   * <p>An array of objects, one for each occurrence of sensitive data in an Adobe Portable Document Format file. Each object specifies the page that contains the data. This value is null for all other types of files.</p>
+   * <p>An array of objects, one for each occurrence of sensitive data in an Adobe Portable Document Format file. This value is null for all other types of files.</p><p>Each Page object specifies a page that contains the sensitive data.</p>
    */
   pages?: Page[];
 
   /**
-   * <p>An array of objects, one for each occurrence of sensitive data in an Apache Avro object container or Apache Parquet file. Each object specifies the record index and the path to the field in the record that contains the data. This value is null for all other types of files.</p>
+   * <p>An array of objects, one for each occurrence of sensitive data in an Apache Avro object container, Apache Parquet file, JSON file, or JSON Lines file. This value is null for all other types of files.</p> <p>For an Avro object container or Parquet file, each Record object specifies a record index and the path to a field in a record that contains the sensitive data. For a JSON or JSON Lines file, each Record object specifies the path to a field or array that contains the sensitive data. For a JSON Lines file, it also specifies the index of the line that contains the data.</p>
    */
   records?: _Record[];
 }
@@ -1009,7 +1009,7 @@ export namespace DefaultDetection {
  */
 export interface SensitiveDataItem {
   /**
-   * <p>The category of sensitive data that was detected. For example: CREDENTIALS, for credentials data such as private keys or AWS secret keys; FINANCIAL_INFORMATION, for financial data such as credit card numbers; or, PERSONAL_INFORMATION, for personal health information, such as health insurance identification numbers, or personally identifiable information, such as driver's license identification numbers.</p>
+   * <p>The category of sensitive data that was detected. For example: CREDENTIALS, for credentials data such as private keys or Amazon Web Services secret keys; FINANCIAL_INFORMATION, for financial data such as credit card numbers; or, PERSONAL_INFORMATION, for personal health information, such as health insurance identification numbers, or personally identifiable information, such as driver's license identification numbers.</p>
    */
   category?: SensitiveDataItemCategory | string;
 
@@ -1038,7 +1038,7 @@ export namespace SensitiveDataItem {
  */
 export interface ClassificationResultStatus {
   /**
-   * <p>The status of the finding. Possible values are:</p> <ul><li><p>COMPLETE - Amazon Macie successfully completed its analysis of the object that the finding applies to.</p></li> <li><p>PARTIAL - Macie analyzed only a subset of the data in the object that the finding applies to. For example, the object is an archive file that contains files in an unsupported format.</p></li> <li><p>SKIPPED - Macie wasn't able to analyze the object that the finding applies to. For example, the object is a malformed file or a file that uses an unsupported format.</p></li></ul>
+   * <p>The status of the finding. Possible values are:</p> <ul><li><p>COMPLETE - Amazon Macie successfully completed its analysis of the S3 object that the finding applies to.</p></li> <li><p>PARTIAL - Macie analyzed only a subset of the data in the S3 object that the finding applies to. For example, the object is an archive file that contains files in an unsupported format.</p></li> <li><p>SKIPPED - Macie wasn't able to analyze the S3 object that the finding applies to. For example, the object is a file in an unsupported format.</p></li></ul>
    */
   code?: string;
 
@@ -1121,7 +1121,7 @@ export interface ClassificationDetails {
   jobId?: string;
 
   /**
-   * <p>The status and other details for the finding.</p>
+   * <p>The status and other details of the finding.</p>
    */
   result?: ClassificationResult;
 }
@@ -1149,7 +1149,7 @@ export interface ApiCallDetails {
   api?: string;
 
   /**
-   * <p>The URL of the AWS service that provides the operation, for example: s3.amazonaws.com.</p>
+   * <p>The URL of the Amazon Web Service that provides the operation, for example: s3.amazonaws.com.</p>
    */
   apiServiceName?: string;
 
@@ -1385,7 +1385,7 @@ export namespace SessionContextAttributes {
  */
 export interface SessionIssuer {
   /**
-   * <p>The unique identifier for the AWS account that owns the entity that was used to get the credentials.</p>
+   * <p>The unique identifier for the Amazon Web Services account that owns the entity that was used to get the credentials.</p>
    */
   accountId?: string;
 
@@ -1444,16 +1444,16 @@ export namespace SessionContext {
 }
 
 /**
- * <p>Provides information about an identity that performed an action on an affected resource by using temporary security credentials. The credentials were obtained using the AssumeRole operation of the AWS Security Token Service (AWS STS) API.</p>
+ * <p>Provides information about an identity that performed an action on an affected resource by using temporary security credentials. The credentials were obtained using the AssumeRole operation of the Security Token Service (STS) API.</p>
  */
 export interface AssumedRole {
   /**
-   * <p>The AWS access key ID that identifies the credentials.</p>
+   * <p>The Amazon Web Services access key ID that identifies the credentials.</p>
    */
   accessKeyId?: string;
 
   /**
-   * <p>The unique identifier for the AWS account that owns the entity that was used to get the credentials.</p>
+   * <p>The unique identifier for the Amazon Web Services account that owns the entity that was used to get the credentials.</p>
    */
   accountId?: string;
 
@@ -1483,11 +1483,11 @@ export namespace AssumedRole {
 }
 
 /**
- * <p>Provides information about an AWS account and entity that performed an action on an affected resource. The action was performed using the credentials for an AWS account other than your own account.</p>
+ * <p>Provides information about an Amazon Web Services account and entity that performed an action on an affected resource. The action was performed using the credentials for an Amazon Web Services account other than your own account.</p>
  */
 export interface AwsAccount {
   /**
-   * <p>The unique identifier for the AWS account.</p>
+   * <p>The unique identifier for the Amazon Web Services account.</p>
    */
   accountId?: string;
 
@@ -1507,11 +1507,11 @@ export namespace AwsAccount {
 }
 
 /**
- * <p>Provides information about an AWS service that performed an action on an affected resource.</p>
+ * <p>Provides information about an Amazon Web Service that performed an action on an affected resource.</p>
  */
 export interface AwsService {
   /**
-   * <p>The name of the AWS service that performed the action.</p>
+   * <p>The name of the Amazon Web Service that performed the action.</p>
    */
   invokedBy?: string;
 }
@@ -1526,16 +1526,16 @@ export namespace AwsService {
 }
 
 /**
- * <p>Provides information about an identity that performed an action on an affected resource by using temporary security credentials. The credentials were obtained using the GetFederationToken operation of the AWS Security Token Service (AWS STS) API.</p>
+ * <p>Provides information about an identity that performed an action on an affected resource by using temporary security credentials. The credentials were obtained using the GetFederationToken operation of the Security Token Service (STS) API.</p>
  */
 export interface FederatedUser {
   /**
-   * <p>The AWS access key ID that identifies the credentials.</p>
+   * <p>The Amazon Web Services access key ID that identifies the credentials.</p>
    */
   accessKeyId?: string;
 
   /**
-   * <p>The unique identifier for the AWS account that owns the entity that was used to get the credentials.</p>
+   * <p>The unique identifier for the Amazon Web Services account that owns the entity that was used to get the credentials.</p>
    */
   accountId?: string;
 
@@ -1565,11 +1565,11 @@ export namespace FederatedUser {
 }
 
 /**
- * <p>Provides information about an AWS Identity and Access Management (IAM) user who performed an action on an affected resource.</p>
+ * <p>Provides information about an Identity and Access Management (IAM) user who performed an action on an affected resource.</p>
  */
 export interface IamUser {
   /**
-   * <p>The unique identifier for the AWS account that's associated with the IAM user who performed the action.</p>
+   * <p>The unique identifier for the Amazon Web Services account that's associated with the IAM user who performed the action.</p>
    */
   accountId?: string;
 
@@ -1599,11 +1599,11 @@ export namespace IamUser {
 }
 
 /**
- * <p>Provides information about an AWS account and entity that performed an action on an affected resource. The action was performed using the credentials for your AWS account.</p>
+ * <p>Provides information about an Amazon Web Services account and entity that performed an action on an affected resource. The action was performed using the credentials for your Amazon Web Services account.</p>
  */
 export interface UserIdentityRoot {
   /**
-   * <p>The unique identifier for the AWS account.</p>
+   * <p>The unique identifier for the Amazon Web Services account.</p>
    */
   accountId?: string;
 
@@ -1641,32 +1641,32 @@ export enum UserIdentityType {
  */
 export interface UserIdentity {
   /**
-   * <p>If the action was performed with temporary security credentials that were obtained using the AssumeRole operation of the AWS Security Token Service (AWS STS) API, the identifiers, session context, and other details about the identity.</p>
+   * <p>If the action was performed with temporary security credentials that were obtained using the AssumeRole operation of the Security Token Service (STS) API, the identifiers, session context, and other details about the identity.</p>
    */
   assumedRole?: AssumedRole;
 
   /**
-   * <p>If the action was performed using the credentials for another AWS account, the details of that account.</p>
+   * <p>If the action was performed using the credentials for another Amazon Web Services account, the details of that account.</p>
    */
   awsAccount?: AwsAccount;
 
   /**
-   * <p>If the action was performed by an AWS account that belongs to an AWS service, the name of the service.</p>
+   * <p>If the action was performed by an Amazon Web Services account that belongs to an Amazon Web Service, the name of the service.</p>
    */
   awsService?: AwsService;
 
   /**
-   * <p>If the action was performed with temporary security credentials that were obtained using the GetFederationToken operation of the AWS Security Token Service (AWS STS) API, the identifiers, session context, and other details about the identity.</p>
+   * <p>If the action was performed with temporary security credentials that were obtained using the GetFederationToken operation of the Security Token Service (STS) API, the identifiers, session context, and other details about the identity.</p>
    */
   federatedUser?: FederatedUser;
 
   /**
-   * <p>If the action was performed using the credentials for an AWS Identity and Access Management (IAM) user, the name and other details about the user.</p>
+   * <p>If the action was performed using the credentials for an Identity and Access Management (IAM) user, the name and other details about the user.</p>
    */
   iamUser?: IamUser;
 
   /**
-   * <p>If the action was performed using the credentials for your AWS account, the details of your account.</p>
+   * <p>If the action was performed using the credentials for your Amazon Web Services account, the details of your account.</p>
    */
   root?: UserIdentityRoot;
 
@@ -1755,7 +1755,7 @@ export interface ServerSideEncryption {
   encryptionType?: EncryptionType | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) or unique identifier (key ID) for the AWS Key Management Service (AWS KMS) customer master key (CMK) that's used to encrypt data in the bucket or the object. If an AWS KMS CMK isn't used, this value is null.</p>
+   * <p>The Amazon Resource Name (ARN) or unique identifier (key ID) for the Key Management Service (KMS) customer master key (CMK) that's used to encrypt data in the bucket or the object. If an KMS CMK isn't used, this value is null.</p>
    */
   kmsMasterKeyId?: string;
 }
@@ -1779,7 +1779,7 @@ export interface S3BucketOwner {
   displayName?: string;
 
   /**
-   * <p>The AWS account ID for the user who owns the bucket.</p>
+   * <p>The Amazon Web Services account ID for the user who owns the bucket.</p>
    */
   id?: string;
 }
@@ -1794,7 +1794,7 @@ export namespace S3BucketOwner {
 }
 
 /**
- * <p>Provides information about an S3 bucket that a finding applies to.</p>
+ * <p>Provides information about the S3 bucket that a finding applies to.</p>
  */
 export interface S3Bucket {
   /**
@@ -1823,7 +1823,7 @@ export interface S3Bucket {
   name?: string;
 
   /**
-   * <p>The display name and AWS account ID for the user who owns the bucket.</p>
+   * <p>The display name and Amazon Web Services account ID for the user who owns the bucket.</p>
    */
   owner?: S3BucketOwner;
 
@@ -1858,7 +1858,7 @@ export enum StorageClass {
 }
 
 /**
- * <p>Provides information about an S3 object that a finding applies to.</p>
+ * <p>Provides information about the S3 object that a finding applies to.</p>
  */
 export interface S3Object {
   /**
@@ -1936,12 +1936,12 @@ export namespace S3Object {
  */
 export interface ResourcesAffected {
   /**
-   * <p>An array of objects, one for each S3 bucket that the finding applies to. Each object provides a set of metadata about an affected S3 bucket.</p>
+   * <p>The details of the S3 bucket that the finding applies to.</p>
    */
   s3Bucket?: S3Bucket;
 
   /**
-   * <p>An array of objects, one for each S3 object that the finding applies to. Each object provides a set of metadata about an affected S3 object.</p>
+   * <p>The details of the S3 object that the finding applies to.</p>
    */
   s3Object?: S3Object;
 }
@@ -2003,12 +2003,12 @@ export enum FindingType {
  */
 export interface Finding {
   /**
-   * <p>The unique identifier for the AWS account that the finding applies to. This is typically the account that owns the affected resource.</p>
+   * <p>The unique identifier for the Amazon Web Services account that the finding applies to. This is typically the account that owns the affected resource.</p>
    */
   accountId?: string;
 
   /**
-   * <p>Specifies whether the finding is archived.</p>
+   * <p>Specifies whether the finding is archived (suppressed).</p>
    */
   archived?: boolean;
 
@@ -2043,7 +2043,7 @@ export interface Finding {
   id?: string;
 
   /**
-   * <p>The AWS partition that Amazon Macie created the finding in.</p>
+   * <p>The Amazon Web Services partition that Amazon Macie created the finding in.</p>
    */
   partition?: string;
 
@@ -2053,7 +2053,7 @@ export interface Finding {
   policyDetails?: PolicyDetails;
 
   /**
-   * <p>The AWS Region that Amazon Macie created the finding in.</p>
+   * <p>The Amazon Web Services Region that Amazon Macie created the finding in.</p>
    */
   region?: string;
 
@@ -2188,7 +2188,7 @@ export enum RelationshipStatus {
  */
 export interface Invitation {
   /**
-   * <p>The AWS account ID for the account that sent the invitation.</p>
+   * <p>The Amazon Web Services account ID for the account that sent the invitation.</p>
    */
   accountId?: string;
 
@@ -2383,11 +2383,11 @@ export namespace S3BucketCriteriaForJob {
 }
 
 /**
- * <p>Specifies an AWS account that owns S3 buckets for a classification job to analyze, and one or more specific buckets to analyze for that account.</p>
+ * <p>Specifies an Amazon Web Services account that owns S3 buckets for a classification job to analyze, and one or more specific buckets to analyze for that account.</p>
  */
 export interface S3BucketDefinitionForJob {
   /**
-   * <p>The unique identifier for the AWS account that owns the buckets.</p>
+   * <p>The unique identifier for the Amazon Web Services account that owns the buckets.</p>
    */
   accountId: string | undefined;
 
@@ -2454,7 +2454,7 @@ export interface UserPausedDetails {
   jobExpiresAt?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Health event that Amazon Macie sent to notify you of the job or job run's pending expiration and cancellation. This value is null if a job has been paused for less than 23 days.</p>
+   * <p>The Amazon Resource Name (ARN) of the Health event that Amazon Macie sent to notify you of the job or job run's pending expiration and cancellation. This value is null if a job has been paused for less than 23 days.</p>
    */
   jobImminentExpirationHealthEventArn?: string;
 
@@ -2478,7 +2478,7 @@ export namespace UserPausedDetails {
  */
 export interface JobSummary {
   /**
-   * <p>An array of objects, one for each AWS account that owns specific S3 buckets for the job to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for that account. A job's definition can contain a bucketDefinitions array or a bucketCriteria object, not both.</p>
+   * <p>An array of objects, one for each Amazon Web Services account that owns specific S3 buckets for the job to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for that account. A job's definition can contain a bucketDefinitions array or a bucketCriteria object, not both.</p>
    */
   bucketDefinitions?: S3BucketDefinitionForJob[];
 
@@ -2573,7 +2573,7 @@ export namespace ListJobsFilterTerm {
  */
 export interface MatchingBucket {
   /**
-   * <p>The unique identifier for the AWS account that owns the bucket.</p>
+   * <p>The unique identifier for the Amazon Web Services account that owns the bucket.</p>
    */
   accountId?: string;
 
@@ -2638,7 +2638,7 @@ export namespace MatchingBucket {
 }
 
 /**
- * <p>Provides statistical data and other information about an AWS resource that Amazon Macie monitors and analyzes.</p>
+ * <p>Provides statistical data and other information about an Amazon Web Services resource that Amazon Macie monitors and analyzes.</p>
  */
 export interface MatchingResource {
   /**
@@ -2661,12 +2661,12 @@ export namespace MatchingResource {
  */
 export interface Member {
   /**
-   * <p>The AWS account ID for the account.</p>
+   * <p>The Amazon Web Services account ID for the account.</p>
    */
   accountId?: string;
 
   /**
-   * <p>The AWS account ID for the administrator account.</p>
+   * <p>The Amazon Web Services account ID for the administrator account.</p>
    */
   administratorAccountId?: string;
 
@@ -2686,7 +2686,7 @@ export interface Member {
   invitedAt?: Date;
 
   /**
-   * <p>(Deprecated) The AWS account ID for the administrator account. This property has been replaced by the administratorAccountId property and is retained only for backward compatibility.</p>
+   * <p>(Deprecated) The Amazon Web Services account ID for the administrator account. This property has been replaced by the administratorAccountId property and is retained only for backward compatibility.</p>
    */
   masterAccountId?: string;
 
@@ -2728,7 +2728,7 @@ export enum SearchResourcesSimpleCriterionKey {
 }
 
 /**
- * <p>Specifies a property-based filter condition that determines which AWS resources are included or excluded from the query results.</p>
+ * <p>Specifies a property-based filter condition that determines which Amazon Web Services resources are included or excluded from the query results.</p>
  */
 export interface SearchResourcesSimpleCriterion {
   /**
@@ -2742,7 +2742,7 @@ export interface SearchResourcesSimpleCriterion {
   key?: SearchResourcesSimpleCriterionKey | string;
 
   /**
-   * <p>An array that lists one or more values to use in the condition. If you specify multiple values, Amazon Macie uses OR logic to join the values. Valid values for each supported property (key) are:</p> <ul><li><p>ACCOUNT_ID - A string that represents the unique identifier for the AWS account that owns the resource.</p></li> <li><p>S3_BUCKET_EFFECTIVE_PERMISSION - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketpublicaccess-effectivepermission">BucketPublicAccess.effectivePermission</a> property of an S3 bucket.</p></li> <li><p>S3_BUCKET_NAME - A string that represents the name of an S3 bucket.</p></li> <li><p>S3_BUCKET_SHARED_ACCESS - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketmetadata-sharedaccess">BucketMetadata.sharedAccess</a> property of an S3 bucket.</p></li></ul> <p>Values are case sensitive. Also, Macie doesn't support use of partial values or wildcard characters in values.</p>
+   * <p>An array that lists one or more values to use in the condition. If you specify multiple values, Amazon Macie uses OR logic to join the values. Valid values for each supported property (key) are:</p> <ul><li><p>ACCOUNT_ID - A string that represents the unique identifier for the Amazon Web Services account that owns the resource.</p></li> <li><p>S3_BUCKET_EFFECTIVE_PERMISSION - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketpublicaccess-effectivepermission">BucketPublicAccess.effectivePermission</a> property of an S3 bucket.</p></li> <li><p>S3_BUCKET_NAME - A string that represents the name of an S3 bucket.</p></li> <li><p>S3_BUCKET_SHARED_ACCESS - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketmetadata-sharedaccess">BucketMetadata.sharedAccess</a> property of an S3 bucket.</p></li></ul> <p>Values are case sensitive. Also, Macie doesn't support use of partial values or wildcard characters in values.</p>
    */
   values?: string[];
 }
@@ -2781,7 +2781,7 @@ export namespace SearchResourcesTagCriterionPair {
 }
 
 /**
- * <p>Specifies a tag-based filter condition that determines which AWS resources are included or excluded from the query results.</p>
+ * <p>Specifies a tag-based filter condition that determines which Amazon Web Services resources are included or excluded from the query results.</p>
  */
 export interface SearchResourcesTagCriterion {
   /**
@@ -2805,7 +2805,7 @@ export namespace SearchResourcesTagCriterion {
 }
 
 /**
- * <p>Specifies a property- or tag-based filter condition for including or excluding AWS resources from the query results.</p>
+ * <p>Specifies a property- or tag-based filter condition for including or excluding Amazon Web Services resources from the query results.</p>
  */
 export interface SearchResourcesCriteria {
   /**
@@ -2838,7 +2838,7 @@ export enum ErrorCode {
  */
 export interface UnprocessedAccount {
   /**
-   * <p>The AWS account ID for the account that the request applies to.</p>
+   * <p>The Amazon Web Services account ID for the account that the request applies to.</p>
    */
   accountId?: string;
 
@@ -2943,7 +2943,7 @@ export namespace UsageByAccount {
  */
 export interface UsageRecord {
   /**
-   * <p>The unique identifier for the AWS account that the data applies to.</p>
+   * <p>The unique identifier for the Amazon Web Services account that the data applies to.</p>
    */
   accountId?: string;
 
@@ -2999,7 +2999,7 @@ export interface UsageStatisticsFilter {
   key?: UsageStatisticsFilterKey | string;
 
   /**
-   * <p>An array that lists values to use in the condition, based on the value for the field specified by the key property. If the value for the key property is accountId, this array can specify multiple values. Otherwise, this array can specify only one value.</p> <p>Valid values for each supported field are:</p> <ul><li><p>accountId - The unique identifier for an AWS account.</p></li></ul> <ul><li><p>freeTrialStartDate - The date and time, in UTC and extended ISO 8601 format, when the free trial started for an account.</p></li></ul> <ul><li><p>serviceLimit - A Boolean (true or false) value that indicates whether an account has reached its monthly quota.</p></li></ul> <ul><li><p>total - A string that represents the current estimated cost for an account.</p></li></ul>
+   * <p>An array that lists values to use in the condition, based on the value for the field specified by the key property. If the value for the key property is accountId, this array can specify multiple values. Otherwise, this array can specify only one value.</p> <p>Valid values for each supported field are:</p> <ul><li><p>accountId - The unique identifier for an Amazon Web Services account.</p></li> <li><p>freeTrialStartDate - The date and time, in UTC and extended ISO 8601 format, when the free trial started for an account.</p></li> <li><p>serviceLimit - A Boolean (true or false) value that indicates whether an account has reached its monthly quota.</p></li> <li><p>total - A string that represents the current estimated cost for an account.</p></li></ul>
    */
   values?: string[];
 }
@@ -3044,7 +3044,7 @@ export namespace UsageTotal {
 
 export interface AcceptInvitationRequest {
   /**
-   * <p>The AWS account ID for the account that sent the invitation.</p>
+   * <p>The Amazon Web Services account ID for the account that sent the invitation.</p>
    */
   administratorAccountId?: string;
 
@@ -3054,7 +3054,7 @@ export interface AcceptInvitationRequest {
   invitationId: string | undefined;
 
   /**
-   * <p>(Deprecated) The AWS account ID for the account that sent the invitation. This property has been replaced by the administratorAccountId property and is retained only for backward compatibility.</p>
+   * <p>(Deprecated) The Amazon Web Services account ID for the account that sent the invitation. This property has been replaced by the administratorAccountId property and is retained only for backward compatibility.</p>
    */
   masterAccount?: string;
 }
@@ -3227,11 +3227,11 @@ export namespace ValidationException {
 }
 
 /**
- * <p>Specifies details for an account to associate with an Amazon Macie administrator account.</p>
+ * <p>Specifies the details of an account to associate with an Amazon Macie administrator account.</p>
  */
 export interface AccountDetail {
   /**
-   * <p>The AWS account ID for the account.</p>
+   * <p>The Amazon Web Services account ID for the account.</p>
    */
   accountId: string | undefined;
 
@@ -3326,7 +3326,7 @@ export namespace BucketCountByEffectivePermission {
  */
 export interface BucketCountByEncryptionType {
   /**
-   * <p>The total number of buckets that use an AWS Key Management Service (AWS KMS) customer master key (CMK) to encrypt new objects by default. These buckets use AWS managed AWS KMS encryption (AWS-KMS) or customer managed AWS KMS encryption (SSE-KMS) by default.</p>
+   * <p>The total number of buckets that use an Key Management Service (KMS) customer master key (CMK) to encrypt new objects by default. These buckets use Amazon Web Services managed KMS encryption (AWS-KMS) or customer managed KMS encryption (SSE-KMS) by default.</p>
    */
   kmsManaged?: number;
 
@@ -3356,26 +3356,26 @@ export namespace BucketCountByEncryptionType {
 }
 
 /**
- * <p>Provides information about the number of S3 buckets that are or aren't shared with other AWS accounts.</p>
+ * <p>Provides information about the number of S3 buckets that are or aren't shared with other Amazon Web Services accounts.</p>
  */
 export interface BucketCountBySharedAccessType {
   /**
-   * <p>The total number of buckets that are shared with an AWS account that isn't part of the same Amazon Macie organization.</p>
+   * <p>The total number of buckets that are shared with an Amazon Web Services account that isn't part of the same Amazon Macie organization.</p>
    */
   external?: number;
 
   /**
-   * <p>The total number of buckets that are shared with an AWS account that's part of the same Amazon Macie organization.</p>
+   * <p>The total number of buckets that are shared with an Amazon Web Services account that's part of the same Amazon Macie organization.</p>
    */
   internal?: number;
 
   /**
-   * <p>The total number of buckets that aren't shared with other AWS accounts.</p>
+   * <p>The total number of buckets that aren't shared with other Amazon Web Services accounts.</p>
    */
   notShared?: number;
 
   /**
-   * <p>The total number of buckets that Amazon Macie wasn't able to evaluate shared access settings for. Macie can't determine whether these buckets are shared with other AWS accounts.</p>
+   * <p>The total number of buckets that Amazon Macie wasn't able to evaluate shared access settings for. Macie can't determine whether these buckets are shared with other Amazon Web Services accounts.</p>
    */
   unknown?: number;
 }
@@ -3511,7 +3511,7 @@ export interface S3Destination {
   keyPrefix?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for encryption of the results. This must be the ARN of an existing CMK that's in the same AWS Region as the bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK) to use for encryption of the results. This must be the ARN of an existing CMK that's in the same Amazon Web Services Region as the bucket.</p>
    */
   kmsKeyArn: string | undefined;
 }
@@ -3592,7 +3592,7 @@ export namespace Scoping {
  */
 export interface S3JobDefinition {
   /**
-   * <p>An array of objects, one for each AWS account that owns specific S3 buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for that account. A job's definition can contain a bucketDefinitions array or a bucketCriteria object, not both.</p>
+   * <p>An array of objects, one for each Amazon Web Services account that owns specific S3 buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for that account. A job's definition can contain a bucketDefinitions array or a bucketCriteria object, not both.</p>
    */
   bucketDefinitions?: S3BucketDefinitionForJob[];
 
@@ -3801,17 +3801,17 @@ export interface CreateCustomDataIdentifierRequest {
   description?: string;
 
   /**
-   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.</p>
+   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 characters. Ignore words are case sensitive.</p>
    */
   ignoreWords?: string[];
 
   /**
-   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.</p>
+   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 characters. Keywords aren't case sensitive.</p>
    */
   keywords?: string[];
 
   /**
-   * <p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.</p>
+   * <p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1-300 characters. The default value is 50.</p>
    */
   maximumMatchDistance?: number;
 
@@ -3993,12 +3993,12 @@ export namespace CreateFindingsFilterResponse {
 
 export interface CreateInvitationsRequest {
   /**
-   * <p>An array that lists AWS account IDs, one for each account to send the invitation to.</p>
+   * <p>An array that lists Amazon Web Services account IDs, one for each account to send the invitation to.</p>
    */
   accountIds: string[] | undefined;
 
   /**
-   * <p>Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to true.</p>
+   * <p>Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in Personal Health Dashboard. To send an email notification to the root user of each account, set this value to true.</p>
    */
   disableEmailNotification?: boolean;
 
@@ -4035,7 +4035,7 @@ export namespace CreateInvitationsResponse {
 
 export interface CreateMemberRequest {
   /**
-   * <p>The details for the account to associate with the administrator account.</p>
+   * <p>The details of the account to associate with the administrator account.</p>
    */
   account: AccountDetail | undefined;
 
@@ -4099,7 +4099,7 @@ export namespace CreateSampleFindingsResponse {
 
 export interface DeclineInvitationsRequest {
   /**
-   * <p>An array that lists AWS account IDs, one for each account that sent an invitation to decline.</p>
+   * <p>An array that lists Amazon Web Services account IDs, one for each account that sent an invitation to decline.</p>
    */
   accountIds: string[] | undefined;
 }
@@ -4185,7 +4185,7 @@ export namespace DeleteFindingsFilterResponse {
 
 export interface DeleteInvitationsRequest {
   /**
-   * <p>An array that lists AWS account IDs, one for each account that sent an invitation to delete.</p>
+   * <p>An array that lists Amazon Web Services account IDs, one for each account that sent an invitation to delete.</p>
    */
   accountIds: string[] | undefined;
 }
@@ -4448,12 +4448,12 @@ export namespace DescribeOrganizationConfigurationRequest {
 
 export interface DescribeOrganizationConfigurationResponse {
   /**
-   * <p>Specifies whether Amazon Macie is enabled automatically for accounts that are added to the AWS organization.</p>
+   * <p>Specifies whether Amazon Macie is enabled automatically for accounts that are added to the Amazon Web Services organization.</p>
    */
   autoEnable?: boolean;
 
   /**
-   * <p>Specifies whether the maximum number of Amazon Macie member accounts are part of the AWS organization.</p>
+   * <p>Specifies whether the maximum number of Amazon Macie member accounts are part of the Amazon Web Services organization.</p>
    */
   maxAccountLimitReached?: boolean;
 }
@@ -4491,7 +4491,7 @@ export namespace DisableMacieResponse {
 
 export interface DisableOrganizationAdminAccountRequest {
   /**
-   * <p>The AWS account ID of the delegated Amazon Macie administrator account.</p>
+   * <p>The Amazon Web Services account ID of the delegated Amazon Macie administrator account.</p>
    */
   adminAccountId: string | undefined;
 }
@@ -4605,7 +4605,7 @@ export interface EnableMacieRequest {
   clientToken?: string;
 
   /**
-   * Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).
+   * <p>Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).</p>
    */
   findingPublishingFrequency?: FindingPublishingFrequency | string;
 
@@ -4637,7 +4637,7 @@ export namespace EnableMacieResponse {
 
 export interface EnableOrganizationAdminAccountRequest {
   /**
-   * <p>The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.</p>
+   * <p>The Amazon Web Services account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.</p>
    */
   adminAccountId: string | undefined;
 
@@ -4709,7 +4709,7 @@ export namespace GetAdministratorAccountRequest {
 
 export interface GetAdministratorAccountResponse {
   /**
-   * <p>The AWS account ID for the administrator account. If the accounts are associated by a Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.</p>
+   * <p>The Amazon Web Services account ID for the administrator account. If the accounts are associated by a Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.</p>
    */
   administrator?: Invitation;
 }
@@ -4725,7 +4725,7 @@ export namespace GetAdministratorAccountResponse {
 
 export interface GetBucketStatisticsRequest {
   /**
-   * <p>The unique identifier for the AWS account.</p>
+   * <p>The unique identifier for the Amazon Web Services account.</p>
    */
   accountId?: string;
 }
@@ -4761,7 +4761,7 @@ export interface GetBucketStatisticsResponse {
   bucketCountByObjectEncryptionRequirement?: BucketCountPolicyAllowsUnencryptedObjectUploads;
 
   /**
-   * <p>The total number of buckets that are or aren't shared with another AWS account.</p>
+   * <p>The total number of buckets that are or aren't shared with another Amazon Web Services account.</p>
    */
   bucketCountBySharedAccessType?: BucketCountBySharedAccessType;
 
@@ -5064,16 +5064,16 @@ export namespace GetFindingsPublicationConfigurationRequest {
 }
 
 /**
- * <p>Specifies configuration settings that determine which findings are published to AWS Security Hub automatically. For information about how Macie publishes findings to Security Hub, see <a href="https://docs.aws.amazon.com/macie/latest/user/securityhub-integration.html">Amazon Macie integration with Security Hub</a> in the <i>Amazon Macie User Guide</i>.</p>
+ * <p>Specifies configuration settings that determine which findings are published to Security Hub automatically. For information about how Macie publishes findings to Security Hub, see <a href="https://docs.aws.amazon.com/macie/latest/user/securityhub-integration.html">Amazon Macie integration with Security Hub</a> in the <i>Amazon Macie User Guide</i>.</p>
  */
 export interface SecurityHubConfiguration {
   /**
-   * <p>Specifies whether to publish sensitive data findings to AWS Security Hub. If you set this value to true, Amazon Macie automatically publishes all sensitive data findings that weren't suppressed by a findings filter. The default value is false.</p>
+   * <p>Specifies whether to publish sensitive data findings to Security Hub. If you set this value to true, Amazon Macie automatically publishes all sensitive data findings that weren't suppressed by a findings filter. The default value is false.</p>
    */
   publishClassificationFindings: boolean | undefined;
 
   /**
-   * <p>Specifies whether to publish policy findings to AWS Security Hub. If you set this value to true, Amazon Macie automatically publishes all new and updated policy findings that weren't suppressed by a findings filter. The default value is true.</p>
+   * <p>Specifies whether to publish policy findings to Security Hub. If you set this value to true, Amazon Macie automatically publishes all new and updated policy findings that weren't suppressed by a findings filter. The default value is true.</p>
    */
   publishPolicyFindings: boolean | undefined;
 }
@@ -5089,7 +5089,7 @@ export namespace SecurityHubConfiguration {
 
 export interface GetFindingsPublicationConfigurationResponse {
   /**
-   * <p>The configuration settings that determine which findings are published to AWS Security Hub.</p>
+   * <p>The configuration settings that determine which findings are published to Security Hub.</p>
    */
   securityHubConfiguration?: SecurityHubConfiguration;
 }
@@ -5202,12 +5202,12 @@ export interface GetMacieSessionResponse {
   createdAt?: Date;
 
   /**
-   * <p>The frequency with which Macie publishes updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).</p>
+   * <p>The frequency with which Macie publishes updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).</p>
    */
   findingPublishingFrequency?: FindingPublishingFrequency | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.</p>
+   * <p>The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in Amazon Web Services resources for the account.</p>
    */
   serviceRole?: string;
 
@@ -5244,7 +5244,7 @@ export namespace GetMasterAccountRequest {
 
 export interface GetMasterAccountResponse {
   /**
-   * <p>(Deprecated) The AWS account ID for the administrator account. If the accounts are associated by a Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.</p>
+   * <p>(Deprecated) The Amazon Web Services account ID for the administrator account. If the accounts are associated by a Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.</p>
    */
   master?: Invitation;
 }
@@ -5276,12 +5276,12 @@ export namespace GetMemberRequest {
 
 export interface GetMemberResponse {
   /**
-   * <p>The AWS account ID for the account.</p>
+   * <p>The Amazon Web Services account ID for the account.</p>
    */
   accountId?: string;
 
   /**
-   * <p>The AWS account ID for the administrator account.</p>
+   * <p>The Amazon Web Services account ID for the administrator account.</p>
    */
   administratorAccountId?: string;
 
@@ -5301,7 +5301,7 @@ export interface GetMemberResponse {
   invitedAt?: Date;
 
   /**
-   * <p>(Deprecated) The AWS account ID for the administrator account. This property has been replaced by the administratorAccountId property and is retained only for backward compatibility.</p>
+   * <p>(Deprecated) The Amazon Web Services account ID for the administrator account. This property has been replaced by the administratorAccountId property and is retained only for backward compatibility.</p>
    */
   masterAccountId?: string;
 
@@ -5910,7 +5910,7 @@ export interface PutFindingsPublicationConfigurationRequest {
   clientToken?: string;
 
   /**
-   * <p>The configuration settings that determine which findings to publish to AWS Security Hub.</p>
+   * <p>The configuration settings that determine which findings to publish to Security Hub.</p>
    */
   securityHubConfiguration?: SecurityHubConfiguration;
 }
@@ -5936,7 +5936,7 @@ export namespace PutFindingsPublicationConfigurationResponse {
 }
 
 /**
- * <p>Specifies property- and tag-based conditions that define filter criteria for including or excluding AWS resources from the query results.</p>
+ * <p>Specifies property- and tag-based conditions that define filter criteria for including or excluding Amazon Web Services resources from the query results.</p>
  */
 export interface SearchResourcesCriteriaBlock {
   /**
@@ -5986,7 +5986,7 @@ export enum SearchResourcesSortAttributeName {
 }
 
 /**
- * <p>Specifies criteria for sorting the results of a query for information about AWS resources that Amazon Macie monitors and analyzes.</p>
+ * <p>Specifies criteria for sorting the results of a query for information about Amazon Web Services resources that Amazon Macie monitors and analyzes.</p>
  */
 export interface SearchResourcesSortCriteria {
   /**
@@ -6095,17 +6095,17 @@ export namespace TagResourceResponse {
 
 export interface TestCustomDataIdentifierRequest {
   /**
-   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.</p>
+   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 characters. Ignore words are case sensitive.</p>
    */
   ignoreWords?: string[];
 
   /**
-   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.</p>
+   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 characters. Keywords aren't case sensitive.</p>
    */
   keywords?: string[];
 
   /**
-   * <p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.</p>
+   * <p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1-300 characters. The default value is 50.</p>
    */
   maximumMatchDistance?: number;
 
@@ -6278,7 +6278,7 @@ export namespace UpdateFindingsFilterResponse {
 
 export interface UpdateMacieSessionRequest {
   /**
-   * Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).
+   * <p>Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).</p>
    */
   findingPublishingFrequency?: FindingPublishingFrequency | string;
 
@@ -6342,7 +6342,7 @@ export namespace UpdateMemberSessionResponse {
 
 export interface UpdateOrganizationConfigurationRequest {
   /**
-   * <p>Specifies whether to enable Amazon Macie automatically for each account, when the account is added to the AWS organization.</p>
+   * <p>Specifies whether to enable Amazon Macie automatically for each account, when the account is added to the Amazon Web Services organization.</p>
    */
   autoEnable: boolean | undefined;
 }

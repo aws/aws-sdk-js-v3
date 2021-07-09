@@ -21,7 +21,7 @@ export interface DeleteBrokerCommandInput extends DeleteBrokerRequest {}
 export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __MetadataBearer {}
 
 /**
- * Deletes a broker. Note: This API is asynchronous.
+ * <p>Deletes a broker. Note: This API is asynchronous.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,7 +22,7 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
 
 /**
  * <p>Updates an asset's name. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
- *         <i>AWS IoT SiteWise User Guide</i>.</p>
+ *         <i>IoT SiteWise User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

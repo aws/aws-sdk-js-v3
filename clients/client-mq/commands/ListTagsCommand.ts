@@ -21,7 +21,7 @@ export interface ListTagsCommandInput extends ListTagsRequest {}
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
- * Lists tags for a resource.
+ * <p>Lists tags for a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

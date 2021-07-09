@@ -27,14 +27,14 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
 
 /**
  * <p>Generates a report that includes details about when an IAM resource (user, group,
- *             role, or policy) was last used in an attempt to access AWS services. Recent activity
+ *             role, or policy) was last used in an attempt to access Amazon Web Services services. Recent activity
  *             usually appears within four hours. IAM reports activity for the last 365 days, or less
  *             if your Region began supporting this feature within the last year. For more information,
  *             see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a>.</p>
  *         <important>
- *             <p>The service last accessed data includes all attempts to access an AWS API, not
+ *             <p>The service last accessed data includes all attempts to access an Amazon Web Services API, not
  *                 just the successful ones. This includes all attempts that were made using the
- *                 AWS Management Console, the AWS API through any of the SDKs, or any of the command line tools.
+ *                 Management Console, the Amazon Web Services API through any of the SDKs, or any of the command line tools.
  *                 An unexpected entry in the service last accessed data does not mean that your
  *                 account has been compromised, because the request might have been denied. Refer to
  *                 your CloudTrail logs as the authoritative source for information about all API calls
@@ -49,7 +49,7 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  *             <li>
  *                 <p>
  *                   <a>GetServiceLastAccessedDetails</a> – Use this operation
- *                     for users, groups, roles, or policies to list every AWS service that the
+ *                     for users, groups, roles, or policies to list every Amazon Web Services service that the
  *                     resource could access using permissions policies. For each service, the response
  *                     includes information about the most recent access attempt.</p>
  *                 <p>The <code>JobId</code> returned by
@@ -61,7 +61,7 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  *                 <p>
  *                   <a>GetServiceLastAccessedDetailsWithEntities</a> – Use this
  *                     operation for groups and policies to list information about the associated
- *                     entities (users or roles) that attempted to access a specific AWS service.
+ *                     entities (users or roles) that attempted to access a specific Amazon Web Services service.
  *                 </p>
  *             </li>
  *          </ul>
@@ -73,8 +73,8 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  *         <note>
  *             <p>Service last accessed data does not use other policy types when determining
  *                 whether a resource could access a service. These other policy types include
- *                 resource-based policies, access control lists, AWS Organizations policies, IAM
- *                 permissions boundaries, and AWS STS assume role policies. It only applies
+ *                 resource-based policies, access control lists, Organizations policies, IAM
+ *                 permissions boundaries, and STS assume role policies. It only applies
  *                 permissions policy logic. For more about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies</a> in the
  *                 <i>IAM User Guide</i>.</p>
  *         </note>

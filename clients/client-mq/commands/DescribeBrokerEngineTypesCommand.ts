@@ -21,7 +21,7 @@ export interface DescribeBrokerEngineTypesCommandInput extends DescribeBrokerEng
 export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEngineTypesResponse, __MetadataBearer {}
 
 /**
- * Describe available engine types and versions.
+ * <p>Describe available engine types and versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

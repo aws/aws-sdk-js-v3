@@ -22,13 +22,13 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the password for the specified IAM user, which terminates the user's ability
- *             to access AWS services through the AWS Management Console.</p>
- *         <p>You can use the AWS CLI, the AWS API, or the <b>Users</b> page in the IAM console to delete a password for any IAM user.
+ *             to access Amazon Web Services services through the Management Console.</p>
+ *         <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b> page in the IAM console to delete a password for any IAM user.
  *             You can use <a>ChangePassword</a> to update, but not delete, your own
  *             password in the <b>My Security Credentials</b> page in the
- *             AWS Management Console.</p>
+ *             Management Console.</p>
  *         <important>
- *             <p> Deleting a user's password does not prevent a user from accessing AWS through
+ *             <p> Deleting a user's password does not prevent a user from accessing Amazon Web Services through
  *                 the command line interface or the API. To prevent all user access, you must also
  *                 either make any access keys inactive or delete them. For more information about
  *                 making keys inactive or deleting them, see <a>UpdateAccessKey</a> and

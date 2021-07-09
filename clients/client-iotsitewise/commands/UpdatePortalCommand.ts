@@ -21,7 +21,7 @@ export interface UpdatePortalCommandInput extends UpdatePortalRequest {}
 export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an AWS IoT SiteWise Monitor portal.</p>
+ * <p>Updates an IoT SiteWise Monitor portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

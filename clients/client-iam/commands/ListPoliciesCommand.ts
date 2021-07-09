@@ -18,12 +18,12 @@ export interface ListPoliciesCommandInput extends ListPoliciesRequest {}
 export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the managed policies that are available in your AWS account, including
- *             your own customer-defined managed policies and all AWS managed policies.</p>
+ * <p>Lists all the managed policies that are available in your account, including
+ *             your own customer-defined managed policies and all Amazon Web Services managed policies.</p>
  *         <p>You can filter the list of policies that is returned using the optional
  *                 <code>OnlyAttached</code>, <code>Scope</code>, and <code>PathPrefix</code>
- *             parameters. For example, to list only the customer managed policies in your AWS
- *             account, set <code>Scope</code> to <code>Local</code>. To list only AWS managed
+ *             parameters. For example, to list only the customer managed policies in your Amazon Web Services
+ *             account, set <code>Scope</code> to <code>Local</code>. To list only Amazon Web Services managed
  *             policies, set <code>Scope</code> to <code>AWS</code>.</p>
  *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>

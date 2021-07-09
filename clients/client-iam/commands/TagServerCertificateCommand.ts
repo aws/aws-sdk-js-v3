@@ -24,7 +24,7 @@ export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
  * <p>Adds one or more tags to an IAM server certificate. If a tag with the same key name
  *       already exists, then that tag is overwritten with the new value.</p>
  *          <note>
- *             <p>For certificates in a Region supported by AWS Certificate Manager (ACM), we
+ *             <p>For certificates in a Region supported by Certificate Manager (ACM), we
  *         recommend that you don't use IAM server certificates. Instead, use ACM to provision,
  *         manage, and deploy your server certificates. For more information about IAM server
  *         certificates, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working with server
@@ -52,7 +52,7 @@ export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
  *             <li>
  *                <p>
  *                   <b>Cost allocation</b> - Use tags to help track which
- *           individuals and teams are using which AWS resources.</p>
+ *           individuals and teams are using which Amazon Web Services resources.</p>
  *             </li>
  *          </ul>
  *          <note>
@@ -63,7 +63,7 @@ export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
  *       <i>IAM User Guide</i>.</p>
  *                </li>
  *                <li>
- *                   <p>AWS always interprets the tag <code>Value</code> as a single string. If you
+ *                   <p>Amazon Web Services always interprets the tag <code>Value</code> as a single string. If you
  *             need to store an array, you can store comma-separated values in the string. However, you
  *             must interpret the value in your code.</p>
  *                </li>

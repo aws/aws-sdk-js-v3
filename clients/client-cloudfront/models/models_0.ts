@@ -102,13 +102,13 @@ export namespace ActiveTrustedKeyGroups {
 }
 
 /**
- * <p>A list of AWS accounts and the active CloudFront key pairs in each account that CloudFront can use to
+ * <p>A list of accounts and the active CloudFront key pairs in each account that CloudFront can use to
  * 			verify the signatures of signed URLs and signed cookies.</p>
  */
 export interface Signer {
   /**
-   * <p>An AWS account number that contains active CloudFront key pairs that CloudFront can use to verify the
-   * 			signatures of signed URLs and signed cookies. If the AWS account that owns the key pairs
+   * <p>An account number that contains active CloudFront key pairs that CloudFront can use to verify the
+   * 			signatures of signed URLs and signed cookies. If the account that owns the key pairs
    * 			is the same account that owns the CloudFront distribution, the value of this field is
    * 			<code>self</code>.</p>
    */
@@ -130,24 +130,24 @@ export namespace Signer {
 }
 
 /**
- * <p>A list of AWS accounts and the active CloudFront key pairs in each account that CloudFront can use
+ * <p>A list of accounts and the active CloudFront key pairs in each account that CloudFront can use
  * 			to verify the signatures of signed URLs and signed cookies.</p>
  */
 export interface ActiveTrustedSigners {
   /**
-   * <p>This field is <code>true</code> if any of the AWS accounts in the list have active CloudFront
+   * <p>This field is <code>true</code> if any of the accounts in the list have active CloudFront
    * 			key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies.
    * 			If not, this field is <code>false</code>.</p>
    */
   Enabled: boolean | undefined;
 
   /**
-   * <p>The number of AWS accounts in the list.</p>
+   * <p>The number of accounts in the list.</p>
    */
   Quantity: number | undefined;
 
   /**
-   * <p>A list of AWS accounts and the identifiers of active CloudFront key pairs in each account that
+   * <p>A list of accounts and the identifiers of active CloudFront key pairs in each account that
    * 			CloudFront can use to verify the signatures of signed URLs and signed cookies.</p>
    */
   Items?: Signer[];
@@ -192,12 +192,12 @@ export namespace Aliases {
 export type ICPRecordalStatus = "APPROVED" | "PENDING" | "SUSPENDED";
 
 /**
- * <p>AWS services in China customers must file for an Internet Content Provider (ICP) recordal if they want to serve content
+ * <p>Amazon Web Services services in China customers must file for an Internet Content Provider (ICP) recordal if they want to serve content
  * 			publicly on an alternate domain name, also known as a CNAME, that they've added to CloudFront. AliasICPRecordal provides the ICP
  * 			recordal status for CNAMEs associated with distributions. The status is returned in the CloudFront response; you can't configure
  * 			it yourself.</p>
  * 		       <p>For more information about ICP recordals, see  <a href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
- * 			Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in China</i>.</p>
+ * 			Signup, Accounts, and Credentials</a> in <i>Getting Started with Amazon Web Services services in China</i>.</p>
  */
 export interface AliasICPRecordal {
   /**
@@ -348,6 +348,99 @@ export namespace AllowedMethods {
   });
 }
 
+export interface AssociateAliasRequest {
+  /**
+   * <p>The ID of the distribution that you’re associating the alias with.</p>
+   */
+  TargetDistributionId: string | undefined;
+
+  /**
+   * <p>The alias (also known as a CNAME) to add to the target distribution.</p>
+   */
+  Alias: string | undefined;
+}
+
+export namespace AssociateAliasRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateAliasRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The update contains modifications that are not allowed.</p>
+ */
+export interface IllegalUpdate extends __SmithyException, $MetadataBearer {
+  name: "IllegalUpdate";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace IllegalUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IllegalUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An argument is invalid.</p>
+ */
+export interface InvalidArgument extends __SmithyException, $MetadataBearer {
+  name: "InvalidArgument";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidArgument {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidArgument): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified distribution does not exist.</p>
+ */
+export interface NoSuchDistribution extends __SmithyException, $MetadataBearer {
+  name: "NoSuchDistribution";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchDistribution {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NoSuchDistribution): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+ */
+export interface TooManyDistributionCNAMEs extends __SmithyException, $MetadataBearer {
+  name: "TooManyDistributionCNAMEs";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyDistributionCNAMEs {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TooManyDistributionCNAMEs): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Invalidation batch specified is too large.</p>
  */
@@ -439,7 +532,7 @@ export interface CookiePreference {
    * 			element and its child elements, CloudFront deletes them automatically.</p>
    * 		       <p>For the current limit on the number of cookie names that you can whitelist for each
    * 			cache behavior, see <a href="https://docs.aws.amazon.com/general/latest/gr/xrefaws_service_limits.html#limits_cloudfront">
-   * 				CloudFront Limits</a> in the <i>AWS General Reference</i>.</p>
+   * 				CloudFront Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   WhitelistedNames?: CookieNames;
 }
@@ -665,17 +758,17 @@ export namespace FunctionAssociations {
 }
 
 /**
- * <p>A complex type that contains a Lambda function association.</p>
+ * <p>A complex type that contains a Lambda@Edge function association.</p>
  */
 export interface LambdaFunctionAssociation {
   /**
-   * <p>The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias
+   * <p>The ARN of the Lambda@Edge function. You must specify the ARN of a function version; you can't specify an alias
    * 			or $LATEST.</p>
    */
   LambdaFunctionARN: string | undefined;
 
   /**
-   * <p>Specifies the event type that triggers a Lambda function invocation. You can specify the following values:</p>
+   * <p>Specifies the event type that triggers a Lambda@Edge function invocation. You can specify the following values:</p>
    * 		       <ul>
    *             <li>
    *                <p>
@@ -704,7 +797,7 @@ export interface LambdaFunctionAssociation {
   EventType: EventType | string | undefined;
 
   /**
-   * <p>A flag that allows a Lambda function to have read access to the body content. For more information,
+   * <p>A flag that allows a Lambda@Edge function to have read access to the body content. For more information,
    * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html">Accessing the Request Body by Choosing the
    * 				Include Body Option</a> in the Amazon CloudFront Developer Guide.</p>
    */
@@ -721,23 +814,22 @@ export namespace LambdaFunctionAssociation {
 }
 
 /**
- * <p>A complex type that specifies a list of Lambda functions associations for a cache
+ * <p>A complex type that specifies a list of Lambda@Edge functions associations for a cache
  * 			behavior.</p>
  *
- * 		       <p>If you want to invoke one or more Lambda functions triggered by requests that match the
+ * 		       <p>If you want to invoke one or more Lambda@Edge functions triggered by requests that match the
  * 				<code>PathPattern</code> of the cache behavior, specify the applicable values for
  * 				<code>Quantity</code> and <code>Items</code>. Note that there can be up to 4
  * 				<code>LambdaFunctionAssociation</code> items in this list (one for each possible value of
- * 				<code>EventType</code>) and each <code>EventType</code> can be associated with the Lambda
- * 			function only once.</p>
+ * 				<code>EventType</code>) and each <code>EventType</code> can be associated with only one function.</p>
  *
- * 		       <p>If you don't want to invoke any Lambda functions for the requests that match
+ * 		       <p>If you don't want to invoke any Lambda@Edge functions for the requests that match
  * 				<code>PathPattern</code>, specify <code>0</code> for <code>Quantity</code> and omit
  * 				<code>Items</code>. </p>
  */
 export interface LambdaFunctionAssociations {
   /**
-   * <p>The number of Lambda function associations for this cache behavior.</p>
+   * <p>The number of Lambda@Edge function associations for this cache behavior.</p>
    */
   Quantity: number | undefined;
 
@@ -791,24 +883,24 @@ export namespace TrustedKeyGroups {
 }
 
 /**
- * <p>A list of AWS accounts whose public keys CloudFront can use to verify the signatures of signed
+ * <p>A list of accounts whose public keys CloudFront can use to verify the signatures of signed
  * 			URLs and signed cookies.</p>
  */
 export interface TrustedSigners {
   /**
-   * <p>This field is <code>true</code> if any of the AWS accounts have public keys that CloudFront can
+   * <p>This field is <code>true</code> if any of the accounts have public keys that CloudFront can
    * 			use to verify the signatures of signed URLs and signed cookies. If not, this field is
    * 			<code>false</code>.</p>
    */
   Enabled: boolean | undefined;
 
   /**
-   * <p>The number of AWS accounts in the list.</p>
+   * <p>The number of accounts in the list.</p>
    */
   Quantity: number | undefined;
 
   /**
-   * <p>A list of AWS account identifiers.</p>
+   * <p>A list of account identifiers.</p>
    */
   Items?: string[];
 }
@@ -873,11 +965,11 @@ export interface CacheBehavior {
    * 			         <p>We recommend using <code>TrustedKeyGroups</code> instead of
    * 				<code>TrustedSigners</code>.</p>
    * 		       </important>
-   * 		       <p>A list of AWS account IDs whose public keys CloudFront can use to validate signed URLs or signed
+   * 		       <p>A list of account IDs whose public keys CloudFront can use to validate signed URLs or signed
    * 			cookies.</p>
    * 		       <p>When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies
    * 			for all requests that match the cache behavior. The URLs or cookies must be signed with
-   * 			the private key of a CloudFront key pair in the trusted signer’s AWS account. The signed URL
+   * 			the private key of a CloudFront key pair in the trusted signer’s account. The signed URL
    * 			or cookie contains information about which public key CloudFront should use to verify the
    * 			signature. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving private content</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
@@ -968,7 +1060,7 @@ export interface CacheBehavior {
   Compress?: boolean;
 
   /**
-   * <p>A complex type that contains zero or more Lambda function associations for a cache
+   * <p>A complex type that contains zero or more Lambda@Edge function associations for a cache
    * 			behavior.</p>
    */
   LambdaFunctionAssociations?: LambdaFunctionAssociations;
@@ -1599,8 +1691,8 @@ export type CachePolicyType = "custom" | "managed";
  */
 export interface CachePolicySummary {
   /**
-   * <p>The type of cache policy, either <code>managed</code> (created by AWS) or
-   * 			<code>custom</code> (created in this AWS account).</p>
+   * <p>The type of cache policy, either <code>managed</code> (created by Amazon Web Services) or
+   * 			<code>custom</code> (created in this account).</p>
    */
   Type: CachePolicyType | string | undefined;
 
@@ -1736,25 +1828,7 @@ export namespace InconsistentQuantities {
 }
 
 /**
- * <p>An argument is invalid.</p>
- */
-export interface InvalidArgument extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgument";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidArgument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgument): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>You have reached the maximum number of cache policies for this AWS account. For more
+ * <p>You have reached the maximum number of cache policies for this account. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
@@ -2178,11 +2252,11 @@ export interface DefaultCacheBehavior {
    * 			         <p>We recommend using <code>TrustedKeyGroups</code> instead of
    * 				<code>TrustedSigners</code>.</p>
    * 		       </important>
-   * 		       <p>A list of AWS account IDs whose public keys CloudFront can use to validate signed URLs or signed
+   * 		       <p>A list of account IDs whose public keys CloudFront can use to validate signed URLs or signed
    * 			cookies.</p>
    * 		       <p>When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies
    * 			for all requests that match the cache behavior. The URLs or cookies must be signed with
-   * 			the private key of a CloudFront key pair in a trusted signer’s AWS account. The signed URL or
+   * 			the private key of a CloudFront key pair in a trusted signer’s account. The signed URL or
    * 			cookie contains information about which public key CloudFront should use to verify the
    * 			signature. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving private content</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
@@ -2275,7 +2349,7 @@ export interface DefaultCacheBehavior {
   Compress?: boolean;
 
   /**
-   * <p>A complex type that contains zero or more Lambda function associations for a cache
+   * <p>A complex type that contains zero or more Lambda@Edge function associations for a cache
    * 			behavior.</p>
    */
   LambdaFunctionAssociations?: LambdaFunctionAssociations;
@@ -2767,13 +2841,13 @@ export interface OriginShield {
   Enabled: boolean | undefined;
 
   /**
-   * <p>The AWS Region for Origin Shield.</p>
-   * 		       <p>Specify the AWS Region that has the lowest latency to your origin.
+   * <p>The Region for Origin Shield.</p>
+   * 		       <p>Specify the Region that has the lowest latency to your origin.
    *             To specify a region, use the region code, not the region name.
    *             For example, specify the US East (Ohio) region as <code>us-east-2</code>.</p>
-   *         <p>When you enable CloudFront Origin Shield, you must specify the AWS Region for Origin
-   *             Shield. For the list of AWS Regions that you can specify, and for help choosing the best
-   *             Region for your origin, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region">Choosing the AWS Region for Origin Shield</a> in the
+   *         <p>When you enable CloudFront Origin Shield, you must specify the Region for Origin
+   *             Shield. For the list of Regions that you can specify, and for help choosing the best
+   *             Region for your origin, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region">Choosing the Region for Origin Shield</a> in the
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   OriginShieldRegion?: string;
@@ -3087,15 +3161,13 @@ export type SSLSupportMethod = "sni-only" | "static-ip" | "vip";
  * 							<code>SSLSupportMethod</code> to <code>sni-only</code>. This is
  * 							recommended. Most browsers and clients support
  *                             SNI.
- *
- *                   </p>
+ *                             </p>
  * 					             </li>
  *                   <li>
  * 						               <p>To accept HTTPS connections from all viewers, including those that don’t support SNI,
  * 							set <code>SSLSupportMethod</code> to <code>vip</code>. This is not
  * 							recommended, and results in additional monthly charges from
- * 							CloudFront.
- *                   </p>
+ * 							CloudFront.</p>
  * 					             </li>
  *                </ul>
  * 			         </li>
@@ -3106,20 +3178,17 @@ export type SSLSupportMethod = "sni-only" | "static-ip" | "vip";
  * 					<i>Amazon CloudFront Developer Guide</i>.</p>
  * 			         </li>
  *             <li>
- * 				           <p>The location of the SSL/TLS certificate, <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">AWS
- * 					Certificate Manager (ACM)</a> (recommended) or <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">AWS Identity and Access Management (AWS IAM)</a>. You specify the location
+ * 				           <p>The location of the SSL/TLS certificate, <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">Certificate Manager (ACM)</a> (recommended) or <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Identity and Access Management (IAM)</a>. You specify the location
  * 					by setting a value in one of the following fields (not both):</p>
  * 				           <ul>
  *                   <li>
  * 						               <p>
  *                         <code>ACMCertificateArn</code>
- *
  *                      </p>
  * 					             </li>
  *                   <li>
  * 						               <p>
  *                         <code>IAMCertificateId</code>
- *
  *                      </p>
  * 					             </li>
  *                </ul>
@@ -3156,7 +3225,6 @@ export interface ViewerCertificate {
    *             <li>
    * 				           <p>
    *                   <code>SSLSupportMethod</code>
-   *
    *                </p>
    * 			         </li>
    *          </ul>
@@ -3165,23 +3233,20 @@ export interface ViewerCertificate {
 
   /**
    * <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs) and
-   * 			the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">AWS
-   * 			Identity and Access Management (AWS IAM)</a>, provide the ID of the IAM
+   * 			the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Identity and Access Management (IAM)</a>, provide the ID of the IAM
    * 			certificate.</p>
    * 		       <p>If you specify an IAM certificate ID, you must also specify values for
-   * 			<code>MinimumProtocolVersion</code> and <code>SSLSupportMethod</code>.
-   *       </p>
+   * 			<code>MinimumProtocolVersion</code> and <code>SSLSupportMethod</code>. </p>
    */
   IAMCertificateId?: string;
 
   /**
    * <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs) and
-   * 			the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">AWS Certificate Manager (ACM)</a>, provide the Amazon Resource
+   * 			the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">Certificate Manager (ACM)</a>, provide the Amazon Resource
    * 			Name (ARN) of the ACM certificate. CloudFront only supports ACM certificates in the US
    * 			East (N. Virginia) Region (<code>us-east-1</code>).</p>
    * 		       <p>If you specify an ACM certificate ARN, you must also specify values for
-   * 			<code>MinimumProtocolVersion</code> and <code>SSLSupportMethod</code>.
-   *       </p>
+   * 			<code>MinimumProtocolVersion</code> and <code>SSLSupportMethod</code>.</p>
    */
   ACMCertificateArn?: string;
 
@@ -3206,7 +3271,7 @@ export interface ViewerCertificate {
    *                   <code>static-ip</code> - Do not specify this value unless your distribution
    * 					has been enabled for this feature by the CloudFront team. If you have a use case
    * 					that requires static IP addresses for a distribution, contact CloudFront through
-   * 					the <a href="https://console.aws.amazon.com/support/home">AWS Support Center</a>.</p>
+   * 					the <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Support Center</a>.</p>
    * 			         </li>
    *          </ul>
    * 		       <p>If the distribution uses the CloudFront domain name such as
@@ -3235,8 +3300,7 @@ export interface ViewerCertificate {
    * 				Policy</b>.</p>
    * 		       </note>
    * 		       <p>When you’re using SNI only (you set <code>SSLSupportMethod</code> to <code>sni-only</code>),
-   * 			you must specify <code>TLSv1</code> or higher.
-   *       </p>
+   * 			you must specify <code>TLSv1</code> or higher.</p>
    * 		       <p>If the distribution uses the CloudFront domain name such as
    * 			<code>d111111abcdef8.cloudfront.net</code> (you set
    * 			<code>CloudFrontDefaultCertificate</code> to <code>true</code>), CloudFront automatically sets
@@ -3253,13 +3317,11 @@ export interface ViewerCertificate {
    *             <li>
    * 				           <p>
    *                   <code>ACMCertificateArn</code>
-   *
    *                </p>
    * 			         </li>
    *             <li>
    * 				           <p>
    *                   <code>IAMCertificateId</code>
-   *
    *                </p>
    * 			         </li>
    *             <li>
@@ -3279,13 +3341,11 @@ export interface ViewerCertificate {
    *             <li>
    * 				           <p>
    *                   <code>ACMCertificateArn</code>
-   *
    *                </p>
    * 			         </li>
    *             <li>
    * 				           <p>
    *                   <code>IAMCertificateId</code>
-   *
    *                </p>
    * 			         </li>
    *             <li>
@@ -3437,18 +3497,18 @@ export interface DistributionConfig {
   Restrictions?: Restrictions;
 
   /**
-   * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate
-   * 			with this distribution. To specify a web ACL created using the latest version of AWS
-   * 			WAF, use the ACL ARN, for example
+   * <p>A unique identifier that specifies the WAF web ACL, if any, to associate
+   * 			with this distribution. To specify a web ACL created using the latest version of
+   *             WAF, use the ACL ARN, for example
    * 			<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
-   * 			To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
+   * 			To specify a web ACL created using WAF Classic, use the ACL ID, for example
    * 			<code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
-   * 		       <p>AWS WAF is a web application firewall that lets you monitor the HTTP and HTTPS
+   * 		       <p>WAF is a web application firewall that lets you monitor the HTTP and HTTPS
    * 			requests that are forwarded to CloudFront, and lets you control access to your content. Based on
    * 			conditions that you specify, such as the IP addresses that requests originate from or the
    * 			values of query strings, CloudFront responds to requests either with the requested content or with
    * 			an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page
-   * 			when a request is blocked. For more information about AWS WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS WAF
+   * 			when a request is blocked. For more information about WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">WAF
    * 				Developer Guide</a>. </p>
    */
   WebACLId?: string;
@@ -3477,9 +3537,8 @@ export interface DistributionConfig {
    * 			you want to restrict access to some content by IP address and not restrict access to other
    * 			content (or restrict access but not by IP address), you can create two distributions. For more
    * 			information, see
-   * 			<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html">Creating a Signed URL Using a Custom Policy</a> in the <i>Amazon CloudFront Developer
-   * 				Guide</i>.</p>
-   * 		       <p>If you're using an Amazon Route 53 alias resource record set to route traffic to your CloudFront
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html">Creating a Signed URL Using a Custom Policy</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>If you're using an Route 53 Amazon Web Services Integration alias resource record set to route traffic to your CloudFront
    * 			distribution, you need to create a second alias resource record set when both of the following
    * 			are true:</p>
    * 		       <ul>
@@ -3491,9 +3550,9 @@ export interface DistributionConfig {
    * 			         </li>
    *          </ul>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html">Routing Traffic
-   * 				to an Amazon CloudFront Web Distribution by Using Your Domain Name</a> in the <i>Amazon Route 53
+   * 				to an Amazon CloudFront Web Distribution by Using Your Domain Name</a> in the <i>Route 53 Amazon Web Services Integration
    * 				Developer Guide</i>.</p>
-   * 		       <p>If you created a CNAME resource record set, either with Amazon Route 53 or with another DNS
+   * 		       <p>If you created a CNAME resource record set, either with Route 53 Amazon Web Services Integration or with another DNS
    * 			service, you don't need to make any changes. A CNAME record will route traffic to your
    * 			distribution regardless of the IP address format of the viewer request.</p>
    */
@@ -3546,7 +3605,7 @@ export interface Distribution {
   /**
    * <p>The ARN (Amazon Resource Name) for the distribution. For example:
    * 				<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
-   * 				<code>123456789012</code> is your AWS account ID.</p>
+   * 				<code>123456789012</code> is your account ID.</p>
    */
   ARN: string | undefined;
 
@@ -3579,7 +3638,7 @@ export interface Distribution {
    * 		       </important>
    * 		       <p>CloudFront automatically adds this field to the response if you’ve configured a cache behavior in
    * 			this distribution to serve private content using trusted signers. This field contains a
-   * 			list of AWS account IDs and the active CloudFront key pairs in each account that CloudFront can use
+   * 			list of account IDs and the active CloudFront key pairs in each account that CloudFront can use
    * 			to verify the signatures of signed URLs or signed cookies.</p>
    */
   ActiveTrustedSigners?: ActiveTrustedSigners;
@@ -3600,11 +3659,11 @@ export interface Distribution {
   DistributionConfig: DistributionConfig | undefined;
 
   /**
-   * <p>AWS services in China customers must file for an Internet Content Provider (ICP) recordal if they want to serve content
+   * <p>Amazon Web Services services in China customers must file for an Internet Content Provider (ICP) recordal if they want to serve content
    * 			publicly on an alternate domain name, also known as a CNAME, that they've added to CloudFront. AliasICPRecordal provides the ICP
    * 			recordal status for CNAMEs associated with distributions.</p>
    * 		       <p>For more information about ICP recordals, see  <a href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
-   * 			Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in China</i>.</p>
+   * 			Signup, Accounts, and Credentials</a> in <i>Getting Started with Amazon Web Services services in China</i>.</p>
    */
   AliasICPRecordals?: AliasICPRecordal[];
 }
@@ -3799,7 +3858,7 @@ export namespace InvalidHeadersForS3Origin {
 }
 
 /**
- * <p>The specified Lambda function association is invalid.</p>
+ * <p>The specified Lambda@Edge function association is invalid.</p>
  */
 export interface InvalidLambdaFunctionAssociation extends __SmithyException, $MetadataBearer {
   name: "InvalidLambdaFunctionAssociation";
@@ -4054,9 +4113,9 @@ export namespace InvalidViewerCertificate {
 
 /**
  * <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest
- * 			version of AWS WAF, use the ACL ARN, for example
+ * 			version of WAF, use the ACL ARN, for example
  * 			<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
- * 			To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
+ * 			To specify a web ACL created using WAF Classic, use the ACL ID, for example
  * 			<code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
  */
 export interface InvalidWebACLId extends __SmithyException, $MetadataBearer {
@@ -4165,7 +4224,7 @@ export namespace NoSuchRealtimeLogConfig {
 }
 
 /**
- * <p>The specified real-time log configuration belongs to a different AWS account.</p>
+ * <p>The specified real-time log configuration belongs to a different account.</p>
  */
 export interface RealtimeLogConfigOwnerMismatch extends __SmithyException, $MetadataBearer {
   name: "RealtimeLogConfigOwnerMismatch";
@@ -4232,24 +4291,6 @@ export namespace TooManyCookieNamesInWhiteList {
    * @internal
    */
   export const filterSensitiveLog = (obj: TooManyCookieNamesInWhiteList): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
- */
-export interface TooManyDistributionCNAMEs extends __SmithyException, $MetadataBearer {
-  name: "TooManyDistributionCNAMEs";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyDistributionCNAMEs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyDistributionCNAMEs): any => ({
     ...obj,
   });
 }
@@ -4371,7 +4412,7 @@ export namespace TooManyDistributionsWithFunctionAssociations {
 }
 
 /**
- * <p>Processing your request would cause the maximum number of distributions with Lambda function associations per owner
+ * <p>Processing your request would cause the maximum number of distributions with Lambda@Edge function associations per owner
  * 			to be exceeded.</p>
  */
 export interface TooManyDistributionsWithLambdaAssociations extends __SmithyException, $MetadataBearer {
@@ -4390,7 +4431,7 @@ export namespace TooManyDistributionsWithLambdaAssociations {
 }
 
 /**
- * <p>The maximum number of distributions have been associated with the specified Lambda
+ * <p>The maximum number of distributions have been associated with the specified Lambda@Edge
  * 			function.</p>
  */
 export interface TooManyDistributionsWithSingleFunctionARN extends __SmithyException, $MetadataBearer {
@@ -4467,7 +4508,7 @@ export namespace TooManyKeyGroupsAssociatedToDistribution {
 }
 
 /**
- * <p>Your request contains more Lambda function associations than are allowed per distribution.</p>
+ * <p>Your request contains more Lambda@Edge function associations than are allowed per distribution.</p>
  */
 export interface TooManyLambdaFunctionAssociations extends __SmithyException, $MetadataBearer {
   name: "TooManyLambdaFunctionAssociations";
@@ -5591,7 +5632,7 @@ export namespace CreateFunctionResult {
 }
 
 /**
- * <p>A function with the same name already exists in this AWS account. To create a
+ * <p>A function with the same name already exists in this account. To create a
  * 			function, you must provide a unique name. To update an existing function, use
  * 			<code>UpdateFunction</code>.</p>
  */
@@ -5630,7 +5671,7 @@ export namespace FunctionSizeLimitExceeded {
 }
 
 /**
- * <p>You have reached the maximum number of CloudFront functions for this AWS account. For more
+ * <p>You have reached the maximum number of CloudFront functions for this account. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
@@ -5645,6 +5686,24 @@ export namespace TooManyFunctions {
    * @internal
    */
   export const filterSensitiveLog = (obj: TooManyFunctions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This operation is not supported in this region.</p>
+ */
+export interface UnsupportedOperation extends __SmithyException, $MetadataBearer {
+  name: "UnsupportedOperation";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace UnsupportedOperation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnsupportedOperation): any => ({
     ...obj,
   });
 }
@@ -5799,24 +5858,6 @@ export namespace CreateInvalidationResult {
 }
 
 /**
- * <p>The specified distribution does not exist.</p>
- */
-export interface NoSuchDistribution extends __SmithyException, $MetadataBearer {
-  name: "NoSuchDistribution";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchDistribution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchDistribution): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
  */
 export interface TooManyInvalidationsInProgress extends __SmithyException, $MetadataBearer {
@@ -5957,7 +5998,7 @@ export namespace KeyGroupAlreadyExists {
 }
 
 /**
- * <p>You have reached the maximum number of key groups for this AWS account. For more
+ * <p>You have reached the maximum number of key groups for this account. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
@@ -6076,24 +6117,6 @@ export namespace CreateMonitoringSubscriptionResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateMonitoringSubscriptionResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>This operation is not supported in this region.</p>
- */
-export interface UnsupportedOperation extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperation";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace UnsupportedOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperation): any => ({
     ...obj,
   });
 }
@@ -6467,7 +6490,7 @@ export namespace TooManyHeadersInOriginRequestPolicy {
 }
 
 /**
- * <p>You have reached the maximum number of origin request policies for this AWS account.
+ * <p>You have reached the maximum number of origin request policies for this account.
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
@@ -6655,7 +6678,7 @@ export namespace TooManyPublicKeys {
  */
 export interface KinesisStreamConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that
+   * <p>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that
    * 			CloudFront can use to send real-time log data to your Kinesis data stream.</p>
    * 		       <p>For more information the IAM role, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role">Real-time log configuration IAM role</a> in the
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -6824,7 +6847,7 @@ export namespace RealtimeLogConfigAlreadyExists {
 }
 
 /**
- * <p>You have reached the maximum number of real-time log configurations for this AWS account.
+ * <p>You have reached the maximum number of real-time log configurations for this account.
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
@@ -6955,7 +6978,7 @@ export interface StreamingDistributionConfig {
   Logging?: StreamingLoggingConfig;
 
   /**
-   * <p>A complex type that specifies any AWS accounts that you want to permit to create signed
+   * <p>A complex type that specifies any accounts that you want to permit to create signed
    * 			URLs for private content. If you want the distribution to use signed URLs, include this
    * 			element; if you want the distribution to use public URLs, remove this element. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through
@@ -7018,7 +7041,7 @@ export interface StreamingDistribution {
   /**
    * <p>The ARN (Amazon Resource Name) for the distribution. For example:
    * 			<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
-   * 			<code>123456789012</code> is your AWS account ID.</p>
+   * 			<code>123456789012</code> is your account ID.</p>
    */
   ARN: string | undefined;
 
@@ -7039,13 +7062,13 @@ export interface StreamingDistribution {
   DomainName: string | undefined;
 
   /**
-   * <p>A complex type that lists the AWS accounts, if any, that you included in the
+   * <p>A complex type that lists the accounts, if any, that you included in the
    * 				<code>TrustedSigners</code> complex type for this distribution. These are the accounts that
    * 			you want to allow to create signed URLs for private content.</p>
-   * 		       <p>The <code>Signer</code> complex type lists the AWS account number of the trusted
-   * 			signer or <code>self</code> if the signer is the AWS account that created the distribution.
+   * 		       <p>The <code>Signer</code> complex type lists the account number of the trusted
+   * 			signer or <code>self</code> if the signer is the account that created the distribution.
    * 			The <code>Signer</code> element also includes the IDs of any active CloudFront key pairs that are
-   * 			associated with the trusted signer's AWS account. If no <code>KeyPairId</code> element
+   * 			associated with the trusted signer's account. If no <code>KeyPairId</code> element
    * 			appears for a <code>Signer</code>, that signer can't create signed URLs.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private
    * 				Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
@@ -8205,43 +8228,6 @@ export namespace GetFieldLevelEncryptionResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetFieldLevelEncryptionResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetFieldLevelEncryptionConfigRequest {
-  /**
-   * <p>Request the ID for the field-level encryption configuration information.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetFieldLevelEncryptionConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetFieldLevelEncryptionConfigResult {
-  /**
-   * <p>Return the field-level encryption configuration information.</p>
-   */
-  FieldLevelEncryptionConfig?: FieldLevelEncryptionConfig;
-
-  /**
-   * <p>The current version of the field level encryption configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetFieldLevelEncryptionConfigResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionConfigResult): any => ({
     ...obj,
   });
 }

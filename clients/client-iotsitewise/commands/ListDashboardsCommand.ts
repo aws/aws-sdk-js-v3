@@ -21,7 +21,7 @@ export interface ListDashboardsCommandInput extends ListDashboardsRequest {}
 export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of dashboards for an AWS IoT SiteWise Monitor project.</p>
+ * <p>Retrieves a paginated list of dashboards for an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

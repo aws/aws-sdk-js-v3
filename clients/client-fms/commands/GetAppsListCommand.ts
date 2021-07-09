@@ -21,7 +21,7 @@ export interface GetAppsListCommandInput extends GetAppsListRequest {}
 export interface GetAppsListCommandOutput extends GetAppsListResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the specified AWS Firewall Manager applications list.</p>
+ * <p>Returns information about the specified Firewall Manager applications list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

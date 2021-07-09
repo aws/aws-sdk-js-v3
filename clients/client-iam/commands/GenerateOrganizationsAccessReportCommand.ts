@@ -26,13 +26,13 @@ export interface GenerateOrganizationsAccessReportCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Generates a report for service last accessed data for AWS Organizations. You can generate a report
- *             for any entities (organization root, organizational unit, or account) or policies in
- *             your organization.</p>
- *         <p>To call this operation, you must be signed in using your AWS Organizations management account
+ * <p>Generates a report for service last accessed data for Organizations. You can generate a
+ *             report for any entities (organization root, organizational unit, or account) or policies
+ *             in your organization.</p>
+ *         <p>To call this operation, you must be signed in using your Organizations management account
  *             credentials. You can use your long-term IAM user or root user credentials, or
  *             temporary credentials from assuming an IAM role. SCPs must be enabled for your
- *             organization root. You must have the required IAM and AWS Organizations permissions. For more
+ *             organization root. You must have the required IAM and Organizations permissions. For more
  *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining permissions using
  *                 service last accessed data</a> in the
  *             <i>IAM User Guide</i>.</p>
@@ -40,7 +40,7 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *             the entity's path. This data includes a list of services that are allowed by any service
  *             control policies (SCPs) that apply to the entity.</p>
  *         <p>You can generate a service last accessed data report for a policy by specifying an
- *             entity's path and an optional AWS Organizations policy ID. This data includes a list of services that
+ *             entity's path and an optional Organizations policy ID. This data includes a list of services that
  *             are allowed by the specified SCP.</p>
  *         <p>For each service in both report types, the data includes the most recent account
  *             activity that the policy allows to account principals in the entity or the entity's
@@ -49,8 +49,8 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *                 service last accessed data</a> in the
  *             <i>IAM User Guide</i>.</p>
  *         <important>
- *             <p>The data includes all attempts to access AWS, not just the successful ones. This
- *                 includes all attempts that were made using the AWS Management Console, the AWS API through any
+ *             <p>The data includes all attempts to access Amazon Web Services, not just the successful ones. This
+ *                 includes all attempts that were made using the Management Console, the Amazon Web Services API through any
  *                 of the SDKs, or any of the command line tools. An unexpected entry in the service
  *                 last accessed data does not mean that an account has been compromised, because the
  *                 request might have been denied. Refer to your CloudTrail logs as the authoritative
@@ -68,7 +68,7 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *             and test the <code>JobStatus</code> response parameter. When the job is complete, you
  *             can retrieve the report.</p>
  *         <p>To generate a service last accessed data report for entities, specify an entity path
- *             without specifying the optional AWS Organizations policy ID. The type of entity that you specify
+ *             without specifying the optional Organizations policy ID. The type of entity that you specify
  *             determines the data returned in the report.</p>
  *         <ul>
  *             <li>
@@ -91,7 +91,7 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *             <li>
  *                 <p>
  *                   <b>management account</b> – When you specify the
- *                     management account, the resulting report lists all AWS services, because the
+ *                     management account, the resulting report lists all Amazon Web Services services, because the
  *                     management account is not limited by SCPs. For each service, the report includes
  *                     data for only the management account.</p>
  *             </li>
@@ -104,7 +104,7 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *             </li>
  *          </ul>
  *         <p>To generate a service last accessed data report for policies, specify an entity path
- *             and the optional AWS Organizations policy ID. The type of entity that you specify determines the data
+ *             and the optional Organizations policy ID. The type of entity that you specify determines the data
  *             returned for each service.</p>
  *         <ul>
  *             <li>
@@ -132,7 +132,7 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *             <li>
  *                 <p>
  *                   <b>management account</b> – When you specify the
- *                     management account, the resulting report lists all AWS services, because the
+ *                     management account, the resulting report lists all Amazon Web Services services, because the
  *                     management account is not limited by SCPs. If you specify a policy ID in the CLI
  *                     or API, the policy is ignored. For each service, the report includes data for
  *                     only the management account.</p>

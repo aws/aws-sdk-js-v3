@@ -27,7 +27,7 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
  *             parameters.</p>
  *         <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
  *                 with server certificates</a> in the <i>IAM User Guide</i>. This
- *             topic also includes a list of AWS services that can use the server certificates that
+ *             topic also includes a list of Amazon Web Services services that can use the server certificates that
  *             you manage with IAM.</p>
  *         <note>
  *             <p>IAM resource-listing operations return a subset of the available

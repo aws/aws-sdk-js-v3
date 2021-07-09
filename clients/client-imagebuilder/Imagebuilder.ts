@@ -227,7 +227,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>EC2 Image Builder is a fully managed AWS service that makes it easier to automate the
+ * <p>EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the
  *       creation, management, and deployment of customized, secure, and up-to-date "golden" server
  *       images that are pre-installed and pre-configured with software and settings to meet specific
  *       IT standards.</p>
@@ -1245,7 +1245,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p>List the Packages that are associated with an Image Build Version, as determined by AWS Systems Manager Inventory at build time.</p>
+   * <p>List the Packages that are associated with an Image Build Version, as determined by Amazon EC2 Systems Manager Inventory at build time.</p>
    */
   public listImagePackages(
     args: ListImagePackagesCommandInput,

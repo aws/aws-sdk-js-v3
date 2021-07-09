@@ -338,6 +338,38 @@ export namespace ValidationException {
   });
 }
 
+/**
+ * <p>
+ * 			A time range that specifies when DevOps Guru opens and then closes an anomaly. This is different from
+ * 			<code>AnomalyTimeRange</code>, which specifies the time range when DevOps Guru actually observes
+ * 			the anomalous behavior.
+ * 		</p>
+ */
+export interface AnomalyReportedTimeRange {
+  /**
+   * <p>
+   * 			The time when an anomaly is opened.
+   * 		</p>
+   */
+  OpenTime: Date | undefined;
+
+  /**
+   * <p>
+   * 			The time when an anomaly is closed.
+   * 		</p>
+   */
+  CloseTime?: Date;
+}
+
+export namespace AnomalyReportedTimeRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnomalyReportedTimeRange): any => ({
+    ...obj,
+  });
+}
+
 export enum AnomalySeverity {
   HIGH = "HIGH",
   LOW = "LOW",
@@ -475,7 +507,9 @@ export enum AnomalyStatus {
 
 /**
  * <p>
- * 			A time range that specifies when the observed unusual behavior in an anomaly started and ended.
+ * 			A time range that specifies when the observed unusual behavior in an anomaly started and ended. This is different from
+ * 			<code>AnomalyReportedTimeRange</code>, which specifies the time range when DevOps Guru opens and then closes
+ * 			an anomaly.
  * 		</p>
  */
 export interface AnomalyTimeRange {
@@ -743,10 +777,19 @@ export interface ProactiveAnomaly {
 
   /**
    * <p>
-   * 			A time range that specifies when the observed unusual behavior in an anomaly started and ended.
+   * 			A time range that specifies when the observed unusual behavior in an anomaly started and ended. This is different from
+   * 			<code>AnomalyReportedTimeRange</code>, which specifies the time range when DevOps Guru opens and then closes
+   * 			an anomaly.
    * 		</p>
    */
   AnomalyTimeRange?: AnomalyTimeRange;
+
+  /**
+   * <p>
+   * 			A <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
+   * 		</p>
+   */
+  AnomalyReportedTimeRange?: AnomalyReportedTimeRange;
 
   /**
    * <p>
@@ -818,10 +861,19 @@ export interface ReactiveAnomaly {
 
   /**
    * <p>
-   * 			A time range that specifies when the observed unusual behavior in an anomaly started and ended.
+   * 			A time range that specifies when the observed unusual behavior in an anomaly started and ended. This is different from
+   * 			<code>AnomalyReportedTimeRange</code>, which specifies the time range when DevOps Guru opens and then closes
+   * 			an anomaly.
    * 		</p>
    */
   AnomalyTimeRange?: AnomalyTimeRange;
+
+  /**
+   * <p>
+   * 			A <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
+   * 		</p>
+   */
+  AnomalyReportedTimeRange?: AnomalyReportedTimeRange;
 
   /**
    * <p>
@@ -1847,10 +1899,19 @@ export interface ProactiveAnomalySummary {
 
   /**
    * <p>
-   * 			A time range that specifies when the observed unusual behavior in an anomaly started and ended.
+   * 			A time range that specifies when the observed unusual behavior in an anomaly started and ended. This is different from
+   * 			<code>AnomalyReportedTimeRange</code>, which specifies the time range when DevOps Guru opens and then closes
+   * 			an anomaly.
    * 		</p>
    */
   AnomalyTimeRange?: AnomalyTimeRange;
+
+  /**
+   * <p>
+   * 			A <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
+   * 		</p>
+   */
+  AnomalyReportedTimeRange?: AnomalyReportedTimeRange;
 
   /**
    * <p>
@@ -1928,10 +1989,19 @@ export interface ReactiveAnomalySummary {
 
   /**
    * <p>
-   * 			A time range that specifies when the observed unusual behavior in an anomaly started and ended.
+   * 			A time range that specifies when the observed unusual behavior in an anomaly started and ended. This is different from
+   * 			<code>AnomalyReportedTimeRange</code>, which specifies the time range when DevOps Guru opens and then closes
+   * 			an anomaly.
    * 		</p>
    */
   AnomalyTimeRange?: AnomalyTimeRange;
+
+  /**
+   * <p>
+   * 			A <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
+   * 		</p>
+   */
+  AnomalyReportedTimeRange?: AnomalyReportedTimeRange;
 
   /**
    * <p>

@@ -27,9 +27,9 @@ export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns the IAM roles that are associated with the specified AWS Certificate Manager (ACM) certificate.
- * 			It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate, certificate chain,
- * 			and encrypted private key bundle are stored, and the ARN of the AWS Key Management Service (KMS) customer master key (CMK)
+ * <p>Returns the IAM roles that are associated with the specified ACM (ACM) certificate.
+ * 			It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate,
+ * 			certificate chain, and encrypted private key bundle are stored, and the ARN of the KMS key
  * 			that's used to encrypt the private key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

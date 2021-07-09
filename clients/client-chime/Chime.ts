@@ -106,6 +106,11 @@ import {
   CreateChannelModeratorCommandOutput,
 } from "./commands/CreateChannelModeratorCommand";
 import {
+  CreateMediaCapturePipelineCommand,
+  CreateMediaCapturePipelineCommandInput,
+  CreateMediaCapturePipelineCommandOutput,
+} from "./commands/CreateMediaCapturePipelineCommand";
+import {
   CreateMeetingCommand,
   CreateMeetingCommandInput,
   CreateMeetingCommandOutput,
@@ -222,6 +227,11 @@ import {
   DeleteEventsConfigurationCommandInput,
   DeleteEventsConfigurationCommandOutput,
 } from "./commands/DeleteEventsConfigurationCommand";
+import {
+  DeleteMediaCapturePipelineCommand,
+  DeleteMediaCapturePipelineCommandInput,
+  DeleteMediaCapturePipelineCommandOutput,
+} from "./commands/DeleteMediaCapturePipelineCommand";
 import {
   DeleteMeetingCommand,
   DeleteMeetingCommandInput,
@@ -391,6 +401,11 @@ import {
   GetGlobalSettingsCommandInput,
   GetGlobalSettingsCommandOutput,
 } from "./commands/GetGlobalSettingsCommand";
+import {
+  GetMediaCapturePipelineCommand,
+  GetMediaCapturePipelineCommandInput,
+  GetMediaCapturePipelineCommandOutput,
+} from "./commands/GetMediaCapturePipelineCommand";
 import { GetMeetingCommand, GetMeetingCommandInput, GetMeetingCommandOutput } from "./commands/GetMeetingCommand";
 import {
   GetMessagingSessionEndpointCommand,
@@ -552,6 +567,11 @@ import {
   ListChannelsModeratedByAppInstanceUserCommandInput,
   ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "./commands/ListChannelsModeratedByAppInstanceUserCommand";
+import {
+  ListMediaCapturePipelinesCommand,
+  ListMediaCapturePipelinesCommandInput,
+  ListMediaCapturePipelinesCommandOutput,
+} from "./commands/ListMediaCapturePipelinesCommand";
 import {
   ListMeetingTagsCommand,
   ListMeetingTagsCommandInput,
@@ -1722,6 +1742,38 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Creates a media capture pipeline.</p>
+   */
+  public createMediaCapturePipeline(
+    args: CreateMediaCapturePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMediaCapturePipelineCommandOutput>;
+  public createMediaCapturePipeline(
+    args: CreateMediaCapturePipelineCommandInput,
+    cb: (err: any, data?: CreateMediaCapturePipelineCommandOutput) => void
+  ): void;
+  public createMediaCapturePipeline(
+    args: CreateMediaCapturePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMediaCapturePipelineCommandOutput) => void
+  ): void;
+  public createMediaCapturePipeline(
+    args: CreateMediaCapturePipelineCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMediaCapturePipelineCommandOutput) => void),
+    cb?: (err: any, data?: CreateMediaCapturePipelineCommandOutput) => void
+  ): Promise<CreateMediaCapturePipelineCommandOutput> | void {
+    const command = new CreateMediaCapturePipelineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>
    * Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about specifying media Regions, see
    * <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
@@ -2580,6 +2632,38 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: DeleteEventsConfigurationCommandOutput) => void
   ): Promise<DeleteEventsConfigurationCommandOutput> | void {
     const command = new DeleteEventsConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the media capture pipeline.</p>
+   */
+  public deleteMediaCapturePipeline(
+    args: DeleteMediaCapturePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMediaCapturePipelineCommandOutput>;
+  public deleteMediaCapturePipeline(
+    args: DeleteMediaCapturePipelineCommandInput,
+    cb: (err: any, data?: DeleteMediaCapturePipelineCommandOutput) => void
+  ): void;
+  public deleteMediaCapturePipeline(
+    args: DeleteMediaCapturePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMediaCapturePipelineCommandOutput) => void
+  ): void;
+  public deleteMediaCapturePipeline(
+    args: DeleteMediaCapturePipelineCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMediaCapturePipelineCommandOutput) => void),
+    cb?: (err: any, data?: DeleteMediaCapturePipelineCommandOutput) => void
+  ): Promise<DeleteMediaCapturePipelineCommandOutput> | void {
+    const command = new DeleteMediaCapturePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3841,6 +3925,38 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Gets an existing media capture pipeline.</p>
+   */
+  public getMediaCapturePipeline(
+    args: GetMediaCapturePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMediaCapturePipelineCommandOutput>;
+  public getMediaCapturePipeline(
+    args: GetMediaCapturePipelineCommandInput,
+    cb: (err: any, data?: GetMediaCapturePipelineCommandOutput) => void
+  ): void;
+  public getMediaCapturePipeline(
+    args: GetMediaCapturePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMediaCapturePipelineCommandOutput) => void
+  ): void;
+  public getMediaCapturePipeline(
+    args: GetMediaCapturePipelineCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMediaCapturePipelineCommandOutput) => void),
+    cb?: (err: any, data?: GetMediaCapturePipelineCommandOutput) => void
+  ): Promise<GetMediaCapturePipelineCommandOutput> | void {
+    const command = new GetMediaCapturePipelineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>
    * Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more information about the Amazon Chime SDK, see
    * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -5070,6 +5186,38 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
   ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput> | void {
     const command = new ListChannelsModeratedByAppInstanceUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of media capture pipelines.</p>
+   */
+  public listMediaCapturePipelines(
+    args: ListMediaCapturePipelinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMediaCapturePipelinesCommandOutput>;
+  public listMediaCapturePipelines(
+    args: ListMediaCapturePipelinesCommandInput,
+    cb: (err: any, data?: ListMediaCapturePipelinesCommandOutput) => void
+  ): void;
+  public listMediaCapturePipelines(
+    args: ListMediaCapturePipelinesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMediaCapturePipelinesCommandOutput) => void
+  ): void;
+  public listMediaCapturePipelines(
+    args: ListMediaCapturePipelinesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMediaCapturePipelinesCommandOutput) => void),
+    cb?: (err: any, data?: ListMediaCapturePipelinesCommandOutput) => void
+  ): Promise<ListMediaCapturePipelinesCommandOutput> | void {
+    const command = new ListMediaCapturePipelinesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

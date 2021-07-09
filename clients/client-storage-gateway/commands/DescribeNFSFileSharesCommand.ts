@@ -21,8 +21,8 @@ export interface DescribeNFSFileSharesCommandInput extends DescribeNFSFileShares
 export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileSharesOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a description for one or more Network File System (NFS) file shares from a file
- *          gateway. This operation is only supported for file gateways.</p>
+ * <p>Gets a description for one or more Network File System (NFS) file shares from an S3 File
+ *          Gateway. This operation is only supported for S3 File Gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

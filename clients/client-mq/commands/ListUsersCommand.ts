@@ -21,7 +21,7 @@ export interface ListUsersCommandInput extends ListUsersRequest {}
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
- * Returns a list of all ActiveMQ users.
+ * <p>Returns a list of all ActiveMQ users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

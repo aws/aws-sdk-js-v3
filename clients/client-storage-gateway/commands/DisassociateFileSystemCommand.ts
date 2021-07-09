@@ -23,7 +23,7 @@ export interface DisassociateFileSystemCommandOutput extends DisassociateFileSys
 /**
  * <p>Disassociates an Amazon FSx file system from the specified gateway. After the
  *          disassociation process finishes, the gateway can no longer access the Amazon FSx file
- *          system. This operation is only supported in the Amazon FSx file gateway type.</p>
+ *          system. This operation is only supported in the FSx File Gateway type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

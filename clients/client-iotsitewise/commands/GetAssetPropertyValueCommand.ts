@@ -22,7 +22,7 @@ export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValu
 
 /**
  * <p>Gets an asset property's current value. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
- *         current values</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ *         current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
  *          <ul>
  *             <li>

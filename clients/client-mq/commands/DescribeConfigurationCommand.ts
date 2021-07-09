@@ -21,7 +21,7 @@ export interface DescribeConfigurationCommandInput extends DescribeConfiguration
 export interface DescribeConfigurationCommandOutput extends DescribeConfigurationResponse, __MetadataBearer {}
 
 /**
- * Returns information about the specified configuration.
+ * <p>Returns information about the specified configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

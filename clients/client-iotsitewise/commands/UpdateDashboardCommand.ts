@@ -21,7 +21,7 @@ export interface UpdateDashboardCommandInput extends UpdateDashboardRequest {}
 export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an AWS IoT SiteWise Monitor dashboard.</p>
+ * <p>Updates an IoT SiteWise Monitor dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

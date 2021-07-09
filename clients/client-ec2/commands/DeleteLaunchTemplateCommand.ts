@@ -1,5 +1,6 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteLaunchTemplateRequest, DeleteLaunchTemplateResult } from "../models/models_1";
+import { DeleteLaunchTemplateRequest } from "../models/models_1";
+import { DeleteLaunchTemplateResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteLaunchTemplateCommand,
   serializeAws_ec2DeleteLaunchTemplateCommand,

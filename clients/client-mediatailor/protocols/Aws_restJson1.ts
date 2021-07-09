@@ -33,6 +33,7 @@ import {
   GetPlaybackConfigurationCommandInput,
   GetPlaybackConfigurationCommandOutput,
 } from "../commands/GetPlaybackConfigurationCommand";
+import { ListAlertsCommandInput, ListAlertsCommandOutput } from "../commands/ListAlertsCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
 import {
   ListPlaybackConfigurationsCommandInput,
@@ -66,6 +67,7 @@ import {
   AccessConfiguration,
   AdBreak,
   AdMarkerPassthrough,
+  Alert,
   AvailSuppression,
   BadRequestException,
   Bumper,
@@ -717,6 +719,31 @@ export const serializeAws_restJson1GetPlaybackConfigurationCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAlertsCommand = async (
+  input: ListAlertsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alerts";
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.ResourceArn !== undefined && { resourceArn: input.ResourceArn }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -2288,6 +2315,57 @@ const deserializeAws_restJson1GetPlaybackConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListAlertsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAlertsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAlertsCommandError(output, context);
+  }
+  const contents: ListAlertsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Items: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Items !== undefined && data.Items !== null) {
+    contents.Items = deserializeAws_restJson1__listOfAlert(data.Items, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAlertsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAlertsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListChannelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3410,6 +3488,17 @@ const serializeAws_restJson1Transition = (input: Transition, context: __SerdeCon
   };
 };
 
+const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_restJson1__listOfAdBreak = (output: any, context: __SerdeContext): AdBreak[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -3418,6 +3507,17 @@ const deserializeAws_restJson1__listOfAdBreak = (output: any, context: __SerdeCo
         return null as any;
       }
       return deserializeAws_restJson1AdBreak(entry, context);
+    });
+};
+
+const deserializeAws_restJson1__listOfAlert = (output: any, context: __SerdeContext): Alert[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Alert(entry, context);
     });
 };
 
@@ -3534,6 +3634,22 @@ const deserializeAws_restJson1AdBreak = (output: any, context: __SerdeContext): 
 const deserializeAws_restJson1AdMarkerPassthrough = (output: any, context: __SerdeContext): AdMarkerPassthrough => {
   return {
     Enabled: __expectBoolean(output.Enabled),
+  } as any;
+};
+
+const deserializeAws_restJson1Alert = (output: any, context: __SerdeContext): Alert => {
+  return {
+    AlertCode: __expectString(output.AlertCode),
+    AlertMessage: __expectString(output.AlertMessage),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    RelatedResourceArns:
+      output.RelatedResourceArns !== undefined && output.RelatedResourceArns !== null
+        ? deserializeAws_restJson1__listOf__string(output.RelatedResourceArns, context)
+        : undefined,
+    ResourceArn: __expectString(output.ResourceArn),
   } as any;
 };
 

@@ -23,7 +23,7 @@ export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOut
 /**
  * <p>Sets the password for the guest user <code>smbguest</code>. The <code>smbguest</code>
  *          user is the user when the authentication method for the file share is set to
- *             <code>GuestAccess</code>.</p>
+ *          <code>GuestAccess</code>. This operation only supported for S3 File Gateways</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

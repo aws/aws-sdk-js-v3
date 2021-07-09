@@ -55,11 +55,10 @@ import {
 } from "./models_0";
 import {
   CapacityReservationTargetResponse,
-  DeleteLaunchTemplateVersionsResponseSuccessItem,
   FleetStateCode,
   GroupIdentifier,
   InstanceIpv6Address,
-  LaunchTemplateErrorCode,
+  LaunchTemplate,
   LocalGatewayRoute,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
@@ -72,6 +71,96 @@ import {
   TransitGatewayRoute,
   TransitGatewayRouteTable,
 } from "./models_1";
+
+export interface DeleteLaunchTemplateResult {
+  /**
+   * <p>Information about the launch template.</p>
+   */
+  LaunchTemplate?: LaunchTemplate;
+}
+
+export namespace DeleteLaunchTemplateResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLaunchTemplateResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteLaunchTemplateVersionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the launch template. You must specify either the launch template ID or
+   *             launch template name in the request.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template. You must specify either the launch template ID or
+   *             launch template name in the request.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The version numbers of one or more launch template versions to delete.</p>
+   */
+  Versions: string[] | undefined;
+}
+
+export namespace DeleteLaunchTemplateVersionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a launch template version that was successfully deleted.</p>
+ */
+export interface DeleteLaunchTemplateVersionsResponseSuccessItem {
+  /**
+   * <p>The ID of the launch template.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The version number of the launch template.</p>
+   */
+  VersionNumber?: number;
+}
+
+export namespace DeleteLaunchTemplateVersionsResponseSuccessItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsResponseSuccessItem): any => ({
+    ...obj,
+  });
+}
+
+export enum LaunchTemplateErrorCode {
+  LAUNCH_TEMPLATE_ID_DOES_NOT_EXIST = "launchTemplateIdDoesNotExist",
+  LAUNCH_TEMPLATE_ID_MALFORMED = "launchTemplateIdMalformed",
+  LAUNCH_TEMPLATE_NAME_DOES_NOT_EXIST = "launchTemplateNameDoesNotExist",
+  LAUNCH_TEMPLATE_NAME_MALFORMED = "launchTemplateNameMalformed",
+  LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST = "launchTemplateVersionDoesNotExist",
+  UNEXPECTED_ERROR = "unexpectedError",
+}
 
 /**
  * <p>Describes the error that's returned when you cannot delete a launch template
@@ -10439,39 +10528,3 @@ export namespace InstanceStatusEvent {
     ...obj,
   });
 }
-
-export type StatusName = "reachability";
-
-export type StatusType = "failed" | "initializing" | "insufficient-data" | "passed";
-
-/**
- * <p>Describes the instance status.</p>
- */
-export interface InstanceStatusDetails {
-  /**
-   * <p>The time when a status check failed. For an instance that was launched and impaired,
-   *             this is the time when the instance was launched.</p>
-   */
-  ImpairedSince?: Date;
-
-  /**
-   * <p>The type of instance status.</p>
-   */
-  Name?: StatusName | string;
-
-  /**
-   * <p>The status.</p>
-   */
-  Status?: StatusType | string;
-}
-
-export namespace InstanceStatusDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceStatusDetails): any => ({
-    ...obj,
-  });
-}
-
-export type SummaryStatus = "impaired" | "initializing" | "insufficient-data" | "not-applicable" | "ok";

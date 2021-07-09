@@ -19,21 +19,21 @@ export interface AssumeRoleCommandInput extends AssumeRoleRequest {}
 export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a set of temporary security credentials that you can use to access AWS
+ * <p>Returns a set of temporary security credentials that you can use to access Amazon Web Services
  *             resources that you might not normally have access to. These temporary credentials
  *             consist of an access key ID, a secret access key, and a security token. Typically, you
  *             use <code>AssumeRole</code> within your account or for cross-account access. For a
  *             comparison of <code>AssumeRole</code> with other API operations that produce temporary
  *             credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
  *                 Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
- *                 the AWS STS API operations</a> in the
+ *                 the STS API operations</a> in the
  *             <i>IAM User Guide</i>.</p>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
  *          <p>The temporary security credentials created by <code>AssumeRole</code> can be used to
- *          make API calls to any AWS service with the following exception: You cannot call the
- *          AWS STS <code>GetFederationToken</code> or <code>GetSessionToken</code> API
+ *          make API calls to any Amazon Web Services service with the following exception: You cannot call the
+ *          STS <code>GetFederationToken</code> or <code>GetSessionToken</code> API
  *          operations.</p>
  *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
  *          this operation. You can pass a single JSON policy document to use as an inline session
@@ -42,12 +42,12 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          characters. Passing policies to this operation returns new
  *          temporary credentials. The resulting session's permissions are the intersection of the
  *          role's identity-based policy and the session policies. You can use the role's temporary
- *          credentials in subsequent AWS API calls to access resources in the account that owns
+ *          credentials in subsequent Amazon Web Services API calls to access resources in the account that owns
  *          the role. You cannot use session policies to grant more permissions than those allowed
  *          by the identity-based policy of the role that is being assumed. For more information, see
  *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
  *             Policies</a> in the <i>IAM User Guide</i>.</p>
- *          <p>To assume a role from a different account, your AWS account must be trusted by the
+ *          <p>To assume a role from a different account, your account must be trusted by the
  *          role. The trust relationship is defined in the role's trust policy when the role is
  *          created. That trust policy states which accounts are allowed to delegate that access to
  *          users in the account. </p>
@@ -88,7 +88,7 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          </p>
  *          <p>(Optional) You can include multi-factor authentication (MFA) information when you call
  *             <code>AssumeRole</code>. This is useful for cross-account scenarios to ensure that the
- *          user that assumes the role has been authenticated with an AWS MFA device. In that
+ *          user that assumes the role has been authenticated with an Amazon Web Services MFA device. In that
  *          scenario, the trust policy of the role being assumed includes a condition that tests for
  *          MFA authentication. If the caller does not include valid MFA information, the request to
  *          assume the role is denied. The condition in a trust policy that tests for MFA

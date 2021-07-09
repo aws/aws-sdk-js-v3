@@ -58,6 +58,7 @@ import { PutProtocolsListCommandInput, PutProtocolsListCommandOutput } from "../
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  ActionTarget,
   App,
   AppsListData,
   AppsListDataSummary,
@@ -76,7 +77,15 @@ import {
   DnsDuplicateRuleGroupViolation,
   DnsRuleGroupLimitExceededViolation,
   DnsRuleGroupPriorityConflictViolation,
+  EC2AssociateRouteTableAction,
+  EC2CopyRouteTableAction,
+  EC2CreateRouteAction,
+  EC2CreateRouteTableAction,
+  EC2DeleteRouteAction,
+  EC2ReplaceRouteAction,
+  EC2ReplaceRouteTableAssociationAction,
   EvaluationResult,
+  ExpectedRoute,
   GetAdminAccountRequest,
   GetAdminAccountResponse,
   GetAppsListRequest,
@@ -110,16 +119,24 @@ import {
   ListProtocolsListsResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  NetworkFirewallBlackHoleRouteDetectedViolation,
+  NetworkFirewallInternetTrafficNotInspectedViolation,
+  NetworkFirewallInvalidRouteConfigurationViolation,
   NetworkFirewallMissingExpectedRTViolation,
+  NetworkFirewallMissingExpectedRoutesViolation,
   NetworkFirewallMissingFirewallViolation,
   NetworkFirewallMissingSubnetViolation,
   NetworkFirewallPolicyDescription,
   NetworkFirewallPolicyModifiedViolation,
+  NetworkFirewallUnexpectedFirewallRoutesViolation,
+  NetworkFirewallUnexpectedGatewayRoutesViolation,
   PartialMatch,
   Policy,
   PolicyComplianceDetail,
   PolicyComplianceStatus,
   PolicySummary,
+  PossibleRemediationAction,
+  PossibleRemediationActions,
   ProtocolsListData,
   ProtocolsListDataSummary,
   PutAppsListRequest,
@@ -129,9 +146,12 @@ import {
   PutPolicyResponse,
   PutProtocolsListRequest,
   PutProtocolsListResponse,
+  RemediationAction,
+  RemediationActionWithOrder,
   ResourceNotFoundException,
   ResourceTag,
   ResourceViolation,
+  Route,
   SecurityGroupRemediationAction,
   SecurityGroupRuleDescription,
   SecurityServicePolicyData,
@@ -543,6 +563,14 @@ const deserializeAws_json1_1AssociateAdminAccountCommandError = async (
     case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.fms#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2971,6 +2999,13 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
   };
 };
 
+const deserializeAws_json1_1ActionTarget = (output: any, context: __SerdeContext): ActionTarget => {
+  return {
+    Description: __expectString(output.Description),
+    ResourceId: __expectString(output.ResourceId),
+  } as any;
+};
+
 const deserializeAws_json1_1App = (output: any, context: __SerdeContext): App => {
   return {
     AppName: __expectString(output.AppName),
@@ -3192,6 +3227,125 @@ const deserializeAws_json1_1DnsRuleGroupPriorityConflictViolation = (
   } as any;
 };
 
+const deserializeAws_json1_1EC2AssociateRouteTableAction = (
+  output: any,
+  context: __SerdeContext
+): EC2AssociateRouteTableAction => {
+  return {
+    Description: __expectString(output.Description),
+    GatewayId:
+      output.GatewayId !== undefined && output.GatewayId !== null
+        ? deserializeAws_json1_1ActionTarget(output.GatewayId, context)
+        : undefined,
+    RouteTableId:
+      output.RouteTableId !== undefined && output.RouteTableId !== null
+        ? deserializeAws_json1_1ActionTarget(output.RouteTableId, context)
+        : undefined,
+    SubnetId:
+      output.SubnetId !== undefined && output.SubnetId !== null
+        ? deserializeAws_json1_1ActionTarget(output.SubnetId, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EC2CopyRouteTableAction = (
+  output: any,
+  context: __SerdeContext
+): EC2CopyRouteTableAction => {
+  return {
+    Description: __expectString(output.Description),
+    RouteTableId:
+      output.RouteTableId !== undefined && output.RouteTableId !== null
+        ? deserializeAws_json1_1ActionTarget(output.RouteTableId, context)
+        : undefined,
+    VpcId:
+      output.VpcId !== undefined && output.VpcId !== null
+        ? deserializeAws_json1_1ActionTarget(output.VpcId, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EC2CreateRouteAction = (output: any, context: __SerdeContext): EC2CreateRouteAction => {
+  return {
+    Description: __expectString(output.Description),
+    DestinationCidrBlock: __expectString(output.DestinationCidrBlock),
+    DestinationIpv6CidrBlock: __expectString(output.DestinationIpv6CidrBlock),
+    DestinationPrefixListId: __expectString(output.DestinationPrefixListId),
+    GatewayId:
+      output.GatewayId !== undefined && output.GatewayId !== null
+        ? deserializeAws_json1_1ActionTarget(output.GatewayId, context)
+        : undefined,
+    RouteTableId:
+      output.RouteTableId !== undefined && output.RouteTableId !== null
+        ? deserializeAws_json1_1ActionTarget(output.RouteTableId, context)
+        : undefined,
+    VpcEndpointId:
+      output.VpcEndpointId !== undefined && output.VpcEndpointId !== null
+        ? deserializeAws_json1_1ActionTarget(output.VpcEndpointId, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EC2CreateRouteTableAction = (
+  output: any,
+  context: __SerdeContext
+): EC2CreateRouteTableAction => {
+  return {
+    Description: __expectString(output.Description),
+    VpcId:
+      output.VpcId !== undefined && output.VpcId !== null
+        ? deserializeAws_json1_1ActionTarget(output.VpcId, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EC2DeleteRouteAction = (output: any, context: __SerdeContext): EC2DeleteRouteAction => {
+  return {
+    Description: __expectString(output.Description),
+    DestinationCidrBlock: __expectString(output.DestinationCidrBlock),
+    DestinationIpv6CidrBlock: __expectString(output.DestinationIpv6CidrBlock),
+    DestinationPrefixListId: __expectString(output.DestinationPrefixListId),
+    RouteTableId:
+      output.RouteTableId !== undefined && output.RouteTableId !== null
+        ? deserializeAws_json1_1ActionTarget(output.RouteTableId, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EC2ReplaceRouteAction = (output: any, context: __SerdeContext): EC2ReplaceRouteAction => {
+  return {
+    Description: __expectString(output.Description),
+    DestinationCidrBlock: __expectString(output.DestinationCidrBlock),
+    DestinationIpv6CidrBlock: __expectString(output.DestinationIpv6CidrBlock),
+    DestinationPrefixListId: __expectString(output.DestinationPrefixListId),
+    GatewayId:
+      output.GatewayId !== undefined && output.GatewayId !== null
+        ? deserializeAws_json1_1ActionTarget(output.GatewayId, context)
+        : undefined,
+    RouteTableId:
+      output.RouteTableId !== undefined && output.RouteTableId !== null
+        ? deserializeAws_json1_1ActionTarget(output.RouteTableId, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EC2ReplaceRouteTableAssociationAction = (
+  output: any,
+  context: __SerdeContext
+): EC2ReplaceRouteTableAssociationAction => {
+  return {
+    AssociationId:
+      output.AssociationId !== undefined && output.AssociationId !== null
+        ? deserializeAws_json1_1ActionTarget(output.AssociationId, context)
+        : undefined,
+    Description: __expectString(output.Description),
+    RouteTableId:
+      output.RouteTableId !== undefined && output.RouteTableId !== null
+        ? deserializeAws_json1_1ActionTarget(output.RouteTableId, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   return {
     ComplianceStatus: __expectString(output.ComplianceStatus),
@@ -3208,6 +3362,34 @@ const deserializeAws_json1_1EvaluationResults = (output: any, context: __SerdeCo
         return null as any;
       }
       return deserializeAws_json1_1EvaluationResult(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ExpectedRoute = (output: any, context: __SerdeContext): ExpectedRoute => {
+  return {
+    AllowedTargets:
+      output.AllowedTargets !== undefined && output.AllowedTargets !== null
+        ? deserializeAws_json1_1LengthBoundedStringList(output.AllowedTargets, context)
+        : undefined,
+    ContributingSubnets:
+      output.ContributingSubnets !== undefined && output.ContributingSubnets !== null
+        ? deserializeAws_json1_1ResourceIdList(output.ContributingSubnets, context)
+        : undefined,
+    IpV4Cidr: __expectString(output.IpV4Cidr),
+    IpV6Cidr: __expectString(output.IpV6Cidr),
+    PrefixListId: __expectString(output.PrefixListId),
+    RouteTableId: __expectString(output.RouteTableId),
+  } as any;
+};
+
+const deserializeAws_json1_1ExpectedRoutes = (output: any, context: __SerdeContext): ExpectedRoute[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ExpectedRoute(entry, context);
     });
 };
 
@@ -3342,6 +3524,17 @@ const deserializeAws_json1_1IssueInfoMap = (output: any, context: __SerdeContext
   );
 };
 
+const deserializeAws_json1_1LengthBoundedStringList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     Message: __expectString(output.Message),
@@ -3441,6 +3634,115 @@ const deserializeAws_json1_1NetworkFirewallActionList = (output: any, context: _
     });
 };
 
+const deserializeAws_json1_1NetworkFirewallBlackHoleRouteDetectedViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallBlackHoleRouteDetectedViolation => {
+  return {
+    RouteTableId: __expectString(output.RouteTableId),
+    ViolatingRoutes:
+      output.ViolatingRoutes !== undefined && output.ViolatingRoutes !== null
+        ? deserializeAws_json1_1Routes(output.ViolatingRoutes, context)
+        : undefined,
+    ViolationTarget: __expectString(output.ViolationTarget),
+    VpcId: __expectString(output.VpcId),
+  } as any;
+};
+
+const deserializeAws_json1_1NetworkFirewallInternetTrafficNotInspectedViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallInternetTrafficNotInspectedViolation => {
+  return {
+    ActualFirewallSubnetRoutes:
+      output.ActualFirewallSubnetRoutes !== undefined && output.ActualFirewallSubnetRoutes !== null
+        ? deserializeAws_json1_1Routes(output.ActualFirewallSubnetRoutes, context)
+        : undefined,
+    ActualInternetGatewayRoutes:
+      output.ActualInternetGatewayRoutes !== undefined && output.ActualInternetGatewayRoutes !== null
+        ? deserializeAws_json1_1Routes(output.ActualInternetGatewayRoutes, context)
+        : undefined,
+    CurrentFirewallSubnetRouteTable: __expectString(output.CurrentFirewallSubnetRouteTable),
+    CurrentInternetGatewayRouteTable: __expectString(output.CurrentInternetGatewayRouteTable),
+    ExpectedFirewallEndpoint: __expectString(output.ExpectedFirewallEndpoint),
+    ExpectedFirewallSubnetRoutes:
+      output.ExpectedFirewallSubnetRoutes !== undefined && output.ExpectedFirewallSubnetRoutes !== null
+        ? deserializeAws_json1_1ExpectedRoutes(output.ExpectedFirewallSubnetRoutes, context)
+        : undefined,
+    ExpectedInternetGatewayRoutes:
+      output.ExpectedInternetGatewayRoutes !== undefined && output.ExpectedInternetGatewayRoutes !== null
+        ? deserializeAws_json1_1ExpectedRoutes(output.ExpectedInternetGatewayRoutes, context)
+        : undefined,
+    FirewallSubnetId: __expectString(output.FirewallSubnetId),
+    InternetGatewayId: __expectString(output.InternetGatewayId),
+    IsRouteTableUsedInDifferentAZ: __expectBoolean(output.IsRouteTableUsedInDifferentAZ),
+    RouteTableId: __expectString(output.RouteTableId),
+    SubnetAvailabilityZone: __expectString(output.SubnetAvailabilityZone),
+    SubnetId: __expectString(output.SubnetId),
+    ViolatingRoutes:
+      output.ViolatingRoutes !== undefined && output.ViolatingRoutes !== null
+        ? deserializeAws_json1_1Routes(output.ViolatingRoutes, context)
+        : undefined,
+    VpcId: __expectString(output.VpcId),
+  } as any;
+};
+
+const deserializeAws_json1_1NetworkFirewallInvalidRouteConfigurationViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallInvalidRouteConfigurationViolation => {
+  return {
+    ActualFirewallEndpoint: __expectString(output.ActualFirewallEndpoint),
+    ActualFirewallSubnetId: __expectString(output.ActualFirewallSubnetId),
+    ActualFirewallSubnetRoutes:
+      output.ActualFirewallSubnetRoutes !== undefined && output.ActualFirewallSubnetRoutes !== null
+        ? deserializeAws_json1_1Routes(output.ActualFirewallSubnetRoutes, context)
+        : undefined,
+    ActualInternetGatewayRoutes:
+      output.ActualInternetGatewayRoutes !== undefined && output.ActualInternetGatewayRoutes !== null
+        ? deserializeAws_json1_1Routes(output.ActualInternetGatewayRoutes, context)
+        : undefined,
+    AffectedSubnets:
+      output.AffectedSubnets !== undefined && output.AffectedSubnets !== null
+        ? deserializeAws_json1_1ResourceIdList(output.AffectedSubnets, context)
+        : undefined,
+    CurrentFirewallSubnetRouteTable: __expectString(output.CurrentFirewallSubnetRouteTable),
+    CurrentInternetGatewayRouteTable: __expectString(output.CurrentInternetGatewayRouteTable),
+    ExpectedFirewallEndpoint: __expectString(output.ExpectedFirewallEndpoint),
+    ExpectedFirewallSubnetId: __expectString(output.ExpectedFirewallSubnetId),
+    ExpectedFirewallSubnetRoutes:
+      output.ExpectedFirewallSubnetRoutes !== undefined && output.ExpectedFirewallSubnetRoutes !== null
+        ? deserializeAws_json1_1ExpectedRoutes(output.ExpectedFirewallSubnetRoutes, context)
+        : undefined,
+    ExpectedInternetGatewayRoutes:
+      output.ExpectedInternetGatewayRoutes !== undefined && output.ExpectedInternetGatewayRoutes !== null
+        ? deserializeAws_json1_1ExpectedRoutes(output.ExpectedInternetGatewayRoutes, context)
+        : undefined,
+    InternetGatewayId: __expectString(output.InternetGatewayId),
+    IsRouteTableUsedInDifferentAZ: __expectBoolean(output.IsRouteTableUsedInDifferentAZ),
+    RouteTableId: __expectString(output.RouteTableId),
+    ViolatingRoute:
+      output.ViolatingRoute !== undefined && output.ViolatingRoute !== null
+        ? deserializeAws_json1_1Route(output.ViolatingRoute, context)
+        : undefined,
+    VpcId: __expectString(output.VpcId),
+  } as any;
+};
+
+const deserializeAws_json1_1NetworkFirewallMissingExpectedRoutesViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallMissingExpectedRoutesViolation => {
+  return {
+    ExpectedRoutes:
+      output.ExpectedRoutes !== undefined && output.ExpectedRoutes !== null
+        ? deserializeAws_json1_1ExpectedRoutes(output.ExpectedRoutes, context)
+        : undefined,
+    ViolationTarget: __expectString(output.ViolationTarget),
+    VpcId: __expectString(output.VpcId),
+  } as any;
+};
+
 const deserializeAws_json1_1NetworkFirewallMissingExpectedRTViolation = (
   output: any,
   context: __SerdeContext
@@ -3521,6 +3823,51 @@ const deserializeAws_json1_1NetworkFirewallPolicyModifiedViolation = (
         : undefined,
     ViolationTarget: __expectString(output.ViolationTarget),
   } as any;
+};
+
+const deserializeAws_json1_1NetworkFirewallUnexpectedFirewallRoutesViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallUnexpectedFirewallRoutesViolation => {
+  return {
+    FirewallEndpoint: __expectString(output.FirewallEndpoint),
+    FirewallSubnetId: __expectString(output.FirewallSubnetId),
+    RouteTableId: __expectString(output.RouteTableId),
+    ViolatingRoutes:
+      output.ViolatingRoutes !== undefined && output.ViolatingRoutes !== null
+        ? deserializeAws_json1_1Routes(output.ViolatingRoutes, context)
+        : undefined,
+    VpcId: __expectString(output.VpcId),
+  } as any;
+};
+
+const deserializeAws_json1_1NetworkFirewallUnexpectedGatewayRoutesViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallUnexpectedGatewayRoutesViolation => {
+  return {
+    GatewayId: __expectString(output.GatewayId),
+    RouteTableId: __expectString(output.RouteTableId),
+    ViolatingRoutes:
+      output.ViolatingRoutes !== undefined && output.ViolatingRoutes !== null
+        ? deserializeAws_json1_1Routes(output.ViolatingRoutes, context)
+        : undefined,
+    VpcId: __expectString(output.VpcId),
+  } as any;
+};
+
+const deserializeAws_json1_1OrderedRemediationActions = (
+  output: any,
+  context: __SerdeContext
+): RemediationActionWithOrder[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RemediationActionWithOrder(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PartialMatch = (output: any, context: __SerdeContext): PartialMatch => {
@@ -3653,6 +4000,47 @@ const deserializeAws_json1_1PolicySummaryList = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_json1_1PossibleRemediationAction = (
+  output: any,
+  context: __SerdeContext
+): PossibleRemediationAction => {
+  return {
+    Description: __expectString(output.Description),
+    IsDefaultAction: __expectBoolean(output.IsDefaultAction),
+    OrderedRemediationActions:
+      output.OrderedRemediationActions !== undefined && output.OrderedRemediationActions !== null
+        ? deserializeAws_json1_1OrderedRemediationActions(output.OrderedRemediationActions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PossibleRemediationActionList = (
+  output: any,
+  context: __SerdeContext
+): PossibleRemediationAction[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PossibleRemediationAction(entry, context);
+    });
+};
+
+const deserializeAws_json1_1PossibleRemediationActions = (
+  output: any,
+  context: __SerdeContext
+): PossibleRemediationActions => {
+  return {
+    Actions:
+      output.Actions !== undefined && output.Actions !== null
+        ? deserializeAws_json1_1PossibleRemediationActionList(output.Actions, context)
+        : undefined,
+    Description: __expectString(output.Description),
+  } as any;
+};
+
 const deserializeAws_json1_1PreviousAppsList = (output: any, context: __SerdeContext): { [key: string]: App[] } => {
   return Object.entries(output).reduce((acc: { [key: string]: App[] }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -3774,6 +4162,57 @@ const deserializeAws_json1_1PutProtocolsListResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1RemediationAction = (output: any, context: __SerdeContext): RemediationAction => {
+  return {
+    Description: __expectString(output.Description),
+    EC2AssociateRouteTableAction:
+      output.EC2AssociateRouteTableAction !== undefined && output.EC2AssociateRouteTableAction !== null
+        ? deserializeAws_json1_1EC2AssociateRouteTableAction(output.EC2AssociateRouteTableAction, context)
+        : undefined,
+    EC2CopyRouteTableAction:
+      output.EC2CopyRouteTableAction !== undefined && output.EC2CopyRouteTableAction !== null
+        ? deserializeAws_json1_1EC2CopyRouteTableAction(output.EC2CopyRouteTableAction, context)
+        : undefined,
+    EC2CreateRouteAction:
+      output.EC2CreateRouteAction !== undefined && output.EC2CreateRouteAction !== null
+        ? deserializeAws_json1_1EC2CreateRouteAction(output.EC2CreateRouteAction, context)
+        : undefined,
+    EC2CreateRouteTableAction:
+      output.EC2CreateRouteTableAction !== undefined && output.EC2CreateRouteTableAction !== null
+        ? deserializeAws_json1_1EC2CreateRouteTableAction(output.EC2CreateRouteTableAction, context)
+        : undefined,
+    EC2DeleteRouteAction:
+      output.EC2DeleteRouteAction !== undefined && output.EC2DeleteRouteAction !== null
+        ? deserializeAws_json1_1EC2DeleteRouteAction(output.EC2DeleteRouteAction, context)
+        : undefined,
+    EC2ReplaceRouteAction:
+      output.EC2ReplaceRouteAction !== undefined && output.EC2ReplaceRouteAction !== null
+        ? deserializeAws_json1_1EC2ReplaceRouteAction(output.EC2ReplaceRouteAction, context)
+        : undefined,
+    EC2ReplaceRouteTableAssociationAction:
+      output.EC2ReplaceRouteTableAssociationAction !== undefined &&
+      output.EC2ReplaceRouteTableAssociationAction !== null
+        ? deserializeAws_json1_1EC2ReplaceRouteTableAssociationAction(
+            output.EC2ReplaceRouteTableAssociationAction,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RemediationActionWithOrder = (
+  output: any,
+  context: __SerdeContext
+): RemediationActionWithOrder => {
+  return {
+    Order: __expectNumber(output.Order),
+    RemediationAction:
+      output.RemediationAction !== undefined && output.RemediationAction !== null
+        ? deserializeAws_json1_1RemediationAction(output.RemediationAction, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ResourceIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -3853,11 +4292,43 @@ const deserializeAws_json1_1ResourceViolation = (output: any, context: __SerdeCo
             context
           )
         : undefined,
+    NetworkFirewallBlackHoleRouteDetectedViolation:
+      output.NetworkFirewallBlackHoleRouteDetectedViolation !== undefined &&
+      output.NetworkFirewallBlackHoleRouteDetectedViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallBlackHoleRouteDetectedViolation(
+            output.NetworkFirewallBlackHoleRouteDetectedViolation,
+            context
+          )
+        : undefined,
+    NetworkFirewallInternetTrafficNotInspectedViolation:
+      output.NetworkFirewallInternetTrafficNotInspectedViolation !== undefined &&
+      output.NetworkFirewallInternetTrafficNotInspectedViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallInternetTrafficNotInspectedViolation(
+            output.NetworkFirewallInternetTrafficNotInspectedViolation,
+            context
+          )
+        : undefined,
+    NetworkFirewallInvalidRouteConfigurationViolation:
+      output.NetworkFirewallInvalidRouteConfigurationViolation !== undefined &&
+      output.NetworkFirewallInvalidRouteConfigurationViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallInvalidRouteConfigurationViolation(
+            output.NetworkFirewallInvalidRouteConfigurationViolation,
+            context
+          )
+        : undefined,
     NetworkFirewallMissingExpectedRTViolation:
       output.NetworkFirewallMissingExpectedRTViolation !== undefined &&
       output.NetworkFirewallMissingExpectedRTViolation !== null
         ? deserializeAws_json1_1NetworkFirewallMissingExpectedRTViolation(
             output.NetworkFirewallMissingExpectedRTViolation,
+            context
+          )
+        : undefined,
+    NetworkFirewallMissingExpectedRoutesViolation:
+      output.NetworkFirewallMissingExpectedRoutesViolation !== undefined &&
+      output.NetworkFirewallMissingExpectedRoutesViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallMissingExpectedRoutesViolation(
+            output.NetworkFirewallMissingExpectedRoutesViolation,
             context
           )
         : undefined,
@@ -3885,6 +4356,26 @@ const deserializeAws_json1_1ResourceViolation = (output: any, context: __SerdeCo
             context
           )
         : undefined,
+    NetworkFirewallUnexpectedFirewallRoutesViolation:
+      output.NetworkFirewallUnexpectedFirewallRoutesViolation !== undefined &&
+      output.NetworkFirewallUnexpectedFirewallRoutesViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallUnexpectedFirewallRoutesViolation(
+            output.NetworkFirewallUnexpectedFirewallRoutesViolation,
+            context
+          )
+        : undefined,
+    NetworkFirewallUnexpectedGatewayRoutesViolation:
+      output.NetworkFirewallUnexpectedGatewayRoutesViolation !== undefined &&
+      output.NetworkFirewallUnexpectedGatewayRoutesViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallUnexpectedGatewayRoutesViolation(
+            output.NetworkFirewallUnexpectedGatewayRoutesViolation,
+            context
+          )
+        : undefined,
+    PossibleRemediationActions:
+      output.PossibleRemediationActions !== undefined && output.PossibleRemediationActions !== null
+        ? deserializeAws_json1_1PossibleRemediationActions(output.PossibleRemediationActions, context)
+        : undefined,
   } as any;
 };
 
@@ -3896,6 +4387,26 @@ const deserializeAws_json1_1ResourceViolations = (output: any, context: __SerdeC
         return null as any;
       }
       return deserializeAws_json1_1ResourceViolation(entry, context);
+    });
+};
+
+const deserializeAws_json1_1Route = (output: any, context: __SerdeContext): Route => {
+  return {
+    Destination: __expectString(output.Destination),
+    DestinationType: __expectString(output.DestinationType),
+    Target: __expectString(output.Target),
+    TargetType: __expectString(output.TargetType),
+  } as any;
+};
+
+const deserializeAws_json1_1Routes = (output: any, context: __SerdeContext): Route[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Route(entry, context);
     });
 };
 

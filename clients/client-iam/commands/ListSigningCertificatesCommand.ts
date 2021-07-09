@@ -27,9 +27,9 @@ export interface ListSigningCertificatesCommandOutput extends ListSigningCertifi
  *             paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
  *         <p>If the <code>UserName</code> field is not specified, the user name is determined
- *             implicitly based on the AWS access key ID used to sign the request for this operation.
- *             This operation works for access keys under the AWS account. Consequently, you can use
- *             this operation to manage AWS account root user credentials even if the AWS account
+ *             implicitly based on the Amazon Web Services access key ID used to sign the request for this operation.
+ *             This operation works for access keys under the account. Consequently, you can use
+ *             this operation to manage account root user credentials even if the account
  *             has no associated users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

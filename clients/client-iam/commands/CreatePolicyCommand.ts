@@ -18,7 +18,7 @@ export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new managed policy for your AWS account.</p>
+ * <p>Creates a new managed policy for your account.</p>
  *         <p>This operation creates a policy version with a version identifier of <code>v1</code>
  *             and sets v1 as the policy's default version. For more information about policy versions,
  *             see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the

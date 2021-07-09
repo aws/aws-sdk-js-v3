@@ -21,7 +21,7 @@ export interface ListFunctionsCommandInput extends ListFunctionsRequest {}
 export interface ListFunctionsCommandOutput extends ListFunctionsResult, __MetadataBearer {}
 
 /**
- * <p>Gets a list of all CloudFront functions in your AWS account.</p>
+ * <p>Gets a list of all CloudFront functions in your account.</p>
  * 		       <p>You can optionally apply a filter to return only the functions that are in the
  * 			specified stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
  * 		       <p>You can optionally specify the maximum number of items to receive in the response. If

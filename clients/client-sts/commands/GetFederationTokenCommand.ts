@@ -31,7 +31,7 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *          server-based application. For a comparison of <code>GetFederationToken</code> with the
  *          other API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
  *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
- *             AWS STS API operations</a> in the <i>IAM User Guide</i>.</p>
+ *             STS API operations</a> in the <i>IAM User Guide</i>.</p>
  *          <note>
  *             <p>You can create a mobile-based or browser-based app that can authenticate users using
  *             a web identity provider like Login with Amazon, Facebook, Google, or an OpenID
@@ -40,7 +40,7 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *                <i>IAM User Guide</i>.</p>
  *          </note>
  *          <p>You can also call <code>GetFederationToken</code> using the security credentials of an
- *          AWS account root user, but we do not recommend it. Instead, we recommend that you create
+ *          Amazon Web Services account root user, but we do not recommend it. Instead, we recommend that you create
  *          an IAM user for the purpose of the proxy application. Then attach a policy to the IAM
  *          user that limits federated users to only the actions and resources that they need to
  *          access. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">IAM Best Practices</a> in the
@@ -50,16 +50,16 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *          </p>
  *          <p>The temporary credentials are valid for the specified duration, from 900 seconds (15
  *          minutes) up to a maximum of 129,600 seconds (36 hours). The default session duration is
- *          43,200 seconds (12 hours). Temporary credentials that are obtained by using AWS account
+ *          43,200 seconds (12 hours). Temporary credentials that are obtained by using Amazon Web Services account
  *          root user credentials have a maximum duration of 3,600 seconds (1 hour).</p>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
  *          <p>You can use the temporary credentials created by <code>GetFederationToken</code> in any
- *          AWS service except the following:</p>
+ *          Amazon Web Services service except the following:</p>
  *          <ul>
  *             <li>
- *                <p>You cannot call any IAM operations using the AWS CLI or the AWS API. </p>
+ *                <p>You cannot call any IAM operations using the CLI or the Amazon Web Services API. </p>
  *             </li>
  *             <li>
  *                <p>You cannot call any STS operations except <code>GetCallerIdentity</code>.</p>
@@ -97,7 +97,7 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *                     <i>IAM User Guide</i>.</p>
  *         </note>
  *         <p>You can also call <code>GetFederationToken</code> using the security credentials of an
- *             AWS account root user, but we do not recommend it. Instead, we recommend that you
+ *             Amazon Web Services account root user, but we do not recommend it. Instead, we recommend that you
  *             create an IAM user for the purpose of the proxy application. Then attach a policy to
  *             the IAM user that limits federated users to only the actions and resources that they
  *             need to access. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">IAM Best Practices</a> in the
@@ -107,16 +107,16 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *          </p>
  *         <p>The temporary credentials are valid for the specified duration, from 900 seconds (15
  *             minutes) up to a maximum of 129,600 seconds (36 hours). The default session duration is
- *             43,200 seconds (12 hours). Temporary credentials that are obtained by using AWS
+ *             43,200 seconds (12 hours). Temporary credentials that are obtained by using Amazon Web Services
  *             account root user credentials have a maximum duration of 3,600 seconds (1 hour).</p>
  *         <p>
  *             <b>Permissions</b>
  *         </p>
  *         <p>You can use the temporary credentials created by <code>GetFederationToken</code> in
- *             any AWS service except the following:</p>
+ *             any Amazon Web Services service except the following:</p>
  *         <ul>
  *             <li>
- *                 <p>You cannot call any IAM operations using the AWS CLI or the AWS API.
+ *                 <p>You cannot call any IAM operations using the CLI or the Amazon Web Services API.
  *                 </p>
  *             </li>
  *             <li>

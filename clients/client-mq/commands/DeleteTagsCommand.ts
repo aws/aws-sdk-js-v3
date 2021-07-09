@@ -21,7 +21,7 @@ export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * Removes a tag from a resource.
+ * <p>Removes a tag from a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,7 +21,7 @@ export interface RebootBrokerCommandInput extends RebootBrokerRequest {}
 export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __MetadataBearer {}
 
 /**
- * Reboots a broker. Note: This API is asynchronous.
+ * <p>Reboots a broker. Note: This API is asynchronous.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

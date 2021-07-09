@@ -2651,6 +2651,137 @@ export namespace CreateChannelModeratorResponse {
   });
 }
 
+export enum MediaPipelineSinkType {
+  S3Bucket = "S3Bucket",
+}
+
+export enum MediaPipelineSourceType {
+  ChimeSdkMeeting = "ChimeSdkMeeting",
+}
+
+export interface CreateMediaCapturePipelineRequest {
+  /**
+   * <p>Source type from which the media artifacts will be captured. A Chime SDK Meeting
+   *             is the only supported source.</p>
+   */
+  SourceType: MediaPipelineSourceType | string | undefined;
+
+  /**
+   * <p>ARN of the source from which the media artifacts are captured.</p>
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>Destination type to which the media artifacts are saved. You must use an S3 bucket. </p>
+   */
+  SinkType: MediaPipelineSinkType | string | undefined;
+
+  /**
+   * <p>The ARN of the sink type.</p>
+   */
+  SinkArn: string | undefined;
+
+  /**
+   * <p>The token assigned to the client making the pipeline request.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+export namespace CreateMediaCapturePipelineRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMediaCapturePipelineRequest): any => ({
+    ...obj,
+    ...(obj.SourceArn && { SourceArn: SENSITIVE_STRING }),
+    ...(obj.SinkArn && { SinkArn: SENSITIVE_STRING }),
+    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+  });
+}
+
+export enum MediaPipelineStatus {
+  Failed = "Failed",
+  InProgress = "InProgress",
+  Initializing = "Initializing",
+  Stopped = "Stopped",
+  Stopping = "Stopping",
+}
+
+/**
+ * <p>A media capture pipeline object. A string consisting of an ID, source type, a source ARN, a sink type, and a sink ARN.</p>
+ */
+export interface MediaCapturePipeline {
+  /**
+   * <p>The ID of a media capture pipeline.</p>
+   */
+  MediaPipelineId?: string;
+
+  /**
+   * <p>Source type from which media artifacts are saved. You must use <code>ChimeMeeting</code>.</p>
+   */
+  SourceType?: MediaPipelineSourceType | string;
+
+  /**
+   * <p>ARN of the source from which the media artifacts will be saved.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>The status of the media capture pipeline.</p>
+   */
+  Status?: MediaPipelineStatus | string;
+
+  /**
+   * <p>Destination type to which the media artifacts are saved. You must use an S3 Bucket.</p>
+   */
+  SinkType?: MediaPipelineSinkType | string;
+
+  /**
+   * <p>ARN of the destination to which the media artifacts are saved.</p>
+   */
+  SinkArn?: string;
+
+  /**
+   * <p>The time at which the capture pipeline was created, in ISO 8601 format.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The time at which the capture pipeline was updated, in ISO 8601 format.</p>
+   */
+  UpdatedTimestamp?: Date;
+}
+
+export namespace MediaCapturePipeline {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MediaCapturePipeline): any => ({
+    ...obj,
+    ...(obj.SourceArn && { SourceArn: SENSITIVE_STRING }),
+    ...(obj.SinkArn && { SinkArn: SENSITIVE_STRING }),
+  });
+}
+
+export interface CreateMediaCapturePipelineResponse {
+  /**
+   * <p>A media capture pipeline object, the ID, source type, source ARN, sink type, and  sink ARN of a media capture pipeline object.</p>
+   */
+  MediaCapturePipeline?: MediaCapturePipeline;
+}
+
+export namespace CreateMediaCapturePipelineResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMediaCapturePipelineResponse): any => ({
+    ...obj,
+    ...(obj.MediaCapturePipeline && {
+      MediaCapturePipeline: MediaCapturePipeline.filterSensitiveLog(obj.MediaCapturePipeline),
+    }),
+  });
+}
+
 /**
  * <p> The resource target configurations for receiving Amazon Chime SDK meeting and attendee event
  *             notifications. The Amazon Chime SDK supports resource targets located in the US East (N.
@@ -4624,6 +4755,22 @@ export namespace DeleteEventsConfigurationRequest {
   });
 }
 
+export interface DeleteMediaCapturePipelineRequest {
+  /**
+   * <p>The ID of the media capture pipeline being deleted. </p>
+   */
+  MediaPipelineId: string | undefined;
+}
+
+export namespace DeleteMediaCapturePipelineRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMediaCapturePipelineRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteMeetingRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -5817,6 +5964,41 @@ export namespace GetGlobalSettingsResponse {
   });
 }
 
+export interface GetMediaCapturePipelineRequest {
+  /**
+   * <p>The ID of the pipeline that you want to get.</p>
+   */
+  MediaPipelineId: string | undefined;
+}
+
+export namespace GetMediaCapturePipelineRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMediaCapturePipelineRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMediaCapturePipelineResponse {
+  /**
+   * <p>The media capture pipeline object.</p>
+   */
+  MediaCapturePipeline?: MediaCapturePipeline;
+}
+
+export namespace GetMediaCapturePipelineResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMediaCapturePipelineResponse): any => ({
+    ...obj,
+    ...(obj.MediaCapturePipeline && {
+      MediaCapturePipeline: MediaCapturePipeline.filterSensitiveLog(obj.MediaCapturePipeline),
+    }),
+  });
+}
+
 export interface GetMeetingRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -6713,197 +6895,6 @@ export namespace GetVoiceConnectorLoggingConfigurationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetVoiceConnectorLoggingConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetVoiceConnectorOriginationRequest {
-  /**
-   * <p>The Amazon Chime Voice Connector ID.</p>
-   */
-  VoiceConnectorId: string | undefined;
-}
-
-export namespace GetVoiceConnectorOriginationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorOriginationRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum OriginationRouteProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
-
-/**
- * <p>Origination routes define call distribution properties for your SIP hosts to receive inbound
- *             calls using your Amazon Chime Voice Connector. Limit: Ten origination routes for each
- *             Amazon Chime Voice Connector.</p>
- */
-export interface OriginationRoute {
-  /**
-   * <p>The FQDN or IP address to contact for origination traffic.</p>
-   */
-  Host?: string;
-
-  /**
-   * <p>The designated origination route port. Defaults to 5060.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.</p>
-   */
-  Protocol?: OriginationRouteProtocol | string;
-
-  /**
-   * <p>The priority associated with the host, with 1 being the highest priority. Higher priority
-   *             hosts are attempted first.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>The weight associated with the host. If hosts are equal in priority, calls are redistributed among
-   *             them based on their relative weight.</p>
-   */
-  Weight?: number;
-}
-
-export namespace OriginationRoute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginationRoute): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Origination settings enable your SIP hosts to receive inbound calls using your Amazon Chime
- *             Voice Connector.</p>
- */
-export interface Origination {
-  /**
-   * <p>The call distribution properties defined for your SIP hosts. Valid range: Minimum value of 1.
-   *             Maximum value of 20.</p>
-   */
-  Routes?: OriginationRoute[];
-
-  /**
-   * <p>When origination settings are disabled, inbound calls are not enabled for your Amazon Chime
-   *             Voice Connector.</p>
-   */
-  Disabled?: boolean;
-}
-
-export namespace Origination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Origination): any => ({
-    ...obj,
-  });
-}
-
-export interface GetVoiceConnectorOriginationResponse {
-  /**
-   * <p>The origination setting details.</p>
-   */
-  Origination?: Origination;
-}
-
-export namespace GetVoiceConnectorOriginationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorOriginationResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetVoiceConnectorProxyRequest {
-  /**
-   * <p>The Amazon Chime voice connector ID.</p>
-   */
-  VoiceConnectorId: string | undefined;
-}
-
-export namespace GetVoiceConnectorProxyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorProxyRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The proxy configuration for an Amazon Chime Voice Connector.</p>
- */
-export interface Proxy {
-  /**
-   * <p>The default number of minutes allowed for proxy sessions.</p>
-   */
-  DefaultSessionExpiryMinutes?: number;
-
-  /**
-   * <p>When true, stops proxy sessions from being created on the specified Amazon Chime Voice Connector.</p>
-   */
-  Disabled?: boolean;
-
-  /**
-   * <p>The phone number to route calls to after a proxy session expires.</p>
-   */
-  FallBackPhoneNumber?: string;
-
-  /**
-   * <p>The countries for proxy phone numbers to be selected from.</p>
-   */
-  PhoneNumberCountries?: string[];
-}
-
-export namespace Proxy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Proxy): any => ({
-    ...obj,
-    ...(obj.FallBackPhoneNumber && { FallBackPhoneNumber: SENSITIVE_STRING }),
-  });
-}
-
-export interface GetVoiceConnectorProxyResponse {
-  /**
-   * <p>The proxy configuration details.</p>
-   */
-  Proxy?: Proxy;
-}
-
-export namespace GetVoiceConnectorProxyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorProxyResponse): any => ({
-    ...obj,
-    ...(obj.Proxy && { Proxy: Proxy.filterSensitiveLog(obj.Proxy) }),
-  });
-}
-
-export interface GetVoiceConnectorStreamingConfigurationRequest {
-  /**
-   * <p>The Amazon Chime Voice Connector ID.</p>
-   */
-  VoiceConnectorId: string | undefined;
-}
-
-export namespace GetVoiceConnectorStreamingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorStreamingConfigurationRequest): any => ({
     ...obj,
   });
 }

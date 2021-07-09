@@ -740,7 +740,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves the Amazon Macie configuration settings for an AWS organization.</p>
+   * <p>Retrieves the Amazon Macie configuration settings for an Amazon Web Services organization.</p>
    */
   public describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
@@ -801,7 +801,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Disables an account as the delegated Amazon Macie administrator account for an AWS organization.</p>
+   * <p>Disables an account as the delegated Amazon Macie administrator account for an Amazon Web Services organization.</p>
    */
   public disableOrganizationAdminAccount(
     args: DisableOrganizationAdminAccountCommandInput,
@@ -955,7 +955,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Designates an account as the delegated Amazon Macie administrator account for an AWS organization.</p>
+   * <p>Designates an account as the delegated Amazon Macie administrator account for an Amazon Web Services organization.</p>
    */
   public enableOrganizationAdminAccount(
     args: EnableOrganizationAdminAccountCommandInput,
@@ -1173,7 +1173,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves the configuration settings for publishing findings to AWS Security Hub.</p>
+   * <p>Retrieves the configuration settings for publishing findings to Security Hub.</p>
    */
   public getFindingsPublicationConfiguration(
     args: GetFindingsPublicationConfigurationCommandInput,
@@ -1606,7 +1606,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about the delegated Amazon Macie administrator account for an AWS organization.</p>
+   * <p>Retrieves information about the delegated Amazon Macie administrator account for an Amazon Web Services organization.</p>
    */
   public listOrganizationAdminAccounts(
     args: ListOrganizationAdminAccountsCommandInput,
@@ -1702,7 +1702,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Updates the configuration settings for publishing findings to AWS Security Hub.</p>
+   * <p>Updates the configuration settings for publishing findings to Security Hub.</p>
    */
   public putFindingsPublicationConfiguration(
     args: PutFindingsPublicationConfigurationCommandInput,
@@ -1734,7 +1734,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves (queries) statistical data and other information about AWS resources that Amazon Macie monitors and analyzes.</p>
+   * <p>Retrieves (queries) statistical data and other information about Amazon Web Services resources that Amazon Macie monitors and analyzes.</p>
    */
   public searchResources(
     args: SearchResourcesCommandInput,
@@ -1984,7 +1984,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Updates the Amazon Macie configuration settings for an AWS organization.</p>
+   * <p>Updates the Amazon Macie configuration settings for an Amazon Web Services organization.</p>
    */
   public updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,

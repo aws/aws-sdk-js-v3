@@ -126,12 +126,15 @@ import {
   UpdateInfrastructureConfigurationCommandOutput,
 } from "../commands/UpdateInfrastructureConfigurationCommand";
 import {
+  AdditionalInstanceConfiguration,
   Ami,
   AmiDistributionConfiguration,
   CallRateLimitExceededException,
   ClientException,
   Component,
   ComponentConfiguration,
+  ComponentParameter,
+  ComponentParameterDetail,
   ComponentSummary,
   ComponentVersion,
   Container,
@@ -177,6 +180,7 @@ import {
   ServiceException,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
+  SystemsManagerAgent,
   TargetContainerRepository,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -452,6 +456,13 @@ export const serializeAws_restJson1CreateImageRecipeCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateImageRecipe";
   let body: any;
   body = JSON.stringify({
+    ...(input.additionalInstanceConfiguration !== undefined &&
+      input.additionalInstanceConfiguration !== null && {
+        additionalInstanceConfiguration: serializeAws_restJson1AdditionalInstanceConfiguration(
+          input.additionalInstanceConfiguration,
+          context
+        ),
+      }),
     ...(input.blockDeviceMappings !== undefined &&
       input.blockDeviceMappings !== null && {
         blockDeviceMappings: serializeAws_restJson1InstanceBlockDeviceMappings(input.blockDeviceMappings, context),
@@ -7440,6 +7451,20 @@ const serializeAws_restJson1AccountList = (input: string[], context: __SerdeCont
     });
 };
 
+const serializeAws_restJson1AdditionalInstanceConfiguration = (
+  input: AdditionalInstanceConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.systemsManagerAgent !== undefined &&
+      input.systemsManagerAgent !== null && {
+        systemsManagerAgent: serializeAws_restJson1SystemsManagerAgent(input.systemsManagerAgent, context),
+      }),
+    ...(input.userDataOverride !== undefined &&
+      input.userDataOverride !== null && { userDataOverride: input.userDataOverride }),
+  };
+};
+
 const serializeAws_restJson1AmiDistributionConfiguration = (
   input: AmiDistributionConfiguration,
   context: __SerdeContext
@@ -7464,6 +7489,10 @@ const serializeAws_restJson1AmiDistributionConfiguration = (
 const serializeAws_restJson1ComponentConfiguration = (input: ComponentConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.componentArn !== undefined && input.componentArn !== null && { componentArn: input.componentArn }),
+    ...(input.parameters !== undefined &&
+      input.parameters !== null && {
+        parameters: serializeAws_restJson1ComponentParameterList(input.parameters, context),
+      }),
   };
 };
 
@@ -7478,6 +7507,36 @@ const serializeAws_restJson1ComponentConfigurationList = (
         return null as any;
       }
       return serializeAws_restJson1ComponentConfiguration(entry, context);
+    });
+};
+
+const serializeAws_restJson1ComponentParameter = (input: ComponentParameter, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.value !== undefined &&
+      input.value !== null && { value: serializeAws_restJson1ComponentParameterValueList(input.value, context) }),
+  };
+};
+
+const serializeAws_restJson1ComponentParameterList = (input: ComponentParameter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ComponentParameter(entry, context);
+    });
+};
+
+const serializeAws_restJson1ComponentParameterValueList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -7770,6 +7829,13 @@ const serializeAws_restJson1StringList = (input: string[], context: __SerdeConte
     });
 };
 
+const serializeAws_restJson1SystemsManagerAgent = (input: SystemsManagerAgent, context: __SerdeContext): any => {
+  return {
+    ...(input.uninstallAfterBuild !== undefined &&
+      input.uninstallAfterBuild !== null && { uninstallAfterBuild: input.uninstallAfterBuild }),
+  };
+};
+
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -7802,6 +7868,19 @@ const deserializeAws_restJson1AccountList = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_restJson1AdditionalInstanceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AdditionalInstanceConfiguration => {
+  return {
+    systemsManagerAgent:
+      output.systemsManagerAgent !== undefined && output.systemsManagerAgent !== null
+        ? deserializeAws_restJson1SystemsManagerAgent(output.systemsManagerAgent, context)
+        : undefined,
+    userDataOverride: __expectString(output.userDataOverride),
+  } as any;
 };
 
 const deserializeAws_restJson1Ami = (output: any, context: __SerdeContext): Ami => {
@@ -7863,6 +7942,10 @@ const deserializeAws_restJson1Component = (output: any, context: __SerdeContext)
     kmsKeyId: __expectString(output.kmsKeyId),
     name: __expectString(output.name),
     owner: __expectString(output.owner),
+    parameters:
+      output.parameters !== undefined && output.parameters !== null
+        ? deserializeAws_restJson1ComponentParameterDetailList(output.parameters, context)
+        : undefined,
     platform: __expectString(output.platform),
     supportedOsVersions:
       output.supportedOsVersions !== undefined && output.supportedOsVersions !== null
@@ -7883,6 +7966,10 @@ const deserializeAws_restJson1ComponentConfiguration = (
 ): ComponentConfiguration => {
   return {
     componentArn: __expectString(output.componentArn),
+    parameters:
+      output.parameters !== undefined && output.parameters !== null
+        ? deserializeAws_restJson1ComponentParameterList(output.parameters, context)
+        : undefined,
   } as any;
 };
 
@@ -7897,6 +7984,67 @@ const deserializeAws_restJson1ComponentConfigurationList = (
         return null as any;
       }
       return deserializeAws_restJson1ComponentConfiguration(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ComponentParameter = (output: any, context: __SerdeContext): ComponentParameter => {
+  return {
+    name: __expectString(output.name),
+    value:
+      output.value !== undefined && output.value !== null
+        ? deserializeAws_restJson1ComponentParameterValueList(output.value, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ComponentParameterDetail = (
+  output: any,
+  context: __SerdeContext
+): ComponentParameterDetail => {
+  return {
+    defaultValue:
+      output.defaultValue !== undefined && output.defaultValue !== null
+        ? deserializeAws_restJson1ComponentParameterValueList(output.defaultValue, context)
+        : undefined,
+    description: __expectString(output.description),
+    name: __expectString(output.name),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1ComponentParameterDetailList = (
+  output: any,
+  context: __SerdeContext
+): ComponentParameterDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ComponentParameterDetail(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ComponentParameterList = (output: any, context: __SerdeContext): ComponentParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ComponentParameter(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ComponentParameterValueList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
 };
 
@@ -8280,6 +8428,10 @@ const deserializeAws_restJson1ImagePipelineList = (output: any, context: __Serde
 
 const deserializeAws_restJson1ImageRecipe = (output: any, context: __SerdeContext): ImageRecipe => {
   return {
+    additionalInstanceConfiguration:
+      output.additionalInstanceConfiguration !== undefined && output.additionalInstanceConfiguration !== null
+        ? deserializeAws_restJson1AdditionalInstanceConfiguration(output.additionalInstanceConfiguration, context)
+        : undefined,
     arn: __expectString(output.arn),
     blockDeviceMappings:
       output.blockDeviceMappings !== undefined && output.blockDeviceMappings !== null
@@ -8679,6 +8831,12 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_restJson1SystemsManagerAgent = (output: any, context: __SerdeContext): SystemsManagerAgent => {
+  return {
+    uninstallAfterBuild: __expectBoolean(output.uninstallAfterBuild),
+  } as any;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {

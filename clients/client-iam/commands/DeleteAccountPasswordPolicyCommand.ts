@@ -20,7 +20,7 @@ export interface DeleteAccountPasswordPolicyCommandInput {}
 export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the password policy for the AWS account. There are no parameters.</p>
+ * <p>Deletes the password policy for the account. There are no parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

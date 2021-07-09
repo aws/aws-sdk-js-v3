@@ -24,7 +24,7 @@ export interface DescribeFileSystemAssociationsCommandOutput
 
 /**
  * <p>Gets the file system association information. This operation is only supported for
- *          Amazon FSx file gateways.</p>
+ *         FSx File Gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

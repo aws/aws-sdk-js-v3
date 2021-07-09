@@ -21,7 +21,7 @@ export interface ListOriginationNumbersCommandInput extends ListOriginationNumbe
 export interface ListOriginationNumbersCommandOutput extends ListOriginationNumbersResult, __MetadataBearer {}
 
 /**
- * <p>Lists the calling AWS account's dedicated origination numbers and their metadata. For
+ * <p>Lists the calling account's dedicated origination numbers and their metadata. For
  *             more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer
  *             Guide</i>.</p>
  * @example

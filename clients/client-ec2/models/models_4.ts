@@ -35,7 +35,6 @@ import {
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
-  TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
   VolumeType,
@@ -104,6 +103,200 @@ import {
   VolumeModification,
 } from "./models_3";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export interface DetachClassicLinkVpcRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the instance to unlink from the VPC.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC to which the instance is linked.</p>
+   */
+  VpcId: string | undefined;
+}
+
+export namespace DetachClassicLinkVpcRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetachClassicLinkVpcRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DetachClassicLinkVpcResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace DetachClassicLinkVpcResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetachClassicLinkVpcResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DetachInternetGatewayRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the internet gateway.</p>
+   */
+  InternetGatewayId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId: string | undefined;
+}
+
+export namespace DetachInternetGatewayRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetachInternetGatewayRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for DetachNetworkInterface.</p>
+ */
+export interface DetachNetworkInterfaceRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  AttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Specifies whether to force a detachment.</p>
+   *         <note>
+   *             <ul>
+   *                <li>
+   *                     <p>Use the <code>Force</code> parameter only as a last resort to detach a network interface from a failed instance. </p>
+   *                 </li>
+   *                <li>
+   *                     <p>If you use the <code>Force</code> parameter to detach a network interface, you might not be able to attach a different network interface to the same index on the instance without first stopping and starting the instance.</p>
+   *                 </li>
+   *                <li>
+   *                     <p>If you force the detachment of a network interface, the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">instance metadata</a>
+   *                         might not get updated. This means that the attributes associated
+   *                         with the detached network interface might still be visible. The
+   *                         instance metadata will get updated when you stop and start the
+   *                         instance.</p>
+   *                 </li>
+   *             </ul>
+   *         </note>
+   */
+  Force?: boolean;
+}
+
+export namespace DetachNetworkInterfaceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetachNetworkInterfaceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DetachVolumeRequest {
+  /**
+   * <p>The device name.</p>
+   */
+  Device?: string;
+
+  /**
+   * <p>Forces detachment if the previous detachment attempt did not occur cleanly (for example,
+   *       logging into an instance, unmounting the volume, and detaching normally). This option can lead
+   *       to data loss or a corrupted file system. Use this option only as a last resort to detach a
+   *       volume from a failed instance. The instance won't have an opportunity to flush file system
+   *       caches or file system metadata. If you use this option, you must perform file system check and
+   *       repair procedures.</p>
+   */
+  Force?: boolean;
+
+  /**
+   * <p>The ID of the instance. If you are detaching a Multi-Attach enabled volume, you must specify an instance ID.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The ID of the volume.</p>
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DetachVolumeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetachVolumeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for DetachVpnGateway.</p>
+ */
+export interface DetachVpnGatewayRequest {
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   */
+  VpnGatewayId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DetachVpnGatewayRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetachVpnGatewayRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface DisableEbsEncryptionByDefaultRequest {
   /**
@@ -4419,7 +4612,7 @@ export interface ImportKeyPairResult {
   KeyFingerprint?: string;
 
   /**
-   * <p>The key pair name you provided.</p>
+   * <p>The key pair name that you provided.</p>
    */
   KeyName?: string;
 
@@ -6381,6 +6574,148 @@ export namespace ModifyReservedInstancesResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: ModifyReservedInstancesResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a security group rule.</p>
+ *         <p>You must specify exactly one of the following parameters, based on the rule type:</p>
+ *         <ul>
+ *             <li>
+ *                <p>CidrIpv4</p>
+ *             </li>
+ *             <li>
+ *                <p>CidrIpv6</p>
+ *             </li>
+ *             <li>
+ *                <p>PrefixListId</p>
+ *             </li>
+ *             <li>
+ *                <p>ReferencedGroupId</p>
+ *             </li>
+ *          </ul>
+ *         <p>When you modify a rule, you cannot change the rule type. For example, if the rule
+ *             uses an IPv4 address range, you must use <code>CidrIpv4</code> to specify a new IPv4
+ *             address range.</p>
+ */
+export interface SecurityGroupRuleRequest {
+  /**
+   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
+   *                 <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). </p>
+   *         <p>Use <code>-1</code> to specify all protocols.</p>
+   */
+  IpProtocol?: string;
+
+  /**
+   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes. </p>
+   */
+  ToPort?: number;
+
+  /**
+   * <p>The IPv4 CIDR range. To specify a single IPv4 address, use the /32 prefix length. </p>
+   */
+  CidrIpv4?: string;
+
+  /**
+   * <p>The IPv6 CIDR range. To specify a single IPv6 address, use the /128 prefix length.</p>
+   */
+  CidrIpv6?: string;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   */
+  PrefixListId?: string;
+
+  /**
+   * <p>The ID of the security group that is referenced in the security group rule.</p>
+   */
+  ReferencedGroupId?: string;
+
+  /**
+   * <p>The description of the security group rule.</p>
+   */
+  Description?: string;
+}
+
+export namespace SecurityGroupRuleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecurityGroupRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an update to a security group rule.</p>
+ */
+export interface SecurityGroupRuleUpdate {
+  /**
+   * <p>The ID of the security group rule.</p>
+   */
+  SecurityGroupRuleId?: string;
+
+  /**
+   * <p>Information about the security group rule.</p>
+   */
+  SecurityGroupRule?: SecurityGroupRuleRequest;
+}
+
+export namespace SecurityGroupRuleUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecurityGroupRuleUpdate): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifySecurityGroupRulesRequest {
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>Information about the security group properties to update.</p>
+   */
+  SecurityGroupRules: SecurityGroupRuleUpdate[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ModifySecurityGroupRulesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifySecurityGroupRulesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifySecurityGroupRulesResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace ModifySecurityGroupRulesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifySecurityGroupRulesResult): any => ({
     ...obj,
   });
 }
@@ -8769,227 +9104,6 @@ export namespace TransitGatewayMulticastRegisteredGroupMembers {
    * @internal
    */
   export const filterSensitiveLog = (obj: TransitGatewayMulticastRegisteredGroupMembers): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterTransitGatewayMulticastGroupMembersResult {
-  /**
-   * <p>Information about the registered  transit gateway multicast group members.</p>
-   */
-  RegisteredMulticastGroupMembers?: TransitGatewayMulticastRegisteredGroupMembers;
-}
-
-export namespace RegisterTransitGatewayMulticastGroupMembersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupMembersResult): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-
-  /**
-   * <p>The group sources' network interface IDs to register with the  transit gateway multicast group.</p>
-   */
-  NetworkInterfaceIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace RegisterTransitGatewayMulticastGroupSourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupSourcesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the members registered with the  transit gateway multicast group.</p>
- */
-export interface TransitGatewayMulticastRegisteredGroupSources {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The IDs of the network interfaces members registered with the  transit gateway multicast group.</p>
-   */
-  RegisteredNetworkInterfaceIds?: string[];
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-}
-
-export namespace TransitGatewayMulticastRegisteredGroupSources {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransitGatewayMulticastRegisteredGroupSources): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterTransitGatewayMulticastGroupSourcesResult {
-  /**
-   * <p>Information about the  transit gateway multicast group sources.</p>
-   */
-  RegisteredMulticastGroupSources?: TransitGatewayMulticastRegisteredGroupSources;
-}
-
-export namespace RegisterTransitGatewayMulticastGroupSourcesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupSourcesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectTransitGatewayMulticastDomainAssociationsRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The ID of the transit gateway attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace RejectTransitGatewayMulticastDomainAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayMulticastDomainAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectTransitGatewayMulticastDomainAssociationsResult {
-  /**
-   * <p>Describes the multicast domain associations.</p>
-   */
-  Associations?: TransitGatewayMulticastDomainAssociations;
-}
-
-export namespace RejectTransitGatewayMulticastDomainAssociationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayMulticastDomainAssociationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectTransitGatewayPeeringAttachmentRequest {
-  /**
-   * <p>The ID of the transit gateway peering attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace RejectTransitGatewayPeeringAttachmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayPeeringAttachmentRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectTransitGatewayPeeringAttachmentResult {
-  /**
-   * <p>The transit gateway peering attachment.</p>
-   */
-  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
-}
-
-export namespace RejectTransitGatewayPeeringAttachmentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayPeeringAttachmentResult): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectTransitGatewayVpcAttachmentRequest {
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace RejectTransitGatewayVpcAttachmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectTransitGatewayVpcAttachmentResult {
-  /**
-   * <p>Information about the attachment.</p>
-   */
-  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
-}
-
-export namespace RejectTransitGatewayVpcAttachmentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentResult): any => ({
     ...obj,
   });
 }

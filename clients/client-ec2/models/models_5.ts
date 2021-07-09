@@ -13,6 +13,9 @@ import {
   RouteTableAssociationState,
   TagSpecification,
   TransitGatewayAttachmentResourceType,
+  TransitGatewayMulticastDomainAssociations,
+  TransitGatewayPeeringAttachment,
+  TransitGatewayVpcAttachment,
   UnsuccessfulItem,
   _InstanceType,
 } from "./models_0";
@@ -46,7 +49,233 @@ import {
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_3";
-import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_4";
+import {
+  CapacityReservationSpecification,
+  InstanceMonitoring,
+  Status,
+  TransitGatewayMulticastRegisteredGroupMembers,
+} from "./models_4";
+
+export interface RegisterTransitGatewayMulticastGroupMembersResult {
+  /**
+   * <p>Information about the registered  transit gateway multicast group members.</p>
+   */
+  RegisteredMulticastGroupMembers?: TransitGatewayMulticastRegisteredGroupMembers;
+}
+
+export namespace RegisterTransitGatewayMulticastGroupMembersResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupMembersResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   */
+  GroupIpAddress?: string;
+
+  /**
+   * <p>The group sources' network interface IDs to register with the  transit gateway multicast group.</p>
+   */
+  NetworkInterfaceIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RegisterTransitGatewayMulticastGroupSourcesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupSourcesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the members registered with the  transit gateway multicast group.</p>
+ */
+export interface TransitGatewayMulticastRegisteredGroupSources {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The IDs of the network interfaces members registered with the  transit gateway multicast group.</p>
+   */
+  RegisteredNetworkInterfaceIds?: string[];
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   */
+  GroupIpAddress?: string;
+}
+
+export namespace TransitGatewayMulticastRegisteredGroupSources {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayMulticastRegisteredGroupSources): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterTransitGatewayMulticastGroupSourcesResult {
+  /**
+   * <p>Information about the  transit gateway multicast group sources.</p>
+   */
+  RegisteredMulticastGroupSources?: TransitGatewayMulticastRegisteredGroupSources;
+}
+
+export namespace RegisterTransitGatewayMulticastGroupSourcesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupSourcesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectTransitGatewayMulticastDomainAssociationsRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RejectTransitGatewayMulticastDomainAssociationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectTransitGatewayMulticastDomainAssociationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectTransitGatewayMulticastDomainAssociationsResult {
+  /**
+   * <p>Describes the multicast domain associations.</p>
+   */
+  Associations?: TransitGatewayMulticastDomainAssociations;
+}
+
+export namespace RejectTransitGatewayMulticastDomainAssociationsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectTransitGatewayMulticastDomainAssociationsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectTransitGatewayPeeringAttachmentRequest {
+  /**
+   * <p>The ID of the transit gateway peering attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RejectTransitGatewayPeeringAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectTransitGatewayPeeringAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectTransitGatewayPeeringAttachmentResult {
+  /**
+   * <p>The transit gateway peering attachment.</p>
+   */
+  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
+}
+
+export namespace RejectTransitGatewayPeeringAttachmentResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectTransitGatewayPeeringAttachmentResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectTransitGatewayVpcAttachmentRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RejectTransitGatewayVpcAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectTransitGatewayVpcAttachmentResult {
+  /**
+   * <p>Information about the attachment.</p>
+   */
+  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
+}
+
+export namespace RejectTransitGatewayVpcAttachmentResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentResult): any => ({
+    ...obj,
+  });
+}
 
 export interface RejectVpcEndpointConnectionsRequest {
   /**
@@ -1369,6 +1598,11 @@ export interface RevokeSecurityGroupEgressRequest {
   IpPermissions?: IpPermission[];
 
   /**
+   * <p>The IDs of the security group rules.</p>
+   */
+  SecurityGroupRuleIds?: string[];
+
+  /**
    * <p>Not supported. Use a set of IP permissions to specify the CIDR.</p>
    */
   CidrIp?: string;
@@ -1477,7 +1711,7 @@ export interface RevokeSecurityGroupIngressRequest {
   SourceSecurityGroupName?: string;
 
   /**
-   * <p>[EC2-Classic] The AWS account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
+   * <p>[EC2-Classic] The Amazon Web Services account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
    */
   SourceSecurityGroupOwnerId?: string;
 
@@ -1493,6 +1727,11 @@ export interface RevokeSecurityGroupIngressRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the security group rules.</p>
+   */
+  SecurityGroupRuleIds?: string[];
 }
 
 export namespace RevokeSecurityGroupIngressRequest {
@@ -3378,6 +3617,31 @@ export namespace UnmonitorInstancesResult {
   });
 }
 
+/**
+ * <p>Describes the description of a security group rule.</p>
+ *         <p>You can use this when you want to update the security group rule description for either an inbound or outbound rule.</p>
+ */
+export interface SecurityGroupRuleDescription {
+  /**
+   * <p>The ID of the security group rule.</p>
+   */
+  SecurityGroupRuleId?: string;
+
+  /**
+   * <p>The description of the security group rule.</p>
+   */
+  Description?: string;
+}
+
+export namespace SecurityGroupRuleDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecurityGroupRuleDescription): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3400,9 +3664,16 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
   GroupName?: string;
 
   /**
-   * <p>The IP permissions for the security group rule.</p>
+   * <p>The IP permissions for the security group rule. You must specify either the IP permissions
+   * 		    or the description.</p>
    */
-  IpPermissions: IpPermission[] | undefined;
+  IpPermissions?: IpPermission[];
+
+  /**
+   * <p>The description for the egress security group rules. You must specify either the
+   *             description or the IP permissions.</p>
+   */
+  SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[];
 }
 
 export namespace UpdateSecurityGroupRuleDescriptionsEgressRequest {
@@ -3452,9 +3723,16 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
   GroupName?: string;
 
   /**
-   * <p>The IP permissions for the security group rule. </p>
+   * <p>The IP permissions for the security group rule. You must specify either IP permissions
+   * 		    or a description.</p>
    */
-  IpPermissions: IpPermission[] | undefined;
+  IpPermissions?: IpPermission[];
+
+  /**
+   * <p>[VPC only] The description for the ingress security group rules. You must specify either
+   *             a description or IP permissions.</p>
+   */
+  SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[];
 }
 
 export namespace UpdateSecurityGroupRuleDescriptionsIngressRequest {

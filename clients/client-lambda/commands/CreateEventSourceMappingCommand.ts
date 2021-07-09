@@ -21,42 +21,45 @@ export interface CreateEventSourceMappingCommandInput extends CreateEventSourceM
 export interface CreateEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
- * <p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source
+ * <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source
  *       and triggers the function.</p>
- *          <p>For details about each event source type, see the following topics.</p>
+ *          <p>For details about each event source type, see the following topics. In particular, each of the topics
+ *       describes the required and optional parameters for the specific event source. </p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon
- *           DynamoDB</a>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping">
+ *           Configuring a Dynamo DB stream as an event source</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS Lambda with Amazon
- *           Kinesis</a>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping">
+ *           Configuring a Kinesis stream as an event source</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda with Amazon
- *           SQS</a>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
+ *           Configuring an SQS queue as an event source</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Using AWS Lambda with Amazon
- *           MQ</a>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
+ *           Configuring an MQ broker as an event source</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda with Amazon MSK</a>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">
+ *           Configuring MSK as an event source</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">Using AWS Lambda with Self-Managed Apache Kafka</a>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">
+ *           Configuring Self-Managed Apache Kafka as an event source</a>
  *                </p>
  *             </li>
  *          </ul>

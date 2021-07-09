@@ -619,7 +619,6 @@ export enum ReplicationConfigurationDefaultLargeStagingDiskType {
 export enum ReplicationConfigurationEbsEncryption {
   CUSTOM = "CUSTOM",
   DEFAULT = "DEFAULT",
-  NONE = "NONE",
 }
 
 export interface CreateReplicationConfigurationTemplateRequest {

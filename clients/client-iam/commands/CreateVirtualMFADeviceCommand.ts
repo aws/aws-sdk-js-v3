@@ -21,7 +21,7 @@ export interface CreateVirtualMFADeviceCommandInput extends CreateVirtualMFADevi
 export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new virtual MFA device for the AWS account. After creating the virtual
+ * <p>Creates a new virtual MFA device for the account. After creating the virtual
  *             MFA, use <a>EnableMFADevice</a> to attach the MFA device to an IAM user.
  *             For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA
  *                 device</a> in the <i>IAM User Guide</i>.</p>
@@ -30,7 +30,7 @@ export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADev
  *         <important>
  *             <p>The seed information contained in the QR code and the Base32 string should be
  *                 treated like any other secret access information. In other words, protect the seed
- *                 information as you would your AWS access keys or your passwords. After you
+ *                 information as you would your Amazon Web Services access keys or your passwords. After you
  *                 provision your virtual device, you should ensure that the information is destroyed
  *                 following secure procedures.</p>
  *         </important>

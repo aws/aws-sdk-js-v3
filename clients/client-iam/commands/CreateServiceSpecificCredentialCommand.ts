@@ -28,11 +28,11 @@ export interface CreateServiceSpecificCredentialCommandOutput
  *             IAM, and can be used only for the specified service. </p>
  *         <p>You can have a maximum of two sets of service-specific credentials for each supported
  *             service per user.</p>
- *         <p>You can create service-specific credentials for AWS CodeCommit and Amazon Keyspaces (for Apache
+ *         <p>You can create service-specific credentials for CodeCommit and Amazon Keyspaces (for Apache
  *             Cassandra).</p>
  *         <p>You can reset the password to a new service-generated value by calling <a>ResetServiceSpecificCredential</a>.</p>
  *         <p>For more information about service-specific credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html">Using IAM
- *                 with AWS CodeCommit: Git credentials, SSH keys, and AWS access keys</a> in the
+ *                 with CodeCommit: Git credentials, SSH keys, and Amazon Web Services access keys</a> in the
  *                 <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -22,6 +22,7 @@ export * from "./pagination/ListEndpointsByPlatformApplicationPaginator";
 export * from "./commands/ListOriginationNumbersCommand";
 export * from "./pagination/ListOriginationNumbersPaginator";
 export * from "./commands/ListPhoneNumbersOptedOutCommand";
+export * from "./pagination/ListPhoneNumbersOptedOutPaginator";
 export * from "./commands/ListPlatformApplicationsCommand";
 export * from "./pagination/ListPlatformApplicationsPaginator";
 export * from "./commands/ListSMSSandboxPhoneNumbersCommand";

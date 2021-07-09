@@ -25,14 +25,14 @@ export interface CreateOpenIDConnectProviderCommandOutput
 /**
  * <p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href="http://openid.net/connect/">OpenID Connect (OIDC)</a>.</p>
  *         <p>The OIDC provider that you create with this operation can be used as a principal in a
- *             role's trust policy. Such a policy establishes a trust relationship between AWS and
+ *             role's trust policy. Such a policy establishes a trust relationship between Amazon Web Services and
  *             the OIDC provider.</p>
- *         <p>If you are using an OIDC identity provider from Google, Facebook, or Amazon Cognito,
- *             you don't need to create a separate IAM identity provider. These OIDC identity
- *             providers are already built-in to AWS and are available for your use. Instead, you can
- *             move directly to creating new roles using your identity provider. To learn more, see
- *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html">Creating a role for web identity or OpenID connect federation</a> in the
- *                 <i>IAM User Guide</i>.</p>
+ *         <p>If you are using an OIDC identity provider from Google, Facebook, or Amazon Cognito, you don't
+ *             need to create a separate IAM identity provider. These OIDC identity providers are
+ *             already built-in to Amazon Web Services and are available for your use. Instead, you can move directly
+ *             to creating new roles using your identity provider. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html">Creating
+ *                 a role for web identity or OpenID connect federation</a> in the <i>IAM
+ *                 User Guide</i>.</p>
  *         <p>When you create the IAM OIDC provider, you specify the following:</p>
  *         <ul>
  *             <li>
@@ -40,7 +40,7 @@ export interface CreateOpenIDConnectProviderCommandOutput
  *             </li>
  *             <li>
  *                 <p>A list of client IDs (also known as audiences) that identify the application
- *                     or applications that are allowed to authenticate using the OIDC provider</p>
+ *                     or applications  allowed to authenticate using the OIDC provider</p>
  *             </li>
  *             <li>
  *                 <p>A list of thumbprints of one or more server certificates that the IdP
@@ -48,7 +48,7 @@ export interface CreateOpenIDConnectProviderCommandOutput
  *             </li>
  *          </ul>
  *         <p>You get all of this information from the OIDC IdP that you want to use to access
- *             AWS.</p>
+ *             Amazon Web Services.</p>
  *         <note>
  *             <p>The trust for the OIDC provider is derived from the IAM provider that this
  *                 operation creates. Therefore, it is best to limit access to the <a>CreateOpenIDConnectProvider</a> operation to highly privileged

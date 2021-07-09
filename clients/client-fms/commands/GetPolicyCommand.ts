@@ -18,7 +18,7 @@ export interface GetPolicyCommandInput extends GetPolicyRequest {}
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the specified AWS Firewall Manager policy.</p>
+ * <p>Returns information about the specified Firewall Manager policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,9 +21,9 @@ export interface CreateAccountAliasCommandInput extends CreateAccountAliasReques
 export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates an alias for your AWS account. For information about using an AWS account
+ * <p>Creates an alias for your account. For information about using an account
  *             alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an
- *                 alias for your AWS account ID</a> in the
+ *                 alias for your account ID</a> in the
  *             <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

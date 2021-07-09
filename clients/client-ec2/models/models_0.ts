@@ -1238,13 +1238,13 @@ export type ResourceType =
   | "natgateway"
   | "network-acl"
   | "network-insights-analysis"
-  | "network-insights-boundary"
   | "network-insights-path"
   | "network-interface"
   | "placement-group"
   | "reserved-instances"
   | "route-table"
   | "security-group"
+  | "security-group-rule"
   | "snapshot"
   | "spot-fleet-request"
   | "spot-instances-request"
@@ -1993,7 +1993,7 @@ export interface AssociateEnclaveCertificateIamRoleResult {
   CertificateS3ObjectKey?: string;
 
   /**
-   * <p>The ID of the AWS KMS CMK used to encrypt the private key of the certificate.</p>
+   * <p>The ID of the KMS key used to encrypt the private key of the certificate.</p>
    */
   EncryptionKmsKeyId?: string;
 }
@@ -3227,7 +3227,7 @@ export namespace PrefixListId {
 }
 
 /**
- * <p>Describes a security group and AWS account ID pair.</p>
+ * <p>Describes a security group and Amazon Web Services account ID pair.</p>
  */
 export interface UserIdGroupPair {
   /**
@@ -3258,12 +3258,12 @@ export interface UserIdGroupPair {
   PeeringStatus?: string;
 
   /**
-   * <p>The ID of an AWS account.</p>
+   * <p>The ID of an Amazon Web Services account.</p>
    *         <p>For a referenced security group in another VPC, the account ID of the referenced
    *             security group is returned in the response. If the referenced security group is deleted,
    *             this value is not returned.</p>
    *          <p>[EC2-Classic] Required when adding or removing rules that reference a security group
-   *             in another AWS account.</p>
+   *             in another Amazon Web Services account.</p>
    */
   UserId?: string;
 
@@ -3333,7 +3333,7 @@ export interface IpPermission {
   ToPort?: number;
 
   /**
-   * <p>The security group and AWS account ID pairs.</p>
+   * <p>The security group and Amazon Web Services account ID pairs.</p>
    */
   UserIdGroupPairs?: UserIdGroupPair[];
 }
@@ -3365,6 +3365,11 @@ export interface AuthorizeSecurityGroupEgressRequest {
    *             address range in the same set of permissions.</p>
    */
   IpPermissions?: IpPermission[];
+
+  /**
+   * <p>The tags applied to the security group rule.</p>
+   */
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>Not supported. Use a set of IP permissions to specify the CIDR.</p>
@@ -3405,6 +3410,149 @@ export namespace AuthorizeSecurityGroupEgressRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: AuthorizeSecurityGroupEgressRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p> Describes the security group that is referenced in the security group rule.</p>
+ */
+export interface ReferencedSecurityGroup {
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>The status of a VPC peering connection, if applicable.</p>
+   */
+  PeeringStatus?: string;
+
+  /**
+   * <p>The account ID.</p>
+   */
+  UserId?: string;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The ID of the VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId?: string;
+}
+
+export namespace ReferencedSecurityGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReferencedSecurityGroup): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a security group rule.</p>
+ */
+export interface SecurityGroupRule {
+  /**
+   * <p>The ID of the security group rule.</p>
+   */
+  SecurityGroupRuleId?: string;
+
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>The ID of the account that owns the security group. </p>
+   */
+  GroupOwnerId?: string;
+
+  /**
+   * <p>Indicates whether the security group rule is an outbound rule.</p>
+   */
+  IsEgress?: boolean;
+
+  /**
+   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
+   *                 <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). </p>
+   *         <p>Use <code>-1</code> to specify all protocols.</p>
+   */
+  IpProtocol?: string;
+
+  /**
+   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value
+   *             of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must
+   *             specify all codes.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes. </p>
+   */
+  ToPort?: number;
+
+  /**
+   * <p>The IPv4 CIDR range.</p>
+   */
+  CidrIpv4?: string;
+
+  /**
+   * <p>The IPv6 CIDR range.</p>
+   */
+  CidrIpv6?: string;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   */
+  PrefixListId?: string;
+
+  /**
+   * <p>Describes the security group that is referenced in the rule.</p>
+   */
+  ReferencedGroupInfo?: ReferencedSecurityGroup;
+
+  /**
+   * <p>The security group rule description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags applied to the security group rule.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace SecurityGroupRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecurityGroupRule): any => ({
+    ...obj,
+  });
+}
+
+export interface AuthorizeSecurityGroupEgressResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   */
+  Return?: boolean;
+
+  /**
+   * <p>Information about the outbound (egress) security group rules that were added.</p>
+   */
+  SecurityGroupRules?: SecurityGroupRule[];
+}
+
+export namespace AuthorizeSecurityGroupEgressResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthorizeSecurityGroupEgressResult): any => ({
     ...obj,
   });
 }
@@ -3463,7 +3611,7 @@ export interface AuthorizeSecurityGroupIngressRequest {
   SourceSecurityGroupName?: string;
 
   /**
-   * <p>[nondefault VPC] The AWS account ID for the source security group, if the source security group is
+   * <p>[nondefault VPC] The Amazon Web Services account ID for the source security group, if the source security group is
    *          in a different account. You can't specify this parameter in combination with the following parameters:
    *          the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range.
    *          Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol
@@ -3485,6 +3633,11 @@ export interface AuthorizeSecurityGroupIngressRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>[VPC Only] The tags applied to the security group rule.</p>
+   */
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace AuthorizeSecurityGroupIngressRequest {
@@ -3492,6 +3645,27 @@ export namespace AuthorizeSecurityGroupIngressRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: AuthorizeSecurityGroupIngressRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AuthorizeSecurityGroupIngressResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   */
+  Return?: boolean;
+
+  /**
+   * <p>Information about the inbound (ingress) security group rules that were added.</p>
+   */
+  SecurityGroupRules?: SecurityGroupRule[];
+}
+
+export namespace AuthorizeSecurityGroupIngressResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthorizeSecurityGroupIngressResult): any => ({
     ...obj,
   });
 }
@@ -8550,105 +8724,6 @@ export namespace ElasticGpuSpecification {
    * @internal
    */
   export const filterSensitiveLog = (obj: ElasticGpuSpecification): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>
- *             Describes an elastic inference accelerator.
- *         </p>
- */
-export interface LaunchTemplateElasticInferenceAccelerator {
-  /**
-   * <p>
-   *             The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
-   *         </p>
-   */
-  Type: string | undefined;
-
-  /**
-   * <p>
-   *     		The number of elastic inference accelerators to attach to the instance.
-   *     	</p>
-   *     	    <p>Default: 1</p>
-   */
-  Count?: number;
-}
-
-export namespace LaunchTemplateElasticInferenceAccelerator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateElasticInferenceAccelerator): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information,
- * 		see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">
- * 			What is AWS Nitro Enclaves?</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p>
- */
-export interface LaunchTemplateEnclaveOptionsRequest {
-  /**
-   * <p>To enable the instance for AWS Nitro Enclaves, set this parameter to <code>true</code>.</p>
-   */
-  Enabled?: boolean;
-}
-
-export namespace LaunchTemplateEnclaveOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateEnclaveOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Indicates whether the instance is configured for hibernation. This parameter is valid only
- *             if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
- *                 prerequisites</a>.</p>
- */
-export interface LaunchTemplateHibernationOptionsRequest {
-  /**
-   * <p>If you set this parameter to <code>true</code>, the instance is enabled for hibernation.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  Configured?: boolean;
-}
-
-export namespace LaunchTemplateHibernationOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateHibernationOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An IAM instance profile.</p>
- */
-export interface LaunchTemplateIamInstanceProfileSpecificationRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the instance profile.</p>
-   */
-  Name?: string;
-}
-
-export namespace LaunchTemplateIamInstanceProfileSpecificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateIamInstanceProfileSpecificationRequest): any => ({
     ...obj,
   });
 }

@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DetachClassicLinkVpcRequest, DetachClassicLinkVpcResult } from "../models/models_3";
+import { DetachClassicLinkVpcRequest, DetachClassicLinkVpcResult } from "../models/models_4";
 import {
   deserializeAws_ec2DetachClassicLinkVpcCommand,
   serializeAws_ec2DetachClassicLinkVpcCommand,

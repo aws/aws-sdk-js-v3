@@ -22,7 +22,7 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
 
 /**
  * <p>Updates a Server Message Block (SMB) file share. This operation is only supported for
- *          file gateways.</p>
+ *          S3 File Gateways.</p>
  *
  *          <note>
  *             <p>To leave a file share field unchanged, set the corresponding input field to
@@ -30,12 +30,12 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  *          </note>
  *
  *          <important>
- *             <p>File gateways require AWS Security Token Service (AWS STS) to be activated to enable
- *             you to create a file share. Make sure that AWS STS is activated in the AWS Region you
- *             are creating your file gateway in. If AWS STS is not activated in this AWS Region,
- *             activate it. For information about how to activate AWS STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
- *                deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and
- *                Access Management User Guide</i>.</p>
+ *             <p>File gateways require Security Token Service (STS) to be activated to enable
+ *             you to create a file share. Make sure that STS is activated in the Region you
+ *             are creating your file gateway in. If STS is not activated in this Region,
+ *             activate it. For information about how to activate STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                deactivating STS in an Region</a> in the <i>Identity and Access Management
+ *                   User Guide</i>.</p>
  *
  *             <p>File gateways don't support creating hard or symbolic links on a file
  *             share.</p>

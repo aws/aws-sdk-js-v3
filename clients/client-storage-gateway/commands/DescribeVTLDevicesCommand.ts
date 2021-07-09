@@ -22,7 +22,7 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
 
 /**
  * <p>Returns a description of virtual tape library (VTL) devices for the specified tape
- *          gateway. In the response, AWS Storage Gateway returns VTL device information.</p>
+ *          gateway. In the response, Storage Gateway returns VTL device information.</p>
  *
  *          <p>This operation is only supported in the tape gateway type.</p>
  * @example

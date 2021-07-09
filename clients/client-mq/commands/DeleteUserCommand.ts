@@ -21,7 +21,7 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}
 
 /**
- * Deletes an ActiveMQ user.
+ * <p>Deletes an ActiveMQ user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

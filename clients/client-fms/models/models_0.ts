@@ -10,7 +10,31 @@ export enum AccountRoleStatus {
 }
 
 /**
- * <p>An individual AWS Firewall Manager application.</p>
+ * <p>Describes a remediation action target.</p>
+ */
+export interface ActionTarget {
+  /**
+   * <p>The ID of the remediation target.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>A description of the remediation action target.</p>
+   */
+  Description?: string;
+}
+
+export namespace ActionTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ActionTarget): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An individual Firewall Manager application.</p>
  */
 export interface App {
   /**
@@ -39,16 +63,16 @@ export namespace App {
 }
 
 /**
- * <p>An AWS Firewall Manager applications list.</p>
+ * <p>An Firewall Manager applications list.</p>
  */
 export interface AppsListData {
   /**
-   * <p>The ID of the AWS Firewall Manager applications list.</p>
+   * <p>The ID of the Firewall Manager applications list.</p>
    */
   ListId?: string;
 
   /**
-   * <p>The name of the AWS Firewall Manager applications list.</p>
+   * <p>The name of the Firewall Manager applications list.</p>
    */
   ListName: string | undefined;
 
@@ -60,17 +84,17 @@ export interface AppsListData {
   ListUpdateToken?: string;
 
   /**
-   * <p>The time that the AWS Firewall Manager applications list was created.</p>
+   * <p>The time that the Firewall Manager applications list was created.</p>
    */
   CreateTime?: Date;
 
   /**
-   * <p>The time that the AWS Firewall Manager applications list was last updated.</p>
+   * <p>The time that the Firewall Manager applications list was last updated.</p>
    */
   LastUpdateTime?: Date;
 
   /**
-   * <p>An array of applications in the AWS Firewall Manager applications list.</p>
+   * <p>An array of applications in the Firewall Manager applications list.</p>
    */
   AppsList: App[] | undefined;
 
@@ -90,7 +114,7 @@ export namespace AppsListData {
 }
 
 /**
- * <p>Details of the AWS Firewall Manager applications list.</p>
+ * <p>Details of the Firewall Manager applications list.</p>
  */
 export interface AppsListDataSummary {
   /**
@@ -109,7 +133,7 @@ export interface AppsListDataSummary {
   ListName?: string;
 
   /**
-   * <p>An array of <code>App</code> objects in the AWS Firewall Manager applications list.</p>
+   * <p>An array of <code>App</code> objects in the Firewall Manager applications list.</p>
    */
   AppsList?: App[];
 }
@@ -125,10 +149,10 @@ export namespace AppsListDataSummary {
 
 export interface AssociateAdminAccountRequest {
   /**
-   * <p>The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager
-   *       administrator account. This can be an AWS Organizations master account or a member account.
-   *         For more information about AWS Organizations and master accounts, see
-   *         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html">Managing the AWS Accounts in Your Organization</a>.  </p>
+   * <p>The Amazon Web Services account ID to associate with Firewall Manager as the Firewall Manager
+   *       administrator account. This must be an Organizations member account.
+   *         For more information about Organizations, see
+   *         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html">Managing the Amazon Web Services Accounts in Your Organization</a>.  </p>
    */
   AdminAccount: string | undefined;
 }
@@ -182,9 +206,9 @@ export namespace InvalidInputException {
 /**
  * <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
  *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
- *             was already set as the AWS Firewall Manager administrator. Or you might have tried to access a Region
+ *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
  *   that's disabled by default, and that you need to enable for the Firewall Manager
- *   administrator account and for AWS Organizations before you can access it.</p>
+ *   administrator account and for Organizations before you can access it.</p>
  */
 export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
   name: "InvalidOperationException";
@@ -197,6 +221,27 @@ export namespace InvalidOperationException {
    * @internal
    */
   export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The operation exceeds a resource limit, for example, the maximum number of
+ *         <code>policy</code> objects that you can create for an Amazon Web Services account. For more information,
+ *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
+ *         Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+ */
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace LimitExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
 }
@@ -220,7 +265,7 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- * <p>Violations for network interfaces associated with an EC2 instance.</p>
+ * <p>Violation detail for network interfaces associated with an EC2 instance.</p>
  */
 export interface AwsEc2NetworkInterfaceViolation {
   /**
@@ -229,7 +274,7 @@ export interface AwsEc2NetworkInterfaceViolation {
   ViolationTarget?: string;
 
   /**
-   * <p>List of security groups that violate the rules specified in the master security group of the AWS Firewall Manager policy.</p>
+   * <p>List of security groups that violate the rules specified in the primary security group of the Firewall Manager policy.</p>
    */
   ViolatingSecurityGroups?: string[];
 }
@@ -244,7 +289,7 @@ export namespace AwsEc2NetworkInterfaceViolation {
 }
 
 /**
- * <p>Violations for an EC2 instance resource.</p>
+ * <p>Violation detail for an EC2 instance resource.</p>
  */
 export interface AwsEc2InstanceViolation {
   /**
@@ -253,7 +298,7 @@ export interface AwsEc2InstanceViolation {
   ViolationTarget?: string;
 
   /**
-   * <p>Violations for network interfaces associated with the EC2 instance.</p>
+   * <p>Violation detail for network interfaces associated with the EC2 instance.</p>
    */
   AwsEc2NetworkInterfaceViolations?: AwsEc2NetworkInterfaceViolation[];
 }
@@ -304,10 +349,10 @@ export interface DeletePolicyRequest {
 
   /**
    * <p>If <code>True</code>, the request performs cleanup according to the policy type. </p>
-   *          <p>For AWS WAF and Shield Advanced policies, the cleanup does the following:</p>
+   *          <p>For WAF and Shield Advanced policies, the cleanup does the following:</p>
    *          <ul>
    *             <li>
-   *                <p>Deletes rule groups created by AWS Firewall Manager</p>
+   *                <p>Deletes rule groups created by Firewall Manager</p>
    *             </li>
    *             <li>
    *                <p>Removes web ACLs from in-scope resources</p>
@@ -342,27 +387,6 @@ export namespace DeletePolicyRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The operation exceeds a resource limit, for example, the maximum number of
- *         <code>policy</code> objects that you can create for an AWS account. For more information,
- *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
- *         Manager Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
- */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
 }
@@ -408,12 +432,12 @@ export namespace GetAdminAccountRequest {
 
 export interface GetAdminAccountResponse {
   /**
-   * <p>The AWS account that is set as the AWS Firewall Manager administrator.</p>
+   * <p>The Amazon Web Services account that is set as the Firewall Manager administrator.</p>
    */
   AdminAccount?: string;
 
   /**
-   * <p>The status of the AWS account that you set as the AWS Firewall Manager
+   * <p>The status of the Amazon Web Services account that you set as the Firewall Manager
    *       administrator.</p>
    */
   RoleStatus?: AccountRoleStatus | string;
@@ -430,12 +454,12 @@ export namespace GetAdminAccountResponse {
 
 export interface GetAppsListRequest {
   /**
-   * <p>The ID of the AWS Firewall Manager applications list that you want the details for.</p>
+   * <p>The ID of the Firewall Manager applications list that you want the details for.</p>
    */
   ListId: string | undefined;
 
   /**
-   * <p>Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.</p>
+   * <p>Specifies whether the list to retrieve is a default list owned by Firewall Manager.</p>
    */
   DefaultList?: boolean;
 }
@@ -451,7 +475,7 @@ export namespace GetAppsListRequest {
 
 export interface GetAppsListResponse {
   /**
-   * <p>Information about the specified AWS Firewall Manager applications list.</p>
+   * <p>Information about the specified Firewall Manager applications list.</p>
    */
   AppsList?: AppsListData;
 
@@ -478,7 +502,7 @@ export interface GetComplianceDetailRequest {
   PolicyId: string | undefined;
 
   /**
-   * <p>The AWS account that owns the resources that you want to get the details for.</p>
+   * <p>The Amazon Web Services account that owns the resources that you want to get the details for.</p>
    */
   MemberAccount: string | undefined;
 }
@@ -500,10 +524,17 @@ export enum DependentServiceName {
 }
 
 export enum ViolationReason {
+  BlackHoleRouteDetected = "BLACK_HOLE_ROUTE_DETECTED",
+  BlackHoleRouteDetectedInFirewallSubnet = "BLACK_HOLE_ROUTE_DETECTED_IN_FIREWALL_SUBNET",
   FMSCreatedSecurityGroupEdited = "FMS_CREATED_SECURITY_GROUP_EDITED",
+  FirewallSubnetMissingExpectedRoute = "FIREWALL_SUBNET_MISSING_EXPECTED_ROUTE",
+  InternetGatewayMissingExpectedRoute = "INTERNET_GATEWAY_MISSING_EXPECTED_ROUTE",
+  InternetTrafficNotInspected = "INTERNET_TRAFFIC_NOT_INSPECTED",
+  InvalidRouteConfiguration = "INVALID_ROUTE_CONFIGURATION",
   MissingExpectedRouteTable = "MISSING_EXPECTED_ROUTE_TABLE",
   MissingFirewall = "MISSING_FIREWALL",
   MissingFirewallSubnetInAZ = "MISSING_FIREWALL_SUBNET_IN_AZ",
+  MissingTargetGateway = "MISSING_TARGET_GATEWAY",
   NetworkFirewallPolicyModified = "NETWORK_FIREWALL_POLICY_MODIFIED",
   ResourceIncorrectWebAcl = "RESOURCE_INCORRECT_WEB_ACL",
   ResourceMissingDnsFirewall = "RESOURCE_MISSING_DNS_FIREWALL",
@@ -514,6 +545,9 @@ export enum ViolationReason {
   ResourceViolatesAuditSecurityGroup = "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP",
   SecurityGroupRedundant = "SECURITY_GROUP_REDUNDANT",
   SecurityGroupUnused = "SECURITY_GROUP_UNUSED",
+  TrafficInspectionCrossesAZBoundary = "TRAFFIC_INSPECTION_CROSSES_AZ_BOUNDARY",
+  UnexpectedFirewallRoutes = "UNEXPECTED_FIREWALL_ROUTES",
+  UnexpectedTargetGatewayRoutes = "UNEXPECTED_TARGET_GATEWAY_ROUTES",
   WebAclMissingRuleGroup = "WEB_ACL_MISSING_RULE_GROUP",
 }
 
@@ -532,7 +566,7 @@ export interface ComplianceViolator {
   ViolationReason?: ViolationReason | string;
 
   /**
-   * <p>The resource type. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS Resource Types Reference</a>. For example:
+   * <p>The resource type. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a>. For example:
    *         <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>,
    *         <code>AWS::CloudFront::Distribution</code>, or
    *         <code>AWS::NetworkFirewall::FirewallPolicy</code>.</p>
@@ -551,34 +585,33 @@ export namespace ComplianceViolator {
 
 /**
  * <p>Describes
- *       the noncompliant resources in a member account for a specific AWS Firewall
- *       Manager policy. A maximum of 100 entries are displayed. If more than 100 resources are
+ *       the noncompliant resources in a member account for a specific Firewall Manager policy. A maximum of 100 entries are displayed. If more than 100 resources are
  *       noncompliant, <code>EvaluationLimitExceeded</code> is set to <code>True</code>.</p>
  */
 export interface PolicyComplianceDetail {
   /**
-   * <p>The AWS account that created the AWS Firewall Manager policy.</p>
+   * <p>The Amazon Web Services account that created the Firewall Manager policy.</p>
    */
   PolicyOwner?: string;
 
   /**
-   * <p>The ID of the AWS Firewall Manager policy.</p>
+   * <p>The ID of the Firewall Manager policy.</p>
    */
   PolicyId?: string;
 
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   MemberAccount?: string;
 
   /**
-   * <p>An array of resources that aren't protected by the AWS WAF or Shield Advanced policy or
+   * <p>An array of resources that aren't protected by the WAF or Shield Advanced policy or
    *       that aren't in compliance with the security group policy.</p>
    */
   Violators?: ComplianceViolator[];
 
   /**
-   * <p>Indicates if over 100 resources are noncompliant with the AWS Firewall Manager
+   * <p>Indicates if over 100 resources are noncompliant with the Firewall Manager
    *       policy.</p>
    */
   EvaluationLimitExceeded?: boolean;
@@ -590,8 +623,7 @@ export interface PolicyComplianceDetail {
   ExpiredAt?: Date;
 
   /**
-   * <p>Details about problems with dependent services, such as AWS WAF or AWS Config, that are
-   *       causing a resource to be noncompliant. The details include the name of the dependent service
+   * <p>Details about problems with dependent services, such as WAF or Config,
    *       and the error message received that indicates the problem with the service.</p>
    */
   IssueInfoMap?: { [key: string]: string };
@@ -636,12 +668,12 @@ export namespace GetNotificationChannelRequest {
 
 export interface GetNotificationChannelResponse {
   /**
-   * <p>The SNS topic that records AWS Firewall Manager activity. </p>
+   * <p>The SNS topic that records Firewall Manager activity. </p>
    */
   SnsTopicArn?: string;
 
   /**
-   * <p>The IAM role that is used by AWS Firewall Manager to record activity to SNS.</p>
+   * <p>The IAM role that is used by Firewall Manager to record activity to SNS.</p>
    */
   SnsRoleName?: string;
 }
@@ -657,7 +689,7 @@ export namespace GetNotificationChannelResponse {
 
 export interface GetPolicyRequest {
   /**
-   * <p>The ID of the AWS Firewall Manager policy that you want the details for.</p>
+   * <p>The ID of the Firewall Manager policy that you want the details for.</p>
    */
   PolicyId: string | undefined;
 }
@@ -677,9 +709,9 @@ export enum CustomerPolicyScopeIdType {
 }
 
 /**
- * <p>The resource tags that AWS Firewall Manager uses to determine if a particular resource
- *       should be included or excluded from the AWS Firewall Manager policy. Tags enable you to
- *       categorize your AWS resources in different ways, for example, by purpose, owner, or
+ * <p>The resource tags that Firewall Manager uses to determine if a particular resource
+ *       should be included or excluded from the Firewall Manager policy. Tags enable you to
+ *       categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or
  *       environment. Each tag consists of a key and an optional value. Firewall Manager combines the
  *       tags with "AND" so that, if you add more than one tag to a policy scope, a resource must have
  *         all the specified tags to be included or excluded. For more information, see
@@ -723,10 +755,10 @@ export enum SecurityServiceType {
 export interface SecurityServicePolicyData {
   /**
    * <p>The service that the policy is using to protect the resources. This specifies the type of
-   *       policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security
+   *       policy that is created, either an WAF policy, a Shield Advanced policy, or a security
    *       group policy. For security group policies, Firewall Manager supports one security group for
    *       each common policy and for each content audit policy. This is an adjustable limit that you can
-   *       increase by contacting AWS Support.</p>
+   *       increase by contacting Amazon Web Services Support.</p>
    */
   Type: SecurityServiceType | string | undefined;
 
@@ -734,6 +766,13 @@ export interface SecurityServicePolicyData {
    * <p>Details about the service that are specific to the service type, in JSON format. For
    *       service type <code>SHIELD_ADVANCED</code>, this is an empty string.</p>
    *          <ul>
+   *             <li>
+   *                <p>Example: <code>DNS_FIREWALL</code>
+   *                </p>
+   *                <p>
+   *                   <code>"{\"type\":\"DNS_FIREWALL\",\"preProcessRuleGroups\":[{\"ruleGroupId\":\"rslvr-frg-1\",\"priority\":10}],\"postProcessRuleGroups\":[{\"ruleGroupId\":\"rslvr-frg-2\",\"priority\":9911}]}"</code>
+   *                </p>
+   *             </li>
    *             <li>
    *                <p>Example: <code>NETWORK_FIREWALL</code>
    *                </p>
@@ -761,6 +800,13 @@ export interface SecurityServicePolicyData {
    *                </p>
    *                <p>
    *                   <code>"{\"type\":\"SECURITY_GROUPS_COMMON\",\"revertManualSecurityGroupChanges\":false,\"exclusiveResourceSecurityGroupManagement\":false, \"applyToAllEC2InstanceENIs\":false,\"securityGroups\":[{\"id\":\" sg-000e55995d61a06bd\"}]}"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Example: Shared VPCs. Apply the preceding policy to resources in shared VPCs as well as to those in VPCs that the account owns
+   *              </p>
+   *                <p>
+   *                  <code>"{\"type\":\"SECURITY_GROUPS_COMMON\",\"revertManualSecurityGroupChanges\":false,\"exclusiveResourceSecurityGroupManagement\":false, \"applyToAllEC2InstanceENIs\":false,\"includeSharedVPC\":true,\"securityGroups\":[{\"id\":\" sg-000e55995d61a06bd\"}]}"</code>
    *                </p>
    *             </li>
    *             <li>
@@ -797,16 +843,16 @@ export namespace SecurityServicePolicyData {
 }
 
 /**
- * <p>An AWS Firewall Manager policy.</p>
+ * <p>An Firewall Manager policy.</p>
  */
 export interface Policy {
   /**
-   * <p>The ID of the AWS Firewall Manager policy.</p>
+   * <p>The ID of the Firewall Manager policy.</p>
    */
   PolicyId?: string;
 
   /**
-   * <p>The name of the AWS Firewall Manager policy.</p>
+   * <p>The name of the Firewall Manager policy.</p>
    */
   PolicyName: string | undefined;
 
@@ -826,20 +872,21 @@ export interface Policy {
 
   /**
    * <p>The type of resource protected by or in scope of the policy. This is in the format shown
-   *         in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS Resource Types Reference</a>.
-   *             For AWS WAF and Shield Advanced, examples include
+   *         in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a>.
+   *                     To apply this policy to multiple resource types, specify a resource type of <code>ResourceTypeList</code> and then specify the resource types in a <code>ResourceTypeList</code>.</p>
+   *                 <p>For WAF and Shield Advanced, example resource types include
    *         <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> and
    *         <code>AWS::CloudFront::Distribution</code>. For a security group common policy, valid values
    *       are <code>AWS::EC2::NetworkInterface</code> and <code>AWS::EC2::Instance</code>. For a
    *       security group content audit policy, valid values are <code>AWS::EC2::SecurityGroup</code>,
    *         <code>AWS::EC2::NetworkInterface</code>, and <code>AWS::EC2::Instance</code>. For a security
-   *             group usage audit policy, the value is <code>AWS::EC2::SecurityGroup</code>. For an AWS Network Firewall policy,
+   *             group usage audit policy, the value is <code>AWS::EC2::SecurityGroup</code>. For an Network Firewall policy or DNS Firewall policy,
    *                 the value is <code>AWS::EC2::VPC</code>.</p>
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>An array of <code>ResourceType</code>.</p>
+   * <p>An array of <code>ResourceType</code> objects. Use this only to specify multiple resource types. To specify a single resource type, use <code>ResourceType</code>.</p>
    */
   ResourceTypeList?: string[];
 
@@ -862,9 +909,9 @@ export interface Policy {
   RemediationEnabled: boolean | undefined;
 
   /**
-   * <p>Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in the policy.
+   * <p>Specifies the Amazon Web Services account IDs and Organizations organizational units (OUs) to include in the policy.
    *           Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.</p>
-   *               <p>You can specify inclusions or exclusions, but not both. If you specify an <code>IncludeMap</code>, AWS Firewall Manager
+   *               <p>You can specify inclusions or exclusions, but not both. If you specify an <code>IncludeMap</code>, Firewall Manager
    *           applies the policy to all accounts specified by the <code>IncludeMap</code>, and
    *           does not evaluate any <code>ExcludeMap</code> specifications. If you do not specify an <code>IncludeMap</code>, then Firewall Manager
    *             applies the policy to all accounts except for those specified by the <code>ExcludeMap</code>.</p>
@@ -887,9 +934,9 @@ export interface Policy {
   IncludeMap?: { [key: string]: string[] };
 
   /**
-   * <p>Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to exclude from the policy.
+   * <p>Specifies the Amazon Web Services account IDs and Organizations organizational units (OUs) to exclude from the policy.
    *           Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.</p>
-   *               <p>You can specify inclusions or exclusions, but not both. If you specify an <code>IncludeMap</code>, AWS Firewall Manager
+   *               <p>You can specify inclusions or exclusions, but not both. If you specify an <code>IncludeMap</code>, Firewall Manager
    *           applies the policy to all accounts specified by the <code>IncludeMap</code>, and
    *           does not evaluate any <code>ExcludeMap</code> specifications. If you do not specify an <code>IncludeMap</code>, then Firewall Manager
    *             applies the policy to all accounts except for those specified by the <code>ExcludeMap</code>.</p>
@@ -923,7 +970,7 @@ export namespace Policy {
 
 export interface GetPolicyResponse {
   /**
-   * <p>Information about the specified AWS Firewall Manager policy.</p>
+   * <p>Information about the specified Firewall Manager policy.</p>
    */
   Policy?: Policy;
 
@@ -967,37 +1014,35 @@ export interface GetProtectionStatusRequest {
   PolicyId: string | undefined;
 
   /**
-   * <p>The AWS account that is in scope of the policy that you want to get the details
+   * <p>The Amazon Web Services account that is in scope of the policy that you want to get the details
    *          for.</p>
    */
   MemberAccountId?: string;
 
   /**
    * <p>The start of the time period to query for the attacks. This is a <code>timestamp</code> type. The
-   *           request syntax listing indicates a <code>number</code> type because the default used by AWS Firewall
-   *          Manager is Unix time in seconds. However, any valid <code>timestamp</code> format is
+   *           request syntax listing indicates a <code>number</code> type because the default used by Firewall Manager is Unix time in seconds. However, any valid <code>timestamp</code> format is
    *          allowed.</p>
    */
   StartTime?: Date;
 
   /**
    * <p>The end of the time period to query for the attacks. This is a <code>timestamp</code> type. The
-   *          request syntax listing indicates a <code>number</code> type because the default used by AWS Firewall
-   *          Manager is Unix time in seconds. However, any valid <code>timestamp</code> format is
+   *          request syntax listing indicates a <code>number</code> type because the default used by Firewall Manager is Unix time in seconds. However, any valid <code>timestamp</code> format is
    *          allowed.</p>
    */
   EndTime?: Date;
 
   /**
    * <p>If you specify a value for <code>MaxResults</code> and you have more objects than the number that you specify
-   *          for <code>MaxResults</code>, AWS Firewall Manager returns a <code>NextToken</code> value in the response, which you can use to retrieve another group of
+   *          for <code>MaxResults</code>, Firewall Manager returns a <code>NextToken</code> value in the response, which you can use to retrieve another group of
    *          objects. For the second and subsequent <code>GetProtectionStatus</code> requests, specify the value of <code>NextToken</code>
    *          from the previous response to get information about another batch of objects.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>Specifies the number of objects that you want AWS Firewall Manager to return for this request. If you have more
+   * <p>Specifies the number of objects that you want Firewall Manager to return for this request. If you have more
    *         objects than the number that you specify for <code>MaxResults</code>, the response includes a
    *          <code>NextToken</code> value that you can use to get another batch of objects.</p>
    */
@@ -1015,7 +1060,7 @@ export namespace GetProtectionStatusRequest {
 
 export interface GetProtectionStatusResponse {
   /**
-   * <p>The ID of the AWS Firewall administrator account for this policy.</p>
+   * <p>The ID of the Firewall Manager administrator account for this policy.</p>
    */
   AdminAccountId?: string;
 
@@ -1053,7 +1098,7 @@ export interface GetProtectionStatusResponse {
    *          the response includes a <code>NextToken</code> value. To list more objects, submit another
    *          <code>GetProtectionStatus</code> request, and specify the <code>NextToken</code> value from the response in the
    *          <code>NextToken</code> value in the next request.</p>
-   *          <p>AWS SDKs provide auto-pagination that identify <code>NextToken</code> in a response and
+   *          <p>Amazon Web Services SDKs provide auto-pagination that identify <code>NextToken</code> in a response and
    *          make subsequent request calls automatically on your behalf. However, this feature is not
    *          supported by <code>GetProtectionStatus</code>. You must submit subsequent requests with
    *             <code>NextToken</code> using your own processes. </p>
@@ -1072,12 +1117,12 @@ export namespace GetProtectionStatusResponse {
 
 export interface GetProtocolsListRequest {
   /**
-   * <p>The ID of the AWS Firewall Manager protocols list that you want the details for.</p>
+   * <p>The ID of the Firewall Manager protocols list that you want the details for.</p>
    */
   ListId: string | undefined;
 
   /**
-   * <p>Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.</p>
+   * <p>Specifies whether the list to retrieve is a default list owned by Firewall Manager.</p>
    */
   DefaultList?: boolean;
 }
@@ -1092,16 +1137,16 @@ export namespace GetProtocolsListRequest {
 }
 
 /**
- * <p>An AWS Firewall Manager protocols list.</p>
+ * <p>An Firewall Manager protocols list.</p>
  */
 export interface ProtocolsListData {
   /**
-   * <p>The ID of the AWS Firewall Manager protocols list.</p>
+   * <p>The ID of the Firewall Manager protocols list.</p>
    */
   ListId?: string;
 
   /**
-   * <p>The name of the AWS Firewall Manager protocols list.</p>
+   * <p>The name of the Firewall Manager protocols list.</p>
    */
   ListName: string | undefined;
 
@@ -1113,17 +1158,17 @@ export interface ProtocolsListData {
   ListUpdateToken?: string;
 
   /**
-   * <p>The time that the AWS Firewall Manager protocols list was created.</p>
+   * <p>The time that the Firewall Manager protocols list was created.</p>
    */
   CreateTime?: Date;
 
   /**
-   * <p>The time that the AWS Firewall Manager protocols list was last updated.</p>
+   * <p>The time that the Firewall Manager protocols list was last updated.</p>
    */
   LastUpdateTime?: Date;
 
   /**
-   * <p>An array of protocols in the AWS Firewall Manager protocols list.</p>
+   * <p>An array of protocols in the Firewall Manager protocols list.</p>
    */
   ProtocolsList: string[] | undefined;
 
@@ -1144,7 +1189,7 @@ export namespace ProtocolsListData {
 
 export interface GetProtocolsListResponse {
   /**
-   * <p>Information about the specified AWS Firewall Manager protocols list.</p>
+   * <p>Information about the specified Firewall Manager protocols list.</p>
    */
   ProtocolsList?: ProtocolsListData;
 
@@ -1165,12 +1210,12 @@ export namespace GetProtocolsListResponse {
 
 export interface GetViolationDetailsRequest {
   /**
-   * <p>The ID of the AWS Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.</p>
+   * <p>The ID of the Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.</p>
    */
   PolicyId: string | undefined;
 
   /**
-   * <p>The AWS account ID that you want the details for.</p>
+   * <p>The Amazon Web Services account ID that you want the details for.</p>
    */
   MemberAccount: string | undefined;
 
@@ -1180,7 +1225,7 @@ export interface GetViolationDetailsRequest {
   ResourceId: string | undefined;
 
   /**
-   * <p>The resource type. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS Resource Types Reference</a>.
+   * <p>The resource type. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a>.
    *       Supported resource types are:
    *       <code>AWS::EC2::Instance</code>,
    *       <code>AWS::EC2::NetworkInterface</code>,
@@ -1202,7 +1247,7 @@ export namespace GetViolationDetailsRequest {
 }
 
 /**
- * <p>A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.  </p>
+ * <p>A collection of key:value pairs associated with an Amazon Web Services resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each Amazon Web Services resource.  </p>
  */
 export interface Tag {
   /**
@@ -1230,7 +1275,7 @@ export namespace Tag {
  */
 export interface PartialMatch {
   /**
-   * <p>The reference rule from the master security group of the AWS Firewall Manager policy.</p>
+   * <p>The reference rule from the primary security group of the Firewall Manager policy.</p>
    */
   Reference?: string;
 
@@ -1333,7 +1378,7 @@ export namespace SecurityGroupRemediationAction {
 }
 
 /**
- * <p>Details of the rule violation in a security group when compared to the master security group of the AWS Firewall Manager policy.</p>
+ * <p>Violation detail for the rule violation in a security group when compared to the primary security group of the Firewall Manager policy.</p>
  */
 export interface AwsVPCSecurityGroupViolation {
   /**
@@ -1347,7 +1392,7 @@ export interface AwsVPCSecurityGroupViolation {
   ViolationTargetDescription?: string;
 
   /**
-   * <p>List of rules specified in the security group of the AWS Firewall Manager policy that partially match the <code>ViolationTarget</code> rule.</p>
+   * <p>List of rules specified in the security group of the Firewall Manager policy that partially match the <code>ViolationTarget</code> rule.</p>
    */
   PartialMatches?: PartialMatch[];
 
@@ -1372,7 +1417,7 @@ export namespace AwsVPCSecurityGroupViolation {
  */
 export interface DnsDuplicateRuleGroupViolation {
   /**
-   * <p>The ID of the VPC. </p>
+   * <p>Information about the VPC ID. </p>
    */
   ViolationTarget?: string;
 
@@ -1396,7 +1441,7 @@ export namespace DnsDuplicateRuleGroupViolation {
  */
 export interface DnsRuleGroupLimitExceededViolation {
   /**
-   * <p>The ID of the VPC. </p>
+   * <p>Information about the VPC ID. </p>
    */
   ViolationTarget?: string;
 
@@ -1426,7 +1471,7 @@ export namespace DnsRuleGroupLimitExceededViolation {
  */
 export interface DnsRuleGroupPriorityConflictViolation {
   /**
-   * <p>The ID of the VPC. </p>
+   * <p>Information about the VPC ID. </p>
    */
   ViolationTarget?: string;
 
@@ -1462,13 +1507,357 @@ export namespace DnsRuleGroupPriorityConflictViolation {
   });
 }
 
+export enum DestinationType {
+  IPV4 = "IPV4",
+  IPV6 = "IPV6",
+  PrefixList = "PREFIX_LIST",
+}
+
+export enum TargetType {
+  CarrierGateway = "CARRIER_GATEWAY",
+  EgressOnlyInternetGateway = "EGRESS_ONLY_INTERNET_GATEWAY",
+  Gateway = "GATEWAY",
+  Instance = "INSTANCE",
+  LocalGateway = "LOCAL_GATEWAY",
+  NatGateway = "NAT_GATEWAY",
+  NetworkInterface = "NETWORK_INTERFACE",
+  TransitGateway = "TRANSIT_GATEWAY",
+  VPCEndpoint = "VPC_ENDPOINT",
+  VPCPeeringConnection = "VPC_PEERING_CONNECTION",
+}
+
 /**
- * <p>Violation details for AWS Network Firewall for a subnet that's not associated to the expected
+ * <p>Describes a route in a route table.</p>
+ */
+export interface Route {
+  /**
+   * <p>The type of destination for the route.</p>
+   */
+  DestinationType?: DestinationType | string;
+
+  /**
+   * <p>The type of target for the route.</p>
+   */
+  TargetType?: TargetType | string;
+
+  /**
+   * <p>The destination of the route.</p>
+   */
+  Destination?: string;
+
+  /**
+   * <p>The route's target.</p>
+   */
+  Target?: string;
+}
+
+export namespace Route {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Route): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Violation detail for an internet gateway route with an inactive state in the customer subnet route table or Network Firewall subnet route table.</p>
+ */
+export interface NetworkFirewallBlackHoleRouteDetectedViolation {
+  /**
+   * <p>The subnet that has an inactive state.</p>
+   */
+  ViolationTarget?: string;
+
+  /**
+   * <p>Information about the route table ID.</p>
+   */
+  RouteTableId?: string;
+
+  /**
+   * <p>Information about the VPC ID.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>Information about the route or routes that are in violation.</p>
+   */
+  ViolatingRoutes?: Route[];
+}
+
+export namespace NetworkFirewallBlackHoleRouteDetectedViolation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkFirewallBlackHoleRouteDetectedViolation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the expected route in the route table.</p>
+ */
+export interface ExpectedRoute {
+  /**
+   * <p>Information about the IPv4 CIDR block.</p>
+   */
+  IpV4Cidr?: string;
+
+  /**
+   * <p>Information about the ID of the prefix list for the route.</p>
+   */
+  PrefixListId?: string;
+
+  /**
+   * <p>Information about the IPv6 CIDR block.</p>
+   */
+  IpV6Cidr?: string;
+
+  /**
+   * <p>Information about the contributing subnets.</p>
+   */
+  ContributingSubnets?: string[];
+
+  /**
+   * <p>Information about the allowed targets.</p>
+   */
+  AllowedTargets?: string[];
+
+  /**
+   * <p>Information about the route table ID.</p>
+   */
+  RouteTableId?: string;
+}
+
+export namespace ExpectedRoute {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExpectedRoute): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Violation detail for the subnet for which internet traffic that hasn't been inspected.</p>
+ */
+export interface NetworkFirewallInternetTrafficNotInspectedViolation {
+  /**
+   * <p>The subnet ID.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The subnet Availability Zone.</p>
+   */
+  SubnetAvailabilityZone?: string;
+
+  /**
+   * <p>Information about the route table ID.</p>
+   */
+  RouteTableId?: string;
+
+  /**
+   * <p>The route or routes that are in violation.</p>
+   */
+  ViolatingRoutes?: Route[];
+
+  /**
+   * <p>Information about whether the route table is used in another Availability Zone.</p>
+   */
+  IsRouteTableUsedInDifferentAZ?: boolean;
+
+  /**
+   * <p>Information about the subnet route table for the current firewall.</p>
+   */
+  CurrentFirewallSubnetRouteTable?: string;
+
+  /**
+   * <p>The expected endpoint for the current firewall.</p>
+   */
+  ExpectedFirewallEndpoint?: string;
+
+  /**
+   * <p>The firewall subnet ID.</p>
+   */
+  FirewallSubnetId?: string;
+
+  /**
+   * <p>The firewall subnet routes that are expected.</p>
+   */
+  ExpectedFirewallSubnetRoutes?: ExpectedRoute[];
+
+  /**
+   * <p>The actual firewall subnet routes.</p>
+   */
+  ActualFirewallSubnetRoutes?: Route[];
+
+  /**
+   * <p>The internet gateway ID.</p>
+   */
+  InternetGatewayId?: string;
+
+  /**
+   * <p>The current route table for the internet gateway.</p>
+   */
+  CurrentInternetGatewayRouteTable?: string;
+
+  /**
+   * <p>The internet gateway routes that are expected.</p>
+   */
+  ExpectedInternetGatewayRoutes?: ExpectedRoute[];
+
+  /**
+   * <p>The actual internet gateway routes.</p>
+   */
+  ActualInternetGatewayRoutes?: Route[];
+
+  /**
+   * <p>Information about the VPC ID.</p>
+   */
+  VpcId?: string;
+}
+
+export namespace NetworkFirewallInternetTrafficNotInspectedViolation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkFirewallInternetTrafficNotInspectedViolation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Violation detail for the improperly configured subnet route. It's possible there is a missing route table route,
+ *       or a configuration that causes traffic to cross an Availability Zone boundary.</p>
+ */
+export interface NetworkFirewallInvalidRouteConfigurationViolation {
+  /**
+   * <p>The subnets that are affected.</p>
+   */
+  AffectedSubnets?: string[];
+
+  /**
+   * <p>The route table ID.</p>
+   */
+  RouteTableId?: string;
+
+  /**
+   * <p>Information about whether the route table is used in another Availability Zone.</p>
+   */
+  IsRouteTableUsedInDifferentAZ?: boolean;
+
+  /**
+   * <p>The route that's in violation.</p>
+   */
+  ViolatingRoute?: Route;
+
+  /**
+   * <p>The subnet route table for the current firewall.</p>
+   */
+  CurrentFirewallSubnetRouteTable?: string;
+
+  /**
+   * <p>The firewall endpoint that's expected.</p>
+   */
+  ExpectedFirewallEndpoint?: string;
+
+  /**
+   * <p>The actual firewall endpoint.</p>
+   */
+  ActualFirewallEndpoint?: string;
+
+  /**
+   * <p>The expected subnet ID for the firewall.</p>
+   */
+  ExpectedFirewallSubnetId?: string;
+
+  /**
+   * <p>The actual subnet ID for the firewall.</p>
+   */
+  ActualFirewallSubnetId?: string;
+
+  /**
+   * <p>The firewall subnet routes that are expected.</p>
+   */
+  ExpectedFirewallSubnetRoutes?: ExpectedRoute[];
+
+  /**
+   * <p>The actual firewall subnet routes that are expected.</p>
+   */
+  ActualFirewallSubnetRoutes?: Route[];
+
+  /**
+   * <p>The internet gateway ID.</p>
+   */
+  InternetGatewayId?: string;
+
+  /**
+   * <p>The route table for the current internet gateway.</p>
+   */
+  CurrentInternetGatewayRouteTable?: string;
+
+  /**
+   * <p>The expected routes for the internet gateway.</p>
+   */
+  ExpectedInternetGatewayRoutes?: ExpectedRoute[];
+
+  /**
+   * <p>The actual internet gateway routes.</p>
+   */
+  ActualInternetGatewayRoutes?: Route[];
+
+  /**
+   * <p>Information about the VPC ID.</p>
+   */
+  VpcId?: string;
+}
+
+export namespace NetworkFirewallInvalidRouteConfigurationViolation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkFirewallInvalidRouteConfigurationViolation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Violation detail for an expected route missing in Network Firewall.</p>
+ */
+export interface NetworkFirewallMissingExpectedRoutesViolation {
+  /**
+   * <p>The target of the violation.</p>
+   */
+  ViolationTarget?: string;
+
+  /**
+   * <p>The expected routes.</p>
+   */
+  ExpectedRoutes?: ExpectedRoute[];
+
+  /**
+   * <p>Information about the VPC ID.</p>
+   */
+  VpcId?: string;
+}
+
+export namespace NetworkFirewallMissingExpectedRoutesViolation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkFirewallMissingExpectedRoutesViolation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Violation detail for Network Firewall for a subnet that's not associated to the expected
  *        Firewall Manager managed route table.</p>
  */
 export interface NetworkFirewallMissingExpectedRTViolation {
   /**
-   * <p>The ID of the AWS Network Firewall or VPC resource that's in violation.</p>
+   * <p>The ID of the Network Firewall or VPC resource that's in violation.</p>
    */
   ViolationTarget?: string;
 
@@ -1503,12 +1892,12 @@ export namespace NetworkFirewallMissingExpectedRTViolation {
 }
 
 /**
- * <p>Violation details for AWS Network Firewall for a subnet that doesn't have a
+ * <p>Violation detail for Network Firewall for a subnet that doesn't have a
  *        Firewall Manager managed firewall in its VPC. </p>
  */
 export interface NetworkFirewallMissingFirewallViolation {
   /**
-   * <p>The ID of the AWS Network Firewall or VPC resource that's in violation.</p>
+   * <p>The ID of the Network Firewall or VPC resource that's in violation.</p>
    */
   ViolationTarget?: string;
 
@@ -1538,12 +1927,12 @@ export namespace NetworkFirewallMissingFirewallViolation {
 }
 
 /**
- * <p>Violation details for AWS Network Firewall for an Availability Zone that's
+ * <p>Violation detail for Network Firewall for an Availability Zone that's
  *        missing the expected Firewall Manager managed subnet.</p>
  */
 export interface NetworkFirewallMissingSubnetViolation {
   /**
-   * <p>The ID of the AWS Network Firewall or VPC resource that's in violation.</p>
+   * <p>The ID of the Network Firewall or VPC resource that's in violation.</p>
    */
   ViolationTarget?: string;
 
@@ -1573,7 +1962,7 @@ export namespace NetworkFirewallMissingSubnetViolation {
 }
 
 /**
- * <p>AWS Network Firewall stateful rule group, used in a <a>NetworkFirewallPolicyDescription</a>. </p>
+ * <p>Network Firewall stateful rule group, used in a <a>NetworkFirewallPolicyDescription</a>. </p>
  */
 export interface StatefulRuleGroup {
   /**
@@ -1597,7 +1986,7 @@ export namespace StatefulRuleGroup {
 }
 
 /**
- * <p>AWS Network Firewall stateless rule group, used in a <a>NetworkFirewallPolicyDescription</a>. </p>
+ * <p>Network Firewall stateless rule group, used in a <a>NetworkFirewallPolicyDescription</a>. </p>
  */
 export interface StatelessRuleGroup {
   /**
@@ -1611,7 +2000,7 @@ export interface StatelessRuleGroup {
   ResourceId?: string;
 
   /**
-   * <p>The priority of the rule group. AWS Network Firewall evaluates the stateless rule groups in a firewall policy starting from the lowest priority setting. </p>
+   * <p>The priority of the rule group. Network Firewall evaluates the stateless rule groups in a firewall policy starting from the lowest priority setting. </p>
    */
   Priority?: number;
 }
@@ -1626,7 +2015,7 @@ export namespace StatelessRuleGroup {
 }
 
 /**
- * <p>The definition of the AWS Network Firewall firewall policy.</p>
+ * <p>The definition of the Network Firewall firewall policy.</p>
  */
 export interface NetworkFirewallPolicyDescription {
   /**
@@ -1665,12 +2054,12 @@ export namespace NetworkFirewallPolicyDescription {
 }
 
 /**
- * <p>Violation details for AWS Network Firewall for a firewall policy that has a different
+ * <p>Violation detail for Network Firewall for a firewall policy that has a different
  *        <a>NetworkFirewallPolicyDescription</a> than is required by the Firewall Manager policy. </p>
  */
 export interface NetworkFirewallPolicyModifiedViolation {
   /**
-   * <p>The ID of the AWS Network Firewall or VPC resource that's in violation.</p>
+   * <p>The ID of the Network Firewall or VPC resource that's in violation.</p>
    */
   ViolationTarget?: string;
 
@@ -1695,21 +2084,473 @@ export namespace NetworkFirewallPolicyModifiedViolation {
 }
 
 /**
+ * <p>Violation detail for an unexpected route that's present in a route table.</p>
+ */
+export interface NetworkFirewallUnexpectedFirewallRoutesViolation {
+  /**
+   * <p>The subnet ID for the firewall.</p>
+   */
+  FirewallSubnetId?: string;
+
+  /**
+   * <p>The routes that are in violation.</p>
+   */
+  ViolatingRoutes?: Route[];
+
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  RouteTableId?: string;
+
+  /**
+   * <p>The endpoint of the firewall.</p>
+   */
+  FirewallEndpoint?: string;
+
+  /**
+   * <p>Information about the VPC ID.</p>
+   */
+  VpcId?: string;
+}
+
+export namespace NetworkFirewallUnexpectedFirewallRoutesViolation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkFirewallUnexpectedFirewallRoutesViolation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Violation detail for an unexpected gateway route that’s present in a route table.</p>
+ */
+export interface NetworkFirewallUnexpectedGatewayRoutesViolation {
+  /**
+   * <p>Information about the gateway ID.</p>
+   */
+  GatewayId?: string;
+
+  /**
+   * <p>The routes that are in violation.</p>
+   */
+  ViolatingRoutes?: Route[];
+
+  /**
+   * <p>Information about the  route table.</p>
+   */
+  RouteTableId?: string;
+
+  /**
+   * <p>Information about the VPC ID.</p>
+   */
+  VpcId?: string;
+}
+
+export namespace NetworkFirewallUnexpectedGatewayRoutesViolation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkFirewallUnexpectedGatewayRoutesViolation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The action of associating an EC2 resource, such as a subnet or internet gateway, with a route table.</p>
+ */
+export interface EC2AssociateRouteTableAction {
+  /**
+   * <p>A description of the EC2 route table that is associated with the remediation action.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the EC2 route table that is associated with the remediation action.</p>
+   */
+  RouteTableId: ActionTarget | undefined;
+
+  /**
+   * <p>The ID of the subnet for the EC2 route table that is associated with the remediation action.</p>
+   */
+  SubnetId?: ActionTarget;
+
+  /**
+   * <p>The ID of the gateway to be used with the EC2 route table that is associated with the remediation action.</p>
+   */
+  GatewayId?: ActionTarget;
+}
+
+export namespace EC2AssociateRouteTableAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EC2AssociateRouteTableAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An action that copies the EC2 route table for use in remediation.</p>
+ */
+export interface EC2CopyRouteTableAction {
+  /**
+   * <p>A description of the copied EC2 route table that is associated with the remediation action.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The VPC ID of the copied EC2 route table that is associated with the remediation action.</p>
+   */
+  VpcId: ActionTarget | undefined;
+
+  /**
+   * <p>The ID of the copied EC2 route table that is associated with the remediation action.</p>
+   */
+  RouteTableId: ActionTarget | undefined;
+}
+
+export namespace EC2CopyRouteTableAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EC2CopyRouteTableAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the CreateRoute action in Amazon EC2.</p>
+ */
+export interface EC2CreateRouteAction {
+  /**
+   * <p>A description of CreateRoute action in Amazon EC2.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Information about the IPv4 CIDR address block used for the destination match.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>Information about the ID of a prefix list used for the destination match.</p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * <p>Information about the IPv6 CIDR block destination.</p>
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * <p>Information about the ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
+   */
+  VpcEndpointId?: ActionTarget;
+
+  /**
+   * <p>Information about the ID of an internet gateway or virtual private gateway attached to your VPC.</p>
+   */
+  GatewayId?: ActionTarget;
+
+  /**
+   * <p>Information about the ID of the route table for the route.</p>
+   */
+  RouteTableId: ActionTarget | undefined;
+}
+
+export namespace EC2CreateRouteAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EC2CreateRouteAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the CreateRouteTable action in Amazon EC2.</p>
+ */
+export interface EC2CreateRouteTableAction {
+  /**
+   * <p>A description of the CreateRouteTable action.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Information about the ID of a VPC.</p>
+   */
+  VpcId: ActionTarget | undefined;
+}
+
+export namespace EC2CreateRouteTableAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EC2CreateRouteTableAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the DeleteRoute action in Amazon EC2.</p>
+ */
+export interface EC2DeleteRouteAction {
+  /**
+   * <p>A description of the DeleteRoute action.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Information about the IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>Information about the ID of the prefix list for the route.</p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * <p>Information about the IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * <p>Information about the ID of the route table.</p>
+   */
+  RouteTableId: ActionTarget | undefined;
+}
+
+export namespace EC2DeleteRouteAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EC2DeleteRouteAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the ReplaceRoute action in Amazon EC2.</p>
+ */
+export interface EC2ReplaceRouteAction {
+  /**
+   * <p>A description of the ReplaceRoute action in Amazon EC2.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Information about the IPv4 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>Information about the ID of the prefix list for the route.</p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * <p>Information about the IPv6 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.</p>
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * <p>Information about the ID of an internet gateway or virtual private gateway.</p>
+   */
+  GatewayId?: ActionTarget;
+
+  /**
+   * <p>Information about the ID of the route table.</p>
+   */
+  RouteTableId: ActionTarget | undefined;
+}
+
+export namespace EC2ReplaceRouteAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EC2ReplaceRouteAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the ReplaceRouteTableAssociation action in Amazon EC2.</p>
+ */
+export interface EC2ReplaceRouteTableAssociationAction {
+  /**
+   * <p>A description of the ReplaceRouteTableAssociation action in Amazon EC2.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Information about the association ID.</p>
+   */
+  AssociationId: ActionTarget | undefined;
+
+  /**
+   * <p>Information about the ID of the new route table to associate with the subnet.</p>
+   */
+  RouteTableId: ActionTarget | undefined;
+}
+
+export namespace EC2ReplaceRouteTableAssociationAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EC2ReplaceRouteTableAssociationAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an individual action you can take to remediate a violation.</p>
+ */
+export interface RemediationAction {
+  /**
+   * <p>A description of a remediation action.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Information about the CreateRoute action in the Amazon EC2 API.</p>
+   */
+  EC2CreateRouteAction?: EC2CreateRouteAction;
+
+  /**
+   * <p>Information about the ReplaceRoute action in the Amazon EC2 API.</p>
+   */
+  EC2ReplaceRouteAction?: EC2ReplaceRouteAction;
+
+  /**
+   * <p>Information about the DeleteRoute action in the Amazon EC2 API.</p>
+   */
+  EC2DeleteRouteAction?: EC2DeleteRouteAction;
+
+  /**
+   * <p>Information about the CopyRouteTable action in the Amazon EC2 API.</p>
+   */
+  EC2CopyRouteTableAction?: EC2CopyRouteTableAction;
+
+  /**
+   * <p>Information about the ReplaceRouteTableAssociation action in the Amazon EC2 API.</p>
+   */
+  EC2ReplaceRouteTableAssociationAction?: EC2ReplaceRouteTableAssociationAction;
+
+  /**
+   * <p>Information about the AssociateRouteTable action in the Amazon EC2 API.</p>
+   */
+  EC2AssociateRouteTableAction?: EC2AssociateRouteTableAction;
+
+  /**
+   * <p>Information about the CreateRouteTable action in the Amazon EC2 API.</p>
+   */
+  EC2CreateRouteTableAction?: EC2CreateRouteTableAction;
+}
+
+export namespace RemediationAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemediationAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An ordered list of actions you can take to remediate a violation.</p>
+ */
+export interface RemediationActionWithOrder {
+  /**
+   * <p>Information about an action you can take to remediate a violation.</p>
+   */
+  RemediationAction?: RemediationAction;
+
+  /**
+   * <p>The order of the remediation actions in the list.</p>
+   */
+  Order?: number;
+}
+
+export namespace RemediationActionWithOrder {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemediationActionWithOrder): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of remediation actions.</p>
+ */
+export interface PossibleRemediationAction {
+  /**
+   * <p>A description of the list of remediation actions.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ordered list of remediation actions.</p>
+   */
+  OrderedRemediationActions: RemediationActionWithOrder[] | undefined;
+
+  /**
+   * <p>Information about whether an action is taken by default.</p>
+   */
+  IsDefaultAction?: boolean;
+}
+
+export namespace PossibleRemediationAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PossibleRemediationAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of possible remediation action lists. Each individual possible remediation action is a list of individual remediation actions.</p>
+ */
+export interface PossibleRemediationActions {
+  /**
+   * <p>A description of the possible remediation actions list.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Information about the actions.</p>
+   */
+  Actions?: PossibleRemediationAction[];
+}
+
+export namespace PossibleRemediationActions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PossibleRemediationActions): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Violation detail based on resource type.</p>
  */
 export interface ResourceViolation {
   /**
-   * <p>Violation details for security groups.</p>
+   * <p>Violation detail for security groups.</p>
    */
   AwsVPCSecurityGroupViolation?: AwsVPCSecurityGroupViolation;
 
   /**
-   * <p>Violation details for network interface.</p>
+   * <p>Violation detail for a network interface.</p>
    */
   AwsEc2NetworkInterfaceViolation?: AwsEc2NetworkInterfaceViolation;
 
   /**
-   * <p>Violation details for an EC2 instance.</p>
+   * <p>Violation detail for an EC2 instance.</p>
    */
   AwsEc2InstanceViolation?: AwsEc2InstanceViolation;
 
@@ -1740,6 +2581,36 @@ export interface ResourceViolation {
   NetworkFirewallPolicyModifiedViolation?: NetworkFirewallPolicyModifiedViolation;
 
   /**
+   * <p>Violation detail for the subnet for which internet traffic hasn't been inspected.</p>
+   */
+  NetworkFirewallInternetTrafficNotInspectedViolation?: NetworkFirewallInternetTrafficNotInspectedViolation;
+
+  /**
+   * <p>The route configuration is invalid.</p>
+   */
+  NetworkFirewallInvalidRouteConfigurationViolation?: NetworkFirewallInvalidRouteConfigurationViolation;
+
+  /**
+   * <p>Violation detail for an internet gateway route with an inactive state in the customer subnet route table or Network Firewall subnet route table.</p>
+   */
+  NetworkFirewallBlackHoleRouteDetectedViolation?: NetworkFirewallBlackHoleRouteDetectedViolation;
+
+  /**
+   * <p>There's an unexpected firewall route.</p>
+   */
+  NetworkFirewallUnexpectedFirewallRoutesViolation?: NetworkFirewallUnexpectedFirewallRoutesViolation;
+
+  /**
+   * <p>There's an unexpected gateway route.</p>
+   */
+  NetworkFirewallUnexpectedGatewayRoutesViolation?: NetworkFirewallUnexpectedGatewayRoutesViolation;
+
+  /**
+   * <p>Expected routes are missing from Network Firewall.</p>
+   */
+  NetworkFirewallMissingExpectedRoutesViolation?: NetworkFirewallMissingExpectedRoutesViolation;
+
+  /**
    * <p>Violation detail for a DNS Firewall policy that indicates that a rule group that Firewall Manager
    *        tried to associate with a VPC has the same priority as a rule group that's already associated. </p>
    */
@@ -1752,9 +2623,14 @@ export interface ResourceViolation {
   DnsDuplicateRuleGroupViolation?: DnsDuplicateRuleGroupViolation;
 
   /**
-   * <p>Violation details for a DNS Firewall policy that indicates that the VPC reached the limit for associated DNS Firewall rule groups. Firewall Manager tried to associate another rule group with the VPC and failed. </p>
+   * <p>Violation detail for a DNS Firewall policy that indicates that the VPC reached the limit for associated DNS Firewall rule groups. Firewall Manager tried to associate another rule group with the VPC and failed. </p>
    */
   DnsRuleGroupLimitExceededViolation?: DnsRuleGroupLimitExceededViolation;
+
+  /**
+   * <p>A list of possible remediation action lists. Each individual possible remediation action is a list of individual remediation actions.</p>
+   */
+  PossibleRemediationActions?: PossibleRemediationActions;
 }
 
 export namespace ResourceViolation {
@@ -1767,16 +2643,16 @@ export namespace ResourceViolation {
 }
 
 /**
- * <p>Violations for a resource based on the specified AWS Firewall Manager policy and AWS account.</p>
+ * <p>Violations for a resource based on the specified Firewall Manager policy and Amazon Web Services account.</p>
  */
 export interface ViolationDetail {
   /**
-   * <p>The ID of the AWS Firewall Manager policy that the violation details were requested for.</p>
+   * <p>The ID of the Firewall Manager policy that the violation details were requested for.</p>
    */
   PolicyId: string | undefined;
 
   /**
-   * <p>The AWS account that the violation details were requested for.</p>
+   * <p>The Amazon Web Services account that the violation details were requested for.</p>
    */
   MemberAccount: string | undefined;
 
@@ -1833,22 +2709,22 @@ export namespace GetViolationDetailsResponse {
 
 export interface ListAppsListsRequest {
   /**
-   * <p>Specifies whether the lists to retrieve are default lists owned by AWS Firewall Manager.</p>
+   * <p>Specifies whether the lists to retrieve are default lists owned by Firewall Manager.</p>
    */
   DefaultLists?: boolean;
 
   /**
    * <p>If you specify a value for <code>MaxResults</code> in your list request, and you have more objects than the maximum,
-   *         AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request
+   *         Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request
    *         in the request parameters, to retrieve the next batch of objects.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of objects that you want AWS Firewall Manager to return for this request. If more
-   *             objects are available, in the response, AWS Firewall Manager provides a
+   * <p>The maximum number of objects that you want Firewall Manager to return for this request. If more
+   *             objects are available, in the response, Firewall Manager provides a
    *            <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
-   *          <p>If you don't specify this, AWS Firewall Manager returns all available objects.</p>
+   *          <p>If you don't specify this, Firewall Manager returns all available objects.</p>
    */
   MaxResults: number | undefined;
 }
@@ -1870,7 +2746,7 @@ export interface ListAppsListsResponse {
 
   /**
    * <p>If you specify a value for <code>MaxResults</code> in your list request, and you have more objects than the maximum,
-   *         AWS Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.</p>
+   *         Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.</p>
    */
   NextToken?: string;
 }
@@ -1886,14 +2762,14 @@ export namespace ListAppsListsResponse {
 
 export interface ListComplianceStatusRequest {
   /**
-   * <p>The ID of the AWS Firewall Manager policy that you want the details for.</p>
+   * <p>The ID of the Firewall Manager policy that you want the details for.</p>
    */
   PolicyId: string | undefined;
 
   /**
    * <p>If you specify a value for <code>MaxResults</code> and you have more
    *         <code>PolicyComplianceStatus</code> objects than the number that you specify for
-   *         <code>MaxResults</code>, AWS Firewall Manager returns a <code>NextToken</code> value in the
+   *         <code>MaxResults</code>, Firewall Manager returns a <code>NextToken</code> value in the
    *       response that allows you to list another group of <code>PolicyComplianceStatus</code> objects.
    *       For the second and subsequent <code>ListComplianceStatus</code> requests, specify the value of
    *         <code>NextToken</code> from the previous response to get information about another batch of
@@ -1902,7 +2778,7 @@ export interface ListComplianceStatusRequest {
   NextToken?: string;
 
   /**
-   * <p>Specifies the number of <code>PolicyComplianceStatus</code> objects that you want AWS
+   * <p>Specifies the number of <code>PolicyComplianceStatus</code> objects that you want
    *       Firewall Manager to return for this request. If you have more
    *         <code>PolicyComplianceStatus</code> objects than the number that you specify for
    *         <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can
@@ -1932,12 +2808,12 @@ export enum PolicyComplianceStatusType {
  */
 export interface EvaluationResult {
   /**
-   * <p>Describes an AWS account's compliance with the AWS Firewall Manager policy.</p>
+   * <p>Describes an Amazon Web Services account's compliance with the Firewall Manager policy.</p>
    */
   ComplianceStatus?: PolicyComplianceStatusType | string;
 
   /**
-   * <p>The number of resources that are noncompliant with the specified policy. For AWS WAF and
+   * <p>The number of resources that are noncompliant with the specified policy. For WAF and
    *       Shield Advanced policies, a resource is considered noncompliant if it is not associated with
    *       the policy. For security group policies, a resource is considered noncompliant if it doesn't
    *       comply with the rules of the policy and remediation is disabled or not possible.</p>
@@ -1945,7 +2821,7 @@ export interface EvaluationResult {
   ViolatorCount?: number;
 
   /**
-   * <p>Indicates that over 100 resources are noncompliant with the AWS Firewall Manager
+   * <p>Indicates that over 100 resources are noncompliant with the Firewall Manager
    *       policy.</p>
    */
   EvaluationLimitExceeded?: boolean;
@@ -1962,23 +2838,23 @@ export namespace EvaluationResult {
 
 /**
  * <p>Indicates whether the account is compliant with the specified policy. An account is
- *       considered noncompliant if it includes resources that are not protected by the policy, for AWS
+ *       considered noncompliant if it includes resources that are not protected by the policy, for
  *       WAF and Shield Advanced policies, or that are noncompliant with the policy, for security group
  *       policies.</p>
  */
 export interface PolicyComplianceStatus {
   /**
-   * <p>The AWS account that created the AWS Firewall Manager policy.</p>
+   * <p>The Amazon Web Services account that created the Firewall Manager policy.</p>
    */
   PolicyOwner?: string;
 
   /**
-   * <p>The ID of the AWS Firewall Manager policy.</p>
+   * <p>The ID of the Firewall Manager policy.</p>
    */
   PolicyId?: string;
 
   /**
-   * <p>The name of the AWS Firewall Manager policy.</p>
+   * <p>The name of the Firewall Manager policy.</p>
    */
   PolicyName?: string;
 
@@ -1998,8 +2874,7 @@ export interface PolicyComplianceStatus {
   LastUpdated?: Date;
 
   /**
-   * <p>Details about problems with dependent services, such as AWS WAF or AWS Config, that are
-   *       causing a resource to be noncompliant. The details include the name of the dependent service
+   * <p>Details about problems with dependent services, such as WAF or Config,
    *       and the error message received that indicates the problem with the service.</p>
    */
   IssueInfoMap?: { [key: string]: string };
@@ -2043,7 +2918,7 @@ export namespace ListComplianceStatusResponse {
 export interface ListMemberAccountsRequest {
   /**
    * <p>If you specify a value for <code>MaxResults</code> and you have more account IDs than the
-   *       number that you specify for <code>MaxResults</code>, AWS Firewall Manager returns a
+   *       number that you specify for <code>MaxResults</code>, Firewall Manager returns a
    *         <code>NextToken</code> value in the response that allows you to list another group of IDs.
    *       For the second and subsequent <code>ListMemberAccountsRequest</code> requests, specify the
    *       value of <code>NextToken</code> from the previous response to get information about another
@@ -2052,7 +2927,7 @@ export interface ListMemberAccountsRequest {
   NextToken?: string;
 
   /**
-   * <p>Specifies the number of member account IDs that you want AWS Firewall Manager to return
+   * <p>Specifies the number of member account IDs that you want Firewall Manager to return
    *       for this request. If you have more IDs than the number that you specify for
    *         <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can
    *       use to get another batch of member account IDs.</p>
@@ -2098,7 +2973,7 @@ export interface ListPoliciesRequest {
   /**
    * <p>If you specify a value for <code>MaxResults</code> and you have more
    *         <code>PolicySummary</code> objects than the number that you specify for
-   *         <code>MaxResults</code>, AWS Firewall Manager returns a <code>NextToken</code> value in the
+   *         <code>MaxResults</code>, Firewall Manager returns a <code>NextToken</code> value in the
    *       response that allows you to list another group of <code>PolicySummary</code> objects. For the
    *       second and subsequent <code>ListPolicies</code> requests, specify the value of
    *         <code>NextToken</code> from the previous response to get information about another batch of
@@ -2107,8 +2982,7 @@ export interface ListPoliciesRequest {
   NextToken?: string;
 
   /**
-   * <p>Specifies the number of <code>PolicySummary</code> objects that you want AWS Firewall
-   *       Manager to return for this request. If you have more <code>PolicySummary</code> objects than
+   * <p>Specifies the number of <code>PolicySummary</code> objects that you want Firewall Manager to return for this request. If you have more <code>PolicySummary</code> objects than
    *       the number that you specify for <code>MaxResults</code>, the response includes a
    *         <code>NextToken</code> value that you can use to get another batch of
    *         <code>PolicySummary</code> objects.</p>
@@ -2126,7 +3000,7 @@ export namespace ListPoliciesRequest {
 }
 
 /**
- * <p>Details of the AWS Firewall Manager policy. </p>
+ * <p>Details of the Firewall Manager policy. </p>
  */
 export interface PolicySummary {
   /**
@@ -2146,21 +3020,21 @@ export interface PolicySummary {
 
   /**
    * <p>The type of resource protected by or in scope of the policy. This is in the format shown
-   *         in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS Resource Types Reference</a>.
-   *             For AWS WAF and Shield Advanced, examples include
+   *         in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a>.
+   *             For WAF and Shield Advanced, examples include
    *         <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> and
    *         <code>AWS::CloudFront::Distribution</code>. For a security group common policy, valid values
    *       are <code>AWS::EC2::NetworkInterface</code> and <code>AWS::EC2::Instance</code>. For a
    *       security group content audit policy, valid values are <code>AWS::EC2::SecurityGroup</code>,
    *         <code>AWS::EC2::NetworkInterface</code>, and <code>AWS::EC2::Instance</code>. For a security
-   *       group usage audit policy, the value is <code>AWS::EC2::SecurityGroup</code>. For an AWS Network Firewall policy,
+   *       group usage audit policy, the value is <code>AWS::EC2::SecurityGroup</code>. For an Network Firewall policy or DNS Firewall policy,
    *           the value is <code>AWS::EC2::VPC</code>.</p>
    */
   ResourceType?: string;
 
   /**
    * <p>The service that the policy is using to protect the resources. This specifies the type of
-   *       policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security
+   *       policy that is created, either an WAF policy, a Shield Advanced policy, or a security
    *       group policy.</p>
    */
   SecurityServiceType?: SecurityServiceType | string;
@@ -2207,22 +3081,22 @@ export namespace ListPoliciesResponse {
 
 export interface ListProtocolsListsRequest {
   /**
-   * <p>Specifies whether the lists to retrieve are default lists owned by AWS Firewall Manager.</p>
+   * <p>Specifies whether the lists to retrieve are default lists owned by Firewall Manager.</p>
    */
   DefaultLists?: boolean;
 
   /**
    * <p>If you specify a value for <code>MaxResults</code> in your list request, and you have more objects than the maximum,
-   *         AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request
+   *         Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request
    *         in the request parameters, to retrieve the next batch of objects.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of objects that you want AWS Firewall Manager to return for this request. If more
-   *             objects are available, in the response, AWS Firewall Manager provides a
+   * <p>The maximum number of objects that you want Firewall Manager to return for this request. If more
+   *             objects are available, in the response, Firewall Manager provides a
    *            <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
-   *          <p>If you don't specify this, AWS Firewall Manager returns all available objects.</p>
+   *          <p>If you don't specify this, Firewall Manager returns all available objects.</p>
    */
   MaxResults: number | undefined;
 }
@@ -2237,7 +3111,7 @@ export namespace ListProtocolsListsRequest {
 }
 
 /**
- * <p>Details of the AWS Firewall Manager protocols list.</p>
+ * <p>Details of the Firewall Manager protocols list.</p>
  */
 export interface ProtocolsListDataSummary {
   /**
@@ -2256,7 +3130,7 @@ export interface ProtocolsListDataSummary {
   ListName?: string;
 
   /**
-   * <p>An array of protocols in the AWS Firewall Manager protocols list.</p>
+   * <p>An array of protocols in the Firewall Manager protocols list.</p>
    */
   ProtocolsList?: string[];
 }
@@ -2278,7 +3152,7 @@ export interface ListProtocolsListsResponse {
 
   /**
    * <p>If you specify a value for <code>MaxResults</code> in your list request, and you have more objects than the maximum,
-   *         AWS Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.</p>
+   *         Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.</p>
    */
   NextToken?: string;
 }
@@ -2294,7 +3168,7 @@ export namespace ListProtocolsListsResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
+   * <p>The Amazon Resource Name (ARN) of the resource to return tags for. The Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
    */
   ResourceArn: string | undefined;
 }
@@ -2326,7 +3200,7 @@ export namespace ListTagsForResourceResponse {
 
 export interface PutAppsListRequest {
   /**
-   * <p>The details of the AWS Firewall Manager applications list to be created.</p>
+   * <p>The details of the Firewall Manager applications list to be created.</p>
    */
   AppsList: AppsListData | undefined;
 
@@ -2347,7 +3221,7 @@ export namespace PutAppsListRequest {
 
 export interface PutAppsListResponse {
   /**
-   * <p>The details of the AWS Firewall Manager applications list.</p>
+   * <p>The details of the Firewall Manager applications list.</p>
    */
   AppsList?: AppsListData;
 
@@ -2368,13 +3242,13 @@ export namespace PutAppsListResponse {
 
 export interface PutNotificationChannelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS
+   * <p>The Amazon Resource Name (ARN) of the SNS topic that collects notifications from
    *       Firewall Manager.</p>
    */
   SnsTopicArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS
+   * <p>The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record
    *       Firewall Manager activity. </p>
    */
   SnsRoleName: string | undefined;
@@ -2391,12 +3265,12 @@ export namespace PutNotificationChannelRequest {
 
 export interface PutPolicyRequest {
   /**
-   * <p>The details of the AWS Firewall Manager policy to be created.</p>
+   * <p>The details of the Firewall Manager policy to be created.</p>
    */
   Policy: Policy | undefined;
 
   /**
-   * <p>The tags to add to the AWS resource.</p>
+   * <p>The tags to add to the Amazon Web Services resource.</p>
    */
   TagList?: Tag[];
 }
@@ -2412,7 +3286,7 @@ export namespace PutPolicyRequest {
 
 export interface PutPolicyResponse {
   /**
-   * <p>The details of the AWS Firewall Manager policy.</p>
+   * <p>The details of the Firewall Manager policy.</p>
    */
   Policy?: Policy;
 
@@ -2433,7 +3307,7 @@ export namespace PutPolicyResponse {
 
 export interface PutProtocolsListRequest {
   /**
-   * <p>The details of the AWS Firewall Manager protocols list to be created.</p>
+   * <p>The details of the Firewall Manager protocols list to be created.</p>
    */
   ProtocolsList: ProtocolsListData | undefined;
 
@@ -2454,7 +3328,7 @@ export namespace PutProtocolsListRequest {
 
 export interface PutProtocolsListResponse {
   /**
-   * <p>The details of the AWS Firewall Manager protocols list.</p>
+   * <p>The details of the Firewall Manager protocols list.</p>
    */
   ProtocolsList?: ProtocolsListData;
 
@@ -2475,7 +3349,7 @@ export namespace PutProtocolsListResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
+   * <p>The Amazon Resource Name (ARN) of the resource to return tags for. The Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
    */
   ResourceArn: string | undefined;
 
@@ -2507,7 +3381,7 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
+   * <p>The Amazon Resource Name (ARN) of the resource to return tags for. The Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
    */
   ResourceArn: string | undefined;
 

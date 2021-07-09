@@ -24,7 +24,7 @@ export interface GetServerCertificateCommandOutput extends GetServerCertificateR
  * <p>Retrieves information about the specified server certificate stored in IAM.</p>
  *         <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
  *                 with server certificates</a> in the <i>IAM User Guide</i>. This
- *             topic includes a list of AWS services that can use the server certificates that you
+ *             topic includes a list of Amazon Web Services services that can use the server certificates that you
  *             manage with IAM.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

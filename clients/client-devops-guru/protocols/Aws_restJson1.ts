@@ -60,6 +60,7 @@ import {
 } from "../commands/UpdateServiceIntegrationCommand";
 import {
   AccessDeniedException,
+  AnomalyReportedTimeRange,
   AnomalySourceDetails,
   AnomalyTimeRange,
   CloudFormationCollection,
@@ -3067,6 +3068,22 @@ const serializeAws_restJson1UpdateStackNames = (input: string[], context: __Serd
     });
 };
 
+const deserializeAws_restJson1AnomalyReportedTimeRange = (
+  output: any,
+  context: __SerdeContext
+): AnomalyReportedTimeRange => {
+  return {
+    CloseTime:
+      output.CloseTime !== undefined && output.CloseTime !== null
+        ? new Date(Math.round(output.CloseTime * 1000))
+        : undefined,
+    OpenTime:
+      output.OpenTime !== undefined && output.OpenTime !== null
+        ? new Date(Math.round(output.OpenTime * 1000))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1AnomalySourceDetails = (output: any, context: __SerdeContext): AnomalySourceDetails => {
   return {
     CloudWatchMetrics:
@@ -3380,6 +3397,10 @@ const deserializeAws_restJson1ProactiveAnomalies = (
 
 const deserializeAws_restJson1ProactiveAnomaly = (output: any, context: __SerdeContext): ProactiveAnomaly => {
   return {
+    AnomalyReportedTimeRange:
+      output.AnomalyReportedTimeRange !== undefined && output.AnomalyReportedTimeRange !== null
+        ? deserializeAws_restJson1AnomalyReportedTimeRange(output.AnomalyReportedTimeRange, context)
+        : undefined,
     AnomalyTimeRange:
       output.AnomalyTimeRange !== undefined && output.AnomalyTimeRange !== null
         ? deserializeAws_restJson1AnomalyTimeRange(output.AnomalyTimeRange, context)
@@ -3413,6 +3434,10 @@ const deserializeAws_restJson1ProactiveAnomalySummary = (
   context: __SerdeContext
 ): ProactiveAnomalySummary => {
   return {
+    AnomalyReportedTimeRange:
+      output.AnomalyReportedTimeRange !== undefined && output.AnomalyReportedTimeRange !== null
+        ? deserializeAws_restJson1AnomalyReportedTimeRange(output.AnomalyReportedTimeRange, context)
+        : undefined,
     AnomalyTimeRange:
       output.AnomalyTimeRange !== undefined && output.AnomalyTimeRange !== null
         ? deserializeAws_restJson1AnomalyTimeRange(output.AnomalyTimeRange, context)
@@ -3515,6 +3540,10 @@ const deserializeAws_restJson1ReactiveAnomalies = (output: any, context: __Serde
 
 const deserializeAws_restJson1ReactiveAnomaly = (output: any, context: __SerdeContext): ReactiveAnomaly => {
   return {
+    AnomalyReportedTimeRange:
+      output.AnomalyReportedTimeRange !== undefined && output.AnomalyReportedTimeRange !== null
+        ? deserializeAws_restJson1AnomalyReportedTimeRange(output.AnomalyReportedTimeRange, context)
+        : undefined,
     AnomalyTimeRange:
       output.AnomalyTimeRange !== undefined && output.AnomalyTimeRange !== null
         ? deserializeAws_restJson1AnomalyTimeRange(output.AnomalyTimeRange, context)
@@ -3539,6 +3568,10 @@ const deserializeAws_restJson1ReactiveAnomalySummary = (
   context: __SerdeContext
 ): ReactiveAnomalySummary => {
   return {
+    AnomalyReportedTimeRange:
+      output.AnomalyReportedTimeRange !== undefined && output.AnomalyReportedTimeRange !== null
+        ? deserializeAws_restJson1AnomalyReportedTimeRange(output.AnomalyReportedTimeRange, context)
+        : undefined,
     AnomalyTimeRange:
       output.AnomalyTimeRange !== undefined && output.AnomalyTimeRange !== null
         ? deserializeAws_restJson1AnomalyTimeRange(output.AnomalyTimeRange, context)

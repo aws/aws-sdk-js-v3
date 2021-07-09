@@ -24,7 +24,7 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  * <p>Adds one or more tags to the specified resource. You use tags to add metadata to
  *          resources, which you can use to categorize these resources. For example, you can categorize
  *          resources by purpose, owner, environment, or team. Each tag consists of a key and a value,
- *          which you define. You can add tags to the following AWS Storage Gateway resources:</p>
+ *          which you define. You can add tags to the following Storage Gateway resources:</p>
  *
  *          <ul>
  *             <li>
@@ -38,6 +38,9 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  *             </li>
  *             <li>
  *                <p>NFS and SMB file shares</p>
+ *             </li>
+ *             <li>
+ *                <p>File System associations</p>
  *             </li>
  *          </ul>
  *

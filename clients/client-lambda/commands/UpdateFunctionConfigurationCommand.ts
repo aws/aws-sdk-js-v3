@@ -35,7 +35,7 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  *       modify the configuration of a published version, only the unpublished version.</p>
  *
  *          <p>To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke permissions
- *       to an account or AWS service, use <a>AddPermission</a>.</p>
+ *       to an account or Amazon Web Services service, use <a>AddPermission</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
