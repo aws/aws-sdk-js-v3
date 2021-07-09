@@ -38,19 +38,19 @@ export class NodeHttp2Handler implements HttpHandler {
   private readonly disableConcurrentStreams?: boolean;
 
   public readonly metadata = { handlerProtocol: "h2" };
-  private sessionList: ClientHttp2Session[];
-  private sessionCache: Map<string, ClientHttp2Session>;
+  private sessionCache: Map<string, ClientHttp2Session[]>;
 
   constructor({ requestTimeout, sessionTimeout, disableConcurrentStreams }: NodeHttp2HandlerOptions = {}) {
     this.requestTimeout = requestTimeout;
     this.sessionTimeout = sessionTimeout;
     this.disableConcurrentStreams = disableConcurrentStreams;
-    this.sessionList = [];
-    this.sessionCache = new Map<string, ClientHttp2Session>();
+    this.sessionCache = new Map<string, ClientHttp2Session[]>();
   }
 
   destroy(): void {
-    this.sessionList.forEach((session) => this.destroySession(session));
+    for (const sessions of this.sessionCache.values()) {
+      sessions.forEach((session) => this.destroySession(session));
+    }
     this.sessionCache.clear();
   }
 
@@ -71,7 +71,7 @@ export class NodeHttp2Handler implements HttpHandler {
 
       const { hostname, method, port, protocol, path, query } = request;
       const authority = `${protocol}//${hostname}${port ? `:${port}` : ""}`;
-      const session = this.disableConcurrentStreams ? this.getSession(authority) : this.getSessionFromCache(authority);
+      const session = this.getSession(authority, this.disableConcurrentStreams || false);
 
       const reject = (err: Error) => {
         if (this.disableConcurrentStreams) {
@@ -101,6 +101,7 @@ export class NodeHttp2Handler implements HttpHandler {
           // Gracefully closes the Http2Session, allowing any existing streams to complete
           // on their own and preventing new Http2Stream instances from being created.
           session.close();
+          this.deleteSessionFromCache(authority, session);
         }
       });
 
@@ -133,52 +134,35 @@ export class NodeHttp2Handler implements HttpHandler {
       // http2stream.rstCode property. If the code is any value other than NGHTTP2_NO_ERROR (0),
       // an 'error' event will have also been emitted.
       req.on("close", () => {
+        if (this.disableConcurrentStreams) {
+          session.destroy();
+        }
         if (!fulfilled) {
           reject(new Error("Unexpected error: http2 request did not get a response"));
         }
       });
+
       writeRequestBody(req, request);
     });
   }
 
   /**
-   * Returns a new session for the given URL.
+   * Returns a session for the given URL.
+   *
    * @param authority The URL to create a session for.
-   * @returns A new session for the given URL.
+   * @param disableConcurrentStreams If true, a new session will be created for each request.
+   * @returns A session for the given URL.
    */
-  private getSession(authority: string): ClientHttp2Session {
+  private getSession(authority: string, disableConcurrentStreams: boolean): ClientHttp2Session {
+    const sessionCache = this.sessionCache;
+    const existingSessions = sessionCache.get(authority) || [];
+
+    // If concurrent streams are not disabled, we can use the existing session.
+    if (existingSessions.length > 0 && !disableConcurrentStreams) return existingSessions[0];
+
     const newSession = connect(authority);
     const destroySessionCb = () => {
       this.destroySession(newSession);
-    };
-    newSession.on("goaway", destroySessionCb);
-    newSession.on("error", destroySessionCb);
-    newSession.on("frameError", destroySessionCb);
-
-    const sessionTimeout = this.sessionTimeout;
-    if (sessionTimeout) {
-      newSession.setTimeout(sessionTimeout, () => {
-        this.destroySession(newSession);
-      });
-    }
-
-    this.sessionList.push(newSession);
-    return newSession;
-  }
-
-  /**
-   * Returns a session for the given URL. If the session is not cached, it will be created.
-   * @param authority The URL to create a session for.
-   * @returns A session for the given URL.
-   */
-  private getSessionFromCache(authority: string): ClientHttp2Session {
-    const connectionPool = this.sessionCache;
-    const existingSession = connectionPool.get(authority);
-    if (existingSession) return existingSession;
-
-    const newSession = this.getSession(authority);
-    connectionPool.set(authority, newSession);
-    const destroySessionCb = () => {
       this.deleteSessionFromCache(authority, newSession);
     };
     newSession.on("goaway", destroySessionCb);
@@ -187,12 +171,12 @@ export class NodeHttp2Handler implements HttpHandler {
 
     const sessionTimeout = this.sessionTimeout;
     if (sessionTimeout) {
-      newSession.setTimeout(sessionTimeout, () => {
-        if (connectionPool.get(authority) === newSession) {
-          connectionPool.delete(authority);
-        }
-      });
+      newSession.setTimeout(sessionTimeout, destroySessionCb);
     }
+
+    existingSessions.push(newSession);
+    sessionCache.set(authority, existingSessions);
+
     return newSession;
   }
 
@@ -204,7 +188,6 @@ export class NodeHttp2Handler implements HttpHandler {
     if (!session.destroyed) {
       session.destroy();
     }
-    this.sessionList = this.sessionList.filter((s) => s !== session);
   }
 
   /**
@@ -213,10 +196,14 @@ export class NodeHttp2Handler implements HttpHandler {
    * @param session The session to delete.
    */
   private deleteSessionFromCache(authority: string, session: ClientHttp2Session): void {
-    if (this.sessionCache.get(authority) !== session) {
-      // If the session is not in the pool, it has already been deleted.
+    const existingSessions = this.sessionCache.get(authority) || [];
+    if (!existingSessions.includes(session)) {
+      // If the session is not in the cache, it has already been deleted.
       return;
     }
-    this.sessionCache.delete(authority);
+    this.sessionCache.set(
+      authority,
+      existingSessions.filter((s) => s !== session)
+    );
   }
 }
