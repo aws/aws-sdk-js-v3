@@ -1,11 +1,12 @@
+import { AbortController } from "@aws-sdk/abort-controller";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { rejects } from "assert";
-import { constants, Http2Stream } from "http2";
+import http2, { constants, Http2Stream } from "http2";
 
 import { NodeHttp2Handler } from "./node-http2-handler";
-import { createMockHttp2Server, createResponseFunction } from "./server.mock";
+import { createMockHttp2Server, createResponseFunction, createResponseFunctionWithDelay } from "./server.mock";
 
-describe("NodeHttp2Handler", () => {
+describe(NodeHttp2Handler.name, () => {
   let nodeH2Handler: NodeHttp2Handler;
 
   const protocol = "http:";
@@ -28,288 +29,420 @@ describe("NodeHttp2Handler", () => {
   };
 
   beforeEach(() => {
-    nodeH2Handler = new NodeHttp2Handler();
     mockH2Server.on("request", createResponseFunction(mockResponse));
   });
 
   afterEach(() => {
     mockH2Server.removeAllListeners("request");
-    // @ts-ignore: access private property
-    const connectionPool = nodeH2Handler.connectionPool;
-    for (const [, session] of connectionPool) {
-      session.destroy();
-    }
-    connectionPool.clear();
+    jest.clearAllMocks();
   });
 
   afterAll(() => {
     mockH2Server.close();
   });
 
-  it("has metadata", () => {
-    expect(nodeH2Handler.metadata.handlerProtocol).toContain("h2");
+  describe("without options", () => {
+    beforeEach(() => {
+      nodeH2Handler = new NodeHttp2Handler();
+    });
+
+    afterEach(() => {
+      nodeH2Handler.destroy();
+    });
+
+    it("has metadata", () => {
+      expect(nodeH2Handler.metadata.handlerProtocol).toContain("h2");
+    });
+
+    describe("number calls to http2.connect", () => {
+      it("is zero on initialization", () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+        expect(connectSpy).not.toHaveBeenCalled();
+      });
+
+      it("is one when request is made", async () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+
+        // Make single request.
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+        const authority = `${protocol}//${hostname}:${port}`;
+        expect(connectSpy).toHaveBeenCalledTimes(1);
+        expect(connectSpy).toHaveBeenCalledWith(authority);
+      });
+
+      it("is one if multiple requests are made on same URL", async () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+
+        // Make two requests.
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+        const authority = `${protocol}//${hostname}:${port}`;
+        expect(connectSpy).toHaveBeenCalledTimes(1);
+        expect(connectSpy).toHaveBeenCalledWith(authority);
+      });
+
+      it("is many if requests are made on different URLs", async () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+
+        // Make first request on default URL.
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+        const port2 = port + 1;
+        const mockH2Server2 = createMockHttp2Server().listen(port2);
+        mockH2Server2.on("request", createResponseFunction(mockResponse));
+
+        // Make second request on URL with port2.
+        await nodeH2Handler.handle(new HttpRequest({ ...getMockReqOptions(), port: port2 }), {});
+
+        const authorityPrefix = `${protocol}//${hostname}`;
+        expect(connectSpy).toHaveBeenCalledTimes(2);
+        expect(connectSpy).toHaveBeenNthCalledWith(1, `${authorityPrefix}:${port}`);
+        expect(connectSpy).toHaveBeenNthCalledWith(2, `${authorityPrefix}:${port2}`);
+        mockH2Server2.close();
+      });
+    });
+
+    describe("errors", () => {
+      const UNEXPECTEDLY_CLOSED_REGEX = /closed|destroy|cancel|did not get a response/i;
+      it("handles goaway frames", async () => {
+        const port3 = port + 2;
+        const mockH2Server3 = createMockHttp2Server().listen(port3);
+        let establishedConnections = 0;
+        let numRequests = 0;
+        let shouldSendGoAway = true;
+
+        mockH2Server3.on("stream", (request: Http2Stream) => {
+          // transmit goaway frame without shutting down the connection
+          // to simulate an unlikely error mode.
+          numRequests += 1;
+          if (shouldSendGoAway) {
+            request.session.goaway(constants.NGHTTP2_PROTOCOL_ERROR);
+          }
+        });
+        mockH2Server3.on("connection", () => {
+          establishedConnections += 1;
+        });
+        const req = new HttpRequest({ ...getMockReqOptions(), port: port3 });
+        expect(establishedConnections).toBe(0);
+        expect(numRequests).toBe(0);
+        await rejects(
+          nodeH2Handler.handle(req, {}),
+          UNEXPECTEDLY_CLOSED_REGEX,
+          "should be rejected promptly due to goaway frame"
+        );
+        expect(establishedConnections).toBe(1);
+        expect(numRequests).toBe(1);
+        await rejects(
+          nodeH2Handler.handle(req, {}),
+          UNEXPECTEDLY_CLOSED_REGEX,
+          "should be rejected promptly due to goaway frame"
+        );
+        expect(establishedConnections).toBe(2);
+        expect(numRequests).toBe(2);
+        await rejects(
+          nodeH2Handler.handle(req, {}),
+          UNEXPECTEDLY_CLOSED_REGEX,
+          "should be rejected promptly due to goaway frame"
+        );
+        expect(establishedConnections).toBe(3);
+        expect(numRequests).toBe(3);
+
+        // should be able to recover from goaway after reconnecting to a server
+        // that doesn't send goaway, and reuse the TCP connection (Http2Session)
+        shouldSendGoAway = false;
+        mockH2Server3.on("request", createResponseFunction(mockResponse));
+        await nodeH2Handler.handle(req, {});
+        const result = await nodeH2Handler.handle(req, {});
+        const resultReader = result.response.body;
+
+        // ...and validate that the mocked response is received
+        const responseBody = await new Promise((resolve) => {
+          const buffers = [];
+          resultReader.on("data", (chunk) => buffers.push(chunk));
+          resultReader.on("end", () => {
+            resolve(Buffer.concat(buffers).toString("utf8"));
+          });
+        });
+        expect(responseBody).toBe("test");
+        expect(establishedConnections).toBe(4);
+        expect(numRequests).toBe(5);
+        mockH2Server3.close();
+      });
+
+      it("handles connections destroyed by servers", async () => {
+        const port3 = port + 2;
+        const mockH2Server3 = createMockHttp2Server().listen(port3);
+        let establishedConnections = 0;
+        let numRequests = 0;
+
+        mockH2Server3.on("stream", (request: Http2Stream) => {
+          // transmit goaway frame and then shut down the connection.
+          numRequests += 1;
+          request.session.destroy();
+        });
+        mockH2Server3.on("connection", () => {
+          establishedConnections += 1;
+        });
+        const req = new HttpRequest({ ...getMockReqOptions(), port: port3 });
+        expect(establishedConnections).toBe(0);
+        expect(numRequests).toBe(0);
+        await rejects(
+          nodeH2Handler.handle(req, {}),
+          UNEXPECTEDLY_CLOSED_REGEX,
+          "should be rejected promptly due to goaway frame or destroyed connection"
+        );
+        expect(establishedConnections).toBe(1);
+        expect(numRequests).toBe(1);
+        await rejects(
+          nodeH2Handler.handle(req, {}),
+          UNEXPECTEDLY_CLOSED_REGEX,
+          "should be rejected promptly due to goaway frame or destroyed connection"
+        );
+        expect(establishedConnections).toBe(2);
+        expect(numRequests).toBe(2);
+        await rejects(
+          nodeH2Handler.handle(req, {}),
+          UNEXPECTEDLY_CLOSED_REGEX,
+          "should be rejected promptly due to goaway frame or destroyed connection"
+        );
+        expect(establishedConnections).toBe(3);
+        expect(numRequests).toBe(3);
+        mockH2Server3.close();
+      });
+    });
+
+    describe("destroy", () => {
+      it("destroys session and clears sessionCache", async () => {
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+        const authority = `${protocol}//${hostname}:${port}`;
+        // @ts-ignore: access private property
+        const session: ClientHttp2Session = nodeH2Handler.sessionCache.get(authority)[0];
+
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.sessionCache.size).toBe(1);
+        expect(session.destroyed).toBe(false);
+        nodeH2Handler.destroy();
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.sessionCache.size).toBe(0);
+        expect(session.destroyed).toBe(true);
+      });
+    });
+
+    describe("abortSignal", () => {
+      it("will not create session if request already aborted", async () => {
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.sessionCache.size).toBe(0);
+        await expect(
+          nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {
+            abortSignal: {
+              aborted: true,
+              onabort: null,
+            },
+          })
+        ).rejects.toHaveProperty("name", "AbortError");
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.sessionCache.size).toBe(0);
+      });
+
+      it("will not create request on session if request already aborted", async () => {
+        // Create a session by sending a request.
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+        const authority = `${protocol}//${hostname}:${port}`;
+        // @ts-ignore: access private property
+        const session: ClientHttp2Session = nodeH2Handler.sessionCache.get(authority)[0];
+        const requestSpy = jest.spyOn(session, "request");
+
+        await expect(
+          nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {
+            abortSignal: {
+              aborted: true,
+              onabort: null,
+            },
+          })
+        ).rejects.toHaveProperty("name", "AbortError");
+        expect(requestSpy.mock.calls.length).toBe(0);
+      });
+
+      it("will close request on session when aborted", async () => {
+        const abortController = new AbortController();
+        mockH2Server.removeAllListeners("request");
+        mockH2Server.on("request", (request: any, response: any) => {
+          abortController.abort();
+          return createResponseFunction(mockResponse);
+        });
+
+        await expect(
+          nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {
+            abortSignal: abortController.signal,
+          })
+        ).rejects.toHaveProperty("name", "AbortError");
+      });
+    });
   });
 
-  describe("connectionPool", () => {
-    it("is empty on initialization", () => {
-      // @ts-ignore: access private property
-      expect(nodeH2Handler.connectionPool.size).toBe(0);
-    });
+  describe("requestTimeout", () => {
+    const requestTimeout = 200;
 
-    it("creates and stores session when request is made", async () => {
-      await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+    describe("does not throw error when request not timed out", () => {
+      it("disableConcurrentStreams: false (default)", async () => {
+        mockH2Server.removeAllListeners("request");
+        mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout - 100));
 
-      // @ts-ignore: access private property
-      expect(nodeH2Handler.connectionPool.size).toBe(1);
-      expect(
-        // @ts-ignore: access private property
-        nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port}`)
-      ).toBeDefined();
-    });
-
-    it("reuses existing session if request is made on same authority again", async () => {
-      await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-      // @ts-ignore: access private property
-      expect(nodeH2Handler.connectionPool.size).toBe(1);
-
-      // @ts-ignore: access private property
-      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port}`);
-      const requestSpy = jest.spyOn(session, "request");
-
-      await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-      // @ts-ignore: access private property
-      expect(nodeH2Handler.connectionPool.size).toBe(1);
-      expect(requestSpy.mock.calls.length).toBe(1);
-    });
-
-    it("creates new session if request is made on new authority", async () => {
-      await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-      // @ts-ignore: access private property
-      expect(nodeH2Handler.connectionPool.size).toBe(1);
-
-      const port2 = port + 1;
-      const mockH2Server2 = createMockHttp2Server().listen(port2);
-      mockH2Server2.on("request", createResponseFunction(mockResponse));
-
-      await nodeH2Handler.handle(new HttpRequest({ ...getMockReqOptions(), port: port2 }), {});
-      // @ts-ignore: access private property
-      expect(nodeH2Handler.connectionPool.size).toBe(2);
-      expect(
-        // @ts-ignore: access private property
-        nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port2}`)
-      ).toBeDefined();
-
-      mockH2Server2.close();
-    });
-
-    const UNEXPECTEDLY_CLOSED_REGEX = /closed|destroy|cancel|did not get a response/i;
-    it("handles goaway frames", async () => {
-      const port3 = port + 2;
-      const mockH2Server3 = createMockHttp2Server().listen(port3);
-      let establishedConnections = 0;
-      let numRequests = 0;
-      let shouldSendGoAway = true;
-
-      mockH2Server3.on("stream", (request: Http2Stream) => {
-        // transmit goaway frame without shutting down the connection
-        // to simulate an unlikely error mode.
-        numRequests += 1;
-        if (shouldSendGoAway) {
-          request.session.goaway(constants.NGHTTP2_PROTOCOL_ERROR);
-        }
+        nodeH2Handler = new NodeHttp2Handler({ requestTimeout });
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
       });
-      mockH2Server3.on("connection", () => {
-        establishedConnections += 1;
+
+      it("disableConcurrentStreams: true", async () => {
+        mockH2Server.removeAllListeners("request");
+        mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout - 100));
+
+        nodeH2Handler = new NodeHttp2Handler({ requestTimeout, disableConcurrentStreams: true });
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
       });
-      const req = new HttpRequest({ ...getMockReqOptions(), port: port3 });
-      expect(establishedConnections).toBe(0);
-      expect(numRequests).toBe(0);
-      await rejects(
-        nodeH2Handler.handle(req, {}),
-        UNEXPECTEDLY_CLOSED_REGEX,
-        "should be rejected promptly due to goaway frame"
-      );
-      expect(establishedConnections).toBe(1);
-      expect(numRequests).toBe(1);
-      await rejects(
-        nodeH2Handler.handle(req, {}),
-        UNEXPECTEDLY_CLOSED_REGEX,
-        "should be rejected promptly due to goaway frame"
-      );
-      expect(establishedConnections).toBe(2);
-      expect(numRequests).toBe(2);
-      await rejects(
-        nodeH2Handler.handle(req, {}),
-        UNEXPECTEDLY_CLOSED_REGEX,
-        "should be rejected promptly due to goaway frame"
-      );
-      expect(establishedConnections).toBe(3);
-      expect(numRequests).toBe(3);
+    });
 
-      // should be able to recover from goaway after reconnecting to a server
-      // that doesn't send goaway, and reuse the TCP connection (Http2Session)
-      shouldSendGoAway = false;
-      mockH2Server3.on("request", createResponseFunction(mockResponse));
-      await nodeH2Handler.handle(req, {});
-      const result = await nodeH2Handler.handle(req, {});
-      const resultReader = result.response.body;
+    describe("throws timeoutError on requestTimeout", () => {
+      it("disableConcurrentStreams: false (default)", async () => {
+        mockH2Server.removeAllListeners("request");
+        mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout + 100));
 
-      // ...and validate that the mocked response is received
-      const responseBody = await new Promise((resolve) => {
-        const buffers = [];
-        resultReader.on("data", (chunk) => buffers.push(chunk));
-        resultReader.on("end", () => {
-          resolve(Buffer.concat(buffers).toString("utf8"));
+        nodeH2Handler = new NodeHttp2Handler({ requestTimeout });
+        await rejects(nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {}), {
+          name: "TimeoutError",
+          message: `Stream timed out because of no activity for ${requestTimeout} ms`,
         });
       });
-      expect(responseBody).toBe("test");
-      expect(establishedConnections).toBe(4);
-      expect(numRequests).toBe(5);
-      mockH2Server3.close();
-    });
 
-    it("handles connections destroyed by servers", async () => {
-      const port3 = port + 2;
-      const mockH2Server3 = createMockHttp2Server().listen(port3);
-      let establishedConnections = 0;
-      let numRequests = 0;
+      it("disableConcurrentStreams: true", async () => {
+        mockH2Server.removeAllListeners("request");
+        mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout + 100));
 
-      mockH2Server3.on("stream", (request: Http2Stream) => {
-        // transmit goaway frame and then shut down the connection.
-        numRequests += 1;
-        request.session.destroy();
+        nodeH2Handler = new NodeHttp2Handler({ requestTimeout, disableConcurrentStreams: true });
+        await rejects(nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {}), {
+          name: "TimeoutError",
+          message: `Stream timed out because of no activity for ${requestTimeout} ms`,
+        });
       });
-      mockH2Server3.on("connection", () => {
-        establishedConnections += 1;
-      });
-      const req = new HttpRequest({ ...getMockReqOptions(), port: port3 });
-      expect(establishedConnections).toBe(0);
-      expect(numRequests).toBe(0);
-      await rejects(
-        nodeH2Handler.handle(req, {}),
-        UNEXPECTEDLY_CLOSED_REGEX,
-        "should be rejected promptly due to goaway frame or destroyed connection"
-      );
-      expect(establishedConnections).toBe(1);
-      expect(numRequests).toBe(1);
-      await rejects(
-        nodeH2Handler.handle(req, {}),
-        UNEXPECTEDLY_CLOSED_REGEX,
-        "should be rejected promptly due to goaway frame or destroyed connection"
-      );
-      expect(establishedConnections).toBe(2);
-      expect(numRequests).toBe(2);
-      await rejects(
-        nodeH2Handler.handle(req, {}),
-        UNEXPECTEDLY_CLOSED_REGEX,
-        "should be rejected promptly due to goaway frame or destroyed connection"
-      );
-      expect(establishedConnections).toBe(3);
-      expect(numRequests).toBe(3);
-      mockH2Server3.close();
     });
+  });
 
-    it("closes and removes session on sessionTimeout", async (done) => {
-      const sessionTimeout = 500;
-      nodeH2Handler = new NodeHttp2Handler({ sessionTimeout });
-      await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+  describe("sessionTimeout", () => {
+    const sessionTimeout = 200;
 
-      const authority = `${protocol}//${hostname}:${port}`;
-      // @ts-ignore: access private property
-      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(authority);
-      expect(session.closed).toBe(false);
-      setTimeout(() => {
-        expect(session.closed).toBe(true);
+    describe("destroys sessions on sessionTimeout", () => {
+      it("disableConcurrentStreams: false (default)", async (done) => {
+        nodeH2Handler = new NodeHttp2Handler({ sessionTimeout });
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+        const authority = `${protocol}//${hostname}:${port}`;
         // @ts-ignore: access private property
-        expect(nodeH2Handler.connectionPool.get(authority)).not.toBeDefined();
-        done();
-      }, sessionTimeout + 100);
+        const session: ClientHttp2Session = nodeH2Handler.sessionCache.get(authority)[0];
+        expect(session.destroyed).toBe(false);
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.sessionCache.get(authority).length).toStrictEqual(1);
+        setTimeout(() => {
+          expect(session.destroyed).toBe(true);
+          // @ts-ignore: access private property
+          expect(nodeH2Handler.sessionCache.get(authority).length).toStrictEqual(0);
+          done();
+        }, sessionTimeout + 100);
+      });
+
+      it("disableConcurrentStreams: true", async (done) => {
+        let session;
+        const authority = `${protocol}//${hostname}:${port}`;
+
+        nodeH2Handler = new NodeHttp2Handler({ sessionTimeout, disableConcurrentStreams: true });
+
+        mockH2Server.removeAllListeners("request");
+        mockH2Server.on("request", (request: any, response: any) => {
+          // @ts-ignore: access private property
+          session = nodeH2Handler.sessionCache.get(authority)[0];
+          createResponseFunction(mockResponse)(request, response);
+        });
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+        expect(session.destroyed).toBe(false);
+        setTimeout(() => {
+          expect(session.destroyed).toBe(true);
+          done();
+        }, sessionTimeout + 100);
+      });
     });
   });
 
-  describe("destroy", () => {
-    it("destroys sessions and clears connectionPool", async () => {
-      await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-
-      // @ts-ignore: access private property
-      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port}`);
-
-      // @ts-ignore: access private property
-      expect(nodeH2Handler.connectionPool.size).toBe(1);
-      expect(session.destroyed).toBe(false);
-      nodeH2Handler.destroy();
-      // @ts-ignore: access private property
-      expect(nodeH2Handler.connectionPool.size).toBe(0);
-      expect(session.destroyed).toBe(true);
-    });
-  });
-
-  describe("abortSignal", () => {
-    it("will not create session if request already aborted", async () => {
-      // @ts-ignore: access private property
-      expect(nodeH2Handler.connectionPool.size).toBe(0);
-      await expect(
-        nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {
-          abortSignal: {
-            aborted: true,
-            onabort: null,
-          },
-        })
-      ).rejects.toHaveProperty("name", "AbortError");
-      // @ts-ignore: access private property
-      expect(nodeH2Handler.connectionPool.size).toBe(0);
+  describe("disableConcurrentStreams", () => {
+    beforeEach(() => {
+      nodeH2Handler = new NodeHttp2Handler({
+        disableConcurrentStreams: true,
+      });
     });
 
-    it("will not create request on session if request already aborted", async () => {
-      await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+    describe("number calls to http2.connect", () => {
+      it("is zero on initialization", () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+        expect(connectSpy).not.toHaveBeenCalled();
+      });
 
-      // @ts-ignore: access private property
-      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port}`);
-      const requestSpy = jest.spyOn(session, "request");
+      it("is one when request is made", async () => {
+        const connectSpy = jest.spyOn(http2, "connect");
 
-      await expect(
-        nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {
-          abortSignal: {
-            aborted: true,
-            onabort: null,
-          },
-        })
-      ).rejects.toHaveProperty("name", "AbortError");
-      expect(requestSpy.mock.calls.length).toBe(0);
+        // Make single request.
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+        const authority = `${protocol}//${hostname}:${port}`;
+        expect(connectSpy).toHaveBeenCalledTimes(1);
+        expect(connectSpy).toHaveBeenCalledWith(authority);
+      });
+
+      it("is many if multiple requests are made on same URL", async () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+
+        // Make two requests.
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+        const authority = `${protocol}//${hostname}:${port}`;
+        expect(connectSpy).toHaveBeenCalledTimes(2);
+        expect(connectSpy).toHaveBeenNthCalledWith(1, authority);
+        expect(connectSpy).toHaveBeenNthCalledWith(2, authority);
+      });
+
+      it("is many if requests are made on different URLs", async () => {
+        const connectSpy = jest.spyOn(http2, "connect");
+
+        // Make first request on default URL.
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+
+        const port2 = port + 1;
+        const mockH2Server2 = createMockHttp2Server().listen(port2);
+        mockH2Server2.on("request", createResponseFunction(mockResponse));
+
+        // Make second request on URL with port2.
+        await nodeH2Handler.handle(new HttpRequest({ ...getMockReqOptions(), port: port2 }), {});
+
+        const authorityPrefix = `${protocol}//${hostname}`;
+        expect(connectSpy).toHaveBeenCalledTimes(2);
+        expect(connectSpy).toHaveBeenNthCalledWith(1, `${authorityPrefix}:${port}`);
+        expect(connectSpy).toHaveBeenNthCalledWith(2, `${authorityPrefix}:${port2}`);
+        mockH2Server2.close();
+      });
     });
 
-    /* Commenting out as the test is flaky https://github.com/aws/aws-sdk-js-v3/issues/487
-    it("will close request on session when aborted", async () => {
-      await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+    describe("destroy", () => {
+      it("destroys session and empties sessionCache", async () => {
+        await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
-      // @ts-ignore: access private property
-      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(
-        `${protocol}//${hostname}:${port}`
-      );
-      const requestSpy = jest.spyOn(session, "request");
-
-      const abortController = new AbortController();
-      // Delay response so that onabort is called earlier
-      setTimeout(() => {
-        abortController.abort();
-      }, 0);
-      mockH2Server.on(
-        "request",
-        async () =>
-          new Promise(resolve => {
-            setTimeout(() => {
-              resolve(createResponseFunction(mockResponse));
-            }, 1000);
-          })
-      );
-
-      await expect(
-        nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {
-          abortSignal: abortController.signal
-        })
-      ).rejects.toHaveProperty("name", "AbortError");
-      expect(requestSpy.mock.calls.length).toBe(1);
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.sessionCache.size).toBe(1);
+        nodeH2Handler.destroy();
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.sessionCache.size).toBe(0);
+      });
     });
-    */
   });
 });

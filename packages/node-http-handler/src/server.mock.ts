@@ -1,4 +1,4 @@
-import { HttpResponse } from "@aws-sdk/types";
+import { HeaderBag, HttpResponse } from "@aws-sdk/types";
 import { readFileSync } from "fs";
 import { createServer as createHttpServer, IncomingMessage, Server as HttpServer, ServerResponse } from "http";
 import { createServer as createHttp2Server, Http2Server } from "http2";
@@ -8,44 +8,56 @@ import { Readable } from "stream";
 
 const fixturesDir = join(__dirname, "..", "fixtures");
 
-export function createResponseFunction(httpResp: HttpResponse) {
-  return function (request: IncomingMessage, response: ServerResponse) {
-    response.statusCode = httpResp.statusCode;
-    for (const name of Object.keys(httpResp.headers)) {
-      const values = httpResp.headers[name];
-      response.setHeader(name, values);
-    }
-    if (httpResp.body instanceof Readable) {
-      httpResp.body.pipe(response);
-    } else {
-      response.end(httpResp.body);
-    }
-  };
-}
+const setResponseHeaders = (response: ServerResponse, headers: HeaderBag) => {
+  for (const [key, value] of Object.entries(headers)) {
+    response.setHeader(key, value);
+  }
+};
 
-export function createContinueResponseFunction(httpResp: HttpResponse) {
-  return function (request: IncomingMessage, response: ServerResponse) {
+const setResponseBody = (response: ServerResponse, body: Readable | string) => {
+  if (body instanceof Readable) {
+    body.pipe(response);
+  } else {
+    response.end(body);
+  }
+};
+
+export const createResponseFunction =
+  (httpResp: HttpResponse) => (request: IncomingMessage, response: ServerResponse) => {
+    response.statusCode = httpResp.statusCode;
+    setResponseHeaders(response, httpResp.headers);
+    setResponseBody(response, httpResp.body);
+  };
+
+export const createResponseFunctionWithDelay =
+  (httpResp: HttpResponse, delay: number) => (request: IncomingMessage, response: ServerResponse) => {
+    response.statusCode = httpResp.statusCode;
+    setResponseHeaders(response, httpResp.headers);
+    setTimeout(() => setResponseBody(response, httpResp.body), delay);
+  };
+
+export const createContinueResponseFunction =
+  (httpResp: HttpResponse) => (request: IncomingMessage, response: ServerResponse) => {
     response.writeContinue();
     setTimeout(() => {
       createResponseFunction(httpResp)(request, response);
     }, 100);
   };
-}
 
-export function createMockHttpsServer(): HttpsServer {
+export const createMockHttpsServer = (): HttpsServer => {
   const server = createHttpsServer({
     key: readFileSync(join(fixturesDir, "test-server-key.pem")),
     cert: readFileSync(join(fixturesDir, "test-server-cert.pem")),
   });
   return server;
-}
+};
 
-export function createMockHttpServer(): HttpServer {
+export const createMockHttpServer = (): HttpServer => {
   const server = createHttpServer();
   return server;
-}
+};
 
-export function createMockHttp2Server(): Http2Server {
+export const createMockHttp2Server = (): Http2Server => {
   const server = createHttp2Server();
   return server;
-}
+};
