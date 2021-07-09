@@ -330,6 +330,10 @@
           {
             "value": "AdmissionRequestDenied",
             "name": "ADMISSION_REQUEST_DENIED"
+          },
+          {
+            "value": "UnsupportedAddonModification",
+            "name": "UNSUPPORTED_ADDON_MODIFICATION"
           }
         ]
       }
@@ -1952,6 +1956,54 @@
           "method": "GET",
           "uri": "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "FargateProfileActive": {
+            "acceptors": [
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "fargateProfile.status",
+                    "expected": "CREATE_FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "fargateProfile.status",
+                    "expected": "ACTIVE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 10
+          },
+          "FargateProfileDeleted": {
+            "acceptors": [
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "fargateProfile.status",
+                    "expected": "DELETE_FAILED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "ResourceNotFoundException"
+                }
+              }
+            ],
+            "minDelay": 30
+          }
         }
       }
     },
@@ -2410,6 +2462,10 @@
           {
             "value": "AdmissionRequestDenied",
             "name": "ADMISSION_REQUEST_DENIED"
+          },
+          {
+            "value": "UnsupportedAddonModification",
+            "name": "UNSUPPORTED_ADDON_MODIFICATION"
           }
         ]
       }
