@@ -95,7 +95,7 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                     writer.addDependency(AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE);
                     writer.addImport("eventStreamPayloadHandlerProvider", "eventStreamPayloadHandlerProvider",
                             AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE.packageName);
-                    writer.write("eventStreamPayloadHandlerProvider,");
+                    writer.write("eventStreamPayloadHandlerProvider");
                 });
             case BROWSER:
                 /**
@@ -107,7 +107,7 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.addImport("invalidFunction", "invalidFunction",
                             TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                    writer.openBlock("eventStreamPayloadHandlerProvider: () => ({", "}),", () -> {
+                    writer.openBlock("() => ({", "})", () -> {
                         writer.write("handle: invalidFunction(\"event stream request is not supported in browser.\"),");
                     });
                 });
@@ -121,7 +121,7 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.addImport("invalidFunction", "invalidFunction",
                             TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                    writer.openBlock("eventStreamPayloadHandlerProvider: () => ({", "}),", () -> {
+                    writer.openBlock("() => ({", "})", () -> {
                         writer.write("handle: invalidFunction(\"event stream request "
                                 + "is not supported in ReactNative.\"),");
                     });

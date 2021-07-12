@@ -108,7 +108,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
             case BROWSER:
                 return MapUtils.of(
                     "endpointDiscoveryEnabledProvider", writer -> {
-                        writer.write("endpointDiscoveryEnabledProvider: () => Promise.resolve(undefined),");
+                        writer.write("() => Promise.resolve(undefined)");
                     }
                 );
             case NODE:
@@ -118,8 +118,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                         writer.addImport("NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS",
                                 "NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS",
                                 AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.packageName);
-                        writer.write("endpointDiscoveryEnabledProvider: loadNodeConfig("
-                                + "NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS),");
+                        writer.write("loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS)");
                     }
                 );
             default:

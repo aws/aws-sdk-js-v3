@@ -103,7 +103,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     .orElse(null);
             if (serviceId != null) {
                 runtimeConfigs.put("serviceId", writer -> {
-                    writer.write("serviceId: $S,", serviceId);
+                    writer.write("$S", serviceId);
                 });
             } else {
                 LOGGER.info("Cannot generate a serivce ID for the client because no aws.api#Service "
@@ -128,7 +128,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.addImport("invalidProvider", "invalidProvider",
                             TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                    writer.write("region: invalidProvider(\"Region is missing\"),");
+                    writer.write("invalidProvider(\"Region is missing\")");
                 });
             case NODE:
                 return MapUtils.of("region", writer -> {
@@ -141,7 +141,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS",
                             TypeScriptDependency.CONFIG_RESOLVER.packageName);
                     writer.write(
-                            "region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),");
+                            "loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS)");
                 });
             default:
                 return Collections.emptyMap();

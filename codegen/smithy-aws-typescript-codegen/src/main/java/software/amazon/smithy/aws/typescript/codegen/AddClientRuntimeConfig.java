@@ -91,7 +91,7 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
                 return MapUtils.of(
                         "logger", writer -> {
                             writer.addImport("Logger", "__Logger", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-                            writer.write("logger: {} as __Logger,");
+                            writer.write("{} as __Logger");
                         }
                 );
             case BROWSER:
@@ -100,13 +100,13 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
                             writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
                             writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS",
                                     TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.write("maxAttempts: DEFAULT_MAX_ATTEMPTS,");
+                            writer.write("DEFAULT_MAX_ATTEMPTS");
                         },
                         "retryModeProvider", writer -> {
                             writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
                             writer.addImport("DEFAULT_RETRY_MODE", "DEFAULT_RETRY_MODE",
                                     TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.write("retryModeProvider: () => Promise.resolve(DEFAULT_RETRY_MODE),");
+                            writer.write("(() => Promise.resolve(DEFAULT_RETRY_MODE))");
                         }
                 );
             case NODE:
@@ -117,7 +117,7 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
                                     AwsDependency.NODE_CONFIG_PROVIDER.packageName);
                             writer.addImport("NODE_MAX_ATTEMPT_CONFIG_OPTIONS", "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
                                 TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.write("maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),");
+                            writer.write("loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS)");
                         },
                         "retryModeProvider", writer -> {
                             writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
@@ -126,7 +126,7 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
                             writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
                             writer.addImport("NODE_RETRY_MODE_CONFIG_OPTIONS", "NODE_RETRY_MODE_CONFIG_OPTIONS",
                                     TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.write("retryModeProvider: loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS),");
+                            writer.write("loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS)");
                         }
                 );
             default:

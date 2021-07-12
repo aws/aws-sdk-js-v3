@@ -67,13 +67,13 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
                         writer.addDependency(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE);
                         writer.addImport("eventStreamPayloadHandler", "eventStreamPayloadHandler",
                             AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.packageName);
-                        writer.write("eventStreamPayloadHandlerProvider: () => eventStreamPayloadHandler,");
+                        writer.write("() => eventStreamPayloadHandler");
                 },
                 "requestHandler", writer -> {
                         writer.addDependency(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE);
                         writer.addImport("WebSocketHandler", "WebSocketHandler",
                             AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.packageName);
-                        writer.write("requestHandler: new WebSocketHandler(),");
+                        writer.write("new WebSocketHandler()");
                 });
 
         switch (target) {
@@ -83,7 +83,7 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
                         writer.addDependency(TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER);
                         writer.addImport("NodeHttp2Handler", "NodeHttp2Handler",
                             TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER.packageName);
-                         writer.write("requestHandler: new NodeHttp2Handler({ disableConcurrentStreams: true }),");
+                         writer.write("new NodeHttp2Handler({ disableConcurrentStreams: true })");
                     });
             case REACT_NATIVE:
             case BROWSER:
