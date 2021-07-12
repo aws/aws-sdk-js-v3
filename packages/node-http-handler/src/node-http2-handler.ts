@@ -125,10 +125,13 @@ export class NodeHttp2Handler implements HttpHandler {
       }
 
       // Set up handlers for errors
-      req.on("frameError", reject);
+      req.on("frameError", (type: number, code: number, id: number) => {
+        reject(new Error(`Frame type id ${type} in stream id ${id} has failed with code ${code}.`));
+      });
       req.on("error", reject);
-      req.on("goaway", reject);
-      req.on("aborted", reject);
+      req.on("aborted", () => {
+        reject(new Error(`HTTP/2 stream is abnormally aborted in mid-communication with result code ${req.rstCode}.`));
+      });
 
       // The HTTP/2 error code used when closing the stream can be retrieved using the
       // http2stream.rstCode property. If the code is any value other than NGHTTP2_NO_ERROR (0),
