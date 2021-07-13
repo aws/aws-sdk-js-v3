@@ -7,7 +7,7 @@ import {
   GetDimensionKeyDetailsCommandOutput,
 } from "./commands/GetDimensionKeyDetailsCommand";
 import { GetResourceMetricsCommandInput, GetResourceMetricsCommandOutput } from "./commands/GetResourceMetricsCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -244,10 +244,7 @@ export class PIClient extends __Client<
   readonly config: PIClientResolvedConfig;
 
   constructor(configuration: PIClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

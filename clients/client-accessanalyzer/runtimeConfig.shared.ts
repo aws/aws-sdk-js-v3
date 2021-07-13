@@ -1,15 +1,17 @@
 import { defaultRegionInfoProvider } from "./endpoints";
+import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
+import { AccessAnalyzerClientConfig } from "./AccessAnalyzerClient";
 
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const getRuntimeConfig = (config: AccessAnalyzerClientConfig) => ({
   apiVersion: "2019-11-01",
-  disableHostPrefix: false,
-  logger: {} as __Logger,
-  regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "AccessAnalyzer",
-  urlParser: parseUrl,
-};
+  disableHostPrefix: coalesce(config.disableHostPrefix, false),
+  logger: coalesce(config.logger, {} as __Logger),
+  regionInfoProvider: coalesce(config.regionInfoProvider, defaultRegionInfoProvider),
+  serviceId: coalesce(config.serviceId, "AccessAnalyzer"),
+  urlParser: coalesce(config.urlParser, parseUrl),
+});

@@ -1,15 +1,17 @@
 import { defaultRegionInfoProvider } from "./endpoints";
+import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
+import { WAFV2ClientConfig } from "./WAFV2Client";
 
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const getRuntimeConfig = (config: WAFV2ClientConfig) => ({
   apiVersion: "2019-07-29",
-  disableHostPrefix: false,
-  logger: {} as __Logger,
-  regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "WAFV2",
-  urlParser: parseUrl,
-};
+  disableHostPrefix: coalesce(config.disableHostPrefix, false),
+  logger: coalesce(config.logger, {} as __Logger),
+  regionInfoProvider: coalesce(config.regionInfoProvider, defaultRegionInfoProvider),
+  serviceId: coalesce(config.serviceId, "WAFV2"),
+  urlParser: coalesce(config.urlParser, parseUrl),
+});

@@ -1,12 +1,16 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { ClientDefaults } from "./DirectoryServiceClient";
-import { ClientDefaultValues as BrowserDefaults } from "./runtimeConfig.browser";
+import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
+import { DirectoryServiceClientConfig } from "./DirectoryServiceClient";
+import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**
  * @internal
  */
-export const ClientDefaultValues: Required<ClientDefaults> = {
-  ...BrowserDefaults,
-  runtime: "react-native",
-  sha256: Sha256,
+export const getRuntimeConfig = (config: DirectoryServiceClientConfig) => {
+  const browserDefaults = getBrowserRuntimeConfig(config);
+  return {
+    ...browserDefaults,
+    runtime: "react-native",
+    sha256: coalesce(config.sha256, Sha256),
+  };
 };

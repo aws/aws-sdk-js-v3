@@ -3,7 +3,7 @@ import { DescribeHumanLoopCommandInput, DescribeHumanLoopCommandOutput } from ".
 import { ListHumanLoopsCommandInput, ListHumanLoopsCommandOutput } from "./commands/ListHumanLoopsCommand";
 import { StartHumanLoopCommandInput, StartHumanLoopCommandOutput } from "./commands/StartHumanLoopCommand";
 import { StopHumanLoopCommandInput, StopHumanLoopCommandOutput } from "./commands/StopHumanLoopCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -248,10 +248,7 @@ export class SageMakerA2IRuntimeClient extends __Client<
   readonly config: SageMakerA2IRuntimeClientResolvedConfig;
 
   constructor(configuration: SageMakerA2IRuntimeClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

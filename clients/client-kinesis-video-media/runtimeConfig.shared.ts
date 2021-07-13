@@ -1,15 +1,17 @@
 import { defaultRegionInfoProvider } from "./endpoints";
+import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
+import { KinesisVideoMediaClientConfig } from "./KinesisVideoMediaClient";
 
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const getRuntimeConfig = (config: KinesisVideoMediaClientConfig) => ({
   apiVersion: "2017-09-30",
-  disableHostPrefix: false,
-  logger: {} as __Logger,
-  regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "Kinesis Video Media",
-  urlParser: parseUrl,
-};
+  disableHostPrefix: coalesce(config.disableHostPrefix, false),
+  logger: coalesce(config.logger, {} as __Logger),
+  regionInfoProvider: coalesce(config.regionInfoProvider, defaultRegionInfoProvider),
+  serviceId: coalesce(config.serviceId, "Kinesis Video Media"),
+  urlParser: coalesce(config.urlParser, parseUrl),
+});

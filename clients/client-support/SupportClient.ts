@@ -39,7 +39,7 @@ import {
   RefreshTrustedAdvisorCheckCommandOutput,
 } from "./commands/RefreshTrustedAdvisorCheckCommand";
 import { ResolveCaseCommandInput, ResolveCaseCommandOutput } from "./commands/ResolveCaseCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -350,10 +350,7 @@ export class SupportClient extends __Client<
   readonly config: SupportClientResolvedConfig;
 
   constructor(configuration: SupportClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

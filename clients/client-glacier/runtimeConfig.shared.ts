@@ -1,15 +1,17 @@
 import { defaultRegionInfoProvider } from "./endpoints";
+import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
+import { GlacierClientConfig } from "./GlacierClient";
 
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const getRuntimeConfig = (config: GlacierClientConfig) => ({
   apiVersion: "2012-06-01",
-  disableHostPrefix: false,
-  logger: {} as __Logger,
-  regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "Glacier",
-  urlParser: parseUrl,
-};
+  disableHostPrefix: coalesce(config.disableHostPrefix, false),
+  logger: coalesce(config.logger, {} as __Logger),
+  regionInfoProvider: coalesce(config.regionInfoProvider, defaultRegionInfoProvider),
+  serviceId: coalesce(config.serviceId, "Glacier"),
+  urlParser: coalesce(config.urlParser, parseUrl),
+});
