@@ -1,5 +1,4 @@
 import { defaultRegionInfoProvider } from "./endpoints";
-import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { AmplifyBackendClientConfig } from "./AmplifyBackendClient";
@@ -9,9 +8,9 @@ import { AmplifyBackendClientConfig } from "./AmplifyBackendClient";
  */
 export const getRuntimeConfig = (config: AmplifyBackendClientConfig) => ({
   apiVersion: "2020-08-11",
-  disableHostPrefix: coalesce(config.disableHostPrefix, false),
-  logger: coalesce(config.logger, {} as __Logger),
-  regionInfoProvider: coalesce(config.regionInfoProvider, defaultRegionInfoProvider),
-  serviceId: coalesce(config.serviceId, "AmplifyBackend"),
-  urlParser: coalesce(config.urlParser, parseUrl),
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "AmplifyBackend",
+  urlParser: config.urlParser ?? parseUrl,
 });

@@ -1,5 +1,4 @@
 import { defaultRegionInfoProvider } from "./endpoints";
-import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { MarketplaceEntitlementServiceClientConfig } from "./MarketplaceEntitlementServiceClient";
@@ -9,9 +8,9 @@ import { MarketplaceEntitlementServiceClientConfig } from "./MarketplaceEntitlem
  */
 export const getRuntimeConfig = (config: MarketplaceEntitlementServiceClientConfig) => ({
   apiVersion: "2017-01-11",
-  disableHostPrefix: coalesce(config.disableHostPrefix, false),
-  logger: coalesce(config.logger, {} as __Logger),
-  regionInfoProvider: coalesce(config.regionInfoProvider, defaultRegionInfoProvider),
-  serviceId: coalesce(config.serviceId, "Marketplace Entitlement Service"),
-  urlParser: coalesce(config.urlParser, parseUrl),
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "Marketplace Entitlement Service",
+  urlParser: config.urlParser ?? parseUrl,
 });

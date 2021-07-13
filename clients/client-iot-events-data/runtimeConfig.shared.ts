@@ -1,5 +1,4 @@
 import { defaultRegionInfoProvider } from "./endpoints";
-import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { IoTEventsDataClientConfig } from "./IoTEventsDataClient";
@@ -9,9 +8,9 @@ import { IoTEventsDataClientConfig } from "./IoTEventsDataClient";
  */
 export const getRuntimeConfig = (config: IoTEventsDataClientConfig) => ({
   apiVersion: "2018-10-23",
-  disableHostPrefix: coalesce(config.disableHostPrefix, false),
-  logger: coalesce(config.logger, {} as __Logger),
-  regionInfoProvider: coalesce(config.regionInfoProvider, defaultRegionInfoProvider),
-  serviceId: coalesce(config.serviceId, "IoT Events Data"),
-  urlParser: coalesce(config.urlParser, parseUrl),
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "IoT Events Data",
+  urlParser: config.urlParser ?? parseUrl,
 });

@@ -1,6 +1,5 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { WebSocketHandler, eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
-import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { TranscribeStreamingClientConfig } from "./TranscribeStreamingClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
@@ -12,11 +11,8 @@ export const getRuntimeConfig = (config: TranscribeStreamingClientConfig) => {
   return {
     ...browserDefaults,
     runtime: "react-native",
-    eventStreamPayloadHandlerProvider: coalesce(
-      config.eventStreamPayloadHandlerProvider,
-      () => eventStreamPayloadHandler
-    ),
-    requestHandler: coalesce(config.requestHandler, new WebSocketHandler()),
-    sha256: coalesce(config.sha256, Sha256),
+    eventStreamPayloadHandlerProvider: config.eventStreamPayloadHandlerProvider ?? (() => eventStreamPayloadHandler),
+    requestHandler: config.requestHandler ?? new WebSocketHandler(),
+    sha256: config.sha256 ?? Sha256,
   };
 };

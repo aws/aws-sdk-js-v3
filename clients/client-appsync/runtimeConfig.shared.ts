@@ -1,5 +1,4 @@
 import { defaultRegionInfoProvider } from "./endpoints";
-import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { AppSyncClientConfig } from "./AppSyncClient";
@@ -9,9 +8,9 @@ import { AppSyncClientConfig } from "./AppSyncClient";
  */
 export const getRuntimeConfig = (config: AppSyncClientConfig) => ({
   apiVersion: "2017-07-25",
-  disableHostPrefix: coalesce(config.disableHostPrefix, false),
-  logger: coalesce(config.logger, {} as __Logger),
-  regionInfoProvider: coalesce(config.regionInfoProvider, defaultRegionInfoProvider),
-  serviceId: coalesce(config.serviceId, "AppSync"),
-  urlParser: coalesce(config.urlParser, parseUrl),
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "AppSync",
+  urlParser: config.urlParser ?? parseUrl,
 });

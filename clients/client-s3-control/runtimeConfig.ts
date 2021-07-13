@@ -8,7 +8,6 @@ import { fileStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
-import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { HashConstructor as __HashConstructor } from "@aws-sdk/types";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
@@ -25,26 +24,23 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
   return {
     ...clientSharedValues,
     runtime: "node",
-    base64Decoder: coalesce(config.base64Decoder, fromBase64),
-    base64Encoder: coalesce(config.base64Encoder, toBase64),
-    bodyLengthChecker: coalesce(config.bodyLengthChecker, calculateBodyLength),
-    credentialDefaultProvider: coalesce(
-      config.credentialDefaultProvider,
-      decorateDefaultCredentialProvider(credentialDefaultProvider)
-    ),
-    defaultUserAgentProvider: coalesce(
-      config.defaultUserAgentProvider,
-      defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version })
-    ),
-    maxAttempts: coalesce(config.maxAttempts, loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS)),
-    md5: coalesce(config.md5, Hash.bind(null, "md5")),
-    region: coalesce(config.region, loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS)),
-    requestHandler: coalesce(config.requestHandler, new NodeHttpHandler()),
-    retryModeProvider: coalesce(config.retryModeProvider, loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS)),
-    sha256: coalesce(config.sha256, Hash.bind(null, "sha256")),
-    streamCollector: coalesce(config.streamCollector, streamCollector),
-    streamHasher: coalesce(config.streamHasher, streamHasher),
-    utf8Decoder: coalesce(config.utf8Decoder, fromUtf8),
-    utf8Encoder: coalesce(config.utf8Encoder, toUtf8),
+    base64Decoder: config.base64Decoder ?? fromBase64,
+    base64Encoder: config.base64Encoder ?? toBase64,
+    bodyLengthChecker: config.bodyLengthChecker ?? calculateBodyLength,
+    credentialDefaultProvider:
+      config.credentialDefaultProvider ?? decorateDefaultCredentialProvider(credentialDefaultProvider),
+    defaultUserAgentProvider:
+      config.defaultUserAgentProvider ??
+      defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    maxAttempts: config.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
+    md5: config.md5 ?? Hash.bind(null, "md5"),
+    region: config.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
+    requestHandler: config.requestHandler ?? new NodeHttpHandler(),
+    retryModeProvider: config.retryModeProvider ?? loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS),
+    sha256: config.sha256 ?? Hash.bind(null, "sha256"),
+    streamCollector: config.streamCollector ?? streamCollector,
+    streamHasher: config.streamHasher ?? streamHasher,
+    utf8Decoder: config.utf8Decoder ?? fromUtf8,
+    utf8Encoder: config.utf8Encoder ?? toUtf8,
   };
 };

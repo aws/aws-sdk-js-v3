@@ -1,5 +1,4 @@
 import { defaultRegionInfoProvider } from "./endpoints";
-import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { DevOpsGuruClientConfig } from "./DevOpsGuruClient";
@@ -9,9 +8,9 @@ import { DevOpsGuruClientConfig } from "./DevOpsGuruClient";
  */
 export const getRuntimeConfig = (config: DevOpsGuruClientConfig) => ({
   apiVersion: "2020-12-01",
-  disableHostPrefix: coalesce(config.disableHostPrefix, false),
-  logger: coalesce(config.logger, {} as __Logger),
-  regionInfoProvider: coalesce(config.regionInfoProvider, defaultRegionInfoProvider),
-  serviceId: coalesce(config.serviceId, "DevOps Guru"),
-  urlParser: coalesce(config.urlParser, parseUrl),
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "DevOps Guru",
+  urlParser: config.urlParser ?? parseUrl,
 });

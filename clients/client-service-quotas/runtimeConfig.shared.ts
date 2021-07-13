@@ -1,5 +1,4 @@
 import { defaultRegionInfoProvider } from "./endpoints";
-import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { ServiceQuotasClientConfig } from "./ServiceQuotasClient";
@@ -9,9 +8,9 @@ import { ServiceQuotasClientConfig } from "./ServiceQuotasClient";
  */
 export const getRuntimeConfig = (config: ServiceQuotasClientConfig) => ({
   apiVersion: "2019-06-24",
-  disableHostPrefix: coalesce(config.disableHostPrefix, false),
-  logger: coalesce(config.logger, {} as __Logger),
-  regionInfoProvider: coalesce(config.regionInfoProvider, defaultRegionInfoProvider),
-  serviceId: coalesce(config.serviceId, "Service Quotas"),
-  urlParser: coalesce(config.urlParser, parseUrl),
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "Service Quotas",
+  urlParser: config.urlParser ?? parseUrl,
 });

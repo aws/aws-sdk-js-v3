@@ -1,5 +1,4 @@
 import { defaultRegionInfoProvider } from "./endpoints";
-import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { IotDeviceAdvisorClientConfig } from "./IotDeviceAdvisorClient";
@@ -9,9 +8,9 @@ import { IotDeviceAdvisorClientConfig } from "./IotDeviceAdvisorClient";
  */
 export const getRuntimeConfig = (config: IotDeviceAdvisorClientConfig) => ({
   apiVersion: "2020-09-18",
-  disableHostPrefix: coalesce(config.disableHostPrefix, false),
-  logger: coalesce(config.logger, {} as __Logger),
-  regionInfoProvider: coalesce(config.regionInfoProvider, defaultRegionInfoProvider),
-  serviceId: coalesce(config.serviceId, "IotDeviceAdvisor"),
-  urlParser: coalesce(config.urlParser, parseUrl),
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "IotDeviceAdvisor",
+  urlParser: config.urlParser ?? parseUrl,
 });

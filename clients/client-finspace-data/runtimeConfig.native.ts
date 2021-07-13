@@ -1,5 +1,4 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { FinspaceDataClientConfig } from "./FinspaceDataClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
@@ -11,6 +10,6 @@ export const getRuntimeConfig = (config: FinspaceDataClientConfig) => {
   return {
     ...browserDefaults,
     runtime: "react-native",
-    sha256: coalesce(config.sha256, Sha256),
+    sha256: config.sha256 ?? Sha256,
   };
 };

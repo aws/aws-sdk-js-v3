@@ -1,5 +1,4 @@
 import { defaultRegionInfoProvider } from "./endpoints";
-import { nullishCoalescing as coalesce } from "@aws-sdk/smithy-client";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { ApplicationAutoScalingClientConfig } from "./ApplicationAutoScalingClient";
@@ -9,9 +8,9 @@ import { ApplicationAutoScalingClientConfig } from "./ApplicationAutoScalingClie
  */
 export const getRuntimeConfig = (config: ApplicationAutoScalingClientConfig) => ({
   apiVersion: "2016-02-06",
-  disableHostPrefix: coalesce(config.disableHostPrefix, false),
-  logger: coalesce(config.logger, {} as __Logger),
-  regionInfoProvider: coalesce(config.regionInfoProvider, defaultRegionInfoProvider),
-  serviceId: coalesce(config.serviceId, "Application Auto Scaling"),
-  urlParser: coalesce(config.urlParser, parseUrl),
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "Application Auto Scaling",
+  urlParser: config.urlParser ?? parseUrl,
 });
