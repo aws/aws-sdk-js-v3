@@ -13,8 +13,18 @@
  * permissions and limitations under the License.
  */
 
+import software.amazon.smithy.model.Model
+import software.amazon.smithy.model.shapes.ServiceShape
 import software.amazon.smithy.model.node.Node
 import software.amazon.smithy.gradle.tasks.SmithyBuild
+import software.amazon.smithy.aws.traits.ServiceTrait
+import kotlin.streams.toList
+
+buildscript {
+    dependencies {
+        "classpath"("software.amazon.smithy:smithy-aws-traits:[1.5.1,2.0.0[")
+    }
+}
 
 plugins {
     id("software.amazon.smithy") version "0.5.3"
@@ -44,8 +54,24 @@ tasks.register("generate-smithy-build") {
         val modelsDirProp: String by project
         val models = project.file(modelsDirProp);
 
-        fileTree(models).filter { it.isFile }.files.forEach { file ->
-            val (sdkId, version, remaining) = file.name.split(".")
+        fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
+            val model = Model.assembler()
+                    .addImport(file.absolutePath)
+                    .assemble().result.get();
+            val services = model.shapes(ServiceShape::class.javaObjectType).sorted().toList();
+            if (services.size != 1) {
+                throw Exception("There must be exactly one service in each aws model file, but found " +
+                        "${services.size} in ${file.name}: ${services.map { it.id }}");
+            }
+            val service = services[0]
+
+            val serviceTrait = service.getTrait(ServiceTrait::class.javaObjectType).get();
+
+            val sdkId = serviceTrait.sdkId
+                    .replace(" ", "-")
+                    .toLowerCase();
+            val version = service.version.toLowerCase();
+
             val clientName = sdkId.split("-").toTypedArray()
                     .map { it.capitalize() }
                     .joinToString(separator = " ")
@@ -59,7 +85,7 @@ tasks.register("generate-smithy-build") {
                             .withMember("typescript-codegen", Node.objectNodeBuilder()
                                     .withMember("package", "@aws-sdk/client-" + sdkId.toLowerCase())
                                     // Note that this version is replaced by Lerna when publishing.
-                                    .withMember("packageVersion", "1.0.0-rc.1")
+                                    .withMember("packageVersion", "3.0.0")
                                     .withMember("packageJson", manifestOverwrites)
                                     .withMember("packageDescription", "AWS SDK for JavaScript "
                                         + clientName + " Client for Node.js, Browser and React Native")
