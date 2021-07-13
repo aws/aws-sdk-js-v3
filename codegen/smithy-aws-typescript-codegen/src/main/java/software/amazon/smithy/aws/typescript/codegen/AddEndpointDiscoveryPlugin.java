@@ -108,7 +108,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
             case BROWSER:
                 return MapUtils.of(
                     "endpointDiscoveryEnabledProvider", writer -> {
-                        writer.write("() => Promise.resolve(undefined)");
+                        writer.write("(() => Promise.resolve(undefined))");
                     }
                 );
             case NODE:

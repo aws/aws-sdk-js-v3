@@ -4,7 +4,6 @@ export * from "./extended-encode-uri-component";
 export * from "./get-array-if-single-item";
 export * from "./get-value-from-text-node";
 export * from "./lazy-json";
-export * from "./nullish-coalescing";
 export * from "./parse-utils";
 export * from "./ser-utils";
 export * from "./date-utils";

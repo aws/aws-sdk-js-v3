@@ -107,7 +107,7 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.addImport("invalidFunction", "invalidFunction",
                             TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                    writer.openBlock("() => ({", "})", () -> {
+                    writer.openBlock("(() => ({", "}))", () -> {
                         writer.write("handle: invalidFunction(\"event stream request is not supported in browser.\"),");
                     });
                 });
@@ -121,7 +121,7 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.addImport("invalidFunction", "invalidFunction",
                             TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                    writer.openBlock("() => ({", "})", () -> {
+                    writer.openBlock("(() => ({", "}))", () -> {
                         writer.write("handle: invalidFunction(\"event stream request "
                                 + "is not supported in ReactNative.\"),");
                     });
