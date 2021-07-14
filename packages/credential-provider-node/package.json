@@ -44,8 +44,8 @@
   "types": "./dist/types/index.d.ts",
   "typesVersions": {
     "<4.0": {
-      "types/*": [
-        "types/ts3.4/*"
+      "dist/types/*": [
+        "dist/types/ts3.4/*"
       ]
     }
   },
