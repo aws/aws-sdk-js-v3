@@ -35,7 +35,6 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
-  SmithyException as __SmithyException,
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
@@ -48,6 +47,7 @@ import {
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 

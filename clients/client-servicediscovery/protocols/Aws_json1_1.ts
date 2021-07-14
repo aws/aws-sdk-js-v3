@@ -160,17 +160,14 @@ import {
   HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
-import {
-  SmithyException as __SmithyException,
-  expectNumber as __expectNumber,
-  expectString as __expectString,
-} from "@aws-sdk/smithy-client";
+import { expectNumber as __expectNumber, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 

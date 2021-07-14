@@ -1,5 +1,4 @@
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
  * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>

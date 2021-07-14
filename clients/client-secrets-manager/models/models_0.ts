@@ -1,5 +1,5 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
  * <p>(Optional) Custom type consisting of a <code>Region</code> (required) and the <code>KmsKeyId</code> which can be an <code>ARN</code>, <code>Key ID</code>, or <code>Alias</code>.</p>

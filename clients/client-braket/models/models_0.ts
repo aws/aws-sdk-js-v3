@@ -1,5 +1,5 @@
-import { LazyJsonString as __LazyJsonString, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { LazyJsonString as __LazyJsonString } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>

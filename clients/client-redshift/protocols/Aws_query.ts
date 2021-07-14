@@ -709,7 +709,6 @@ import {
 } from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  SmithyException as __SmithyException,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
@@ -722,6 +721,7 @@ import {
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";

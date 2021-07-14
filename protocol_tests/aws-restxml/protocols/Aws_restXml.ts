@@ -159,7 +159,6 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
-  SmithyException as __SmithyException,
   dateToUtcString as __dateToUtcString,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
@@ -173,6 +172,7 @@ import {
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
 import { decodeHTML } from "entities";

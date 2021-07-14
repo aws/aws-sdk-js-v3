@@ -1,5 +1,4 @@
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
  * <p>A timestamp, and a single numerical value, which together represent a measurement at a particular point in time.</p>

@@ -17,8 +17,7 @@ import {
   Resource,
   SeverityLabel,
 } from "./models_0";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
  * <p>The severity of the finding.</p>
