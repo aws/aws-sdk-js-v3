@@ -151,6 +151,53 @@ const copyToClients = async (sourceDir, destinationDir) => {
   }
 };
 
+const copyServerTests = async (sourceDir, destinationDir) => {
+  for (const modelName of readdirSync(sourceDir)) {
+    if (modelName === "source") continue;
+
+    const artifactPath = join(sourceDir, modelName, "typescript-ssdk-codegen");
+    const packageManifestPath = join(artifactPath, "package.json");
+    if (!existsSync(packageManifestPath)) {
+      console.error(`${modelName} generates empty server, skip.`);
+      continue;
+    }
+
+    const packageManifest = JSON.parse(readFileSync(packageManifestPath).toString());
+    const packageName = packageManifest.name;
+    const testName = packageName.replace("@aws-sdk/", "");
+
+    console.log(`copying ${packageName} from ${artifactPath} to ${destinationDir}`);
+    const destPath = join(destinationDir, testName);
+    const overwritablePredicate = getOverwritablePredicate(packageName);
+
+    for (const packageSub of readdirSync(artifactPath)) {
+      const packageSubPath = join(artifactPath, packageSub);
+      const destSubPath = join(destPath, packageSub);
+
+      if (packageSub === "package.json") {
+        //copy manifest file
+        const destManifest = existsSync(destSubPath) ? JSON.parse(readFileSync(destSubPath).toString()) : {};
+        const mergedManifest = {
+          ...mergeManifest(packageManifest, destManifest),
+          homepage: `https://github.com/aws/aws-sdk-js-v3/tree/main/protocol_tests/${testName}`,
+          repository: {
+            type: "git",
+            url: "https://github.com/aws/aws-sdk-js-v3.git",
+            directory: `protocol_tests/${testName}`,
+          },
+        };
+        writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
+      } else if (overwritablePredicate(packageSub) || !existsSync(destSubPath)) {
+        if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
+        copySync(packageSubPath, destSubPath, {
+          overwrite: true,
+        });
+      }
+    }
+  }
+};
+
 module.exports = {
   copyToClients,
+  copyServerTests,
 };
