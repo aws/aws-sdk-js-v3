@@ -3,9 +3,10 @@ import { fromContainerMetadata, fromInstanceMetadata } from "@aws-sdk/credential
 import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
 import { Credentials } from "@aws-sdk/types";
+import { ENV_PROFILE } from "@aws-sdk/util-credentials";
 import { join, sep } from "path";
 
-import { AssumeRoleParams, ENV_PROFILE, fromIni } from "./";
+import { AssumeRoleParams, fromIni } from "./";
 
 jest.mock("fs", () => {
   interface FsModule {

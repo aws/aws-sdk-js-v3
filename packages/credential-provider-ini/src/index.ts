@@ -1,12 +1,11 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
 import { fromContainerMetadata, fromInstanceMetadata } from "@aws-sdk/credential-provider-imds";
+import { fromSSO, isSsoProfile, validateSsoProfile } from "@aws-sdk/credential-provider-sso";
 import { AssumeRoleWithWebIdentityParams, fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { ParsedIniData, Profile } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/util-credentials";
-
-export const ENV_PROFILE = "AWS_PROFILE";
 
 /**
  * @see http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
@@ -145,6 +144,16 @@ const resolveProfileData = async (
   // second and subsequent hops is to ensure compatibility with the AWS CLI.
   if (Object.keys(visitedProfiles).length > 0 && isStaticCredsProfile(data)) {
     return resolveStaticCredentials(data);
+  }
+
+  if (isSsoProfile(data)) {
+    const { sso_start_url, sso_account_id, sso_region, sso_role_name } = validateSsoProfile(data);
+    return fromSSO({
+      ssoStartUrl: sso_start_url,
+      ssoAccountId: sso_account_id,
+      ssoRegion: sso_region,
+      ssoRoleName: sso_role_name,
+    })();
   }
 
   // If this is the first profile visited, role assumption keys should be
