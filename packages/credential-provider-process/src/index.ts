@@ -1,7 +1,7 @@
-import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/credential-provider-ini";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
+import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/util-credentials";
 import { exec } from "child_process";
 
 /**
