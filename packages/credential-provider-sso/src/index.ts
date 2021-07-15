@@ -30,9 +30,24 @@ interface SSOToken {
 }
 
 export interface SsoCredentialsParameters {
+  /**
+   * The URL to the AWS SSO service.
+   */
   ssoStartUrl: string;
+
+  /**
+   * The ID of the AWS account to use for temporary credentials.
+   */
   ssoAccountId: string;
+
+  /**
+   * The AWS region to use for temporary credentials.
+   */
   ssoRegion: string;
+
+  /**
+   * The name of the AWS role to assume.
+   */
   ssoRoleName: string;
 }
 export interface FromSSOInit extends SourceProfileInit {

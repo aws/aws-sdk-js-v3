@@ -146,16 +146,6 @@ const resolveProfileData = async (
     return resolveStaticCredentials(data);
   }
 
-  if (isSsoProfile(data)) {
-    const { sso_start_url, sso_account_id, sso_region, sso_role_name } = validateSsoProfile(data);
-    return fromSSO({
-      ssoStartUrl: sso_start_url,
-      ssoAccountId: sso_account_id,
-      ssoRegion: sso_region,
-      ssoRoleName: sso_role_name,
-    })();
-  }
-
   // If this is the first profile visited, role assumption keys should be
   // given precedence over static credentials.
   if (isAssumeRoleWithSourceProfile(data) || isAssumeRoleWithProviderProfile(data)) {
@@ -216,6 +206,15 @@ const resolveProfileData = async (
   // web identity if web_identity_token_file and role_arn is available
   if (isWebIdentityProfile(data)) {
     return resolveWebIdentityCredentials(data, options);
+  }
+  if (isSsoProfile(data)) {
+    const { sso_start_url, sso_account_id, sso_region, sso_role_name } = validateSsoProfile(data);
+    return fromSSO({
+      ssoStartUrl: sso_start_url,
+      ssoAccountId: sso_account_id,
+      ssoRegion: sso_region,
+      ssoRoleName: sso_role_name,
+    })();
   }
 
   // If the profile cannot be parsed or contains neither static credentials

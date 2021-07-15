@@ -4,7 +4,7 @@ jest.setSystemTime(now);
 
 const mockParseKnownFiles = jest.fn();
 const mockGetMasterProfileName = jest.fn();
-jest.mock("@aws-sdk/credential-provider-ini", () => ({
+jest.mock("@aws-sdk/util-credentials", () => ({
   parseKnownFiles: mockParseKnownFiles,
   getMasterProfileName: mockGetMasterProfileName,
 }));
