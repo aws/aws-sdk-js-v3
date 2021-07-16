@@ -93,6 +93,12 @@
             "smithy.api#documentation": "<p>Supported licenses for the Amazon Chime account.</p>"
           }
         },
+        "AccountStatus": {
+          "target": "com.amazonaws.chime#AccountStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the account, <code>Suspended</code> or <code>Active</code>.</p>"
+          }
+        },
         "SigninDelegateGroups": {
           "target": "com.amazonaws.chime#SigninDelegateGroupList",
           "traits": {
@@ -138,6 +144,21 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Settings related to the Amazon Chime account. This includes settings that start or stop\n            remote control of shared screens, or start or stop the dial-out option in the Amazon Chime web application. For more information about these settings, see \n    <a href=\"https://docs.aws.amazon.com/chime/latest/ag/policies.html\">Use the Policies Page</a> in the <i>Amazon Chime Administration Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.chime#AccountStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "Suspended",
+            "name": "Suspended"
+          },
+          {
+            "value": "Active",
+            "name": "Active"
+          }
+        ]
       }
     },
     "com.amazonaws.chime#AccountType": {

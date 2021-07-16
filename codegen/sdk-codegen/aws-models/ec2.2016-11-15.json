@@ -1202,6 +1202,9 @@
           "target": "com.amazonaws.ec2#AssociateIamInstanceProfile"
         },
         {
+          "target": "com.amazonaws.ec2#AssociateInstanceEventWindow"
+        },
+        {
           "target": "com.amazonaws.ec2#AssociateRouteTable"
         },
         {
@@ -1320,6 +1323,9 @@
         },
         {
           "target": "com.amazonaws.ec2#CreateImage"
+        },
+        {
+          "target": "com.amazonaws.ec2#CreateInstanceEventWindow"
         },
         {
           "target": "com.amazonaws.ec2#CreateInstanceExportTask"
@@ -1494,6 +1500,9 @@
         },
         {
           "target": "com.amazonaws.ec2#DeleteFpgaImage"
+        },
+        {
+          "target": "com.amazonaws.ec2#DeleteInstanceEventWindow"
         },
         {
           "target": "com.amazonaws.ec2#DeleteInternetGateway"
@@ -1773,6 +1782,9 @@
         },
         {
           "target": "com.amazonaws.ec2#DescribeInstanceEventNotificationAttributes"
+        },
+        {
+          "target": "com.amazonaws.ec2#DescribeInstanceEventWindows"
         },
         {
           "target": "com.amazonaws.ec2#DescribeInstances"
@@ -2069,6 +2081,9 @@
           "target": "com.amazonaws.ec2#DisassociateIamInstanceProfile"
         },
         {
+          "target": "com.amazonaws.ec2#DisassociateInstanceEventWindow"
+        },
+        {
           "target": "com.amazonaws.ec2#DisassociateRouteTable"
         },
         {
@@ -2259,6 +2274,9 @@
         },
         {
           "target": "com.amazonaws.ec2#ModifyInstanceEventStartTime"
+        },
+        {
+          "target": "com.amazonaws.ec2#ModifyInstanceEventWindow"
         },
         {
           "target": "com.amazonaws.ec2#ModifyInstanceMetadataOptions"
@@ -3478,6 +3496,56 @@
             "aws.protocols#ec2QueryName": "IamInstanceProfileAssociation",
             "smithy.api#documentation": "<p>Information about the IAM instance profile association.</p>",
             "smithy.api#xmlName": "iamInstanceProfileAssociation"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#AssociateInstanceEventWindow": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#AssociateInstanceEventWindowRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#AssociateInstanceEventWindowResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Associates one or more targets with an event window. Only one type of target (instance IDs,\n         Dedicated Host IDs, or tags) can be specified with an event window.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows\">Define event windows\n            for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.ec2#AssociateInstanceEventWindowRequest": {
+      "type": "structure",
+      "members": {
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "InstanceEventWindowId": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the event window.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AssociationTarget": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowAssociationRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more targets associated with the specified event window.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#AssociateInstanceEventWindowResult": {
+      "type": "structure",
+      "members": {
+        "InstanceEventWindow": {
+          "target": "com.amazonaws.ec2#InstanceEventWindow",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstanceEventWindow",
+            "smithy.api#documentation": "<p>Information about the event window.</p>",
+            "smithy.api#xmlName": "instanceEventWindow"
           }
         }
       }
@@ -9773,6 +9841,68 @@
         }
       }
     },
+    "com.amazonaws.ec2#CreateInstanceEventWindow": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#CreateInstanceEventWindowRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#CreateInstanceEventWindowResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Creates an event window in which scheduled events for the associated Amazon EC2 instances can\n         run.</p>\n         <p>You can define either a set of time ranges or a cron expression when creating the event\n         window, but not both. All event window times are in UTC.</p>\n         <p>You can create up to 200 event windows per Amazon Web Services Region.</p>\n         <p>When you create the event window, targets (instance IDs, Dedicated Host IDs, or tags)\n         are not yet associated with it. To ensure that the event window can be used, you must\n         associate one or more targets with it by using the <a>AssociateInstanceEventWindow</a> API.</p>\n   \n         <important>\n            <p>Event windows are applicable only for scheduled events that stop, reboot, or\n            terminate instances.</p>\n            <p>Event windows are <i>not</i> applicable for:</p>\n            <ul>\n               <li>\n                  <p>Expedited scheduled events and network maintenance events. </p>\n               </li>\n               <li>\n                           <p>Unscheduled maintenance such as AutoRecovery and unplanned reboots.</p>\n               </li>\n            </ul>\n         </important>\n   \n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows\">Define event windows\n            for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.ec2#CreateInstanceEventWindowRequest": {
+      "type": "structure",
+      "members": {
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the event window.</p>"
+          }
+        },
+        "TimeRanges": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowTimeRangeRequestSet",
+          "traits": {
+            "smithy.api#documentation": "<p>The time range for the event window. If you specify a time range, you can't specify a cron\n         expression.</p>",
+            "smithy.api#xmlName": "TimeRange"
+          }
+        },
+        "CronExpression": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowCronExpression",
+          "traits": {
+            "smithy.api#documentation": "<p>The cron expression for the event window, for example, <code>* 0-4,20-23 * * 1,5</code>. If\n         you specify a cron expression, you can't specify a time range.</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>Only hour and day of the week values are supported.</p>\n            </li>\n            <li>\n               <p>For day of the week values, you can specify either integers <code>0</code> through\n                  <code>6</code>, or alternative single values <code>SUN</code> through\n                  <code>SAT</code>.</p>\n            </li>\n            <li>\n               <p>The minute, month, and year must be specified by <code>*</code>.</p>\n            </li>\n            <li>\n               <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or\n            <code>0-4,20-23</code>.</p>\n            </li>\n            <li>\n               <p>Each hour range must be >= 2 hours, for example, <code>0-2</code> or\n            <code>20-23</code>.</p>\n            </li>\n            <li>\n               <p>The event window must be >= 4 hours. The combined total time ranges in the event\n               window must be >= 4 hours.</p>\n            </li>\n         </ul>\n         <p>For more information about cron expressions, see <a href=\"https://en.wikipedia.org/wiki/Cron\">cron</a> on the <i>Wikipedia\n            website</i>.</p>"
+          }
+        },
+        "TagSpecifications": {
+          "target": "com.amazonaws.ec2#TagSpecificationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to apply to the event window.</p>",
+            "smithy.api#xmlName": "TagSpecification"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#CreateInstanceEventWindowResult": {
+      "type": "structure",
+      "members": {
+        "InstanceEventWindow": {
+          "target": "com.amazonaws.ec2#InstanceEventWindow",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstanceEventWindow",
+            "smithy.api#documentation": "<p>Information about the event window.</p>",
+            "smithy.api#xmlName": "instanceEventWindow"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#CreateInstanceExportTask": {
       "type": "operation",
       "input": {
@@ -13636,6 +13766,15 @@
     "com.amazonaws.ec2#DedicatedHostId": {
       "type": "string"
     },
+    "com.amazonaws.ec2#DedicatedHostIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#DedicatedHostId",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
     "com.amazonaws.ec2#DefaultNetworkCardIndex": {
       "type": "integer",
       "traits": {
@@ -14199,6 +14338,56 @@
             "aws.protocols#ec2QueryName": "Return",
             "smithy.api#documentation": "<p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>",
             "smithy.api#xmlName": "return"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteInstanceEventWindow": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DeleteInstanceEventWindowRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DeleteInstanceEventWindowResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified event window.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows\">Define event windows\n            for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.ec2#DeleteInstanceEventWindowRequest": {
+      "type": "structure",
+      "members": {
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "ForceDelete": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specify <code>true</code> to force delete the event window. Use the force delete parameter\n         if the event window is currently associated with targets.</p>"
+          }
+        },
+        "InstanceEventWindowId": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the event window.</p>",
+            "smithy.api#required": {},
+            "smithy.api#xmlName": "InstanceEventWindowId"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DeleteInstanceEventWindowResult": {
+      "type": "structure",
+      "members": {
+        "InstanceEventWindowState": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowStateChange",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstanceEventWindowState",
+            "smithy.api#documentation": "<p>The state of the event window.</p>",
+            "smithy.api#xmlName": "instanceEventWindowState"
           }
         }
       }
@@ -15280,7 +15469,7 @@
           "target": "com.amazonaws.ec2#TagList",
           "traits": {
             "aws.protocols#ec2QueryName": "Tag",
-            "smithy.api#documentation": "<p>The tags to delete. Specify a tag key and an optional tag value to delete\n            specific tags. If you specify a tag key without a tag value, we delete any tag with this\n            key regardless of its value. If you specify a tag key with an empty string as the tag\n            value, we delete the tag only if its value is an empty string.</p>\n        <p>If you omit this parameter, we delete all user-defined tags for the specified\n            resources. We do not delete AWS-generated tags (tags that have the <code>aws:</code>\n            prefix).</p>",
+            "smithy.api#documentation": "<p>The tags to delete. Specify a tag key and an optional tag value to delete\n            specific tags. If you specify a tag key without a tag value, we delete any tag with this\n            key regardless of its value. If you specify a tag key with an empty string as the tag\n            value, we delete the tag only if its value is an empty string.</p>\n        <p>If you omit this parameter, we delete all user-defined tags for the specified\n            resources. We do not delete Amazon Web Services-generated tags (tags that have the <code>aws:</code>\n            prefix).</p>",
             "smithy.api#xmlName": "tag"
           }
         }
@@ -16281,7 +16470,7 @@
         "target": "com.amazonaws.ec2#DeregisterInstanceEventNotificationAttributesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Deregisters tag keys to prevent tags that have the specified tag keys from being included\n\t\t\tin scheduled event notifications for resources in the Region.</p>"
+        "smithy.api#documentation": "<p>c</p>\n   \t     <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included\n\t\t\tin scheduled event notifications for resources in the Region.</p>"
       }
     },
     "com.amazonaws.ec2#DeregisterInstanceEventNotificationAttributesRequest": {
@@ -19911,6 +20100,85 @@
             "aws.protocols#ec2QueryName": "InstanceTagAttribute",
             "smithy.api#documentation": "<p>Information about the registered tag keys.</p>",
             "smithy.api#xmlName": "instanceTagAttribute"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeInstanceEventWindows": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DescribeInstanceEventWindowsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DescribeInstanceEventWindowsResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the specified event windows or all event windows.</p>\n         <p>If you specify event window IDs, the output includes information for only the specified\n         event windows. If you specify filters, the output includes information for only those event\n         windows that meet the filter criteria. If you do not specify event windows IDs or filters,\n         the output includes information for all event windows, which can affect performance. We\n         recommend that you use pagination to ensure that the operation returns quickly and\n         successfully. </p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows\">Define event windows\n            for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "InstanceEventWindows",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeInstanceEventWindowsRequest": {
+      "type": "structure",
+      "members": {
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "InstanceEventWindowIds": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowIdSet",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the event windows.</p>",
+            "smithy.api#xmlName": "InstanceEventWindowId"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.ec2#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more filters.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>dedicated-host-id</code> - The event windows associated with the specified\n            Dedicated Host ID.</p>\n            </li>\n            <li>\n               <p>\n                  <code>event-window-name</code> - The event windows associated with the specified\n            names. </p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-id</code> - The event windows associated with the specified instance\n               ID.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-tag</code> - The event windows associated with the specified tag and\n               value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-tag-key</code> - The event windows associated with the specified tag\n               key, regardless of the value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-tag-value</code> - The event windows associated with the specified tag\n               value, regardless of the key.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the\n               event window. Use the tag key in the filter name and the tag value as the filter\n               value. For example, to find all resources that have a tag with the key\n                  <code>Owner</code> and the value <code>CMX</code>, specify <code>tag:Owner</code>\n               for the filter name and <code>CMX</code> for the filter value. </p>\n            </li>\n            <li>\n               <p>\n                  <code>tag-key</code> - The key of a tag assigned to the event window. Use this filter\n               to find all event windows that have a tag with a specific key, regardless of the tag\n               value. </p>\n            </li>\n            <li>\n               <p>\n                  <code>tag-value</code> - The value of a tag assigned to the event window. Use this\n               filter to find all event windows that have a tag with a specific value, regardless of\n               the tag key. </p>\n            </li>\n         </ul>",
+            "smithy.api#xmlName": "Filter"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ec2#ResultRange",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value. This value can\n         be between 20 and 500. You cannot specify this parameter and the event window IDs parameter\n         in the same call.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token to request the next page of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<para>Describe instance event windows by InstanceEventWindow.</para>"
+      }
+    },
+    "com.amazonaws.ec2#DescribeInstanceEventWindowsResult": {
+      "type": "structure",
+      "members": {
+        "InstanceEventWindows": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowSet",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstanceEventWindowSet",
+            "smithy.api#documentation": "<p>Information about the event windows.</p>",
+            "smithy.api#xmlName": "instanceEventWindowSet"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NextToken",
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>",
+            "smithy.api#xmlName": "nextToken"
           }
         }
       }
@@ -28113,6 +28381,56 @@
         }
       }
     },
+    "com.amazonaws.ec2#DisassociateInstanceEventWindow": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DisassociateInstanceEventWindowRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DisassociateInstanceEventWindowResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Disassociates one or more targets from an event window.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows\">Define event windows\n            for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.ec2#DisassociateInstanceEventWindowRequest": {
+      "type": "structure",
+      "members": {
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "InstanceEventWindowId": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the event window.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AssociationTarget": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowDisassociationRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more targets to disassociate from the specified event window.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DisassociateInstanceEventWindowResult": {
+      "type": "structure",
+      "members": {
+        "InstanceEventWindow": {
+          "target": "com.amazonaws.ec2#InstanceEventWindow",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstanceEventWindow",
+            "smithy.api#documentation": "<p>Information about the event window.</p>",
+            "smithy.api#xmlName": "instanceEventWindow"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#DisassociateRouteTable": {
       "type": "operation",
       "input": {
@@ -34930,6 +35248,15 @@
         ]
       }
     },
+    "com.amazonaws.ec2#Hour": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 23
+        }
+      }
+    },
     "com.amazonaws.ec2#HttpTokensState": {
       "type": "string",
       "traits": {
@@ -37730,6 +38057,318 @@
     "com.amazonaws.ec2#InstanceEventId": {
       "type": "string"
     },
+    "com.amazonaws.ec2#InstanceEventWindow": {
+      "type": "structure",
+      "members": {
+        "InstanceEventWindowId": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstanceEventWindowId",
+            "smithy.api#documentation": "<p>The ID of the event window.</p>",
+            "smithy.api#xmlName": "instanceEventWindowId"
+          }
+        },
+        "TimeRanges": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowTimeRangeList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TimeRangeSet",
+            "smithy.api#documentation": "<p>One or more time ranges defined for the event window.</p>",
+            "smithy.api#xmlName": "timeRangeSet"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Name",
+            "smithy.api#documentation": "<p>The name of the event window.</p>",
+            "smithy.api#xmlName": "name"
+          }
+        },
+        "CronExpression": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowCronExpression",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CronExpression",
+            "smithy.api#documentation": "<p>The cron expression defined for the event window.</p>",
+            "smithy.api#xmlName": "cronExpression"
+          }
+        },
+        "AssociationTarget": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowAssociationTarget",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AssociationTarget",
+            "smithy.api#documentation": "<p>One or more targets associated with the event window.</p>",
+            "smithy.api#xmlName": "associationTarget"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowState",
+          "traits": {
+            "aws.protocols#ec2QueryName": "State",
+            "smithy.api#documentation": "<p>The current state of the event window.</p>",
+            "smithy.api#xmlName": "state"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The instance tags associated with the event window.</p>",
+            "smithy.api#xmlName": "tagSet"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The event window.</p>"
+      }
+    },
+    "com.amazonaws.ec2#InstanceEventWindowAssociationRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceIds": {
+          "target": "com.amazonaws.ec2#InstanceIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the instances to associate with the event window. If the instance is on a\n         Dedicated Host, you can't specify the Instance ID parameter; you must use the Dedicated\n         Host ID parameter.</p>",
+            "smithy.api#xmlName": "InstanceId"
+          }
+        },
+        "InstanceTags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The instance tags to associate with the event window. Any instances associated with the\n         tags will be associated with the event window.</p>",
+            "smithy.api#xmlName": "InstanceTag"
+          }
+        },
+        "DedicatedHostIds": {
+          "target": "com.amazonaws.ec2#DedicatedHostIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the Dedicated Hosts to associate with the event window.</p>",
+            "smithy.api#xmlName": "DedicatedHostId"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>One or more targets associated with the specified event window. Only one\n            <i>type</i> of target (instance ID, instance tag, or Dedicated Host ID)\n         can be associated with an event window.</p>"
+      }
+    },
+    "com.amazonaws.ec2#InstanceEventWindowAssociationTarget": {
+      "type": "structure",
+      "members": {
+        "InstanceIds": {
+          "target": "com.amazonaws.ec2#InstanceIdList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstanceIdSet",
+            "smithy.api#documentation": "<p>The IDs of the instances associated with the event window.</p>",
+            "smithy.api#xmlName": "instanceIdSet"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The instance tags associated with the event window. Any instances associated with the tags\n         will be associated with the event window.</p>",
+            "smithy.api#xmlName": "tagSet"
+          }
+        },
+        "DedicatedHostIds": {
+          "target": "com.amazonaws.ec2#DedicatedHostIdList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "DedicatedHostIdSet",
+            "smithy.api#documentation": "<p>The IDs of the Dedicated Hosts associated with the event window.</p>",
+            "smithy.api#xmlName": "dedicatedHostIdSet"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>One or more targets associated with the event window.</p>"
+      }
+    },
+    "com.amazonaws.ec2#InstanceEventWindowCronExpression": {
+      "type": "string"
+    },
+    "com.amazonaws.ec2#InstanceEventWindowDisassociationRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceIds": {
+          "target": "com.amazonaws.ec2#InstanceIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the instances to disassociate from the event window.</p>",
+            "smithy.api#xmlName": "InstanceId"
+          }
+        },
+        "InstanceTags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The instance tags to disassociate from the event window. Any instances associated with\n         the tags will be disassociated from the event window.</p>",
+            "smithy.api#xmlName": "InstanceTag"
+          }
+        },
+        "DedicatedHostIds": {
+          "target": "com.amazonaws.ec2#DedicatedHostIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the Dedicated Hosts to disassociate from the event window.</p>",
+            "smithy.api#xmlName": "DedicatedHostId"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The targets to disassociate from the specified event window.</p>"
+      }
+    },
+    "com.amazonaws.ec2#InstanceEventWindowId": {
+      "type": "string"
+    },
+    "com.amazonaws.ec2#InstanceEventWindowIdSet": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#InstanceEventWindowId",
+        "traits": {
+          "smithy.api#xmlName": "InstanceEventWindowId"
+        }
+      }
+    },
+    "com.amazonaws.ec2#InstanceEventWindowSet": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#InstanceEventWindow",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#InstanceEventWindowState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "creating",
+            "name": "creating"
+          },
+          {
+            "value": "deleting",
+            "name": "deleting"
+          },
+          {
+            "value": "active",
+            "name": "active"
+          },
+          {
+            "value": "deleted",
+            "name": "deleted"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.ec2#InstanceEventWindowStateChange": {
+      "type": "structure",
+      "members": {
+        "InstanceEventWindowId": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstanceEventWindowId",
+            "smithy.api#documentation": "<p>The ID of the event window.</p>",
+            "smithy.api#xmlName": "instanceEventWindowId"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowState",
+          "traits": {
+            "aws.protocols#ec2QueryName": "State",
+            "smithy.api#documentation": "<p>The current state of the event window.</p>",
+            "smithy.api#xmlName": "state"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The state of the event window.</p>"
+      }
+    },
+    "com.amazonaws.ec2#InstanceEventWindowTimeRange": {
+      "type": "structure",
+      "members": {
+        "StartWeekDay": {
+          "target": "com.amazonaws.ec2#WeekDay",
+          "traits": {
+            "aws.protocols#ec2QueryName": "StartWeekDay",
+            "smithy.api#documentation": "<p>The day on which the time range begins.</p>",
+            "smithy.api#xmlName": "startWeekDay"
+          }
+        },
+        "StartHour": {
+          "target": "com.amazonaws.ec2#Hour",
+          "traits": {
+            "aws.protocols#ec2QueryName": "StartHour",
+            "smithy.api#documentation": "<p>The hour when the time range begins.</p>",
+            "smithy.api#xmlName": "startHour"
+          }
+        },
+        "EndWeekDay": {
+          "target": "com.amazonaws.ec2#WeekDay",
+          "traits": {
+            "aws.protocols#ec2QueryName": "EndWeekDay",
+            "smithy.api#documentation": "<p>The day on which the time range ends.</p>",
+            "smithy.api#xmlName": "endWeekDay"
+          }
+        },
+        "EndHour": {
+          "target": "com.amazonaws.ec2#Hour",
+          "traits": {
+            "aws.protocols#ec2QueryName": "EndHour",
+            "smithy.api#documentation": "<p>The hour when the time range ends.</p>",
+            "smithy.api#xmlName": "endHour"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The start day and time and the end day and time of the time range, in UTC.</p>"
+      }
+    },
+    "com.amazonaws.ec2#InstanceEventWindowTimeRangeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#InstanceEventWindowTimeRange",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#InstanceEventWindowTimeRangeRequest": {
+      "type": "structure",
+      "members": {
+        "StartWeekDay": {
+          "target": "com.amazonaws.ec2#WeekDay",
+          "traits": {
+            "smithy.api#documentation": "<p>The day on which the time range begins.</p>"
+          }
+        },
+        "StartHour": {
+          "target": "com.amazonaws.ec2#Hour",
+          "traits": {
+            "smithy.api#documentation": "<p>The hour when the time range begins.</p>"
+          }
+        },
+        "EndWeekDay": {
+          "target": "com.amazonaws.ec2#WeekDay",
+          "traits": {
+            "smithy.api#documentation": "<p>The day on which the time range ends.</p>"
+          }
+        },
+        "EndHour": {
+          "target": "com.amazonaws.ec2#Hour",
+          "traits": {
+            "smithy.api#documentation": "<p>The hour when the time range ends.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The start day and time and the end day and time of the time range, in UTC.</p>"
+      }
+    },
+    "com.amazonaws.ec2#InstanceEventWindowTimeRangeRequestSet": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#InstanceEventWindowTimeRangeRequest"
+      }
+    },
     "com.amazonaws.ec2#InstanceExportDetails": {
       "type": "structure",
       "members": {
@@ -37795,6 +38434,15 @@
     },
     "com.amazonaws.ec2#InstanceId": {
       "type": "string"
+    },
+    "com.amazonaws.ec2#InstanceIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#InstanceId",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
     },
     "com.amazonaws.ec2#InstanceIdSet": {
       "type": "list",
@@ -45392,6 +46040,68 @@
           "traits": {
             "aws.protocols#ec2QueryName": "Event",
             "smithy.api#xmlName": "event"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#ModifyInstanceEventWindow": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#ModifyInstanceEventWindowRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#ModifyInstanceEventWindowResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Modifies the specified event window.</p>\n         <p>You can define either a set of time ranges or a cron expression when modifying the event\n         window, but not both.</p>\n         <p>To modify the targets associated with the event window, use the <a>AssociateInstanceEventWindow</a> and <a>DisassociateInstanceEventWindow</a> API.</p>\n         <p>If Amazon Web Services has already scheduled an event, modifying an event window won't change the time\n         of the scheduled event.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows\">Define event windows\n            for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.ec2#ModifyInstanceEventWindowRequest": {
+      "type": "structure",
+      "members": {
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the event window.</p>"
+          }
+        },
+        "InstanceEventWindowId": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the event window.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TimeRanges": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowTimeRangeRequestSet",
+          "traits": {
+            "smithy.api#documentation": "<p>The time ranges of the event window.</p>",
+            "smithy.api#xmlName": "TimeRange"
+          }
+        },
+        "CronExpression": {
+          "target": "com.amazonaws.ec2#InstanceEventWindowCronExpression",
+          "traits": {
+            "smithy.api#documentation": "<p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>Only hour and day of the week values are supported.</p>\n            </li>\n            <li>\n               <p>For day of the week values, you can specify either integers <code>0</code> through\n                  <code>6</code>, or alternative single values <code>SUN</code> through\n                  <code>SAT</code>.</p>\n            </li>\n            <li>\n               <p>The minute, month, and year must be specified by <code>*</code>.</p>\n            </li>\n            <li>\n               <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or\n                  <code>0-4,20-23</code>.</p>\n            </li>\n            <li>\n               <p>Each hour range must be >= 2 hours, for example, <code>0-2</code> or\n                  <code>20-23</code>.</p>\n            </li>\n            <li>\n               <p>The event window must be >= 4 hours. The combined total time ranges in the event\n               window must be >= 4 hours.</p>\n            </li>\n         </ul>\n         <p>For more information about cron expressions, see <a href=\"https://en.wikipedia.org/wiki/Cron\">cron</a> on the <i>Wikipedia\n            website</i>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#ModifyInstanceEventWindowResult": {
+      "type": "structure",
+      "members": {
+        "InstanceEventWindow": {
+          "target": "com.amazonaws.ec2#InstanceEventWindow",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstanceEventWindow",
+            "smithy.api#documentation": "<p>Information about the event window.</p>",
+            "smithy.api#xmlName": "instanceEventWindow"
           }
         }
       }
@@ -55007,6 +55717,10 @@
             "name": "instance"
           },
           {
+            "value": "instance-event-window",
+            "name": "instance_event_window"
+          },
+          {
             "value": "internet-gateway",
             "name": "internet_gateway"
           },
@@ -55518,6 +56232,15 @@
             "smithy.api#documentation": "<p>Information about the prefix list.</p>",
             "smithy.api#xmlName": "prefixList"
           }
+        }
+      }
+    },
+    "com.amazonaws.ec2#ResultRange": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 20,
+          "max": 500
         }
       }
     },
@@ -59860,7 +60583,7 @@
         "BlockDurationMinutes": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The required duration for the Spot Instances (also known as Spot blocks), in minutes.\n            This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>\n        <p>The duration period starts as soon as your Spot Instance receives its instance ID. At\n            the end of the duration period, Amazon EC2 marks the Spot Instance for termination and\n            provides a Spot Instance termination notice, which gives the instance a two-minute\n            warning before it terminates.</p>\n        <p>You can't specify an Availability Zone group or a launch group if you specify a\n            duration.</p>\n        <p>New accounts or accounts with no previous billing history with Amazon Web Services are not eligible\n            for Spot Instances with a defined duration (also known as Spot blocks).</p>"
+            "smithy.api#documentation": "<p>Deprecated.</p>"
           }
         },
         "ValidUntil": {
@@ -61178,7 +61901,7 @@
           "target": "com.amazonaws.ec2#ResourceType",
           "traits": {
             "aws.protocols#ec2QueryName": "ResourceType",
-            "smithy.api#documentation": "<p>The type of resource to tag. Currently, the resource types that support tagging on\n         creation are: <code>capacity-reservation</code> | <code>carrier-gateway</code> |\n            <code>client-vpn-endpoint</code> |  <code>customer-gateway</code> |\n    \t   <code>dedicated-host</code> | <code>dhcp-options</code> | <code>egress-only-internet-gateway</code> | <code>elastic-ip</code> | <code>elastic-gpu</code> |\n    \t   <code>export-image-task</code>\n         | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |\n    \t   <code>host-reservation</code> | <code>image</code>| <code>import-image-task</code> |\n            <code>import-snapshot-task</code> | <code>instance</code> |\n            <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |\n    \t   <code>key-pair</code> | <code>launch-template</code> | <code>local-gateway-route-table-vpc-association</code> | <code>placement-group</code> |\n    \t   <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> | \n    \t   <code>reserved-instances</code> |<code>route-table</code> | <code>security-group</code>| <code>snapshot</code> | <code>spot-fleet-request</code>\n         | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> |\n            <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> |\n            <code>traffic-mirror-target</code> | <code>transit-gateway</code> |\n    \t   <code>transit-gateway-attachment</code> | <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> |\n            <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> |\n            <code>vpc-endpoint</code> (for interface and gateway endpoints) |\n            <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> |\n            <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>\n         <p>To tag a resource after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>",
+            "smithy.api#documentation": "<p>The type of resource to tag. Currently, the resource types that support tagging on\n         creation are: <code>capacity-reservation</code> | <code>carrier-gateway</code> |\n            <code>client-vpn-endpoint</code> |  <code>customer-gateway</code> |\n    \t   <code>dedicated-host</code> | <code>dhcp-options</code> | <code>egress-only-internet-gateway</code> | <code>elastic-ip</code> | <code>elastic-gpu</code> |\n    \t   <code>export-image-task</code>\n         | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |\n    \t   <code>host-reservation</code> | <code>image</code>| <code>import-image-task</code> |\n    \t   <code>import-snapshot-task</code> | <code>instance</code> | <code>instance-event-window</code> |\n            <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |\n    \t   <code>key-pair</code> | <code>launch-template</code> | <code>local-gateway-route-table-vpc-association</code> | <code>placement-group</code> |\n    \t   <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> | \n    \t   <code>reserved-instances</code> |<code>route-table</code> | <code>security-group</code>| <code>snapshot</code> | <code>spot-fleet-request</code>\n         | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> |\n            <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> |\n            <code>traffic-mirror-target</code> | <code>transit-gateway</code> |\n    \t   <code>transit-gateway-attachment</code> | <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> |\n            <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> |\n            <code>vpc-endpoint</code> (for interface and gateway endpoints) |\n    \t   <code>vpc-endpoint-service</code> (for PrivateLink) | <code>vpc-flow-log</code> |\n            <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>\n         <p>To tag a resource after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>",
             "smithy.api#xmlName": "resourceType"
           }
         },
@@ -67887,6 +68610,41 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.ec2#VpnTunnelOptionsSpecification"
+      }
+    },
+    "com.amazonaws.ec2#WeekDay": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "sunday",
+            "name": "sunday"
+          },
+          {
+            "value": "monday",
+            "name": "monday"
+          },
+          {
+            "value": "tuesday",
+            "name": "tuesday"
+          },
+          {
+            "value": "wednesday",
+            "name": "wednesday"
+          },
+          {
+            "value": "thursday",
+            "name": "thursday"
+          },
+          {
+            "value": "friday",
+            "name": "friday"
+          },
+          {
+            "value": "saturday",
+            "name": "saturday"
+          }
+        ]
       }
     },
     "com.amazonaws.ec2#WithdrawByoipCidr": {
