@@ -9313,6 +9313,11 @@ posix-character-classes@^0.1.0:
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
 
+postinstall-node-version-check@0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/postinstall-node-version-check/-/postinstall-node-version-check-0.2.4.tgz#b7615793b6c3027d094a301911fa65784bf106ac"
+  integrity sha512-lF+FyL/SyGvMSEimBBovBO/bygMJegx2Ar3aRnX6cf+12PvOdZ6f8CVVJlAPudo3LtZvROkisqMr3mUsMQi4ow==
+
 prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"

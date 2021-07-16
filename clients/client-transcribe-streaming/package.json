@@ -53,7 +53,7 @@
     "@aws-sdk/middleware-user-agent": "3.20.0",
     "@aws-sdk/node-config-provider": "3.20.0",
     "@aws-sdk/node-http-handler": "3.21.0",
-    "@aws-sdk/postinstall-node-version-check": "3.0.0",
+    "postinstall-node-version-check": "0.2.4",
     "@aws-sdk/protocol-http": "3.20.0",
     "@aws-sdk/smithy-client": "3.20.0",
     "@aws-sdk/types": "3.20.0",
