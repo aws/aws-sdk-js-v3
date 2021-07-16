@@ -399,18 +399,18 @@ export namespace CompletedPart {
 /**
  * <p>The container for the completed multipart upload details.</p>
  */
-export interface CompletedMultipartUpload {
+export interface CompleteMultipartUpload {
   /**
    * <p>Array of CompletedPart data types.</p>
    */
   Parts?: CompletedPart[];
 }
 
-export namespace CompletedMultipartUpload {
+export namespace CompleteMultipartUpload {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CompletedMultipartUpload): any => ({
+  export const filterSensitiveLog = (obj: CompleteMultipartUpload): any => ({
     ...obj,
   });
 }
@@ -429,7 +429,7 @@ export interface CompleteMultipartUploadRequest {
   /**
    * <p>The container for the multipart upload request information.</p>
    */
-  MultipartUpload?: CompletedMultipartUpload;
+  MultipartUpload?: CompleteMultipartUpload;
 
   /**
    * <p>ID for the initiated multipart upload.</p>
