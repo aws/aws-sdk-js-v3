@@ -43,16 +43,13 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
- *
- *          <p>The Amazon AppIntegrations service enables you to configure and reuse connections to external applications.</p>
+ * <p>The Amazon AppIntegrations service enables you to configure and reuse connections to external applications.</p>
  *          <p>For information about how you can use external applications with Amazon Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/crm.html">Set up pre-built integrations</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  */
 export class AppIntegrations extends AppIntegrationsClient {
   /**
-   * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
-   *          <p>Creates an EventIntegration, given a specified name, description, and a reference to an
-   *       Amazon Eventbridge bus in your account and a partner event source that will push events to that bus. No
+   * <p>Creates an EventIntegration, given a specified name, description, and a reference to an
+   *       Amazon EventBridge bus in your account and a partner event source that pushes events to that bus. No
    *       objects are created in the your account, only metadata that is persisted on the EventIntegration
    *       control plane.</p>
    */
@@ -86,8 +83,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
-   * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
-   *          <p>Deletes the specified existing event integration. If the event integration is associated
+   * <p>Deletes the specified existing event integration. If the event integration is associated
    *       with clients, the request is rejected.</p>
    */
   public deleteEventIntegration(
@@ -120,8 +116,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
-   * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
-   *          <p>Return information about the event integration.</p>
+   * <p>Return information about the event integration.</p>
    */
   public getEventIntegration(
     args: GetEventIntegrationCommandInput,
@@ -153,8 +148,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
-   * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
-   *          <p>Returns a paginated list of event integration associations in the account. </p>
+   * <p>Returns a paginated list of event integration associations in the account. </p>
    */
   public listEventIntegrationAssociations(
     args: ListEventIntegrationAssociationsCommandInput,
@@ -186,8 +180,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
-   * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
-   *          <p>Returns a paginated list of event integrations in the account.</p>
+   * <p>Returns a paginated list of event integrations in the account.</p>
    */
   public listEventIntegrations(
     args: ListEventIntegrationsCommandInput,
@@ -219,8 +212,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
-   * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
-   *          <p>Lists the tags for the specified resource.</p>
+   * <p>Lists the tags for the specified resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -252,8 +244,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
-   * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
-   *          <p>Adds the specified tags to the specified resource.</p>
+   * <p>Adds the specified tags to the specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -279,8 +270,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
-   * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
-   *          <p>Removes the specified tags from the specified resource.</p>
+   * <p>Removes the specified tags from the specified resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -312,8 +302,7 @@ export class AppIntegrations extends AppIntegrationsClient {
   }
 
   /**
-   * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
-   *          <p>Updates the description of an event integration.</p>
+   * <p>Updates the description of an event integration.</p>
    */
   public updateEventIntegration(
     args: UpdateEventIntegrationCommandInput,

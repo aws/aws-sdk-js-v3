@@ -2,7 +2,7 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
- * <p>AWS DMS was denied access to the endpoint. Check that the
+ * <p>DMS was denied access to the endpoint. Check that the
  *             role is correctly configured.</p>
  */
 export interface AccessDeniedFault extends __SmithyException, $MetadataBearer {
@@ -24,12 +24,12 @@ export namespace AccessDeniedFault {
 }
 
 /**
- * <p>Describes a quota for an AWS account, for example, the number of replication instances
+ * <p>Describes a quota for an account, for example the number of replication instances
  *          allowed.</p>
  */
 export interface AccountQuota {
   /**
-   * <p>The name of the AWS DMS quota for this AWS account.</p>
+   * <p>The name of the DMS quota for this account.</p>
    */
   AccountQuotaName?: string;
 
@@ -54,7 +54,7 @@ export namespace AccountQuota {
 }
 
 /**
- * <p>A user-defined key-value pair that describes metadata added to an AWS DMS resource and
+ * <p>A user-defined key-value pair that describes metadata added to an DMS resource and
  *          that is used by operations such as the following:</p>
  *          <ul>
  *             <li>
@@ -102,12 +102,12 @@ export namespace Tag {
 }
 
 /**
- * <p>Associates a set of tags with an AWS DMS resource.</p>
+ * <p>Associates a set of tags with an DMS resource.</p>
  */
 export interface AddTagsToResourceMessage {
   /**
-   * <p>Identifies the AWS DMS resource to which tags should be added. The value for this parameter is an Amazon Resource Name (ARN).</p>
-   *          <p>For AWS DMS, you can tag a replication instance, an endpoint, or a replication task.</p>
+   * <p>Identifies the DMS resource to which tags should be added. The value for this parameter is an Amazon Resource Name (ARN).</p>
+   *          <p>For DMS, you can tag a replication instance, an endpoint, or a replication task.</p>
    */
   ResourceArn: string | undefined;
 
@@ -166,7 +166,7 @@ export namespace ResourceNotFoundFault {
  */
 export interface ApplyPendingMaintenanceActionMessage {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS DMS resource that the pending maintenance
+   * <p>The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance
    *          action applies to.</p>
    */
   ReplicationInstanceArn: string | undefined;
@@ -210,7 +210,7 @@ export namespace ApplyPendingMaintenanceActionMessage {
 }
 
 /**
- * <p>Describes a maintenance action pending for an AWS DMS resource, including when and how
+ * <p>Describes a maintenance action pending for an DMS resource, including when and how
  *          it will be applied. This data type is a response element to the
  *             <code>DescribePendingMaintenanceActions</code> operation.</p>
  */
@@ -267,13 +267,13 @@ export namespace PendingMaintenanceAction {
 }
 
 /**
- * <p>Identifies an AWS DMS resource and any pending actions for it.</p>
+ * <p>Identifies an DMS resource and any pending actions for it.</p>
  */
 export interface ResourcePendingMaintenanceActions {
   /**
    * <p>The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance action
    *          applies to. For information about creating an ARN, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html"> Constructing an Amazon
-   *             Resource Name (ARN) for AWS DMS</a> in the DMS documentation.</p>
+   *             Resource Name (ARN) for DMS</a> in the DMS documentation.</p>
    */
   ResourceIdentifier?: string;
 
@@ -297,7 +297,7 @@ export namespace ResourcePendingMaintenanceActions {
  */
 export interface ApplyPendingMaintenanceActionResponse {
   /**
-   * <p>The AWS DMS resource that the pending maintenance action will be applied to.</p>
+   * <p>The DMS resource that the pending maintenance action will be applied to.</p>
    */
   ResourcePendingMaintenanceActions?: ResourcePendingMaintenanceActions;
 }
@@ -448,17 +448,17 @@ export interface ReplicationTaskAssessmentRun {
 
   /**
    * <p>ARN of the service role used to start the assessment run using the
-   *             <code>StartReplicationTaskAssessmentRun</code> operation.</p>
+   *          <code>StartReplicationTaskAssessmentRun</code> operation. The role must allow the <code>iam:PassRole</code> action.</p>
    */
   ServiceAccessRoleArn?: string;
 
   /**
-   * <p>Amazon S3 bucket where AWS DMS stores the results of this assessment run.</p>
+   * <p>Amazon S3 bucket where DMS stores the results of this assessment run.</p>
    */
   ResultLocationBucket?: string;
 
   /**
-   * <p>Folder in an Amazon S3 bucket where AWS DMS stores the results of this assessment
+   * <p>Folder in an Amazon S3 bucket where DMS stores the results of this assessment
    *          run.</p>
    */
   ResultLocationFolder?: string;
@@ -469,7 +469,7 @@ export interface ReplicationTaskAssessmentRun {
   ResultEncryptionMode?: string;
 
   /**
-   * <p>ARN of the AWS KMS encryption key used to encrypt the assessment run results.</p>
+   * <p>ARN of the KMS encryption key used to encrypt the assessment run results.</p>
    */
   ResultKmsKeyArn?: string;
 
@@ -534,7 +534,9 @@ export namespace InvalidResourceStateFault {
  */
 export interface DmsTransferSettings {
   /**
-   * <p> The IAM role that has permission to access the Amazon S3 bucket. </p>
+   * <p> The IAM role that has permission to access the Amazon S3 bucket. When specified as part of request syntax,
+   *          such as for the <code>CreateEndpoint</code> and <code>ModifyEndpoint</code> actions,
+   *          the role must allow the <code>iam:PassRole</code> action.</p>
    */
   ServiceAccessRoleArn?: string;
 
@@ -611,19 +613,18 @@ export interface DocDbSettings {
   DocsToInvestigate?: number;
 
   /**
-   * <p>The AWS KMS key identifier that is used to encrypt the content on the replication
+   * <p>The KMS key identifier that is used to encrypt the content on the replication
    *          instance. If you don't specify a value for the <code>KmsKeyId</code> parameter, then
-   *          AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for
-   *          your AWS account. Your AWS account has a different default encryption key for each AWS
-   *          Region.</p>
+   *          DMS uses your default encryption key. KMS creates the default encryption key for
+   *          your account. Your account has a different default encryption key for each Region.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
    *          trusted entity and grants the required permissions to access the value in
-   *          <code>SecretsManagerSecret</code>. <code>SecretsManagerSecret</code> has the value of the AWS Secrets
-   *          Manager secret that allows access to the DocumentDB endpoint.</p>
+   *          <code>SecretsManagerSecret</code>. The role must allow the <code>iam:PassRole</code> action.
+   *          <code>SecretsManagerSecret</code> has the value of the Amazon Web Services Secrets Manager secret that allows access to the DocumentDB endpoint.</p>
    *          <note>
    *             <p>You can specify one of two sets of values for these permissions. You can specify the
    *             values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
@@ -631,8 +632,8 @@ export interface DocDbSettings {
    *             <code>ServerName</code>, and <code>Port</code>. You can't specify both. For more
    *             information on creating this <code>SecretsManagerSecret</code> and the
    *             <code>SecretsManagerAccessRoleArn</code> and <code>SecretsManagerSecretId</code>
-   *             required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access AWS Database Migration Service
-   *                resources</a> in the <i>AWS Database Migration Service User
+   *             required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access Database Migration Service
+   *                resources</a> in the <i>Database Migration Service User
    *                   Guide</i>.</p>
    *          </note>
    */
@@ -656,12 +657,12 @@ export namespace DocDbSettings {
 }
 
 /**
- * <p>Provides the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM)
+ * <p>Provides the Amazon Resource Name (ARN) of the Identity and Access Management (IAM)
  *          role used to define an Amazon DynamoDB target endpoint.</p>
  */
 export interface DynamoDbSettings {
   /**
-   * <p> The Amazon Resource Name (ARN) used by the service access IAM role. </p>
+   * <p> The Amazon Resource Name (ARN) used by the service to access the IAM role. The role must allow the <code>iam:PassRole</code> action.</p>
    */
   ServiceAccessRoleArn: string | undefined;
 }
@@ -680,12 +681,13 @@ export namespace DynamoDbSettings {
  */
 export interface ElasticsearchSettings {
   /**
-   * <p>The Amazon Resource Name (ARN) used by service to access the IAM role.</p>
+   * <p>The Amazon Resource Name (ARN) used by the service to access the IAM role.
+   *          The role must allow the <code>iam:PassRole</code> action.</p>
    */
   ServiceAccessRoleArn: string | undefined;
 
   /**
-   * <p>The endpoint for the Elasticsearch cluster. AWS DMS uses HTTPS if a transport
+   * <p>The endpoint for the Elasticsearch cluster. DMS uses HTTPS if a transport
    *          protocol (http/https) is not specified.</p>
    */
   EndpointUri: string | undefined;
@@ -736,7 +738,7 @@ export interface IBMDb2Settings {
   Password?: string;
 
   /**
-   * <p>Endpoint TCP port.</p>
+   * <p>Endpoint TCP port. The default value is 50000.</p>
    */
   Port?: number;
 
@@ -770,10 +772,11 @@ export interface IBMDb2Settings {
   Username?: string;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
    *          trusted entity and grants the required permissions to access the value in
-   *             <code>SecretsManagerSecret</code>. <code>SecretsManagerSecret</code> has the value of
-   *          the AWS Secrets Manager secret that allows access to the Db2 LUW endpoint. </p>
+   *          <code>SecretsManagerSecret</code>. The role must allow the <code>iam:PassRole</code> action.
+   *          <code>SecretsManagerSecret</code> has the value of
+   *          the Amazon Web Services Secrets Manager secret that allows access to the Db2 LUW endpoint. </p>
    *          <note>
    *             <p>You can specify one of two sets of values for these permissions. You can specify the
    *             values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
@@ -781,8 +784,8 @@ export interface IBMDb2Settings {
    *                <code>ServerName</code>, and <code>Port</code>. You can't specify both. For more
    *             information on creating this <code>SecretsManagerSecret</code> and the
    *                <code>SecretsManagerAccessRoleArn</code> and <code>SecretsManagerSecretId</code>
-   *             required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access AWS Database Migration Service
-   *                resources</a> in the <i>AWS Database Migration Service User
+   *             required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access Database Migration Service
+   *                resources</a> in the <i>Database Migration Service User
    *                Guide</i>.</p>
    *          </note>
    */
@@ -828,14 +831,14 @@ export interface KafkaSettings {
    *                <i>broker-hostname-or-ip</i>:<i>port</i>
    *             </code>. For example, <code>"ec2-12-345-678-901.compute-1.amazonaws.com:2345"</code>.
    *          For more information and examples of specifying a list of broker locations,
-   *          see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html">Using Apache Kafka as a target for AWS Database Migration Service</a>
-   *          in the <i>AWS Data Migration Service User Guide</i>.
+   *          see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html">Using Apache Kafka as a target for Database Migration Service</a>
+   *          in the <i>Database Migration Service User Guide</i>.
    *       </p>
    */
   Broker?: string;
 
   /**
-   * <p>The topic to which you migrate the data. If you don't specify a topic, AWS DMS
+   * <p>The topic to which you migrate the data. If you don't specify a topic, DMS
    *          specifies <code>"kafka-default-topic"</code> as the migration topic.</p>
    */
   Topic?: string;
@@ -856,7 +859,7 @@ export interface KafkaSettings {
   IncludeTransactionDetails?: boolean;
 
   /**
-   * <p>Shows the partition value within the Kafka message output, unless the partition type is
+   * <p>Shows the partition value within the Kafka message output unless the partition type is
    *             <code>schema-table-type</code>. The default is <code>false</code>.</p>
    */
   IncludePartitionValue?: boolean;
@@ -918,14 +921,15 @@ export interface KafkaSettings {
   SslClientKeyPassword?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) for the private Certification Authority (CA) cert that AWS DMS uses
+   * <p> The Amazon Resource Name (ARN) for the private Certification Authority (CA) cert that DMS uses
    *          to securely connect to your Kafka target endpoint.</p>
    */
   SslCaCertificateArn?: string;
 
   /**
-   * <p> The secure username you created when you first set up your MSK cluster to validate a client identity and
-   *          make an encrypted connection between server and client using SASL-SSL authentication.</p>
+   * <p> The secure user name you created when you first set up your MSK cluster to validate a
+   *          client identity and make an encrypted connection between server and client using SASL-SSL
+   *          authentication.</p>
    */
   SaslUsername?: string;
 
@@ -934,6 +938,13 @@ export interface KafkaSettings {
    *          make an encrypted connection between server and client using SASL-SSL authentication.</p>
    */
   SaslPassword?: string;
+
+  /**
+   * <p>If this attribute is Y, it allows hexadecimal values that don't have the
+   *             <code>0x</code> prefix when migrated to a Kafka target. If this attribute is N, all
+   *          hexadecimal values include this prefix when migrated to Kafka.</p>
+   */
+  NoHexPrefix?: boolean;
 }
 
 export namespace KafkaSettings {
@@ -965,8 +976,9 @@ export interface KinesisSettings {
   MessageFormat?: MessageFormatValue | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role
-   *          that AWS DMS uses to write to the Kinesis data stream.</p>
+   * <p>The Amazon Resource Name (ARN) for the IAM role
+   *          that DMS uses to write to the Kinesis data stream.
+   *          The role must allow the <code>iam:PassRole</code> action.</p>
    */
   ServiceAccessRoleArn?: string;
 
@@ -1011,6 +1023,13 @@ export interface KinesisSettings {
    * <p>Include NULL and empty columns for records migrated to the endpoint. The default is <code>false</code>.</p>
    */
   IncludeNullAndEmpty?: boolean;
+
+  /**
+   * <p>If this attribute is Y, it allows hexadecimal values that don't have the
+   *             <code>0x</code> prefix when migrated to a Kinesis target. If this attribute is N, all
+   *          hexadecimal values include this prefix when migrated to Kinesis.</p>
+   */
+  NoHexPrefix?: boolean;
 }
 
 export namespace KinesisSettings {
@@ -1049,8 +1068,8 @@ export interface MicrosoftSQLServerSettings {
   DatabaseName?: string;
 
   /**
-   * <p>Specifies a file group for the AWS DMS internal tables. When the replication task
-   *          starts, all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply,
+   * <p>Specifies a file group for the DMS internal tables. When the replication task
+   *          starts, all the internal DMS control tables (awsdms_ apply_exception, awsdms_apply,
    *          awsdms_changes) are created for the specified file group.</p>
    */
   ControlTablesFileGroup?: string;
@@ -1069,7 +1088,7 @@ export interface MicrosoftSQLServerSettings {
   QuerySingleAlwaysOnNode?: boolean;
 
   /**
-   * <p>When this attribute is set to <code>Y</code>, AWS DMS only reads changes
+   * <p>When this attribute is set to <code>Y</code>, DMS only reads changes
    *          from transaction log backups and doesn't read from the
    *          active transaction log file during ongoing replication. Setting
    *          this parameter to <code>Y</code> enables you to control active transaction
@@ -1081,11 +1100,11 @@ export interface MicrosoftSQLServerSettings {
 
   /**
    * <p>Use this attribute to minimize the need to access the
-   *          backup log and enable AWS DMS to prevent truncation using one of the
+   *          backup log and enable DMS to prevent truncation using one of the
    *          following two methods.</p>
    *          <p>
    *             <i>Start transactions in the database:</i> This is the default
-   *          method. When this method is used, AWS DMS prevents
+   *          method. When this method is used, DMS prevents
    *          TLOG truncation by mimicking a transaction in the database.
    *          As long as such a transaction is open, changes that appear
    *          after the transaction started aren't truncated. If you need
@@ -1093,13 +1112,13 @@ export interface MicrosoftSQLServerSettings {
    *          you must choose this method.</p>
    *          <p>
    *             <i>Exclusively use sp_repldone within a single task</i>: When
-   *          this method is used, AWS DMS reads the changes and then
+   *          this method is used, DMS reads the changes and then
    *          uses sp_repldone to mark the TLOG transactions as ready
    *          for truncation. Although this method doesn't involve any
    *          transactional activities, it can only be used when Microsoft
    *          Replication isn't running. Also, when using this method, only
-   *          one AWS DMS task can access the database at any given
-   *          time. Therefore, if you need to run parallel AWS DMS tasks
+   *          one DMS task can access the database at any given
+   *          time. Therefore, if you need to run parallel DMS tasks
    *          against the same database, use the default method.</p>
    */
   SafeguardPolicy?: SafeguardPolicy | string;
@@ -1129,10 +1148,11 @@ export interface MicrosoftSQLServerSettings {
   UseThirdPartyBackupDevice?: boolean;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
    *          trusted entity and grants the required permissions to access the value in
-   *             <code>SecretsManagerSecret</code>. <code>SecretsManagerSecret</code> has the value of the AWS Secrets
-   *          Manager secret that allows access to the SQL Server endpoint.</p>
+   *          <code>SecretsManagerSecret</code>. The role must allow the <code>iam:PassRole</code> action.
+   *          <code>SecretsManagerSecret</code> has the value of the Amazon Web Services Secrets Manager
+   *           secret that allows access to the SQL Server endpoint.</p>
    *          <note>
    *             <p>You can specify one of two sets of values for these permissions. You can specify the
    *             values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
@@ -1140,8 +1160,8 @@ export interface MicrosoftSQLServerSettings {
    *                <code>ServerName</code>, and <code>Port</code>. You can't specify both. For more
    *             information on creating this <code>SecretsManagerSecret</code> and the
    *                <code>SecretsManagerAccessRoleArn</code> and <code>SecretsManagerSecretId</code>
-   *             required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access AWS Database Migration Service
-   *                resources</a> in the <i>AWS Database Migration Service User
+   *             required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access Database Migration Service
+   *                resources</a> in the <i>Database Migration Service User
    *                Guide</i>.</p>
    *          </note>
    */
@@ -1250,19 +1270,18 @@ export interface MongoDbSettings {
   AuthSource?: string;
 
   /**
-   * <p>The AWS KMS key identifier that is used to encrypt the content on the replication
+   * <p>The KMS key identifier that is used to encrypt the content on the replication
    *          instance. If you don't specify a value for the <code>KmsKeyId</code> parameter, then
-   *          AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for
-   *          your AWS account. Your AWS account has a different default encryption key for each AWS
-   *          Region.</p>
+   *          DMS uses your default encryption key. KMS creates the default encryption key for
+   *          your account. Your account has a different default encryption key for each Region.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
    *          trusted entity and grants the required permissions to access the value in
-   *             <code>SecretsManagerSecret</code>. <code>SecretsManagerSecret</code> has the value of the AWS Secrets
-   *          Manager secret that allows access to the MongoDB endpoint.</p>
+   *          <code>SecretsManagerSecret</code>. The role must allow the <code>iam:PassRole</code> action.
+   *          <code>SecretsManagerSecret</code> has the value of the Amazon Web Services Secrets Manager secret that allows access to the MongoDB endpoint.</p>
    *          <note>
    *             <p>You can specify one of two sets of values for these permissions. You can specify the
    *             values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
@@ -1270,8 +1289,8 @@ export interface MongoDbSettings {
    *                <code>ServerName</code>, and <code>Port</code>. You can't specify both. For more
    *             information on creating this <code>SecretsManagerSecret</code> and the
    *                <code>SecretsManagerAccessRoleArn</code> and <code>SecretsManagerSecretId</code>
-   *             required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access AWS Database Migration Service
-   *                resources</a> in the <i>AWS Database Migration Service User
+   *             required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access Database Migration Service
+   *                resources</a> in the <i>Database Migration Service User
    *                Guide</i>.</p>
    *          </note>
    */
@@ -1303,9 +1322,11 @@ export enum TargetDbType {
  */
 export interface MySQLSettings {
   /**
-   * <p>Specifies a script to run immediately after AWS DMS
+   * <p>Specifies a script to run immediately after DMS
    *          connects to the endpoint. The migration task continues
    *          running regardless if the SQL statement succeeds or fails.</p>
+   *          <p>For this parameter, provide the code of the script itself, not the name of a file
+   *          containing the script.</p>
    */
   AfterConnectScript?: string;
 
@@ -1318,7 +1339,12 @@ export interface MySQLSettings {
   CleanSourceMetadataOnMismatch?: boolean;
 
   /**
-   * <p>Database name for the endpoint.</p>
+   * <p>Database name for the endpoint. For a MySQL source or target endpoint, don't explicitly
+   *          specify the database using the <code>DatabaseName</code> request parameter on either the
+   *          <code>CreateEndpoint</code> or <code>ModifyEndpoint</code> API call. Specifying
+   *          <code>DatabaseName</code> when you create or modify a MySQL endpoint replicates all the
+   *          task tables to this single database. For MySQL endpoints, you specify the database only when
+   *          you specify the schema in the table-mapping rules of the DMS task.</p>
    */
   DatabaseName?: string;
 
@@ -1327,7 +1353,7 @@ export interface MySQLSettings {
    *          changes/events when the database is idle.</p>
    *          <p>Example: <code>eventsPollInterval=5;</code>
    *          </p>
-   *          <p>In the example, AWS DMS checks for changes in the binary
+   *          <p>In the example, DMS checks for changes in the binary
    *          logs every five seconds.</p>
    */
   EventsPollInterval?: number;
@@ -1387,10 +1413,11 @@ export interface MySQLSettings {
   Username?: string;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
    *          trusted entity and grants the required permissions to access the value in
-   *             <code>SecretsManagerSecret</code>. <code>SecretsManagerSecret</code> has the value of the AWS Secrets
-   *          Manager secret that allows access to the MySQL endpoint.</p>
+   *          <code>SecretsManagerSecret</code>. The role must allow the <code>iam:PassRole</code> action.
+   *          <code>SecretsManagerSecret</code> has the value of the Amazon Web Services Secrets Manager
+   *           secret that allows access to the MySQL endpoint.</p>
    *          <note>
    *             <p>You can specify one of two sets of values for these permissions. You can specify the
    *             values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
@@ -1398,8 +1425,8 @@ export interface MySQLSettings {
    *                <code>ServerName</code>, and <code>Port</code>. You can't specify both. For more
    *             information on creating this <code>SecretsManagerSecret</code> and the
    *                <code>SecretsManagerAccessRoleArn</code> and <code>SecretsManagerSecretId</code>
-   *             required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access AWS Database Migration Service
-   *                resources</a> in the <i>AWS Database Migration Service User
+   *             required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access Database Migration Service
+   *                resources</a> in the <i>Database Migration Service User
    *                Guide</i>.</p>
    *          </note>
    */
@@ -1427,49 +1454,49 @@ export namespace MySQLSettings {
 export interface NeptuneSettings {
   /**
    * <p>The Amazon Resource Name (ARN) of the service role that you created for the Neptune
-   *          target endpoint.
-   *          For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole">Creating an IAM Service Role for Accessing Amazon Neptune as a Target</a> in the <i>AWS Database Migration Service User
+   *          target endpoint. The role must allow the <code>iam:PassRole</code> action.
+   *          For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole">Creating an IAM Service Role for Accessing Amazon Neptune as a Target</a> in the <i>Database Migration Service User
    *             Guide. </i>
    *          </p>
    */
   ServiceAccessRoleArn?: string;
 
   /**
-   * <p>The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data
-   *          in .csv files before bulk-loading it to the Neptune target database. AWS DMS maps the SQL
+   * <p>The name of the Amazon S3 bucket where DMS can temporarily store migrated graph data
+   *          in .csv files before bulk-loading it to the Neptune target database. DMS maps the SQL
    *          source data to graph data before storing it in these .csv files.</p>
    */
   S3BucketName: string | undefined;
 
   /**
-   * <p>A folder path where you want AWS DMS to store migrated graph data in the S3 bucket
+   * <p>A folder path where you want DMS to store migrated graph data in the S3 bucket
    *          specified by <code>S3BucketName</code>
    *          </p>
    */
   S3BucketFolder: string | undefined;
 
   /**
-   * <p>The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph
+   * <p>The number of milliseconds for DMS to wait to retry a bulk-load of migrated graph
    *          data to the Neptune target database before raising an error. The default is 250.</p>
    */
   ErrorRetryDuration?: number;
 
   /**
-   * <p>The maximum size in kilobytes of migrated graph data stored in a .csv file before AWS
-   *          DMS bulk-loads the data to the Neptune target database. The default is 1,048,576 KB. If the
-   *          bulk load is successful, AWS DMS clears the bucket, ready to store the next batch of
+   * <p>The maximum size in kilobytes of migrated graph data stored in a .csv file before DMS
+   *          bulk-loads the data to the Neptune target database. The default is 1,048,576 KB. If the
+   *          bulk load is successful, DMS clears the bucket, ready to store the next batch of
    *          migrated graph data.</p>
    */
   MaxFileSize?: number;
 
   /**
-   * <p>The number of times for AWS DMS to retry a bulk load of migrated graph data to the
+   * <p>The number of times for DMS to retry a bulk load of migrated graph data to the
    *          Neptune target database before raising an error. The default is 5.</p>
    */
   MaxRetryCount?: number;
 
   /**
-   * <p>If you want AWS Identity and Access Management (IAM) authorization enabled for this
+   * <p>If you want Identity and Access Management (IAM) authorization enabled for this
    *          endpoint, set this parameter to <code>true</code>. Then attach the appropriate IAM policy
    *          document to your service role specified by <code>ServiceAccessRoleArn</code>. The default
    *          is <code>false</code>.</p>
@@ -1507,23 +1534,27 @@ export interface OracleSettings {
   AddSupplementalLogging?: boolean;
 
   /**
-   * <p>Specifies the destination of the archived redo logs. The
-   *          value should be the same as the DEST_ID number in the
-   *          v$archived_log table. When working with multiple log
-   *          destinations (DEST_ID), we recommend that you to specify
-   *          an archived redo logs location identifier. Doing this improves
-   *          performance by ensuring that the correct logs are accessed
-   *          from the outset.</p>
+   * <p>Specifies the ID of the destination for the archived redo logs. This value
+   *          should be the same as a number in the dest_id column of the v$archived_log
+   *          view. If you work with an additional redo log destination, use the
+   *          <code>AdditionalArchivedLogDestId</code> option to specify the additional
+   *          destination ID. Doing this improves performance by ensuring that the correct
+   *          logs are accessed from the outset.</p>
    */
   ArchivedLogDestId?: number;
 
   /**
-   * <p>Set this attribute with <code>archivedLogDestId</code> in a primary/
+   * <p>Set this attribute with <code>ArchivedLogDestId</code> in a primary/
    *          standby setup. This attribute is useful in the case of a
-   *          switchover. In this case, AWS DMS needs to know which
+   *          switchover. In this case, DMS needs to know which
    *          destination to get archive redo logs from to read changes.
    *          This need arises because the previous primary instance is
    *          now a standby instance after switchover.</p>
+   *          <p>Although DMS supports the use of the Oracle
+   *          <code>RESETLOGS</code> option to open the database, never
+   *          use <code>RESETLOGS</code> unless necessary. For additional
+   *          information about <code>RESETLOGS</code>, see <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/rman-data-repair-concepts.html#GUID-1805CCF7-4AF2-482D-B65A-998192F89C2B">RMAN Data Repair Concepts</a> in the
+   *          <i>Oracle Database Backup and Recovery User's Guide</i>.</p>
    */
   AdditionalArchivedLogDestId?: number;
 
@@ -1535,21 +1566,18 @@ export interface OracleSettings {
   AllowSelectNestedTables?: boolean;
 
   /**
-   * <p>Set this attribute to change the number of threads that
-   *          DMS configures to perform a Change Data Capture (CDC)
-   *          load using Oracle Automatic Storage Management (ASM).
-   *          You can specify an integer value between 2 (the default)
-   *          and 8 (the maximum). Use this attribute together with the
-   *          <code>readAheadBlocks</code> attribute.</p>
+   * <p>Set this attribute to change the number of threads that DMS configures to perform a
+   *          change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can
+   *          specify an integer value between 2 (the default) and 8 (the maximum). Use this attribute
+   *          together with the <code>readAheadBlocks</code> attribute.</p>
    */
   ParallelAsmReadThreads?: number;
 
   /**
-   * <p>Set this attribute to change the number of read-ahead
-   *          blocks that DMS configures to perform a Change Data
-   *          Capture (CDC) load using Oracle Automatic Storage
-   *          Management (ASM). You can specify an integer value
-   *          between 1000 (the default) and 200,000 (the maximum).</p>
+   * <p>Set this attribute to change the number of read-ahead blocks that DMS configures to
+   *          perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
+   *          You can specify an integer value between 1000 (the default) and 200,000 (the
+   *          maximum).</p>
    */
   ReadAheadBlocks?: number;
 
@@ -1611,9 +1639,9 @@ export interface OracleSettings {
   DirectPathNoLog?: boolean;
 
   /**
-   * <p>When this field is set to <code>Y</code>, AWS DMS only accesses the
+   * <p>When this field is set to <code>Y</code>, DMS only accesses the
    *          archived redo logs. If the archived redo logs are stored on
-   *          Oracle ASM only, the AWS DMS user account needs to be
+   *          Oracle ASM only, the DMS user account needs to be
    *          granted ASM privileges.</p>
    */
   ArchivedLogsOnly?: boolean;
@@ -1666,7 +1694,7 @@ export interface OracleSettings {
   /**
    * <p>When set to <code>true</code>, this attribute specifies a parallel load
    *          when <code>useDirectPathFullLoad</code> is set to <code>Y</code>. This attribute
-   *          also only applies when you use the AWS DMS parallel load
+   *          also only applies when you use the DMS parallel load
    *          feature.  Note that the target table cannot have any constraints or indexes.</p>
    */
   DirectPathParallelLoad?: boolean;
@@ -1721,8 +1749,8 @@ export interface OracleSettings {
    *             </code> part of the comma-separated value you
    *          set to the <code>Password</code> request parameter when you create the endpoint. The
    *             <code>SecurityDbEncryptian</code> setting is related to this
-   *             <code>SecurityDbEncryptionName</code> setting. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption"> Supported encryption methods for using Oracle as a source for AWS
-   *             DMS</a> in the <i>AWS Database Migration Service User Guide</i>. </p>
+   *             <code>SecurityDbEncryptionName</code> setting. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption"> Supported encryption methods for using Oracle as a source for DMS
+   *             </a> in the <i>Database Migration Service User Guide</i>. </p>
    */
   SecurityDbEncryption?: string;
 
@@ -1732,8 +1760,8 @@ export interface OracleSettings {
    *          encrypted using TDE. The key value is the value of the <code>SecurityDbEncryption</code>
    *          setting. For more information on setting the key name value of
    *             <code>SecurityDbEncryptionName</code>, see the information and example for setting the
-   *             <code>securityDbEncryptionName</code> extra connection attribute in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption"> Supported encryption methods for using Oracle as a source for AWS
-   *             DMS</a> in the <i>AWS Database Migration Service User
+   *             <code>securityDbEncryptionName</code> extra connection attribute in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption"> Supported encryption methods for using Oracle as a source for DMS
+   *             </a> in the <i>Database Migration Service User
    *          Guide</i>.</p>
    */
   SecurityDbEncryptionName?: string;
@@ -1754,15 +1782,51 @@ export interface OracleSettings {
   SpatialDataOptionToGeoJsonFunctionName?: string;
 
   /**
+   * <p>Use this attribute to specify a time in minutes for the delay in standby sync. If the
+   *          source is an Oracle Active Data Guard standby database, use this attribute to specify the
+   *          time lag between primary and standby databases.</p>
+   *          <p>In DMS, you can create an Oracle CDC task that uses an Active Data Guard standby
+   *          instance as a source for replicating ongoing changes. Doing this eliminates the need to connect
+   *          to an active database that might be in production.</p>
+   */
+  StandbyDelayTime?: number;
+
+  /**
    * <p>Endpoint connection user name.</p>
    */
   Username?: string;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+   * <p>Set this attribute to Y to capture change data using the Binary Reader utility. Set
+   *             <code>UseLogminerReader</code> to N to set this attribute to Y. To use Binary Reader
+   *          with Amazon RDS for Oracle as the source, you set additional attributes. For more information
+   *          about using this setting with Oracle Automatic Storage Management (ASM), see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC"> Using Oracle LogMiner or DMS Binary Reader for
+   *          CDC</a>.</p>
+   */
+  UseBFile?: boolean;
+
+  /**
+   * <p>Set this attribute to Y to have DMS use a direct path full load.
+   *          Specify this value to use the direct path protocol in the Oracle Call Interface (OCI).
+   *          By using this OCI protocol, you can bulk-load Oracle target tables during a full load.</p>
+   */
+  UseDirectPathFullLoad?: boolean;
+
+  /**
+   * <p>Set this attribute to Y to capture change data using the Oracle LogMiner utility (the
+   *          default). Set this attribute to N if you want to access the redo logs as a binary file.
+   *          When you set <code>UseLogminerReader</code> to N, also set <code>UseBfile</code> to Y. For
+   *          more information on this setting and using Oracle ASM, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC"> Using Oracle LogMiner or DMS Binary Reader for CDC</a> in
+   *          the <i>DMS User Guide</i>.</p>
+   */
+  UseLogminerReader?: boolean;
+
+  /**
+   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
    *          trusted entity and grants the required permissions to access the value in
-   *             <code>SecretsManagerSecret</code>. <code>SecretsManagerSecret</code> has the value of the AWS Secrets
-   *          Manager secret that allows access to the Oracle endpoint.</p>
+   *          <code>SecretsManagerSecret</code>. The role must allow the <code>iam:PassRole</code> action.
+   *          <code>SecretsManagerSecret</code> has the value of the Amazon Web Services Secrets Manager
+   *           secret that allows access to the Oracle endpoint.</p>
    *          <note>
    *             <p>You can specify one of two sets of values for these permissions. You can specify the
    *             values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
@@ -1770,8 +1834,8 @@ export interface OracleSettings {
    *                <code>ServerName</code>, and <code>Port</code>. You can't specify both. For more
    *             information on creating this <code>SecretsManagerSecret</code> and the
    *                <code>SecretsManagerAccessRoleArn</code> and <code>SecretsManagerSecretId</code>
-   *             required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access AWS Database Migration Service
-   *                resources</a> in the <i>AWS Database Migration Service User
+   *             required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access Database Migration Service
+   *                resources</a> in the <i>Database Migration Service User
    *                Guide</i>.</p>
    *          </note>
    */
@@ -1784,7 +1848,7 @@ export interface OracleSettings {
 
   /**
    * <p>Required only if your Oracle endpoint uses Advanced Storage Manager (ASM). The full ARN
-   *          of the IAM role that specifies AWS DMS as the trusted entity and grants the required
+   *          of the IAM role that specifies DMS as the trusted entity and grants the required
    *          permissions to access the <code>SecretsManagerOracleAsmSecret</code>. This
    *             <code>SecretsManagerOracleAsmSecret</code> has the secret value that allows access to
    *          the Oracle ASM of the endpoint.</p>
@@ -1795,8 +1859,8 @@ export interface OracleSettings {
    *                <code>AsmServerName</code>. You can't specify both. For more information on
    *             creating this <code>SecretsManagerOracleAsmSecret</code> and the
    *                <code>SecretsManagerOracleAsmAccessRoleArn</code> and
-   *                <code>SecretsManagerOracleAsmSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access AWS Database Migration Service
-   *                resources</a> in the <i>AWS Database Migration Service User
+   *                <code>SecretsManagerOracleAsmSecretId</code> required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access Database Migration Service
+   *                resources</a> in the <i>Database Migration Service User
    *                Guide</i>.</p>
    *          </note>
    */
@@ -1821,13 +1885,19 @@ export namespace OracleSettings {
   });
 }
 
+export enum PluginNameValue {
+  NO_PREFERENCE = "no-preference",
+  PGLOGICAL = "pglogical",
+  TEST_DECODING = "test-decoding",
+}
+
 /**
  * <p>Provides information that defines a PostgreSQL endpoint.</p>
  */
 export interface PostgreSQLSettings {
   /**
    * <p>For use with change data capture (CDC) only, this attribute
-   *          has AWS DMS bypass foreign keys and user triggers to
+   *          has DMS bypass foreign keys and user triggers to
    *          reduce the time it takes to bulk load data.</p>
    *          <p>Example: <code>afterConnectScript=SET
    *          session_replication_role='replica'</code>
@@ -1836,7 +1906,7 @@ export interface PostgreSQLSettings {
   AfterConnectScript?: string;
 
   /**
-   * <p>To capture DDL events, AWS DMS creates various artifacts in
+   * <p>To capture DDL events, DMS creates various artifacts in
    *          the PostgreSQL database when the task starts. You can later
    *          remove these artifacts.</p>
    *          <p>If this value is set to <code>N</code>, you don't have to create tables or
@@ -1883,6 +1953,26 @@ export interface PostgreSQLSettings {
   FailTasksOnLobTruncation?: boolean;
 
   /**
+   * <p>If this attribute is set to true, the write-ahead log (WAL) heartbeat keeps
+   *          <code>restart_lsn</code> moving and prevents storage full scenarios.
+   *          The WAL heartbeat mimics a dummy transaction, so that idle
+   *          logical replication slots don't hold onto old WAL logs that result in storage full
+   *          situations on the source.
+   *          </p>
+   */
+  HeartbeatEnable?: boolean;
+
+  /**
+   * <p>Sets the schema in which the heartbeat artifacts are created.</p>
+   */
+  HeartbeatSchema?: string;
+
+  /**
+   * <p>Sets the WAL heartbeat frequency (in minutes).</p>
+   */
+  HeartbeatFrequency?: number;
+
+  /**
    * <p>Endpoint connection password.</p>
    */
   Password?: string;
@@ -1905,17 +1995,23 @@ export interface PostgreSQLSettings {
   /**
    * <p>Sets the name of a previously created logical replication slot
    *          for a CDC load of the PostgreSQL source instance.</p>
-   *          <p>When used with the AWS DMS API <code>CdcStartPosition</code>
+   *          <p>When used with the DMS API <code>CdcStartPosition</code>
    *          request parameter, this attribute also enables using native
    *          CDC start points.</p>
    */
   SlotName?: string;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+   * <p>Specifies the plugin to use to create a replication slot.</p>
+   */
+  PluginName?: PluginNameValue | string;
+
+  /**
+   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
    *          trusted entity and grants the required permissions to access the value in
-   *             <code>SecretsManagerSecret</code>. <code>SecretsManagerSecret</code> has the value of the AWS Secrets
-   *          Manager secret that allows access to the PostgreSQL endpoint.</p>
+   *          <code>SecretsManagerSecret</code>. The role must allow the <code>iam:PassRole</code> action.
+   *          <code>SecretsManagerSecret</code> has the value of the Amazon Web Services Secrets Manager
+   *           secret that allows access to the PostgreSQL endpoint.</p>
    *          <note>
    *             <p>You can specify one of two sets of values for these permissions. You can specify the
    *             values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
@@ -1923,8 +2019,8 @@ export interface PostgreSQLSettings {
    *                <code>ServerName</code>, and <code>Port</code>. You can't specify both. For more
    *             information on creating this <code>SecretsManagerSecret</code> and the
    *                <code>SecretsManagerAccessRoleArn</code> and <code>SecretsManagerSecretId</code>
-   *             required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access AWS Database Migration Service
-   *                resources</a> in the <i>AWS Database Migration Service User
+   *             required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access Database Migration Service
+   *                resources</a> in the <i>Database Migration Service User
    *                Guide</i>.</p>
    *          </note>
    */
@@ -1974,12 +2070,12 @@ export interface RedshiftSettings {
   /**
    * <p>An S3 folder where the comma-separated-value (.csv) files are stored before being
    *          uploaded to the target Redshift cluster. </p>
-   *          <p>For full load mode, AWS DMS converts source records into .csv files and loads them to
-   *          the <i>BucketFolder/TableID</i> path. AWS DMS uses the Redshift
+   *          <p>For full load mode, DMS converts source records into .csv files and loads them to
+   *          the <i>BucketFolder/TableID</i> path. DMS uses the Redshift
    *             <code>COPY</code> command to upload the .csv files to the target table. The files are
    *          deleted once the <code>COPY</code> operation has finished. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html">COPY</a> in the
    *             <i>Amazon Redshift Database Developer Guide</i>.</p>
-   *          <p>For change-data-capture (CDC) mode, AWS DMS creates a <i>NetChanges</i> table,
+   *          <p>For change-data-capture (CDC) mode, DMS creates a <i>NetChanges</i> table,
    *          and loads the .csv files to this <i>BucketFolder/NetChangesTableID</i> path.</p>
    */
   BucketFolder?: string;
@@ -2028,7 +2124,7 @@ export interface RedshiftSettings {
   DateFormat?: string;
 
   /**
-   * <p>A value that specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as
+   * <p>A value that specifies whether DMS should migrate empty CHAR and VARCHAR fields as
    *          NULL. A value of <code>true</code> sets empty CHAR and VARCHAR fields to null. The default
    *          is <code>false</code>.</p>
    */
@@ -2044,7 +2140,7 @@ export interface RedshiftSettings {
    *                <code>SSE_S3</code>. But you can’t change the existing value from <code>SSE_S3</code>
    *             to <code>SSE_KMS</code>.</p>
    *          </note>
-   *          <p>To use <code>SSE_S3</code>, create an AWS Identity and Access Management (IAM) role with
+   *          <p>To use <code>SSE_S3</code>, create an Identity and Access Management (IAM) role with
    *          a policy that allows <code>"arn:aws:s3:::*"</code> to use the following actions:
    *             <code>"s3:PutObject", "s3:ListBucket"</code>
    *          </p>
@@ -2073,7 +2169,7 @@ export interface RedshiftSettings {
 
   /**
    * <p>The amount of time to wait (in milliseconds) before timing out of operations performed
-   *             by AWS DMS on a Redshift cluster, such as Redshift COPY, INSERT, DELETE, and UPDATE.</p>
+   *             by DMS on a Redshift cluster, such as Redshift COPY, INSERT, DELETE, and UPDATE.</p>
    */
   LoadTimeout?: number;
 
@@ -2121,12 +2217,12 @@ export interface RedshiftSettings {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that has access to the Amazon Redshift
-   *          service.</p>
+   *          service. The role must allow the <code>iam:PassRole</code> action.</p>
    */
   ServiceAccessRoleArn?: string;
 
   /**
-   * <p>The AWS KMS key ID. If you are using <code>SSE_KMS</code> for the <code>EncryptionMode</code>,
+   * <p>The KMS key ID. If you are using <code>SSE_KMS</code> for the <code>EncryptionMode</code>,
    *          provide this key ID. The key that you use needs an attached policy that enables IAM user
    *          permissions and allows use of the key.</p>
    */
@@ -2171,10 +2267,10 @@ export interface RedshiftSettings {
   WriteBufferSize?: number;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
    *          trusted entity and grants the required permissions to access the value in
-   *             <code>SecretsManagerSecret</code>. <code>SecretsManagerSecret</code> has the value of the AWS Secrets
-   *          Manager secret that allows access to the Amazon Redshift endpoint.</p>
+   *          <code>SecretsManagerSecret</code>. The role must allow the <code>iam:PassRole</code> action.
+   *          <code>SecretsManagerSecret</code> has the value of the Amazon Web Services Secrets Manager secret that allows access to the Amazon Redshift endpoint.</p>
    *          <note>
    *             <p>You can specify one of two sets of values for these permissions. You can specify the
    *             values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
@@ -2182,8 +2278,8 @@ export interface RedshiftSettings {
    *                <code>ServerName</code>, and <code>Port</code>. You can't specify both. For more
    *             information on creating this <code>SecretsManagerSecret</code> and the
    *                <code>SecretsManagerAccessRoleArn</code> and <code>SecretsManagerSecretId</code>
-   *             required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access AWS Database Migration Service
-   *                resources</a> in the <i>AWS Database Migration Service User
+   *             required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access Database Migration Service
+   *                resources</a> in the <i>Database Migration Service User
    *                Guide</i>.</p>
    *          </note>
    */
@@ -2246,7 +2342,8 @@ export enum ParquetVersionValue {
  */
 export interface S3Settings {
   /**
-   * <p> The Amazon Resource Name (ARN) used by the service access IAM role. It is a required
+   * <p> The Amazon Resource Name (ARN) used by the service to access the IAM role.
+   *          The role must allow the <code>iam:PassRole</code> action. It is a required
    *          parameter that enables DMS to write and read objects from an S3 bucket.</p>
    */
   ServiceAccessRoleArn?: string;
@@ -2301,7 +2398,7 @@ export interface S3Settings {
    *                <code>SSE_S3</code>. But you can’t change the existing value from <code>SSE_S3</code>
    *             to <code>SSE_KMS</code>.</p>
    *          </note>
-   *          <p>To use <code>SSE_S3</code>, you need an AWS Identity and Access Management (IAM) role
+   *          <p>To use <code>SSE_S3</code>, you need an Identity and Access Management (IAM) role
    *          with permission to allow <code>"arn:aws:s3:::dms-*"</code> to use the following
    *          actions:</p>
    *          <ul>
@@ -2366,8 +2463,8 @@ export interface S3Settings {
 
   /**
    * <p>If you are using <code>SSE_KMS</code> for the <code>EncryptionMode</code>, provide the
-   *          AWS KMS key ID. The key that you use needs an attached policy that enables AWS Identity and
-   *          Access Management (IAM) user permissions and allows use of the key.</p>
+   *          KMS key ID. The key that you use needs an attached policy that enables Identity and Access Management
+   *          (IAM) user permissions and allows use of the key.</p>
    *          <p>Here is a CLI example: <code>aws dms create-endpoint --endpoint-identifier
    *                <i>value</i> --endpoint-type target --engine-name s3 --s3-settings
    *                ServiceAccessRoleArn=<i>value</i>,BucketFolder=<i>value</i>,BucketName=<i>value</i>,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=<i>value</i>
@@ -2460,7 +2557,7 @@ export interface S3Settings {
    * <p>A value that enables a full load to write INSERT operations to the comma-separated value
    *          (.csv) output files only to indicate how the rows were added to the source database.</p>
    *          <note>
-   *             <p>AWS DMS supports the <code>IncludeOpForFullLoad</code> parameter in versions 3.1.4 and
+   *             <p>DMS supports the <code>IncludeOpForFullLoad</code> parameter in versions 3.1.4 and
    *             later.</p>
    *          </note>
    *          <p>For full load, records can only be inserted. By default (the <code>false</code>
@@ -2472,8 +2569,8 @@ export interface S3Settings {
    *          <note>
    *             <p>This setting works together with the <code>CdcInsertsOnly</code> and the
    *                <code>CdcInsertsAndUpdates</code> parameters for output to .csv files only. For more
-   *             information about how these settings work together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating Source DB Operations in Migrated S3 Data</a> in the <i>AWS
-   *                Database Migration Service User Guide.</i>.</p>
+   *             information about how these settings work together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service
+   *                    User Guide.</i>.</p>
    *          </note>
    */
   IncludeOpForFullLoad?: boolean;
@@ -2492,12 +2589,11 @@ export interface S3Settings {
    *          INSERT operation at the source. If <code>IncludeOpForFullLoad</code> is set to
    *             <code>false</code>, every CDC record is written without a first field to indicate the
    *          INSERT operation at the source. For more information about how these settings work
-   *          together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating Source DB Operations in Migrated S3 Data</a> in the <i>AWS
-   *             Database Migration Service User Guide.</i>.</p>
+   *          together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service User Guide.</i>.</p>
    *
    *          <note>
    *
-   *                <p>AWS DMS supports the interaction described preceding between the
+   *                <p>DMS supports the interaction described preceding between the
    *                <code>CdcInsertsOnly</code> and <code>IncludeOpForFullLoad</code> parameters in
    *             versions 3.1.4 and later. </p>
    *
@@ -2512,10 +2608,10 @@ export interface S3Settings {
   CdcInsertsOnly?: boolean;
 
   /**
-   * <p>A value that when nonblank causes AWS DMS to add a column with timestamp information to
+   * <p>A value that when nonblank causes DMS to add a column with timestamp information to
    *          the endpoint data for an Amazon S3 target.</p>
    *          <note>
-   *             <p>AWS DMS supports the <code>TimestampColumnName</code> parameter in versions 3.1.4 and later.</p>
+   *             <p>DMS supports the <code>TimestampColumnName</code> parameter in versions 3.1.4 and later.</p>
    *          </note>
    *          <p>DMS includes an additional <code>STRING</code> column in the
    *          .csv or .parquet object files of your migrated data when you set
@@ -2541,20 +2637,20 @@ export interface S3Settings {
    * <p>A value that specifies the precision of any <code>TIMESTAMP</code> column values that
    *          are written to an Amazon S3 object file in .parquet format.</p>
    *          <note>
-   *             <p>AWS DMS supports the <code>ParquetTimestampInMillisecond</code> parameter in versions
+   *             <p>DMS supports the <code>ParquetTimestampInMillisecond</code> parameter in versions
    *             3.1.4 and later.</p>
    *          </note>
    *          <p>When <code>ParquetTimestampInMillisecond</code> is set to <code>true</code> or
-   *             <code>y</code>, AWS DMS writes all <code>TIMESTAMP</code> columns in a .parquet
+   *             <code>y</code>, DMS writes all <code>TIMESTAMP</code> columns in a .parquet
    *          formatted file with millisecond precision. Otherwise, DMS writes them with microsecond
    *          precision.</p>
-   *          <p>Currently, Amazon Athena and AWS Glue can handle only
+   *          <p>Currently, Amazon Athena and Glue can handle only
    *          millisecond precision for <code>TIMESTAMP</code> values. Set
    *          this parameter to <code>true</code> for S3 endpoint object
-   *          files that are .parquet formatted only if you plan to query or process the data with Athena or AWS Glue.</p>
+   *          files that are .parquet formatted only if you plan to query or process the data with Athena or Glue.</p>
    *          <note>
    *
-   *                <p>AWS DMS writes any <code>TIMESTAMP</code> column
+   *                <p>DMS writes any <code>TIMESTAMP</code> column
    *                   values written to an S3 file in .csv format with
    *                   microsecond precision.</p>
    *
@@ -2579,11 +2675,10 @@ export interface S3Settings {
    *          operations at the source. But if <code>IncludeOpForFullLoad</code> is set to
    *             <code>false</code>, CDC records are written without an indication of INSERT or UPDATE
    *          operations at the source. For more information about how these settings work together, see
-   *             <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating Source DB Operations in Migrated S3 Data</a> in the <i>AWS
-   *             Database Migration Service User Guide.</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service User Guide.</i>.</p>
    *          <note>
    *
-   *             <p>AWS DMS supports the use of the <code>CdcInsertsAndUpdates</code> parameter in
+   *             <p>DMS supports the use of the <code>CdcInsertsAndUpdates</code> parameter in
    *             versions 3.3.1 and later.</p>
    *
    *             <p>
@@ -2597,9 +2692,9 @@ export interface S3Settings {
   CdcInsertsAndUpdates?: boolean;
 
   /**
-   * <p>When set to <code>true</code>, this parameter partitions S3 bucket folders based on transaction commit
-   *          dates. The default value is <code>false</code>. For more information about date-based folder partitoning,
-   *          see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning">Using date-based folder partitioning</a>.</p>
+   * <p>When set to <code>true</code>, this parameter partitions S3 bucket folders based on
+   *          transaction commit dates. The default value is <code>false</code>. For more information
+   *          about date-based folder partitioning, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning">Using date-based folder partitioning</a>.</p>
    */
   DatePartitionEnabled?: boolean;
 
@@ -2618,12 +2713,12 @@ export interface S3Settings {
   /**
    * <p>This setting applies if the S3 output files during a change data capture (CDC) load are
    *          written in .csv format. If set to <code>true</code> for columns not included in the
-   *          supplemental log, AWS DMS uses the value specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue">
+   *          supplemental log, DMS uses the value specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue">
    *                <code>CsvNoSupValue</code>
    *             </a>. If not set or set to
-   *             <code>false</code>, AWS DMS uses the null value for these columns.</p>
+   *             <code>false</code>, DMS uses the null value for these columns.</p>
    *          <note>
-   *             <p>This setting is supported in AWS DMS versions 3.4.1 and later.</p>
+   *             <p>This setting is supported in DMS versions 3.4.1 and later.</p>
    *          </note>
    */
   UseCsvNoSupValue?: boolean;
@@ -2633,36 +2728,36 @@ export interface S3Settings {
    *          (CDC) load are written in .csv format. If <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-UseCsvNoSupValue">
    *                <code>UseCsvNoSupValue</code>
    *             </a> is set to true, specify a
-   *          string value that you want AWS DMS to use for all columns not included in the supplemental
-   *          log. If you do not specify a string value, AWS DMS uses the null value for these columns
+   *          string value that you want DMS to use for all columns not included in the supplemental
+   *          log. If you do not specify a string value, DMS uses the null value for these columns
    *          regardless of the <code>UseCsvNoSupValue</code> setting.</p>
    *          <note>
-   *             <p>This setting is supported in AWS DMS versions 3.4.1 and later.</p>
+   *             <p>This setting is supported in DMS versions 3.4.1 and later.</p>
    *          </note>
    */
   CsvNoSupValue?: string;
 
   /**
-   * <p>If set to <code>true</code>, AWS DMS saves the transaction order for a change data
+   * <p>If set to <code>true</code>, DMS saves the transaction order for a change data
    *          capture (CDC) load on the Amazon S3 target specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CdcPath">
    *                <code>CdcPath</code>
    *             </a>. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath">Capturing data changes (CDC) including transaction order on the S3
    *             target</a>.</p>
    *          <note>
-   *             <p>This setting is supported in AWS DMS versions 3.4.2 and later.</p>
+   *             <p>This setting is supported in DMS versions 3.4.2 and later.</p>
    *          </note>
    */
   PreserveTransactions?: boolean;
 
   /**
    * <p>Specifies the folder path of CDC files. For an S3 source, this setting is required if a
-   *          task captures change data; otherwise, it's optional. If <code>CdcPath</code> is set, AWS
-   *          DMS reads CDC files from this path and replicates the data changes to the target endpoint.
+   *          task captures change data; otherwise, it's optional. If <code>CdcPath</code> is set, DMS
+   *           reads CDC files from this path and replicates the data changes to the target endpoint.
    *          For an S3 target if you set <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-PreserveTransactions">
    *                <code>PreserveTransactions</code>
-   *             </a> to <code>true</code>, AWS
-   *          DMS verifies that you have set this parameter to a folder path on your S3 target where AWS
-   *          DMS can save the transaction order for the CDC load. AWS DMS creates this CDC folder path
+   *             </a> to <code>true</code>, DMS
+   *           verifies that you have set this parameter to a folder path on your S3 target where DMS
+   *           can save the transaction order for the CDC load. DMS creates this CDC folder path
    *          in either your S3 target working directory or the S3 target location specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketFolder">
    *                <code>BucketFolder</code>
    *             </a> and <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketName">
@@ -2670,16 +2765,16 @@ export interface S3Settings {
    *             </a>.</p>
    *          <p>For example, if you specify <code>CdcPath</code> as <code>MyChangedData</code>, and you
    *          specify <code>BucketName</code> as <code>MyTargetBucket</code> but do not specify
-   *             <code>BucketFolder</code>, AWS DMS creates the CDC folder path following:
+   *             <code>BucketFolder</code>, DMS creates the CDC folder path following:
    *             <code>MyTargetBucket/MyChangedData</code>.</p>
    *          <p>If you specify the same <code>CdcPath</code>, and you specify <code>BucketName</code> as
    *             <code>MyTargetBucket</code> and <code>BucketFolder</code> as <code>MyTargetData</code>,
-   *          AWS DMS creates the CDC folder path following:
+   *          DMS creates the CDC folder path following:
    *             <code>MyTargetBucket/MyTargetData/MyChangedData</code>.</p>
    *          <p>For more information on CDC including transaction order on an S3 target, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath">Capturing data changes (CDC) including transaction order on the S3
    *             target</a>.</p>
    *          <note>
-   *             <p>This setting is supported in AWS DMS versions 3.4.2 and later.</p>
+   *             <p>This setting is supported in DMS versions 3.4.2 and later.</p>
    *          </note>
    */
   CdcPath?: string;
@@ -2731,10 +2826,11 @@ export interface SybaseSettings {
   Username?: string;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
+   * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
    *          trusted entity and grants the required permissions to access the value in
-   *             <code>SecretsManagerSecret</code>. <code>SecretsManagerSecret</code> has the value of the AWS Secrets
-   *          Manager secret that allows access to the SAP ASE endpoint.</p>
+   *          <code>SecretsManagerSecret</code>. The role must allow the <code>iam:PassRole</code> action.
+   *          <code>SecretsManagerSecret</code> has the value of the Amazon Web Services Secrets Manager
+   *           secret that allows access to the SAP ASE endpoint.</p>
    *          <note>
    *             <p>You can specify one of two sets of values for these permissions. You can specify the
    *             values for this setting and <code>SecretsManagerSecretId</code>. Or you can specify
@@ -2742,8 +2838,8 @@ export interface SybaseSettings {
    *                <code>ServerName</code>, and <code>Port</code>. You can't specify both. For more
    *             information on creating this <code>SecretsManagerSecret</code> and the
    *                <code>SecretsManagerAccessRoleArn</code> and <code>SecretsManagerSecretId</code>
-   *             required to access it, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access AWS Database Migration Service
-   *                resources</a> in the <i>AWS Database Migration Service User
+   *             required to access it, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager">Using secrets to access Database Migration Service
+   *                resources</a> in the <i>Database Migration Service User
    *                Guide</i>.</p>
    *          </note>
    */
@@ -2813,7 +2909,7 @@ export interface CreateEndpointMessage {
   Port?: number;
 
   /**
-   * <p>The name of the endpoint database.</p>
+   * <p>The name of the endpoint database. For a MySQL source or target endpoint, do not specify DatabaseName.</p>
    */
   DatabaseName?: string;
 
@@ -2822,18 +2918,18 @@ export interface CreateEndpointMessage {
    *          name-value pair associated by an equal sign (=). Multiple attributes are separated by a
    *          semicolon (;) with no additional white space. For information on the attributes available
    *          for connecting your source or target endpoint, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Endpoints.html">Working with
-   *             AWS DMS Endpoints</a> in the <i>AWS Database Migration Service User
+   *             DMS Endpoints</a> in the <i>Database Migration Service User
    *             Guide.</i>
    *          </p>
    */
   ExtraConnectionAttributes?: string;
 
   /**
-   * <p>An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.</p>
+   * <p>An KMS key identifier that is used to encrypt the connection parameters for the endpoint.</p>
    *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then
-   *            AWS DMS uses your default encryption key.</p>
-   *          <p>AWS KMS creates the default encryption key for your AWS account. Your AWS account has a
-   *          different default encryption key for each AWS Region.</p>
+   *            DMS uses your default encryption key.</p>
+   *          <p>KMS creates the default encryption key for your account. Your account has a
+   *          different default encryption key for each Region.</p>
    */
   KmsKeyId?: string;
 
@@ -2855,7 +2951,7 @@ export interface CreateEndpointMessage {
 
   /**
    * <p> The Amazon Resource Name (ARN) for the service access role that you want to use to
-   *          create the endpoint. </p>
+   *           create the endpoint. The role must allow the <code>iam:PassRole</code> action.</p>
    */
   ServiceAccessRoleArn?: string;
 
@@ -2866,8 +2962,8 @@ export interface CreateEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the target Amazon DynamoDB endpoint. For information about other
-   *             available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html">Using Object Mapping to Migrate
-   *             Data to DynamoDB</a> in the <i>AWS Database Migration Service User
+   *             available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.ObjectMapping">Using Object Mapping to Migrate
+   *                 Data to DynamoDB</a> in the <i>Database Migration Service User
    *             Guide.</i>
    *          </p>
    */
@@ -2876,8 +2972,8 @@ export interface CreateEndpointMessage {
   /**
    * <p>Settings in JSON format for the target Amazon S3 endpoint. For more information about
    *          the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring">Extra
-   *             Connection Attributes When Using Amazon S3 as a Target for AWS DMS</a> in the
-   *             <i>AWS Database Migration Service User Guide.</i>
+   *             Connection Attributes When Using Amazon S3 as a Target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   S3Settings?: S3Settings;
@@ -2889,49 +2985,43 @@ export interface CreateEndpointMessage {
    *             <li>
    *                <p>
    *                   <code>ServiceAccessRoleArn</code> - The IAM role that has permission to access the
-   *                Amazon S3 bucket.</p>
+   *                Amazon S3 bucket. The role must allow the <code>iam:PassRole</code> action.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>BucketName</code> - The name of the S3 bucket to use.</p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CompressionType</code> - An optional parameter to use GZIP to compress the
-   *                target files. To use GZIP, set this value to <code>NONE</code> (the default). To keep
-   *                the files uncompressed, don't use this value.</p>
-   *             </li>
    *          </ul>
    *          <p>Shorthand syntax for these settings is as follows:
-   *             <code>ServiceAccessRoleArn=string,BucketName=string,CompressionType=string</code>
+   *             <code>ServiceAccessRoleArn=string,BucketName=string</code>
    *          </p>
    *          <p>JSON syntax for these settings is as follows: <code>{ "ServiceAccessRoleArn":
-   *             "string", "BucketName": "string", "CompressionType": "none"|"gzip" } </code>
+   *             "string", "BucketName": "string", } </code>
    *          </p>
    */
   DmsTransferSettings?: DmsTransferSettings;
 
   /**
    * <p>Settings in JSON format for the source MongoDB endpoint. For more information about the
-   *          available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html#CHAP_Source.MongoDB.Configuration">Using MongoDB as a Target for AWS Database Migration Service</a> in the
-   *             <i>AWS Database Migration Service User Guide.</i>
+   *          available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html#CHAP_Source.MongoDB.Configuration">Endpoint configuration settings
+   *             when using MongoDB as a source for Database Migration Service</a> in the
+   *             <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   MongoDbSettings?: MongoDbSettings;
 
   /**
    * <p>Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams. For
-   *          more information about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html">Using Amazon Kinesis Data Streams
-   *             as a Target for AWS Database Migration Service</a> in the <i>AWS Database Migration Service User
-   *             Guide.</i>
+   *          more information about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping">Using object mapping to
+   *             migrate data to a Kinesis data stream</a> in the <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   KinesisSettings?: KinesisSettings;
 
   /**
    * <p>Settings in JSON format for the target Apache Kafka endpoint. For more information about
-   *          the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html">Using Apache Kafka as a Target for
-   *             AWS Database Migration Service</a> in the <i>AWS Database Migration Service User
+   *          the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html#CHAP_Target.Kafka.ObjectMapping">Using object mapping
+   *             to migrate data to a Kafka topic</a> in the <i>Database Migration Service User
    *             Guide.</i>
    *          </p>
    */
@@ -2939,16 +3029,16 @@ export interface CreateEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the target Elasticsearch endpoint. For more information
-   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS</a> in
-   *          the <i>AWS Database Migration Service User Guide</i>.</p>
+   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra Connection Attributes When Using Elasticsearch as a Target for DMS</a> in
+   *           the <i>Database Migration Service User Guide</i>.</p>
    */
   ElasticsearchSettings?: ElasticsearchSettings;
 
   /**
    * <p>Settings in JSON format for the target Amazon Neptune endpoint.
    *          For more information
-   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings">Specifying Endpoint Settings for Amazon Neptune as a Target</a>
-   *             in the <i>AWS Database Migration Service User Guide.</i>
+   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings">Specifying graph-mapping rules using Gremlin and R2RML for Amazon Neptune as a target</a>
+   *             in the <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   NeptuneSettings?: NeptuneSettings;
@@ -2960,59 +3050,59 @@ export interface CreateEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the source and target PostgreSQL endpoint. For information
-   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html">Extra connection
-   *             attributes when using PostgreSQL as a source for AWS DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.html">
-   *                Extra connection attributes when using PostgreSQL as a target for AWS DMS</a> in the
-   *             <i>AWS Database Migration Service User Guide.</i>
+   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra connection
+   *             attributes when using PostgreSQL as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.html#CHAP_Target.PostgreSQL.ConnectionAttrib">
+   *                Extra connection attributes when using PostgreSQL as a target for DMS</a> in the
+   *           <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   PostgreSQLSettings?: PostgreSQLSettings;
 
   /**
    * <p>Settings in JSON format for the source and target MySQL endpoint. For information about
-   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html">Extra connection attributes
-   *             when using MySQL as a source for AWS DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html">Extra connection attributes when using a MySQL-compatible database as a target for AWS DMS</a> in
-   *          the <i>AWS Database Migration Service User Guide.</i>
+   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.ConnectionAttrib">Extra connection attributes
+   *             when using MySQL as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html#CHAP_Target.MySQL.ConnectionAttrib">Extra connection attributes when using a MySQL-compatible database as a target for DMS</a> in
+   *           the <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   MySQLSettings?: MySQLSettings;
 
   /**
    * <p>Settings in JSON format for the source and target Oracle endpoint. For information about
-   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html">Extra connection attributes
-   *             when using Oracle as a source for AWS DMS</a> and
-   *             <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.html">
-   *             Extra connection attributes when using Oracle as a target for AWS DMS</a>
-   *             in the <i>AWS Database Migration Service User Guide.</i>
+   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.ConnectionAttrib">Extra connection attributes
+   *             when using Oracle as a source for DMS</a> and
+   *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.html#CHAP_Target.Oracle.ConnectionAttrib">
+   *             Extra connection attributes when using Oracle as a target for DMS</a>
+   *           in the <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   OracleSettings?: OracleSettings;
 
   /**
    * <p>Settings in JSON format for the source and target SAP ASE endpoint. For information
-   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.html">Extra connection attributes
-   *             when using SAP ASE as a source for AWS DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.html">Extra connection attributes
-   *             when using SAP ASE as a target for AWS DMS</a> in the <i>AWS Database
-   *             Migration Service User Guide.</i>
+   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.html#CHAP_Source.SAP.ConnectionAttrib">Extra connection attributes
+   *             when using SAP ASE as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.html#CHAP_Target.SAP.ConnectionAttrib">Extra connection attributes
+   *                 when using SAP ASE as a target for DMS</a> in the <i>Database Migration Service
+   *                     User Guide.</i>
    *          </p>
    */
   SybaseSettings?: SybaseSettings;
 
   /**
    * <p>Settings in JSON format for the source and target Microsoft SQL Server endpoint. For
-   *          information about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html">Extra connection
-   *             attributes when using SQL Server as a source for AWS DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.html">
-   *             Extra connection attributes when using SQL Server as a target for AWS DMS</a> in the
-   *             <i>AWS Database Migration Service User Guide.</i>
+   *          information about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html#CHAP_Source.SQLServer.ConnectionAttrib">Extra connection
+   *             attributes when using SQL Server as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.html#CHAP_Target.SQLServer.ConnectionAttrib">
+   *             Extra connection attributes when using SQL Server as a target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   MicrosoftSQLServerSettings?: MicrosoftSQLServerSettings;
 
   /**
    * <p>Settings in JSON format for the source IBM Db2 LUW endpoint. For information about other
-   *          available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.html">Extra connection attributes
-   *             when using Db2 LUW as a source for AWS DMS</a> in the <i>AWS Database
-   *             Migration Service User Guide.</i>
+   *          available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.html#CHAP_Source.DB2.ConnectionAttrib">Extra connection attributes
+   *             when using Db2 LUW as a source for DMS</a> in the <i>Database Migration Service
+   *                 User Guide.</i>
    *          </p>
    */
   IBMDb2Settings?: IBMDb2Settings;
@@ -3025,7 +3115,7 @@ export interface CreateEndpointMessage {
    *          and can only begin with a letter, such as <code>Example-App-ARN1</code>. For example, this
    *          value might result in the <code>EndpointArn</code> value
    *             <code>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</code>. If you don't
-   *          specify a <code>ResourceIdentifier</code> value, AWS DMS generates a default identifier
+   *          specify a <code>ResourceIdentifier</code> value, DMS generates a default identifier
    *          value for the end of <code>EndpointArn</code>.</p>
    */
   ResourceIdentifier?: string;
@@ -3072,11 +3162,6 @@ export namespace CreateEndpointMessage {
  *             <li>
  *                <p>
  *                   <code>DescribeEndpoint</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DescribeEndpointTypes</code>
  *                </p>
  *             </li>
  *             <li>
@@ -3147,11 +3232,11 @@ export interface Endpoint {
   Status?: string;
 
   /**
-   * <p>An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.</p>
+   * <p>An KMS key identifier that is used to encrypt the connection parameters for the endpoint.</p>
    *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then
-   *            AWS DMS uses your default encryption key.</p>
-   *          <p>AWS KMS creates the default encryption key for your AWS account. Your AWS account has a
-   *          different default encryption key for each AWS Region.</p>
+   *            DMS uses your default encryption key.</p>
+   *          <p>KMS creates the default encryption key for your account. Your account has a
+   *          different default encryption key for each Region.</p>
    */
   KmsKeyId?: string;
 
@@ -3171,7 +3256,8 @@ export interface Endpoint {
   SslMode?: DmsSslModeValue | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) used by the service access IAM role.</p>
+   * <p>The Amazon Resource Name (ARN) used by the service to access the IAM role.
+   *          The role must allow the <code>iam:PassRole</code> action.</p>
    */
   ServiceAccessRoleArn?: string;
 
@@ -3206,24 +3292,18 @@ export interface Endpoint {
    *             <li>
    *                <p>
    *                   <code>ServiceAccessRoleArn</code> - The IAM role that has permission to access the
-   *                Amazon S3 bucket.</p>
+   *                Amazon S3 bucket. The role must allow the <code>iam:PassRole</code> action.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>BucketName</code> - The name of the S3 bucket to use.</p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CompressionType</code> - An optional parameter to use GZIP to compress the
-   *                target files. To use GZIP, set this value to <code>NONE</code> (the default). To keep
-   *                the files uncompressed, don't use this value.</p>
-   *             </li>
    *          </ul>
    *          <p>Shorthand syntax for these settings is as follows:
-   *             <code>ServiceAccessRoleArn=string,BucketName=string,CompressionType=string</code>
+   *             <code>ServiceAccessRoleArn=string,BucketName=string,</code>
    *          </p>
    *          <p>JSON syntax for these settings is as follows: <code>{ "ServiceAccessRoleArn":
-   *             "string", "BucketName": "string", "CompressionType": "none"|"gzip" } </code>
+   *             "string", "BucketName": "string"} </code>
    *          </p>
    */
   DmsTransferSettings?: DmsTransferSettings;
@@ -3350,7 +3430,7 @@ export namespace CreateEndpointResponse {
 }
 
 /**
- * <p>AWS DMS cannot access the AWS KMS key.</p>
+ * <p>DMS cannot access the KMS key.</p>
  */
 export interface KMSKeyNotAccessibleFault extends __SmithyException, $MetadataBearer {
   name: "KMSKeyNotAccessibleFault";
@@ -3437,7 +3517,7 @@ export namespace S3AccessDeniedFault {
  */
 export interface CreateEventSubscriptionMessage {
   /**
-   * <p>The name of the AWS DMS event notification subscription. This name must be less than 255 characters.</p>
+   * <p>The name of the DMS event notification subscription. This name must be less than 255 characters.</p>
    */
   SubscriptionName: string | undefined;
 
@@ -3448,7 +3528,7 @@ export interface CreateEventSubscriptionMessage {
   SnsTopicArn: string | undefined;
 
   /**
-   * <p> The type of AWS DMS resource that generates the events. For example, if you want to be
+   * <p> The type of DMS resource that generates the events. For example, if you want to be
    *          notified of events generated by a replication instance, you set this parameter to
    *             <code>replication-instance</code>. If this value isn't specified, all events are
    *          returned. </p>
@@ -3460,14 +3540,14 @@ export interface CreateEventSubscriptionMessage {
   /**
    * <p>A list of event categories for a source type that you want to subscribe to. For more
    *            information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
-   *                Notifications</a> in the <i>AWS Database Migration Service User
+   *                Notifications</a> in the <i>Database Migration Service User
    *                    Guide.</i>
    *          </p>
    */
   EventCategories?: string[];
 
   /**
-   * <p>A list of identifiers for which AWS DMS provides notification events.</p>
+   * <p>A list of identifiers for which DMS provides notification events.</p>
    *          <p>If you don't specify a value, notifications are provided for all sources.</p>
    *         <p>If you specify multiple values, they must be of the same type. For example, if you
    *             specify a database instance ID, then all of the other values must be database instance
@@ -3502,39 +3582,39 @@ export namespace CreateEventSubscriptionMessage {
  */
 export interface EventSubscription {
   /**
-   * <p>The AWS customer account associated with the AWS DMS event notification
+   * <p>The Amazon Web Services customer account associated with the DMS event notification
    *          subscription.</p>
    */
   CustomerAwsId?: string;
 
   /**
-   * <p>The AWS DMS event notification subscription Id.</p>
+   * <p>The DMS event notification subscription Id.</p>
    */
   CustSubscriptionId?: string;
 
   /**
-   * <p>The topic ARN of the AWS DMS event notification subscription.</p>
+   * <p>The topic ARN of the DMS event notification subscription.</p>
    */
   SnsTopicArn?: string;
 
   /**
-   * <p>The status of the AWS DMS event notification subscription.</p>
+   * <p>The status of the DMS event notification subscription.</p>
    *          <p>Constraints:</p>
    *          <p>Can be one of the following: creating | modifying | deleting | active | no-permission |
    *          topic-not-exist</p>
-   *          <p>The status "no-permission" indicates that AWS DMS no longer has permission to post to
+   *          <p>The status "no-permission" indicates that DMS no longer has permission to post to
    *          the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the
    *          subscription was created.</p>
    */
   Status?: string;
 
   /**
-   * <p>The time the AWS DMS event notification subscription was created.</p>
+   * <p>The time the DMS event notification subscription was created.</p>
    */
   SubscriptionCreationTime?: string;
 
   /**
-   * <p> The type of AWS DMS resource that generates events. </p>
+   * <p> The type of DMS resource that generates events. </p>
    *          <p>Valid values: replication-instance | replication-server | security-group |
    *          replication-task</p>
    */
@@ -3621,7 +3701,7 @@ export namespace KMSDisabledFault {
 }
 
 /**
- * <p>The state of the specified AWS KMS resource isn't valid for this request.</p>
+ * <p>The state of the specified KMS resource isn't valid for this request.</p>
  */
 export interface KMSInvalidStateFault extends __SmithyException, $MetadataBearer {
   name: "KMSInvalidStateFault";
@@ -3639,7 +3719,7 @@ export namespace KMSInvalidStateFault {
 }
 
 /**
- * <p>The specified AWS KMS entity or resource can't be found.</p>
+ * <p>The specified KMS entity or resource can't be found.</p>
  */
 export interface KMSNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "KMSNotFoundFault";
@@ -3657,7 +3737,7 @@ export namespace KMSNotFoundFault {
 }
 
 /**
- * <p>This request triggered AWS KMS request throttling.</p>
+ * <p>This request triggered KMS request throttling.</p>
  */
 export interface KMSThrottlingFault extends __SmithyException, $MetadataBearer {
   name: "KMSThrottlingFault";
@@ -3751,7 +3831,7 @@ export interface CreateReplicationInstanceMessage {
    *          replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>"dms.c4.large"</code>.</p>
    *          <p>For more information on the settings and capacities for the available replication instance classes, see
    *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth">
-   *             Selecting the right AWS DMS replication instance for your migration</a>.
+   *             Selecting the right DMS replication instance for your migration</a>.
    *       </p>
    */
   ReplicationInstanceClass: string | undefined;
@@ -3764,7 +3844,7 @@ export interface CreateReplicationInstanceMessage {
 
   /**
    * <p>The Availability Zone where the replication instance will be created. The default
-   *          value is a random, system-chosen Availability Zone in the endpoint's AWS Region, for
+   *          value is a random, system-chosen Availability Zone in the endpoint's Region, for
    *          example: <code>us-east-1d</code>
    *          </p>
    */
@@ -3780,8 +3860,8 @@ export interface CreateReplicationInstanceMessage {
    *          Coordinated Time (UTC).</p>
    *          <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *          </p>
-   *          <p>Default: A 30-minute window selected at random from an 8-hour block of time per AWS
-   *          Region, occurring on a random day of the week.</p>
+   *          <p>Default: A 30-minute window selected at random from an 8-hour block of time per Region,
+   *           occurring on a random day of the week.</p>
    *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
    *          <p>Constraints: Minimum 30-minute window.</p>
    */
@@ -3816,12 +3896,12 @@ export interface CreateReplicationInstanceMessage {
   Tags?: Tag[];
 
   /**
-   * <p>An AWS KMS key identifier that is used to encrypt the data on the replication
+   * <p>An KMS key identifier that is used to encrypt the data on the replication
    *            instance.</p>
    *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then
-   *            AWS DMS uses your default encryption key.</p>
-   *          <p>AWS KMS creates the default encryption key for your AWS account. Your AWS account has a
-   *          different default encryption key for each AWS Region.</p>
+   *            DMS uses your default encryption key.</p>
+   *          <p>KMS creates the default encryption key for your account. Your account has a
+   *          different default encryption key for each Region.</p>
    */
   KmsKeyId?: string;
 
@@ -3851,7 +3931,7 @@ export interface CreateReplicationInstanceMessage {
    *          and can only begin with a letter, such as <code>Example-App-ARN1</code>. For example, this
    *          value might result in the <code>EndpointArn</code> value
    *          <code>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</code>. If you don't
-   *          specify a <code>ResourceIdentifier</code> value, AWS DMS generates a default identifier
+   *          specify a <code>ResourceIdentifier</code> value, DMS generates a default identifier
    *          value for the end of <code>EndpointArn</code>.</p>
    */
   ResourceIdentifier?: string;
@@ -3880,7 +3960,7 @@ export interface ReplicationPendingModifiedValues {
    *          replication instance class.</p>
    *          <p>For more information on the settings and capacities for the available replication instance classes, see
    *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth">
-   *             Selecting the right AWS DMS replication instance for your migration</a>.
+   *             Selecting the right DMS replication instance for your migration</a>.
    *       </p>
    */
   ReplicationInstanceClass?: string;
@@ -3918,7 +3998,7 @@ export namespace ReplicationPendingModifiedValues {
  *             <code>AvailabilityZone</code> is an optional parameter to the <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationInstance.html">
  *                <code>CreateReplicationInstance</code>
  *             </a> operation, and it’s value relates to
- *          the AWS Region of an endpoint. For example, the availability zone of an endpoint in the
+ *          the Region of an endpoint. For example, the availability zone of an endpoint in the
  *          us-east-1 region might be us-east-1a, us-east-1b, us-east-1c, or us-east-1d.</p>
  */
 export interface AvailabilityZone {
@@ -4059,11 +4139,11 @@ export interface ReplicationInstance {
 
   /**
    * <p>The compute and memory capacity of the replication instance as defined for the specified
-   *          replication instance class. It is a required parameter, although a defualt value is
+   *          replication instance class. It is a required parameter, although a default value is
    *          pre-selected in the DMS console.</p>
    *          <p>For more information on the settings and capacities for the available replication instance classes, see
    *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth">
-   *             Selecting the right AWS DMS replication instance for your migration</a>.
+   *             Selecting the right DMS replication instance for your migration</a>.
    *       </p>
    */
   ReplicationInstanceClass?: string;
@@ -4201,12 +4281,12 @@ export interface ReplicationInstance {
   AutoMinorVersionUpgrade?: boolean;
 
   /**
-   * <p>An AWS KMS key identifier that is used to encrypt the data on the replication
+   * <p>An KMS key identifier that is used to encrypt the data on the replication
    *            instance.</p>
    *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then
-   *            AWS DMS uses your default encryption key.</p>
-   *          <p>AWS KMS creates the default encryption key for your AWS account. Your AWS account has a
-   *          different default encryption key for each AWS Region.</p>
+   *            DMS uses your default encryption key.</p>
+   *          <p>KMS creates the default encryption key for your account. Your account has a
+   *          different default encryption key for each Region.</p>
    */
   KmsKeyId?: string;
 
@@ -4485,7 +4565,7 @@ export interface CreateReplicationTaskMessage {
 
   /**
    * <p>The table mappings for the task, in JSON format. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html">Using Table
-   *             Mapping to Specify Task Settings</a> in the <i>AWS Database Migration Service User
+   *             Mapping to Specify Task Settings</a> in the <i>Database Migration Service User
    *             Guide.</i>
    *          </p>
    */
@@ -4493,8 +4573,7 @@ export interface CreateReplicationTaskMessage {
 
   /**
    * <p>Overall settings for the task, in JSON format. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html">Specifying Task
-   *             Settings for AWS Database Migration Service Tasks</a> in the <i>AWS Database
-   *             Migration User Guide.</i>
+   *             Settings for Database Migration Service Tasks</a> in the <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   ReplicationTaskSettings?: string;
@@ -4521,7 +4600,7 @@ export interface CreateReplicationTaskMessage {
    *             replication slot should already be created and associated with the source endpoint. You
    *             can verify this by setting the <code>slotName</code> extra connection attribute to the
    *             name of this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra Connection Attributes When Using PostgreSQL as a Source
-   *                for AWS DMS</a>.</p>
+   *                for DMS</a>.</p>
    *          </note>
    */
   CdcStartPosition?: string;
@@ -4542,7 +4621,7 @@ export interface CreateReplicationTaskMessage {
   /**
    * <p>Supplemental information that the task requires to migrate the data for certain source and target endpoints.
    *          For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html">Specifying Supplemental Data for Task Settings</a> in the
-   *             <i>AWS Database Migration Service User Guide.</i>
+   *             <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   TaskData?: string;
@@ -4555,7 +4634,7 @@ export interface CreateReplicationTaskMessage {
    *          and can only begin with a letter, such as <code>Example-App-ARN1</code>. For example, this
    *          value might result in the <code>EndpointArn</code> value
    *          <code>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</code>. If you don't
-   *          specify a <code>ResourceIdentifier</code> value, AWS DMS generates a default identifier
+   *          specify a <code>ResourceIdentifier</code> value, DMS generates a default identifier
    *          value for the end of <code>EndpointArn</code>.</p>
    */
   ResourceIdentifier?: string;
@@ -4892,7 +4971,7 @@ export interface ReplicationTask {
   /**
    * <p>Supplemental information that the task requires to migrate the data for certain source and target endpoints.
    *             For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html">Specifying Supplemental Data for Task Settings</a> in the
-   *          <i>AWS Database Migration Service User Guide.</i>
+   *          <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   TaskData?: string;
@@ -5396,16 +5475,16 @@ export interface DescribeAccountAttributesResponse {
   AccountQuotas?: AccountQuota[];
 
   /**
-   * <p>A unique AWS DMS identifier for an account in a particular AWS Region. The value of this
+   * <p>A unique DMS identifier for an account in a particular Region. The value of this
    *          identifier has the following format: <code>c99999999999</code>. DMS uses this identifier to
    *          name artifacts. For example, DMS uses this identifier to name the default Amazon S3 bucket
-   *          for storing task assessment reports in a given AWS Region. The format of this S3 bucket
+   *          for storing task assessment reports in a given Region. The format of this S3 bucket
    *          name is the following:
    *                <code>dms-<i>AccountNumber</i>-<i>UniqueAccountIdentifier</i>.</code>
    *          Here is an example name for this default S3 bucket:
    *             <code>dms-111122223333-c44445555666</code>.</p>
    *          <note>
-   *             <p>AWS DMS supports the <code>UniqueAccountIdentifier</code> parameter in
+   *             <p>DMS supports the <code>UniqueAccountIdentifier</code> parameter in
    *             versions 3.1.4 and later.</p>
    *          </note>
    */
@@ -5485,7 +5564,7 @@ export interface DescribeApplicableIndividualAssessmentsResponse {
    *          run that you start based on the specified request parameters. For more information on the
    *          available individual assessments, including compatibility with different migration task
    *          configurations, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html">Working with premigration assessment runs</a> in the
-   *             <i>AWS Database Migration Service User Guide.</i>
+   *             <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   IndividualAssessmentNames?: string[];
@@ -5510,7 +5589,7 @@ export namespace DescribeApplicableIndividualAssessmentsResponse {
 
 /**
  * <p>Identifies the name and value of a filter object. This filter is used to limit the
- *          number and type of AWS DMS objects that are returned for a particular
+ *          number and type of DMS objects that are returned for a particular
  *             <code>Describe*</code> call or similar operation. Filters are used as an optional
  *          parameter for certain API operations. </p>
  */
@@ -5793,6 +5872,11 @@ export interface EndpointSetting {
    * <p>The maximum value of an endpoint setting that is of type <code>int</code>.</p>
    */
   IntValueMax?: number;
+
+  /**
+   * <p>The default value of the endpoint setting if no value is specified using <code>CreateEndpoint</code> or <code>ModifyEndpoint</code>.</p>
+   */
+  DefaultValue?: string;
 }
 
 export namespace EndpointSetting {
@@ -5881,7 +5965,7 @@ export interface SupportedEndpointType {
   EngineName?: string;
 
   /**
-   * <p>Indicates if Change Data Capture (CDC) is supported.</p>
+   * <p>Indicates if change data capture (CDC) is supported.</p>
    */
   SupportsCDC?: boolean;
 
@@ -5891,7 +5975,7 @@ export interface SupportedEndpointType {
   EndpointType?: ReplicationEndpointTypeValue | string;
 
   /**
-   * <p>The earliest AWS DMS engine version that supports this endpoint engine. Note that endpoint engines released with AWS DMS versions earlier than 3.1.1 do not return a value for this parameter.</p>
+   * <p>The earliest DMS engine version that supports this endpoint engine. Note that endpoint engines released with DMS versions earlier than 3.1.1 do not return a value for this parameter.</p>
    */
   ReplicationInstanceEngineMinimumVersion?: string;
 
@@ -5942,7 +6026,7 @@ export namespace DescribeEndpointTypesResponse {
  */
 export interface DescribeEventCategoriesMessage {
   /**
-   * <p> The type of AWS DMS resource that generates events. </p>
+   * <p> The type of DMS resource that generates events. </p>
    *          <p>Valid values: replication-instance | replication-task</p>
    */
   SourceType?: string;
@@ -5963,7 +6047,7 @@ export namespace DescribeEventCategoriesMessage {
 }
 
 /**
- * <p>Lists categories of events subscribed to, and generated by, the applicable AWS DMS
+ * <p>Lists categories of events subscribed to, and generated by, the applicable DMS
  *          resource type. This data type appears in response to the
  *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_EventCategoryGroup.html">
  *                <code>DescribeEventCategories</code>
@@ -5972,7 +6056,7 @@ export namespace DescribeEventCategoriesMessage {
  */
 export interface EventCategoryGroup {
   /**
-   * <p> The type of AWS DMS resource that generates events. </p>
+   * <p> The type of DMS resource that generates events. </p>
    *          <p>Valid values: replication-instance | replication-server | security-group |
    *          replication-task</p>
    */
@@ -6024,7 +6108,7 @@ export interface DescribeEventsMessage {
   SourceIdentifier?: string;
 
   /**
-   * <p>The type of AWS DMS resource that generates events.</p>
+   * <p>The type of DMS resource that generates events.</p>
    *          <p>Valid values: replication-instance | replication-task</p>
    */
   SourceType?: SourceType | string;
@@ -6083,7 +6167,7 @@ export namespace DescribeEventsMessage {
 /**
  * <p>Describes an identifiable significant activity that affects a replication instance or
  *          task. This object can provide the message, the available event categories, the date and
- *          source of the event, and the AWS DMS resource type.</p>
+ *          source of the event, and the DMS resource type.</p>
  */
 export interface Event {
   /**
@@ -6092,7 +6176,7 @@ export interface Event {
   SourceIdentifier?: string;
 
   /**
-   * <p> The type of AWS DMS resource that generates events. </p>
+   * <p> The type of DMS resource that generates events. </p>
    *          <p>Valid values: replication-instance | endpoint | replication-task</p>
    */
   SourceType?: SourceType | string;
@@ -6153,7 +6237,7 @@ export namespace DescribeEventsResponse {
  */
 export interface DescribeEventSubscriptionsMessage {
   /**
-   * <p>The name of the AWS DMS event subscription to be described.</p>
+   * <p>The name of the DMS event subscription to be described.</p>
    */
   SubscriptionName?: string;
 
@@ -6264,7 +6348,7 @@ export interface OrderableReplicationInstance {
    *          replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>"dms.c4.large"</code>.</p>
    *          <p>For more information on the settings and capacities for the available replication instance classes, see
    *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth">
-   *             Selecting the right AWS DMS replication instance for your migration</a>.
+   *             Selecting the right DMS replication instance for your migration</a>.
    *       </p>
    */
   ReplicationInstanceClass?: string;
@@ -6307,7 +6391,7 @@ export interface OrderableReplicationInstance {
    * <p>The value returned when the specified <code>EngineVersion</code> of the replication
    *          instance is in Beta or test mode. This indicates some features might not work as expected.</p>
    *          <note>
-   *             <p>AWS DMS supports the <code>ReleaseStatus</code> parameter in versions 3.1.4 and later.</p>
+   *             <p>DMS supports the <code>ReleaseStatus</code> parameter in versions 3.1.4 and later.</p>
    *          </note>
    */
   ReleaseStatus?: ReleaseStatusValues | string;
@@ -6782,11 +6866,15 @@ export interface ReplicationTaskAssessmentResult {
 
   /**
    * <p> The task assessment results in JSON format. </p>
+   *          <p>The response object only contains this field if you provide <a>DescribeReplicationTaskAssessmentResultsMessage$ReplicationTaskArn</a>
+   *            in the request.</p>
    */
   AssessmentResults?: string;
 
   /**
    * <p> The URL of the S3 object containing the task assessment results. </p>
+   *          <p>The response object only contains this field if you provide <a>DescribeReplicationTaskAssessmentResultsMessage$ReplicationTaskArn</a>
+   *            in the request.</p>
    */
   S3ObjectUrl?: string;
 }
@@ -7409,7 +7497,9 @@ export interface ImportCertificateMessage {
   CertificatePem?: string;
 
   /**
-   * <p>The location of an imported Oracle Wallet certificate for use with SSL.</p>
+   * <p>The location of an imported Oracle Wallet certificate for use with SSL. Provide the name of a <code>.sso</code> file
+   *           using the <code>fileb://</code> prefix. You can't provide the certificate inline.
+   *       </p>
    */
   CertificateWallet?: Uint8Array;
 
@@ -7468,7 +7558,7 @@ export namespace InvalidCertificateFault {
  */
 export interface ListTagsForResourceMessage {
   /**
-   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the AWS DMS
+   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the DMS
    *          resource.</p>
    */
   ResourceArn: string | undefined;
@@ -7556,7 +7646,7 @@ export interface ModifyEndpointMessage {
   Port?: number;
 
   /**
-   * <p>The name of the endpoint database.</p>
+   * <p>The name of the endpoint database. For a MySQL source or target endpoint, do not specify DatabaseName.</p>
    */
   DatabaseName?: string;
 
@@ -7577,8 +7667,8 @@ export interface ModifyEndpointMessage {
   SslMode?: DmsSslModeValue | string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) for the service access role you want to use to modify
-   *          the endpoint. </p>
+   * <p> The Amazon Resource Name (ARN) for the IAM role you want to use to modify
+   *          the endpoint. The role must allow the <code>iam:PassRole</code> action.</p>
    */
   ServiceAccessRoleArn?: string;
 
@@ -7589,8 +7679,8 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the target Amazon DynamoDB endpoint. For information about other
-   *             available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html">Using Object Mapping to Migrate
-   *             Data to DynamoDB</a> in the <i>AWS Database Migration Service User
+   *             available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.ObjectMapping">Using Object Mapping to Migrate
+   *             Data to DynamoDB</a> in the <i>Database Migration Service User
    *             Guide.</i>
    *          </p>
    */
@@ -7599,8 +7689,8 @@ export interface ModifyEndpointMessage {
   /**
    * <p>Settings in JSON format for the target Amazon S3 endpoint. For more information about
    *             the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring">Extra
-   *             Connection Attributes When Using Amazon S3 as a Target for AWS DMS</a> in the
-   *             <i>AWS Database Migration Service User Guide.</i>
+   *             Connection Attributes When Using Amazon S3 as a Target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   S3Settings?: S3Settings;
@@ -7610,66 +7700,59 @@ export interface ModifyEndpointMessage {
    *          <p>Attributes include the following:</p>
    *          <ul>
    *             <li>
-   *                <p>serviceAccessRoleArn - The AWS Identity and Access Management (IAM) role that has
-   *                permission to access the Amazon S3 bucket.</p>
+   *                <p>serviceAccessRoleArn - The Identity and Access Management (IAM) role that has
+   *                permission to access the Amazon S3 bucket. The role must allow the <code>iam:PassRole</code> action.</p>
    *             </li>
    *             <li>
    *                <p>BucketName - The name of the S3 bucket to use.</p>
    *             </li>
-   *             <li>
-   *                <p>compressionType - An optional parameter to use GZIP to compress the target files.
-   *                Either set this parameter to NONE (the default) or don't use it to leave the
-   *                files uncompressed.</p>
-   *             </li>
    *          </ul>
    *          <p>Shorthand syntax for these settings is as follows: <code>ServiceAccessRoleArn=string
-   *             ,BucketName=string,CompressionType=string</code>
+   *             ,BucketName=string</code>
    *          </p>
    *          <p>JSON syntax for these settings is as follows: <code>{ "ServiceAccessRoleArn": "string",
-   *             "BucketName": "string", "CompressionType": "none"|"gzip" } </code>
+   *             "BucketName": "string"} </code>
    *          </p>
    */
   DmsTransferSettings?: DmsTransferSettings;
 
   /**
    * <p>Settings in JSON format for the source MongoDB endpoint. For more information about the
-   *          available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html"> Using MongoDB as a Target for AWS
-   *             Database Migration Service</a> in the <i>AWS Database Migration Service User
-   *             Guide.</i>
+   *          available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html#CHAP_Source.MongoDB.Configuration">Endpoint configuration settings
+   *             when using MongoDB as a source for Database Migration Service</a> in the
+   *          <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   MongoDbSettings?: MongoDbSettings;
 
   /**
    * <p>Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams. For
-   *          more information about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html">Using Amazon Kinesis Data Streams
-   *             as a Target for AWS Database Migration Service</a> in the <i>AWS Database Migration Service User
-   *                Guide.</i>
+   *          more information about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping">Using object mapping to
+   *             migrate data to a Kinesis data stream</a> in the <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   KinesisSettings?: KinesisSettings;
 
   /**
    * <p>Settings in JSON format for the target Apache Kafka endpoint. For more information about
-   *          the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html">Using Apache Kafka as a Target for AWS
-   *             Database Migration Service</a> in the <i>AWS Database Migration Service User
-   *                Guide.</i>
+   *          the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html#CHAP_Target.Kafka.ObjectMapping">Using object mapping
+   *             to migrate data to a Kafka topic</a> in the <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   KafkaSettings?: KafkaSettings;
 
   /**
    * <p>Settings in JSON format for the target Elasticsearch endpoint. For more information
-   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS</a> in
-   *          the <i>AWS Database Migration Service User Guide.</i>
+   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra Connection Attributes When Using Elasticsearch as a Target for DMS</a> in
+   *          the <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   ElasticsearchSettings?: ElasticsearchSettings;
 
   /**
    * <p>Settings in JSON format for the target Amazon Neptune endpoint. For more information
-   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings">Specifying Endpoint Settings for Amazon Neptune as a Target</a>
-   *          in the <i>AWS Database Migration Service User Guide.</i>
+   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings">Specifying graph-mapping rules using Gremlin and R2RML for Amazon Neptune as a target</a>
+   *          in the <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   NeptuneSettings?: NeptuneSettings;
@@ -7681,20 +7764,19 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the source and target PostgreSQL endpoint. For information
-   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.ConnectionAttrib">Extra connection
-   *             attributes when using PostgreSQL as a source for AWS DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.ConnectionAttrib">
-   *             Extra connection attributes when using PostgreSQL as a target for AWS DMS</a> in the
-   *             <i>AWS Database Migration Service User Guide.</i>
+   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra connection
+   *             attributes when using PostgreSQL as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.html#CHAP_Target.PostgreSQL.ConnectionAttrib">
+   *             Extra connection attributes when using PostgreSQL as a target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   PostgreSQLSettings?: PostgreSQLSettings;
 
   /**
    * <p>Settings in JSON format for the source and target MySQL endpoint. For information about
-   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.ConnectionAttrib">Extra connection
-   *             attributes when using MySQL as a source for AWS DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.ConnectionAttrib">Extra
-   *             connection attributes when using a MySQL-compatible database as a target for AWS
-   *             DMS</a> in the <i>AWS Database Migration Service User
+   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.ConnectionAttrib">Extra connection
+   *             attributes when using MySQL as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html#CHAP_Target.MySQL.ConnectionAttrib">Extra
+   *             connection attributes when using a MySQL-compatible database as a target for DMS</a> in the <i>Database Migration Service User
    *          Guide.</i>
    *          </p>
    */
@@ -7702,51 +7784,76 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the source and target Oracle endpoint. For information about
-   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.ConnectionAttrib">Extra connection
-   *             attributes when using Oracle as a source for AWS DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.ConnectionAttrib">
-   *             Extra connection attributes when using Oracle as a target for AWS DMS</a> in the
-   *             <i>AWS Database Migration Service User Guide.</i>
+   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.ConnectionAttrib">Extra connection
+   *             attributes when using Oracle as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.html#CHAP_Target.Oracle.ConnectionAttrib">
+   *             Extra connection attributes when using Oracle as a target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   OracleSettings?: OracleSettings;
 
   /**
    * <p>Settings in JSON format for the source and target SAP ASE endpoint. For information
-   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.ConnectionAttrib">Extra connection attributes
-   *             when using SAP ASE as a source for AWS DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.ConnectionAttrib">Extra connection attributes
-   *             when using SAP ASE as a target for AWS DMS</a> in the <i>AWS Database
-   *             Migration Service User Guide.</i>
+   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.html#CHAP_Source.SAP.ConnectionAttrib">Extra connection attributes
+   *             when using SAP ASE as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.html#CHAP_Target.SAP.ConnectionAttrib">Extra connection attributes
+   *             when using SAP ASE as a target for DMS</a> in the <i>Database Migration Service
+   *                 User Guide.</i>
    *          </p>
    */
   SybaseSettings?: SybaseSettings;
 
   /**
    * <p>Settings in JSON format for the source and target Microsoft SQL Server endpoint. For
-   *          information about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.ConnectionAttrib">Extra connection
-   *             attributes when using SQL Server as a source for AWS DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.ConnectionAttrib">
-   *             Extra connection attributes when using SQL Server as a target for AWS DMS</a> in the
-   *             <i>AWS Database Migration Service User Guide.</i>
+   *          information about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html#CHAP_Source.SQLServer.ConnectionAttrib">Extra connection
+   *             attributes when using SQL Server as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.html#CHAP_Target.SQLServer.ConnectionAttrib">
+   *             Extra connection attributes when using SQL Server as a target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   MicrosoftSQLServerSettings?: MicrosoftSQLServerSettings;
 
   /**
    * <p>Settings in JSON format for the source IBM Db2 LUW endpoint. For information about other
-   *          available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.ConnectionAttrib">Extra connection attributes
-   *             when using Db2 LUW as a source for AWS DMS</a> in the <i>AWS Database
-   *             Migration Service User Guide.</i>
+   *          available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.html#CHAP_Source.DB2.ConnectionAttrib">Extra connection attributes
+   *             when using Db2 LUW as a source for DMS</a> in the <i>Database Migration Service
+   *                 User Guide.</i>
    *          </p>
    */
   IBMDb2Settings?: IBMDb2Settings;
 
   /**
    * <p>Settings in JSON format for the source DocumentDB endpoint. For more information about the
-   *          available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DocumentDB.html"> Using DocumentDB as a Target for AWS
-   *             Database Migration Service</a> in the <i>AWS Database Migration Service User
+   *          available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DocumentDB.html"> Using DocumentDB as a Target for Database Migration Service
+   *              </a> in the <i>Database Migration Service User
    *                Guide.</i>
    *          </p>
    */
   DocDbSettings?: DocDbSettings;
+
+  /**
+   * <p>If this attribute is Y, the current call to <code>ModifyEndpoint</code> replaces all
+   *          existing endpoint settings with the exact settings that you specify in this call. If this
+   *          attribute is N, the current call to <code>ModifyEndpoint</code> does two things: </p>
+   *          <ul>
+   *             <li>
+   *                <p>It replaces any endpoint settings that already exist with new values, for settings with the
+   *                same names.</p>
+   *             </li>
+   *             <li>
+   *                <p>It creates new endpoint settings that you specify in the call, for settings with different
+   *                names. </p>
+   *             </li>
+   *          </ul>
+   *          <p>For example, if you call <code>create-endpoint ... --endpoint-settings '{"a":1}'
+   *             ...</code>, the endpoint has the following endpoint settings: <code>'{"a":1}'</code>. If
+   *          you then call <code>modify-endpoint ... --endpoint-settings '{"b":2}' ...</code> for the
+   *          same endpoint, the endpoint has the following settings: <code>'{"a":1,"b":2}'</code>. </p>
+   *          <p>However, suppose that you follow this with a call to <code>modify-endpoint ...
+   *             --endpoint-settings '{"b":2}' --exact-settings ...</code> for that same endpoint again.
+   *          Then the endpoint has the following settings: <code>'{"b":2}'</code>. All existing settings
+   *          are replaced with the exact settings that you specify. </p>
+   */
+  ExactSettings?: boolean;
 }
 
 export namespace ModifyEndpointMessage {
@@ -7798,7 +7905,7 @@ export namespace ModifyEndpointResponse {
  */
 export interface ModifyEventSubscriptionMessage {
   /**
-   * <p>The name of the AWS DMS event notification subscription to be modified.</p>
+   * <p>The name of the DMS event notification subscription to be modified.</p>
    */
   SubscriptionName: string | undefined;
 
@@ -7809,7 +7916,7 @@ export interface ModifyEventSubscriptionMessage {
   SnsTopicArn?: string;
 
   /**
-   * <p> The type of AWS DMS resource that generates the events you want to subscribe to. </p>
+   * <p> The type of DMS resource that generates the events you want to subscribe to. </p>
    *          <p>Valid values: replication-instance | replication-task</p>
    */
   SourceType?: string;
@@ -7881,7 +7988,7 @@ export interface ModifyReplicationInstanceMessage {
    *          replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>"dms.c4.large"</code>.</p>
    *          <p>For more information on the settings and capacities for the available replication instance classes, see
    *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth">
-   *             Selecting the right AWS DMS replication instance for your migration</a>.
+   *             Selecting the right DMS replication instance for your migration</a>.
    *       </p>
    */
   ReplicationInstanceClass?: string;
@@ -7942,7 +8049,7 @@ export interface ModifyReplicationInstanceMessage {
    *                <p>A newer minor version is available. </p>
    *             </li>
    *             <li>
-   *                <p>AWS DMS has enabled automatic patching for the given engine version. </p>
+   *                <p>DMS has enabled automatic patching for the given engine version. </p>
    *             </li>
    *          </ul>
    */
@@ -8106,9 +8213,9 @@ export interface ModifyReplicationTaskMessage {
   MigrationType?: MigrationTypeValue | string;
 
   /**
-   * <p>When using the AWS CLI or boto3, provide the path of the JSON file that contains the
+   * <p>When using the CLI or boto3, provide the path of the JSON file that contains the
    *          table mappings. Precede the path with <code>file://</code>.  For example,
-   *          <code>--table-mappings file://mappingfile.json</code>. When working with the DMS API,
+   *          <code>--table-mappings file://mappingfile.json</code>. When working with the DMS  API,
    *          provide the JSON as the parameter value.
    *     </p>
    */
@@ -8141,7 +8248,7 @@ export interface ModifyReplicationTaskMessage {
    *             replication slot should already be created and associated with the source endpoint. You
    *             can verify this by setting the <code>slotName</code> extra connection attribute to the
    *             name of this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra Connection Attributes When Using PostgreSQL as a Source
-   *                for AWS DMS</a>.</p>
+   *                for DMS</a>.</p>
    *          </note>
    */
   CdcStartPosition?: string;
@@ -8157,7 +8264,7 @@ export interface ModifyReplicationTaskMessage {
   /**
    * <p>Supplemental information that the task requires to migrate the data for certain source and target endpoints.
    *             For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html">Specifying Supplemental Data for Task Settings</a> in the
-   *          <i>AWS Database Migration Service User Guide.</i>
+   *          <i>Database Migration Service User Guide.</i>
    *          </p>
    */
   TaskData?: string;
@@ -8392,11 +8499,11 @@ export namespace ReloadTablesResponse {
 }
 
 /**
- * <p>Removes one or more tags from an AWS DMS resource.</p>
+ * <p>Removes one or more tags from an DMS resource.</p>
  */
 export interface RemoveTagsFromResourceMessage {
   /**
-   * <p>An AWS DMS resource from which you want to remove tag(s). The value for this parameter is an Amazon Resource Name (ARN).</p>
+   * <p>An DMS resource from which you want to remove tag(s). The value for this parameter is an Amazon Resource Name (ARN).</p>
    */
   ResourceArn: string | undefined;
 
@@ -8471,7 +8578,7 @@ export interface StartReplicationTaskMessage {
    *             replication slot should already be created and associated with the source endpoint. You
    *             can verify this by setting the <code>slotName</code> extra connection attribute to the
    *             name of this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra Connection Attributes When Using PostgreSQL as a Source
-   *                for AWS DMS</a>.</p>
+   *                for DMS</a>.</p>
    *          </note>
    */
   CdcStartPosition?: string;
@@ -8552,7 +8659,7 @@ export namespace StartReplicationTaskAssessmentResponse {
 }
 
 /**
- * <p>An AWS Key Management Service (AWS KMS) error is preventing access to AWS KMS.</p>
+ * <p>An Key Management Service (KMS) error is preventing access to KMS.</p>
  */
 export interface KMSFault extends __SmithyException, $MetadataBearer {
   name: "KMSFault";
@@ -8599,25 +8706,25 @@ export interface StartReplicationTaskAssessmentRunMessage {
   ReplicationTaskArn: string | undefined;
 
   /**
-   * <p>ARN of a service role needed to start the assessment run.</p>
+   * <p>ARN of the service role needed to start the assessment run. The role must allow the <code>iam:PassRole</code> action.</p>
    */
   ServiceAccessRoleArn: string | undefined;
 
   /**
-   * <p>Amazon S3 bucket where you want AWS DMS to store the results of this assessment
+   * <p>Amazon S3 bucket where you want DMS to store the results of this assessment
    *          run.</p>
    */
   ResultLocationBucket: string | undefined;
 
   /**
-   * <p>Folder within an Amazon S3 bucket where you want AWS DMS to store the results of this assessment
+   * <p>Folder within an Amazon S3 bucket where you want DMS to store the results of this assessment
    *          run.</p>
    */
   ResultLocationFolder?: string;
 
   /**
    * <p>Encryption mode that you can specify to encrypt the results of this assessment run. If
-   *          you don't specify this request parameter, AWS DMS stores the assessment run results
+   *          you don't specify this request parameter, DMS stores the assessment run results
    *          without encryption. You can specify one of the options following:</p>
    *          <ul>
    *             <li>
@@ -8627,7 +8734,7 @@ export interface StartReplicationTaskAssessmentRunMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>"SSE_KMS"</code> – AWS Key Management Service (AWS KMS) encryption.
+   *                   <code>"SSE_KMS"</code> – Key Management Service (KMS) encryption.
    *                This encryption can use either a custom KMS encryption key that you specify or the
    *                default KMS encryption key that DMS provides.</p>
    *             </li>
@@ -8648,13 +8755,13 @@ export interface StartReplicationTaskAssessmentRunMessage {
 
   /**
    * <p>Space-separated list of names for specific individual assessments that you want to
-   *          include. These names come from the default list of individual assessments that AWS DMS
+   *          include. These names come from the default list of individual assessments that DMS
    *          supports for the associated migration task. This task is specified by
    *             <code>ReplicationTaskArn</code>.</p>
    *          <note>
    *             <p>You can't set a value for <code>IncludeOnly</code> if you also set a value for
    *             <code>Exclude</code> in the API operation. </p>
-   *             <p>To identify the names of the default individual assessments that AWS DMS
+   *             <p>To identify the names of the default individual assessments that DMS
    *             supports for the associated migration task, run the
    *             <code>DescribeApplicableIndividualAssessments</code> operation using its own
    *             <code>ReplicationTaskArn</code> request parameter.</p>
@@ -8664,13 +8771,13 @@ export interface StartReplicationTaskAssessmentRunMessage {
 
   /**
    * <p>Space-separated list of names for specific individual assessments that you want to
-   *          exclude. These names come from the default list of individual assessments that AWS DMS
+   *          exclude. These names come from the default list of individual assessments that DMS
    *          supports for the associated migration task. This task is specified by
    *             <code>ReplicationTaskArn</code>.</p>
    *          <note>
    *             <p>You can't set a value for <code>Exclude</code> if you also set a value for
    *             <code>IncludeOnly</code> in the API operation.</p>
-   *             <p>To identify the names of the default individual assessments that AWS DMS
+   *             <p>To identify the names of the default individual assessments that DMS
    *             supports for the associated migration task, run the
    *             <code>DescribeApplicableIndividualAssessments</code> operation using its own
    *             <code>ReplicationTaskArn</code> request parameter.</p>

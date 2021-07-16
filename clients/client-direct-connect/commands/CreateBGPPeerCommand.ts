@@ -22,7 +22,7 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
 
 /**
  * <p>Creates a BGP peer on the specified virtual interface.</p>
- *          <p>You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to access AWS resources that also use that address family.</p>
+ *          <p>You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to access Amazon Web Services resources that also use that address family.</p>
  *          <p>If logical redundancy is not supported by the connection, interconnect, or LAG, the BGP peer cannot
  *       be in the same address family as an existing BGP peer on the virtual interface.</p>
  *          <p>When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from

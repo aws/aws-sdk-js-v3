@@ -85,6 +85,11 @@ import {
   AssociateIamInstanceProfileCommandOutput,
 } from "./commands/AssociateIamInstanceProfileCommand";
 import {
+  AssociateInstanceEventWindowCommand,
+  AssociateInstanceEventWindowCommandInput,
+  AssociateInstanceEventWindowCommandOutput,
+} from "./commands/AssociateInstanceEventWindowCommand";
+import {
   AssociateRouteTableCommand,
   AssociateRouteTableCommandInput,
   AssociateRouteTableCommandOutput,
@@ -272,6 +277,11 @@ import {
   CreateFpgaImageCommandOutput,
 } from "./commands/CreateFpgaImageCommand";
 import { CreateImageCommand, CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
+import {
+  CreateInstanceEventWindowCommand,
+  CreateInstanceEventWindowCommandInput,
+  CreateInstanceEventWindowCommandOutput,
+} from "./commands/CreateInstanceEventWindowCommand";
 import {
   CreateInstanceExportTaskCommand,
   CreateInstanceExportTaskCommandInput,
@@ -550,6 +560,11 @@ import {
   DeleteFpgaImageCommandInput,
   DeleteFpgaImageCommandOutput,
 } from "./commands/DeleteFpgaImageCommand";
+import {
+  DeleteInstanceEventWindowCommand,
+  DeleteInstanceEventWindowCommandInput,
+  DeleteInstanceEventWindowCommandOutput,
+} from "./commands/DeleteInstanceEventWindowCommand";
 import {
   DeleteInternetGatewayCommand,
   DeleteInternetGatewayCommandInput,
@@ -1003,6 +1018,11 @@ import {
   DescribeInstanceEventNotificationAttributesCommandInput,
   DescribeInstanceEventNotificationAttributesCommandOutput,
 } from "./commands/DescribeInstanceEventNotificationAttributesCommand";
+import {
+  DescribeInstanceEventWindowsCommand,
+  DescribeInstanceEventWindowsCommandInput,
+  DescribeInstanceEventWindowsCommandOutput,
+} from "./commands/DescribeInstanceEventWindowsCommand";
 import {
   DescribeInstanceStatusCommand,
   DescribeInstanceStatusCommandInput,
@@ -1494,6 +1514,11 @@ import {
   DisassociateIamInstanceProfileCommandOutput,
 } from "./commands/DisassociateIamInstanceProfileCommand";
 import {
+  DisassociateInstanceEventWindowCommand,
+  DisassociateInstanceEventWindowCommandInput,
+  DisassociateInstanceEventWindowCommandOutput,
+} from "./commands/DisassociateInstanceEventWindowCommand";
+import {
   DisassociateRouteTableCommand,
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
@@ -1797,6 +1822,11 @@ import {
   ModifyInstanceEventStartTimeCommandInput,
   ModifyInstanceEventStartTimeCommandOutput,
 } from "./commands/ModifyInstanceEventStartTimeCommand";
+import {
+  ModifyInstanceEventWindowCommand,
+  ModifyInstanceEventWindowCommandInput,
+  ModifyInstanceEventWindowCommandOutput,
+} from "./commands/ModifyInstanceEventWindowCommand";
 import {
   ModifyInstanceMetadataOptionsCommand,
   ModifyInstanceMetadataOptionsCommandInput,
@@ -2893,6 +2923,41 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: AssociateIamInstanceProfileCommandOutput) => void
   ): Promise<AssociateIamInstanceProfileCommandOutput> | void {
     const command = new AssociateIamInstanceProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates one or more targets with an event window. Only one type of target (instance IDs,
+   *          Dedicated Host IDs, or tags) can be specified with an event window.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
+   *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  public associateInstanceEventWindow(
+    args: AssociateInstanceEventWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateInstanceEventWindowCommandOutput>;
+  public associateInstanceEventWindow(
+    args: AssociateInstanceEventWindowCommandInput,
+    cb: (err: any, data?: AssociateInstanceEventWindowCommandOutput) => void
+  ): void;
+  public associateInstanceEventWindow(
+    args: AssociateInstanceEventWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateInstanceEventWindowCommandOutput) => void
+  ): void;
+  public associateInstanceEventWindow(
+    args: AssociateInstanceEventWindowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateInstanceEventWindowCommandOutput) => void),
+    cb?: (err: any, data?: AssociateInstanceEventWindowCommandOutput) => void
+  ): Promise<AssociateInstanceEventWindowCommandOutput> | void {
+    const command = new AssociateInstanceEventWindowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4453,6 +4518,62 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreateImageCommandOutput) => void
   ): Promise<CreateImageCommandOutput> | void {
     const command = new CreateImageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an event window in which scheduled events for the associated Amazon EC2 instances can
+   *          run.</p>
+   *          <p>You can define either a set of time ranges or a cron expression when creating the event
+   *          window, but not both. All event window times are in UTC.</p>
+   *          <p>You can create up to 200 event windows per Amazon Web Services Region.</p>
+   *          <p>When you create the event window, targets (instance IDs, Dedicated Host IDs, or tags)
+   *          are not yet associated with it. To ensure that the event window can be used, you must
+   *          associate one or more targets with it by using the <a>AssociateInstanceEventWindow</a> API.</p>
+   *
+   *          <important>
+   *             <p>Event windows are applicable only for scheduled events that stop, reboot, or
+   *             terminate instances.</p>
+   *             <p>Event windows are <i>not</i> applicable for:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Expedited scheduled events and network maintenance events. </p>
+   *                </li>
+   *                <li>
+   *                            <p>Unscheduled maintenance such as AutoRecovery and unplanned reboots.</p>
+   *                </li>
+   *             </ul>
+   *          </important>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
+   *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  public createInstanceEventWindow(
+    args: CreateInstanceEventWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInstanceEventWindowCommandOutput>;
+  public createInstanceEventWindow(
+    args: CreateInstanceEventWindowCommandInput,
+    cb: (err: any, data?: CreateInstanceEventWindowCommandOutput) => void
+  ): void;
+  public createInstanceEventWindow(
+    args: CreateInstanceEventWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInstanceEventWindowCommandOutput) => void
+  ): void;
+  public createInstanceEventWindow(
+    args: CreateInstanceEventWindowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInstanceEventWindowCommandOutput) => void),
+    cb?: (err: any, data?: CreateInstanceEventWindowCommandOutput) => void
+  ): Promise<CreateInstanceEventWindowCommandOutput> | void {
+    const command = new CreateInstanceEventWindowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6652,6 +6773,40 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Deletes the specified event window.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
+   *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  public deleteInstanceEventWindow(
+    args: DeleteInstanceEventWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInstanceEventWindowCommandOutput>;
+  public deleteInstanceEventWindow(
+    args: DeleteInstanceEventWindowCommandInput,
+    cb: (err: any, data?: DeleteInstanceEventWindowCommandOutput) => void
+  ): void;
+  public deleteInstanceEventWindow(
+    args: DeleteInstanceEventWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInstanceEventWindowCommandOutput) => void
+  ): void;
+  public deleteInstanceEventWindow(
+    args: DeleteInstanceEventWindowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInstanceEventWindowCommandOutput) => void),
+    cb?: (err: any, data?: DeleteInstanceEventWindowCommandOutput) => void
+  ): Promise<DeleteInstanceEventWindowCommandOutput> | void {
+    const command = new DeleteInstanceEventWindowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified internet gateway. You must detach the internet gateway from the
    * 			VPC before you can delete it.</p>
    */
@@ -8220,7 +8375,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included
+   * <p>c</p>
+   *    	     <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included
    * 			in scheduled event notifications for resources in the Region.</p>
    */
   public deregisterInstanceEventNotificationAttributes(
@@ -9854,6 +10010,46 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeInstanceEventNotificationAttributesCommandOutput) => void
   ): Promise<DescribeInstanceEventNotificationAttributesCommandOutput> | void {
     const command = new DescribeInstanceEventNotificationAttributesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the specified event windows or all event windows.</p>
+   *          <p>If you specify event window IDs, the output includes information for only the specified
+   *          event windows. If you specify filters, the output includes information for only those event
+   *          windows that meet the filter criteria. If you do not specify event windows IDs or filters,
+   *          the output includes information for all event windows, which can affect performance. We
+   *          recommend that you use pagination to ensure that the operation returns quickly and
+   *          successfully. </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
+   *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  public describeInstanceEventWindows(
+    args: DescribeInstanceEventWindowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceEventWindowsCommandOutput>;
+  public describeInstanceEventWindows(
+    args: DescribeInstanceEventWindowsCommandInput,
+    cb: (err: any, data?: DescribeInstanceEventWindowsCommandOutput) => void
+  ): void;
+  public describeInstanceEventWindows(
+    args: DescribeInstanceEventWindowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceEventWindowsCommandOutput) => void
+  ): void;
+  public describeInstanceEventWindows(
+    args: DescribeInstanceEventWindowsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceEventWindowsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInstanceEventWindowsCommandOutput) => void
+  ): Promise<DescribeInstanceEventWindowsCommandOutput> | void {
+    const command = new DescribeInstanceEventWindowsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -13333,6 +13529,40 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Disassociates one or more targets from an event window.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
+   *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  public disassociateInstanceEventWindow(
+    args: DisassociateInstanceEventWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateInstanceEventWindowCommandOutput>;
+  public disassociateInstanceEventWindow(
+    args: DisassociateInstanceEventWindowCommandInput,
+    cb: (err: any, data?: DisassociateInstanceEventWindowCommandOutput) => void
+  ): void;
+  public disassociateInstanceEventWindow(
+    args: DisassociateInstanceEventWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateInstanceEventWindowCommandOutput) => void
+  ): void;
+  public disassociateInstanceEventWindow(
+    args: DisassociateInstanceEventWindowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateInstanceEventWindowCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateInstanceEventWindowCommandOutput) => void
+  ): Promise<DisassociateInstanceEventWindowCommandOutput> | void {
+    const command = new DisassociateInstanceEventWindowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates a subnet or gateway from a route table.</p>
    * 		       <p>After you perform this action, the subnet no longer uses the routes in the route table.
    * 				Instead, it uses the routes in the VPC's main route table. For more information
@@ -15625,6 +15855,45 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ModifyInstanceEventStartTimeCommandOutput) => void
   ): Promise<ModifyInstanceEventStartTimeCommandOutput> | void {
     const command = new ModifyInstanceEventStartTimeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the specified event window.</p>
+   *          <p>You can define either a set of time ranges or a cron expression when modifying the event
+   *          window, but not both.</p>
+   *          <p>To modify the targets associated with the event window, use the <a>AssociateInstanceEventWindow</a> and <a>DisassociateInstanceEventWindow</a> API.</p>
+   *          <p>If Amazon Web Services has already scheduled an event, modifying an event window won't change the time
+   *          of the scheduled event.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
+   *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  public modifyInstanceEventWindow(
+    args: ModifyInstanceEventWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyInstanceEventWindowCommandOutput>;
+  public modifyInstanceEventWindow(
+    args: ModifyInstanceEventWindowCommandInput,
+    cb: (err: any, data?: ModifyInstanceEventWindowCommandOutput) => void
+  ): void;
+  public modifyInstanceEventWindow(
+    args: ModifyInstanceEventWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyInstanceEventWindowCommandOutput) => void
+  ): void;
+  public modifyInstanceEventWindow(
+    args: ModifyInstanceEventWindowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyInstanceEventWindowCommandOutput) => void),
+    cb?: (err: any, data?: ModifyInstanceEventWindowCommandOutput) => void
+  ): Promise<ModifyInstanceEventWindowCommandOutput> | void {
+    const command = new ModifyInstanceEventWindowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -226,14 +226,14 @@ export namespace AddonInfo {
 export type AMITypes = "AL2_ARM_64" | "AL2_x86_64" | "AL2_x86_64_GPU" | "CUSTOM";
 
 /**
- * <p>Identifies the AWS Key Management Service (AWS KMS) key used to encrypt the secrets.</p>
+ * <p>Identifies the Key Management Service (KMS) key used to encrypt the secrets.</p>
  */
 export interface Provider {
   /**
    * <p>Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same
    *             region as the cluster, and if the KMS key was created in a different account, the user
    *             must have access to the KMS key. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html">Allowing
-   *                 Users in Other Accounts to Use a KMS key</a> in the <i>AWS Key Management Service
+   *                 Users in Other Accounts to Use a KMS key</a> in the <i>Key Management Service
    *                 Developer Guide</i>.</p>
    */
   keyArn?: string;
@@ -258,7 +258,7 @@ export interface EncryptionConfig {
   resources?: string[];
 
   /**
-   * <p>AWS Key Management Service (AWS KMS) key. Either the ARN or the alias can be used.</p>
+   * <p>Key Management Service (KMS) key. Either the ARN or the alias can be used.</p>
    */
   provider?: Provider;
 }
@@ -865,8 +865,8 @@ export interface CreateAddonRequest {
   clusterName: string | undefined;
 
   /**
-   * <p>The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html">
-   *                <code>ListAddons</code>
+   * <p>The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html">
+   *                <code>DescribeAddonVersions</code>
    *             </a>.</p>
    */
   addonName: string | undefined;
@@ -1041,7 +1041,7 @@ export interface VpcConfigRequest {
 
   /**
    * <p>Specify one or more security groups for the cross-account elastic network interfaces
-   *             that Amazon EKS creates to use to allow communication between your nodes and the Kubernetes
+   *             that Amazon EKS creates to use that allow communication between your nodes and the Kubernetes
    *             control plane. If you don't specify any security groups, then familiarize yourself with
    *             the difference between Amazon EKS defaults for clusters deployed with Kubernetes:</p>
    *         <ul>
@@ -1064,8 +1064,8 @@ export interface VpcConfigRequest {
    *             Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes
    *             API server can only receive requests from within the cluster VPC. The default value for
    *             this parameter is <code>true</code>, which enables public access for your Kubernetes API
-   *             server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
-   *                 Endpoint Access Control</a> in the <i>
+   *             server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster
+   *                 endpoint access control</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    */
@@ -1076,10 +1076,10 @@ export interface VpcConfigRequest {
    *             Kubernetes API server endpoint. If you enable private access, Kubernetes API requests
    *             from within your cluster's VPC use the private VPC endpoint. The default value for this
    *             parameter is <code>false</code>, which disables private access for your Kubernetes API
-   *             server. If you disable private access and you have nodes or AWS Fargate pods in the
+   *             server. If you disable private access and you have nodes or Fargate pods in the
    *             cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR
-   *             blocks for communication with the nodes or Fargate pods. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
-   *                 Endpoint Access Control</a> in the <i>
+   *             blocks for communication with the nodes or Fargate pods. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster
+   *                 endpoint access control</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    */
@@ -1089,9 +1089,9 @@ export interface VpcConfigRequest {
    * <p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server
    *             endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that
    *             you specify is denied. The default value is <code>0.0.0.0/0</code>. If you've disabled
-   *             private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure
-   *             that you specify the necessary CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
-   *                 Endpoint Access Control</a> in the <i>
+   *             private endpoint access and you have nodes or Fargate pods in the cluster, then ensure
+   *             that you specify the necessary CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster
+   *                 endpoint access control</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    */
@@ -1121,7 +1121,7 @@ export interface CreateClusterRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control
-   *             plane to make calls to AWS API operations on your behalf. For more information, see
+   *             plane to make calls to Amazon Web Services API operations on your behalf. For more information, see
    *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS
    *                 Service IAM Role</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
@@ -1147,13 +1147,13 @@ export interface CreateClusterRequest {
   /**
    * <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to
    *             CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more
-   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster Control Plane Logs</a> in the
+   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster control plane logs</a> in the
    *                 <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    *         <note>
    *             <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
-   *                 control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p>
+   *                 control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p>
    *         </note>
    */
   logging?: Logging;
@@ -1307,10 +1307,10 @@ export interface VpcConfigResponse {
    * <p>This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If
    *             the Amazon EKS private API server endpoint is enabled, Kubernetes API requests that originate
    *             from within your cluster's VPC use the private VPC endpoint instead of traversing the
-   *             internet. If this value is disabled and you have nodes or AWS Fargate pods in the cluster,
+   *             internet. If this value is disabled and you have nodes or Fargate pods in the cluster,
    *             then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR blocks for
-   *             communication with the nodes or Fargate pods. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
-   *                 Endpoint Access Control</a> in the <i>
+   *             communication with the nodes or Fargate pods. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster
+   *                 endpoint access control</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    */
@@ -1320,9 +1320,9 @@ export interface VpcConfigResponse {
    * <p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server
    *             endpoint. Communication to the endpoint from addresses outside of the listed CIDR blocks
    *             is denied. The default value is <code>0.0.0.0/0</code>. If you've disabled private
-   *             endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that the
-   *             necessary CIDR blocks are listed. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
-   *                 Endpoint Access Control</a> in the <i>
+   *             endpoint access and you have nodes or Fargate pods in the cluster, then ensure that the
+   *             necessary CIDR blocks are listed. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster
+   *                 endpoint access control</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    */
@@ -1371,7 +1371,7 @@ export interface Cluster {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control
-   *             plane to make calls to AWS API operations on your behalf.</p>
+   *             plane to make calls to Amazon Web Services API operations on your behalf.</p>
    */
   roleArn?: string;
 
@@ -1543,7 +1543,7 @@ export namespace UnsupportedAvailabilityZoneException {
 }
 
 /**
- * <p>An object representing an AWS Fargate profile selector.</p>
+ * <p>An object representing an Fargate profile selector.</p>
  */
 export interface FargateProfileSelector {
   /**
@@ -1628,7 +1628,7 @@ export namespace CreateFargateProfileRequest {
 export type FargateProfileStatus = "ACTIVE" | "CREATE_FAILED" | "CREATING" | "DELETE_FAILED" | "DELETING";
 
 /**
- * <p>An object representing an AWS Fargate profile.</p>
+ * <p>An object representing an Fargate profile.</p>
  */
 export interface FargateProfile {
   /**
@@ -1762,8 +1762,8 @@ export namespace LaunchTemplateSpecification {
 export interface RemoteAccessConfig {
   /**
    * <p>The Amazon EC2 SSH key that provides access for SSH communication with the nodes in the
-   *             managed node group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 Key
-   *                 Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>.</p>
+   *             managed node group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key
+   *                 pairs and Linux instances</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>.</p>
    */
   ec2SshKey?: string;
 
@@ -1794,8 +1794,7 @@ export namespace RemoteAccessConfig {
  */
 export interface NodegroupScalingConfig {
   /**
-   * <p>The minimum number of nodes that the managed node group can scale in to. This number
-   *             must be greater than zero.</p>
+   * <p>The minimum number of nodes that the managed node group can scale in to.</p>
    */
   minSize?: number;
 
@@ -1856,8 +1855,21 @@ export namespace Taint {
   });
 }
 
+/**
+ * <p>The node group update configuration.</p>
+ */
 export interface NodegroupUpdateConfig {
+  /**
+   * <p>The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel.
+   *             This value or <code>maxUnavailablePercentage</code> is required to have a value.The maximum number
+   *             is 100.</p>
+   */
   maxUnavailable?: number;
+
+  /**
+   * <p>The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be
+   *             updated in parallel, up to 100 nodes at once. This value or <code>maxUnavailable</code> is required to have a value.</p>
+   */
   maxUnavailablePercentage?: number;
 }
 
@@ -1937,7 +1949,7 @@ export interface CreateNodegroupRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to associate with your node group. The Amazon EKS worker
-   *             node <code>kubelet</code> daemon makes calls to AWS APIs on your behalf. Nodes receive
+   *             node <code>kubelet</code> daemon makes calls to Amazon Web Services APIs on your behalf. Nodes receive
    *             permissions for these API calls through an IAM instance profile and associated
    *             policies. Before you can launch nodes and register them into a cluster, you must create
    *             an IAM role for those nodes to use when they are launched. For more information, see
@@ -1984,7 +1996,11 @@ export interface CreateNodegroupRequest {
    */
   launchTemplate?: LaunchTemplateSpecification;
 
+  /**
+   * <p>The node group update configuration.</p>
+   */
   updateConfig?: NodegroupUpdateConfig;
+
   /**
    * <p>The capacity type for your node group.</p>
    */
@@ -2119,7 +2135,7 @@ export interface Issue {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <b>InstanceLimitExceeded</b>: Your AWS account is
+   *                   <b>InstanceLimitExceeded</b>: Your Amazon Web Services account is
    *                     unable to launch any more instances of the specified instance type. You may be
    *                     able to request an Amazon EC2 instance limit increase to recover.</p>
    *             </li>
@@ -2151,7 +2167,7 @@ export interface Issue {
   message?: string;
 
   /**
-   * <p>The AWS resources that are afflicted by this issue.</p>
+   * <p>The Amazon Web Services resources that are afflicted by this issue.</p>
    */
   resourceIds?: string[];
 }
@@ -2308,7 +2324,7 @@ export interface Nodegroup {
 
   /**
    * <p>The IAM role associated with your node group. The Amazon EKS node <code>kubelet</code>
-   *             daemon makes calls to AWS APIs on your behalf. Nodes receive permissions for these API
+   *             daemon makes calls to Amazon Web Services APIs on your behalf. Nodes receive permissions for these API
    *             calls through an IAM instance profile and associated policies.</p>
    */
   nodeRole?: string;
@@ -2324,7 +2340,7 @@ export interface Nodegroup {
 
   /**
    * <p>The Kubernetes taints to be applied to the nodes in the node group when they are
-   *             created. Effect is one of <code>NoSchedule</code>, <code>PreferNoSchedule</code>, or <code>NoExecute</code>. Kubernetes taints
+   *             created. Effect is one of <code>No_Schedule</code>, <code>Prefer_No_Schedule</code>, or <code>No_Execute</code>. Kubernetes taints
    *             can be used together with tolerations to control how workloads are scheduled to your
    *             nodes.</p>
    */
@@ -2349,7 +2365,11 @@ export interface Nodegroup {
    */
   health?: NodegroupHealth;
 
+  /**
+   * <p>The node group update configuration.</p>
+   */
   updateConfig?: NodegroupUpdateConfig;
+
   /**
    * <p>If a launch template was used to create the node group, then this is the launch
    *             template that was used.</p>
@@ -3145,7 +3165,7 @@ export namespace ListClustersResponse {
 
 export interface ListFargateProfilesRequest {
   /**
-   * <p>The name of the Amazon EKS cluster that you would like to listFargate profiles in.</p>
+   * <p>The name of the Amazon EKS cluster that you would like to list Fargate profiles in.</p>
    */
   clusterName: string | undefined;
 
@@ -3620,13 +3640,13 @@ export interface UpdateClusterConfigRequest {
   /**
    * <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to
    *             CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more
-   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster Control Plane Logs</a> in the
+   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS cluster control plane logs</a> in the
    *                 <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    *         <note>
    *             <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
-   *                 control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p>
+   *                 control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p>
    *         </note>
    */
   logging?: Logging;
@@ -3782,7 +3802,11 @@ export interface UpdateNodegroupConfigRequest {
    */
   scalingConfig?: NodegroupScalingConfig;
 
+  /**
+   * <p>The node group update configuration.</p>
+   */
   updateConfig?: NodegroupUpdateConfig;
+
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request.</p>

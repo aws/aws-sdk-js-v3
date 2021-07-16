@@ -21,9 +21,8 @@ export interface CreateEventIntegrationCommandInput extends CreateEventIntegrati
 export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
- *          <p>Creates an EventIntegration, given a specified name, description, and a reference to an
- *       Amazon Eventbridge bus in your account and a partner event source that will push events to that bus. No
+ * <p>Creates an EventIntegration, given a specified name, description, and a reference to an
+ *       Amazon EventBridge bus in your account and a partner event source that pushes events to that bus. No
  *       objects are created in the your account, only metadata that is persisted on the EventIntegration
  *       control plane.</p>
  * @example

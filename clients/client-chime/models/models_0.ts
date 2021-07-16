@@ -38,6 +38,11 @@ export namespace AccessDeniedException {
   });
 }
 
+export enum AccountStatus {
+  Active = "Active",
+  Suspended = "Suspended",
+}
+
 export enum AccountType {
   EnterpriseDirectory = "EnterpriseDirectory",
   EnterpriseLWA = "EnterpriseLWA",
@@ -111,6 +116,11 @@ export interface Account {
    * <p>Supported licenses for the Amazon Chime account.</p>
    */
   SupportedLicenses?: (License | string)[];
+
+  /**
+   * <p>The status of the account, <code>Suspended</code> or <code>Active</code>.</p>
+   */
+  AccountStatus?: AccountStatus | string;
 
   /**
    * <p>The sign-in delegate groups associated with the account.</p>
@@ -6879,22 +6889,6 @@ export namespace LoggingConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export interface GetVoiceConnectorLoggingConfigurationResponse {
-  /**
-   * <p>The logging configuration details.</p>
-   */
-  LoggingConfiguration?: LoggingConfiguration;
-}
-
-export namespace GetVoiceConnectorLoggingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorLoggingConfigurationResponse): any => ({
     ...obj,
   });
 }

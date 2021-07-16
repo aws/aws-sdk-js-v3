@@ -21,8 +21,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
- *          <p>Removes the specified tags from the specified resource.</p>
+ * <p>Removes the specified tags from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

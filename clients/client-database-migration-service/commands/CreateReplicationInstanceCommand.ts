@@ -26,11 +26,11 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
 
 /**
  * <p>Creates the replication instance using the specified parameters.</p>
- *          <p>AWS DMS requires that your account have certain roles with appropriate permissions
+ *          <p>DMS requires that your account have certain roles with appropriate permissions
  *          before you can create a replication instance. For information on the required roles, see
- *       <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole">Creating the IAM Roles to Use With the AWS CLI and AWS DMS API</a>. For
+ *       <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole">Creating the IAM Roles to Use With the CLI and DMS API</a>. For
  *          information on the required permissions, see
- *       <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions">IAM Permissions Needed to Use AWS DMS</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions">IAM Permissions Needed to Use DMS</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

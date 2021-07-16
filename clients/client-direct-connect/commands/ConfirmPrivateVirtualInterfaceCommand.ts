@@ -23,7 +23,7 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Accepts ownership of a private virtual interface created by another AWS account.</p>
+ * <p>Accepts ownership of a private virtual interface created by another account.</p>
  *          <p>After the virtual interface owner makes this call, the virtual interface is
  *       created and attached to the specified virtual private gateway or Direct Connect gateway, and is
  *       made available to handle traffic.</p>

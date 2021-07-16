@@ -22,7 +22,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
 
 /**
  * <p>Updates an existing Amazon Lightsail content delivery network (CDN) distribution.</p>
- *          <p>Use this action to update the configuration of your existing distribution</p>
+ *          <p>Use this action to update the configuration of your existing distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

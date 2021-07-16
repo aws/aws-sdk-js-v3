@@ -23,7 +23,7 @@ export interface DescribeAssociationExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Use this API action to view all executions for a specific association ID. </p>
+ * <p>Views all executions for a specific association ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

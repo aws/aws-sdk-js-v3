@@ -21,10 +21,9 @@ export interface GetDefaultPatchBaselineCommandInput extends GetDefaultPatchBase
 export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBaselineResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the default patch baseline. Note that Systems Manager supports creating multiple default
- *    patch baselines. For example, you can create a default patch baseline for each operating
- *    system.</p>
- *          <p>If you do not specify an operating system value, the default patch baseline for Windows is
+ * <p>Retrieves the default patch baseline. Amazon Web Services Systems Manager supports creating multiple default patch
+ *    baselines. For example, you can create a default patch baseline for each operating system.</p>
+ *          <p>If you don't specify an operating system value, the default patch baseline for Windows is
  *    returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

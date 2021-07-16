@@ -24,7 +24,7 @@ export interface AssociateEncryptionConfigCommandOutput extends AssociateEncrypt
  * <p>Associate encryption configuration to an existing cluster.</p>
  *         <p>You can use this API to enable encryption on existing clusters which do not have
  *             encryption already enabled. This allows you to implement a defense-in-depth security
- *             strategy without migrating applications to new EKS clusters.</p>
+ *             strategy without migrating applications to new Amazon EKS clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

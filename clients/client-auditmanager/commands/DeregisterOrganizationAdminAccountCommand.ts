@@ -26,9 +26,14 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *   Deregisters the delegated AWS administrator account from the AWS organization.
- * </p>
+ * <p>Removes the specified member account as a delegated administrator for Audit Manager. </p>
+ *          <important>
+ *             <p>When you remove a delegated administrator from your Audit Manager settings, or when you
+ *         deregister a delegated administrator from Organizations, you continue to have access
+ *       to the evidence that you previously collected under that account. However, Audit Manager
+ *             will stop collecting and attaching evidence to that delegated administrator account
+ *             moving forward.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

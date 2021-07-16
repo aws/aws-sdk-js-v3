@@ -21,7 +21,7 @@ export interface CreateFargateProfileCommandInput extends CreateFargateProfileRe
 export interface CreateFargateProfileCommandOutput extends CreateFargateProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an AWS Fargate profile for your Amazon EKS cluster. You must have at least one Fargate
+ * <p>Creates an Fargate profile for your Amazon EKS cluster. You must have at least one Fargate
  *             profile in a cluster to be able to run pods on Fargate.</p>
  *         <p>The Fargate profile allows an administrator to declare which pods run on Fargate and specify
  *             which pods run on which Fargate profile. This declaration is done through the profile’s
@@ -44,7 +44,7 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  *         <p>If any Fargate profiles in a cluster are in the <code>DELETING</code> status, you must
  *             wait for that Fargate profile to finish deleting before you can create any other profiles
  *             in that cluster.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html">AWS Fargate Profile</a> in the <i>Amazon EKS User Guide</i>.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html">Fargate Profile</a> in the <i>Amazon EKS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

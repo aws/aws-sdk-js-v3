@@ -24,7 +24,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * <p>Creates an Amazon EKS control plane. </p>
  *         <p>The Amazon EKS control plane consists of control plane instances that run the Kubernetes
  *             software, such as <code>etcd</code> and the API server. The control plane runs in an
- *             account managed by AWS, and the Kubernetes API is exposed via the Amazon EKS API server
+ *             account managed by Amazon Web Services, and the Kubernetes API is exposed via the Amazon EKS API server
  *             endpoint. Each Amazon EKS cluster control plane is single-tenant and unique and runs on its
  *             own set of Amazon EC2 instances.</p>
  *         <p>The cluster control plane is provisioned across multiple Availability Zones and
@@ -32,7 +32,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *             subnets to provide connectivity from the control plane instances to the nodes (for
  *             example, to support <code>kubectl exec</code>, <code>logs</code>, and <code>proxy</code>
  *             data flows).</p>
- *         <p>Amazon EKS nodes run in your AWS account and connect to your cluster's control plane via
+ *         <p>Amazon EKS nodes run in your Amazon Web Services account and connect to your cluster's control plane via
  *             the Kubernetes API server endpoint and a certificate file that is created for your
  *             cluster.</p>
  *

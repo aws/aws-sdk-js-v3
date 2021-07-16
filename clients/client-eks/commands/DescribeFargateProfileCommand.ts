@@ -21,7 +21,7 @@ export interface DescribeFargateProfileCommandInput extends DescribeFargateProfi
 export interface DescribeFargateProfileCommandOutput extends DescribeFargateProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Returns descriptive information about an AWS Fargate profile.</p>
+ * <p>Returns descriptive information about an Fargate profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

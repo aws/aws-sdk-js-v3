@@ -102,6 +102,16 @@ import {
   GetIntentVersionsCommandOutput,
 } from "./commands/GetIntentVersionsCommand";
 import { GetIntentsCommand, GetIntentsCommandInput, GetIntentsCommandOutput } from "./commands/GetIntentsCommand";
+import {
+  GetMigrationCommand,
+  GetMigrationCommandInput,
+  GetMigrationCommandOutput,
+} from "./commands/GetMigrationCommand";
+import {
+  GetMigrationsCommand,
+  GetMigrationsCommandInput,
+  GetMigrationsCommandOutput,
+} from "./commands/GetMigrationsCommand";
 import { GetSlotTypeCommand, GetSlotTypeCommandInput, GetSlotTypeCommandOutput } from "./commands/GetSlotTypeCommand";
 import {
   GetSlotTypeVersionsCommand,
@@ -128,6 +138,11 @@ import { PutBotCommand, PutBotCommandInput, PutBotCommandOutput } from "./comman
 import { PutIntentCommand, PutIntentCommandInput, PutIntentCommandOutput } from "./commands/PutIntentCommand";
 import { PutSlotTypeCommand, PutSlotTypeCommandInput, PutSlotTypeCommandOutput } from "./commands/PutSlotTypeCommand";
 import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import {
+  StartMigrationCommand,
+  StartMigrationCommandInput,
+  StartMigrationCommandOutput,
+} from "./commands/StartMigrationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -1156,6 +1171,69 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   }
 
   /**
+   * <p>Provides details about an ongoing or complete migration from an
+   *       Amazon Lex V1 bot to an Amazon Lex V2 bot. Use this operation to view the migration
+   *       alerts and warnings related to the migration.</p>
+   */
+  public getMigration(
+    args: GetMigrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMigrationCommandOutput>;
+  public getMigration(args: GetMigrationCommandInput, cb: (err: any, data?: GetMigrationCommandOutput) => void): void;
+  public getMigration(
+    args: GetMigrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMigrationCommandOutput) => void
+  ): void;
+  public getMigration(
+    args: GetMigrationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMigrationCommandOutput) => void),
+    cb?: (err: any, data?: GetMigrationCommandOutput) => void
+  ): Promise<GetMigrationCommandOutput> | void {
+    const command = new GetMigrationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of migrations between Amazon Lex V1 and Amazon Lex V2.</p>
+   */
+  public getMigrations(
+    args: GetMigrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMigrationsCommandOutput>;
+  public getMigrations(
+    args: GetMigrationsCommandInput,
+    cb: (err: any, data?: GetMigrationsCommandOutput) => void
+  ): void;
+  public getMigrations(
+    args: GetMigrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMigrationsCommandOutput) => void
+  ): void;
+  public getMigrations(
+    args: GetMigrationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMigrationsCommandOutput) => void),
+    cb?: (err: any, data?: GetMigrationsCommandOutput) => void
+  ): Promise<GetMigrationsCommandOutput> | void {
+    const command = new GetMigrationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a specific version of a slot type. In
    *       addition to specifying the slot type name, you must specify the slot type
    *       version.</p>
@@ -1290,8 +1368,9 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
    *       received by the bot in the last 15 days. The response contains information
    *       about a maximum of 100 utterances for each version.</p>
    *          <p>If you set <code>childDirected</code> field to true when you
-   *       created your bot, or if you opted out of participating in improving Amazon Lex,
-   *       utterances are not available.</p>
+   *       created your bot, if you are using slot obfuscation with one or more
+   *       slots, or if you opted out of participating in improving Amazon Lex, utterances
+   *       are not available.</p>
    *          <p>This operation requires permissions for the
    *         <code>lex:GetUtterancesView</code> action.</p>
    */
@@ -1571,6 +1650,41 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
     cb?: (err: any, data?: StartImportCommandOutput) => void
   ): Promise<StartImportCommandOutput> | void {
     const command = new StartImportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2. Migrate your bot when
+   *       you want to take advantage of the new features of Amazon Lex V2.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/migrate.html">Migrating a bot</a> in the <i>Amazon Lex
+   *         developer guide</i>.</p>
+   */
+  public startMigration(
+    args: StartMigrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMigrationCommandOutput>;
+  public startMigration(
+    args: StartMigrationCommandInput,
+    cb: (err: any, data?: StartMigrationCommandOutput) => void
+  ): void;
+  public startMigration(
+    args: StartMigrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMigrationCommandOutput) => void
+  ): void;
+  public startMigration(
+    args: StartMigrationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMigrationCommandOutput) => void),
+    cb?: (err: any, data?: StartMigrationCommandOutput) => void
+  ): Promise<StartMigrationCommandOutput> | void {
+    const command = new StartMigrationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

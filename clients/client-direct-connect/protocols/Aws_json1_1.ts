@@ -5976,6 +5976,7 @@ const deserializeAws_json1_1BGPPeer = (output: any, context: __SerdeContext): BG
     asn: __expectNumber(output.asn),
     authKey: __expectString(output.authKey),
     awsDeviceV2: __expectString(output.awsDeviceV2),
+    awsLogicalDeviceId: __expectString(output.awsLogicalDeviceId),
     bgpPeerId: __expectString(output.bgpPeerId),
     bgpPeerState: __expectString(output.bgpPeerState),
     bgpStatus: __expectString(output.bgpStatus),
@@ -6045,6 +6046,7 @@ const deserializeAws_json1_1Connection = (output: any, context: __SerdeContext):
   return {
     awsDevice: __expectString(output.awsDevice),
     awsDeviceV2: __expectString(output.awsDeviceV2),
+    awsLogicalDeviceId: __expectString(output.awsLogicalDeviceId),
     bandwidth: __expectString(output.bandwidth),
     connectionId: __expectString(output.connectionId),
     connectionName: __expectString(output.connectionName),
@@ -6484,6 +6486,7 @@ const deserializeAws_json1_1Interconnect = (output: any, context: __SerdeContext
   return {
     awsDevice: __expectString(output.awsDevice),
     awsDeviceV2: __expectString(output.awsDeviceV2),
+    awsLogicalDeviceId: __expectString(output.awsLogicalDeviceId),
     bandwidth: __expectString(output.bandwidth),
     hasLogicalRedundancy: __expectString(output.hasLogicalRedundancy),
     interconnectId: __expectString(output.interconnectId),
@@ -6530,6 +6533,7 @@ const deserializeAws_json1_1Lag = (output: any, context: __SerdeContext): Lag =>
     allowsHostedConnections: __expectBoolean(output.allowsHostedConnections),
     awsDevice: __expectString(output.awsDevice),
     awsDeviceV2: __expectString(output.awsDeviceV2),
+    awsLogicalDeviceId: __expectString(output.awsLogicalDeviceId),
     connections:
       output.connections !== undefined && output.connections !== null
         ? deserializeAws_json1_1ConnectionList(output.connections, context)
@@ -6814,6 +6818,7 @@ const deserializeAws_json1_1VirtualInterface = (output: any, context: __SerdeCon
     asn: __expectNumber(output.asn),
     authKey: __expectString(output.authKey),
     awsDeviceV2: __expectString(output.awsDeviceV2),
+    awsLogicalDeviceId: __expectString(output.awsLogicalDeviceId),
     bgpPeers:
       output.bgpPeers !== undefined && output.bgpPeers !== null
         ? deserializeAws_json1_1BGPPeerList(output.bgpPeers, context)

@@ -241,25 +241,25 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>Welcome to the AWS Audit Manager API reference. This guide is for developers who need detailed information about the AWS Audit Manager API operations, data types, and errors. </p>
- *          <p>AWS Audit Manager is a service that provides automated evidence collection so that you
- *          can continuously audit your AWS usage, and assess the effectiveness of your controls to
+ * <p>Welcome to the Audit Manager API reference. This guide is for developers who need detailed information about the Audit Manager API operations, data types, and errors. </p>
+ *          <p>Audit Manager is a service that provides automated evidence collection so that you
+ *          can continuously audit your Amazon Web Services usage, and assess the effectiveness of your controls to
  *          better manage risk and simplify compliance.</p>
- *          <p>AWS Audit Manager provides pre-built frameworks that structure and automate assessments
+ *          <p>Audit Manager provides pre-built frameworks that structure and automate assessments
  *          for a given compliance standard. Frameworks include a pre-built collection of controls with
  *          descriptions and testing procedures, which are grouped according to the requirements of the
  *          specified compliance standard or regulation. You can also customize frameworks and controls
  *          to support internal audits with unique requirements. </p>
  *
- *          <p>Use the following links to get started with the AWS Audit Manager API:</p>
+ *          <p>Use the following links to get started with the Audit Manager API:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Operations.html">Actions</a>: An alphabetical list of all AWS Audit Manager API operations.</p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Operations.html">Actions</a>: An alphabetical list of all Audit Manager API operations.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Types.html">Data types</a>: An alphabetical list of all AWS Audit Manager data types.</p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Types.html">Data types</a>: An alphabetical list of all Audit Manager data types.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -271,12 +271,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *          </ul>
  *
- *          <p>If you're new to AWS Audit Manager, we recommend that you review the <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html"> AWS Audit Manager User Guide</a>.</p>
+ *          <p>If you're new to Audit Manager, we recommend that you review the <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html"> Audit Manager User Guide</a>.</p>
  */
 export class AuditManager extends AuditManagerClient {
   /**
    * <p>
-   *          Associates an evidence folder to the specified assessment report in AWS Audit Manager.
+   *          Associates an evidence folder to the specified assessment report in Audit Manager.
    *       </p>
    */
   public associateAssessmentReportEvidenceFolder(
@@ -312,7 +312,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *         Associates a list of evidence to an assessment report in an AWS Audit Manager assessment.
+   *          Associates a list of evidence to an assessment report in an Audit Manager assessment.
    *       </p>
    */
   public batchAssociateAssessmentReportEvidence(
@@ -348,7 +348,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Create a batch of delegations for a specified assessment in AWS Audit Manager.
+   *          Create a batch of delegations for a specified assessment in Audit Manager.
    *       </p>
    */
   public batchCreateDelegationByAssessment(
@@ -382,7 +382,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Deletes the delegations in the specified AWS Audit Manager assessment.
+   *          Deletes the delegations in the specified Audit Manager assessment.
    *       </p>
    */
   public batchDeleteDelegationByAssessment(
@@ -416,7 +416,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *          Disassociates a list of evidence from the specified assessment report in AWS Audit Manager.
+   *          Disassociates a list of evidence from the specified assessment report in Audit Manager.
    *       </p>
    */
   public batchDisassociateAssessmentReportEvidence(
@@ -452,7 +452,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *          Uploads one or more pieces of evidence to the specified control in the assessment in AWS Audit Manager.
+   *          Uploads one or more pieces of evidence to the specified control in the assessment in Audit Manager.
    *       </p>
    */
   public batchImportEvidenceToAssessmentControl(
@@ -488,7 +488,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *   Creates an assessment in AWS Audit Manager.
+   *    Creates an assessment in Audit Manager.
    * </p>
    */
   public createAssessment(
@@ -522,7 +522,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Creates a custom framework in AWS Audit Manager.
+   *    Creates a custom framework in Audit Manager.
    * </p>
    */
   public createAssessmentFramework(
@@ -590,7 +590,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Creates a new custom control in AWS Audit Manager.
+   *    Creates a new custom control in Audit Manager.
    * </p>
    */
   public createControl(
@@ -624,7 +624,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Deletes an assessment in AWS Audit Manager.
+   *    Deletes an assessment in Audit Manager.
    * </p>
    */
   public deleteAssessment(
@@ -658,7 +658,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Deletes a custom framework in AWS Audit Manager.
+   *    Deletes a custom framework in Audit Manager.
    * </p>
    */
   public deleteAssessmentFramework(
@@ -692,7 +692,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Deletes an assessment report from an assessment in AWS Audit Manager.
+   *    Deletes an assessment report from an assessment in Audit Manager.
    * </p>
    */
   public deleteAssessmentReport(
@@ -726,7 +726,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Deletes a custom control in AWS Audit Manager.
+   *    Deletes a custom control in Audit Manager.
    * </p>
    */
   public deleteControl(
@@ -760,7 +760,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Deregisters an account in AWS Audit Manager.
+   *    Deregisters an account in Audit Manager.
    * </p>
    */
   public deregisterAccount(
@@ -793,9 +793,14 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *   Deregisters the delegated AWS administrator account from the AWS organization.
-   * </p>
+   * <p>Removes the specified member account as a delegated administrator for Audit Manager. </p>
+   *          <important>
+   *             <p>When you remove a delegated administrator from your Audit Manager settings, or when you
+   *         deregister a delegated administrator from Organizations, you continue to have access
+   *       to the evidence that you previously collected under that account. However, Audit Manager
+   *             will stop collecting and attaching evidence to that delegated administrator account
+   *             moving forward.</p>
+   *          </important>
    */
   public deregisterOrganizationAdminAccount(
     args: DeregisterOrganizationAdminAccountCommandInput,
@@ -828,7 +833,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *   Disassociates an evidence folder from the specified assessment report in AWS Audit Manager.
+   *    Disassociates an evidence folder from the specified assessment report in Audit Manager.
    * </p>
    */
   public disassociateAssessmentReportEvidenceFolder(
@@ -864,7 +869,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Returns the registration status of an account in AWS Audit Manager.
+   *    Returns the registration status of an account in Audit Manager.
    * </p>
    */
   public getAccountStatus(
@@ -898,7 +903,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Returns an assessment from AWS Audit Manager.
+   *    Returns an assessment from Audit Manager.
    * </p>
    */
   public getAssessment(
@@ -932,7 +937,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Returns a framework from AWS Audit Manager.
+   *    Returns a framework from Audit Manager.
    * </p>
    */
   public getAssessmentFramework(
@@ -966,7 +971,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Returns the URL of a specified assessment report in AWS Audit Manager.
+   *    Returns the URL of a specified assessment report in Audit Manager.
    * </p>
    */
   public getAssessmentReportUrl(
@@ -1000,7 +1005,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Returns a list of changelogs from AWS Audit Manager.
+   *    Returns a list of changelogs from Audit Manager.
    * </p>
    */
   public getChangeLogs(
@@ -1034,7 +1039,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Returns a control from AWS Audit Manager.
+   *    Returns a control from Audit Manager.
    * </p>
    */
   public getControl(args: GetControlCommandInput, options?: __HttpHandlerOptions): Promise<GetControlCommandOutput>;
@@ -1096,7 +1101,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Returns evidence from AWS Audit Manager.
+   *    Returns evidence from Audit Manager.
    * </p>
    */
   public getEvidence(args: GetEvidenceCommandInput, options?: __HttpHandlerOptions): Promise<GetEvidenceCommandOutput>;
@@ -1124,7 +1129,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Returns all evidence from a specified evidence folder in AWS Audit Manager.
+   *    Returns all evidence from a specified evidence folder in Audit Manager.
    * </p>
    */
   public getEvidenceByEvidenceFolder(
@@ -1158,7 +1163,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Returns an evidence folder from the specified assessment in AWS Audit Manager.
+   *    Returns an evidence folder from the specified assessment in Audit Manager.
    * </p>
    */
   public getEvidenceFolder(
@@ -1192,7 +1197,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Returns the evidence folders from a specified assessment in AWS Audit Manager.
+   *    Returns the evidence folders from a specified assessment in Audit Manager.
    * </p>
    */
   public getEvidenceFoldersByAssessment(
@@ -1226,7 +1231,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Returns a list of evidence folders associated with a specified control of an assessment in AWS Audit Manager.
+   *    Returns a list of evidence folders associated with a specified control of an assessment in Audit Manager.
    * </p>
    */
   public getEvidenceFoldersByAssessmentControl(
@@ -1262,7 +1267,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *   Returns the name of the delegated AWS administrator account for the AWS organization.
+   *    Returns the name of the delegated Amazon Web Services administrator account for the organization.
    * </p>
    */
   public getOrganizationAdminAccount(
@@ -1296,7 +1301,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Returns a list of the in-scope AWS services for the specified assessment.
+   *    Returns a list of the in-scope Amazon Web Services services for the specified assessment.
    * </p>
    */
   public getServicesInScope(
@@ -1330,7 +1335,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Returns the settings for the specified AWS account.
+   *    Returns the settings for the specified account.
    * </p>
    */
   public getSettings(args: GetSettingsCommandInput, options?: __HttpHandlerOptions): Promise<GetSettingsCommandOutput>;
@@ -1358,7 +1363,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Returns a list of the frameworks available in the AWS Audit Manager framework library.
+   *    Returns a list of the frameworks available in the Audit Manager framework library.
    * </p>
    */
   public listAssessmentFrameworks(
@@ -1392,7 +1397,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Returns a list of assessment reports created in AWS Audit Manager.
+   *    Returns a list of assessment reports created in Audit Manager.
    * </p>
    */
   public listAssessmentReports(
@@ -1426,7 +1431,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Returns a list of current and past assessments from AWS Audit Manager.
+   *    Returns a list of current and past assessments from Audit Manager.
    * </p>
    */
   public listAssessments(
@@ -1460,7 +1465,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Returns a list of controls from AWS Audit Manager.
+   *    Returns a list of controls from Audit Manager.
    * </p>
    */
   public listControls(
@@ -1525,7 +1530,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Returns a list of all AWS Audit Manager notifications.
+   *    Returns a list of all Audit Manager notifications.
    * </p>
    */
   public listNotifications(
@@ -1559,7 +1564,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Returns a list of tags for the specified resource in AWS Audit Manager.
+   *    Returns a list of tags for the specified resource in Audit Manager.
    * </p>
    */
   public listTagsForResource(
@@ -1593,7 +1598,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *  Enables AWS Audit Manager for the specified AWS account.
+   *    Enables Audit Manager for the specified account.
    * </p>
    */
   public registerAccount(
@@ -1627,7 +1632,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Enables an AWS account within the organization as the delegated administrator for AWS Audit Manager.
+   *    Enables an account within the organization as the delegated administrator for Audit Manager.
    * </p>
    */
   public registerOrganizationAdminAccount(
@@ -1661,7 +1666,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Tags the specified resource in AWS Audit Manager.
+   *    Tags the specified resource in Audit Manager.
    * </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1689,7 +1694,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Removes a tag from a resource in AWS Audit Manager.
+   *    Removes a tag from a resource in Audit Manager.
    * </p>
    */
   public untagResource(
@@ -1723,7 +1728,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Edits an AWS Audit Manager assessment.
+   *    Edits an Audit Manager assessment.
    * </p>
    */
   public updateAssessment(
@@ -1757,7 +1762,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Updates a control within an assessment in AWS Audit Manager.
+   *    Updates a control within an assessment in Audit Manager.
    * </p>
    */
   public updateAssessmentControl(
@@ -1791,7 +1796,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Updates the status of a control set in an AWS Audit Manager assessment.
+   *    Updates the status of a control set in an Audit Manager assessment.
    * </p>
    */
   public updateAssessmentControlSetStatus(
@@ -1825,7 +1830,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Updates a custom framework in AWS Audit Manager.
+   *    Updates a custom framework in Audit Manager.
    * </p>
    */
   public updateAssessmentFramework(
@@ -1859,7 +1864,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Updates the status of an assessment in AWS Audit Manager.
+   *    Updates the status of an assessment in Audit Manager.
    * </p>
    */
   public updateAssessmentStatus(
@@ -1893,7 +1898,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   * Updates a custom control in AWS Audit Manager.
+   *    Updates a custom control in Audit Manager.
    * </p>
    */
   public updateControl(
@@ -1927,7 +1932,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Updates AWS Audit Manager settings for the current user account.
+   *    Updates Audit Manager settings for the current user account.
    * </p>
    */
   public updateSettings(
@@ -1961,7 +1966,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Validates the integrity of an assessment report in AWS Audit Manager.
+   *    Validates the integrity of an assessment report in Audit Manager.
    * </p>
    */
   public validateAssessmentReportIntegrity(

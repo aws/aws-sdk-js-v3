@@ -21,7 +21,7 @@ export interface DescribeDocumentCommandInput extends DescribeDocumentRequest {}
 export interface DescribeDocumentCommandOutput extends DescribeDocumentResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified Systems Manager document.</p>
+ * <p>Describes the specified Amazon Web Services Systems Manager document (SSM document).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,5 +1,3 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-
 /**
  * <p>Details about the target configuration.</p>
  */
@@ -1231,6 +1229,7 @@ export type ResourceType =
   | "import-image-task"
   | "import-snapshot-task"
   | "instance"
+  | "instance-event-window"
   | "internet-gateway"
   | "key-pair"
   | "launch-template"
@@ -1276,7 +1275,7 @@ export interface TagSpecification {
    *     	   <code>export-image-task</code>
    *          | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |
    *     	   <code>host-reservation</code> | <code>image</code>| <code>import-image-task</code> |
-   *             <code>import-snapshot-task</code> | <code>instance</code> |
+   *     	   <code>import-snapshot-task</code> | <code>instance</code> | <code>instance-event-window</code> |
    *             <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |
    *     	   <code>key-pair</code> | <code>launch-template</code> | <code>local-gateway-route-table-vpc-association</code> | <code>placement-group</code> |
    *     	   <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> |
@@ -1287,7 +1286,7 @@ export interface TagSpecification {
    *     	   <code>transit-gateway-attachment</code> | <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> |
    *             <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> |
    *             <code>vpc-endpoint</code> (for interface and gateway endpoints) |
-   *             <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> |
+   *     	   <code>vpc-endpoint-service</code> (for PrivateLink) | <code>vpc-flow-log</code> |
    *             <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
    *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
@@ -2134,6 +2133,214 @@ export namespace AssociateIamInstanceProfileResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: AssociateIamInstanceProfileResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>One or more targets associated with the specified event window. Only one
+ *             <i>type</i> of target (instance ID, instance tag, or Dedicated Host ID)
+ *          can be associated with an event window.</p>
+ */
+export interface InstanceEventWindowAssociationRequest {
+  /**
+   * <p>The IDs of the instances to associate with the event window. If the instance is on a
+   *          Dedicated Host, you can't specify the Instance ID parameter; you must use the Dedicated
+   *          Host ID parameter.</p>
+   */
+  InstanceIds?: string[];
+
+  /**
+   * <p>The instance tags to associate with the event window. Any instances associated with the
+   *          tags will be associated with the event window.</p>
+   */
+  InstanceTags?: Tag[];
+
+  /**
+   * <p>The IDs of the Dedicated Hosts to associate with the event window.</p>
+   */
+  DedicatedHostIds?: string[];
+}
+
+export namespace InstanceEventWindowAssociationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceEventWindowAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateInstanceEventWindowRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the event window.</p>
+   */
+  InstanceEventWindowId: string | undefined;
+
+  /**
+   * <p>One or more targets associated with the specified event window.</p>
+   */
+  AssociationTarget: InstanceEventWindowAssociationRequest | undefined;
+}
+
+export namespace AssociateInstanceEventWindowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateInstanceEventWindowRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>One or more targets associated with the event window.</p>
+ */
+export interface InstanceEventWindowAssociationTarget {
+  /**
+   * <p>The IDs of the instances associated with the event window.</p>
+   */
+  InstanceIds?: string[];
+
+  /**
+   * <p>The instance tags associated with the event window. Any instances associated with the tags
+   *          will be associated with the event window.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The IDs of the Dedicated Hosts associated with the event window.</p>
+   */
+  DedicatedHostIds?: string[];
+}
+
+export namespace InstanceEventWindowAssociationTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceEventWindowAssociationTarget): any => ({
+    ...obj,
+  });
+}
+
+export enum InstanceEventWindowState {
+  active = "active",
+  creating = "creating",
+  deleted = "deleted",
+  deleting = "deleting",
+}
+
+export enum WeekDay {
+  friday = "friday",
+  monday = "monday",
+  saturday = "saturday",
+  sunday = "sunday",
+  thursday = "thursday",
+  tuesday = "tuesday",
+  wednesday = "wednesday",
+}
+
+/**
+ * <p>The start day and time and the end day and time of the time range, in UTC.</p>
+ */
+export interface InstanceEventWindowTimeRange {
+  /**
+   * <p>The day on which the time range begins.</p>
+   */
+  StartWeekDay?: WeekDay | string;
+
+  /**
+   * <p>The hour when the time range begins.</p>
+   */
+  StartHour?: number;
+
+  /**
+   * <p>The day on which the time range ends.</p>
+   */
+  EndWeekDay?: WeekDay | string;
+
+  /**
+   * <p>The hour when the time range ends.</p>
+   */
+  EndHour?: number;
+}
+
+export namespace InstanceEventWindowTimeRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceEventWindowTimeRange): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The event window.</p>
+ */
+export interface InstanceEventWindow {
+  /**
+   * <p>The ID of the event window.</p>
+   */
+  InstanceEventWindowId?: string;
+
+  /**
+   * <p>One or more time ranges defined for the event window.</p>
+   */
+  TimeRanges?: InstanceEventWindowTimeRange[];
+
+  /**
+   * <p>The name of the event window.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The cron expression defined for the event window.</p>
+   */
+  CronExpression?: string;
+
+  /**
+   * <p>One or more targets associated with the event window.</p>
+   */
+  AssociationTarget?: InstanceEventWindowAssociationTarget;
+
+  /**
+   * <p>The current state of the event window.</p>
+   */
+  State?: InstanceEventWindowState | string;
+
+  /**
+   * <p>The instance tags associated with the event window.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace InstanceEventWindow {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceEventWindow): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateInstanceEventWindowResult {
+  /**
+   * <p>Information about the event window.</p>
+   */
+  InstanceEventWindow?: InstanceEventWindow;
+}
+
+export namespace AssociateInstanceEventWindowResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateInstanceEventWindowResult): any => ({
     ...obj,
   });
 }
@@ -8108,6 +8315,124 @@ export namespace CreateImageResult {
   });
 }
 
+/**
+ * <p>The start day and time and the end day and time of the time range, in UTC.</p>
+ */
+export interface InstanceEventWindowTimeRangeRequest {
+  /**
+   * <p>The day on which the time range begins.</p>
+   */
+  StartWeekDay?: WeekDay | string;
+
+  /**
+   * <p>The hour when the time range begins.</p>
+   */
+  StartHour?: number;
+
+  /**
+   * <p>The day on which the time range ends.</p>
+   */
+  EndWeekDay?: WeekDay | string;
+
+  /**
+   * <p>The hour when the time range ends.</p>
+   */
+  EndHour?: number;
+}
+
+export namespace InstanceEventWindowTimeRangeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceEventWindowTimeRangeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateInstanceEventWindowRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The name of the event window.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The time range for the event window. If you specify a time range, you can't specify a cron
+   *          expression.</p>
+   */
+  TimeRanges?: InstanceEventWindowTimeRangeRequest[];
+
+  /**
+   * <p>The cron expression for the event window, for example, <code>* 0-4,20-23 * * 1,5</code>. If
+   *          you specify a cron expression, you can't specify a time range.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Only hour and day of the week values are supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>For day of the week values, you can specify either integers <code>0</code> through
+   *                   <code>6</code>, or alternative single values <code>SUN</code> through
+   *                   <code>SAT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The minute, month, and year must be specified by <code>*</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or
+   *             <code>0-4,20-23</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each hour range must be >= 2 hours, for example, <code>0-2</code> or
+   *             <code>20-23</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The event window must be >= 4 hours. The combined total time ranges in the event
+   *                window must be >= 4 hours.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a> on the <i>Wikipedia
+   *             website</i>.</p>
+   */
+  CronExpression?: string;
+
+  /**
+   * <p>The tags to apply to the event window.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+export namespace CreateInstanceEventWindowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInstanceEventWindowRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateInstanceEventWindowResult {
+  /**
+   * <p>Information about the event window.</p>
+   */
+  InstanceEventWindow?: InstanceEventWindow;
+}
+
+export namespace CreateInstanceEventWindowResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInstanceEventWindowResult): any => ({
+    ...obj,
+  });
+}
+
 export type ContainerFormat = "ova";
 
 export type DiskImageFormat = "RAW" | "VHD" | "VMDK";
@@ -8369,361 +8694,6 @@ export namespace InternetGateway {
    * @internal
    */
   export const filterSensitiveLog = (obj: InternetGateway): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateInternetGatewayResult {
-  /**
-   * <p>Information about the internet gateway.</p>
-   */
-  InternetGateway?: InternetGateway;
-}
-
-export namespace CreateInternetGatewayResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInternetGatewayResult): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateKeyPairRequest {
-  /**
-   * <p>A unique name for the key pair.</p>
-   * 	        <p>Constraints: Up to 255 ASCII characters</p>
-   */
-  KeyName: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The tags to apply to the new key pair.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-export namespace CreateKeyPairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKeyPairRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a key pair.</p>
- */
-export interface KeyPair {
-  /**
-   * <p>The SHA-1 digest of the DER encoded private key.</p>
-   */
-  KeyFingerprint?: string;
-
-  /**
-   * <p>An unencrypted PEM encoded RSA private key.</p>
-   */
-  KeyMaterial?: string;
-
-  /**
-   * <p>The name of the key pair.</p>
-   */
-  KeyName?: string;
-
-  /**
-   * <p>The ID of the key pair.</p>
-   */
-  KeyPairId?: string;
-
-  /**
-   * <p>Any tags applied to the key pair.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace KeyPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyPair): any => ({
-    ...obj,
-    ...(obj.KeyMaterial && { KeyMaterial: SENSITIVE_STRING }),
-  });
-}
-
-/**
- * <p>The parameters for a block device for an EBS volume.</p>
- */
-export interface LaunchTemplateEbsBlockDeviceRequest {
-  /**
-   * <p>Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
-   *             If you are creating a volume from a snapshot, you can't specify an encryption value.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
-   * <p>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>, and <code>io2</code>
-   *             volumes, this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes,
-   *             this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits
-   *             for bursting.</p>
-   *         <p>The following are the supported values for each volume type:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>gp3</code>: 3,000-16,000 IOPS</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>io1</code>: 100-64,000 IOPS</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>io2</code>: 100-64,000 IOPS</p>
-   *             </li>
-   *          </ul>
-   *         <p>For <code>io1</code> and <code>io2</code> volumes, we guarantee 64,000 IOPS
-   *             only for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a>. Other instance families guarantee performance up
-   *             to 32,000 IOPS.</p>
-   *         <p>This parameter is supported for <code>io1</code>, <code>io2</code>, and <code>gp3</code> volumes only. This parameter is not supported for
-   *             <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>
-   */
-  Iops?: number;
-
-  /**
-   * <p>The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for
-   *             encryption.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following
-   *             are the supported volumes sizes for each volume type:</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>gp2</code> and <code>gp3</code>: 1-16,384</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>io1</code> and <code>io2</code>: 4-16,384</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>st1</code> and <code>sc1</code>: 125-16,384</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>standard</code>: 1-1,024</p>
-   *             </li>
-   *          </ul>
-   */
-  VolumeSize?: number;
-
-  /**
-   * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
-   *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  VolumeType?: VolumeType | string;
-
-  /**
-   * <p>The throughput to provision for a <code>gp3</code> volume, with a maximum of 1,000 MiB/s.</p>
-   *     	    <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
-   */
-  Throughput?: number;
-}
-
-export namespace LaunchTemplateEbsBlockDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateEbsBlockDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a block device mapping.</p>
- */
-export interface LaunchTemplateBlockDeviceMappingRequest {
-  /**
-   * <p>The device name (for example, /dev/sdh or xvdh).</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0.
-   *             An instance type with 2 available instance store volumes can specify mappings for ephemeral0
-   *             and ephemeral1. The number of available instance store volumes depends on the instance type.
-   *             After you connect to the instance, you must mount the volume.</p>
-   */
-  VirtualName?: string;
-
-  /**
-   * <p>Parameters used to automatically set up EBS volumes when the instance is launched.</p>
-   */
-  Ebs?: LaunchTemplateEbsBlockDeviceRequest;
-
-  /**
-   * <p>To omit the device from the block device mapping, specify an empty string.</p>
-   */
-  NoDevice?: string;
-}
-
-export namespace LaunchTemplateBlockDeviceMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateBlockDeviceMappingRequest): any => ({
-    ...obj,
-  });
-}
-
-export type CapacityReservationPreference = "none" | "open";
-
-/**
- * <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
- */
-export interface CapacityReservationTarget {
-  /**
-   * <p>The ID of the Capacity Reservation in which to run the instance.</p>
-   */
-  CapacityReservationId?: string;
-
-  /**
-   * <p>The ARN of the Capacity Reservation resource group in which to run the instance.</p>
-   */
-  CapacityReservationResourceGroupArn?: string;
-}
-
-export namespace CapacityReservationTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityReservationTarget): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an instance's Capacity Reservation targeting option. You can specify only one option at a time. Use the
- * 			<code>CapacityReservationPreference</code> parameter to configure the instance to run in On-Demand capacity or
- * 			to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
- * 			Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation or
- * 			a Capacity Reservation group.</p>
- */
-export interface LaunchTemplateCapacityReservationSpecificationRequest {
-  /**
-   * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>
-   *                   <code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes
-   * 				(instance type, platform, Availability Zone).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The instance
-   * 				runs in On-Demand capacity.</p>
-   *             </li>
-   *          </ul>
-   */
-  CapacityReservationPreference?: CapacityReservationPreference | string;
-
-  /**
-   * <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
-   */
-  CapacityReservationTarget?: CapacityReservationTarget;
-}
-
-export namespace LaunchTemplateCapacityReservationSpecificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateCapacityReservationSpecificationRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The CPU options for the instance. Both the core count and threads per core
- * 			must be specified in the request.</p>
- */
-export interface LaunchTemplateCpuOptionsRequest {
-  /**
-   * <p>The number of CPU cores for the instance.</p>
-   */
-  CoreCount?: number;
-
-  /**
-   * <p>The number of threads per CPU core. To disable multithreading
-   * 			for the instance, specify a value of 1. Otherwise, specify the default value of 2.</p>
-   */
-  ThreadsPerCore?: number;
-}
-
-export namespace LaunchTemplateCpuOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateCpuOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The credit option for CPU usage of a T2, T3, or T3a instance.</p>
- */
-export interface CreditSpecificationRequest {
-  /**
-   * <p>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are
-   *                 <code>standard</code> and <code>unlimited</code>.</p>
-   */
-  CpuCredits: string | undefined;
-}
-
-export namespace CreditSpecificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreditSpecificationRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A specification for an Elastic Graphics accelerator.</p>
- */
-export interface ElasticGpuSpecification {
-  /**
-   * <p>The type of Elastic Graphics accelerator. For more information about the values to specify for
-   *             <code>Type</code>, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics">Elastic Graphics Basics</a>, specifically the Elastic Graphics accelerator column, in the <i>Amazon Elastic Compute Cloud User Guide for Windows
-   *                 Instances</i>.</p>
-   */
-  Type: string | undefined;
-}
-
-export namespace ElasticGpuSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticGpuSpecification): any => ({
     ...obj,
   });
 }

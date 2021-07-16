@@ -28,6 +28,10 @@ import {
   CopyClusterSnapshotCommandInput,
   CopyClusterSnapshotCommandOutput,
 } from "./commands/CopyClusterSnapshotCommand";
+import {
+  CreateAuthenticationProfileCommandInput,
+  CreateAuthenticationProfileCommandOutput,
+} from "./commands/CreateAuthenticationProfileCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import {
   CreateClusterParameterGroupCommandInput,
@@ -75,6 +79,10 @@ import {
 } from "./commands/CreateSnapshotScheduleCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import { CreateUsageLimitCommandInput, CreateUsageLimitCommandOutput } from "./commands/CreateUsageLimitCommand";
+import {
+  DeleteAuthenticationProfileCommandInput,
+  DeleteAuthenticationProfileCommandOutput,
+} from "./commands/DeleteAuthenticationProfileCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import {
   DeleteClusterParameterGroupCommandInput,
@@ -127,6 +135,10 @@ import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
+import {
+  DescribeAuthenticationProfilesCommandInput,
+  DescribeAuthenticationProfilesCommandOutput,
+} from "./commands/DescribeAuthenticationProfilesCommand";
 import {
   DescribeClusterDbRevisionsCommandInput,
   DescribeClusterDbRevisionsCommandOutput,
@@ -252,6 +264,10 @@ import {
   ModifyAquaConfigurationCommandInput,
   ModifyAquaConfigurationCommandOutput,
 } from "./commands/ModifyAquaConfigurationCommand";
+import {
+  ModifyAuthenticationProfileCommandInput,
+  ModifyAuthenticationProfileCommandOutput,
+} from "./commands/ModifyAuthenticationProfileCommand";
 import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "./commands/ModifyClusterCommand";
 import {
   ModifyClusterDbRevisionCommandInput,
@@ -404,6 +420,7 @@ export type ServiceInputTypes =
   | BatchModifyClusterSnapshotsCommandInput
   | CancelResizeCommandInput
   | CopyClusterSnapshotCommandInput
+  | CreateAuthenticationProfileCommandInput
   | CreateClusterCommandInput
   | CreateClusterParameterGroupCommandInput
   | CreateClusterSecurityGroupCommandInput
@@ -418,6 +435,7 @@ export type ServiceInputTypes =
   | CreateSnapshotScheduleCommandInput
   | CreateTagsCommandInput
   | CreateUsageLimitCommandInput
+  | DeleteAuthenticationProfileCommandInput
   | DeleteClusterCommandInput
   | DeleteClusterParameterGroupCommandInput
   | DeleteClusterSecurityGroupCommandInput
@@ -434,6 +452,7 @@ export type ServiceInputTypes =
   | DeleteTagsCommandInput
   | DeleteUsageLimitCommandInput
   | DescribeAccountAttributesCommandInput
+  | DescribeAuthenticationProfilesCommandInput
   | DescribeClusterDbRevisionsCommandInput
   | DescribeClusterParameterGroupsCommandInput
   | DescribeClusterParametersCommandInput
@@ -472,6 +491,7 @@ export type ServiceInputTypes =
   | GetClusterCredentialsCommandInput
   | GetReservedNodeExchangeOfferingsCommandInput
   | ModifyAquaConfigurationCommandInput
+  | ModifyAuthenticationProfileCommandInput
   | ModifyClusterCommandInput
   | ModifyClusterDbRevisionCommandInput
   | ModifyClusterIamRolesCommandInput
@@ -510,6 +530,7 @@ export type ServiceOutputTypes =
   | BatchModifyClusterSnapshotsCommandOutput
   | CancelResizeCommandOutput
   | CopyClusterSnapshotCommandOutput
+  | CreateAuthenticationProfileCommandOutput
   | CreateClusterCommandOutput
   | CreateClusterParameterGroupCommandOutput
   | CreateClusterSecurityGroupCommandOutput
@@ -524,6 +545,7 @@ export type ServiceOutputTypes =
   | CreateSnapshotScheduleCommandOutput
   | CreateTagsCommandOutput
   | CreateUsageLimitCommandOutput
+  | DeleteAuthenticationProfileCommandOutput
   | DeleteClusterCommandOutput
   | DeleteClusterParameterGroupCommandOutput
   | DeleteClusterSecurityGroupCommandOutput
@@ -540,6 +562,7 @@ export type ServiceOutputTypes =
   | DeleteTagsCommandOutput
   | DeleteUsageLimitCommandOutput
   | DescribeAccountAttributesCommandOutput
+  | DescribeAuthenticationProfilesCommandOutput
   | DescribeClusterDbRevisionsCommandOutput
   | DescribeClusterParameterGroupsCommandOutput
   | DescribeClusterParametersCommandOutput
@@ -578,6 +601,7 @@ export type ServiceOutputTypes =
   | GetClusterCredentialsCommandOutput
   | GetReservedNodeExchangeOfferingsCommandOutput
   | ModifyAquaConfigurationCommandOutput
+  | ModifyAuthenticationProfileCommandOutput
   | ModifyClusterCommandOutput
   | ModifyClusterDbRevisionCommandOutput
   | ModifyClusterIamRolesCommandOutput

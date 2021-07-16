@@ -27972,6 +27972,7 @@ const serializeAws_restJson1VoiceConnectorSettings = (input: VoiceConnectorSetti
 const deserializeAws_restJson1Account = (output: any, context: __SerdeContext): Account => {
   return {
     AccountId: __expectString(output.AccountId),
+    AccountStatus: __expectString(output.AccountStatus),
     AccountType: __expectString(output.AccountType),
     AwsAccountId: __expectString(output.AwsAccountId),
     CreatedTimestamp:

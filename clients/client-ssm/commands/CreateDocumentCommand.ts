@@ -21,10 +21,10 @@ export interface CreateDocumentCommandInput extends CreateDocumentRequest {}
 export interface CreateDocumentCommandOutput extends CreateDocumentResult, __MetadataBearer {}
 
 /**
- * <p>Creates a Systems Manager (SSM) document. An SSM document defines the actions that Systems Manager performs on
- *    your managed instances. For more information about SSM documents, including information about
- *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">AWS Systems Manager Documents</a> in the
- *     <i>AWS Systems Manager User Guide</i>.</p>
+ * <p>Creates a Amazon Web Services Systems Manager (SSM document). An SSM document defines the actions that Systems Manager performs
+ *    on your managed instances. For more information about SSM documents, including information about
+ *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">Amazon Web Services Systems Manager Documents</a> in the
+ *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

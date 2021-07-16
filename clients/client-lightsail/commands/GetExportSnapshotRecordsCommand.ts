@@ -21,10 +21,10 @@ export interface GetExportSnapshotRecordsCommandInput extends GetExportSnapshotR
 export interface GetExportSnapshotRecordsCommandOutput extends GetExportSnapshotRecordsResult, __MetadataBearer {}
 
 /**
- * <p>Returns the export snapshot record created as a result of the <code>export snapshot</code>
- *       operation.</p>
+ * <p>Returns all export snapshot records created as a result of the <code>export
+ *         snapshot</code> operation.</p>
  *          <p>An export snapshot record can be used to create a new Amazon EC2 instance and its related
- *       resources with the <code>create cloud formation stack</code> operation.</p>
+ *       resources with the <a>CreateCloudFormationStack</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

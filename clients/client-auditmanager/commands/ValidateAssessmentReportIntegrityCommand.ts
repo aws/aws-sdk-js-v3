@@ -27,7 +27,7 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
 
 /**
  * <p>
- *    Validates the integrity of an assessment report in AWS Audit Manager.
+ *    Validates the integrity of an assessment report in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

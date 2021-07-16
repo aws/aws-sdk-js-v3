@@ -22,7 +22,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * <p>
- * Returns a list of tags for the specified resource in AWS Audit Manager.
+ *    Returns a list of tags for the specified resource in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

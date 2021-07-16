@@ -33,7 +33,7 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  *             pool.</p>
  *         <p>A custom domain is used to host the Amazon Cognito hosted UI, which provides sign-up
  *             and sign-in pages for your application. When you set up a custom domain, you provide a
- *             certificate that you manage with AWS Certificate Manager (ACM). When necessary, you can
+ *             certificate that you manage with Certificate Manager (ACM). When necessary, you can
  *             use this operation to change the certificate that you applied to your custom
  *             domain.</p>
  *         <p>Usually, this is unnecessary following routine certificate renewal with ACM. When you
@@ -43,7 +43,7 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  *             certificate a new ARN. To apply the new certificate to your custom domain, you must
  *             provide this ARN to Amazon Cognito.</p>
  *         <p>When you add your new certificate in ACM, you must choose US East (N. Virginia) as the
- *             AWS Region.</p>
+ *             Region.</p>
  *         <p>After you submit your request, Amazon Cognito requires up to 1 hour to distribute your
  *             new certificate to your custom domain.</p>
  *         <p>For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using Your Own Domain for the Hosted UI</a>.</p>

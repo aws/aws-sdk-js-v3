@@ -25,9 +25,9 @@ export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconne
  *
  * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
  *          <p>Gets the LOA-CFA for the specified interconnect.</p>
- *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility.
- *       For more information, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects at AWS Direct Connect Locations</a>
- *       in the <i>AWS Direct Connect User Guide</i>.</p>
+ *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to Amazon Web Services at the colocation facility.
+ *       For more information, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects at Direct Connect Locations</a>
+ *       in the <i>Direct Connect User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

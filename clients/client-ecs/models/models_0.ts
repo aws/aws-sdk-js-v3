@@ -136,7 +136,7 @@ export interface AutoScalingGroupProvider {
    * 		       <p>When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2 instances in
    * 			an Auto Scaling group that contain tasks from being terminated during a scale-in action.
    * 			The Auto Scaling group and each instance in the Auto Scaling group must have instance
-   * 			protection from scale-in actions enabled as well. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>AWS Auto Scaling User Guide</i>.</p>
+   * 			protection from scale-in actions enabled as well. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Auto Scaling User Guide</i>.</p>
    * 		       <p>When managed termination protection is disabled, your Amazon EC2 instances are not
    * 			protected from termination when the Auto Scaling group scales in.</p>
    */
@@ -182,7 +182,7 @@ export namespace AutoScalingGroupProvider {
  *             <li>
  *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
  *                     combination of such as a prefix for either keys or values as it is reserved for
- *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+ *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
  *                     this prefix do not count against your tags per resource limit.</p>
  *             </li>
  *          </ul>
@@ -254,7 +254,7 @@ export interface CreateCapacityProviderRequest {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -370,7 +370,7 @@ export interface CapacityProvider {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -539,8 +539,8 @@ export enum ExecuteCommandLogging {
  */
 export interface ExecuteCommandConfiguration {
   /**
-   * <p>Specify an AWS Key Management Service key ID to encrypt the data between the local
-   * 			client and the container.</p>
+   * <p>Specify an Key Management Service key ID to encrypt the data between the local client
+   * 			and the container.</p>
    */
   kmsKeyId?: string;
 
@@ -616,8 +616,8 @@ export namespace ClusterConfiguration {
  * 		       <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
  * 			provider must already be created. New Auto Scaling group capacity providers can be
  * 			created with the <a>CreateCapacityProvider</a> API operation.</p>
- * 		       <p>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
- * 				<code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
+ * 		       <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
+ * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
  * 			available to all accounts and only need to be associated with a cluster to be used in a
  * 			capacity provider strategy.</p>
  */
@@ -740,7 +740,7 @@ export interface CreateClusterRequest {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -769,8 +769,8 @@ export interface CreateClusterRequest {
    * 		       <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
    * 			provider must already be created and not already associated with another cluster. New
    * 			Auto Scaling group capacity providers can be created with the <a>CreateCapacityProvider</a> API operation.</p>
-   * 		       <p>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
-   * 				<code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
+   * 		       <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
+   * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
    * 			available to all accounts and only need to be associated with a cluster to be
    * 			used.</p>
    * 		       <p>The <a>PutClusterCapacityProviders</a> API operation is used to update the
@@ -870,7 +870,7 @@ export namespace Attachment {
  */
 export interface Cluster {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the cluster. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the cluster, the AWS account ID of the cluster owner, the <code>cluster</code> namespace, and then the cluster name. For example, <code>arn:aws:ecs:region:012345678910:cluster/test</code>.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the cluster. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the cluster, the account ID of the cluster owner, the <code>cluster</code> namespace, and then the cluster name. For example, <code>arn:aws:ecs:region:012345678910:cluster/test</code>.</p>
    */
   clusterArn?: string;
 
@@ -1003,7 +1003,7 @@ export interface Cluster {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -1237,7 +1237,7 @@ export interface DeploymentController {
    *             <dt>CODE_DEPLOY</dt>
    *             <dd>
    * 					          <p>The blue/green (<code>CODE_DEPLOY</code>) deployment type uses the
-   * 						blue/green deployment model powered by AWS CodeDeploy, which allows you to verify a
+   * 						blue/green deployment model powered by CodeDeploy, which allows you to verify a
    * 						new deployment of a service before sending production traffic to it.</p>
    * 				        </dd>
    *             <dt>EXTERNAL</dt>
@@ -1495,7 +1495,7 @@ export enum SchedulingStrategy {
 export interface ServiceRegistry {
   /**
    * <p>The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is
-   * 			AWS Cloud Map. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html">CreateService</a>.</p>
+   * 			Cloud Map. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html">CreateService</a>.</p>
    */
   registryArn?: string;
 
@@ -1573,9 +1573,9 @@ export interface CreateServiceRequest {
    * 			multiple target groups. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using service-linked roles for Amazon ECS</a> in the
    * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <p>If the service is using the <code>CODE_DEPLOY</code> deployment controller, the
-   * 			service is required to use either an Application Load Balancer or Network Load Balancer. When creating an AWS CodeDeploy deployment
+   * 			service is required to use either an Application Load Balancer or Network Load Balancer. When creating an CodeDeploy deployment
    * 			group, you specify two target groups (referred to as a <code>targetGroupPair</code>).
-   * 			During a deployment, AWS CodeDeploy determines which task set in your service has the status
+   * 			During a deployment, CodeDeploy determines which task set in your service has the status
    * 				<code>PRIMARY</code> and associates one target group with it, and then associates
    * 			the other target group with the replacement task set. The load balancer can also have up
    * 			to two listeners: a required listener for production traffic and an optional listener
@@ -1633,12 +1633,12 @@ export interface CreateServiceRequest {
   /**
    * <p>The infrastructure on which to run your service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
    * 				launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * 		       <p>The <code>FARGATE</code> launch type runs your tasks on AWS Fargate On-Demand
+   * 		       <p>The <code>FARGATE</code> launch type runs your tasks on Fargate On-Demand
    * 			infrastructure.</p>
    * 		       <note>
    * 			         <p>Fargate Spot infrastructure is available for use but a capacity provider
-   * 				strategy must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">AWS Fargate capacity providers</a> in the
-   * 					<i>Amazon ECS User Guide for AWS Fargate</i>.</p>
+   * 				strategy must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">Fargate capacity providers</a> in the
+   * 					<i>Amazon ECS User Guide for Fargate</i>.</p>
    * 		       </note>
    * 		       <p>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered to your
    * 			cluster.</p>
@@ -1663,7 +1663,7 @@ export interface CreateServiceRequest {
    * <p>The platform version that your tasks in the service are running on. A platform version
    * 			is specified only for tasks using the Fargate launch type. If one isn't
    * 			specified, the <code>LATEST</code> platform version is used by default. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate platform
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate platform
    * 				versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
@@ -1804,7 +1804,7 @@ export interface CreateServiceRequest {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -1941,7 +1941,7 @@ export interface Deployment {
    * <p>The platform version on which your tasks in the service are running. A platform
    * 			version is only specified for tasks using the Fargate launch type. If one
    * 			is not specified, the <code>LATEST</code> platform version is used by default. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate Platform
    * 				Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
@@ -2047,7 +2047,7 @@ export enum StabilityStatus {
 }
 
 /**
- * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>
+ * <p>Information about a set of Amazon ECS tasks in either an CodeDeploy or an <code>EXTERNAL</code>
  * 			deployment. An Amazon ECS task set includes details such as the desired number of tasks, how
  * 			many tasks are running, and whether the task set serves production traffic.</p>
  */
@@ -2074,7 +2074,7 @@ export interface TaskSet {
   clusterArn?: string;
 
   /**
-   * <p>The tag specified when a task set is started. If the task set is created by an AWS CodeDeploy
+   * <p>The tag specified when a task set is started. If the task set is created by an CodeDeploy
    * 			deployment, the <code>startedBy</code> parameter is <code>CODE_DEPLOY</code>. For a task
    * 			set created for an external deployment, the startedBy field isn't used.</p>
    */
@@ -2082,11 +2082,11 @@ export interface TaskSet {
 
   /**
    * <p>The external ID associated with the task set.</p>
-   * 		       <p>If a task set is created by an AWS CodeDeploy deployment, the <code>externalId</code> parameter
-   * 			contains the AWS CodeDeploy deployment ID.</p>
+   * 		       <p>If a task set is created by an CodeDeploy deployment, the <code>externalId</code> parameter
+   * 			contains the CodeDeploy deployment ID.</p>
    * 		       <p>If a task set is created for an external deployment and is associated with a service
    * 			discovery registry, the <code>externalId</code> parameter contains the
-   * 				<code>ECS_TASK_SET_EXTERNAL_ID</code> AWS Cloud Map attribute.</p>
+   * 				<code>ECS_TASK_SET_EXTERNAL_ID</code> Cloud Map attribute.</p>
    */
   externalId?: string;
 
@@ -2161,9 +2161,9 @@ export interface TaskSet {
   capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
-   * <p>The AWS Fargate platform version on which the tasks in the task set are running. A
-   * 			platform version is only specified for tasks run on AWS Fargate. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate platform
+   * <p>The Fargate platform version on which the tasks in the task set are running. A
+   * 			platform version is only specified for tasks run on Fargate. For more information, see
+   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate platform
    * 				versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
@@ -2252,7 +2252,7 @@ export interface TaskSet {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -2274,7 +2274,7 @@ export namespace TaskSet {
  */
 export interface Service {
   /**
-   * <p>The ARN that identifies the service. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the service, the AWS account ID of the service owner, the <code>service</code> namespace, and then the service name. For example, <code>arn:aws:ecs:region:012345678910:service/my-service</code>.</p>
+   * <p>The ARN that identifies the service. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the service, the account ID of the service owner, the <code>service</code> namespace, and then the service name. For example, <code>arn:aws:ecs:region:012345678910:service/my-service</code>.</p>
    */
   serviceArn?: string;
 
@@ -2327,21 +2327,22 @@ export interface Service {
   pendingCount?: number;
 
   /**
-   * <p>The infrastructure on which your service is running. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
-   * 				launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>The launch type the service is using. When using the DescribeServices API, this field
+   * 			is omitted if the service was created using a capacity provider strategy.</p>
    */
   launchType?: LaunchType | string;
 
   /**
-   * <p>The capacity provider strategy associated with the service.</p>
+   * <p>The capacity provider strategy the service is using. When using the DescribeServices
+   * 			API, this field is omitted if the service was created using a launch type.</p>
    */
   capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
    * <p>The platform version on which to run your service. A platform version is only
-   * 			specified for tasks using the Fargate launch type. If one is not
-   * 			specified, the <code>LATEST</code> platform version is used by default. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform
+   * 			specified for tasks hosted on Fargate. If one is not specified, the
+   * 				<code>LATEST</code> platform version is used by default. For more information, see
+   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate Platform
    * 				Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
@@ -2360,7 +2361,7 @@ export interface Service {
   deploymentConfiguration?: DeploymentConfiguration;
 
   /**
-   * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>
+   * <p>Information about a set of Amazon ECS tasks in either an CodeDeploy or an <code>EXTERNAL</code>
    * 			deployment. An Amazon ECS task set includes details such as the desired number of tasks, how
    * 			many tasks are running, and whether the task set serves production traffic.</p>
    */
@@ -2475,7 +2476,7 @@ export interface Service {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -2520,6 +2521,9 @@ export namespace Service {
 export interface CreateServiceResponse {
   /**
    * <p>The full description of your service following the create call.</p>
+   * 		       <p>A service will return either a <code>capacityProviderStrategy</code> or
+   * 				<code>launchType</code> parameter, but not both, depending on which one was
+   * 			specified during creation.</p>
    * 		       <p>If a service is using the <code>ECS</code> deployment controller, the
    * 				<code>deploymentController</code> and <code>taskSets</code> parameters will not be
    * 			returned.</p>
@@ -2610,7 +2614,7 @@ export interface CreateTaskSetRequest {
   /**
    * <p>An optional non-unique tag that identifies this task set in external systems. If the
    * 			task set is associated with a service discovery registry, the tasks in this task set
-   * 			will have the <code>ECS_TASK_SET_EXTERNAL_ID</code> AWS Cloud Map attribute set to the provided
+   * 			will have the <code>ECS_TASK_SET_EXTERNAL_ID</code> Cloud Map attribute set to the provided
    * 			value.</p>
    */
   externalId?: string;
@@ -2660,8 +2664,8 @@ export interface CreateTaskSetRequest {
    * 				<code>defaultCapacityProviderStrategy</code> for the cluster is used.</p>
    * 		       <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
    * 			provider must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a> API operation.</p>
-   * 		       <p>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
-   * 				<code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
+   * 		       <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
+   * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
    * 			available to all accounts and only need to be associated with a cluster to be
    * 			used.</p>
    * 		       <p>The <a>PutClusterCapacityProviders</a> API operation is used to update the
@@ -2719,7 +2723,7 @@ export interface CreateTaskSetRequest {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -2738,7 +2742,7 @@ export namespace CreateTaskSetRequest {
 
 export interface CreateTaskSetResponse {
   /**
-   * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an
+   * <p>Information about a set of Amazon ECS tasks in either an CodeDeploy or an
    * 				<code>EXTERNAL</code> deployment. A task set includes details such as the desired
    * 			number of tasks, how many tasks are running, and whether the task set serves production
    * 			traffic.</p>
@@ -3233,7 +3237,7 @@ export interface DeregisterContainerInstanceRequest {
 
   /**
    * <p>The container instance ID or full ARN of the container instance to deregister.
-   * 			The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</p>
+   * 			The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the container instance, the account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</p>
    */
   containerInstance: string | undefined;
 
@@ -3348,13 +3352,13 @@ export namespace VersionInfo {
  */
 export interface ContainerInstance {
   /**
-   * <p>The Amazon Resource Name (ARN) of the container instance. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the container instance. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the container instance, the account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</p>
    */
   containerInstanceArn?: string;
 
   /**
    * <p>The ID of the container instance. For Amazon EC2 instances, this value is the Amazon EC2
-   * 			instance ID. For external instances, this value is the AWS Systems Manager managed instance ID.</p>
+   * 			instance ID. For external instances, this value is the Amazon Web Services Systems Manager managed instance ID.</p>
    */
   ec2InstanceId?: string;
 
@@ -3502,7 +3506,7 @@ export interface ContainerInstance {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -3730,7 +3734,7 @@ export interface FirelensConfiguration {
    * 				a Task Definition that Uses a FireLens Configuration</a> in the
    * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <note>
-   * 			         <p>Tasks hosted on AWS Fargate only support the <code>file</code> configuration file
+   * 			         <p>Tasks hosted on Fargate only support the <code>file</code> configuration file
    * 				type.</p>
    * 		       </note>
    */
@@ -3805,7 +3809,7 @@ export namespace FirelensConfiguration {
  * 			         </li>
  *             <li>
  * 				           <p>Container health checks are supported for Fargate tasks if you
- * 					are using platform version 1.1.0 or greater. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate
+ * 					are using platform version 1.1.0 or greater. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
  * 						Platform Versions</a>.</p>
  * 			         </li>
  *             <li>
@@ -3885,7 +3889,7 @@ export interface KernelCapabilities {
    * 				<code>--cap-add</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    * 				run</a>.</p>
    * 		       <note>
-   * 			         <p>Tasks launched on AWS Fargate only support adding the <code>SYS_PTRACE</code> kernel
+   * 			         <p>Tasks launched on Fargate only support adding the <code>SYS_PTRACE</code> kernel
    * 				capability.</p>
    * 		       </note>
    * 		       <p>Valid values: <code>"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" |
@@ -4133,9 +4137,9 @@ export interface Secret {
 
   /**
    * <p>The secret to expose to the container. The supported values are either the full ARN of
-   * 			the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.</p>
+   * 			the Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.</p>
    * 		       <note>
-   * 			         <p>If the AWS Systems Manager Parameter Store parameter exists in the same Region as the task you
+   * 			         <p>If the SSM Parameter Store parameter exists in the same Region as the task you
    * 				are launching, then you can use either the full ARN or name of the parameter. If the
    * 				parameter exists in a different Region, then the full ARN must be specified.</p>
    * 		       </note>
@@ -4185,7 +4189,7 @@ export namespace Secret {
  * 						<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 			         </li>
  *             <li>
- * 				           <p>For tasks on AWS Fargate, because you do not have access to the underlying
+ * 				           <p>For tasks on Fargate, because you do not have access to the underlying
  * 					infrastructure your tasks are hosted on, any additional software needed will
  * 					have to be installed outside of the task. For example, the Fluentd output
  * 					aggregators or a remote host running Logstash to send Gelf logs to.</p>
@@ -4195,7 +4199,7 @@ export namespace Secret {
 export interface LogConfiguration {
   /**
    * <p>The log driver to use for the container.</p>
-   * 		       <p>For tasks on AWS Fargate, the supported log drivers are <code>awslogs</code>,
+   * 		       <p>For tasks on Fargate, the supported log drivers are <code>awslogs</code>,
    * 				<code>splunk</code>, and <code>awsfirelens</code>.</p>
    * 		       <p>For tasks hosted on Amazon EC2 instances, the supported log drivers are
    * 				<code>awslogs</code>, <code>fluentd</code>, <code>gelf</code>,
@@ -4362,9 +4366,9 @@ export interface RepositoryCredentials {
    * <p>The Amazon Resource Name (ARN) of the secret containing the private repository
    * 			credentials.</p>
    * 		       <note>
-   * 			         <p>When you are using the Amazon ECS API, AWS CLI, or AWS SDK, if the secret exists in the
+   * 			         <p>When you are using the Amazon ECS API, CLI, or Amazon Web Services SDK, if the secret exists in the
    * 				same Region as the task that you are launching then you can use either the full ARN
-   * 				or the name of the secret. When you are using the AWS Management Console, you must specify the
+   * 				or the name of the secret. When you are using the Amazon Web Services Management Console, you must specify the
    * 				full ARN of the secret.</p>
    * 		       </note>
    */
@@ -5009,7 +5013,7 @@ export interface ContainerDefinition {
    * 				<code>Privileged</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
    * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--privileged</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
    *          <note>
-   *                                 <p>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</p>
+   *                                 <p>This parameter is not supported for Windows containers or tasks run on Fargate.</p>
    *                              </note>
    */
   privileged?: boolean;
@@ -5211,10 +5215,10 @@ export namespace ContainerDefinition {
 /**
  * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to
  * 			expand the total amount of ephemeral storage available, beyond the default amount, for
- * 			tasks hosted on AWS Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
- * 				storage</a> in the <i>Amazon ECS User Guide for AWS Fargate</i>.</p>
+ * 			tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
+ * 				storage</a> in the <i>Amazon ECS User Guide for Fargate</i>.</p>
  * 		       <note>
- * 			         <p>This parameter is only supported for tasks hosted on AWS Fargate using platform
+ * 			         <p>This parameter is only supported for tasks hosted on Fargate using platform
  * 				version <code>1.4.0</code> or later.</p>
  * 		       </note>
  */
@@ -5290,7 +5294,7 @@ export enum TaskDefinitionPlacementConstraintType {
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task placement constraints</a> in the
  * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <note>
- * 			         <p>Task placement constraints are not supported for tasks run on AWS Fargate.</p>
+ * 			         <p>Task placement constraints are not supported for tasks run on Fargate.</p>
  * 		       </note>
  */
 export interface TaskDefinitionPlacementConstraint {
@@ -5582,13 +5586,13 @@ export namespace EFSVolumeConfiguration {
 export interface FSxWindowsFileServerAuthorizationConfig {
   /**
    * <p>The authorization credential option to use. The authorization credential options can
-   * 			be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager
+   * 			be provided using either the Amazon Resource Name (ARN) of an Secrets Manager secret or SSM
    * 			Parameter Store parameter. The ARNs refer to the stored credentials.</p>
    */
   credentialsParameter: string | undefined;
 
   /**
-   * <p>A fully qualified domain name hosted by an <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html">AWS Directory Service</a> Managed Microsoft AD (Active Directory) or self-hosted AD on
+   * <p>A fully qualified domain name hosted by an <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html">Directory Service</a> Managed Microsoft AD (Active Directory) or self-hosted AD on
    * 			Amazon EC2.</p>
    */
   domain: string | undefined;
@@ -5702,7 +5706,7 @@ export interface Volume {
    * 		       <p>Windows containers only support the use of the <code>local</code> driver. To use bind
    * 			mounts, specify the <code>host</code> parameter instead.</p>
    * 		       <note>
-   * 			         <p>Docker volumes are not supported by tasks run on AWS Fargate.</p>
+   * 			         <p>Docker volumes are not supported by tasks run on Fargate.</p>
    * 		       </note>
    */
   dockerVolumeConfiguration?: DockerVolumeConfiguration;
@@ -5759,8 +5763,8 @@ export interface TaskDefinition {
   family?: string;
 
   /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants containers in the
-   * 			task permission to call AWS APIs on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">Amazon ECS
+   * <p>The short name or full Amazon Resource Name (ARN) of the Identity and Access Management role that grants containers in the
+   * 			task permission to call Amazon Web Services APIs on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">Amazon ECS
    * 				Task Role</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <p>IAM roles for tasks on Windows require that the <code>-EnableTaskIAMRole</code> option
    * 			is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some
@@ -5772,7 +5776,7 @@ export interface TaskDefinition {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent
-   *             permission to make AWS API calls on your behalf. The task execution IAM role is required
+   *             permission to make Amazon Web Services API calls on your behalf. The task execution IAM role is required
    *             depending on the requirements of your task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon ECS task
    *                 execution IAM role</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
@@ -5783,7 +5787,7 @@ export interface TaskDefinition {
    *                 <code>none</code>, <code>bridge</code>, <code>awsvpc</code>, and <code>host</code>.
    *             If no network mode is specified, the default is <code>bridge</code>.</p>
    *             <p>For Amazon ECS tasks on Fargate, the <code>awsvpc</code> network mode is required.
-   *             For Amazon ECS tasks on Amazon EC2 instances, any network mode can be used. If the network
+   *             For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can be used.  For Amazon ECS tasks on Amazon EC2 Windows instances, <code><default></code> or <code>awsvpc</code> can be used. If the network
    *             mode is set to <code>none</code>, you cannot specify port mappings in your container
    *             definitions, and the tasks containers do not have external connectivity. The
    *                 <code>host</code> and <code>awsvpc</code> network modes offer the highest networking
@@ -5803,17 +5807,8 @@ export interface TaskDefinition {
    *             interface, and you must specify a <a>NetworkConfiguration</a> value when you create
    *             a service or run a task with the task definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task Networking</a> in the
    *                 <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   *         <note>
-   *             <p>Currently, only Amazon ECS-optimized AMIs, other Amazon Linux variants with the
-   *                     <code>ecs-init</code> package, or AWS Fargate infrastructure support the
-   *                     <code>awsvpc</code> network mode. </p>
-   *         </note>
    *         <p>If the network mode is <code>host</code>, you cannot run multiple instantiations of the
    *             same task on a single container instance when port mappings are used.</p>
-   *         <p>Docker for Windows uses different network modes than Docker for Linux. When you
-   *             register a task definition with Windows containers, you must not specify a network mode.
-   *             If you use the console to register a task definition with Windows containers, you must
-   *             choose the <code><default></code> network mode object. </p>
    *         <p>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
    *                 settings</a> in the <i>Docker run reference</i>.</p>
    */
@@ -5833,7 +5828,7 @@ export interface TaskDefinition {
    * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <note>
    * 			         <p>The <code>host</code> and <code>sourcePath</code> parameters are not supported for
-   * 				tasks run on AWS Fargate.</p>
+   * 				tasks run on Fargate.</p>
    * 		       </note>
    */
   volumes?: Volume[];
@@ -5851,7 +5846,7 @@ export interface TaskDefinition {
    * 			considering task placement for tasks hosted on Amazon EC2 instances. For more information,
    * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <note>
-   * 			         <p>This parameter is not supported for tasks run on AWS Fargate.</p>
+   * 			         <p>This parameter is not supported for tasks run on Fargate.</p>
    * 		       </note>
    */
   requiresAttributes?: Attribute[];
@@ -5859,7 +5854,7 @@ export interface TaskDefinition {
   /**
    * <p>An array of placement constraint objects to use for tasks.</p>
    * 		       <note>
-   * 			         <p>This parameter is not supported for tasks run on AWS Fargate.</p>
+   * 			         <p>This parameter is not supported for tasks run on Fargate.</p>
    * 		       </note>
    */
   placementConstraints?: TaskDefinitionPlacementConstraint[];
@@ -5909,7 +5904,7 @@ export interface TaskDefinition {
    * 			be used. If a task-level memory value is specified then the container-level memory value
    * 			is optional. For more information regarding container-level memory and memory
    * 			reservation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html">ContainerDefinition</a>.</p>
-   * 		       <p>If your tasks will be run on AWS Fargate, this field is required and you must use one of
+   * 		       <p>If your tasks will be run on Fargate, this field is required and you must use one of
    * 			the following values, which determines your range of valid values for the
    * 				<code>cpu</code> parameter:</p>
    *          <ul>
@@ -5952,7 +5947,7 @@ export interface TaskDefinition {
    *                             information, see <a href="https://docs.docker.com/engine/security/security/">Docker
    *                                 security</a>.</p>
    *          <note>
-   *                                 <p>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</p>
+   *                                 <p>This parameter is not supported for Windows containers or tasks run on Fargate.</p>
    *                              </note>
    */
   pidMode?: PidMode | string;
@@ -5988,7 +5983,7 @@ export interface TaskDefinition {
    *             </li>
    *          </ul>
    *          <note>
-   *                                 <p>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</p>
+   *                                 <p>This parameter is not supported for Windows containers or tasks run on Fargate.</p>
    *                              </note>
    */
   ipcMode?: IpcMode | string;
@@ -6403,7 +6398,7 @@ export interface DescribeTaskDefinitionResponse {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -6813,7 +6808,7 @@ export interface TaskOverride {
   /**
    * <p>The ephemeral storage setting override for the task.</p>
    * 		       <note>
-   * 			         <p>This parameter is only supported for tasks hosted on AWS Fargate using platform
+   * 			         <p>This parameter is only supported for tasks hosted on Fargate using platform
    * 				version <code>1.4.0</code> or later.</p>
    * 		       </note>
    */
@@ -7020,7 +7015,7 @@ export interface Task {
    * <p>The platform version on which your task is running. A platform version is only
    * 			specified for tasks using the Fargate launch type. If one is not
    * 			specified, the <code>LATEST</code> platform version is used by default. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate Platform
    * 				Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
@@ -7101,7 +7096,7 @@ export interface Task {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -7227,7 +7222,7 @@ export namespace DescribeTaskSetsResponse {
 export interface DiscoverPollEndpointRequest {
   /**
    * <p>The container instance ID or full ARN of the container instance.
-   * 			The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</p>
+   * 			The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the container instance, the account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</p>
    */
   containerInstance?: string;
 
@@ -8323,8 +8318,8 @@ export interface PutClusterCapacityProvidersRequest {
    * <p>The name of one or more capacity providers to associate with the cluster.</p>
    * 		       <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
    * 			provider must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a> API operation.</p>
-   * 		       <p>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
-   * 				<code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
+   * 		       <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
+   * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
    * 			available to all accounts and only need to be associated with a cluster to be
    * 			used.</p>
    */
@@ -8343,8 +8338,8 @@ export interface PutClusterCapacityProvidersRequest {
    * 				<code>UPDATING</code> status can be used.</p>
    * 		       <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
    * 			provider must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a> API operation.</p>
-   * 		       <p>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
-   * 				<code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
+   * 		       <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
+   * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
    * 			available to all accounts and only need to be associated with a cluster to be
    * 			used.</p>
    */
@@ -8507,7 +8502,7 @@ export interface RegisterContainerInstanceRequest {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -8558,7 +8553,7 @@ export interface RegisterTaskDefinitionRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent
-   *             permission to make AWS API calls on your behalf. The task execution IAM role is required
+   *             permission to make Amazon Web Services API calls on your behalf. The task execution IAM role is required
    *             depending on the requirements of your task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon ECS task
    *                 execution IAM role</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
@@ -8569,7 +8564,7 @@ export interface RegisterTaskDefinitionRequest {
    *                 <code>none</code>, <code>bridge</code>, <code>awsvpc</code>, and <code>host</code>.
    *             If no network mode is specified, the default is <code>bridge</code>.</p>
    *             <p>For Amazon ECS tasks on Fargate, the <code>awsvpc</code> network mode is required.
-   *             For Amazon ECS tasks on Amazon EC2 instances, any network mode can be used. If the network
+   *             For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can be used.  For Amazon ECS tasks on Amazon EC2 Windows instances, <code><default></code> or <code>awsvpc</code> can be used. If the network
    *             mode is set to <code>none</code>, you cannot specify port mappings in your container
    *             definitions, and the tasks containers do not have external connectivity. The
    *                 <code>host</code> and <code>awsvpc</code> network modes offer the highest networking
@@ -8589,17 +8584,8 @@ export interface RegisterTaskDefinitionRequest {
    *             interface, and you must specify a <a>NetworkConfiguration</a> value when you create
    *             a service or run a task with the task definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task Networking</a> in the
    *                 <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   *         <note>
-   *             <p>Currently, only Amazon ECS-optimized AMIs, other Amazon Linux variants with the
-   *                     <code>ecs-init</code> package, or AWS Fargate infrastructure support the
-   *                     <code>awsvpc</code> network mode. </p>
-   *         </note>
    *         <p>If the network mode is <code>host</code>, you cannot run multiple instantiations of the
    *             same task on a single container instance when port mappings are used.</p>
-   *         <p>Docker for Windows uses different network modes than Docker for Linux. When you
-   *             register a task definition with Windows containers, you must not specify a network mode.
-   *             If you use the console to register a task definition with Windows containers, you must
-   *             choose the <code><default></code> network mode object. </p>
    *         <p>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
    *                 settings</a> in the <i>Docker run reference</i>.</p>
    */
@@ -8732,7 +8718,7 @@ export interface RegisterTaskDefinitionRequest {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -8754,7 +8740,7 @@ export interface RegisterTaskDefinitionRequest {
    *                             information, see <a href="https://docs.docker.com/engine/security/security/">Docker
    *                                 security</a>.</p>
    *          <note>
-   *                                 <p>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</p>
+   *                                 <p>This parameter is not supported for Windows containers or tasks run on Fargate.</p>
    *                              </note>
    */
   pidMode?: PidMode | string;
@@ -8790,7 +8776,7 @@ export interface RegisterTaskDefinitionRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *                                 <p>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</p>
+   *                                 <p>This parameter is not supported for Windows containers or tasks run on Fargate.</p>
    *                              </note>
    */
   ipcMode?: IpcMode | string;
@@ -8815,10 +8801,10 @@ export interface RegisterTaskDefinitionRequest {
   /**
    * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to
    * 			expand the total amount of ephemeral storage available, beyond the default amount, for
-   * 			tasks hosted on AWS Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
-   * 				storage</a> in the <i>Amazon ECS User Guide for AWS Fargate</i>.</p>
+   * 			tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
+   * 				storage</a> in the <i>Amazon ECS User Guide for Fargate</i>.</p>
    * 		       <note>
-   * 			         <p>This parameter is only supported for tasks hosted on AWS Fargate using platform
+   * 			         <p>This parameter is only supported for tasks hosted on Fargate using platform
    * 				version <code>1.4.0</code> or later.</p>
    * 		       </note>
    */
@@ -8856,7 +8842,8 @@ export namespace RegisterTaskDefinitionResponse {
 }
 
 /**
- * <p>Your AWS account has been blocked. For more information, contact <a href="http://aws.amazon.com/contact-us/">AWS Support</a>.</p>
+ * <p>Your Amazon Web Services account has been blocked. For more information, contact <a href="http://aws.amazon.com/contact-us/">
+ * 				Amazon Web Services Support</a>.</p>
  */
 export interface BlockedException extends __SmithyException, $MetadataBearer {
   name: "BlockedException";
@@ -8880,6 +8867,7 @@ export interface RunTaskRequest {
    * 			parameter must be omitted. If no <code>capacityProviderStrategy</code> or
    * 				<code>launchType</code> is specified, the
    * 				<code>defaultCapacityProviderStrategy</code> for the cluster is used.</p>
+   * 		       <p>When you use cluster auto scaling, you must specify <code>capacityProviderStrategy</code> and not <code>launchType</code>. </p>
    */
   capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
@@ -8918,12 +8906,12 @@ export interface RunTaskRequest {
   /**
    * <p>The infrastructure on which to run your standalone task. For more information, see
    * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * 		       <p>The <code>FARGATE</code> launch type runs your tasks on AWS Fargate On-Demand
+   * 		       <p>The <code>FARGATE</code> launch type runs your tasks on Fargate On-Demand
    * 			infrastructure.</p>
    * 		       <note>
    * 			         <p>Fargate Spot infrastructure is available for use but a capacity provider
-   * 				strategy must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">AWS Fargate capacity providers</a> in the
-   * 					<i>Amazon ECS User Guide for AWS Fargate</i>.</p>
+   * 				strategy must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">Fargate capacity providers</a> in the
+   * 					<i>Amazon ECS User Guide for Fargate</i>.</p>
    * 		       </note>
    * 		       <p>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered to your
    * 			cluster.</p>
@@ -8932,6 +8920,7 @@ export interface RunTaskRequest {
    * 		       <p>A task can use either a launch type or a capacity provider strategy. If a
    * 				<code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
    * 			parameter must be omitted.</p>
+   * 		       <p>When you use cluster auto scaling, you must specify <code>capacityProviderStrategy</code> and not <code>launchType</code>. </p>
    */
   launchType?: LaunchType | string;
 
@@ -8975,7 +8964,7 @@ export interface RunTaskRequest {
    * <p>The platform version the task should run. A platform version is only specified for
    * 			tasks using the Fargate launch type. If one is not specified, the
    * 				<code>LATEST</code> platform version is used by default. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform
+   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate Platform
    * 				Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
@@ -9038,7 +9027,7 @@ export interface RunTaskRequest {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -9190,7 +9179,7 @@ export interface StartTaskRequest {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -9627,7 +9616,7 @@ export interface TagResourceRequest {
    *             <li>
    *                 <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase
    *                     combination of such as a prefix for either keys or values as it is reserved for
-   *                     AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with
+   *                     Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with
    *                     this prefix do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
@@ -9709,7 +9698,7 @@ export interface AutoScalingGroupProviderUpdate {
    * 		       <p>When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2 instances in
    * 			an Auto Scaling group that contain tasks from being terminated during a scale-in action.
    * 			The Auto Scaling group and each instance in the Auto Scaling group must have instance
-   * 			protection from scale-in actions enabled as well. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>AWS Auto Scaling User Guide</i>.</p>
+   * 			protection from scale-in actions enabled as well. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Auto Scaling User Guide</i>.</p>
    * 		       <p>When managed termination protection is disabled, your Amazon EC2 instances are not
    * 			protected from termination when the Auto Scaling group scales in.</p>
    */
@@ -10021,8 +10010,8 @@ export interface UpdateServiceRequest {
    * 				<code>UPDATING</code> status can be used.</p>
    * 		       <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
    * 			provider must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a> API operation.</p>
-   * 		       <p>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
-   * 				<code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
+   * 		       <p>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or
+   * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
    * 			available to all accounts and only need to be associated with a cluster to be
    * 			used.</p>
    * 		       <p>The <a>PutClusterCapacityProviders</a> API operation is used to update the
@@ -10066,7 +10055,7 @@ export interface UpdateServiceRequest {
    * <p>The platform version on which your tasks in the service are running. A platform
    * 			version is only specified for tasks using the Fargate launch type. If a
    * 			platform version is not specified, the <code>LATEST</code> platform version is used by
-   * 			default. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform
+   * 			default. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate Platform
    * 				Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;

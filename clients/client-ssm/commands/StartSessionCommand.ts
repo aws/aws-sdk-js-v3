@@ -25,10 +25,10 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  *    URL and token that can be used to open a WebSocket connection for sending input and receiving
  *    outputs.</p>
  *          <note>
- *             <p>AWS CLI usage: <code>start-session</code> is an interactive command that requires the Session Manager
+ *             <p>Amazon Web Services CLI usage: <code>start-session</code> is an interactive command that requires the Session Manager
  *     plugin to be installed on the client machine making the call. For information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">Install
- *      the Session Manager plugin for the AWS CLI</a> in the <i>AWS Systems Manager User Guide</i>.</p>
- *             <p>AWS Tools for PowerShell usage: Start-SSMSession is not currently supported by AWS Tools
+ *      the Session Manager plugin for the Amazon Web Services CLI</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *             <p>Amazon Web Services Tools for PowerShell usage: Start-SSMSession isn't currently supported by Amazon Web Services Tools
  *     for PowerShell on Windows local machines.</p>
  *          </note>
  * @example

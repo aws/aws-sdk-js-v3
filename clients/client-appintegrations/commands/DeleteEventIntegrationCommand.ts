@@ -21,8 +21,7 @@ export interface DeleteEventIntegrationCommandInput extends DeleteEventIntegrati
 export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
- *          <p>Deletes the specified existing event integration. If the event integration is associated
+ * <p>Deletes the specified existing event integration. If the event integration is associated
  *       with clients, the request is rejected.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

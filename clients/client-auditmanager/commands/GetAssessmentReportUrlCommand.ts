@@ -22,7 +22,7 @@ export interface GetAssessmentReportUrlCommandOutput extends GetAssessmentReport
 
 /**
  * <p>
- * Returns the URL of a specified assessment report in AWS Audit Manager.
+ *    Returns the URL of a specified assessment report in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

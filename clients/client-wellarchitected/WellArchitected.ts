@@ -384,7 +384,7 @@ export class WellArchitected extends WellArchitectedClient {
   }
 
   /**
-   * <p>Get lens review.</p>
+   * <p>Get the answer to a specific question in a workload review.</p>
    */
   public getAnswer(args: GetAnswerCommandInput, options?: __HttpHandlerOptions): Promise<GetAnswerCommandOutput>;
   public getAnswer(args: GetAnswerCommandInput, cb: (err: any, data?: GetAnswerCommandOutput) => void): void;
@@ -896,6 +896,10 @@ export class WellArchitected extends WellArchitectedClient {
 
   /**
    * <p>Deletes specified tags from a resource.</p>
+   *         <p>To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:</p>
+   *         <p>
+   *             <code>DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2</code>
+   *          </p>
    */
   public untagResource(
     args: UntagResourceCommandInput,

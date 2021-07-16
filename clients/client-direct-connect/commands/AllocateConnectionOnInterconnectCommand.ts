@@ -27,7 +27,7 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  *          <p>Creates a hosted connection on an interconnect.</p>
  *          <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.</p>
  *          <note>
- *             <p>Intended for use by AWS Direct Connect Partners only.</p>
+ *             <p>Intended for use by Direct Connect Partners only.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

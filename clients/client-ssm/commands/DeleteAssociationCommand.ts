@@ -21,8 +21,9 @@ export interface DeleteAssociationCommandInput extends DeleteAssociationRequest 
 export interface DeleteAssociationCommandOutput extends DeleteAssociationResult, __MetadataBearer {}
 
 /**
- * <p>Disassociates the specified Systems Manager document from the specified instance.</p>
- *          <p>When you disassociate a document from an instance, it does not change the configuration of
+ * <p>Disassociates the specified Amazon Web Services Systems Manager document (SSM document) from the specified
+ *    instance.</p>
+ *          <p>When you disassociate a document from an instance, it doesn't change the configuration of
  *    the instance. To change the configuration state of an instance after you disassociate a document,
  *    you must create a new document with the desired configuration and associate it with the
  *    instance.</p>

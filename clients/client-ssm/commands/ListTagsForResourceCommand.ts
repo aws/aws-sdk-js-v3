@@ -22,6 +22,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * <p>Returns a list of the tags assigned to the specified resource.</p>
+ *          <p>For information about the ID format for each supported resource type, see <a>AddTagsToResource</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

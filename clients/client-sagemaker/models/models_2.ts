@@ -6210,6 +6210,25 @@ export namespace TransformJobStepMetadata {
 }
 
 /**
+ * <p>Metadata for a tuning step.</p>
+ */
+export interface TuningJobStepMetaData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the tuning job that was run by this step execution.</p>
+   */
+  Arn?: string;
+}
+
+export namespace TuningJobStepMetaData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TuningJobStepMetaData): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Metadata for a step execution.</p>
  */
 export interface PipelineExecutionStepMetadata {
@@ -6227,6 +6246,11 @@ export interface PipelineExecutionStepMetadata {
    * <p>The Amazon Resource Name (ARN) of the transform job that was run by this step execution.</p>
    */
   TransformJob?: TransformJobStepMetadata;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the tuning job that was run by this step execution.</p>
+   */
+  TuningJob?: TuningJobStepMetaData;
 
   /**
    * <p>Metadata for the Model step.</p>
@@ -10510,32 +10534,6 @@ export namespace UpdateImageResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateImageResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateModelPackageInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model.</p>
-   */
-  ModelPackageArn: string | undefined;
-
-  /**
-   * <p>The approval status of the model.</p>
-   */
-  ModelApprovalStatus: ModelApprovalStatus | string | undefined;
-
-  /**
-   * <p>A description for the approval status of the model.</p>
-   */
-  ApprovalDescription?: string;
-}
-
-export namespace UpdateModelPackageInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateModelPackageInput): any => ({
     ...obj,
   });
 }

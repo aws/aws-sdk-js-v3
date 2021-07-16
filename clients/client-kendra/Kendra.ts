@@ -44,6 +44,11 @@ import {
 import { DeleteFaqCommand, DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
 import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
+  DeletePrincipalMappingCommand,
+  DeletePrincipalMappingCommandInput,
+  DeletePrincipalMappingCommandOutput,
+} from "./commands/DeletePrincipalMappingCommand";
+import {
   DeleteQuerySuggestionsBlockListCommand,
   DeleteQuerySuggestionsBlockListCommandInput,
   DeleteQuerySuggestionsBlockListCommandOutput,
@@ -64,6 +69,11 @@ import {
   DescribeIndexCommandInput,
   DescribeIndexCommandOutput,
 } from "./commands/DescribeIndexCommand";
+import {
+  DescribePrincipalMappingCommand,
+  DescribePrincipalMappingCommandInput,
+  DescribePrincipalMappingCommandOutput,
+} from "./commands/DescribePrincipalMappingCommand";
 import {
   DescribeQuerySuggestionsBlockListCommand,
   DescribeQuerySuggestionsBlockListCommandInput,
@@ -95,6 +105,11 @@ import {
   ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
 import { ListFaqsCommand, ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
+import {
+  ListGroupsOlderThanOrderingIdCommand,
+  ListGroupsOlderThanOrderingIdCommandInput,
+  ListGroupsOlderThanOrderingIdCommandOutput,
+} from "./commands/ListGroupsOlderThanOrderingIdCommand";
 import { ListIndicesCommand, ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
 import {
   ListQuerySuggestionsBlockListsCommand,
@@ -111,6 +126,11 @@ import {
   ListThesauriCommandInput,
   ListThesauriCommandOutput,
 } from "./commands/ListThesauriCommand";
+import {
+  PutPrincipalMappingCommand,
+  PutPrincipalMappingCommandInput,
+  PutPrincipalMappingCommandOutput,
+} from "./commands/PutPrincipalMappingCommand";
 import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   StartDataSourceSyncJobCommand,
@@ -164,7 +184,7 @@ export class Kendra extends KendraClient {
    * <p>Removes one or more documents from an index. The documents must have
    *       been added with the <code>BatchPutDocument</code> operation.</p>
    *          <p>The documents are deleted asynchronously. You can see the progress of
-   *       the deletion by using AWS CloudWatch. Any error messages related to the
+   *       the deletion by using Amazon Web Services CloudWatch. Any error messages related to the
    *       processing of the batch are sent to you CloudWatch log.</p>
    */
   public batchDeleteDocument(
@@ -248,8 +268,8 @@ export class Kendra extends KendraClient {
    *       add custom attributes to the documents, and to attach an access control
    *       list to the documents added to the index.</p>
    *          <p>The documents are indexed asynchronously. You can see the progress of
-   *       the batch using AWS CloudWatch. Any error messages related to processing
-   *       the batch are sent to your AWS CloudWatch log.</p>
+   *       the batch using Amazon Web Services CloudWatch. Any error messages related to processing
+   *       the batch are sent to your Amazon Web Services CloudWatch log.</p>
    */
   public batchPutDocument(
     args: BatchPutDocumentCommandInput,
@@ -583,6 +603,49 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Deletes a group so that all users and sub groups that belong to the group can
+   *             no longer access documents only available to that group.</p>
+   *         <p>For example, after deleting the group "Summer Interns", all interns who
+   *             belonged to that group no longer see intern-only documents in their search
+   *             results.</p>
+   *         <p>If you want to delete or replace users or sub groups of a group, you need to
+   *             use the <code>PutPrincipalMapping</code> operation. For example, if a user in
+   *             the group "Engineering" leaves the engineering team and another user takes
+   *             their place, you provide an updated list of users or sub groups that belong
+   *             to the "Engineering" group when calling <code>PutPrincipalMapping</code>. You
+   *             can update your internal list of users or sub groups and input this list
+   *             when calling <code>PutPrincipalMapping</code>.</p>
+   */
+  public deletePrincipalMapping(
+    args: DeletePrincipalMappingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePrincipalMappingCommandOutput>;
+  public deletePrincipalMapping(
+    args: DeletePrincipalMappingCommandInput,
+    cb: (err: any, data?: DeletePrincipalMappingCommandOutput) => void
+  ): void;
+  public deletePrincipalMapping(
+    args: DeletePrincipalMappingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePrincipalMappingCommandOutput) => void
+  ): void;
+  public deletePrincipalMapping(
+    args: DeletePrincipalMappingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePrincipalMappingCommandOutput) => void),
+    cb?: (err: any, data?: DeletePrincipalMappingCommandOutput) => void
+  ): Promise<DeletePrincipalMappingCommandOutput> | void {
+    const command = new DeletePrincipalMappingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a block list used for query suggestions for an index.</p>
    *         <p>A deleted block list might not take effect right away. Amazon Kendra
    *             needs to refresh the entire suggestions list to add back the
@@ -730,6 +793,43 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: DescribeIndexCommandOutput) => void
   ): Promise<DescribeIndexCommandOutput> | void {
     const command = new DescribeIndexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the processing of <code>PUT</code> and <code>DELETE</code> actions
+   *             for mapping users to their groups. This includes information on the status of
+   *             actions currently processing or yet to be processed, when actions were last updated,
+   *             when actions were received by Amazon Kendra, the latest action that should process
+   *             and apply after other actions, and useful error messages if an action could
+   *             not be processed.</p>
+   */
+  public describePrincipalMapping(
+    args: DescribePrincipalMappingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePrincipalMappingCommandOutput>;
+  public describePrincipalMapping(
+    args: DescribePrincipalMappingCommandInput,
+    cb: (err: any, data?: DescribePrincipalMappingCommandOutput) => void
+  ): void;
+  public describePrincipalMapping(
+    args: DescribePrincipalMappingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePrincipalMappingCommandOutput) => void
+  ): void;
+  public describePrincipalMapping(
+    args: DescribePrincipalMappingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePrincipalMappingCommandOutput) => void),
+    cb?: (err: any, data?: DescribePrincipalMappingCommandOutput) => void
+  ): Promise<DescribePrincipalMappingCommandOutput> | void {
+    const command = new DescribePrincipalMappingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -964,6 +1064,39 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Provides a list of groups that are mapped to users before a
+   *             given ordering or timestamp identifier.</p>
+   */
+  public listGroupsOlderThanOrderingId(
+    args: ListGroupsOlderThanOrderingIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupsOlderThanOrderingIdCommandOutput>;
+  public listGroupsOlderThanOrderingId(
+    args: ListGroupsOlderThanOrderingIdCommandInput,
+    cb: (err: any, data?: ListGroupsOlderThanOrderingIdCommandOutput) => void
+  ): void;
+  public listGroupsOlderThanOrderingId(
+    args: ListGroupsOlderThanOrderingIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroupsOlderThanOrderingIdCommandOutput) => void
+  ): void;
+  public listGroupsOlderThanOrderingId(
+    args: ListGroupsOlderThanOrderingIdCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsOlderThanOrderingIdCommandOutput) => void),
+    cb?: (err: any, data?: ListGroupsOlderThanOrderingIdCommandOutput) => void
+  ): Promise<ListGroupsOlderThanOrderingIdCommandOutput> | void {
+    const command = new ListGroupsOlderThanOrderingIdCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the Amazon Kendra indexes that you have created.</p>
    */
   public listIndices(args: ListIndicesCommandInput, options?: __HttpHandlerOptions): Promise<ListIndicesCommandOutput>;
@@ -1076,6 +1209,51 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: ListThesauriCommandOutput) => void
   ): Promise<ListThesauriCommandOutput> | void {
     const command = new ListThesauriCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Maps users to their groups. You can also map sub groups to groups.
+   *             For example, the group "Company Intellectual Property Teams" includes
+   *             sub groups "Research" and "Engineering". These sub groups include their
+   *             own list of users or people who work in these teams. Only users who work
+   *             in research and engineering, and therefore belong in the intellectual
+   *             property group, can see top-secret company documents in their search
+   *             results. </p>
+   *         <p>You map users to their groups when you want to filter search results
+   *             for different users based on their group’s access to documents. For more
+   *             information on filtering search results for different users, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">Filtering
+   *                 on user context</a>.</p>
+   *         <p>If more than five <code>PUT</code> actions for a group are currently
+   *             processing, a validation exception is thrown.</p>
+   */
+  public putPrincipalMapping(
+    args: PutPrincipalMappingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutPrincipalMappingCommandOutput>;
+  public putPrincipalMapping(
+    args: PutPrincipalMappingCommandInput,
+    cb: (err: any, data?: PutPrincipalMappingCommandOutput) => void
+  ): void;
+  public putPrincipalMapping(
+    args: PutPrincipalMappingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutPrincipalMappingCommandOutput) => void
+  ): void;
+  public putPrincipalMapping(
+    args: PutPrincipalMappingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPrincipalMappingCommandOutput) => void),
+    cb?: (err: any, data?: PutPrincipalMappingCommandOutput) => void
+  ): Promise<PutPrincipalMappingCommandOutput> | void {
+    const command = new PutPrincipalMappingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

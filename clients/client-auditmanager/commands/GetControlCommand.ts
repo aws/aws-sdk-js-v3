@@ -22,7 +22,7 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
 
 /**
  * <p>
- * Returns a control from AWS Audit Manager.
+ *    Returns a control from Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

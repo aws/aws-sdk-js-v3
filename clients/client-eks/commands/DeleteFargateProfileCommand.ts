@@ -21,7 +21,7 @@ export interface DeleteFargateProfileCommandInput extends DeleteFargateProfileRe
 export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an AWS Fargate profile.</p>
+ * <p>Deletes an Fargate profile.</p>
  *         <p>When you delete a Fargate profile, any pods running on Fargate that were created with the
  *             profile are deleted. If those pods match another Fargate profile, then they are scheduled
  *             on Fargate with that profile. If they no longer match any Fargate profiles, then they are not

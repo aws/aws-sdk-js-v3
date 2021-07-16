@@ -19,8 +19,16 @@ import {
   DescribeFHIRImportJobCommandOutput,
 } from "./commands/DescribeFHIRImportJobCommand";
 import { ListFHIRDatastoresCommandInput, ListFHIRDatastoresCommandOutput } from "./commands/ListFHIRDatastoresCommand";
+import { ListFHIRExportJobsCommandInput, ListFHIRExportJobsCommandOutput } from "./commands/ListFHIRExportJobsCommand";
+import { ListFHIRImportJobsCommandInput, ListFHIRImportJobsCommandOutput } from "./commands/ListFHIRImportJobsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { StartFHIRExportJobCommandInput, StartFHIRExportJobCommandOutput } from "./commands/StartFHIRExportJobCommand";
 import { StartFHIRImportJobCommandInput, StartFHIRImportJobCommandOutput } from "./commands/StartFHIRImportJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -80,8 +88,13 @@ export type ServiceInputTypes =
   | DescribeFHIRExportJobCommandInput
   | DescribeFHIRImportJobCommandInput
   | ListFHIRDatastoresCommandInput
+  | ListFHIRExportJobsCommandInput
+  | ListFHIRImportJobsCommandInput
+  | ListTagsForResourceCommandInput
   | StartFHIRExportJobCommandInput
-  | StartFHIRImportJobCommandInput;
+  | StartFHIRImportJobCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | CreateFHIRDatastoreCommandOutput
@@ -90,8 +103,13 @@ export type ServiceOutputTypes =
   | DescribeFHIRExportJobCommandOutput
   | DescribeFHIRImportJobCommandOutput
   | ListFHIRDatastoresCommandOutput
+  | ListFHIRExportJobsCommandOutput
+  | ListFHIRImportJobsCommandOutput
+  | ListTagsForResourceCommandOutput
   | StartFHIRExportJobCommandOutput
-  | StartFHIRImportJobCommandOutput;
+  | StartFHIRImportJobCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

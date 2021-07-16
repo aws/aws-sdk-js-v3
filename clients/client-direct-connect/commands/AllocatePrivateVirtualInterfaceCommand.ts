@@ -21,7 +21,7 @@ export interface AllocatePrivateVirtualInterfaceCommandInput extends AllocatePri
 export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
- * <p>Provisions a private virtual interface to be owned by the specified AWS account.</p>
+ * <p>Provisions a private virtual interface to be owned by the specified account.</p>
  *          <p>Virtual interfaces created using this action must be confirmed by the owner using <a>ConfirmPrivateVirtualInterface</a>.
  *       Until then, the virtual interface is in the <code>Confirming</code> state and is not available to handle traffic.</p>
  * @example

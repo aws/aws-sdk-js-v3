@@ -4,8 +4,7 @@ import {
   BlockDeviceMapping,
   ByoipCidr,
   ClientVpnAuthorizationRuleStatus,
-  CreditSpecificationRequest,
-  ElasticGpuSpecification,
+  CurrencyCodeValues,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   IpPermission,
@@ -20,6 +19,8 @@ import {
   _InstanceType,
 } from "./models_0";
 import {
+  CreditSpecificationRequest,
+  ElasticGpuSpecification,
   IcmpTypeCode,
   InstanceInterruptionBehavior,
   InstanceIpv6Address,
@@ -33,28 +34,670 @@ import {
   TransitGatewayRoute,
 } from "./models_1";
 import {
+  ArchitectureValues,
+  BootModeValues,
   ClientVpnConnectionStatus,
   Filter,
   HttpTokensState,
   InstanceAttributeName,
   InstanceMetadataEndpointState,
-  InstanceState,
+  InstanceTagNotificationAttribute,
 } from "./models_2";
 import {
   InstanceNetworkInterfaceSpecification,
+  InstanceState,
   NetworkInsightsAnalysis,
   RunInstancesMonitoringEnabled,
+  ScheduledInstance,
   SnapshotAttributeName,
   SpotFleetRequestConfigData,
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_3";
-import {
-  CapacityReservationSpecification,
-  InstanceMonitoring,
-  Status,
-  TransitGatewayMulticastRegisteredGroupMembers,
-} from "./models_4";
+import { CapacityReservationSpecification, InstanceMonitoring, Purchase } from "./models_4";
+
+export enum Status {
+  inClassic = "InClassic",
+  inVpc = "InVpc",
+  moveInProgress = "MoveInProgress",
+}
+
+export interface MoveAddressToVpcResult {
+  /**
+   * <p>The allocation ID for the Elastic IP address.</p>
+   */
+  AllocationId?: string;
+
+  /**
+   * <p>The status of the move of the IP address.</p>
+   */
+  Status?: Status | string;
+}
+
+export namespace MoveAddressToVpcResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MoveAddressToVpcResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides authorization for Amazon to bring a specific IP address range to a specific
+ *           account using bring your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Configuring your BYOIP address range</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+export interface CidrAuthorizationContext {
+  /**
+   * <p>The plain-text authorization message for the prefix and account.</p>
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The signed authorization message for the prefix and account.</p>
+   */
+  Signature: string | undefined;
+}
+
+export namespace CidrAuthorizationContext {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CidrAuthorizationContext): any => ({
+    ...obj,
+  });
+}
+
+export interface ProvisionByoipCidrRequest {
+  /**
+   * <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can
+   *          specify is /24. The most specific IPv6 prefix you can specify is /56. The address range cannot overlap with another address range that you've
+   *          brought to this or another Region.</p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>A signed document that proves that you are authorized to bring the specified IP address
+   *          range to Amazon using BYOIP.</p>
+   */
+  CidrAuthorizationContext?: CidrAuthorizationContext;
+
+  /**
+   * <p>(IPv6 only) Indicate whether the address range will be publicly advertised to the
+   *             internet.</p>
+   *         <p>Default: true</p>
+   */
+  PubliclyAdvertisable?: boolean;
+
+  /**
+   * <p>A description for the address range and the address pool.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to apply to the address pool.</p>
+   */
+  PoolTagSpecifications?: TagSpecification[];
+
+  /**
+   * <para>Reserved.</para>
+   */
+  MultiRegion?: boolean;
+}
+
+export namespace ProvisionByoipCidrRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProvisionByoipCidrRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ProvisionByoipCidrResult {
+  /**
+   * <p>Information about the address range.</p>
+   */
+  ByoipCidr?: ByoipCidr;
+}
+
+export namespace ProvisionByoipCidrResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProvisionByoipCidrResult): any => ({
+    ...obj,
+  });
+}
+
+export interface PurchaseHostReservationRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The currency in which the <code>totalUpfrontPrice</code>, <code>LimitPrice</code>,
+   *             and <code>totalHourlyPrice</code> amounts are specified. At this time, the only
+   *             supported currency is <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+
+  /**
+   * <p>The IDs of the Dedicated Hosts with which the reservation will be associated.</p>
+   */
+  HostIdSet: string[] | undefined;
+
+  /**
+   * <p>The specified limit is checked against the total upfront cost of the reservation
+   *             (calculated as the offering's upfront cost multiplied by the host count). If the total
+   *             upfront cost is greater than the specified price limit, the request fails. This is used
+   *             to ensure that the purchase does not exceed the expected upfront cost of the purchase.
+   *             At this time, the only supported currency is <code>USD</code>. For example, to indicate
+   *             a limit price of USD 100, specify 100.00.</p>
+   */
+  LimitPrice?: string;
+
+  /**
+   * <p>The ID of the offering.</p>
+   */
+  OfferingId: string | undefined;
+
+  /**
+   * <p>The tags to apply to the Dedicated Host Reservation during purchase.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+export namespace PurchaseHostReservationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PurchaseHostReservationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PurchaseHostReservationResult {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The currency in which the <code>totalUpfrontPrice</code> and
+   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
+   *             supported currency is <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+
+  /**
+   * <p>Describes the details of the purchase.</p>
+   */
+  Purchase?: Purchase[];
+
+  /**
+   * <p>The total hourly price of the reservation calculated per hour.</p>
+   */
+  TotalHourlyPrice?: string;
+
+  /**
+   * <p>The total amount charged to your account when you purchase the reservation.</p>
+   */
+  TotalUpfrontPrice?: string;
+}
+
+export namespace PurchaseHostReservationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PurchaseHostReservationResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the limit price of a Reserved Instance offering.</p>
+ */
+export interface ReservedInstanceLimitPrice {
+  /**
+   * <p>Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total order (instanceCount * price).</p>
+   */
+  Amount?: number;
+
+  /**
+   * <p>The currency in which the <code>limitPrice</code> amount is specified.
+   * 				At this time, the only supported currency is <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+}
+
+export namespace ReservedInstanceLimitPrice {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservedInstanceLimitPrice): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for PurchaseReservedInstancesOffering.</p>
+ */
+export interface PurchaseReservedInstancesOfferingRequest {
+  /**
+   * <p>The number of Reserved Instances to purchase.</p>
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>The ID of the Reserved Instance offering to purchase.</p>
+   */
+  ReservedInstancesOfferingId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.</p>
+   */
+  LimitPrice?: ReservedInstanceLimitPrice;
+
+  /**
+   * <p>The time at which to purchase the Reserved Instance, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   */
+  PurchaseTime?: Date;
+}
+
+export namespace PurchaseReservedInstancesOfferingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PurchaseReservedInstancesOfferingRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of PurchaseReservedInstancesOffering.</p>
+ */
+export interface PurchaseReservedInstancesOfferingResult {
+  /**
+   * <p>The IDs of the purchased Reserved Instances. If your purchase crosses into a discounted
+   *       pricing tier, the final Reserved Instances IDs might change. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers">Crossing
+   *         pricing tiers</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  ReservedInstancesId?: string;
+}
+
+export namespace PurchaseReservedInstancesOfferingResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PurchaseReservedInstancesOfferingResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a request to purchase Scheduled Instances.</p>
+ */
+export interface PurchaseRequest {
+  /**
+   * <p>The number of instances.</p>
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>The purchase token.</p>
+   */
+  PurchaseToken: string | undefined;
+}
+
+export namespace PurchaseRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PurchaseRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for PurchaseScheduledInstances.</p>
+ */
+export interface PurchaseScheduledInstancesRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that ensures the idempotency of the request.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The purchase requests.</p>
+   */
+  PurchaseRequests: PurchaseRequest[] | undefined;
+}
+
+export namespace PurchaseScheduledInstancesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PurchaseScheduledInstancesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of PurchaseScheduledInstances.</p>
+ */
+export interface PurchaseScheduledInstancesResult {
+  /**
+   * <p>Information about the Scheduled Instances.</p>
+   */
+  ScheduledInstanceSet?: ScheduledInstance[];
+}
+
+export namespace PurchaseScheduledInstancesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PurchaseScheduledInstancesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RebootInstancesRequest {
+  /**
+   * <p>The instance IDs.</p>
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RebootInstancesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RebootInstancesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for RegisterImage.</p>
+ */
+export interface RegisterImageRequest {
+  /**
+   * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the
+   *    		<code>aws-exec-read</code> canned access control list (ACL) to ensure that it can be accessed
+   *    		by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned ACLs</a> in the
+   *    		<i>Amazon S3 Service Developer Guide</i>.</p>
+   */
+  ImageLocation?: string;
+
+  /**
+   * <p>The architecture of the AMI.</p>
+   *          <p>Default: For Amazon EBS-backed AMIs, <code>i386</code>.
+   *         For instance store-backed AMIs, the architecture specified in the manifest file.</p>
+   */
+  Architecture?: ArchitectureValues | string;
+
+  /**
+   * <p>The block device mapping entries.</p>
+   *          <p>If you specify an EBS volume using the ID of an EBS snapshot, you can't specify the encryption state of the volume.</p>
+   *          <p>If you create an AMI on an Outpost, then all backing snapshots must be on the same Outpost or in the Region
+   *     	 of that Outpost. AMIs on an Outpost that include local snapshots can be used to launch instances on the same Outpost
+   *     	 only. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
+   *     	 	Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[];
+
+  /**
+   * <p>A description for your AMI.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.</p>
+   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
+   */
+  EnaSupport?: boolean;
+
+  /**
+   * <p>The ID of the kernel.</p>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>A name for your AMI.</p>
+   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The billing product codes. Your account must be authorized to specify billing product codes. Otherwise,
+   *          you can use the AWS Marketplace to bill for the use of an AMI.</p>
+   */
+  BillingProducts?: string[];
+
+  /**
+   * <p>The ID of the RAM disk.</p>
+   */
+  RamdiskId?: string;
+
+  /**
+   * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
+   */
+  RootDeviceName?: string;
+
+  /**
+   * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.</p>
+   *          <p>There is no way to disable <code>sriovNetSupport</code> at this time.</p>
+   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
+   */
+  SriovNetSupport?: string;
+
+  /**
+   * <p>The type of virtualization (<code>hvm</code> | <code>paravirtual</code>).</p>
+   *          <p>Default: <code>paravirtual</code>
+   *          </p>
+   */
+  VirtualizationType?: string;
+
+  /**
+   * <p>The boot mode of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
+   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  BootMode?: BootModeValues | string;
+}
+
+export namespace RegisterImageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterImageRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of RegisterImage.</p>
+ */
+export interface RegisterImageResult {
+  /**
+   * <p>The ID of the newly registered AMI.</p>
+   */
+  ImageId?: string;
+}
+
+export namespace RegisterImageResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterImageResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the tag keys to register for the current Region. You can either specify
+ *       	individual tag keys or register all tag keys in the current Region. You must specify either
+ *       	<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
+ */
+export interface RegisterInstanceTagAttributeRequest {
+  /**
+   * <p>Indicates whether to register all tag keys in the current Region. Specify <code>true</code>
+   *       	to register all tag keys.</p>
+   */
+  IncludeAllTagsOfInstance?: boolean;
+
+  /**
+   * <p>The tag keys to register.</p>
+   */
+  InstanceTagKeys?: string[];
+}
+
+export namespace RegisterInstanceTagAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterInstanceTagAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterInstanceEventNotificationAttributesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Information about the tag keys to register.</p>
+   */
+  InstanceTagAttribute?: RegisterInstanceTagAttributeRequest;
+}
+
+export namespace RegisterInstanceEventNotificationAttributesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterInstanceEventNotificationAttributesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterInstanceEventNotificationAttributesResult {
+  /**
+   * <p>The resulting set of tag keys.</p>
+   */
+  InstanceTagAttribute?: InstanceTagNotificationAttribute;
+}
+
+export namespace RegisterInstanceEventNotificationAttributesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterInstanceEventNotificationAttributesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterTransitGatewayMulticastGroupMembersRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   */
+  GroupIpAddress?: string;
+
+  /**
+   * <p>The group members' network interface IDs to register with the  transit gateway multicast group.</p>
+   */
+  NetworkInterfaceIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RegisterTransitGatewayMulticastGroupMembersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupMembersRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the registered  transit gateway multicast group members.</p>
+ */
+export interface TransitGatewayMulticastRegisteredGroupMembers {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The ID of the registered network interfaces.</p>
+   */
+  RegisteredNetworkInterfaceIds?: string[];
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   */
+  GroupIpAddress?: string;
+}
+
+export namespace TransitGatewayMulticastRegisteredGroupMembers {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayMulticastRegisteredGroupMembers): any => ({
+    ...obj,
+  });
+}
 
 export interface RegisterTransitGatewayMulticastGroupMembersResult {
   /**
@@ -1889,16 +2532,7 @@ export interface SpotMarketOptions {
   SpotInstanceType?: SpotInstanceType | string;
 
   /**
-   * <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes.
-   *             This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>
-   *         <p>The duration period starts as soon as your Spot Instance receives its instance ID. At
-   *             the end of the duration period, Amazon EC2 marks the Spot Instance for termination and
-   *             provides a Spot Instance termination notice, which gives the instance a two-minute
-   *             warning before it terminates.</p>
-   *         <p>You can't specify an Availability Zone group or a launch group if you specify a
-   *             duration.</p>
-   *         <p>New accounts or accounts with no previous billing history with Amazon Web Services are not eligible
-   *             for Spot Instances with a defined duration (also known as Spot blocks).</p>
+   * <p>Deprecated.</p>
    */
   BlockDurationMinutes?: number;
 

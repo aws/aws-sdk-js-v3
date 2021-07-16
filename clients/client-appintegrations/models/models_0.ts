@@ -19,8 +19,7 @@ export namespace AccessDeniedException {
 }
 
 /**
- * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
- *          <p>The event filter.</p>
+ * <p>The event filter.</p>
  */
 export interface EventFilter {
   /**
@@ -55,7 +54,7 @@ export interface CreateEventIntegrationRequest {
   EventFilter: EventFilter | undefined;
 
   /**
-   * <p>The Eventbridge bus.</p>
+   * <p>The EventBridge bus.</p>
    */
   EventBridgeBus: string | undefined;
 
@@ -264,7 +263,7 @@ export interface GetEventIntegrationResponse {
   EventIntegrationArn?: string;
 
   /**
-   * <p>The Eventbridge bus.</p>
+   * <p>The EventBridge bus.</p>
    */
   EventBridgeBus?: string;
 
@@ -316,8 +315,7 @@ export namespace ListEventIntegrationAssociationsRequest {
 }
 
 /**
- * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
- *          <p>The event integration association.</p>
+ * <p>The event integration association.</p>
  */
 export interface EventIntegrationAssociation {
   /**
@@ -341,7 +339,7 @@ export interface EventIntegrationAssociation {
   ClientId?: string;
 
   /**
-   * <p>The name of the Eventbridge rule.</p>
+   * <p>The name of the EventBridge rule.</p>
    */
   EventBridgeRuleName?: string;
 
@@ -404,8 +402,7 @@ export namespace ListEventIntegrationsRequest {
 }
 
 /**
- * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
- *          <p>The event integration.</p>
+ * <p>The event integration.</p>
  */
 export interface EventIntegration {
   /**
@@ -429,7 +426,7 @@ export interface EventIntegration {
   EventFilter?: EventFilter;
 
   /**
-   * <p>The Amazon Eventbridge bus for the event integration.</p>
+   * <p>The Amazon EventBridge bus for the event integration.</p>
    */
   EventBridgeBus?: string;
 

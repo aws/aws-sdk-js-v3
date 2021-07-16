@@ -22,7 +22,7 @@ export interface ListNotificationsCommandOutput extends ListNotificationsRespons
 
 /**
  * <p>
- *    Returns a list of all AWS Audit Manager notifications.
+ *    Returns a list of all Audit Manager notifications.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

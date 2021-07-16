@@ -23,8 +23,8 @@ export interface AllocateTransitVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provisions a transit virtual interface to be owned by the specified AWS account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.</p>
- *          <p>The owner of a connection provisions a transit virtual interface to be owned by the specified AWS account.</p>
+ * <p>Provisions a transit virtual interface to be owned by the specified account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.</p>
+ *          <p>The owner of a connection provisions a transit virtual interface to be owned by the specified account.</p>
  *          <p>After you create a transit virtual interface, it must be confirmed by the owner using <a>ConfirmTransitVirtualInterface</a>. Until this step has been completed, the transit virtual interface is in the <code>requested</code> state and is not available to handle traffic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

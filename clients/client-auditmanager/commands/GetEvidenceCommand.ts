@@ -22,7 +22,7 @@ export interface GetEvidenceCommandOutput extends GetEvidenceResponse, __Metadat
 
 /**
  * <p>
- * Returns evidence from AWS Audit Manager.
+ *    Returns evidence from Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

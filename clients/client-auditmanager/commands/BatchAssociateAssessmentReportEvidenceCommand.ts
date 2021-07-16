@@ -28,7 +28,7 @@ export interface BatchAssociateAssessmentReportEvidenceCommandOutput
 
 /**
  * <p>
- *         Associates a list of evidence to an assessment report in an AWS Audit Manager assessment.
+ *          Associates a list of evidence to an assessment report in an Audit Manager assessment.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

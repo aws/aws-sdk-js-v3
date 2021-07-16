@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetInstanceAccessDetailsRequest, GetInstanceAccessDetailsResult } from "../models/models_0";
+import { GetInstanceAccessDetailsRequest, GetInstanceAccessDetailsResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetInstanceAccessDetailsCommand,
   serializeAws_json1_1GetInstanceAccessDetailsCommand,
@@ -25,7 +25,7 @@ export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccess
  *         <i>instance</i>.</p>
  *          <p>The <code>get instance access details</code> operation supports tag-based access control
  *       via resource tags applied to the resource identified by <code>instance name</code>. For more
- *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

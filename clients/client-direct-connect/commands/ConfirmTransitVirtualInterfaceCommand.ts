@@ -23,7 +23,7 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Accepts ownership of a transit virtual interface created by another AWS account.</p>
+ * <p>Accepts ownership of a transit virtual interface created by another account.</p>
  *
  *          <p> After the owner of the transit virtual interface makes this call, the specified transit virtual interface is created and made available to handle traffic.</p>
  * @example

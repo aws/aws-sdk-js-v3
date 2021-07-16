@@ -28,7 +28,7 @@ export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
 
 /**
  * <p>Retrieves the current effective patches (the patch and the approval state) for the specified
- *    patch baseline. Note that this API applies only to Windows patch baselines.</p>
+ *    patch baseline. Applies to patch baselines for Windows only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

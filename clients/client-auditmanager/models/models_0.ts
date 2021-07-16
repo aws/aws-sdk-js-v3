@@ -2,7 +2,7 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
 
 /**
  * <p>
- *    Your account is not registered with AWS Audit Manager. Check the delegated administrator setup on the AWS Audit Manager settings page, and try again.
+ *    Your account is not registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again.
  * </p>
  */
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
@@ -39,27 +39,27 @@ export enum ActionEnum {
 
 /**
  * <p>
- *    The wrapper of AWS account details, such as account ID, email address, and so on.
+ *    The wrapper of account details, such as account ID, email address, and so on.
  * </p>
  */
 export interface AWSAccount {
   /**
    * <p>
-   *    The identifier for the specified AWS account.
+   *    The identifier for the specified account.
    * </p>
    */
   id?: string;
 
   /**
    * <p>
-   *    The email address associated with the specified AWS account.
+   *    The email address associated with the specified account.
    * </p>
    */
   emailAddress?: string;
 
   /**
    * <p>
-   *    The name of the specified AWS account.
+   *    The name of the specified account.
    * </p>
    */
   name?: string;
@@ -126,7 +126,7 @@ export enum ControlStatus {
 
 /**
  * <p>
- *    The control entity that represents a standard or custom control used in an AWS Audit Manager assessment.
+ *    The control entity that represents a standard or custom control used in an Audit Manager assessment.
  * </p>
  */
 export interface AssessmentControl {
@@ -310,7 +310,7 @@ export namespace Delegation {
 
 /**
  * <p>
- *      The wrapper that contains the AWS Audit Manager role information of the current user, such as the role type and IAM Amazon Resource Name (ARN).
+ *      The wrapper that contains the Audit Manager role information of the current user, such as the role type and IAM Amazon Resource Name (ARN).
  *   </p>
  */
 export interface Role {
@@ -351,7 +351,7 @@ export enum ControlSetStatus {
 
 /**
  * <p>
- * Represents a set of controls in an AWS Audit Manager assessment.
+ *    Represents a set of controls in an Audit Manager assessment.
  * </p>
  */
 export interface AssessmentControlSet {
@@ -467,7 +467,7 @@ export namespace FrameworkMetadata {
 
 /**
  * <p>
- *    The file used to structure and automate AWS Audit Manager assessments for a given compliance standard.
+ *    The file used to structure and automate Audit Manager assessments for a given compliance standard.
  * </p>
  */
 export interface AssessmentFramework {
@@ -515,7 +515,7 @@ export enum AssessmentReportDestinationType {
 
 /**
  * <p>
- *    The location in which AWS Audit Manager saves assessment reports for the given assessment.
+ *    The location in which Audit Manager saves assessment reports for the given assessment.
  * </p>
  */
 export interface AssessmentReportsDestination {
@@ -545,13 +545,13 @@ export namespace AssessmentReportsDestination {
 
 /**
  * <p>
- *    An AWS service such as Amazon S3, AWS CloudTrail, and so on.
+ *    An Amazon Web Service such as Amazon S3, CloudTrail, and so on.
  * </p>
  */
 export interface AWSService {
   /**
    * <p>
-   *    The name of the AWS service.
+   *    The name of the Amazon Web Service.
    * </p>
    */
   serviceName?: string;
@@ -568,20 +568,20 @@ export namespace AWSService {
 
 /**
  * <p>
- *    The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
+ *    The wrapper that contains the accounts and services in scope for the assessment.
  * </p>
  */
 export interface Scope {
   /**
    * <p>
-   *  The AWS accounts included in the scope of the assessment.
+   *    The accounts included in the scope of the assessment.
    * </p>
    */
   awsAccounts?: AWSAccount[];
 
   /**
    * <p>
-   *  The AWS services included in the scope of the assessment.
+   *    The Amazon Web Services services included in the scope of the assessment.
    * </p>
    */
   awsServices?: AWSService[];
@@ -651,7 +651,7 @@ export interface AssessmentMetadata {
 
   /**
    * <p>
-   *    The wrapper of AWS accounts and services in scope for the assessment.
+   *    The wrapper of accounts and services in scope for the assessment.
    * </p>
    */
   scope?: Scope;
@@ -696,7 +696,7 @@ export namespace AssessmentMetadata {
 
 /**
  * <p>
- *    An entity that defines the scope of audit evidence collected by AWS Audit Manager. An AWS Audit Manager assessment is an implementation of an AWS Audit Manager framework.
+ *    An entity that defines the scope of audit evidence collected by Audit Manager. An Audit Manager assessment is an implementation of an Audit Manager framework.
  * </p>
  */
 export interface Assessment {
@@ -709,7 +709,7 @@ export interface Assessment {
 
   /**
    * <p>
-   *  The AWS account associated with the assessment.
+   *    The account associated with the assessment.
    * </p>
    */
   awsAccount?: AWSAccount;
@@ -747,7 +747,7 @@ export namespace Assessment {
 
 /**
  * <p>
- * The folder in which AWS Audit Manager stores evidence for an assessment.
+ *    The folder in which Audit Manager stores evidence for an assessment.
  * </p>
  */
 export interface AssessmentEvidenceFolder {
@@ -796,7 +796,7 @@ export interface AssessmentEvidenceFolder {
 
   /**
    * <p>
-   *    The AWS service from which the evidence was collected.
+   *    The Amazon Web Service from which the evidence was collected.
    * </p>
    */
   dataSource?: string;
@@ -838,7 +838,7 @@ export interface AssessmentEvidenceFolder {
 
   /**
    * <p>
-   *          The number of evidence that falls under the configuration data category. This evidence is collected from configuration snapshots of other AWS services such as Amazon EC2, Amazon S3, or IAM.
+   *          The number of evidence that falls under the configuration data category. This evidence is collected from configuration snapshots of other Amazon Web Services services such as Amazon EC2, Amazon S3, or IAM.
    *       </p>
    */
   evidenceByTypeConfigurationDataCount?: number;
@@ -852,29 +852,28 @@ export interface AssessmentEvidenceFolder {
 
   /**
    * <p>
-   *          The number of evidence that falls under the compliance check category. This evidence is collected from AWS Config or AWS Security Hub.
+   *          The number of evidence that falls under the compliance check category. This evidence is collected from Config or Security Hub.
    *       </p>
    */
   evidenceByTypeComplianceCheckCount?: number;
 
   /**
    * <p>
-   *          The total number of issues that were reported directly from AWS Security
-   *          Hub, AWS Config, or both.
+   *          The total number of issues that were reported directly from Security Hub, Config, or both.
    *       </p>
    */
   evidenceByTypeComplianceCheckIssuesCount?: number;
 
   /**
    * <p>
-   *          The number of evidence that falls under the user activity category. This evidence is collected from AWS CloudTrail logs.
+   *          The number of evidence that falls under the user activity category. This evidence is collected from CloudTrail logs.
    *       </p>
    */
   evidenceByTypeUserActivityCount?: number;
 
   /**
    * <p>
-   *    The total number of AWS resources assessed to generate the evidence.
+   *    The total number of Amazon Web Services resources assessed to generate the evidence.
    * </p>
    */
   evidenceAwsServiceSourceCount?: number;
@@ -989,7 +988,7 @@ export namespace AssessmentFrameworkMetadata {
 
 /**
  * <p>
- * A metadata object associated with an assessment in AWS Audit Manager.
+ *    A metadata object associated with an assessment in Audit Manager.
  * </p>
  */
 export interface AssessmentMetadataItem {
@@ -1067,7 +1066,7 @@ export enum AssessmentReportStatus {
 
 /**
  * <p>
- *  A finalized document generated from an AWS Audit Manager assessment. These reports summarize the relevant evidence collected for your audit, and link to the relevant evidence folders which are named and organized according to the controls specified in your assessment.
+ *    A finalized document generated from an Audit Manager assessment. These reports summarize the relevant evidence collected for your audit, and link to the relevant evidence folders which are named and organized according to the controls specified in your assessment.
  * </p>
  */
 export interface AssessmentReport {
@@ -1094,7 +1093,7 @@ export interface AssessmentReport {
 
   /**
    * <p>
-   *    The identifier for the specified AWS account.
+   *    The identifier for the specified account.
    * </p>
    */
   awsAccountId?: string;
@@ -1470,7 +1469,7 @@ export namespace BatchAssociateAssessmentReportEvidenceResponse {
 
 /**
  * <p>
- *   A collection of attributes used to create a delegation for an assessment in AWS Audit Manager.
+ *    A collection of attributes used to create a delegation for an assessment in Audit Manager.
  * </p>
  */
 export interface CreateDelegationRequest {
@@ -1520,7 +1519,7 @@ export namespace CreateDelegationRequest {
 export interface BatchCreateDelegationByAssessmentRequest {
   /**
    * <p>
-   *          The API request to batch create delegations in AWS Audit Manager.
+   *          The API request to batch create delegations in Audit Manager.
    *       </p>
    */
   createDelegationRequests: CreateDelegationRequest[] | undefined;
@@ -1550,7 +1549,7 @@ export namespace BatchCreateDelegationByAssessmentRequest {
 export interface BatchCreateDelegationByAssessmentError {
   /**
    * <p>
-   * The API request to batch create delegations in AWS Audit Manager.
+   *    The API request to batch create delegations in Audit Manager.
    * </p>
    */
   createDelegationRequest?: CreateDelegationRequest;
@@ -1743,7 +1742,7 @@ export namespace BatchDisassociateAssessmentReportEvidenceResponse {
 
 /**
  * <p>
- *    Evidence that is uploaded to AWS Audit Manager manually.
+ *    Evidence that is uploaded to Audit Manager manually.
  * </p>
  */
 export interface ManualEvidence {
@@ -1812,7 +1811,7 @@ export namespace BatchImportEvidenceToAssessmentControlRequest {
 export interface BatchImportEvidenceToAssessmentControlError {
   /**
    * <p>
-   * Manual evidence that cannot be collected automatically by AWS Audit Manager.
+   *    Manual evidence that cannot be collected automatically by Audit Manager.
    * </p>
    */
   manualEvidence?: ManualEvidence;
@@ -1883,7 +1882,7 @@ export interface CreateAssessmentRequest {
 
   /**
    * <p>
-   *    The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
+   *    The wrapper that contains the accounts and services in scope for the assessment.
    * </p>
    */
   scope: Scope | undefined;
@@ -1922,7 +1921,7 @@ export namespace CreateAssessmentRequest {
 export interface CreateAssessmentResponse {
   /**
    * <p>
-   *    An entity that defines the scope of audit evidence collected by AWS Audit Manager. An AWS Audit Manager assessment is an implementation of an AWS Audit Manager framework.
+   *    An entity that defines the scope of audit evidence collected by Audit Manager. An Audit Manager assessment is an implementation of an Audit Manager framework.
    * </p>
    */
   assessment?: Assessment;
@@ -1939,7 +1938,7 @@ export namespace CreateAssessmentResponse {
 
 /**
  * <p>
- * Control entity attributes that uniquely identify an existing control to be added to a framework in AWS Audit Manager.
+ *    Control entity attributes that uniquely identify an existing control to be added to a framework in Audit Manager.
  * </p>
  */
 export interface CreateAssessmentFrameworkControl {
@@ -1962,7 +1961,7 @@ export namespace CreateAssessmentFrameworkControl {
 
 /**
  * <p>
- * A <code>controlSet</code> entity that represents a collection of controls in AWS Audit Manager. This does not contain the control set ID.
+ *    A <code>controlSet</code> entity that represents a collection of controls in Audit Manager. This does not contain the control set ID.
  * </p>
  */
 export interface CreateAssessmentFrameworkControlSet {
@@ -2048,7 +2047,7 @@ export enum KeywordInputType {
 
 /**
  * <p>
- * The keyword to search for in AWS CloudTrail logs, AWS Config rules, AWS Security Hub checks, and AWS API names.
+ *    The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names.
  * </p>
  */
 export interface SourceKeyword {
@@ -2061,7 +2060,7 @@ export interface SourceKeyword {
 
   /**
    * <p>
-   * The value of the keyword used to search AWS CloudTrail logs, AWS Config rules, AWS Security Hub checks, and AWS API names when mapping a control data source.
+   *    The value of the keyword used to search CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names when mapping a control data source.
    * </p>
    */
   keywordValue?: string;
@@ -2091,7 +2090,7 @@ export enum SourceType {
 
 /**
  * <p>
- *    The data source that determines from where AWS Audit Manager collects evidence for the control.
+ *    The data source that determines from where Audit Manager collects evidence for the control.
  * </p>
  */
 export interface ControlMappingSource {
@@ -2132,7 +2131,7 @@ export interface ControlMappingSource {
 
   /**
    * <p>
-   * The keyword to search for in AWS CloudTrail logs, AWS Config rules, AWS Security Hub checks, and AWS API names.
+   *    The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names.
    * </p>
    */
   sourceKeyword?: SourceKeyword;
@@ -2168,7 +2167,7 @@ export enum ControlType {
 
 /**
  * <p>
- * A control in AWS Audit Manager.
+ *    A control in Audit Manager.
  * </p>
  */
 export interface Control {
@@ -2231,7 +2230,7 @@ export interface Control {
 
   /**
    * <p>
-   *    The data source that determines from where AWS Audit Manager collects evidence for the control.
+   *    The data source that determines from where Audit Manager collects evidence for the control.
    * </p>
    */
   controlSources?: string;
@@ -2290,7 +2289,7 @@ export namespace Control {
 
 /**
  * <p>
- * A set of controls in AWS Audit Manager.
+ *    A set of controls in Audit Manager.
  * </p>
  */
 export interface ControlSet {
@@ -2327,7 +2326,7 @@ export namespace ControlSet {
 
 /**
  * <p>
- *    The file used to structure and automate AWS Audit Manager assessments for a given compliance standard.
+ *    The file used to structure and automate Audit Manager assessments for a given compliance standard.
  * </p>
  */
 export interface Framework {
@@ -2382,7 +2381,7 @@ export interface Framework {
 
   /**
    * <p>
-   * The sources from which AWS Audit Manager collects evidence for the control.
+   *    The sources from which Audit Manager collects evidence for the control.
    * </p>
    */
   controlSources?: string;
@@ -2522,7 +2521,7 @@ export interface CreateControlMappingSource {
 
   /**
    * <p>
-   *    The description of the data source that determines from where AWS Audit Manager collects evidence for the control.
+   *    The description of the data source that determines from where Audit Manager collects evidence for the control.
    * </p>
    */
   sourceDescription?: string;
@@ -2544,7 +2543,7 @@ export interface CreateControlMappingSource {
 
   /**
    * <p>
-   * The keyword to search for in AWS CloudTrail logs, AWS Config rules, AWS Security Hub checks, and AWS API names.
+   *    The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names.
    * </p>
    */
   sourceKeyword?: SourceKeyword;
@@ -2882,7 +2881,7 @@ export namespace GetAccountStatusRequest {
 export interface GetAccountStatusResponse {
   /**
    * <p>
-   * The status of the specified AWS account.
+   *    The status of the specified account.
    * </p>
    */
   status?: AccountStatus | string;
@@ -2918,14 +2917,14 @@ export namespace GetAssessmentRequest {
 export interface GetAssessmentResponse {
   /**
    * <p>
-   *    An entity that defines the scope of audit evidence collected by AWS Audit Manager. An AWS Audit Manager assessment is an implementation of an AWS Audit Manager framework.
+   *    An entity that defines the scope of audit evidence collected by Audit Manager. An Audit Manager assessment is an implementation of an Audit Manager framework.
    * </p>
    */
   assessment?: Assessment;
 
   /**
    * <p>
-   *      The wrapper that contains the AWS Audit Manager role information of the current user, such as the role type and IAM Amazon Resource Name (ARN).
+   *      The wrapper that contains the Audit Manager role information of the current user, such as the role type and IAM Amazon Resource Name (ARN).
    *   </p>
    */
   userRole?: Role;
@@ -3106,7 +3105,7 @@ export enum ObjectTypeEnum {
 
 /**
  * <p>
- *    The record of a change within AWS Audit Manager, such as a modified assessment, a delegated control set, and so on.
+ *    The record of a change within Audit Manager, such as a modified assessment, a delegated control set, and so on.
  * </p>
  */
 export interface ChangeLog {
@@ -3140,7 +3139,7 @@ export interface ChangeLog {
 
   /**
    * <p>
-   *  The IAM user or role that performed the action.
+   *    The IAM user or role that performed the action.
    * </p>
    */
   createdBy?: string;
@@ -3373,7 +3372,7 @@ export namespace GetEvidenceRequest {
 
 /**
  * <p>
- *       A system asset that is evaluated in an AWS Audit Manager assessment.
+ *        A system asset that is evaluated in an Audit Manager assessment.
  *     </p>
  */
 export interface Resource {
@@ -3416,7 +3415,7 @@ export interface Evidence {
 
   /**
    * <p>
-   *    The identifier for the specified AWS account.
+   *    The identifier for the specified account.
    * </p>
    */
   evidenceAwsAccountId?: string;
@@ -3430,7 +3429,7 @@ export interface Evidence {
 
   /**
    * <p>
-   * The AWS service from which the evidence is collected.
+   *    The Amazon Web Service from which the evidence is collected.
    * </p>
    */
   eventSource?: string;
@@ -3472,22 +3471,22 @@ export interface Evidence {
 
   /**
    * <p> The evaluation status for evidence that falls under the compliance check category. For
-   *          evidence collected from AWS Security Hub, a <i>Pass</i> or
-   *             <i>Fail</i> result is shown. For evidence collected from AWS Config, a
+   *    evidence collected from Security Hub, a <i>Pass</i> or
+   *    <i>Fail</i> result is shown. For evidence collected from Config, a
    *             <i>Compliant</i> or <i>Noncompliant</i> result is shown. </p>
    */
   complianceCheck?: string;
 
   /**
    * <p>
-   *    The AWS account from which the evidence is collected, and its AWS organization path.
+   *    The account from which the evidence is collected, and its organization path.
    * </p>
    */
   awsOrganization?: string;
 
   /**
    * <p>
-   *    The identifier for the specified AWS account.
+   *    The identifier for the specified account.
    * </p>
    */
   awsAccountId?: string;
@@ -3838,34 +3837,34 @@ export namespace GetServicesInScopeRequest {
 
 /**
  * <p>
- *    The metadata associated with the specified AWS service.
+ *    The metadata associated with the specified Amazon Web Service.
  * </p>
  */
 export interface ServiceMetadata {
   /**
    * <p>
-   * The name of the AWS service.
+   *    The name of the Amazon Web Service.
    * </p>
    */
   name?: string;
 
   /**
    * <p>
-   * The display name of the AWS service.
+   *    The display name of the Amazon Web Service.
    * </p>
    */
   displayName?: string;
 
   /**
    * <p>
-   *    The description of the specified AWS service.
+   *    The description of the specified Amazon Web Service.
    * </p>
    */
   description?: string;
 
   /**
    * <p>
-   *    The category in which the AWS service belongs, such as compute, storage, database, and so on.
+   *    The category in which the Amazon Web Service belongs, such as compute, storage, database, and so on.
    * </p>
    */
   category?: string;
@@ -3883,7 +3882,7 @@ export namespace ServiceMetadata {
 export interface GetServicesInScopeResponse {
   /**
    * <p>
-   *    The metadata associated with the aAWS service.
+   *    The metadata associated with the Amazon Web Service.
    * </p>
    */
   serviceMetadata?: ServiceMetadata[];
@@ -3926,20 +3925,20 @@ export namespace GetSettingsRequest {
 
 /**
  * <p>
- *    The settings object that holds all supported AWS Audit Manager settings.
+ *    The settings object that holds all supported Audit Manager settings.
  * </p>
  */
 export interface Settings {
   /**
    * <p>
-   *  Specifies whether AWS Organizations is enabled.
+   *    Specifies whether Organizations is enabled.
    * </p>
    */
   isAwsOrgEnabled?: boolean;
 
   /**
    * <p>
-   *  The designated Amazon Simple Notification Service (Amazon SNS) topic.
+   *    The designated Amazon Simple Notification Service (Amazon SNS) topic.
    * </p>
    */
   snsTopic?: string;
@@ -3960,7 +3959,7 @@ export interface Settings {
 
   /**
    * <p>
-   *          The AWS KMS key details.
+   *          The KMS key details.
    *       </p>
    */
   kmsKey?: string;
@@ -3978,7 +3977,7 @@ export namespace Settings {
 export interface GetSettingsResponse {
   /**
    * <p>
-   *    The settings object that holds all supported AWS Audit Manager settings.
+   *    The settings object that holds all supported Audit Manager settings.
    * </p>
    */
   settings?: Settings;
@@ -4211,7 +4210,7 @@ export interface ControlMetadata {
 
   /**
    * <p>
-   *    The data source that determines from where AWS Audit Manager collects evidence for the control.
+   *    The data source that determines from where Audit Manager collects evidence for the control.
    * </p>
    */
   controlSources?: string;
@@ -4349,7 +4348,7 @@ export namespace ListNotificationsRequest {
 
 /**
  * <p>
- *    The notification used to inform a user of an update in AWS Audit Manager. For example, this includes the notification that is sent when a control set is delegated for review.
+ *    The notification used to inform a user of an update in Audit Manager. For example, this includes the notification that is sent when a control set is delegated for review.
  * </p>
  */
 export interface Notification {
@@ -4483,14 +4482,14 @@ export namespace ListTagsForResourceResponse {
 export interface RegisterAccountRequest {
   /**
    * <p>
-   *    The AWS KMS key details.
+   *    The KMS key details.
    * </p>
    */
   kmsKey?: string;
 
   /**
    * <p>
-   *    The delegated administrator account for AWS Audit Manager.
+   *    The delegated administrator account for Audit Manager.
    * </p>
    */
   delegatedAdminAccount?: string;
@@ -4551,7 +4550,7 @@ export interface RegisterOrganizationAdminAccountResponse {
 
   /**
    * <p>
-   *    The identifier for the specified AWS organization.
+   *    The identifier for the specified organization.
    * </p>
    */
   organizationId?: string;
@@ -4833,7 +4832,7 @@ export namespace UpdateAssessmentControlSetStatusResponse {
 
 /**
  * <p>
- *    A <code>controlSet</code> entity that represents a collection of controls in AWS Audit Manager. This does not contain the control set ID.
+ *    A <code>controlSet</code> entity that represents a collection of controls in Audit Manager. This does not contain the control set ID.
  * </p>
  */
 export interface UpdateAssessmentFrameworkControlSet {
@@ -5057,7 +5056,7 @@ export namespace UpdateControlResponse {
 export interface UpdateSettingsRequest {
   /**
    * <p>
-   * The Amazon Simple Notification Service (Amazon SNS) topic to which AWS Audit Manager sends notifications.
+   *    The Amazon Simple Notification Service (Amazon SNS) topic to which Audit Manager sends notifications.
    * </p>
    */
   snsTopic?: string;
@@ -5078,7 +5077,7 @@ export interface UpdateSettingsRequest {
 
   /**
    * <p>
-   *          The AWS KMS key details.
+   *          The KMS key details.
    *       </p>
    */
   kmsKey?: string;

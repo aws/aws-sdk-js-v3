@@ -44,6 +44,7 @@ import {
   BackendAPIAuthType,
   BackendAPIConflictResolution,
   BackendAPIResourceConfig,
+  BackendAuthAppleProviderConfig,
   BackendAuthSocialProviderConfig,
   BackendJobRespObj,
   BadRequestException,
@@ -3641,6 +3642,18 @@ const serializeAws_restJson1BackendAPIResourceConfig = (
   };
 };
 
+const serializeAws_restJson1BackendAuthAppleProviderConfig = (
+  input: BackendAuthAppleProviderConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClientId !== undefined && input.ClientId !== null && { client_id: input.ClientId }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { key_id: input.KeyId }),
+    ...(input.PrivateKey !== undefined && input.PrivateKey !== null && { private_key: input.PrivateKey }),
+    ...(input.TeamId !== undefined && input.TeamId !== null && { team_id: input.TeamId }),
+  };
+};
+
 const serializeAws_restJson1BackendAuthSocialProviderConfig = (
   input: BackendAuthSocialProviderConfig,
   context: __SerdeContext
@@ -3914,6 +3927,10 @@ const serializeAws_restJson1SocialProviderSettings = (input: SocialProviderSetti
       input.LoginWithAmazon !== null && {
         LoginWithAmazon: serializeAws_restJson1BackendAuthSocialProviderConfig(input.LoginWithAmazon, context),
       }),
+    ...(input.SignInWithApple !== undefined &&
+      input.SignInWithApple !== null && {
+        SignInWithApple: serializeAws_restJson1BackendAuthAppleProviderConfig(input.SignInWithApple, context),
+      }),
   };
 };
 
@@ -4094,6 +4111,18 @@ const deserializeAws_restJson1BackendAPIResourceConfig = (
         : undefined,
     Service: __expectString(output.service),
     TransformSchema: __expectString(output.transformSchema),
+  } as any;
+};
+
+const deserializeAws_restJson1BackendAuthAppleProviderConfig = (
+  output: any,
+  context: __SerdeContext
+): BackendAuthAppleProviderConfig => {
+  return {
+    ClientId: __expectString(output.client_id),
+    KeyId: __expectString(output.key_id),
+    PrivateKey: __expectString(output.private_key),
+    TeamId: __expectString(output.team_id),
   } as any;
 };
 
@@ -4387,6 +4416,10 @@ const deserializeAws_restJson1SocialProviderSettings = (
     LoginWithAmazon:
       output.LoginWithAmazon !== undefined && output.LoginWithAmazon !== null
         ? deserializeAws_restJson1BackendAuthSocialProviderConfig(output.LoginWithAmazon, context)
+        : undefined,
+    SignInWithApple:
+      output.SignInWithApple !== undefined && output.SignInWithApple !== null
+        ? deserializeAws_restJson1BackendAuthAppleProviderConfig(output.SignInWithApple, context)
         : undefined,
   } as any;
 };

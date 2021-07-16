@@ -28,7 +28,7 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
 
 /**
  * <p>Creates a proposal to associate the specified virtual private gateway or transit gateway with the specified Direct Connect gateway.</p>
- *          <p>You can associate a Direct Connect gateway and virtual private gateway or transit gateway that is owned by any AWS account. </p>
+ *          <p>You can associate a Direct Connect gateway and virtual private gateway or transit gateway that is owned by any account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

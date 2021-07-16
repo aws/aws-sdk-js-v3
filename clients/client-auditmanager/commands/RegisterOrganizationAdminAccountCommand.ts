@@ -24,7 +24,7 @@ export interface RegisterOrganizationAdminAccountCommandOutput
 
 /**
  * <p>
- *    Enables an AWS account within the organization as the delegated administrator for AWS Audit Manager.
+ *    Enables an account within the organization as the delegated administrator for Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

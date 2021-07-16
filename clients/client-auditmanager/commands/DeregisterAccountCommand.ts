@@ -22,7 +22,7 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
 
 /**
  * <p>
- * Deregisters an account in AWS Audit Manager.
+ *    Deregisters an account in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

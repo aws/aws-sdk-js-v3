@@ -23,49 +23,66 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
 /**
  * <p>Lists the properties of available patches organized by product, product family,
  *    classification, severity, and other properties of available patches. You can use the reported
- *    properties in the filters you specify in requests for actions such as <a>CreatePatchBaseline</a>, <a>UpdatePatchBaseline</a>, <a>DescribeAvailablePatches</a>, and <a>DescribePatchBaselines</a>.</p>
+ *    properties in the filters you specify in requests for operations such as <a>CreatePatchBaseline</a>, <a>UpdatePatchBaseline</a>, <a>DescribeAvailablePatches</a>, and <a>DescribePatchBaselines</a>.</p>
  *          <p>The following section lists the properties that can be used in filters for each major
  *    operating system type:</p>
  *          <dl>
  *             <dt>AMAZON_LINUX</dt>
  *             <dd>
- *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+ *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
+ *        <code>SEVERITY</code>
+ *                </p>
  *             </dd>
  *             <dt>AMAZON_LINUX_2</dt>
  *             <dd>
- *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+ *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
+ *        <code>SEVERITY</code>
+ *                </p>
  *             </dd>
  *             <dt>CENTOS</dt>
  *             <dd>
- *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+ *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
+ *        <code>SEVERITY</code>
+ *                </p>
  *             </dd>
  *             <dt>DEBIAN</dt>
  *             <dd>
- *                <p>Valid properties: PRODUCT, PRIORITY</p>
+ *                <p>Valid properties: <code>PRODUCT</code> | <code>PRIORITY</code>
+ *                </p>
  *             </dd>
  *             <dt>MACOS</dt>
  *             <dd>
- *                <p>Valid properties: PRODUCT, CLASSIFICATION</p>
+ *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code>
+ *                </p>
  *             </dd>
  *             <dt>ORACLE_LINUX</dt>
  *             <dd>
- *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+ *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
+ *        <code>SEVERITY</code>
+ *                </p>
  *             </dd>
  *             <dt>REDHAT_ENTERPRISE_LINUX</dt>
  *             <dd>
- *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+ *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
+ *        <code>SEVERITY</code>
+ *                </p>
  *             </dd>
  *             <dt>SUSE</dt>
  *             <dd>
- *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+ *                <p>Valid properties: <code>PRODUCT</code> | <code>CLASSIFICATION</code> |
+ *        <code>SEVERITY</code>
+ *                </p>
  *             </dd>
  *             <dt>UBUNTU</dt>
  *             <dd>
- *                <p>Valid properties: PRODUCT, PRIORITY</p>
+ *                <p>Valid properties: <code>PRODUCT</code> | <code>PRIORITY</code>
+ *                </p>
  *             </dd>
  *             <dt>WINDOWS</dt>
  *             <dd>
- *                <p>Valid properties: PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, MSRC_SEVERITY</p>
+ *                <p>Valid properties: <code>PRODUCT</code> | <code>PRODUCT_FAMILY</code> |
+ *        <code>CLASSIFICATION</code> | <code>MSRC_SEVERITY</code>
+ *                </p>
  *             </dd>
  *          </dl>
  * @example

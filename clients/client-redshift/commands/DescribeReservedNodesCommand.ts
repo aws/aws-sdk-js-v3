@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeReservedNodesMessage, ReservedNodesMessage } from "../models/models_0";
+import { DescribeReservedNodesMessage, ReservedNodesMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeReservedNodesCommand,
   serializeAws_queryDescribeReservedNodesCommand,

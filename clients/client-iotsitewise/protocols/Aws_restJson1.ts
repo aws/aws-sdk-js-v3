@@ -245,7 +245,7 @@ export const serializeAws_restJson1AssociateAssetsCommand = async (
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -441,7 +441,7 @@ export const serializeAws_restJson1CreateAssetCommand = async (
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -495,7 +495,7 @@ export const serializeAws_restJson1CreateAssetModelCommand = async (
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -569,7 +569,7 @@ export const serializeAws_restJson1CreateGatewayCommand = async (
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "edge." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -731,7 +731,7 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -771,7 +771,7 @@ export const serializeAws_restJson1DeleteAssetModelCommand = async (
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -848,7 +848,7 @@ export const serializeAws_restJson1DeleteGatewayCommand = async (
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "edge." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -997,7 +997,7 @@ export const serializeAws_restJson1DescribeAssetCommand = async (
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1033,7 +1033,7 @@ export const serializeAws_restJson1DescribeAssetModelCommand = async (
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1078,7 +1078,7 @@ export const serializeAws_restJson1DescribeAssetPropertyCommand = async (
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1142,9 +1142,16 @@ export const serializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration/account/encryption";
   let body: any;
   body = "";
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
   return new __HttpRequest({
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1173,7 +1180,7 @@ export const serializeAws_restJson1DescribeGatewayCommand = async (
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "edge." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1219,7 +1226,7 @@ export const serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "edge." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1248,7 +1255,7 @@ export const serializeAws_restJson1DescribeLoggingOptionsCommand = async (
   body = "";
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1346,9 +1353,16 @@ export const serializeAws_restJson1DescribeStorageConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration/account/storage";
   let body: any;
   body = "";
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
   return new __HttpRequest({
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1384,7 +1398,7 @@ export const serializeAws_restJson1DisassociateAssetsCommand = async (
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1603,7 +1617,7 @@ export const serializeAws_restJson1ListAssetModelsCommand = async (
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1645,7 +1659,7 @@ export const serializeAws_restJson1ListAssetRelationshipsCommand = async (
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1678,7 +1692,7 @@ export const serializeAws_restJson1ListAssetsCommand = async (
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1721,7 +1735,7 @@ export const serializeAws_restJson1ListAssociatedAssetsCommand = async (
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1784,7 +1798,7 @@ export const serializeAws_restJson1ListGatewaysCommand = async (
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "edge." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1916,9 +1930,16 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
   let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
   return new __HttpRequest({
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "GET",
     headers,
@@ -1944,9 +1965,16 @@ export const serializeAws_restJson1PutDefaultEncryptionConfigurationCommand = as
       input.encryptionType !== null && { encryptionType: input.encryptionType }),
     ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
   });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
   return new __HttpRequest({
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -1973,7 +2001,7 @@ export const serializeAws_restJson1PutLoggingOptionsCommand = async (
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -2007,9 +2035,16 @@ export const serializeAws_restJson1PutStorageConfigurationCommand = async (
       }),
     ...(input.storageType !== undefined && input.storageType !== null && { storageType: input.storageType }),
   });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
   return new __HttpRequest({
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -2034,9 +2069,16 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
   return new __HttpRequest({
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -2058,9 +2100,16 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
   return new __HttpRequest({
     protocol,
-    hostname,
+    hostname: resolvedHostname,
     port,
     method: "DELETE",
     headers,
@@ -2146,7 +2195,7 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -2206,7 +2255,7 @@ export const serializeAws_restJson1UpdateAssetModelCommand = async (
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -2259,7 +2308,7 @@ export const serializeAws_restJson1UpdateAssetPropertyCommand = async (
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "model." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -2346,7 +2395,7 @@ export const serializeAws_restJson1UpdateGatewayCommand = async (
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "edge." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -2390,7 +2439,7 @@ export const serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand =
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
-    resolvedHostname = "edge." + resolvedHostname;
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }

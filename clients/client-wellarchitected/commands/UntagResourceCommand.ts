@@ -22,6 +22,10 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
 
 /**
  * <p>Deletes specified tags from a resource.</p>
+ *         <p>To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:</p>
+ *         <p>
+ *             <code>DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2</code>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

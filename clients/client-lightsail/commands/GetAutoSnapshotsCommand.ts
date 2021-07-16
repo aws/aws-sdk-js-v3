@@ -22,7 +22,7 @@ export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, _
 
 /**
  * <p>Returns the available automatic snapshots for an instance or disk. For more information,
- *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
+ *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

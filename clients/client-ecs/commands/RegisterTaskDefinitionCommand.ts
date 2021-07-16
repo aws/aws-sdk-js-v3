@@ -28,7 +28,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * 				Definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <p>You can specify an IAM role for your task with the <code>taskRoleArn</code> parameter.
  * 			When you specify an IAM role for a task, its containers can then use the latest versions
- * 			of the AWS CLI or SDKs to make API requests to the AWS services that are specified in
+ * 			of the CLI or SDKs to make API requests to the Amazon Web Services services that are specified in
  * 			the IAM policy associated with the role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
  * 				Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <p>You can specify a Docker networking mode for the containers in your task definition

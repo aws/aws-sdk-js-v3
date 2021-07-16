@@ -21,8 +21,8 @@ export interface GetParameterCommandInput extends GetParameterRequest {}
 export interface GetParameterCommandOutput extends GetParameterResult, __MetadataBearer {}
 
 /**
- * <p>Get information about a parameter by using the parameter name. Don't confuse this API action
- *    with the <a>GetParameters</a> API action.</p>
+ * <p>Get information about a parameter by using the parameter name. Don't confuse this API
+ *    operation with the <a>GetParameters</a> API operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

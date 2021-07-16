@@ -22,7 +22,7 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
 
 /**
  * <p>
- *    Updates AWS Audit Manager settings for the current user account.
+ *    Updates Audit Manager settings for the current user account.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

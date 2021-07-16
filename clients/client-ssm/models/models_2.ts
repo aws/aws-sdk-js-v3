@@ -43,8 +43,8 @@ export interface UpdateMaintenanceWindowTargetRequest {
   Targets?: Target[];
 
   /**
-   * <p>User-provided value that will be included in any CloudWatch events raised while running
-   *    tasks for these targets in this maintenance window.</p>
+   * <p>User-provided value that will be included in any Amazon CloudWatch Events events raised while
+   *    running tasks for these targets in this maintenance window.</p>
    */
   OwnerInformation?: string;
 
@@ -59,9 +59,8 @@ export interface UpdateMaintenanceWindowTargetRequest {
   Description?: string;
 
   /**
-   * <p>If True, then all fields that are required by the RegisterTargetWithMaintenanceWindow action
-   *    are also required for this API request. Optional fields that are not specified are set to
-   *    null.</p>
+   * <p>If <code>True</code>, then all fields that are required by the <a>RegisterTargetWithMaintenanceWindow</a> operation are also required for this API
+   *    request. Optional fields that aren't specified are set to null.</p>
    */
   Replace?: boolean;
 }
@@ -132,16 +131,16 @@ export interface UpdateMaintenanceWindowTaskRequest {
   WindowTaskId: string | undefined;
 
   /**
-   * <p>The targets (either instances or tags) to modify. Instances are specified using
-   *    Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using
-   *    Key=tag_name,Values=tag_value. </p>
+   * <p>The targets (either instances or tags) to modify. Instances are specified using the format
+   *     <code>Key=instanceids,Values=instanceID_1,instanceID_2</code>. Tags are specified using the
+   *    format <code> Key=tag_name,Values=tag_value</code>. </p>
    *          <note>
    *             <p>One or more targets must be specified for maintenance window Run Command-type tasks.
    *     Depending on the task, targets are optional for other maintenance window task types (Automation,
-   *     AWS Lambda, and AWS Step Functions). For more information about running tasks that do not
-   *     specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
+   *      Lambda, and Step Functions). For more information about running tasks
+   *     that don't specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
    *      maintenance window tasks without targets</a> in the
-   *     <i>AWS Systems Manager User Guide</i>.</p>
+   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          </note>
    */
   Targets?: Target[];
@@ -152,11 +151,11 @@ export interface UpdateMaintenanceWindowTaskRequest {
   TaskArn?: string;
 
   /**
-   * <p>The ARN of the IAM service role for Systems Manager to assume when running a
+   * <p>The Amazon Resource Name (ARN) of the IAM service role for Amazon Web Services Systems Manager to assume when running a
    *   maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's
    *   service-linked role.  If no service-linked role for Systems Manager exists in your account, it is created when you run
    *   <code>RegisterTaskWithMaintenanceWindow</code>.</p>
-   *          <p>For more information, see the following topics in the in the <i>AWS Systems Manager User Guide</i>:</p>
+   *          <p>For more information, see the following topics in the in the <i>Amazon Web Services Systems Manager User Guide</i>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -195,7 +194,7 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          <important>
    *             <p>When you update a maintenance window task that has options specified in
    *      <code>TaskInvocationParameters</code>, you must provide again all the
-   *      <code>TaskInvocationParameters</code> values that you want to retain. The values you do not
+   *      <code>TaskInvocationParameters</code> values that you want to retain. The values you don't
    *     specify again are removed. For example, suppose that when you registered a Run Command task, you
    *     specified <code>TaskInvocationParameters</code> values for <code>Comment</code>,
    *      <code>NotificationConfig</code>, and <code>OutputS3BucketName</code>. If you update the
@@ -215,9 +214,9 @@ export interface UpdateMaintenanceWindowTaskRequest {
    * <p>The new <code>MaxConcurrency</code> value you want to specify. <code>MaxConcurrency</code>
    *    is the number of targets that are allowed to run this task in parallel.</p>
    *          <note>
-   *             <p>For maintenance window tasks without a target specified, you cannot supply a value for this
+   *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
    *     option. Instead, the system inserts a placeholder value of <code>1</code>, which may be reported
-   *     in the response to this command. This value does not affect the running of your task and can be
+   *     in the response to this command. This value doesn't affect the running of your task and can be
    *     ignored.</p>
    *          </note>
    */
@@ -227,9 +226,9 @@ export interface UpdateMaintenanceWindowTaskRequest {
    * <p>The new <code>MaxErrors</code> value to specify. <code>MaxErrors</code> is the maximum
    *    number of errors that are allowed before the task stops being scheduled.</p>
    *          <note>
-   *             <p>For maintenance window tasks without a target specified, you cannot supply a value for this
+   *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
    *     option. Instead, the system inserts a placeholder value of <code>1</code>, which may be reported
-   *     in the response to this command. This value does not affect the running of your task and can be
+   *     in the response to this command. This value doesn't affect the running of your task and can be
    *     ignored.</p>
    *          </note>
    */
@@ -239,9 +238,9 @@ export interface UpdateMaintenanceWindowTaskRequest {
    * <p>The new logging location in Amazon S3 to specify.</p>
    *          <note>
    *             <p>
-   *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
+   *                <code>LoggingInfo</code> has been deprecated. To specify an Amazon Simple Storage Service (Amazon S3) bucket to contain logs, instead use the
    *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
-   *       For information about how Systems Manager handles these options for the supported maintenance
+   *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
    *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
    *          </note>
    */
@@ -258,9 +257,8 @@ export interface UpdateMaintenanceWindowTaskRequest {
   Description?: string;
 
   /**
-   * <p>If True, then all fields that are required by the RegisterTaskWithMaintenanceWindow action
-   *    are also required for this API request. Optional fields that are not specified are set to
-   *    null.</p>
+   * <p>If True, then all fields that are required by the <a>RegisterTaskWithMaintenanceWindow</a> operation are also required for this API request.
+   *    Optional fields that aren't specified are set to null.</p>
    */
   Replace?: boolean;
 }
@@ -303,8 +301,8 @@ export interface UpdateMaintenanceWindowTaskResult {
   TaskArn?: string;
 
   /**
-   * <p>The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for
-   *    maintenance window Run Command tasks.</p>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service
+   * (Amazon SNS) notifications for maintenance window Run Command tasks.</p>
    */
   ServiceRoleArn?: string;
 
@@ -331,12 +329,12 @@ export interface UpdateMaintenanceWindowTaskResult {
   Priority?: number;
 
   /**
-   * <p>The updated MaxConcurrency value.</p>
+   * <p>The updated <code>MaxConcurrency</code> value.</p>
    */
   MaxConcurrency?: string;
 
   /**
-   * <p>The updated MaxErrors value.</p>
+   * <p>The updated <code>MaxErrors</code> value.</p>
    */
   MaxErrors?: string;
 
@@ -344,9 +342,9 @@ export interface UpdateMaintenanceWindowTaskResult {
    * <p>The updated logging information in Amazon S3.</p>
    *          <note>
    *             <p>
-   *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
+   *                <code>LoggingInfo</code> has been deprecated. To specify an Amazon Simple Storage Service (Amazon S3) bucket to contain logs, instead use the
    *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
-   *       For information about how Systems Manager handles these options for the supported maintenance
+   *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
    *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
    *          </note>
    */
@@ -426,18 +424,19 @@ export interface UpdateOpsItemRequest {
    *    other relevant data. You enter operational data as key-value pairs. The key has a maximum length
    *    of 128 characters. The value has a maximum size of 20 KB.</p>
    *          <important>
-   *             <p>Operational data keys <i>can't</i> begin with the following: amazon, aws,
-   *     amzn, ssm, /amazon, /aws, /amzn, /ssm.</p>
+   *             <p>Operational data keys <i>can't</i> begin with the following:
+   *      <code>amazon</code>, <code>aws</code>, <code>amzn</code>, <code>ssm</code>,
+   *      <code>/amazon</code>, <code>/aws</code>, <code>/amzn</code>, <code>/ssm</code>.</p>
    *          </important>
    *          <p>You can choose to make the data searchable by other users in the account or you can restrict
    *    search access. Searchable data means that all users with access to the OpsItem Overview page (as
-   *    provided by the <a>DescribeOpsItems</a> API action) can view and search on the
-   *    specified data. Operational data that is not searchable is only viewable by users who have access
-   *    to the OpsItem (as provided by the <a>GetOpsItem</a> API action).</p>
+   *    provided by the <a>DescribeOpsItems</a> API operation) can view and search on the
+   *    specified data. Operational data that isn't searchable is only viewable by users who have access
+   *    to the OpsItem (as provided by the <a>GetOpsItem</a> API operation).</p>
    *          <p>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource in
    *    the request. Use the <code>/aws/automations</code> key in OperationalData to associate an
-   *    Automation runbook with the OpsItem. To view AWS CLI example commands that use these keys, see
-   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems manually</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *    Automation runbook with the OpsItem. To view Amazon Web Services CLI example commands that use these keys, see
+   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   OperationalData?: { [key: string]: OpsItemDataValue };
 
@@ -466,7 +465,7 @@ export interface UpdateOpsItemRequest {
 
   /**
    * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
-   *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details">Editing OpsItem details</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details">Editing OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   Status?: OpsItemStatus | string;
 
@@ -621,7 +620,7 @@ export interface UpdatePatchBaselineRequest {
    * <p>A list of explicitly approved patches for the baseline.</p>
    *          <p>For information about accepted formats for lists of approved patches and rejected patches,
    *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-   *                         package name formats for approved and rejected patch lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *                         package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   ApprovedPatches?: string[];
 
@@ -632,7 +631,8 @@ export interface UpdatePatchBaselineRequest {
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
-   *    applied to the instances. The default value is 'false'. Applies to Linux instances only.</p>
+   *    applied to the instances. The default value is <code>false</code>. Applies to Linux instances
+   *    only.</p>
    */
   ApprovedPatchesEnableNonSecurity?: boolean;
 
@@ -640,28 +640,32 @@ export interface UpdatePatchBaselineRequest {
    * <p>A list of explicitly rejected patches for the baseline.</p>
    *          <p>For information about accepted formats for lists of approved patches and rejected patches,
    *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-   *                         package name formats for approved and rejected patch lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *                         package name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   RejectedPatches?: string[];
 
   /**
-   * <p>The action for Patch Manager to take on patches included in the RejectedPackages
-   *    list.</p>
+   * <p>The action for Patch Manager to take on patches included in the
+   *     <code>RejectedPackages</code> list.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>ALLOW_AS_DEPENDENCY</b>: A package in the Rejected patches
-   *      list is installed only if it is a dependency of another package. It is considered compliant
-   *      with the patch baseline, and its status is reported as <i>InstalledOther</i>.
-   *      This is the default action if no option is specified.</p>
+   *                   <b>
+   *                      <code>ALLOW_AS_DEPENDENCY</code>
+   *                   </b>: A package in the
+   *       <code>Rejected</code> patches list is installed only if it is a dependency of another package.
+   *      It is considered compliant with the patch baseline, and its status is reported as
+   *       <code>InstalledOther</code>. This is the default action if no option is specified.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>BLOCK</b>: Packages in the RejectedPatches list, and packages
-   *      that include them as dependencies, are not installed under any circumstances. If a package was
-   *      installed before it was added to the Rejected patches list, it is considered non-compliant with
-   *      the patch baseline, and its status is reported as
-   *      <i>InstalledRejected</i>.</p>
+   *                   <b>
+   *                      <code>BLOCK</code>
+   *                   </b>: Packages in the
+   *       <code>RejectedPatches</code> list, and packages that include them as dependencies, aren't
+   *      installed under any circumstances. If a package was installed before it was added to the
+   *       <code>Rejected</code> patches list, it is considered non-compliant with the patch baseline,
+   *      and its status is reported as <code>InstalledRejected</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -679,8 +683,9 @@ export interface UpdatePatchBaselineRequest {
   Sources?: PatchSource[];
 
   /**
-   * <p>If True, then all fields that are required by the CreatePatchBaseline action are also
-   *    required for this API request. Optional fields that are not specified are set to null.</p>
+   * <p>If True, then all fields that are required by the <a>CreatePatchBaseline</a>
+   *    operation are also required for this API request. Optional fields that aren't specified are set
+   *    to null.</p>
    */
   Replace?: boolean;
 }
@@ -734,7 +739,8 @@ export interface UpdatePatchBaselineResult {
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
-   *    applied to the instances. The default value is 'false'. Applies to Linux instances only.</p>
+   *    applied to the instances. The default value is <code>false</code>. Applies to Linux instances
+   *    only.</p>
    */
   ApprovedPatchesEnableNonSecurity?: boolean;
 
@@ -744,9 +750,9 @@ export interface UpdatePatchBaselineResult {
   RejectedPatches?: string[];
 
   /**
-   * <p>The action specified to take on patches included in the RejectedPatches list. A patch can be
-   *    allowed only if it is a dependency of another package, or blocked entirely along with packages
-   *    that include it as a dependency.</p>
+   * <p>The action specified to take on patches included in the <code>RejectedPatches</code> list. A
+   *    patch can be allowed only if it is a dependency of another package, or blocked entirely along
+   *    with packages that include it as a dependency.</p>
    */
   RejectedPatchesAction?: PatchAction | string;
 
@@ -761,7 +767,7 @@ export interface UpdatePatchBaselineResult {
   ModifiedDate?: Date;
 
   /**
-   * <p>A description of the Patch Baseline.</p>
+   * <p>A description of the patch baseline.</p>
    */
   Description?: string;
 
@@ -840,7 +846,7 @@ export namespace UpdateResourceDataSyncResult {
 }
 
 /**
- * <p>The request body of the UpdateServiceSetting API action.</p>
+ * <p>The request body of the UpdateServiceSetting API operation.</p>
  */
 export interface UpdateServiceSettingRequest {
   /**
@@ -901,11 +907,11 @@ export interface UpdateServiceSettingRequest {
    *     <code>/ssm/managed-instance/activation-tier</code> setting IDs, the setting value can be true or
    *    false.</p>
    *          <p>For the <code>/ssm/automation/customer-script-log-destination</code> setting ID, the setting
-   *    value can be CloudWatch.</p>
+   *    value can be <code>CloudWatch</code>.</p>
    *          <p>For the <code>/ssm/automation/customer-script-log-group-name</code> setting ID, the setting
-   *    value can be the name of a CloudWatch Logs log group.</p>
-   *          <p>For the <code>/ssm/documents/console/public-sharing-permission</code> setting ID, the setting
-   *    value can be Enable or Disable.</p>
+   *    value can be the name of an Amazon CloudWatch Logs log group.</p>
+   *          <p>For the <code>/ssm/documents/console/public-sharing-permission</code> setting ID, the
+   *    setting value can be <code>Enable</code> or <code>Disable</code>.</p>
    */
   SettingValue: string | undefined;
 }
@@ -920,7 +926,7 @@ export namespace UpdateServiceSettingRequest {
 }
 
 /**
- * <p>The result body of the UpdateServiceSetting API action.</p>
+ * <p>The result body of the UpdateServiceSetting API operation.</p>
  */
 export interface UpdateServiceSettingResult {}
 
@@ -964,23 +970,24 @@ export namespace InventoryAggregator {
 }
 
 /**
- * <p>One or more aggregators for viewing counts of OpsItems using different dimensions such as
+ * <p>One or more aggregators for viewing counts of OpsData using different dimensions such as
  *     <code>Source</code>, <code>CreatedTime</code>, or <code>Source and CreatedTime</code>, to name a
  *    few.</p>
  */
 export interface OpsAggregator {
   /**
-   * <p>Either a Range or Count aggregator for limiting an OpsItem summary.</p>
+   * <p>Either a <code>Range</code> or <code>Count</code> aggregator for limiting an OpsData
+   *    summary.</p>
    */
   AggregatorType?: string;
 
   /**
-   * <p>The data type name to use for viewing counts of OpsItems.</p>
+   * <p>The data type name to use for viewing counts of OpsData.</p>
    */
   TypeName?: string;
 
   /**
-   * <p>The name of an OpsItem attribute on which to limit the count of OpsItems.</p>
+   * <p>The name of an OpsData attribute on which to limit the count of OpsData.</p>
    */
   AttributeName?: string;
 
@@ -995,7 +1002,7 @@ export interface OpsAggregator {
   Filters?: OpsFilter[];
 
   /**
-   * <p>A nested aggregator for viewing counts of OpsItems.</p>
+   * <p>A nested aggregator for viewing counts of OpsData.</p>
    */
   Aggregators?: OpsAggregator[];
 }
@@ -1057,17 +1064,17 @@ export interface GetOpsSummaryRequest {
   SyncName?: string;
 
   /**
-   * <p>Optional filters used to scope down the returned OpsItems. </p>
+   * <p>Optional filters used to scope down the returned OpsData. </p>
    */
   Filters?: OpsFilter[];
 
   /**
-   * <p>Optional aggregators that return counts of OpsItems based on one or more expressions.</p>
+   * <p>Optional aggregators that return counts of OpsData based on one or more expressions.</p>
    */
   Aggregators?: OpsAggregator[];
 
   /**
-   * <p>The OpsItem data type to return.</p>
+   * <p>The OpsData data type to return.</p>
    */
   ResultAttributes?: OpsResultAttribute[];
 

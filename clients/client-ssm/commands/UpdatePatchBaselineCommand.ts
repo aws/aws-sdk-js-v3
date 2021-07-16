@@ -24,8 +24,8 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  * <p>Modifies an existing patch baseline. Fields not specified in the request are left
  *    unchanged.</p>
  *          <note>
- *             <p>For information about valid key and value pairs in <code>PatchFilters</code> for each
- *     supported operating system type, see <a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">PatchFilter</a>.</p>
+ *             <p>For information about valid key-value pairs in <code>PatchFilters</code> for each supported
+ *     operating system type, see <a>PatchFilter</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

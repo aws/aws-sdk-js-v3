@@ -1,6 +1,7 @@
 import { BooleanOperator, UserSettings } from "./models_0";
 import {
   MemberDefinition,
+  ModelApprovalStatus,
   MonitoringScheduleConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
@@ -23,6 +24,32 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface UpdateModelPackageInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model.</p>
+   */
+  ModelPackageArn: string | undefined;
+
+  /**
+   * <p>The approval status of the model.</p>
+   */
+  ModelApprovalStatus: ModelApprovalStatus | string | undefined;
+
+  /**
+   * <p>A description for the approval status of the model.</p>
+   */
+  ApprovalDescription?: string;
+}
+
+export namespace UpdateModelPackageInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateModelPackageInput): any => ({
+    ...obj,
+  });
+}
 
 export interface UpdateModelPackageOutput {
   /**

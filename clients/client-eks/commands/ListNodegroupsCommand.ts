@@ -22,7 +22,7 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
 
 /**
  * <p>Lists the Amazon EKS managed node groups associated with the specified cluster in your
- *             AWS account in the specified Region. Self-managed node groups are not listed.</p>
+ *             Amazon Web Services account in the specified Region. Self-managed node groups are not listed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -61,6 +61,9 @@ import {
   Answer,
   AnswerSummary,
   Choice,
+  ChoiceAnswer,
+  ChoiceAnswerSummary,
+  ChoiceUpdate,
   ConflictException,
   ImprovementSummary,
   InternalServerException,
@@ -1041,8 +1044,13 @@ export const serializeAws_restJson1UpdateAnswerCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.ChoiceUpdates !== undefined &&
+      input.ChoiceUpdates !== null && {
+        ChoiceUpdates: serializeAws_restJson1ChoiceUpdates(input.ChoiceUpdates, context),
+      }),
     ...(input.IsApplicable !== undefined && input.IsApplicable !== null && { IsApplicable: input.IsApplicable }),
     ...(input.Notes !== undefined && input.Notes !== null && { Notes: input.Notes }),
+    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
     ...(input.SelectedChoices !== undefined &&
       input.SelectedChoices !== null && {
         SelectedChoices: serializeAws_restJson1SelectedChoices(input.SelectedChoices, context),
@@ -4295,6 +4303,26 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1ChoiceUpdate = (input: ChoiceUpdate, context: __SerdeContext): any => {
+  return {
+    ...(input.Notes !== undefined && input.Notes !== null && { Notes: input.Notes }),
+    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1ChoiceUpdates = (input: { [key: string]: ChoiceUpdate }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1ChoiceUpdate(value, context),
+    };
+  }, {});
+};
+
 const serializeAws_restJson1LensAliases = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -4398,6 +4426,10 @@ const serializeAws_restJson1WorkloadPillarPriorities = (input: string[], context
 
 const deserializeAws_restJson1Answer = (output: any, context: __SerdeContext): Answer => {
   return {
+    ChoiceAnswers:
+      output.ChoiceAnswers !== undefined && output.ChoiceAnswers !== null
+        ? deserializeAws_restJson1ChoiceAnswers(output.ChoiceAnswers, context)
+        : undefined,
     Choices:
       output.Choices !== undefined && output.Choices !== null
         ? deserializeAws_restJson1Choices(output.Choices, context)
@@ -4410,6 +4442,7 @@ const deserializeAws_restJson1Answer = (output: any, context: __SerdeContext): A
     QuestionDescription: __expectString(output.QuestionDescription),
     QuestionId: __expectString(output.QuestionId),
     QuestionTitle: __expectString(output.QuestionTitle),
+    Reason: __expectString(output.Reason),
     Risk: __expectString(output.Risk),
     SelectedChoices:
       output.SelectedChoices !== undefined && output.SelectedChoices !== null
@@ -4431,6 +4464,10 @@ const deserializeAws_restJson1AnswerSummaries = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1AnswerSummary = (output: any, context: __SerdeContext): AnswerSummary => {
   return {
+    ChoiceAnswerSummaries:
+      output.ChoiceAnswerSummaries !== undefined && output.ChoiceAnswerSummaries !== null
+        ? deserializeAws_restJson1ChoiceAnswerSummaries(output.ChoiceAnswerSummaries, context)
+        : undefined,
     Choices:
       output.Choices !== undefined && output.Choices !== null
         ? deserializeAws_restJson1Choices(output.Choices, context)
@@ -4439,6 +4476,7 @@ const deserializeAws_restJson1AnswerSummary = (output: any, context: __SerdeCont
     PillarId: __expectString(output.PillarId),
     QuestionId: __expectString(output.QuestionId),
     QuestionTitle: __expectString(output.QuestionTitle),
+    Reason: __expectString(output.Reason),
     Risk: __expectString(output.Risk),
     SelectedChoices:
       output.SelectedChoices !== undefined && output.SelectedChoices !== null
@@ -4452,6 +4490,45 @@ const deserializeAws_restJson1Choice = (output: any, context: __SerdeContext): C
     ChoiceId: __expectString(output.ChoiceId),
     Description: __expectString(output.Description),
     Title: __expectString(output.Title),
+  } as any;
+};
+
+const deserializeAws_restJson1ChoiceAnswer = (output: any, context: __SerdeContext): ChoiceAnswer => {
+  return {
+    ChoiceId: __expectString(output.ChoiceId),
+    Notes: __expectString(output.Notes),
+    Reason: __expectString(output.Reason),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_restJson1ChoiceAnswers = (output: any, context: __SerdeContext): ChoiceAnswer[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChoiceAnswer(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ChoiceAnswerSummaries = (output: any, context: __SerdeContext): ChoiceAnswerSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChoiceAnswerSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ChoiceAnswerSummary = (output: any, context: __SerdeContext): ChoiceAnswerSummary => {
+  return {
+    ChoiceId: __expectString(output.ChoiceId),
+    Reason: __expectString(output.Reason),
+    Status: __expectString(output.Status),
   } as any;
 };
 

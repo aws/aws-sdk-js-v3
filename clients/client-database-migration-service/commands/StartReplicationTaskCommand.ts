@@ -26,8 +26,8 @@ export interface StartReplicationTaskCommandOutput extends StartReplicationTaskR
 
 /**
  * <p>Starts the replication task.</p>
- *          <p>For more information about AWS DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks </a> in the
- *             <i>AWS Database Migration Service User Guide.</i>
+ *          <p>For more information about DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks </a> in the
+ *             <i>Database Migration Service User Guide.</i>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

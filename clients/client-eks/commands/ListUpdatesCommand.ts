@@ -21,7 +21,7 @@ export interface ListUpdatesCommandInput extends ListUpdatesRequest {}
 export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the updates associated with an Amazon EKS cluster or managed node group in your AWS
+ * <p>Lists the updates associated with an Amazon EKS cluster or managed node group in your Amazon Web Services
  *             account, in the specified Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -44,8 +44,9 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  *       received by the bot in the last 15 days. The response contains information
  *       about a maximum of 100 utterances for each version.</p>
  *          <p>If you set <code>childDirected</code> field to true when you
- *       created your bot, or if you opted out of participating in improving Amazon Lex,
- *       utterances are not available.</p>
+ *       created your bot, if you are using slot obfuscation with one or more
+ *       slots, or if you opted out of participating in improving Amazon Lex, utterances
+ *       are not available.</p>
  *          <p>This operation requires permissions for the
  *         <code>lex:GetUtterancesView</code> action.</p>
  * @example

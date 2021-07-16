@@ -21,9 +21,9 @@ export interface DeleteActivationCommandInput extends DeleteActivationRequest {}
 export interface DeleteActivationCommandOutput extends DeleteActivationResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an activation. You are not required to delete an activation. If you delete an
+ * <p>Deletes an activation. You aren't required to delete an activation. If you delete an
  *    activation, you can no longer use it to register additional managed instances. Deleting an
- *    activation does not de-register managed instances. You must manually de-register managed
+ *    activation doesn't de-register managed instances. You must manually de-register managed
  *    instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

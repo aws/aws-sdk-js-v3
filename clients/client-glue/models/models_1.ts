@@ -13,10 +13,10 @@ import {
   DatabaseInput,
   EncryptionConfiguration,
   ErrorDetail,
+  EventBatchingCondition,
   ExecutionProperty,
   GlueTable,
   Job,
-  JobBookmarkEntry,
   JobCommand,
   JobRun,
   Language,
@@ -50,6 +50,76 @@ import {
   WorkflowRun,
 } from "./models_0";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+export interface GetJobBookmarkRequest {
+  /**
+   * <p>The name of the job in question.</p>
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The unique run identifier associated with this job run.</p>
+   */
+  RunId?: string;
+}
+
+export namespace GetJobBookmarkRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetJobBookmarkRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines a point that a job can resume processing.</p>
+ */
+export interface JobBookmarkEntry {
+  /**
+   * <p>The name of the job in question.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The version of the job.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The run ID number.</p>
+   */
+  Run?: number;
+
+  /**
+   * <p>The attempt ID number.</p>
+   */
+  Attempt?: number;
+
+  /**
+   * <p>The unique run identifier associated with the previous job run.</p>
+   */
+  PreviousRunId?: string;
+
+  /**
+   * <p>The run ID number.</p>
+   */
+  RunId?: string;
+
+  /**
+   * <p>The bookmark itself.</p>
+   */
+  JobBookmark?: string;
+}
+
+export namespace JobBookmarkEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobBookmarkEntry): any => ({
+    ...obj,
+  });
+}
 
 export interface GetJobBookmarkResponse {
   /**
@@ -6595,6 +6665,12 @@ export interface TriggerUpdate {
    * <p>The predicate of this trigger, which defines when it will fire.</p>
    */
   Predicate?: Predicate;
+
+  /**
+   * <p>Batch condition that must be met (specified number of events received or batch time window expired)
+   *       before EventBridge event trigger fires.</p>
+   */
+  EventBatchingCondition?: EventBatchingCondition;
 }
 
 export namespace TriggerUpdate {

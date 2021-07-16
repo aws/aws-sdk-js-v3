@@ -21,9 +21,9 @@ export interface ListAssociationsCommandInput extends ListAssociationsRequest {}
 export interface ListAssociationsCommandOutput extends ListAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Returns all State Manager associations in the current AWS account and Region. You can limit
- *    the results to a specific State Manager association document or instance by specifying a
- *    filter.</p>
+ * <p>Returns all State Manager associations in the current account and Region. You
+ *    can limit the results to a specific State Manager association document or instance by specifying
+ *    a filter. State Manager is a capability of Amazon Web Services Systems Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

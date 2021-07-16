@@ -28,7 +28,7 @@ export interface GetEvidenceFoldersByAssessmentControlCommandOutput
 
 /**
  * <p>
- *    Returns a list of evidence folders associated with a specified control of an assessment in AWS Audit Manager.
+ *    Returns a list of evidence folders associated with a specified control of an assessment in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -386,7 +386,7 @@ export interface BackendAPIResourceConfig {
   AdditionalAuthTypes?: BackendAPIAuthType[];
 
   /**
-   * <p>The API name used to interact with the data model, configured as a part of the amplify project.</p>
+   * <p>The API name used to interact with the data model, configured as a part of your Amplify project.</p>
    */
   ApiName?: string;
 
@@ -581,7 +581,7 @@ export namespace SmsSettings {
  */
 export interface CreateBackendAuthForgotPasswordConfig {
   /**
-   * <p>Describes which mode to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>
+   * <p>Describes which mode to use (either SMS or email) to deliver messages to app users who want to recover their password.</p>
    */
   DeliveryMethod: DeliveryMethod | string | undefined;
 
@@ -641,11 +641,11 @@ export namespace Settings {
 }
 
 /**
- * <p>Describes whether multi-factor authentication policies should be applied for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
+ * <p>Describes whether to apply multi-factor authentication policies for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
  */
 export interface CreateBackendAuthMFAConfig {
   /**
-   * <p>Describes whether MFA should be [ON, OFF, OPTIONAL] for authentication in your Amplify project.</p>
+   * <p>Describes whether MFA should be [ON, OFF, or OPTIONAL] for authentication in your Amplify project.</p>
    */
   MFAMode: MFAMode | string | undefined;
 
@@ -682,12 +682,12 @@ export enum OAuthScopesElement {
  */
 export interface BackendAuthSocialProviderConfig {
   /**
-   * <p>Describes the client_id which can be obtained from the third-party social federation provider.</p>
+   * <p>Describes the client_id, which can be obtained from the third-party social federation provider.</p>
    */
   ClientId?: string;
 
   /**
-   * <p>Describes the client_secret which can be obtained from third-party social federation providers.</p>
+   * <p>Describes the client_secret, which can be obtained from third-party social federation providers.</p>
    */
   ClientSecret?: string;
 }
@@ -697,6 +697,40 @@ export namespace BackendAuthSocialProviderConfig {
    * @internal
    */
   export const filterSensitiveLog = (obj: BackendAuthSocialProviderConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes Apple social federation configurations for allowing your app users to sign in using OAuth.</p>
+ */
+export interface BackendAuthAppleProviderConfig {
+  /**
+   * <p>Describes the client_id (also called Services ID) that comes from Apple.</p>
+   */
+  ClientId?: string;
+
+  /**
+   * <p>Describes the key_id that comes from Apple.</p>
+   */
+  KeyId?: string;
+
+  /**
+   * <p>Describes the private_key that comes from Apple.</p>
+   */
+  PrivateKey?: string;
+
+  /**
+   * <p>Describes the team_id that comes from Apple.</p>
+   */
+  TeamId?: string;
+}
+
+export namespace BackendAuthAppleProviderConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BackendAuthAppleProviderConfig): any => ({
     ...obj,
   });
 }
@@ -719,6 +753,11 @@ export interface SocialProviderSettings {
    * <p>Describes third-party social federation configurations for allowing your app users to sign in using OAuth.</p>
    */
   LoginWithAmazon?: BackendAuthSocialProviderConfig;
+
+  /**
+   * <p>Describes Apple social federation configurations for allowing your app users to sign in using OAuth.</p>
+   */
+  SignInWithApple?: BackendAuthAppleProviderConfig;
 }
 
 export namespace SocialProviderSettings {
@@ -755,7 +794,7 @@ export interface CreateBackendAuthOAuthConfig {
   RedirectSignInURIs: string[] | undefined;
 
   /**
-   * <p>Redirect URLs used by OAuth when a user signs out of an Amplify app.</p>
+   * <p>Redirect URLs that OAuth uses when a user signs out of an Amplify app.</p>
    */
   RedirectSignOutURIs: string[] | undefined;
 
@@ -835,7 +874,7 @@ export interface CreateBackendAuthUserPoolConfig {
   ForgotPassword?: CreateBackendAuthForgotPasswordConfig;
 
   /**
-   * <p>Describes whether multi-factor authentication policies should be applied for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
+   * <p>Describes whether to apply multi-factor authentication policies for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
    */
   Mfa?: CreateBackendAuthMFAConfig;
 
@@ -2164,7 +2203,7 @@ export namespace UpdateBackendAPIResponse {
  */
 export interface UpdateBackendAuthIdentityPoolConfig {
   /**
-   * <p>A boolean value which can be set to allow or disallow guest-level authorization into your Amplify app.</p>
+   * <p>A boolean value that can be set to allow or disallow guest-level authorization into your Amplify app.</p>
    */
   UnauthenticatedLogin?: boolean;
 }
@@ -2251,12 +2290,12 @@ export interface UpdateBackendAuthOAuthConfig {
   OAuthScopes?: (OAuthScopesElement | string)[];
 
   /**
-   * <p>Redirect URLs used by OAuth when a user signs in to an Amplify app.</p>
+   * <p>Redirect URLs that OAuth uses when a user signs in to an Amplify app.</p>
    */
   RedirectSignInURIs?: string[];
 
   /**
-   * <p>Redirect URLs used by OAuth when a user signs out of an Amplify app.</p>
+   * <p>Redirect URLs that OAuth uses when a user signs out of an Amplify app.</p>
    */
   RedirectSignOutURIs?: string[];
 
@@ -2309,7 +2348,7 @@ export interface UpdateBackendAuthUserPoolConfig {
   ForgotPassword?: UpdateBackendAuthForgotPasswordConfig;
 
   /**
-   * <p>Describes whether multi-factor authentication policies should be applied for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
+   * <p>Describes whether to apply multi-factor authentication policies for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
    */
   Mfa?: UpdateBackendAuthMFAConfig;
 
@@ -2551,7 +2590,7 @@ export interface UpdateBackendJobRequest {
   JobId: string | undefined;
 
   /**
-   * <p>Filters the list of response objects to only include those with the specified operation name.</p>
+   * <p>Filters the list of response objects to include only those with the specified operation name.</p>
    */
   Operation?: string;
 

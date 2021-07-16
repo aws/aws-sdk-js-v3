@@ -206,7 +206,7 @@ export enum RecordType {
 }
 
 /**
- * <p>Contains a DNS record value that you can use to can use to validate ownership or control
+ * <p>Contains a DNS record value that you can use to validate ownership or control
  *       of a domain. This is used by the <a>DescribeCertificate</a> action. </p>
  */
 export interface ResourceRecord {
@@ -429,6 +429,7 @@ export enum KeyAlgorithm {
   EC_secp521r1 = "EC_secp521r1",
   RSA_1024 = "RSA_1024",
   RSA_2048 = "RSA_2048",
+  RSA_3072 = "RSA_3072",
   RSA_4096 = "RSA_4096",
 }
 
@@ -585,7 +586,7 @@ export interface CertificateDetail {
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see
    *         <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
-   *       the <i>AWS General Reference</i>.</p>
+   *       the <i>Amazon Web Services General Reference</i>.</p>
    */
   CertificateArn?: string;
 
@@ -681,15 +682,15 @@ export interface CertificateDetail {
   SignatureAlgorithm?: string;
 
   /**
-   * <p>A list of ARNs for the AWS resources that are using the certificate. A certificate can
-   *       be used by multiple AWS resources. </p>
+   * <p>A list of ARNs for the Amazon Web Services resources that are using the certificate. A certificate can
+   *       be used by multiple Amazon Web Services resources. </p>
    */
   InUseBy?: string[];
 
   /**
    * <p>The reason the certificate request failed. This value exists only when the certificate
    *       status is <code>FAILED</code>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed">Certificate Request
-   *         Failed</a> in the <i>AWS Certificate Manager User Guide</i>. </p>
+   *         Failed</a> in the <i>Amazon Web Services Certificate Manager User Guide</i>. </p>
    */
   FailureReason?: FailureReason | string;
 
@@ -699,7 +700,7 @@ export interface CertificateDetail {
    *         <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for
    *       imported certificates. For more information about the differences between certificates that
    *       you import and those that ACM provides, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing Certificates</a> in the
-   *         <i>AWS Certificate Manager User Guide</i>. </p>
+   *         <i>Amazon Web Services Certificate Manager User Guide</i>. </p>
    */
   Type?: CertificateType | string;
 
@@ -779,7 +780,7 @@ export namespace DeleteCertificateRequest {
 }
 
 /**
- * <p>The certificate is in use by another AWS service in the caller's account. Remove the
+ * <p>The certificate is in use by another Amazon Web Services service in the caller's account. Remove the
  *       association and try again.</p>
  */
 export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
@@ -914,7 +915,7 @@ export namespace RequestInProgressException {
 
 /**
  * <p>Object containing
- *       expiration events options associated with an AWS account.</p>
+ *       expiration events options associated with an Amazon Web Services account.</p>
  */
 export interface ExpiryEventsConfiguration {
   /**
@@ -938,7 +939,7 @@ export namespace ExpiryEventsConfiguration {
 export interface GetAccountConfigurationResponse {
   /**
    * <p>Expiration events
-   *       configuration options associated with the AWS account.</p>
+   *       configuration options associated with the Amazon Web Services account.</p>
    */
   ExpiryEvents?: ExpiryEventsConfiguration;
 }
@@ -1300,7 +1301,7 @@ export namespace PutAccountConfigurationRequest {
 
 /**
  * <p>The supplied input
- *       failed to satisfy constraints of an AWS service.</p>
+ *       failed to satisfy constraints of an Amazon Web Services service.</p>
  */
 export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
@@ -1512,7 +1513,7 @@ export interface RequestCertificateRequest {
    * <p>The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used
    *       to issue the certificate. If you do not provide an ARN and you are trying to request a private
    *       certificate, ACM will attempt to issue a public certificate. For more information about
-   *       private CAs, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html">AWS Certificate Manager Private Certificate Authority (PCA)</a> user guide. The ARN must have the following form: </p>
+   *       private CAs, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html">Amazon Web Services Certificate Manager Private Certificate Authority (PCA)</a> user guide. The ARN must have the following form: </p>
    *
    *          <p>
    *             <code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code>

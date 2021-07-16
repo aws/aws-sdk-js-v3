@@ -21,8 +21,8 @@ export interface ModifyClusterIamRolesCommandInput extends ModifyClusterIamRoles
 export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRolesResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the list of AWS Identity and Access Management (IAM) roles that can be
- *             used by the cluster to access other AWS services.</p>
+ * <p>Modifies the list of Identity and Access Management (IAM) roles that can be
+ *             used by the cluster to access other Amazon Web Services services.</p>
  *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

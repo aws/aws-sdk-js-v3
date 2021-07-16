@@ -21,7 +21,7 @@ export interface CreateOpsMetadataCommandInput extends CreateOpsMetadataRequest 
 export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult, __MetadataBearer {}
 
 /**
- * <p>If you create a new application in Application Manager, Systems Manager calls this API action to specify
+ * <p>If you create a new application in Application Manager, Amazon Web Services Systems Manager calls this API operation to specify
  *    information about the new application, including the application type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

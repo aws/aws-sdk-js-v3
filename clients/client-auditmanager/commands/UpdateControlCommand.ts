@@ -22,7 +22,7 @@ export interface UpdateControlCommandOutput extends UpdateControlResponse, __Met
 
 /**
  * <p>
- * Updates a custom control in AWS Audit Manager.
+ *    Updates a custom control in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

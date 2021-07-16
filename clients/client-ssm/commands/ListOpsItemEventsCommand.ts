@@ -21,8 +21,8 @@ export interface ListOpsItemEventsCommandInput extends ListOpsItemEventsRequest 
 export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all OpsItem events in the current AWS account and Region. You can limit
- *    the results to events associated with specific OpsItems by specifying a filter.</p>
+ * <p>Returns a list of all OpsItem events in the current Region and account. You can
+ *    limit the results to events associated with specific OpsItems by specifying a filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

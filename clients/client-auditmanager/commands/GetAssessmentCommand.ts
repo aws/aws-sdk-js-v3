@@ -22,7 +22,7 @@ export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __Met
 
 /**
  * <p>
- * Returns an assessment from AWS Audit Manager.
+ *    Returns an assessment from Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

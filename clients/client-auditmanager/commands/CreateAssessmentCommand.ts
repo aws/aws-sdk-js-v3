@@ -22,7 +22,7 @@ export interface CreateAssessmentCommandOutput extends CreateAssessmentResponse,
 
 /**
  * <p>
- *   Creates an assessment in AWS Audit Manager.
+ *    Creates an assessment in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

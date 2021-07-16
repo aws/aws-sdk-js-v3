@@ -63,7 +63,7 @@ export namespace DescribeServicesRequest {
  */
 export interface Service {
   /**
-   * <p>The code for the AWS service.</p>
+   * <p>The code for the Amazon Web Services service.</p>
    */
   ServiceCode?: string;
 

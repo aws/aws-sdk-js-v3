@@ -48,7 +48,7 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
  *             </li>
  *          </ul>
  *          <note>
- *             <p>If a parameter is null, then the corresponding field is not modified.</p>
+ *             <p>If a parameter is null, then the corresponding field isn't modified.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

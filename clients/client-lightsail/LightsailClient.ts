@@ -18,6 +18,11 @@ import {
   CloseInstancePublicPortsCommandOutput,
 } from "./commands/CloseInstancePublicPortsCommand";
 import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
+import {
+  CreateBucketAccessKeyCommandInput,
+  CreateBucketAccessKeyCommandOutput,
+} from "./commands/CreateBucketAccessKeyCommand";
+import { CreateBucketCommandInput, CreateBucketCommandOutput } from "./commands/CreateBucketCommand";
 import { CreateCertificateCommandInput, CreateCertificateCommandOutput } from "./commands/CreateCertificateCommand";
 import {
   CreateCloudFormationStackCommandInput,
@@ -77,6 +82,11 @@ import {
 } from "./commands/CreateRelationalDatabaseSnapshotCommand";
 import { DeleteAlarmCommandInput, DeleteAlarmCommandOutput } from "./commands/DeleteAlarmCommand";
 import { DeleteAutoSnapshotCommandInput, DeleteAutoSnapshotCommandOutput } from "./commands/DeleteAutoSnapshotCommand";
+import {
+  DeleteBucketAccessKeyCommandInput,
+  DeleteBucketAccessKeyCommandOutput,
+} from "./commands/DeleteBucketAccessKeyCommand";
+import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
 import {
   DeleteContactMethodCommandInput,
@@ -139,6 +149,16 @@ import { GetActiveNamesCommandInput, GetActiveNamesCommandOutput } from "./comma
 import { GetAlarmsCommandInput, GetAlarmsCommandOutput } from "./commands/GetAlarmsCommand";
 import { GetAutoSnapshotsCommandInput, GetAutoSnapshotsCommandOutput } from "./commands/GetAutoSnapshotsCommand";
 import { GetBlueprintsCommandInput, GetBlueprintsCommandOutput } from "./commands/GetBlueprintsCommand";
+import {
+  GetBucketAccessKeysCommandInput,
+  GetBucketAccessKeysCommandOutput,
+} from "./commands/GetBucketAccessKeysCommand";
+import { GetBucketBundlesCommandInput, GetBucketBundlesCommandOutput } from "./commands/GetBucketBundlesCommand";
+import {
+  GetBucketMetricDataCommandInput,
+  GetBucketMetricDataCommandOutput,
+} from "./commands/GetBucketMetricDataCommand";
+import { GetBucketsCommandInput, GetBucketsCommandOutput } from "./commands/GetBucketsCommand";
 import { GetBundlesCommandInput, GetBundlesCommandOutput } from "./commands/GetBundlesCommand";
 import { GetCertificatesCommandInput, GetCertificatesCommandOutput } from "./commands/GetCertificatesCommand";
 import {
@@ -314,6 +334,10 @@ import {
   SendContactMethodVerificationCommandOutput,
 } from "./commands/SendContactMethodVerificationCommand";
 import { SetIpAddressTypeCommandInput, SetIpAddressTypeCommandOutput } from "./commands/SetIpAddressTypeCommand";
+import {
+  SetResourceAccessForBucketCommandInput,
+  SetResourceAccessForBucketCommandOutput,
+} from "./commands/SetResourceAccessForBucketCommand";
 import { StartInstanceCommandInput, StartInstanceCommandOutput } from "./commands/StartInstanceCommand";
 import {
   StartRelationalDatabaseCommandInput,
@@ -328,6 +352,8 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { TestAlarmCommandInput, TestAlarmCommandOutput } from "./commands/TestAlarmCommand";
 import { UnpeerVpcCommandInput, UnpeerVpcCommandOutput } from "./commands/UnpeerVpcCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateBucketBundleCommandInput, UpdateBucketBundleCommandOutput } from "./commands/UpdateBucketBundleCommand";
+import { UpdateBucketCommandInput, UpdateBucketCommandOutput } from "./commands/UpdateBucketCommand";
 import {
   UpdateContainerServiceCommandInput,
   UpdateContainerServiceCommandOutput,
@@ -411,6 +437,8 @@ export type ServiceInputTypes =
   | AttachStaticIpCommandInput
   | CloseInstancePublicPortsCommandInput
   | CopySnapshotCommandInput
+  | CreateBucketAccessKeyCommandInput
+  | CreateBucketCommandInput
   | CreateCertificateCommandInput
   | CreateCloudFormationStackCommandInput
   | CreateContactMethodCommandInput
@@ -434,6 +462,8 @@ export type ServiceInputTypes =
   | CreateRelationalDatabaseSnapshotCommandInput
   | DeleteAlarmCommandInput
   | DeleteAutoSnapshotCommandInput
+  | DeleteBucketAccessKeyCommandInput
+  | DeleteBucketCommandInput
   | DeleteCertificateCommandInput
   | DeleteContactMethodCommandInput
   | DeleteContainerImageCommandInput
@@ -463,6 +493,10 @@ export type ServiceInputTypes =
   | GetAlarmsCommandInput
   | GetAutoSnapshotsCommandInput
   | GetBlueprintsCommandInput
+  | GetBucketAccessKeysCommandInput
+  | GetBucketBundlesCommandInput
+  | GetBucketMetricDataCommandInput
+  | GetBucketsCommandInput
   | GetBundlesCommandInput
   | GetCertificatesCommandInput
   | GetCloudFormationStackRecordsCommandInput
@@ -530,6 +564,7 @@ export type ServiceInputTypes =
   | ResetDistributionCacheCommandInput
   | SendContactMethodVerificationCommandInput
   | SetIpAddressTypeCommandInput
+  | SetResourceAccessForBucketCommandInput
   | StartInstanceCommandInput
   | StartRelationalDatabaseCommandInput
   | StopInstanceCommandInput
@@ -538,6 +573,8 @@ export type ServiceInputTypes =
   | TestAlarmCommandInput
   | UnpeerVpcCommandInput
   | UntagResourceCommandInput
+  | UpdateBucketBundleCommandInput
+  | UpdateBucketCommandInput
   | UpdateContainerServiceCommandInput
   | UpdateDistributionBundleCommandInput
   | UpdateDistributionCommandInput
@@ -555,6 +592,8 @@ export type ServiceOutputTypes =
   | AttachStaticIpCommandOutput
   | CloseInstancePublicPortsCommandOutput
   | CopySnapshotCommandOutput
+  | CreateBucketAccessKeyCommandOutput
+  | CreateBucketCommandOutput
   | CreateCertificateCommandOutput
   | CreateCloudFormationStackCommandOutput
   | CreateContactMethodCommandOutput
@@ -578,6 +617,8 @@ export type ServiceOutputTypes =
   | CreateRelationalDatabaseSnapshotCommandOutput
   | DeleteAlarmCommandOutput
   | DeleteAutoSnapshotCommandOutput
+  | DeleteBucketAccessKeyCommandOutput
+  | DeleteBucketCommandOutput
   | DeleteCertificateCommandOutput
   | DeleteContactMethodCommandOutput
   | DeleteContainerImageCommandOutput
@@ -607,6 +648,10 @@ export type ServiceOutputTypes =
   | GetAlarmsCommandOutput
   | GetAutoSnapshotsCommandOutput
   | GetBlueprintsCommandOutput
+  | GetBucketAccessKeysCommandOutput
+  | GetBucketBundlesCommandOutput
+  | GetBucketMetricDataCommandOutput
+  | GetBucketsCommandOutput
   | GetBundlesCommandOutput
   | GetCertificatesCommandOutput
   | GetCloudFormationStackRecordsCommandOutput
@@ -674,6 +719,7 @@ export type ServiceOutputTypes =
   | ResetDistributionCacheCommandOutput
   | SendContactMethodVerificationCommandOutput
   | SetIpAddressTypeCommandOutput
+  | SetResourceAccessForBucketCommandOutput
   | StartInstanceCommandOutput
   | StartRelationalDatabaseCommandOutput
   | StopInstanceCommandOutput
@@ -682,6 +728,8 @@ export type ServiceOutputTypes =
   | TestAlarmCommandOutput
   | UnpeerVpcCommandOutput
   | UntagResourceCommandOutput
+  | UpdateBucketBundleCommandOutput
+  | UpdateBucketCommandOutput
   | UpdateContainerServiceCommandOutput
   | UpdateDistributionBundleCommandOutput
   | UpdateDistributionCommandOutput
@@ -832,14 +880,14 @@ export interface LightsailClientResolvedConfig extends LightsailClientResolvedCo
 /**
  * <p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) for developers
  *       who need to build websites or web applications. It includes everything you need to launch your
- *       project quickly - instances (virtual private servers), container services, managed databases,
- *       SSD-based block storage, static IP addresses, load balancers, content delivery network (CDN)
- *       distributions, DNS management of registered domains, and resource snapshots (backups) - for a
- *       low, predictable monthly price.</p>
+ *       project quickly - instances (virtual private servers), container services, storage buckets,
+ *       managed databases, SSD-based block storage, static IP addresses, load balancers, content
+ *       delivery network (CDN) distributions, DNS management of registered domains, and resource
+ *       snapshots (backups) - for a low, predictable monthly price.</p>
  *
  *          <p>You can manage your Lightsail resources using the Lightsail console, Lightsail API,
  *       AWS Command Line Interface (AWS CLI), or SDKs. For more information about Lightsail concepts
- *       and tasks, see the <a href="http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Lightsail Dev Guide</a>.</p>
+ *       and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Amazon Lightsail Developer Guide</a>.</p>
  *
  *          <p>This API Reference provides detailed information about the actions, data types,
  *       parameters, and errors of the Lightsail service. For more information about the supported

@@ -21,13 +21,12 @@ export interface UpdateOpsItemCommandInput extends UpdateOpsItemRequest {}
 export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __MetadataBearer {}
 
 /**
- * <p>Edit or change an OpsItem. You must have permission in AWS Identity and Access Management
- *    (IAM) to update an OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
- *     OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
- *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
- *    operational issues impacting the performance and health of their AWS resources. For more
- *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
- *     <i>AWS Systems Manager User Guide</i>. </p>
+ * <p>Edit or change an OpsItem. You must have permission in Identity and Access Management (IAM) to update an OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
+ *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
+ *    remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
+ *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">OpsCenter</a> in the
+ *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

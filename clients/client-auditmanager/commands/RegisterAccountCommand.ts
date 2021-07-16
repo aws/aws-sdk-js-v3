@@ -22,7 +22,7 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
 
 /**
  * <p>
- *  Enables AWS Audit Manager for the specified AWS account.
+ *    Enables Audit Manager for the specified account.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

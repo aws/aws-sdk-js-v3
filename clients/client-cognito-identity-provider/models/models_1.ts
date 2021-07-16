@@ -425,13 +425,13 @@ export interface UpdateUserAttributesRequest {
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers. </p>
-   *         <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers.
+   *         <p>You create custom workflows by assigning Lambda functions to user pool triggers.
    *             When you use the UpdateUserAttributes API action, Amazon Cognito invokes the function
    *             that is assigned to the <i>custom message</i> trigger. When Amazon Cognito
    *             invokes this function, it passes a JSON payload, which the function receives as input.
    *             This payload contains a <code>clientMetadata</code> attribute, which provides the data
    *             that you assigned to the ClientMetadata parameter in your UpdateUserAttributes request.
-   *             In your function code in AWS Lambda, you can process the <code>clientMetadata</code>
+   *             In your function code in Lambda, you can process the <code>clientMetadata</code>
    *             value to enhance your workflow for your specific needs.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the
    *                 <i>Amazon Cognito Developer Guide</i>.</p>
@@ -441,7 +441,7 @@ export interface UpdateUserAttributesRequest {
    *             <ul>
    *                <li>
    *                     <p>Amazon Cognito does not store the ClientMetadata value. This data is
-   *                         available only to AWS Lambda triggers that are assigned to a user pool to
+   *                         available only to Lambda triggers that are assigned to a user pool to
    *                         support custom workflows. If your user pool configuration does not include
    *                         triggers, the ClientMetadata parameter serves no purpose.</p>
    *                 </li>
@@ -507,7 +507,7 @@ export interface UpdateUserPoolRequest {
   Policies?: UserPoolPolicyType;
 
   /**
-   * <p>The AWS Lambda configuration information from the request to update the user
+   * <p>The Lambda configuration information from the request to update the user
    *             pool.</p>
    */
   LambdaConfig?: LambdaConfigType;
@@ -798,7 +798,7 @@ export interface UpdateUserPoolClientRequest {
   /**
    * <p>The allowed OAuth scopes. Possible values provided by OAuth are: <code>phone</code>,
    *                 <code>email</code>, <code>openid</code>, and <code>profile</code>. Possible values
-   *             provided by AWS are: <code>aws.cognito.signin.user.admin</code>. Custom scopes created
+   *             provided by Amazon Web Services are: <code>aws.cognito.signin.user.admin</code>. Custom scopes created
    *             in Resource Servers are also supported.</p>
    */
   AllowedOAuthScopes?: string[];

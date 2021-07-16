@@ -21,7 +21,7 @@ export interface DescribeInterconnectsCommandInput extends DescribeInterconnects
 export interface DescribeInterconnectsCommandOutput extends Interconnects, __MetadataBearer {}
 
 /**
- * <p>Lists the interconnects owned by the AWS account or only the specified interconnect.</p>
+ * <p>Lists the interconnects owned by the account or only the specified interconnect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

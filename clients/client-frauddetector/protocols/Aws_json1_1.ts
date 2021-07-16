@@ -200,6 +200,7 @@ import {
   LabelSchema,
   ListTagsForResourceRequest,
   ListTagsForResourceResult,
+  LogitMetric,
   MetricDataPoint,
   Model,
   ModelEndpointDataBlob,
@@ -257,6 +258,7 @@ import {
   ValidationException,
   Variable,
   VariableEntry,
+  VariableImportanceMetrics,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -1289,6 +1291,14 @@ const deserializeAws_json1_1CreateBatchPredictionJobCommandError = async (
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7243,6 +7253,17 @@ const deserializeAws_json1_1LabelSchema = (output: any, context: __SerdeContext)
   } as any;
 };
 
+const deserializeAws_json1_1ListOfLogitMetrics = (output: any, context: __SerdeContext): LogitMetric[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LogitMetric(entry, context);
+    });
+};
+
 const deserializeAws_json1_1ListOfModelScores = (output: any, context: __SerdeContext): ModelScores[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -7297,6 +7318,14 @@ const deserializeAws_json1_1ListTagsForResourceResult = (
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1tagList(output.tags, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LogitMetric = (output: any, context: __SerdeContext): LogitMetric => {
+  return {
+    variableImportance: __handleFloat(output.variableImportance),
+    variableName: __expectString(output.variableName),
+    variableType: __expectString(output.variableType),
   } as any;
 };
 
@@ -7634,6 +7663,10 @@ const deserializeAws_json1_1TrainingResult = (output: any, context: __SerdeConte
       output.trainingMetrics !== undefined && output.trainingMetrics !== null
         ? deserializeAws_json1_1TrainingMetrics(output.trainingMetrics, context)
         : undefined,
+    variableImportanceMetrics:
+      output.variableImportanceMetrics !== undefined && output.variableImportanceMetrics !== null
+        ? deserializeAws_json1_1VariableImportanceMetrics(output.variableImportanceMetrics, context)
+        : undefined,
   } as any;
 };
 
@@ -7723,6 +7756,18 @@ const deserializeAws_json1_1Variable = (output: any, context: __SerdeContext): V
     lastUpdatedTime: __expectString(output.lastUpdatedTime),
     name: __expectString(output.name),
     variableType: __expectString(output.variableType),
+  } as any;
+};
+
+const deserializeAws_json1_1VariableImportanceMetrics = (
+  output: any,
+  context: __SerdeContext
+): VariableImportanceMetrics => {
+  return {
+    LogitMetrics:
+      output.LogitMetrics !== undefined && output.LogitMetrics !== null
+        ? deserializeAws_json1_1ListOfLogitMetrics(output.LogitMetrics, context)
+        : undefined,
   } as any;
 };
 

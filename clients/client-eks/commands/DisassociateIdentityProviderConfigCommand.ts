@@ -28,7 +28,7 @@ export interface DisassociateIdentityProviderConfigCommandOutput
 /**
  * <p>Disassociates an identity provider configuration from a cluster. If you disassociate
  *             an identity provider from your cluster, users included in the provider can no longer
- *             access the cluster. However, you can still access the cluster with AWS IAM
+ *             access the cluster. However, you can still access the cluster with Amazon Web Services IAM
  *             users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

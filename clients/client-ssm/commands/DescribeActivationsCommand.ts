@@ -22,8 +22,9 @@ export interface DescribeActivationsCommandOutput extends DescribeActivationsRes
 
 /**
  * <p>Describes details about the activation, such as the date and time the activation was
- *    created, its expiration date, the IAM role assigned to the instances in the activation, and the
- *    number of instances registered by using this activation.</p>
+ *    created, its expiration date, the Identity and Access Management (IAM) role assigned to
+ *    the instances in the activation, and the number of instances registered by using this
+ *    activation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

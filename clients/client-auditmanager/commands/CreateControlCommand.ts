@@ -22,7 +22,7 @@ export interface CreateControlCommandOutput extends CreateControlResponse, __Met
 
 /**
  * <p>
- * Creates a new custom control in AWS Audit Manager.
+ *    Creates a new custom control in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
