@@ -17,6 +17,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
@@ -31,11 +32,12 @@ public class AddPostInstallNodeVersionCheckDependency implements TypeScriptInteg
 
     // TODO: Change to writeAdditionalDependencies or something similar.
     @Override
-    public void writeAdditionalExports(
+    public void onShapeWriterUse(
         TypeScriptSettings settings,
         Model model,
         SymbolProvider symbolProvider,
-        TypeScriptWriter writer
+        TypeScriptWriter writer,
+        Shape definedShape
     ) {
         writer.addDependency(AwsDependency.POSTINSTALL_NODE_VERSION_CHECK);
     }
