@@ -10,6 +10,9 @@ import { unmarshallOptions } from "./unmarshall";
  * @param {unmarshallOptions} options - An optional configuration object for `convertToNative`.
  */
 export const convertToNative = (data: AttributeValue, options?: unmarshallOptions): NativeAttributeValue => {
+  if (data === null) {
+    return undefined;
+  }
   for (const [key, value] of Object.entries(data)) {
     if (value !== undefined) {
       switch (key) {

@@ -5,8 +5,11 @@ import { NativeAttributeValue } from "./models";
 
 describe("convertToNative", () => {
   describe("null", () => {
-    it(`returns for null`, () => {
+    it(`returns for null object`, () => {
       expect(convertToNative({ NULL: true })).toEqual(null);
+    });
+    it(`returns for null value`, () => {
+      expect(convertToNative(null)).toEqual(undefined);
     });
   });
 
