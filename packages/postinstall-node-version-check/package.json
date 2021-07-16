@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/postinstall-node-version-check",
-  "version": "3.20.0",
+  "version": "3.0.0",
   "scripts": {
     "build": "tsc -p tsconfig.cjs.json",
     "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
