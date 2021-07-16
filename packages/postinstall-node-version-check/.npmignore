@@ -1,0 +1,14 @@
+/coverage/
+/docs/
+tsconfig.test.json
+*.tsbuildinfo
+jest.config.js
+
+*.spec.js
+*.spec.ts
+*.spec.d.ts
+*.spec.js.map
+
+*.fixture.js
+*.fixture.d.ts
+*.fixture.js.map
