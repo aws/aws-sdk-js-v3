@@ -53,6 +53,10 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
         // Allow target package.json(toContent) has its own special script or
         // dev dependencies that won't be overwritten in codegen
         merged[name] = { ...toContent[name], ...merged[name] };
+        if (name === "scripts") {
+          // Overwrite scripts in codegen package.json with scripts in target package.json
+          merged[name] = { ...merged[name], postinstall: "postinstall-node-version-check" };
+        }
       }
       if (name === "dependencies" || name === "devDependencies") {
         // Sort dependencies as done by lerna
