@@ -22,7 +22,7 @@ export interface GetEvidenceFolderCommandOutput extends GetEvidenceFolderRespons
 
 /**
  * <p>
- * Returns an evidence folder from the specified assessment in AWS Audit Manager.
+ *    Returns an evidence folder from the specified assessment in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

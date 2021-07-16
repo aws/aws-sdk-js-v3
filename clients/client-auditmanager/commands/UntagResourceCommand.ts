@@ -22,7 +22,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * <p>
- * Removes a tag from a resource in AWS Audit Manager.
+ *    Removes a tag from a resource in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -32,13 +32,13 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
   proposalId: string | undefined;
 
   /**
-   * <p>The ID of the AWS account that owns the virtual private gateway or transit gateway.</p>
+   * <p>The ID of the account that owns the virtual private gateway or transit gateway.</p>
    */
   associatedGatewayOwnerAccount: string | undefined;
 
   /**
    * <p>Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
-   *          <p>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed Prefixes</a> in the <i>AWS Direct Connect User Guide</i>.</p>
+   *          <p>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed Prefixes</a> in the <i>Direct Connect User Guide</i>.</p>
    */
   overrideAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
@@ -72,7 +72,7 @@ export interface AssociatedGateway {
   type?: GatewayType | string;
 
   /**
-   * <p>The ID of the AWS account that owns the associated virtual private gateway or transit gateway.</p>
+   * <p>The ID of the account that owns the associated virtual private gateway or transit gateway.</p>
    */
   ownerAccount?: string;
 
@@ -108,7 +108,7 @@ export interface DirectConnectGatewayAssociation {
   directConnectGatewayId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the associated gateway.</p>
+   * <p>The ID of the account that owns the associated gateway.</p>
    */
   directConnectGatewayOwnerAccount?: string;
 
@@ -163,12 +163,12 @@ export interface DirectConnectGatewayAssociation {
   /**
    * @deprecated
    *
-   * <p>The AWS Region where the virtual private gateway is located.</p>
+   * <p>The Region where the virtual private gateway is located.</p>
    */
   virtualGatewayRegion?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the virtual private gateway.</p>
+   * <p>The ID of the account that owns the virtual private gateway.</p>
    */
   virtualGatewayOwnerAccount?: string;
 }
@@ -242,7 +242,7 @@ export enum AddressFamily {
 export interface AllocateConnectionOnInterconnectRequest {
   /**
    * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
-   *       300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners
+   *       300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those Direct Connect Partners
    *       who have met specific requirements
    *     are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.</p>
    */
@@ -254,7 +254,7 @@ export interface AllocateConnectionOnInterconnectRequest {
   connectionName: string | undefined;
 
   /**
-   * <p>The ID of the AWS account of the customer for whom the connection will be provisioned.</p>
+   * <p>The ID of the account of the customer for whom the connection will be provisioned.</p>
    */
   ownerAccount: string | undefined;
 
@@ -373,11 +373,11 @@ export namespace Tag {
 }
 
 /**
- * <p>Information about an AWS Direct Connect connection.</p>
+ * <p>Information about an Direct Connect connection.</p>
  */
 export interface Connection {
   /**
-   * <p>The ID of the AWS account that owns the connection.</p>
+   * <p>The ID of the account that owns the connection.</p>
    */
   ownerAccount?: string;
 
@@ -435,7 +435,7 @@ export interface Connection {
   connectionState?: ConnectionState | string;
 
   /**
-   * <p>The AWS Region where the connection is located.</p>
+   * <p>The Region where the connection is located.</p>
    */
   region?: string;
 
@@ -455,7 +455,7 @@ export interface Connection {
   vlan?: number;
 
   /**
-   * <p>The name of the AWS Direct Connect service provider associated with the connection.</p>
+   * <p>The name of the Direct Connect service provider associated with the connection.</p>
    */
   partnerName?: string;
 
@@ -485,6 +485,11 @@ export interface Connection {
    * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
    */
   awsDeviceV2?: string;
+
+  /**
+   * <p>The Direct Connect endpoint that terminates a physical connection's BGP sessions.</p>
+   */
+  awsLogicalDeviceId?: string;
 
   /**
    * <p>Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
@@ -540,12 +545,12 @@ export interface AllocateHostedConnectionRequest {
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the AWS account ID of the customer for the connection.</p>
+   * <p>The ID of the account ID of the customer for the connection.</p>
    */
   ownerAccount: string | undefined;
 
   /**
-   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
+   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
    */
   bandwidth: string | undefined;
 
@@ -677,7 +682,7 @@ export interface AllocatePrivateVirtualInterfaceRequest {
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the AWS account that owns the virtual private interface.</p>
+   * <p>The ID of the account that owns the virtual private interface.</p>
    */
   ownerAccount: string | undefined;
 
@@ -795,6 +800,8 @@ export interface BGPPeer {
    * <p>The Direct Connect endpoint on which the BGP peer terminates.</p>
    */
   awsDeviceV2?: string;
+
+  awsLogicalDeviceId?: string;
 }
 
 export namespace BGPPeer {
@@ -822,7 +829,7 @@ export type VirtualInterfaceState =
  */
 export interface VirtualInterface {
   /**
-   * <p>The ID of the AWS account that owns the virtual interface.</p>
+   * <p>The ID of the account that owns the virtual interface.</p>
    */
   ownerAccount?: string;
 
@@ -956,7 +963,7 @@ export interface VirtualInterface {
   directConnectGatewayId?: string;
 
   /**
-   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
+   * <p>The routes to be advertised to the Amazon Web Services network in this Region. Applies to public virtual interfaces.</p>
    */
   routeFilterPrefixes?: RouteFilterPrefix[];
 
@@ -966,15 +973,19 @@ export interface VirtualInterface {
   bgpPeers?: BGPPeer[];
 
   /**
-   * <p>The AWS Region where the virtual interface is located.</p>
+   * <p>The Region where the virtual interface is located.</p>
    */
   region?: string;
 
   /**
-   * <p>The
-   *       Direct Connect endpoint on which the virtual interface terminates.</p>
+   * <p>The Direct Connect endpoint on which the virtual interface terminates.</p>
    */
   awsDeviceV2?: string;
+
+  /**
+   * <p>The Direct Connect endpoint that terminates a physical connection's BGP sessions.</p>
+   */
+  awsLogicalDeviceId?: string;
 
   /**
    * <p>The tags associated with the virtual interface.</p>
@@ -1032,7 +1043,7 @@ export interface NewPublicVirtualInterfaceAllocation {
   addressFamily?: AddressFamily | string;
 
   /**
-   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
+   * <p>The routes to be advertised to the Amazon Web Services network in this Region. Applies to public virtual interfaces.</p>
    */
   routeFilterPrefixes?: RouteFilterPrefix[];
 
@@ -1058,7 +1069,7 @@ export interface AllocatePublicVirtualInterfaceRequest {
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the AWS account that owns the public virtual interface.</p>
+   * <p>The ID of the account that owns the public virtual interface.</p>
    */
   ownerAccount: string | undefined;
 
@@ -1144,7 +1155,7 @@ export interface AllocateTransitVirtualInterfaceRequest {
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the AWS account that owns the transit virtual interface.</p>
+   * <p>The ID of the account that owns the transit virtual interface.</p>
    */
   ownerAccount: string | undefined;
 
@@ -1723,7 +1734,7 @@ export interface CreateConnectionRequest {
 
   /**
    * <p>Indicates whether you want the connection to support MAC Security (MACsec).</p>
-   *          <p>MAC Security (MACsec) is only available on dedicated connections. For information about MAC Security (MACsec) prerequisties, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites">MACsec prerequisties</a> in the <i>AWS Direct Connect User Guide</i>.</p>
+   *          <p>MAC Security (MACsec) is only available on dedicated connections. For information about MAC Security (MACsec) prerequisties, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites">MACsec prerequisties</a> in the <i>Direct Connect User Guide</i>.</p>
    */
   requestMACSec?: boolean;
 }
@@ -1782,7 +1793,7 @@ export interface DirectConnectGateway {
   amazonSideAsn?: number;
 
   /**
-   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
+   * <p>The ID of the account that owns the Direct Connect gateway.</p>
    */
   ownerAccount?: string;
 
@@ -1854,7 +1865,7 @@ export interface CreateDirectConnectGatewayAssociationRequest {
   /**
    * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway</p>
    *          <p>This parameter is required when you create an association to a transit gateway.</p>
-   *          <p>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed Prefixes</a> in the <i>AWS Direct Connect User Guide</i>.</p>
+   *          <p>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed Prefixes</a> in the <i>Direct Connect User Guide</i>.</p>
    */
   addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 
@@ -1896,7 +1907,7 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
   directConnectGatewayId: string | undefined;
 
   /**
-   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
+   * <p>The ID of the account that owns the Direct Connect gateway.</p>
    */
   directConnectGatewayOwnerAccount: string | undefined;
 
@@ -1942,7 +1953,7 @@ export interface DirectConnectGatewayAssociationProposal {
   directConnectGatewayId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
+   * <p>The ID of the account that owns the Direct Connect gateway.</p>
    */
   directConnectGatewayOwnerAccount?: string;
 
@@ -2100,7 +2111,7 @@ export interface Interconnect {
   interconnectState?: InterconnectState | string;
 
   /**
-   * <p>The AWS Region where the connection is located.</p>
+   * <p>The Region where the connection is located.</p>
    */
   region?: string;
 
@@ -2140,6 +2151,11 @@ export interface Interconnect {
    * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
    */
   awsDeviceV2?: string;
+
+  /**
+   * <p>The Direct Connect endpoint that terminates a physical connection's BGP sessions.</p>
+   */
+  awsLogicalDeviceId?: string;
 
   /**
    * <p>Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).</p>
@@ -2212,7 +2228,7 @@ export interface CreateLagRequest {
   /**
    * <p>Indicates whether the connection will support MAC Security (MACsec).</p>
    *          <note>
-   *             <p>All connections in the LAG must be capable of  supporting MAC Security (MACsec). For information about MAC Security (MACsec) prerequisties, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites">MACsec prerequisties</a> in the <i>AWS Direct Connect User Guide</i>.</p>
+   *             <p>All connections in the LAG must be capable of  supporting MAC Security (MACsec). For information about MAC Security (MACsec) prerequisties, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites">MACsec prerequisties</a> in the <i>Direct Connect User Guide</i>.</p>
    *          </note>
    */
   requestMACSec?: boolean;
@@ -2250,7 +2266,7 @@ export interface Lag {
   lagId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the LAG.</p>
+   * <p>The ID of the account that owns the LAG.</p>
    */
   ownerAccount?: string;
 
@@ -2301,7 +2317,7 @@ export interface Lag {
   location?: string;
 
   /**
-   * <p>The AWS Region where the connection is located.</p>
+   * <p>The Region where the connection is located.</p>
    */
   region?: string;
 
@@ -2313,14 +2329,19 @@ export interface Lag {
   /**
    * @deprecated
    *
-   * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
+   * <p>The Direct Connect endpoint that hosts the LAG.</p>
    */
   awsDevice?: string;
 
   /**
-   * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
+   * <p>The Direct Connect endpoint that hosts the LAG.</p>
    */
   awsDeviceV2?: string;
+
+  /**
+   * <p>The Direct Connect endpoint that terminates a physical connection's BGP sessions.</p>
+   */
+  awsLogicalDeviceId?: string;
 
   /**
    * <p>The connections bundled by the LAG.</p>
@@ -2510,7 +2531,7 @@ export interface NewPublicVirtualInterface {
   addressFamily?: AddressFamily | string;
 
   /**
-   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
+   * <p>The routes to be advertised to the Amazon Web Services network in this Region. Applies to public virtual interfaces.</p>
    */
   routeFilterPrefixes?: RouteFilterPrefix[];
 
@@ -3251,12 +3272,12 @@ export interface DirectConnectGatewayAttachment {
   virtualInterfaceId?: string;
 
   /**
-   * <p>The AWS Region where the virtual interface is located.</p>
+   * <p>The Region where the virtual interface is located.</p>
    */
   virtualInterfaceRegion?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the virtual interface.</p>
+   * <p>The ID of the account that owns the virtual interface.</p>
    */
   virtualInterfaceOwnerAccount?: string;
 
@@ -3524,7 +3545,7 @@ export namespace DescribeLoaRequest {
 }
 
 /**
- * <p>Information about an AWS Direct Connect location.</p>
+ * <p>Information about an Direct Connect location.</p>
  */
 export interface Location {
   /**
@@ -3538,7 +3559,7 @@ export interface Location {
   locationName?: string;
 
   /**
-   * <p>The AWS Region for the location.</p>
+   * <p>The Region for the location.</p>
    */
   region?: string;
 
@@ -3600,7 +3621,7 @@ export namespace DescribeTagsRequest {
 }
 
 /**
- * <p>Information about a tag associated with an AWS Direct Connect resource.</p>
+ * <p>Information about a tag associated with an Direct Connect resource.</p>
  */
 export interface ResourceTag {
   /**
@@ -4146,7 +4167,7 @@ export interface UpdateLagRequest {
 
   /**
    * <p>The LAG MAC Security (MACsec) encryption mode.</p>
-   *          <p>AWS applies the value to all connections which are part of the LAG.</p>
+   *          <p>Amazon Web Services applies the value to all connections which are part of the LAG.</p>
    */
   encryptionMode?: string;
 }

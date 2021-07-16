@@ -30,7 +30,7 @@ export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>The LAG's MACsec encryption mode.</p>
- *                <p>AWS assigns this value to each connection which is part of the LAG.</p>
+ *                <p>Amazon Web Services assigns this value to each connection which is part of the LAG.</p>
  *             </li>
  *             <li>
  *                <p>The tags</p>

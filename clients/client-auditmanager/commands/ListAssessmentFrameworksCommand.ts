@@ -22,7 +22,7 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
 
 /**
  * <p>
- * Returns a list of the frameworks available in the AWS Audit Manager framework library.
+ *    Returns a list of the frameworks available in the Audit Manager framework library.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

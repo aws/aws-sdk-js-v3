@@ -41,6 +41,11 @@ import {
   CopyClusterSnapshotCommandOutput,
 } from "./commands/CopyClusterSnapshotCommand";
 import {
+  CreateAuthenticationProfileCommand,
+  CreateAuthenticationProfileCommandInput,
+  CreateAuthenticationProfileCommandOutput,
+} from "./commands/CreateAuthenticationProfileCommand";
+import {
   CreateClusterCommand,
   CreateClusterCommandInput,
   CreateClusterCommandOutput,
@@ -106,6 +111,11 @@ import {
   CreateUsageLimitCommandInput,
   CreateUsageLimitCommandOutput,
 } from "./commands/CreateUsageLimitCommand";
+import {
+  DeleteAuthenticationProfileCommand,
+  DeleteAuthenticationProfileCommandInput,
+  DeleteAuthenticationProfileCommandOutput,
+} from "./commands/DeleteAuthenticationProfileCommand";
 import {
   DeleteClusterCommand,
   DeleteClusterCommandInput,
@@ -182,6 +192,11 @@ import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
+import {
+  DescribeAuthenticationProfilesCommand,
+  DescribeAuthenticationProfilesCommandInput,
+  DescribeAuthenticationProfilesCommandOutput,
+} from "./commands/DescribeAuthenticationProfilesCommand";
 import {
   DescribeClusterDbRevisionsCommand,
   DescribeClusterDbRevisionsCommandInput,
@@ -372,6 +387,11 @@ import {
   ModifyAquaConfigurationCommandInput,
   ModifyAquaConfigurationCommandOutput,
 } from "./commands/ModifyAquaConfigurationCommand";
+import {
+  ModifyAuthenticationProfileCommand,
+  ModifyAuthenticationProfileCommandInput,
+  ModifyAuthenticationProfileCommandOutput,
+} from "./commands/ModifyAuthenticationProfileCommand";
 import {
   ModifyClusterCommand,
   ModifyClusterCommandInput,
@@ -605,7 +625,7 @@ export class Redshift extends RedshiftClient {
    *         <p>If you authorize access to an Amazon EC2 security group, specify
    *                 <i>EC2SecurityGroupName</i> and
    *                 <i>EC2SecurityGroupOwnerId</i>. The Amazon EC2 security group and
-   *             Amazon Redshift cluster must be in the same AWS Region. </p>
+   *             Amazon Redshift cluster must be in the same Region. </p>
    *         <p>If you authorize access to a CIDR/IP address range, specify
    *                 <i>CIDRIP</i>. For an overview of CIDR blocks, see the Wikipedia
    *             article on <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>. </p>
@@ -676,7 +696,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Authorizes the specified AWS customer account to restore the specified
+   * <p>Authorizes the specified account to restore the specified
    *             snapshot.</p>
    *         <p>
    * For more information about working with snapshots, go to
@@ -838,6 +858,38 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: CopyClusterSnapshotCommandOutput) => void
   ): Promise<CopyClusterSnapshotCommandOutput> | void {
     const command = new CopyClusterSnapshotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an authentication profile with the specified parameters.</p>
+   */
+  public createAuthenticationProfile(
+    args: CreateAuthenticationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAuthenticationProfileCommandOutput>;
+  public createAuthenticationProfile(
+    args: CreateAuthenticationProfileCommandInput,
+    cb: (err: any, data?: CreateAuthenticationProfileCommandOutput) => void
+  ): void;
+  public createAuthenticationProfile(
+    args: CreateAuthenticationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAuthenticationProfileCommandOutput) => void
+  ): void;
+  public createAuthenticationProfile(
+    args: CreateAuthenticationProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAuthenticationProfileCommandOutput) => void),
+    cb?: (err: any, data?: CreateAuthenticationProfileCommandOutput) => void
+  ): Promise<CreateAuthenticationProfileCommandOutput> | void {
+    const command = new CreateAuthenticationProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1086,9 +1138,8 @@ export class Redshift extends RedshiftClient {
    *             and source identifier = my-cluster-1, notifications will be sent for all the cluster
    *             events for my-cluster-1. If you specify a source type but do not specify a source
    *             identifier, you will receive notice of the events for the objects of that type in your
-   *             AWS account. If you do not specify either the SourceType nor the SourceIdentifier, you
-   *             will be notified of events generated from all Amazon Redshift sources belonging to your AWS
-   *             account. You must specify a source type if you specify a source ID.</p>
+   *             account. If you do not specify either the SourceType nor the SourceIdentifier, you
+   *             will be notified of events generated from all Amazon Redshift sources belonging to your account. You must specify a source type if you specify a source ID.</p>
    */
   public createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
@@ -1232,7 +1283,7 @@ export class Redshift extends RedshiftClient {
 
   /**
    * <p>Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key
-   *             (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in a
+   *             (CMK) from Key Management Service (KMS) to encrypt copied snapshots in a
    *             destination region.</p>
    *         <p>
    * For more information about managing snapshot copy grants, go to
@@ -1354,6 +1405,38 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: CreateUsageLimitCommandOutput) => void
   ): Promise<CreateUsageLimitCommandOutput> | void {
     const command = new CreateUsageLimitCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an authentication profile.</p>
+   */
+  public deleteAuthenticationProfile(
+    args: DeleteAuthenticationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAuthenticationProfileCommandOutput>;
+  public deleteAuthenticationProfile(
+    args: DeleteAuthenticationProfileCommandInput,
+    cb: (err: any, data?: DeleteAuthenticationProfileCommandOutput) => void
+  ): void;
+  public deleteAuthenticationProfile(
+    args: DeleteAuthenticationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAuthenticationProfileCommandOutput) => void
+  ): void;
+  public deleteAuthenticationProfile(
+    args: DeleteAuthenticationProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAuthenticationProfileCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAuthenticationProfileCommandOutput) => void
+  ): Promise<DeleteAuthenticationProfileCommandOutput> | void {
+    const command = new DeleteAuthenticationProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1906,6 +1989,38 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
+   * <p>Describes an authentication profile.</p>
+   */
+  public describeAuthenticationProfiles(
+    args: DescribeAuthenticationProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAuthenticationProfilesCommandOutput>;
+  public describeAuthenticationProfiles(
+    args: DescribeAuthenticationProfilesCommandInput,
+    cb: (err: any, data?: DescribeAuthenticationProfilesCommandOutput) => void
+  ): void;
+  public describeAuthenticationProfiles(
+    args: DescribeAuthenticationProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAuthenticationProfilesCommandOutput) => void
+  ): void;
+  public describeAuthenticationProfiles(
+    args: DescribeAuthenticationProfilesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAuthenticationProfilesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAuthenticationProfilesCommandOutput) => void
+  ): Promise<DescribeAuthenticationProfilesCommandOutput> | void {
+    const command = new DescribeAuthenticationProfilesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns an array of <code>ClusterDbRevision</code> objects.</p>
    */
   public describeClusterDbRevisions(
@@ -2121,8 +2236,8 @@ export class Redshift extends RedshiftClient {
   /**
    * <p>Returns one or more snapshot objects, which contain metadata about your cluster
    *             snapshots. By default, this operation returns information about all snapshots of all
-   *             clusters that are owned by you AWS customer account. No information is returned for
-   *             snapshots owned by inactive AWS customer accounts.</p>
+   *             clusters that are owned by your account. No information is returned for
+   *             snapshots owned by inactive accounts.</p>
    *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
    *             all snapshots that match any combination of the specified keys and values. For example,
    *             if you have <code>owner</code> and <code>environment</code> for tag keys, and
@@ -2165,7 +2280,7 @@ export class Redshift extends RedshiftClient {
   /**
    * <p>Returns one or more cluster subnet group objects, which contain metadata about your
    *             cluster subnet groups. By default, this operation returns information about all cluster
-   *             subnet groups that are defined in you AWS account.</p>
+   *             subnet groups that are defined in your account.</p>
    *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
    *             all subnet groups that match any combination of the specified keys and values. For
    *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
@@ -2487,8 +2602,7 @@ export class Redshift extends RedshiftClient {
 
   /**
    * <p>Returns information about the specified HSM client certificate. If no certificate
-   *             ID is specified, returns information about all the HSM certificates owned by your AWS
-   *             customer account.</p>
+   *             ID is specified, returns information about all the HSM certificates owned by your account.</p>
    *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
    *             all HSM client certificates that match any combination of the specified keys and values.
    *             For example, if you have <code>owner</code> and <code>environment</code> for tag keys,
@@ -2530,7 +2644,7 @@ export class Redshift extends RedshiftClient {
   /**
    * <p>Returns information about the specified Amazon Redshift HSM configuration. If no
    *             configuration ID is specified, returns information about all the HSM configurations
-   *             owned by your AWS customer account.</p>
+   *             owned by your account.</p>
    *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
    *             all HSM connections that match any combination of the specified keys and values. For
    *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
@@ -2638,7 +2752,7 @@ export class Redshift extends RedshiftClient {
   /**
    * <p>Returns a list of orderable cluster options. Before you create a new cluster you
    *             can use this operation to find what options are available, such as the EC2 Availability
-   *             Zones (AZ) in the specific AWS Region that you can specify, and the node types you can
+   *             Zones (AZ) in the specific Region that you can specify, and the node types you can
    *             request. The node types differ by available storage, memory, CPU and price. With the
    *             cost involved you might want to obtain a list of cluster options in the specific region
    *             and specify values when creating a cluster.
@@ -2851,7 +2965,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Returns a list of snapshot copy grants owned by the AWS account in the destination
+   * <p>Returns a list of snapshot copy grants owned by the account in the destination
    *             region.</p>
    *         <p>
    * For more information about managing snapshot copy grants, go to
@@ -3130,7 +3244,7 @@ export class Redshift extends RedshiftClient {
    * <p>Disables the automatic copying of snapshots from one region to another region for a
    *             specified cluster.</p>
    *         <p>If your cluster and its snapshots are encrypted using a customer master key (CMK)
-   *             from AWS KMS, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that
+   *             from Key Management Service, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that
    *             grants Amazon Redshift permission to the CMK in the destination region. </p>
    */
   public disableSnapshotCopy(
@@ -3238,7 +3352,7 @@ export class Redshift extends RedshiftClient {
    *             a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes). For more
    *             information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html">Using IAM Authentication
    *                 to Generate Database User Credentials</a> in the Amazon Redshift Cluster Management Guide.</p>
-   *         <p>The AWS Identity and Access Management (IAM)user or role that executes
+   *         <p>The Identity and Access Management (IAM) user or role that runs
    *             GetClusterCredentials must have an IAM policy attached that allows access to all
    *             necessary actions and resources. For more information about permissions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources">Resource Policies for GetClusterCredentials</a> in the
    *             Amazon Redshift Cluster Management Guide.</p>
@@ -3346,12 +3460,44 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
+   * <p>Modifies an authentication profile.</p>
+   */
+  public modifyAuthenticationProfile(
+    args: ModifyAuthenticationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyAuthenticationProfileCommandOutput>;
+  public modifyAuthenticationProfile(
+    args: ModifyAuthenticationProfileCommandInput,
+    cb: (err: any, data?: ModifyAuthenticationProfileCommandOutput) => void
+  ): void;
+  public modifyAuthenticationProfile(
+    args: ModifyAuthenticationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyAuthenticationProfileCommandOutput) => void
+  ): void;
+  public modifyAuthenticationProfile(
+    args: ModifyAuthenticationProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyAuthenticationProfileCommandOutput) => void),
+    cb?: (err: any, data?: ModifyAuthenticationProfileCommandOutput) => void
+  ): Promise<ModifyAuthenticationProfileCommandOutput> | void {
+    const command = new ModifyAuthenticationProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modifies the settings for a cluster.</p>
    *         <p>You can also change node type and the number of nodes to scale up or down the
    *             cluster. When resizing a cluster, you must specify both the number of nodes and the node
    *             type even if one of the parameters does not change.</p>
    * 		       <p>You can add another security or
-   *             parameter group, or change the master user password. Resetting a cluster password or modifying the security groups associated with a cluster do not need a reboot. However, modifying a parameter group requires a reboot for parameters to take effect.
+   *             parameter group, or change the admin user password. Resetting a cluster password or modifying the security groups associated with a cluster do not need a reboot. However, modifying a parameter group requires a reboot for parameters to take effect.
    * For more information about managing clusters, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
@@ -3419,8 +3565,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Modifies the list of AWS Identity and Access Management (IAM) roles that can be
-   *             used by the cluster to access other AWS services.</p>
+   * <p>Modifies the list of Identity and Access Management (IAM) roles that can be
+   *             used by the cluster to access other Amazon Web Services services.</p>
    *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
    */
   public modifyClusterIamRoles(
@@ -3716,8 +3862,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Modifies the number of days to retain snapshots in the destination AWS Region after
-   *             they are copied from the source AWS Region. By default, this operation only changes the
+   * <p>Modifies the number of days to retain snapshots in the destination Region after
+   *             they are copied from the source Region. By default, this operation only changes the
    *             retention period of copied automated snapshots. The retention periods for both new and
    *             existing copied automated snapshots are updated with the new retention period. You can
    *             set the manual option to change only the retention periods of copied manual snapshots.
@@ -4223,7 +4369,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Removes the ability of the specified AWS customer account to restore the specified
+   * <p>Removes the ability of the specified  account to restore the specified
    *             snapshot. If the account is currently restoring the snapshot, the restore will run to
    *             completion.</p>
    *         <p>

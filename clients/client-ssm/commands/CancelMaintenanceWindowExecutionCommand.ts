@@ -24,8 +24,8 @@ export interface CancelMaintenanceWindowExecutionCommandOutput
 
 /**
  * <p>Stops a maintenance window execution that is already in progress and cancels any tasks in
- *    the window that have not already starting running. (Tasks already in progress will continue to
- *    completion.)</p>
+ *    the window that haven't already starting running. Tasks already in progress will continue to
+ *    completion.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

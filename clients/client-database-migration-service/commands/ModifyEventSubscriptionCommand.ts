@@ -25,7 +25,7 @@ export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscrip
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing AWS DMS event notification subscription. </p>
+ * <p>Modifies an existing DMS event notification subscription. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

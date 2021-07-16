@@ -28,7 +28,7 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
 
 /**
  * <p>
- *          Uploads one or more pieces of evidence to the specified control in the assessment in AWS Audit Manager.
+ *          Uploads one or more pieces of evidence to the specified control in the assessment in Audit Manager.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

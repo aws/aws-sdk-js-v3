@@ -19,8 +19,16 @@ import {
   DescribeFHIRImportJobCommandOutput,
 } from "../commands/DescribeFHIRImportJobCommand";
 import { ListFHIRDatastoresCommandInput, ListFHIRDatastoresCommandOutput } from "../commands/ListFHIRDatastoresCommand";
+import { ListFHIRExportJobsCommandInput, ListFHIRExportJobsCommandOutput } from "../commands/ListFHIRExportJobsCommand";
+import { ListFHIRImportJobsCommandInput, ListFHIRImportJobsCommandOutput } from "../commands/ListFHIRImportJobsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { StartFHIRExportJobCommandInput, StartFHIRExportJobCommandOutput } from "../commands/StartFHIRExportJobCommand";
 import { StartFHIRImportJobCommandInput, StartFHIRImportJobCommandOutput } from "../commands/StartFHIRImportJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   AccessDeniedException,
   ConflictException,
@@ -40,16 +48,30 @@ import {
   ImportJobProperties,
   InputDataConfig,
   InternalServerException,
+  KmsEncryptionConfig,
   ListFHIRDatastoresRequest,
   ListFHIRDatastoresResponse,
+  ListFHIRExportJobsRequest,
+  ListFHIRExportJobsResponse,
+  ListFHIRImportJobsRequest,
+  ListFHIRImportJobsResponse,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   OutputDataConfig,
   PreloadDataConfig,
   ResourceNotFoundException,
+  S3Configuration,
+  SseConfiguration,
   StartFHIRExportJobRequest,
   StartFHIRExportJobResponse,
   StartFHIRImportJobRequest,
   StartFHIRImportJobResponse,
+  Tag,
+  TagResourceRequest,
+  TagResourceResponse,
   ThrottlingException,
+  UntagResourceRequest,
+  UntagResourceResponse,
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -142,6 +164,45 @@ export const serializeAws_json1_0ListFHIRDatastoresCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0ListFHIRExportJobsCommand = async (
+  input: ListFHIRExportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "HealthLake.ListFHIRExportJobs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListFHIRExportJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListFHIRImportJobsCommand = async (
+  input: ListFHIRImportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "HealthLake.ListFHIRImportJobs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListFHIRImportJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "HealthLake.ListTagsForResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0StartFHIRExportJobCommand = async (
   input: StartFHIRExportJobCommandInput,
   context: __SerdeContext
@@ -165,6 +226,32 @@ export const serializeAws_json1_0StartFHIRImportJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0StartFHIRImportJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "HealthLake.TagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0TagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "HealthLake.UntagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -197,6 +284,14 @@ const deserializeAws_json1_0CreateFHIRDatastoreCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.healthlake#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
       response = {
@@ -636,6 +731,240 @@ const deserializeAws_json1_0ListFHIRDatastoresCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0ListFHIRExportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFHIRExportJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListFHIRExportJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListFHIRExportJobsResponse(data, context);
+  const response: ListFHIRExportJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListFHIRExportJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFHIRExportJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.healthlake#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.healthlake#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.healthlake#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.healthlake#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.healthlake#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0ListFHIRImportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFHIRImportJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListFHIRImportJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListFHIRImportJobsResponse(data, context);
+  const response: ListFHIRImportJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListFHIRImportJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFHIRImportJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.healthlake#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.healthlake#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.healthlake#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.healthlake#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.healthlake#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.healthlake#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.healthlake#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_0StartFHIRExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -808,6 +1137,130 @@ const deserializeAws_json1_0StartFHIRImportJobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0TagResourceResponse(data, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.healthlake#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.healthlake#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0UntagResourceResponse(data, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.healthlake#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.healthlake#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -911,6 +1364,11 @@ const serializeAws_json1_0CreateFHIRDatastoreRequest = (
       input.PreloadDataConfig !== null && {
         PreloadDataConfig: serializeAws_json1_0PreloadDataConfig(input.PreloadDataConfig, context),
       }),
+    ...(input.SseConfiguration !== undefined &&
+      input.SseConfiguration !== null && {
+        SseConfiguration: serializeAws_json1_0SseConfiguration(input.SseConfiguration, context),
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
@@ -971,6 +1429,13 @@ const serializeAws_json1_0InputDataConfig = (input: InputDataConfig, context: __
   });
 };
 
+const serializeAws_json1_0KmsEncryptionConfig = (input: KmsEncryptionConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.CmkType !== undefined && input.CmkType !== null && { CmkType: input.CmkType }),
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+  };
+};
+
 const serializeAws_json1_0ListFHIRDatastoresRequest = (
   input: ListFHIRDatastoresRequest,
   context: __SerdeContext
@@ -983,9 +1448,52 @@ const serializeAws_json1_0ListFHIRDatastoresRequest = (
   };
 };
 
+const serializeAws_json1_0ListFHIRExportJobsRequest = (
+  input: ListFHIRExportJobsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
+    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
+    ...(input.JobStatus !== undefined && input.JobStatus !== null && { JobStatus: input.JobStatus }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SubmittedAfter !== undefined &&
+      input.SubmittedAfter !== null && { SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000) }),
+    ...(input.SubmittedBefore !== undefined &&
+      input.SubmittedBefore !== null && { SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_json1_0ListFHIRImportJobsRequest = (
+  input: ListFHIRImportJobsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
+    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
+    ...(input.JobStatus !== undefined && input.JobStatus !== null && { JobStatus: input.JobStatus }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SubmittedAfter !== undefined &&
+      input.SubmittedAfter !== null && { SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000) }),
+    ...(input.SubmittedBefore !== undefined &&
+      input.SubmittedBefore !== null && { SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_json1_0ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+  };
+};
+
 const serializeAws_json1_0OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
   return OutputDataConfig.visit(input, {
-    S3Uri: (value) => ({ S3Uri: value }),
+    S3Configuration: (value) => ({ S3Configuration: serializeAws_json1_0S3Configuration(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -994,6 +1502,22 @@ const serializeAws_json1_0PreloadDataConfig = (input: PreloadDataConfig, context
   return {
     ...(input.PreloadDataType !== undefined &&
       input.PreloadDataType !== null && { PreloadDataType: input.PreloadDataType }),
+  };
+};
+
+const serializeAws_json1_0S3Configuration = (input: S3Configuration, context: __SerdeContext): any => {
+  return {
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+  };
+};
+
+const serializeAws_json1_0SseConfiguration = (input: SseConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.KmsEncryptionConfig !== undefined &&
+      input.KmsEncryptionConfig !== null && {
+        KmsEncryptionConfig: serializeAws_json1_0KmsEncryptionConfig(input.KmsEncryptionConfig, context),
+      }),
   };
 };
 
@@ -1028,6 +1552,54 @@ const serializeAws_json1_0StartFHIRImportJobRequest = (
         InputDataConfig: serializeAws_json1_0InputDataConfig(input.InputDataConfig, context),
       }),
     ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
+    ...(input.JobOutputDataConfig !== undefined &&
+      input.JobOutputDataConfig !== null && {
+        JobOutputDataConfig: serializeAws_json1_0OutputDataConfig(input.JobOutputDataConfig, context),
+      }),
+  };
+};
+
+const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_0Tag(entry, context);
+    });
+};
+
+const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -1070,6 +1642,10 @@ const deserializeAws_json1_0DatastoreProperties = (output: any, context: __Serde
     PreloadDataConfig:
       output.PreloadDataConfig !== undefined && output.PreloadDataConfig !== null
         ? deserializeAws_json1_0PreloadDataConfig(output.PreloadDataConfig, context)
+        : undefined,
+    SseConfiguration:
+      output.SseConfiguration !== undefined && output.SseConfiguration !== null
+        ? deserializeAws_json1_0SseConfiguration(output.SseConfiguration, context)
         : undefined,
   } as any;
 };
@@ -1154,6 +1730,17 @@ const deserializeAws_json1_0ExportJobProperties = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_0ExportJobPropertiesList = (output: any, context: __SerdeContext): ExportJobProperties[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ExportJobProperties(entry, context);
+    });
+};
+
 const deserializeAws_json1_0ImportJobProperties = (output: any, context: __SerdeContext): ImportJobProperties => {
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
@@ -1166,6 +1753,10 @@ const deserializeAws_json1_0ImportJobProperties = (output: any, context: __Serde
         : undefined,
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
+    JobOutputDataConfig:
+      output.JobOutputDataConfig !== undefined && output.JobOutputDataConfig !== null
+        ? deserializeAws_json1_0OutputDataConfig(output.JobOutputDataConfig, context)
+        : undefined,
     JobStatus: __expectString(output.JobStatus),
     Message: __expectString(output.Message),
     SubmitTime:
@@ -1173,6 +1764,17 @@ const deserializeAws_json1_0ImportJobProperties = (output: any, context: __Serde
         ? new Date(Math.round(output.SubmitTime * 1000))
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_0ImportJobPropertiesList = (output: any, context: __SerdeContext): ImportJobProperties[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ImportJobProperties(entry, context);
+    });
 };
 
 const deserializeAws_json1_0InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
@@ -1191,6 +1793,13 @@ const deserializeAws_json1_0InternalServerException = (
   } as any;
 };
 
+const deserializeAws_json1_0KmsEncryptionConfig = (output: any, context: __SerdeContext): KmsEncryptionConfig => {
+  return {
+    CmkType: __expectString(output.CmkType),
+    KmsKeyId: __expectString(output.KmsKeyId),
+  } as any;
+};
+
 const deserializeAws_json1_0ListFHIRDatastoresResponse = (
   output: any,
   context: __SerdeContext
@@ -1204,9 +1813,49 @@ const deserializeAws_json1_0ListFHIRDatastoresResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0ListFHIRExportJobsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListFHIRExportJobsResponse => {
+  return {
+    ExportJobPropertiesList:
+      output.ExportJobPropertiesList !== undefined && output.ExportJobPropertiesList !== null
+        ? deserializeAws_json1_0ExportJobPropertiesList(output.ExportJobPropertiesList, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_0ListFHIRImportJobsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListFHIRImportJobsResponse => {
+  return {
+    ImportJobPropertiesList:
+      output.ImportJobPropertiesList !== undefined && output.ImportJobPropertiesList !== null
+        ? deserializeAws_json1_0ImportJobPropertiesList(output.ImportJobPropertiesList, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_0ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  return {
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_0TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
-  if (__expectString(output.S3Uri) !== undefined) {
-    return { S3Uri: __expectString(output.S3Uri) as any };
+  if (output.S3Configuration !== undefined && output.S3Configuration !== null) {
+    return {
+      S3Configuration: deserializeAws_json1_0S3Configuration(output.S3Configuration, context),
+    };
   }
   return { $unknown: Object.entries(output)[0] };
 };
@@ -1223,6 +1872,22 @@ const deserializeAws_json1_0ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_0S3Configuration = (output: any, context: __SerdeContext): S3Configuration => {
+  return {
+    KmsKeyId: __expectString(output.KmsKeyId),
+    S3Uri: __expectString(output.S3Uri),
+  } as any;
+};
+
+const deserializeAws_json1_0SseConfiguration = (output: any, context: __SerdeContext): SseConfiguration => {
+  return {
+    KmsEncryptionConfig:
+      output.KmsEncryptionConfig !== undefined && output.KmsEncryptionConfig !== null
+        ? deserializeAws_json1_0KmsEncryptionConfig(output.KmsEncryptionConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -1248,10 +1913,36 @@ const deserializeAws_json1_0StartFHIRImportJobResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0Tag(entry, context);
+    });
+};
+
+const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     Message: __expectString(output.Message),
   } as any;
+};
+
+const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  return {} as any;
 };
 
 const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {

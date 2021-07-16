@@ -61,6 +61,22 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
+export interface GetVoiceConnectorLoggingConfigurationResponse {
+  /**
+   * <p>The logging configuration details.</p>
+   */
+  LoggingConfiguration?: LoggingConfiguration;
+}
+
+export namespace GetVoiceConnectorLoggingConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVoiceConnectorLoggingConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetVoiceConnectorOriginationRequest {
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>

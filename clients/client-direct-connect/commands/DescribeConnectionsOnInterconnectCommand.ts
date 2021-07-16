@@ -26,7 +26,7 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  * <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
  *          <p>Lists the connections that have been provisioned on the specified interconnect.</p>
  *          <note>
- *             <p>Intended for use by AWS Direct Connect Partners only.</p>
+ *             <p>Intended for use by Direct Connect Partners only.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -22,7 +22,7 @@ export interface DeleteAssessmentReportCommandOutput extends DeleteAssessmentRep
 
 /**
  * <p>
- * Deletes an assessment report from an assessment in AWS Audit Manager.
+ *    Deletes an assessment report from an assessment in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -49,6 +49,8 @@ import { GetImportCommandInput, GetImportCommandOutput } from "../commands/GetIm
 import { GetIntentCommandInput, GetIntentCommandOutput } from "../commands/GetIntentCommand";
 import { GetIntentVersionsCommandInput, GetIntentVersionsCommandOutput } from "../commands/GetIntentVersionsCommand";
 import { GetIntentsCommandInput, GetIntentsCommandOutput } from "../commands/GetIntentsCommand";
+import { GetMigrationCommandInput, GetMigrationCommandOutput } from "../commands/GetMigrationCommand";
+import { GetMigrationsCommandInput, GetMigrationsCommandOutput } from "../commands/GetMigrationsCommand";
 import { GetSlotTypeCommandInput, GetSlotTypeCommandOutput } from "../commands/GetSlotTypeCommand";
 import {
   GetSlotTypeVersionsCommandInput,
@@ -65,9 +67,11 @@ import { PutBotCommandInput, PutBotCommandOutput } from "../commands/PutBotComma
 import { PutIntentCommandInput, PutIntentCommandOutput } from "../commands/PutIntentCommand";
 import { PutSlotTypeCommandInput, PutSlotTypeCommandOutput } from "../commands/PutSlotTypeCommand";
 import { StartImportCommandInput, StartImportCommandOutput } from "../commands/StartImportCommand";
+import { StartMigrationCommandInput, StartMigrationCommandOutput } from "../commands/StartMigrationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  AccessDeniedException,
   BadRequestException,
   BotAliasMetadata,
   BotChannelAssociation,
@@ -92,6 +96,8 @@ import {
   LogSettingsRequest,
   LogSettingsResponse,
   Message,
+  MigrationAlert,
+  MigrationSummary,
   NotFoundException,
   OutputContext,
   PreconditionFailedException,
@@ -1040,6 +1046,63 @@ export const serializeAws_restJson1GetIntentVersionsCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetMigrationCommand = async (
+  input: GetMigrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/migrations/{migrationId}";
+  if (input.migrationId !== undefined) {
+    const labelValue: string = input.migrationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: migrationId.");
+    }
+    resolvedPath = resolvedPath.replace("{migrationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: migrationId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetMigrationsCommand = async (
+  input: GetMigrationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/migrations";
+  const query: any = {
+    ...(input.sortByAttribute !== undefined && { sortByAttribute: input.sortByAttribute }),
+    ...(input.sortByOrder !== undefined && { sortByOrder: input.sortByOrder }),
+    ...(input.v1BotNameContains !== undefined && { v1BotNameContains: input.v1BotNameContains }),
+    ...(input.migrationStatusEquals !== undefined && { migrationStatusEquals: input.migrationStatusEquals }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetSlotTypeCommand = async (
   input: GetSlotTypeCommandInput,
   context: __SerdeContext
@@ -1458,6 +1521,35 @@ export const serializeAws_restJson1StartImportCommand = async (
     ...(input.resourceType !== undefined && input.resourceType !== null && { resourceType: input.resourceType }),
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartMigrationCommand = async (
+  input: StartMigrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/migrations";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.migrationStrategy !== undefined &&
+      input.migrationStrategy !== null && { migrationStrategy: input.migrationStrategy }),
+    ...(input.v1BotName !== undefined && input.v1BotName !== null && { v1BotName: input.v1BotName }),
+    ...(input.v1BotVersion !== undefined && input.v1BotVersion !== null && { v1BotVersion: input.v1BotVersion }),
+    ...(input.v2BotName !== undefined && input.v2BotName !== null && { v2BotName: input.v2BotName }),
+    ...(input.v2BotRole !== undefined && input.v2BotRole !== null && { v2BotRole: input.v2BotRole }),
   });
   return new __HttpRequest({
     protocol,
@@ -4227,6 +4319,196 @@ const deserializeAws_restJson1GetIntentVersionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetMigrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMigrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetMigrationCommandError(output, context);
+  }
+  const contents: GetMigrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    alerts: undefined,
+    migrationId: undefined,
+    migrationStatus: undefined,
+    migrationStrategy: undefined,
+    migrationTimestamp: undefined,
+    v1BotLocale: undefined,
+    v1BotName: undefined,
+    v1BotVersion: undefined,
+    v2BotId: undefined,
+    v2BotRole: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.alerts !== undefined && data.alerts !== null) {
+    contents.alerts = deserializeAws_restJson1MigrationAlerts(data.alerts, context);
+  }
+  if (data.migrationId !== undefined && data.migrationId !== null) {
+    contents.migrationId = __expectString(data.migrationId);
+  }
+  if (data.migrationStatus !== undefined && data.migrationStatus !== null) {
+    contents.migrationStatus = __expectString(data.migrationStatus);
+  }
+  if (data.migrationStrategy !== undefined && data.migrationStrategy !== null) {
+    contents.migrationStrategy = __expectString(data.migrationStrategy);
+  }
+  if (data.migrationTimestamp !== undefined && data.migrationTimestamp !== null) {
+    contents.migrationTimestamp = new Date(Math.round(data.migrationTimestamp * 1000));
+  }
+  if (data.v1BotLocale !== undefined && data.v1BotLocale !== null) {
+    contents.v1BotLocale = __expectString(data.v1BotLocale);
+  }
+  if (data.v1BotName !== undefined && data.v1BotName !== null) {
+    contents.v1BotName = __expectString(data.v1BotName);
+  }
+  if (data.v1BotVersion !== undefined && data.v1BotVersion !== null) {
+    contents.v1BotVersion = __expectString(data.v1BotVersion);
+  }
+  if (data.v2BotId !== undefined && data.v2BotId !== null) {
+    contents.v2BotId = __expectString(data.v2BotId);
+  }
+  if (data.v2BotRole !== undefined && data.v2BotRole !== null) {
+    contents.v2BotRole = __expectString(data.v2BotRole);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetMigrationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMigrationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetMigrationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMigrationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetMigrationsCommandError(output, context);
+  }
+  const contents: GetMigrationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    migrationSummaries: undefined,
+    nextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.migrationSummaries !== undefined && data.migrationSummaries !== null) {
+    contents.migrationSummaries = deserializeAws_restJson1MigrationSummaryList(data.migrationSummaries, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetMigrationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMigrationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetSlotTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5331,6 +5613,121 @@ const deserializeAws_restJson1StartImportCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1StartMigrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMigrationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartMigrationCommandError(output, context);
+  }
+  const contents: StartMigrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    migrationId: undefined,
+    migrationStrategy: undefined,
+    migrationTimestamp: undefined,
+    v1BotLocale: undefined,
+    v1BotName: undefined,
+    v1BotVersion: undefined,
+    v2BotId: undefined,
+    v2BotRole: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.migrationId !== undefined && data.migrationId !== null) {
+    contents.migrationId = __expectString(data.migrationId);
+  }
+  if (data.migrationStrategy !== undefined && data.migrationStrategy !== null) {
+    contents.migrationStrategy = __expectString(data.migrationStrategy);
+  }
+  if (data.migrationTimestamp !== undefined && data.migrationTimestamp !== null) {
+    contents.migrationTimestamp = new Date(Math.round(data.migrationTimestamp * 1000));
+  }
+  if (data.v1BotLocale !== undefined && data.v1BotLocale !== null) {
+    contents.v1BotLocale = __expectString(data.v1BotLocale);
+  }
+  if (data.v1BotName !== undefined && data.v1BotName !== null) {
+    contents.v1BotName = __expectString(data.v1BotName);
+  }
+  if (data.v1BotVersion !== undefined && data.v1BotVersion !== null) {
+    contents.v1BotVersion = __expectString(data.v1BotVersion);
+  }
+  if (data.v2BotId !== undefined && data.v2BotId !== null) {
+    contents.v2BotId = __expectString(data.v2BotId);
+  }
+  if (data.v2BotRole !== undefined && data.v2BotRole !== null) {
+    contents.v2BotRole = __expectString(data.v2BotRole);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartMigrationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMigrationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lexmodelbuildingservice#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BadRequestException":
+    case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5495,6 +5892,23 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
+};
+
+const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1BadRequestExceptionResponse = async (
@@ -6344,6 +6758,82 @@ const deserializeAws_restJson1MessageList = (output: any, context: __SerdeContex
         return null as any;
       }
       return deserializeAws_restJson1Message(entry, context);
+    });
+};
+
+const deserializeAws_restJson1MigrationAlert = (output: any, context: __SerdeContext): MigrationAlert => {
+  return {
+    details:
+      output.details !== undefined && output.details !== null
+        ? deserializeAws_restJson1MigrationAlertDetails(output.details, context)
+        : undefined,
+    message: __expectString(output.message),
+    referenceURLs:
+      output.referenceURLs !== undefined && output.referenceURLs !== null
+        ? deserializeAws_restJson1MigrationAlertReferenceURLs(output.referenceURLs, context)
+        : undefined,
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1MigrationAlertDetails = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1MigrationAlertReferenceURLs = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1MigrationAlerts = (output: any, context: __SerdeContext): MigrationAlert[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MigrationAlert(entry, context);
+    });
+};
+
+const deserializeAws_restJson1MigrationSummary = (output: any, context: __SerdeContext): MigrationSummary => {
+  return {
+    migrationId: __expectString(output.migrationId),
+    migrationStatus: __expectString(output.migrationStatus),
+    migrationStrategy: __expectString(output.migrationStrategy),
+    migrationTimestamp:
+      output.migrationTimestamp !== undefined && output.migrationTimestamp !== null
+        ? new Date(Math.round(output.migrationTimestamp * 1000))
+        : undefined,
+    v1BotLocale: __expectString(output.v1BotLocale),
+    v1BotName: __expectString(output.v1BotName),
+    v1BotVersion: __expectString(output.v1BotVersion),
+    v2BotId: __expectString(output.v2BotId),
+    v2BotRole: __expectString(output.v2BotRole),
+  } as any;
+};
+
+const deserializeAws_restJson1MigrationSummaryList = (output: any, context: __SerdeContext): MigrationSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MigrationSummary(entry, context);
     });
 };
 

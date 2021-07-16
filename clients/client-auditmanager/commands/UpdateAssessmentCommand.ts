@@ -22,7 +22,7 @@ export interface UpdateAssessmentCommandOutput extends UpdateAssessmentResponse,
 
 /**
  * <p>
- *    Edits an AWS Audit Manager assessment.
+ *    Edits an Audit Manager assessment.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

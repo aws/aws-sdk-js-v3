@@ -87,7 +87,6 @@ import {
   HlsEncryptionSettings,
   HlsGroupSettings,
   HlsRenditionGroupSettings,
-  HlsSettings,
   HopDestination,
   Id3Insertion,
   ImageInserter,
@@ -131,6 +130,7 @@ import {
   SccDestinationSettings,
   SpekeKeyProvider,
   SpekeKeyProviderCmaf,
+  SrtDestinationSettings,
   StaticKeyProvider,
   TeletextDestinationSettings,
   TeletextPageType,
@@ -162,6 +162,7 @@ import {
   H265QvbrSettings,
   H265Settings,
   Hdr10Plus,
+  HlsSettings,
   InternalServerErrorException,
   Job,
   JobSettings,
@@ -4274,6 +4275,10 @@ const serializeAws_restJson1CaptionDestinationSettings = (
       input.SccDestinationSettings !== null && {
         sccDestinationSettings: serializeAws_restJson1SccDestinationSettings(input.SccDestinationSettings, context),
       }),
+    ...(input.SrtDestinationSettings !== undefined &&
+      input.SrtDestinationSettings !== null && {
+        srtDestinationSettings: serializeAws_restJson1SrtDestinationSettings(input.SrtDestinationSettings, context),
+      }),
     ...(input.TeletextDestinationSettings !== undefined &&
       input.TeletextDestinationSettings !== null && {
         teletextDestinationSettings: serializeAws_restJson1TeletextDestinationSettings(
@@ -4432,6 +4437,10 @@ const serializeAws_restJson1CmafGroupSettings = (input: CmafGroupSettings, conte
     ...(input.SegmentLength !== undefined && input.SegmentLength !== null && { segmentLength: input.SegmentLength }),
     ...(input.StreamInfResolution !== undefined &&
       input.StreamInfResolution !== null && { streamInfResolution: input.StreamInfResolution }),
+    ...(input.TargetDurationCompatibilityMode !== undefined &&
+      input.TargetDurationCompatibilityMode !== null && {
+        targetDurationCompatibilityMode: input.TargetDurationCompatibilityMode,
+      }),
     ...(input.WriteDashManifest !== undefined &&
       input.WriteDashManifest !== null && { writeDashManifest: input.WriteDashManifest }),
     ...(input.WriteHlsManifest !== undefined &&
@@ -5164,6 +5173,10 @@ const serializeAws_restJson1HlsGroupSettings = (input: HlsGroupSettings, context
       input.SegmentsPerSubdirectory !== null && { segmentsPerSubdirectory: input.SegmentsPerSubdirectory }),
     ...(input.StreamInfResolution !== undefined &&
       input.StreamInfResolution !== null && { streamInfResolution: input.StreamInfResolution }),
+    ...(input.TargetDurationCompatibilityMode !== undefined &&
+      input.TargetDurationCompatibilityMode !== null && {
+        targetDurationCompatibilityMode: input.TargetDurationCompatibilityMode,
+      }),
     ...(input.TimedMetadataId3Frame !== undefined &&
       input.TimedMetadataId3Frame !== null && { timedMetadataId3Frame: input.TimedMetadataId3Frame }),
     ...(input.TimedMetadataId3Period !== undefined &&
@@ -6196,6 +6209,13 @@ const serializeAws_restJson1SpekeKeyProviderCmaf = (input: SpekeKeyProviderCmaf,
       }),
     ...(input.ResourceId !== undefined && input.ResourceId !== null && { resourceId: input.ResourceId }),
     ...(input.Url !== undefined && input.Url !== null && { url: input.Url }),
+  };
+};
+
+const serializeAws_restJson1SrtDestinationSettings = (input: SrtDestinationSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.StylePassthrough !== undefined &&
+      input.StylePassthrough !== null && { stylePassthrough: input.StylePassthrough }),
   };
 };
 
@@ -7456,6 +7476,10 @@ const deserializeAws_restJson1CaptionDestinationSettings = (
       output.sccDestinationSettings !== undefined && output.sccDestinationSettings !== null
         ? deserializeAws_restJson1SccDestinationSettings(output.sccDestinationSettings, context)
         : undefined,
+    SrtDestinationSettings:
+      output.srtDestinationSettings !== undefined && output.srtDestinationSettings !== null
+        ? deserializeAws_restJson1SrtDestinationSettings(output.srtDestinationSettings, context)
+        : undefined,
     TeletextDestinationSettings:
       output.teletextDestinationSettings !== undefined && output.teletextDestinationSettings !== null
         ? deserializeAws_restJson1TeletextDestinationSettings(output.teletextDestinationSettings, context)
@@ -7597,6 +7621,7 @@ const deserializeAws_restJson1CmafGroupSettings = (output: any, context: __Serde
     SegmentControl: __expectString(output.segmentControl),
     SegmentLength: __expectNumber(output.segmentLength),
     StreamInfResolution: __expectString(output.streamInfResolution),
+    TargetDurationCompatibilityMode: __expectString(output.targetDurationCompatibilityMode),
     WriteDashManifest: __expectString(output.writeDashManifest),
     WriteHlsManifest: __expectString(output.writeHlsManifest),
     WriteSegmentTimelineInRepresentation: __expectString(output.writeSegmentTimelineInRepresentation),
@@ -8188,6 +8213,7 @@ const deserializeAws_restJson1HlsGroupSettings = (output: any, context: __SerdeC
     SegmentLength: __expectNumber(output.segmentLength),
     SegmentsPerSubdirectory: __expectNumber(output.segmentsPerSubdirectory),
     StreamInfResolution: __expectString(output.streamInfResolution),
+    TargetDurationCompatibilityMode: __expectString(output.targetDurationCompatibilityMode),
     TimedMetadataId3Frame: __expectString(output.timedMetadataId3Frame),
     TimedMetadataId3Period: __expectNumber(output.timedMetadataId3Period),
     TimestampDeltaMilliseconds: __expectNumber(output.timestampDeltaMilliseconds),
@@ -9316,6 +9342,15 @@ const deserializeAws_restJson1SpekeKeyProviderCmaf = (output: any, context: __Se
         : undefined,
     ResourceId: __expectString(output.resourceId),
     Url: __expectString(output.url),
+  } as any;
+};
+
+const deserializeAws_restJson1SrtDestinationSettings = (
+  output: any,
+  context: __SerdeContext
+): SrtDestinationSettings => {
+  return {
+    StylePassthrough: __expectString(output.stylePassthrough),
   } as any;
 };
 

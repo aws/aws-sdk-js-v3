@@ -21,9 +21,9 @@ export interface DeleteResourceDataSyncCommandInput extends DeleteResourceDataSy
 export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataSyncResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a Resource Data Sync configuration. After the configuration is deleted, changes to
+ * <p>Deletes a resource data sync configuration. After the configuration is deleted, changes to
  *    data on managed instances are no longer synced to or from the target. Deleting a sync
- *    configuration does not delete data.</p>
+ *    configuration doesn't delete data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

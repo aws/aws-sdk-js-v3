@@ -22,7 +22,7 @@ export interface ListAssessmentReportsCommandOutput extends ListAssessmentReport
 
 /**
  * <p>
- * Returns a list of assessment reports created in AWS Audit Manager.
+ *    Returns a list of assessment reports created in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

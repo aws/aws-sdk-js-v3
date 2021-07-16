@@ -25,7 +25,7 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  *    resumed for disconnected sessions, but not terminated sessions.</p>
  *          <note>
  *             <p>This command is primarily for use by client machines to automatically reconnect during
- *     intermittent network issues. It is not intended for any other use.</p>
+ *     intermittent network issues. It isn't intended for any other use.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

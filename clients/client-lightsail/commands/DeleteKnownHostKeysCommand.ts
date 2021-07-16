@@ -27,7 +27,7 @@ export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysRes
  *          <important>
  *             <p>Perform this operation only if you were expecting the host key or certificate mismatch
  *         or if you are familiar with the new host key or certificate on the instance. For more
- *         information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection">Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP
+ *         information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection">Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP
  *           client</a>.</p>
  *          </important>
  * @example

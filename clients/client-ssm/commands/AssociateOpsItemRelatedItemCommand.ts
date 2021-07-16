@@ -23,9 +23,9 @@ export interface AssociateOpsItemRelatedItemCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Associates a related resource to a Systems Manager OpsCenter OpsItem. For example, you can
- *    associate an Incident Manager incident or analysis with an OpsItem. Incident Manager is a
- *    capability of AWS Systems Manager.</p>
+ * <p>Associates a related resource to a Systems Manager OpsCenter OpsItem. For example, you can associate
+ *    an Incident Manager incident or analysis with an OpsItem. Incident Manager is a capability of
+ *    Amazon Web Services Systems Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

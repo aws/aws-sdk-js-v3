@@ -22,7 +22,7 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
 
 /**
  * <p>
- * Returns a list of controls from AWS Audit Manager.
+ *    Returns a list of controls from Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

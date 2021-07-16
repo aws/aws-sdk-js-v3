@@ -21,7 +21,8 @@ export interface UpdateAssociationStatusCommandInput extends UpdateAssociationSt
 export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationStatusResult, __MetadataBearer {}
 
 /**
- * <p>Updates the status of the Systems Manager document associated with the specified instance.</p>
+ * <p>Updates the status of the Amazon Web Services Systems Manager document (SSM document) associated with the specified
+ *    instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

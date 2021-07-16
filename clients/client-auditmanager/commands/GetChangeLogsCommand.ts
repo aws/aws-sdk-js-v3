@@ -22,7 +22,7 @@ export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __Met
 
 /**
  * <p>
- * Returns a list of changelogs from AWS Audit Manager.
+ *    Returns a list of changelogs from Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

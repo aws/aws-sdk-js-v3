@@ -27,7 +27,7 @@ export interface BatchCreateDelegationByAssessmentCommandOutput
 
 /**
  * <p>
- *    Create a batch of delegations for a specified assessment in AWS Audit Manager.
+ *          Create a batch of delegations for a specified assessment in Audit Manager.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

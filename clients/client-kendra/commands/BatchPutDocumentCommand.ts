@@ -28,8 +28,8 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *       add custom attributes to the documents, and to attach an access control
  *       list to the documents added to the index.</p>
  *          <p>The documents are indexed asynchronously. You can see the progress of
- *       the batch using AWS CloudWatch. Any error messages related to processing
- *       the batch are sent to your AWS CloudWatch log.</p>
+ *       the batch using Amazon Web Services CloudWatch. Any error messages related to processing
+ *       the batch are sent to your Amazon Web Services CloudWatch log.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,7 +22,7 @@ export interface DeleteControlCommandOutput extends DeleteControlResponse, __Met
 
 /**
  * <p>
- *    Deletes a custom control in AWS Audit Manager.
+ *    Deletes a custom control in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

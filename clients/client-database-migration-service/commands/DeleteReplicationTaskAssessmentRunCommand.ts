@@ -31,7 +31,7 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
 
 /**
  * <p>Deletes the record of a single premigration assessment run.</p>
- *          <p>This operation removes all metadata that AWS DMS maintains about this assessment run.
+ *          <p>This operation removes all metadata that DMS maintains about this assessment run.
  *          However, the operation leaves untouched all information about this assessment run that is
  *          stored in your Amazon S3 bucket.</p>
  * @example

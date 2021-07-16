@@ -36,6 +36,16 @@ import {
   CopySnapshotCommandOutput,
 } from "./commands/CopySnapshotCommand";
 import {
+  CreateBucketAccessKeyCommand,
+  CreateBucketAccessKeyCommandInput,
+  CreateBucketAccessKeyCommandOutput,
+} from "./commands/CreateBucketAccessKeyCommand";
+import {
+  CreateBucketCommand,
+  CreateBucketCommandInput,
+  CreateBucketCommandOutput,
+} from "./commands/CreateBucketCommand";
+import {
   CreateCertificateCommand,
   CreateCertificateCommandInput,
   CreateCertificateCommandOutput,
@@ -142,6 +152,16 @@ import {
   DeleteAutoSnapshotCommandInput,
   DeleteAutoSnapshotCommandOutput,
 } from "./commands/DeleteAutoSnapshotCommand";
+import {
+  DeleteBucketAccessKeyCommand,
+  DeleteBucketAccessKeyCommandInput,
+  DeleteBucketAccessKeyCommandOutput,
+} from "./commands/DeleteBucketAccessKeyCommand";
+import {
+  DeleteBucketCommand,
+  DeleteBucketCommandInput,
+  DeleteBucketCommandOutput,
+} from "./commands/DeleteBucketCommand";
 import {
   DeleteCertificateCommand,
   DeleteCertificateCommandInput,
@@ -271,6 +291,22 @@ import {
   GetBlueprintsCommandInput,
   GetBlueprintsCommandOutput,
 } from "./commands/GetBlueprintsCommand";
+import {
+  GetBucketAccessKeysCommand,
+  GetBucketAccessKeysCommandInput,
+  GetBucketAccessKeysCommandOutput,
+} from "./commands/GetBucketAccessKeysCommand";
+import {
+  GetBucketBundlesCommand,
+  GetBucketBundlesCommandInput,
+  GetBucketBundlesCommandOutput,
+} from "./commands/GetBucketBundlesCommand";
+import {
+  GetBucketMetricDataCommand,
+  GetBucketMetricDataCommandInput,
+  GetBucketMetricDataCommandOutput,
+} from "./commands/GetBucketMetricDataCommand";
+import { GetBucketsCommand, GetBucketsCommandInput, GetBucketsCommandOutput } from "./commands/GetBucketsCommand";
 import { GetBundlesCommand, GetBundlesCommandInput, GetBundlesCommandOutput } from "./commands/GetBundlesCommand";
 import {
   GetCertificatesCommand,
@@ -555,6 +591,11 @@ import {
   SetIpAddressTypeCommandOutput,
 } from "./commands/SetIpAddressTypeCommand";
 import {
+  SetResourceAccessForBucketCommand,
+  SetResourceAccessForBucketCommandInput,
+  SetResourceAccessForBucketCommandOutput,
+} from "./commands/SetResourceAccessForBucketCommand";
+import {
   StartInstanceCommand,
   StartInstanceCommandInput,
   StartInstanceCommandOutput,
@@ -582,6 +623,16 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateBucketBundleCommand,
+  UpdateBucketBundleCommandInput,
+  UpdateBucketBundleCommandOutput,
+} from "./commands/UpdateBucketBundleCommand";
+import {
+  UpdateBucketCommand,
+  UpdateBucketCommandInput,
+  UpdateBucketCommandOutput,
+} from "./commands/UpdateBucketCommand";
 import {
   UpdateContainerServiceCommand,
   UpdateContainerServiceCommandInput,
@@ -622,14 +673,14 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 /**
  * <p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) for developers
  *       who need to build websites or web applications. It includes everything you need to launch your
- *       project quickly - instances (virtual private servers), container services, managed databases,
- *       SSD-based block storage, static IP addresses, load balancers, content delivery network (CDN)
- *       distributions, DNS management of registered domains, and resource snapshots (backups) - for a
- *       low, predictable monthly price.</p>
+ *       project quickly - instances (virtual private servers), container services, storage buckets,
+ *       managed databases, SSD-based block storage, static IP addresses, load balancers, content
+ *       delivery network (CDN) distributions, DNS management of registered domains, and resource
+ *       snapshots (backups) - for a low, predictable monthly price.</p>
  *
  *          <p>You can manage your Lightsail resources using the Lightsail console, Lightsail API,
  *       AWS Command Line Interface (AWS CLI), or SDKs. For more information about Lightsail concepts
- *       and tasks, see the <a href="http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Lightsail Dev Guide</a>.</p>
+ *       and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Amazon Lightsail Developer Guide</a>.</p>
  *
  *          <p>This API Reference provides detailed information about the actions, data types,
  *       parameters, and errors of the Lightsail service. For more information about the supported
@@ -717,7 +768,7 @@ export class Lightsail extends LightsailClient {
    *       to the instance with the specified disk name.</p>
    *          <p>The <code>attach disk</code> operation supports tag-based access control via resource tags
    *       applied to the resource identified by <code>disk name</code>. For more information, see the
-   *         <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public attachDisk(args: AttachDiskCommandInput, options?: __HttpHandlerOptions): Promise<AttachDiskCommandOutput>;
   public attachDisk(args: AttachDiskCommandInput, cb: (err: any, data?: AttachDiskCommandOutput) => void): void;
@@ -748,7 +799,7 @@ export class Lightsail extends LightsailClient {
    *       status is available.</p>
    *          <p>The <code>attach instances to load balancer</code> operation supports tag-based access
    *       control via resource tags applied to the resource identified by <code>load balancer
-   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Developer Guide</a>.</p>
    */
   public attachInstancesToLoadBalancer(
     args: AttachInstancesToLoadBalancerCommandInput,
@@ -788,7 +839,7 @@ export class Lightsail extends LightsailClient {
    *       it will replace the existing one and become the attached certificate.</p>
    *          <p>The <code>AttachLoadBalancerTlsCertificate</code> operation supports tag-based access
    *       control via resource tags applied to the resource identified by <code>load balancer
-   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public attachLoadBalancerTlsCertificate(
     args: AttachLoadBalancerTlsCertificateCommandInput,
@@ -855,7 +906,7 @@ export class Lightsail extends LightsailClient {
    * <p>Closes ports for a specific Amazon Lightsail instance.</p>
    *          <p>The <code>CloseInstancePublicPorts</code> action supports tag-based access control via
    *       resource tags applied to the resource identified by <code>instanceName</code>. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public closeInstancePublicPorts(
     args: CloseInstancePublicPortsCommandInput,
@@ -915,6 +966,85 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: CopySnapshotCommandOutput) => void
   ): Promise<CopySnapshotCommandOutput> | void {
     const command = new CopySnapshotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an Amazon Lightsail bucket.</p>
+   *
+   *          <p>A bucket is a cloud storage resource available in the Lightsail object storage service.
+   *       Use buckets to store objects such as data and its descriptive metadata. For more information
+   *       about buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
+   *         Guide</i>.</p>
+   */
+  public createBucket(
+    args: CreateBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBucketCommandOutput>;
+  public createBucket(args: CreateBucketCommandInput, cb: (err: any, data?: CreateBucketCommandOutput) => void): void;
+  public createBucket(
+    args: CreateBucketCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBucketCommandOutput) => void
+  ): void;
+  public createBucket(
+    args: CreateBucketCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBucketCommandOutput) => void),
+    cb?: (err: any, data?: CreateBucketCommandOutput) => void
+  ): Promise<CreateBucketCommandOutput> | void {
+    const command = new CreateBucketCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new access key for the specified Amazon Lightsail bucket. Access keys consist of
+   *       an access key ID and corresponding secret access key.</p>
+   *
+   *          <p>Access keys grant full programmatic access to the specified bucket and its objects. You
+   *       can have a maximum of two access keys per bucket. Use the <a>GetBucketAccessKeys</a> action to get a list of current access keys for a specific bucket. For more information
+   *       about access keys, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
+   *         <i>Amazon Lightsail Developer Guide</i>.</p>
+   *
+   *          <important>
+   *             <p>The <code>secretAccessKey</code> value is returned only in response to the
+   *           <code>CreateBucketAccessKey</code> action. You can get a secret access key only when you
+   *         first create an access key; you cannot get the secret access key later. If you lose the
+   *         secret access key, you must create a new access key.</p>
+   *          </important>
+   */
+  public createBucketAccessKey(
+    args: CreateBucketAccessKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBucketAccessKeyCommandOutput>;
+  public createBucketAccessKey(
+    args: CreateBucketAccessKeyCommandInput,
+    cb: (err: any, data?: CreateBucketAccessKeyCommandOutput) => void
+  ): void;
+  public createBucketAccessKey(
+    args: CreateBucketAccessKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBucketAccessKeyCommandOutput) => void
+  ): void;
+  public createBucketAccessKey(
+    args: CreateBucketAccessKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBucketAccessKeyCommandOutput) => void),
+    cb?: (err: any, data?: CreateBucketAccessKeyCommandOutput) => void
+  ): Promise<CreateBucketAccessKeyCommandOutput> | void {
+    const command = new CreateBucketAccessKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1090,7 +1220,7 @@ export class Lightsail extends LightsailClient {
    *
    *          <p>You can deploy containers to your container service using container images from a public
    *       registry like Docker Hub, or from your local machine. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images">Creating container images for your Amazon Lightsail container services</a> in the
-   *         <i>Lightsail Dev Guide</i>.</p>
+   *         <i>Amazon Lightsail Developer Guide</i>.</p>
    */
   public createContainerServiceDeployment(
     args: CreateContainerServiceDeploymentCommandInput,
@@ -1143,7 +1273,7 @@ export class Lightsail extends LightsailClient {
    *             <p>This action is not required if you install and use the Lightsail Control
    *         (lightsailctl) plugin to push container images to your Lightsail container service. For
    *         more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images">Pushing and managing container images on your Amazon Lightsail container services</a>
-   *         in the <i>Lightsail Dev Guide</i>.</p>
+   *         in the <i>Amazon Lightsail Developer Guide</i>.</p>
    *          </note>
    */
   public createContainerServiceRegistryLogin(
@@ -1179,7 +1309,7 @@ export class Lightsail extends LightsailClient {
    * <p>Creates a block storage disk that can be attached to an Amazon Lightsail instance in the
    *       same Availability Zone (e.g., <code>us-east-2a</code>).</p>
    *          <p>The <code>create disk</code> operation supports tag-based access control via request tags.
-   *       For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public createDisk(args: CreateDiskCommandInput, options?: __HttpHandlerOptions): Promise<CreateDiskCommandOutput>;
   public createDisk(args: CreateDiskCommandInput, cb: (err: any, data?: CreateDiskCommandOutput) => void): void;
@@ -1210,7 +1340,7 @@ export class Lightsail extends LightsailClient {
    *         <code>us-east-2a</code>).</p>
    *          <p>The <code>create disk from snapshot</code> operation supports tag-based access control via
    *       request tags and resource tags applied to the resource identified by <code>disk snapshot
-   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public createDiskFromSnapshot(
     args: CreateDiskFromSnapshotCommandInput,
@@ -1261,7 +1391,7 @@ export class Lightsail extends LightsailClient {
    *       snapshot and attach it to a running instance to access the data on the disk.</p>
    *
    *          <p>The <code>create disk snapshot</code> operation supports tag-based access control via
-   *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public createDiskSnapshot(
     args: CreateDiskSnapshotCommandInput,
@@ -1330,7 +1460,7 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Creates a domain resource for the specified domain (e.g., example.com).</p>
    *          <p>The <code>create domain</code> operation supports tag-based access control via request
-   *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public createDomain(
     args: CreateDomainCommandInput,
@@ -1367,7 +1497,7 @@ export class Lightsail extends LightsailClient {
    *
    *          <p>The <code>create domain entry</code> operation supports tag-based access control via
    *       resource tags applied to the resource identified by <code>domain name</code>. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public createDomainEntry(
     args: CreateDomainEntryCommandInput,
@@ -1401,7 +1531,7 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Creates one or more Amazon Lightsail instances.</p>
    *          <p>The <code>create instances</code> operation supports tag-based access control via request
-   *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Developer Guide</a>.</p>
    */
   public createInstances(
     args: CreateInstancesCommandInput,
@@ -1437,7 +1567,7 @@ export class Lightsail extends LightsailClient {
    *       instance.</p>
    *          <p>The <code>create instances from snapshot</code> operation supports tag-based access
    *       control via request tags and resource tags applied to the resource identified by
-   *         <code>instance snapshot name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *         <code>instance snapshot name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public createInstancesFromSnapshot(
     args: CreateInstancesFromSnapshotCommandInput,
@@ -1472,7 +1602,7 @@ export class Lightsail extends LightsailClient {
    * <p>Creates a snapshot of a specific virtual private server, or <i>instance</i>.
    *       You can use a snapshot to create a new instance that is based on that snapshot.</p>
    *          <p>The <code>create instance snapshot</code> operation supports tag-based access control via
-   *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public createInstanceSnapshot(
     args: CreateInstanceSnapshotCommandInput,
@@ -1506,7 +1636,7 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Creates an SSH key pair.</p>
    *          <p>The <code>create key pair</code> operation supports tag-based access control via request
-   *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public createKeyPair(
     args: CreateKeyPairCommandInput,
@@ -1539,13 +1669,13 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Creates a Lightsail load balancer. To learn more about deciding whether to load balance
-   *       your application, see <a href="https://lightsail.aws.amazon.com/ls/docs/how-to/article/configure-lightsail-instances-for-load-balancing">Configure your Lightsail instances for load balancing</a>. You can create up to 5
+   *       your application, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/configure-lightsail-instances-for-load-balancing">Configure your Lightsail instances for load balancing</a>. You can create up to 5
    *       load balancers per AWS Region in your account.</p>
    *          <p>When you create a load balancer, you can specify a unique name and port settings. To
    *       change additional load balancer settings, use the <code>UpdateLoadBalancerAttribute</code>
    *       operation.</p>
    *          <p>The <code>create load balancer</code> operation supports tag-based access control via
-   *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public createLoadBalancer(
     args: CreateLoadBalancerCommandInput,
@@ -1581,7 +1711,7 @@ export class Lightsail extends LightsailClient {
    *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
    *          <p>The <code>CreateLoadBalancerTlsCertificate</code> operation supports tag-based access
    *       control via resource tags applied to the resource identified by <code>load balancer
-   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public createLoadBalancerTlsCertificate(
     args: CreateLoadBalancerTlsCertificateCommandInput,
@@ -1615,7 +1745,7 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Creates a new database in Amazon Lightsail.</p>
    *          <p>The <code>create relational database</code> operation supports tag-based access control
-   *       via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public createRelationalDatabase(
     args: CreateRelationalDatabaseCommandInput,
@@ -1653,7 +1783,7 @@ export class Lightsail extends LightsailClient {
    *       standard plan.</p>
    *          <p>The <code>create relational database from snapshot</code> operation supports tag-based
    *       access control via request tags and resource tags applied to the resource identified by
-   *       relationalDatabaseSnapshotName. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       relationalDatabaseSnapshotName. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public createRelationalDatabaseFromSnapshot(
     args: CreateRelationalDatabaseFromSnapshotCommandInput,
@@ -1688,7 +1818,7 @@ export class Lightsail extends LightsailClient {
    * <p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for backups,
    *       to make copies of a database, and to save data before deleting a database.</p>
    *          <p>The <code>create relational database snapshot</code> operation supports tag-based access
-   *       control via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       control via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public createRelationalDatabaseSnapshot(
     args: CreateRelationalDatabaseSnapshotCommandInput,
@@ -1750,7 +1880,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
-   * <p>Deletes an automatic snapshot of an instance or disk. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
+   * <p>Deletes an automatic snapshot of an instance or disk. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    */
   public deleteAutoSnapshot(
     args: DeleteAutoSnapshotCommandInput,
@@ -1771,6 +1901,77 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: DeleteAutoSnapshotCommandOutput) => void
   ): Promise<DeleteAutoSnapshotCommandOutput> | void {
     const command = new DeleteAutoSnapshotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a Amazon Lightsail bucket.</p>
+   *
+   *          <note>
+   *             <p>When you delete your bucket, the bucket name is released and can be reused for a new
+   *         bucket in your account or another AWS account.</p>
+   *          </note>
+   */
+  public deleteBucket(
+    args: DeleteBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBucketCommandOutput>;
+  public deleteBucket(args: DeleteBucketCommandInput, cb: (err: any, data?: DeleteBucketCommandOutput) => void): void;
+  public deleteBucket(
+    args: DeleteBucketCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBucketCommandOutput) => void
+  ): void;
+  public deleteBucket(
+    args: DeleteBucketCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBucketCommandOutput) => void
+  ): Promise<DeleteBucketCommandOutput> | void {
+    const command = new DeleteBucketCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an access key for the specified Amazon Lightsail bucket.</p>
+   *
+   *          <p>We recommend that you delete an access key if the secret access key is compromised.</p>
+   *
+   *          <p>For more information about access keys, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
+   *         <i>Amazon Lightsail Developer Guide</i>.</p>
+   */
+  public deleteBucketAccessKey(
+    args: DeleteBucketAccessKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBucketAccessKeyCommandOutput>;
+  public deleteBucketAccessKey(
+    args: DeleteBucketAccessKeyCommandInput,
+    cb: (err: any, data?: DeleteBucketAccessKeyCommandOutput) => void
+  ): void;
+  public deleteBucketAccessKey(
+    args: DeleteBucketAccessKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBucketAccessKeyCommandOutput) => void
+  ): void;
+  public deleteBucketAccessKey(
+    args: DeleteBucketAccessKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketAccessKeyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBucketAccessKeyCommandOutput) => void
+  ): Promise<DeleteBucketAccessKeyCommandOutput> | void {
+    const command = new DeleteBucketAccessKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1926,7 +2127,7 @@ export class Lightsail extends LightsailClient {
    *          </note>
    *          <p>The <code>delete disk</code> operation supports tag-based access control via resource tags
    *       applied to the resource identified by <code>disk name</code>. For more information, see the
-   *         <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public deleteDisk(args: DeleteDiskCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDiskCommandOutput>;
   public deleteDisk(args: DeleteDiskCommandInput, cb: (err: any, data?: DeleteDiskCommandOutput) => void): void;
@@ -1960,7 +2161,7 @@ export class Lightsail extends LightsailClient {
    *       to all the information needed to restore the disk.</p>
    *          <p>The <code>delete disk snapshot</code> operation supports tag-based access control via
    *       resource tags applied to the resource identified by <code>disk snapshot name</code>. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public deleteDiskSnapshot(
     args: DeleteDiskSnapshotCommandInput,
@@ -2027,7 +2228,7 @@ export class Lightsail extends LightsailClient {
    * <p>Deletes the specified domain recordset and all of its domain records.</p>
    *          <p>The <code>delete domain</code> operation supports tag-based access control via resource
    *       tags applied to the resource identified by <code>domain name</code>. For more information, see
-   *       the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public deleteDomain(
     args: DeleteDomainCommandInput,
@@ -2059,7 +2260,7 @@ export class Lightsail extends LightsailClient {
    * <p>Deletes a specific domain entry.</p>
    *          <p>The <code>delete domain entry</code> operation supports tag-based access control via
    *       resource tags applied to the resource identified by <code>domain name</code>. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public deleteDomainEntry(
     args: DeleteDomainEntryCommandInput,
@@ -2094,7 +2295,7 @@ export class Lightsail extends LightsailClient {
    * <p>Deletes an Amazon Lightsail instance.</p>
    *          <p>The <code>delete instance</code> operation supports tag-based access control via resource
    *       tags applied to the resource identified by <code>instance name</code>. For more information,
-   *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public deleteInstance(
     args: DeleteInstanceCommandInput,
@@ -2130,7 +2331,7 @@ export class Lightsail extends LightsailClient {
    *       <i>instance</i>).</p>
    *          <p>The <code>delete instance snapshot</code> operation supports tag-based access control via
    *       resource tags applied to the resource identified by <code>instance snapshot name</code>. For
-   *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public deleteInstanceSnapshot(
     args: DeleteInstanceSnapshotCommandInput,
@@ -2165,7 +2366,7 @@ export class Lightsail extends LightsailClient {
    * <p>Deletes a specific SSH key pair.</p>
    *          <p>The <code>delete key pair</code> operation supports tag-based access control via resource
    *       tags applied to the resource identified by <code>key pair name</code>. For more information,
-   *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public deleteKeyPair(
     args: DeleteKeyPairCommandInput,
@@ -2203,7 +2404,7 @@ export class Lightsail extends LightsailClient {
    *          <important>
    *             <p>Perform this operation only if you were expecting the host key or certificate mismatch
    *         or if you are familiar with the new host key or certificate on the instance. For more
-   *         information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection">Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP
+   *         information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection">Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP
    *           client</a>.</p>
    *          </important>
    */
@@ -2242,7 +2443,7 @@ export class Lightsail extends LightsailClient {
    *       certificate, and verify domain ownership again.</p>
    *          <p>The <code>delete load balancer</code> operation supports tag-based access control via
    *       resource tags applied to the resource identified by <code>load balancer name</code>. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public deleteLoadBalancer(
     args: DeleteLoadBalancerCommandInput,
@@ -2277,7 +2478,7 @@ export class Lightsail extends LightsailClient {
    * <p>Deletes an SSL/TLS certificate associated with a Lightsail load balancer.</p>
    *          <p>The <code>DeleteLoadBalancerTlsCertificate</code> operation supports tag-based access
    *       control via resource tags applied to the resource identified by <code>load balancer
-   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public deleteLoadBalancerTlsCertificate(
     args: DeleteLoadBalancerTlsCertificateCommandInput,
@@ -2312,7 +2513,7 @@ export class Lightsail extends LightsailClient {
    * <p>Deletes a database in Amazon Lightsail.</p>
    *          <p>The <code>delete relational database</code> operation supports tag-based access control
    *       via resource tags applied to the resource identified by relationalDatabaseName. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public deleteRelationalDatabase(
     args: DeleteRelationalDatabaseCommandInput,
@@ -2347,7 +2548,7 @@ export class Lightsail extends LightsailClient {
    * <p>Deletes a database snapshot in Amazon Lightsail.</p>
    *          <p>The <code>delete relational database snapshot</code> operation supports tag-based access
    *       control via resource tags applied to the resource identified by relationalDatabaseName. For
-   *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public deleteRelationalDatabaseSnapshot(
     args: DeleteRelationalDatabaseSnapshotCommandInput,
@@ -2419,7 +2620,7 @@ export class Lightsail extends LightsailClient {
    *       detaching the disk.</p>
    *          <p>The <code>detach disk</code> operation supports tag-based access control via resource tags
    *       applied to the resource identified by <code>disk name</code>. For more information, see the
-   *         <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public detachDisk(args: DetachDiskCommandInput, options?: __HttpHandlerOptions): Promise<DetachDiskCommandOutput>;
   public detachDisk(args: DetachDiskCommandInput, cb: (err: any, data?: DetachDiskCommandOutput) => void): void;
@@ -2450,7 +2651,7 @@ export class Lightsail extends LightsailClient {
    *       from the load balancer.</p>
    *          <p>The <code>detach instances from load balancer</code> operation supports tag-based access
    *       control via resource tags applied to the resource identified by <code>load balancer
-   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public detachInstancesFromLoadBalancer(
     args: DetachInstancesFromLoadBalancerCommandInput,
@@ -2514,7 +2715,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
-   * <p>Disables an add-on for an Amazon Lightsail resource. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
+   * <p>Disables an add-on for an Amazon Lightsail resource. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    */
   public disableAddOn(
     args: DisableAddOnCommandInput,
@@ -2576,7 +2777,7 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Enables or modifies an add-on for an Amazon Lightsail resource. For more information, see
-   *       the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
+   *       the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    */
   public enableAddOn(args: EnableAddOnCommandInput, options?: __HttpHandlerOptions): Promise<EnableAddOnCommandOutput>;
   public enableAddOn(args: EnableAddOnCommandInput, cb: (err: any, data?: EnableAddOnCommandOutput) => void): void;
@@ -2612,7 +2813,7 @@ export class Lightsail extends LightsailClient {
    *          <p></p>
    *          <p>The <code>export snapshot</code> operation supports tag-based access control via resource
    *       tags applied to the resource identified by <code>source snapshot name</code>. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    *          <note>
    *             <p>Use the <code>get instance snapshots</code> or <code>get disk snapshots</code>
    *         operations to get a list of snapshots that you can export to Amazon EC2.</p>
@@ -2713,7 +2914,7 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Returns the available automatic snapshots for an instance or disk. For more information,
-   *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
+   *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    */
   public getAutoSnapshots(
     args: GetAutoSnapshotsCommandInput,
@@ -2775,6 +2976,147 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: GetBlueprintsCommandOutput) => void
   ): Promise<GetBlueprintsCommandOutput> | void {
     const command = new GetBlueprintsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the existing access key IDs for the specified Amazon Lightsail bucket.</p>
+   *
+   *          <important>
+   *             <p>This action does not return the secret access key value of an access key. You can get a
+   *         secret access key only when you create it from the response of the <a>CreateBucketAccessKey</a> action. If you lose the secret access key, you must
+   *         create a new access key.</p>
+   *          </important>
+   */
+  public getBucketAccessKeys(
+    args: GetBucketAccessKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBucketAccessKeysCommandOutput>;
+  public getBucketAccessKeys(
+    args: GetBucketAccessKeysCommandInput,
+    cb: (err: any, data?: GetBucketAccessKeysCommandOutput) => void
+  ): void;
+  public getBucketAccessKeys(
+    args: GetBucketAccessKeysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBucketAccessKeysCommandOutput) => void
+  ): void;
+  public getBucketAccessKeys(
+    args: GetBucketAccessKeysCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketAccessKeysCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketAccessKeysCommandOutput) => void
+  ): Promise<GetBucketAccessKeysCommandOutput> | void {
+    const command = new GetBucketAccessKeysCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the bundles that you can apply to a Amazon Lightsail bucket.</p>
+   *
+   *          <p>The bucket bundle specifies the monthly cost, storage quota, and data transfer quota for a
+   *       bucket.</p>
+   *
+   *          <p>Use the <a>UpdateBucketBundle</a> action to update the bundle for a
+   *       bucket.</p>
+   */
+  public getBucketBundles(
+    args: GetBucketBundlesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBucketBundlesCommandOutput>;
+  public getBucketBundles(
+    args: GetBucketBundlesCommandInput,
+    cb: (err: any, data?: GetBucketBundlesCommandOutput) => void
+  ): void;
+  public getBucketBundles(
+    args: GetBucketBundlesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBucketBundlesCommandOutput) => void
+  ): void;
+  public getBucketBundles(
+    args: GetBucketBundlesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketBundlesCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketBundlesCommandOutput) => void
+  ): Promise<GetBucketBundlesCommandOutput> | void {
+    const command = new GetBucketBundlesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the data points of a specific metric for an Amazon Lightsail bucket.</p>
+   *
+   *          <p>Metrics report the utilization of a bucket. View and collect metric data regularly to
+   *       monitor the number of objects stored in a bucket (including object versions) and the storage
+   *       space used by those objects.</p>
+   */
+  public getBucketMetricData(
+    args: GetBucketMetricDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBucketMetricDataCommandOutput>;
+  public getBucketMetricData(
+    args: GetBucketMetricDataCommandInput,
+    cb: (err: any, data?: GetBucketMetricDataCommandOutput) => void
+  ): void;
+  public getBucketMetricData(
+    args: GetBucketMetricDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBucketMetricDataCommandOutput) => void
+  ): void;
+  public getBucketMetricData(
+    args: GetBucketMetricDataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketMetricDataCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketMetricDataCommandOutput) => void
+  ): Promise<GetBucketMetricDataCommandOutput> | void {
+    const command = new GetBucketMetricDataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about one or more Amazon Lightsail buckets.</p>
+   *
+   *          <p>For more information about buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
+   *         Guide</i>..</p>
+   */
+  public getBuckets(args: GetBucketsCommandInput, options?: __HttpHandlerOptions): Promise<GetBucketsCommandOutput>;
+  public getBuckets(args: GetBucketsCommandInput, cb: (err: any, data?: GetBucketsCommandOutput) => void): void;
+  public getBuckets(
+    args: GetBucketsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBucketsCommandOutput) => void
+  ): void;
+  public getBuckets(
+    args: GetBucketsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketsCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketsCommandOutput) => void
+  ): Promise<GetBucketsCommandOutput> | void {
+    const command = new GetBucketsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3301,8 +3643,8 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
-   * <p>Returns the list bundles that can be applied to you Amazon Lightsail content delivery
-   *       network (CDN) distributions.</p>
+   * <p>Returns the bundles that can be applied to your Amazon Lightsail content delivery network
+   *       (CDN) distributions.</p>
    *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
    *       your dsitribution.</p>
    */
@@ -3490,10 +3832,10 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
-   * <p>Returns the export snapshot record created as a result of the <code>export snapshot</code>
-   *       operation.</p>
+   * <p>Returns all export snapshot records created as a result of the <code>export
+   *         snapshot</code> operation.</p>
    *          <p>An export snapshot record can be used to create a new Amazon EC2 instance and its related
-   *       resources with the <code>create cloud formation stack</code> operation.</p>
+   *       resources with the <a>CreateCloudFormationStack</a> action.</p>
    */
   public getExportSnapshotRecords(
     args: GetExportSnapshotRecordsCommandInput,
@@ -3556,7 +3898,7 @@ export class Lightsail extends LightsailClient {
    *         <i>instance</i>.</p>
    *          <p>The <code>get instance access details</code> operation supports tag-based access control
    *       via resource tags applied to the resource identified by <code>instance name</code>. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public getInstanceAccessDetails(
     args: GetInstanceAccessDetailsCommandInput,
@@ -4615,7 +4957,7 @@ export class Lightsail extends LightsailClient {
    *       allowed to connect to the instance through the ports, and the protocol.</p>
    *          <p>The <code>OpenInstancePublicPorts</code> action supports tag-based access control via
    *       resource tags applied to the resource identified by <code>instanceName</code>. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public openInstancePublicPorts(
     args: OpenInstancePublicPortsCommandInput,
@@ -4647,7 +4989,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
-   * <p>Tries to peer the Lightsail VPC with the user's default VPC.</p>
+   * <p>Peers the Lightsail VPC with the user's default VPC.</p>
    */
   public peerVpc(args: PeerVpcCommandInput, options?: __HttpHandlerOptions): Promise<PeerVpcCommandOutput>;
   public peerVpc(args: PeerVpcCommandInput, cb: (err: any, data?: PeerVpcCommandOutput) => void): void;
@@ -4717,7 +5059,7 @@ export class Lightsail extends LightsailClient {
    *       ports.</p>
    *          <p>The <code>PutInstancePublicPorts</code> action supports tag-based access control via
    *       resource tags applied to the resource identified by <code>instanceName</code>. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public putInstancePublicPorts(
     args: PutInstancePublicPortsCommandInput,
@@ -4752,7 +5094,7 @@ export class Lightsail extends LightsailClient {
    * <p>Restarts a specific instance.</p>
    *          <p>The <code>reboot instance</code> operation supports tag-based access control via resource
    *       tags applied to the resource identified by <code>instance name</code>. For more information,
-   *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public rebootInstance(
     args: RebootInstanceCommandInput,
@@ -4787,7 +5129,7 @@ export class Lightsail extends LightsailClient {
    * <p>Restarts a specific database in Amazon Lightsail.</p>
    *          <p>The <code>reboot relational database</code> operation supports tag-based access control
    *       via resource tags applied to the resource identified by relationalDatabaseName. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public rebootRelationalDatabase(
     args: RebootRelationalDatabaseCommandInput,
@@ -4825,7 +5167,7 @@ export class Lightsail extends LightsailClient {
    *             <p>This action is not required if you install and use the Lightsail Control
    *         (lightsailctl) plugin to push container images to your Lightsail container service. For
    *         more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images">Pushing and managing container images on your Amazon Lightsail container services</a>
-   *         in the <i>Lightsail Dev Guide</i>.</p>
+   *         in the <i>Amazon Lightsail Developer Guide</i>.</p>
    *          </note>
    */
   public registerContainerImage(
@@ -5005,16 +5347,52 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * <p>Sets the Amazon Lightsail resources that can access the specified Lightsail
+   *       bucket.</p>
+   *
+   *          <p>Lightsail buckets currently support setting access for Lightsail instances in the same
+   *       AWS Region.</p>
+   */
+  public setResourceAccessForBucket(
+    args: SetResourceAccessForBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetResourceAccessForBucketCommandOutput>;
+  public setResourceAccessForBucket(
+    args: SetResourceAccessForBucketCommandInput,
+    cb: (err: any, data?: SetResourceAccessForBucketCommandOutput) => void
+  ): void;
+  public setResourceAccessForBucket(
+    args: SetResourceAccessForBucketCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetResourceAccessForBucketCommandOutput) => void
+  ): void;
+  public setResourceAccessForBucket(
+    args: SetResourceAccessForBucketCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetResourceAccessForBucketCommandOutput) => void),
+    cb?: (err: any, data?: SetResourceAccessForBucketCommandOutput) => void
+  ): Promise<SetResourceAccessForBucketCommandOutput> | void {
+    const command = new SetResourceAccessForBucketCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance,
    *       use the <code>reboot instance</code> operation.</p>
    *          <note>
    *             <p>When you start a stopped instance, Lightsail assigns a new public IP address to the
    *         instance. To use the same IP address after stopping and starting an instance, create a
-   *         static IP address and attach it to the instance. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-create-static-ip">Lightsail Dev Guide</a>.</p>
+   *         static IP address and attach it to the instance. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip">Amazon Lightsail Developer Guide</a>.</p>
    *          </note>
    *          <p>The <code>start instance</code> operation supports tag-based access control via resource
    *       tags applied to the resource identified by <code>instance name</code>. For more information,
-   *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public startInstance(
     args: StartInstanceCommandInput,
@@ -5050,7 +5428,7 @@ export class Lightsail extends LightsailClient {
    *       use the <code>reboot relational database</code> operation.</p>
    *          <p>The <code>start relational database</code> operation supports tag-based access control via
    *       resource tags applied to the resource identified by relationalDatabaseName. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public startRelationalDatabase(
     args: StartRelationalDatabaseCommandInput,
@@ -5086,11 +5464,11 @@ export class Lightsail extends LightsailClient {
    *          <note>
    *             <p>When you start a stopped instance, Lightsail assigns a new public IP address to the
    *         instance. To use the same IP address after stopping and starting an instance, create a
-   *         static IP address and attach it to the instance. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-create-static-ip">Lightsail Dev Guide</a>.</p>
+   *         static IP address and attach it to the instance. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip">Amazon Lightsail Developer Guide</a>.</p>
    *          </note>
    *          <p>The <code>stop instance</code> operation supports tag-based access control via resource
    *       tags applied to the resource identified by <code>instance name</code>. For more information,
-   *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public stopInstance(
     args: StopInstanceCommandInput,
@@ -5122,7 +5500,7 @@ export class Lightsail extends LightsailClient {
    * <p>Stops a specific database that is currently running in Amazon Lightsail.</p>
    *          <p>The <code>stop relational database</code> operation supports tag-based access control via
    *       resource tags applied to the resource identified by relationalDatabaseName. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public stopRelationalDatabase(
     args: StopRelationalDatabaseCommandInput,
@@ -5156,11 +5534,10 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Adds one or more tags to the specified Amazon Lightsail resource. Each resource can have a
    *       maximum of 50 tags. Each tag consists of a key and an optional value. Tag keys must be unique
-   *       per resource. For more information about tags, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
-   *         Dev Guide</a>.</p>
+   *       per resource. For more information about tags, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    *          <p>The <code>tag resource</code> operation supports tag-based access control via request tags
    *       and resource tags applied to the resource identified by <code>resource name</code>. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -5219,7 +5596,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
-   * <p>Attempts to unpeer the Lightsail VPC from the user's default VPC.</p>
+   * <p>Unpeers the Lightsail VPC from the user's default VPC.</p>
    */
   public unpeerVpc(args: UnpeerVpcCommandInput, options?: __HttpHandlerOptions): Promise<UnpeerVpcCommandOutput>;
   public unpeerVpc(args: UnpeerVpcCommandInput, cb: (err: any, data?: UnpeerVpcCommandOutput) => void): void;
@@ -5249,7 +5626,7 @@ export class Lightsail extends LightsailClient {
    *       resource.</p>
    *          <p>The <code>untag resource</code> operation supports tag-based access control via request
    *       tags and resource tags applied to the resource identified by <code>resource name</code>. For
-   *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -5270,6 +5647,84 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing Amazon Lightsail bucket.</p>
+   *
+   *          <p>Use this action to update the configuration of an existing bucket, such as versioning,
+   *       public accessibility, and the AWS accounts that can access the bucket.</p>
+   */
+  public updateBucket(
+    args: UpdateBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBucketCommandOutput>;
+  public updateBucket(args: UpdateBucketCommandInput, cb: (err: any, data?: UpdateBucketCommandOutput) => void): void;
+  public updateBucket(
+    args: UpdateBucketCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBucketCommandOutput) => void
+  ): void;
+  public updateBucket(
+    args: UpdateBucketCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBucketCommandOutput) => void),
+    cb?: (err: any, data?: UpdateBucketCommandOutput) => void
+  ): Promise<UpdateBucketCommandOutput> | void {
+    const command = new UpdateBucketCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.</p>
+   *
+   *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
+   *       bucket. You can update a bucket's bundle only one time within a monthly AWS billing cycle. To
+   *       determine if you can update a bucket's bundle, use the <a>GetBuckets</a> action.
+   *       The <code>ableToUpdateBundle</code> parameter in the response will indicate whether you can
+   *       currently update a bucket's bundle.</p>
+   *
+   *          <p>Update a bucket's bundle if it's consistently going over its storage space or data
+   *       transfer quota, or if a bucket's usage is consistently in the lower range of its storage space
+   *       or data transfer quota. Due to the unpredictable usage fluctuations that a bucket might
+   *       experience, we strongly recommend that you update a bucket's bundle only as a long-term
+   *       strategy, instead of as a short-term, monthly cost-cutting measure. Choose a bucket bundle
+   *       that will provide the bucket with ample storage space and data transfer for a long time to
+   *       come.</p>
+   */
+  public updateBucketBundle(
+    args: UpdateBucketBundleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBucketBundleCommandOutput>;
+  public updateBucketBundle(
+    args: UpdateBucketBundleCommandInput,
+    cb: (err: any, data?: UpdateBucketBundleCommandOutput) => void
+  ): void;
+  public updateBucketBundle(
+    args: UpdateBucketBundleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBucketBundleCommandOutput) => void
+  ): void;
+  public updateBucketBundle(
+    args: UpdateBucketBundleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBucketBundleCommandOutput) => void),
+    cb?: (err: any, data?: UpdateBucketBundleCommandOutput) => void
+  ): Promise<UpdateBucketBundleCommandOutput> | void {
+    const command = new UpdateBucketBundleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5315,7 +5770,7 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Updates an existing Amazon Lightsail content delivery network (CDN) distribution.</p>
-   *          <p>Use this action to update the configuration of your existing distribution</p>
+   *          <p>Use this action to update the configuration of your existing distribution.</p>
    */
   public updateDistribution(
     args: UpdateDistributionCommandInput,
@@ -5391,7 +5846,7 @@ export class Lightsail extends LightsailClient {
    * <p>Updates a domain recordset after it is created.</p>
    *          <p>The <code>update domain entry</code> operation supports tag-based access control via
    *       resource tags applied to the resource identified by <code>domain name</code>. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public updateDomainEntry(
     args: UpdateDomainEntryCommandInput,
@@ -5427,7 +5882,7 @@ export class Lightsail extends LightsailClient {
    *       a time.</p>
    *          <p>The <code>update load balancer attribute</code> operation supports tag-based access
    *       control via resource tags applied to the resource identified by <code>load balancer
-   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public updateLoadBalancerAttribute(
     args: UpdateLoadBalancerAttributeCommandInput,
@@ -5464,7 +5919,7 @@ export class Lightsail extends LightsailClient {
    *       are applied during the database's predefined maintenance window.</p>
    *          <p>The <code>update relational database</code> operation supports tag-based access control
    *       via resource tags applied to the resource identified by relationalDatabaseName. For more
-   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public updateRelationalDatabase(
     args: UpdateRelationalDatabaseCommandInput,
@@ -5505,7 +5960,7 @@ export class Lightsail extends LightsailClient {
    *       the <code>reboot relational database</code> operation.</p>
    *          <p>The <code>update relational database parameters</code> operation supports tag-based access
    *       control via resource tags applied to the resource identified by relationalDatabaseName. For
-   *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+   *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   public updateRelationalDatabaseParameters(
     args: UpdateRelationalDatabaseParametersCommandInput,

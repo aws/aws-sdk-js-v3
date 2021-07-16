@@ -21,7 +21,7 @@ export interface DescribeFHIRImportJobCommandInput extends DescribeFHIRImportJob
 export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the job.</p>
+ * <p>Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the job. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -18,6 +18,11 @@ export namespace AccessDeniedException {
   });
 }
 
+export enum CmkType {
+  AO_CMK = "AWS_OWNED_KMS_KEY",
+  CM_CMK = "CUSTOMER_MANAGED_KMS_KEY",
+}
+
 /**
  * <p>The Data Store is in a transition state and the user requested action can not be performed.</p>
  */
@@ -63,6 +68,89 @@ export namespace PreloadDataConfig {
   });
 }
 
+/**
+ * <p>
+ *             The customer-managed-key(CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
+ *          </p>
+ */
+export interface KmsEncryptionConfig {
+  /**
+   * <p>
+   *             The type of customer-managed-key(CMK) used for encyrption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
+   *          </p>
+   */
+  CmkType: CmkType | string | undefined;
+
+  /**
+   * <p>
+   *             The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
+   *          </p>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace KmsEncryptionConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KmsEncryptionConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The server-side encryption key configuration for a customer provided encryption key.
+ *          </p>
+ */
+export interface SseConfiguration {
+  /**
+   * <p>
+   *             The KMS encryption configuration used to provide details for data encryption.
+   *          </p>
+   */
+  KmsEncryptionConfig: KmsEncryptionConfig | undefined;
+}
+
+export namespace SseConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SseConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+ *          </p>
+ */
+export interface Tag {
+  /**
+   * <p>
+   *             The key portion of a tag. Tag keys are case sensitive.
+   *          </p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>
+   *             The value portion of tag. Tag values are case sensitive.
+   *          </p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateFHIRDatastoreRequest {
   /**
    * <p>The user generated name for the Data Store.</p>
@@ -75,6 +163,13 @@ export interface CreateFHIRDatastoreRequest {
   DatastoreTypeVersion: FHIRVersion | string | undefined;
 
   /**
+   * <p>
+   *             The server-side encryption key configuration for a customer provided encryption key specified for creating a Data Store.
+   *          </p>
+   */
+  SseConfiguration?: SseConfiguration;
+
+  /**
    * <p>Optional parameter to preload data upon creation of the Data Store. Currently, the only
    *          supported preloaded data is synthetic data generated from Synthea.</p>
    */
@@ -84,6 +179,13 @@ export interface CreateFHIRDatastoreRequest {
    * <p>Optional user provided token used for ensuring idempotency.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>
+   *             Resource tags that are applied to a Data Store when it is created.
+   *          </p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateFHIRDatastoreRequest {
@@ -267,6 +369,13 @@ export interface DatastoreProperties {
   DatastoreEndpoint: string | undefined;
 
   /**
+   * <p>
+   *             The server-side encryption key configuration for a customer provided encryption key (CMK).
+   *          </p>
+   */
+  SseConfiguration?: SseConfiguration;
+
+  /**
    * <p>The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.</p>
    */
   PreloadDataConfig?: PreloadDataConfig;
@@ -404,37 +513,70 @@ export namespace DescribeFHIRExportJobRequest {
 
 export enum JobStatus {
   COMPLETED = "COMPLETED",
+  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   SUBMITTED = "SUBMITTED",
 }
 
 /**
+ * <p>
+ *             The configuration of the S3 bucket for either an import or export job. This includes assigning permissions for access.
+ *          </p>
+ */
+export interface S3Configuration {
+  /**
+   * <p>
+   *             The S3Uri is the user specified S3 location of the FHIR data to be imported into Amazon HealthLake.
+   *          </p>
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>
+   *             The KMS key ID used to access the S3 bucket.
+   *          </p>
+   */
+  KmsKeyId: string | undefined;
+}
+
+export namespace S3Configuration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3Configuration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The output data configuration that was supplied when the export job was created.</p>
  */
-export type OutputDataConfig = OutputDataConfig.S3UriMember | OutputDataConfig.$UnknownMember;
+export type OutputDataConfig = OutputDataConfig.S3ConfigurationMember | OutputDataConfig.$UnknownMember;
 
 export namespace OutputDataConfig {
   /**
-   * <p>The S3Uri is the user specified S3 location to which data will be exported from a FHIR Data Store.</p>
+   * <p>
+   *             The output data configuration that was supplied when the export job was created.
+   *          </p>
    */
-  export interface S3UriMember {
-    S3Uri: string;
+  export interface S3ConfigurationMember {
+    S3Configuration: S3Configuration;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
-    S3Uri?: never;
+    S3Configuration?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
-    S3Uri: (value: string) => T;
+    S3Configuration: (value: S3Configuration) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: OutputDataConfig, visitor: Visitor<T>): T => {
-    if (value.S3Uri !== undefined) return visitor.S3Uri(value.S3Uri);
+    if (value.S3Configuration !== undefined) return visitor.S3Configuration(value.S3Configuration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
@@ -442,7 +584,8 @@ export namespace OutputDataConfig {
    * @internal
    */
   export const filterSensitiveLog = (obj: OutputDataConfig): any => {
-    if (obj.S3Uri !== undefined) return { S3Uri: obj.S3Uri };
+    if (obj.S3Configuration !== undefined)
+      return { S3Configuration: S3Configuration.filterSensitiveLog(obj.S3Configuration) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -620,9 +763,14 @@ export interface ImportJobProperties {
   DatastoreId: string | undefined;
 
   /**
-   * <p>The input data configuration that was supplied when  the Import job was created.</p>
+   * <p>The input data configuration that was supplied when the Import job was created.</p>
    */
   InputDataConfig: InputDataConfig | undefined;
+
+  /**
+   * <p>The output data configuration that was supplied when the export job was created.</p>
+   */
+  JobOutputDataConfig?: OutputDataConfig;
 
   /**
    * <p>The Amazon Resource Name (ARN) that gives Amazon HealthLake access to your input data.</p>
@@ -642,6 +790,9 @@ export namespace ImportJobProperties {
   export const filterSensitiveLog = (obj: ImportJobProperties): any => ({
     ...obj,
     ...(obj.InputDataConfig && { InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig) }),
+    ...(obj.JobOutputDataConfig && {
+      JobOutputDataConfig: OutputDataConfig.filterSensitiveLog(obj.JobOutputDataConfig),
+    }),
   });
 }
 
@@ -708,6 +859,218 @@ export namespace ListFHIRDatastoresResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListFHIRDatastoresResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFHIRExportJobsRequest {
+  /**
+   * <p>
+   *             This parameter limits the response to the export job with the specified Data Store ID.
+   *          </p>
+   */
+  DatastoreId: string | undefined;
+
+  /**
+   * <p>
+   *             A pagination token used to identify the next page of results to return for a ListFHIRExportJobs query.
+   *          </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   *             This parameter limits the number of results returned for a ListFHIRExportJobs to a maximum quantity specified by the user.
+   *          </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>
+   *             This parameter limits the response to the export job with the specified job name.
+   *          </p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>
+   *             This parameter limits the response to the export jobs with the specified job status.
+   *          </p>
+   */
+  JobStatus?: JobStatus | string;
+
+  /**
+   * <p>
+   *             This parameter limits the response to FHIR export jobs submitted before a user specified date.
+   *          </p>
+   */
+  SubmittedBefore?: Date;
+
+  /**
+   * <p>
+   *             This parameter limits the response to FHIR export jobs submitted after a user specified date.
+   *          </p>
+   */
+  SubmittedAfter?: Date;
+}
+
+export namespace ListFHIRExportJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFHIRExportJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFHIRExportJobsResponse {
+  /**
+   * <p>
+   *             The properties of listed FHIR export jobs, including the ID, ARN, name, and the status of the job.
+   *          </p>
+   */
+  ExportJobPropertiesList: ExportJobProperties[] | undefined;
+
+  /**
+   * <p>
+   *             A pagination token used to identify the next page of results to return for a ListFHIRExportJobs query.
+   *          </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFHIRExportJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFHIRExportJobsResponse): any => ({
+    ...obj,
+    ...(obj.ExportJobPropertiesList && {
+      ExportJobPropertiesList: obj.ExportJobPropertiesList.map((item) => ExportJobProperties.filterSensitiveLog(item)),
+    }),
+  });
+}
+
+export interface ListFHIRImportJobsRequest {
+  /**
+   * <p>
+   *             This parameter limits the response to the import job with the specified Data Store ID.
+   *          </p>
+   */
+  DatastoreId: string | undefined;
+
+  /**
+   * <p>
+   *             A pagination token used to identify the next page of results to return for a ListFHIRImportJobs query.
+   *          </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   *             This parameter limits the number of results returned for a ListFHIRImportJobs to a maximum quantity specified by the user.
+   *          </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>
+   *             This parameter limits the response to the import job with the specified job name.
+   *          </p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>
+   *             This parameter limits the response to the import job with the specified job status.
+   *          </p>
+   */
+  JobStatus?: JobStatus | string;
+
+  /**
+   * <p>
+   *             This parameter limits the response to FHIR import jobs submitted before a user specified date.
+   *          </p>
+   */
+  SubmittedBefore?: Date;
+
+  /**
+   * <p>
+   *             This parameter limits the response to FHIR import jobs submitted after a user specified date.
+   *          </p>
+   */
+  SubmittedAfter?: Date;
+}
+
+export namespace ListFHIRImportJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFHIRImportJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFHIRImportJobsResponse {
+  /**
+   * <p>
+   *             The properties of a listed FHIR import jobs, including the ID, ARN, name, and the status of the job.
+   *          </p>
+   */
+  ImportJobPropertiesList: ImportJobProperties[] | undefined;
+
+  /**
+   * <p>
+   *             A pagination token used to identify the next page of results to return for a ListFHIRImportJobs query.
+   *          </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFHIRImportJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFHIRImportJobsResponse): any => ({
+    ...obj,
+    ...(obj.ImportJobPropertiesList && {
+      ImportJobPropertiesList: obj.ImportJobPropertiesList.map((item) => ImportJobProperties.filterSensitiveLog(item)),
+    }),
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>
+   *             The Amazon Resource Name(ARN) of the Data Store for which tags are being added.
+   *          </p>
+   */
+  ResourceARN: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>
+   *             Returns a list of tags associated with a Data Store.
+   *          </p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
 }
@@ -787,6 +1150,11 @@ export interface StartFHIRImportJobRequest {
   InputDataConfig: InputDataConfig | undefined;
 
   /**
+   * <p>The output data configuration that was supplied when the export job was created.</p>
+   */
+  JobOutputDataConfig: OutputDataConfig | undefined;
+
+  /**
    * <p>The AWS-generated Data Store ID.</p>
    */
   DatastoreId: string | undefined;
@@ -809,6 +1177,9 @@ export namespace StartFHIRImportJobRequest {
   export const filterSensitiveLog = (obj: StartFHIRImportJobRequest): any => ({
     ...obj,
     ...(obj.InputDataConfig && { InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig) }),
+    ...(obj.JobOutputDataConfig && {
+      JobOutputDataConfig: OutputDataConfig.filterSensitiveLog(obj.JobOutputDataConfig),
+    }),
   });
 }
 
@@ -834,6 +1205,78 @@ export namespace StartFHIRImportJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: StartFHIRImportJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>
+   *             The Amazon Resource Name(ARN)that gives Amazon HealthLake access to the Data Store which tags are being added to.
+   *          </p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>
+   *             The user specified key and value pair tags being added to a Data Store.
+   *          </p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>
+   *             "The Amazon Resource Name(ARN) of the Data Store for which tags are being removed
+   *          </p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>
+   *             The keys for the tags to be removed from the Healthlake Data Store.
+   *          </p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
 }

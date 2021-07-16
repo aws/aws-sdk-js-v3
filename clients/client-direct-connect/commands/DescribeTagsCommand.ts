@@ -21,7 +21,7 @@ export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
 export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the tags associated with the specified AWS Direct Connect resources.</p>
+ * <p>Describes the tags associated with the specified Direct Connect resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

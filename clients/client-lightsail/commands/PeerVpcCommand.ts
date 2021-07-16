@@ -18,7 +18,7 @@ export interface PeerVpcCommandInput extends PeerVpcRequest {}
 export interface PeerVpcCommandOutput extends PeerVpcResult, __MetadataBearer {}
 
 /**
- * <p>Tries to peer the Lightsail VPC with the user's default VPC.</p>
+ * <p>Peers the Lightsail VPC with the user's default VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

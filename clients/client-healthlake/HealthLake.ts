@@ -30,6 +30,21 @@ import {
   ListFHIRDatastoresCommandOutput,
 } from "./commands/ListFHIRDatastoresCommand";
 import {
+  ListFHIRExportJobsCommand,
+  ListFHIRExportJobsCommandInput,
+  ListFHIRExportJobsCommandOutput,
+} from "./commands/ListFHIRExportJobsCommand";
+import {
+  ListFHIRImportJobsCommand,
+  ListFHIRImportJobsCommandInput,
+  ListFHIRImportJobsCommandOutput,
+} from "./commands/ListFHIRImportJobsCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   StartFHIRExportJobCommand,
   StartFHIRExportJobCommandInput,
   StartFHIRExportJobCommandOutput,
@@ -39,6 +54,12 @@ import {
   StartFHIRImportJobCommandInput,
   StartFHIRImportJobCommandOutput,
 } from "./commands/StartFHIRImportJobCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -177,7 +198,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
-   * <p>Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the job.</p>
+   * <p>Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the job. </p>
    */
   public describeFHIRImportJob(
     args: DescribeFHIRImportJobCommandInput,
@@ -242,6 +263,108 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
+   * <p>
+   *             Lists all FHIR export jobs associated with an account and their statuses.
+   *          </p>
+   */
+  public listFHIRExportJobs(
+    args: ListFHIRExportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFHIRExportJobsCommandOutput>;
+  public listFHIRExportJobs(
+    args: ListFHIRExportJobsCommandInput,
+    cb: (err: any, data?: ListFHIRExportJobsCommandOutput) => void
+  ): void;
+  public listFHIRExportJobs(
+    args: ListFHIRExportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFHIRExportJobsCommandOutput) => void
+  ): void;
+  public listFHIRExportJobs(
+    args: ListFHIRExportJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFHIRExportJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListFHIRExportJobsCommandOutput) => void
+  ): Promise<ListFHIRExportJobsCommandOutput> | void {
+    const command = new ListFHIRExportJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             Lists all FHIR import jobs associated with an account and their statuses.
+   *          </p>
+   */
+  public listFHIRImportJobs(
+    args: ListFHIRImportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFHIRImportJobsCommandOutput>;
+  public listFHIRImportJobs(
+    args: ListFHIRImportJobsCommandInput,
+    cb: (err: any, data?: ListFHIRImportJobsCommandOutput) => void
+  ): void;
+  public listFHIRImportJobs(
+    args: ListFHIRImportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFHIRImportJobsCommandOutput) => void
+  ): void;
+  public listFHIRImportJobs(
+    args: ListFHIRImportJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFHIRImportJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListFHIRImportJobsCommandOutput) => void
+  ): Promise<ListFHIRImportJobsCommandOutput> | void {
+    const command = new ListFHIRImportJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             Returns a list of all existing tags associated with a Data Store.
+   *          </p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Begins a FHIR export job.</p>
    */
   public startFHIRExportJob(
@@ -295,6 +418,68 @@ export class HealthLake extends HealthLakeClient {
     cb?: (err: any, data?: StartFHIRImportJobCommandOutput) => void
   ): Promise<StartFHIRImportJobCommandOutput> | void {
     const command = new StartFHIRImportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             Adds a user specifed key and value tag to a Data Store.
+   *          </p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             Removes tags from a Data Store.
+   *          </p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

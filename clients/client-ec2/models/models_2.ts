@@ -15,7 +15,6 @@ import {
   BundleTask,
   ByoipCidr,
   CapacityReservation,
-  CapacityReservationPreference,
   CarrierGateway,
   ClientVpnAuthenticationType,
   ClientVpnAuthorizationRuleStatus,
@@ -36,12 +35,12 @@ import {
   FleetReplacementStrategy,
   FleetType,
   HostRecovery,
-  IamInstanceProfile,
   IamInstanceProfileAssociation,
+  InstanceEventWindow,
+  InstanceEventWindowState,
   InstanceLifecycle,
   LaunchTemplateAndOverridesResponse,
   LogDestinationType,
-  Placement,
   PlatformValues,
   SpotAllocationStrategy,
   SpotInstanceInterruptionBehavior,
@@ -54,15 +53,15 @@ import {
   _InstanceType,
 } from "./models_0";
 import {
+  CapacityReservationPreference,
   CapacityReservationTargetResponse,
+  DeleteFleetSuccessItem,
   FleetStateCode,
   GroupIdentifier,
-  InstanceIpv6Address,
   LaunchTemplate,
   LocalGatewayRoute,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  NetworkInterfaceStatus,
   TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
@@ -71,6 +70,312 @@ import {
   TransitGatewayRoute,
   TransitGatewayRouteTable,
 } from "./models_1";
+
+export enum DeleteFleetErrorCode {
+  FLEET_ID_DOES_NOT_EXIST = "fleetIdDoesNotExist",
+  FLEET_ID_MALFORMED = "fleetIdMalformed",
+  FLEET_NOT_IN_DELETABLE_STATE = "fleetNotInDeletableState",
+  UNEXPECTED_ERROR = "unexpectedError",
+}
+
+/**
+ * <p>Describes an EC2 Fleet error.</p>
+ */
+export interface DeleteFleetError {
+  /**
+   * <p>The error code.</p>
+   */
+  Code?: DeleteFleetErrorCode | string;
+
+  /**
+   * <p>The description for the error code.</p>
+   */
+  Message?: string;
+}
+
+export namespace DeleteFleetError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFleetError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an EC2 Fleet that was not successfully deleted.</p>
+ */
+export interface DeleteFleetErrorItem {
+  /**
+   * <p>The error.</p>
+   */
+  Error?: DeleteFleetError;
+
+  /**
+   * <p>The ID of the EC2 Fleet.</p>
+   */
+  FleetId?: string;
+}
+
+export namespace DeleteFleetErrorItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFleetErrorItem): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFleetsResult {
+  /**
+   * <p>Information about the EC2 Fleets that are successfully deleted.</p>
+   */
+  SuccessfulFleetDeletions?: DeleteFleetSuccessItem[];
+
+  /**
+   * <p>Information about the EC2 Fleets that are not successfully deleted.</p>
+   */
+  UnsuccessfulFleetDeletions?: DeleteFleetErrorItem[];
+}
+
+export namespace DeleteFleetsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFleetsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFlowLogsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more flow log IDs.</p>
+   *         <p>Constraint: Maximum of 1000 flow log IDs.</p>
+   */
+  FlowLogIds: string[] | undefined;
+}
+
+export namespace DeleteFlowLogsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFlowLogsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFlowLogsResult {
+  /**
+   * <p>Information about the flow logs that could not be deleted successfully.</p>
+   */
+  Unsuccessful?: UnsuccessfulItem[];
+}
+
+export namespace DeleteFlowLogsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFlowLogsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFpgaImageRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the AFI.</p>
+   */
+  FpgaImageId: string | undefined;
+}
+
+export namespace DeleteFpgaImageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFpgaImageRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFpgaImageResult {
+  /**
+   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace DeleteFpgaImageResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFpgaImageResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteInstanceEventWindowRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Specify <code>true</code> to force delete the event window. Use the force delete parameter
+   *          if the event window is currently associated with targets.</p>
+   */
+  ForceDelete?: boolean;
+
+  /**
+   * <p>The ID of the event window.</p>
+   */
+  InstanceEventWindowId: string | undefined;
+}
+
+export namespace DeleteInstanceEventWindowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInstanceEventWindowRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The state of the event window.</p>
+ */
+export interface InstanceEventWindowStateChange {
+  /**
+   * <p>The ID of the event window.</p>
+   */
+  InstanceEventWindowId?: string;
+
+  /**
+   * <p>The current state of the event window.</p>
+   */
+  State?: InstanceEventWindowState | string;
+}
+
+export namespace InstanceEventWindowStateChange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceEventWindowStateChange): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteInstanceEventWindowResult {
+  /**
+   * <p>The state of the event window.</p>
+   */
+  InstanceEventWindowState?: InstanceEventWindowStateChange;
+}
+
+export namespace DeleteInstanceEventWindowResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInstanceEventWindowResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteInternetGatewayRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the internet gateway.</p>
+   */
+  InternetGatewayId: string | undefined;
+}
+
+export namespace DeleteInternetGatewayRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInternetGatewayRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteKeyPairRequest {
+  /**
+   * <p>The name of the key pair.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>The ID of the key pair.</p>
+   */
+  KeyPairId?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteKeyPairRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteKeyPairRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteLaunchTemplateRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the launch template. You must specify either the launch template ID or
+   *             launch template name in the request.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template. You must specify either the launch template ID or
+   *             launch template name in the request.</p>
+   */
+  LaunchTemplateName?: string;
+}
+
+export namespace DeleteLaunchTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLaunchTemplateRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface DeleteLaunchTemplateResult {
   /**
@@ -932,7 +1237,7 @@ export interface DeleteTagsRequest {
    *             key regardless of its value. If you specify a tag key with an empty string as the tag
    *             value, we delete the tag only if its value is an empty string.</p>
    *         <p>If you omit this parameter, we delete all user-defined tags for the specified
-   *             resources. We do not delete AWS-generated tags (tags that have the <code>aws:</code>
+   *             resources. We do not delete Amazon Web Services-generated tags (tags that have the <code>aws:</code>
    *             prefix).</p>
    */
   Tags?: Tag[];
@@ -8952,6 +9257,123 @@ export namespace DescribeInstanceEventNotificationAttributesResult {
   });
 }
 
+/**
+ * <para>Describe instance event windows by InstanceEventWindow.</para>
+ */
+export interface DescribeInstanceEventWindowsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the event windows.</p>
+   */
+  InstanceEventWindowIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>dedicated-host-id</code> - The event windows associated with the specified
+   *             Dedicated Host ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event-window-name</code> - The event windows associated with the specified
+   *             names. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-id</code> - The event windows associated with the specified instance
+   *                ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-tag</code> - The event windows associated with the specified tag and
+   *                value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-tag-key</code> - The event windows associated with the specified tag
+   *                key, regardless of the value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-tag-value</code> - The event windows associated with the specified tag
+   *                value, regardless of the key.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the
+   *                event window. Use the tag key in the filter name and the tag value as the filter
+   *                value. For example, to find all resources that have a tag with the key
+   *                   <code>Owner</code> and the value <code>CMX</code>, specify <code>tag:Owner</code>
+   *                for the filter name and <code>CMX</code> for the filter value. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the event window. Use this filter
+   *                to find all event windows that have a tag with a specific key, regardless of the tag
+   *                value. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-value</code> - The value of a tag assigned to the event window. Use this
+   *                filter to find all event windows that have a tag with a specific value, regardless of
+   *                the tag key. </p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *          results, make another call with the returned <code>NextToken</code> value. This value can
+   *          be between 20 and 500. You cannot specify this parameter and the event window IDs parameter
+   *          in the same call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceEventWindowsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInstanceEventWindowsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeInstanceEventWindowsResult {
+  /**
+   * <p>Information about the event windows.</p>
+   */
+  InstanceEventWindows?: InstanceEventWindow[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceEventWindowsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInstanceEventWindowsResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeInstancesRequest {
   /**
    * <p>The filters.</p>
@@ -9643,888 +10065,4 @@ export type InstanceMetadataEndpointState = "disabled" | "enabled";
 export enum HttpTokensState {
   optional = "optional",
   required = "required",
-}
-
-export type InstanceMetadataOptionsState = "applied" | "pending";
-
-/**
- * <p>The metadata options for the instance.</p>
- */
-export interface InstanceMetadataOptionsResponse {
-  /**
-   * <p>The state of the metadata option changes.</p>
-   *         <p>
-   *             <code>pending</code> - The metadata options are being updated and the instance is not
-   *             ready to process metadata traffic with the new selection.</p>
-   *         <p>
-   *             <code>applied</code> - The metadata options have been successfully applied on the
-   *             instance.</p>
-   */
-  State?: InstanceMetadataOptionsState | string;
-
-  /**
-   * <p>The state of token usage for your instance metadata requests. If the parameter is not
-   *             specified in the request, the default state is <code>optional</code>.</p>
-   *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role
-   *             credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
-   *             credentials are returned.</p>
-   *         <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM role credential
-   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
-   *             available.</p>
-   */
-  HttpTokens?: HttpTokensState | string;
-
-  /**
-   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
-   *             number, the further instance metadata requests can travel.</p>
-   *         <p>Default: 1</p>
-   *         <p>Possible values: Integers from 1 to 64</p>
-   */
-  HttpPutResponseHopLimit?: number;
-
-  /**
-   * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If
-   *             the parameter is not specified, the default state is <code>enabled</code>.</p>
-   *         <note>
-   *             <p>If you specify a value of <code>disabled</code>, you will not be able to access your
-   *                 instance metadata.</p>
-   *         </note>
-   */
-  HttpEndpoint?: InstanceMetadataEndpointState | string;
-}
-
-export namespace InstanceMetadataOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceMetadataOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export type MonitoringState = "disabled" | "disabling" | "enabled" | "pending";
-
-/**
- * <p>Describes the monitoring of an instance.</p>
- */
-export interface Monitoring {
-  /**
-   * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
-   *             enabled.</p>
-   */
-  State?: MonitoringState | string;
-}
-
-export namespace Monitoring {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Monitoring): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes association information for an Elastic IP address (IPv4).</p>
- */
-export interface InstanceNetworkInterfaceAssociation {
-  /**
-   * <p>The carrier IP address associated with the network interface.</p>
-   */
-  CarrierIp?: string;
-
-  /**
-   * <p>The ID of the owner of the Elastic IP address.</p>
-   */
-  IpOwnerId?: string;
-
-  /**
-   * <p>The public DNS name.</p>
-   */
-  PublicDnsName?: string;
-
-  /**
-   * <p>The public IP address or Elastic IP address bound to the network interface.</p>
-   */
-  PublicIp?: string;
-}
-
-export namespace InstanceNetworkInterfaceAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceNetworkInterfaceAssociation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a network interface attachment.</p>
- */
-export interface InstanceNetworkInterfaceAttachment {
-  /**
-   * <p>The time stamp when the attachment initiated.</p>
-   */
-  AttachTime?: Date;
-
-  /**
-   * <p>The ID of the network interface attachment.</p>
-   */
-  AttachmentId?: string;
-
-  /**
-   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
-   * <p>The index of the device on the instance for the network interface attachment.</p>
-   */
-  DeviceIndex?: number;
-
-  /**
-   * <p>The attachment state.</p>
-   */
-  Status?: AttachmentStatus | string;
-
-  /**
-   * <p>The index of the network card.</p>
-   */
-  NetworkCardIndex?: number;
-}
-
-export namespace InstanceNetworkInterfaceAttachment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceNetworkInterfaceAttachment): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a private IPv4 address.</p>
- */
-export interface InstancePrivateIpAddress {
-  /**
-   * <p>The association information for an Elastic IP address for the network interface.</p>
-   */
-  Association?: InstanceNetworkInterfaceAssociation;
-
-  /**
-   * <p>Indicates whether this IPv4 address is the primary private IP address of the network interface.</p>
-   */
-  Primary?: boolean;
-
-  /**
-   * <p>The private IPv4 DNS name.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>The private IPv4 address of the network interface.</p>
-   */
-  PrivateIpAddress?: string;
-}
-
-export namespace InstancePrivateIpAddress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstancePrivateIpAddress): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a network interface.</p>
- */
-export interface InstanceNetworkInterface {
-  /**
-   * <p>The association information for an Elastic IPv4 associated with the network
-   *             interface.</p>
-   */
-  Association?: InstanceNetworkInterfaceAssociation;
-
-  /**
-   * <p>The network interface attachment.</p>
-   */
-  Attachment?: InstanceNetworkInterfaceAttachment;
-
-  /**
-   * <p>The description.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>One or more security groups.</p>
-   */
-  Groups?: GroupIdentifier[];
-
-  /**
-   * <p>One or more IPv6 addresses associated with the network interface.</p>
-   */
-  Ipv6Addresses?: InstanceIpv6Address[];
-
-  /**
-   * <p>The MAC address.</p>
-   */
-  MacAddress?: string;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The ID of the account that created the network interface.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The private DNS name.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>The IPv4 address of the network interface within the subnet.</p>
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * <p>One or more private IPv4 addresses associated with the network interface.</p>
-   */
-  PrivateIpAddresses?: InstancePrivateIpAddress[];
-
-  /**
-   * <p>Indicates whether source/destination checking is enabled.</p>
-   */
-  SourceDestCheck?: boolean;
-
-  /**
-   * <p>The status of the network interface.</p>
-   */
-  Status?: NetworkInterfaceStatus | string;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Describes the type of network interface.</p>
-   * 	        <p>Valid values: <code>interface</code> | <code>efa</code> | <code>trunk</code>
-   *          </p>
-   */
-  InterfaceType?: string;
-}
-
-export namespace InstanceNetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceNetworkInterface): any => ({
-    ...obj,
-  });
-}
-
-export type InstanceStateName = "pending" | "running" | "shutting-down" | "stopped" | "stopping" | "terminated";
-
-/**
- * <p>Describes the current state of an instance.</p>
- */
-export interface InstanceState {
-  /**
-   * <p>The state of the instance as a 16-bit unsigned integer. </p>
-   *         <p>The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values
-   *             between 256 and 65,535. These numerical values are used for internal purposes and should
-   *             be ignored.</p>
-   *         <p>The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values
-   *             between 0 and 255. </p>
-   *         <p>The valid values for instance-state-code will all be in the range of the low byte and
-   *             they are:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>0</code> : <code>pending</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>16</code> : <code>running</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>32</code> : <code>shutting-down</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>48</code> : <code>terminated</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>64</code> : <code>stopping</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>80</code> : <code>stopped</code>
-   *                 </p>
-   *             </li>
-   *          </ul>
-   *         <p>You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in
-   *             decimal.</p>
-   */
-  Code?: number;
-
-  /**
-   * <p>The current state of the instance.</p>
-   */
-  Name?: InstanceStateName | string;
-}
-
-export namespace InstanceState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceState): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an instance.</p>
- */
-export interface Instance {
-  /**
-   * <p>The AMI launch index, which can be used to find this instance in the launch
-   *             group.</p>
-   */
-  AmiLaunchIndex?: number;
-
-  /**
-   * <p>The ID of the AMI used to launch the instance.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The instance type.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>The kernel associated with this instance, if applicable.</p>
-   */
-  KernelId?: string;
-
-  /**
-   * <p>The name of the key pair, if this instance was launched with an associated key
-   *             pair.</p>
-   */
-  KeyName?: string;
-
-  /**
-   * <p>The time the instance was launched.</p>
-   */
-  LaunchTime?: Date;
-
-  /**
-   * <p>The monitoring for the instance.</p>
-   */
-  Monitoring?: Monitoring;
-
-  /**
-   * <p>The location where the instance launched, if applicable.</p>
-   */
-  Placement?: Placement;
-
-  /**
-   * <p>The value is <code>Windows</code> for Windows instances; otherwise blank.</p>
-   */
-  Platform?: PlatformValues | string;
-
-  /**
-   * <p>(IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname
-   *             can only be used inside the Amazon EC2 network. This name is not available until the
-   *             instance enters the <code>running</code> state. </p>
-   *         <p>[EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS
-   *             hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not
-   *             using the Amazon-provided DNS server in your VPC, your custom domain name servers must
-   *             resolve the hostname as appropriate.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>The private IPv4 address assigned to the instance.</p>
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * <p>The product codes attached to this instance, if applicable.</p>
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * <p>(IPv4 only) The public DNS name assigned to the instance. This name is not available
-   *             until the instance enters the <code>running</code> state. For EC2-VPC, this name is only
-   *             available if you've enabled DNS hostnames for your VPC.</p>
-   */
-  PublicDnsName?: string;
-
-  /**
-   * <p>The public IPv4 address, or the Carrier IP address assigned to the instance, if
-   *             applicable.</p>
-   *         <p>A Carrier IP address only applies to an instance launched in a subnet associated with
-   *             a Wavelength Zone.</p>
-   */
-  PublicIpAddress?: string;
-
-  /**
-   * <p>The RAM disk associated with this instance, if applicable.</p>
-   */
-  RamdiskId?: string;
-
-  /**
-   * <p>The current state of the instance.</p>
-   */
-  State?: InstanceState;
-
-  /**
-   * <p>The reason for the most recent state transition. This might be an empty string.</p>
-   */
-  StateTransitionReason?: string;
-
-  /**
-   * <p>[EC2-VPC] The ID of the subnet in which the instance is running.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>[EC2-VPC] The ID of the VPC in which the instance is running.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The architecture of the image.</p>
-   */
-  Architecture?: ArchitectureValues | string;
-
-  /**
-   * <p>Any block device mapping entries for the instance.</p>
-   */
-  BlockDeviceMappings?: InstanceBlockDeviceMapping[];
-
-  /**
-   * <p>The idempotency token you provided when you launched the instance, if
-   *             applicable.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
-   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
-   *             provide optimal I/O performance. This optimization isn't available with all instance
-   *             types. Additional usage charges apply when using an EBS Optimized instance.</p>
-   */
-  EbsOptimized?: boolean;
-
-  /**
-   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
-   */
-  EnaSupport?: boolean;
-
-  /**
-   * <p>The hypervisor type of the instance. The value <code>xen</code> is used for both Xen and
-   *             Nitro hypervisors.</p>
-   */
-  Hypervisor?: HypervisorType | string;
-
-  /**
-   * <p>The IAM instance profile associated with the instance, if applicable.</p>
-   */
-  IamInstanceProfile?: IamInstanceProfile;
-
-  /**
-   * <p>Indicates whether this is a Spot Instance or a Scheduled Instance.</p>
-   */
-  InstanceLifecycle?: InstanceLifecycleType | string;
-
-  /**
-   * <p>The Elastic GPU associated with the instance.</p>
-   */
-  ElasticGpuAssociations?: ElasticGpuAssociation[];
-
-  /**
-   * <p> The elastic inference accelerator associated with the instance.</p>
-   */
-  ElasticInferenceAcceleratorAssociations?: ElasticInferenceAcceleratorAssociation[];
-
-  /**
-   * <p>[EC2-VPC] The network interfaces for the instance.</p>
-   */
-  NetworkInterfaces?: InstanceNetworkInterface[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>The device name of the root device volume (for example,
-   *             <code>/dev/sda1</code>).</p>
-   */
-  RootDeviceName?: string;
-
-  /**
-   * <p>The root device type used by the AMI. The AMI can use an EBS volume or an instance
-   *             store volume.</p>
-   */
-  RootDeviceType?: DeviceType | string;
-
-  /**
-   * <p>The security groups for the instance.</p>
-   */
-  SecurityGroups?: GroupIdentifier[];
-
-  /**
-   * <p>Indicates whether source/destination checking is enabled.</p>
-   */
-  SourceDestCheck?: boolean;
-
-  /**
-   * <p>If the request is a Spot Instance request, the ID of the request.</p>
-   */
-  SpotInstanceRequestId?: string;
-
-  /**
-   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface
-   *             is enabled.</p>
-   */
-  SriovNetSupport?: string;
-
-  /**
-   * <p>The reason for the most recent state transition.</p>
-   */
-  StateReason?: StateReason;
-
-  /**
-   * <p>Any tags assigned to the instance.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The virtualization type of the instance.</p>
-   */
-  VirtualizationType?: VirtualizationType | string;
-
-  /**
-   * <p>The CPU options for the instance.</p>
-   */
-  CpuOptions?: CpuOptions;
-
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   */
-  CapacityReservationId?: string;
-
-  /**
-   * <p>Information about the Capacity Reservation targeting option.</p>
-   */
-  CapacityReservationSpecification?: CapacityReservationSpecificationResponse;
-
-  /**
-   * <p>Indicates whether the instance is enabled for hibernation.</p>
-   */
-  HibernationOptions?: HibernationOptions;
-
-  /**
-   * <p>The license configurations.</p>
-   */
-  Licenses?: LicenseConfiguration[];
-
-  /**
-   * <p>The metadata options for the instance.</p>
-   */
-  MetadataOptions?: InstanceMetadataOptionsResponse;
-
-  /**
-   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
-   */
-  EnclaveOptions?: EnclaveOptions;
-
-  /**
-   * <p>The boot mode of the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
-   */
-  BootMode?: BootModeValues | string;
-}
-
-export namespace Instance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Instance): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a launch request for one or more instances, and includes
- *             owner, requester, and security group information that applies to all
- *             instances in the launch request.</p>
- */
-export interface Reservation {
-  /**
-   * <p>[EC2-Classic only] The security groups.</p>
-   */
-  Groups?: GroupIdentifier[];
-
-  /**
-   * <p>The instances.</p>
-   */
-  Instances?: Instance[];
-
-  /**
-   * <p>The ID of the account that owns the reservation.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The ID of the requester that launched the instances on your behalf (for example,
-   *             Management Console or Auto Scaling).</p>
-   */
-  RequesterId?: string;
-
-  /**
-   * <p>The ID of the reservation.</p>
-   */
-  ReservationId?: string;
-}
-
-export namespace Reservation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Reservation): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstancesResult {
-  /**
-   * <p>Information about the reservations.</p>
-   */
-  Reservations?: Reservation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstancesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceStatusRequest {
-  /**
-   * <p>The filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.code</code> - The code for the scheduled event
-   *                         (<code>instance-reboot</code> | <code>system-reboot</code> |
-   *                         <code>system-maintenance</code> | <code>instance-retirement</code> |
-   *                         <code>instance-stop</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.description</code> - A description of the event.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.instance-event-id</code> - The ID of the event whose date and time
-   *                     you are modifying.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.not-after</code> - The latest end time for the scheduled event
-   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.not-before</code> - The earliest start time for the scheduled
-   *                     event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>event.not-before-deadline</code> - The deadline for starting the event
-   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-state-code</code> - The code for the instance state, as a
-   *                     16-bit unsigned integer. The high byte is used for internal purposes and should
-   *                     be ignored. The low byte is set based on the state represented. The valid values
-   *                     are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
-   *                     (stopping), and 80 (stopped).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-state-name</code> - The state of the instance
-   *                         (<code>pending</code> | <code>running</code> | <code>shutting-down</code> |
-   *                         <code>terminated</code> | <code>stopping</code> |
-   *                     <code>stopped</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-status.reachability</code> - Filters on instance status where
-   *                     the name is <code>reachability</code> (<code>passed</code> | <code>failed</code>
-   *                     | <code>initializing</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>instance-status.status</code> - The status of the instance
-   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
-   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>system-status.reachability</code> - Filters on system status where the
-   *                     name is <code>reachability</code> (<code>passed</code> | <code>failed</code> |
-   *                         <code>initializing</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>system-status.status</code> - The system status of the instance
-   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
-   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The instance IDs.</p>
-   *         <p>Default: Describes all your instances.</p>
-   *         <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
-   */
-  InstanceIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
-   *             parameter in the same call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>When <code>true</code>, includes the health status for all instances. When
-   *                 <code>false</code>, includes the health status for running instances only.</p>
-   *         <p>Default: <code>false</code>
-   *         </p>
-   */
-  IncludeAllInstances?: boolean;
-}
-
-export namespace DescribeInstanceStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceStatusRequest): any => ({
-    ...obj,
-  });
-}
-
-export type EventCode =
-  | "instance-reboot"
-  | "instance-retirement"
-  | "instance-stop"
-  | "system-maintenance"
-  | "system-reboot";
-
-/**
- * <p>Describes a scheduled event for an instance.</p>
- */
-export interface InstanceStatusEvent {
-  /**
-   * <p>The ID of the event.</p>
-   */
-  InstanceEventId?: string;
-
-  /**
-   * <p>The event code.</p>
-   */
-  Code?: EventCode | string;
-
-  /**
-   * <p>A description of the event.</p>
-   *         <p>After a scheduled event is completed, it can still be described for up to a week. If
-   *             the event has been completed, this description starts with the following text:
-   *             [Completed].</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The latest scheduled end time for the event.</p>
-   */
-  NotAfter?: Date;
-
-  /**
-   * <p>The earliest scheduled start time for the event.</p>
-   */
-  NotBefore?: Date;
-
-  /**
-   * <p>The deadline for starting the event.</p>
-   */
-  NotBeforeDeadline?: Date;
-}
-
-export namespace InstanceStatusEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceStatusEvent): any => ({
-    ...obj,
-  });
 }

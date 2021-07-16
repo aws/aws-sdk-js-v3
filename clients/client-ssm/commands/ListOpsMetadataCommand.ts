@@ -21,7 +21,7 @@ export interface ListOpsMetadataCommandInput extends ListOpsMetadataRequest {}
 export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __MetadataBearer {}
 
 /**
- * <p>Systems Manager calls this API action when displaying all Application Manager OpsMetadata objects or
+ * <p>Amazon Web Services Systems Manager calls this API operation when displaying all Application Manager OpsMetadata objects or
  *    blobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

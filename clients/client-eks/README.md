@@ -8,7 +8,7 @@
 AWS SDK for JavaScript EKS Client for Node.js, Browser and React Native.
 
 <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on
-AWS without needing to stand up or maintain your own Kubernetes control plane.
+Amazon Web Services without needing to stand up or maintain your own Kubernetes control plane.
 Kubernetes is an open-source system for automating the deployment, scaling, and
 management of containerized applications. </p>
 <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you can use

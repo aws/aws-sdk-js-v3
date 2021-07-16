@@ -21,8 +21,8 @@ export interface CreatePublicVirtualInterfaceCommandInput extends CreatePublicVi
 export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
- * <p>Creates a public virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic.
- *       A public virtual interface supports sending traffic to public services of AWS such as Amazon S3.</p>
+ * <p>Creates a public virtual interface. A virtual interface is the VLAN that transports Direct Connect traffic.
+ *       A public virtual interface supports sending traffic to public services of Amazon Web Services such as Amazon S3.</p>
  *          <p>When creating an IPv6 public virtual interface (<code>addressFamily</code> is <code>ipv6</code>), leave the <code>customer</code>
  *       and <code>amazon</code> address fields blank to use auto-assigned IPv6 space. Custom IPv6 addresses are not supported.</p>
  * @example

@@ -2,19 +2,14 @@ import {
   AddPrefixListEntry,
   ApplianceModeSupportValue,
   AttachmentStatus,
-  CapacityReservationPreference,
   CarrierGateway,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
-  CreditSpecificationRequest,
   CurrencyCodeValues,
   DnsSupportValue,
-  ElasticGpuSpecification,
   GatewayType,
+  InternetGateway,
   Ipv6SupportValue,
-  LaunchTemplateBlockDeviceMappingRequest,
-  LaunchTemplateCapacityReservationSpecificationRequest,
-  LaunchTemplateCpuOptionsRequest,
   ReservedInstancesListing,
   ResourceType,
   RouteTableAssociationState,
@@ -26,7 +21,6 @@ import {
   TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
-  UnsuccessfulItem,
   VolumeAttachment,
   VolumeType,
   Vpc,
@@ -34,6 +28,362 @@ import {
   VpcPeeringConnection,
   _InstanceType,
 } from "./models_0";
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export interface CreateInternetGatewayResult {
+  /**
+   * <p>Information about the internet gateway.</p>
+   */
+  InternetGateway?: InternetGateway;
+}
+
+export namespace CreateInternetGatewayResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInternetGatewayResult): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateKeyPairRequest {
+  /**
+   * <p>A unique name for the key pair.</p>
+   * 	        <p>Constraints: Up to 255 ASCII characters</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to apply to the new key pair.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+export namespace CreateKeyPairRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateKeyPairRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a key pair.</p>
+ */
+export interface KeyPair {
+  /**
+   * <p>The SHA-1 digest of the DER encoded private key.</p>
+   */
+  KeyFingerprint?: string;
+
+  /**
+   * <p>An unencrypted PEM encoded RSA private key.</p>
+   */
+  KeyMaterial?: string;
+
+  /**
+   * <p>The name of the key pair.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>The ID of the key pair.</p>
+   */
+  KeyPairId?: string;
+
+  /**
+   * <p>Any tags applied to the key pair.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace KeyPair {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KeyPair): any => ({
+    ...obj,
+    ...(obj.KeyMaterial && { KeyMaterial: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The parameters for a block device for an EBS volume.</p>
+ */
+export interface LaunchTemplateEbsBlockDeviceRequest {
+  /**
+   * <p>Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
+   *             If you are creating a volume from a snapshot, you can't specify an encryption value.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>, and <code>io2</code>
+   *             volumes, this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes,
+   *             this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits
+   *             for bursting.</p>
+   *         <p>The following are the supported values for each volume type:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>gp3</code>: 3,000-16,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>io1</code>: 100-64,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>io2</code>: 100-64,000 IOPS</p>
+   *             </li>
+   *          </ul>
+   *         <p>For <code>io1</code> and <code>io2</code> volumes, we guarantee 64,000 IOPS
+   *             only for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a>. Other instance families guarantee performance up
+   *             to 32,000 IOPS.</p>
+   *         <p>This parameter is supported for <code>io1</code>, <code>io2</code>, and <code>gp3</code> volumes only. This parameter is not supported for
+   *             <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for
+   *             encryption.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following
+   *             are the supported volumes sizes for each volume type:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>gp2</code> and <code>gp3</code>: 1-16,384</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io1</code> and <code>io2</code>: 4-16,384</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>st1</code> and <code>sc1</code>: 125-16,384</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>: 1-1,024</p>
+   *             </li>
+   *          </ul>
+   */
+  VolumeSize?: number;
+
+  /**
+   * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
+   *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  VolumeType?: VolumeType | string;
+
+  /**
+   * <p>The throughput to provision for a <code>gp3</code> volume, with a maximum of 1,000 MiB/s.</p>
+   *     	    <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   */
+  Throughput?: number;
+}
+
+export namespace LaunchTemplateEbsBlockDeviceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateEbsBlockDeviceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a block device mapping.</p>
+ */
+export interface LaunchTemplateBlockDeviceMappingRequest {
+  /**
+   * <p>The device name (for example, /dev/sdh or xvdh).</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0.
+   *             An instance type with 2 available instance store volumes can specify mappings for ephemeral0
+   *             and ephemeral1. The number of available instance store volumes depends on the instance type.
+   *             After you connect to the instance, you must mount the volume.</p>
+   */
+  VirtualName?: string;
+
+  /**
+   * <p>Parameters used to automatically set up EBS volumes when the instance is launched.</p>
+   */
+  Ebs?: LaunchTemplateEbsBlockDeviceRequest;
+
+  /**
+   * <p>To omit the device from the block device mapping, specify an empty string.</p>
+   */
+  NoDevice?: string;
+}
+
+export namespace LaunchTemplateBlockDeviceMappingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateBlockDeviceMappingRequest): any => ({
+    ...obj,
+  });
+}
+
+export type CapacityReservationPreference = "none" | "open";
+
+/**
+ * <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
+ */
+export interface CapacityReservationTarget {
+  /**
+   * <p>The ID of the Capacity Reservation in which to run the instance.</p>
+   */
+  CapacityReservationId?: string;
+
+  /**
+   * <p>The ARN of the Capacity Reservation resource group in which to run the instance.</p>
+   */
+  CapacityReservationResourceGroupArn?: string;
+}
+
+export namespace CapacityReservationTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CapacityReservationTarget): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an instance's Capacity Reservation targeting option. You can specify only one option at a time. Use the
+ * 			<code>CapacityReservationPreference</code> parameter to configure the instance to run in On-Demand capacity or
+ * 			to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+ * 			Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation or
+ * 			a Capacity Reservation group.</p>
+ */
+export interface LaunchTemplateCapacityReservationSpecificationRequest {
+  /**
+   * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes
+   * 				(instance type, platform, Availability Zone).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The instance
+   * 				runs in On-Demand capacity.</p>
+   *             </li>
+   *          </ul>
+   */
+  CapacityReservationPreference?: CapacityReservationPreference | string;
+
+  /**
+   * <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
+   */
+  CapacityReservationTarget?: CapacityReservationTarget;
+}
+
+export namespace LaunchTemplateCapacityReservationSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateCapacityReservationSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The CPU options for the instance. Both the core count and threads per core
+ * 			must be specified in the request.</p>
+ */
+export interface LaunchTemplateCpuOptionsRequest {
+  /**
+   * <p>The number of CPU cores for the instance.</p>
+   */
+  CoreCount?: number;
+
+  /**
+   * <p>The number of threads per CPU core. To disable multithreading
+   * 			for the instance, specify a value of 1. Otherwise, specify the default value of 2.</p>
+   */
+  ThreadsPerCore?: number;
+}
+
+export namespace LaunchTemplateCpuOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateCpuOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The credit option for CPU usage of a T2, T3, or T3a instance.</p>
+ */
+export interface CreditSpecificationRequest {
+  /**
+   * <p>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are
+   *                 <code>standard</code> and <code>unlimited</code>.</p>
+   */
+  CpuCredits: string | undefined;
+}
+
+export namespace CreditSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreditSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A specification for an Elastic Graphics accelerator.</p>
+ */
+export interface ElasticGpuSpecification {
+  /**
+   * <p>The type of Elastic Graphics accelerator. For more information about the values to specify for
+   *             <code>Type</code>, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics">Elastic Graphics Basics</a>, specifically the Elastic Graphics accelerator column, in the <i>Amazon Elastic Compute Cloud User Guide for Windows
+   *                 Instances</i>.</p>
+   */
+  Type: string | undefined;
+}
+
+export namespace ElasticGpuSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ElasticGpuSpecification): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>
@@ -9200,243 +9550,6 @@ export namespace DeleteFleetSuccessItem {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteFleetSuccessItem): any => ({
-    ...obj,
-  });
-}
-
-export enum DeleteFleetErrorCode {
-  FLEET_ID_DOES_NOT_EXIST = "fleetIdDoesNotExist",
-  FLEET_ID_MALFORMED = "fleetIdMalformed",
-  FLEET_NOT_IN_DELETABLE_STATE = "fleetNotInDeletableState",
-  UNEXPECTED_ERROR = "unexpectedError",
-}
-
-/**
- * <p>Describes an EC2 Fleet error.</p>
- */
-export interface DeleteFleetError {
-  /**
-   * <p>The error code.</p>
-   */
-  Code?: DeleteFleetErrorCode | string;
-
-  /**
-   * <p>The description for the error code.</p>
-   */
-  Message?: string;
-}
-
-export namespace DeleteFleetError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an EC2 Fleet that was not successfully deleted.</p>
- */
-export interface DeleteFleetErrorItem {
-  /**
-   * <p>The error.</p>
-   */
-  Error?: DeleteFleetError;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   */
-  FleetId?: string;
-}
-
-export namespace DeleteFleetErrorItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetErrorItem): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteFleetsResult {
-  /**
-   * <p>Information about the EC2 Fleets that are successfully deleted.</p>
-   */
-  SuccessfulFleetDeletions?: DeleteFleetSuccessItem[];
-
-  /**
-   * <p>Information about the EC2 Fleets that are not successfully deleted.</p>
-   */
-  UnsuccessfulFleetDeletions?: DeleteFleetErrorItem[];
-}
-
-export namespace DeleteFleetsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteFlowLogsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more flow log IDs.</p>
-   *         <p>Constraint: Maximum of 1000 flow log IDs.</p>
-   */
-  FlowLogIds: string[] | undefined;
-}
-
-export namespace DeleteFlowLogsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFlowLogsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteFlowLogsResult {
-  /**
-   * <p>Information about the flow logs that could not be deleted successfully.</p>
-   */
-  Unsuccessful?: UnsuccessfulItem[];
-}
-
-export namespace DeleteFlowLogsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFlowLogsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteFpgaImageRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the AFI.</p>
-   */
-  FpgaImageId: string | undefined;
-}
-
-export namespace DeleteFpgaImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFpgaImageRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteFpgaImageResult {
-  /**
-   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace DeleteFpgaImageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFpgaImageResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteInternetGatewayRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the internet gateway.</p>
-   */
-  InternetGatewayId: string | undefined;
-}
-
-export namespace DeleteInternetGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInternetGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteKeyPairRequest {
-  /**
-   * <p>The name of the key pair.</p>
-   */
-  KeyName?: string;
-
-  /**
-   * <p>The ID of the key pair.</p>
-   */
-  KeyPairId?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteKeyPairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKeyPairRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteLaunchTemplateRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the launch template. You must specify either the launch template ID or
-   *             launch template name in the request.</p>
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template. You must specify either the launch template ID or
-   *             launch template name in the request.</p>
-   */
-  LaunchTemplateName?: string;
-}
-
-export namespace DeleteLaunchTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchTemplateRequest): any => ({
     ...obj,
   });
 }

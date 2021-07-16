@@ -22,7 +22,7 @@ export interface GetAssessmentFrameworkCommandOutput extends GetAssessmentFramew
 
 /**
  * <p>
- * Returns a framework from AWS Audit Manager.
+ *    Returns a framework from Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

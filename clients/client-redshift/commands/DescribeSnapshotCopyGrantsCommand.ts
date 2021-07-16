@@ -1,6 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeSnapshotCopyGrantsMessage } from "../models/models_0";
-import { SnapshotCopyGrantMessage } from "../models/models_1";
+import { DescribeSnapshotCopyGrantsMessage, SnapshotCopyGrantMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeSnapshotCopyGrantsCommand,
   serializeAws_queryDescribeSnapshotCopyGrantsCommand,
@@ -22,7 +21,7 @@ export interface DescribeSnapshotCopyGrantsCommandInput extends DescribeSnapshot
 export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGrantMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of snapshot copy grants owned by the AWS account in the destination
+ * <p>Returns a list of snapshot copy grants owned by the account in the destination
  *             region.</p>
  *         <p>
  * For more information about managing snapshot copy grants, go to

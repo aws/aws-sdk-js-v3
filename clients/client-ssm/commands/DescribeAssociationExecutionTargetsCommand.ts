@@ -26,8 +26,7 @@ export interface DescribeAssociationExecutionTargetsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Use this API action to view information about a specific execution of a specific
- *    association.</p>
+ * <p>Views information about a specific execution of a specific association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

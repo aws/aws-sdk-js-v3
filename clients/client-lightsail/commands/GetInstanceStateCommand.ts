@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetInstanceStateRequest, GetInstanceStateResult } from "../models/models_0";
+import { GetInstanceStateRequest, GetInstanceStateResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetInstanceStateCommand,
   serializeAws_json1_1GetInstanceStateCommand,

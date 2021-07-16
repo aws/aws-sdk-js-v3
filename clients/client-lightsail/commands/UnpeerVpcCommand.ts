@@ -18,7 +18,7 @@ export interface UnpeerVpcCommandInput extends UnpeerVpcRequest {}
 export interface UnpeerVpcCommandOutput extends UnpeerVpcResult, __MetadataBearer {}
 
 /**
- * <p>Attempts to unpeer the Lightsail VPC from the user's default VPC.</p>
+ * <p>Unpeers the Lightsail VPC from the user's default VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -2093,6 +2093,31 @@ export namespace BatchGetTriggersRequest {
   });
 }
 
+/**
+ * <p>Batch condition that must be met (specified number of events received or batch time window expired)
+ *       before EventBridge event trigger fires.</p>
+ */
+export interface EventBatchingCondition {
+  /**
+   * <p>Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.</p>
+   */
+  BatchSize: number | undefined;
+
+  /**
+   * <p>Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received.</p>
+   */
+  BatchWindow?: number;
+}
+
+export namespace EventBatchingCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EventBatchingCondition): any => ({
+    ...obj,
+  });
+}
+
 export enum CrawlState {
   CANCELLED = "CANCELLED",
   CANCELLING = "CANCELLING",
@@ -2198,6 +2223,7 @@ export enum TriggerState {
 
 export enum TriggerType {
   CONDITIONAL = "CONDITIONAL",
+  EVENT = "EVENT",
   ON_DEMAND = "ON_DEMAND",
   SCHEDULED = "SCHEDULED",
 }
@@ -2253,6 +2279,12 @@ export interface Trigger {
    * <p>The predicate of this trigger, which defines when it will fire.</p>
    */
   Predicate?: Predicate;
+
+  /**
+   * <p>Batch condition that must be met (specified number of events received or batch time window expired)
+   *       before EventBridge event trigger fires.</p>
+   */
+  EventBatchingCondition?: EventBatchingCondition;
 }
 
 export namespace Trigger {
@@ -2307,8 +2339,8 @@ export namespace BatchGetWorkflowsRequest {
 }
 
 /**
- * <p>An edge represents a directed connection between two Glue components that are part of the workflow the
- *       edge belongs to.</p>
+ * <p>An edge represents a directed connection between two components
+ *       on a workflow graph.</p>
  */
 export interface Edge {
   /**
@@ -2643,7 +2675,7 @@ export enum NodeType {
 }
 
 /**
- * <p>A node represents an Glue component such as a trigger, or job, etc., that is part of a workflow.</p>
+ * <p>A node represents an Glue component (trigger, crawler, or job) on a workflow graph.</p>
  */
 export interface Node {
   /**
@@ -2707,6 +2739,32 @@ export namespace WorkflowGraph {
    * @internal
    */
   export const filterSensitiveLog = (obj: WorkflowGraph): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The batch condition that started the workflow run. Either the number of events in the batch size arrived,
+ *       in which case the BatchSize member is non-zero, or the batch window expired, in which case the BatchWindow
+ *       member is non-zero.</p>
+ */
+export interface StartingEventBatchCondition {
+  /**
+   * <p>Number of events in the batch.</p>
+   */
+  BatchSize?: number;
+
+  /**
+   * <p>Duration of the batch window in seconds.</p>
+   */
+  BatchWindow?: number;
+}
+
+export namespace StartingEventBatchCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartingEventBatchCondition): any => ({
     ...obj,
   });
 }
@@ -2817,6 +2875,11 @@ export interface WorkflowRun {
    *       connections between them as edges.</p>
    */
   Graph?: WorkflowGraph;
+
+  /**
+   * <p>The batch condition that started the workflow run.</p>
+   */
+  StartingEventBatchCondition?: StartingEventBatchCondition;
 }
 
 export namespace WorkflowRun {
@@ -2829,12 +2892,13 @@ export namespace WorkflowRun {
 }
 
 /**
- * <p>A workflow represents a flow in which Glue components should be run to complete a logical
- *       task.</p>
+ * <p>A workflow is a collection of multiple dependent Glue
+ *       jobs and crawlers that are run to complete a complex ETL task. A
+ *       workflow manages the execution and monitoring of all its jobs and crawlers.</p>
  */
 export interface Workflow {
   /**
-   * <p>The name of the workflow representing the flow.</p>
+   * <p>The name of the workflow.</p>
    */
   Name?: string;
 
@@ -2844,7 +2908,9 @@ export interface Workflow {
   Description?: string;
 
   /**
-   * <p>A collection of properties to be used as part of each execution of the workflow.</p>
+   * <p>A collection of properties to be used as part of each execution of the workflow.
+   *       The run properties are made available to each job in the workflow. A job can modify
+   *       the properties for the next jobs in the flow.</p>
    */
   DefaultRunProperties?: { [key: string]: string };
 
@@ -5566,6 +5632,12 @@ export interface CreateTriggerRequest {
    *       <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide. </p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>Batch condition that must be met (specified number of events received or batch time window expired)
+   *       before EventBridge event trigger fires.</p>
+   */
+  EventBatchingCondition?: EventBatchingCondition;
 }
 
 export namespace CreateTriggerRequest {
@@ -8469,76 +8541,6 @@ export namespace GetJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJobBookmarkRequest {
-  /**
-   * <p>The name of the job in question.</p>
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The unique run identifier associated with this job run.</p>
-   */
-  RunId?: string;
-}
-
-export namespace GetJobBookmarkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobBookmarkRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Defines a point that a job can resume processing.</p>
- */
-export interface JobBookmarkEntry {
-  /**
-   * <p>The name of the job in question.</p>
-   */
-  JobName?: string;
-
-  /**
-   * <p>The version of the job.</p>
-   */
-  Version?: number;
-
-  /**
-   * <p>The run ID number.</p>
-   */
-  Run?: number;
-
-  /**
-   * <p>The attempt ID number.</p>
-   */
-  Attempt?: number;
-
-  /**
-   * <p>The unique run identifier associated with the previous job run.</p>
-   */
-  PreviousRunId?: string;
-
-  /**
-   * <p>The run ID number.</p>
-   */
-  RunId?: string;
-
-  /**
-   * <p>The bookmark itself.</p>
-   */
-  JobBookmark?: string;
-}
-
-export namespace JobBookmarkEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobBookmarkEntry): any => ({
     ...obj,
   });
 }

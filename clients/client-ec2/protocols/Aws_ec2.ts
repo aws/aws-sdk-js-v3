@@ -55,6 +55,10 @@ import {
   AssociateIamInstanceProfileCommandOutput,
 } from "../commands/AssociateIamInstanceProfileCommand";
 import {
+  AssociateInstanceEventWindowCommandInput,
+  AssociateInstanceEventWindowCommandOutput,
+} from "../commands/AssociateInstanceEventWindowCommand";
+import {
   AssociateRouteTableCommandInput,
   AssociateRouteTableCommandOutput,
 } from "../commands/AssociateRouteTableCommand";
@@ -169,6 +173,10 @@ import { CreateFleetCommandInput, CreateFleetCommandOutput } from "../commands/C
 import { CreateFlowLogsCommandInput, CreateFlowLogsCommandOutput } from "../commands/CreateFlowLogsCommand";
 import { CreateFpgaImageCommandInput, CreateFpgaImageCommandOutput } from "../commands/CreateFpgaImageCommand";
 import { CreateImageCommandInput, CreateImageCommandOutput } from "../commands/CreateImageCommand";
+import {
+  CreateInstanceEventWindowCommandInput,
+  CreateInstanceEventWindowCommandOutput,
+} from "../commands/CreateInstanceEventWindowCommand";
 import {
   CreateInstanceExportTaskCommandInput,
   CreateInstanceExportTaskCommandOutput,
@@ -350,6 +358,10 @@ import {
 import { DeleteFleetsCommandInput, DeleteFleetsCommandOutput } from "../commands/DeleteFleetsCommand";
 import { DeleteFlowLogsCommandInput, DeleteFlowLogsCommandOutput } from "../commands/DeleteFlowLogsCommand";
 import { DeleteFpgaImageCommandInput, DeleteFpgaImageCommandOutput } from "../commands/DeleteFpgaImageCommand";
+import {
+  DeleteInstanceEventWindowCommandInput,
+  DeleteInstanceEventWindowCommandOutput,
+} from "../commands/DeleteInstanceEventWindowCommand";
 import {
   DeleteInternetGatewayCommandInput,
   DeleteInternetGatewayCommandOutput,
@@ -656,6 +668,10 @@ import {
   DescribeInstanceEventNotificationAttributesCommandInput,
   DescribeInstanceEventNotificationAttributesCommandOutput,
 } from "../commands/DescribeInstanceEventNotificationAttributesCommand";
+import {
+  DescribeInstanceEventWindowsCommandInput,
+  DescribeInstanceEventWindowsCommandOutput,
+} from "../commands/DescribeInstanceEventWindowsCommand";
 import {
   DescribeInstanceStatusCommandInput,
   DescribeInstanceStatusCommandOutput,
@@ -1016,6 +1032,10 @@ import {
   DisassociateIamInstanceProfileCommandOutput,
 } from "../commands/DisassociateIamInstanceProfileCommand";
 import {
+  DisassociateInstanceEventWindowCommandInput,
+  DisassociateInstanceEventWindowCommandOutput,
+} from "../commands/DisassociateInstanceEventWindowCommand";
+import {
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
 } from "../commands/DisassociateRouteTableCommand";
@@ -1232,6 +1252,10 @@ import {
   ModifyInstanceEventStartTimeCommandInput,
   ModifyInstanceEventStartTimeCommandOutput,
 } from "../commands/ModifyInstanceEventStartTimeCommand";
+import {
+  ModifyInstanceEventWindowCommandInput,
+  ModifyInstanceEventWindowCommandOutput,
+} from "../commands/ModifyInstanceEventWindowCommand";
 import {
   ModifyInstanceMetadataOptionsCommandInput,
   ModifyInstanceMetadataOptionsCommandOutput,
@@ -1563,6 +1587,8 @@ import {
   AssociateEnclaveCertificateIamRoleResult,
   AssociateIamInstanceProfileRequest,
   AssociateIamInstanceProfileResult,
+  AssociateInstanceEventWindowRequest,
+  AssociateInstanceEventWindowResult,
   AssociateRouteTableRequest,
   AssociateRouteTableResult,
   AssociateSubnetCidrBlockRequest,
@@ -1617,7 +1643,6 @@ import {
   CancelledSpotInstanceRequest,
   CapacityReservation,
   CapacityReservationOptionsRequest,
-  CapacityReservationTarget,
   CarrierGateway,
   CertificateAuthenticationRequest,
   CidrBlock,
@@ -1663,19 +1688,17 @@ import {
   CreateFpgaImageResult,
   CreateImageRequest,
   CreateImageResult,
+  CreateInstanceEventWindowRequest,
+  CreateInstanceEventWindowResult,
   CreateInstanceExportTaskRequest,
   CreateInstanceExportTaskResult,
   CreateInternetGatewayRequest,
-  CreateInternetGatewayResult,
-  CreateKeyPairRequest,
-  CreditSpecificationRequest,
   CustomerGateway,
   DhcpConfiguration,
   DhcpOptions,
   DirectoryServiceAuthenticationRequest,
   EbsBlockDevice,
   EgressOnlyInternetGateway,
-  ElasticGpuSpecification,
   ExportTask,
   ExportToS3Task,
   ExportToS3TaskSpecification,
@@ -1691,6 +1714,11 @@ import {
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   InstanceCount,
+  InstanceEventWindow,
+  InstanceEventWindowAssociationRequest,
+  InstanceEventWindowAssociationTarget,
+  InstanceEventWindowTimeRange,
+  InstanceEventWindowTimeRangeRequest,
   InstanceExportDetails,
   InternetGateway,
   InternetGatewayAttachment,
@@ -1698,12 +1726,7 @@ import {
   IpRange,
   Ipv6CidrBlock,
   Ipv6Range,
-  KeyPair,
   LaunchTemplateAndOverridesResponse,
-  LaunchTemplateBlockDeviceMappingRequest,
-  LaunchTemplateCapacityReservationSpecificationRequest,
-  LaunchTemplateCpuOptionsRequest,
-  LaunchTemplateEbsBlockDeviceRequest,
   NewDhcpConfiguration,
   OnDemandOptionsRequest,
   PeeringAttachmentStatus,
@@ -1751,8 +1774,11 @@ import {
   _InstanceType,
 } from "../models/models_0";
 import {
+  CapacityReservationTarget,
   CapacityReservationTargetResponse,
   ConnectionNotification,
+  CreateInternetGatewayResult,
+  CreateKeyPairRequest,
   CreateLaunchTemplateRequest,
   CreateLaunchTemplateResult,
   CreateLaunchTemplateVersionRequest,
@@ -1844,6 +1870,7 @@ import {
   CreateVpnGatewayRequest,
   CreateVpnGatewayResult,
   CreditSpecification,
+  CreditSpecificationRequest,
   DeleteCarrierGatewayRequest,
   DeleteCarrierGatewayResult,
   DeleteClientVpnEndpointRequest,
@@ -1854,19 +1881,10 @@ import {
   DeleteDhcpOptionsRequest,
   DeleteEgressOnlyInternetGatewayRequest,
   DeleteEgressOnlyInternetGatewayResult,
-  DeleteFleetError,
-  DeleteFleetErrorItem,
   DeleteFleetSuccessItem,
   DeleteFleetsRequest,
-  DeleteFleetsResult,
-  DeleteFlowLogsRequest,
-  DeleteFlowLogsResult,
-  DeleteFpgaImageRequest,
-  DeleteFpgaImageResult,
-  DeleteInternetGatewayRequest,
-  DeleteKeyPairRequest,
-  DeleteLaunchTemplateRequest,
   DnsEntry,
+  ElasticGpuSpecification,
   ElasticGpuSpecificationResponse,
   GroupIdentifier,
   IKEVersionsListValue,
@@ -1875,12 +1893,17 @@ import {
   InstanceIpv6Address,
   InstanceIpv6AddressRequest,
   InstanceSpecification,
+  KeyPair,
   LastError,
   LaunchTemplate,
   LaunchTemplateBlockDeviceMapping,
+  LaunchTemplateBlockDeviceMappingRequest,
+  LaunchTemplateCapacityReservationSpecificationRequest,
   LaunchTemplateCapacityReservationSpecificationResponse,
   LaunchTemplateCpuOptions,
+  LaunchTemplateCpuOptionsRequest,
   LaunchTemplateEbsBlockDevice,
+  LaunchTemplateEbsBlockDeviceRequest,
   LaunchTemplateElasticInferenceAccelerator,
   LaunchTemplateElasticInferenceAcceleratorResponse,
   LaunchTemplateEnclaveOptions,
@@ -2013,6 +2036,18 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeleteFleetError,
+  DeleteFleetErrorItem,
+  DeleteFleetsResult,
+  DeleteFlowLogsRequest,
+  DeleteFlowLogsResult,
+  DeleteFpgaImageRequest,
+  DeleteFpgaImageResult,
+  DeleteInstanceEventWindowRequest,
+  DeleteInstanceEventWindowResult,
+  DeleteInternetGatewayRequest,
+  DeleteKeyPairRequest,
+  DeleteLaunchTemplateRequest,
   DeleteLaunchTemplateResult,
   DeleteLaunchTemplateVersionsRequest,
   DeleteLaunchTemplateVersionsResponseErrorItem,
@@ -2182,9 +2217,9 @@ import {
   DescribeInstanceCreditSpecificationsResult,
   DescribeInstanceEventNotificationAttributesRequest,
   DescribeInstanceEventNotificationAttributesResult,
-  DescribeInstanceStatusRequest,
+  DescribeInstanceEventWindowsRequest,
+  DescribeInstanceEventWindowsResult,
   DescribeInstancesRequest,
-  DescribeInstancesResult,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -2224,27 +2259,18 @@ import {
   ImportInstanceVolumeDetailItem,
   ImportSnapshotTask,
   ImportVolumeTaskDetails,
-  Instance,
   InstanceAttribute,
   InstanceBlockDeviceMapping,
   InstanceCapacity,
   InstanceCreditSpecification,
-  InstanceMetadataOptionsResponse,
-  InstanceNetworkInterface,
-  InstanceNetworkInterfaceAssociation,
-  InstanceNetworkInterfaceAttachment,
-  InstancePrivateIpAddress,
-  InstanceState,
-  InstanceStatusEvent,
+  InstanceEventWindowStateChange,
   InstanceTagNotificationAttribute,
   LaunchPermission,
   LicenseConfiguration,
   LoadPermission,
-  Monitoring,
   OnDemandOptions,
   PciId,
   ProductCode,
-  Reservation,
   ResponseError,
   SnapshotDetail,
   SnapshotTaskDetail,
@@ -2272,11 +2298,13 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeInstanceStatusRequest,
   DescribeInstanceStatusResult,
   DescribeInstanceTypeOfferingsRequest,
   DescribeInstanceTypeOfferingsResult,
   DescribeInstanceTypesRequest,
   DescribeInstanceTypesResult,
+  DescribeInstancesResult,
   DescribeInternetGatewaysRequest,
   DescribeInternetGatewaysResult,
   DescribeIpv6PoolsRequest,
@@ -2415,22 +2443,8 @@ import {
   DescribeVpcEndpointConnectionNotificationsResult,
   DescribeVpcEndpointConnectionsRequest,
   DescribeVpcEndpointConnectionsResult,
-  DescribeVpcEndpointServiceConfigurationsRequest,
-  DescribeVpcEndpointServiceConfigurationsResult,
-  DescribeVpcEndpointServicePermissionsRequest,
-  DescribeVpcEndpointServicePermissionsResult,
-  DescribeVpcEndpointServicesRequest,
-  DescribeVpcEndpointServicesResult,
   DescribeVpcEndpointsRequest,
   DescribeVpcEndpointsResult,
-  DescribeVpcPeeringConnectionsRequest,
-  DescribeVpcPeeringConnectionsResult,
-  DescribeVpcsRequest,
-  DescribeVpcsResult,
-  DescribeVpnConnectionsRequest,
-  DescribeVpnConnectionsResult,
-  DescribeVpnGatewaysRequest,
-  DescribeVpnGatewaysResult,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -2445,9 +2459,17 @@ import {
   HistoryRecord,
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
+  Instance,
+  InstanceMetadataOptionsResponse,
+  InstanceNetworkInterface,
+  InstanceNetworkInterfaceAssociation,
+  InstanceNetworkInterfaceAttachment,
   InstanceNetworkInterfaceSpecification,
+  InstancePrivateIpAddress,
+  InstanceState,
   InstanceStatus,
   InstanceStatusDetails,
+  InstanceStatusEvent,
   InstanceStatusSummary,
   InstanceStorageInfo,
   InstanceTypeInfo,
@@ -2464,6 +2486,7 @@ import {
   LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
   MemoryInfo,
+  Monitoring,
   MovingAddressStatus,
   NetworkCardInfo,
   NetworkInfo,
@@ -2475,12 +2498,12 @@ import {
   PrefixList,
   PricingDetail,
   PrincipalIdFormat,
-  PrivateDnsDetails,
   ProcessorInfo,
   PublicIpv4Pool,
   PublicIpv4PoolRange,
   RecurringCharge,
   Region,
+  Reservation,
   ReservedInstances,
   ReservedInstancesConfiguration,
   ReservedInstancesId,
@@ -2495,7 +2518,6 @@ import {
   ScheduledInstanceRecurrenceRequest,
   SecurityGroup,
   SecurityGroupReference,
-  ServiceDetail,
   SlotDateTimeRangeRequest,
   SlotStartTimeRangeRequest,
   SpotCapacityRebalance,
@@ -2535,11 +2557,24 @@ import {
   BlobAttributeValue,
   CapacityReservationGroup,
   CapacityReservationSpecification,
-  CidrAuthorizationContext,
   ClientCertificateRevocationListStatus,
   ClientData,
   CoipAddressUsage,
   CreateVolumePermissionModifications,
+  DescribeVpcEndpointServiceConfigurationsRequest,
+  DescribeVpcEndpointServiceConfigurationsResult,
+  DescribeVpcEndpointServicePermissionsRequest,
+  DescribeVpcEndpointServicePermissionsResult,
+  DescribeVpcEndpointServicesRequest,
+  DescribeVpcEndpointServicesResult,
+  DescribeVpcPeeringConnectionsRequest,
+  DescribeVpcPeeringConnectionsResult,
+  DescribeVpcsRequest,
+  DescribeVpcsResult,
+  DescribeVpnConnectionsRequest,
+  DescribeVpnConnectionsResult,
+  DescribeVpnGatewaysRequest,
+  DescribeVpnGatewaysResult,
   DetachClassicLinkVpcRequest,
   DetachClassicLinkVpcResult,
   DetachInternetGatewayRequest,
@@ -2572,6 +2607,8 @@ import {
   DisassociateEnclaveCertificateIamRoleResult,
   DisassociateIamInstanceProfileRequest,
   DisassociateIamInstanceProfileResult,
+  DisassociateInstanceEventWindowRequest,
+  DisassociateInstanceEventWindowResult,
   DisassociateRouteTableRequest,
   DisassociateSubnetCidrBlockRequest,
   DisassociateSubnetCidrBlockResult,
@@ -2679,6 +2716,7 @@ import {
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
+  InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceMonitoring,
   InstanceUsage,
@@ -2715,6 +2753,8 @@ import {
   ModifyInstanceCreditSpecificationResult,
   ModifyInstanceEventStartTimeRequest,
   ModifyInstanceEventStartTimeResult,
+  ModifyInstanceEventWindowRequest,
+  ModifyInstanceEventWindowResult,
   ModifyInstanceMetadataOptionsRequest,
   ModifyInstanceMetadataOptionsResult,
   ModifyInstancePlacementRequest,
@@ -2774,15 +2814,50 @@ import {
   MonitorInstancesRequest,
   MonitorInstancesResult,
   MoveAddressToVpcRequest,
-  MoveAddressToVpcResult,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
   PrefixListAssociation,
   PrefixListEntry,
+  PrivateDnsDetails,
+  Purchase,
+  RemovePrefixListEntry,
+  ReservationValue,
+  ReservedInstanceReservationValue,
+  SecurityGroupRuleRequest,
+  SecurityGroupRuleUpdate,
+  ServiceDetail,
+  SnapshotDiskContainer,
+  SuccessfulInstanceCreditSpecificationItem,
+  TargetConfiguration,
+  TargetReservationValue,
+  TrafficMirrorFilterRuleField,
+  TrafficMirrorSessionField,
+  TransitGatewayAttachmentPropagation,
+  TransitGatewayMulticastDomainAssociation,
+  TransitGatewayPropagation,
+  TransitGatewayRouteTableAssociation,
+  TransitGatewayRouteTablePropagation,
+  UnsuccessfulInstanceCreditSpecificationItem,
+  UnsuccessfulInstanceCreditSpecificationItemError,
+  UserBucket,
+  UserData,
+  VolumeDetail,
+} from "../models/models_4";
+import {
+  CidrAuthorizationContext,
+  CpuOptionsRequest,
+  ElasticInferenceAccelerator,
+  EnclaveOptionsRequest,
+  HibernationOptionsRequest,
+  InstanceMarketOptionsRequest,
+  InstanceMetadataOptionsRequest,
+  InstanceStateChange,
+  LaunchTemplateSpecification,
+  LicenseConfigurationRequest,
+  MoveAddressToVpcResult,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
-  Purchase,
   PurchaseHostReservationRequest,
   PurchaseHostReservationResult,
   PurchaseRequest,
@@ -2797,40 +2872,6 @@ import {
   RegisterInstanceEventNotificationAttributesResult,
   RegisterInstanceTagAttributeRequest,
   RegisterTransitGatewayMulticastGroupMembersRequest,
-  RemovePrefixListEntry,
-  ReservationValue,
-  ReservedInstanceLimitPrice,
-  ReservedInstanceReservationValue,
-  SecurityGroupRuleRequest,
-  SecurityGroupRuleUpdate,
-  SnapshotDiskContainer,
-  SuccessfulInstanceCreditSpecificationItem,
-  TargetConfiguration,
-  TargetReservationValue,
-  TrafficMirrorFilterRuleField,
-  TrafficMirrorSessionField,
-  TransitGatewayAttachmentPropagation,
-  TransitGatewayMulticastDomainAssociation,
-  TransitGatewayMulticastRegisteredGroupMembers,
-  TransitGatewayPropagation,
-  TransitGatewayRouteTableAssociation,
-  TransitGatewayRouteTablePropagation,
-  UnsuccessfulInstanceCreditSpecificationItem,
-  UnsuccessfulInstanceCreditSpecificationItemError,
-  UserBucket,
-  UserData,
-  VolumeDetail,
-} from "../models/models_4";
-import {
-  CpuOptionsRequest,
-  ElasticInferenceAccelerator,
-  EnclaveOptionsRequest,
-  HibernationOptionsRequest,
-  InstanceMarketOptionsRequest,
-  InstanceMetadataOptionsRequest,
-  InstanceStateChange,
-  LaunchTemplateSpecification,
-  LicenseConfigurationRequest,
   RegisterTransitGatewayMulticastGroupMembersResult,
   RegisterTransitGatewayMulticastGroupSourcesRequest,
   RegisterTransitGatewayMulticastGroupSourcesResult,
@@ -2864,6 +2905,7 @@ import {
   RequestSpotInstancesRequest,
   RequestSpotInstancesResult,
   RequestSpotLaunchSpecification,
+  ReservedInstanceLimitPrice,
   ResetAddressAttributeRequest,
   ResetAddressAttributeResult,
   ResetEbsDefaultKmsKeyIdRequest,
@@ -2919,6 +2961,7 @@ import {
   TerminateInstancesRequest,
   TerminateInstancesResult,
   TransitGatewayMulticastGroup,
+  TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
   UnassignIpv6AddressesRequest,
   UnassignIpv6AddressesResult,
@@ -3220,6 +3263,22 @@ export const serializeAws_ec2AssociateIamInstanceProfileCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2AssociateIamInstanceProfileRequest(input, context),
     Action: "AssociateIamInstanceProfile",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2AssociateInstanceEventWindowCommand = async (
+  input: AssociateInstanceEventWindowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2AssociateInstanceEventWindowRequest(input, context),
+    Action: "AssociateInstanceEventWindow",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3860,6 +3919,22 @@ export const serializeAws_ec2CreateImageCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2CreateImageRequest(input, context),
     Action: "CreateImage",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CreateInstanceEventWindowCommand = async (
+  input: CreateInstanceEventWindowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateInstanceEventWindowRequest(input, context),
+    Action: "CreateInstanceEventWindow",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4788,6 +4863,22 @@ export const serializeAws_ec2DeleteFpgaImageCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DeleteFpgaImageRequest(input, context),
     Action: "DeleteFpgaImage",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteInstanceEventWindowCommand = async (
+  input: DeleteInstanceEventWindowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteInstanceEventWindowRequest(input, context),
+    Action: "DeleteInstanceEventWindow",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6276,6 +6367,22 @@ export const serializeAws_ec2DescribeInstanceEventNotificationAttributesCommand 
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DescribeInstanceEventNotificationAttributesRequest(input, context),
     Action: "DescribeInstanceEventNotificationAttributes",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DescribeInstanceEventWindowsCommand = async (
+  input: DescribeInstanceEventWindowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeInstanceEventWindowsRequest(input, context),
+    Action: "DescribeInstanceEventWindows",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7849,6 +7956,22 @@ export const serializeAws_ec2DisassociateIamInstanceProfileCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DisassociateInstanceEventWindowCommand = async (
+  input: DisassociateInstanceEventWindowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DisassociateInstanceEventWindowRequest(input, context),
+    Action: "DisassociateInstanceEventWindow",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DisassociateRouteTableCommand = async (
   input: DisassociateRouteTableCommandInput,
   context: __SerdeContext
@@ -8868,6 +8991,22 @@ export const serializeAws_ec2ModifyInstanceEventStartTimeCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2ModifyInstanceEventStartTimeRequest(input, context),
     Action: "ModifyInstanceEventStartTime",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyInstanceEventWindowCommand = async (
+  input: ModifyInstanceEventWindowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyInstanceEventWindowRequest(input, context),
+    Action: "ModifyInstanceEventWindow",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -11028,6 +11167,52 @@ const deserializeAws_ec2AssociateIamInstanceProfileCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2AssociateInstanceEventWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateInstanceEventWindowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2AssociateInstanceEventWindowCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2AssociateInstanceEventWindowResult(data, context);
+  const response: AssociateInstanceEventWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2AssociateInstanceEventWindowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateInstanceEventWindowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2AssociateRouteTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12834,6 +13019,52 @@ const deserializeAws_ec2CreateImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2CreateInstanceEventWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInstanceEventWindowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateInstanceEventWindowCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateInstanceEventWindowResult(data, context);
+  const response: CreateInstanceEventWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateInstanceEventWindowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInstanceEventWindowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -15487,6 +15718,52 @@ const deserializeAws_ec2DeleteFpgaImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFpgaImageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DeleteInstanceEventWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInstanceEventWindowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteInstanceEventWindowCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteInstanceEventWindowResult(data, context);
+  const response: DeleteInstanceEventWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteInstanceEventWindowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInstanceEventWindowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -19708,6 +19985,52 @@ const deserializeAws_ec2DescribeInstanceEventNotificationAttributesCommandError 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInstanceEventNotificationAttributesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DescribeInstanceEventWindowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceEventWindowsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeInstanceEventWindowsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeInstanceEventWindowsResult(data, context);
+  const response: DescribeInstanceEventWindowsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeInstanceEventWindowsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceEventWindowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -24229,6 +24552,52 @@ const deserializeAws_ec2DisassociateIamInstanceProfileCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2DisassociateInstanceEventWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateInstanceEventWindowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DisassociateInstanceEventWindowCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DisassociateInstanceEventWindowResult(data, context);
+  const response: DisassociateInstanceEventWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DisassociateInstanceEventWindowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateInstanceEventWindowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2DisassociateRouteTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -27127,6 +27496,52 @@ const deserializeAws_ec2ModifyInstanceEventStartTimeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyInstanceEventStartTimeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2ModifyInstanceEventWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyInstanceEventWindowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyInstanceEventWindowCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyInstanceEventWindowResult(data, context);
+  const response: ModifyInstanceEventWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyInstanceEventWindowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyInstanceEventWindowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -31498,6 +31913,27 @@ const serializeAws_ec2AssociateIamInstanceProfileRequest = (
   return entries;
 };
 
+const serializeAws_ec2AssociateInstanceEventWindowRequest = (
+  input: AssociateInstanceEventWindowRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.InstanceEventWindowId !== undefined && input.InstanceEventWindowId !== null) {
+    entries["InstanceEventWindowId"] = input.InstanceEventWindowId;
+  }
+  if (input.AssociationTarget !== undefined && input.AssociationTarget !== null) {
+    const memberEntries = serializeAws_ec2InstanceEventWindowAssociationRequest(input.AssociationTarget, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AssociationTarget.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_ec2AssociateRouteTableRequest = (
   input: AssociateRouteTableRequest,
   context: __SerdeContext
@@ -33025,6 +33461,37 @@ const serializeAws_ec2CreateImageRequest = (input: CreateImageRequest, context: 
   }
   if (input.NoReboot !== undefined && input.NoReboot !== null) {
     entries["NoReboot"] = input.NoReboot;
+  }
+  if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateInstanceEventWindowRequest = (
+  input: CreateInstanceEventWindowRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.Name !== undefined && input.Name !== null) {
+    entries["Name"] = input.Name;
+  }
+  if (input.TimeRanges !== undefined && input.TimeRanges !== null) {
+    const memberEntries = serializeAws_ec2InstanceEventWindowTimeRangeRequestSet(input.TimeRanges, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TimeRange.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.CronExpression !== undefined && input.CronExpression !== null) {
+    entries["CronExpression"] = input.CronExpression;
   }
   if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
@@ -34676,6 +35143,19 @@ const serializeAws_ec2CustomerGatewayIdStringList = (input: string[], context: _
   return entries;
 };
 
+const serializeAws_ec2DedicatedHostIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DeleteCarrierGatewayRequest = (
   input: DeleteCarrierGatewayRequest,
   context: __SerdeContext
@@ -34803,6 +35283,23 @@ const serializeAws_ec2DeleteFpgaImageRequest = (input: DeleteFpgaImageRequest, c
   }
   if (input.FpgaImageId !== undefined && input.FpgaImageId !== null) {
     entries["FpgaImageId"] = input.FpgaImageId;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeleteInstanceEventWindowRequest = (
+  input: DeleteInstanceEventWindowRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.ForceDelete !== undefined && input.ForceDelete !== null) {
+    entries["ForceDelete"] = input.ForceDelete;
+  }
+  if (input.InstanceEventWindowId !== undefined && input.InstanceEventWindowId !== null) {
+    entries["InstanceEventWindowId"] = input.InstanceEventWindowId;
   }
   return entries;
 };
@@ -36702,6 +37199,37 @@ const serializeAws_ec2DescribeInstanceEventNotificationAttributesRequest = (
   const entries: any = {};
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DescribeInstanceEventWindowsRequest = (
+  input: DescribeInstanceEventWindowsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.InstanceEventWindowIds !== undefined && input.InstanceEventWindowIds !== null) {
+    const memberEntries = serializeAws_ec2InstanceEventWindowIdSet(input.InstanceEventWindowIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceEventWindowId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
@@ -39440,6 +39968,27 @@ const serializeAws_ec2DisassociateIamInstanceProfileRequest = (
   return entries;
 };
 
+const serializeAws_ec2DisassociateInstanceEventWindowRequest = (
+  input: DisassociateInstanceEventWindowRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.InstanceEventWindowId !== undefined && input.InstanceEventWindowId !== null) {
+    entries["InstanceEventWindowId"] = input.InstanceEventWindowId;
+  }
+  if (input.AssociationTarget !== undefined && input.AssociationTarget !== null) {
+    const memberEntries = serializeAws_ec2InstanceEventWindowDisassociationRequest(input.AssociationTarget, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AssociationTarget.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_ec2DisassociateRouteTableRequest = (
   input: DisassociateRouteTableRequest,
   context: __SerdeContext
@@ -41375,6 +41924,129 @@ const serializeAws_ec2InstanceCreditSpecificationRequest = (
   return entries;
 };
 
+const serializeAws_ec2InstanceEventWindowAssociationRequest = (
+  input: InstanceEventWindowAssociationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.InstanceIds !== undefined && input.InstanceIds !== null) {
+    const memberEntries = serializeAws_ec2InstanceIdList(input.InstanceIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.InstanceTags !== undefined && input.InstanceTags !== null) {
+    const memberEntries = serializeAws_ec2TagList(input.InstanceTags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceTag.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DedicatedHostIds !== undefined && input.DedicatedHostIds !== null) {
+    const memberEntries = serializeAws_ec2DedicatedHostIdList(input.DedicatedHostIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DedicatedHostId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2InstanceEventWindowDisassociationRequest = (
+  input: InstanceEventWindowDisassociationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.InstanceIds !== undefined && input.InstanceIds !== null) {
+    const memberEntries = serializeAws_ec2InstanceIdList(input.InstanceIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.InstanceTags !== undefined && input.InstanceTags !== null) {
+    const memberEntries = serializeAws_ec2TagList(input.InstanceTags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceTag.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DedicatedHostIds !== undefined && input.DedicatedHostIds !== null) {
+    const memberEntries = serializeAws_ec2DedicatedHostIdList(input.DedicatedHostIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DedicatedHostId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2InstanceEventWindowIdSet = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`InstanceEventWindowId.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2InstanceEventWindowTimeRangeRequest = (
+  input: InstanceEventWindowTimeRangeRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.StartWeekDay !== undefined && input.StartWeekDay !== null) {
+    entries["StartWeekDay"] = input.StartWeekDay;
+  }
+  if (input.StartHour !== undefined && input.StartHour !== null) {
+    entries["StartHour"] = input.StartHour;
+  }
+  if (input.EndWeekDay !== undefined && input.EndWeekDay !== null) {
+    entries["EndWeekDay"] = input.EndWeekDay;
+  }
+  if (input.EndHour !== undefined && input.EndHour !== null) {
+    entries["EndHour"] = input.EndHour;
+  }
+  return entries;
+};
+
+const serializeAws_ec2InstanceEventWindowTimeRangeRequestSet = (
+  input: InstanceEventWindowTimeRangeRequest[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_ec2InstanceEventWindowTimeRangeRequest(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2InstanceIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2InstanceIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -43099,6 +43771,33 @@ const serializeAws_ec2ModifyInstanceEventStartTimeRequest = (
   }
   if (input.NotBefore !== undefined && input.NotBefore !== null) {
     entries["NotBefore"] = input.NotBefore.toISOString().split(".")[0] + "Z";
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyInstanceEventWindowRequest = (
+  input: ModifyInstanceEventWindowRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.Name !== undefined && input.Name !== null) {
+    entries["Name"] = input.Name;
+  }
+  if (input.InstanceEventWindowId !== undefined && input.InstanceEventWindowId !== null) {
+    entries["InstanceEventWindowId"] = input.InstanceEventWindowId;
+  }
+  if (input.TimeRanges !== undefined && input.TimeRanges !== null) {
+    const memberEntries = serializeAws_ec2InstanceEventWindowTimeRangeRequestSet(input.TimeRanges, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TimeRange.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.CronExpression !== undefined && input.CronExpression !== null) {
+    entries["CronExpression"] = input.CronExpression;
   }
   return entries;
 };
@@ -49628,6 +50327,19 @@ const deserializeAws_ec2AssociateIamInstanceProfileResult = (
   return contents;
 };
 
+const deserializeAws_ec2AssociateInstanceEventWindowResult = (
+  output: any,
+  context: __SerdeContext
+): AssociateInstanceEventWindowResult => {
+  let contents: any = {
+    InstanceEventWindow: undefined,
+  };
+  if (output["instanceEventWindow"] !== undefined) {
+    contents.InstanceEventWindow = deserializeAws_ec2InstanceEventWindow(output["instanceEventWindow"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2AssociateRouteTableResult = (
   output: any,
   context: __SerdeContext
@@ -51753,6 +52465,19 @@ const deserializeAws_ec2CreateImageResult = (output: any, context: __SerdeContex
   return contents;
 };
 
+const deserializeAws_ec2CreateInstanceEventWindowResult = (
+  output: any,
+  context: __SerdeContext
+): CreateInstanceEventWindowResult => {
+  let contents: any = {
+    InstanceEventWindow: undefined,
+  };
+  if (output["instanceEventWindow"] !== undefined) {
+    contents.InstanceEventWindow = deserializeAws_ec2InstanceEventWindow(output["instanceEventWindow"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2CreateInstanceExportTaskResult = (
   output: any,
   context: __SerdeContext
@@ -52468,6 +53193,17 @@ const deserializeAws_ec2CustomerGatewayList = (output: any, context: __SerdeCont
     });
 };
 
+const deserializeAws_ec2DedicatedHostIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_ec2DeleteCarrierGatewayResult = (
   output: any,
   context: __SerdeContext
@@ -52642,6 +53378,22 @@ const deserializeAws_ec2DeleteFpgaImageResult = (output: any, context: __SerdeCo
   };
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteInstanceEventWindowResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteInstanceEventWindowResult => {
+  let contents: any = {
+    InstanceEventWindowState: undefined,
+  };
+  if (output["instanceEventWindowState"] !== undefined) {
+    contents.InstanceEventWindowState = deserializeAws_ec2InstanceEventWindowStateChange(
+      output["instanceEventWindowState"],
+      context
+    );
   }
   return contents;
 };
@@ -54242,6 +54994,29 @@ const deserializeAws_ec2DescribeInstanceEventNotificationAttributesResult = (
       output["instanceTagAttribute"],
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeInstanceEventWindowsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeInstanceEventWindowsResult => {
+  let contents: any = {
+    InstanceEventWindows: undefined,
+    NextToken: undefined,
+  };
+  if (output.instanceEventWindowSet === "") {
+    contents.InstanceEventWindows = [];
+  }
+  if (output["instanceEventWindowSet"] !== undefined && output["instanceEventWindowSet"]["item"] !== undefined) {
+    contents.InstanceEventWindows = deserializeAws_ec2InstanceEventWindowSet(
+      __getArrayIfSingleItem(output["instanceEventWindowSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
   }
   return contents;
 };
@@ -56519,6 +57294,19 @@ const deserializeAws_ec2DisassociateIamInstanceProfileResult = (
       output["iamInstanceProfileAssociation"],
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DisassociateInstanceEventWindowResult = (
+  output: any,
+  context: __SerdeContext
+): DisassociateInstanceEventWindowResult => {
+  let contents: any = {
+    InstanceEventWindow: undefined,
+  };
+  if (output["instanceEventWindow"] !== undefined) {
+    contents.InstanceEventWindow = deserializeAws_ec2InstanceEventWindow(output["instanceEventWindow"], context);
   }
   return contents;
 };
@@ -60658,6 +61446,155 @@ const deserializeAws_ec2InstanceCreditSpecificationList = (
     });
 };
 
+const deserializeAws_ec2InstanceEventWindow = (output: any, context: __SerdeContext): InstanceEventWindow => {
+  let contents: any = {
+    InstanceEventWindowId: undefined,
+    TimeRanges: undefined,
+    Name: undefined,
+    CronExpression: undefined,
+    AssociationTarget: undefined,
+    State: undefined,
+    Tags: undefined,
+  };
+  if (output["instanceEventWindowId"] !== undefined) {
+    contents.InstanceEventWindowId = __expectString(output["instanceEventWindowId"]);
+  }
+  if (output.timeRangeSet === "") {
+    contents.TimeRanges = [];
+  }
+  if (output["timeRangeSet"] !== undefined && output["timeRangeSet"]["item"] !== undefined) {
+    contents.TimeRanges = deserializeAws_ec2InstanceEventWindowTimeRangeList(
+      __getArrayIfSingleItem(output["timeRangeSet"]["item"]),
+      context
+    );
+  }
+  if (output["name"] !== undefined) {
+    contents.Name = __expectString(output["name"]);
+  }
+  if (output["cronExpression"] !== undefined) {
+    contents.CronExpression = __expectString(output["cronExpression"]);
+  }
+  if (output["associationTarget"] !== undefined) {
+    contents.AssociationTarget = deserializeAws_ec2InstanceEventWindowAssociationTarget(
+      output["associationTarget"],
+      context
+    );
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  }
+  if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2InstanceEventWindowAssociationTarget = (
+  output: any,
+  context: __SerdeContext
+): InstanceEventWindowAssociationTarget => {
+  let contents: any = {
+    InstanceIds: undefined,
+    Tags: undefined,
+    DedicatedHostIds: undefined,
+  };
+  if (output.instanceIdSet === "") {
+    contents.InstanceIds = [];
+  }
+  if (output["instanceIdSet"] !== undefined && output["instanceIdSet"]["item"] !== undefined) {
+    contents.InstanceIds = deserializeAws_ec2InstanceIdList(
+      __getArrayIfSingleItem(output["instanceIdSet"]["item"]),
+      context
+    );
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  }
+  if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output.dedicatedHostIdSet === "") {
+    contents.DedicatedHostIds = [];
+  }
+  if (output["dedicatedHostIdSet"] !== undefined && output["dedicatedHostIdSet"]["item"] !== undefined) {
+    contents.DedicatedHostIds = deserializeAws_ec2DedicatedHostIdList(
+      __getArrayIfSingleItem(output["dedicatedHostIdSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2InstanceEventWindowSet = (output: any, context: __SerdeContext): InstanceEventWindow[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2InstanceEventWindow(entry, context);
+    });
+};
+
+const deserializeAws_ec2InstanceEventWindowStateChange = (
+  output: any,
+  context: __SerdeContext
+): InstanceEventWindowStateChange => {
+  let contents: any = {
+    InstanceEventWindowId: undefined,
+    State: undefined,
+  };
+  if (output["instanceEventWindowId"] !== undefined) {
+    contents.InstanceEventWindowId = __expectString(output["instanceEventWindowId"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2InstanceEventWindowTimeRange = (
+  output: any,
+  context: __SerdeContext
+): InstanceEventWindowTimeRange => {
+  let contents: any = {
+    StartWeekDay: undefined,
+    StartHour: undefined,
+    EndWeekDay: undefined,
+    EndHour: undefined,
+  };
+  if (output["startWeekDay"] !== undefined) {
+    contents.StartWeekDay = __expectString(output["startWeekDay"]);
+  }
+  if (output["startHour"] !== undefined) {
+    contents.StartHour = parseInt(output["startHour"]);
+  }
+  if (output["endWeekDay"] !== undefined) {
+    contents.EndWeekDay = __expectString(output["endWeekDay"]);
+  }
+  if (output["endHour"] !== undefined) {
+    contents.EndHour = parseInt(output["endHour"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2InstanceEventWindowTimeRangeList = (
+  output: any,
+  context: __SerdeContext
+): InstanceEventWindowTimeRange[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2InstanceEventWindowTimeRange(entry, context);
+    });
+};
+
 const deserializeAws_ec2InstanceExportDetails = (output: any, context: __SerdeContext): InstanceExportDetails => {
   let contents: any = {
     InstanceId: undefined,
@@ -60687,6 +61624,17 @@ const deserializeAws_ec2InstanceFamilyCreditSpecification = (
     contents.CpuCredits = __expectString(output["cpuCredits"]);
   }
   return contents;
+};
+
+const deserializeAws_ec2InstanceIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_ec2InstanceIdSet = (output: any, context: __SerdeContext): string[] => {
@@ -63407,6 +64355,19 @@ const deserializeAws_ec2ModifyInstanceEventStartTimeResult = (
   };
   if (output["event"] !== undefined) {
     contents.Event = deserializeAws_ec2InstanceStatusEvent(output["event"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyInstanceEventWindowResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyInstanceEventWindowResult => {
+  let contents: any = {
+    InstanceEventWindow: undefined,
+  };
+  if (output["instanceEventWindow"] !== undefined) {
+    contents.InstanceEventWindow = deserializeAws_ec2InstanceEventWindow(output["instanceEventWindow"], context);
   }
   return contents;
 };

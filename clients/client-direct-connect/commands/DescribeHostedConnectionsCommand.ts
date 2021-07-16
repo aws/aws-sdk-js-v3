@@ -24,7 +24,7 @@ export interface DescribeHostedConnectionsCommandOutput extends Connections, __M
  * <p>Lists the hosted connections that have been provisioned on the specified
  *       interconnect or link aggregation group (LAG).</p>
  *          <note>
- *             <p>Intended for use by AWS Direct Connect Partners only.</p>
+ *             <p>Intended for use by Direct Connect Partners only.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

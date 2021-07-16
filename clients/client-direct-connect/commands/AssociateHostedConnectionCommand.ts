@@ -24,10 +24,10 @@ export interface AssociateHostedConnectionCommandOutput extends Connection, __Me
  * <p>Associates a hosted connection and its virtual interfaces with a link aggregation
  *       group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted
  *       connection with a conflicting VLAN number or IP address, the operation fails. This
- *       action temporarily interrupts the hosted connection's connectivity to AWS as it is being
- *       migrated.</p>
+ *       action temporarily interrupts the hosted connection's connectivity to Amazon Web Services
+ *       as it is being migrated.</p>
  *          <note>
- *             <p>Intended for use by AWS Direct Connect Partners only.</p>
+ *             <p>Intended for use by Direct Connect Partners only.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

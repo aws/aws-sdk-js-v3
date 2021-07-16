@@ -21,8 +21,7 @@ export interface ListEventIntegrationsCommandInput extends ListEventIntegrations
 export interface ListEventIntegrationsCommandOutput extends ListEventIntegrationsResponse, __MetadataBearer {}
 
 /**
- * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
- *          <p>Returns a paginated list of event integrations in the account.</p>
+ * <p>Returns a paginated list of event integrations in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

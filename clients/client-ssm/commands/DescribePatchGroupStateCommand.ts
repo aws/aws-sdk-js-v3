@@ -21,7 +21,7 @@ export interface DescribePatchGroupStateCommandInput extends DescribePatchGroupS
 export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroupStateResult, __MetadataBearer {}
 
 /**
- * <p>Returns high-level aggregated patch compliance state for a patch group.</p>
+ * <p>Returns high-level aggregated patch compliance state information for a patch group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

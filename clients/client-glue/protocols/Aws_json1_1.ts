@@ -460,6 +460,7 @@ import {
   EntityNotFoundException,
   ErrorDetail,
   ErrorDetails,
+  EventBatchingCondition,
   ExecutionProperty,
   FindMatchesParameters,
   GetCatalogImportStatusRequest,
@@ -495,7 +496,6 @@ import {
   GetDevEndpointResponse,
   GetDevEndpointsRequest,
   GetDevEndpointsResponse,
-  GetJobBookmarkRequest,
   GetJobRequest,
   GetJobResponse,
   GlueEncryptionException,
@@ -506,7 +506,6 @@ import {
   InvalidInputException,
   JdbcTarget,
   Job,
-  JobBookmarkEntry,
   JobBookmarksEncryption,
   JobCommand,
   JobNodeDetails,
@@ -545,6 +544,7 @@ import {
   SchemaVersionErrorItem,
   SerDeInfo,
   SkewedInfo,
+  StartingEventBatchCondition,
   StorageDescriptor,
   StringColumnStatisticsData,
   TableError,
@@ -577,6 +577,7 @@ import {
   ExportLabelsTaskRunProperties,
   FindMatchesMetrics,
   FindMatchesTaskRunProperties,
+  GetJobBookmarkRequest,
   GetJobBookmarkResponse,
   GetJobRunRequest,
   GetJobRunResponse,
@@ -651,6 +652,7 @@ import {
   ImportCatalogToGlueRequest,
   ImportCatalogToGlueResponse,
   ImportLabelsTaskRunProperties,
+  JobBookmarkEntry,
   JobUpdate,
   KeySchemaElement,
   LabelingSetGenerationTaskRunProperties,
@@ -16831,6 +16833,10 @@ const serializeAws_json1_1CreateTriggerRequest = (input: CreateTriggerRequest, c
     ...(input.Actions !== undefined &&
       input.Actions !== null && { Actions: serializeAws_json1_1ActionList(input.Actions, context) }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.EventBatchingCondition !== undefined &&
+      input.EventBatchingCondition !== null && {
+        EventBatchingCondition: serializeAws_json1_1EventBatchingCondition(input.EventBatchingCondition, context),
+      }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Predicate !== undefined &&
       input.Predicate !== null && { Predicate: serializeAws_json1_1Predicate(input.Predicate, context) }),
@@ -17290,6 +17296,13 @@ const serializeAws_json1_1EncryptionConfiguration = (input: EncryptionConfigurat
       input.S3Encryption !== null && {
         S3Encryption: serializeAws_json1_1S3EncryptionList(input.S3Encryption, context),
       }),
+  };
+};
+
+const serializeAws_json1_1EventBatchingCondition = (input: EventBatchingCondition, context: __SerdeContext): any => {
+  return {
+    ...(input.BatchSize !== undefined && input.BatchSize !== null && { BatchSize: input.BatchSize }),
+    ...(input.BatchWindow !== undefined && input.BatchWindow !== null && { BatchWindow: input.BatchWindow }),
   };
 };
 
@@ -19076,6 +19089,10 @@ const serializeAws_json1_1TriggerUpdate = (input: TriggerUpdate, context: __Serd
     ...(input.Actions !== undefined &&
       input.Actions !== null && { Actions: serializeAws_json1_1ActionList(input.Actions, context) }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.EventBatchingCondition !== undefined &&
+      input.EventBatchingCondition !== null && {
+        EventBatchingCondition: serializeAws_json1_1EventBatchingCondition(input.EventBatchingCondition, context),
+      }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Predicate !== undefined &&
       input.Predicate !== null && { Predicate: serializeAws_json1_1Predicate(input.Predicate, context) }),
@@ -21170,6 +21187,13 @@ const deserializeAws_json1_1EvaluationMetrics = (output: any, context: __SerdeCo
         ? deserializeAws_json1_1FindMatchesMetrics(output.FindMatchesMetrics, context)
         : undefined,
     TransformType: __expectString(output.TransformType),
+  } as any;
+};
+
+const deserializeAws_json1_1EventBatchingCondition = (output: any, context: __SerdeContext): EventBatchingCondition => {
+  return {
+    BatchSize: __expectNumber(output.BatchSize),
+    BatchWindow: __expectNumber(output.BatchWindow),
   } as any;
 };
 
@@ -23316,6 +23340,16 @@ const deserializeAws_json1_1StartImportLabelsTaskRunResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1StartingEventBatchCondition = (
+  output: any,
+  context: __SerdeContext
+): StartingEventBatchCondition => {
+  return {
+    BatchSize: __expectNumber(output.BatchSize),
+    BatchWindow: __expectNumber(output.BatchWindow),
+  } as any;
+};
+
 const deserializeAws_json1_1StartJobRunResponse = (output: any, context: __SerdeContext): StartJobRunResponse => {
   return {
     JobRunId: __expectString(output.JobRunId),
@@ -23701,6 +23735,10 @@ const deserializeAws_json1_1Trigger = (output: any, context: __SerdeContext): Tr
         ? deserializeAws_json1_1ActionList(output.Actions, context)
         : undefined,
     Description: __expectString(output.Description),
+    EventBatchingCondition:
+      output.EventBatchingCondition !== undefined && output.EventBatchingCondition !== null
+        ? deserializeAws_json1_1EventBatchingCondition(output.EventBatchingCondition, context)
+        : undefined,
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     Predicate:
@@ -23996,6 +24034,10 @@ const deserializeAws_json1_1WorkflowRun = (output: any, context: __SerdeContext)
     StartedOn:
       output.StartedOn !== undefined && output.StartedOn !== null
         ? new Date(Math.round(output.StartedOn * 1000))
+        : undefined,
+    StartingEventBatchCondition:
+      output.StartingEventBatchCondition !== undefined && output.StartingEventBatchCondition !== null
+        ? deserializeAws_json1_1StartingEventBatchCondition(output.StartingEventBatchCondition, context)
         : undefined,
     Statistics:
       output.Statistics !== undefined && output.Statistics !== null

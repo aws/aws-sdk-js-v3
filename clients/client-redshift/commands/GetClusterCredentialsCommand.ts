@@ -31,7 +31,7 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  *             a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes). For more
  *             information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html">Using IAM Authentication
  *                 to Generate Database User Credentials</a> in the Amazon Redshift Cluster Management Guide.</p>
- *         <p>The AWS Identity and Access Management (IAM)user or role that executes
+ *         <p>The Identity and Access Management (IAM) user or role that runs
  *             GetClusterCredentials must have an IAM policy attached that allows access to all
  *             necessary actions and resources. For more information about permissions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources">Resource Policies for GetClusterCredentials</a> in the
  *             Amazon Redshift Cluster Management Guide.</p>

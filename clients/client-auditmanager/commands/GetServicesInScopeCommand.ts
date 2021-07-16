@@ -22,7 +22,7 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
 
 /**
  * <p>
- *    Returns a list of the in-scope AWS services for the specified assessment.
+ *    Returns a list of the in-scope Amazon Web Services services for the specified assessment.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

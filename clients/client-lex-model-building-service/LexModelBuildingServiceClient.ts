@@ -49,6 +49,8 @@ import { GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImp
 import { GetIntentCommandInput, GetIntentCommandOutput } from "./commands/GetIntentCommand";
 import { GetIntentVersionsCommandInput, GetIntentVersionsCommandOutput } from "./commands/GetIntentVersionsCommand";
 import { GetIntentsCommandInput, GetIntentsCommandOutput } from "./commands/GetIntentsCommand";
+import { GetMigrationCommandInput, GetMigrationCommandOutput } from "./commands/GetMigrationCommand";
+import { GetMigrationsCommandInput, GetMigrationsCommandOutput } from "./commands/GetMigrationsCommand";
 import { GetSlotTypeCommandInput, GetSlotTypeCommandOutput } from "./commands/GetSlotTypeCommand";
 import {
   GetSlotTypeVersionsCommandInput,
@@ -65,6 +67,7 @@ import { PutBotCommandInput, PutBotCommandOutput } from "./commands/PutBotComman
 import { PutIntentCommandInput, PutIntentCommandOutput } from "./commands/PutIntentCommand";
 import { PutSlotTypeCommandInput, PutSlotTypeCommandOutput } from "./commands/PutSlotTypeCommand";
 import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import { StartMigrationCommandInput, StartMigrationCommandOutput } from "./commands/StartMigrationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
@@ -147,6 +150,8 @@ export type ServiceInputTypes =
   | GetIntentCommandInput
   | GetIntentVersionsCommandInput
   | GetIntentsCommandInput
+  | GetMigrationCommandInput
+  | GetMigrationsCommandInput
   | GetSlotTypeCommandInput
   | GetSlotTypeVersionsCommandInput
   | GetSlotTypesCommandInput
@@ -157,6 +162,7 @@ export type ServiceInputTypes =
   | PutIntentCommandInput
   | PutSlotTypeCommandInput
   | StartImportCommandInput
+  | StartMigrationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
@@ -188,6 +194,8 @@ export type ServiceOutputTypes =
   | GetIntentCommandOutput
   | GetIntentVersionsCommandOutput
   | GetIntentsCommandOutput
+  | GetMigrationCommandOutput
+  | GetMigrationsCommandOutput
   | GetSlotTypeCommandOutput
   | GetSlotTypeVersionsCommandOutput
   | GetSlotTypesCommandOutput
@@ -198,6 +206,7 @@ export type ServiceOutputTypes =
   | PutIntentCommandOutput
   | PutSlotTypeCommandOutput
   | StartImportCommandOutput
+  | StartMigrationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 

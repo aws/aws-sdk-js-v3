@@ -7,8 +7,10 @@ import {
   EventSubscription,
   Parameter,
   PartnerIntegrationStatus,
+  RecurringCharge,
   ReservedNode,
-  ReservedNodeOffering,
+  ReservedNodeOfferingType,
+  ScheduledAction,
   ScheduledActionType,
   Snapshot,
   SnapshotCopyGrant,
@@ -21,13 +23,380 @@ import {
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
+ * <p>Describes a reserved node offering.</p>
+ */
+export interface ReservedNodeOffering {
+  /**
+   * <p>The offering identifier.</p>
+   */
+  ReservedNodeOfferingId?: string;
+
+  /**
+   * <p>The node type offered by the reserved node offering.</p>
+   */
+  NodeType?: string;
+
+  /**
+   * <p>The duration, in seconds, for which the offering will reserve the node.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>The upfront fixed charge you will pay to purchase the specific reserved node
+   *             offering.</p>
+   */
+  FixedPrice?: number;
+
+  /**
+   * <p>The rate you are charged for each hour the cluster that is using the offering is
+   *             running.</p>
+   */
+  UsagePrice?: number;
+
+  /**
+   * <p>The currency code for the compute nodes offering.</p>
+   */
+  CurrencyCode?: string;
+
+  /**
+   * <p>The anticipated utilization of the reserved node, as defined in the reserved node
+   *             offering.</p>
+   */
+  OfferingType?: string;
+
+  /**
+   * <p>The charge to your account regardless of whether you are creating any clusters
+   *             using the node offering. Recurring charges are only in effect for heavy-utilization
+   *             reserved nodes.</p>
+   */
+  RecurringCharges?: RecurringCharge[];
+
+  /**
+   * <p></p>
+   */
+  ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
+}
+
+export namespace ReservedNodeOffering {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservedNodeOffering): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface ReservedNodeOfferingsMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of <code>ReservedNodeOffering</code> objects.</p>
+   */
+  ReservedNodeOfferings?: ReservedNodeOffering[];
+}
+
+export namespace ReservedNodeOfferingsMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservedNodeOfferingsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeReservedNodesMessage {
+  /**
+   * <p>Identifier for the node reservation.</p>
+   */
+  ReservedNodeId?: string;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
+   *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeReservedNodes</a> request exceed
+   *             the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeReservedNodesMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReservedNodesMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface ReservedNodesMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The list of <code>ReservedNode</code> objects.</p>
+   */
+  ReservedNodes?: ReservedNode[];
+}
+
+export namespace ReservedNodesMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservedNodesMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeResizeMessage {
+  /**
+   * <p>The unique identifier of a cluster whose resize progress you are requesting. This
+   *             parameter is case-sensitive.</p>
+   *         <p>By default, resize operations for all clusters defined for an account are
+   *             returned.</p>
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+export namespace DescribeResizeMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeResizeMessage): any => ({
+    ...obj,
+  });
+}
+
+export enum ScheduledActionFilterName {
+  CLUSTER_IDENTIFIER = "cluster-identifier",
+  IAM_ROLE = "iam-role",
+}
+
+/**
+ * <p>A set of elements to filter the returned scheduled actions. </p>
+ */
+export interface ScheduledActionFilter {
+  /**
+   * <p>The type of element to filter. </p>
+   */
+  Name: ScheduledActionFilterName | string | undefined;
+
+  /**
+   * <p>List of values. Compare if the value (of type defined by <code>Name</code>) equals an item in the list of scheduled actions. </p>
+   */
+  Values: string[] | undefined;
+}
+
+export namespace ScheduledActionFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ScheduledActionFilter): any => ({
+    ...obj,
+  });
+}
+
+export enum ScheduledActionTypeValues {
+  PAUSE_CLUSTER = "PauseCluster",
+  RESIZE_CLUSTER = "ResizeCluster",
+  RESUME_CLUSTER = "ResumeCluster",
+}
+
+export interface DescribeScheduledActionsMessage {
+  /**
+   * <p>The name of the scheduled action to retrieve. </p>
+   */
+  ScheduledActionName?: string;
+
+  /**
+   * <p>The type of the scheduled actions to retrieve. </p>
+   */
+  TargetActionType?: ScheduledActionTypeValues | string;
+
+  /**
+   * <p>The start time in UTC of the scheduled actions to retrieve.
+   *             Only active scheduled actions that have invocations after this time are retrieved.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The end time in UTC of the scheduled action to retrieve.
+   *             Only active scheduled actions that have invocations before this time are retrieved.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>If true, retrieve only active scheduled actions.
+   *            If false, retrieve only disabled scheduled actions. </p>
+   */
+  Active?: boolean;
+
+  /**
+   * <p>List of scheduled action filters. </p>
+   */
+  Filters?: ScheduledActionFilter[];
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeScheduledActions</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *             <p>Default: <code>100</code>
+   *             </p>
+   *             <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+}
+
+export namespace DescribeScheduledActionsMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeScheduledActionsMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface ScheduledActionsMessage {
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeScheduledActions</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>List of retrieved scheduled actions. </p>
+   */
+  ScheduledActions?: ScheduledAction[];
+}
+
+export namespace ScheduledActionsMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ScheduledActionsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The result of the <code>DescribeSnapshotCopyGrants</code> action.</p>
+ */
+export interface DescribeSnapshotCopyGrantsMessage {
+  /**
+   * <p>The name of the snapshot copy grant.</p>
+   */
+  SnapshotCopyGrantName?: string;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
+   *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <code>DescribeSnapshotCopyGrant</code> request exceed the
+   *             value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   *         <p>Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching resources that are
+   *             associated with the specified key or keys. For example, suppose that you have resources
+   *             tagged with keys called <code>owner</code> and <code>environment</code>. If you specify
+   *             both of these tag keys in the request, Amazon Redshift returns a response with all resources
+   *             that have either or both of these tag keys associated with them.</p>
+   */
+  TagKeys?: string[];
+
+  /**
+   * <p>A tag value or values for which you want to return all matching resources that are
+   *             associated with the specified value or values. For example, suppose that you have
+   *             resources tagged with values called <code>admin</code> and <code>test</code>. If you
+   *             specify both of these tag values in the request, Amazon Redshift returns a response with all
+   *             resources that have either or both of these tag values associated with them.</p>
+   */
+  TagValues?: string[];
+}
+
+export namespace DescribeSnapshotCopyGrantsMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSnapshotCopyGrantsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p></p>
  */
 export interface SnapshotCopyGrantMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <code>DescribeSnapshotCopyGrant</code> request exceed the
-   *             value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -519,7 +888,7 @@ export interface DescribeUsageLimitsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeUsageLimits</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *             <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -797,8 +1166,8 @@ export interface EnableSnapshotCopyMessage {
   ClusterIdentifier: string | undefined;
 
   /**
-   * <p>The destination AWS Region that you want to copy snapshots to.</p>
-   *         <p>Constraints: Must be the name of a valid AWS Region. For more information, see
+   * <p>The destination Region that you want to copy snapshots to.</p>
+   *         <p>Constraints: Must be the name of a valid Region. For more information, see
    *                 <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.
    *         </p>
    */
@@ -813,14 +1182,14 @@ export interface EnableSnapshotCopyMessage {
   RetentionPeriod?: number;
 
   /**
-   * <p>The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted
+   * <p>The name of the snapshot copy grant to use when snapshots of an Amazon Web Services KMS-encrypted
    *             cluster are copied to the destination region.</p>
    */
   SnapshotCopyGrantName?: string;
 
   /**
-   * <p>The number of days to retain newly copied snapshots in the destination AWS Region
-   *             after they are copied from the source AWS Region. If the value is -1, the manual
+   * <p>The number of days to retain newly copied snapshots in the destination Region
+   *             after they are copied from the source Region. If the value is -1, the manual
    *             snapshot is retained indefinitely. </p>
    *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
    */
@@ -1172,7 +1541,7 @@ export interface ModifyAquaInputMessage {
    * <p>The new value of AQUA configuration status. Possible values include the following.</p>
    *         <ul>
    *             <li>
-   *                <p>enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.</p>
+   *                <p>enabled - Use AQUA if it is available for the current Region and Amazon Redshift node type.</p>
    *             </li>
    *             <li>
    *                <p>disabled - Don't use AQUA. </p>
@@ -1206,6 +1575,49 @@ export namespace ModifyAquaOutputMessage {
    * @internal
    */
   export const filterSensitiveLog = (obj: ModifyAquaOutputMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyAuthenticationProfileMessage {
+  /**
+   * <p>The name of the authentication profile to replace.</p>
+   */
+  AuthenticationProfileName: string | undefined;
+
+  /**
+   * <p>The new content of the authentication profile in JSON format.
+   *             The maximum length of the JSON string is determined by a quota for your account.</p>
+   */
+  AuthenticationProfileContent: string | undefined;
+}
+
+export namespace ModifyAuthenticationProfileMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyAuthenticationProfileMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyAuthenticationProfileResult {
+  /**
+   * <p>The name of the authentication profile that was replaced.</p>
+   */
+  AuthenticationProfileName?: string;
+
+  /**
+   * <p>The updated content of the authentication profile in JSON format.</p>
+   */
+  AuthenticationProfileContent?: string;
+}
+
+export namespace ModifyAuthenticationProfileResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyAuthenticationProfileResult): any => ({
     ...obj,
   });
 }
@@ -1287,13 +1699,13 @@ export interface ModifyClusterMessage {
   VpcSecurityGroupIds?: string[];
 
   /**
-   * <p>The new password for the cluster master user. This change is asynchronously applied
+   * <p>The new password for the cluster admin user. This change is asynchronously applied
    *             as soon as possible. Between the time of the request and the completion of the request,
    *             the <code>MasterUserPassword</code> element exists in the
    *                 <code>PendingModifiedValues</code> element of the operation response. </p>
    *         <note>
    *             <p>Operations never return the password, so this operation provides a way to
-   *                 regain access to the master user account for a cluster if the password is
+   *                 regain access to the admin user account for a cluster if the password is
    *                 lost.</p>
    *         </note>
    *         <p>Default: Uses existing setting.</p>
@@ -1417,7 +1829,7 @@ export interface ModifyClusterMessage {
    *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *             <li>
-   *                <p>Must be unique for all clusters within an AWS account.</p>
+   *                <p>Must be unique for all clusters within an account.</p>
    *             </li>
    *          </ul>
    *
@@ -1471,7 +1883,7 @@ export interface ModifyClusterMessage {
   Encrypted?: boolean;
 
   /**
-   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to use
+   * <p>The Key Management Service (KMS) key ID of the encryption key that you want to use
    *             to encrypt data in the cluster.</p>
    */
   KmsKeyId?: string;
@@ -1911,7 +2323,7 @@ export interface ModifyEventSubscriptionMessage {
    * <p>The type of source that will be generating the events. For example, if you want to
    *             be notified of events generated by a cluster, you would set this parameter to cluster.
    *             If this value is not specified, events are returned for all Amazon Redshift objects in your
-   *             AWS account. You must specify a source type in order to specify source IDs.</p>
+   *             account. You must specify a source type in order to specify source IDs.</p>
    *         <p>Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.</p>
    */
   SourceType?: string;
@@ -2035,20 +2447,19 @@ export namespace ModifyScheduledActionMessage {
 export interface ModifySnapshotCopyRetentionPeriodMessage {
   /**
    * <p>The unique identifier of the cluster for which you want to change the retention
-   *             period for either automated or manual snapshots that are copied to a destination AWS
-   *             Region.</p>
+   *             period for either automated or manual snapshots that are copied to a destination Region.</p>
    *         <p>Constraints: Must be the valid name of an existing cluster that has cross-region
    *             snapshot copy enabled.</p>
    */
   ClusterIdentifier: string | undefined;
 
   /**
-   * <p>The number of days to retain automated snapshots in the destination AWS Region
-   *             after they are copied from the source AWS Region.</p>
+   * <p>The number of days to retain automated snapshots in the destination Region
+   *             after they are copied from the source Region.</p>
    *         <p>By default, this only changes the retention period of copied automated snapshots. </p>
    *         <p>If you decrease the retention period for automated snapshots that are copied to a
-   *             destination AWS Region, Amazon Redshift deletes any existing automated snapshots that were
-   *             copied to the destination AWS Region and that fall outside of the new retention
+   *             destination Region, Amazon Redshift deletes any existing automated snapshots that were
+   *             copied to the destination Region and that fall outside of the new retention
    *             period.</p>
    *         <p>Constraints: Must be at least 1 and no more than 35 for automated snapshots. </p>
    *         <p>If you specify the <code>manual</code> option, only newly copied manual snapshots will
@@ -2367,7 +2778,7 @@ export interface RestoreFromClusterSnapshotMessage {
    *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *             <li>
-   *                <p>Must be unique for all clusters within an AWS account.</p>
+   *                <p>Must be unique for all clusters within an account.</p>
    *             </li>
    *          </ul>
    */
@@ -2424,7 +2835,7 @@ export interface RestoreFromClusterSnapshotMessage {
   PubliclyAccessible?: boolean;
 
   /**
-   * <p>The AWS customer account used to create or copy the snapshot. Required if you are
+   * <p>The account used to create or copy the snapshot. Required if you are
    *             restoring a snapshot you do not own, optional if you own the snapshot.</p>
    */
   OwnerAccount?: string;
@@ -2514,7 +2925,7 @@ export interface RestoreFromClusterSnapshotMessage {
   ManualSnapshotRetentionPeriod?: number;
 
   /**
-   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
+   * <p>The Key Management Service (KMS) key ID of the encryption key that you want to
    *             use to encrypt data in the cluster that you restore from a shared snapshot.</p>
    */
   KmsKeyId?: string;
@@ -2550,8 +2961,8 @@ export interface RestoreFromClusterSnapshotMessage {
   AdditionalInfo?: string;
 
   /**
-   * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
-   *             cluster to access other AWS services. You must supply the IAM roles in their Amazon
+   * <p>A list of Identity and Access Management (IAM) roles that can be used by the
+   *             cluster to access other Amazon Web Services services. You must supply the IAM roles in their Amazon
    *             Resource Name (ARN) format. You can supply up to 10 IAM roles in a single
    *             request.</p>
    *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
@@ -2587,7 +2998,7 @@ export interface RestoreFromClusterSnapshotMessage {
    * <p>The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values include the following.</p>
    *         <ul>
    *             <li>
-   *                <p>enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.</p>
+   *                <p>enabled - Use AQUA if it is available for the current Region and Amazon Redshift node type.</p>
    *             </li>
    *             <li>
    *                <p>disabled - Don't use AQUA. </p>
@@ -2748,8 +3159,8 @@ export interface RevokeClusterSecurityGroupIngressMessage {
   EC2SecurityGroupName?: string;
 
   /**
-   * <p>The AWS account number of the owner of the security group specified in the
-   *                 <code>EC2SecurityGroupName</code> parameter. The AWS access key ID is not an
+   * <p>The account number of the owner of the security group specified in the
+   *                 <code>EC2SecurityGroupName</code> parameter. The Amazon Web Services access key ID is not an
    *             acceptable value. If <code>EC2SecurityGroupOwnerId</code> is specified,
    *                 <code>EC2SecurityGroupName</code> must also be provided. and <code>CIDRIP</code>
    *             cannot be provided. </p>
@@ -2791,7 +3202,7 @@ export interface RevokeEndpointAccessMessage {
   ClusterIdentifier?: string;
 
   /**
-   * <p>The AWS account ID whose access is to be revoked.</p>
+   * <p>The account ID whose access is to be revoked.</p>
    */
   Account?: string;
 
@@ -2833,7 +3244,7 @@ export interface RevokeSnapshotAccessMessage {
   SnapshotClusterIdentifier?: string;
 
   /**
-   * <p>The identifier of the AWS customer account that can no longer restore the specified
+   * <p>The identifier of the account that can no longer restore the specified
    *             snapshot.</p>
    */
   AccountWithRestoreAccess: string | undefined;
@@ -2904,7 +3315,7 @@ export namespace RotateEncryptionKeyResult {
 
 export interface UpdatePartnerStatusInputMessage {
   /**
-   * <p>The AWS account ID that owns the cluster.</p>
+   * <p>The Region ID that owns the cluster.</p>
    */
   AccountId: string | undefined;
 

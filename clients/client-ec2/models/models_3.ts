@@ -2,17 +2,20 @@ import {
   ActiveInstance,
   ActivityStatus,
   AllocationStrategy,
-  AllowedPrincipal,
   AlternatePathHint,
+  AttachmentStatus,
   AttributeValue,
   BatchState,
   BlockDeviceMapping,
   CurrencyCodeValues,
   FleetLaunchTemplateSpecification,
   FleetType,
+  IamInstanceProfile,
   IamInstanceProfileSpecification,
   InternetGateway,
   IpPermission,
+  Placement,
+  PlatformValues,
   ReservedInstancesListing,
   ResourceType,
   SecurityGroupRule,
@@ -28,14 +31,11 @@ import {
   TrunkInterfaceAssociation,
   UserIdGroupPair,
   VolumeType,
-  Vpc,
-  VpcPeeringConnection,
   _InstanceType,
 } from "./models_0";
 import {
   ConnectionNotification,
   DnsEntry,
-  DnsNameState,
   GroupIdentifier,
   InstanceInterruptionBehavior,
   InstanceIpv6Address,
@@ -49,13 +49,12 @@ import {
   NetworkInterface,
   NetworkInterfaceAttachment,
   NetworkInterfacePermission,
+  NetworkInterfaceStatus,
   PlacementGroup,
   PortRange,
   PrivateIpAddressSpecification,
   ReplaceRootVolumeTask,
   RouteTable,
-  ServiceConfiguration,
-  ServiceTypeDetail,
   Snapshot,
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
@@ -71,20 +70,916 @@ import {
   TransitGatewayRouteTable,
   Volume,
   VpcEndpoint,
-  VpnConnection,
-  VpnGateway,
 } from "./models_1";
 import {
+  ArchitectureValues,
   AttributeBooleanValue,
+  BootModeValues,
+  CapacityReservationSpecificationResponse,
+  CpuOptions,
+  DeviceType,
+  ElasticGpuAssociation,
+  ElasticInferenceAcceleratorAssociation,
+  EnclaveOptions,
   EventInformation,
   Filter,
+  HibernationOptions,
+  HttpTokensState,
+  HypervisorType,
   IdFormat,
-  InstanceState,
-  InstanceStatusEvent,
+  InstanceBlockDeviceMapping,
+  InstanceLifecycleType,
+  InstanceMetadataEndpointState,
+  LicenseConfiguration,
   PermissionGroup,
   ProductCode,
+  StateReason,
   VirtualizationType,
 } from "./models_2";
+
+export type InstanceMetadataOptionsState = "applied" | "pending";
+
+/**
+ * <p>The metadata options for the instance.</p>
+ */
+export interface InstanceMetadataOptionsResponse {
+  /**
+   * <p>The state of the metadata option changes.</p>
+   *         <p>
+   *             <code>pending</code> - The metadata options are being updated and the instance is not
+   *             ready to process metadata traffic with the new selection.</p>
+   *         <p>
+   *             <code>applied</code> - The metadata options have been successfully applied on the
+   *             instance.</p>
+   */
+  State?: InstanceMetadataOptionsState | string;
+
+  /**
+   * <p>The state of token usage for your instance metadata requests. If the parameter is not
+   *             specified in the request, the default state is <code>optional</code>.</p>
+   *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
+   *             with or without a signed token header on your request. If you retrieve the IAM role
+   *             credentials without a token, the version 1.0 role credentials are returned. If you
+   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
+   *             credentials are returned.</p>
+   *         <p>If the state is <code>required</code>, you must send a signed token header with any
+   *             instance metadata retrieval requests. In this state, retrieving the IAM role credential
+   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
+   *             available.</p>
+   */
+  HttpTokens?: HttpTokensState | string;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
+   *             number, the further instance metadata requests can travel.</p>
+   *         <p>Default: 1</p>
+   *         <p>Possible values: Integers from 1 to 64</p>
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
+   * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If
+   *             the parameter is not specified, the default state is <code>enabled</code>.</p>
+   *         <note>
+   *             <p>If you specify a value of <code>disabled</code>, you will not be able to access your
+   *                 instance metadata.</p>
+   *         </note>
+   */
+  HttpEndpoint?: InstanceMetadataEndpointState | string;
+}
+
+export namespace InstanceMetadataOptionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceMetadataOptionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export type MonitoringState = "disabled" | "disabling" | "enabled" | "pending";
+
+/**
+ * <p>Describes the monitoring of an instance.</p>
+ */
+export interface Monitoring {
+  /**
+   * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
+   *             enabled.</p>
+   */
+  State?: MonitoringState | string;
+}
+
+export namespace Monitoring {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Monitoring): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes association information for an Elastic IP address (IPv4).</p>
+ */
+export interface InstanceNetworkInterfaceAssociation {
+  /**
+   * <p>The carrier IP address associated with the network interface.</p>
+   */
+  CarrierIp?: string;
+
+  /**
+   * <p>The ID of the owner of the Elastic IP address.</p>
+   */
+  IpOwnerId?: string;
+
+  /**
+   * <p>The public DNS name.</p>
+   */
+  PublicDnsName?: string;
+
+  /**
+   * <p>The public IP address or Elastic IP address bound to the network interface.</p>
+   */
+  PublicIp?: string;
+}
+
+export namespace InstanceNetworkInterfaceAssociation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceNetworkInterfaceAssociation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a network interface attachment.</p>
+ */
+export interface InstanceNetworkInterfaceAttachment {
+  /**
+   * <p>The time stamp when the attachment initiated.</p>
+   */
+  AttachTime?: Date;
+
+  /**
+   * <p>The ID of the network interface attachment.</p>
+   */
+  AttachmentId?: string;
+
+  /**
+   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>The index of the device on the instance for the network interface attachment.</p>
+   */
+  DeviceIndex?: number;
+
+  /**
+   * <p>The attachment state.</p>
+   */
+  Status?: AttachmentStatus | string;
+
+  /**
+   * <p>The index of the network card.</p>
+   */
+  NetworkCardIndex?: number;
+}
+
+export namespace InstanceNetworkInterfaceAttachment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceNetworkInterfaceAttachment): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a private IPv4 address.</p>
+ */
+export interface InstancePrivateIpAddress {
+  /**
+   * <p>The association information for an Elastic IP address for the network interface.</p>
+   */
+  Association?: InstanceNetworkInterfaceAssociation;
+
+  /**
+   * <p>Indicates whether this IPv4 address is the primary private IP address of the network interface.</p>
+   */
+  Primary?: boolean;
+
+  /**
+   * <p>The private IPv4 DNS name.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * <p>The private IPv4 address of the network interface.</p>
+   */
+  PrivateIpAddress?: string;
+}
+
+export namespace InstancePrivateIpAddress {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstancePrivateIpAddress): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a network interface.</p>
+ */
+export interface InstanceNetworkInterface {
+  /**
+   * <p>The association information for an Elastic IPv4 associated with the network
+   *             interface.</p>
+   */
+  Association?: InstanceNetworkInterfaceAssociation;
+
+  /**
+   * <p>The network interface attachment.</p>
+   */
+  Attachment?: InstanceNetworkInterfaceAttachment;
+
+  /**
+   * <p>The description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>One or more security groups.</p>
+   */
+  Groups?: GroupIdentifier[];
+
+  /**
+   * <p>One or more IPv6 addresses associated with the network interface.</p>
+   */
+  Ipv6Addresses?: InstanceIpv6Address[];
+
+  /**
+   * <p>The MAC address.</p>
+   */
+  MacAddress?: string;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The ID of the account that created the network interface.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The private DNS name.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * <p>The IPv4 address of the network interface within the subnet.</p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>One or more private IPv4 addresses associated with the network interface.</p>
+   */
+  PrivateIpAddresses?: InstancePrivateIpAddress[];
+
+  /**
+   * <p>Indicates whether source/destination checking is enabled.</p>
+   */
+  SourceDestCheck?: boolean;
+
+  /**
+   * <p>The status of the network interface.</p>
+   */
+  Status?: NetworkInterfaceStatus | string;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>Describes the type of network interface.</p>
+   * 	        <p>Valid values: <code>interface</code> | <code>efa</code> | <code>trunk</code>
+   *          </p>
+   */
+  InterfaceType?: string;
+}
+
+export namespace InstanceNetworkInterface {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceNetworkInterface): any => ({
+    ...obj,
+  });
+}
+
+export type InstanceStateName = "pending" | "running" | "shutting-down" | "stopped" | "stopping" | "terminated";
+
+/**
+ * <p>Describes the current state of an instance.</p>
+ */
+export interface InstanceState {
+  /**
+   * <p>The state of the instance as a 16-bit unsigned integer. </p>
+   *         <p>The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values
+   *             between 256 and 65,535. These numerical values are used for internal purposes and should
+   *             be ignored.</p>
+   *         <p>The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values
+   *             between 0 and 255. </p>
+   *         <p>The valid values for instance-state-code will all be in the range of the low byte and
+   *             they are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>0</code> : <code>pending</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>16</code> : <code>running</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>32</code> : <code>shutting-down</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>48</code> : <code>terminated</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>64</code> : <code>stopping</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>80</code> : <code>stopped</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *         <p>You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in
+   *             decimal.</p>
+   */
+  Code?: number;
+
+  /**
+   * <p>The current state of the instance.</p>
+   */
+  Name?: InstanceStateName | string;
+}
+
+export namespace InstanceState {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceState): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an instance.</p>
+ */
+export interface Instance {
+  /**
+   * <p>The AMI launch index, which can be used to find this instance in the launch
+   *             group.</p>
+   */
+  AmiLaunchIndex?: number;
+
+  /**
+   * <p>The ID of the AMI used to launch the instance.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The instance type.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The kernel associated with this instance, if applicable.</p>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>The name of the key pair, if this instance was launched with an associated key
+   *             pair.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>The time the instance was launched.</p>
+   */
+  LaunchTime?: Date;
+
+  /**
+   * <p>The monitoring for the instance.</p>
+   */
+  Monitoring?: Monitoring;
+
+  /**
+   * <p>The location where the instance launched, if applicable.</p>
+   */
+  Placement?: Placement;
+
+  /**
+   * <p>The value is <code>Windows</code> for Windows instances; otherwise blank.</p>
+   */
+  Platform?: PlatformValues | string;
+
+  /**
+   * <p>(IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname
+   *             can only be used inside the Amazon EC2 network. This name is not available until the
+   *             instance enters the <code>running</code> state. </p>
+   *         <p>[EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS
+   *             hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not
+   *             using the Amazon-provided DNS server in your VPC, your custom domain name servers must
+   *             resolve the hostname as appropriate.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * <p>The private IPv4 address assigned to the instance.</p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>The product codes attached to this instance, if applicable.</p>
+   */
+  ProductCodes?: ProductCode[];
+
+  /**
+   * <p>(IPv4 only) The public DNS name assigned to the instance. This name is not available
+   *             until the instance enters the <code>running</code> state. For EC2-VPC, this name is only
+   *             available if you've enabled DNS hostnames for your VPC.</p>
+   */
+  PublicDnsName?: string;
+
+  /**
+   * <p>The public IPv4 address, or the Carrier IP address assigned to the instance, if
+   *             applicable.</p>
+   *         <p>A Carrier IP address only applies to an instance launched in a subnet associated with
+   *             a Wavelength Zone.</p>
+   */
+  PublicIpAddress?: string;
+
+  /**
+   * <p>The RAM disk associated with this instance, if applicable.</p>
+   */
+  RamdiskId?: string;
+
+  /**
+   * <p>The current state of the instance.</p>
+   */
+  State?: InstanceState;
+
+  /**
+   * <p>The reason for the most recent state transition. This might be an empty string.</p>
+   */
+  StateTransitionReason?: string;
+
+  /**
+   * <p>[EC2-VPC] The ID of the subnet in which the instance is running.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>[EC2-VPC] The ID of the VPC in which the instance is running.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The architecture of the image.</p>
+   */
+  Architecture?: ArchitectureValues | string;
+
+  /**
+   * <p>Any block device mapping entries for the instance.</p>
+   */
+  BlockDeviceMappings?: InstanceBlockDeviceMapping[];
+
+  /**
+   * <p>The idempotency token you provided when you launched the instance, if
+   *             applicable.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
+   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
+   *             provide optimal I/O performance. This optimization isn't available with all instance
+   *             types. Additional usage charges apply when using an EBS Optimized instance.</p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
+   */
+  EnaSupport?: boolean;
+
+  /**
+   * <p>The hypervisor type of the instance. The value <code>xen</code> is used for both Xen and
+   *             Nitro hypervisors.</p>
+   */
+  Hypervisor?: HypervisorType | string;
+
+  /**
+   * <p>The IAM instance profile associated with the instance, if applicable.</p>
+   */
+  IamInstanceProfile?: IamInstanceProfile;
+
+  /**
+   * <p>Indicates whether this is a Spot Instance or a Scheduled Instance.</p>
+   */
+  InstanceLifecycle?: InstanceLifecycleType | string;
+
+  /**
+   * <p>The Elastic GPU associated with the instance.</p>
+   */
+  ElasticGpuAssociations?: ElasticGpuAssociation[];
+
+  /**
+   * <p> The elastic inference accelerator associated with the instance.</p>
+   */
+  ElasticInferenceAcceleratorAssociations?: ElasticInferenceAcceleratorAssociation[];
+
+  /**
+   * <p>[EC2-VPC] The network interfaces for the instance.</p>
+   */
+  NetworkInterfaces?: InstanceNetworkInterface[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The device name of the root device volume (for example,
+   *             <code>/dev/sda1</code>).</p>
+   */
+  RootDeviceName?: string;
+
+  /**
+   * <p>The root device type used by the AMI. The AMI can use an EBS volume or an instance
+   *             store volume.</p>
+   */
+  RootDeviceType?: DeviceType | string;
+
+  /**
+   * <p>The security groups for the instance.</p>
+   */
+  SecurityGroups?: GroupIdentifier[];
+
+  /**
+   * <p>Indicates whether source/destination checking is enabled.</p>
+   */
+  SourceDestCheck?: boolean;
+
+  /**
+   * <p>If the request is a Spot Instance request, the ID of the request.</p>
+   */
+  SpotInstanceRequestId?: string;
+
+  /**
+   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface
+   *             is enabled.</p>
+   */
+  SriovNetSupport?: string;
+
+  /**
+   * <p>The reason for the most recent state transition.</p>
+   */
+  StateReason?: StateReason;
+
+  /**
+   * <p>Any tags assigned to the instance.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The virtualization type of the instance.</p>
+   */
+  VirtualizationType?: VirtualizationType | string;
+
+  /**
+   * <p>The CPU options for the instance.</p>
+   */
+  CpuOptions?: CpuOptions;
+
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   */
+  CapacityReservationId?: string;
+
+  /**
+   * <p>Information about the Capacity Reservation targeting option.</p>
+   */
+  CapacityReservationSpecification?: CapacityReservationSpecificationResponse;
+
+  /**
+   * <p>Indicates whether the instance is enabled for hibernation.</p>
+   */
+  HibernationOptions?: HibernationOptions;
+
+  /**
+   * <p>The license configurations.</p>
+   */
+  Licenses?: LicenseConfiguration[];
+
+  /**
+   * <p>The metadata options for the instance.</p>
+   */
+  MetadataOptions?: InstanceMetadataOptionsResponse;
+
+  /**
+   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
+   */
+  EnclaveOptions?: EnclaveOptions;
+
+  /**
+   * <p>The boot mode of the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   */
+  BootMode?: BootModeValues | string;
+}
+
+export namespace Instance {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Instance): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a launch request for one or more instances, and includes
+ *             owner, requester, and security group information that applies to all
+ *             instances in the launch request.</p>
+ */
+export interface Reservation {
+  /**
+   * <p>[EC2-Classic only] The security groups.</p>
+   */
+  Groups?: GroupIdentifier[];
+
+  /**
+   * <p>The instances.</p>
+   */
+  Instances?: Instance[];
+
+  /**
+   * <p>The ID of the account that owns the reservation.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The ID of the requester that launched the instances on your behalf (for example,
+   *             Management Console or Auto Scaling).</p>
+   */
+  RequesterId?: string;
+
+  /**
+   * <p>The ID of the reservation.</p>
+   */
+  ReservationId?: string;
+}
+
+export namespace Reservation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Reservation): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeInstancesResult {
+  /**
+   * <p>Information about the reservations.</p>
+   */
+  Reservations?: Reservation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *             when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstancesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInstancesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeInstanceStatusRequest {
+  /**
+   * <p>The filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>event.code</code> - The code for the scheduled event
+   *                         (<code>instance-reboot</code> | <code>system-reboot</code> |
+   *                         <code>system-maintenance</code> | <code>instance-retirement</code> |
+   *                         <code>instance-stop</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>event.description</code> - A description of the event.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>event.instance-event-id</code> - The ID of the event whose date and time
+   *                     you are modifying.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>event.not-after</code> - The latest end time for the scheduled event
+   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>event.not-before</code> - The earliest start time for the scheduled
+   *                     event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>event.not-before-deadline</code> - The deadline for starting the event
+   *                     (for example, <code>2014-09-15T17:15:20.000Z</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>instance-state-code</code> - The code for the instance state, as a
+   *                     16-bit unsigned integer. The high byte is used for internal purposes and should
+   *                     be ignored. The low byte is set based on the state represented. The valid values
+   *                     are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
+   *                     (stopping), and 80 (stopped).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>instance-state-name</code> - The state of the instance
+   *                         (<code>pending</code> | <code>running</code> | <code>shutting-down</code> |
+   *                         <code>terminated</code> | <code>stopping</code> |
+   *                     <code>stopped</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>instance-status.reachability</code> - Filters on instance status where
+   *                     the name is <code>reachability</code> (<code>passed</code> | <code>failed</code>
+   *                     | <code>initializing</code> | <code>insufficient-data</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>instance-status.status</code> - The status of the instance
+   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
+   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>system-status.reachability</code> - Filters on system status where the
+   *                     name is <code>reachability</code> (<code>passed</code> | <code>failed</code> |
+   *                         <code>initializing</code> | <code>insufficient-data</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>system-status.status</code> - The system status of the instance
+   *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
+   *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The instance IDs.</p>
+   *         <p>Default: Describes all your instances.</p>
+   *         <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
+   */
+  InstanceIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned <code>NextToken</code> value. This value
+   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
+   *             parameter in the same call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>When <code>true</code>, includes the health status for all instances. When
+   *                 <code>false</code>, includes the health status for running instances only.</p>
+   *         <p>Default: <code>false</code>
+   *         </p>
+   */
+  IncludeAllInstances?: boolean;
+}
+
+export namespace DescribeInstanceStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInstanceStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+export type EventCode =
+  | "instance-reboot"
+  | "instance-retirement"
+  | "instance-stop"
+  | "system-maintenance"
+  | "system-reboot";
+
+/**
+ * <p>Describes a scheduled event for an instance.</p>
+ */
+export interface InstanceStatusEvent {
+  /**
+   * <p>The ID of the event.</p>
+   */
+  InstanceEventId?: string;
+
+  /**
+   * <p>The event code.</p>
+   */
+  Code?: EventCode | string;
+
+  /**
+   * <p>A description of the event.</p>
+   *         <p>After a scheduled event is completed, it can still be described for up to a week. If
+   *             the event has been completed, this description starts with the following text:
+   *             [Completed].</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The latest scheduled end time for the event.</p>
+   */
+  NotAfter?: Date;
+
+  /**
+   * <p>The earliest scheduled start time for the event.</p>
+   */
+  NotBefore?: Date;
+
+  /**
+   * <p>The deadline for starting the event.</p>
+   */
+  NotBeforeDeadline?: Date;
+}
+
+export namespace InstanceStatusEvent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceStatusEvent): any => ({
+    ...obj,
+  });
+}
 
 export type StatusName = "reachability";
 
@@ -11786,805 +12681,6 @@ export namespace DescribeVpcEndpointsResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeVpcEndpointsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVpcEndpointServiceConfigurationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of one or more services.</p>
-   */
-  ServiceIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   *                   <code>service-name</code> - The name of the service.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>service-id</code> - The ID of the service.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>service-state</code> - The state of the service (<code>Pending</code> |
-   *                         <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> |
-   *                         <code>Failed</code>). </p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   * 			         </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining
-   *             results of the initial request can be seen by sending another request with the returned
-   *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
-   *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
-   *             returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeVpcEndpointServiceConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcEndpointServiceConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVpcEndpointServiceConfigurationsResult {
-  /**
-   * <p>Information about one or more services.</p>
-   */
-  ServiceConfigurations?: ServiceConfiguration[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeVpcEndpointServiceConfigurationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcEndpointServiceConfigurationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVpcEndpointServicePermissionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the service.</p>
-   */
-  ServiceId: string | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   *                   <code>principal</code> - The ARN of the principal.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>principal-type</code> - The principal type (<code>All</code> |
-   * 						<code>Service</code> | <code>OrganizationUnit</code> | <code>Account</code>
-   * 					| <code>User</code> | <code>Role</code>).</p>
-   * 			         </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining
-   *             results of the initial request can be seen by sending another request with the returned
-   *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
-   *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
-   *             returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeVpcEndpointServicePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcEndpointServicePermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVpcEndpointServicePermissionsResult {
-  /**
-   * <p>Information about one or more allowed principals.</p>
-   */
-  AllowedPrincipals?: AllowedPrincipal[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeVpcEndpointServicePermissionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcEndpointServicePermissionsResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for DescribeVpcEndpointServices.</p>
- */
-export interface DescribeVpcEndpointServicesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more service names.</p>
-   */
-  ServiceNames?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>service-name</code> - The name of the service.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>service-type</code> - The type of service (<code>Interface</code> |
-   *                         <code>Gateway</code>).</p>
-   *             </li>
-   *             <li>
-   *         		     <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *         	   </li>
-   *             <li>
-   *         		     <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *         	   </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
-   *         <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeVpcEndpointServicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcEndpointServicesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the Private DNS name for interface endpoints.</p>
- */
-export interface PrivateDnsDetails {
-  /**
-   * <p>The private DNS name assigned to the VPC endpoint service.</p>
-   */
-  PrivateDnsName?: string;
-}
-
-export namespace PrivateDnsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateDnsDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a VPC endpoint service.</p>
- */
-export interface ServiceDetail {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the service.</p>
-   */
-  ServiceName?: string;
-
-  /**
-   * <p>The ID of the endpoint service.</p>
-   */
-  ServiceId?: string;
-
-  /**
-   * <p>The type of service.</p>
-   */
-  ServiceType?: ServiceTypeDetail[];
-
-  /**
-   * <p>The Availability Zones in which the service is available.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>The AWS account ID of the service owner.</p>
-   */
-  Owner?: string;
-
-  /**
-   * <p>The DNS names for the service.</p>
-   */
-  BaseEndpointDnsNames?: string[];
-
-  /**
-   * <p>The private DNS name for the service.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>The private DNS names assigned to the VPC endpoint service. </p>
-   */
-  PrivateDnsNames?: PrivateDnsDetails[];
-
-  /**
-   * <p>Indicates whether the service supports endpoint policies.</p>
-   */
-  VpcEndpointPolicySupported?: boolean;
-
-  /**
-   * <p>Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.</p>
-   */
-  AcceptanceRequired?: boolean;
-
-  /**
-   * <p>Indicates whether the service manages its VPC endpoints. Management of the service VPC
-   *             endpoints using the VPC endpoint API is restricted.</p>
-   */
-  ManagesVpcEndpoints?: boolean;
-
-  /**
-   * <p>Any tags assigned to the service.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The verification state of the VPC endpoint service.</p>
-   *         <p>Consumers of the endpoint service cannot use the private name when the state is not <code>verified</code>.</p>
-   */
-  PrivateDnsNameVerificationState?: DnsNameState | string;
-}
-
-export namespace ServiceDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceDetail): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of DescribeVpcEndpointServices.</p>
- */
-export interface DescribeVpcEndpointServicesResult {
-  /**
-   * <p>A list of supported services.</p>
-   */
-  ServiceNames?: string[];
-
-  /**
-   * <p>Information about the service.</p>
-   */
-  ServiceDetails?: ServiceDetail[];
-
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeVpcEndpointServicesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcEndpointServicesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVpcPeeringConnectionsRequest {
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                     <code>accepter-vpc-info.cidr-block</code> - The IPv4 CIDR block of the accepter
-   *                     VPC.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                     <code>accepter-vpc-info.owner-id</code> - The AWS account ID of the owner of the
-   *                     accepter VPC.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                     <code>accepter-vpc-info.vpc-id</code> - The ID of the accepter VPC.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>expiration-time</code> - The expiration date and time for the VPC peering
-   *           connection.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                     <code>requester-vpc-info.cidr-block</code> - The IPv4 CIDR block of the
-   *                     requester's VPC.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>requester-vpc-info.owner-id</code> - The AWS account ID of the owner of the
-   *           requester VPC.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>requester-vpc-info.vpc-id</code> - The ID of the requester VPC.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                     <code>status-code</code> - The status of the VPC peering connection
-   *                         (<code>pending-acceptance</code> | <code>failed</code> |
-   *                         <code>expired</code> | <code>provisioning</code> | <code>active</code> |
-   *                         <code>deleting</code> | <code>deleted</code> |
-   *                     <code>rejected</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status-message</code> - A message that provides more information about the status
-   *           of the VPC peering connection, if applicable.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-peering-connection-id</code> - The ID of the VPC peering connection.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more VPC peering connection IDs.</p>
-   *          <p>Default: Describes all your VPC peering connections.</p>
-   */
-  VpcPeeringConnectionIds?: string[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeVpcPeeringConnectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcPeeringConnectionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVpcPeeringConnectionsResult {
-  /**
-   * <p>Information about the VPC peering connections.</p>
-   */
-  VpcPeeringConnections?: VpcPeeringConnection[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeVpcPeeringConnectionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcPeeringConnectionsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVpcsRequest {
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>cidr</code> - The primary IPv4 CIDR block of the VPC. The CIDR block you
-   *                     specify must exactly match the VPC's CIDR block for information to be returned
-   *                     for the VPC. Must contain the slash followed by one or two digits (for example,
-   *                     <code>/28</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>cidr-block-association.cidr-block</code> - An IPv4 CIDR block associated with the
-   *                     VPC.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>cidr-block-association.association-id</code> - The association ID for
-   *                     an IPv4 CIDR block associated with the VPC.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>cidr-block-association.state</code> - The state of an IPv4 CIDR block
-   *                     associated with the VPC.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>dhcp-options-id</code> - The ID of a set of DHCP options.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR
-   *                     block associated with the VPC.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ipv6-cidr-block-association.ipv6-pool</code> - The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ipv6-cidr-block-association.association-id</code> - The association
-   *                     ID for an IPv6 CIDR block associated with the VPC.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR
-   *                     block associated with the VPC.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>isDefault</code> - Indicates whether the VPC is the default VPC.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>owner-id</code> - The ID of the AWS account that owns the VPC.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>vpc-id</code> - The ID of the VPC.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>One or more VPC IDs.</p>
-   * 		       <p>Default: Describes all your VPCs.</p>
-   */
-  VpcIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeVpcsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVpcsResult {
-  /**
-   * <p>Information about one or more VPCs.</p>
-   */
-  Vpcs?: Vpc[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeVpcsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcsResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for DescribeVpnConnections.</p>
- */
-export interface DescribeVpnConnectionsRequest {
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>customer-gateway-configuration</code> - The configuration information for the customer gateway.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>customer-gateway-id</code> - The ID of a customer gateway associated with the VPN connection.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>state</code> - The state of the VPN connection (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>option.static-routes-only</code> - Indicates whether the connection has static routes only. Used for devices that do not support Border Gateway Protocol (BGP).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>route.destination-cidr-block</code> - The destination CIDR block. This corresponds to the subnet used in a customer data center.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>bgp-asn</code> - The BGP Autonomous System Number (ASN) associated with a BGP device.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>type</code> - The type of VPN connection. Currently the only supported type is <code>ipsec.1</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>vpn-connection-id</code> - The ID of the VPN connection.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>vpn-gateway-id</code> - The ID of a virtual private gateway associated with the VPN connection.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>transit-gateway-id</code> - The ID of a transit gateway associated with the VPN connection.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>One or more VPN connection IDs.</p>
-   *         <p>Default: Describes your VPN connections.</p>
-   */
-  VpnConnectionIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeVpnConnectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpnConnectionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of DescribeVpnConnections.</p>
- */
-export interface DescribeVpnConnectionsResult {
-  /**
-   * <p>Information about one or more VPN connections.</p>
-   */
-  VpnConnections?: VpnConnection[];
-}
-
-export namespace DescribeVpnConnectionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpnConnectionsResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for DescribeVpnGateways.</p>
- */
-export interface DescribeVpnGatewaysRequest {
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   * 				           <p>
-   *                   <code>amazon-side-asn</code> - The Autonomous System Number (ASN) for the Amazon side of the gateway.</p>
-   * 			         </li>
-   *             <li>
-   *                 <p>
-   *                   <code>attachment.state</code> - The current state of the attachment between the gateway and the VPC (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>attachment.vpc-id</code> - The ID of an attached VPC.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>availability-zone</code> - The Availability Zone for the virtual private gateway (if applicable).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>state</code> - The state of the virtual private gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>type</code> - The type of virtual private gateway. Currently the only supported type is <code>ipsec.1</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>vpn-gateway-id</code> - The ID of the virtual private gateway.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>One or more virtual private gateway IDs.</p>
-   *         <p>Default: Describes all your virtual private gateways.</p>
-   */
-  VpnGatewayIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeVpnGatewaysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpnGatewaysRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of DescribeVpnGateways.</p>
- */
-export interface DescribeVpnGatewaysResult {
-  /**
-   * <p>Information about one or more virtual private gateways.</p>
-   */
-  VpnGateways?: VpnGateway[];
-}
-
-export namespace DescribeVpnGatewaysResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpnGatewaysResult): any => ({
     ...obj,
   });
 }

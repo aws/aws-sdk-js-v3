@@ -21,7 +21,7 @@ export interface UpdateOpsMetadataCommandInput extends UpdateOpsMetadataRequest 
 export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult, __MetadataBearer {}
 
 /**
- * <p>Systems Manager calls this API action when you edit OpsMetadata in Application Manager.</p>
+ * <p>Amazon Web Services Systems Manager calls this API operation when you edit OpsMetadata in Application Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

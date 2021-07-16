@@ -23,8 +23,7 @@ export interface ListEventIntegrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
- *          <p>Returns a paginated list of event integration associations in the account. </p>
+ * <p>Returns a paginated list of event integration associations in the account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

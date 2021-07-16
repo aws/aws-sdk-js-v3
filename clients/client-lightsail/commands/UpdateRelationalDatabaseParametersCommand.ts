@@ -35,7 +35,7 @@ export interface UpdateRelationalDatabaseParametersCommandOutput
  *       the <code>reboot relational database</code> operation.</p>
  *          <p>The <code>update relational database parameters</code> operation supports tag-based access
  *       control via resource tags applied to the resource identified by relationalDatabaseName. For
- *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

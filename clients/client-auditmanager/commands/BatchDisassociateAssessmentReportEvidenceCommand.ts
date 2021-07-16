@@ -28,7 +28,7 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
 
 /**
  * <p>
- *          Disassociates a list of evidence from the specified assessment report in AWS Audit Manager.
+ *          Disassociates a list of evidence from the specified assessment report in Audit Manager.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

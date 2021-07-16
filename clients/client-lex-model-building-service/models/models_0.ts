@@ -2,6 +2,25 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
+ * <p>Your IAM user or role does not have permission to call the Amazon Lex V2 APIs
+ *       required to migrate your bot.</p>
+ */
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
+  name: "AccessDeniedException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The request is not well formed. For example, a value is invalid or
  *       a required field is missing. Check the field values, and try
  *       again.</p>
@@ -197,6 +216,7 @@ export enum Locale {
   DE_DE = "de-DE",
   EN_AU = "en-AU",
   EN_GB = "en-GB",
+  EN_IN = "en-IN",
   EN_US = "en-US",
   ES_419 = "es-419",
   ES_ES = "es-ES",
@@ -3024,6 +3044,319 @@ export namespace GetIntentVersionsResponse {
   });
 }
 
+export interface GetMigrationRequest {
+  /**
+   * <p>The unique identifier of the migration to view. The
+   *         <code>migrationID</code> is returned by the  operation.</p>
+   */
+  migrationId: string | undefined;
+}
+
+export namespace GetMigrationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMigrationRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum MigrationAlertType {
+  ERROR = "ERROR",
+  WARN = "WARN",
+}
+
+/**
+ * <p>Provides information about alerts and warnings that Amazon Lex sends during
+ *       a migration. The alerts include information about how to resolve the
+ *       issue.</p>
+ */
+export interface MigrationAlert {
+  /**
+   * <p>The type of alert. There are two kinds of alerts:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ERROR</code> - There was an issue with the migration that
+   *           can't be resolved. The migration stops.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WARN</code> - There was an issue with the migration that
+   *           requires manual changes to the new Amazon Lex V2 bot. The migration
+   *           continues.</p>
+   *             </li>
+   *          </ul>
+   */
+  type?: MigrationAlertType | string;
+
+  /**
+   * <p>A message that describes why the alert was issued.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>Additional details about the alert.</p>
+   */
+  details?: string[];
+
+  /**
+   * <p>A link to the Amazon Lex documentation that describes how to resolve
+   *     the alert.</p>
+   */
+  referenceURLs?: string[];
+}
+
+export namespace MigrationAlert {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MigrationAlert): any => ({
+    ...obj,
+  });
+}
+
+export enum MigrationStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+}
+
+export enum MigrationStrategy {
+  CREATE_NEW = "CREATE_NEW",
+  UPDATE_EXISTING = "UPDATE_EXISTING",
+}
+
+export interface GetMigrationResponse {
+  /**
+   * <p>The unique identifier of the migration. This is the same as the
+   *       identifier used when calling the <code>GetMigration</code>
+   *       operation.</p>
+   */
+  migrationId?: string;
+
+  /**
+   * <p>The name of the Amazon Lex V1 bot migrated to Amazon Lex V2.</p>
+   */
+  v1BotName?: string;
+
+  /**
+   * <p>The version of the Amazon Lex V1 bot migrated to Amazon Lex V2.</p>
+   */
+  v1BotVersion?: string;
+
+  /**
+   * <p>The locale of the Amazon Lex V1 bot migrated to Amazon Lex V2.</p>
+   */
+  v1BotLocale?: Locale | string;
+
+  /**
+   * <p>The unique identifier of the Amazon Lex V2 bot that the Amazon Lex V1 is being
+   *       migrated to.</p>
+   */
+  v2BotId?: string;
+
+  /**
+   * <p>The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</p>
+   */
+  v2BotRole?: string;
+
+  /**
+   * <p>Indicates the status of the migration. When the status is
+   *         <code>COMPLETE</code> the migration is finished and the bot is available
+   *       in Amazon Lex V2. There may be alerts and warnings that need to be resolved to
+   *       complete the migration.</p>
+   */
+  migrationStatus?: MigrationStatus | string;
+
+  /**
+   * <p>The strategy used to conduct the migration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_NEW</code> - Creates a new Amazon Lex V2 bot and migrates
+   *           the Amazon Lex V1 bot to the new bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_EXISTING</code> - Overwrites the existing Amazon Lex V2 bot
+   *         metadata and the locale being migrated. It doesn't change any other
+   *         locales in the Amazon Lex V2 bot. If the locale doesn't exist, a new locale
+   *         is created in the Amazon Lex V2 bot.</p>
+   *             </li>
+   *          </ul>
+   */
+  migrationStrategy?: MigrationStrategy | string;
+
+  /**
+   * <p>The date and time that the migration started.</p>
+   */
+  migrationTimestamp?: Date;
+
+  /**
+   * <p>A list of alerts and warnings that indicate issues with the migration
+   *       for the Amazon Lex V1 bot to Amazon Lex V2. You receive a warning when an Amazon Lex V1
+   *       feature has a different implementation if Amazon Lex V2.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/migrate.html">Migrating a bot</a> in the <i>Amazon Lex V2
+   *         developer guide</i>.</p>
+   */
+  alerts?: MigrationAlert[];
+}
+
+export namespace GetMigrationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMigrationResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum MigrationSortAttribute {
+  MIGRATION_DATE_TIME = "MIGRATION_DATE_TIME",
+  V1_BOT_NAME = "V1_BOT_NAME",
+}
+
+export enum SortOrder {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+
+export interface GetMigrationsRequest {
+  /**
+   * <p>The field to sort the list of migrations by. You can sort by the
+   *       Amazon Lex V1 bot name or the date and time that the migration was
+   *       started.</p>
+   */
+  sortByAttribute?: MigrationSortAttribute | string;
+
+  /**
+   * <p>The order so sort the list.</p>
+   */
+  sortByOrder?: SortOrder | string;
+
+  /**
+   * <p>Filters the list to contain only bots whose name contains the
+   *       specified string. The string is matched anywhere in bot name.</p>
+   */
+  v1BotNameContains?: string;
+
+  /**
+   * <p>Filters the list to contain only migrations in the specified state.</p>
+   */
+  migrationStatusEquals?: MigrationStatus | string;
+
+  /**
+   * <p>The maximum number of migrations to return in the response. The
+   *       default is 10.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A pagination token that fetches the next page of migrations. If the
+   *       response to this operation is truncated, Amazon Lex returns a pagination token
+   *       in the response. To fetch the next page of migrations, specify the
+   *       pagination token in the request.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetMigrationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMigrationsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about migrating a bot from Amazon Lex V1 to Amazon Lex V2.</p>
+ */
+export interface MigrationSummary {
+  /**
+   * <p>The unique identifier that Amazon Lex assigned to the migration.</p>
+   */
+  migrationId?: string;
+
+  /**
+   * <p>The name of the Amazon Lex V1 bot that is the source of the migration.</p>
+   */
+  v1BotName?: string;
+
+  /**
+   * <p>The version of the Amazon Lex V1 bot that is the source of the migration.</p>
+   */
+  v1BotVersion?: string;
+
+  /**
+   * <p>The locale of the Amazon Lex V1 bot that is the source of the migration.</p>
+   */
+  v1BotLocale?: Locale | string;
+
+  /**
+   * <p>The unique identifier of the Amazon Lex V2 that is the destination of the migration.</p>
+   */
+  v2BotId?: string;
+
+  /**
+   * <p>The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</p>
+   */
+  v2BotRole?: string;
+
+  /**
+   * <p>The status of the operation. When the status is <code>COMPLETE</code>
+   *     the bot is available in Amazon Lex V2. There may be alerts and warnings that
+   *     need to be resolved to complete the migration.</p>
+   */
+  migrationStatus?: MigrationStatus | string;
+
+  /**
+   * <p>The strategy used to conduct the migration.</p>
+   */
+  migrationStrategy?: MigrationStrategy | string;
+
+  /**
+   * <p>The date and time that the migration started.</p>
+   */
+  migrationTimestamp?: Date;
+}
+
+export namespace MigrationSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MigrationSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMigrationsResponse {
+  /**
+   * <p>An array of summaries for migrations from Amazon Lex V1 to Amazon Lex V2. To see
+   *       details of the migration, use the <code>migrationId</code> from the
+   *       summary in a call to the
+   *       operation.</p>
+   */
+  migrationSummaries?: MigrationSummary[];
+
+  /**
+   * <p>If the response is truncated, it includes a pagination token that you
+   *       can specify in your next request to fetch the next page of
+   *       migrations.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetMigrationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMigrationsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetSlotTypeRequest {
   /**
    * <p>The name of the slot type. The name is case sensitive. </p>
@@ -4721,6 +5054,119 @@ export namespace StartImportResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: StartImportResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartMigrationRequest {
+  /**
+   * <p>The name of the Amazon Lex V1 bot that you are migrating to Amazon Lex V2.</p>
+   */
+  v1BotName: string | undefined;
+
+  /**
+   * <p>The version of the bot to migrate to Amazon Lex V2. You can migrate the
+   *         <code>$LATEST</code> version as well as any numbered version.</p>
+   */
+  v1BotVersion: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Lex V2 bot that you are migrating the Amazon Lex V1 bot to. </p>
+   *          <ul>
+   *             <li>
+   *                <p>If the Amazon Lex V2 bot doesn't exist, you must use the
+   *             <code>CREATE_NEW</code> migration strategy.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the Amazon Lex V2 bot exists, you must use the
+   *             <code>UPDATE_EXISTING</code> migration strategy to change the
+   *           contents of the Amazon Lex V2 bot.</p>
+   *             </li>
+   *          </ul>
+   */
+  v2BotName: string | undefined;
+
+  /**
+   * <p>The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</p>
+   */
+  v2BotRole: string | undefined;
+
+  /**
+   * <p>The strategy used to conduct the migration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_NEW</code> - Creates a new Amazon Lex V2 bot and migrates
+   *           the Amazon Lex V1 bot to the new bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_EXISTING</code> - Overwrites the existing Amazon Lex V2 bot
+   *           metadata and the locale being migrated. It doesn't change any other
+   *           locales in the Amazon Lex V2 bot. If the locale doesn't exist, a new locale
+   *           is created in the Amazon Lex V2 bot.</p>
+   *             </li>
+   *          </ul>
+   */
+  migrationStrategy: MigrationStrategy | string | undefined;
+}
+
+export namespace StartMigrationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartMigrationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartMigrationResponse {
+  /**
+   * <p>The name of the Amazon Lex V1 bot that you are migrating to Amazon Lex V2.</p>
+   */
+  v1BotName?: string;
+
+  /**
+   * <p>The version of the bot to migrate to Amazon Lex V2. </p>
+   */
+  v1BotVersion?: string;
+
+  /**
+   * <p>The locale used for the Amazon Lex V1 bot. </p>
+   */
+  v1BotLocale?: Locale | string;
+
+  /**
+   * <p>The unique identifier for the Amazon Lex V2 bot. </p>
+   */
+  v2BotId?: string;
+
+  /**
+   * <p>The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</p>
+   */
+  v2BotRole?: string;
+
+  /**
+   * <p>The unique identifier that Amazon Lex assigned to the migration.</p>
+   */
+  migrationId?: string;
+
+  /**
+   * <p>The strategy used to conduct the migration.</p>
+   */
+  migrationStrategy?: MigrationStrategy | string;
+
+  /**
+   * <p>The date and time that the migration started.</p>
+   */
+  migrationTimestamp?: Date;
+}
+
+export namespace StartMigrationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartMigrationResponse): any => ({
     ...obj,
   });
 }

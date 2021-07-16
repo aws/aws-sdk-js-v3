@@ -22,7 +22,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 
 /**
  * <p>
- * Tags the specified resource in AWS Audit Manager.
+ *    Tags the specified resource in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

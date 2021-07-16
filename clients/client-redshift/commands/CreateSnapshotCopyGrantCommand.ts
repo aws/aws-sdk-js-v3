@@ -22,7 +22,7 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
 
 /**
  * <p>Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key
- *             (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in a
+ *             (CMK) from Key Management Service (KMS) to encrypt copied snapshots in a
  *             destination region.</p>
  *         <p>
  * For more information about managing snapshot copy grants, go to

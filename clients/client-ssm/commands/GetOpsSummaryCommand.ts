@@ -22,7 +22,10 @@ export interface GetOpsSummaryCommandInput extends GetOpsSummaryRequest {}
 export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __MetadataBearer {}
 
 /**
- * <p>View a summary of OpsItems based on specified filters and aggregators.</p>
+ * <p>View a summary of operations metadata (OpsData) based on specified filters and aggregators.
+ *    OpsData can include information about Amazon Web Services Systems Manager OpsCenter operational workitems (OpsItems) as
+ *    well as information about any Amazon Web Services resource or service configured to report OpsData to Amazon Web Services Systems Manager
+ *    Explorer. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

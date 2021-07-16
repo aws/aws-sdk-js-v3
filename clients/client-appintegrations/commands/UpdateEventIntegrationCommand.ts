@@ -21,8 +21,7 @@ export interface UpdateEventIntegrationCommandInput extends UpdateEventIntegrati
 export interface UpdateEventIntegrationCommandOutput extends UpdateEventIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
- *          <p>Updates the description of an event integration.</p>
+ * <p>Updates the description of an event integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

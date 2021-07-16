@@ -8,7 +8,7 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
  */
 export interface AccessControlListConfiguration {
   /**
-   * <p>Path to the AWS S3 bucket that contains the ACL files.</p>
+   * <p>Path to the Amazon Web Services S3 bucket that contains the ACL files.</p>
    */
   KeyPath?: string;
 }
@@ -792,6 +792,12 @@ export interface Principal {
    * <p>Whether to allow or deny access to the principal.</p>
    */
   Access: ReadAccessType | string | undefined;
+
+  /**
+   * <p>The identifier of the data source the principal should
+   *             access documents from.</p>
+   */
+  DataSourceId?: string;
 }
 
 export namespace Principal {
@@ -809,6 +815,30 @@ export enum ContentType {
   PDF = "PDF",
   PLAIN_TEXT = "PLAIN_TEXT",
   PPT = "PPT",
+}
+
+/**
+ * <p>
+ *             Information to define the hierarchy for which documents users should have access to.
+ *         </p>
+ */
+export interface HierarchicalPrincipal {
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html">principal</a> lists
+   *                 that define the hierarchy for which documents users should have access to.
+   *                 Each hierarchical list specifies which user or group has allow or deny
+   *                 access for each document.</p>
+   */
+  PrincipalList: Principal[] | undefined;
+}
+
+export namespace HierarchicalPrincipal {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HierarchicalPrincipal): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -854,7 +884,7 @@ export interface Document {
    * <p>The contents of the document. </p>
    *         <p>Documents passed to the <code>Blob</code> parameter must be base64
    *             encoded. Your code might not need to encode the document file bytes
-   *             if you're using an AWS SDK to call Amazon Kendra operations. If you are
+   *             if you're using an Amazon Web Services SDK to call Amazon Kendra operations. If you are
    *             calling the Amazon Kendra endpoint directly using REST, you must base64
    *             encode the contents before sending.</p>
    */
@@ -875,9 +905,16 @@ export interface Document {
   Attributes?: DocumentAttribute[];
 
   /**
-   * <p>Information to use for user context filtering.</p>
+   * <p>Information on user and group access rights, which is used for
+   *             user context filtering.</p>
    */
   AccessControlList?: Principal[];
+
+  /**
+   * <p>The list of <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html">principal</a> lists
+   *             that define the hierarchy for which documents users should have access to.</p>
+   */
+  HierarchicalAccessControlList?: HierarchicalPrincipal[];
 
   /**
    * <p>The file type of the document in the <code>Blob</code>
@@ -986,7 +1023,7 @@ export interface BatchPutDocumentResponse {
    *       message that indicates why the document couldn't be added to the
    *       index.</p>
    *          <p>If there was an error adding a document to an index the error is
-   *       reported in your AWS CloudWatch log. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-logs.html">Monitoring
+   *       reported in your Amazon Web Services CloudWatch log. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/cloudwatch-logs.html">Monitoring
    *         Amazon Kendra with Amazon CloudWatch Logs</a>
    *          </p>
    */
@@ -1423,7 +1460,7 @@ export interface ConfluenceConfiguration {
   ServerUrl: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Secrets Manager secret
+   * <p>The Amazon Resource Name (ARN) of an Secrets Managersecret
    *             that contains the key/value pairs required to connect to your
    *             Confluence server. The secret must contain a JSON structure with the
    *             following keys:</p>
@@ -1613,8 +1650,8 @@ export interface ConnectionConfiguration {
    *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html">Using a
    *                 Database Data Source</a>. For more information about AWS
    *             Secrets Manager, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html"> What Is AWS
-   *                 Secrets Manager </a> in the <i>AWS Secrets
-   *                 Manager</i> user guide.</p>
+   *                 Secrets Manager </a> in the <i> Secrets Manager
+   *                 </i> user guide.</p>
    */
   SecretArn: string | undefined;
 }
@@ -1725,7 +1762,7 @@ export namespace DatabaseConfiguration {
  */
 export interface GoogleDriveConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of a AWS Secrets Manager secret
+   * <p>The Amazon Resource Name (ARN) of a Secrets Managersecret
    *             that contains the credentials required to connect to Google Drive.
    *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html">Using a Google Workspace Drive data
    *                 source</a>.</p>
@@ -1835,7 +1872,7 @@ export interface OneDriveConfiguration {
   TenantDomain: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Secrets Manager secret
+   * <p>The Amazon Resource Name (ARN) of an Secrets Managersecret
    *             that contains the user name and password to connect to OneDrive. The
    *             user namd should be the application ID for the OneDrive application,
    *             and the password is the application key for the OneDrive
@@ -1900,7 +1937,7 @@ export namespace OneDriveConfiguration {
  */
 export interface DocumentsMetadataConfiguration {
   /**
-   * <p>A prefix used to filter metadata configuration files in the AWS S3
+   * <p>A prefix used to filter metadata configuration files in the Amazon Web Services S3
    *             bucket. The S3 bucket might contain multiple metadata files. Use
    *                 <code>S3Prefix</code> to include only the desired metadata
    *             files.</p>
@@ -2274,7 +2311,7 @@ export interface SalesforceConfiguration {
   ServerUrl: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Secrets Manager secret
+   * <p>The Amazon Resource Name (ARN) of an Secrets Managersecret
    *             that contains the key/value pairs required to connect to your
    *             Salesforce instance. The secret must contain a JSON structure with
    *             the following keys:</p>
@@ -2518,7 +2555,7 @@ export interface ServiceNowConfiguration {
   HostUrl: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Secret Manager secret
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret
    *             that contains the user name and password required to connect to the
    *             ServiceNow instance.</p>
    */
@@ -2594,12 +2631,14 @@ export interface SharePointConfiguration {
 
   /**
    * <p>The Amazon Resource Name (ARN) of credentials stored in AWS
-   *             Secrets Manager. The credentials should be a user/password pair. For
+   *             Secrets Manager. The credentials should be a user/password pair.
+   *             If you use SharePoint Sever, you also need to provide the sever
+   *             domain name as part of the credentials. For
    *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html">Using a
    *                 Microsoft SharePoint Data Source</a>. For more information
    *             about AWS Secrets Manager, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html"> What Is AWS
-   *                 Secrets Manager </a> in the <i>AWS Secrets
-   *                 Manager</i> user guide.</p>
+   *                 Secrets Manager </a> in the <i>Secrets Manager
+   *                 </i> user guide.</p>
    */
   SecretArn: string | undefined;
 
@@ -3268,13 +3307,13 @@ export enum IndexEdition {
 }
 
 /**
- * <p>Provides the identifier of the AWS KMS customer master key (CMK)
+ * <p>Provides the identifier of the KMScustomer master key (CMK)
  *             used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support
  *             asymmetric CMKs.</p>
  */
 export interface ServerSideEncryptionConfiguration {
   /**
-   * <p>The identifier of the AWS KMS customer master key (CMK). Amazon Kendra
+   * <p>The identifier of the KMScustomer master key (CMK). Amazon Kendra
    *             doesn't support asymmetric CMKs.</p>
    */
   KmsKeyId?: string;
@@ -3411,13 +3450,11 @@ export interface CreateIndexRequest {
    *       changed. </p>
    *          <p>The <code>Edition</code> parameter is optional. If you don't supply a
    *       value, the default is <code>ENTERPRISE_EDITION</code>.</p>
-   *          <p>For more information on quota limits for enterprise and developer editions,
-   *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</p>
    */
   Edition?: IndexEdition | string;
 
   /**
-   * <p>An AWS Identity and Access Management (IAM) role that gives
+   * <p>An Identity and Access Management(IAM) role that gives
    *       Amazon Kendra permissions to access your Amazon CloudWatch logs and
    *       metrics. This is also the role used when you use the
    *         <code>BatchPutDocument</code> operation to index documents from an
@@ -3426,7 +3463,7 @@ export interface CreateIndexRequest {
   RoleArn: string | undefined;
 
   /**
-   * <p>The identifier of the AWS KMS customer managed key (CMK) to use to
+   * <p>The identifier of the KMScustomer managed key (CMK) to use to
    *       encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support
    *       asymmetric CMKs.</p>
    */
@@ -3720,6 +3757,58 @@ export namespace DeleteIndexRequest {
   });
 }
 
+export interface DeletePrincipalMappingRequest {
+  /**
+   * <p>The identifier of the index you want to delete a group from.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the data source you want to delete a group from.</p>
+   *         <p>This is useful if a group is tied to multiple data sources and you want
+   *             to delete a group from accessing documents in a certain data source. For example,
+   *             the groups "Research", "Engineering", and "Sales and Marketing" are all tied to
+   *             the company's documents stored in the data sources Confluence and Salesforce.
+   *             You want to delete "Research" and "Engineering" groups from Salesforce, so that
+   *             these groups cannot access customer-related documents stored in Salesforce.
+   *             Only "Sales and Marketing" should access documents in the Salesforce data source.</p>
+   */
+  DataSourceId?: string;
+
+  /**
+   * <p>The identifier of the group you want to delete.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>The timestamp identifier you specify to ensure Amazon Kendra does not
+   *             override the latest <code>DELETE</code> action with previous actions.
+   *             The highest number ID, which is the ordering ID, is the latest action
+   *             you want to process and apply on top of other actions with lower number
+   *             IDs. This prevents previous actions with lower number IDs from possibly
+   *             overriding the latest action.</p>
+   *         <p>The ordering ID can be the UNIX time of the last update you made to a group
+   *             members list. You would then provide this list when calling
+   *             <code>PutPrincipalMapping</code>. This ensures your <code>DELETE</code> action
+   *             for that updated group with the latest members list doesn't get overwritten
+   *             by earlier <code>DELETE</code> actions for the same group which are yet to
+   *             be processed.</p>
+   *         <p>The default ordering ID is the current UNIX time in milliseconds that the
+   *             action was received by Amazon Kendra.
+   *         </p>
+   */
+  OrderingId?: number;
+}
+
+export namespace DeletePrincipalMappingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePrincipalMappingRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteQuerySuggestionsBlockListRequest {
   /**
    * <p>The identifier of the you want to delete a block list from.</p>
@@ -3992,9 +4081,9 @@ export namespace DescribeIndexRequest {
  */
 export interface CapacityUnitsConfiguration {
   /**
-   * <p>The amount of extra storage capacity for an index.
-   *             A single capacity unit provides 30 GB of storage space or 100,000 documents,
-   *             whichever is reached first.</p>
+   * <p>The amount of extra storage capacity for an index. A single capacity
+   *             unit for an index provides 150 GB of storage space or
+   *             500,000 documents, whichever is reached first.</p>
    */
   StorageCapacityUnits: number | undefined;
 
@@ -4002,16 +4091,14 @@ export interface CapacityUnitsConfiguration {
    * <p>The amount of extra query capacity for an index and
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html">GetQuerySuggestions</a>
    *             capacity.</p>
-   *         <p>A single extra capacity unit for an index provides 0.1 queries per second or approximately
-   *             8,000 queries per day.</p>
+   *         <p>A single extra capacity unit for an index provides 0.5 queries per second or
+   *             approximately 40,000 queries per day.</p>
    *         <p>
-   *             <code>GetQuerySuggestions</code> capacity is five times the
-   *             provisioned query capacity for an index, or the base capacity of 2.5 calls per second,
-   *             whichever is higher. For example, the base capacity for an index is 0.1 queries per
-   *             second, and <code>GetQuerySuggestions</code> capacity has a base of 2.5 calls per second.
-   *             If you add another 0.1 queries per second to total 0.2 queries per second for an index, the
-   *             <code>GetQuerySuggestions</code> capacity is 2.5 calls per second
-   *             (higher than five times 0.2 queries per second).</p>
+   *             <code>GetQuerySuggestions</code> capacity is 5 times the provisioned query
+   *             capacity for an index. For example, the base capacity for an index is 0.5
+   *             queries per second, so GetQuerySuggestions capacity is 2.5 calls per second.
+   *             If adding another 0.5 queries per second to total 1 queries per second for an
+   *             index, the <code>GetQuerySuggestions</code> capacity is 5 calls per second.</p>
    */
   QueryCapacityUnits: number | undefined;
 }
@@ -4297,7 +4384,7 @@ export interface DescribeIndexResponse {
   RoleArn?: string;
 
   /**
-   * <p>The identifier of the AWS KMS customer master key (CMK) used to
+   * <p>The identifier of the KMScustomer master key (CMK) used to
    *       encrypt your data. Amazon Kendra doesn't support asymmetric CMKs.</p>
    */
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
@@ -4376,6 +4463,154 @@ export namespace DescribeIndexResponse {
         obj.ServerSideEncryptionConfiguration
       ),
     }),
+  });
+}
+
+export interface DescribePrincipalMappingRequest {
+  /**
+   * <p>The identifier of the index required to check the processing of
+   *             <code>PUT</code> and <code>DELETE</code> actions for mapping users
+   *             to their groups.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the data source to check the processing of
+   *             <code>PUT</code> and <code>DELETE</code> actions for mapping
+   *             users to their groups.</p>
+   */
+  DataSourceId?: string;
+
+  /**
+   * <p>The identifier of the group required to check the processing of
+   *             <code>PUT</code> and <code>DELETE</code> actions for mapping users
+   *             to their groups.</p>
+   */
+  GroupId: string | undefined;
+}
+
+export namespace DescribePrincipalMappingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePrincipalMappingRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum PrincipalMappingStatus {
+  DELETED = "DELETED",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  PROCESSING = "PROCESSING",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+/**
+ * <p>Information on the processing of <code>PUT</code> and <code>DELETE</code> actions
+ *             for mapping users to their groups.</p>
+ */
+export interface GroupOrderingIdSummary {
+  /**
+   * <p>The current processing status of actions for mapping users to their groups.
+   *             The status can be either <code>PROCESSING</code>, <code>SUCCEEDED</code>,
+   *             <code>DELETING</code>, <code>DELETED</code>, or <code>FAILED</code>.</p>
+   */
+  Status?: PrincipalMappingStatus | string;
+
+  /**
+   * <p>The last date-time an action was updated. An action can be a
+   *             <code>PUT</code> or <code>DELETE</code> action for mapping users
+   *             to their groups.</p>
+   */
+  LastUpdatedAt?: Date;
+
+  /**
+   * <p>The date-time an action was received by Amazon Kendra. An action can be a
+   *             <code>PUT</code> or <code>DELETE</code> action for mapping users to
+   *             their groups.</p>
+   */
+  ReceivedAt?: Date;
+
+  /**
+   * <p>The order in which actions should complete processing. An action can
+   *             be a <code>PUT</code> or <code>DELETE</code> action for mapping users
+   *             to their groups.</p>
+   */
+  OrderingId?: number;
+
+  /**
+   * <p>The reason an action could not be processed. An action can be a
+   *             <code>PUT</code> or <code>DELETE</code> action for mapping users
+   *             to their groups.</p>
+   */
+  FailureReason?: string;
+}
+
+export namespace GroupOrderingIdSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GroupOrderingIdSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePrincipalMappingResponse {
+  /**
+   * <p>Shows the identifier of the index to see information on the
+   *             processing of <code>PUT</code> and <code>DELETE</code> actions
+   *             for mapping users to their groups.</p>
+   */
+  IndexId?: string;
+
+  /**
+   * <p>Shows the identifier of the data source to see information on
+   *             the processing of <code>PUT</code> and <code>DELETE</code> actions
+   *             for mapping users to their groups.</p>
+   */
+  DataSourceId?: string;
+
+  /**
+   * <p>Shows the identifier of the group to see information on the
+   *             processing of <code>PUT</code> and <code>DELETE</code> actions
+   *             for mapping users to their groups.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>Shows the following information on the processing of <code>PUT</code> and
+   *             <code>DELETE</code> actions for mapping users to their groups:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Status – the status can be either
+   *                     <code>PROCESSING</code>, <code>SUCCEEDED</code>, <code>DELETING</code>,
+   *                     <code>DELETED</code>, or <code>FAILED</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Last updated – the last date-time an action was updated.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Received – the last date-time an action was received or submitted.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Ordering ID – the latest action that should process and apply
+   *                     after other actions.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Failure reason – the reason an action could not be processed.</p>
+   *             </li>
+   *          </ul>
+   */
+  GroupOrderingIdSummaries?: GroupOrderingIdSummary[];
+}
+
+export namespace DescribePrincipalMappingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePrincipalMappingResponse): any => ({
+    ...obj,
   });
 }
 
@@ -5283,6 +5518,107 @@ export namespace ListFaqsResponse {
   });
 }
 
+export interface ListGroupsOlderThanOrderingIdRequest {
+  /**
+   * <p>The identifier of the index for getting a list of groups mapped
+   *             to users before a given ordering or timestamp identifier.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the data source for getting a list of groups mapped
+   *             to users before a given ordering timestamp identifier.</p>
+   */
+  DataSourceId?: string;
+
+  /**
+   * <p>The timestamp identifier used for the latest <code>PUT</code> or
+   *             <code>DELETE</code> action for mapping users to their groups.</p>
+   */
+  OrderingId: number | undefined;
+
+  /**
+   * <p>
+   *             The next items in the list of groups that go beyond the maximum.
+   *         </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   *             The maximum results shown for a list of groups that are mapped to users before a
+   *             given ordering or timestamp identifier.
+   *         </p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListGroupsOlderThanOrderingIdRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListGroupsOlderThanOrderingIdRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             Group summary information.
+ *         </p>
+ */
+export interface GroupSummary {
+  /**
+   * <p>
+   *             The identifier of the group you want group summary information on.
+   *         </p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>
+   *             The timestamp identifier used for the latest <code>PUT</code> or <code>DELETE</code>
+   *             action.
+   *         </p>
+   */
+  OrderingId?: number;
+}
+
+export namespace GroupSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GroupSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListGroupsOlderThanOrderingIdResponse {
+  /**
+   * <p>
+   *             Summary information for list of groups that are mapped to users before a
+   *             given ordering or timestamp identifier.
+   *         </p>
+   */
+  GroupsSummaries?: GroupSummary[];
+
+  /**
+   * <p>
+   *             The next items in the list of groups that go beyond the maximum.
+   *         </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListGroupsOlderThanOrderingIdResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListGroupsOlderThanOrderingIdResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListIndicesRequest {
   /**
    * <p>If the previous response was incomplete (because there is more data to
@@ -5635,6 +5971,157 @@ export namespace ListThesauriResponse {
 }
 
 /**
+ * <p>The sub groups that belong to a group.</p>
+ */
+export interface MemberGroup {
+  /**
+   * <p>The identifier of the sub group you want to map to a group.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>The identifier of the data source for the sub group
+   *             you want to map to a group.</p>
+   */
+  DataSourceId?: string;
+}
+
+export namespace MemberGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemberGroup): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The users that belong to a group.</p>
+ */
+export interface MemberUser {
+  /**
+   * <p>The identifier of the user you want to map to a group.</p>
+   */
+  UserId: string | undefined;
+}
+
+export namespace MemberUser {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemberUser): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of users or sub groups that belong to a group. Users and groups
+ *             are useful for filtering search results to different users based on their
+ *             group's access to documents.</p>
+ */
+export interface GroupMembers {
+  /**
+   * <p>A list of sub groups that belong to a group. For example, the sub
+   *             groups "Research", "Engineering", and "Sales and Marketing" all belong
+   *             to the group "Company".</p>
+   */
+  MemberGroups?: MemberGroup[];
+
+  /**
+   * <p>A list of users that belong to a group. For example, a list of interns
+   *             all belong to the "Interns" group.</p>
+   */
+  MemberUsers?: MemberUser[];
+
+  /**
+   * <p>If you have more than 1000 users and/or sub groups for a single group,
+   *             you need to provide the path to the S3 file that lists your users and sub
+   *             groups for a group. Your sub groups can contain more than 1000 users, but
+   *             the list of sub groups that belong to a group (and/or users) must be no
+   *             more than 1000.</p>
+   */
+  S3PathforGroupMembers?: S3Path;
+}
+
+export namespace GroupMembers {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GroupMembers): any => ({
+    ...obj,
+  });
+}
+
+export interface PutPrincipalMappingRequest {
+  /**
+   * <p>The identifier of the index you want to map users to their groups.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the data source you want to map users to their groups.</p>
+   *         <p>This is useful if a group is tied to multiple data sources, but you only want
+   *             the group to access documents of a certain data source. For example, the groups
+   *             "Research", "Engineering", and "Sales and Marketing" are all tied to the company's
+   *             documents stored in the data sources Confluence and Salesforce. However,
+   *             "Sales and Marketing" team only needs access to customer-related documents
+   *             stored in Salesforce.</p>
+   */
+  DataSourceId?: string;
+
+  /**
+   * <p>The identifier of the group you want to map its users to.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>The list that contains your users or sub groups that belong
+   *             the same group.</p>
+   *         <p>For example, the group "Company" includes the user "CEO" and the
+   *             sub groups "Research", "Engineering", and "Sales and Marketing".</p>
+   *         <p>If you have more than 1000 users and/or sub groups for a single group,
+   *             you need to provide the path to the S3 file that lists your users and
+   *             sub groups for a group. Your sub groups can contain more than 1000 users,
+   *             but the list of sub groups that belong to a group (and/or users) must be
+   *             no more than 1000.</p>
+   */
+  GroupMembers: GroupMembers | undefined;
+
+  /**
+   * <p>The timestamp identifier you specify to ensure Amazon Kendra does not override
+   *             the latest <code>PUT</code> action with previous actions. The highest number
+   *             ID, which is the ordering ID, is the latest action you want to process and
+   *             apply on top of other actions with lower number IDs. This prevents previous
+   *             actions with lower number IDs from possibly overriding the latest action.</p>
+   *         <p>The ordering ID can be the UNIX time of the last update you made to a
+   *             group members list. You would then provide this list when calling
+   *             <code>PutPrincipalMapping</code>. This ensures your <code>PUT</code> action
+   *             for that updated group with the latest members list doesn't get overwritten
+   *             by earlier <code>PUT</code> actions for the same group which are yet to
+   *             be processed.</p>
+   *         <p>The default ordering ID is the current UNIX time in milliseconds that the
+   *             action was received by Amazon Kendra.</p>
+   */
+  OrderingId?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a role that has access to the S3 file
+   *             that contains your list of users or sub groups that belong to a group.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds">IAM roles for Amazon Kendra</a>.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace PutPrincipalMappingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPrincipalMappingRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Overrides the document relevance properties of a custom index field.</p>
  */
 export interface DocumentRelevanceConfiguration {
@@ -5761,13 +6248,76 @@ export namespace SortingConfiguration {
 }
 
 /**
+ * <p>
+ *          Data source information for user context filtering.
+ *       </p>
+ */
+export interface DataSourceGroup {
+  /**
+   * <p>The identifier of the group you want to add to your list
+   *          of groups. This is for filtering search results based on the
+   *          groups' access to documents.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>The identifier of the data source group you want to add
+   *          to your list of data source groups. This is for filtering
+   *          search results based on the groups' access to documents in
+   *          that data source.</p>
+   */
+  DataSourceId: string | undefined;
+}
+
+export namespace DataSourceGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataSourceGroup): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Provides information about the user context for a Amazon Kendra index.</p>
+ *          <p>This is used for filtering search results for different users based on their access
+ *          to documents.</p>
+ *          <p>You provide one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>User token</p>
+ *             </li>
+ *             <li>
+ *                <p>User ID, the groups the user belongs to, and the data sources
+ *                the groups can access</p>
+ *             </li>
+ *          </ul>
+ *          <p>If you provide both, an exception is thrown.</p>
  */
 export interface UserContext {
   /**
-   * <p>The user context token. It must be a JWT or a JSON token.</p>
+   * <p>The user context token for filtering search results for a user. It must
+   *          be a JWT or a JSON token.</p>
    */
   Token?: string;
+
+  /**
+   * <p>The identifier of the user you want to filter search results based on their
+   *          access to documents.</p>
+   */
+  UserId?: string;
+
+  /**
+   * <p>The list of groups you want to filter search results based on the
+   *          groups' access to documents.</p>
+   */
+  Groups?: string[];
+
+  /**
+   * <p>The list of data source groups you want to filter search results
+   *          based on groups' access to documents in that data source.</p>
+   */
+  DataSourceGroups?: DataSourceGroup[];
 }
 
 export namespace UserContext {

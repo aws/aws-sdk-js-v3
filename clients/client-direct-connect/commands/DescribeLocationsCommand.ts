@@ -21,7 +21,7 @@ export interface DescribeLocationsCommandInput {}
 export interface DescribeLocationsCommandOutput extends Locations, __MetadataBearer {}
 
 /**
- * <p>Lists the AWS Direct Connect locations in the current AWS Region. These are the locations that can be selected when calling
+ * <p>Lists the Direct Connect locations in the current Region. These are the locations that can be selected when calling
  *       <a>CreateConnection</a> or <a>CreateInterconnect</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

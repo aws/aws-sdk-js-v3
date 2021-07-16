@@ -21,8 +21,8 @@ export interface StartAssociationsOnceCommandInput extends StartAssociationsOnce
 export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnceResult, __MetadataBearer {}
 
 /**
- * <p>Use this API action to run an association immediately and only one time. This action can be
- *    helpful when troubleshooting associations.</p>
+ * <p>Runs an association immediately and only one time. This operation can be helpful when
+ *    troubleshooting associations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

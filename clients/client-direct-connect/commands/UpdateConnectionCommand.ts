@@ -21,7 +21,7 @@ export interface UpdateConnectionCommandInput extends UpdateConnectionRequest {}
 export interface UpdateConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * <p>Updates the AWS Direct Connect dedicated connection configuration.</p>
+ * <p>Updates the Direct Connect dedicated connection configuration.</p>
  *          <p>You can update the following parameters for a connection:</p>
  *          <ul>
  *             <li>

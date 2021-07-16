@@ -31,7 +31,7 @@ export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __Met
  *          <p></p>
  *          <p>The <code>export snapshot</code> operation supports tag-based access control via resource
  *       tags applied to the resource identified by <code>source snapshot name</code>. For more
- *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  *          <note>
  *             <p>Use the <code>get instance snapshots</code> or <code>get disk snapshots</code>
  *         operations to get a list of snapshots that you can export to Amazon EC2.</p>

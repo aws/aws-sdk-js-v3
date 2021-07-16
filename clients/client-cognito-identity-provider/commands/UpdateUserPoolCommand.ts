@@ -38,8 +38,7 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *                 Cognito  will use the the registered number automatically. Otherwise, Cognito users that must
  *                 receive SMS messages might be unable to sign up, activate their accounts, or sign
  *                 in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other AWS
- *                 service, Amazon SNS might place your account in SMS sandbox. In <i>
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon SNS might place your account in SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
  *                </i>, you’ll have limitations, such as sending messages

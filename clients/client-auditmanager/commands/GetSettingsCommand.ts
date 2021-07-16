@@ -22,7 +22,7 @@ export interface GetSettingsCommandOutput extends GetSettingsResponse, __Metadat
 
 /**
  * <p>
- *    Returns the settings for the specified AWS account.
+ *    Returns the settings for the specified account.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

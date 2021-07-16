@@ -21,7 +21,7 @@ export interface StartChangeRequestExecutionCommandInput extends StartChangeRequ
 export interface StartChangeRequestExecutionCommandOutput extends StartChangeRequestExecutionResult, __MetadataBearer {}
 
 /**
- * <p>Creates a change request for Change Manager. The runbooks (Automation documents) specified in the
+ * <p>Creates a change request for Change Manager. The Automation runbooks specified in the
  *    change request run only after all required approvals for the change request have been
  *    received.</p>
  * @example

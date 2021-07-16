@@ -22,9 +22,9 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
 
 /**
  * <p>Registers a compliance type and other compliance details on a designated resource. This
- *    action lets you register custom compliance details with a resource. This call overwrites existing
- *    compliance information on the resource, so you must provide a full list of compliance items each
- *    time that you send the request.</p>
+ *    operation lets you register custom compliance details with a resource. This call overwrites
+ *    existing compliance information on the resource, so you must provide a full list of compliance
+ *    items each time that you send the request.</p>
  *          <p>ComplianceType can be one of the following:</p>
  *          <ul>
  *             <li>
@@ -52,7 +52,7 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  *                <p>Severity: A patch severity. For example, <code>critical</code>.</p>
  *             </li>
  *             <li>
- *                <p>DocumentName: A SSM document name. For example, AWS-RunPatchBaseline.</p>
+ *                <p>DocumentName: An SSM document name. For example, <code>AWS-RunPatchBaseline</code>.</p>
  *             </li>
  *             <li>
  *                <p>DocumentVersion: An SSM document version number. For example, 4.</p>

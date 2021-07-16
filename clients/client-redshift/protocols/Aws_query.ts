@@ -28,6 +28,10 @@ import {
   CopyClusterSnapshotCommandInput,
   CopyClusterSnapshotCommandOutput,
 } from "../commands/CopyClusterSnapshotCommand";
+import {
+  CreateAuthenticationProfileCommandInput,
+  CreateAuthenticationProfileCommandOutput,
+} from "../commands/CreateAuthenticationProfileCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand";
 import {
   CreateClusterParameterGroupCommandInput,
@@ -75,6 +79,10 @@ import {
 } from "../commands/CreateSnapshotScheduleCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import { CreateUsageLimitCommandInput, CreateUsageLimitCommandOutput } from "../commands/CreateUsageLimitCommand";
+import {
+  DeleteAuthenticationProfileCommandInput,
+  DeleteAuthenticationProfileCommandOutput,
+} from "../commands/DeleteAuthenticationProfileCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand";
 import {
   DeleteClusterParameterGroupCommandInput,
@@ -127,6 +135,10 @@ import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "../commands/DescribeAccountAttributesCommand";
+import {
+  DescribeAuthenticationProfilesCommandInput,
+  DescribeAuthenticationProfilesCommandOutput,
+} from "../commands/DescribeAuthenticationProfilesCommand";
 import {
   DescribeClusterDbRevisionsCommandInput,
   DescribeClusterDbRevisionsCommandOutput,
@@ -252,6 +264,10 @@ import {
   ModifyAquaConfigurationCommandInput,
   ModifyAquaConfigurationCommandOutput,
 } from "../commands/ModifyAquaConfigurationCommand";
+import {
+  ModifyAuthenticationProfileCommandInput,
+  ModifyAuthenticationProfileCommandOutput,
+} from "../commands/ModifyAuthenticationProfileCommand";
 import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "../commands/ModifyClusterCommand";
 import {
   ModifyClusterDbRevisionCommandInput,
@@ -352,6 +368,10 @@ import {
   AccountWithRestoreAccess,
   AquaConfiguration,
   AttributeValueTarget,
+  AuthenticationProfile,
+  AuthenticationProfileAlreadyExistsFault,
+  AuthenticationProfileNotFoundFault,
+  AuthenticationProfileQuotaExceededFault,
   AuthorizationAlreadyExistsFault,
   AuthorizationNotFoundFault,
   AuthorizationQuotaExceededFault,
@@ -411,6 +431,8 @@ import {
   CopyClusterSnapshotMessage,
   CopyClusterSnapshotResult,
   CopyToRegionDisabledFault,
+  CreateAuthenticationProfileMessage,
+  CreateAuthenticationProfileResult,
   CreateClusterMessage,
   CreateClusterParameterGroupMessage,
   CreateClusterParameterGroupResult,
@@ -438,6 +460,8 @@ import {
   DataTransferProgress,
   DefaultClusterParameters,
   DeferredMaintenanceWindow,
+  DeleteAuthenticationProfileMessage,
+  DeleteAuthenticationProfileResult,
   DeleteClusterMessage,
   DeleteClusterParameterGroupMessage,
   DeleteClusterResult,
@@ -457,6 +481,8 @@ import {
   DependentServiceRequestThrottlingFault,
   DependentServiceUnavailableFault,
   DescribeAccountAttributesMessage,
+  DescribeAuthenticationProfilesMessage,
+  DescribeAuthenticationProfilesResult,
   DescribeClusterDbRevisionsMessage,
   DescribeClusterParameterGroupsMessage,
   DescribeClusterParametersMessage,
@@ -481,10 +507,6 @@ import {
   DescribePartnersInputMessage,
   DescribePartnersOutputMessage,
   DescribeReservedNodeOfferingsMessage,
-  DescribeReservedNodesMessage,
-  DescribeResizeMessage,
-  DescribeScheduledActionsMessage,
-  DescribeSnapshotCopyGrantsMessage,
   EC2SecurityGroup,
   ElasticIpStatus,
   Endpoint,
@@ -519,6 +541,7 @@ import {
   HsmStatus,
   IPRange,
   InsufficientClusterCapacityFault,
+  InvalidAuthenticationProfileRequestFault,
   InvalidAuthorizationStateFault,
   InvalidClusterParameterGroupStateFault,
   InvalidClusterSecurityGroupStateFault,
@@ -565,10 +588,7 @@ import {
   ReservedNodeAlreadyExistsFault,
   ReservedNodeAlreadyMigratedFault,
   ReservedNodeNotFoundFault,
-  ReservedNodeOffering,
   ReservedNodeOfferingNotFoundFault,
-  ReservedNodeOfferingsMessage,
-  ReservedNodesMessage,
   ResizeClusterMessage,
   ResizeInfo,
   ResizeNotFoundFault,
@@ -583,12 +603,10 @@ import {
   ScheduleDefinitionTypeUnsupportedFault,
   ScheduledAction,
   ScheduledActionAlreadyExistsFault,
-  ScheduledActionFilter,
   ScheduledActionNotFoundFault,
   ScheduledActionQuotaExceededFault,
   ScheduledActionType,
   ScheduledActionTypeUnsupportedFault,
-  ScheduledActionsMessage,
   Snapshot,
   SnapshotCopyGrant,
   SnapshotCopyGrantAlreadyExistsFault,
@@ -624,6 +642,10 @@ import {
   VpcSecurityGroupMembership,
 } from "../models/models_0";
 import {
+  DescribeReservedNodesMessage,
+  DescribeResizeMessage,
+  DescribeScheduledActionsMessage,
+  DescribeSnapshotCopyGrantsMessage,
   DescribeSnapshotSchedulesMessage,
   DescribeSnapshotSchedulesOutputMessage,
   DescribeTableRestoreStatusMessage,
@@ -648,6 +670,8 @@ import {
   InvalidTableRestoreArgumentFault,
   ModifyAquaInputMessage,
   ModifyAquaOutputMessage,
+  ModifyAuthenticationProfileMessage,
+  ModifyAuthenticationProfileResult,
   ModifyClusterDbRevisionMessage,
   ModifyClusterDbRevisionResult,
   ModifyClusterIamRolesMessage,
@@ -675,7 +699,10 @@ import {
   PurchaseReservedNodeOfferingResult,
   RebootClusterMessage,
   RebootClusterResult,
+  ReservedNodeOffering,
+  ReservedNodeOfferingsMessage,
   ReservedNodeQuotaExceededFault,
+  ReservedNodesMessage,
   ResetClusterParameterGroupMessage,
   ResizeClusterResult,
   RestoreFromClusterSnapshotMessage,
@@ -690,6 +717,8 @@ import {
   RevokeSnapshotAccessResult,
   RotateEncryptionKeyMessage,
   RotateEncryptionKeyResult,
+  ScheduledActionFilter,
+  ScheduledActionsMessage,
   SnapshotCopyAlreadyDisabledFault,
   SnapshotCopyAlreadyEnabledFault,
   SnapshotCopyDisabledFault,
@@ -865,6 +894,22 @@ export const serializeAws_queryCopyClusterSnapshotCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryCopyClusterSnapshotMessage(input, context),
     Action: "CopyClusterSnapshot",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryCreateAuthenticationProfileCommand = async (
+  input: CreateAuthenticationProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCreateAuthenticationProfileMessage(input, context),
+    Action: "CreateAuthenticationProfile",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1089,6 +1134,22 @@ export const serializeAws_queryCreateUsageLimitCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryCreateUsageLimitMessage(input, context),
     Action: "CreateUsageLimit",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteAuthenticationProfileCommand = async (
+  input: DeleteAuthenticationProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteAuthenticationProfileMessage(input, context),
+    Action: "DeleteAuthenticationProfile",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1345,6 +1406,22 @@ export const serializeAws_queryDescribeAccountAttributesCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeAccountAttributesMessage(input, context),
     Action: "DescribeAccountAttributes",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeAuthenticationProfilesCommand = async (
+  input: DescribeAuthenticationProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeAuthenticationProfilesMessage(input, context),
+    Action: "DescribeAuthenticationProfiles",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1951,6 +2028,22 @@ export const serializeAws_queryModifyAquaConfigurationCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryModifyAquaInputMessage(input, context),
     Action: "ModifyAquaConfiguration",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryModifyAuthenticationProfileCommand = async (
+  input: ModifyAuthenticationProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryModifyAuthenticationProfileMessage(input, context),
+    Action: "ModifyAuthenticationProfile",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3097,6 +3190,76 @@ const deserializeAws_queryCopyClusterSnapshotCommandError = async (
     case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
       response = {
         ...(await deserializeAws_queryInvalidRetentionPeriodFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryCreateAuthenticationProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAuthenticationProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryCreateAuthenticationProfileCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryCreateAuthenticationProfileResult(data.CreateAuthenticationProfileResult, context);
+  const response: CreateAuthenticationProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCreateAuthenticationProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAuthenticationProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthenticationProfileAlreadyExistsFault":
+    case "com.amazonaws.redshift#AuthenticationProfileAlreadyExistsFault":
+      response = {
+        ...(await deserializeAws_queryAuthenticationProfileAlreadyExistsFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AuthenticationProfileQuotaExceededFault":
+    case "com.amazonaws.redshift#AuthenticationProfileQuotaExceededFault":
+      response = {
+        ...(await deserializeAws_queryAuthenticationProfileQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAuthenticationProfileRequestFault":
+    case "com.amazonaws.redshift#InvalidAuthenticationProfileRequestFault":
+      response = {
+        ...(await deserializeAws_queryInvalidAuthenticationProfileRequestFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4583,6 +4746,68 @@ const deserializeAws_queryCreateUsageLimitCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDeleteAuthenticationProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAuthenticationProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteAuthenticationProfileCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDeleteAuthenticationProfileResult(data.DeleteAuthenticationProfileResult, context);
+  const response: DeleteAuthenticationProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteAuthenticationProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAuthenticationProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthenticationProfileNotFoundFault":
+    case "com.amazonaws.redshift#AuthenticationProfileNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryAuthenticationProfileNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAuthenticationProfileRequestFault":
+    case "com.amazonaws.redshift#InvalidAuthenticationProfileRequestFault":
+      response = {
+        ...(await deserializeAws_queryInvalidAuthenticationProfileRequestFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDeleteClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5573,6 +5798,71 @@ const deserializeAws_queryDescribeAccountAttributesCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeAuthenticationProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAuthenticationProfilesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeAuthenticationProfilesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeAuthenticationProfilesResult(
+    data.DescribeAuthenticationProfilesResult,
+    context
+  );
+  const response: DescribeAuthenticationProfilesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeAuthenticationProfilesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAuthenticationProfilesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthenticationProfileNotFoundFault":
+    case "com.amazonaws.redshift#AuthenticationProfileNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryAuthenticationProfileNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAuthenticationProfileRequestFault":
+    case "com.amazonaws.redshift#InvalidAuthenticationProfileRequestFault":
+      response = {
+        ...(await deserializeAws_queryInvalidAuthenticationProfileRequestFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -8024,6 +8314,76 @@ const deserializeAws_queryModifyAquaConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryModifyAuthenticationProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyAuthenticationProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryModifyAuthenticationProfileCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryModifyAuthenticationProfileResult(data.ModifyAuthenticationProfileResult, context);
+  const response: ModifyAuthenticationProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryModifyAuthenticationProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyAuthenticationProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthenticationProfileNotFoundFault":
+    case "com.amazonaws.redshift#AuthenticationProfileNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryAuthenticationProfileNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AuthenticationProfileQuotaExceededFault":
+    case "com.amazonaws.redshift#AuthenticationProfileQuotaExceededFault":
+      response = {
+        ...(await deserializeAws_queryAuthenticationProfileQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAuthenticationProfileRequestFault":
+    case "com.amazonaws.redshift#InvalidAuthenticationProfileRequestFault":
+      response = {
+        ...(await deserializeAws_queryInvalidAuthenticationProfileRequestFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryModifyClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10454,6 +10814,51 @@ const deserializeAws_queryAccessToSnapshotDeniedFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_queryAuthenticationProfileAlreadyExistsFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AuthenticationProfileAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryAuthenticationProfileAlreadyExistsFault(body.Error, context);
+  const contents: AuthenticationProfileAlreadyExistsFault = {
+    name: "AuthenticationProfileAlreadyExistsFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryAuthenticationProfileNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AuthenticationProfileNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryAuthenticationProfileNotFoundFault(body.Error, context);
+  const contents: AuthenticationProfileNotFoundFault = {
+    name: "AuthenticationProfileNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryAuthenticationProfileQuotaExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AuthenticationProfileQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryAuthenticationProfileQuotaExceededFault(body.Error, context);
+  const contents: AuthenticationProfileQuotaExceededFault = {
+    name: "AuthenticationProfileQuotaExceededFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryAuthorizationAlreadyExistsFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11107,6 +11512,21 @@ const deserializeAws_queryInsufficientS3BucketPolicyFaultResponse = async (
   const deserialized: any = deserializeAws_queryInsufficientS3BucketPolicyFault(body.Error, context);
   const contents: InsufficientS3BucketPolicyFault = {
     name: "InsufficientS3BucketPolicyFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryInvalidAuthenticationProfileRequestFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidAuthenticationProfileRequestFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidAuthenticationProfileRequestFault(body.Error, context);
+  const contents: InvalidAuthenticationProfileRequestFault = {
+    name: "InvalidAuthenticationProfileRequestFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -12371,6 +12791,20 @@ const serializeAws_queryCopyClusterSnapshotMessage = (
   return entries;
 };
 
+const serializeAws_queryCreateAuthenticationProfileMessage = (
+  input: CreateAuthenticationProfileMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AuthenticationProfileName !== undefined && input.AuthenticationProfileName !== null) {
+    entries["AuthenticationProfileName"] = input.AuthenticationProfileName;
+  }
+  if (input.AuthenticationProfileContent !== undefined && input.AuthenticationProfileContent !== null) {
+    entries["AuthenticationProfileContent"] = input.AuthenticationProfileContent;
+  }
+  return entries;
+};
+
 const serializeAws_queryCreateClusterMessage = (input: CreateClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DBName !== undefined && input.DBName !== null) {
@@ -12856,6 +13290,17 @@ const serializeAws_queryDbGroupList = (input: string[], context: __SerdeContext)
   return entries;
 };
 
+const serializeAws_queryDeleteAuthenticationProfileMessage = (
+  input: DeleteAuthenticationProfileMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AuthenticationProfileName !== undefined && input.AuthenticationProfileName !== null) {
+    entries["AuthenticationProfileName"] = input.AuthenticationProfileName;
+  }
+  return entries;
+};
+
 const serializeAws_queryDeleteClusterMessage = (input: DeleteClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
@@ -13050,6 +13495,17 @@ const serializeAws_queryDescribeAccountAttributesMessage = (
       const loc = `AttributeNames.${key}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeAuthenticationProfilesMessage = (
+  input: DescribeAuthenticationProfilesMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AuthenticationProfileName !== undefined && input.AuthenticationProfileName !== null) {
+    entries["AuthenticationProfileName"] = input.AuthenticationProfileName;
   }
   return entries;
 };
@@ -13952,6 +14408,20 @@ const serializeAws_queryModifyAquaInputMessage = (input: ModifyAquaInputMessage,
   }
   if (input.AquaConfigurationStatus !== undefined && input.AquaConfigurationStatus !== null) {
     entries["AquaConfigurationStatus"] = input.AquaConfigurationStatus;
+  }
+  return entries;
+};
+
+const serializeAws_queryModifyAuthenticationProfileMessage = (
+  input: ModifyAuthenticationProfileMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AuthenticationProfileName !== undefined && input.AuthenticationProfileName !== null) {
+    entries["AuthenticationProfileName"] = input.AuthenticationProfileName;
+  }
+  if (input.AuthenticationProfileContent !== undefined && input.AuthenticationProfileContent !== null) {
+    entries["AuthenticationProfileContent"] = input.AuthenticationProfileContent;
   }
   return entries;
 };
@@ -15136,6 +15606,73 @@ const deserializeAws_queryAttributeValueTarget = (output: any, context: __SerdeC
   };
   if (output["AttributeValue"] !== undefined) {
     contents.AttributeValue = __expectString(output["AttributeValue"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryAuthenticationProfile = (output: any, context: __SerdeContext): AuthenticationProfile => {
+  let contents: any = {
+    AuthenticationProfileName: undefined,
+    AuthenticationProfileContent: undefined,
+  };
+  if (output["AuthenticationProfileName"] !== undefined) {
+    contents.AuthenticationProfileName = __expectString(output["AuthenticationProfileName"]);
+  }
+  if (output["AuthenticationProfileContent"] !== undefined) {
+    contents.AuthenticationProfileContent = __expectString(output["AuthenticationProfileContent"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryAuthenticationProfileAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): AuthenticationProfileAlreadyExistsFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryAuthenticationProfileList = (
+  output: any,
+  context: __SerdeContext
+): AuthenticationProfile[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAuthenticationProfile(entry, context);
+    });
+};
+
+const deserializeAws_queryAuthenticationProfileNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): AuthenticationProfileNotFoundFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryAuthenticationProfileQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): AuthenticationProfileQuotaExceededFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -16464,6 +17001,23 @@ const deserializeAws_queryCopyToRegionDisabledFault = (
   return contents;
 };
 
+const deserializeAws_queryCreateAuthenticationProfileResult = (
+  output: any,
+  context: __SerdeContext
+): CreateAuthenticationProfileResult => {
+  let contents: any = {
+    AuthenticationProfileName: undefined,
+    AuthenticationProfileContent: undefined,
+  };
+  if (output["AuthenticationProfileName"] !== undefined) {
+    contents.AuthenticationProfileName = __expectString(output["AuthenticationProfileName"]);
+  }
+  if (output["AuthenticationProfileContent"] !== undefined) {
+    contents.AuthenticationProfileContent = __expectString(output["AuthenticationProfileContent"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryCreateClusterParameterGroupResult = (
   output: any,
   context: __SerdeContext
@@ -16687,6 +17241,19 @@ const deserializeAws_queryDeferredMaintenanceWindowsList = (
     });
 };
 
+const deserializeAws_queryDeleteAuthenticationProfileResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteAuthenticationProfileResult => {
+  let contents: any = {
+    AuthenticationProfileName: undefined,
+  };
+  if (output["AuthenticationProfileName"] !== undefined) {
+    contents.AuthenticationProfileName = __expectString(output["AuthenticationProfileName"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryDeleteClusterResult = (output: any, context: __SerdeContext): DeleteClusterResult => {
   let contents: any = {
     Cluster: undefined,
@@ -16732,6 +17299,25 @@ const deserializeAws_queryDependentServiceUnavailableFault = (
   };
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryDescribeAuthenticationProfilesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeAuthenticationProfilesResult => {
+  let contents: any = {
+    AuthenticationProfiles: undefined,
+  };
+  if (output.AuthenticationProfiles === "") {
+    contents.AuthenticationProfiles = [];
+  }
+  if (output["AuthenticationProfiles"] !== undefined && output["AuthenticationProfiles"]["member"] !== undefined) {
+    contents.AuthenticationProfiles = deserializeAws_queryAuthenticationProfileList(
+      __getArrayIfSingleItem(output["AuthenticationProfiles"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -17772,6 +18358,19 @@ const deserializeAws_queryInsufficientS3BucketPolicyFault = (
   return contents;
 };
 
+const deserializeAws_queryInvalidAuthenticationProfileRequestFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidAuthenticationProfileRequestFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryInvalidAuthorizationStateFault = (
   output: any,
   context: __SerdeContext
@@ -18204,6 +18803,23 @@ const deserializeAws_queryModifyAquaOutputMessage = (output: any, context: __Ser
   };
   if (output["AquaConfiguration"] !== undefined) {
     contents.AquaConfiguration = deserializeAws_queryAquaConfiguration(output["AquaConfiguration"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifyAuthenticationProfileResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyAuthenticationProfileResult => {
+  let contents: any = {
+    AuthenticationProfileName: undefined,
+    AuthenticationProfileContent: undefined,
+  };
+  if (output["AuthenticationProfileName"] !== undefined) {
+    contents.AuthenticationProfileName = __expectString(output["AuthenticationProfileName"]);
+  }
+  if (output["AuthenticationProfileContent"] !== undefined) {
+    contents.AuthenticationProfileContent = __expectString(output["AuthenticationProfileContent"]);
   }
   return contents;
 };

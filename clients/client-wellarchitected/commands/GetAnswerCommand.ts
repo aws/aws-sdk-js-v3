@@ -21,7 +21,7 @@ export interface GetAnswerCommandInput extends GetAnswerInput {}
 export interface GetAnswerCommandOutput extends GetAnswerOutput, __MetadataBearer {}
 
 /**
- * <p>Get lens review.</p>
+ * <p>Get the answer to a specific question in a workload review.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,5 +1,6 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeResizeMessage, ResizeProgressMessage } from "../models/models_0";
+import { ResizeProgressMessage } from "../models/models_0";
+import { DescribeResizeMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeResizeCommand,
   serializeAws_queryDescribeResizeCommand,

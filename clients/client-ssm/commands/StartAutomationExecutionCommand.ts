@@ -21,7 +21,7 @@ export interface StartAutomationExecutionCommandInput extends StartAutomationExe
 export interface StartAutomationExecutionCommandOutput extends StartAutomationExecutionResult, __MetadataBearer {}
 
 /**
- * <p>Initiates execution of an Automation document.</p>
+ * <p>Initiates execution of an Automation runbook.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

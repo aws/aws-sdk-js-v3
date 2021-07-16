@@ -21,11 +21,11 @@ export interface DescribeVirtualInterfacesCommandInput extends DescribeVirtualIn
 export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterfaces, __MetadataBearer {}
 
 /**
- * <p>Displays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer
+ * <p>Displays all virtual interfaces for an account. Virtual interfaces deleted fewer
  *       than 15 minutes before you make the request are also returned. If you specify a
  *       connection ID, only the virtual interfaces associated with the connection are returned.
  *       If you specify a virtual interface ID, then only a single virtual interface is returned.</p>
- *          <p>A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer network.</p>
+ *          <p>A virtual interface (VLAN) transmits the traffic between the Direct Connect location and the customer network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

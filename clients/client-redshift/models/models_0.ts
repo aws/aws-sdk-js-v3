@@ -395,18 +395,18 @@ export namespace AccountAttributeList {
 }
 
 /**
- * <p>Describes an AWS customer account authorized to restore a snapshot.</p>
+ * <p>Describes an account authorized to restore a snapshot.</p>
  */
 export interface AccountWithRestoreAccess {
   /**
-   * <p>The identifier of an AWS customer account authorized to restore a
+   * <p>The identifier of an account authorized to restore a
    *             snapshot.</p>
    */
   AccountId?: string;
 
   /**
-   * <p>The identifier of an AWS support account authorized to restore a snapshot. For AWS
-   *             support, the identifier is <code>amazon-redshift-support</code>. </p>
+   * <p>The identifier of an Amazon Web Services support account authorized to restore a
+   *             snapshot. For Amazon Web Services Support, the identifier is <code>amazon-redshift-support</code>. </p>
    */
   AccountAlias?: string;
 }
@@ -447,7 +447,7 @@ export namespace ClusterNotFoundFault {
 
 export interface PartnerIntegrationInputMessage {
   /**
-   * <p>The AWS account ID that owns the cluster.</p>
+   * <p>The Region ID that owns the cluster.</p>
    */
   AccountId: string | undefined;
 
@@ -569,7 +569,7 @@ export interface AquaConfiguration {
    * <p>The value represents how the cluster is configured to use AQUA. Possible values include the following.</p>
    *         <ul>
    *             <li>
-   *                <p>enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.</p>
+   *                <p>enabled - Use AQUA if it is available for the current Region and Amazon Redshift node type.</p>
    *             </li>
    *             <li>
    *                <p>disabled - Don't use AQUA. </p>
@@ -613,6 +613,86 @@ export namespace ClusterAssociatedToSchedule {
    * @internal
    */
   export const filterSensitiveLog = (obj: ClusterAssociatedToSchedule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an authentication profile.</p>
+ */
+export interface AuthenticationProfile {
+  /**
+   * <p>The name of the authentication profile.</p>
+   */
+  AuthenticationProfileName?: string;
+
+  /**
+   * <p>The content of the authentication profile in JSON format.
+   *             The maximum length of the JSON string is determined by a quota for your account.</p>
+   */
+  AuthenticationProfileContent?: string;
+}
+
+export namespace AuthenticationProfile {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthenticationProfile): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The authentication profile already exists.</p>
+ */
+export interface AuthenticationProfileAlreadyExistsFault extends __SmithyException, $MetadataBearer {
+  name: "AuthenticationProfileAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace AuthenticationProfileAlreadyExistsFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthenticationProfileAlreadyExistsFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The authentication profile can't be found.</p>
+ */
+export interface AuthenticationProfileNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "AuthenticationProfileNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace AuthenticationProfileNotFoundFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthenticationProfileNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The size or number of authentication profiles has exceeded the quota.
+ *             The maximum length of the JSON string and maximum number of authentication profiles is determined by a quota for your account.</p>
+ */
+export interface AuthenticationProfileQuotaExceededFault extends __SmithyException, $MetadataBearer {
+  name: "AuthenticationProfileQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace AuthenticationProfileQuotaExceededFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthenticationProfileQuotaExceededFault): any => ({
     ...obj,
   });
 }
@@ -698,8 +778,8 @@ export interface AuthorizeClusterSecurityGroupIngressMessage {
   EC2SecurityGroupName?: string;
 
   /**
-   * <p>The AWS account number of the owner of the security group specified by the
-   *                 <i>EC2SecurityGroupName</i> parameter. The AWS Access Key ID is not an
+   * <p>The account number of the owner of the security group specified by the
+   *             <i>EC2SecurityGroupName</i> parameter. The Amazon Web Services Access Key ID is not an
    *             acceptable value. </p>
    *         <p>Example: <code>111122223333</code>
    *         </p>
@@ -755,7 +835,7 @@ export interface EC2SecurityGroup {
   EC2SecurityGroupName?: string;
 
   /**
-   * <p>The AWS ID of the owner of the EC2 security group specified in the
+   * <p>The account ID of the owner of the EC2 security group specified in the
    *                 <code>EC2SecurityGroupName</code> field. </p>
    */
   EC2SecurityGroupOwnerId?: string;
@@ -906,7 +986,7 @@ export interface AuthorizeEndpointAccessMessage {
   ClusterIdentifier?: string;
 
   /**
-   * <p>The AWS account ID to grant access to.</p>
+   * <p>The account ID to grant access to.</p>
    */
   Account: string | undefined;
 
@@ -926,16 +1006,16 @@ export namespace AuthorizeEndpointAccessMessage {
 }
 
 /**
- * <p>Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.</p>
+ * <p>Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across accounts.</p>
  */
 export interface EndpointAuthorization {
   /**
-   * <p>The AWS account ID of the cluster owner.</p>
+   * <p>The account ID of the cluster owner.</p>
    */
   Grantor?: string;
 
   /**
-   * <p>The AWS account ID of the grantee of the cluster.</p>
+   * <p>The account ID of the grantee of the cluster.</p>
    */
   Grantee?: string;
 
@@ -1073,9 +1153,9 @@ export interface AuthorizeSnapshotAccessMessage {
   SnapshotClusterIdentifier?: string;
 
   /**
-   * <p>The identifier of the AWS customer account authorized to restore the specified
+   * <p>The identifier of the account authorized to restore the specified
    *             snapshot.</p>
-   *         <p>To share a snapshot with AWS support, specify amazon-redshift-support.</p>
+   *         <p>To share a snapshot with Amazon Web Services Support, specify amazon-redshift-support.</p>
    */
   AccountWithRestoreAccess: string | undefined;
 }
@@ -1145,7 +1225,7 @@ export interface Snapshot {
   ClusterCreateTime?: Date;
 
   /**
-   * <p>The master user name for the cluster.</p>
+   * <p>The admin user name for the cluster.</p>
    */
   MasterUsername?: string;
 
@@ -1192,7 +1272,7 @@ export interface Snapshot {
   Encrypted?: boolean;
 
   /**
-   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that was used to
+   * <p>The Key Management Service (KMS) key ID of the encryption key that was used to
    *             encrypt data in the cluster from which the snapshot was taken.</p>
    */
   KmsKeyId?: string;
@@ -1205,14 +1285,14 @@ export interface Snapshot {
   EncryptedWithHSM?: boolean;
 
   /**
-   * <p>A list of the AWS customer accounts authorized to restore the snapshot. Returns
+   * <p>A list of the accounts authorized to restore the snapshot. Returns
    *                 <code>null</code> if no accounts are authorized. Visible only to the snapshot owner.
    *         </p>
    */
   AccountsWithRestoreAccess?: AccountWithRestoreAccess[];
 
   /**
-   * <p>For manual snapshots, the AWS customer account used to create or copy the snapshot.
+   * <p>For manual snapshots, the account used to create or copy the snapshot.
    *             For automatic snapshots, the owner of the cluster. The owner can perform all snapshot
    *             actions, such as sharing a manual snapshot.</p>
    */
@@ -1385,7 +1465,7 @@ export namespace InvalidClusterSnapshotStateFault {
 }
 
 /**
- * <p>The encryption key has exceeded its grant limit in AWS KMS.</p>
+ * <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
  */
 export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
   name: "LimitExceededFault";
@@ -2249,8 +2329,8 @@ export namespace HsmStatus {
 }
 
 /**
- * <p>An AWS Identity and Access Management (IAM) role that can be used by the associated
- *             Amazon Redshift cluster to access other AWS services.</p>
+ * <p>An Identity and Access Management (IAM) role that can be used by the associated
+ *             Amazon Redshift cluster to access other Amazon Web Services services.</p>
  */
 export interface ClusterIamRole {
   /**
@@ -2298,7 +2378,7 @@ export namespace ClusterIamRole {
  */
 export interface PendingModifiedValues {
   /**
-   * <p>The pending or in-progress change of the master user password for the
+   * <p>The pending or in-progress change of the admin user password for the
    *             cluster.</p>
    */
   MasterUserPassword?: string;
@@ -2622,7 +2702,7 @@ export interface Cluster {
   ModifyStatus?: string;
 
   /**
-   * <p>The master user name for the cluster. This name is used to connect to the database
+   * <p>The admin user name for the cluster. This name is used to connect to the database
    *             that is specified in the <b>DBName</b> parameter. </p>
    */
   MasterUsername?: string;
@@ -2789,7 +2869,7 @@ export interface Cluster {
   Tags?: Tag[];
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key ID of the encryption key used to
+   * <p>The Key Management Service (KMS) key ID of the encryption key used to
    *             encrypt data in the cluster.</p>
    */
   KmsKeyId?: string;
@@ -2805,8 +2885,8 @@ export interface Cluster {
   EnhancedVpcRouting?: boolean;
 
   /**
-   * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
-   *             cluster to access other AWS services.</p>
+   * <p>A list of Identity and Access Management (IAM) roles that can be used by the
+   *             cluster to access other Amazon Web Services services.</p>
    */
   IamRoles?: ClusterIamRole[];
 
@@ -3765,7 +3845,7 @@ export interface CopyClusterSnapshotMessage {
    *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *             <li>
-   *                 <p>Must be unique for the AWS account that is making the request.</p>
+   *                 <p>Must be unique for the account that is making the request.</p>
    *             </li>
    *          </ul>
    */
@@ -3824,6 +3904,68 @@ export namespace CopyToRegionDisabledFault {
   });
 }
 
+export interface CreateAuthenticationProfileMessage {
+  /**
+   * <p>The name of the authentication profile to be created.</p>
+   */
+  AuthenticationProfileName: string | undefined;
+
+  /**
+   * <p>The content of the authentication profile in JSON format.
+   *             The maximum length of the JSON string is determined by a quota for your account.</p>
+   */
+  AuthenticationProfileContent: string | undefined;
+}
+
+export namespace CreateAuthenticationProfileMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAuthenticationProfileMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateAuthenticationProfileResult {
+  /**
+   * <p>The name of the authentication profile that was created.</p>
+   */
+  AuthenticationProfileName?: string;
+
+  /**
+   * <p>The content of the authentication profile in JSON format.</p>
+   */
+  AuthenticationProfileContent?: string;
+}
+
+export namespace CreateAuthenticationProfileResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAuthenticationProfileResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The authentication profile request is not valid. The profile name can't be null or empty.
+ *             The authentication profile API operation must be available in the Region.</p>
+ */
+export interface InvalidAuthenticationProfileRequestFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidAuthenticationProfileRequestFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidAuthenticationProfileRequestFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidAuthenticationProfileRequestFault): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p></p>
  */
@@ -3872,7 +4014,7 @@ export interface CreateClusterMessage {
    *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *             <li>
-   *                <p>Must be unique for all clusters within an AWS account.</p>
+   *                <p>Must be unique for all clusters within an account.</p>
    *             </li>
    *          </ul>
    *
@@ -3915,7 +4057,7 @@ export interface CreateClusterMessage {
   NodeType: string | undefined;
 
   /**
-   * <p>The user name associated with the master user account for the cluster that is being
+   * <p>The user name associated with the admin user account for the cluster that is being
    *             created.</p>
    *         <p>Constraints:</p>
    *         <ul>
@@ -3936,7 +4078,7 @@ export interface CreateClusterMessage {
   MasterUsername: string | undefined;
 
   /**
-   * <p>The password associated with the master user account for the cluster that is being
+   * <p>The password associated with the admin user account for the cluster that is being
    *             created.</p>
    *         <p>Constraints:</p>
    *         <ul>
@@ -4134,7 +4276,7 @@ export interface CreateClusterMessage {
   Tags?: Tag[];
 
   /**
-   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
+   * <p>The Key Management Service (KMS) key ID of the encryption key that you want to
    *             use to encrypt data in the cluster.</p>
    */
   KmsKeyId?: string;
@@ -4155,8 +4297,8 @@ export interface CreateClusterMessage {
   AdditionalInfo?: string;
 
   /**
-   * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
-   *             cluster to access other AWS services. You must supply the IAM roles in their Amazon
+   * <p>A list of Identity and Access Management (IAM) roles that can be used by the
+   *             cluster to access other Amazon Web Services services. You must supply the IAM roles in their Amazon
    *             Resource Name (ARN) format. You can supply up to 10 IAM roles in a single
    *             request.</p>
    *         <p>A cluster can have up to 10 IAM roles associated with it at any time.</p>
@@ -4184,7 +4326,7 @@ export interface CreateClusterMessage {
    * <p>The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) when it is created. Possible values include the following.</p>
    *         <ul>
    *             <li>
-   *                <p>enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.</p>
+   *                <p>enabled - Use AQUA if it is available for the current Region and Amazon Redshift node type.</p>
    *             </li>
    *             <li>
    *                <p>disabled - Don't use AQUA. </p>
@@ -4499,7 +4641,7 @@ export interface CreateClusterParameterGroupMessage {
    *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *             <li>
-   *                 <p>Must be unique withing your AWS account.</p>
+   *                 <p>Must be unique withing your account.</p>
    *             </li>
    *          </ul>
    *         <note>
@@ -4512,7 +4654,7 @@ export interface CreateClusterParameterGroupMessage {
    * <p>The Amazon Redshift engine version to which the cluster parameter group applies. The
    *             cluster engine version determines the set of parameters.</p>
    *         <p>To get a list of valid parameter group family names, you can call <a>DescribeClusterParameterGroups</a>. By default, Amazon Redshift returns a list of
-   *             all the parameter groups that are owned by your AWS account, including the default
+   *             all the parameter groups that are owned by your account, including the default
    *             parameter groups for each Amazon Redshift engine version. The parameter group family names
    *             associated with the default parameter groups provide you the valid values. For example,
    *             a valid family name is "redshift-1.0". </p>
@@ -4571,8 +4713,7 @@ export interface CreateClusterSecurityGroupMessage {
    *                 <p>Must not be "Default".</p>
    *             </li>
    *             <li>
-   *                 <p>Must be unique for all security groups that are created by your AWS
-   *                     account.</p>
+   *                 <p>Must be unique for all security groups that are created by your account.</p>
    *             </li>
    *          </ul>
    *         <p>Example: <code>examplesecuritygroup</code>
@@ -4622,7 +4763,7 @@ export namespace CreateClusterSecurityGroupResult {
 export interface CreateClusterSnapshotMessage {
   /**
    * <p>A unique identifier for the snapshot that you are requesting. This identifier must
-   *             be unique for all snapshots within the AWS account.</p>
+   *             be unique for all snapshots within the account.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -4705,8 +4846,7 @@ export interface CreateClusterSubnetGroupMessage {
    *                 <p>Must not be "Default".</p>
    *             </li>
    *             <li>
-   *                 <p>Must be unique for all subnet groups that are created by your AWS
-   *                     account.</p>
+   *                 <p>Must be unique for all subnet groups that are created by your account.</p>
    *             </li>
    *          </ul>
    *         <p>Example: <code>examplesubnetgroup</code>
@@ -4763,7 +4903,7 @@ export interface CreateEndpointAccessMessage {
   ClusterIdentifier?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the cluster. This is only required if the cluster is in another AWS account.</p>
+   * <p>The account ID of the owner of the cluster. This is only required if the cluster is in another account.</p>
    */
   ResourceOwner?: string;
 
@@ -4806,7 +4946,7 @@ export interface EndpointAccess {
   ClusterIdentifier?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the cluster.</p>
+   * <p>The account ID of the owner of the cluster.</p>
    */
   ResourceOwner?: string;
 
@@ -4949,7 +5089,7 @@ export interface CreateEventSubscriptionMessage {
    * <p>The type of source that will be generating the events. For example, if you want to
    *             be notified of events generated by a cluster, you would set this parameter to cluster.
    *             If this value is not specified, events are returned for all Amazon Redshift objects in your
-   *             AWS account. You must specify a source type in order to specify source IDs.</p>
+   *             account. You must specify a source type in order to specify source IDs.</p>
    *         <p>Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.</p>
    */
   SourceType?: string;
@@ -5005,7 +5145,7 @@ export namespace CreateEventSubscriptionMessage {
  */
 export interface EventSubscription {
   /**
-   * <p>The AWS customer account associated with the Amazon Redshift event notification
+   * <p>The account associated with the Amazon Redshift event notification
    *             subscription.</p>
    */
   CustomerAwsId?: string;
@@ -5890,7 +6030,7 @@ export namespace ScheduledActionTypeUnsupportedFault {
 export interface CreateSnapshotCopyGrantMessage {
   /**
    * <p>The name of the snapshot copy grant. This name must be unique in the region for the
-   *             AWS account.</p>
+   *             account.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -5906,7 +6046,7 @@ export interface CreateSnapshotCopyGrantMessage {
    *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *             <li>
-   *                <p>Must be unique for all clusters within an AWS account.</p>
+   *                <p>Must be unique for all clusters within an account.</p>
    *             </li>
    *          </ul>
    */
@@ -5935,7 +6075,7 @@ export namespace CreateSnapshotCopyGrantMessage {
 
 /**
  * <p>The snapshot copy grant that grants Amazon Redshift permission to encrypt copied
- *             snapshots with the specified customer master key (CMK) from AWS KMS in the destination
+ *             snapshots with the specified customer master key (CMK) from Amazon Web Services KMS in the destination
  *             region.</p>
  *         <p>
  * For more information about managing snapshot copy grants, go to
@@ -5950,7 +6090,7 @@ export interface SnapshotCopyGrant {
   SnapshotCopyGrantName?: string;
 
   /**
-   * <p>The unique identifier of the customer master key (CMK) in AWS KMS to which
+   * <p>The unique identifier of the customer master key (CMK) in Amazon Web Services KMS to which
    *             Amazon Redshift is granted permission.</p>
    */
   KmsKeyId?: string;
@@ -5973,7 +6113,7 @@ export namespace SnapshotCopyGrant {
 export interface CreateSnapshotCopyGrantResult {
   /**
    * <p>The snapshot copy grant that grants Amazon Redshift permission to encrypt copied
-   *             snapshots with the specified customer master key (CMK) from AWS KMS in the destination
+   *             snapshots with the specified customer master key (CMK) from Amazon Web Services KMS in the destination
    *             region.</p>
    *         <p>
    * For more information about managing snapshot copy grants, go to
@@ -6013,7 +6153,7 @@ export namespace SnapshotCopyGrantAlreadyExistsFault {
 }
 
 /**
- * <p>The AWS account has exceeded the maximum number of snapshot copy grants in this
+ * <p>The account has exceeded the maximum number of snapshot copy grants in this
  *             region.</p>
  */
 export interface SnapshotCopyGrantQuotaExceededFault extends __SmithyException, $MetadataBearer {
@@ -6456,6 +6596,38 @@ export namespace DefaultClusterParameters {
    * @internal
    */
   export const filterSensitiveLog = (obj: DefaultClusterParameters): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteAuthenticationProfileMessage {
+  /**
+   * <p>The name of the authentication profile to delete.</p>
+   */
+  AuthenticationProfileName: string | undefined;
+}
+
+export namespace DeleteAuthenticationProfileMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteAuthenticationProfileMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteAuthenticationProfileResult {
+  /**
+   * <p>The name of the authentication profile that was deleted.</p>
+   */
+  AuthenticationProfileName?: string;
+}
+
+export namespace DeleteAuthenticationProfileResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteAuthenticationProfileResult): any => ({
     ...obj,
   });
 }
@@ -7057,6 +7229,38 @@ export namespace DescribeAccountAttributesMessage {
   });
 }
 
+export interface DescribeAuthenticationProfilesMessage {
+  /**
+   * <p>The name of the authentication profile to describe. If not specified then all authentication profiles owned by the account are listed.</p>
+   */
+  AuthenticationProfileName?: string;
+}
+
+export namespace DescribeAuthenticationProfilesMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAuthenticationProfilesMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAuthenticationProfilesResult {
+  /**
+   * <p>The list of authentication profiles.</p>
+   */
+  AuthenticationProfiles?: AuthenticationProfile[];
+}
+
+export namespace DescribeAuthenticationProfilesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAuthenticationProfilesResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeClusterDbRevisionsMessage {
   /**
    * <p>A unique identifier for a cluster whose <code>ClusterDbRevisions</code> you are
@@ -7123,7 +7327,7 @@ export interface DescribeClusterParameterGroupsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeClusterParameterGroups</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -7193,7 +7397,7 @@ export interface DescribeClusterParametersMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeClusterParameters</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -7235,7 +7439,7 @@ export interface DescribeClustersMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeClusters</a> request exceed the
-   *             value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -7298,7 +7502,7 @@ export interface DescribeClusterSecurityGroupsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeClusterSecurityGroups</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -7429,7 +7633,7 @@ export interface DescribeClusterSnapshotsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeClusterSnapshots</a> request exceed
-   *             the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -7437,9 +7641,9 @@ export interface DescribeClusterSnapshotsMessage {
   Marker?: string;
 
   /**
-   * <p>The AWS customer account used to create or copy the snapshot. Use this field to
+   * <p>The account used to create or copy the snapshot. Use this field to
    *             filter the results to snapshots owned by a particular account. To describe snapshots you
-   *             own, either specify your AWS customer account, or do not specify the
+   *             own, either specify your account, or do not specify the
    *             parameter.</p>
    */
   OwnerAccount?: string;
@@ -7559,7 +7763,7 @@ export interface DescribeClusterSubnetGroupsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeClusterSubnetGroups</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -7777,7 +7981,7 @@ export interface DescribeClusterVersionsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeClusterVersions</a> request exceed
-   *             the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -7817,7 +8021,7 @@ export interface DescribeDefaultClusterParametersMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeDefaultClusterParameters</a>
-   *             request exceed the value specified in <code>MaxRecords</code>, AWS returns a value in
+   *             request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in
    *             the <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -7857,7 +8061,7 @@ export interface DescribeEndpointAccessMessage {
   ClusterIdentifier?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the cluster.</p>
+   * <p>The account ID of the owner of the cluster.</p>
    */
   ResourceOwner?: string;
 
@@ -7927,7 +8131,7 @@ export interface DescribeEndpointAuthorizationMessage {
   ClusterIdentifier?: string;
 
   /**
-   * <p>The AWS account ID of either the cluster owner (grantor) or grantee.
+   * <p>The Aaccount ID of either the cluster owner (grantor) or grantee.
    *        If <code>Grantee</code> parameter is true, then the <code>Account</code> value is of the grantor.</p>
    */
   Account?: string;
@@ -8197,7 +8401,7 @@ export interface DescribeEventsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeEvents</a> request exceed the value
-   *             specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
+   *             specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code>
    *             field of the response. You can retrieve the next set of response records by providing
    *             the returned marker value in the <code>Marker</code> parameter and retrying the request.
    *         </p>
@@ -8317,7 +8521,7 @@ export interface DescribeEventSubscriptionsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a DescribeEventSubscriptions request exceed the value
-   *             specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
+   *             specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code>
    *             field of the response. You can retrieve the next set of response records by providing
    *             the returned marker value in the <code>Marker</code> parameter and retrying the request.
    *         </p>
@@ -8389,7 +8593,7 @@ export interface DescribeHsmClientCertificatesMessage {
   /**
    * <p>The identifier of a specific HSM client certificate for which you want information.
    *             If no identifier is specified, information is returned for all HSM client certificates
-   *             owned by your AWS customer account.</p>
+   *             owned by your account.</p>
    */
   HsmClientCertificateIdentifier?: string;
 
@@ -8407,7 +8611,7 @@ export interface DescribeHsmClientCertificatesMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeHsmClientCertificates</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -8480,7 +8684,7 @@ export interface DescribeHsmConfigurationsMessage {
   /**
    * <p>The identifier of a specific Amazon Redshift HSM configuration to be described. If no
    *             identifier is specified, information is returned for all HSM configurations owned by
-   *             your AWS customer account.</p>
+   *             your account.</p>
    */
   HsmConfigurationIdentifier?: string;
 
@@ -8498,7 +8702,7 @@ export interface DescribeHsmConfigurationsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeHsmConfigurations</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -8703,7 +8907,7 @@ export interface DescribeNodeConfigurationOptionsMessage {
   SnapshotIdentifier?: string;
 
   /**
-   * <p>The AWS customer account used to create or copy the snapshot.
+   * <p>The account used to create or copy the snapshot.
    *             Required if you are restoring a snapshot you do not own,
    *             optional if you own the snapshot.</p>
    */
@@ -8717,7 +8921,7 @@ export interface DescribeNodeConfigurationOptionsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeNodeConfigurationOptions</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *             <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -8841,7 +9045,7 @@ export interface DescribeOrderableClusterOptionsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeOrderableClusterOptions</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -8924,7 +9128,7 @@ export namespace OrderableClusterOptionsMessage {
 
 export interface DescribePartnersInputMessage {
   /**
-   * <p>The AWS account ID that owns the cluster.</p>
+   * <p>The Region ID that owns the cluster.</p>
    */
   AccountId: string | undefined;
 
@@ -9043,7 +9247,7 @@ export interface DescribeReservedNodeOfferingsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeReservedNodeOfferings</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
@@ -9056,373 +9260,6 @@ export namespace DescribeReservedNodeOfferingsMessage {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeReservedNodeOfferingsMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a reserved node offering.</p>
- */
-export interface ReservedNodeOffering {
-  /**
-   * <p>The offering identifier.</p>
-   */
-  ReservedNodeOfferingId?: string;
-
-  /**
-   * <p>The node type offered by the reserved node offering.</p>
-   */
-  NodeType?: string;
-
-  /**
-   * <p>The duration, in seconds, for which the offering will reserve the node.</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>The upfront fixed charge you will pay to purchase the specific reserved node
-   *             offering.</p>
-   */
-  FixedPrice?: number;
-
-  /**
-   * <p>The rate you are charged for each hour the cluster that is using the offering is
-   *             running.</p>
-   */
-  UsagePrice?: number;
-
-  /**
-   * <p>The currency code for the compute nodes offering.</p>
-   */
-  CurrencyCode?: string;
-
-  /**
-   * <p>The anticipated utilization of the reserved node, as defined in the reserved node
-   *             offering.</p>
-   */
-  OfferingType?: string;
-
-  /**
-   * <p>The charge to your account regardless of whether you are creating any clusters
-   *             using the node offering. Recurring charges are only in effect for heavy-utilization
-   *             reserved nodes.</p>
-   */
-  RecurringCharges?: RecurringCharge[];
-
-  /**
-   * <p></p>
-   */
-  ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
-}
-
-export namespace ReservedNodeOffering {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNodeOffering): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface ReservedNodeOfferingsMessage {
-  /**
-   * <p>A value that indicates the starting point for the next set of response records in a
-   *             subsequent request. If a value is returned in a response, you can retrieve the next set
-   *             of records by providing this returned marker value in the <code>Marker</code> parameter
-   *             and retrying the command. If the <code>Marker</code> field is empty, all response
-   *             records have been retrieved for the request. </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>A list of <code>ReservedNodeOffering</code> objects.</p>
-   */
-  ReservedNodeOfferings?: ReservedNodeOffering[];
-}
-
-export namespace ReservedNodeOfferingsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNodeOfferingsMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface DescribeReservedNodesMessage {
-  /**
-   * <p>Identifier for the node reservation.</p>
-   */
-  ReservedNodeId?: string;
-
-  /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeReservedNodes</a> request exceed
-   *             the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-}
-
-export namespace DescribeReservedNodesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedNodesMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface ReservedNodesMessage {
-  /**
-   * <p>A value that indicates the starting point for the next set of response records in a
-   *             subsequent request. If a value is returned in a response, you can retrieve the next set
-   *             of records by providing this returned marker value in the <code>Marker</code> parameter
-   *             and retrying the command. If the <code>Marker</code> field is empty, all response
-   *             records have been retrieved for the request. </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The list of <code>ReservedNode</code> objects.</p>
-   */
-  ReservedNodes?: ReservedNode[];
-}
-
-export namespace ReservedNodesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNodesMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface DescribeResizeMessage {
-  /**
-   * <p>The unique identifier of a cluster whose resize progress you are requesting. This
-   *             parameter is case-sensitive.</p>
-   *         <p>By default, resize operations for all clusters defined for an AWS account are
-   *             returned.</p>
-   */
-  ClusterIdentifier: string | undefined;
-}
-
-export namespace DescribeResizeMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResizeMessage): any => ({
-    ...obj,
-  });
-}
-
-export enum ScheduledActionFilterName {
-  CLUSTER_IDENTIFIER = "cluster-identifier",
-  IAM_ROLE = "iam-role",
-}
-
-/**
- * <p>A set of elements to filter the returned scheduled actions. </p>
- */
-export interface ScheduledActionFilter {
-  /**
-   * <p>The type of element to filter. </p>
-   */
-  Name: ScheduledActionFilterName | string | undefined;
-
-  /**
-   * <p>List of values. Compare if the value (of type defined by <code>Name</code>) equals an item in the list of scheduled actions. </p>
-   */
-  Values: string[] | undefined;
-}
-
-export namespace ScheduledActionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledActionFilter): any => ({
-    ...obj,
-  });
-}
-
-export enum ScheduledActionTypeValues {
-  PAUSE_CLUSTER = "PauseCluster",
-  RESIZE_CLUSTER = "ResizeCluster",
-  RESUME_CLUSTER = "ResumeCluster",
-}
-
-export interface DescribeScheduledActionsMessage {
-  /**
-   * <p>The name of the scheduled action to retrieve. </p>
-   */
-  ScheduledActionName?: string;
-
-  /**
-   * <p>The type of the scheduled actions to retrieve. </p>
-   */
-  TargetActionType?: ScheduledActionTypeValues | string;
-
-  /**
-   * <p>The start time in UTC of the scheduled actions to retrieve.
-   *             Only active scheduled actions that have invocations after this time are retrieved.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The end time in UTC of the scheduled action to retrieve.
-   *             Only active scheduled actions that have invocations before this time are retrieved.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>If true, retrieve only active scheduled actions.
-   *            If false, retrieve only disabled scheduled actions. </p>
-   */
-  Active?: boolean;
-
-  /**
-   * <p>List of scheduled action filters. </p>
-   */
-  Filters?: ScheduledActionFilter[];
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeScheduledActions</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *             <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *             <p>Default: <code>100</code>
-   *             </p>
-   *             <p>Constraints: minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-}
-
-export namespace DescribeScheduledActionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduledActionsMessage): any => ({
-    ...obj,
-  });
-}
-
-export interface ScheduledActionsMessage {
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeScheduledActions</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *             <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>List of retrieved scheduled actions. </p>
-   */
-  ScheduledActions?: ScheduledAction[];
-}
-
-export namespace ScheduledActionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledActionsMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The result of the <code>DescribeSnapshotCopyGrants</code> action.</p>
- */
-export interface DescribeSnapshotCopyGrantsMessage {
-  /**
-   * <p>The name of the snapshot copy grant.</p>
-   */
-  SnapshotCopyGrantName?: string;
-
-  /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <code>DescribeSnapshotCopyGrant</code> request exceed the
-   *             value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   *         <p>Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>A tag key or keys for which you want to return all matching resources that are
-   *             associated with the specified key or keys. For example, suppose that you have resources
-   *             tagged with keys called <code>owner</code> and <code>environment</code>. If you specify
-   *             both of these tag keys in the request, Amazon Redshift returns a response with all resources
-   *             that have either or both of these tag keys associated with them.</p>
-   */
-  TagKeys?: string[];
-
-  /**
-   * <p>A tag value or values for which you want to return all matching resources that are
-   *             associated with the specified value or values. For example, suppose that you have
-   *             resources tagged with values called <code>admin</code> and <code>test</code>. If you
-   *             specify both of these tag values in the request, Amazon Redshift returns a response with all
-   *             resources that have either or both of these tag values associated with them.</p>
-   */
-  TagValues?: string[];
-}
-
-export namespace DescribeSnapshotCopyGrantsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSnapshotCopyGrantsMessage): any => ({
     ...obj,
   });
 }

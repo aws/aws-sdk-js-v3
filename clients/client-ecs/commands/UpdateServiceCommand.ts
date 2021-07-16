@@ -34,8 +34,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * 		       <p>For services using the blue/green (<code>CODE_DEPLOY</code>) deployment controller,
  * 			only the desired count, deployment configuration, task placement constraints and
  * 			strategies, and health check grace period can be updated using this API. If the network
- * 			configuration, platform version, or task definition need to be updated, a new AWS CodeDeploy
- * 			deployment should be created. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a> in the <i>AWS CodeDeploy API Reference</i>.</p>
+ * 			configuration, platform version, or task definition need to be updated, a new CodeDeploy
+ * 			deployment should be created. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a> in the <i>CodeDeploy API Reference</i>.</p>
  * 		       <p>For services using an external deployment controller, you can update only the desired
  * 			count, task placement constraints and strategies, and health check grace period using
  * 			this API. If the launch type, load balancer, network configuration, platform version, or

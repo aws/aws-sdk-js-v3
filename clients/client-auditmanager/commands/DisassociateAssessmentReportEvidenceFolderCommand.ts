@@ -28,7 +28,7 @@ export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
 
 /**
  * <p>
- *   Disassociates an evidence folder from the specified assessment report in AWS Audit Manager.
+ *    Disassociates an evidence folder from the specified assessment report in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

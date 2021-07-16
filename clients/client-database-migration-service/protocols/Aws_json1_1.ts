@@ -5957,6 +5957,7 @@ const serializeAws_json1_1KafkaSettings = (input: KafkaSettings, context: __Serd
     ...(input.MessageFormat !== undefined && input.MessageFormat !== null && { MessageFormat: input.MessageFormat }),
     ...(input.MessageMaxBytes !== undefined &&
       input.MessageMaxBytes !== null && { MessageMaxBytes: input.MessageMaxBytes }),
+    ...(input.NoHexPrefix !== undefined && input.NoHexPrefix !== null && { NoHexPrefix: input.NoHexPrefix }),
     ...(input.PartitionIncludeSchemaTable !== undefined &&
       input.PartitionIncludeSchemaTable !== null && { PartitionIncludeSchemaTable: input.PartitionIncludeSchemaTable }),
     ...(input.SaslPassword !== undefined && input.SaslPassword !== null && { SaslPassword: input.SaslPassword }),
@@ -5999,6 +6000,7 @@ const serializeAws_json1_1KinesisSettings = (input: KinesisSettings, context: __
     ...(input.IncludeTransactionDetails !== undefined &&
       input.IncludeTransactionDetails !== null && { IncludeTransactionDetails: input.IncludeTransactionDetails }),
     ...(input.MessageFormat !== undefined && input.MessageFormat !== null && { MessageFormat: input.MessageFormat }),
+    ...(input.NoHexPrefix !== undefined && input.NoHexPrefix !== null && { NoHexPrefix: input.NoHexPrefix }),
     ...(input.PartitionIncludeSchemaTable !== undefined &&
       input.PartitionIncludeSchemaTable !== null && { PartitionIncludeSchemaTable: input.PartitionIncludeSchemaTable }),
     ...(input.ServiceAccessRoleArn !== undefined &&
@@ -6072,6 +6074,7 @@ const serializeAws_json1_1ModifyEndpointMessage = (input: ModifyEndpointMessage,
       input.EndpointIdentifier !== null && { EndpointIdentifier: input.EndpointIdentifier }),
     ...(input.EndpointType !== undefined && input.EndpointType !== null && { EndpointType: input.EndpointType }),
     ...(input.EngineName !== undefined && input.EngineName !== null && { EngineName: input.EngineName }),
+    ...(input.ExactSettings !== undefined && input.ExactSettings !== null && { ExactSettings: input.ExactSettings }),
     ...(input.ExternalTableDefinition !== undefined &&
       input.ExternalTableDefinition !== null && { ExternalTableDefinition: input.ExternalTableDefinition }),
     ...(input.ExtraConnectionAttributes !== undefined &&
@@ -6369,8 +6372,15 @@ const serializeAws_json1_1OracleSettings = (input: OracleSettings, context: __Se
       input.SpatialDataOptionToGeoJsonFunctionName !== null && {
         SpatialDataOptionToGeoJsonFunctionName: input.SpatialDataOptionToGeoJsonFunctionName,
       }),
+    ...(input.StandbyDelayTime !== undefined &&
+      input.StandbyDelayTime !== null && { StandbyDelayTime: input.StandbyDelayTime }),
     ...(input.UseAlternateFolderForOnline !== undefined &&
       input.UseAlternateFolderForOnline !== null && { UseAlternateFolderForOnline: input.UseAlternateFolderForOnline }),
+    ...(input.UseBFile !== undefined && input.UseBFile !== null && { UseBFile: input.UseBFile }),
+    ...(input.UseDirectPathFullLoad !== undefined &&
+      input.UseDirectPathFullLoad !== null && { UseDirectPathFullLoad: input.UseDirectPathFullLoad }),
+    ...(input.UseLogminerReader !== undefined &&
+      input.UseLogminerReader !== null && { UseLogminerReader: input.UseLogminerReader }),
     ...(input.UsePathPrefix !== undefined && input.UsePathPrefix !== null && { UsePathPrefix: input.UsePathPrefix }),
     ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   };
@@ -6388,8 +6398,15 @@ const serializeAws_json1_1PostgreSQLSettings = (input: PostgreSQLSettings, conte
       input.ExecuteTimeout !== null && { ExecuteTimeout: input.ExecuteTimeout }),
     ...(input.FailTasksOnLobTruncation !== undefined &&
       input.FailTasksOnLobTruncation !== null && { FailTasksOnLobTruncation: input.FailTasksOnLobTruncation }),
+    ...(input.HeartbeatEnable !== undefined &&
+      input.HeartbeatEnable !== null && { HeartbeatEnable: input.HeartbeatEnable }),
+    ...(input.HeartbeatFrequency !== undefined &&
+      input.HeartbeatFrequency !== null && { HeartbeatFrequency: input.HeartbeatFrequency }),
+    ...(input.HeartbeatSchema !== undefined &&
+      input.HeartbeatSchema !== null && { HeartbeatSchema: input.HeartbeatSchema }),
     ...(input.MaxFileSize !== undefined && input.MaxFileSize !== null && { MaxFileSize: input.MaxFileSize }),
     ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.PluginName !== undefined && input.PluginName !== null && { PluginName: input.PluginName }),
     ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
     ...(input.SecretsManagerAccessRoleArn !== undefined &&
       input.SecretsManagerAccessRoleArn !== null && { SecretsManagerAccessRoleArn: input.SecretsManagerAccessRoleArn }),
@@ -7407,6 +7424,7 @@ const deserializeAws_json1_1EndpointList = (output: any, context: __SerdeContext
 const deserializeAws_json1_1EndpointSetting = (output: any, context: __SerdeContext): EndpointSetting => {
   return {
     Applicability: __expectString(output.Applicability),
+    DefaultValue: __expectString(output.DefaultValue),
     EnumValues:
       output.EnumValues !== undefined && output.EnumValues !== null
         ? deserializeAws_json1_1EndpointSettingEnumValues(output.EnumValues, context)
@@ -7610,6 +7628,7 @@ const deserializeAws_json1_1KafkaSettings = (output: any, context: __SerdeContex
     IncludeTransactionDetails: __expectBoolean(output.IncludeTransactionDetails),
     MessageFormat: __expectString(output.MessageFormat),
     MessageMaxBytes: __expectNumber(output.MessageMaxBytes),
+    NoHexPrefix: __expectBoolean(output.NoHexPrefix),
     PartitionIncludeSchemaTable: __expectBoolean(output.PartitionIncludeSchemaTable),
     SaslPassword: __expectString(output.SaslPassword),
     SaslUsername: __expectString(output.SaslUsername),
@@ -7630,6 +7649,7 @@ const deserializeAws_json1_1KinesisSettings = (output: any, context: __SerdeCont
     IncludeTableAlterOperations: __expectBoolean(output.IncludeTableAlterOperations),
     IncludeTransactionDetails: __expectBoolean(output.IncludeTransactionDetails),
     MessageFormat: __expectString(output.MessageFormat),
+    NoHexPrefix: __expectBoolean(output.NoHexPrefix),
     PartitionIncludeSchemaTable: __expectBoolean(output.PartitionIncludeSchemaTable),
     ServiceAccessRoleArn: __expectString(output.ServiceAccessRoleArn),
     StreamArn: __expectString(output.StreamArn),
@@ -7868,7 +7888,11 @@ const deserializeAws_json1_1OracleSettings = (output: any, context: __SerdeConte
     SecurityDbEncryptionName: __expectString(output.SecurityDbEncryptionName),
     ServerName: __expectString(output.ServerName),
     SpatialDataOptionToGeoJsonFunctionName: __expectString(output.SpatialDataOptionToGeoJsonFunctionName),
+    StandbyDelayTime: __expectNumber(output.StandbyDelayTime),
     UseAlternateFolderForOnline: __expectBoolean(output.UseAlternateFolderForOnline),
+    UseBFile: __expectBoolean(output.UseBFile),
+    UseDirectPathFullLoad: __expectBoolean(output.UseDirectPathFullLoad),
+    UseLogminerReader: __expectBoolean(output.UseLogminerReader),
     UsePathPrefix: __expectString(output.UsePathPrefix),
     Username: __expectString(output.Username),
   } as any;
@@ -7967,8 +7991,12 @@ const deserializeAws_json1_1PostgreSQLSettings = (output: any, context: __SerdeC
     DdlArtifactsSchema: __expectString(output.DdlArtifactsSchema),
     ExecuteTimeout: __expectNumber(output.ExecuteTimeout),
     FailTasksOnLobTruncation: __expectBoolean(output.FailTasksOnLobTruncation),
+    HeartbeatEnable: __expectBoolean(output.HeartbeatEnable),
+    HeartbeatFrequency: __expectNumber(output.HeartbeatFrequency),
+    HeartbeatSchema: __expectString(output.HeartbeatSchema),
     MaxFileSize: __expectNumber(output.MaxFileSize),
     Password: __expectString(output.Password),
+    PluginName: __expectString(output.PluginName),
     Port: __expectNumber(output.Port),
     SecretsManagerAccessRoleArn: __expectString(output.SecretsManagerAccessRoleArn),
     SecretsManagerSecretId: __expectString(output.SecretsManagerSecretId),

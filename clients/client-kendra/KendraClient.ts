@@ -23,6 +23,10 @@ import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./c
 import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
+  DeletePrincipalMappingCommandInput,
+  DeletePrincipalMappingCommandOutput,
+} from "./commands/DeletePrincipalMappingCommand";
+import {
   DeleteQuerySuggestionsBlockListCommandInput,
   DeleteQuerySuggestionsBlockListCommandOutput,
 } from "./commands/DeleteQuerySuggestionsBlockListCommand";
@@ -30,6 +34,10 @@ import { DeleteThesaurusCommandInput, DeleteThesaurusCommandOutput } from "./com
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
 import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
 import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
+import {
+  DescribePrincipalMappingCommandInput,
+  DescribePrincipalMappingCommandOutput,
+} from "./commands/DescribePrincipalMappingCommand";
 import {
   DescribeQuerySuggestionsBlockListCommandInput,
   DescribeQuerySuggestionsBlockListCommandOutput,
@@ -49,6 +57,10 @@ import {
 } from "./commands/ListDataSourceSyncJobsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
+import {
+  ListGroupsOlderThanOrderingIdCommandInput,
+  ListGroupsOlderThanOrderingIdCommandOutput,
+} from "./commands/ListGroupsOlderThanOrderingIdCommand";
 import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
 import {
   ListQuerySuggestionsBlockListsCommandInput,
@@ -59,6 +71,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListThesauriCommandInput, ListThesauriCommandOutput } from "./commands/ListThesauriCommand";
+import {
+  PutPrincipalMappingCommandInput,
+  PutPrincipalMappingCommandOutput,
+} from "./commands/PutPrincipalMappingCommand";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   StartDataSourceSyncJobCommandInput,
@@ -147,11 +163,13 @@ export type ServiceInputTypes =
   | DeleteDataSourceCommandInput
   | DeleteFaqCommandInput
   | DeleteIndexCommandInput
+  | DeletePrincipalMappingCommandInput
   | DeleteQuerySuggestionsBlockListCommandInput
   | DeleteThesaurusCommandInput
   | DescribeDataSourceCommandInput
   | DescribeFaqCommandInput
   | DescribeIndexCommandInput
+  | DescribePrincipalMappingCommandInput
   | DescribeQuerySuggestionsBlockListCommandInput
   | DescribeQuerySuggestionsConfigCommandInput
   | DescribeThesaurusCommandInput
@@ -159,10 +177,12 @@ export type ServiceInputTypes =
   | ListDataSourceSyncJobsCommandInput
   | ListDataSourcesCommandInput
   | ListFaqsCommandInput
+  | ListGroupsOlderThanOrderingIdCommandInput
   | ListIndicesCommandInput
   | ListQuerySuggestionsBlockListsCommandInput
   | ListTagsForResourceCommandInput
   | ListThesauriCommandInput
+  | PutPrincipalMappingCommandInput
   | QueryCommandInput
   | StartDataSourceSyncJobCommandInput
   | StopDataSourceSyncJobCommandInput
@@ -188,11 +208,13 @@ export type ServiceOutputTypes =
   | DeleteDataSourceCommandOutput
   | DeleteFaqCommandOutput
   | DeleteIndexCommandOutput
+  | DeletePrincipalMappingCommandOutput
   | DeleteQuerySuggestionsBlockListCommandOutput
   | DeleteThesaurusCommandOutput
   | DescribeDataSourceCommandOutput
   | DescribeFaqCommandOutput
   | DescribeIndexCommandOutput
+  | DescribePrincipalMappingCommandOutput
   | DescribeQuerySuggestionsBlockListCommandOutput
   | DescribeQuerySuggestionsConfigCommandOutput
   | DescribeThesaurusCommandOutput
@@ -200,10 +222,12 @@ export type ServiceOutputTypes =
   | ListDataSourceSyncJobsCommandOutput
   | ListDataSourcesCommandOutput
   | ListFaqsCommandOutput
+  | ListGroupsOlderThanOrderingIdCommandOutput
   | ListIndicesCommandOutput
   | ListQuerySuggestionsBlockListsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListThesauriCommandOutput
+  | PutPrincipalMappingCommandOutput
   | QueryCommandOutput
   | StartDataSourceSyncJobCommandOutput
   | StopDataSourceSyncJobCommandOutput

@@ -25,7 +25,7 @@ export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscrip
 export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p> Deletes an AWS DMS event subscription. </p>
+ * <p> Deletes an DMS event subscription. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

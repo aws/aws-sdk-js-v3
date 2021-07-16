@@ -23,7 +23,7 @@ export interface CreateInstancesCommandOutput extends CreateInstancesResult, __M
 /**
  * <p>Creates one or more Amazon Lightsail instances.</p>
  *          <p>The <code>create instances</code> operation supports tag-based access control via request
- *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

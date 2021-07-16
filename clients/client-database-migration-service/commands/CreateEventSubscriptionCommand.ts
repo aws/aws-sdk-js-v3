@@ -25,20 +25,20 @@ export interface CreateEventSubscriptionCommandInput extends CreateEventSubscrip
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p> Creates an AWS DMS event notification subscription. </p>
+ * <p> Creates an DMS event notification subscription. </p>
  *          <p>You can specify the type of source (<code>SourceType</code>) you want to be notified of,
- *          provide a list of AWS DMS source IDs (<code>SourceIds</code>) that triggers the events, and
+ *          provide a list of DMS source IDs (<code>SourceIds</code>) that triggers the events, and
  *          provide a list of event categories (<code>EventCategories</code>) for events you want to be
  *          notified of. If you specify both the <code>SourceType</code> and <code>SourceIds</code>,
  *          such as <code>SourceType = replication-instance</code> and <code>SourceIdentifier =
  *             my-replinstance</code>, you will be notified of all the replication instance events for
  *          the specified source. If you specify a <code>SourceType</code> but don't specify a
  *             <code>SourceIdentifier</code>, you receive notice of the events for that source type for
- *          all your AWS DMS sources. If you don't specify either <code>SourceType</code> nor
- *             <code>SourceIdentifier</code>, you will be notified of events generated from all AWS DMS
+ *          all your DMS sources. If you don't specify either <code>SourceType</code> nor
+ *             <code>SourceIdentifier</code>, you will be notified of events generated from all DMS
  *          sources belonging to your customer account.</p>
- *          <p>For more information about AWS DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
- *             Notifications</a> in the <i>AWS Database Migration Service User
+ *          <p>For more information about DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
+ *             Notifications</a> in the <i>Database Migration Service User
  *             Guide.</i>
  *          </p>
  * @example

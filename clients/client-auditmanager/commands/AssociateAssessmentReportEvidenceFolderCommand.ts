@@ -28,7 +28,7 @@ export interface AssociateAssessmentReportEvidenceFolderCommandOutput
 
 /**
  * <p>
- *          Associates an evidence folder to the specified assessment report in AWS Audit Manager.
+ *          Associates an evidence folder to the specified assessment report in Audit Manager.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

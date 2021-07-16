@@ -27,7 +27,7 @@ export interface BatchDeleteDelegationByAssessmentCommandOutput
 
 /**
  * <p>
- * Deletes the delegations in the specified AWS Audit Manager assessment.
+ *          Deletes the delegations in the specified Audit Manager assessment.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

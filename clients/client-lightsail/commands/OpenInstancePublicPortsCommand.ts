@@ -25,7 +25,7 @@ export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublic
  *       allowed to connect to the instance through the ports, and the protocol.</p>
  *          <p>The <code>OpenInstancePublicPorts</code> action supports tag-based access control via
  *       resource tags applied to the resource identified by <code>instanceName</code>. For more
- *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

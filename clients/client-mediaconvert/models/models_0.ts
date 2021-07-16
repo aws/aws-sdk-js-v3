@@ -1563,7 +1563,7 @@ export interface DvbSubDestinationSettings {
   DdsYCoordinate?: number;
 
   /**
-   * Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   * Specifies the color of the DVB-SUB captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
    */
   FontColor?: DvbSubtitleFontColor | string;
 
@@ -1735,6 +1735,30 @@ export namespace SccDestinationSettings {
   });
 }
 
+export enum SrtStylePassthrough {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * SRT Destination Settings
+ */
+export interface SrtDestinationSettings {
+  /**
+   * Choose Enabled (ENABLED) to have MediaConvert use the font style, color, and position information from the captions source in the input. Keep the default value, Disabled (DISABLED), for simplified output captions.
+   */
+  StylePassthrough?: SrtStylePassthrough | string;
+}
+
+export namespace SrtDestinationSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SrtDestinationSettings): any => ({
+    ...obj,
+  });
+}
+
 export enum TeletextPageType {
   PAGE_TYPE_ADDL_INFO = "PAGE_TYPE_ADDL_INFO",
   PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE = "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE",
@@ -1848,6 +1872,11 @@ export interface CaptionDestinationSettings {
    * Settings related to SCC captions. SCC is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/scc-srt-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to SCC.
    */
   SccDestinationSettings?: SccDestinationSettings;
+
+  /**
+   * SRT Destination Settings
+   */
+  SrtDestinationSettings?: SrtDestinationSettings;
 
   /**
    * Settings related to teletext captions. Set up teletext captions in the same output as your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/teletext-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to TELETEXT.
@@ -4047,6 +4076,11 @@ export enum CmafStreamInfResolution {
   INCLUDE = "INCLUDE",
 }
 
+export enum CmafTargetDurationCompatibilityMode {
+  LEGACY = "LEGACY",
+  SPEC_COMPLIANT = "SPEC_COMPLIANT",
+}
+
 export enum CmafWriteDASHManifest {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -4155,6 +4189,11 @@ export interface CmafGroupSettings {
    * Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
    */
   StreamInfResolution?: CmafStreamInfResolution | string;
+
+  /**
+   * When set to LEGACY, the segment target duration is always rounded up to the nearest integer value above its current value in seconds. When set to SPEC\\_COMPLIANT, the segment target duration is rounded up to the nearest integer value if fraction seconds are greater than or equal to 0.5 (>= 0.5) and rounded down if less than 0.5 (< 0.5). You may need to use LEGACY if your client needs to ensure that the target duration is always longer than the actual duration of the segment. Some older players may experience interrupted playback when the actual duration of a track in a segment is longer than the target duration.
+   */
+  TargetDurationCompatibilityMode?: CmafTargetDurationCompatibilityMode | string;
 
   /**
    * When set to ENABLED, a DASH MPD manifest will be generated for this output.
@@ -4530,6 +4569,11 @@ export enum HlsStreamInfResolution {
   INCLUDE = "INCLUDE",
 }
 
+export enum HlsTargetDurationCompatibilityMode {
+  LEGACY = "LEGACY",
+  SPEC_COMPLIANT = "SPEC_COMPLIANT",
+}
+
 export enum HlsTimedMetadataId3Frame {
   NONE = "NONE",
   PRIV = "PRIV",
@@ -4659,6 +4703,11 @@ export interface HlsGroupSettings {
    * Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
    */
   StreamInfResolution?: HlsStreamInfResolution | string;
+
+  /**
+   * When set to LEGACY, the segment target duration is always rounded up to the nearest integer value above its current value in seconds. When set to SPEC\\_COMPLIANT, the segment target duration is rounded up to the nearest integer value if fraction seconds are greater than or equal to 0.5 (>= 0.5) and rounded down if less than 0.5 (< 0.5). You may need to use LEGACY if your client needs to ensure that the target duration is always longer than the actual duration of the segment. Some older players may experience interrupted playback when the actual duration of a track in a segment is longer than the target duration.
+   */
+  TargetDurationCompatibilityMode?: HlsTargetDurationCompatibilityMode | string;
 
   /**
    * Indicates ID3 frame that has the timecode.
@@ -5786,70 +5835,4 @@ export namespace ContainerSettings {
 export enum HlsAudioOnlyContainer {
   AUTOMATIC = "AUTOMATIC",
   M2TS = "M2TS",
-}
-
-export enum HlsAudioTrackType {
-  ALTERNATE_AUDIO_AUTO_SELECT = "ALTERNATE_AUDIO_AUTO_SELECT",
-  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT = "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
-  ALTERNATE_AUDIO_NOT_AUTO_SELECT = "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
-  AUDIO_ONLY_VARIANT_STREAM = "AUDIO_ONLY_VARIANT_STREAM",
-}
-
-export enum HlsDescriptiveVideoServiceFlag {
-  DONT_FLAG = "DONT_FLAG",
-  FLAG = "FLAG",
-}
-
-export enum HlsIFrameOnlyManifest {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
-/**
- * Settings for HLS output groups
- */
-export interface HlsSettings {
-  /**
-   * Specifies the group to which the audio rendition belongs.
-   */
-  AudioGroupId?: string;
-
-  /**
-   * Use this setting only in audio-only outputs. Choose MPEG-2 Transport Stream (M2TS) to create a file in an MPEG2-TS container. Keep the default value Automatic (AUTOMATIC) to create an audio-only file in a raw container. Regardless of the value that you specify here, if this output has video, the service will place the output into an MPEG2-TS container.
-   */
-  AudioOnlyContainer?: HlsAudioOnlyContainer | string;
-
-  /**
-   * List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
-   */
-  AudioRenditionSets?: string;
-
-  /**
-   * Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-   */
-  AudioTrackType?: HlsAudioTrackType | string;
-
-  /**
-   * Specify whether to flag this audio track as descriptive video service (DVS) in your HLS parent manifest. When you choose Flag (FLAG), MediaConvert includes the parameter CHARACTERISTICS="public.accessibility.describes-video" in the EXT-X-MEDIA entry for this track. When you keep the default choice, Don't flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS flag can help with accessibility on Apple devices. For more information, see the Apple documentation.
-   */
-  DescriptiveVideoServiceFlag?: HlsDescriptiveVideoServiceFlag | string;
-
-  /**
-   * Choose Include (INCLUDE) to have MediaConvert generate a child manifest that lists only the I-frames for this rendition, in addition to your regular manifest for this rendition. You might use this manifest as part of a workflow that creates preview functions for your video. MediaConvert adds both the I-frame only child manifest and the regular child manifest to the parent manifest. When you don't need the I-frame only child manifest, keep the default value Exclude (EXCLUDE).
-   */
-  IFrameOnlyManifest?: HlsIFrameOnlyManifest | string;
-
-  /**
-   * Use this setting to add an identifying string to the filename of each segment. The service adds this string between the name modifier and segment index number. You can use format identifiers in the string. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/using-variables-in-your-job-settings.html
-   */
-  SegmentModifier?: string;
-}
-
-export namespace HlsSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsSettings): any => ({
-    ...obj,
-  });
 }

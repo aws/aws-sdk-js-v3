@@ -24,7 +24,7 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  * <p>Deletes the specified interconnect.</p>
  *          <note>
  *             <p>Intended for use
- *         by AWS Direct Connect Partners only.</p>
+ *         by Direct Connect Partners only.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -21,9 +21,10 @@ export interface ModifyDocumentPermissionCommandInput extends ModifyDocumentPerm
 export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPermissionResponse, __MetadataBearer {}
 
 /**
- * <p>Shares a Systems Manager document publicly or privately. If you share a document privately, you must
- *    specify the AWS user account IDs for those people who can use the document. If you share a
- *    document publicly, you must specify <i>All</i> as the account ID.</p>
+ * <p>Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately. If you share a document
+ *    privately, you must specify the Amazon Web Services user account IDs for those people who can use the
+ *    document. If you share a document publicly, you must specify <i>All</i> as the
+ *    account ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

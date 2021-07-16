@@ -22,7 +22,7 @@ export interface CreateAssessmentFrameworkCommandOutput extends CreateAssessment
 
 /**
  * <p>
- * Creates a custom framework in AWS Audit Manager.
+ *    Creates a custom framework in Audit Manager.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

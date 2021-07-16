@@ -22,8 +22,8 @@ export interface DeleteConnectionCommandOutput extends Connection, __MetadataBea
 
 /**
  * <p>Deletes the specified connection.</p>
- *          <p>Deleting a connection only stops the AWS Direct Connect port hour and data transfer charges.
- *       If you are partnering with any third parties to connect with the AWS Direct Connect location,
+ *          <p>Deleting a connection only stops the Direct Connect port hour and data transfer charges.
+ *       If you are partnering with any third parties to connect with the Direct Connect location,
  *       you must cancel your service with them separately.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

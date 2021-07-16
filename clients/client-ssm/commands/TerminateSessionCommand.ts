@@ -22,7 +22,7 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
 
 /**
  * <p>Permanently ends a session and closes the data connection between the Session Manager client and
- *    SSM Agent on the instance. A terminated session cannot be resumed.</p>
+ *    SSM Agent on the instance. A terminated session isn't be resumed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

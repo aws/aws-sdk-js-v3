@@ -23,8 +23,9 @@ export interface ListCommandInvocationsCommandOutput extends ListCommandInvocati
 /**
  * <p>An invocation is copy of a command sent to a specific instance. A command can apply to one
  *    or more instances. A command invocation applies to one instance. For example, if a user runs
- *    SendCommand against three instances, then a command invocation is created for each requested
- *    instance ID. ListCommandInvocations provide status about command execution.</p>
+ *     <code>SendCommand</code> against three instances, then a command invocation is created for each
+ *    requested instance ID. <code>ListCommandInvocations</code> provide status about command
+ *    execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

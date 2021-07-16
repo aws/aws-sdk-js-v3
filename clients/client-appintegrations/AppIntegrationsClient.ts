@@ -248,9 +248,7 @@ type AppIntegrationsClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface AppIntegrationsClientResolvedConfig extends AppIntegrationsClientResolvedConfigType {}
 
 /**
- * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
- *
- *          <p>The Amazon AppIntegrations service enables you to configure and reuse connections to external applications.</p>
+ * <p>The Amazon AppIntegrations service enables you to configure and reuse connections to external applications.</p>
  *          <p>For information about how you can use external applications with Amazon Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/crm.html">Set up pre-built integrations</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  */
 export class AppIntegrationsClient extends __Client<

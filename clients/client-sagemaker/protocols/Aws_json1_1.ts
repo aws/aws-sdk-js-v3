@@ -1291,6 +1291,7 @@ import {
   TrialComponentSourceDetail,
   TrialComponentSummary,
   TrialSummary,
+  TuningJobStepMetaData,
   UpdateActionRequest,
   UpdateActionResponse,
   UpdateAppImageConfigRequest,
@@ -1313,7 +1314,6 @@ import {
   UpdateExperimentResponse,
   UpdateImageRequest,
   UpdateImageResponse,
-  UpdateModelPackageInput,
   UserProfileDetails,
   VariantProperty,
   Workforce,
@@ -1322,6 +1322,7 @@ import {
 import {
   SearchExpression,
   SearchRequest,
+  UpdateModelPackageInput,
   UpdateModelPackageOutput,
   UpdateMonitoringScheduleRequest,
   UpdateMonitoringScheduleResponse,
@@ -31308,6 +31309,10 @@ const deserializeAws_json1_1PipelineExecutionStepMetadata = (
       output.TransformJob !== undefined && output.TransformJob !== null
         ? deserializeAws_json1_1TransformJobStepMetadata(output.TransformJob, context)
         : undefined,
+    TuningJob:
+      output.TuningJob !== undefined && output.TuningJob !== null
+        ? deserializeAws_json1_1TuningJobStepMetaData(output.TuningJob, context)
+        : undefined,
   } as any;
 };
 
@@ -33205,6 +33210,12 @@ const deserializeAws_json1_1TuningJobCompletionCriteria = (
 ): TuningJobCompletionCriteria => {
   return {
     TargetObjectiveMetricValue: __handleFloat(output.TargetObjectiveMetricValue),
+  } as any;
+};
+
+const deserializeAws_json1_1TuningJobStepMetaData = (output: any, context: __SerdeContext): TuningJobStepMetaData => {
+  return {
+    Arn: __expectString(output.Arn),
   } as any;
 };
 
