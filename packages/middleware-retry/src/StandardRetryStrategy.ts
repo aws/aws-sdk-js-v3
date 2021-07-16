@@ -1,6 +1,6 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
-import { SdkError } from "@aws-sdk/smithy-client";
+import { SdkError } from "@aws-sdk/types";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
 import { v4 } from "uuid";
 

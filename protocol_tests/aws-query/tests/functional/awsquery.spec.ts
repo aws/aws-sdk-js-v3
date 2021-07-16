@@ -607,7 +607,6 @@ it("QueryComplexError:Error:GreetingWithErrors", async () => {
          <Error>
             <Type>Sender</Type>
             <Code>ComplexError</Code>
-            <Message>Hi</Message>
             <TopLevel>Top level</TopLevel>
             <Nested>
                 <Foo>bar</Foo>

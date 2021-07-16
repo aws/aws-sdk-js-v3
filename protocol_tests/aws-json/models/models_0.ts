@@ -1,9 +1,9 @@
+import { LazyJsonString as __LazyJsonString } from "@aws-sdk/smithy-client";
 import {
+  MetadataBearer as $MetadataBearer,
   DocumentType as __DocumentType,
-  LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-} from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+} from "@aws-sdk/types";
 
 export interface ComplexNestedErrorData {
   Foo?: string;
@@ -415,7 +415,7 @@ export namespace NullOperationInputOutput {
 }
 
 export interface PutAndGetInlineDocumentsInputOutput {
-  inlineDocument?: __DocumentType.Value;
+  inlineDocument?: __DocumentType;
 }
 
 export namespace PutAndGetInlineDocumentsInputOutput {

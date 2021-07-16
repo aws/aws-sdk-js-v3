@@ -1,4 +1,4 @@
-import { SdkError } from "@aws-sdk/smithy-client";
+import { SdkError } from "@aws-sdk/types";
 
 import { INITIAL_RETRY_TOKENS, NO_RETRY_INCREMENT, RETRY_COST, TIMEOUT_RETRY_COST } from "./constants";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";

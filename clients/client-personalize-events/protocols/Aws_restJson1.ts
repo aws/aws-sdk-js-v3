@@ -12,7 +12,6 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   LazyJsonString as __LazyJsonString,
-  SmithyException as __SmithyException,
   expectString as __expectString,
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
@@ -21,6 +20,7 @@ import {
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 export const serializeAws_restJson1PutEventsCommand = async (

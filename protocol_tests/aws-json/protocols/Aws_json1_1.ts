@@ -52,9 +52,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
-  DocumentType as __DocumentType,
   LazyJsonString as __LazyJsonString,
-  SmithyException as __SmithyException,
   dateToUtcString as __dateToUtcString,
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
@@ -63,11 +61,13 @@ import {
   serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -841,7 +841,7 @@ const deserializeAws_json1_1InvalidGreetingResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1Document = (input: __DocumentType.Value, context: __SerdeContext): any => {
+const serializeAws_json1_1Document = (input: __DocumentType, context: __SerdeContext): any => {
   return input;
 };
 
@@ -1230,7 +1230,7 @@ const deserializeAws_json1_1ComplexNestedErrorData = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_1Document = (output: any, context: __SerdeContext): __DocumentType.Value => {
+const deserializeAws_json1_1Document = (output: any, context: __SerdeContext): __DocumentType => {
   return output;
 };
 

@@ -10,6 +10,7 @@ export * from "./pagination";
 export * from "./serde";
 export * from "./middleware";
 export * from "./response";
+export * from "./shapes";
 export * from "./signature";
 export * from "./transfer";
 export * from "./util";

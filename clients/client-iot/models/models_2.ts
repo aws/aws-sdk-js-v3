@@ -42,8 +42,7 @@ import {
   ThingIndexingConfiguration,
   ViolationEventOccurrenceRange,
 } from "./models_1";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
  * <p>The input to the RegisterCACertificate operation.</p>

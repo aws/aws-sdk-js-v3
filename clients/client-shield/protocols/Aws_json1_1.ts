@@ -199,7 +199,6 @@ import {
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  SmithyException as __SmithyException,
   expectNumber as __expectNumber,
   expectString as __expectString,
   handleFloat as __handleFloat,
@@ -210,6 +209,7 @@ import {
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 export const serializeAws_json1_1AssociateDRTLogBucketCommand = async (

@@ -1,9 +1,9 @@
+import { LazyJsonString as __LazyJsonString } from "@aws-sdk/smithy-client";
 import {
+  MetadataBearer as $MetadataBearer,
   DocumentType as __DocumentType,
-  LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-} from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+} from "@aws-sdk/types";
 import { Readable } from "stream";
 
 export enum FooEnum {
@@ -120,7 +120,7 @@ export namespace GreetingStruct {
 
 export interface DocumentTypeInputOutput {
   stringValue?: string;
-  documentValue?: __DocumentType.Value;
+  documentValue?: __DocumentType;
 }
 
 export namespace DocumentTypeInputOutput {
@@ -133,7 +133,7 @@ export namespace DocumentTypeInputOutput {
 }
 
 export interface DocumentTypeAsPayloadInputOutput {
-  documentValue?: __DocumentType.Value;
+  documentValue?: __DocumentType;
 }
 
 export namespace DocumentTypeAsPayloadInputOutput {

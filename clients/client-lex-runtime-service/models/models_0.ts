@@ -1,9 +1,5 @@
-import {
-  SENSITIVE_STRING,
-  LazyJsonString as __LazyJsonString,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { SENSITIVE_STRING, LazyJsonString as __LazyJsonString } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 /**

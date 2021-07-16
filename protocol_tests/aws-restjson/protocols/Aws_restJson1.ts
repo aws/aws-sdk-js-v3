@@ -25,6 +25,10 @@ import {
   EndpointWithHostLabelOperationCommandOutput,
 } from "../commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
+import {
+  HostWithPathOperationCommandInput,
+  HostWithPathOperationCommandOutput,
+} from "../commands/HostWithPathOperationCommand";
 import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "../commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "../commands/HttpPayloadTraitsCommand";
 import {
@@ -134,9 +138,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
-  DocumentType as __DocumentType,
   LazyJsonString as __LazyJsonString,
-  SmithyException as __SmithyException,
   dateToUtcString as __dateToUtcString,
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
@@ -148,10 +150,12 @@ import {
   splitEvery as __splitEvery,
 } from "@aws-sdk/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -436,6 +440,28 @@ export const serializeAws_restJson1GreetingWithErrorsCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1HostWithPathOperationCommand = async (
+  input: HostWithPathOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HostWithPathOperation";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
     headers,
     path: resolvedPath,
     body,
@@ -2003,6 +2029,49 @@ const deserializeAws_restJson1GreetingWithErrorsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1HostWithPathOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HostWithPathOperationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1HostWithPathOperationCommandError(output, context);
+  }
+  const contents: HostWithPathOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1HostWithPathOperationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HostWithPathOperationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -4003,7 +4072,7 @@ const serializeAws_restJson1DenseStructMap = (
   }, {});
 };
 
-const serializeAws_restJson1Document = (input: __DocumentType.Value, context: __SerdeContext): any => {
+const serializeAws_restJson1Document = (input: __DocumentType, context: __SerdeContext): any => {
   return input;
 };
 
@@ -4344,7 +4413,7 @@ const deserializeAws_restJson1DenseStructMap = (
   }, {});
 };
 
-const deserializeAws_restJson1Document = (output: any, context: __SerdeContext): __DocumentType.Value => {
+const deserializeAws_restJson1Document = (output: any, context: __SerdeContext): __DocumentType => {
   return output;
 };
 
