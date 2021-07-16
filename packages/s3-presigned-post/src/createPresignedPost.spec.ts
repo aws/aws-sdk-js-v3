@@ -78,7 +78,7 @@ describe("createPresignedPost", () => {
       Bucket,
       Key,
     });
-    expect(url).toBe("https://s3.us-foo-1.amazonaws.com/bucket"),
+    expect(url).toBe("https://bucket.s3.us-foo-1.amazonaws.com"),
       expect(fields).toEqual({
         bucket: Bucket,
         key: Key,
