@@ -2,6 +2,7 @@
   "name": "@aws-sdk/middleware-eventstream",
   "version": "3.20.0",
   "scripts": {
+    "postinstall": "postinstall-node-version-check",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",

@@ -3,6 +3,7 @@
   "version": "3.20.0",
   "description": "Provides a function for detecting if an argument is an ArrayBuffer",
   "scripts": {
+    "postinstall": "postinstall-node-version-check",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",

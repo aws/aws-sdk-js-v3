@@ -3,6 +3,7 @@
   "version": "3.20.0",
   "description": "Load config default values from ini config files and environmental variable",
   "scripts": {
+    "postinstall": "postinstall-node-version-check",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",

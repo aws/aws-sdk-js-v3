@@ -8,6 +8,7 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
   "scripts": {
+    "postinstall": "postinstall-node-version-check",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
