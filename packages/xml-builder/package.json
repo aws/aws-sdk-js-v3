@@ -3,6 +3,7 @@
   "version": "3.20.0",
   "description": "XML builder for the AWS SDK",
   "dependencies": {
+    "@aws-sdk/postinstall-node-version-check": "3.0.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
@@ -11,6 +12,7 @@
     "typescript": "~4.3.2"
   },
   "scripts": {
+    "postinstall": "postinstall-node-version-check",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",

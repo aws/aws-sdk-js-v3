@@ -2,6 +2,7 @@
   "name": "@aws-sdk/util-create-request",
   "version": "3.20.0",
   "scripts": {
+    "postinstall": "postinstall-node-version-check",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
@@ -17,6 +18,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/postinstall-node-version-check": "3.0.0",
     "@aws-sdk/middleware-stack": "3.20.0",
     "@aws-sdk/smithy-client": "3.20.0",
     "@aws-sdk/types": "3.20.0",

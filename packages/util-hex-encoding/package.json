@@ -3,6 +3,7 @@
   "version": "3.20.0",
   "description": "Converts binary buffers to and from lowercase hexadecimal encoding",
   "scripts": {
+    "postinstall": "postinstall-node-version-check",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
@@ -17,6 +18,7 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
   "dependencies": {
+    "@aws-sdk/postinstall-node-version-check": "3.0.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
