@@ -38,13 +38,12 @@ const {
   .alias("s", "server-artifacts")
   .boolean("s")
   .describe("s", "Generate server artifacts instead of client ones")
-  .default("s", false)
   .conflicts("s", ["m", "g", "n"])
   .help().argv;
 
 (async () => {
   try {
-    if (serverOnly) {
+    if (serverOnly === true) {
       await generateProtocolTests();
       await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
       await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
