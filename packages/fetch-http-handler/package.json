@@ -18,6 +18,7 @@
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
   "dependencies": {
+    "@aws-sdk/postinstall-node-version-check": "3.0.0",
     "@aws-sdk/protocol-http": "3.20.0",
     "@aws-sdk/querystring-builder": "3.20.0",
     "@aws-sdk/types": "3.20.0",

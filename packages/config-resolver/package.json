@@ -24,6 +24,7 @@
     "typescript": "~4.3.2"
   },
   "dependencies": {
+    "@aws-sdk/postinstall-node-version-check": "3.0.0",
     "@aws-sdk/signature-v4": "3.20.0",
     "@aws-sdk/types": "3.20.0",
     "tslib": "^2.0.0"

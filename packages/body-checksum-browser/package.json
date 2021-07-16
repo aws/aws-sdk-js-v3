@@ -17,6 +17,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/postinstall-node-version-check": "3.0.0",
     "@aws-sdk/chunked-blob-reader": "3.20.0",
     "@aws-sdk/protocol-http": "3.20.0",
     "@aws-sdk/sha256-tree-hash": "3.20.0",

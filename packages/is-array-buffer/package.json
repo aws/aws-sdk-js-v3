@@ -23,6 +23,7 @@
   },
   "types": "./dist/types/index.d.ts",
   "dependencies": {
+    "@aws-sdk/postinstall-node-version-check": "3.0.0",
     "tslib": "^2.0.0"
   },
   "engines": {
