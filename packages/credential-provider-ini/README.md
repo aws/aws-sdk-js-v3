@@ -126,9 +126,8 @@ web_identity_token_file=/temp/token
 role_arn=arn:aws:iam::123456789012:role/example-role-arn
 ```
 
-You can specify using the `first` profile which will assume a role
-`example-role` with the role `example-role-2` which derived from web
-identity token file.
+You can specify another profile(`second`) whose credentials are used to assume
+the role by the `role_arn` setting in this profile(`first`).
 
 ```ini
 [second]
@@ -153,9 +152,8 @@ sso_role_name = SampleRole
 sso_start_url = https://d-abc123.awsapps.com/start
 ```
 
-You can specify using the `first` profile which will assume a role
-`example-role` with the role `example-role-2` which derived from SSO
-credentials.
+You can specify another profile(`second`) whose credentials derived from SSO
+are used to assume the role by the `role_arn` setting in this profile(`first`).
 
 ```ini
 [second]
