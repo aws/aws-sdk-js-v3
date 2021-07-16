@@ -1,6 +1,7 @@
 {
   "name": "@aws-sdk/postinstall-node-version-check",
   "version": "3.0.0",
+  "description": "Emits warning on postinstall if the Node.js version being used is nearing end-of-support.",
   "scripts": {
     "build": "tsc -p tsconfig.cjs.json",
     "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
