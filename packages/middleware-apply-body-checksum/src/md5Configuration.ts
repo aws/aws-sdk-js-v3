@@ -6,6 +6,7 @@ interface PreviouslyResolved {
   base64Encoder: Encoder;
   streamHasher: StreamHasher<any>;
 }
+
 export interface Md5BodyChecksumResolvedConfig {
   /**
    * A constructor for a class implementing the @aws-sdk/types.Hash interface that computes MD5 hashes.
@@ -23,10 +24,7 @@ export interface Md5BodyChecksumResolvedConfig {
    */
   streamHasher: StreamHasher<any>;
 }
-export function resolveMd5BodyChecksumConfig<T>(
+
+export const resolveMd5BodyChecksumConfig = <T>(
   input: T & PreviouslyResolved & Md5BodyChecksumInputConfig
-): T & Md5BodyChecksumResolvedConfig {
-  return {
-    ...input,
-  };
-}
+): T & Md5BodyChecksumResolvedConfig => input;
