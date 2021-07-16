@@ -97,13 +97,13 @@ public class AddSqsDependency implements TypeScriptIntegration {
                     writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
                     writer.addImport("HashConstructor", "__HashConstructor",
                             TypeScriptDependency.AWS_SDK_TYPES.packageName);
-                    writer.write("md5: Hash.bind(null, \"md5\"),");
+                    writer.write("Hash.bind(null, \"md5\")");
                 });
             case BROWSER:
                 return MapUtils.of("md5", writer -> {
                     writer.addDependency(TypeScriptDependency.MD5_BROWSER);
                     writer.addImport("Md5", "Md5", TypeScriptDependency.MD5_BROWSER.packageName);
-                    writer.write("md5: Md5,");
+                    writer.write("Md5");
                 });
             default:
                 return Collections.emptyMap();

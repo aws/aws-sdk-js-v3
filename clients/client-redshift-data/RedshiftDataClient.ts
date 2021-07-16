@@ -7,7 +7,7 @@ import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./command
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import { ListStatementsCommandInput, ListStatementsCommandOutput } from "./commands/ListStatementsCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -239,10 +239,7 @@ export class RedshiftDataClient extends __Client<
   readonly config: RedshiftDataClientResolvedConfig;
 
   constructor(configuration: RedshiftDataClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

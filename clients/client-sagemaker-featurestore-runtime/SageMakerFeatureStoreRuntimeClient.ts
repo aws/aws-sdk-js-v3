@@ -2,7 +2,7 @@ import { BatchGetRecordCommandInput, BatchGetRecordCommandOutput } from "./comma
 import { DeleteRecordCommandInput, DeleteRecordCommandOutput } from "./commands/DeleteRecordCommand";
 import { GetRecordCommandInput, GetRecordCommandOutput } from "./commands/GetRecordCommand";
 import { PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -247,10 +247,7 @@ export class SageMakerFeatureStoreRuntimeClient extends __Client<
   readonly config: SageMakerFeatureStoreRuntimeClientResolvedConfig;
 
   constructor(configuration: SageMakerFeatureStoreRuntimeClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

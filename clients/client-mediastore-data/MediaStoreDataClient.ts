@@ -3,7 +3,7 @@ import { DescribeObjectCommandInput, DescribeObjectCommandOutput } from "./comma
 import { GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand";
 import { ListItemsCommandInput, ListItemsCommandOutput } from "./commands/ListItemsCommand";
 import { PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -225,10 +225,7 @@ export class MediaStoreDataClient extends __Client<
   readonly config: MediaStoreDataClientResolvedConfig;
 
   constructor(configuration: MediaStoreDataClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

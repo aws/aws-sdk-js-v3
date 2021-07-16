@@ -84,7 +84,7 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             case SHARED:
                 return MapUtils.of("regionInfoProvider", writer -> {
                     writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider", "./endpoints");
-                    writer.write("regionInfoProvider: defaultRegionInfoProvider,");
+                    writer.write("defaultRegionInfoProvider");
                 });
             default:
                 return Collections.emptyMap();

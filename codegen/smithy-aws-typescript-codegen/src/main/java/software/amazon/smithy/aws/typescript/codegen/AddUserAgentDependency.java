@@ -93,9 +93,9 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
     }
 
     private void writeDefaultUserAgentProvider(TypeScriptWriter writer, TypeScriptSettings settings, Model model) {
-        writer.write("defaultUserAgentProvider: defaultUserAgent({"
+        writer.write("defaultUserAgent({"
                 // serviceId is optional in defaultUserAgent. serviceId exists only for AWS services
-                + (isAwsService(settings, model) ? "serviceId: ClientSharedValues.serviceId, " : "")
-                + "clientVersion: packageInfo.version}),");
+                + (isAwsService(settings, model) ? "serviceId: clientSharedValues.serviceId, " : "")
+                + "clientVersion: packageInfo.version})");
     }
 }

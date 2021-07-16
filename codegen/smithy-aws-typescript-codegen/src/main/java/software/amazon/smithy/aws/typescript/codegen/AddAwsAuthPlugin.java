@@ -161,15 +161,13 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                 String signingService = service.getTrait(SigV4Trait.class).get().getName();
                 return MapUtils.of(
                     "signingName", writer -> {
-                        writer.write("signingName: $S,", signingService);
+                        writer.write("$S", signingService);
                     }
                 );
             case BROWSER:
                 return MapUtils.of(
                     "credentialDefaultProvider", writer -> {
-                        writer.write(
-                                "credentialDefaultProvider: (_: unknown) => () => Promise.reject(new Error("
-                                    + "\"Credential is missing\")),");
+                        writer.write("((_: unknown) => () => Promise.reject(new Error(\"Credential is missing\")))");
                     }
                 );
             case NODE:
@@ -186,8 +184,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                         writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
                         writer.addImport("defaultProvider", "credentialDefaultProvider",
                                 AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
-                        writer.write("credentialDefaultProvider: decorateDefaultCredentialProvider("
-                                + "credentialDefaultProvider),");
+                        writer.write("decorateDefaultCredentialProvider(credentialDefaultProvider)");
                     }
                 );
             default:

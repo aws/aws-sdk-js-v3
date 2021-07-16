@@ -84,9 +84,9 @@ public final class AddS3Config implements TypeScriptIntegration {
         switch (target) {
             case SHARED:
                 return MapUtils.of("signingEscapePath", writer -> {
-                    writer.write("signingEscapePath: false,");
+                    writer.write("false");
                 }, "useArnRegion", writer -> {
-                    writer.write("useArnRegion: false");
+                    writer.write("false");
                 });
             case NODE:
                 return MapUtils.of("useArnRegion", writer -> {
@@ -95,7 +95,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                             .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
                             .addImport("NODE_USE_ARN_REGION_CONFIG_OPTIONS", "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
                                     AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.packageName)
-                            .write("useArnRegion: loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS),");
+                            .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS)");
                 });
             default:
                 return Collections.emptyMap();
