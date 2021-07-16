@@ -2,6 +2,7 @@ import { AbortController } from "@aws-sdk/abort-controller";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { rejects } from "assert";
 import http2, { constants, Http2Stream } from "http2";
+import { Duplex } from "stream";
 
 import { NodeHttp2Handler } from "./node-http2-handler";
 import { createMockHttp2Server, createResponseFunction, createResponseFunctionWithDelay } from "./server.mock";
@@ -373,6 +374,53 @@ describe(NodeHttp2Handler.name, () => {
         }, sessionTimeout + 100);
       });
     });
+  });
+
+  it("will throw reasonable error when connection aborted abnormally", async () => {
+    nodeH2Handler = new NodeHttp2Handler();
+    // Create a session by sending a request.
+    await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+    const authority = `${protocol}//${hostname}:${port}`;
+    // @ts-ignore: access private property
+    const session: ClientHttp2Session = nodeH2Handler.sessionCache.get(authority)[0];
+    const fakeStream = new Duplex();
+    const fakeRstCode = 1;
+    // @ts-ignore: fake result code
+    fakeStream.rstCode = fakeRstCode;
+    jest.spyOn(session, "request").mockImplementation(() => fakeStream);
+    // @ts-ignore: access private property
+    nodeH2Handler.sessionCache.set(`${protocol}//${hostname}:${port}`, [session]);
+    // Delay response so that onabort is called earlier
+    setTimeout(() => {
+      fakeStream.emit("aborted");
+    }, 0);
+
+    await expect(nodeH2Handler.handle(new HttpRequest({ ...getMockReqOptions() }), {})).rejects.toHaveProperty(
+      "message",
+      `HTTP/2 stream is abnormally aborted in mid-communication with result code ${fakeRstCode}.`
+    );
+  });
+
+  it("will throw reasonable error when frameError is thrown", async () => {
+    nodeH2Handler = new NodeHttp2Handler();
+    // Create a session by sending a request.
+    await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+    const authority = `${protocol}//${hostname}:${port}`;
+    // @ts-ignore: access private property
+    const session: ClientHttp2Session = nodeH2Handler.sessionCache.get(authority)[0];
+    const fakeStream = new Duplex();
+    jest.spyOn(session, "request").mockImplementation(() => fakeStream);
+    // @ts-ignore: access private property
+    nodeH2Handler.sessionCache.set(`${protocol}//${hostname}:${port}`, [session]);
+    // Delay response so that onabort is called earlier
+    setTimeout(() => {
+      fakeStream.emit("frameError", "TYPE", "CODE", "ID");
+    }, 0);
+
+    await expect(nodeH2Handler.handle(new HttpRequest({ ...getMockReqOptions() }), {})).rejects.toHaveProperty(
+      "message",
+      `Frame type id TYPE in stream id ID has failed with code CODE.`
+    );
   });
 
   describe("disableConcurrentStreams", () => {
