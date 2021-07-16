@@ -5,7 +5,7 @@ export const emitWarningIfUnsupportedVersion = (version: string) => {
         `no longer support Node.js ${version} as of January 1, 2022.\n` +
         `To continue receiving updates to AWS services, bug fixes, and security\n` +
         `updates please upgrade to Node.js 12.x or later.\n\n` +
-        `More information can be found at: {LINK TO BLOG}`,
+        `More information can be found at: https://a.co/1l6FLnu`,
       `NodeDeprecationWarning`
     );
   }
