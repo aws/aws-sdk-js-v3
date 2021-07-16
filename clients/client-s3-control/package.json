@@ -13,7 +13,8 @@
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:cjs && yarn build:es",
-    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4"
+    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
+    "postinstall": "postinstall-node-version-check"
   },
   "main": "./dist/cjs/index.js",
   "types": "./dist/types/index.d.ts",
@@ -49,6 +50,7 @@
     "@aws-sdk/middleware-user-agent": "3.20.0",
     "@aws-sdk/node-config-provider": "3.20.0",
     "@aws-sdk/node-http-handler": "3.21.0",
+    "@aws-sdk/postinstall-node-version-check": "3.0.0",
     "@aws-sdk/protocol-http": "3.20.0",
     "@aws-sdk/smithy-client": "3.20.0",
     "@aws-sdk/types": "3.20.0",
