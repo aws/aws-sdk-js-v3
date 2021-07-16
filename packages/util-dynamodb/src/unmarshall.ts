@@ -20,8 +20,8 @@ export interface unmarshallOptions {
  * @param {any} data - The DynamoDB record
  * @param {unmarshallOptions} options - An optional configuration object for `unmarshall`
  */
-export const unmarshall = (
-  data: { [key: string]: AttributeValue },
+export const unmarshall = <T extends { [K in keyof T]: AttributeValue }>(
+  data: T,
   options?: unmarshallOptions
-): { [key: string]: NativeAttributeValue } =>
-  convertToNative({ M: data }, options) as { [key: string]: NativeAttributeValue };
+): { [K in keyof T]: NativeAttributeValue } =>
+  convertToNative({ M: data }, options) as { [K in keyof T]: NativeAttributeValue };

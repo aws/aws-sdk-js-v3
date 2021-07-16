@@ -30,4 +30,4 @@ export interface marshallOptions {
 export const marshall = <T extends { [K in keyof T]: NativeAttributeValue }>(
   data: T,
   options?: marshallOptions
-): { [key: string]: AttributeValue } => convertToAttr(data, options).M as { [key: string]: AttributeValue };
+): { [key in keyof T]: AttributeValue } => convertToAttr(data, options).M as { [key in keyof T]: AttributeValue };
