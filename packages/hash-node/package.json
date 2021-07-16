@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/hash-node",
-  "version": "3.20.0",
+  "version": "3.22.0",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
@@ -24,8 +24,8 @@
     "typescript": "~4.3.2"
   },
   "dependencies": {
-    "@aws-sdk/types": "3.20.0",
-    "@aws-sdk/util-buffer-from": "3.20.0",
+    "@aws-sdk/types": "3.22.0",
+    "@aws-sdk/util-buffer-from": "3.22.0",
     "tslib": "^2.0.0"
   },
   "engines": {

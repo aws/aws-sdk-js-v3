@@ -8,4 +8,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **postinstall-node-version-check:** util to show NodeDeprecationWarning ([#2585](https://github.com/aws/aws-sdk-js-v3/issues/2585)) ([08c0342](https://github.com/aws/aws-sdk-js-v3/commit/08c0342d5e3dfd44a1f693337e0cf338663537e7))
+* **credential-provider-sso:** support sso credential when resolving shared credential file ([#2583](https://github.com/aws/aws-sdk-js-v3/issues/2583)) ([9480e70](https://github.com/aws/aws-sdk-js-v3/commit/9480e70da4ac59d4d08f01702b4e62bf42397394))

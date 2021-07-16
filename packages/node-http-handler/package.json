@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/node-http-handler",
-  "version": "3.21.0",
+  "version": "3.22.0",
   "description": "Provides a way to make requests",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -19,10 +19,10 @@
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
   "dependencies": {
-    "@aws-sdk/abort-controller": "3.20.0",
-    "@aws-sdk/protocol-http": "3.20.0",
-    "@aws-sdk/querystring-builder": "3.20.0",
-    "@aws-sdk/types": "3.20.0",
+    "@aws-sdk/abort-controller": "3.22.0",
+    "@aws-sdk/protocol-http": "3.22.0",
+    "@aws-sdk/querystring-builder": "3.22.0",
+    "@aws-sdk/types": "3.22.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {

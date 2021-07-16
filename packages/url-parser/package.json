@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/url-parser",
-  "version": "3.20.0",
+  "version": "3.22.0",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
@@ -17,8 +17,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/querystring-parser": "3.20.0",
-    "@aws-sdk/types": "3.20.0",
+    "@aws-sdk/querystring-parser": "3.22.0",
+    "@aws-sdk/types": "3.22.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
