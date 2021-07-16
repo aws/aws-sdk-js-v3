@@ -1,8 +1,8 @@
 import { GetRoleCredentialsCommand, GetRoleCredentialsCommandOutput, SSOClient } from "@aws-sdk/client-sso";
-import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/credential-provider-ini";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { getHomeDir, ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
+import { getHomeDir, Profile } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
+import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/util-credentials";
 import { createHash } from "crypto";
 import { readFileSync } from "fs";
 import { join } from "path";
@@ -29,6 +29,27 @@ interface SSOToken {
   startUrl?: string;
 }
 
+export interface SsoCredentialsParameters {
+  /**
+   * The URL to the AWS SSO service.
+   */
+  ssoStartUrl: string;
+
+  /**
+   * The ID of the AWS account to use for temporary credentials.
+   */
+  ssoAccountId: string;
+
+  /**
+   * The AWS region to use for temporary credentials.
+   */
+  ssoRegion: string;
+
+  /**
+   * The name of the AWS role to assume.
+   */
+  ssoRoleName: string;
+}
 export interface FromSSOInit extends SourceProfileInit {
   ssoClient?: SSOClient;
 }
@@ -38,34 +59,44 @@ export interface FromSSOInit extends SourceProfileInit {
  * in ini files.
  */
 export const fromSSO =
-  (init: FromSSOInit = {}): CredentialProvider =>
+  (init: FromSSOInit & Partial<SsoCredentialsParameters> = {} as any): CredentialProvider =>
   async () => {
-    const profiles = await parseKnownFiles(init);
-    return resolveSSOCredentials(getMasterProfileName(init), profiles, init);
+    const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoClient } = init;
+    if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName) {
+      // Load the SSO config from shared AWS config file.
+      const profiles = await parseKnownFiles(init);
+      const profileName = getMasterProfileName(init);
+      const profile = profiles[profileName];
+      if (!isSsoProfile(profile)) {
+        throw new CredentialsProviderError(`Profile ${profileName} is not configured with SSO credentials.`);
+      }
+      const { sso_start_url, sso_account_id, sso_region, sso_role_name } = validateSsoProfile(profile);
+      return resolveSSOCredentials({
+        ssoStartUrl: sso_start_url,
+        ssoAccountId: sso_account_id,
+        ssoRegion: sso_region,
+        ssoRoleName: sso_role_name,
+        ssoClient: ssoClient,
+      });
+    } else if (!ssoStartUrl || !ssoAccountId || !ssoRegion || !ssoRoleName) {
+      throw new CredentialsProviderError(
+        'Incomplete configuration. The fromSSO() argument hash must include "ssoStartUrl",' +
+          ' "ssoAccountId", "ssoRegion", "ssoRoleName"'
+      );
+    } else {
+      return resolveSSOCredentials({ ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoClient });
+    }
   };
 
-const resolveSSOCredentials = async (
-  profileName: string,
-  profiles: ParsedIniData,
-  options: FromSSOInit
-): Promise<Credentials> => {
-  const profile = profiles[profileName];
-  if (!profile) {
-    throw new CredentialsProviderError(`Profile ${profileName} could not be found in shared credentials file.`);
-  }
-  const { sso_start_url: startUrl, sso_account_id: accountId, sso_region: region, sso_role_name: roleName } = profile;
-  if (!startUrl && !accountId && !region && !roleName) {
-    throw new CredentialsProviderError(`Profile ${profileName} is not configured with SSO credentials.`);
-  }
-  if (!startUrl || !accountId || !region || !roleName) {
-    throw new CredentialsProviderError(
-      `Profile ${profileName} does not have valid SSO credentials. Required parameters "sso_account_id", "sso_region", ` +
-        `"sso_role_name", "sso_start_url". Reference: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html`,
-      SHOULD_FAIL_CREDENTIAL_CHAIN
-    );
-  }
+const resolveSSOCredentials = async ({
+  ssoStartUrl,
+  ssoAccountId,
+  ssoRegion,
+  ssoRoleName,
+  ssoClient,
+}: FromSSOInit & SsoCredentialsParameters): Promise<Credentials> => {
   const hasher = createHash("sha1");
-  const cacheName = hasher.update(startUrl).digest("hex");
+  const cacheName = hasher.update(ssoStartUrl).digest("hex");
   const tokenFile = join(getHomeDir(), ".aws", "sso", "cache", `${cacheName}.json`);
   let token: SSOToken;
   try {
@@ -81,13 +112,13 @@ const resolveSSOCredentials = async (
     );
   }
   const { accessToken } = token;
-  const sso = options.ssoClient || new SSOClient({ region });
+  const sso = ssoClient || new SSOClient({ region: ssoRegion });
   let ssoResp: GetRoleCredentialsCommandOutput;
   try {
     ssoResp = await sso.send(
       new GetRoleCredentialsCommand({
-        accountId,
-        roleName,
+        accountId: ssoAccountId,
+        roleName: ssoRoleName,
         accessToken,
       })
     );
@@ -100,3 +131,40 @@ const resolveSSOCredentials = async (
   }
   return { accessKeyId, secretAccessKey, sessionToken, expiration: new Date(expiration) };
 };
+
+/**
+ * @internal
+ */
+export interface SsoProfile extends Profile {
+  sso_start_url: string;
+  sso_account_id: string;
+  sso_region: string;
+  sso_role_name: string;
+}
+
+/**
+ * @internal
+ */
+export const validateSsoProfile = (profile: Partial<SsoProfile>): SsoProfile => {
+  const { sso_start_url, sso_account_id, sso_region, sso_role_name } = profile;
+  if (!sso_start_url || !sso_account_id || !sso_region || !sso_role_name) {
+    throw new CredentialsProviderError(
+      `Profile is configured with invalid SSO credentials. Required parameters "sso_account_id", "sso_region", ` +
+        `"sso_role_name", "sso_start_url". Got ${Object.keys(profile).join(
+          ", "
+        )}\nReference: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html`,
+      SHOULD_FAIL_CREDENTIAL_CHAIN
+    );
+  }
+  return profile as SsoProfile;
+};
+
+/**
+ * @internal
+ */
+export const isSsoProfile = (arg: Profile): arg is Partial<SsoProfile> =>
+  arg &&
+  (typeof arg.sso_start_url === "string" ||
+    typeof arg.sso_account_id === "string" ||
+    typeof arg.sso_region === "string" ||
+    typeof arg.sso_role_name === "string");

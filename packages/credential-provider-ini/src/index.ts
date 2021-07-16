@@ -1,18 +1,11 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
 import { fromContainerMetadata, fromInstanceMetadata } from "@aws-sdk/credential-provider-imds";
+import { fromSSO, isSsoProfile, validateSsoProfile } from "@aws-sdk/credential-provider-sso";
 import { AssumeRoleWithWebIdentityParams, fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import {
-  loadSharedConfigFiles,
-  ParsedIniData,
-  Profile,
-  SharedConfigFiles,
-  SharedConfigInit,
-} from "@aws-sdk/shared-ini-file-loader";
+import { ParsedIniData, Profile } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
-
-const DEFAULT_PROFILE = "default";
-export const ENV_PROFILE = "AWS_PROFILE";
+import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/util-credentials";
 
 /**
  * @see http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
@@ -45,21 +38,6 @@ export interface AssumeRoleParams {
    * The value provided by the MFA device.
    */
   TokenCode?: string;
-}
-
-export interface SourceProfileInit extends SharedConfigInit {
-  /**
-   * The configuration profile to use.
-   */
-  profile?: string;
-
-  /**
-   * A promise that will be resolved with loaded and parsed credentials files.
-   * Used to avoid loading shared config files multiple times.
-   *
-   * @internal
-   */
-  loadedConfig?: Promise<SharedConfigFiles>;
 }
 
 export interface FromIniInit extends SourceProfileInit {
@@ -153,28 +131,6 @@ export const fromIni =
     return resolveProfileData(getMasterProfileName(init), profiles, init);
   };
 
-/**
- * Load profiles from credentials and config INI files and normalize them into a
- * single profile list.
- *
- * @internal
- */
-export const parseKnownFiles = async (init: SourceProfileInit): Promise<ParsedIniData> => {
-  const { loadedConfig = loadSharedConfigFiles(init) } = init;
-
-  const parsedFiles = await loadedConfig;
-  return {
-    ...parsedFiles.configFile,
-    ...parsedFiles.credentialsFile,
-  };
-};
-
-/**
- * @internal
- */
-export const getMasterProfileName = (init: { profile?: string }): string =>
-  init.profile || process.env[ENV_PROFILE] || DEFAULT_PROFILE;
-
 const resolveProfileData = async (
   profileName: string,
   profiles: ParsedIniData,
@@ -250,6 +206,15 @@ const resolveProfileData = async (
   // web identity if web_identity_token_file and role_arn is available
   if (isWebIdentityProfile(data)) {
     return resolveWebIdentityCredentials(data, options);
+  }
+  if (isSsoProfile(data)) {
+    const { sso_start_url, sso_account_id, sso_region, sso_role_name } = validateSsoProfile(data);
+    return fromSSO({
+      ssoStartUrl: sso_start_url,
+      ssoAccountId: sso_account_id,
+      ssoRegion: sso_region,
+      ssoRoleName: sso_role_name,
+    })();
   }
 
   // If the profile cannot be parsed or contains neither static credentials

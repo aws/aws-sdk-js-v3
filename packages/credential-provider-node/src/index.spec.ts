@@ -27,8 +27,9 @@ jest.mock("@aws-sdk/credential-provider-ini", () => {
     fromIni: jest.fn().mockReturnValue(iniProvider),
   };
 });
-import { ENV_PROFILE, fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
+import { fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
+import { ENV_PROFILE } from "@aws-sdk/util-credentials";
 
 jest.mock("@aws-sdk/credential-provider-process", () => {
   const processProvider = jest.fn();

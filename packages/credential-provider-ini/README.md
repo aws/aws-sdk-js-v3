@@ -90,7 +90,7 @@ aws_access_key_id=foo
 aws_secret_access_key=bar
 
 [first]
-source_profile=first
+source_profile=second
 role_arn=arn:aws:iam::123456789012:role/example-role-arn
 ```
 
@@ -124,4 +124,45 @@ credential_source = EcsContainer
 [default]
 web_identity_token_file=/temp/token
 role_arn=arn:aws:iam::123456789012:role/example-role-arn
+```
+
+You can specify another profile(`second`) whose credentials are used to assume
+the role by the `role_arn` setting in this profile(`first`).
+
+```ini
+[second]
+web_identity_token_file=/temp/token
+role_arn=arn:aws:iam::123456789012:role/example-role-2
+
+[first]
+source_profile=second
+role_arn=arn:aws:iam::123456789012:role/example-role
+```
+
+### profile with sso credentials
+
+Please refer the the [`sso credential provider package`](https://www.npmjs.com/package/@aws-sdk/credential-provider-sso)
+for how to configure the SSO credentials.
+
+```ini
+[default]
+sso_account_id = 012345678901
+sso_region = us-east-1
+sso_role_name = SampleRole
+sso_start_url = https://d-abc123.awsapps.com/start
+```
+
+You can specify another profile(`second`) whose credentials derived from SSO
+are used to assume the role by the `role_arn` setting in this profile(`first`).
+
+```ini
+[second]
+sso_account_id = 012345678901
+sso_region = us-east-1
+sso_role_name = example-role-2
+sso_start_url = https://d-abc123.awsapps.com/start
+
+[first]
+source_profile=second
+role_arn=arn:aws:iam::123456789012:role/example-role
 ```

@@ -1,11 +1,13 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
 import { fromContainerMetadata, fromInstanceMetadata } from "@aws-sdk/credential-provider-imds";
+import { fromSSO, isSsoProfile, validateSsoProfile } from "@aws-sdk/credential-provider-sso";
 import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
 import { Credentials } from "@aws-sdk/types";
+import { ENV_PROFILE } from "@aws-sdk/util-credentials";
 import { join, sep } from "path";
 
-import { AssumeRoleParams, ENV_PROFILE, fromIni } from "./";
+import { AssumeRoleParams, fromIni } from "./";
 
 jest.mock("fs", () => {
   interface FsModule {
@@ -59,6 +61,8 @@ jest.mock("@aws-sdk/credential-provider-web-identity");
 jest.mock("@aws-sdk/credential-provider-imds");
 
 jest.mock("@aws-sdk/credential-provider-env");
+
+jest.mock("@aws-sdk/credential-provider-sso");
 
 const DEFAULT_CREDS = {
   accessKeyId: "AKIAIOSFODNN7EXAMPLE",
@@ -984,6 +988,120 @@ role_arn = ${roleArn}`.trim()
         webIdentityTokenFile,
         roleArn,
         roleAssumerWithWebIdentity,
+      });
+    });
+  });
+
+  describe("assume role with SSO", () => {
+    const DEFAULT_PATH = join(homedir(), ".aws", "credentials");
+    it("should continue if profile is not configured with an SSO credential", async () => {
+      __addMatcher(
+        DEFAULT_PATH,
+        `[default]
+aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
+aws_session_token = ${DEFAULT_CREDS.sessionToken}
+      `.trim()
+      );
+      await fromIni()();
+      expect(fromSSO).not.toHaveBeenCalled();
+    });
+
+    it("should throw if profile is configured with incomplete SSO credential", async () => {
+      (isSsoProfile as unknown as jest.Mock).mockImplementationOnce(() => true);
+      const originalValidator = jest.requireActual("@aws-sdk/credential-provider-sso").validateSsoProfile;
+      (validateSsoProfile as unknown as jest.Mock).mockImplementationOnce(originalValidator);
+      __addMatcher(
+        DEFAULT_PATH,
+        `[default]
+sso_account_id = 1234567890
+sso_start_url = https://example.com/sso/
+      `.trim()
+      );
+      try {
+        await fromIni()();
+      } catch (e) {
+        console.error(e.message);
+        expect(e.message).toEqual(expect.stringContaining("Profile is configured with invalid SSO credentials"));
+      }
+    });
+
+    it("should resolve valid SSO credential", async () => {
+      (isSsoProfile as unknown as jest.Mock).mockImplementationOnce(() => true);
+      const originalValidator = jest.requireActual("@aws-sdk/credential-provider-sso").validateSsoProfile;
+      (validateSsoProfile as jest.Mock).mockImplementationOnce(originalValidator);
+      (fromSSO as jest.Mock).mockImplementationOnce(() => async () => DEFAULT_CREDS);
+      const accountId = "1234567890";
+      const startUrl = "https://example.com/sso/";
+      const region = "us-east-1";
+      const roleName = "role";
+      __addMatcher(
+        DEFAULT_PATH,
+        `[default]
+sso_account_id = ${accountId}
+sso_start_url = ${startUrl}
+sso_region = ${region}
+sso_role_name = ${roleName}
+      `.trim()
+      );
+      await fromIni()();
+      expect(fromSSO as unknown as jest.Mock).toBeCalledWith({
+        ssoAccountId: accountId,
+        ssoStartUrl: startUrl,
+        ssoRegion: region,
+        ssoRoleName: roleName,
+      });
+    });
+
+    it("should call fromTokenFile with assume role chaining", async () => {
+      (isSsoProfile as unknown as jest.Mock).mockImplementationOnce(
+        jest.requireActual("@aws-sdk/credential-provider-sso").isSsoProfile
+      );
+      (validateSsoProfile as unknown as jest.Mock).mockImplementationOnce(
+        jest.requireActual("@aws-sdk/credential-provider-sso").validateSsoProfile
+      );
+      (fromSSO as jest.Mock).mockImplementationOnce(() => async () => DEFAULT_CREDS);
+      const accountId = "1234567890";
+      const startUrl = "https://example.com/sso/";
+      const region = "us-east-1";
+      const roleName = "role";
+      const roleAssumerWithWebIdentity = jest.fn();
+
+      const fooRoleArn = "arn:aws:iam::123456789:role/foo";
+      const fooSessionName = "fooSession";
+      __addMatcher(
+        DEFAULT_PATH,
+        `
+[bar]
+sso_account_id = ${accountId}
+sso_start_url = ${startUrl}
+sso_region = ${region}
+sso_role_name = ${roleName}
+
+[foo]
+role_arn = ${fooRoleArn}
+role_session_name = ${fooSessionName}
+source_profile = bar`.trim()
+      );
+
+      const provider = fromIni({
+        profile: "foo",
+        roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
+          expect(sourceCreds).toEqual(DEFAULT_CREDS);
+          expect(params.RoleArn).toEqual(fooRoleArn);
+          expect(params.RoleSessionName).toEqual(fooSessionName);
+          return Promise.resolve(FOO_CREDS);
+        },
+        roleAssumerWithWebIdentity,
+      });
+
+      expect(await provider()).toEqual(FOO_CREDS);
+      expect(fromSSO).toHaveBeenCalledTimes(1);
+      expect(fromSSO).toHaveBeenCalledWith({
+        ssoAccountId: accountId,
+        ssoStartUrl: startUrl,
+        ssoRegion: region,
+        ssoRoleName: roleName,
       });
     });
   });
