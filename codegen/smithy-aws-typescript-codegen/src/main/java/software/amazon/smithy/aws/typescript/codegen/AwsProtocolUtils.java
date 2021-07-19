@@ -293,9 +293,6 @@ final class AwsProtocolUtils {
         if (testCase.getId().equals("QueryCustomizedError")) {
             return true;
         }
-        if (testCase.getId().equals("RestJsonStreamingTraitsRequireLengthWithBlob") && settings.generateServerSdk()) {
-            return true;
-        }
         //TODO: enable with Smithy 1.10
         if ((testCase.getId().equals("RestJsonAllQueryStringTypes")
                 || testCase.getId().equals("RestJsonQueryStringEscaping"))
