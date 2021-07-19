@@ -22,7 +22,7 @@
     "@aws-sdk/sha256-tree-hash": "3.22.0",
     "@aws-sdk/types": "3.22.0",
     "@aws-sdk/util-hex-encoding": "3.22.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "^1.0.0",

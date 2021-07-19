@@ -26,7 +26,7 @@
   "dependencies": {
     "@aws-sdk/types": "3.22.0",
     "@aws-sdk/util-buffer-from": "3.22.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
   "engines": {
     "node": ">= 10.0.0"

@@ -29,7 +29,7 @@
   "dependencies": {
     "@aws-sdk/types": "3.22.0",
     "@aws-sdk/util-utf8-browser": "3.22.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
   "browser": {
     "@aws-sdk/util-base64-node": "@aws-sdk/util-base64-browser"
