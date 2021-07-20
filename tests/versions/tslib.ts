@@ -13,7 +13,7 @@ type PackageInfo = {
   location: string;
 };
 
-console.log("Validate the tslib and tsc version is consistent and corresponds to each other.");
+console.log("Validating the tslib and tsc version is consistent within workspace.");
 const packagesInfo: PackageInfo[] = JSON.parse(execSync("./node_modules/.bin/lerna list -l --json").toString());
 for (const { name, location } of packagesInfo) {
   const manifest = readFileSync(`${location}/package.json`, "utf8");
@@ -22,7 +22,7 @@ for (const { name, location } of packagesInfo) {
     if (expectedName === name) {
       const actualVersion = dependencies[expectedName] || devDependencies[expectedName];
       if (actualVersion !== expectedVersion) {
-        throw new Error(`Expected version ${expectedVersion} for ${name}, but got ${actualVersion}`);
+        throw new Error(`Expected version ${expectedVersion} for ${name} in ${location}, but got ${actualVersion}`);
       }
     }
   }
