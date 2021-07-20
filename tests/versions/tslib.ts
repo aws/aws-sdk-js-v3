@@ -3,8 +3,8 @@
  */
 import { execSync } from "child_process";
 import { readFileSync } from "fs";
-
-import * as expectedVersions from "./versions.json";
+import JSON from "json5";
+import { join } from "path";
 
 type PackageInfo = {
   name: string;
@@ -14,6 +14,7 @@ type PackageInfo = {
 };
 
 console.log("Validating the tslib and tsc version is consistent within workspace.");
+const expectedVersions: { [name: string]: string } = JSON.parse(readFileSync(join(__dirname, "versions.json"), "utf8"));
 const packagesInfo: PackageInfo[] = JSON.parse(execSync("./node_modules/.bin/lerna list -l --json").toString());
 for (const { name, location } of packagesInfo) {
   const manifest = readFileSync(`${location}/package.json`, "utf8");
