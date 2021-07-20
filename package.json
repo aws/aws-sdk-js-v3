@@ -26,7 +26,7 @@
     "test:server-protocols": "yarn build:server-protocols && lerna run test --scope '@aws-sdk/*-server'",
     "pretest:e2e": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/{client-cloudformation,karma-credential-loader}' --include-dependencies build",
     "test:e2e": "node ./tests/e2e/index.js",
-    "test:versions": "ts-node tests/versions/tslib.ts",
+    "test:versions": "node tests/versions/tslib.js",
     "local-publish": "node ./scripts/verdaccio-publish/index.js"
   },
   "repository": {
@@ -87,7 +87,6 @@
     "puppeteer": "^5.1.0",
     "ts-jest": "^26.4.1",
     "ts-loader": "^7.0.5",
-    "ts-node": "^10.1.0",
     "typedoc-plugin-lerna-packages": "^0.3.1",
     "typescript": "~4.3.2",
     "verdaccio": "^4.7.2",
