@@ -18,7 +18,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "3.22.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",

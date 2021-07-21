@@ -20,7 +20,7 @@
     "@aws-crypto/crc32": "^1.0.0",
     "@aws-sdk/types": "3.22.0",
     "@aws-sdk/util-hex-encoding": "3.22.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@aws-sdk/util-utf8-browser": "3.22.0",

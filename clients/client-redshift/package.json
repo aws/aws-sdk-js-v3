@@ -58,7 +58,7 @@
     "@aws-sdk/util-waiter": "3.22.0",
     "entities": "2.2.0",
     "fast-xml-parser": "3.19.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@aws-sdk/client-documentation-generator": "3.22.0",
