@@ -2,7 +2,10 @@ import {
   CompletedPart,
   CompleteMultipartUploadCommand,
   CreateMultipartUploadCommand,
+  CreateMultipartUploadCommandOutput,
+  PutObjectCommand,
   PutObjectCommandInput,
+  PutObjectCommandOutput,
   PutObjectTaggingCommand,
   ServiceOutputTypes,
   Tag,
@@ -17,6 +20,7 @@ import { AbortController, AbortSignal } from "@aws-sdk/abort-controller";
 export interface RawDataPart {
   partNumber: number;
   data: BodyDataTypes;
+  lastPart?: boolean;
 }
 
 const MIN_PART_SIZE = 1024 * 1024 * 5;
@@ -43,11 +47,14 @@ export class Upload extends EventEmitter {
   // used in the upload.
   private abortController: AbortController;
   private concurrentUploaders: Promise<void>[] = [];
+  private createMultiPartPromise?: Promise<CreateMultipartUploadCommandOutput>;
 
   private uploadedParts: CompletedPart[] = [];
   private uploadId?: string;
-
   uploadEvent?: string;
+
+  private isMultiPart: boolean = true;
+  private putResponse?: PutObjectCommandOutput;
 
   constructor(options: Options) {
     super();
@@ -86,6 +93,30 @@ export class Upload extends EventEmitter {
     super.on(event, listener);
   }
 
+  async __uploadUsingPut(dataPart: RawDataPart) {
+    this.isMultiPart = false;
+    const params = { ...this.params, Body: dataPart.data };
+    const putResult = await this.client.send(new PutObjectCommand(params));
+    this.putResponse = putResult;
+    const totalSize = byteLength(dataPart.data);
+    this.__notifyProgress({
+      loaded: totalSize,
+      total: totalSize,
+      part: 1,
+      Key: this.params.Key,
+      Bucket: this.params.Bucket,
+    });
+  }
+
+  async __createMultipartUpload() {
+    if (!this.createMultiPartPromise) {
+      const createCommandParams = { ...this.params, Body: undefined };
+      this.createMultiPartPromise = this.client.send(new CreateMultipartUploadCommand(createCommandParams));
+    }
+    const createMultipartUploadResult = await this.createMultiPartPromise;
+    this.uploadId = createMultipartUploadResult.UploadId;
+  }
+
   async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart, void, undefined>): Promise<void> {
     for await (const dataPart of dataFeeder) {
       if (this.uploadedParts.length > this.MAX_PARTS) {
@@ -95,6 +126,22 @@ export class Upload extends EventEmitter {
       }
 
       try {
+        if (this.abortController.signal.aborted) {
+          return;
+        }
+
+        // Use put instead of multi-part for one chunk uploads.
+        if (dataPart.partNumber === 1 && dataPart.lastPart) {
+          return await this.__uploadUsingPut(dataPart);
+        }
+
+        if (!this.uploadId) {
+          await this.__createMultipartUpload();
+          if (this.abortController.signal.aborted) {
+            return;
+          }
+        }
+
         const partResult = await this.client.send(
           new UploadPartCommand({
             ...this.params,
@@ -122,6 +169,10 @@ export class Upload extends EventEmitter {
           Bucket: this.params.Bucket,
         });
       } catch (e) {
+        // Failed to create multi-part or put
+        if (!this.uploadId) {
+          throw e;
+        }
         // on leavePartsOnError throw an error so users can deal with it themselves,
         // otherwise swallow the error.
         if (this.leavePartsOnError) {
@@ -132,9 +183,6 @@ export class Upload extends EventEmitter {
   }
 
   async __doMultipartUpload(): Promise<ServiceOutputTypes> {
-    const createMultipartUploadResult = await this.client.send(new CreateMultipartUploadCommand(this.params));
-    this.uploadId = createMultipartUploadResult.UploadId;
-
     // Set up data input chunks.
     const dataFeeder = getChunk(this.params.Body, this.partSize);
 
@@ -150,16 +198,22 @@ export class Upload extends EventEmitter {
       throw Object.assign(new Error("Upload aborted."), { name: "AbortError" });
     }
 
-    this.uploadedParts.sort((a, b) => a.PartNumber! - b.PartNumber!);
-    const completeMultipartUpload = await this.client.send(
-      new CompleteMultipartUploadCommand({
+    let result;
+    if (this.isMultiPart) {
+      this.uploadedParts.sort((a, b) => a.PartNumber! - b.PartNumber!);
+
+      const uploadCompleteParams = {
         ...this.params,
+        Body: undefined,
         UploadId: this.uploadId,
         MultipartUpload: {
           Parts: this.uploadedParts,
         },
-      })
-    );
+      };
+      result = await this.client.send(new CompleteMultipartUploadCommand(uploadCompleteParams));
+    } else {
+      result = this.putResponse!;
+    }
 
     // Add tags to the object after it's completed the upload.
     if (this.tags.length) {
@@ -173,7 +227,7 @@ export class Upload extends EventEmitter {
       );
     }
 
-    return completeMultipartUpload;
+    return result;
   }
 
   __notifyProgress(progress: Progress) {

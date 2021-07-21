@@ -5,7 +5,7 @@ export async function* getChunkBuffer(data: Buffer, partSize: number): AsyncGene
   let startByte = 0;
   let endByte = partSize;
 
-  while (endByte < data.length) {
+  while (endByte < data.byteLength) {
     yield {
       partNumber,
       data: data.slice(startByte, endByte),
@@ -18,5 +18,6 @@ export async function* getChunkBuffer(data: Buffer, partSize: number): AsyncGene
   yield {
     partNumber,
     data: data.slice(startByte),
+    lastPart: true,
   };
 }
