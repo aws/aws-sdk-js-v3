@@ -9,4 +9,4 @@ export * from "./ser-utils";
 export * from "./date-utils";
 export * from "./split-every";
 export * from "./constants";
-export { DocumentType, SdkError, SmithyException } from "@aws-sdk/types";
+export type { DocumentType, SdkError, SmithyException } from "@aws-sdk/types";
