@@ -11,5 +11,8 @@ export * from "./commands/ScanCommand";
 export * from "./commands/TransactGetCommand";
 export * from "./commands/TransactWriteCommand";
 export * from "./commands/UpdateCommand";
+export * from "./pagination/QueryPaginator";
+export * from "./pagination/ScanPaginator";
+export * from "./pagination/Interfaces";
 export * from "./DynamoDBDocumentClient";
 export * from "./DynamoDBDocument";
