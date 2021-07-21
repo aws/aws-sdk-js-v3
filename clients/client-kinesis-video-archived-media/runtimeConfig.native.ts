@@ -9,6 +9,7 @@ export const getRuntimeConfig = (config: KinesisVideoArchivedMediaClientConfig) 
   const browserDefaults = getBrowserRuntimeConfig(config);
   return {
     ...browserDefaults,
+    ...config,
     runtime: "react-native",
     sha256: config.sha256 ?? Sha256,
   };

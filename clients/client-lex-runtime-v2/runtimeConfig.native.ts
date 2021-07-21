@@ -10,6 +10,7 @@ export const getRuntimeConfig = (config: LexRuntimeV2ClientConfig) => {
   const browserDefaults = getBrowserRuntimeConfig(config);
   return {
     ...browserDefaults,
+    ...config,
     runtime: "react-native",
     eventStreamPayloadHandlerProvider:
       config.eventStreamPayloadHandlerProvider ??

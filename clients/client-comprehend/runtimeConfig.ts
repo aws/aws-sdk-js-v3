@@ -21,6 +21,7 @@ export const getRuntimeConfig = (config: ComprehendClientConfig) => {
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,
+    ...config,
     runtime: "node",
     base64Decoder: config.base64Decoder ?? fromBase64,
     base64Encoder: config.base64Encoder ?? toBase64,

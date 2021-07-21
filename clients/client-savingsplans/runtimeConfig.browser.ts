@@ -18,6 +18,7 @@ export const getRuntimeConfig = (config: SavingsplansClientConfig) => {
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,
+    ...config,
     runtime: "browser",
     base64Decoder: config.base64Decoder ?? fromBase64,
     base64Encoder: config.base64Encoder ?? toBase64,

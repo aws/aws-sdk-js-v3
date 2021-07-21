@@ -10,6 +10,7 @@ export const getRuntimeConfig = (config: TranscribeStreamingClientConfig) => {
   const browserDefaults = getBrowserRuntimeConfig(config);
   return {
     ...browserDefaults,
+    ...config,
     runtime: "react-native",
     eventStreamPayloadHandlerProvider: config.eventStreamPayloadHandlerProvider ?? (() => eventStreamPayloadHandler),
     requestHandler: config.requestHandler ?? new WebSocketHandler(),
