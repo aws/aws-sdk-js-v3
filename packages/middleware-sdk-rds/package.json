@@ -22,7 +22,7 @@
     "@aws-sdk/types": "3.22.0",
     "@aws-sdk/util-format-url": "3.22.0",
     "@aws-sdk/util-uri-escape": "3.22.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",

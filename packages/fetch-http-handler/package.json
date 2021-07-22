@@ -22,7 +22,7 @@
     "@aws-sdk/querystring-builder": "3.22.0",
     "@aws-sdk/types": "3.22.0",
     "@aws-sdk/util-base64-browser": "3.22.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@aws-sdk/abort-controller": "3.22.0",
