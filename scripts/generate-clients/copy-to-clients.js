@@ -3,39 +3,8 @@ const { normalize, join } = require("path");
 const { copySync, removeSync } = require("fs-extra");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
 
-// const getOverwritablePredicate = (packageName) => (pathName) => {
-//   const overwritablePathnames = [
-//     "commands",
-//     "models",
-//     "protocols",
-//     "pagination",
-//     "tests",
-//     "waiters",
-//     "LICENCE",
-//     "runtimeConfig.ts",
-//     "runtimeConfig.browser.ts",
-//     "runtimeConfig.shared.ts",
-//     "runtimeConfig.native.ts",
-//     "index.ts",
-//     "endpoints.ts",
-//     "README.md",
-//   ];
-//   const additionalGeneratedFiles = {
-//     "@aws-sdk/client-sts": ["defaultRoleAssumers.ts", "defaultStsRoleAssumers.ts", "defaultRoleAssumers.spec.ts"],
-//   };
-//   return (
-//     // pathName
-//     //   .toLowerCase()
-//     //   .startsWith(
-//     //     packageName.toLowerCase().replace("@aws-sdk/client-", "").replace("@aws-sdk/aws-", "").replace(/-/g, "")
-//     //   ) ||
-//     pathName.endsWith("Client.ts") &&
-//     overwritablePathnames.indexOf(pathName) >= 0 ||
-//     additionalGeneratedFiles[packageName.toLowerCase()]?.indexOf(pathName) >= 0
-//   );
-// };
-const getOverwritableDirectories = (subDirectories) => {
-  const overwritableDirectories = [
+const getOverwritablePredicate = (packageName) => (pathName) => {
+  const overwritablePathnames = [
     "commands",
     "models",
     "protocols",
@@ -50,17 +19,19 @@ const getOverwritableDirectories = (subDirectories) => {
     "index.ts",
     "endpoints.ts",
     "README.md",
-    // @aws-sdk/client-sts special files
-    "defaultRoleAssumers.ts",
-    "defaultStsRoleAssumers.ts",
-    "defaultRoleAssumers.spec.ts",
   ];
-  return subDirectories.filter((subDirectory) => {
-    const isBareBoneClient =
-      subDirectory.endsWith("Client.ts") && subDirectories.includes(subDirectory.replace("Client.ts", ".ts"));
-    const isAggregateClient = subDirectories.includes(subDirectory.replace(".ts", "Client.ts"));
-    return isBareBoneClient || isAggregateClient || overwritableDirectories.indexOf(subDirectory) >= 0;
-  });
+  const additionalGeneratedFiles = {
+    "@aws-sdk/client-sts": ["defaultRoleAssumers.ts", "defaultStsRoleAssumers.ts", "defaultRoleAssumers.spec.ts"],
+  };
+  return (
+    pathName
+      .toLowerCase()
+      .startsWith(
+        packageName.toLowerCase().replace("@aws-sdk/client-", "").replace("@aws-sdk/aws-", "").replace(/-/g, "")
+      ) ||
+    overwritablePathnames.indexOf(pathName) >= 0 ||
+    additionalGeneratedFiles[packageName.toLowerCase()]?.indexOf(pathName) >= 0
+  );
 };
 
 /**
@@ -138,6 +109,7 @@ const copyToClients = async (sourceDir, destinationDir) => {
 
     console.log(`copying ${packageName} from ${artifactPath} to ${destinationDir}`);
     const destPath = join(destinationDir, clientName);
+    const overwritablePredicate = getOverwritablePredicate(packageName);
 
     // Code to move files/folders prefixed with `doc-client-` to `lib/lib-dynamodb`
     if (clientName === "client-dynamodb") {
@@ -152,9 +124,7 @@ const copyToClients = async (sourceDir, destinationDir) => {
       }
     }
 
-    const packageSubs = readdirSync(artifactPath);
-    const overWritableSubs = getOverwritableDirectories(packageSubs);
-    for (const packageSub of packageSubs) {
+    for (const packageSub of readdirSync(artifactPath)) {
       const packageSubPath = join(artifactPath, packageSub);
       const destSubPath = join(destPath, packageSub);
 
@@ -171,7 +141,7 @@ const copyToClients = async (sourceDir, destinationDir) => {
           },
         };
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
-      } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
+      } else if (overwritablePredicate(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
           overwrite: true,
@@ -198,10 +168,9 @@ const copyServerTests = async (sourceDir, destinationDir) => {
 
     console.log(`copying ${packageName} from ${artifactPath} to ${destinationDir}`);
     const destPath = join(destinationDir, testName);
+    const overwritablePredicate = getOverwritablePredicate(packageName);
 
-    const packageSubs = readdirSync(artifactPath);
-    const overWritableSubs = getOverwritableDirectories(packageSubs);
-    for (const packageSub of packageSubs) {
+    for (const packageSub of readdirSync(artifactPath)) {
       const packageSubPath = join(artifactPath, packageSub);
       const destSubPath = join(destPath, packageSub);
 
@@ -218,7 +187,7 @@ const copyServerTests = async (sourceDir, destinationDir) => {
           },
         };
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
-      } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
+      } else if (overwritablePredicate(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
           overwrite: true,
