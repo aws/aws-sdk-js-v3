@@ -3,7 +3,7 @@ import { Client } from "./client";
 /**
  * Expected type definition of a paginator.
  */
-export type Paginator<T> = AsyncGenerator<T, T, unknown>;
+export type Paginator<T> = AsyncGenerator<T, undefined, unknown>;
 
 /**
  * Expected paginator configuration passed to an operation. Services will extend
