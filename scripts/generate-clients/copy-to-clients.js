@@ -25,13 +25,14 @@ const getOverwritableDirectories = (subDirectories, packageName) => {
   ];
   return subDirectories.filter((subDirectory) => {
     const isBareBoneClient =
-      subDirectory.endsWith("Client.ts") && subDirectories.includes(subDirectory.replace("Client.ts", ".ts"));
-    const isAggregateClient = subDirectories.includes(subDirectory.replace(".ts", "Client.ts"));
+      subDirectory.endsWith("Client.ts") && subDirectories.indexOf(subDirectory.replace("Client.ts", ".ts")) >= 0;
+    const isAggregateClient =
+      subDirectory.endsWith(".ts") && subDirectories.indexOf(subDirectory.replace(".ts", "Client.ts")) >= 0;
     return (
       isBareBoneClient ||
       isAggregateClient ||
       overwritableDirectories.indexOf(subDirectory) >= 0 ||
-      additionalGeneratedFiles[packageName].includes(subDirectory)
+      additionalGeneratedFiles[packageName]?.indexOf(subDirectory) >= 0
     );
   });
 };
