@@ -22,11 +22,11 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
 
 /**
  * <p> Updates an image pipeline. Image pipelines enable you to automate the creation and
- *       distribution of images.</p>
- *   	      <note>
+ * 			distribution of images.</p>
+ * 		       <note>
  *             <p>UpdateImagePipeline does not support selective updates for the pipeline.
- *   		You must specify all of the required properties in the update request, not just
- *   		the properties that have changed.</p>
+ * 			You must specify all of the required properties in the update request, not just
+ * 			the properties that have changed.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

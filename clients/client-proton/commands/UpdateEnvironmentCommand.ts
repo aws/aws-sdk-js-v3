@@ -25,7 +25,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *         <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
  *                 <code>protonServiceRoleArn</code> parameter to update or connect to an environment account connection. </p>
  *         <p>You can only update to a new environment account connection if it was created in the same environment account that the current
- *             environment account connection was created in and associated with the current environment.</p>
+ *             environment account connection was created in and is associated with the current environment.</p>
  *         <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or
  *             include the <code>environmentAccountConnectionId</code> parameter to update or connect to an environment account connection.</p>
  *         <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You

@@ -1125,6 +1125,20 @@ export interface Endpoint {
   subnetIds?: string[];
 
   /**
+   * <p>
+   *          Additional details of the endpoint state.
+   *       </p>
+   */
+  stateDetails?: string;
+
+  /**
+   * <p>
+   *          The reasons why the endpoint has failed.
+   *       </p>
+   */
+  failureReason?: FailureReason | string;
+
+  /**
    * <p>The tags of the endpoint.
    *       </p>
    */

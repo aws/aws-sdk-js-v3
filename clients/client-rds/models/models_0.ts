@@ -2375,7 +2375,7 @@ export interface DBSnapshot {
   DBInstanceIdentifier?: string;
 
   /**
-   * <p>Specifies when the snapshot was taken in Coordinated Universal Time (UTC).</p>
+   * <p>Specifies when the snapshot was taken in Coordinated Universal Time (UTC). Changes for the copy when the snapshot is copied.</p>
    */
   SnapshotCreateTime?: Date;
 
@@ -2456,7 +2456,7 @@ export interface DBSnapshot {
   SourceRegion?: string;
 
   /**
-   * <p>The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was copied from. It only has value in case of cross-customer or cross-region copy.</p>
+   * <p>The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was copied from. It only has a value in the case of a cross-account or cross-Region copy.</p>
    */
   SourceDBSnapshotIdentifier?: string;
 
@@ -2522,6 +2522,11 @@ export interface DBSnapshot {
    *          </p>
    */
   TagList?: Tag[];
+
+  /**
+   * <p>Specifies the time of the CreateDBSnapshot operation in Coordinated Universal Time (UTC). Doesn't change when the snapshot is copied.</p>
+   */
+  OriginalSnapshotCreateTime?: Date;
 }
 
 export namespace DBSnapshot {
@@ -11228,9 +11233,27 @@ export interface DescribeDBClustersMessage {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>clone-group-id</code> - Accepts clone group identifiers.
+   * 			  The results list will only include information about
+   *               the DB clusters associated with these clone groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
    *               cluster Amazon Resource Names (ARNs). The results list will only include information about
    *               the DB clusters identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>domain</code> - Accepts Active Directory directory IDs.
+   *               The results list will only include information about
+   *               the DB clusters associated with these domains.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine</code> - Accepts engine names.
+   *               The results list will only include information about
+   *               the DB clusters for these engines.</p>
    *             </li>
    *          </ul>
    */

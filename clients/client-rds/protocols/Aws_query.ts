@@ -23494,6 +23494,7 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     ProcessorFeatures: undefined,
     DbiResourceId: undefined,
     TagList: undefined,
+    OriginalSnapshotCreateTime: undefined,
   };
   if (output["DBSnapshotIdentifier"] !== undefined) {
     contents.DBSnapshotIdentifier = __expectString(output["DBSnapshotIdentifier"]);
@@ -23590,6 +23591,9 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
   }
   if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
     contents.TagList = deserializeAws_queryTagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+  }
+  if (output["OriginalSnapshotCreateTime"] !== undefined) {
+    contents.OriginalSnapshotCreateTime = new Date(output["OriginalSnapshotCreateTime"]);
   }
   return contents;
 };

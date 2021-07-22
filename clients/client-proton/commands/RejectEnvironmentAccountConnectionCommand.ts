@@ -28,7 +28,7 @@ export interface RejectEnvironmentAccountConnectionCommandOutput
  *             environment account connection.</p>
  *         <p>You <i>can’t</i> reject an environment account connection that is connected to an environment.</p>
  *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
- *             in the <i>AWS Proton Administration guide</i>.</p>
+ *             in the <i>AWS Proton Administrator guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

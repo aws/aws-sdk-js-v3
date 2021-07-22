@@ -72,7 +72,7 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * 			server that we provide (AmazonProvidedDNS). If you create a set of options, and if your
  * 			VPC has an internet gateway, make sure to set the <code>domain-name-servers</code>
  * 			option either to <code>AmazonProvidedDNS</code> or to a domain name server of your
- * 			choice. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the
+ * 			choice. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the
  * 			<i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { MonitorInstancesRequest, MonitorInstancesResult } from "../models/models_4";
+import { MonitorInstancesRequest, MonitorInstancesResult } from "../models/models_5";
 import {
   deserializeAws_ec2MonitorInstancesCommand,
   serializeAws_ec2MonitorInstancesCommand,

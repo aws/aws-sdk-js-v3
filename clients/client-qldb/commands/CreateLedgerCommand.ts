@@ -21,7 +21,7 @@ export interface CreateLedgerCommandInput extends CreateLedgerRequest {}
 export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new ledger in your AWS account in the current Region.</p>
+ * <p>Creates a new ledger in your account in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

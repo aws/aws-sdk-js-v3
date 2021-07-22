@@ -28,7 +28,7 @@ export interface DeleteEnvironmentAccountConnectionCommandOutput
  *             manage the environment infrastructure resources until a new environment account connection is accepted for the environment account and
  *             associated environment. You're responsible for cleaning up provisioned resources that remain without an environment connection.</p>
  *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
- *             in the <i>AWS Proton Administration guide</i>.</p>
+ *             in the <i>AWS Proton Administrator guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,8 +21,7 @@ export interface CreateCarrierGatewayCommandInput extends CreateCarrierGatewayRe
 export interface CreateCarrierGatewayCommandOutput extends CreateCarrierGatewayResult, __MetadataBearer {}
 
 /**
- * <p>Creates a carrier gateway.   For more information about carrier gateways, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway">Carrier gateways</a> in the <i>AWS Wavelength Developer
- *                 Guide</i>.</p>
+ * <p>Creates a carrier gateway.   For more information about carrier gateways, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway">Carrier gateways</a> in the <i>Amazon Web Services Wavelength Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -26,7 +26,7 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  *         <p>If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an
  *             IPv6 CIDR block that uses a /64 prefix length. </p>
  *         <important>
- *             <p>AWS reserves both the first four and the last IPv4 address in each subnet's CIDR
+ *             <p>Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR
  *                 block. They're not available for use.</p>
  *         </important>
  *         <p>If you add more than one subnet to a VPC, they're set up in a star topology with a
@@ -34,7 +34,7 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  *         <p>When you stop an instance in a subnet, it retains its private IPv4 address. It's
  *             therefore possible to have a subnet with no running instances (they're all stopped), but
  *             no remaining IP addresses available.</p>
- *         <p>For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and Subnets</a> in the
+ *         <p>For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the
  *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

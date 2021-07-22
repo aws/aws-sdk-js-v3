@@ -404,6 +404,11 @@ import {
   CreateStoreImageTaskCommandOutput,
 } from "./commands/CreateStoreImageTaskCommand";
 import {
+  CreateSubnetCidrReservationCommand,
+  CreateSubnetCidrReservationCommandInput,
+  CreateSubnetCidrReservationCommandOutput,
+} from "./commands/CreateSubnetCidrReservationCommand";
+import {
   CreateSubnetCommand,
   CreateSubnetCommandInput,
   CreateSubnetCommandOutput,
@@ -666,6 +671,11 @@ import {
   DeleteSpotDatafeedSubscriptionCommandInput,
   DeleteSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/DeleteSpotDatafeedSubscriptionCommand";
+import {
+  DeleteSubnetCidrReservationCommand,
+  DeleteSubnetCidrReservationCommandInput,
+  DeleteSubnetCidrReservationCommandOutput,
+} from "./commands/DeleteSubnetCidrReservationCommand";
 import {
   DeleteSubnetCommand,
   DeleteSubnetCommandInput,
@@ -1700,6 +1710,11 @@ import {
   GetSerialConsoleAccessStatusCommandOutput,
 } from "./commands/GetSerialConsoleAccessStatusCommand";
 import {
+  GetSubnetCidrReservationsCommand,
+  GetSubnetCidrReservationsCommandInput,
+  GetSubnetCidrReservationsCommandOutput,
+} from "./commands/GetSubnetCidrReservationsCommand";
+import {
   GetTransitGatewayAttachmentPropagationsCommand,
   GetTransitGatewayAttachmentPropagationsCommandInput,
   GetTransitGatewayAttachmentPropagationsCommandOutput,
@@ -2656,7 +2671,10 @@ export class EC2 extends EC2Client {
    *             You can assign as many IPv6 addresses to a network interface as you can assign private
    *             IPv4 addresses, and the limit varies per instance type. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP Addresses Per Network Interface Per Instance Type</a>
    *             in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *         <p>You must specify either the IPv6 addresses or the IPv6 address count in the request.</p>
+   *         <p>You must specify either the IPv6 addresses or the IPv6 address count in the request. </p>
+   *         <p>You can optionally use Prefix Delegation on the network interface. You must specify
+   *             either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation">Prefix Delegation</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public assignIpv6Addresses(
     args: AssignIpv6AddressesCommandInput,
@@ -2700,6 +2718,9 @@ export class EC2 extends EC2Client {
    *             interface to another, check <code>network/interfaces/macs/mac/local-ipv4s</code> in the instance
    *             metadata to confirm that the remapping is complete.</p>
    *         <p>You must specify either the IP addresses or the IP address count in the request.</p>
+   *         <p>You can optionally use Prefix Delegation on the network interface. You must specify
+   *             either the IPv4 Prefix Delegation prefixes, or the IPv4 Prefix Delegation count. For
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation">Prefix Delegation</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public assignPrivateIpAddresses(
     args: AssignPrivateIpAddressesCommandInput,
@@ -2822,7 +2843,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p>
    *          <p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a>
    *           in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public associateDhcpOptions(
@@ -2936,8 +2957,8 @@ export class EC2 extends EC2Client {
   /**
    * <p>Associates one or more targets with an event window. Only one type of target (instance IDs,
    *          Dedicated Host IDs, or tags) can be specified with an event window.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
-   *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
+   *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public associateInstanceEventWindow(
     args: AssociateInstanceEventWindowCommandInput,
@@ -2974,7 +2995,7 @@ export class EC2 extends EC2Client {
    *             from the subnet or gateway to be routed according to the routes in the route table. The
    *             action returns an association ID, which you need in order to disassociate the route
    *             table later. A route table can be associated with multiple subnets.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
    *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public associateRouteTable(
@@ -3151,7 +3172,7 @@ export class EC2 extends EC2Client {
    *         <p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6
    *             pool, or an Amazon-provided IPv6 CIDR block.</p>
    *         <p>For more information about associating CIDR blocks with your VPC and applicable
-   *             restrictions, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing">VPC and Subnet Sizing</a> in the
+   *             restrictions, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing">VPC and subnet sizing</a> in the
    *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public associateVpcCidrBlock(
@@ -3292,14 +3313,14 @@ export class EC2 extends EC2Client {
    *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
    *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>After you attach an EBS volume, you must make it available. For more information, see
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Making an EBS volume available for use</a>.</p>
-   *          <p>If a volume has an AWS Marketplace product code:</p>
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Make an EBS volume available for use</a>.</p>
+   *          <p>If a volume has an Marketplace product code:</p>
    *          <ul>
    *             <li>
    *                <p>The volume can be attached only to a stopped instance.</p>
    *             </li>
    *             <li>
-   *                <p>AWS Marketplace product codes are copied from the volume to the instance.</p>
+   *                <p>Marketplace product codes are copied from the volume to the instance.</p>
    *             </li>
    *             <li>
    *                <p>You must be subscribed to the product.</p>
@@ -3310,7 +3331,7 @@ export class EC2 extends EC2Client {
    *           instance.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching Amazon EBS volumes</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attach an Amazon EBS volume to an instance</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public attachVolume(
@@ -3928,9 +3949,9 @@ export class EC2 extends EC2Client {
    *
    *          <p>When copying snapshots to a Region, copies of encrypted EBS snapshots remain encrypted.
    *     	Copies of unencrypted snapshots remain unencrypted, unless you enable encryption for the
-   *     	snapshot copy operation. By default, encrypted snapshot copies use the default AWS Key Management Service (AWS KMS)
-   *     	customer master key (CMK); however, you can specify a different CMK. To copy an encrypted
-   *     	snapshot that has been shared from another account, you must have permissions for the CMK
+   *     	snapshot copy operation. By default, encrypted snapshot copies use the default Key Management Service (KMS)
+   *     	KMS key; however, you can specify a different KMS key. To copy an encrypted
+   *     	snapshot that has been shared from another account, you must have permissions for the KMS key
    *     	used to encrypt the snapshot.</p>
    *
    *   	      <p>Snapshots copied to an Outpost are encrypted by default using the default
@@ -3940,7 +3961,7 @@ export class EC2 extends EC2Client {
    *   			Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>Snapshots created by copying another snapshot have an arbitrary volume ID that should not
    *       be used for any purpose.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying an Amazon EBS snapshot</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copy an Amazon EBS snapshot</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public copySnapshot(
@@ -4018,8 +4039,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a carrier gateway.   For more information about carrier gateways, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway">Carrier gateways</a> in the <i>AWS Wavelength Developer
-   *                 Guide</i>.</p>
+   * <p>Creates a carrier gateway.   For more information about carrier gateways, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway">Carrier gateways</a> in the <i>Amazon Web Services Wavelength Developer Guide</i>.</p>
    */
   public createCarrierGateway(
     args: CreateCarrierGatewayCommandInput,
@@ -4187,8 +4207,8 @@ export class EC2 extends EC2Client {
   /**
    * <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the
    *             specified Availability Zone in your default VPC. You can have only one default subnet
-   *             per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Creating a Default
-   *                 Subnet</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *             per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Creating a default
+   *                 subnet</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createDefaultSubnet(
     args: CreateDefaultSubnetCommandInput,
@@ -4223,7 +4243,7 @@ export class EC2 extends EC2Client {
    * <p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet
    * 			in each Availability Zone. For more information about the components of a default VPC,
    * 			see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html">Default VPC and
-   * 			Default Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot
+   * 			default subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot
    * 			specify the components of the default VPC yourself.</p>
    * 		       <p>If you deleted your previous default VPC, you can create a default VPC. You cannot have
    * 			more than one default VPC per Region.</p>
@@ -4314,7 +4334,7 @@ export class EC2 extends EC2Client {
    * 			server that we provide (AmazonProvidedDNS). If you create a set of options, and if your
    * 			VPC has an internet gateway, make sure to set the <code>domain-name-servers</code>
    * 			option either to <code>AmazonProvidedDNS</code> or to a domain name server of your
-   * 			choice. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the
+   * 			choice. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the
    * 			<i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createDhcpOptions(
@@ -4416,7 +4436,7 @@ export class EC2 extends EC2Client {
    *
    *         <p>Flow log data for a monitored network interface is recorded as flow log records, which are log events
    *             consisting of fields that describe the traffic flow. For more information, see
-   *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow Log Records</a>
+   *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow log records</a>
    *             in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *
    *         <p>When publishing to CloudWatch Logs, flow log records are published to a log group, and each network
@@ -4552,8 +4572,8 @@ export class EC2 extends EC2Client {
    *             </ul>
    *          </important>
    *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
-   *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
+   *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public createInstanceEventWindow(
     args: CreateInstanceEventWindowCommandInput,
@@ -4876,7 +4896,7 @@ export class EC2 extends EC2Client {
    *             networks through a transit gateway or virtual private gateway. Common use cases include
    *             running large workloads behind a small pool of allowlisted IPv4 addresses, preserving
    *             private IPv4 addresses, and communicating between overlapping networks.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT Gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createNatGateway(
     args: CreateNatGatewayCommandInput,
@@ -5129,8 +5149,7 @@ export class EC2 extends EC2Client {
    *       can either be restored to its initial launch state, or it can be restored using a
    *       specific snapshot.</p>
    *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/">Replace a root volume</a>
-   *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createReplaceRootVolumeTask(
     args: CreateReplaceRootVolumeTaskCommandInput,
@@ -5265,7 +5284,7 @@ export class EC2 extends EC2Client {
    * 		       <p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route
    * 				in the list covers a smaller number of IP addresses and is therefore more specific,
    * 				so we use that route to determine where to target the traffic.</p>
-   *          <p>For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the
+   *          <p>For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
    *          <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createRoute(args: CreateRouteCommandInput, options?: __HttpHandlerOptions): Promise<CreateRouteCommandOutput>;
@@ -5293,7 +5312,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createRouteTable(
@@ -5382,22 +5401,22 @@ export class EC2 extends EC2Client {
    *     	Region as the volume. If you create a snapshot of a volume on an Outpost, the snapshot
    *     	can be stored on the same Outpost as the volume, or in the Region for that Outpost.</p>
    *
-   *          <p>When a snapshot is created, any AWS Marketplace product codes that are associated with the
+   *          <p>When a snapshot is created, any Marketplace product codes that are associated with the
    *       source volume are propagated to the snapshot.</p>
    *          <p>You can take a snapshot of an attached volume that is in use. However, snapshots only
-   *       capture data that has been written to your EBS volume at the time the snapshot command is
+   *       capture data that has been written to your Amazon EBS volume at the time the snapshot command is
    *       issued; this might exclude any data that has been cached by any applications or the operating
    *       system. If you can pause any file systems on the volume long enough to take a snapshot, your
    *       snapshot should be complete. However, if you cannot pause all file writes to the volume, you
    *       should unmount the volume from within the instance, issue the snapshot command, and then
    *       remount the volume to ensure a consistent and complete snapshot. You may remount and use your
    *       volume while the snapshot status is <code>pending</code>.</p>
-   *          <p>To create a snapshot for EBS volumes that serve as root devices, you should stop the
+   *          <p>To create a snapshot for Amazon EBS volumes that serve as root devices, you should stop the
    *       instance before taking the snapshot.</p>
    *          <p>Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes that
    *       are created from encrypted snapshots are also automatically encrypted. Your encrypted volumes
    *       and any associated snapshots always remain protected.</p>
-   *          <p>You can tag your snapshots during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2
+   *          <p>You can tag your snapshots during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2
    *         resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon Elastic Block Store</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -5551,7 +5570,7 @@ export class EC2 extends EC2Client {
    *         <p>If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an
    *             IPv6 CIDR block that uses a /64 prefix length. </p>
    *         <important>
-   *             <p>AWS reserves both the first four and the last IPv4 address in each subnet's CIDR
+   *             <p>Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR
    *                 block. They're not available for use.</p>
    *         </important>
    *         <p>If you add more than one subnet to a VPC, they're set up in a star topology with a
@@ -5559,7 +5578,7 @@ export class EC2 extends EC2Client {
    *         <p>When you stop an instance in a subnet, it retains its private IPv4 address. It's
    *             therefore possible to have a subnet with no running instances (they're all stopped), but
    *             no remaining IP addresses available.</p>
-   *         <p>For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and Subnets</a> in the
+   *         <p>For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the
    *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createSubnet(
@@ -5578,6 +5597,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreateSubnetCommandOutput) => void
   ): Promise<CreateSubnetCommandOutput> | void {
     const command = new CreateSubnetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a subnet CIDR reservation. For information about subnet CIDR reservations, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html">Subnet CIDR reservations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  public createSubnetCidrReservation(
+    args: CreateSubnetCidrReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSubnetCidrReservationCommandOutput>;
+  public createSubnetCidrReservation(
+    args: CreateSubnetCidrReservationCommandInput,
+    cb: (err: any, data?: CreateSubnetCidrReservationCommandOutput) => void
+  ): void;
+  public createSubnetCidrReservation(
+    args: CreateSubnetCidrReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSubnetCidrReservationCommandOutput) => void
+  ): void;
+  public createSubnetCidrReservation(
+    args: CreateSubnetCidrReservationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSubnetCidrReservationCommandOutput) => void),
+    cb?: (err: any, data?: CreateSubnetCidrReservationCommandOutput) => void
+  ): Promise<CreateSubnetCidrReservationCommandOutput> | void {
+    const command = new CreateSubnetCidrReservationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6087,14 +6138,14 @@ export class EC2 extends EC2Client {
   /**
    * <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p>
    *          <p>You can create a new empty volume or restore a volume from an EBS snapshot.
-   *       Any AWS Marketplace product codes from the snapshot are propagated to the volume.</p>
+   *       Any Marketplace product codes from the snapshot are propagated to the volume.</p>
    *          <p>You can create encrypted volumes. Encrypted volumes must be attached to instances that
    *       support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically
    *       encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
    *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          <p>You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2
+   *          <p>You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2
    *         resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating an Amazon EBS volume</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Create an Amazon EBS volume</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createVolume(
@@ -6127,13 +6178,15 @@ export class EC2 extends EC2Client {
    * <p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create
    * 			uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4
    * 			addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and
-   * 				Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
-   *          <p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p>
-   * 		       <p>By default, each instance you launch in the VPC has the default DHCP options, which
+   * 				subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *          <p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided
+   *            IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address
+   *            pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p>
+   * 	        <p>By default, each instance you launch in the VPC has the default DHCP options, which
    * 			include only a default DNS server that we provide (AmazonProvidedDNS). For more
-   * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <p>You can specify the instance tenancy value for the VPC when you create it. You can't change
-   *       this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
+   *           this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
    *           <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createVpc(args: CreateVpcCommandInput, options?: __HttpHandlerOptions): Promise<CreateVpcCommandOutput>;
@@ -6298,11 +6351,12 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and
-   * 			an accepter VPC with which to create the connection. The accepter VPC can belong to
-   * 			another AWS account and can be in a different Region to the requester VPC. The requester
-   * 			VPC and accepter VPC cannot have overlapping CIDR blocks.</p>
+   * 		  an accepter VPC with which to create the connection. The accepter VPC can belong to
+   * 		  another account and can be in a different Region to the requester VPC.
+   *           The requester VPC and accepter VPC cannot have overlapping CIDR blocks.</p>
    *          <note>
-   *             <p>Limitations and rules apply to a VPC peering connection. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations">limitations</a> section in the <i>VPC Peering Guide</i>.</p>
+   *             <p>Limitations and rules apply to a VPC peering connection. For more information, see
+   *           the <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations">limitations</a> section in the <i>VPC Peering Guide</i>.</p>
    *          </note>
    *          <p>The owner of the accepter VPC must accept the peering request to activate the peering
    *             connection. The VPC peering connection request expires after 7 days, after which it
@@ -6774,8 +6828,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Deletes the specified event window.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
-   *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
+   *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public deleteInstanceEventWindow(
     args: DeleteInstanceEventWindowCommandInput,
@@ -7434,7 +7488,7 @@ export class EC2 extends EC2Client {
    *       to all the information needed to restore the volume.</p>
    *          <p>You cannot delete a snapshot of the root device of an EBS volume used by a registered AMI.
    *       You must first de-register the AMI before you can delete the snapshot.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html">Deleting an Amazon EBS snapshot</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html">Delete an Amazon EBS snapshot</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public deleteSnapshot(
@@ -7517,6 +7571,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DeleteSubnetCommandOutput) => void
   ): Promise<DeleteSubnetCommandOutput> | void {
     const command = new DeleteSubnetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a subnet CIDR reservation.</p>
+   */
+  public deleteSubnetCidrReservation(
+    args: DeleteSubnetCidrReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSubnetCidrReservationCommandOutput>;
+  public deleteSubnetCidrReservation(
+    args: DeleteSubnetCidrReservationCommandInput,
+    cb: (err: any, data?: DeleteSubnetCidrReservationCommandOutput) => void
+  ): void;
+  public deleteSubnetCidrReservation(
+    args: DeleteSubnetCidrReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSubnetCidrReservationCommandOutput) => void
+  ): void;
+  public deleteSubnetCidrReservation(
+    args: DeleteSubnetCidrReservationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSubnetCidrReservationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSubnetCidrReservationCommandOutput) => void
+  ): Promise<DeleteSubnetCidrReservationCommandOutput> | void {
+    const command = new DeleteSubnetCidrReservationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7984,7 +8070,7 @@ export class EC2 extends EC2Client {
    * <p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state
    *       (not attached to an instance).</p>
    *          <p>The volume can remain in the <code>deleting</code> state for several minutes.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Deleting an Amazon EBS volume</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Delete an Amazon EBS volume</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public deleteVolume(
@@ -9126,7 +9212,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes one or more of your DHCP options sets.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public describeDhcpOptions(
@@ -10028,8 +10114,8 @@ export class EC2 extends EC2Client {
    *          the output includes information for all event windows, which can affect performance. We
    *          recommend that you use pagination to ensure that the operation returns quickly and
    *          successfully. </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
-   *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
+   *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeInstanceEventWindows(
     args: DescribeInstanceEventWindowsCommandInput,
@@ -11074,8 +11160,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes a root volume replacement task. For more information, see
-   *       <a href="https://docs.aws.amazon.com/">Replace a root volume</a> in the
-   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeReplaceRootVolumeTasks(
     args: DescribeReplaceRootVolumeTasksCommandInput,
@@ -11250,7 +11335,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes one or more of your route tables.</p>
    *          <p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public describeRouteTables(
@@ -11491,40 +11576,40 @@ export class EC2 extends EC2Client {
    * <p>Describes the specified EBS snapshots available to you or all of the EBS snapshots
    *       available to you.</p>
    *          <p>The snapshots available to you include public snapshots, private snapshots that you own,
-   *       and private snapshots owned by other AWS accounts for which you have explicit create volume
+   *       and private snapshots owned by other accounts for which you have explicit create volume
    *       permissions.</p>
    *          <p>The create volume permissions fall into the following categories:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <i>public</i>: The owner of the snapshot granted create volume
-   *           permissions for the snapshot to the <code>all</code> group. All AWS accounts have create
+   *           permissions for the snapshot to the <code>all</code> group. All accounts have create
    *           volume permissions for these snapshots.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <i>explicit</i>: The owner of the snapshot granted create volume
-   *           permissions to a specific AWS account.</p>
+   *           permissions to a specific account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>implicit</i>: An AWS account has implicit create volume permissions
+   *                   <i>implicit</i>: An account has implicit create volume permissions
    *           for all snapshots it owns.</p>
    *             </li>
    *          </ul>
    *          <p>The list of snapshots returned can be filtered by specifying snapshot IDs, snapshot
-   *       owners, or AWS accounts with create volume permissions. If no options are specified, Amazon
-   *       EC2 returns all snapshots for which you have create volume permissions.</p>
+   *       owners, or accounts with create volume permissions. If no options are specified,
+   *       Amazon EC2 returns all snapshots for which you have create volume permissions.</p>
    *          <p>If you specify one or more snapshot IDs, only snapshots that have the specified IDs are
    *       returned. If you specify an invalid snapshot ID, an error is returned. If you specify a
    *       snapshot ID for which you do not have access, it is not included in the returned
    *       results.</p>
    *          <p>If you specify one or more snapshot owners using the <code>OwnerIds</code> option, only
    *       snapshots from the specified owners and for which you have access are returned. The results
-   *       can include the AWS account IDs of the specified owners, <code>amazon</code> for snapshots
+   *       can include the account IDs of the specified owners, <code>amazon</code> for snapshots
    *       owned by Amazon, or <code>self</code> for snapshots that you own.</p>
    *          <p>If you specify a list of restorable users, only snapshots with create snapshot permissions
-   *       for those users are returned. You can specify AWS account IDs (if you own the snapshots),
+   *       for those users are returned. You can specify account IDs (if you own the snapshots),
    *         <code>self</code> for snapshots for which you own or have explicit permissions, or
    *         <code>all</code> for public snapshots.</p>
    *          <p>If you are describing a long list of snapshots, we recommend that you paginate the output to make the
@@ -11860,7 +11945,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes one or more of your subnets.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and Subnets</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the
    * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public describeSubnets(
@@ -12395,8 +12480,7 @@ export class EC2 extends EC2Client {
    *       recent modification request.</p>
    *          <p>You can also use CloudWatch Events to check the status of a modification to an EBS
    *       volume. For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon CloudWatch Events User Guide</a>. For more information, see
-   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring volume modifications</a> in the
-   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html">Monitor the progress of volume modifications</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeVolumesModifications(
     args: DescribeVolumesModificationsCommandInput,
@@ -12444,7 +12528,7 @@ export class EC2 extends EC2Client {
    *         <code>ok</code>. If the check fails, the overall status is <code>impaired</code>. If the
    *       status is <code>insufficient-data</code>, then the checks might still be taking place on your
    *       volume at the time. We recommend that you retry the request. For more information about volume
-   *       status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring the status of your volumes</a> in the
+   *       status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitor the status of your volumes</a> in the
    *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>
    *             <i>Events</i>: Reflect the cause of a volume status and might require you to
@@ -13033,9 +13117,9 @@ export class EC2 extends EC2Client {
    *       the instance, or all three. If an EBS volume is the root device of an instance, it can't be
    *       detached while the instance is running. To detach the root volume, stop the instance
    *       first.</p>
-   *          <p>When a volume with an AWS Marketplace product code is detached from an instance, the
+   *          <p>When a volume with an Marketplace product code is detached from an instance, the
    *       product code is no longer associated with the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detaching an Amazon EBS volume</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detach an Amazon EBS volume</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public detachVolume(
@@ -13530,8 +13614,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Disassociates one or more targets from an event window.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
-   *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
+   *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public disassociateInstanceEventWindow(
     args: DisassociateInstanceEventWindowCommandInput,
@@ -13567,7 +13651,7 @@ export class EC2 extends EC2Client {
    * 		       <p>After you perform this action, the subnet no longer uses the routes in the route table.
    * 				Instead, it uses the routes in the VPC's main route table. For more information
    * 				about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-   * 				Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * 				tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public disassociateRouteTable(
     args: DisassociateRouteTableCommandInput,
@@ -13768,10 +13852,10 @@ export class EC2 extends EC2Client {
   /**
    * <p>Enables EBS encryption by default for your account in the current Region.</p>
    *          <p>After you enable encryption by default, the EBS volumes that you create are
-   *       always encrypted, either using the default CMK or the CMK that you specified
+   *     	always encrypted, either using the default KMS key or the KMS key that you specified
    *       when you created each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
    *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          <p>You can specify the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
+   *   	      <p>You can specify the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
    *       or <a>ResetEbsDefaultKmsKeyId</a>.</p>
    *          <p>Enabling encryption by default has no effect on the encryption status of your
    *       existing volumes.</p>
@@ -14468,8 +14552,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes the default customer master key (CMK) for EBS encryption by default for your account in this Region.
-   *       You can change the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a> or
+   * <p>Describes the default KMS key for EBS encryption by default for your account in this Region.
+   *   		You can change the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a> or
    *       <a>ResetEbsDefaultKmsKeyId</a>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
    *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -14858,6 +14942,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: GetSerialConsoleAccessStatusCommandOutput) => void
   ): Promise<GetSerialConsoleAccessStatusCommandOutput> | void {
     const command = new GetSerialConsoleAccessStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about the subnet CIDR reservations.</p>
+   */
+  public getSubnetCidrReservations(
+    args: GetSubnetCidrReservationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSubnetCidrReservationsCommandOutput>;
+  public getSubnetCidrReservations(
+    args: GetSubnetCidrReservationsCommandInput,
+    cb: (err: any, data?: GetSubnetCidrReservationsCommandOutput) => void
+  ): void;
+  public getSubnetCidrReservations(
+    args: GetSubnetCidrReservationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSubnetCidrReservationsCommandOutput) => void
+  ): void;
+  public getSubnetCidrReservations(
+    args: GetSubnetCidrReservationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSubnetCidrReservationsCommandOutput) => void),
+    cb?: (err: any, data?: GetSubnetCidrReservationsCommandOutput) => void
+  ): Promise<GetSubnetCidrReservationsCommandOutput> | void {
+    const command = new GetSubnetCidrReservationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -15425,11 +15541,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Changes the default customer master key (CMK) for EBS encryption by default for your account in this Region.</p>
-   *          <p>AWS creates a unique AWS managed CMK in each Region for use with encryption by default. If
-   *       you change the default CMK to a symmetric customer managed CMK, it is used instead of the AWS
-   *       managed CMK. To reset the default CMK to the AWS managed CMK for EBS, use <a>ResetEbsDefaultKmsKeyId</a>. Amazon EBS does not support asymmetric CMKs.</p>
-   *          <p>If you delete or disable the customer managed CMK that you specified for use with
+   * <p>Changes the default KMS key for EBS encryption by default for your account in this Region.</p>
+   *   	      <p>Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region for use with encryption by default. If
+   *       you change the default KMS key to a symmetric customer managed KMS key, it is used instead of the Amazon Web Services
+   *       managed KMS key. To reset the default KMS key to the Amazon Web Services managed KMS key for EBS, use <a>ResetEbsDefaultKmsKeyId</a>. Amazon EBS does not support asymmetric KMS keys.</p>
+   *          <p>If you delete or disable the customer managed KMS key that you specified for use with
    *       encryption by default, your instances will fail to launch.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
    *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -15872,8 +15988,8 @@ export class EC2 extends EC2Client {
    *          <p>To modify the targets associated with the event window, use the <a>AssociateInstanceEventWindow</a> and <a>DisassociateInstanceEventWindow</a> API.</p>
    *          <p>If Amazon Web Services has already scheduled an event, modifying an event window won't change the time
    *          of the scheduled event.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
-   *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
+   *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public modifyInstanceEventWindow(
     args: ModifyInstanceEventWindowCommandInput,
@@ -16176,12 +16292,12 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Adds or removes permission settings for the specified snapshot. You may add or remove
-   *       specified AWS account IDs from a snapshot's list of create volume permissions, but you cannot
+   *       specified account IDs from a snapshot's list of create volume permissions, but you cannot
    *       do both in a single operation. If you need to both add and remove account IDs for a snapshot,
    *       you must use multiple operations. You can make up to 500 modifications to a snapshot in a single operation.</p>
-   *          <p>Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be made
-   *       public. Snapshots encrypted with your default CMK cannot be shared with other accounts.</p>
-   *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing snapshots</a> in the
+   *          <p>Encrypted snapshots and snapshots with Marketplace product codes cannot be made
+   *       public. Snapshots encrypted with your default KMS key cannot be shared with other accounts.</p>
+   *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Share a snapshot</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public modifySnapshotAttribute(
@@ -16509,24 +16625,18 @@ export class EC2 extends EC2Client {
    * <p>You can modify several parameters of an existing EBS volume, including volume size, volume
    *       type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance
    *       type, you might be able to apply these changes without stopping the instance or detaching the
-   *       volume from it. For more information about modifying an EBS volume running Linux, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying the size, IOPS, or
-   *         type of an EBS volume on Linux</a>. For more information about modifying an EBS volume
-   *       running Windows, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying the size, IOPS, or type of an EBS volume on Windows</a>.</p>
-   *          <p> When you complete a resize operation on your volume, you need to extend the volume's
-   *       file-system size to take advantage of the new storage capacity. For information about
-   *       extending a Linux file system, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux">Extending a Linux
-   *         file system</a>. For information about extending a Windows file system, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows">Extending a
-   *         Windows file system</a>. </p>
+   *       volume from it. For more information about modifying EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html">Amazon EBS Elastic Volumes</a> (Linux instances)
+   *       or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html">Amazon EBS Elastic Volumes</a> (Windows instances).</p>
+   *          <p>When you complete a resize operation on your volume, you need to extend the volume's
+   *       file-system size to take advantage of the new storage capacity. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux">Extend a Linux file system</a> or
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows">Extend a Windows file system</a>.</p>
    *          <p> You can use CloudWatch Events to check the status of a modification to an EBS volume. For
    *       information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon CloudWatch Events User Guide</a>. You can also track the status of a
    *       modification using <a>DescribeVolumesModifications</a>. For information
-   *       about tracking status changes using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring volume
-   *         modifications</a>. </p>
+   *       about tracking status changes using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html">Monitor the progress of volume modifications</a>.</p>
    *          <p>With previous-generation instance types, resizing an EBS volume might require detaching and
-   *       reattaching the volume or stopping and restarting the instance. For more information, see
-   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html">Amazon EBS Elastic
-   *           Volumes</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html">Amazon EBS Elastic Volumes</a> (Windows).</p>
-   *          <p>If you reach the maximum volume modification rate per volume limit, you will need to wait
+   *       reattaching the volume or stopping and restarting the instance.</p>
+   *          <p>If you reach the maximum volume modification rate per volume limit, you must wait
    *       at least six hours before applying further modifications to the affected EBS volume.</p>
    */
   public modifyVolume(
@@ -16786,15 +16896,15 @@ export class EC2 extends EC2Client {
    *                     addresses when queried from instances in the peer VPC.</p>
    *             </li>
    *          </ul>
-   *          <p>If the peered VPCs are in the same AWS account, you can enable DNS resolution for queries
-   *             from the local VPC. This ensures that queries from the local VPC resolve to private IP
-   *             addresses in the peer VPC. This option is not available if the peered VPCs are in
-   *             different AWS accounts or different Regions. For peered VPCs in different AWS accounts,
-   *             each AWS account owner must initiate a separate request to modify the peering connection
-   *             options. For inter-region peering connections, you must use the Region for the requester
-   *             VPC to modify the requester VPC peering options and the Region for the accepter VPC to
-   *             modify the accepter VPC peering options. To verify which VPCs are the accepter and the
-   *             requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a> command.</p>
+   *          <p>If the peered VPCs are in the same account, you can enable DNS resolution
+   *         for queries from the local VPC. This ensures that queries from the local VPC resolve to private IP
+   *         addresses in the peer VPC. This option is not available if the peered VPCs are in different
+   *         different accounts or different Regions. For peered VPCs in different
+   *         accounts, each account owner must initiate a separate request
+   *         to modify the peering connection options. For inter-region peering connections, you must use the
+   *         Region for the requester VPC to modify the requester VPC peering options and the Region for the
+   *         accepter VPC to modify the accepter VPC peering options. To verify which VPCs are the accepter and
+   *         the requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a> command.</p>
    */
   public modifyVpcPeeringConnectionOptions(
     args: ModifyVpcPeeringConnectionOptionsCommandInput,
@@ -17851,7 +17961,7 @@ export class EC2 extends EC2Client {
    *             the following: internet gateway, virtual private gateway, NAT instance, NAT gateway, VPC
    *             peering connection, network interface, egress-only internet gateway, or transit
    *             gateway.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
    *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public replaceRoute(
@@ -17882,9 +17992,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Changes the route table associated with a given subnet, internet gateway, or virtual private gateway in a VPC. After the operation
-   *       completes, the subnet or gateway uses the routes in the new route table. For more
-   *       information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-   *         Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *         completes, the subnet or gateway uses the routes in the new route table. For more
+   *         information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
+   *         tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    *          <p>You can also use this operation to change which table is the main route table in the VPC. Specify the main route table's association ID and the route table ID of the new main route table.</p>
    */
   public replaceRouteTableAssociation(
@@ -18102,10 +18212,10 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Resets the default customer master key (CMK) for EBS encryption for your account in this Region
-   *       to the AWS managed CMK for EBS.</p>
-   *          <p>After resetting the default CMK to the AWS managed CMK, you can continue to encrypt by a
-   *       customer managed CMK by specifying it when you create the volume. For more information, see
+   * <p>Resets the default KMS key for EBS encryption for your account in this Region
+   *       to the Amazon Web Services managed KMS key for EBS.</p>
+   *          <p>After resetting the default KMS key to the Amazon Web Services managed KMS key, you can continue to encrypt by a
+   *       customer managed KMS key by specifying it when you create the volume. For more information, see
    *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
    *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -18280,7 +18390,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Resets permission settings for the specified snapshot.</p>
-   *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing snapshots</a> in the
+   *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Share a snapshot</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public resetSnapshotAttribute(
@@ -19066,7 +19176,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Unassigns one or more IPv6 addresses from a network interface.</p>
+   * <p>Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a network interface.</p>
    */
   public unassignIpv6Addresses(
     args: UnassignIpv6AddressesCommandInput,
@@ -19098,7 +19208,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Unassigns one or more secondary private IP addresses from a network interface.</p>
+   * <p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a network interface.</p>
    */
   public unassignPrivateIpAddresses(
     args: UnassignPrivateIpAddressesCommandInput,

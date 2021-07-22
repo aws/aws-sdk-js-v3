@@ -123,7 +123,7 @@ export enum PermissionsMode {
 export interface CreateLedgerRequest {
   /**
    * <p>The name of the ledger that you want to create. The name must be unique among all of
-   *          your ledgers in the current AWS Region.</p>
+   *          the ledgers in your account in the current Region.</p>
    *          <p>Naming constraints for ledger names are defined in <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming">Quotas in Amazon QLDB</a>
    *          in the <i>Amazon QLDB Developer Guide</i>.</p>
    */
@@ -176,6 +176,60 @@ export interface CreateLedgerRequest {
    *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>The key in Key Management Service (KMS) to use for encryption of data at rest in the ledger. For
+   *          more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html">Encryption at rest</a> in
+   *          the <i>Amazon QLDB Developer Guide</i>.</p>
+   *          <p>Use one of the following options to specify this parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_OWNED_KMS_KEY</code>: Use an KMS key that is owned and managed by Amazon Web Services
+   *                on your behalf.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Undefined</b>: By default, use an Amazon Web Services owned KMS
+   *                key.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>A valid symmetric customer managed KMS key</b>: Use
+   *                the specified KMS key in your account that you create, own, and manage.</p>
+   *                <p>Amazon QLDB does not support asymmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric keys</a> in the <i>Key Management Service Developer
+   *                   Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>To specify a customer managed KMS key, you can use its key ID, Amazon Resource Name
+   *          (ARN), alias name, or alias ARN. When using an alias name, prefix it with
+   *             <code>"alias/"</code>. To specify a key in a different account, you must use the key
+   *          ARN or alias ARN.</p>
+   *          <p>For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN:
+   *                   <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias ARN:
+   *                <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers (KeyId)</a> in
+   *          the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  KmsKey?: string;
 }
 
 export namespace CreateLedgerRequest {
@@ -228,6 +282,12 @@ export interface CreateLedgerResponse {
    *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>The ARN of the customer managed KMS key that the ledger uses for encryption at rest. If
+   *          this parameter is undefined, the ledger uses an Amazon Web Services owned KMS key for encryption.</p>
+   */
+  KmsKeyArn?: string;
 }
 
 export namespace CreateLedgerResponse {
@@ -422,7 +482,7 @@ export interface JournalKinesisStreamDescription {
 
   /**
    * <p>The exclusive date and time that specifies when the stream ends. If this parameter is
-   *          blank, the stream runs indefinitely until you cancel it.</p>
+   *          undefined, the stream runs indefinitely until you cancel it.</p>
    */
   ExclusiveEndTime?: Date;
 
@@ -534,8 +594,8 @@ export interface S3EncryptionConfiguration {
   ObjectEncryptionType: S3ObjectEncryptionType | string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for a symmetric customer master key (CMK) in AWS Key
-   *          Management Service (AWS KMS). Amazon S3 does not support asymmetric CMKs.</p>
+   * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) in Key Management Service
+   *          (KMS). Amazon S3 does not support asymmetric CMKs.</p>
    *          <p>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the
    *             <code>ObjectEncryptionType</code>.</p>
    *          <p>
@@ -668,8 +728,8 @@ export interface JournalS3ExportDescription {
    *                <p>Write objects into your Amazon Simple Storage Service (Amazon S3) bucket.</p>
    *             </li>
    *             <li>
-   *                <p>(Optional) Use your customer master key (CMK) in AWS Key Management Service (AWS
-   *                KMS) for server-side encryption of your exported data.</p>
+   *                <p>(Optional) Use your customer master key (CMK) in Key Management Service (KMS) for server-side
+   *                encryption of your exported data.</p>
    *             </li>
    *          </ul>
    */
@@ -718,6 +778,77 @@ export namespace DescribeLedgerRequest {
   });
 }
 
+export enum EncryptionStatus {
+  ENABLED = "ENABLED",
+  KMS_KEY_INACCESSIBLE = "KMS_KEY_INACCESSIBLE",
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>Information about the encryption of data at rest in an Amazon QLDB ledger. This includes
+ *          the current status, the key in Key Management Service (KMS), and when the key became inaccessible (in
+ *          the case of an error).</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html">Encryption at rest</a> in
+ *          the <i>Amazon QLDB Developer Guide</i>.</p>
+ */
+export interface LedgerEncryptionDescription {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer managed KMS key that the ledger uses for
+   *          encryption at rest. If this parameter is undefined, the ledger uses an Amazon Web Services owned KMS key
+   *          for encryption.</p>
+   */
+  KmsKeyArn: string | undefined;
+
+  /**
+   * <p>The current state of encryption at rest for the ledger. This can be one of the following
+   *          values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: Encryption is fully enabled using the specified key.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code>: The ledger is actively processing the specified key
+   *                change.</p>
+   *                <p>Key changes in QLDB are asynchronous. The ledger is fully accessible without any
+   *                performance impact while the key change is being processed. The amount of time it
+   *                takes to update a key varies depending on the ledger size.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KMS_KEY_INACCESSIBLE</code>: The specified customer managed KMS key is not
+   *                accessible, and the ledger is impaired. Either the key was disabled or deleted, or
+   *                the grants on the key were revoked. When a ledger is impaired, it is not accessible
+   *                and does not accept any read or write requests.</p>
+   *                <p>An impaired ledger automatically returns to an active state after you restore the
+   *                grants on the key, or re-enable the key that was disabled. However, deleting a
+   *                customer managed KMS key is irreversible. After a key is deleted, you can no longer
+   *                access the ledgers that are protected with that key, and the data becomes
+   *                unrecoverable permanently.</p>
+   *             </li>
+   *          </ul>
+   */
+  EncryptionStatus: EncryptionStatus | string | undefined;
+
+  /**
+   * <p>The date and time, in epoch time format, when the KMS key first became inaccessible,
+   *          in the case of an error. (Epoch time format is the number of seconds that have elapsed
+   *          since 12:00:00 AM January 1, 1970 UTC.)</p>
+   *          <p>This parameter is undefined if the KMS key is accessible.</p>
+   */
+  InaccessibleKmsKeyDateTime?: Date;
+}
+
+export namespace LedgerEncryptionDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LedgerEncryptionDescription): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeLedgerResponse {
   /**
    * <p>The name of the ledger.</p>
@@ -752,6 +883,13 @@ export interface DescribeLedgerResponse {
    *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>Information about the encryption of data at rest in the ledger. This includes the
+   *          current status, the KMS key, and when the key became inaccessible (in the case of an
+   *          error).</p>
+   */
+  EncryptionDescription?: LedgerEncryptionDescription;
 }
 
 export namespace DescribeLedgerResponse {
@@ -805,8 +943,8 @@ export interface ExportJournalToS3Request {
    *                <p>Write objects into your Amazon Simple Storage Service (Amazon S3) bucket.</p>
    *             </li>
    *             <li>
-   *                <p>(Optional) Use your customer master key (CMK) in AWS Key Management Service (AWS
-   *                KMS) for server-side encryption of your exported data.</p>
+   *                <p>(Optional) Use your customer master key (CMK) in Key Management Service (KMS) for server-side
+   *                encryption of your exported data.</p>
    *             </li>
    *          </ul>
    */
@@ -1115,7 +1253,7 @@ export namespace ListJournalS3ExportsRequest {
 export interface ListJournalS3ExportsResponse {
   /**
    * <p>The array of journal export job descriptions for all ledgers that are associated with
-   *          the current AWS account and Region.</p>
+   *          the current account and Region.</p>
    */
   JournalS3Exports?: JournalS3ExportDescription[];
 
@@ -1265,7 +1403,7 @@ export namespace LedgerSummary {
 
 export interface ListLedgersResponse {
   /**
-   * <p>The array of ledger summaries that are associated with the current AWS account and
+   * <p>The array of ledger summaries that are associated with the current account and
    *          Region.</p>
    */
   Ledgers?: LedgerSummary[];
@@ -1497,6 +1635,60 @@ export interface UpdateLedgerRequest {
    *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>The key in Key Management Service (KMS) to use for encryption of data at rest in the ledger. For
+   *          more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html">Encryption at rest</a> in
+   *          the <i>Amazon QLDB Developer Guide</i>.</p>
+   *          <p>Use one of the following options to specify this parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_OWNED_KMS_KEY</code>: Use an KMS key that is owned and managed by Amazon Web Services
+   *                on your behalf.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Undefined</b>: Make no changes to the KMS key of the
+   *                ledger.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>A valid symmetric customer managed KMS key</b>: Use
+   *                the specified KMS key in your account that you create, own, and manage.</p>
+   *                <p>Amazon QLDB does not support asymmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric keys</a> in the <i>Key Management Service Developer
+   *                   Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>To specify a customer managed KMS key, you can use its key ID, Amazon Resource Name
+   *          (ARN), alias name, or alias ARN. When using an alias name, prefix it with
+   *             <code>"alias/"</code>. To specify a key in a different account, you must use the key
+   *          ARN or alias ARN.</p>
+   *          <p>For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN:
+   *                   <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias ARN:
+   *                <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers (KeyId)</a> in
+   *          the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  KmsKey?: string;
 }
 
 export namespace UpdateLedgerRequest {
@@ -1537,6 +1729,13 @@ export interface UpdateLedgerResponse {
    *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>Information about the encryption of data at rest in the ledger. This includes the
+   *          current status, the KMS key, and when the key became inaccessible (in the case of an
+   *          error).</p>
+   */
+  EncryptionDescription?: LedgerEncryptionDescription;
 }
 
 export namespace UpdateLedgerResponse {

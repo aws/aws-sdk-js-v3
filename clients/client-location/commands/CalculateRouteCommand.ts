@@ -24,8 +24,8 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  * <p>
  *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters:
  *                 <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that
- *             you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create
- *                 aroute calculator resource</a>
+ *             you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a
+ *                 route calculator resource</a>
  *          </p>
  *         <p>By default, a request that doesn't specify a departure time uses the best time of day
  *             to travel with the best traffic conditions when calculating the route.</p>
@@ -44,8 +44,8 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  *             </li>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify additional
- *                     route preference such as <code>CarModeOptions</code> if traveling by
+ *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify an
+ *                     additional route preference such as <code>CarModeOptions</code> if traveling by
  *                         <code>Car</code>, or <code>TruckModeOptions</code> if traveling by
  *                         <code>Truck</code>.</p>
  *             </li>

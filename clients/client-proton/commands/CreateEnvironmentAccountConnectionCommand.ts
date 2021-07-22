@@ -24,10 +24,10 @@ export interface CreateEnvironmentAccountConnectionCommandOutput
 
 /**
  * <p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in
- *             the environment account from the management account.</p>
+ *             the environment account from a management account.</p>
  *         <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an
  *                 <i>environment account</i> that maintains authorization and permissions. For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a> in the <i>AWS Proton
- *                 Administration guide</i>.</p>
+ *                 Administrator guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -23,7 +23,8 @@ export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerC
 /**
  * <p>Creates an association between a geofence collection and a tracker resource. This
  *             allows the tracker resource to communicate location data to the linked geofence
- *             collection.</p>
+ *             collection. </p>
+ *         <p>You can associate up to five geofence collections to each tracker resource.</p>
  *         <note>
  *             <p>Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.</p>
  *         </note>

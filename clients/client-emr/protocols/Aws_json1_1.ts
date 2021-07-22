@@ -28,6 +28,10 @@ import {
   DescribeNotebookExecutionCommandOutput,
 } from "../commands/DescribeNotebookExecutionCommand";
 import {
+  DescribeReleaseLabelCommandInput,
+  DescribeReleaseLabelCommandOutput,
+} from "../commands/DescribeReleaseLabelCommand";
+import {
   DescribeSecurityConfigurationCommandInput,
   DescribeSecurityConfigurationCommandOutput,
 } from "../commands/DescribeSecurityConfigurationCommand";
@@ -57,6 +61,7 @@ import {
   ListNotebookExecutionsCommandInput,
   ListNotebookExecutionsCommandOutput,
 } from "../commands/ListNotebookExecutionsCommand";
+import { ListReleaseLabelsCommandInput, ListReleaseLabelsCommandOutput } from "../commands/ListReleaseLabelsCommand";
 import {
   ListSecurityConfigurationsCommandInput,
   ListSecurityConfigurationsCommandOutput,
@@ -166,6 +171,8 @@ import {
   DescribeJobFlowsOutput,
   DescribeNotebookExecutionInput,
   DescribeNotebookExecutionOutput,
+  DescribeReleaseLabelInput,
+  DescribeReleaseLabelOutput,
   DescribeSecurityConfigurationInput,
   DescribeSecurityConfigurationOutput,
   DescribeStepInput,
@@ -232,6 +239,8 @@ import {
   ListInstancesOutput,
   ListNotebookExecutionsInput,
   ListNotebookExecutionsOutput,
+  ListReleaseLabelsInput,
+  ListReleaseLabelsOutput,
   ListSecurityConfigurationsInput,
   ListSecurityConfigurationsOutput,
   ListStepsInput,
@@ -259,6 +268,7 @@ import {
   PutBlockPublicAccessConfigurationOutput,
   PutManagedScalingPolicyInput,
   PutManagedScalingPolicyOutput,
+  ReleaseLabelFilter,
   RemoveAutoScalingPolicyInput,
   RemoveAutoScalingPolicyOutput,
   RemoveManagedScalingPolicyInput,
@@ -279,6 +289,7 @@ import {
   SetVisibleToAllUsersInput,
   ShrinkPolicy,
   SimpleScalingPolicyConfiguration,
+  SimplifiedApplication,
   SpotProvisioningSpecification,
   StartNotebookExecutionInput,
   StartNotebookExecutionOutput,
@@ -500,6 +511,19 @@ export const serializeAws_json1_1DescribeNotebookExecutionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeReleaseLabelCommand = async (
+  input: DescribeReleaseLabelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "ElasticMapReduce.DescribeReleaseLabel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeReleaseLabelInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeSecurityConfigurationCommand = async (
   input: DescribeSecurityConfigurationCommandInput,
   context: __SerdeContext
@@ -653,6 +677,19 @@ export const serializeAws_json1_1ListNotebookExecutionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListNotebookExecutionsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListReleaseLabelsCommand = async (
+  input: ListReleaseLabelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "ElasticMapReduce.ListReleaseLabels",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListReleaseLabelsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1764,6 +1801,68 @@ const deserializeAws_json1_1DescribeNotebookExecutionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeReleaseLabelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReleaseLabelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeReleaseLabelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeReleaseLabelOutput(data, context);
+  const response: DescribeReleaseLabelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeReleaseLabelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReleaseLabelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeSecurityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2463,6 +2562,68 @@ const deserializeAws_json1_1ListNotebookExecutionsCommandError = async (
     case "com.amazonaws.emr#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListReleaseLabelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReleaseLabelsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListReleaseLabelsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListReleaseLabelsOutput(data, context);
+  const response: ListReleaseLabelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListReleaseLabelsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReleaseLabelsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4016,6 +4177,17 @@ const serializeAws_json1_1DescribeNotebookExecutionInput = (
   };
 };
 
+const serializeAws_json1_1DescribeReleaseLabelInput = (
+  input: DescribeReleaseLabelInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ReleaseLabel !== undefined && input.ReleaseLabel !== null && { ReleaseLabel: input.ReleaseLabel }),
+  };
+};
+
 const serializeAws_json1_1DescribeSecurityConfigurationInput = (
   input: DescribeSecurityConfigurationInput,
   context: __SerdeContext
@@ -4528,6 +4700,15 @@ const serializeAws_json1_1ListNotebookExecutionsInput = (
   };
 };
 
+const serializeAws_json1_1ListReleaseLabelsInput = (input: ListReleaseLabelsInput, context: __SerdeContext): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1ReleaseLabelFilter(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListSecurityConfigurationsInput = (
   input: ListSecurityConfigurationsInput,
   context: __SerdeContext
@@ -4762,6 +4943,13 @@ const serializeAws_json1_1PutManagedScalingPolicyInput = (
       input.ManagedScalingPolicy !== null && {
         ManagedScalingPolicy: serializeAws_json1_1ManagedScalingPolicy(input.ManagedScalingPolicy, context),
       }),
+  };
+};
+
+const serializeAws_json1_1ReleaseLabelFilter = (input: ReleaseLabelFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Application !== undefined && input.Application !== null && { Application: input.Application }),
+    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
   };
 };
 
@@ -5669,6 +5857,20 @@ const deserializeAws_json1_1DescribeNotebookExecutionOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeReleaseLabelOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeReleaseLabelOutput => {
+  return {
+    Applications:
+      output.Applications !== undefined && output.Applications !== null
+        ? deserializeAws_json1_1SimplifiedApplicationList(output.Applications, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+    ReleaseLabel: __expectString(output.ReleaseLabel),
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeSecurityConfigurationOutput = (
   output: any,
   context: __SerdeContext
@@ -6448,6 +6650,19 @@ const deserializeAws_json1_1ListNotebookExecutionsOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1ListReleaseLabelsOutput = (
+  output: any,
+  context: __SerdeContext
+): ListReleaseLabelsOutput => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    ReleaseLabels:
+      output.ReleaseLabels !== undefined && output.ReleaseLabels !== null
+        ? deserializeAws_json1_1StringList(output.ReleaseLabels, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListSecurityConfigurationsOutput = (
   output: any,
   context: __SerdeContext
@@ -6871,6 +7086,27 @@ const deserializeAws_json1_1SimpleScalingPolicyConfiguration = (
     CoolDown: __expectNumber(output.CoolDown),
     ScalingAdjustment: __expectNumber(output.ScalingAdjustment),
   } as any;
+};
+
+const deserializeAws_json1_1SimplifiedApplication = (output: any, context: __SerdeContext): SimplifiedApplication => {
+  return {
+    Name: __expectString(output.Name),
+    Version: __expectString(output.Version),
+  } as any;
+};
+
+const deserializeAws_json1_1SimplifiedApplicationList = (
+  output: any,
+  context: __SerdeContext
+): SimplifiedApplication[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SimplifiedApplication(entry, context);
+    });
 };
 
 const deserializeAws_json1_1SpotProvisioningSpecification = (

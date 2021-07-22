@@ -21,13 +21,15 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  * <p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create
  * 			uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4
  * 			addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and
- * 				Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
- *          <p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p>
- * 		       <p>By default, each instance you launch in the VPC has the default DHCP options, which
+ * 				subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *          <p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided
+ *            IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address
+ *            pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p>
+ * 	        <p>By default, each instance you launch in the VPC has the default DHCP options, which
  * 			include only a default DNS server that we provide (AmazonProvidedDNS). For more
- * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *          <p>You can specify the instance tenancy value for the VPC when you create it. You can't change
- *       this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
+ *           this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
  *           <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

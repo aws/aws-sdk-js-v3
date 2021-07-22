@@ -710,6 +710,30 @@ export namespace AudioDescription {
   });
 }
 
+/**
+ * Audio Hls Rendition Selection
+ */
+export interface AudioHlsRenditionSelection {
+  /**
+   * Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+   */
+  GroupId: string | undefined;
+
+  /**
+   * Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+   */
+  Name: string | undefined;
+}
+
+export namespace AudioHlsRenditionSelection {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AudioHlsRenditionSelection): any => ({
+    ...obj,
+  });
+}
+
 export enum AudioLanguageSelectionPolicy {
   LOOSE = "LOOSE",
   STRICT = "STRICT",
@@ -800,6 +824,11 @@ export namespace AudioTrackSelection {
  * Audio Selector Settings
  */
 export interface AudioSelectorSettings {
+  /**
+   * Audio Hls Rendition Selection
+   */
+  AudioHlsRenditionSelection?: AudioHlsRenditionSelection;
+
   /**
    * Audio Language Selection
    */
@@ -1412,10 +1441,20 @@ export namespace TtmlDestinationSettings {
   });
 }
 
+export enum WebvttDestinationStyleControl {
+  NO_STYLE_DATA = "NO_STYLE_DATA",
+  PASSTHROUGH = "PASSTHROUGH",
+}
+
 /**
  * Webvtt Destination Settings
  */
-export interface WebvttDestinationSettings {}
+export interface WebvttDestinationSettings {
+  /**
+   * Controls whether the color and position of the source captions is passed through to the WebVTT output captions.  PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT.  NO_STYLE_DATA - Don't pass through the style. The output captions will not contain any font styling information.
+   */
+  StyleControl?: WebvttDestinationStyleControl | string;
+}
 
 export namespace WebvttDestinationSettings {
   /**
@@ -5809,15 +5848,4 @@ export enum InputLossActionForMsSmoothOut {
 export enum SmoothGroupSegmentationMode {
   USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
   USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
-}
-
-export enum SmoothGroupSparseTrackType {
-  NONE = "NONE",
-  SCTE_35 = "SCTE_35",
-  SCTE_35_WITHOUT_SEGMENTATION = "SCTE_35_WITHOUT_SEGMENTATION",
-}
-
-export enum SmoothGroupStreamManifestBehavior {
-  DO_NOT_SEND = "DO_NOT_SEND",
-  SEND = "SEND",
 }

@@ -22,11 +22,12 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
 
 /**
  * <p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and
- * 			an accepter VPC with which to create the connection. The accepter VPC can belong to
- * 			another AWS account and can be in a different Region to the requester VPC. The requester
- * 			VPC and accepter VPC cannot have overlapping CIDR blocks.</p>
+ * 		  an accepter VPC with which to create the connection. The accepter VPC can belong to
+ * 		  another account and can be in a different Region to the requester VPC.
+ *           The requester VPC and accepter VPC cannot have overlapping CIDR blocks.</p>
  *          <note>
- *             <p>Limitations and rules apply to a VPC peering connection. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations">limitations</a> section in the <i>VPC Peering Guide</i>.</p>
+ *             <p>Limitations and rules apply to a VPC peering connection. For more information, see
+ *           the <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations">limitations</a> section in the <i>VPC Peering Guide</i>.</p>
  *          </note>
  *          <p>The owner of the accepter VPC must accept the peering request to activate the peering
  *             connection. The VPC peering connection request expires after 7 days, after which it

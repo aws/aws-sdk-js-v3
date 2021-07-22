@@ -554,7 +554,7 @@ export namespace AcceptVpcEndpointConnectionsRequest {
 }
 
 /**
- * <p>Information about the error that occurred. For more information about errors, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error Codes</a>.</p>
+ * <p>Information about the error that occurred. For more information about errors, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
  */
 export interface UnsuccessfulItemError {
   /**
@@ -729,7 +729,7 @@ export interface VpcPeeringConnectionVpcInfo {
   CidrBlockSet?: CidrBlock[];
 
   /**
-   * <p>The AWS account ID of the VPC owner.</p>
+   * <p>The ID of the account that owns the VPC.</p>
    */
   OwnerId?: string;
 
@@ -1660,6 +1660,18 @@ export interface AssignIpv6AddressesRequest {
   Ipv6Addresses?: string[];
 
   /**
+   * <p>The number of IPv6 Prefix Delegation prefixes that AWS automatically assigns to the
+   *             network interface. You cannot use this option if you use the <code>Ipv6Prefixes</code>
+   *             option.</p>
+   */
+  Ipv6PrefixCount?: number;
+
+  /**
+   * <p>One or more IPv6 Prefix Delegation prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
+   */
+  Ipv6Prefixes?: string[];
+
+  /**
    * <p>The ID of the network interface.</p>
    */
   NetworkInterfaceId: string | undefined;
@@ -1680,6 +1692,13 @@ export interface AssignIpv6AddressesResult {
    *         	that were assigned to the network interface before the request are not included.</p>
    */
   AssignedIpv6Addresses?: string[];
+
+  /**
+   * <p>The IPv6 Prefix Delegation prefixes
+   *             that are
+   *             assigned to the network interface.</p>
+   */
+  AssignedIpv6Prefixes?: string[];
 
   /**
    * <p>The ID of the network interface.</p>
@@ -1720,6 +1739,16 @@ export interface AssignPrivateIpAddressesRequest {
    * <p>The number of secondary IP addresses to assign to the network interface. You can't specify this parameter when also specifying private IP addresses.</p>
    */
   SecondaryPrivateIpAddressCount?: number;
+
+  /**
+   * <p>One or more IPv4 Prefix Delegation prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
+   */
+  Ipv4Prefixes?: string[];
+
+  /**
+   * <p>The number of IPv4 Prefix Delegation prefixes that AWS automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
+   */
+  Ipv4PrefixCount?: number;
 }
 
 export namespace AssignPrivateIpAddressesRequest {
@@ -1727,6 +1756,26 @@ export namespace AssignPrivateIpAddressesRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: AssignPrivateIpAddressesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an IPv4 Prefix Delegation.</p>
+ */
+export interface Ipv4PrefixSpecification {
+  /**
+   * <p>The IPv4 Prefix Delegation prefix. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation">Prefix Delegation</a> in the
+   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  Ipv4Prefix?: string;
+}
+
+export namespace Ipv4PrefixSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Ipv4PrefixSpecification): any => ({
     ...obj,
   });
 }
@@ -1760,6 +1809,13 @@ export interface AssignPrivateIpAddressesResult {
    * <p>The private IP addresses assigned to the network interface.</p>
    */
   AssignedPrivateIpAddresses?: AssignedPrivateIpAddress[];
+
+  /**
+   * <p>The IPv4 Prefix Delegation prefixes
+   *             that are
+   *             assigned to the network interface.</p>
+   */
+  AssignedIpv4Prefixes?: Ipv4PrefixSpecification[];
 }
 
 export namespace AssignPrivateIpAddressesResult {
@@ -4881,12 +4937,12 @@ export interface CopySnapshotRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot. Only
-   * 		specify this parameter when copying a snapshot from an AWS Region to an Outpost.
+   * 		specify this parameter when copying a snapshot from an Amazon Web Services Region to an Outpost.
    * 		The snapshot must be in the Region for the destination Outpost. You cannot copy a
    * 		snapshot from an Outpost to a Region, from one Outpost to another, or within the same
    * 		Outpost.</p>
    *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots">
-   *   		Copying snapshots from an AWS Region to an Outpost</a> in the
+   *   		Copy snapshots from an Amazon Web Services Region to an Outpost</a> in the
    *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   DestinationOutpostArn?: string;
@@ -4897,8 +4953,8 @@ export interface CopySnapshotRequest {
    *         <code>PresignedUrl</code> parameter, where it is required.</p>
    *
    *          <p>The snapshot copy is sent to the regional endpoint that you sent the HTTP
-   *       request to (for example, <code>ec2.us-east-1.amazonaws.com</code>). With the AWS CLI, this is
-   *       specified using the <code>--region</code> parameter or the default Region in your AWS
+   *     	request to (for example, <code>ec2.us-east-1.amazonaws.com</code>). With the CLI, this is
+   *       specified using the <code>--region</code> parameter or the default Region in your Amazon Web Services
    *       configuration file.</p>
    */
   DestinationRegion?: string;
@@ -4913,10 +4969,10 @@ export interface CopySnapshotRequest {
   Encrypted?: boolean;
 
   /**
-   * <p>The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption.
-   *       If this parameter is not specified, your AWS managed CMK for EBS is used. If <code>KmsKeyId</code> is
+   * <p>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
+   *       If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is
    *       specified, the encrypted state must be <code>true</code>.</p>
-   *          <p>You can specify the CMK using any of the following:</p>
+   *          <p>You can specify the KMS key using any of the following:</p>
    *          <ul>
    *             <li>
    *                <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
@@ -4931,7 +4987,7 @@ export interface CopySnapshotRequest {
    *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
    *             </li>
    *          </ul>
-   *          <p>AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid,
+   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid,
    *       the action can appear to complete, but eventually fails.</p>
    */
   KmsKeyId?: string;
@@ -4944,10 +5000,10 @@ export interface CopySnapshotRequest {
    *          <p>The <code>PresignedUrl</code> should use the snapshot source endpoint, the
    *         <code>CopySnapshot</code> action, and include the <code>SourceRegion</code>,
    *         <code>SourceSnapshotId</code>, and <code>DestinationRegion</code> parameters. The
-   *         <code>PresignedUrl</code> must be signed using AWS Signature Version 4. Because EBS
+   *         <code>PresignedUrl</code> must be signed using Amazon Web Services Signature Version 4. Because EBS
    *       snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic
    *       that is described in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating Requests: Using Query
-   *         Parameters (AWS Signature Version 4)</a> in the <i>Amazon Simple Storage Service API Reference</i>. An
+   *         Parameters (Amazon Web Services Signature Version 4)</a> in the <i>Amazon Simple Storage Service API Reference</i>. An
    *       invalid or improperly signed <code>PresignedUrl</code> will cause the copy operation to fail
    *       asynchronously, and the snapshot will move to an <code>error</code> state.</p>
    */
@@ -5388,8 +5444,8 @@ export interface CreateCarrierGatewayRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-   *                 Idempotency</a>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+   *                 idempotency</a>.</p>
    */
   ClientToken?: string;
 }
@@ -5425,7 +5481,7 @@ export interface CarrierGateway {
   State?: CarrierGatewayState | string;
 
   /**
-   * <p>The AWS account ID of the owner of the carrier gateway.</p>
+   * <p>The account ID of the owner of the carrier gateway.</p>
    */
   OwnerId?: string;
 
@@ -6130,7 +6186,7 @@ export interface Subnet {
   VpcId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the subnet.</p>
+   * <p>The ID of the account that owns the subnet.</p>
    */
   OwnerId?: string;
 
@@ -6233,7 +6289,7 @@ export interface Vpc {
   VpcId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the VPC.</p>
+   * <p>The ID of the account that owns the VPC.</p>
    */
   OwnerId?: string;
 
@@ -6398,7 +6454,7 @@ export interface DhcpOptions {
   DhcpOptionsId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the DHCP options set.</p>
+   * <p>The ID of the account that owns the DHCP options set.</p>
    */
   OwnerId?: string;
 
@@ -6436,8 +6492,8 @@ export namespace CreateDhcpOptionsResult {
 export interface CreateEgressOnlyInternetGatewayRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-   * 				Idempotency</a>.</p>
+   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+   * 				idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -7845,8 +7901,8 @@ export interface CreateFlowLogsRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-   *                 Idempotency</a>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+   *                 idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -7912,10 +7968,11 @@ export interface CreateFlowLogsRequest {
 
   /**
    * <p>The fields to include in the flow log record, in the order in which they should
-   *             appear. For a list of available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow Log Records</a>. If you
-   *             omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.</p>
+   *             appear. For a list of available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow log records</a>. If you
+   *             omit this parameter, the flow log is created using the default format. If you specify this parameter,
+   *             you must specify at least one field.</p>
    *         <p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For
-   *             the AWS CLI, use single quotation marks (' ') to surround the parameter value.</p>
+   *             the CLI, use single quotation marks (' ') to surround the parameter value.</p>
    */
   LogFormat?: string;
 
@@ -8660,40 +8717,6 @@ export namespace CreateInternetGatewayRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateInternetGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an internet gateway.</p>
- */
-export interface InternetGateway {
-  /**
-   * <p>Any VPCs attached to the internet gateway.</p>
-   */
-  Attachments?: InternetGatewayAttachment[];
-
-  /**
-   * <p>The ID of the internet gateway.</p>
-   */
-  InternetGatewayId?: string;
-
-  /**
-   * <p>The ID of the AWS account that owns the internet gateway.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>Any tags assigned to the internet gateway.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace InternetGateway {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternetGateway): any => ({
     ...obj,
   });
 }

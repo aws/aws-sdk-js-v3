@@ -256,6 +256,10 @@ import {
   CreateStoreImageTaskCommandInput,
   CreateStoreImageTaskCommandOutput,
 } from "../commands/CreateStoreImageTaskCommand";
+import {
+  CreateSubnetCidrReservationCommandInput,
+  CreateSubnetCidrReservationCommandOutput,
+} from "../commands/CreateSubnetCidrReservationCommand";
 import { CreateSubnetCommandInput, CreateSubnetCommandOutput } from "../commands/CreateSubnetCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import {
@@ -428,6 +432,10 @@ import {
   DeleteSpotDatafeedSubscriptionCommandInput,
   DeleteSpotDatafeedSubscriptionCommandOutput,
 } from "../commands/DeleteSpotDatafeedSubscriptionCommand";
+import {
+  DeleteSubnetCidrReservationCommandInput,
+  DeleteSubnetCidrReservationCommandOutput,
+} from "../commands/DeleteSubnetCidrReservationCommand";
 import { DeleteSubnetCommandInput, DeleteSubnetCommandOutput } from "../commands/DeleteSubnetCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import {
@@ -1169,6 +1177,10 @@ import {
   GetSerialConsoleAccessStatusCommandOutput,
 } from "../commands/GetSerialConsoleAccessStatusCommand";
 import {
+  GetSubnetCidrReservationsCommandInput,
+  GetSubnetCidrReservationsCommandOutput,
+} from "../commands/GetSubnetCidrReservationsCommand";
+import {
   GetTransitGatewayAttachmentPropagationsCommandInput,
   GetTransitGatewayAttachmentPropagationsCommandOutput,
 } from "../commands/GetTransitGatewayAttachmentPropagationsCommand";
@@ -1720,10 +1732,10 @@ import {
   InstanceEventWindowTimeRange,
   InstanceEventWindowTimeRangeRequest,
   InstanceExportDetails,
-  InternetGateway,
   InternetGatewayAttachment,
   IpPermission,
   IpRange,
+  Ipv4PrefixSpecification,
   Ipv6CidrBlock,
   Ipv6Range,
   LaunchTemplateAndOverridesResponse,
@@ -1821,6 +1833,8 @@ import {
   CreateSpotDatafeedSubscriptionResult,
   CreateStoreImageTaskRequest,
   CreateStoreImageTaskResult,
+  CreateSubnetCidrReservationRequest,
+  CreateSubnetCidrReservationResult,
   CreateSubnetRequest,
   CreateSubnetResult,
   CreateTagsRequest,
@@ -1874,15 +1888,6 @@ import {
   DeleteCarrierGatewayRequest,
   DeleteCarrierGatewayResult,
   DeleteClientVpnEndpointRequest,
-  DeleteClientVpnEndpointResult,
-  DeleteClientVpnRouteRequest,
-  DeleteClientVpnRouteResult,
-  DeleteCustomerGatewayRequest,
-  DeleteDhcpOptionsRequest,
-  DeleteEgressOnlyInternetGatewayRequest,
-  DeleteEgressOnlyInternetGatewayResult,
-  DeleteFleetSuccessItem,
-  DeleteFleetsRequest,
   DnsEntry,
   ElasticGpuSpecification,
   ElasticGpuSpecificationResponse,
@@ -1893,6 +1898,12 @@ import {
   InstanceIpv6Address,
   InstanceIpv6AddressRequest,
   InstanceSpecification,
+  InternetGateway,
+  Ipv4PrefixSpecificationRequest,
+  Ipv4PrefixSpecificationResponse,
+  Ipv6PrefixSpecification,
+  Ipv6PrefixSpecificationRequest,
+  Ipv6PrefixSpecificationResponse,
   KeyPair,
   LastError,
   LaunchTemplate,
@@ -1978,6 +1989,7 @@ import {
   SnapshotInfo,
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
+  SubnetCidrReservation,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorNetworkService,
@@ -2022,7 +2034,6 @@ import {
   AvailabilityZoneMessage,
   AvailableCapacity,
   CapacityReservationOptions,
-  CapacityReservationSpecificationResponse,
   CertificateAuthentication,
   ClassicLinkInstance,
   ClientConnectResponseOptions,
@@ -2035,9 +2046,17 @@ import {
   CoipPool,
   ConnectionLogResponseOptions,
   ConversionTask,
-  CpuOptions,
+  DeleteClientVpnEndpointResult,
+  DeleteClientVpnRouteRequest,
+  DeleteClientVpnRouteResult,
+  DeleteCustomerGatewayRequest,
+  DeleteDhcpOptionsRequest,
+  DeleteEgressOnlyInternetGatewayRequest,
+  DeleteEgressOnlyInternetGatewayResult,
   DeleteFleetError,
   DeleteFleetErrorItem,
+  DeleteFleetSuccessItem,
+  DeleteFleetsRequest,
   DeleteFleetsResult,
   DeleteFlowLogsRequest,
   DeleteFlowLogsResult,
@@ -2079,6 +2098,8 @@ import {
   DeleteSecurityGroupRequest,
   DeleteSnapshotRequest,
   DeleteSpotDatafeedSubscriptionRequest,
+  DeleteSubnetCidrReservationRequest,
+  DeleteSubnetCidrReservationResult,
   DeleteSubnetRequest,
   DeleteTagsRequest,
   DeleteTrafficMirrorFilterRequest,
@@ -2217,17 +2238,12 @@ import {
   DescribeInstanceCreditSpecificationsResult,
   DescribeInstanceEventNotificationAttributesRequest,
   DescribeInstanceEventNotificationAttributesResult,
-  DescribeInstanceEventWindowsRequest,
-  DescribeInstanceEventWindowsResult,
-  DescribeInstancesRequest,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
   EbsInstanceBlockDevice,
-  ElasticGpuAssociation,
   ElasticGpuHealth,
   ElasticGpus,
-  ElasticInferenceAcceleratorAssociation,
   EnclaveOptions,
   EventInformation,
   ExportImageTask,
@@ -2243,7 +2259,6 @@ import {
   FpgaImage,
   FpgaImageAttribute,
   FpgaImageState,
-  HibernationOptions,
   HistoryRecordEntry,
   Host,
   HostInstance,
@@ -2266,7 +2281,6 @@ import {
   InstanceEventWindowStateChange,
   InstanceTagNotificationAttribute,
   LaunchPermission,
-  LicenseConfiguration,
   LoadPermission,
   OnDemandOptions,
   PciId,
@@ -2294,16 +2308,20 @@ import {
   AnalysisSecurityGroupRule,
   ArchitectureType,
   BootModeType,
-  ClassicLinkDnsSupport,
+  CapacityReservationSpecificationResponse,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
+  CpuOptions,
   CreateVolumePermission,
+  DescribeInstanceEventWindowsRequest,
+  DescribeInstanceEventWindowsResult,
   DescribeInstanceStatusRequest,
   DescribeInstanceStatusResult,
   DescribeInstanceTypeOfferingsRequest,
   DescribeInstanceTypeOfferingsResult,
   DescribeInstanceTypesRequest,
   DescribeInstanceTypesResult,
+  DescribeInstancesRequest,
   DescribeInstancesResult,
   DescribeInternetGatewaysRequest,
   DescribeInternetGatewaysResult,
@@ -2434,21 +2452,12 @@ import {
   DescribeVolumesRequest,
   DescribeVolumesResult,
   DescribeVpcAttributeRequest,
-  DescribeVpcAttributeResult,
-  DescribeVpcClassicLinkDnsSupportRequest,
-  DescribeVpcClassicLinkDnsSupportResult,
-  DescribeVpcClassicLinkRequest,
-  DescribeVpcClassicLinkResult,
-  DescribeVpcEndpointConnectionNotificationsRequest,
-  DescribeVpcEndpointConnectionNotificationsResult,
-  DescribeVpcEndpointConnectionsRequest,
-  DescribeVpcEndpointConnectionsResult,
-  DescribeVpcEndpointsRequest,
-  DescribeVpcEndpointsResult,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
   EfaInfo,
+  ElasticGpuAssociation,
+  ElasticInferenceAcceleratorAssociation,
   Explanation,
   FpgaDeviceInfo,
   FpgaDeviceMemoryInfo,
@@ -2456,10 +2465,13 @@ import {
   GpuDeviceInfo,
   GpuDeviceMemoryInfo,
   GpuInfo,
+  HibernationOptions,
   HistoryRecord,
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
   Instance,
+  InstanceIpv4Prefix,
+  InstanceIpv6Prefix,
   InstanceMetadataOptionsResponse,
   InstanceNetworkInterface,
   InstanceNetworkInterfaceAssociation,
@@ -2479,6 +2491,7 @@ import {
   LaunchSpecification,
   LaunchTemplateConfig,
   LaunchTemplateOverrides,
+  LicenseConfiguration,
   LoadBalancersConfig,
   LocalGateway,
   LocalGatewayRouteTable,
@@ -2548,8 +2561,6 @@ import {
   VolumeStatusEvent,
   VolumeStatusInfo,
   VolumeStatusItem,
-  VpcClassicLink,
-  VpcEndpointConnection,
 } from "../models/models_3";
 import {
   AssociatedRole,
@@ -2557,16 +2568,28 @@ import {
   BlobAttributeValue,
   CapacityReservationGroup,
   CapacityReservationSpecification,
+  ClassicLinkDnsSupport,
   ClientCertificateRevocationListStatus,
   ClientData,
   CoipAddressUsage,
   CreateVolumePermissionModifications,
+  DescribeVpcAttributeResult,
+  DescribeVpcClassicLinkDnsSupportRequest,
+  DescribeVpcClassicLinkDnsSupportResult,
+  DescribeVpcClassicLinkRequest,
+  DescribeVpcClassicLinkResult,
+  DescribeVpcEndpointConnectionNotificationsRequest,
+  DescribeVpcEndpointConnectionNotificationsResult,
+  DescribeVpcEndpointConnectionsRequest,
+  DescribeVpcEndpointConnectionsResult,
   DescribeVpcEndpointServiceConfigurationsRequest,
   DescribeVpcEndpointServiceConfigurationsResult,
   DescribeVpcEndpointServicePermissionsRequest,
   DescribeVpcEndpointServicePermissionsResult,
   DescribeVpcEndpointServicesRequest,
   DescribeVpcEndpointServicesResult,
+  DescribeVpcEndpointsRequest,
+  DescribeVpcEndpointsResult,
   DescribeVpcPeeringConnectionsRequest,
   DescribeVpcPeeringConnectionsResult,
   DescribeVpcsRequest,
@@ -2689,6 +2712,8 @@ import {
   GetReservedInstancesExchangeQuoteResult,
   GetSerialConsoleAccessStatusRequest,
   GetSerialConsoleAccessStatusResult,
+  GetSubnetCidrReservationsRequest,
+  GetSubnetCidrReservationsResult,
   GetTransitGatewayAttachmentPropagationsRequest,
   GetTransitGatewayAttachmentPropagationsResult,
   GetTransitGatewayMulticastDomainAssociationsRequest,
@@ -2718,7 +2743,6 @@ import {
   InstanceCreditSpecificationRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
-  InstanceMonitoring,
   InstanceUsage,
   IntegrateServices,
   Ipv6CidrAssociation,
@@ -2800,20 +2824,6 @@ import {
   ModifyVpcEndpointServicePermissionsResult,
   ModifyVpcPeeringConnectionOptionsRequest,
   ModifyVpcPeeringConnectionOptionsResult,
-  ModifyVpcTenancyRequest,
-  ModifyVpcTenancyResult,
-  ModifyVpnConnectionOptionsRequest,
-  ModifyVpnConnectionOptionsResult,
-  ModifyVpnConnectionRequest,
-  ModifyVpnConnectionResult,
-  ModifyVpnTunnelCertificateRequest,
-  ModifyVpnTunnelCertificateResult,
-  ModifyVpnTunnelOptionsRequest,
-  ModifyVpnTunnelOptionsResult,
-  ModifyVpnTunnelOptionsSpecification,
-  MonitorInstancesRequest,
-  MonitorInstancesResult,
-  MoveAddressToVpcRequest,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
@@ -2843,6 +2853,8 @@ import {
   UserBucket,
   UserData,
   VolumeDetail,
+  VpcClassicLink,
+  VpcEndpointConnection,
 } from "../models/models_4";
 import {
   CidrAuthorizationContext,
@@ -2852,9 +2864,24 @@ import {
   HibernationOptionsRequest,
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
+  InstanceMonitoring,
   InstanceStateChange,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpcTenancyRequest,
+  ModifyVpcTenancyResult,
+  ModifyVpnConnectionOptionsRequest,
+  ModifyVpnConnectionOptionsResult,
+  ModifyVpnConnectionRequest,
+  ModifyVpnConnectionResult,
+  ModifyVpnTunnelCertificateRequest,
+  ModifyVpnTunnelCertificateResult,
+  ModifyVpnTunnelOptionsRequest,
+  ModifyVpnTunnelOptionsResult,
+  ModifyVpnTunnelOptionsSpecification,
+  MonitorInstancesRequest,
+  MonitorInstancesResult,
+  MoveAddressToVpcRequest,
   MoveAddressToVpcResult,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
@@ -4356,6 +4383,22 @@ export const serializeAws_ec2CreateSubnetCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2CreateSubnetCidrReservationCommand = async (
+  input: CreateSubnetCidrReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateSubnetCidrReservationRequest(input, context),
+    Action: "CreateSubnetCidrReservation",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
@@ -5231,6 +5274,22 @@ export const serializeAws_ec2DeleteSubnetCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DeleteSubnetRequest(input, context),
     Action: "DeleteSubnet",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteSubnetCidrReservationCommand = async (
+  input: DeleteSubnetCidrReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteSubnetCidrReservationRequest(input, context),
+    Action: "DeleteSubnetCidrReservation",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8559,6 +8618,22 @@ export const serializeAws_ec2GetSerialConsoleAccessStatusCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2GetSerialConsoleAccessStatusRequest(input, context),
     Action: "GetSerialConsoleAccessStatus",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetSubnetCidrReservationsCommand = async (
+  input: GetSubnetCidrReservationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetSubnetCidrReservationsRequest(input, context),
+    Action: "GetSubnetCidrReservations",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -14283,6 +14358,52 @@ const deserializeAws_ec2CreateSubnetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2CreateSubnetCidrReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSubnetCidrReservationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateSubnetCidrReservationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateSubnetCidrReservationResult(data, context);
+  const response: CreateSubnetCidrReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateSubnetCidrReservationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSubnetCidrReservationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2CreateTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -16740,6 +16861,52 @@ const deserializeAws_ec2DeleteSubnetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubnetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DeleteSubnetCidrReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSubnetCidrReservationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteSubnetCidrReservationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteSubnetCidrReservationResult(data, context);
+  const response: DeleteSubnetCidrReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteSubnetCidrReservationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSubnetCidrReservationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -26291,6 +26458,52 @@ const deserializeAws_ec2GetSerialConsoleAccessStatusCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2GetSubnetCidrReservationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSubnetCidrReservationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetSubnetCidrReservationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetSubnetCidrReservationsResult(data, context);
+  const response: GetSubnetCidrReservationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetSubnetCidrReservationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSubnetCidrReservationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2GetTransitGatewayAttachmentPropagationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -31782,6 +31995,16 @@ const serializeAws_ec2AssignIpv6AddressesRequest = (
       entries[loc] = value;
     });
   }
+  if (input.Ipv6PrefixCount !== undefined && input.Ipv6PrefixCount !== null) {
+    entries["Ipv6PrefixCount"] = input.Ipv6PrefixCount;
+  }
+  if (input.Ipv6Prefixes !== undefined && input.Ipv6Prefixes !== null) {
+    const memberEntries = serializeAws_ec2IpPrefixList(input.Ipv6Prefixes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   if (input.NetworkInterfaceId !== undefined && input.NetworkInterfaceId !== null) {
     entries["NetworkInterfaceId"] = input.NetworkInterfaceId;
   }
@@ -31808,6 +32031,16 @@ const serializeAws_ec2AssignPrivateIpAddressesRequest = (
   }
   if (input.SecondaryPrivateIpAddressCount !== undefined && input.SecondaryPrivateIpAddressCount !== null) {
     entries["SecondaryPrivateIpAddressCount"] = input.SecondaryPrivateIpAddressCount;
+  }
+  if (input.Ipv4Prefixes !== undefined && input.Ipv4Prefixes !== null) {
+    const memberEntries = serializeAws_ec2IpPrefixList(input.Ipv4Prefixes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Ipv4PrefixCount !== undefined && input.Ipv4PrefixCount !== null) {
+    entries["Ipv4PrefixCount"] = input.Ipv4PrefixCount;
   }
   return entries;
 };
@@ -33921,6 +34154,26 @@ const serializeAws_ec2CreateNetworkInterfaceRequest = (
   if (input.SecondaryPrivateIpAddressCount !== undefined && input.SecondaryPrivateIpAddressCount !== null) {
     entries["SecondaryPrivateIpAddressCount"] = input.SecondaryPrivateIpAddressCount;
   }
+  if (input.Ipv4Prefixes !== undefined && input.Ipv4Prefixes !== null) {
+    const memberEntries = serializeAws_ec2Ipv4PrefixList(input.Ipv4Prefixes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Ipv4PrefixCount !== undefined && input.Ipv4PrefixCount !== null) {
+    entries["Ipv4PrefixCount"] = input.Ipv4PrefixCount;
+  }
+  if (input.Ipv6Prefixes !== undefined && input.Ipv6Prefixes !== null) {
+    const memberEntries = serializeAws_ec2Ipv6PrefixList(input.Ipv6Prefixes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Ipv6PrefixCount !== undefined && input.Ipv6PrefixCount !== null) {
+    entries["Ipv6PrefixCount"] = input.Ipv6PrefixCount;
+  }
   if (input.InterfaceType !== undefined && input.InterfaceType !== null) {
     entries["InterfaceType"] = input.InterfaceType;
   }
@@ -34242,6 +34495,36 @@ const serializeAws_ec2CreateStoreImageTaskRequest = (
   return entries;
 };
 
+const serializeAws_ec2CreateSubnetCidrReservationRequest = (
+  input: CreateSubnetCidrReservationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SubnetId !== undefined && input.SubnetId !== null) {
+    entries["SubnetId"] = input.SubnetId;
+  }
+  if (input.Cidr !== undefined && input.Cidr !== null) {
+    entries["Cidr"] = input.Cidr;
+  }
+  if (input.ReservationType !== undefined && input.ReservationType !== null) {
+    entries["ReservationType"] = input.ReservationType;
+  }
+  if (input.Description !== undefined && input.Description !== null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2CreateSubnetRequest = (input: CreateSubnetRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
@@ -34257,9 +34540,6 @@ const serializeAws_ec2CreateSubnetRequest = (input: CreateSubnetRequest, context
   if (input.AvailabilityZoneId !== undefined && input.AvailabilityZoneId !== null) {
     entries["AvailabilityZoneId"] = input.AvailabilityZoneId;
   }
-  if (input.CidrBlock !== undefined && input.CidrBlock !== null) {
-    entries["CidrBlock"] = input.CidrBlock;
-  }
   if (input.Ipv6CidrBlock !== undefined && input.Ipv6CidrBlock !== null) {
     entries["Ipv6CidrBlock"] = input.Ipv6CidrBlock;
   }
@@ -34271,6 +34551,9 @@ const serializeAws_ec2CreateSubnetRequest = (input: CreateSubnetRequest, context
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.CidrBlock !== undefined && input.CidrBlock !== null) {
+    entries["CidrBlock"] = input.CidrBlock;
   }
   return entries;
 };
@@ -34852,6 +35135,12 @@ const serializeAws_ec2CreateVolumeRequest = (input: CreateVolumeRequest, context
   }
   if (input.Throughput !== undefined && input.Throughput !== null) {
     entries["Throughput"] = input.Throughput;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken !== undefined && input.ClientToken !== null) {
+    entries["ClientToken"] = input.ClientToken;
   }
   return entries;
 };
@@ -35631,6 +35920,20 @@ const serializeAws_ec2DeleteSpotDatafeedSubscriptionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeleteSubnetCidrReservationRequest = (
+  input: DeleteSubnetCidrReservationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SubnetCidrReservationId !== undefined && input.SubnetCidrReservationId !== null) {
+    entries["SubnetCidrReservationId"] = input.SubnetCidrReservationId;
+  }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
   }
@@ -41175,6 +41478,33 @@ const serializeAws_ec2GetSerialConsoleAccessStatusRequest = (
   return entries;
 };
 
+const serializeAws_ec2GetSubnetCidrReservationsRequest = (
+  input: GetSubnetCidrReservationsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SubnetId !== undefined && input.SubnetId !== null) {
+    entries["SubnetId"] = input.SubnetId;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  return entries;
+};
+
 const serializeAws_ec2GetTransitGatewayAttachmentPropagationsRequest = (
   input: GetTransitGatewayAttachmentPropagationsRequest,
   context: __SerdeContext
@@ -42211,6 +42541,26 @@ const serializeAws_ec2InstanceNetworkInterfaceSpecification = (
   if (input.NetworkCardIndex !== undefined && input.NetworkCardIndex !== null) {
     entries["NetworkCardIndex"] = input.NetworkCardIndex;
   }
+  if (input.Ipv4Prefixes !== undefined && input.Ipv4Prefixes !== null) {
+    const memberEntries = serializeAws_ec2Ipv4PrefixList(input.Ipv4Prefixes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Ipv4PrefixCount !== undefined && input.Ipv4PrefixCount !== null) {
+    entries["Ipv4PrefixCount"] = input.Ipv4PrefixCount;
+  }
+  if (input.Ipv6Prefixes !== undefined && input.Ipv6Prefixes !== null) {
+    const memberEntries = serializeAws_ec2Ipv6PrefixList(input.Ipv6Prefixes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Ipv6PrefixCount !== undefined && input.Ipv6PrefixCount !== null) {
+    entries["Ipv6PrefixCount"] = input.Ipv6PrefixCount;
+  }
   return entries;
 };
 
@@ -42353,6 +42703,19 @@ const serializeAws_ec2IpPermissionList = (input: IpPermission[], context: __Serd
   return entries;
 };
 
+const serializeAws_ec2IpPrefixList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2IpRange = (input: IpRange, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.CidrIp !== undefined && input.CidrIp !== null) {
@@ -42380,6 +42743,33 @@ const serializeAws_ec2IpRangeList = (input: IpRange[], context: __SerdeContext):
   return entries;
 };
 
+const serializeAws_ec2Ipv4PrefixList = (input: Ipv4PrefixSpecificationRequest[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_ec2Ipv4PrefixSpecificationRequest(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Item.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2Ipv4PrefixSpecificationRequest = (
+  input: Ipv4PrefixSpecificationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Ipv4Prefix !== undefined && input.Ipv4Prefix !== null) {
+    entries["Ipv4Prefix"] = input.Ipv4Prefix;
+  }
+  return entries;
+};
+
 const serializeAws_ec2Ipv6AddressList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -42402,6 +42792,33 @@ const serializeAws_ec2Ipv6PoolIdList = (input: string[], context: __SerdeContext
     }
     entries[`Item.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2Ipv6PrefixList = (input: Ipv6PrefixSpecificationRequest[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_ec2Ipv6PrefixSpecificationRequest(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Item.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2Ipv6PrefixSpecificationRequest = (
+  input: Ipv6PrefixSpecificationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Ipv6Prefix !== undefined && input.Ipv6Prefix !== null) {
+    entries["Ipv6Prefix"] = input.Ipv6Prefix;
   }
   return entries;
 };
@@ -42844,6 +43261,26 @@ const serializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
   }
   if (input.NetworkCardIndex !== undefined && input.NetworkCardIndex !== null) {
     entries["NetworkCardIndex"] = input.NetworkCardIndex;
+  }
+  if (input.Ipv4Prefixes !== undefined && input.Ipv4Prefixes !== null) {
+    const memberEntries = serializeAws_ec2Ipv4PrefixList(input.Ipv4Prefixes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Ipv4PrefixCount !== undefined && input.Ipv4PrefixCount !== null) {
+    entries["Ipv4PrefixCount"] = input.Ipv4PrefixCount;
+  }
+  if (input.Ipv6Prefixes !== undefined && input.Ipv6Prefixes !== null) {
+    const memberEntries = serializeAws_ec2Ipv6PrefixList(input.Ipv6Prefixes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Ipv6PrefixCount !== undefined && input.Ipv6PrefixCount !== null) {
+    entries["Ipv6PrefixCount"] = input.Ipv6PrefixCount;
   }
   return entries;
 };
@@ -48886,15 +49323,22 @@ const serializeAws_ec2UnassignIpv6AddressesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NetworkInterfaceId !== undefined && input.NetworkInterfaceId !== null) {
-    entries["NetworkInterfaceId"] = input.NetworkInterfaceId;
-  }
   if (input.Ipv6Addresses !== undefined && input.Ipv6Addresses !== null) {
     const memberEntries = serializeAws_ec2Ipv6AddressList(input.Ipv6Addresses, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Addresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input.Ipv6Prefixes !== undefined && input.Ipv6Prefixes !== null) {
+    const memberEntries = serializeAws_ec2IpPrefixList(input.Ipv6Prefixes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NetworkInterfaceId !== undefined && input.NetworkInterfaceId !== null) {
+    entries["NetworkInterfaceId"] = input.NetworkInterfaceId;
   }
   return entries;
 };
@@ -48911,6 +49355,13 @@ const serializeAws_ec2UnassignPrivateIpAddressesRequest = (
     const memberEntries = serializeAws_ec2PrivateIpAddressStringList(input.PrivateIpAddresses, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Ipv4Prefixes !== undefined && input.Ipv4Prefixes !== null) {
+    const memberEntries = serializeAws_ec2IpPrefixList(input.Ipv4Prefixes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -50159,6 +50610,7 @@ const deserializeAws_ec2AssignIpv6AddressesResult = (
 ): AssignIpv6AddressesResult => {
   let contents: any = {
     AssignedIpv6Addresses: undefined,
+    AssignedIpv6Prefixes: undefined,
     NetworkInterfaceId: undefined,
   };
   if (output.assignedIpv6Addresses === "") {
@@ -50167,6 +50619,15 @@ const deserializeAws_ec2AssignIpv6AddressesResult = (
   if (output["assignedIpv6Addresses"] !== undefined && output["assignedIpv6Addresses"]["item"] !== undefined) {
     contents.AssignedIpv6Addresses = deserializeAws_ec2Ipv6AddressList(
       __getArrayIfSingleItem(output["assignedIpv6Addresses"]["item"]),
+      context
+    );
+  }
+  if (output.assignedIpv6PrefixSet === "") {
+    contents.AssignedIpv6Prefixes = [];
+  }
+  if (output["assignedIpv6PrefixSet"] !== undefined && output["assignedIpv6PrefixSet"]["item"] !== undefined) {
+    contents.AssignedIpv6Prefixes = deserializeAws_ec2IpPrefixList(
+      __getArrayIfSingleItem(output["assignedIpv6PrefixSet"]["item"]),
       context
     );
   }
@@ -50183,6 +50644,7 @@ const deserializeAws_ec2AssignPrivateIpAddressesResult = (
   let contents: any = {
     NetworkInterfaceId: undefined,
     AssignedPrivateIpAddresses: undefined,
+    AssignedIpv4Prefixes: undefined,
   };
   if (output["networkInterfaceId"] !== undefined) {
     contents.NetworkInterfaceId = __expectString(output["networkInterfaceId"]);
@@ -50196,6 +50658,15 @@ const deserializeAws_ec2AssignPrivateIpAddressesResult = (
   ) {
     contents.AssignedPrivateIpAddresses = deserializeAws_ec2AssignedPrivateIpAddressList(
       __getArrayIfSingleItem(output["assignedPrivateIpAddressesSet"]["item"]),
+      context
+    );
+  }
+  if (output.assignedIpv4PrefixSet === "") {
+    contents.AssignedIpv4Prefixes = [];
+  }
+  if (output["assignedIpv4PrefixSet"] !== undefined && output["assignedIpv4PrefixSet"]["item"] !== undefined) {
+    contents.AssignedIpv4Prefixes = deserializeAws_ec2Ipv4PrefixesList(
+      __getArrayIfSingleItem(output["assignedIpv4PrefixSet"]["item"]),
       context
     );
   }
@@ -52790,6 +53261,19 @@ const deserializeAws_ec2CreateStoreImageTaskResult = (
   return contents;
 };
 
+const deserializeAws_ec2CreateSubnetCidrReservationResult = (
+  output: any,
+  context: __SerdeContext
+): CreateSubnetCidrReservationResult => {
+  let contents: any = {
+    SubnetCidrReservation: undefined,
+  };
+  if (output["subnetCidrReservation"] !== undefined) {
+    contents.SubnetCidrReservation = deserializeAws_ec2SubnetCidrReservation(output["subnetCidrReservation"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2CreateSubnetResult = (output: any, context: __SerdeContext): CreateSubnetResult => {
   let contents: any = {
     Subnet: undefined,
@@ -53659,6 +54143,22 @@ const deserializeAws_ec2DeleteQueuedReservedInstancesResult = (
   ) {
     contents.FailedQueuedPurchaseDeletions = deserializeAws_ec2FailedQueuedPurchaseDeletionSet(
       __getArrayIfSingleItem(output["failedQueuedPurchaseDeletionSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteSubnetCidrReservationResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteSubnetCidrReservationResult => {
+  let contents: any = {
+    DeletedSubnetCidrReservation: undefined,
+  };
+  if (output["deletedSubnetCidrReservation"] !== undefined) {
+    contents.DeletedSubnetCidrReservation = deserializeAws_ec2SubnetCidrReservation(
+      output["deletedSubnetCidrReservation"],
       context
     );
   }
@@ -59597,6 +60097,45 @@ const deserializeAws_ec2GetSerialConsoleAccessStatusResult = (
   return contents;
 };
 
+const deserializeAws_ec2GetSubnetCidrReservationsResult = (
+  output: any,
+  context: __SerdeContext
+): GetSubnetCidrReservationsResult => {
+  let contents: any = {
+    SubnetIpv4CidrReservations: undefined,
+    SubnetIpv6CidrReservations: undefined,
+    NextToken: undefined,
+  };
+  if (output.subnetIpv4CidrReservationSet === "") {
+    contents.SubnetIpv4CidrReservations = [];
+  }
+  if (
+    output["subnetIpv4CidrReservationSet"] !== undefined &&
+    output["subnetIpv4CidrReservationSet"]["item"] !== undefined
+  ) {
+    contents.SubnetIpv4CidrReservations = deserializeAws_ec2SubnetCidrReservationList(
+      __getArrayIfSingleItem(output["subnetIpv4CidrReservationSet"]["item"]),
+      context
+    );
+  }
+  if (output.subnetIpv6CidrReservationSet === "") {
+    contents.SubnetIpv6CidrReservations = [];
+  }
+  if (
+    output["subnetIpv6CidrReservationSet"] !== undefined &&
+    output["subnetIpv6CidrReservationSet"]["item"] !== undefined
+  ) {
+    contents.SubnetIpv6CidrReservations = deserializeAws_ec2SubnetCidrReservationList(
+      __getArrayIfSingleItem(output["subnetIpv6CidrReservationSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2GetTransitGatewayAttachmentPropagationsResult = (
   output: any,
   context: __SerdeContext
@@ -61659,6 +62198,27 @@ const deserializeAws_ec2InstanceIdsSet = (output: any, context: __SerdeContext):
     });
 };
 
+const deserializeAws_ec2InstanceIpv4Prefix = (output: any, context: __SerdeContext): InstanceIpv4Prefix => {
+  let contents: any = {
+    Ipv4Prefix: undefined,
+  };
+  if (output["ipv4Prefix"] !== undefined) {
+    contents.Ipv4Prefix = __expectString(output["ipv4Prefix"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2InstanceIpv4PrefixList = (output: any, context: __SerdeContext): InstanceIpv4Prefix[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2InstanceIpv4Prefix(entry, context);
+    });
+};
+
 const deserializeAws_ec2InstanceIpv6Address = (output: any, context: __SerdeContext): InstanceIpv6Address => {
   let contents: any = {
     Ipv6Address: undefined,
@@ -61677,6 +62237,27 @@ const deserializeAws_ec2InstanceIpv6AddressList = (output: any, context: __Serde
         return null as any;
       }
       return deserializeAws_ec2InstanceIpv6Address(entry, context);
+    });
+};
+
+const deserializeAws_ec2InstanceIpv6Prefix = (output: any, context: __SerdeContext): InstanceIpv6Prefix => {
+  let contents: any = {
+    Ipv6Prefix: undefined,
+  };
+  if (output["ipv6Prefix"] !== undefined) {
+    contents.Ipv6Prefix = __expectString(output["ipv6Prefix"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2InstanceIpv6PrefixList = (output: any, context: __SerdeContext): InstanceIpv6Prefix[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2InstanceIpv6Prefix(entry, context);
     });
 };
 
@@ -61759,6 +62340,8 @@ const deserializeAws_ec2InstanceNetworkInterface = (output: any, context: __Serd
     SubnetId: undefined,
     VpcId: undefined,
     InterfaceType: undefined,
+    Ipv4Prefixes: undefined,
+    Ipv6Prefixes: undefined,
   };
   if (output["association"] !== undefined) {
     contents.Association = deserializeAws_ec2InstanceNetworkInterfaceAssociation(output["association"], context);
@@ -61825,6 +62408,24 @@ const deserializeAws_ec2InstanceNetworkInterface = (output: any, context: __Serd
   }
   if (output["interfaceType"] !== undefined) {
     contents.InterfaceType = __expectString(output["interfaceType"]);
+  }
+  if (output.ipv4PrefixSet === "") {
+    contents.Ipv4Prefixes = [];
+  }
+  if (output["ipv4PrefixSet"] !== undefined && output["ipv4PrefixSet"]["item"] !== undefined) {
+    contents.Ipv4Prefixes = deserializeAws_ec2InstanceIpv4PrefixList(
+      __getArrayIfSingleItem(output["ipv4PrefixSet"]["item"]),
+      context
+    );
+  }
+  if (output.ipv6PrefixSet === "") {
+    contents.Ipv6Prefixes = [];
+  }
+  if (output["ipv6PrefixSet"] !== undefined && output["ipv6PrefixSet"]["item"] !== undefined) {
+    contents.Ipv6Prefixes = deserializeAws_ec2InstanceIpv6PrefixList(
+      __getArrayIfSingleItem(output["ipv6PrefixSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -61921,6 +62522,10 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
     AssociateCarrierIpAddress: undefined,
     InterfaceType: undefined,
     NetworkCardIndex: undefined,
+    Ipv4Prefixes: undefined,
+    Ipv4PrefixCount: undefined,
+    Ipv6Prefixes: undefined,
+    Ipv6PrefixCount: undefined,
   };
   if (output["associatePublicIpAddress"] !== undefined) {
     contents.AssociatePublicIpAddress = __parseBoolean(output["associatePublicIpAddress"]);
@@ -61984,6 +62589,30 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
   }
   if (output["NetworkCardIndex"] !== undefined) {
     contents.NetworkCardIndex = parseInt(output["NetworkCardIndex"]);
+  }
+  if (output.Ipv4Prefix === "") {
+    contents.Ipv4Prefixes = [];
+  }
+  if (output["Ipv4Prefix"] !== undefined && output["Ipv4Prefix"]["item"] !== undefined) {
+    contents.Ipv4Prefixes = deserializeAws_ec2Ipv4PrefixList(
+      __getArrayIfSingleItem(output["Ipv4Prefix"]["item"]),
+      context
+    );
+  }
+  if (output["Ipv4PrefixCount"] !== undefined) {
+    contents.Ipv4PrefixCount = parseInt(output["Ipv4PrefixCount"]);
+  }
+  if (output.Ipv6Prefix === "") {
+    contents.Ipv6Prefixes = [];
+  }
+  if (output["Ipv6Prefix"] !== undefined && output["Ipv6Prefix"]["item"] !== undefined) {
+    contents.Ipv6Prefixes = deserializeAws_ec2Ipv6PrefixList(
+      __getArrayIfSingleItem(output["Ipv6Prefix"]["item"]),
+      context
+    );
+  }
+  if (output["Ipv6PrefixCount"] !== undefined) {
+    contents.Ipv6PrefixCount = parseInt(output["Ipv6PrefixCount"]);
   }
   return contents;
 };
@@ -62624,6 +63253,17 @@ const deserializeAws_ec2IpPermissionList = (output: any, context: __SerdeContext
     });
 };
 
+const deserializeAws_ec2IpPrefixList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_ec2IpRange = (output: any, context: __SerdeContext): IpRange => {
   let contents: any = {
     CidrIp: undefined,
@@ -62658,6 +63298,78 @@ const deserializeAws_ec2IpRanges = (output: any, context: __SerdeContext): strin
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_ec2Ipv4PrefixesList = (output: any, context: __SerdeContext): Ipv4PrefixSpecification[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2Ipv4PrefixSpecification(entry, context);
+    });
+};
+
+const deserializeAws_ec2Ipv4PrefixList = (output: any, context: __SerdeContext): Ipv4PrefixSpecificationRequest[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2Ipv4PrefixSpecificationRequest(entry, context);
+    });
+};
+
+const deserializeAws_ec2Ipv4PrefixListResponse = (
+  output: any,
+  context: __SerdeContext
+): Ipv4PrefixSpecificationResponse[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2Ipv4PrefixSpecificationResponse(entry, context);
+    });
+};
+
+const deserializeAws_ec2Ipv4PrefixSpecification = (output: any, context: __SerdeContext): Ipv4PrefixSpecification => {
+  let contents: any = {
+    Ipv4Prefix: undefined,
+  };
+  if (output["ipv4Prefix"] !== undefined) {
+    contents.Ipv4Prefix = __expectString(output["ipv4Prefix"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2Ipv4PrefixSpecificationRequest = (
+  output: any,
+  context: __SerdeContext
+): Ipv4PrefixSpecificationRequest => {
+  let contents: any = {
+    Ipv4Prefix: undefined,
+  };
+  if (output["Ipv4Prefix"] !== undefined) {
+    contents.Ipv4Prefix = __expectString(output["Ipv4Prefix"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2Ipv4PrefixSpecificationResponse = (
+  output: any,
+  context: __SerdeContext
+): Ipv4PrefixSpecificationResponse => {
+  let contents: any = {
+    Ipv4Prefix: undefined,
+  };
+  if (output["ipv4Prefix"] !== undefined) {
+    contents.Ipv4Prefix = __expectString(output["ipv4Prefix"]);
+  }
+  return contents;
 };
 
 const deserializeAws_ec2Ipv6AddressList = (output: any, context: __SerdeContext): string[] => {
@@ -62757,6 +63469,78 @@ const deserializeAws_ec2Ipv6PoolSet = (output: any, context: __SerdeContext): Ip
       }
       return deserializeAws_ec2Ipv6Pool(entry, context);
     });
+};
+
+const deserializeAws_ec2Ipv6PrefixesList = (output: any, context: __SerdeContext): Ipv6PrefixSpecification[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2Ipv6PrefixSpecification(entry, context);
+    });
+};
+
+const deserializeAws_ec2Ipv6PrefixList = (output: any, context: __SerdeContext): Ipv6PrefixSpecificationRequest[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2Ipv6PrefixSpecificationRequest(entry, context);
+    });
+};
+
+const deserializeAws_ec2Ipv6PrefixListResponse = (
+  output: any,
+  context: __SerdeContext
+): Ipv6PrefixSpecificationResponse[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2Ipv6PrefixSpecificationResponse(entry, context);
+    });
+};
+
+const deserializeAws_ec2Ipv6PrefixSpecification = (output: any, context: __SerdeContext): Ipv6PrefixSpecification => {
+  let contents: any = {
+    Ipv6Prefix: undefined,
+  };
+  if (output["ipv6Prefix"] !== undefined) {
+    contents.Ipv6Prefix = __expectString(output["ipv6Prefix"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2Ipv6PrefixSpecificationRequest = (
+  output: any,
+  context: __SerdeContext
+): Ipv6PrefixSpecificationRequest => {
+  let contents: any = {
+    Ipv6Prefix: undefined,
+  };
+  if (output["Ipv6Prefix"] !== undefined) {
+    contents.Ipv6Prefix = __expectString(output["Ipv6Prefix"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2Ipv6PrefixSpecificationResponse = (
+  output: any,
+  context: __SerdeContext
+): Ipv6PrefixSpecificationResponse => {
+  let contents: any = {
+    Ipv6Prefix: undefined,
+  };
+  if (output["ipv6Prefix"] !== undefined) {
+    contents.Ipv6Prefix = __expectString(output["ipv6Prefix"]);
+  }
+  return contents;
 };
 
 const deserializeAws_ec2Ipv6Range = (output: any, context: __SerdeContext): Ipv6Range => {
@@ -63327,6 +64111,10 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
     SecondaryPrivateIpAddressCount: undefined,
     SubnetId: undefined,
     NetworkCardIndex: undefined,
+    Ipv4Prefixes: undefined,
+    Ipv4PrefixCount: undefined,
+    Ipv6Prefixes: undefined,
+    Ipv6PrefixCount: undefined,
   };
   if (output["associateCarrierIpAddress"] !== undefined) {
     contents.AssociateCarrierIpAddress = __parseBoolean(output["associateCarrierIpAddress"]);
@@ -63390,6 +64178,30 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
   }
   if (output["networkCardIndex"] !== undefined) {
     contents.NetworkCardIndex = parseInt(output["networkCardIndex"]);
+  }
+  if (output.ipv4PrefixSet === "") {
+    contents.Ipv4Prefixes = [];
+  }
+  if (output["ipv4PrefixSet"] !== undefined && output["ipv4PrefixSet"]["item"] !== undefined) {
+    contents.Ipv4Prefixes = deserializeAws_ec2Ipv4PrefixListResponse(
+      __getArrayIfSingleItem(output["ipv4PrefixSet"]["item"]),
+      context
+    );
+  }
+  if (output["ipv4PrefixCount"] !== undefined) {
+    contents.Ipv4PrefixCount = parseInt(output["ipv4PrefixCount"]);
+  }
+  if (output.ipv6PrefixSet === "") {
+    contents.Ipv6Prefixes = [];
+  }
+  if (output["ipv6PrefixSet"] !== undefined && output["ipv6PrefixSet"]["item"] !== undefined) {
+    contents.Ipv6Prefixes = deserializeAws_ec2Ipv6PrefixListResponse(
+      __getArrayIfSingleItem(output["ipv6PrefixSet"]["item"]),
+      context
+    );
+  }
+  if (output["ipv6PrefixCount"] !== undefined) {
+    contents.Ipv6PrefixCount = parseInt(output["ipv6PrefixCount"]);
   }
   return contents;
 };
@@ -65277,6 +66089,8 @@ const deserializeAws_ec2NetworkInterface = (output: any, context: __SerdeContext
     PrivateDnsName: undefined,
     PrivateIpAddress: undefined,
     PrivateIpAddresses: undefined,
+    Ipv4Prefixes: undefined,
+    Ipv6Prefixes: undefined,
     RequesterId: undefined,
     RequesterManaged: undefined,
     SourceDestCheck: undefined,
@@ -65342,6 +66156,24 @@ const deserializeAws_ec2NetworkInterface = (output: any, context: __SerdeContext
   if (output["privateIpAddressesSet"] !== undefined && output["privateIpAddressesSet"]["item"] !== undefined) {
     contents.PrivateIpAddresses = deserializeAws_ec2NetworkInterfacePrivateIpAddressList(
       __getArrayIfSingleItem(output["privateIpAddressesSet"]["item"]),
+      context
+    );
+  }
+  if (output.ipv4PrefixSet === "") {
+    contents.Ipv4Prefixes = [];
+  }
+  if (output["ipv4PrefixSet"] !== undefined && output["ipv4PrefixSet"]["item"] !== undefined) {
+    contents.Ipv4Prefixes = deserializeAws_ec2Ipv4PrefixesList(
+      __getArrayIfSingleItem(output["ipv4PrefixSet"]["item"]),
+      context
+    );
+  }
+  if (output.ipv6PrefixSet === "") {
+    contents.Ipv6Prefixes = [];
+  }
+  if (output["ipv6PrefixSet"] !== undefined && output["ipv6PrefixSet"]["item"] !== undefined) {
+    contents.Ipv6Prefixes = deserializeAws_ec2Ipv6PrefixesList(
+      __getArrayIfSingleItem(output["ipv6PrefixSet"]["item"]),
       context
     );
   }
@@ -70134,6 +70966,54 @@ const deserializeAws_ec2SubnetCidrBlockState = (output: any, context: __SerdeCon
   return contents;
 };
 
+const deserializeAws_ec2SubnetCidrReservation = (output: any, context: __SerdeContext): SubnetCidrReservation => {
+  let contents: any = {
+    SubnetCidrReservationId: undefined,
+    SubnetId: undefined,
+    Cidr: undefined,
+    ReservationType: undefined,
+    OwnerId: undefined,
+    Description: undefined,
+    Tags: undefined,
+  };
+  if (output["subnetCidrReservationId"] !== undefined) {
+    contents.SubnetCidrReservationId = __expectString(output["subnetCidrReservationId"]);
+  }
+  if (output["subnetId"] !== undefined) {
+    contents.SubnetId = __expectString(output["subnetId"]);
+  }
+  if (output["cidr"] !== undefined) {
+    contents.Cidr = __expectString(output["cidr"]);
+  }
+  if (output["reservationType"] !== undefined) {
+    contents.ReservationType = __expectString(output["reservationType"]);
+  }
+  if (output["ownerId"] !== undefined) {
+    contents.OwnerId = __expectString(output["ownerId"]);
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  }
+  if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2SubnetCidrReservationList = (output: any, context: __SerdeContext): SubnetCidrReservation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2SubnetCidrReservation(entry, context);
+    });
+};
+
 const deserializeAws_ec2SubnetIpv6CidrBlockAssociation = (
   output: any,
   context: __SerdeContext
@@ -72270,6 +73150,7 @@ const deserializeAws_ec2UnassignIpv6AddressesResult = (
   let contents: any = {
     NetworkInterfaceId: undefined,
     UnassignedIpv6Addresses: undefined,
+    UnassignedIpv6Prefixes: undefined,
   };
   if (output["networkInterfaceId"] !== undefined) {
     contents.NetworkInterfaceId = __expectString(output["networkInterfaceId"]);
@@ -72280,6 +73161,15 @@ const deserializeAws_ec2UnassignIpv6AddressesResult = (
   if (output["unassignedIpv6Addresses"] !== undefined && output["unassignedIpv6Addresses"]["item"] !== undefined) {
     contents.UnassignedIpv6Addresses = deserializeAws_ec2Ipv6AddressList(
       __getArrayIfSingleItem(output["unassignedIpv6Addresses"]["item"]),
+      context
+    );
+  }
+  if (output.unassignedIpv6PrefixSet === "") {
+    contents.UnassignedIpv6Prefixes = [];
+  }
+  if (output["unassignedIpv6PrefixSet"] !== undefined && output["unassignedIpv6PrefixSet"]["item"] !== undefined) {
+    contents.UnassignedIpv6Prefixes = deserializeAws_ec2IpPrefixList(
+      __getArrayIfSingleItem(output["unassignedIpv6PrefixSet"]["item"]),
       context
     );
   }

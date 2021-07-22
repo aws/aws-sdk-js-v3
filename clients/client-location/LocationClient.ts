@@ -109,6 +109,17 @@ import {
 } from "./commands/SearchPlaceIndexForTextCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateGeofenceCollectionCommandInput,
+  UpdateGeofenceCollectionCommandOutput,
+} from "./commands/UpdateGeofenceCollectionCommand";
+import { UpdateMapCommandInput, UpdateMapCommandOutput } from "./commands/UpdateMapCommand";
+import { UpdatePlaceIndexCommandInput, UpdatePlaceIndexCommandOutput } from "./commands/UpdatePlaceIndexCommand";
+import {
+  UpdateRouteCalculatorCommandInput,
+  UpdateRouteCalculatorCommandOutput,
+} from "./commands/UpdateRouteCalculatorCommand";
+import { UpdateTrackerCommandInput, UpdateTrackerCommandOutput } from "./commands/UpdateTrackerCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -206,7 +217,12 @@ export type ServiceInputTypes =
   | SearchPlaceIndexForPositionCommandInput
   | SearchPlaceIndexForTextCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateGeofenceCollectionCommandInput
+  | UpdateMapCommandInput
+  | UpdatePlaceIndexCommandInput
+  | UpdateRouteCalculatorCommandInput
+  | UpdateTrackerCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateTrackerConsumerCommandOutput
@@ -253,7 +269,12 @@ export type ServiceOutputTypes =
   | SearchPlaceIndexForPositionCommandOutput
   | SearchPlaceIndexForTextCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateGeofenceCollectionCommandOutput
+  | UpdateMapCommandOutput
+  | UpdatePlaceIndexCommandOutput
+  | UpdateRouteCalculatorCommandOutput
+  | UpdateTrackerCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

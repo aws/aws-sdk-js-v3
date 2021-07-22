@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteDhcpOptionsRequest } from "../models/models_1";
+import { DeleteDhcpOptionsRequest } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteDhcpOptionsCommand,
   serializeAws_ec2DeleteDhcpOptionsCommand,

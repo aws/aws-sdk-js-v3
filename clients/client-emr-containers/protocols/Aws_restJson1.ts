@@ -1985,12 +1985,14 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
     executionRoleArn: __expectString(output.executionRoleArn),
+    failureReason: __expectString(output.failureReason),
     id: __expectString(output.id),
     name: __expectString(output.name),
     releaseLabel: __expectString(output.releaseLabel),
     securityGroup: __expectString(output.securityGroup),
     serverUrl: __expectString(output.serverUrl),
     state: __expectString(output.state),
+    stateDetails: __expectString(output.stateDetails),
     subnetIds:
       output.subnetIds !== undefined && output.subnetIds !== null
         ? deserializeAws_restJson1SubnetIds(output.subnetIds, context)

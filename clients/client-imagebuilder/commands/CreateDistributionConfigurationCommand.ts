@@ -24,7 +24,7 @@ export interface CreateDistributionConfigurationCommandOutput
 
 /**
  * <p>Creates a new distribution configuration. Distribution configurations define and configure
- *       the outputs of your pipeline.</p>
+ * 			the outputs of your pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

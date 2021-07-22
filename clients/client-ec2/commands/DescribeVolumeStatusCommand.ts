@@ -37,7 +37,7 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  *         <code>ok</code>. If the check fails, the overall status is <code>impaired</code>. If the
  *       status is <code>insufficient-data</code>, then the checks might still be taking place on your
  *       volume at the time. We recommend that you retry the request. For more information about volume
- *       status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring the status of your volumes</a> in the
+ *       status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitor the status of your volumes</a> in the
  *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          <p>
  *             <i>Events</i>: Reflect the cause of a volume status and might require you to

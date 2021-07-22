@@ -5021,6 +5021,7 @@ export const deserializeAws_restJson1DescribeWorldCommand = async (
     generationJob: undefined,
     tags: undefined,
     template: undefined,
+    worldDescriptionBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
@@ -5037,6 +5038,9 @@ export const deserializeAws_restJson1DescribeWorldCommand = async (
   }
   if (data.template !== undefined && data.template !== null) {
     contents.template = __expectString(data.template);
+  }
+  if (data.worldDescriptionBody !== undefined && data.worldDescriptionBody !== null) {
+    contents.worldDescriptionBody = __expectString(data.worldDescriptionBody);
   }
   return Promise.resolve(contents);
 };
@@ -5351,6 +5355,7 @@ export const deserializeAws_restJson1DescribeWorldTemplateCommand = async (
     lastUpdatedAt: undefined,
     name: undefined,
     tags: undefined,
+    version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
@@ -5370,6 +5375,9 @@ export const deserializeAws_restJson1DescribeWorldTemplateCommand = async (
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  if (data.version !== undefined && data.version !== null) {
+    contents.version = __expectString(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -8961,6 +8969,7 @@ const deserializeAws_restJson1TemplateSummary = (output: any, context: __SerdeCo
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
     name: __expectString(output.name),
+    version: __expectString(output.version),
   } as any;
 };
 

@@ -21,8 +21,8 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentInput {}
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput, __MetadataBearer {}
 
 /**
- * <p>Deploy a new environment. An AWS Proton environment is created from an environment template that defines infrastructure and resources that
- *             can be shared across services. For more information, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> in the <i>AWS Proton Administration
+ * <p>Deploy a new environment. An AWS Proton environment is created from an environment template that defines infrastructure and resources
+ *             that can be shared across services. For more information, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> in the <i>AWS Proton Administrator
  *             Guide.</i>
  *          </p>
  * @example

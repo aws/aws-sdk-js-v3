@@ -22,7 +22,7 @@ export interface ListJournalS3ExportsCommandOutput extends ListJournalS3ExportsR
 
 /**
  * <p>Returns an array of journal export job descriptions for all ledgers that are associated
- *          with the current AWS account and Region.</p>
+ *          with the current account and Region.</p>
  *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
  *          you can retrieve all the items by calling <code>ListJournalS3Exports</code> multiple
  *          times.</p>

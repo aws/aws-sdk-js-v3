@@ -21,7 +21,8 @@ export interface DescribeLedgerCommandInput extends DescribeLedgerRequest {}
 export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a ledger, including its state and when it was created.</p>
+ * <p>Returns information about a ledger, including its state, permissions mode, encryption at
+ *          rest settings, and when it was created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
