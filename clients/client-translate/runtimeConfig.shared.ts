@@ -6,7 +6,7 @@ import { TranslateClientConfig } from "./TranslateClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: TranslateClientConfig) => ({
+export const getRuntimeConfig = (config: TranslateClientConfig = {}) => ({
   apiVersion: "2017-07-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

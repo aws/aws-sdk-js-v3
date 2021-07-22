@@ -6,7 +6,7 @@ import { Macie2ClientConfig } from "./Macie2Client";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: Macie2ClientConfig) => ({
+export const getRuntimeConfig = (config: Macie2ClientConfig = {}) => ({
   apiVersion: "2020-01-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

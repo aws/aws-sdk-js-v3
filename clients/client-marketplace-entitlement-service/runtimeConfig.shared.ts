@@ -6,7 +6,7 @@ import { MarketplaceEntitlementServiceClientConfig } from "./MarketplaceEntitlem
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MarketplaceEntitlementServiceClientConfig) => ({
+export const getRuntimeConfig = (config: MarketplaceEntitlementServiceClientConfig = {}) => ({
   apiVersion: "2017-01-11",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

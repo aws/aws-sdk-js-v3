@@ -6,7 +6,7 @@ import { FisClientConfig } from "./FisClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: FisClientConfig) => ({
+export const getRuntimeConfig = (config: FisClientConfig = {}) => ({
   apiVersion: "2020-12-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

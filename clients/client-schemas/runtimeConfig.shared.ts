@@ -6,7 +6,7 @@ import { SchemasClientConfig } from "./SchemasClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SchemasClientConfig) => ({
+export const getRuntimeConfig = (config: SchemasClientConfig = {}) => ({
   apiVersion: "2019-12-02",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { MediaTailorClientConfig } from "./MediaTailorClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MediaTailorClientConfig) => ({
+export const getRuntimeConfig = (config: MediaTailorClientConfig = {}) => ({
   apiVersion: "2018-04-23",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

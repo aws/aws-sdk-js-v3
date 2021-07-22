@@ -6,7 +6,7 @@ import { QLDBClientConfig } from "./QLDBClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: QLDBClientConfig) => ({
+export const getRuntimeConfig = (config: QLDBClientConfig = {}) => ({
   apiVersion: "2019-01-02",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

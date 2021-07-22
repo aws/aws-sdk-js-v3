@@ -6,7 +6,7 @@ import { IoTEventsClientConfig } from "./IoTEventsClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: IoTEventsClientConfig) => ({
+export const getRuntimeConfig = (config: IoTEventsClientConfig = {}) => ({
   apiVersion: "2018-07-27",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

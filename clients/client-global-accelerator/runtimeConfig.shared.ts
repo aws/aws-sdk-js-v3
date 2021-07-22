@@ -6,7 +6,7 @@ import { GlobalAcceleratorClientConfig } from "./GlobalAcceleratorClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: GlobalAcceleratorClientConfig) => ({
+export const getRuntimeConfig = (config: GlobalAcceleratorClientConfig = {}) => ({
   apiVersion: "2018-08-08",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

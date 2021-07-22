@@ -6,7 +6,7 @@ import { MqClientConfig } from "./MqClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MqClientConfig) => ({
+export const getRuntimeConfig = (config: MqClientConfig = {}) => ({
   apiVersion: "2017-11-27",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

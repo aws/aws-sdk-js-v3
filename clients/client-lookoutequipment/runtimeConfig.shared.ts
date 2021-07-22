@@ -6,7 +6,7 @@ import { LookoutEquipmentClientConfig } from "./LookoutEquipmentClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: LookoutEquipmentClientConfig) => ({
+export const getRuntimeConfig = (config: LookoutEquipmentClientConfig = {}) => ({
   apiVersion: "2020-12-15",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

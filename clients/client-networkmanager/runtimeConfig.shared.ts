@@ -6,7 +6,7 @@ import { NetworkManagerClientConfig } from "./NetworkManagerClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: NetworkManagerClientConfig) => ({
+export const getRuntimeConfig = (config: NetworkManagerClientConfig = {}) => ({
   apiVersion: "2019-07-05",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { CloudSearchDomainClientConfig } from "./CloudSearchDomainClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CloudSearchDomainClientConfig) => ({
+export const getRuntimeConfig = (config: CloudSearchDomainClientConfig = {}) => ({
   apiVersion: "2013-01-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

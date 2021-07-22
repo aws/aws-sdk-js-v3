@@ -6,7 +6,7 @@ import { MediaStoreDataClientConfig } from "./MediaStoreDataClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MediaStoreDataClientConfig) => ({
+export const getRuntimeConfig = (config: MediaStoreDataClientConfig = {}) => ({
   apiVersion: "2017-09-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

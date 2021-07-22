@@ -6,7 +6,7 @@ import { EC2InstanceConnectClientConfig } from "./EC2InstanceConnectClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: EC2InstanceConnectClientConfig) => ({
+export const getRuntimeConfig = (config: EC2InstanceConnectClientConfig = {}) => ({
   apiVersion: "2018-04-02",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { SESv2ClientConfig } from "./SESv2Client";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SESv2ClientConfig) => ({
+export const getRuntimeConfig = (config: SESv2ClientConfig = {}) => ({
   apiVersion: "2019-09-27",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

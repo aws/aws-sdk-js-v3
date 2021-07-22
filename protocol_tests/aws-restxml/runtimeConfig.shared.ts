@@ -6,7 +6,7 @@ import { RestXmlProtocolClientConfig } from "./RestXmlProtocolClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: RestXmlProtocolClientConfig) => ({
+export const getRuntimeConfig = (config: RestXmlProtocolClientConfig = {}) => ({
   apiVersion: "2019-12-16",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

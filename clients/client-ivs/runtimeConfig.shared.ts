@@ -6,7 +6,7 @@ import { IvsClientConfig } from "./IvsClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: IvsClientConfig) => ({
+export const getRuntimeConfig = (config: IvsClientConfig = {}) => ({
   apiVersion: "2020-07-14",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

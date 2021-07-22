@@ -6,7 +6,7 @@ import { DataExchangeClientConfig } from "./DataExchangeClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: DataExchangeClientConfig) => ({
+export const getRuntimeConfig = (config: DataExchangeClientConfig = {}) => ({
   apiVersion: "2017-07-25",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

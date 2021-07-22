@@ -6,7 +6,7 @@ import { SQSClientConfig } from "./SQSClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SQSClientConfig) => ({
+export const getRuntimeConfig = (config: SQSClientConfig = {}) => ({
   apiVersion: "2012-11-05",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

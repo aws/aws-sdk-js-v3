@@ -6,7 +6,7 @@ import { AppConfigClientConfig } from "./AppConfigClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: AppConfigClientConfig) => ({
+export const getRuntimeConfig = (config: AppConfigClientConfig = {}) => ({
   apiVersion: "2019-10-09",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

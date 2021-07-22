@@ -6,7 +6,7 @@ import { CloudHSMClientConfig } from "./CloudHSMClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CloudHSMClientConfig) => ({
+export const getRuntimeConfig = (config: CloudHSMClientConfig = {}) => ({
   apiVersion: "2014-05-30",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

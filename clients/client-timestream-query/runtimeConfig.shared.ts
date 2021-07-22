@@ -6,7 +6,7 @@ import { TimestreamQueryClientConfig } from "./TimestreamQueryClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: TimestreamQueryClientConfig) => ({
+export const getRuntimeConfig = (config: TimestreamQueryClientConfig = {}) => ({
   apiVersion: "2018-11-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

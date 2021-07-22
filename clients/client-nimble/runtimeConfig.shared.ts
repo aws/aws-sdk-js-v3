@@ -6,7 +6,7 @@ import { NimbleClientConfig } from "./NimbleClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: NimbleClientConfig) => ({
+export const getRuntimeConfig = (config: NimbleClientConfig = {}) => ({
   apiVersion: "2020-08-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

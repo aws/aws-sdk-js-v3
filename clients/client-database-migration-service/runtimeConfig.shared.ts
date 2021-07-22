@@ -6,7 +6,7 @@ import { DatabaseMigrationServiceClientConfig } from "./DatabaseMigrationService
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: DatabaseMigrationServiceClientConfig) => ({
+export const getRuntimeConfig = (config: DatabaseMigrationServiceClientConfig = {}) => ({
   apiVersion: "2016-01-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { MgnClientConfig } from "./MgnClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MgnClientConfig) => ({
+export const getRuntimeConfig = (config: MgnClientConfig = {}) => ({
   apiVersion: "2020-02-26",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

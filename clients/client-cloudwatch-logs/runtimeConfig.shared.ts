@@ -6,7 +6,7 @@ import { CloudWatchLogsClientConfig } from "./CloudWatchLogsClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CloudWatchLogsClientConfig) => ({
+export const getRuntimeConfig = (config: CloudWatchLogsClientConfig = {}) => ({
   apiVersion: "2014-03-28",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

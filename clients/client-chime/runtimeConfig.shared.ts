@@ -6,7 +6,7 @@ import { ChimeClientConfig } from "./ChimeClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ChimeClientConfig) => ({
+export const getRuntimeConfig = (config: ChimeClientConfig = {}) => ({
   apiVersion: "2018-05-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

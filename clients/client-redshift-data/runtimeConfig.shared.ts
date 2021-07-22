@@ -6,7 +6,7 @@ import { RedshiftDataClientConfig } from "./RedshiftDataClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: RedshiftDataClientConfig) => ({
+export const getRuntimeConfig = (config: RedshiftDataClientConfig = {}) => ({
   apiVersion: "2019-12-20",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

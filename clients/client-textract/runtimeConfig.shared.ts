@@ -6,7 +6,7 @@ import { TextractClientConfig } from "./TextractClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: TextractClientConfig) => ({
+export const getRuntimeConfig = (config: TextractClientConfig = {}) => ({
   apiVersion: "2018-06-27",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

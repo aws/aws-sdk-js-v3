@@ -6,7 +6,7 @@ import { ElasticLoadBalancingV2ClientConfig } from "./ElasticLoadBalancingV2Clie
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ElasticLoadBalancingV2ClientConfig) => ({
+export const getRuntimeConfig = (config: ElasticLoadBalancingV2ClientConfig = {}) => ({
   apiVersion: "2015-12-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { JSONRPC10ClientConfig } from "./JSONRPC10Client";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: JSONRPC10ClientConfig) => ({
+export const getRuntimeConfig = (config: JSONRPC10ClientConfig = {}) => ({
   apiVersion: "2020-07-14",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

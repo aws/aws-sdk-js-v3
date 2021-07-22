@@ -6,7 +6,7 @@ import { AppStreamClientConfig } from "./AppStreamClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: AppStreamClientConfig) => ({
+export const getRuntimeConfig = (config: AppStreamClientConfig = {}) => ({
   apiVersion: "2016-12-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

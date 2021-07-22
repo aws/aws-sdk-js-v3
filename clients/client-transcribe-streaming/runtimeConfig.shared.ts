@@ -6,7 +6,7 @@ import { TranscribeStreamingClientConfig } from "./TranscribeStreamingClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: TranscribeStreamingClientConfig) => ({
+export const getRuntimeConfig = (config: TranscribeStreamingClientConfig = {}) => ({
   apiVersion: "2017-10-26",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { MigrationHubClientConfig } from "./MigrationHubClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MigrationHubClientConfig) => ({
+export const getRuntimeConfig = (config: MigrationHubClientConfig = {}) => ({
   apiVersion: "2017-05-31",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

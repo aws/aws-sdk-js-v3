@@ -6,7 +6,7 @@ import { DocDBClientConfig } from "./DocDBClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: DocDBClientConfig) => ({
+export const getRuntimeConfig = (config: DocDBClientConfig = {}) => ({
   apiVersion: "2014-10-31",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

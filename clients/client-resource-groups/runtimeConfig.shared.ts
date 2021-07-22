@@ -6,7 +6,7 @@ import { ResourceGroupsClientConfig } from "./ResourceGroupsClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ResourceGroupsClientConfig) => ({
+export const getRuntimeConfig = (config: ResourceGroupsClientConfig = {}) => ({
   apiVersion: "2017-11-27",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

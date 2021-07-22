@@ -6,7 +6,7 @@ import { SSMIncidentsClientConfig } from "./SSMIncidentsClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SSMIncidentsClientConfig) => ({
+export const getRuntimeConfig = (config: SSMIncidentsClientConfig = {}) => ({
   apiVersion: "2018-05-10",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

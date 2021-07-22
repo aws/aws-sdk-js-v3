@@ -6,7 +6,7 @@ import { AlexaForBusinessClientConfig } from "./AlexaForBusinessClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: AlexaForBusinessClientConfig) => ({
+export const getRuntimeConfig = (config: AlexaForBusinessClientConfig = {}) => ({
   apiVersion: "2017-11-09",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

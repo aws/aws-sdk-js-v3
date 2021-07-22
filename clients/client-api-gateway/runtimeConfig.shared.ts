@@ -6,7 +6,7 @@ import { APIGatewayClientConfig } from "./APIGatewayClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: APIGatewayClientConfig) => ({
+export const getRuntimeConfig = (config: APIGatewayClientConfig = {}) => ({
   apiVersion: "2015-07-09",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

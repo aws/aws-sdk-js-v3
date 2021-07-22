@@ -6,7 +6,7 @@ import { HealthLakeClientConfig } from "./HealthLakeClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: HealthLakeClientConfig) => ({
+export const getRuntimeConfig = (config: HealthLakeClientConfig = {}) => ({
   apiVersion: "2017-07-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

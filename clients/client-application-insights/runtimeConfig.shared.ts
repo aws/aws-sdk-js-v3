@@ -6,7 +6,7 @@ import { ApplicationInsightsClientConfig } from "./ApplicationInsightsClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ApplicationInsightsClientConfig) => ({
+export const getRuntimeConfig = (config: ApplicationInsightsClientConfig = {}) => ({
   apiVersion: "2018-11-25",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

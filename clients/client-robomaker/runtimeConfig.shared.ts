@@ -6,7 +6,7 @@ import { RoboMakerClientConfig } from "./RoboMakerClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: RoboMakerClientConfig) => ({
+export const getRuntimeConfig = (config: RoboMakerClientConfig = {}) => ({
   apiVersion: "2018-06-29",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

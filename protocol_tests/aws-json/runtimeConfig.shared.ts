@@ -6,7 +6,7 @@ import { JsonProtocolClientConfig } from "./JsonProtocolClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: JsonProtocolClientConfig) => ({
+export const getRuntimeConfig = (config: JsonProtocolClientConfig = {}) => ({
   apiVersion: "2018-01-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

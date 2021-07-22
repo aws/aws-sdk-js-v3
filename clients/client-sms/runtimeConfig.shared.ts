@@ -6,7 +6,7 @@ import { SMSClientConfig } from "./SMSClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SMSClientConfig) => ({
+export const getRuntimeConfig = (config: SMSClientConfig = {}) => ({
   apiVersion: "2016-10-24",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

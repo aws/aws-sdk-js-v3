@@ -6,7 +6,7 @@ import { EFSClientConfig } from "./EFSClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: EFSClientConfig) => ({
+export const getRuntimeConfig = (config: EFSClientConfig = {}) => ({
   apiVersion: "2015-02-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

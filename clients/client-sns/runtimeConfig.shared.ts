@@ -6,7 +6,7 @@ import { SNSClientConfig } from "./SNSClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SNSClientConfig) => ({
+export const getRuntimeConfig = (config: SNSClientConfig = {}) => ({
   apiVersion: "2010-03-31",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { SSOAdminClientConfig } from "./SSOAdminClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SSOAdminClientConfig) => ({
+export const getRuntimeConfig = (config: SSOAdminClientConfig = {}) => ({
   apiVersion: "2020-07-20",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

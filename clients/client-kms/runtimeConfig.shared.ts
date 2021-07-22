@@ -6,7 +6,7 @@ import { KMSClientConfig } from "./KMSClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: KMSClientConfig) => ({
+export const getRuntimeConfig = (config: KMSClientConfig = {}) => ({
   apiVersion: "2014-11-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

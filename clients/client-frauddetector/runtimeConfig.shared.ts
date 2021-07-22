@@ -6,7 +6,7 @@ import { FraudDetectorClientConfig } from "./FraudDetectorClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: FraudDetectorClientConfig) => ({
+export const getRuntimeConfig = (config: FraudDetectorClientConfig = {}) => ({
   apiVersion: "2019-11-15",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { SSOClientConfig } from "./SSOClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SSOClientConfig) => ({
+export const getRuntimeConfig = (config: SSOClientConfig = {}) => ({
   apiVersion: "2019-06-10",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

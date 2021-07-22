@@ -6,7 +6,7 @@ import { TimestreamWriteClientConfig } from "./TimestreamWriteClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: TimestreamWriteClientConfig) => ({
+export const getRuntimeConfig = (config: TimestreamWriteClientConfig = {}) => ({
   apiVersion: "2018-11-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

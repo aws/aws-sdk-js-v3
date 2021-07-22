@@ -6,7 +6,7 @@ import { LexRuntimeServiceClientConfig } from "./LexRuntimeServiceClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: LexRuntimeServiceClientConfig) => ({
+export const getRuntimeConfig = (config: LexRuntimeServiceClientConfig = {}) => ({
   apiVersion: "2016-11-28",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

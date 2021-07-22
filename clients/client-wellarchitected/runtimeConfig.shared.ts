@@ -6,7 +6,7 @@ import { WellArchitectedClientConfig } from "./WellArchitectedClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: WellArchitectedClientConfig) => ({
+export const getRuntimeConfig = (config: WellArchitectedClientConfig = {}) => ({
   apiVersion: "2020-03-31",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

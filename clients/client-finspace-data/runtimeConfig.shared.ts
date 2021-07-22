@@ -6,7 +6,7 @@ import { FinspaceDataClientConfig } from "./FinspaceDataClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: FinspaceDataClientConfig) => ({
+export const getRuntimeConfig = (config: FinspaceDataClientConfig = {}) => ({
   apiVersion: "2020-07-13",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

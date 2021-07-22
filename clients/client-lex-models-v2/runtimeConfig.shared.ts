@@ -6,7 +6,7 @@ import { LexModelsV2ClientConfig } from "./LexModelsV2Client";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: LexModelsV2ClientConfig) => ({
+export const getRuntimeConfig = (config: LexModelsV2ClientConfig = {}) => ({
   apiVersion: "2020-08-07",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

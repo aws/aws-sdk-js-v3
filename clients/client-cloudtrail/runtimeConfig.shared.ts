@@ -6,7 +6,7 @@ import { CloudTrailClientConfig } from "./CloudTrailClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CloudTrailClientConfig) => ({
+export const getRuntimeConfig = (config: CloudTrailClientConfig = {}) => ({
   apiVersion: "2013-11-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { FirehoseClientConfig } from "./FirehoseClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: FirehoseClientConfig) => ({
+export const getRuntimeConfig = (config: FirehoseClientConfig = {}) => ({
   apiVersion: "2015-08-04",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

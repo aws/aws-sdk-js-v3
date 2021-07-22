@@ -6,7 +6,7 @@ import { WorkDocsClientConfig } from "./WorkDocsClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: WorkDocsClientConfig) => ({
+export const getRuntimeConfig = (config: WorkDocsClientConfig = {}) => ({
   apiVersion: "2016-05-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

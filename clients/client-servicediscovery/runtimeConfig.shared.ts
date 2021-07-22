@@ -6,7 +6,7 @@ import { ServiceDiscoveryClientConfig } from "./ServiceDiscoveryClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ServiceDiscoveryClientConfig) => ({
+export const getRuntimeConfig = (config: ServiceDiscoveryClientConfig = {}) => ({
   apiVersion: "2017-03-14",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

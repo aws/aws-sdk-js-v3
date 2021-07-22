@@ -6,7 +6,7 @@ import { LakeFormationClientConfig } from "./LakeFormationClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: LakeFormationClientConfig) => ({
+export const getRuntimeConfig = (config: LakeFormationClientConfig = {}) => ({
   apiVersion: "2017-03-31",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

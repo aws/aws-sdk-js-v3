@@ -6,7 +6,7 @@ import { SWFClientConfig } from "./SWFClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SWFClientConfig) => ({
+export const getRuntimeConfig = (config: SWFClientConfig = {}) => ({
   apiVersion: "2012-01-25",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

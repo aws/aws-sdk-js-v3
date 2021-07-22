@@ -6,7 +6,7 @@ import { IoTSecureTunnelingClientConfig } from "./IoTSecureTunnelingClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: IoTSecureTunnelingClientConfig) => ({
+export const getRuntimeConfig = (config: IoTSecureTunnelingClientConfig = {}) => ({
   apiVersion: "2018-10-05",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

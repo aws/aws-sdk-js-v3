@@ -6,7 +6,7 @@ import { SageMakerA2IRuntimeClientConfig } from "./SageMakerA2IRuntimeClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SageMakerA2IRuntimeClientConfig) => ({
+export const getRuntimeConfig = (config: SageMakerA2IRuntimeClientConfig = {}) => ({
   apiVersion: "2019-11-07",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

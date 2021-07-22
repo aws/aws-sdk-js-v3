@@ -6,7 +6,7 @@ import { PersonalizeClientConfig } from "./PersonalizeClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: PersonalizeClientConfig) => ({
+export const getRuntimeConfig = (config: PersonalizeClientConfig = {}) => ({
   apiVersion: "2018-05-22",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

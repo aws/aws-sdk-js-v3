@@ -6,7 +6,7 @@ import { SecretsManagerClientConfig } from "./SecretsManagerClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SecretsManagerClientConfig) => ({
+export const getRuntimeConfig = (config: SecretsManagerClientConfig = {}) => ({
   apiVersion: "2017-10-17",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

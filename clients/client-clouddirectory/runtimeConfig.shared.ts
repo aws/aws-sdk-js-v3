@@ -6,7 +6,7 @@ import { CloudDirectoryClientConfig } from "./CloudDirectoryClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CloudDirectoryClientConfig) => ({
+export const getRuntimeConfig = (config: CloudDirectoryClientConfig = {}) => ({
   apiVersion: "2017-01-11",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { MWAAClientConfig } from "./MWAAClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MWAAClientConfig) => ({
+export const getRuntimeConfig = (config: MWAAClientConfig = {}) => ({
   apiVersion: "2020-07-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

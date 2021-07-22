@@ -6,7 +6,7 @@ import { ManagedBlockchainClientConfig } from "./ManagedBlockchainClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ManagedBlockchainClientConfig) => ({
+export const getRuntimeConfig = (config: ManagedBlockchainClientConfig = {}) => ({
   apiVersion: "2018-09-24",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

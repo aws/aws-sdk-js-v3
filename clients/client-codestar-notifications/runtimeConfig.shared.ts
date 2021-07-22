@@ -6,7 +6,7 @@ import { CodestarNotificationsClientConfig } from "./CodestarNotificationsClient
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CodestarNotificationsClientConfig) => ({
+export const getRuntimeConfig = (config: CodestarNotificationsClientConfig = {}) => ({
   apiVersion: "2019-10-15",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

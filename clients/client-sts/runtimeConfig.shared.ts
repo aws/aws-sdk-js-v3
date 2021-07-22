@@ -6,7 +6,7 @@ import { STSClientConfig } from "./STSClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: STSClientConfig) => ({
+export const getRuntimeConfig = (config: STSClientConfig = {}) => ({
   apiVersion: "2011-06-15",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

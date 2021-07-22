@@ -6,7 +6,7 @@ import { FSxClientConfig } from "./FSxClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: FSxClientConfig) => ({
+export const getRuntimeConfig = (config: FSxClientConfig = {}) => ({
   apiVersion: "2018-03-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),
