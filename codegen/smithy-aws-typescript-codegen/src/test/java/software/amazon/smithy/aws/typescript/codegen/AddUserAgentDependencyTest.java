@@ -42,11 +42,11 @@ public class AddUserAgentDependencyTest {
         // Check config files
         assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("defaultUserAgent"));
         assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("packageInfo.version"));
-        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("ClientSharedValues.serviceId"));
+        assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("clientSharedValues.serviceId"));
 
         assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("defaultUserAgent"));
         assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("packageInfo.version"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("ClientSharedValues.serviceId"));
+        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("clientSharedValues.serviceId"));
 
         // Check the config resolution and middleware plugin
         assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("resolveUserAgentConfig"));
