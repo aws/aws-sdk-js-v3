@@ -20,7 +20,7 @@ import { UngroupResourcesCommandInput, UngroupResourcesCommandOutput } from "./c
 import { UntagCommandInput, UntagCommandOutput } from "./commands/UntagCommand";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import { UpdateGroupQueryCommandInput, UpdateGroupQueryCommandOutput } from "./commands/UpdateGroupQueryCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -297,10 +297,7 @@ export class ResourceGroupsClient extends __Client<
   readonly config: ResourceGroupsClientResolvedConfig;
 
   constructor(configuration: ResourceGroupsClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

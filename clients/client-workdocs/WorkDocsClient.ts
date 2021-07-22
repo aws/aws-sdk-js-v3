@@ -87,7 +87,7 @@ import {
 } from "./commands/UpdateDocumentVersionCommand";
 import { UpdateFolderCommandInput, UpdateFolderCommandOutput } from "./commands/UpdateFolderCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -411,10 +411,7 @@ export class WorkDocsClient extends __Client<
   readonly config: WorkDocsClientResolvedConfig;
 
   constructor(configuration: WorkDocsClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

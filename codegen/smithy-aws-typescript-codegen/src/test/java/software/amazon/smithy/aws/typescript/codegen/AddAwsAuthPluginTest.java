@@ -42,7 +42,7 @@ public class AddAwsAuthPluginTest {
 
         // Check config files
         assertThat(manifest.getFileString("runtimeConfig.ts").get(),
-                containsString("credentialDefaultProvider: decorateDefaultCredentialProvider"));
+                containsString("decorateDefaultCredentialProvider"));
         assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("Credential is missing"));
         assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), not(containsString("signingName:")));
 
@@ -81,7 +81,7 @@ public class AddAwsAuthPluginTest {
 
         // Check config files
         assertThat(manifest.getFileString("runtimeConfig.ts").get(),
-                containsString("credentialDefaultProvider: decorateDefaultCredentialProvider"));
+                containsString("decorateDefaultCredentialProvider"));
         assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("Credential is missing"));
         assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), containsString("signingName:"));
 
@@ -120,7 +120,7 @@ public class AddAwsAuthPluginTest {
 
         // Check config files
         assertThat(manifest.getFileString("runtimeConfig.ts").get(),
-                not(containsString("credentialDefaultProvider: decorateDefaultCredentialProvider")));
+                not(containsString("decorateDefaultCredentialProvider")));
         assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), not(containsString("Credential is missing")));
         assertThat(manifest.getFileString("runtimeConfig.shared.ts").get(), not(containsString("signingName:")));
 

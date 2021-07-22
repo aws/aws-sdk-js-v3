@@ -158,7 +158,7 @@ import {
   UpdateFunctionEventInvokeConfigCommandInput,
   UpdateFunctionEventInvokeConfigCommandOutput,
 } from "./commands/UpdateFunctionEventInvokeConfigCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -490,10 +490,7 @@ export class LambdaClient extends __Client<
   readonly config: LambdaClientResolvedConfig;
 
   constructor(configuration: LambdaClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

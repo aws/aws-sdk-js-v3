@@ -18,7 +18,7 @@ import {
   StartAttachmentUploadCommandInput,
   StartAttachmentUploadCommandOutput,
 } from "./commands/StartAttachmentUploadCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -255,10 +255,7 @@ export class ConnectParticipantClient extends __Client<
   readonly config: ConnectParticipantClientResolvedConfig;
 
   constructor(configuration: ConnectParticipantClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

@@ -109,7 +109,7 @@ import {
 } from "./commands/UpdateRouteResponseCommand";
 import { UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
 import { UpdateVpcLinkCommandInput, UpdateVpcLinkCommandOutput } from "./commands/UpdateVpcLinkCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -463,10 +463,7 @@ export class ApiGatewayV2Client extends __Client<
   readonly config: ApiGatewayV2ClientResolvedConfig;
 
   constructor(configuration: ApiGatewayV2ClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);
