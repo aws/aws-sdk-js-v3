@@ -5,7 +5,7 @@ import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.bro
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: IoTEventsClientConfig) => {
+export const getRuntimeConfig = (config: IoTEventsClientConfig = {}) => {
   const browserDefaults = getBrowserRuntimeConfig(config);
   return {
     ...browserDefaults,

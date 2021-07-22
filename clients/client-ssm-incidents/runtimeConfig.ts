@@ -17,7 +17,7 @@ import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shar
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SSMIncidentsClientConfig) => {
+export const getRuntimeConfig = (config: SSMIncidentsClientConfig = {}) => {
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,

@@ -6,7 +6,7 @@ import { EMRClientConfig } from "./EMRClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: EMRClientConfig) => ({
+export const getRuntimeConfig = (config: EMRClientConfig = {}) => ({
   apiVersion: "2009-03-31",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

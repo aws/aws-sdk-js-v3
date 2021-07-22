@@ -5,7 +5,7 @@ import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.bro
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SSMContactsClientConfig) => {
+export const getRuntimeConfig = (config: SSMContactsClientConfig = {}) => {
   const browserDefaults = getBrowserRuntimeConfig(config);
   return {
     ...browserDefaults,

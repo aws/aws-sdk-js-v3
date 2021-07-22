@@ -5,7 +5,7 @@ import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.bro
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: AppSyncClientConfig) => {
+export const getRuntimeConfig = (config: AppSyncClientConfig = {}) => {
   const browserDefaults = getBrowserRuntimeConfig(config);
   return {
     ...browserDefaults,

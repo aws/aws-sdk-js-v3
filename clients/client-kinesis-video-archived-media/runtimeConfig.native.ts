@@ -5,7 +5,7 @@ import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.bro
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: KinesisVideoArchivedMediaClientConfig) => {
+export const getRuntimeConfig = (config: KinesisVideoArchivedMediaClientConfig = {}) => {
   const browserDefaults = getBrowserRuntimeConfig(config);
   return {
     ...browserDefaults,

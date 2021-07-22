@@ -5,7 +5,7 @@ import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.bro
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CloudFrontClientConfig) => {
+export const getRuntimeConfig = (config: CloudFrontClientConfig = {}) => {
   const browserDefaults = getBrowserRuntimeConfig(config);
   return {
     ...browserDefaults,

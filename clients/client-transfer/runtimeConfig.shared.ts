@@ -6,7 +6,7 @@ import { TransferClientConfig } from "./TransferClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: TransferClientConfig) => ({
+export const getRuntimeConfig = (config: TransferClientConfig = {}) => ({
   apiVersion: "2018-11-05",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

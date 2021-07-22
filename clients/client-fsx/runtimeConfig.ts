@@ -17,7 +17,7 @@ import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shar
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: FSxClientConfig) => {
+export const getRuntimeConfig = (config: FSxClientConfig = {}) => {
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,

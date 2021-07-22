@@ -17,7 +17,7 @@ import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shar
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MqClientConfig) => {
+export const getRuntimeConfig = (config: MqClientConfig = {}) => {
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,

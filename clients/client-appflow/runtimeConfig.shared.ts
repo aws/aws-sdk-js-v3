@@ -6,7 +6,7 @@ import { AppflowClientConfig } from "./AppflowClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: AppflowClientConfig) => ({
+export const getRuntimeConfig = (config: AppflowClientConfig = {}) => ({
   apiVersion: "2020-08-23",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

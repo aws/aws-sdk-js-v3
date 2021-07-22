@@ -14,7 +14,7 @@ import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shar
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: IoTSiteWiseClientConfig) => {
+export const getRuntimeConfig = (config: IoTSiteWiseClientConfig = {}) => {
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,

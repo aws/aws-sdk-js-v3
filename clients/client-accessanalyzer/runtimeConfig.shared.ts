@@ -6,7 +6,7 @@ import { AccessAnalyzerClientConfig } from "./AccessAnalyzerClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: AccessAnalyzerClientConfig) => ({
+export const getRuntimeConfig = (config: AccessAnalyzerClientConfig = {}) => ({
   apiVersion: "2019-11-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

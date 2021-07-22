@@ -17,7 +17,7 @@ import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shar
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MediaStoreDataClientConfig) => {
+export const getRuntimeConfig = (config: MediaStoreDataClientConfig = {}) => {
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,

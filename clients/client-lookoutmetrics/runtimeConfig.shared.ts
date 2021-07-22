@@ -6,7 +6,7 @@ import { LookoutMetricsClientConfig } from "./LookoutMetricsClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: LookoutMetricsClientConfig) => ({
+export const getRuntimeConfig = (config: LookoutMetricsClientConfig = {}) => ({
   apiVersion: "2017-07-25",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

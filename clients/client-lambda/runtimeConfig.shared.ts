@@ -6,7 +6,7 @@ import { LambdaClientConfig } from "./LambdaClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: LambdaClientConfig) => ({
+export const getRuntimeConfig = (config: LambdaClientConfig = {}) => ({
   apiVersion: "2015-03-31",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

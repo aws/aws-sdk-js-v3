@@ -6,7 +6,7 @@ import { CodeStarClientConfig } from "./CodeStarClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CodeStarClientConfig) => ({
+export const getRuntimeConfig = (config: CodeStarClientConfig = {}) => ({
   apiVersion: "2017-04-19",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { WorkMailClientConfig } from "./WorkMailClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: WorkMailClientConfig) => ({
+export const getRuntimeConfig = (config: WorkMailClientConfig = {}) => ({
   apiVersion: "2017-10-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { GlueClientConfig } from "./GlueClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: GlueClientConfig) => ({
+export const getRuntimeConfig = (config: GlueClientConfig = {}) => ({
   apiVersion: "2017-03-31",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

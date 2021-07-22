@@ -6,7 +6,7 @@ import { DeviceFarmClientConfig } from "./DeviceFarmClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: DeviceFarmClientConfig) => ({
+export const getRuntimeConfig = (config: DeviceFarmClientConfig = {}) => ({
   apiVersion: "2015-06-23",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

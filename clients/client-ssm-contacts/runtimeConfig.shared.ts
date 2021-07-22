@@ -6,7 +6,7 @@ import { SSMContactsClientConfig } from "./SSMContactsClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SSMContactsClientConfig) => ({
+export const getRuntimeConfig = (config: SSMContactsClientConfig = {}) => ({
   apiVersion: "2021-05-03",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

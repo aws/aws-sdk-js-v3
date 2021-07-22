@@ -6,7 +6,7 @@ import { IoTSiteWiseClientConfig } from "./IoTSiteWiseClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: IoTSiteWiseClientConfig) => ({
+export const getRuntimeConfig = (config: IoTSiteWiseClientConfig = {}) => ({
   apiVersion: "2019-12-02",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

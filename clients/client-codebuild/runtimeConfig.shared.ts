@@ -6,7 +6,7 @@ import { CodeBuildClientConfig } from "./CodeBuildClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CodeBuildClientConfig) => ({
+export const getRuntimeConfig = (config: CodeBuildClientConfig = {}) => ({
   apiVersion: "2016-10-06",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

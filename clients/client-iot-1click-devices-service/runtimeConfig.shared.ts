@@ -6,7 +6,7 @@ import { IoT1ClickDevicesServiceClientConfig } from "./IoT1ClickDevicesServiceCl
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: IoT1ClickDevicesServiceClientConfig) => ({
+export const getRuntimeConfig = (config: IoT1ClickDevicesServiceClientConfig = {}) => ({
   apiVersion: "2018-05-14",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { ShieldClientConfig } from "./ShieldClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ShieldClientConfig) => ({
+export const getRuntimeConfig = (config: ShieldClientConfig = {}) => ({
   apiVersion: "2016-06-02",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

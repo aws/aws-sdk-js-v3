@@ -6,7 +6,7 @@ import { GreengrassV2ClientConfig } from "./GreengrassV2Client";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: GreengrassV2ClientConfig) => ({
+export const getRuntimeConfig = (config: GreengrassV2ClientConfig = {}) => ({
   apiVersion: "2020-11-30",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

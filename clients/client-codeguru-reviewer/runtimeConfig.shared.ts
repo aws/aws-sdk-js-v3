@@ -6,7 +6,7 @@ import { CodeGuruReviewerClientConfig } from "./CodeGuruReviewerClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CodeGuruReviewerClientConfig) => ({
+export const getRuntimeConfig = (config: CodeGuruReviewerClientConfig = {}) => ({
   apiVersion: "2019-09-19",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { GameLiftClientConfig } from "./GameLiftClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: GameLiftClientConfig) => ({
+export const getRuntimeConfig = (config: GameLiftClientConfig = {}) => ({
   apiVersion: "2015-10-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

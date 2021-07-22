@@ -6,7 +6,7 @@ import { SESClientConfig } from "./SESClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SESClientConfig) => ({
+export const getRuntimeConfig = (config: SESClientConfig = {}) => ({
   apiVersion: "2010-12-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

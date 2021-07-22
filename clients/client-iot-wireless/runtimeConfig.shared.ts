@@ -6,7 +6,7 @@ import { IoTWirelessClientConfig } from "./IoTWirelessClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: IoTWirelessClientConfig) => ({
+export const getRuntimeConfig = (config: IoTWirelessClientConfig = {}) => ({
   apiVersion: "2020-11-22",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

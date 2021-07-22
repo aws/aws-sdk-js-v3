@@ -6,7 +6,7 @@ import { HoneycodeClientConfig } from "./HoneycodeClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: HoneycodeClientConfig) => ({
+export const getRuntimeConfig = (config: HoneycodeClientConfig = {}) => ({
   apiVersion: "2020-03-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

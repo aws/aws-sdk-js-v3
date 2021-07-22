@@ -6,7 +6,7 @@ import { BackupClientConfig } from "./BackupClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: BackupClientConfig) => ({
+export const getRuntimeConfig = (config: BackupClientConfig = {}) => ({
   apiVersion: "2018-11-15",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { CognitoIdentityProviderClientConfig } from "./CognitoIdentityProviderCl
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CognitoIdentityProviderClientConfig) => ({
+export const getRuntimeConfig = (config: CognitoIdentityProviderClientConfig = {}) => ({
   apiVersion: "2016-04-18",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

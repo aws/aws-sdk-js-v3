@@ -6,7 +6,7 @@ import { InspectorClientConfig } from "./InspectorClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: InspectorClientConfig) => ({
+export const getRuntimeConfig = (config: InspectorClientConfig = {}) => ({
   apiVersion: "2016-02-16",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

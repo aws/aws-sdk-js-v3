@@ -6,7 +6,7 @@ import { DirectConnectClientConfig } from "./DirectConnectClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: DirectConnectClientConfig) => ({
+export const getRuntimeConfig = (config: DirectConnectClientConfig = {}) => ({
   apiVersion: "2012-10-25",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { GroundStationClientConfig } from "./GroundStationClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: GroundStationClientConfig) => ({
+export const getRuntimeConfig = (config: GroundStationClientConfig = {}) => ({
   apiVersion: "2019-05-23",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

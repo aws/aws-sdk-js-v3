@@ -6,7 +6,7 @@ import { ComprehendMedicalClientConfig } from "./ComprehendMedicalClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ComprehendMedicalClientConfig) => ({
+export const getRuntimeConfig = (config: ComprehendMedicalClientConfig = {}) => ({
   apiVersion: "2018-10-30",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

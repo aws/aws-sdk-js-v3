@@ -6,7 +6,7 @@ import { MediaPackageClientConfig } from "./MediaPackageClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MediaPackageClientConfig) => ({
+export const getRuntimeConfig = (config: MediaPackageClientConfig = {}) => ({
   apiVersion: "2017-10-12",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { PinpointSMSVoiceClientConfig } from "./PinpointSMSVoiceClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: PinpointSMSVoiceClientConfig) => ({
+export const getRuntimeConfig = (config: PinpointSMSVoiceClientConfig = {}) => ({
   apiVersion: "2018-09-05",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

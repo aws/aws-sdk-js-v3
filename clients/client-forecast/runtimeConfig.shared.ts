@@ -6,7 +6,7 @@ import { ForecastClientConfig } from "./ForecastClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ForecastClientConfig) => ({
+export const getRuntimeConfig = (config: ForecastClientConfig = {}) => ({
   apiVersion: "2018-06-26",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

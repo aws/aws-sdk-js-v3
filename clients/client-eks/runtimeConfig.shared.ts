@@ -6,7 +6,7 @@ import { EKSClientConfig } from "./EKSClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: EKSClientConfig) => ({
+export const getRuntimeConfig = (config: EKSClientConfig = {}) => ({
   apiVersion: "2017-11-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

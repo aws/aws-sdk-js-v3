@@ -6,7 +6,7 @@ import { SnowballClientConfig } from "./SnowballClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SnowballClientConfig) => ({
+export const getRuntimeConfig = (config: SnowballClientConfig = {}) => ({
   apiVersion: "2016-06-30",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { AppSyncClientConfig } from "./AppSyncClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: AppSyncClientConfig) => ({
+export const getRuntimeConfig = (config: AppSyncClientConfig = {}) => ({
   apiVersion: "2017-07-25",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

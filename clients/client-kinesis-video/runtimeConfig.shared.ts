@@ -6,7 +6,7 @@ import { KinesisVideoClientConfig } from "./KinesisVideoClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: KinesisVideoClientConfig) => ({
+export const getRuntimeConfig = (config: KinesisVideoClientConfig = {}) => ({
   apiVersion: "2017-09-30",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

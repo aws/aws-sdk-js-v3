@@ -6,7 +6,7 @@ import { CodePipelineClientConfig } from "./CodePipelineClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CodePipelineClientConfig) => ({
+export const getRuntimeConfig = (config: CodePipelineClientConfig = {}) => ({
   apiVersion: "2015-07-09",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

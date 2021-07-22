@@ -6,7 +6,7 @@ import { SageMakerRuntimeClientConfig } from "./SageMakerRuntimeClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SageMakerRuntimeClientConfig) => ({
+export const getRuntimeConfig = (config: SageMakerRuntimeClientConfig = {}) => ({
   apiVersion: "2017-05-13",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

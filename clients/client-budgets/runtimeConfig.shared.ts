@@ -6,7 +6,7 @@ import { BudgetsClientConfig } from "./BudgetsClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: BudgetsClientConfig) => ({
+export const getRuntimeConfig = (config: BudgetsClientConfig = {}) => ({
   apiVersion: "2016-10-20",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { ResourceGroupsTaggingAPIClientConfig } from "./ResourceGroupsTaggingAPI
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ResourceGroupsTaggingAPIClientConfig) => ({
+export const getRuntimeConfig = (config: ResourceGroupsTaggingAPIClientConfig = {}) => ({
   apiVersion: "2017-01-26",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

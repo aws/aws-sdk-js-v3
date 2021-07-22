@@ -6,7 +6,7 @@ import { DirectoryServiceClientConfig } from "./DirectoryServiceClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: DirectoryServiceClientConfig) => ({
+export const getRuntimeConfig = (config: DirectoryServiceClientConfig = {}) => ({
   apiVersion: "2015-04-16",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

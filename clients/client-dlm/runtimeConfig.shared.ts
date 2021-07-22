@@ -6,7 +6,7 @@ import { DLMClientConfig } from "./DLMClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: DLMClientConfig) => ({
+export const getRuntimeConfig = (config: DLMClientConfig = {}) => ({
   apiVersion: "2018-01-12",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

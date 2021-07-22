@@ -6,7 +6,7 @@ import { IotDeviceAdvisorClientConfig } from "./IotDeviceAdvisorClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: IotDeviceAdvisorClientConfig) => ({
+export const getRuntimeConfig = (config: IotDeviceAdvisorClientConfig = {}) => ({
   apiVersion: "2020-09-18",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

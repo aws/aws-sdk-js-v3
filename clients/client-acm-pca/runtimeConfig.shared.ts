@@ -6,7 +6,7 @@ import { ACMPCAClientConfig } from "./ACMPCAClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ACMPCAClientConfig) => ({
+export const getRuntimeConfig = (config: ACMPCAClientConfig = {}) => ({
   apiVersion: "2017-08-22",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

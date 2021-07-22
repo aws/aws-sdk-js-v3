@@ -6,7 +6,7 @@ import { MachineLearningClientConfig } from "./MachineLearningClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MachineLearningClientConfig) => ({
+export const getRuntimeConfig = (config: MachineLearningClientConfig = {}) => ({
   apiVersion: "2014-12-12",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { SagemakerEdgeClientConfig } from "./SagemakerEdgeClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SagemakerEdgeClientConfig) => ({
+export const getRuntimeConfig = (config: SagemakerEdgeClientConfig = {}) => ({
   apiVersion: "2020-09-23",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

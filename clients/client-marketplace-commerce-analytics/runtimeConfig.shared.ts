@@ -6,7 +6,7 @@ import { MarketplaceCommerceAnalyticsClientConfig } from "./MarketplaceCommerceA
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MarketplaceCommerceAnalyticsClientConfig) => ({
+export const getRuntimeConfig = (config: MarketplaceCommerceAnalyticsClientConfig = {}) => ({
   apiVersion: "2015-07-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

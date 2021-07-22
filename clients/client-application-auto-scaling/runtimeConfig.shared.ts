@@ -6,7 +6,7 @@ import { ApplicationAutoScalingClientConfig } from "./ApplicationAutoScalingClie
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ApplicationAutoScalingClientConfig) => ({
+export const getRuntimeConfig = (config: ApplicationAutoScalingClientConfig = {}) => ({
   apiVersion: "2016-02-06",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

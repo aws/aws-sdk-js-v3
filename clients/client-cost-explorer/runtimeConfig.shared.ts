@@ -6,7 +6,7 @@ import { CostExplorerClientConfig } from "./CostExplorerClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: CostExplorerClientConfig) => ({
+export const getRuntimeConfig = (config: CostExplorerClientConfig = {}) => ({
   apiVersion: "2017-10-25",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

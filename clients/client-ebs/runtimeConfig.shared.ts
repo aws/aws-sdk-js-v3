@@ -6,7 +6,7 @@ import { EBSClientConfig } from "./EBSClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: EBSClientConfig) => ({
+export const getRuntimeConfig = (config: EBSClientConfig = {}) => ({
   apiVersion: "2019-11-02",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

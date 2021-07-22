@@ -6,7 +6,7 @@ import { SupportClientConfig } from "./SupportClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: SupportClientConfig) => ({
+export const getRuntimeConfig = (config: SupportClientConfig = {}) => ({
   apiVersion: "2013-04-15",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

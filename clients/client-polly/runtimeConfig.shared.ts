@@ -6,7 +6,7 @@ import { PollyClientConfig } from "./PollyClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: PollyClientConfig) => ({
+export const getRuntimeConfig = (config: PollyClientConfig = {}) => ({
   apiVersion: "2016-06-10",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

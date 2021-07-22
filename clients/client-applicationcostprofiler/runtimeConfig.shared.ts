@@ -6,7 +6,7 @@ import { ApplicationCostProfilerClientConfig } from "./ApplicationCostProfilerCl
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ApplicationCostProfilerClientConfig) => ({
+export const getRuntimeConfig = (config: ApplicationCostProfilerClientConfig = {}) => ({
   apiVersion: "2020-09-10",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

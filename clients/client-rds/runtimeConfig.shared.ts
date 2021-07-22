@@ -6,7 +6,7 @@ import { RDSClientConfig } from "./RDSClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: RDSClientConfig) => ({
+export const getRuntimeConfig = (config: RDSClientConfig = {}) => ({
   apiVersion: "2014-10-31",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

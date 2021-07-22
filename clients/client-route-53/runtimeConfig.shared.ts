@@ -6,7 +6,7 @@ import { Route53ClientConfig } from "./Route53Client";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: Route53ClientConfig) => ({
+export const getRuntimeConfig = (config: Route53ClientConfig = {}) => ({
   apiVersion: "2013-04-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

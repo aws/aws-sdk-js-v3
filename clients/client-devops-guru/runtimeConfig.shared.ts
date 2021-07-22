@@ -6,7 +6,7 @@ import { DevOpsGuruClientConfig } from "./DevOpsGuruClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: DevOpsGuruClientConfig) => ({
+export const getRuntimeConfig = (config: DevOpsGuruClientConfig = {}) => ({
   apiVersion: "2020-12-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

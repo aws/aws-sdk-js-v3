@@ -6,7 +6,7 @@ import { MarketplaceMeteringClientConfig } from "./MarketplaceMeteringClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: MarketplaceMeteringClientConfig) => ({
+export const getRuntimeConfig = (config: MarketplaceMeteringClientConfig = {}) => ({
   apiVersion: "2016-01-14",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

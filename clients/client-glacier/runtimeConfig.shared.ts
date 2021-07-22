@@ -6,7 +6,7 @@ import { GlacierClientConfig } from "./GlacierClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: GlacierClientConfig) => ({
+export const getRuntimeConfig = (config: GlacierClientConfig = {}) => ({
   apiVersion: "2012-06-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

@@ -6,7 +6,7 @@ import { ServiceCatalogClientConfig } from "./ServiceCatalogClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ServiceCatalogClientConfig) => ({
+export const getRuntimeConfig = (config: ServiceCatalogClientConfig = {}) => ({
   apiVersion: "2015-12-10",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

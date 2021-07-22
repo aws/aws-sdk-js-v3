@@ -6,7 +6,7 @@ import { StorageGatewayClientConfig } from "./StorageGatewayClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: StorageGatewayClientConfig) => ({
+export const getRuntimeConfig = (config: StorageGatewayClientConfig = {}) => ({
   apiVersion: "2013-06-30",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

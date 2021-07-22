@@ -6,7 +6,7 @@ import { ApplicationDiscoveryServiceClientConfig } from "./ApplicationDiscoveryS
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ApplicationDiscoveryServiceClientConfig) => ({
+export const getRuntimeConfig = (config: ApplicationDiscoveryServiceClientConfig = {}) => ({
   apiVersion: "2015-11-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

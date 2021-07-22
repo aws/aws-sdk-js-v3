@@ -6,7 +6,7 @@ import { ElasticsearchServiceClientConfig } from "./ElasticsearchServiceClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: ElasticsearchServiceClientConfig) => ({
+export const getRuntimeConfig = (config: ElasticsearchServiceClientConfig = {}) => ({
   apiVersion: "2015-01-01",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

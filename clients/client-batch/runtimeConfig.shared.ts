@@ -6,7 +6,7 @@ import { BatchClientConfig } from "./BatchClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: BatchClientConfig) => ({
+export const getRuntimeConfig = (config: BatchClientConfig = {}) => ({
   apiVersion: "2016-08-10",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),

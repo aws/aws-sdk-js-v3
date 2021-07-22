@@ -6,7 +6,7 @@ import { RestJsonProtocolClientConfig } from "./RestJsonProtocolClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => ({
+export const getRuntimeConfig = (config: RestJsonProtocolClientConfig = {}) => ({
   apiVersion: "2019-12-16",
   disableHostPrefix: config.disableHostPrefix ?? false,
   logger: config.logger ?? ({} as __Logger),
