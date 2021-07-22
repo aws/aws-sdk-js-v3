@@ -1,6 +1,6 @@
 import { Buffer } from "buffer";
 
-export async function* getDataReadableStream(data: ReadableStream): AsyncGenerator<Buffer> {
+export async function* getDataReadableStream(data: ReadableStream): AsyncGenerator<Buffer | Uint8Array> {
   // Get a lock on the stream.
   const reader = data.getReader();
 
@@ -10,8 +10,12 @@ export async function* getDataReadableStream(data: ReadableStream): AsyncGenerat
       const { done, value } = await reader.read();
       // Exit if we're done.
       if (done) return;
-      // Else yield the chunk.
-      yield Buffer.from(value);
+      // check if is Buffer/Unit8Array
+      if (Buffer.isBuffer(value) || value instanceof Uint8Array) {
+        yield value;
+      } else {
+        yield Buffer.from(value);
+      }
     }
   } catch (e) {
     throw e;

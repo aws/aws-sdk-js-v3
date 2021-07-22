@@ -3,21 +3,21 @@ import { Buffer } from "buffer";
 import { RawDataPart } from "../Upload";
 
 interface Buffers {
-  chunks: Buffer[];
+  chunks: (Buffer | Uint8Array)[];
   length: number;
 }
 
 export async function* getChunkStream<T>(
   data: T,
   partSize: number,
-  getNextData: (data: T) => AsyncGenerator<Buffer>
+  getNextData: (data: T) => AsyncGenerator<Buffer | Uint8Array>
 ): AsyncGenerator<RawDataPart, void, undefined> {
   let partNumber = 1;
   const currentBuffer: Buffers = { chunks: [], length: 0 };
 
   for await (const datum of getNextData(data)) {
     currentBuffer.chunks.push(datum);
-    currentBuffer.length += datum.length;
+    currentBuffer.length += datum.byteLength;
 
     while (currentBuffer.length >= partSize) {
       /**
@@ -28,18 +28,18 @@ export async function* getChunkStream<T>(
 
       yield {
         partNumber,
-        data: dataChunk.slice(0, partSize),
+        data: dataChunk.subarray(0, partSize),
       };
 
       // Reset the buffer.
-      currentBuffer.chunks = [dataChunk.slice(partSize)];
-      currentBuffer.length = currentBuffer.chunks[0].length;
+      currentBuffer.chunks = [dataChunk.subarray(partSize)];
+      currentBuffer.length = currentBuffer.chunks[0].byteLength;
       partNumber += 1;
     }
   }
   yield {
     partNumber,
-    data: Buffer.concat(currentBuffer.chunks),
+    data: currentBuffer.chunks.length !== 1 ? Buffer.concat(currentBuffer.chunks) : currentBuffer.chunks[0],
     lastPart: true,
   };
 }

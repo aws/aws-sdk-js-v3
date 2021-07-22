@@ -8,12 +8,12 @@ import { getDataReadableStream } from "./chunks/getDataReadableStream";
 import { BodyDataTypes } from "./types";
 
 export const getChunk = (data: BodyDataTypes, partSize: number) => {
-  if (data instanceof Buffer) {
+  if (data instanceof Buffer || data instanceof Uint8Array) {
     return getChunkBuffer(data, partSize);
   } else if (data instanceof Readable) {
     return getChunkStream<Readable>(data, partSize, getDataReadable);
-  } else if (data instanceof String || typeof data === "string" || data instanceof Uint8Array) {
-    // chunk Strings, Uint8Array.
+  } else if (data instanceof String || typeof data === "string") {
+    // chunk Strings
     return getChunkBuffer(Buffer.from(data), partSize);
   }
   if (typeof (data as any).stream === "function") {

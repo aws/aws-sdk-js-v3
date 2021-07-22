@@ -1,6 +1,9 @@
 import { RawDataPart } from "../Upload";
 
-export async function* getChunkBuffer(data: Buffer, partSize: number): AsyncGenerator<RawDataPart, void, undefined> {
+export async function* getChunkBuffer(
+  data: Buffer | Uint8Array,
+  partSize: number
+): AsyncGenerator<RawDataPart, void, undefined> {
   let partNumber = 1;
   let startByte = 0;
   let endByte = partSize;
@@ -8,7 +11,7 @@ export async function* getChunkBuffer(data: Buffer, partSize: number): AsyncGene
   while (endByte < data.byteLength) {
     yield {
       partNumber,
-      data: data.slice(startByte, endByte),
+      data: data.subarray(startByte, endByte),
     };
     partNumber += 1;
     startByte = endByte;
@@ -17,7 +20,7 @@ export async function* getChunkBuffer(data: Buffer, partSize: number): AsyncGene
 
   yield {
     partNumber,
-    data: data.slice(startByte),
+    data: data.subarray(startByte),
     lastPart: true,
   };
 }
