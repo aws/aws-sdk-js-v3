@@ -21,7 +21,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the tags for the specified Amazon Location Service resource.</p>
+ * <p>Returns a list of tags that are applied to the specified Amazon Location resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

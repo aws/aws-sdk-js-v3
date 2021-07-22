@@ -27,8 +27,8 @@ export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEv
  *          <p>To modify the targets associated with the event window, use the <a>AssociateInstanceEventWindow</a> and <a>DisassociateInstanceEventWindow</a> API.</p>
  *          <p>If Amazon Web Services has already scheduled an event, modifying an event window won't change the time
  *          of the scheduled event.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
- *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
+ *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

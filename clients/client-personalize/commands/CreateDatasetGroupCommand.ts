@@ -54,8 +54,8 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *             <p>You must wait until the <code>status</code> of the dataset group is <code>ACTIVE</code>
  *         before adding a dataset to the group.</p>
  *          </note>
- *          <p>You can specify an AWS Key Management Service (KMS) key to encrypt the datasets in the group. If you
- *       specify a KMS key, you must also include an AWS Identity and Access Management (IAM) role that has permission to
+ *          <p>You can specify an Key Management Service (KMS) key to encrypt the datasets in the group. If you
+ *       specify a KMS key, you must also include an Identity and Access Management (IAM) role that has permission to
  *       access the key.</p>
  *          <p class="title">
  *             <b>APIs that require a dataset group ARN in the request</b>

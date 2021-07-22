@@ -22,7 +22,7 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
 
 /**
  * <p>CancelImageCreation cancels the creation of Image. This operation can only be used on
- *       images in a non-terminal state.</p>
+ * 			images in a non-terminal state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -4014,6 +4014,8 @@ const serializeAws_json1_1ProjectArtifacts = (input: ProjectArtifacts, context: 
   return {
     ...(input.artifactIdentifier !== undefined &&
       input.artifactIdentifier !== null && { artifactIdentifier: input.artifactIdentifier }),
+    ...(input.bucketOwnerAccess !== undefined &&
+      input.bucketOwnerAccess !== null && { bucketOwnerAccess: input.bucketOwnerAccess }),
     ...(input.encryptionDisabled !== undefined &&
       input.encryptionDisabled !== null && { encryptionDisabled: input.encryptionDisabled }),
     ...(input.location !== undefined && input.location !== null && { location: input.location }),
@@ -4260,6 +4262,8 @@ const serializeAws_json1_1RetryBuildInput = (input: RetryBuildInput, context: __
 
 const serializeAws_json1_1S3LogsConfig = (input: S3LogsConfig, context: __SerdeContext): any => {
   return {
+    ...(input.bucketOwnerAccess !== undefined &&
+      input.bucketOwnerAccess !== null && { bucketOwnerAccess: input.bucketOwnerAccess }),
     ...(input.encryptionDisabled !== undefined &&
       input.encryptionDisabled !== null && { encryptionDisabled: input.encryptionDisabled }),
     ...(input.location !== undefined && input.location !== null && { location: input.location }),
@@ -4840,6 +4844,7 @@ const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Buil
 const deserializeAws_json1_1BuildArtifacts = (output: any, context: __SerdeContext): BuildArtifacts => {
   return {
     artifactIdentifier: __expectString(output.artifactIdentifier),
+    bucketOwnerAccess: __expectString(output.bucketOwnerAccess),
     encryptionDisabled: __expectBoolean(output.encryptionDisabled),
     location: __expectString(output.location),
     md5sum: __expectString(output.md5sum),
@@ -5799,6 +5804,7 @@ const deserializeAws_json1_1ProjectArns = (output: any, context: __SerdeContext)
 const deserializeAws_json1_1ProjectArtifacts = (output: any, context: __SerdeContext): ProjectArtifacts => {
   return {
     artifactIdentifier: __expectString(output.artifactIdentifier),
+    bucketOwnerAccess: __expectString(output.bucketOwnerAccess),
     encryptionDisabled: __expectBoolean(output.encryptionDisabled),
     location: __expectString(output.location),
     name: __expectString(output.name),
@@ -6208,6 +6214,7 @@ const deserializeAws_json1_1RetryBuildOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1S3LogsConfig = (output: any, context: __SerdeContext): S3LogsConfig => {
   return {
+    bucketOwnerAccess: __expectString(output.bucketOwnerAccess),
     encryptionDisabled: __expectBoolean(output.encryptionDisabled),
     location: __expectString(output.location),
     status: __expectString(output.status),

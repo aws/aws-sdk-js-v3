@@ -247,12 +247,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             service templates to automate their application or service deployments.</p>
  *         <p>Because administrators define the infrastructure and tooling that AWS Proton deploys and manages, they need permissions to use all of the
  *             listed API operations.</p>
- *         <p>When developers select a specific infrastructure and tooling set, AWS Proton deploys their applications. To monitor their applications that
- *             are running on AWS Proton, developers need permissions to the service <i>create</i>, <i>list</i>,
+ *         <p>When developers select a specific infrastructure and tooling set, AWS Proton deploys their applications. To monitor their applications
+ *             that are running on AWS Proton, developers need permissions to the service <i>create</i>, <i>list</i>,
  *                 <i>update</i> and <i>delete</i> API operations and the service instance <i>list</i> and
  *                 <i>update</i> API operations.</p>
  *         <p>To learn more about AWS Proton administration, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/Welcome.html">AWS Proton
- *                 Administration Guide</a>.</p>
+ *                 Administrator Guide</a>.</p>
  *         <p>To learn more about deploying serverless and containerized applications on AWS Proton, see the <a href="https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html">AWS Proton User Guide</a>.</p>
  *         <p>
  *             <b>Ensuring Idempotency</b>
@@ -270,11 +270,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *         <p>
  *             <b>Idempotent create APIs with a client token</b>
  *          </p>
- *         <p>The API actions in this list support idempotency with the use of a <i>client token</i>. The corresponding AWS CLI commands
- *             also support idempotency using a client token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. To make an
- *             idempotent API request using one of these actions, specify a client token in the request. We recommend that you <i>don't</i>
- *             reuse the same client token for other API requests. If you don’t provide a client token for these APIs, a default client token is
- *             automatically provided by SDKs.</p>
+ *         <p>The API actions in this list support idempotency with the use of a <i>client token</i>. The corresponding AWS CLI
+ *             commands also support idempotency using a client token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. To
+ *             make an idempotent API request using one of these actions, specify a client token in the request. We recommend that you
+ *                 <i>don't</i> reuse the same client token for other API requests. If you don’t provide a client token for these APIs, a
+ *             default client token is automatically provided by SDKs.</p>
  *         <p>Given a request action that has succeeded:</p>
  *         <p>If you retry the request using the same client token and the same parameters, the retry succeeds without performing any further actions
  *             other than returning the original resource detail data in the response.</p>
@@ -295,7 +295,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                 <p>CreateEnvironmentAccountConnection</p>
  *             </li>
  *          </ul>
- *
  *         <p>
  *             <b>Idempotent delete APIs</b>
  *          </p>
@@ -344,7 +343,7 @@ export class Proton extends ProtonClient {
    *             accepted, AWS Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment
    *             account.</p>
    *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
-   *             in the <i>AWS Proton Administration guide</i>.</p>
+   *             in the <i>AWS Proton Administrator guide</i>.</p>
    */
   public acceptEnvironmentAccountConnection(
     args: AcceptEnvironmentAccountConnectionCommandInput,
@@ -377,7 +376,7 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action, if the deployment is
-   *                 <code>IN_PROGRESS</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html">Update an environment</a> in the <i>AWS Proton Administration guide</i>.</p>
+   *                 <code>IN_PROGRESS</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html">Update an environment</a> in the <i>AWS Proton Administrator guide</i>.</p>
    *         <p>The following list includes potential cancellation scenarios.</p>
    *         <ul>
    *             <li>
@@ -423,7 +422,7 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is
-   *                 <code>IN_PROGRESS</code>. For more information, see <i>Update a service instance</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-instance-update.html">AWS Proton Administration guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html">AWS Proton User guide</a>.</p>
+   *                 <code>IN_PROGRESS</code>. For more information, see <i>Update a service instance</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-instance-update.html">AWS Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html">AWS Proton User guide</a>.</p>
    *         <p>The following list includes potential cancellation scenarios.</p>
    *         <ul>
    *             <li>
@@ -469,7 +468,7 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a> action, if the deployment is
-   *                 <code>IN_PROGRESS</code>. For more information, see <i>Update a service pipeline</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-pipeline-update.html">AWS Proton Administration guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-pipeline-update.html">AWS Proton User guide</a>.</p>
+   *                 <code>IN_PROGRESS</code>. For more information, see <i>Update a service pipeline</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-pipeline-update.html">AWS Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-pipeline-update.html">AWS Proton User guide</a>.</p>
    *         <p>The following list includes potential cancellation scenarios.</p>
    *         <ul>
    *             <li>
@@ -514,8 +513,8 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Deploy a new environment. An AWS Proton environment is created from an environment template that defines infrastructure and resources that
-   *             can be shared across services. For more information, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> in the <i>AWS Proton Administration
+   * <p>Deploy a new environment. An AWS Proton environment is created from an environment template that defines infrastructure and resources
+   *             that can be shared across services. For more information, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> in the <i>AWS Proton Administrator
    *             Guide.</i>
    *          </p>
    */
@@ -550,10 +549,10 @@ export class Proton extends ProtonClient {
 
   /**
    * <p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in
-   *             the environment account from the management account.</p>
+   *             the environment account from a management account.</p>
    *         <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an
    *                 <i>environment account</i> that maintains authorization and permissions. For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a> in the <i>AWS Proton
-   *                 Administration guide</i>.</p>
+   *                 Administrator guide</i>.</p>
    */
   public createEnvironmentAccountConnection(
     args: CreateEnvironmentAccountConnectionCommandInput,
@@ -585,7 +584,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Create an environment template for AWS Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-templates.html">Environment Templates</a> in the <i>AWS Proton Administration
+   * <p>Create an environment template for AWS Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment Templates</a> in the <i>AWS Proton Administrator
    *                 Guide</i>.</p>
    *         <p>You can create an environment template in one of the two following ways:</p>
    *         <ul>
@@ -597,8 +596,8 @@ export class Proton extends ProtonClient {
    *                 <p>Register and publish a <i>customer managed</i> environment template that connects AWS Proton to your existing
    *                     provisioned infrastructure that you manage. AWS Proton <i>doesn't</i> manage your existing provisioned
    *                     infrastructure. To create an environment template for customer provisioned and managed infrastructure, include the
-   *                         <code>provisioning</code> parameter and set the value to <code>CUSTOMER_MANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/env-template-v1.html">Register and publish an environment template</a>
-   *                     in the <i>AWS Proton Administration Guide</i>.</p>
+   *                         <code>provisioning</code> parameter and set the value to <code>CUSTOMER_MANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html">Register and publish an environment template</a>
+   *                     in the <i>AWS Proton Administrator Guide</i>.</p>
    *             </li>
    *          </ul>
    */
@@ -666,9 +665,9 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Create an AWS Proton service. An AWS Proton service is an instantiation of a service template and often includes several service instances and
-   *             pipeline. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html">Services</a> in the
-   *                 <i>AWS Proton Administration Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a> in the <i>AWS Proton User Guide</i>.</p>
+   * <p>Create an AWS Proton service. An AWS Proton service is an instantiation of a service template and often includes several service instances
+   *             and pipeline. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html">Services</a> in
+   *             the <i>AWS Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a> in the <i>AWS Proton User Guide</i>.</p>
    */
   public createService(
     args: CreateServiceCommandInput,
@@ -702,8 +701,8 @@ export class Proton extends ProtonClient {
   /**
    * <p>Create a service template. The administrator creates a service template to define standardized infrastructure and an optional CICD
    *             service pipeline. Developers, in turn, select the service template from AWS Proton. If the selected service template includes a service
-   *             pipeline definition, they provide a link to their source code repository. AWS Proton then deploys and manages the infrastructure defined by the
-   *             selected service template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html">Service Templates</a> in the <i>AWS Proton Administration
+   *             pipeline definition, they provide a link to their source code repository. AWS Proton then deploys and manages the infrastructure defined by
+   *             the selected service template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html">Service Templates</a> in the <i>AWS Proton Administrator
    *                 Guide</i>.</p>
    */
   public createServiceTemplate(
@@ -807,7 +806,7 @@ export class Proton extends ProtonClient {
    *             manage the environment infrastructure resources until a new environment account connection is accepted for the environment account and
    *             associated environment. You're responsible for cleaning up provisioned resources that remain without an environment connection.</p>
    *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
-   *             in the <i>AWS Proton Administration guide</i>.</p>
+   *             in the <i>AWS Proton Administrator guide</i>.</p>
    */
   public deleteEnvironmentAccountConnection(
     args: DeleteEnvironmentAccountConnectionCommandInput,
@@ -1077,7 +1076,7 @@ export class Proton extends ProtonClient {
   /**
    * <p>In an environment account, view the detail data for an environment account connection.</p>
    *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
-   *             in the <i>AWS Proton Administration guide</i>.</p>
+   *             in the <i>AWS Proton Administrator guide</i>.</p>
    */
   public getEnvironmentAccountConnection(
     args: GetEnvironmentAccountConnectionCommandInput,
@@ -1298,7 +1297,7 @@ export class Proton extends ProtonClient {
   /**
    * <p>View a list of environment account connections.</p>
    *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
-   *             in the <i>AWS Proton Administration guide</i>.</p>
+   *             in the <i>AWS Proton Administrator guide</i>.</p>
    */
   public listEnvironmentAccountConnections(
     args: ListEnvironmentAccountConnectionsCommandInput,
@@ -1551,7 +1550,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>List tags for a resource. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
+   * <p>List tags for a resource. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1588,7 +1587,7 @@ export class Proton extends ProtonClient {
    *             environment account connection.</p>
    *         <p>You <i>can’t</i> reject an environment account connection that is connected to an environment.</p>
    *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
-   *             in the <i>AWS Proton Administration guide</i>.</p>
+   *             in the <i>AWS Proton Administrator guide</i>.</p>
    */
   public rejectEnvironmentAccountConnection(
     args: RejectEnvironmentAccountConnectionCommandInput,
@@ -1620,7 +1619,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Tag a resource. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
+   * <p>Tag a resource. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1646,7 +1645,7 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Remove a tag from a resource. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
+   * <p>Remove a tag from a resource. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1714,7 +1713,7 @@ export class Proton extends ProtonClient {
    *         <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
    *                 <code>protonServiceRoleArn</code> parameter to update or connect to an environment account connection. </p>
    *         <p>You can only update to a new environment account connection if it was created in the same environment account that the current
-   *             environment account connection was created in and associated with the current environment.</p>
+   *             environment account connection was created in and is associated with the current environment.</p>
    *         <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or
    *             include the <code>environmentAccountConnectionId</code> parameter to update or connect to an environment account connection.</p>
    *         <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You
@@ -1789,7 +1788,7 @@ export class Proton extends ProtonClient {
   /**
    * <p>In an environment account, update an environment account connection to use a new IAM role.</p>
    *         <p>For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a>
-   *             in the <i>AWS Proton Administration guide</i>.</p>
+   *             in the <i>AWS Proton Administrator guide</i>.</p>
    */
   public updateEnvironmentAccountConnection(
     args: UpdateEnvironmentAccountConnectionCommandInput,

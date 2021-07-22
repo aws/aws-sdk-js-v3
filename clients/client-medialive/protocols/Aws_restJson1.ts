@@ -128,6 +128,7 @@ import {
   AudioChannelMapping,
   AudioCodecSettings,
   AudioDescription,
+  AudioHlsRenditionSelection,
   AudioLanguageSelection,
   AudioNormalizationSettings,
   AudioOnlyHlsSettings,
@@ -9608,6 +9609,16 @@ const serializeAws_restJson1AudioDescription = (input: AudioDescription, context
   };
 };
 
+const serializeAws_restJson1AudioHlsRenditionSelection = (
+  input: AudioHlsRenditionSelection,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GroupId !== undefined && input.GroupId !== null && { groupId: input.GroupId }),
+    ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
+  };
+};
+
 const serializeAws_restJson1AudioLanguageSelection = (input: AudioLanguageSelection, context: __SerdeContext): any => {
   return {
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { languageCode: input.LanguageCode }),
@@ -9660,6 +9671,13 @@ const serializeAws_restJson1AudioSelector = (input: AudioSelector, context: __Se
 
 const serializeAws_restJson1AudioSelectorSettings = (input: AudioSelectorSettings, context: __SerdeContext): any => {
   return {
+    ...(input.AudioHlsRenditionSelection !== undefined &&
+      input.AudioHlsRenditionSelection !== null && {
+        audioHlsRenditionSelection: serializeAws_restJson1AudioHlsRenditionSelection(
+          input.AudioHlsRenditionSelection,
+          context
+        ),
+      }),
     ...(input.AudioLanguageSelection !== undefined &&
       input.AudioLanguageSelection !== null && {
         audioLanguageSelection: serializeAws_restJson1AudioLanguageSelection(input.AudioLanguageSelection, context),
@@ -12223,7 +12241,9 @@ const serializeAws_restJson1WebvttDestinationSettings = (
   input: WebvttDestinationSettings,
   context: __SerdeContext
 ): any => {
-  return {};
+  return {
+    ...(input.StyleControl !== undefined && input.StyleControl !== null && { styleControl: input.StyleControl }),
+  };
 };
 
 const deserializeAws_restJson1__listOf__integer = (output: any, context: __SerdeContext): number[] => {
@@ -12941,6 +12961,16 @@ const deserializeAws_restJson1AudioDescription = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1AudioHlsRenditionSelection = (
+  output: any,
+  context: __SerdeContext
+): AudioHlsRenditionSelection => {
+  return {
+    GroupId: __expectString(output.groupId),
+    Name: __expectString(output.name),
+  } as any;
+};
+
 const deserializeAws_restJson1AudioLanguageSelection = (
   output: any,
   context: __SerdeContext
@@ -12992,6 +13022,10 @@ const deserializeAws_restJson1AudioSelector = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1AudioSelectorSettings = (output: any, context: __SerdeContext): AudioSelectorSettings => {
   return {
+    AudioHlsRenditionSelection:
+      output.audioHlsRenditionSelection !== undefined && output.audioHlsRenditionSelection !== null
+        ? deserializeAws_restJson1AudioHlsRenditionSelection(output.audioHlsRenditionSelection, context)
+        : undefined,
     AudioLanguageSelection:
       output.audioLanguageSelection !== undefined && output.audioLanguageSelection !== null
         ? deserializeAws_restJson1AudioLanguageSelection(output.audioLanguageSelection, context)
@@ -15802,7 +15836,9 @@ const deserializeAws_restJson1WebvttDestinationSettings = (
   output: any,
   context: __SerdeContext
 ): WebvttDestinationSettings => {
-  return {} as any;
+  return {
+    StyleControl: __expectString(output.styleControl),
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

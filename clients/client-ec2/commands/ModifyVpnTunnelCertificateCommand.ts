@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVpnTunnelCertificateRequest, ModifyVpnTunnelCertificateResult } from "../models/models_4";
+import { ModifyVpnTunnelCertificateRequest, ModifyVpnTunnelCertificateResult } from "../models/models_5";
 import {
   deserializeAws_ec2ModifyVpnTunnelCertificateCommand,
   serializeAws_ec2ModifyVpnTunnelCertificateCommand,

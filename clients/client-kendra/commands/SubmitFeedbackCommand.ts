@@ -22,7 +22,7 @@ export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables you to provide feedback to Amazon Kendra to improve the
- *             performance of the service. </p>
+ *             performance of your index. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

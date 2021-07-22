@@ -21,7 +21,7 @@ export interface ListDevicePositionsCommandInput extends ListDevicePositionsRequ
 export interface ListDevicePositionsCommandOutput extends ListDevicePositionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the latest device positions for requested devices.</p>
+ * <p>A batch request to retrieve all device positions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

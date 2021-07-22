@@ -21,7 +21,7 @@ export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
  * <p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state
  *       (not attached to an instance).</p>
  *          <p>The volume can remain in the <code>deleting</code> state for several minutes.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Deleting an Amazon EBS volume</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Delete an Amazon EBS volume</a> in the
  *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

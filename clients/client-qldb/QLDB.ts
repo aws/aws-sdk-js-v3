@@ -122,7 +122,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   * <p>Creates a new ledger in your AWS account in the current Region.</p>
+   * <p>Creates a new ledger in your account in the current Region.</p>
    */
   public createLedger(
     args: CreateLedgerCommandInput,
@@ -259,7 +259,8 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   * <p>Returns information about a ledger, including its state and when it was created.</p>
+   * <p>Returns information about a ledger, including its state, permissions mode, encryption at
+   *          rest settings, and when it was created.</p>
    */
   public describeLedger(
     args: DescribeLedgerCommandInput,
@@ -461,7 +462,7 @@ export class QLDB extends QLDBClient {
 
   /**
    * <p>Returns an array of journal export job descriptions for all ledgers that are associated
-   *          with the current AWS account and Region.</p>
+   *          with the current account and Region.</p>
    *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
    *          you can retrieve all the items by calling <code>ListJournalS3Exports</code> multiple
    *          times.</p>
@@ -535,7 +536,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   * <p>Returns an array of ledger summaries that are associated with the current AWS account
+   * <p>Returns an array of ledger summaries that are associated with the current account
    *          and Region.</p>
    *          <p>This action returns a maximum of 100 items and is paginated so that you can
    *          retrieve all the items by calling <code>ListLedgers</code> multiple times.</p>

@@ -24,7 +24,7 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * <p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet
  * 			in each Availability Zone. For more information about the components of a default VPC,
  * 			see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html">Default VPC and
- * 			Default Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot
+ * 			default subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot
  * 			specify the components of the default VPC yourself.</p>
  * 		       <p>If you deleted your previous default VPC, you can create a default VPC. You cannot have
  * 			more than one default VPC per Region.</p>

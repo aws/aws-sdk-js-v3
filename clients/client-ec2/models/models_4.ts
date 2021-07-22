@@ -47,22 +47,19 @@ import {
   AutoAcceptSharedAttachmentsValue,
   CapacityReservationPreference,
   CapacityReservationTarget,
+  ConnectionNotification,
   DefaultRouteTableAssociationValue,
   DefaultRouteTablePropagationValue,
+  DnsEntry,
   DnsNameState,
-  IKEVersionsRequestListValue,
   LaunchTemplate,
   ManagedPrefixList,
-  Phase1DHGroupNumbersRequestListValue,
-  Phase1EncryptionAlgorithmsRequestListValue,
-  Phase1IntegrityAlgorithmsRequestListValue,
-  Phase2DHGroupNumbersRequestListValue,
-  Phase2EncryptionAlgorithmsRequestListValue,
-  Phase2IntegrityAlgorithmsRequestListValue,
   ResponseLaunchTemplateData,
   ServiceConfiguration,
   ServiceTypeDetail,
   ShutdownBehavior,
+  State,
+  SubnetCidrReservation,
   TrafficDirection,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
@@ -72,6 +69,7 @@ import {
   TrafficMirrorSession,
   TransitGateway,
   TransitGatewayPrefixListReference,
+  VpcEndpoint,
   VpnConnection,
   VpnEcmpSupportValue,
   VpnGateway,
@@ -85,10 +83,8 @@ import {
   Filter,
   FpgaImageAttribute,
   FpgaImageAttributeName,
-  HttpTokensState,
   ImportImageLicenseConfigurationResponse,
   InstanceAttributeName,
-  InstanceMetadataEndpointState,
   LaunchPermission,
   PaymentOption,
   PermissionGroup,
@@ -98,15 +94,532 @@ import {
 import {
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
+  HttpTokensState,
+  InstanceMetadataEndpointState,
   InstanceMetadataOptionsResponse,
   InstanceStatusEvent,
   LaunchTemplateConfig,
-  Monitoring,
   ReservedInstancesConfiguration,
   SnapshotAttributeName,
   VolumeModification,
 } from "./models_3";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export interface DescribeVpcAttributeResult {
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>Indicates whether the instances launched in the VPC get DNS hostnames.
+   * 				If this attribute is <code>true</code>, instances in the VPC get DNS hostnames;
+   * 				otherwise, they do not.</p>
+   */
+  EnableDnsHostnames?: AttributeBooleanValue;
+
+  /**
+   * <p>Indicates whether DNS resolution is enabled for
+   * 				the VPC. If this attribute is <code>true</code>, the Amazon DNS server
+   * 				resolves DNS hostnames for your instances to their corresponding
+   * 				IP addresses; otherwise, it does not.</p>
+   */
+  EnableDnsSupport?: AttributeBooleanValue;
+}
+
+export namespace DescribeVpcAttributeResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcAttributeResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVpcClassicLinkRequest {
+  /**
+   * <p>One or more filters.</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>is-classic-link-enabled</code> - Whether the VPC is enabled for ClassicLink
+   * 					   (<code>true</code> | <code>false</code>).</p>
+   * 			         </li>
+   *             <li>
+   * 			            <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   * 			         </li>
+   *             <li>
+   *     			        <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more VPCs for which you want to describe the ClassicLink status.</p>
+   */
+  VpcIds?: string[];
+}
+
+export namespace DescribeVpcClassicLinkRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcClassicLinkRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes whether a VPC is enabled for ClassicLink.</p>
+ */
+export interface VpcClassicLink {
+  /**
+   * <p>Indicates whether the VPC is enabled for ClassicLink.</p>
+   */
+  ClassicLinkEnabled?: boolean;
+
+  /**
+   * <p>Any tags assigned to the VPC.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+}
+
+export namespace VpcClassicLink {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpcClassicLink): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVpcClassicLinkResult {
+  /**
+   * <p>The ClassicLink status of one or more VPCs.</p>
+   */
+  Vpcs?: VpcClassicLink[];
+}
+
+export namespace DescribeVpcClassicLinkResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcClassicLinkResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVpcClassicLinkDnsSupportRequest {
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more VPC IDs.</p>
+   */
+  VpcIds?: string[];
+}
+
+export namespace DescribeVpcClassicLinkDnsSupportRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcClassicLinkDnsSupportRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the ClassicLink DNS support status of a VPC.</p>
+ */
+export interface ClassicLinkDnsSupport {
+  /**
+   * <p>Indicates whether ClassicLink DNS support is enabled for the VPC.</p>
+   */
+  ClassicLinkDnsSupported?: boolean;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+}
+
+export namespace ClassicLinkDnsSupport {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClassicLinkDnsSupport): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVpcClassicLinkDnsSupportResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the ClassicLink DNS support status of the VPCs.</p>
+   */
+  Vpcs?: ClassicLinkDnsSupport[];
+}
+
+export namespace DescribeVpcClassicLinkDnsSupportResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcClassicLinkDnsSupportResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVpcEndpointConnectionNotificationsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the notification.</p>
+   */
+  ConnectionNotificationId?: string;
+
+  /**
+   * <p>One or more filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>connection-notification-arn</code> - The ARN of the SNS topic for the
+   *                     notification.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>connection-notification-id</code> - The ID of the
+   *                     notification.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>connection-notification-state</code> - The state of the notification
+   *                         (<code>Enabled</code> | <code>Disabled</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>connection-notification-type</code> - The type of notification
+   *                         (<code>Topic</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>service-id</code> - The ID of the endpoint service.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>vpc-endpoint-id</code> - The ID of the VPC endpoint.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another request with the returned <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeVpcEndpointConnectionNotificationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointConnectionNotificationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVpcEndpointConnectionNotificationsResult {
+  /**
+   * <p>One or more notifications.</p>
+   */
+  ConnectionNotificationSet?: ConnectionNotification[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is
+   *             <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeVpcEndpointConnectionNotificationsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointConnectionNotificationsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVpcEndpointConnectionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters.</p>
+   * 		       <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>service-id</code> - The ID of the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-endpoint-owner</code> - The AWS account number of the owner of the
+   *                     endpoint.</p>
+   *             </li>
+   *             <li>
+   * 			            <p>
+   *                   <code>vpc-endpoint-state</code> - The state of the endpoint
+   * 			        (<code>pendingAcceptance</code> | <code>pending</code> |
+   * 			        <code>available</code> | <code>deleting</code> | <code>deleted</code> |
+   * 			        <code>rejected</code> | <code>failed</code>).</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining
+   *             results of the initial request can be seen by sending another request with the returned
+   *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
+   *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
+   *             returned.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeVpcEndpointConnectionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointConnectionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a VPC endpoint connection to a service.</p>
+ */
+export interface VpcEndpointConnection {
+  /**
+   * <p>The ID of the service to which the endpoint is connected.</p>
+   */
+  ServiceId?: string;
+
+  /**
+   * <p>The ID of the VPC endpoint.</p>
+   */
+  VpcEndpointId?: string;
+
+  /**
+   * <p>The AWS account ID of the owner of the VPC endpoint.</p>
+   */
+  VpcEndpointOwner?: string;
+
+  /**
+   * <p>The state of the VPC endpoint.</p>
+   */
+  VpcEndpointState?: State | string;
+
+  /**
+   * <p>The date and time that the VPC endpoint was created.</p>
+   */
+  CreationTimestamp?: Date;
+
+  /**
+   * <p>The DNS entries for the VPC endpoint.</p>
+   */
+  DnsEntries?: DnsEntry[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the network load balancers for the service.</p>
+   */
+  NetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
+   */
+  GatewayLoadBalancerArns?: string[];
+}
+
+export namespace VpcEndpointConnection {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpcEndpointConnection): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVpcEndpointConnectionsResult {
+  /**
+   * <p>Information about one or more VPC endpoint connections.</p>
+   */
+  VpcEndpointConnections?: VpcEndpointConnection[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeVpcEndpointConnectionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointConnectionsResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for DescribeVpcEndpoints.</p>
+ */
+export interface DescribeVpcEndpointsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more endpoint IDs.</p>
+   */
+  VpcEndpointIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>service-name</code> - The name of the service.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>vpc-endpoint-state</code> - The state of the endpoint
+   *                         (<code>pendingAcceptance</code> | <code>pending</code> |
+   *                         <code>available</code> | <code>deleting</code> | <code>deleted</code> |
+   *                         <code>rejected</code> | <code>failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p>
+   *             </li>
+   *             <li>
+   *         		     <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *         	   </li>
+   *             <li>
+   *         		     <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *         	   </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
+   *         <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeVpcEndpointsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of DescribeVpcEndpoints.</p>
+ */
+export interface DescribeVpcEndpointsResult {
+  /**
+   * <p>Information about the endpoints.</p>
+   */
+  VpcEndpoints?: VpcEndpoint[];
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeVpcEndpointsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcEndpointsResult): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeVpcEndpointServiceConfigurationsRequest {
   /**
@@ -471,7 +984,7 @@ export interface DescribeVpcPeeringConnectionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>accepter-vpc-info.owner-id</code> - The AWS account ID of the owner of the
+   *                     <code>accepter-vpc-info.owner-id</code> - The ID of the account that owns the
    *                     accepter VPC.</p>
    *             </li>
    *             <li>
@@ -490,8 +1003,8 @@ export interface DescribeVpcPeeringConnectionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>requester-vpc-info.owner-id</code> - The AWS account ID of the owner of the
-   *           requester VPC.</p>
+   *                   <code>requester-vpc-info.owner-id</code> - The ID of the account that owns the
+   *                   requester VPC.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -633,11 +1146,11 @@ export interface DescribeVpcsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>isDefault</code> - Indicates whether the VPC is the default VPC.</p>
+   *                   <code>is-default</code> - Indicates whether the VPC is the default VPC.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>owner-id</code> - The ID of the AWS account that owns the VPC.</p>
+   *                   <code>owner-id</code> - The ID of the account that owns the VPC.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1200,12 +1713,12 @@ export interface DisableFastSnapshotRestoreSuccessItem {
   StateTransitionReason?: string;
 
   /**
-   * <p>The ID of the AWS account that enabled fast snapshot restores on the snapshot.</p>
+   * <p>The ID of the account that enabled fast snapshot restores on the snapshot.</p>
    */
   OwnerId?: string;
 
   /**
-   * <p>The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
+   * <p>The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
    */
   OwnerAlias?: string;
 
@@ -2110,7 +2623,7 @@ export interface EnableFastSnapshotRestoresRequest {
 
   /**
    * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>. You can specify
-   *       a snapshot that was shared with you from another AWS account.</p>
+   *       a snapshot that was shared with you from another account.</p>
    */
   SourceSnapshotIds: string[] | undefined;
 
@@ -2168,12 +2681,12 @@ export interface EnableFastSnapshotRestoreSuccessItem {
   StateTransitionReason?: string;
 
   /**
-   * <p>The ID of the AWS account that enabled fast snapshot restores on the snapshot.</p>
+   * <p>The ID of the account that enabled fast snapshot restores on the snapshot.</p>
    */
   OwnerId?: string;
 
   /**
-   * <p>The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
+   * <p>The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
    */
   OwnerAlias?: string;
 
@@ -3493,7 +4006,7 @@ export namespace GetEbsDefaultKmsKeyIdRequest {
 
 export interface GetEbsDefaultKmsKeyIdResult {
   /**
-   * <p>The Amazon Resource Name (ARN) of the default CMK for encryption by default.</p>
+   * <p>The Amazon Resource Name (ARN) of the default KMS key for encryption by default.</p>
    */
   KmsKeyId?: string;
 }
@@ -4315,6 +4828,91 @@ export namespace GetSerialConsoleAccessStatusResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetSerialConsoleAccessStatusResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSubnetCidrReservationsRequest {
+  /**
+   * <p>One or more filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>reservationType</code> - The type of reservation (<code>prefix</code> |
+   *                     <code>explicit</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>subnet-id</code> - The ID of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetSubnetCidrReservationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSubnetCidrReservationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSubnetCidrReservationsResult {
+  /**
+   * <p>Information about the IPv4 subnet CIDR reservations.</p>
+   */
+  SubnetIpv4CidrReservations?: SubnetCidrReservation[];
+
+  /**
+   * <p>Information about the IPv6 subnet CIDR reservations.</p>
+   */
+  SubnetIpv6CidrReservations?: SubnetCidrReservation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetSubnetCidrReservationsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSubnetCidrReservationsResult): any => ({
     ...obj,
   });
 }
@@ -6073,10 +6671,10 @@ export namespace ModifyDefaultCreditSpecificationResult {
 
 export interface ModifyEbsDefaultKmsKeyIdRequest {
   /**
-   * <p>The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption.
-   *       If this parameter is not specified, your AWS managed CMK for EBS is used. If <code>KmsKeyId</code> is
+   * <p>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
+   *       If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is
    *       specified, the encrypted state must be <code>true</code>.</p>
-   *          <p>You can specify the CMK using any of the following:</p>
+   *          <p>You can specify the KMS key using any of the following:</p>
    *          <ul>
    *             <li>
    *                <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
@@ -6091,9 +6689,9 @@ export interface ModifyEbsDefaultKmsKeyIdRequest {
    *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
    *             </li>
    *          </ul>
-   *          <p>AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid,
+   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid,
    *       the action can appear to complete, but eventually fails.</p>
-   *          <p>Amazon EBS does not support asymmetric CMKs.</p>
+   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
    */
   KmsKeyId: string | undefined;
 
@@ -6116,7 +6714,7 @@ export namespace ModifyEbsDefaultKmsKeyIdRequest {
 
 export interface ModifyEbsDefaultKmsKeyIdResult {
   /**
-   * <p>The Amazon Resource Name (ARN) of the default CMK for encryption by default.</p>
+   * <p>The Amazon Resource Name (ARN) of the default KMS key for encryption by default.</p>
    */
   KmsKeyId?: string;
 }
@@ -7684,12 +8282,12 @@ export namespace ModifySecurityGroupRulesResult {
  */
 export interface CreateVolumePermissionModifications {
   /**
-   * <p>Adds the specified AWS account ID or group to the list.</p>
+   * <p>Adds the specified account ID or group to the list.</p>
    */
   Add?: CreateVolumePermission[];
 
   /**
-   * <p>Removes the specified AWS account ID or group from the list.</p>
+   * <p>Removes the specified account ID or group from the list.</p>
    */
   Remove?: CreateVolumePermission[];
 }
@@ -8367,13 +8965,13 @@ export interface ModifyVolumeRequest {
    *                   <code>standard</code>: 1-1,024</p>
    *             </li>
    *          </ul>
-   *          <p>Default: If no size is specified, the existing size is retained.</p>
+   *          <p>Default: The existing size is retained.</p>
    */
   Size?: number;
 
   /**
    * <p>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          <p>Default: If no type is specified, the existing type is retained.</p>
+   *          <p>Default: The existing type is retained.</p>
    */
   VolumeType?: VolumeType | string;
 
@@ -8394,14 +8992,16 @@ export interface ModifyVolumeRequest {
    *                   <code>io2</code>: 100-64,000 IOPS</p>
    *             </li>
    *          </ul>
-   *          <p>Default: If no IOPS value is specified, the existing value is retained, unless a volume type is modified that supports different values.</p>
+   *          <p>Default: The existing value is retained if you keep the same volume type. If you change
+   *       the volume type to <code>io1</code>, <code>io2</code>, or <code>gp3</code>, the default is 3,000.</p>
    */
   Iops?: number;
 
   /**
    * <p>The target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code> volumes.
    *       The maximum value is 1,000.</p>
-   *          <p>Default: If no throughput value is specified, the existing value is retained.</p>
+   *          <p>Default: The existing value is retained if the source and target volume type is <code>gp3</code>.
+   *       Otherwise, the default value is 125.</p>
    *   	      <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
    */
   Throughput?: number;
@@ -8885,541 +9485,6 @@ export namespace ModifyVpcPeeringConnectionOptionsResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: ModifyVpcPeeringConnectionOptionsResult): any => ({
-    ...obj,
-  });
-}
-
-export type VpcTenancy = "default";
-
-export interface ModifyVpcTenancyRequest {
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The instance tenancy attribute for the VPC. </p>
-   */
-  InstanceTenancy: VpcTenancy | string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ModifyVpcTenancyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpcTenancyRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpcTenancyResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an
-   *             error.</p>
-   */
-  ReturnValue?: boolean;
-}
-
-export namespace ModifyVpcTenancyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpcTenancyResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpnConnectionRequest {
-  /**
-   * <p>The ID of the VPN connection.</p>
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The ID of the transit gateway.</p>
-   */
-  TransitGatewayId?: string;
-
-  /**
-   * <p>The ID of the customer gateway at your end of the VPN connection.</p>
-   */
-  CustomerGatewayId?: string;
-
-  /**
-   * <p>The ID of the virtual private gateway at the AWS side of the VPN connection.</p>
-   */
-  VpnGatewayId?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ModifyVpnConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpnConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpnConnectionResult {
-  /**
-   * <p>Describes a VPN connection.</p>
-   */
-  VpnConnection?: VpnConnection;
-}
-
-export namespace ModifyVpnConnectionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpnConnectionResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpnConnectionOptionsRequest {
-  /**
-   * <p>The ID of the Site-to-Site VPN connection.
-   *         </p>
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *         <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   */
-  LocalIpv4NetworkCidr?: string;
-
-  /**
-   * <p>The IPv4 CIDR on the AWS side of the VPN connection.</p>
-   *         <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   */
-  RemoteIpv4NetworkCidr?: string;
-
-  /**
-   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *         <p>Default: <code>::/0</code>
-   *          </p>
-   */
-  LocalIpv6NetworkCidr?: string;
-
-  /**
-   * <p>The IPv6 CIDR on the AWS side of the VPN connection.</p>
-   *         <p>Default: <code>::/0</code>
-   *          </p>
-   */
-  RemoteIpv6NetworkCidr?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ModifyVpnConnectionOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpnConnectionOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpnConnectionOptionsResult {
-  /**
-   * <p>Describes a VPN connection.</p>
-   */
-  VpnConnection?: VpnConnection;
-}
-
-export namespace ModifyVpnConnectionOptionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpnConnectionOptionsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpnTunnelCertificateRequest {
-  /**
-   * <p>The ID of the AWS Site-to-Site VPN connection.</p>
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ModifyVpnTunnelCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpnTunnelCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpnTunnelCertificateResult {
-  /**
-   * <p>Describes a VPN connection.</p>
-   */
-  VpnConnection?: VpnConnection;
-}
-
-export namespace ModifyVpnTunnelCertificateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpnTunnelCertificateResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The AWS Site-to-Site VPN tunnel options to modify.</p>
- */
-export interface ModifyVpnTunnelOptionsSpecification {
-  /**
-   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be unique
-   *             across all VPN connections that use the same virtual private gateway. </p>
-   *         <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
-   *             following CIDR blocks are reserved and cannot be used:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.0.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.1.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.2.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.3.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.4.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.5.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.169.252/30</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  TunnelInsideCidr?: string;
-
-  /**
-   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.</p>
-   *         <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
-   */
-  TunnelInsideIpv6Cidr?: string;
-
-  /**
-   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
-   *             private gateway and the customer gateway.</p>
-   *         <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
-   *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
-   *             zero (0).</p>
-   */
-  PreSharedKey?: string;
-
-  /**
-   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
-   *         <p>Constraints: A value between 900 and 28,800.</p>
-   *         <p>Default: <code>28800</code>
-   *          </p>
-   */
-  Phase1LifetimeSeconds?: number;
-
-  /**
-   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
-   *         <p>Constraints: A value between 900 and 3,600. The value must be less than the value for <code>Phase1LifetimeSeconds</code>.</p>
-   *         <p>Default: <code>3600</code>
-   *          </p>
-   */
-  Phase2LifetimeSeconds?: number;
-
-  /**
-   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for <code>RekeyFuzzPercentage</code>.</p>
-   *         <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
-   *         <p>Default: <code>540</code>
-   *          </p>
-   */
-  RekeyMarginTimeSeconds?: number;
-
-  /**
-   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>) during which the rekey time is randomly selected.</p>
-   *         <p>Constraints: A value between 0 and 100.</p>
-   *         <p>Default: <code>100</code>
-   *          </p>
-   */
-  RekeyFuzzPercentage?: number;
-
-  /**
-   * <p>The number of packets in an IKE replay window.</p>
-   *         <p>Constraints: A value between 64 and 2048.</p>
-   *         <p>Default: <code>1024</code>
-   *          </p>
-   */
-  ReplayWindowSize?: number;
-
-  /**
-   * <p>The number of seconds after which a DPD timeout occurs.</p>
-   *         <p>Constraints: A value between 0 and 30.</p>
-   *         <p>Default: <code>30</code>
-   *          </p>
-   */
-  DPDTimeoutSeconds?: number;
-
-  /**
-   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
-   *         <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
-   *          </p>
-   *         <p>Default: <code>clear</code>
-   *          </p>
-   */
-  DPDTimeoutAction?: string;
-
-  /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
-   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code>
-   *          </p>
-   */
-  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[];
-
-  /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p>
-   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code>
-   *          </p>
-   */
-  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[];
-
-  /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
-   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code>
-   *          </p>
-   */
-  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[];
-
-  /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p>
-   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code>
-   *          </p>
-   */
-  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[];
-
-  /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
-   *         <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
-   *          </p>
-   */
-  Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[];
-
-  /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p>
-   *         <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
-   *          </p>
-   */
-  Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[];
-
-  /**
-   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
-   *         <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
-   *          </p>
-   */
-  IKEVersions?: IKEVersionsRequestListValue[];
-
-  /**
-   * <p>The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify <code>start</code> for AWS to initiate the IKE negotiation.</p>
-   *         <p>Valid Values: <code>add</code> | <code>start</code>
-   *          </p>
-   *         <p>Default: <code>add</code>
-   *          </p>
-   */
-  StartupAction?: string;
-}
-
-export namespace ModifyVpnTunnelOptionsSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpnTunnelOptionsSpecification): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpnTunnelOptionsRequest {
-  /**
-   * <p>The ID of the AWS Site-to-Site VPN connection.</p>
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>The tunnel options to modify.</p>
-   */
-  TunnelOptions: ModifyVpnTunnelOptionsSpecification | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ModifyVpnTunnelOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpnTunnelOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyVpnTunnelOptionsResult {
-  /**
-   * <p>Describes a VPN connection.</p>
-   */
-  VpnConnection?: VpnConnection;
-}
-
-export namespace ModifyVpnTunnelOptionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyVpnTunnelOptionsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface MonitorInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace MonitorInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitorInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the monitoring of an instance.</p>
- */
-export interface InstanceMonitoring {
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The monitoring for the instance.</p>
-   */
-  Monitoring?: Monitoring;
-}
-
-export namespace InstanceMonitoring {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceMonitoring): any => ({
-    ...obj,
-  });
-}
-
-export interface MonitorInstancesResult {
-  /**
-   * <p>The monitoring information.</p>
-   */
-  InstanceMonitorings?: InstanceMonitoring[];
-}
-
-export namespace MonitorInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitorInstancesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface MoveAddressToVpcRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The Elastic IP address.</p>
-   */
-  PublicIp: string | undefined;
-}
-
-export namespace MoveAddressToVpcRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MoveAddressToVpcRequest): any => ({
     ...obj,
   });
 }

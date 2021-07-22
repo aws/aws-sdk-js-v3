@@ -268,10 +268,11 @@ export interface AutoScalingGroupRecommendationOption {
    *             The performance
    *             risk of the recommended instance is calculated as the maximum performance risk score
    *             across the analyzed resource specifications.</p>
-   *         <p>The value ranges from 0 to 5, with 0 meaning that the recommended resource is
-   *             predicted to always provide enough hardware capability. The higher the performance risk
-   *             is, the more likely you should validate whether the recommended resource meets the
-   *             performance requirements of your workload before migrating your resource.</p>
+   *         <p>The value ranges from <code>0</code> - <code>4</code>, with <code>0</code> meaning
+   *             that the recommended resource is predicted to always provide enough hardware capability.
+   *             The higher the performance risk is, the more likely you should validate whether the
+   *             recommendation will meet the performance requirements of your workload before migrating
+   *             your resource.</p>
    */
   performanceRisk?: number;
 
@@ -1975,7 +1976,7 @@ export interface VolumeRecommendationOption {
    * <p>The performance risk of the volume recommendation option.</p>
    *         <p>Performance risk is the likelihood of the recommended volume type meeting the
    *             performance requirement of your workload.</p>
-   *         <p>The value ranges from <code>0</code> to <code>5</code>, with <code>0</code> meaning
+   *         <p>The value ranges from <code>0</code> - <code>4</code>, with <code>0</code> meaning
    *             that the recommended resource is predicted to always provide enough hardware capability.
    *             The higher the performance risk is, the more likely you should validate whether the
    *             recommendation will meet the performance requirements of your workload before migrating
@@ -2304,7 +2305,7 @@ export interface InstanceRecommendationOption {
    *             The performance
    *             risk of the recommended instance is calculated as the maximum performance risk score
    *             across the analyzed resource specifications.</p>
-   *         <p>The value ranges from <code>0</code> to <code>5</code>, with <code>0</code> meaning
+   *         <p>The value ranges from <code>0</code> - <code>4</code>, with <code>0</code> meaning
    *             that the recommended resource is predicted to always provide enough hardware capability.
    *             The higher the performance risk is, the more likely you should validate whether the
    *             recommendation will meet the performance requirements of your workload before migrating

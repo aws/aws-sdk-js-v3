@@ -256,6 +256,10 @@ import {
   CreateStoreImageTaskCommandInput,
   CreateStoreImageTaskCommandOutput,
 } from "./commands/CreateStoreImageTaskCommand";
+import {
+  CreateSubnetCidrReservationCommandInput,
+  CreateSubnetCidrReservationCommandOutput,
+} from "./commands/CreateSubnetCidrReservationCommand";
 import { CreateSubnetCommandInput, CreateSubnetCommandOutput } from "./commands/CreateSubnetCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
@@ -428,6 +432,10 @@ import {
   DeleteSpotDatafeedSubscriptionCommandInput,
   DeleteSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/DeleteSpotDatafeedSubscriptionCommand";
+import {
+  DeleteSubnetCidrReservationCommandInput,
+  DeleteSubnetCidrReservationCommandOutput,
+} from "./commands/DeleteSubnetCidrReservationCommand";
 import { DeleteSubnetCommandInput, DeleteSubnetCommandOutput } from "./commands/DeleteSubnetCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
@@ -1169,6 +1177,10 @@ import {
   GetSerialConsoleAccessStatusCommandOutput,
 } from "./commands/GetSerialConsoleAccessStatusCommand";
 import {
+  GetSubnetCidrReservationsCommandInput,
+  GetSubnetCidrReservationsCommandOutput,
+} from "./commands/GetSubnetCidrReservationsCommand";
+import {
   GetTransitGatewayAttachmentPropagationsCommandInput,
   GetTransitGatewayAttachmentPropagationsCommandOutput,
 } from "./commands/GetTransitGatewayAttachmentPropagationsCommand";
@@ -1680,6 +1692,7 @@ export type ServiceInputTypes =
   | CreateSnapshotsCommandInput
   | CreateSpotDatafeedSubscriptionCommandInput
   | CreateStoreImageTaskCommandInput
+  | CreateSubnetCidrReservationCommandInput
   | CreateSubnetCommandInput
   | CreateTagsCommandInput
   | CreateTrafficMirrorFilterCommandInput
@@ -1735,6 +1748,7 @@ export type ServiceInputTypes =
   | DeleteSecurityGroupCommandInput
   | DeleteSnapshotCommandInput
   | DeleteSpotDatafeedSubscriptionCommandInput
+  | DeleteSubnetCidrReservationCommandInput
   | DeleteSubnetCommandInput
   | DeleteTagsCommandInput
   | DeleteTrafficMirrorFilterCommandInput
@@ -1944,6 +1958,7 @@ export type ServiceInputTypes =
   | GetPasswordDataCommandInput
   | GetReservedInstancesExchangeQuoteCommandInput
   | GetSerialConsoleAccessStatusCommandInput
+  | GetSubnetCidrReservationsCommandInput
   | GetTransitGatewayAttachmentPropagationsCommandInput
   | GetTransitGatewayMulticastDomainAssociationsCommandInput
   | GetTransitGatewayPrefixListReferencesCommandInput
@@ -2144,6 +2159,7 @@ export type ServiceOutputTypes =
   | CreateSnapshotsCommandOutput
   | CreateSpotDatafeedSubscriptionCommandOutput
   | CreateStoreImageTaskCommandOutput
+  | CreateSubnetCidrReservationCommandOutput
   | CreateSubnetCommandOutput
   | CreateTagsCommandOutput
   | CreateTrafficMirrorFilterCommandOutput
@@ -2199,6 +2215,7 @@ export type ServiceOutputTypes =
   | DeleteSecurityGroupCommandOutput
   | DeleteSnapshotCommandOutput
   | DeleteSpotDatafeedSubscriptionCommandOutput
+  | DeleteSubnetCidrReservationCommandOutput
   | DeleteSubnetCommandOutput
   | DeleteTagsCommandOutput
   | DeleteTrafficMirrorFilterCommandOutput
@@ -2408,6 +2425,7 @@ export type ServiceOutputTypes =
   | GetPasswordDataCommandOutput
   | GetReservedInstancesExchangeQuoteCommandOutput
   | GetSerialConsoleAccessStatusCommandOutput
+  | GetSubnetCidrReservationsCommandOutput
   | GetTransitGatewayAttachmentPropagationsCommandOutput
   | GetTransitGatewayMulticastDomainAssociationsCommandOutput
   | GetTransitGatewayPrefixListReferencesCommandOutput

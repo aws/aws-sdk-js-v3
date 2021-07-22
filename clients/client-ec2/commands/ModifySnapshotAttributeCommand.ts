@@ -22,12 +22,12 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
 
 /**
  * <p>Adds or removes permission settings for the specified snapshot. You may add or remove
- *       specified AWS account IDs from a snapshot's list of create volume permissions, but you cannot
+ *       specified account IDs from a snapshot's list of create volume permissions, but you cannot
  *       do both in a single operation. If you need to both add and remove account IDs for a snapshot,
  *       you must use multiple operations. You can make up to 500 modifications to a snapshot in a single operation.</p>
- *          <p>Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be made
- *       public. Snapshots encrypted with your default CMK cannot be shared with other accounts.</p>
- *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing snapshots</a> in the
+ *          <p>Encrypted snapshots and snapshots with Marketplace product codes cannot be made
+ *       public. Snapshots encrypted with your default KMS key cannot be shared with other accounts.</p>
+ *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Share a snapshot</a> in the
  *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

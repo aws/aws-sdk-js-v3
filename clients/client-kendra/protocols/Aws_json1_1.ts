@@ -280,6 +280,7 @@ import {
   UserTokenConfiguration,
   ValidationException,
   WebCrawlerConfiguration,
+  WorkDocsConfiguration,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -5563,6 +5564,10 @@ const serializeAws_json1_1DataSourceConfiguration = (input: DataSourceConfigurat
       input.WebCrawlerConfiguration !== null && {
         WebCrawlerConfiguration: serializeAws_json1_1WebCrawlerConfiguration(input.WebCrawlerConfiguration, context),
       }),
+    ...(input.WorkDocsConfiguration !== undefined &&
+      input.WorkDocsConfiguration !== null && {
+        WorkDocsConfiguration: serializeAws_json1_1WorkDocsConfiguration(input.WorkDocsConfiguration, context),
+      }),
   };
 };
 
@@ -7183,6 +7188,27 @@ const serializeAws_json1_1WebCrawlerConfiguration = (input: WebCrawlerConfigurat
   };
 };
 
+const serializeAws_json1_1WorkDocsConfiguration = (input: WorkDocsConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.CrawlComments !== undefined && input.CrawlComments !== null && { CrawlComments: input.CrawlComments }),
+    ...(input.ExclusionPatterns !== undefined &&
+      input.ExclusionPatterns !== null && {
+        ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+      }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
+    ...(input.InclusionPatterns !== undefined &&
+      input.InclusionPatterns !== null && {
+        InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
+      }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.UseChangeLog !== undefined && input.UseChangeLog !== null && { UseChangeLog: input.UseChangeLog }),
+  };
+};
+
 const deserializeAws_json1_1AccessControlListConfiguration = (
   output: any,
   context: __SerdeContext
@@ -7766,6 +7792,10 @@ const deserializeAws_json1_1DataSourceConfiguration = (
     WebCrawlerConfiguration:
       output.WebCrawlerConfiguration !== undefined && output.WebCrawlerConfiguration !== null
         ? deserializeAws_json1_1WebCrawlerConfiguration(output.WebCrawlerConfiguration, context)
+        : undefined,
+    WorkDocsConfiguration:
+      output.WorkDocsConfiguration !== undefined && output.WorkDocsConfiguration !== null
+        ? deserializeAws_json1_1WorkDocsConfiguration(output.WorkDocsConfiguration, context)
         : undefined,
   } as any;
 };
@@ -9485,6 +9515,26 @@ const deserializeAws_json1_1WebCrawlerConfiguration = (
         : undefined,
     Urls:
       output.Urls !== undefined && output.Urls !== null ? deserializeAws_json1_1Urls(output.Urls, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1WorkDocsConfiguration = (output: any, context: __SerdeContext): WorkDocsConfiguration => {
+  return {
+    CrawlComments: __expectBoolean(output.CrawlComments),
+    ExclusionPatterns:
+      output.ExclusionPatterns !== undefined && output.ExclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExclusionPatterns, context)
+        : undefined,
+    FieldMappings:
+      output.FieldMappings !== undefined && output.FieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context)
+        : undefined,
+    InclusionPatterns:
+      output.InclusionPatterns !== undefined && output.InclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.InclusionPatterns, context)
+        : undefined,
+    OrganizationId: __expectString(output.OrganizationId),
+    UseChangeLog: __expectBoolean(output.UseChangeLog),
   } as any;
 };
 

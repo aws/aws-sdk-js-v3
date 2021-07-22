@@ -23,8 +23,8 @@ export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplat
 /**
  * <p>Create a service template. The administrator creates a service template to define standardized infrastructure and an optional CICD
  *             service pipeline. Developers, in turn, select the service template from AWS Proton. If the selected service template includes a service
- *             pipeline definition, they provide a link to their source code repository. AWS Proton then deploys and manages the infrastructure defined by the
- *             selected service template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html">Service Templates</a> in the <i>AWS Proton Administration
+ *             pipeline definition, they provide a link to their source code repository. AWS Proton then deploys and manages the infrastructure defined by
+ *             the selected service template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html">Service Templates</a> in the <i>AWS Proton Administrator
  *                 Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

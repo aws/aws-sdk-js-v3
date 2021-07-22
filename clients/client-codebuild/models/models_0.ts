@@ -2,7 +2,7 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
- * <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+ * <p>An AWS service limit was exceeded for the calling AWS account.</p>
  */
 export interface AccountLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "AccountLimitExceededException";
@@ -136,6 +136,12 @@ export namespace BatchGetBuildBatchesInput {
   });
 }
 
+export enum BucketOwnerAccess {
+  FULL = "FULL",
+  NONE = "NONE",
+  READ_ONLY = "READ_ONLY",
+}
+
 /**
  * <p>Information about build output artifacts.</p>
  */
@@ -184,6 +190,47 @@ export interface BuildArtifacts {
    * <p> An identifier for this artifact definition. </p>
    */
   artifactIdentifier?: string;
+
+  /**
+   * <p>Specifies the access for objects that are uploaded to an Amazon S3 bucket that is owned by
+   *             another account.</p>
+   *         <p>By default, only the account that uploads the objects to the bucket has access to
+   *             these objects. This property allows you to give the bucket owner access to these
+   *             objects.</p>
+   *          <dl>
+   *             <dt>NONE</dt>
+   *             <dd>
+   *                 <p>The bucket owner does not have access to the objects. This is the
+   *                         default.</p>
+   *             </dd>
+   *             <dt>READ_ONLY</dt>
+   *             <dd>
+   *               <p>The bucket owner has read only access to the objects. The uploading account
+   *                         retains ownership of the objects.</p>
+   *             </dd>
+   *             <dt>FULL</dt>
+   *             <dd>
+   *               <p>The bucket owner has full access to the objects. Object ownership is determined
+   *                         by the following criteria:</p>
+   *                     <ul>
+   *                   <li>
+   *                             <p>If the bucket is configured with the <b>Bucket
+   *                                     owner preferred</b> setting, the bucket owner owns the
+   *                                 objects. The uploading account will have object access as specified
+   *                                 by the bucket's policy.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>Otherwise, the uploading account retains ownership of the
+   *                                 objects.</p>
+   *                         </li>
+   *                </ul>
+   *                     <p>For more information about Amazon S3 object ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of uploaded objects using S3
+   *                             Object Ownership</a> in the <i>Amazon Simple Storage Service User
+   *                         Guide</i>.</p>
+   *             </dd>
+   *          </dl>
+   */
+  bucketOwnerAccess?: BucketOwnerAccess | string;
 }
 
 export namespace BuildArtifacts {
@@ -207,7 +254,7 @@ export interface BatchRestrictions {
   /**
    * <p>An array of strings that specify the compute types that are allowed for the batch
    *             build. See <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build environment
-   *                 compute types</a> in the <i>CodeBuild User Guide</i> for these values.
+   *                 compute types</a> in the <i>AWS CodeBuild User Guide</i> for these values.
    *         </p>
    */
   computeTypesAllowed?: string[];
@@ -557,10 +604,10 @@ export interface EnvironmentVariable {
    * <p>The value of the environment variable.</p>
    *         <important>
    *             <p>We strongly discourage the use of <code>PLAINTEXT</code> environment variables to
-   *                 store sensitive values, especially Amazon Web Services secret key IDs and secret access keys.
+   *                 store sensitive values, especially AWS secret key IDs and secret access keys.
    *                     <code>PLAINTEXT</code> environment variables can be displayed in plain text
-   *                 using the CodeBuild console and the AWS Command Line Interface (AWS CLI). For sensitive values, we recommend you
-   *                 use an environment variable of type <code>PARAMETER_STORE</code> or
+   *                 using the AWS CodeBuild console and the AWS Command Line Interface (AWS CLI). For sensitive values, we recommend you use an
+   *                 environment variable of type <code>PARAMETER_STORE</code> or
    *                     <code>SECRETS_MANAGER</code>. </p>
    *         </important>
    */
@@ -571,10 +618,10 @@ export interface EnvironmentVariable {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>PARAMETER_STORE</code>: An environment variable stored in Systems Manager
+   *                   <code>PARAMETER_STORE</code>: An environment variable stored in Amazon EC2 Systems Manager
    *                     Parameter Store. To learn how to specify a parameter store environment variable,
    *                     see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store">env/parameter-store</a> in the
-   *                     <i>CodeBuild User Guide</i>.</p>
+   *                     <i>AWS CodeBuild User Guide</i>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -583,9 +630,10 @@ export interface EnvironmentVariable {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>SECRETS_MANAGER</code>: An environment variable stored in Secrets Manager. To
-   *                     learn how to specify a secrets manager environment variable, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager">env/secrets-manager</a> in the
-   *                     <i>CodeBuild User Guide</i>.</p>
+   *                   <code>SECRETS_MANAGER</code>: An environment variable stored in AWS Secrets
+   *                     Manager. To learn how to specify a secrets manager environment variable, see
+   *                         <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager">env/secrets-manager</a> in the
+   *                     <i>AWS CodeBuild User Guide</i>.</p>
    *             </li>
    *          </ul>
    */
@@ -624,21 +672,21 @@ export enum CredentialProviderType {
  *             </li>
  *          </ul>
  *         <p> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-private-registry.html">Private Registry with
- *                 Secrets Manager Sample for CodeBuild</a>. </p>
+ *                 AWS Secrets Manager Sample for AWS CodeBuild</a>. </p>
  */
 export interface RegistryCredential {
   /**
-   * <p> The Amazon Resource Name (ARN) or name of credentials created using Secrets Manager. </p>
+   * <p> The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager. </p>
    *         <note>
    *             <p> The <code>credential</code> can use the name of the credentials only if they
-   *                 exist in your current Region. </p>
+   *                 exist in your current AWS Region. </p>
    *         </note>
    */
   credential: string | undefined;
 
   /**
    * <p> The service that created the credentials to access a private Docker registry. The
-   *             valid value, SECRETS_MANAGER, is for Secrets Manager. </p>
+   *             valid value, SECRETS_MANAGER, is for AWS Secrets Manager. </p>
    */
   credentialProvider: CredentialProviderType | string | undefined;
 }
@@ -691,16 +739,6 @@ export interface ProjectEnvironment {
    *                     China (Ningxia).</p>
    *             </li>
    *          </ul>
-   *         <ul>
-   *             <li>
-   *                 <p>The environment types <code>WINDOWS_CONTAINER</code> and
-   *                         <code>WINDOWS_SERVER_2019_CONTAINER</code> are available only in regions
-   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), and
-   *                     EU (Ireland).</p>
-   *             </li>
-   *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build environment compute types</a> in the <i>CodeBuild
-   *                 user guide</i>.</p>
    */
   type: EnvironmentType | string | undefined;
 
@@ -720,8 +758,6 @@ export interface ProjectEnvironment {
    *                         <code><registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf</code>.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html">Docker images provided by CodeBuild</a> in the <i>CodeBuild user
-   *                 guide</i>.</p>
    */
   image: string | undefined;
 
@@ -766,8 +802,8 @@ export interface ProjectEnvironment {
    *                     memory and 8 vCPUs on ARM-based processors for builds.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build Environment
-   *                 Compute Types</a> in the <i>CodeBuild User Guide.</i>
+   *         <p> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build Environment
+   *                 Compute Types</a> in the <i>AWS CodeBuild User Guide.</i>
    *         </p>
    */
   computeType: ComputeType | string | undefined;
@@ -806,7 +842,7 @@ export interface ProjectEnvironment {
   /**
    * <p>The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded
    *             certificate for the build project. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate">certificate</a> in the
-   *                 <i>CodeBuild User Guide</i>.</p>
+   *                 <i>AWS CodeBuild User Guide</i>.</p>
    */
   certificate?: string;
 
@@ -816,22 +852,23 @@ export interface ProjectEnvironment {
   registryCredential?: RegistryCredential;
 
   /**
-   * <p> The type of credentials CodeBuild uses to pull images in your build. There are two valid
+   * <p> The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid
    *             values: </p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>CODEBUILD</code> specifies that CodeBuild uses its own credentials.
-   *                     This requires that you modify your ECR repository policy to trust CodeBuild service principal. </p>
+   *                     <code>CODEBUILD</code> specifies that AWS CodeBuild uses its own credentials.
+   *                     This requires that you modify your ECR repository policy to trust AWS
+   *                     CodeBuild's service principal. </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>SERVICE_ROLE</code> specifies that CodeBuild uses your build project's service
+   *                     <code>SERVICE_ROLE</code> specifies that AWS CodeBuild uses your build project's service
    *                     role. </p>
    *             </li>
    *          </ul>
    *         <p> When you use a cross-account or private registry image, you must use SERVICE_ROLE
-   *             credentials. When you use an CodeBuild curated image, you must use CODEBUILD credentials.
+   *             credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
    *         </p>
    */
   imagePullCredentialsType?: ImagePullCredentialsType | string;
@@ -865,7 +902,7 @@ export interface ProjectFileSystemLocation {
   /**
    * <p>A string that specifies the location of the file system created by Amazon EFS. Its
    *             format is <code>efs-dns-name:/directory-path</code>. You can find the DNS name of file
-   *             system when you view it in the Amazon EFS console. The directory path is a path to a
+   *             system when you view it in the AWS EFS console. The directory path is a path to a
    *             directory in the file system that CodeBuild mounts. For example, if the DNS name of a
    *             file system is <code>fs-abcd1234.efs.us-west-2.amazonaws.com</code>, and its mount
    *             directory is <code>my-efs-mount-directory</code>, then the <code>location</code> is
@@ -892,8 +929,8 @@ export interface ProjectFileSystemLocation {
   identifier?: string;
 
   /**
-   * <p> The mount options for a file system created by Amazon EFS. The default mount options used
-   *             by CodeBuild are
+   * <p> The mount options for a file system created by AWS EFS. The default mount options
+   *             used by CodeBuild are
    *                 <code>nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2</code>. For
    *             more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html">Recommended NFS Mount
    *                 Options</a>. </p>
@@ -916,32 +953,32 @@ export enum LogsConfigStatusType {
 }
 
 /**
- * <p> Information about CloudWatch Logs for a build project. </p>
+ * <p> Information about Amazon CloudWatch Logs for a build project. </p>
  */
 export interface CloudWatchLogsConfig {
   /**
-   * <p>The current status of the logs in CloudWatch Logs for a build project. Valid values are:</p>
+   * <p>The current status of the logs in Amazon CloudWatch Logs for a build project. Valid values are:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>ENABLED</code>: CloudWatch Logs are enabled for this build project.</p>
+   *                   <code>ENABLED</code>: Amazon CloudWatch Logs are enabled for this build project.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>DISABLED</code>: CloudWatch Logs are not enabled for this build project.</p>
+   *                   <code>DISABLED</code>: Amazon CloudWatch Logs are not enabled for this build project.</p>
    *             </li>
    *          </ul>
    */
   status: LogsConfigStatusType | string | undefined;
 
   /**
-   * <p> The group name of the logs in CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
+   * <p> The group name of the logs in Amazon CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
    *                 with Log Groups and Log Streams</a>. </p>
    */
   groupName?: string;
 
   /**
-   * <p> The prefix of the stream name of the CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
+   * <p> The prefix of the stream name of the Amazon CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
    *                 with Log Groups and Log Streams</a>. </p>
    */
   streamName?: string;
@@ -989,6 +1026,47 @@ export interface S3LogsConfig {
    *             build logs are encrypted. </p>
    */
   encryptionDisabled?: boolean;
+
+  /**
+   * <p>Specifies the access for objects that are uploaded to an Amazon S3 bucket that is owned by
+   *             another account.</p>
+   *         <p>By default, only the account that uploads the objects to the bucket has access to
+   *             these objects. This property allows you to give the bucket owner access to these
+   *             objects.</p>
+   *          <dl>
+   *             <dt>NONE</dt>
+   *             <dd>
+   *                 <p>The bucket owner does not have access to the objects. This is the
+   *                         default.</p>
+   *             </dd>
+   *             <dt>READ_ONLY</dt>
+   *             <dd>
+   *               <p>The bucket owner has read only access to the objects. The uploading account
+   *                         retains ownership of the objects.</p>
+   *             </dd>
+   *             <dt>FULL</dt>
+   *             <dd>
+   *               <p>The bucket owner has full access to the objects. Object ownership is determined
+   *                         by the following criteria:</p>
+   *                     <ul>
+   *                   <li>
+   *                             <p>If the bucket is configured with the <b>Bucket
+   *                                     owner preferred</b> setting, the bucket owner owns the
+   *                                 objects. The uploading account will have object access as specified
+   *                                 by the bucket's policy.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>Otherwise, the uploading account retains ownership of the
+   *                                 objects.</p>
+   *                         </li>
+   *                </ul>
+   *                     <p>For more information about Amazon S3 object ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of uploaded objects using S3
+   *                             Object Ownership</a> in the <i>Amazon Simple Storage Service User
+   *                         Guide</i>.</p>
+   *             </dd>
+   *          </dl>
+   */
+  bucketOwnerAccess?: BucketOwnerAccess | string;
 }
 
 export namespace S3LogsConfig {
@@ -1001,12 +1079,12 @@ export namespace S3LogsConfig {
 }
 
 /**
- * <p> Information about logs for a build project. These can be logs in CloudWatch Logs, built in a
+ * <p> Information about logs for a build project. These can be logs in Amazon CloudWatch Logs, built in a
  *             specified S3 bucket, or both. </p>
  */
 export interface LogsConfig {
   /**
-   * <p> Information about CloudWatch Logs for a build project. CloudWatch Logs are enabled by default. </p>
+   * <p> Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default. </p>
    */
   cloudWatchLogs?: CloudWatchLogsConfig;
 
@@ -1175,10 +1253,10 @@ export enum SourceAuthType {
 }
 
 /**
- * <p>Information about the authorization settings for CodeBuild to access the source code
- *             to be built.</p>
- *         <p>This information is for the CodeBuild console's use only. Your code should not get or
- *             set this information directly.</p>
+ * <p>Information about the authorization settings for AWS CodeBuild to access the source code to be
+ *             built.</p>
+ *         <p>This information is for the AWS CodeBuild console's use only. Your code should not get or set
+ *             this information directly.</p>
  */
 export interface SourceAuth {
   /**
@@ -1206,7 +1284,7 @@ export namespace SourceAuth {
 }
 
 /**
- * <p>Contains information that defines how the CodeBuild build project reports the build status
+ * <p>Contains information that defines how the AWS CodeBuild build project reports the build status
  *             to the source provider. </p>
  */
 export interface BuildStatusConfig {
@@ -1257,12 +1335,12 @@ export namespace BuildStatusConfig {
 }
 
 /**
- * <p> Information about the Git submodules configuration for an CodeBuild build project.
+ * <p> Information about the Git submodules configuration for an AWS CodeBuild build project.
  *         </p>
  */
 export interface GitSubmodulesConfig {
   /**
-   * <p> Set to true to fetch Git submodules for your CodeBuild build project. </p>
+   * <p> Set to true to fetch Git submodules for your AWS CodeBuild build project. </p>
    */
   fetchSubmodules: boolean | undefined;
 }
@@ -1300,12 +1378,12 @@ export interface ProjectSource {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>CODECOMMIT</code>: The source code is in an CodeCommit repository.</p>
+   *                   <code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>CODEPIPELINE</code>: The source code settings are specified in the
-   *                     source action of a pipeline in CodePipeline.</p>
+   *                     source action of a pipeline in AWS CodePipeline.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1335,12 +1413,12 @@ export interface ProjectSource {
    *         <ul>
    *             <li>
    *                 <p>For source code settings that are specified in the source action of a pipeline
-   *                     in CodePipeline, <code>location</code> should not be specified. If it is specified,
-   *                     CodePipeline ignores it. This is because CodePipeline uses the settings in a pipeline's source
+   *                     in AWS CodePipeline, <code>location</code> should not be specified. If it is specified,
+   *                     AWS CodePipeline ignores it. This is because AWS CodePipeline uses the settings in a pipeline's source
    *                     action instead of this value.</p>
    *             </li>
    *             <li>
-   *                 <p>For source code in an CodeCommit repository, the HTTPS clone URL to the repository
+   *                 <p>For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository
    *                     that contains the source code and the buildspec file (for example,
    *                         <code>https://git-codecommit.<region-ID>.amazonaws.com/v1/repos/<repo-name></code>).</p>
    *             </li>
@@ -1359,36 +1437,32 @@ export interface ProjectSource {
    *             </li>
    *             <li>
    *                 <p>For source code in a GitHub repository, the HTTPS clone URL to the repository
-   *                     that contains the source and the buildspec file. You must connect your account
-   *                     to your GitHub account. Use the CodeBuild console to start creating a build
+   *                     that contains the source and the buildspec file. You must connect your AWS
+   *                     account to your GitHub account. Use the AWS CodeBuild console to start creating a build
    *                     project. When you use the console to connect (or reconnect) with GitHub, on the
    *                     GitHub <b>Authorize application</b> page, for
    *                         <b>Organization access</b>, choose <b>Request access</b> next to each repository you want to
-   *                     allow CodeBuild to have access to, and then choose <b>Authorize
+   *                     allow AWS CodeBuild to have access to, and then choose <b>Authorize
    *                         application</b>. (After you have connected to your GitHub account,
-   *                     you do not need to finish creating the build project. You can leave the CodeBuild
-   *                     console.) To instruct CodeBuild to use this connection, in the <code>source</code>
+   *                     you do not need to finish creating the build project. You can leave the AWS CodeBuild
+   *                     console.) To instruct AWS CodeBuild to use this connection, in the <code>source</code>
    *                     object, set the <code>auth</code> object's <code>type</code> value to
    *                         <code>OAUTH</code>.</p>
    *             </li>
    *             <li>
    *                 <p>For source code in a Bitbucket repository, the HTTPS clone URL to the
    *                     repository that contains the source and the buildspec file. You must connect
-   *                     your Amazon Web Services account to your Bitbucket account. Use the CodeBuild console to start
+   *                     your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start
    *                     creating a build project. When you use the console to connect (or reconnect)
    *                     with Bitbucket, on the Bitbucket <b>Confirm access to your
    *                         account</b> page, choose <b>Grant
    *                         access</b>. (After you have connected to your Bitbucket account, you
-   *                     do not need to finish creating the build project. You can leave the CodeBuild
-   *                     console.) To instruct CodeBuild to use this connection, in the <code>source</code>
+   *                     do not need to finish creating the build project. You can leave the AWS CodeBuild
+   *                     console.) To instruct AWS CodeBuild to use this connection, in the <code>source</code>
    *                     object, set the <code>auth</code> object's <code>type</code> value to
    *                         <code>OAUTH</code>.</p>
    *             </li>
    *          </ul>
-   *         <p>
-   *           If you specify <code>CODEPIPELINE</code> for the <code>Type</code> property, don't specify this
-   *           property. For all of the other types, you must specify <code>Location</code>.
-   *        </p>
    */
   location?: string;
 
@@ -1407,7 +1481,7 @@ export interface ProjectSource {
    *         <p> If this value is set, it can be either an inline buildspec definition, the path to an
    *             alternate buildspec file relative to the value of the built-in
    *                 <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket.
-   *             The bucket must be in the same Region as the build project. Specify the buildspec
+   *             The bucket must be in the same AWS Region as the build project. Specify the buildspec
    *             file using its ARN (for example,
    *                 <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
    *             provided or is set to an empty string, the source code must contain a buildspec file in
@@ -1416,9 +1490,9 @@ export interface ProjectSource {
   buildspec?: string;
 
   /**
-   * <p>Information about the authorization settings for CodeBuild to access the source code to be
+   * <p>Information about the authorization settings for AWS CodeBuild to access the source code to be
    *             built.</p>
-   *         <p>This information is for the CodeBuild console's use only. Your code should not get or set
+   *         <p>This information is for the AWS CodeBuild console's use only. Your code should not get or set
    *             this information directly.</p>
    */
   auth?: SourceAuth;
@@ -1429,7 +1503,7 @@ export interface ProjectSource {
    *             Enterprise, or Bitbucket. If this is set and you use a different source provider, an
    *             <code>invalidInputException</code> is thrown. </p>
    *             <p>To be able to report the build status to the source provider, the user associated with the source provider must
-   * have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p>
+   * have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>AWS CodeBuild User Guide</i>.</p>
    *         <note>
    *             <p> The status of a build triggered by a webhook is always reported to your source
    *                 provider. </p>
@@ -1482,7 +1556,7 @@ export interface ProjectSourceVersion {
    *           of:</p>
    *          <ul>
    *             <li>
-   *               <p>For CodeCommit: the commit ID, branch, or Git tag to use.</p>
+   *               <p>For AWS CodeCommit: the commit ID, branch, or Git tag to use.</p>
    *             </li>
    *             <li>
    *               <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that
@@ -1504,7 +1578,7 @@ export interface ProjectSourceVersion {
    *             </li>
    *          </ul>
    *          <p> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample
-   *               with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>
+   *               with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>. </p>
    */
   sourceVersion: string | undefined;
 }
@@ -1519,7 +1593,7 @@ export namespace ProjectSourceVersion {
 }
 
 /**
- * <p>Information about the VPC configuration that CodeBuild accesses.</p>
+ * <p>Information about the VPC configuration that AWS CodeBuild accesses.</p>
  */
 export interface VpcConfig {
   /**
@@ -1590,10 +1664,10 @@ export interface BuildBatch {
    * <p>The identifier of the resolved version of this batch build's source code.</p>
    *         <ul>
    *             <li>
-   *                 <p>For CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID.</p>
+   *                 <p>For AWS CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID.</p>
    *             </li>
    *             <li>
-   *                 <p>For CodePipeline, the source revision provided by CodePipeline.</p>
+   *                 <p>For AWS CodePipeline, the source revision provided by AWS CodePipeline.</p>
    *             </li>
    *             <li>
    *                 <p>For Amazon S3, this does not apply.</p>
@@ -1629,7 +1703,7 @@ export interface BuildBatch {
    *                 <code>ProjectSourceVersion</code> must be one of: </p>
    *          <ul>
    *             <li>
-   *                <p>For CodeCommit: the commit ID, branch, or Git tag to use.</p>
+   *                <p>For AWS CodeCommit: the commit ID, branch, or Git tag to use.</p>
    *             </li>
    *             <li>
    *                <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that
@@ -1680,7 +1754,7 @@ export interface BuildBatch {
   serviceRole?: string;
 
   /**
-   * <p> Information about logs for a build project. These can be logs in CloudWatch Logs, built in a
+   * <p> Information about logs for a build project. These can be logs in Amazon CloudWatch Logs, built in a
    *             specified S3 bucket, or both. </p>
    */
   logConfig?: LogsConfig;
@@ -1706,14 +1780,14 @@ export interface BuildBatch {
    * <p>The entity that started the batch build. Valid values include:</p>
    *         <ul>
    *             <li>
-   *                 <p>If CodePipeline started the build, the pipeline's name (for example,
+   *                 <p>If AWS CodePipeline started the build, the pipeline's name (for example,
    *                         <code>codepipeline/my-demo-pipeline</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>If an Identity and Access Management user started the build, the user's name.</p>
+   *                 <p>If an AWS Identity and Access Management (IAM) user started the build, the user's name.</p>
    *             </li>
    *             <li>
-   *                 <p>If the Jenkins plugin for CodeBuild started the build, the string
+   *                 <p>If the Jenkins plugin for AWS CodeBuild started the build, the string
    *                         <code>CodeBuild-Jenkins-Plugin</code>.</p>
    *             </li>
    *          </ul>
@@ -1721,12 +1795,12 @@ export interface BuildBatch {
   initiator?: string;
 
   /**
-   * <p>Information about the VPC configuration that CodeBuild accesses.</p>
+   * <p>Information about the VPC configuration that AWS CodeBuild accesses.</p>
    */
   vpcConfig?: VpcConfig;
 
   /**
-   * <p>The Key Management Service customer master key (CMK) to be used for encrypting the batch build output
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the batch build output
    *             artifacts.</p>
    *         <note>
    *             <p>You can use a cross-account KMS key to encrypt the build output artifacts if your
@@ -1848,16 +1922,16 @@ export namespace DebugSession {
 
 /**
  * <p>Contains information about an exported environment variable. </p>
- *         <p>Exported environment variables are used in conjunction with CodePipeline to export
+ *         <p>Exported environment variables are used in conjunction with AWS CodePipeline to export
  *   environment variables from the current build stage to subsequent stages in the pipeline.
- *   For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-variables.html">Working with variables</a> in the <i>CodePipeline User Guide</i>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-variables.html">Working with variables</a> in the <i>AWS CodePipeline User Guide</i>.</p>
  *         <note>
  *             <p> During a build, the value of a variable is available starting with the
- *                     <code>install</code> phase. It can be updated between the start of the
- *                     <code>install</code> phase and the end of the <code>post_build</code> phase.
- *                 After the <code>post_build</code> phase ends, the value of exported variables cannot
- *                 change.</p>
- *         </note>
+ *                   <code>install</code> phase. It can be updated between the start of the
+ *                   <code>install</code> phase and the end of the <code>post_build</code> phase.
+ *               After the <code>post_build</code> phase ends, the value of exported variables cannot
+ *               change.</p>
+ *          </note>
  */
 export interface ExportedEnvironmentVariable {
   /**
@@ -1881,21 +1955,21 @@ export namespace ExportedEnvironmentVariable {
 }
 
 /**
- * <p>Information about build logs in CloudWatch Logs.</p>
+ * <p>Information about build logs in Amazon CloudWatch Logs.</p>
  */
 export interface LogsLocation {
   /**
-   * <p>The name of the CloudWatch Logs group for the build logs.</p>
+   * <p>The name of the Amazon CloudWatch Logs group for the build logs.</p>
    */
   groupName?: string;
 
   /**
-   * <p>The name of the CloudWatch Logs stream for the build logs.</p>
+   * <p>The name of the Amazon CloudWatch Logs stream for the build logs.</p>
    */
   streamName?: string;
 
   /**
-   * <p>The URL to an individual build log in CloudWatch Logs.</p>
+   * <p>The URL to an individual build log in Amazon CloudWatch Logs.</p>
    */
   deepLink?: string;
 
@@ -1905,9 +1979,9 @@ export interface LogsLocation {
   s3DeepLink?: string;
 
   /**
-   * <p> The ARN of CloudWatch Logs for a build project. Its format is
+   * <p> The ARN of Amazon CloudWatch Logs for a build project. Its format is
    *                 <code>arn:${Partition}:logs:${Region}:${Account}:log-group:${LogGroupName}:log-stream:${LogStreamName}</code>.
-   *             For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatchlogs.html#amazoncloudwatchlogs-resources-for-iam-policies">Resources Defined by CloudWatch Logs</a>. </p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatchlogs.html#amazoncloudwatchlogs-resources-for-iam-policies">Resources Defined by Amazon CloudWatch Logs</a>. </p>
    */
   cloudWatchLogsArn?: string;
 
@@ -1919,7 +1993,7 @@ export interface LogsLocation {
   s3LogsArn?: string;
 
   /**
-   * <p> Information about CloudWatch Logs for a build project. </p>
+   * <p> Information about Amazon CloudWatch Logs for a build project. </p>
    */
   cloudWatchLogs?: CloudWatchLogsConfig;
 
@@ -2180,7 +2254,7 @@ export interface Build {
    *                 <code>sourceVersion</code> is specified at the project level, then this
    *                 <code>sourceVersion</code> (at the build level) takes precedence. </p>
    *         <p> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample
-   *                 with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>
+   *                 with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>. </p>
    */
   sourceVersion?: string;
 
@@ -2188,10 +2262,10 @@ export interface Build {
    * <p> An identifier for the version of this build's source code. </p>
    *         <ul>
    *             <li>
-   *                 <p> For CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID. </p>
+   *                 <p> For AWS CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID. </p>
    *             </li>
    *             <li>
-   *                 <p> For CodePipeline, the source revision provided by CodePipeline. </p>
+   *                 <p> For AWS CodePipeline, the source revision provided by AWS CodePipeline. </p>
    *             </li>
    *             <li>
    *                 <p> For Amazon S3, this does not apply. </p>
@@ -2201,7 +2275,7 @@ export interface Build {
   resolvedSourceVersion?: string;
 
   /**
-   * <p>The name of the CodeBuild project.</p>
+   * <p>The name of the AWS CodeBuild project.</p>
    */
   projectName?: string;
 
@@ -2226,7 +2300,7 @@ export interface Build {
    *                 <code>ProjectSourceVersion</code> must be one of: </p>
    *         <ul>
    *             <li>
-   *                 <p>For CodeCommit: the commit ID, branch, or Git tag to use.</p>
+   *                 <p>For AWS CodeCommit: the commit ID, branch, or Git tag to use.</p>
    *             </li>
    *             <li>
    *                 <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that
@@ -2276,13 +2350,13 @@ export interface Build {
   serviceRole?: string;
 
   /**
-   * <p>Information about the build's logs in CloudWatch Logs.</p>
+   * <p>Information about the build's logs in Amazon CloudWatch Logs.</p>
    */
   logs?: LogsLocation;
 
   /**
-   * <p>How long, in minutes, for CodeBuild to wait before timing out this build if it does
-   *             not get marked as completed.</p>
+   * <p>How long, in minutes, for AWS CodeBuild to wait before timing out this build if it does not
+   *             get marked as completed.</p>
    */
   timeoutInMinutes?: number;
 
@@ -2300,15 +2374,15 @@ export interface Build {
    * <p>The entity that started the build. Valid values include:</p>
    *         <ul>
    *             <li>
-   *                 <p>If CodePipeline started the build, the pipeline's name (for example,
+   *                 <p>If AWS CodePipeline started the build, the pipeline's name (for example,
    *                         <code>codepipeline/my-demo-pipeline</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>If an Identity and Access Management user started the build, the user's name (for example,
+   *                 <p>If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example,
    *                         <code>MyUserName</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>If the Jenkins plugin for CodeBuild started the build, the string
+   *                 <p>If the Jenkins plugin for AWS CodeBuild started the build, the string
    *                         <code>CodeBuild-Jenkins-Plugin</code>.</p>
    *             </li>
    *          </ul>
@@ -2316,10 +2390,10 @@ export interface Build {
   initiator?: string;
 
   /**
-   * <p>If your CodeBuild project accesses resources in an Amazon VPC, you provide this
-   *             parameter that identifies the VPC ID and the list of security group IDs and subnet IDs.
-   *             The security groups and subnets must belong to the same VPC. You must provide at least
-   *             one security group and one subnet ID.</p>
+   * <p>If your AWS CodeBuild project accesses resources in an Amazon VPC, you provide this parameter
+   *             that identifies the VPC ID and the list of security group IDs and subnet IDs. The
+   *             security groups and subnets must belong to the same VPC. You must provide at least one
+   *             security group and one subnet ID.</p>
    */
   vpcConfig?: VpcConfig;
 
@@ -2329,7 +2403,7 @@ export interface Build {
   networkInterface?: NetworkInterface;
 
   /**
-   * <p>The Key Management Service customer master key (CMK) to be used for encrypting the build output
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
    *             artifacts.</p>
    *         <note>
    *             <p> You can use a cross-account KMS key to encrypt the build output artifacts if your
@@ -2342,9 +2416,9 @@ export interface Build {
 
   /**
    * <p>A list of exported environment variables for this build.</p>
-   *         <p>Exported environment variables are used in conjunction with CodePipeline to export
+   *         <p>Exported environment variables are used in conjunction with AWS CodePipeline to export
    *   environment variables from the current build stage to subsequent stages in the pipeline.
-   *   For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-variables.html">Working with variables</a> in the <i>CodePipeline User Guide</i>.</p>
+   *   For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-variables.html">Working with variables</a> in the <i>AWS CodePipeline User Guide</i>.</p>
    */
   exportedEnvironmentVariables?: ExportedEnvironmentVariable[];
 
@@ -2406,7 +2480,7 @@ export namespace BatchGetBuildsOutput {
 export interface BatchGetProjectsInput {
   /**
    * <p>The names or ARNs of the build projects. To get information about a project shared
-   *             with your Amazon Web Services account, its ARN must be specified. You cannot specify a shared project
+   *             with your AWS account, its ARN must be specified. You cannot specify a shared project
    *             using its name.</p>
    */
   names: string[] | undefined;
@@ -2431,7 +2505,7 @@ export interface ProjectArtifacts {
    *             <li>
    *                 <p>
    *                   <code>CODEPIPELINE</code>: The build project has build output generated
-   *                     through CodePipeline. </p>
+   *                     through AWS CodePipeline. </p>
    *                 <note>
    *                     <p>The <code>CODEPIPELINE</code> type is not supported for
    *                             <code>secondaryArtifacts</code>.</p>
@@ -2454,9 +2528,9 @@ export interface ProjectArtifacts {
    * <p>Information about the build output artifact location:</p>
    *         <ul>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
-   *                     value if specified. This is because CodePipeline manages its build output locations
-   *                     instead of CodeBuild.</p>
+   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this
+   *                     value if specified. This is because AWS CodePipeline manages its build output locations
+   *                     instead of AWS CodeBuild.</p>
    *             </li>
    *             <li>
    *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
@@ -2471,13 +2545,13 @@ export interface ProjectArtifacts {
   location?: string;
 
   /**
-   * <p>Along with <code>namespaceType</code> and <code>name</code>, the pattern that
-   *             CodeBuild uses to name and store the output artifact:</p>
+   * <p>Along with <code>namespaceType</code> and <code>name</code>, the pattern that AWS CodeBuild
+   *             uses to name and store the output artifact:</p>
    *         <ul>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
-   *                     value if specified. This is because CodePipeline manages its build output names instead
-   *                     of CodeBuild.</p>
+   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this
+   *                     value if specified. This is because AWS CodePipeline manages its build output names instead
+   *                     of AWS CodeBuild.</p>
    *             </li>
    *             <li>
    *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
@@ -2497,13 +2571,13 @@ export interface ProjectArtifacts {
   path?: string;
 
   /**
-   * <p>Along with <code>path</code> and <code>name</code>, the pattern that CodeBuild uses to
+   * <p>Along with <code>path</code> and <code>name</code>, the pattern that AWS CodeBuild uses to
    *             determine the name and location to store the output artifact:</p>
    *         <ul>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
-   *                     value if specified. This is because CodePipeline manages its build output names instead
-   *                     of CodeBuild.</p>
+   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this
+   *                     value if specified. This is because AWS CodePipeline manages its build output names instead
+   *                     of AWS CodeBuild.</p>
    *             </li>
    *             <li>
    *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
@@ -2533,13 +2607,13 @@ export interface ProjectArtifacts {
   namespaceType?: ArtifactNamespace | string;
 
   /**
-   * <p>Along with <code>path</code> and <code>namespaceType</code>, the pattern that
-   *             CodeBuild uses to name and store the output artifact:</p>
+   * <p>Along with <code>path</code> and <code>namespaceType</code>, the pattern that AWS CodeBuild
+   *             uses to name and store the output artifact:</p>
    *         <ul>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
-   *                     value if specified. This is because CodePipeline manages its build output names instead
-   *                     of CodeBuild.</p>
+   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this
+   *                     value if specified. This is because AWS CodePipeline manages its build output names instead
+   *                     of AWS CodeBuild.</p>
    *             </li>
    *             <li>
    *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
@@ -2557,8 +2631,7 @@ export interface ProjectArtifacts {
    *                 <p> If <code>path</code> is set to <code>MyArtifacts</code>,
    *                         <code>namespaceType</code> is set to <code>BUILD_ID</code>, and
    *                         <code>name</code> is set to <code>MyArtifact.zip</code>, then the output
-   *                     artifact is stored in <code>MyArtifacts/<build-ID>/MyArtifact.zip</code>.
-   *                 </p>
+   *                     artifact is stored in <code>MyArtifacts/<build-ID>/MyArtifact.zip</code>. </p>
    *             </li>
    *             <li>
    *                 <p> If <code>path</code> is empty, <code>namespaceType</code> is set to
@@ -2579,9 +2652,9 @@ export interface ProjectArtifacts {
    * <p>The type of build output artifact to create:</p>
    *         <ul>
    *             <li>
-   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, CodePipeline ignores this
-   *                     value if specified. This is because CodePipeline manages its build output artifacts
-   *                     instead of CodeBuild.</p>
+   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this
+   *                     value if specified. This is because AWS CodePipeline manages its build output artifacts
+   *                     instead of AWS CodeBuild.</p>
    *             </li>
    *             <li>
    *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
@@ -2592,14 +2665,14 @@ export interface ProjectArtifacts {
    *                 <ul>
    *                   <li>
    *                         <p>
-   *                         <code>NONE</code>: CodeBuild creates in the output bucket a folder
-   *                             that contains the build output. This is the default if
-   *                                 <code>packaging</code> is not specified.</p>
+   *                         <code>NONE</code>: AWS CodeBuild creates in the output bucket a folder that
+   *                             contains the build output. This is the default if <code>packaging</code>
+   *                             is not specified.</p>
    *                     </li>
    *                   <li>
    *                         <p>
-   *                         <code>ZIP</code>: CodeBuild creates in the output bucket a ZIP file
-   *                             that contains the build output.</p>
+   *                         <code>ZIP</code>: AWS CodeBuild creates in the output bucket a ZIP file that
+   *                             contains the build output.</p>
    *                     </li>
    *                </ul>
    *             </li>
@@ -2626,6 +2699,47 @@ export interface ProjectArtifacts {
    * <p> An identifier for this artifact definition. </p>
    */
   artifactIdentifier?: string;
+
+  /**
+   * <p>Specifies the access for objects that are uploaded to an Amazon S3 bucket that is owned by
+   *             another account.</p>
+   *         <p>By default, only the account that uploads the objects to the bucket has access to
+   *             these objects. This property allows you to give the bucket owner access to these
+   *             objects.</p>
+   *          <dl>
+   *             <dt>NONE</dt>
+   *             <dd>
+   *                 <p>The bucket owner does not have access to the objects. This is the
+   *                         default.</p>
+   *             </dd>
+   *             <dt>READ_ONLY</dt>
+   *             <dd>
+   *               <p>The bucket owner has read only access to the objects. The uploading account
+   *                         retains ownership of the objects.</p>
+   *             </dd>
+   *             <dt>FULL</dt>
+   *             <dd>
+   *               <p>The bucket owner has full access to the objects. Object ownership is determined
+   *                         by the following criteria:</p>
+   *                     <ul>
+   *                   <li>
+   *                             <p>If the bucket is configured with the <b>Bucket
+   *                                     owner preferred</b> setting, the bucket owner owns the
+   *                                 objects. The uploading account will have object access as specified
+   *                                 by the bucket's policy.</p>
+   *                         </li>
+   *                   <li>
+   *                             <p>Otherwise, the uploading account retains ownership of the
+   *                                 objects.</p>
+   *                         </li>
+   *                </ul>
+   *                     <p>For more information about Amazon S3 object ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of uploaded objects using S3
+   *                             Object Ownership</a> in the <i>Amazon Simple Storage Service User
+   *                         Guide</i>.</p>
+   *             </dd>
+   *          </dl>
+   */
+  bucketOwnerAccess?: BucketOwnerAccess | string;
 }
 
 export namespace ProjectArtifacts {
@@ -2665,7 +2779,7 @@ export namespace ProjectBadge {
 
 /**
  * <p>A tag, consisting of a key and a value.</p>
- *         <p>This tag is available for use by Amazon Web Services services that support tags in CodeBuild.</p>
+ *         <p>This tag is available for use by AWS services that support tags in AWS CodeBuild.</p>
  */
 export interface Tag {
   /**
@@ -2711,7 +2825,9 @@ export interface WebhookFilter {
    *                 <code>ACTOR_ACCOUNT_ID</code>, <code>HEAD_REF</code>, <code>BASE_REF</code>,
    *                 <code>FILE_PATH</code>, and <code>COMMIT_MESSAGE</code>. </p>
    *         <dl>
-   *             <dt> EVENT </dt>
+   *             <dt>
+   *                EVENT
+   *             </dt>
    *             <dd>
    *                     <p> A webhook event triggers a build when the provided <code>pattern</code>
    *                         matches one of five event types: <code>PUSH</code>,
@@ -2726,13 +2842,17 @@ export interface WebhookFilter {
    *                             Enterprise only. </p>
    *                     </note>
    *                 </dd>
-   *             <dt> ACTOR_ACCOUNT_ID </dt>
+   *             <dt>
+   *                ACTOR_ACCOUNT_ID
+   *             </dt>
    *             <dd>
    *                     <p> A webhook event triggers a build when a GitHub, GitHub Enterprise, or
    *                         Bitbucket account ID matches the regular expression <code>pattern</code>.
    *                     </p>
    *                 </dd>
-   *             <dt> HEAD_REF </dt>
+   *             <dt>
+   *                HEAD_REF
+   *             </dt>
    *             <dd>
    *                     <p> A webhook event triggers a build when the head reference matches the
    *                         regular expression <code>pattern</code>. For example,
@@ -2741,7 +2861,9 @@ export interface WebhookFilter {
    *                         Enterprise pull request, Bitbucket push, and Bitbucket pull request events.
    *                     </p>
    *                 </dd>
-   *             <dt> BASE_REF </dt>
+   *             <dt>
+   *                BASE_REF
+   *             </dt>
    *             <dd>
    *                     <p> A webhook event triggers a build when the base reference matches the
    *                         regular expression <code>pattern</code>. For example,
@@ -2750,7 +2872,9 @@ export interface WebhookFilter {
    *                         <p> Works with pull request events only. </p>
    *                     </note>
    *                 </dd>
-   *             <dt> FILE_PATH </dt>
+   *             <dt>
+   *                FILE_PATH
+   *             </dt>
    *             <dd>
    *                     <p> A webhook triggers a build when the path of a changed file matches the
    *                         regular expression <code>pattern</code>. </p>
@@ -2807,7 +2931,7 @@ export namespace WebhookFilter {
 
 /**
  * <p>Information about a webhook that connects repository events to a build project in
- *       CodeBuild.</p>
+ *       AWS CodeBuild.</p>
  */
 export interface Webhook {
   /**
@@ -2816,7 +2940,7 @@ export interface Webhook {
   url?: string;
 
   /**
-   * <p>The CodeBuild endpoint where webhook events are sent.</p>
+   * <p>The AWS CodeBuild endpoint where webhook events are sent.</p>
    */
   payloadUrl?: string;
 
@@ -2904,7 +3028,7 @@ export interface Project {
    *       latest version is used. If specified, it must be one of:</p>
    *          <ul>
    *             <li>
-   *                <p>For CodeCommit: the commit ID, branch, or Git tag to use.</p>
+   *                <p>For AWS CodeCommit: the commit ID, branch, or Git tag to use.</p>
    *             </li>
    *             <li>
    *                <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that
@@ -2928,7 +3052,7 @@ export interface Project {
    *          <p>If <code>sourceVersion</code> is specified at the build level, then that version
    *       takes precedence over this <code>sourceVersion</code> (at the project level). </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample
-   *       with CodeBuild</a> in the <i>CodeBuild User Guide</i>.
+   *       with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>.
    *     </p>
    */
   sourceVersion?: string;
@@ -2961,13 +3085,13 @@ export interface Project {
   environment?: ProjectEnvironment;
 
   /**
-   * <p>The ARN of the Identity and Access Management role that enables CodeBuild to interact with dependent Amazon Web Services services
-   *       on behalf of the Amazon Web Services account.</p>
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services
+   *       on behalf of the AWS account.</p>
    */
   serviceRole?: string;
 
   /**
-   * <p>How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait before timing out any
+   * <p>How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before timing out any
    *       related build that did not get marked as completed. The default is 60 minutes.</p>
    */
   timeoutInMinutes?: number;
@@ -2978,22 +3102,21 @@ export interface Project {
   queuedTimeoutInMinutes?: number;
 
   /**
-   * <p>The Key Management Service customer master key (CMK) to be used for encrypting the build output
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
    *       artifacts.</p>
    *          <note>
    *             <p>You can use a cross-account KMS key to encrypt the build output artifacts if your
    *         service role has permission to that key. </p>
    *          </note>
    *          <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
-   *         the format <code>alias/<alias-name></code>). If you don't specify a
-   *         value, CodeBuild uses the managed CMK for Amazon Simple Storage Service (Amazon S3).
+   *         the format <code>alias/<alias-name></code>).
    *     </p>
    */
   encryptionKey?: string;
 
   /**
    * <p>A list of tag key and value pairs associated with this build project.</p>
-   *          <p>These tags are available for use by Amazon Web Services services that support CodeBuild build project
+   *          <p>These tags are available for use by AWS services that support AWS CodeBuild build project
    *       tags.</p>
    */
   tags?: Tag[];
@@ -3011,12 +3134,12 @@ export interface Project {
 
   /**
    * <p>Information about a webhook that connects repository events to a build project in
-   *       CodeBuild.</p>
+   *       AWS CodeBuild.</p>
    */
   webhook?: Webhook;
 
   /**
-   * <p>Information about the VPC configuration that CodeBuild accesses.</p>
+   * <p>Information about the VPC configuration that AWS CodeBuild accesses.</p>
    */
   vpcConfig?: VpcConfig;
 
@@ -3026,7 +3149,7 @@ export interface Project {
   badge?: ProjectBadge;
 
   /**
-   * <p>Information about logs for the build project. A project can create logs in CloudWatch Logs, an
+   * <p>Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an
    *       S3 bucket, or both. </p>
    */
   logsConfig?: LogsConfig;
@@ -3123,9 +3246,8 @@ export interface S3ReportExportConfig {
   bucket?: string;
 
   /**
-   * <p>The Amazon Web Services account identifier of the owner of the Amazon S3 bucket. This allows report data
-   *             to be exported to an Amazon S3 bucket that is owned by an account other than the account
-   *             running the build.</p>
+   * <p>The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket
+   *         that is owned by an account other than the account running the build.</p>
    */
   bucketOwner?: string;
 
@@ -3139,13 +3261,13 @@ export interface S3ReportExportConfig {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>NONE</code>: CodeBuild creates the raw data in the output bucket. This is the
-   *                     default if packaging is not specified. </p>
+   *                     <code>NONE</code>: AWS CodeBuild creates the raw data in the output bucket. This
+   *                     is the default if packaging is not specified. </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>ZIP</code>: CodeBuild creates a ZIP file with the raw data in the output
-   *                     bucket. </p>
+   *                     <code>ZIP</code>: AWS CodeBuild creates a ZIP file with the raw data in the
+   *                     output bucket. </p>
    *             </li>
    *          </ul>
    */
@@ -3268,7 +3390,7 @@ export interface ReportGroup {
 
   /**
    * <p>A list of tag key and value pairs associated with this report group. </p>
-   *         <p>These tags are available for use by Amazon Web Services services that support CodeBuild report group
+   *         <p>These tags are available for use by AWS services that support AWS CodeBuild report group
    *       tags.</p>
    */
   tags?: Tag[];
@@ -3593,7 +3715,7 @@ export interface CreateProjectInput {
    *             version is used. If specified, it must be one of: </p>
    *          <ul>
    *             <li>
-   *                <p>For CodeCommit: the commit ID, branch, or Git tag to use.</p>
+   *                <p>For AWS CodeCommit: the commit ID, branch, or Git tag to use.</p>
    *             </li>
    *             <li>
    *                <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that
@@ -3617,7 +3739,7 @@ export interface CreateProjectInput {
    *          <p>If <code>sourceVersion</code> is specified at the build level, then that version takes
    *             precedence over this <code>sourceVersion</code> (at the project level). </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample
-   *                 with CodeBuild</a> in the <i>CodeBuild User Guide</i>.
+   *                 with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>.
    *     </p>
    */
   sourceVersion?: string;
@@ -3652,13 +3774,13 @@ export interface CreateProjectInput {
   environment: ProjectEnvironment | undefined;
 
   /**
-   * <p>The ARN of the Identity and Access Management role that enables CodeBuild to interact with dependent Amazon Web Services services
-   *       on behalf of the Amazon Web Services account.</p>
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services
+   *       on behalf of the AWS account.</p>
    */
   serviceRole: string | undefined;
 
   /**
-   * <p>How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait before it times out
+   * <p>How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before it times out
    *       any build that has not been marked as completed. The default is 60 minutes.</p>
    */
   timeoutInMinutes?: number;
@@ -3669,7 +3791,7 @@ export interface CreateProjectInput {
   queuedTimeoutInMinutes?: number;
 
   /**
-   * <p>The Key Management Service customer master key (CMK) to be used for encrypting the build output
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
    *       artifacts.</p>
    *          <note>
    *             <p>You can use a cross-account KMS key to encrypt the build output artifacts if your
@@ -3683,13 +3805,13 @@ export interface CreateProjectInput {
 
   /**
    * <p>A list of tag key and value pairs associated with this build project.</p>
-   *          <p>These tags are available for use by Amazon Web Services services that support CodeBuild build project
+   *          <p>These tags are available for use by AWS services that support AWS CodeBuild build project
    *       tags.</p>
    */
   tags?: Tag[];
 
   /**
-   * <p>VpcConfig enables CodeBuild to access resources in an Amazon VPC.</p>
+   * <p>VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.</p>
    */
   vpcConfig?: VpcConfig;
 
@@ -3700,7 +3822,7 @@ export interface CreateProjectInput {
   badgeEnabled?: boolean;
 
   /**
-   * <p>Information about logs for the build project. These can be logs in CloudWatch Logs, logs
+   * <p>Information about logs for the build project. These can be logs in Amazon CloudWatch Logs, logs
    *       uploaded to a specified S3 bucket, or both. </p>
    */
   logsConfig?: LogsConfig;
@@ -3755,8 +3877,8 @@ export namespace CreateProjectOutput {
 }
 
 /**
- * <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the
- *             same settings already exists.</p>
+ * <p>The specified AWS resource cannot be created, because an AWS resource with the same
+ *             settings already exists.</p>
  */
 export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
@@ -3799,7 +3921,7 @@ export interface CreateReportGroupInput {
    * <p>
    *       A list of tag key and value pairs associated with this report group.
    *     </p>
-   *          <p>These tags are available for use by Amazon Web Services services that support CodeBuild report group
+   *          <p>These tags are available for use by AWS services that support AWS CodeBuild report group
    *       tags.</p>
    */
   tags?: Tag[];
@@ -3834,7 +3956,7 @@ export namespace CreateReportGroupOutput {
 
 export interface CreateWebhookInput {
   /**
-   * <p>The name of the CodeBuild project.</p>
+   * <p>The name of the AWS CodeBuild project.</p>
    */
   projectName: string | undefined;
 
@@ -3877,7 +3999,7 @@ export namespace CreateWebhookInput {
 export interface CreateWebhookOutput {
   /**
    * <p>Information about a webhook that connects repository events to a build project in
-   *       CodeBuild.</p>
+   *       AWS CodeBuild.</p>
    */
   webhook?: Webhook;
 }
@@ -3910,7 +4032,7 @@ export namespace OAuthProviderException {
 }
 
 /**
- * <p>The specified Amazon Web Services resource cannot be found.</p>
+ * <p>The specified AWS resource cannot be found.</p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
@@ -4123,7 +4245,7 @@ export namespace DeleteSourceCredentialsOutput {
 
 export interface DeleteWebhookInput {
   /**
-   * <p>The name of the CodeBuild project.</p>
+   * <p>The name of the AWS CodeBuild project.</p>
    */
   projectName: string | undefined;
 }
@@ -4729,7 +4851,7 @@ export interface ImportSourceCredentialsInput {
   /**
    * <p> The type of authentication used to connect to a GitHub, GitHub Enterprise, or
    *             Bitbucket repository. An OAUTH connection is not supported by the API and must be
-   *             created using the CodeBuild console. </p>
+   *             created using the AWS CodeBuild console. </p>
    */
   authType: AuthType | string | undefined;
 
@@ -4769,7 +4891,7 @@ export namespace ImportSourceCredentialsOutput {
 
 export interface InvalidateProjectCacheInput {
   /**
-   * <p>The name of the CodeBuild build project that the cache is reset for.</p>
+   * <p>The name of the AWS CodeBuild build project that the cache is reset for.</p>
    */
   projectName: string | undefined;
 }
@@ -4996,7 +5118,7 @@ export namespace ListBuildsOutput {
 
 export interface ListBuildsForProjectInput {
   /**
-   * <p>The name of the CodeBuild project.</p>
+   * <p>The name of the AWS CodeBuild project.</p>
    */
   projectName: string | undefined;
 
@@ -5078,7 +5200,7 @@ export namespace ListCuratedEnvironmentImagesInput {
 }
 
 /**
- * <p>Information about a Docker image that is managed by CodeBuild.</p>
+ * <p>Information about a Docker image that is managed by AWS CodeBuild.</p>
  */
 export interface EnvironmentImage {
   /**
@@ -5121,7 +5243,7 @@ export enum LanguageType {
 
 /**
  * <p>A set of Docker images that are related by programming language and are managed by
- *             CodeBuild.</p>
+ *             AWS CodeBuild.</p>
  */
 export interface EnvironmentLanguage {
   /**
@@ -5153,8 +5275,7 @@ export enum PlatformType {
 }
 
 /**
- * <p>A set of Docker images that are related by platform and are managed by
- *             CodeBuild.</p>
+ * <p>A set of Docker images that are related by platform and are managed by AWS CodeBuild.</p>
  */
 export interface EnvironmentPlatform {
   /**
@@ -5181,7 +5302,7 @@ export namespace EnvironmentPlatform {
 export interface ListCuratedEnvironmentImagesOutput {
   /**
    * <p>Information about supported platforms for Docker images that are managed by
-   *             CodeBuild.</p>
+   *             AWS CodeBuild.</p>
    */
   platforms?: EnvironmentPlatform[];
 }
@@ -5367,7 +5488,7 @@ export interface ListReportGroupsOutput {
 
   /**
    * <p>
-   *       The list of ARNs for the report groups in the current Amazon Web Services account.
+   *       The list of ARNs for the report groups in the current AWS account.
    *     </p>
    */
   reportGroups?: string[];
@@ -5472,7 +5593,7 @@ export interface ListReportsOutput {
 
   /**
    * <p>
-   *       The list of returned ARNs for the reports in the current Amazon Web Services account.
+   *       The list of returned ARNs for the reports in the current AWS account.
    *     </p>
    */
   reports?: string[];
@@ -5574,7 +5695,7 @@ export enum SharedResourceSortByType {
 
 export interface ListSharedProjectsInput {
   /**
-   * <p> The criterion to be used to list build projects shared with the current Amazon Web Services account
+   * <p> The criterion to be used to list build projects shared with the current AWS account
    *             or user. Valid values include: </p>
    *         <ul>
    *             <li>
@@ -5644,8 +5765,8 @@ export interface ListSharedProjectsOutput {
   nextToken?: string;
 
   /**
-   * <p> The list of ARNs for the build projects shared with the current Amazon Web Services account or
-   *             user. </p>
+   * <p> The list of ARNs for the build projects shared with the current AWS account or user.
+   *         </p>
    */
   projects?: string[];
 }
@@ -5676,8 +5797,8 @@ export interface ListSharedReportGroupsInput {
   sortOrder?: SortOrderType | string;
 
   /**
-   * <p> The criterion to be used to list report groups shared with the current Amazon Web Services account
-   *             or user. Valid values include: </p>
+   * <p> The criterion to be used to list report groups shared with the current AWS account or
+   *             user. Valid values include: </p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -5731,7 +5852,7 @@ export interface ListSharedReportGroupsOutput {
   nextToken?: string;
 
   /**
-   * <p> The list of ARNs for the report groups shared with the current Amazon Web Services account or user.
+   * <p> The list of ARNs for the report groups shared with the current AWS account or user.
    *         </p>
    */
   reportGroups?: string[];
@@ -5810,7 +5931,7 @@ export namespace ListSourceCredentialsOutput {
 export interface PutResourcePolicyInput {
   /**
    * <p> A JSON-formatted resource policy. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share">Sharing
-   *                 a Project</a> and <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share">Sharing a Report Group</a> in the <i>CodeBuild User Guide</i>.
+   *                 a Project</a> and <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share">Sharing a Report Group</a> in the <i>AWS CodeBuild User Guide</i>.
    *         </p>
    */
   policy: string | undefined;
@@ -5859,7 +5980,7 @@ export interface RetryBuildInput {
    *       <code>RetryBuild</code> request. The token is included in the
    *       <code>RetryBuild</code> request and is valid for five minutes. If you repeat
    *       the <code>RetryBuild</code> request with the same token, but change a parameter,
-   *       CodeBuild returns a parameter mismatch error.</p>
+   *       AWS CodeBuild returns a parameter mismatch error.</p>
    */
   idempotencyToken?: string;
 }
@@ -5905,7 +6026,7 @@ export interface RetryBuildBatchInput {
    *                 <code>RetryBuildBatch</code> request. The token is included in the
    *                 <code>RetryBuildBatch</code> request and is valid for five minutes. If you repeat
    *             the <code>RetryBuildBatch</code> request with the same token, but change a parameter,
-   *             CodeBuild returns a parameter mismatch error.</p>
+   *             AWS CodeBuild returns a parameter mismatch error.</p>
    */
   idempotencyToken?: string;
 
@@ -5942,7 +6063,7 @@ export namespace RetryBuildBatchOutput {
 
 export interface StartBuildInput {
   /**
-   * <p>The name of the CodeBuild build project to start running a build.</p>
+   * <p>The name of the AWS CodeBuild build project to start running a build.</p>
    */
   projectName: string | undefined;
 
@@ -5962,7 +6083,7 @@ export interface StartBuildInput {
    *             the latest version is used. If specified, the contents depends on the source
    *             provider:</p>
    *         <dl>
-   *             <dt>CodeCommit</dt>
+   *             <dt>AWS CodeCommit</dt>
    *             <dd>
    *                     <p>The commit ID, branch, or Git tag to use.</p>
    *                 </dd>
@@ -5991,7 +6112,7 @@ export interface StartBuildInput {
    *         <p>If <code>sourceVersion</code> is specified at the project level, then this
    *             <code>sourceVersion</code> (at the build level) takes precedence. </p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample
-   *             with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>
+   *             with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>. </p>
    */
   sourceVersion?: string;
 
@@ -6038,7 +6159,7 @@ export interface StartBuildInput {
   gitCloneDepthOverride?: number;
 
   /**
-   * <p> Information about the Git submodules configuration for this build of an CodeBuild build
+   * <p> Information about the Git submodules configuration for this build of an AWS CodeBuild build
    *             project. </p>
    */
   gitSubmodulesConfigOverride?: GitSubmodulesConfig;
@@ -6049,7 +6170,7 @@ export interface StartBuildInput {
    *         <p> If this value is set, it can be either an inline buildspec definition, the path to an
    *             alternate buildspec file relative to the value of the built-in
    *                 <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket.
-   *             The bucket must be in the same Region as the build project. Specify the buildspec
+   *             The bucket must be in the same AWS Region as the build project. Specify the buildspec
    *             file using its ARN (for example,
    *                 <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
    *             provided or is set to an empty string, the source code must contain a buildspec file in
@@ -6070,7 +6191,7 @@ export interface StartBuildInput {
    *             completion. If you use this option with a source provider other than GitHub, GitHub
    *             Enterprise, or Bitbucket, an <code>invalidInputException</code> is thrown. </p>
    *             <p>To be able to report the build status to the source provider, the user associated with the source provider must
-   * have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p>
+   * have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>AWS CodeBuild User Guide</i>.</p>
    *         <note>
    *             <p> The status of a build triggered by a webhook is always reported to your source
    *                 provider. </p>
@@ -6139,7 +6260,7 @@ export interface StartBuildInput {
   queuedTimeoutInMinutesOverride?: number;
 
   /**
-   * <p>The Key Management Service customer master key (CMK) that overrides the one specified in the build
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the build
    *             project. The CMK key encrypts the build output artifacts.</p>
    *         <note>
    *             <p> You can use a cross-account KMS key to encrypt the build output artifacts if your
@@ -6154,7 +6275,7 @@ export interface StartBuildInput {
    * <p>A unique, case sensitive identifier you provide to ensure the idempotency of the
    *             StartBuild request. The token is included in the StartBuild request and is valid for 5
    *             minutes. If you repeat the StartBuild request with the same token, but change a
-   *             parameter, CodeBuild returns a parameter mismatch error. </p>
+   *             parameter, AWS CodeBuild returns a parameter mismatch error. </p>
    */
   idempotencyToken?: string;
 
@@ -6170,21 +6291,21 @@ export interface StartBuildInput {
   registryCredentialOverride?: RegistryCredential;
 
   /**
-   * <p>The type of credentials CodeBuild uses to pull images in your build. There are two valid
+   * <p>The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid
    *             values: </p>
    *         <dl>
    *             <dt>CODEBUILD</dt>
    *             <dd>
-   *                     <p>Specifies that CodeBuild uses its own credentials. This requires that you
-   *                         modify your ECR repository policy to trust CodeBuild's service principal.</p>
+   *                     <p>Specifies that AWS CodeBuild uses its own credentials. This requires that you
+   *                         modify your ECR repository policy to trust AWS CodeBuild's service principal.</p>
    *                 </dd>
    *             <dt>SERVICE_ROLE</dt>
    *             <dd>
-   *                     <p>Specifies that CodeBuild uses your build project's service role. </p>
+   *                     <p>Specifies that AWS CodeBuild uses your build project's service role. </p>
    *                 </dd>
    *          </dl>
    *         <p>When using a cross-account or private registry image, you must use
-   *             <code>SERVICE_ROLE</code> credentials. When using an CodeBuild curated image,
+   *             <code>SERVICE_ROLE</code> credentials. When using an AWS CodeBuild curated image,
    *             you must use <code>CODEBUILD</code> credentials. </p>
    */
   imagePullCredentialsTypeOverride?: ImagePullCredentialsType | string;
@@ -6244,7 +6365,7 @@ export interface StartBuildBatchInput {
    *             the latest version is used. If specified, the contents depends on the source
    *             provider:</p>
    *         <dl>
-   *             <dt>CodeCommit</dt>
+   *             <dt>AWS CodeCommit</dt>
    *             <dd>
    *                     <p>The commit ID, branch, or Git tag to use.</p>
    *                 </dd>
@@ -6273,7 +6394,7 @@ export interface StartBuildBatchInput {
    *          <p>If <code>sourceVersion</code> is specified at the project level, then this
    *                 <code>sourceVersion</code> (at the build level) takes precedence. </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample
-   *                 with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>
+   *                 with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>. </p>
    */
   sourceVersion?: string;
 
@@ -6332,7 +6453,7 @@ export interface StartBuildBatchInput {
    *          <p>If this value is set, it can be either an inline buildspec definition, the path to an
    *         alternate buildspec file relative to the value of the built-in
    *         <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket.
-   *         The bucket must be in the same Region as the build project. Specify the buildspec
+   *         The bucket must be in the same AWS Region as the build project. Specify the buildspec
    *         file using its ARN (for example,
    *         <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
    *         provided or is set to an empty string, the source code must contain a buildspec file in
@@ -6410,7 +6531,7 @@ export interface StartBuildBatchInput {
   queuedTimeoutInMinutesOverride?: number;
 
   /**
-   * <p>The Key Management Service customer master key (CMK) that overrides the one specified in the batch build
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the batch build
    *         project. The CMK key encrypts the build output artifacts.</p>
    *          <note>
    *             <p>You can use a cross-account KMS key to encrypt the build output artifacts if your
@@ -6426,7 +6547,7 @@ export interface StartBuildBatchInput {
    *                 <code>StartBuildBatch</code> request. The token is included in the
    *                 <code>StartBuildBatch</code> request and is valid for five minutes. If you repeat
    *             the <code>StartBuildBatch</code> request with the same token, but change a parameter,
-   *             CodeBuild returns a parameter mismatch error.</p>
+   *             AWS CodeBuild returns a parameter mismatch error.</p>
    */
   idempotencyToken?: string;
 
@@ -6443,21 +6564,21 @@ export interface StartBuildBatchInput {
   registryCredentialOverride?: RegistryCredential;
 
   /**
-   * <p>The type of credentials CodeBuild uses to pull images in your batch build. There are two valid
+   * <p>The type of credentials AWS CodeBuild uses to pull images in your batch build. There are two valid
    *         values: </p>
    *         <dl>
    *             <dt>CODEBUILD</dt>
    *             <dd>
-   *                     <p>Specifies that CodeBuild uses its own credentials. This requires that you
-   *                         modify your ECR repository policy to trust CodeBuild's service principal.</p>
+   *                     <p>Specifies that AWS CodeBuild uses its own credentials. This requires that you
+   *                         modify your ECR repository policy to trust AWS CodeBuild's service principal.</p>
    *                 </dd>
    *             <dt>SERVICE_ROLE</dt>
    *             <dd>
-   *                     <p>Specifies that CodeBuild uses your build project's service role. </p>
+   *                     <p>Specifies that AWS CodeBuild uses your build project's service role. </p>
    *                 </dd>
    *          </dl>
    *          <p>When using a cross-account or private registry image, you must use
-   *                 <code>SERVICE_ROLE</code> credentials. When using an CodeBuild curated image,
+   *                 <code>SERVICE_ROLE</code> credentials. When using an AWS CodeBuild curated image,
    *             you must use <code>CODEBUILD</code> credentials. </p>
    */
   imagePullCredentialsTypeOverride?: ImagePullCredentialsType | string;
@@ -6594,7 +6715,7 @@ export interface UpdateProjectInput {
    *     latest version is used. If specified, it must be one of: </p>
    *          <ul>
    *             <li>
-   *                <p>For CodeCommit: the commit ID, branch, or Git tag to use.</p>
+   *                <p>For AWS CodeCommit: the commit ID, branch, or Git tag to use.</p>
    *             </li>
    *             <li>
    *                <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that
@@ -6618,7 +6739,7 @@ export interface UpdateProjectInput {
    *          <p> If <code>sourceVersion</code> is specified at the build level, then that version
    *     takes precedence over this <code>sourceVersion</code> (at the project level). </p>
    *          <p> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample
-   *         with CodeBuild</a> in the <i>CodeBuild User Guide</i>.
+   *         with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>.
    *     </p>
    */
   sourceVersion?: string;
@@ -6653,13 +6774,13 @@ export interface UpdateProjectInput {
   environment?: ProjectEnvironment;
 
   /**
-   * <p>The replacement ARN of the Identity and Access Management role that enables CodeBuild to interact with dependent
-   *     Amazon Web Services services on behalf of the Amazon Web Services account.</p>
+   * <p>The replacement ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent
+   *     AWS services on behalf of the AWS account.</p>
    */
   serviceRole?: string;
 
   /**
-   * <p>The replacement value in minutes, from 5 to 480 (8 hours), for CodeBuild to wait before
+   * <p>The replacement value in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before
    *       timing out any related build that did not get marked as completed.</p>
    */
   timeoutInMinutes?: number;
@@ -6670,7 +6791,7 @@ export interface UpdateProjectInput {
   queuedTimeoutInMinutes?: number;
 
   /**
-   * <p>The Key Management Service customer master key (CMK) to be used for encrypting the build output
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
    *     artifacts.</p>
    *          <note>
    *             <p> You can use a cross-account KMS key to encrypt the build output artifacts if your
@@ -6684,13 +6805,13 @@ export interface UpdateProjectInput {
 
   /**
    * <p>An updated list of tag key and value pairs associated with this build project.</p>
-   *          <p>These tags are available for use by Amazon Web Services services that support CodeBuild build project
+   *          <p>These tags are available for use by AWS services that support AWS CodeBuild build project
    *       tags.</p>
    */
   tags?: Tag[];
 
   /**
-   * <p>VpcConfig enables CodeBuild to access resources in an Amazon VPC.</p>
+   * <p>VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.</p>
    */
   vpcConfig?: VpcConfig;
 
@@ -6701,7 +6822,7 @@ export interface UpdateProjectInput {
   badgeEnabled?: boolean;
 
   /**
-   * <p> Information about logs for the build project. A project can create logs in CloudWatch Logs,
+   * <p> Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs,
    *     logs in an S3 bucket, or both. </p>
    */
   logsConfig?: LogsConfig;
@@ -6785,7 +6906,7 @@ export interface UpdateReportGroupInput {
    * <p>
    *       An updated list of tag key and value pairs associated with this report group.
    *     </p>
-   *          <p>These tags are available for use by Amazon Web Services services that support CodeBuild report group
+   *          <p>These tags are available for use by AWS services that support AWS CodeBuild report group
    *       tags.</p>
    */
   tags?: Tag[];
@@ -6820,7 +6941,7 @@ export namespace UpdateReportGroupOutput {
 
 export interface UpdateWebhookInput {
   /**
-   * <p>The name of the CodeBuild project.</p>
+   * <p>The name of the AWS CodeBuild project.</p>
    */
   projectName: string | undefined;
 
@@ -6867,7 +6988,7 @@ export namespace UpdateWebhookInput {
 
 export interface UpdateWebhookOutput {
   /**
-   * <p> Information about a repository's webhook that is associated with a project in CodeBuild.
+   * <p> Information about a repository's webhook that is associated with a project in AWS CodeBuild.
    *     </p>
    */
   webhook?: Webhook;

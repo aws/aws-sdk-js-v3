@@ -8,7 +8,7 @@
 AWS SDK for JavaScript S3Control Client for Node.js, Browser and React Native.
 
 <p>
-AWS S3 Control provides access to Amazon S3 control plane actions.
+Amazon Web Services S3 Control provides access to Amazon S3 control plane actions.
 
 </p>
 

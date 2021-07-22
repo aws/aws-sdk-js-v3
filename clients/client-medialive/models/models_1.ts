@@ -61,12 +61,21 @@ import {
   SmoothGroupEventIdMode,
   SmoothGroupEventStopBehavior,
   SmoothGroupSegmentationMode,
-  SmoothGroupSparseTrackType,
-  SmoothGroupStreamManifestBehavior,
   VpcOutputSettingsDescription,
 } from "./models_0";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+export enum SmoothGroupSparseTrackType {
+  NONE = "NONE",
+  SCTE_35 = "SCTE_35",
+  SCTE_35_WITHOUT_SEGMENTATION = "SCTE_35_WITHOUT_SEGMENTATION",
+}
+
+export enum SmoothGroupStreamManifestBehavior {
+  DO_NOT_SEND = "DO_NOT_SEND",
+  SEND = "SEND",
+}
 
 export enum SmoothGroupTimestampOffsetMode {
   USE_CONFIGURED_OFFSET = "USE_CONFIGURED_OFFSET",

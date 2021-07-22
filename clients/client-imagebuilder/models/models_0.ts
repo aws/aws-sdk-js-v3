@@ -138,10 +138,10 @@ export namespace Ami {
 
 /**
  * <p>Describes the configuration for a launch permission. The launch permission modification request is sent to the
- *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>
- *       API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public,
- *       set the launch permission authorized accounts to <code>all</code>. See the examples for making an AMI public at
- *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>.</p>
+ * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>
+ * 			API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public,
+ * 			set the launch permission authorized accounts to <code>all</code>. See the examples for making an AMI public at
+ * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>.</p>
  */
 export interface LaunchPermissionConfiguration {
   /**
@@ -195,7 +195,7 @@ export interface AmiDistributionConfiguration {
 
   /**
    * <p> Launch permissions can be used to configure which accounts can use the AMI to launch
-   *       instances.</p>
+   * 			instances.</p>
    */
   launchPermission?: LaunchPermissionConfiguration;
 }
@@ -276,8 +276,8 @@ export namespace CancelImageCreationResponse {
 
 /**
  * <p>These errors are usually caused by a client action, such as using an action or resource on
- *       behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- *       invalid resource identifier.</p>
+ * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
+ * 			invalid resource identifier.</p>
  */
 export interface ClientException extends __SmithyException, $MetadataBearer {
   name: "ClientException";
@@ -314,7 +314,7 @@ export namespace ForbiddenException {
 
 /**
  * <p>You have specified a client token for an operation using parameter values that differ from
- *       a previous request that used the same client token.</p>
+ * 			a previous request that used the same client token.</p>
  */
 export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
   name: "IdempotentParameterMismatchException";
@@ -351,7 +351,7 @@ export namespace InvalidRequestException {
 
 /**
  * <p>The resource that you are trying to operate on is currently in use. Review the message
- *       details and retry later.</p>
+ * 			details and retry later.</p>
  */
 export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
@@ -479,7 +479,7 @@ export interface Component {
 
   /**
    * <p>The type of the component denotes whether the component is used to build the image or only
-   *       to test it.</p>
+   * 			to test it.</p>
    */
   type?: ComponentType | string;
 
@@ -490,8 +490,8 @@ export interface Component {
 
   /**
    * <p>The operating system (OS) version supported by the component. If the OS information is
-   *       available, a prefix match is performed against the parent image OS version during image recipe
-   *       creation.</p>
+   * 			available, a prefix match is performed against the parent image OS version during image recipe
+   * 			creation.</p>
    */
   supportedOsVersions?: string[];
 
@@ -618,14 +618,14 @@ export interface ComponentSummary {
 
   /**
    * <p>The operating system (OS) version supported by the component. If the OS information is
-   *       available, a prefix match is performed against the parent image OS version during image recipe
-   *       creation.</p>
+   * 			available, a prefix match is performed against the parent image OS version during image recipe
+   * 			creation.</p>
    */
   supportedOsVersions?: string[];
 
   /**
    * <p>The type of the component denotes whether the component is used to build the image or only
-   *       to test it.</p>
+   * 			to test it.</p>
    */
   type?: ComponentType | string;
 
@@ -665,11 +665,27 @@ export namespace ComponentSummary {
 }
 
 /**
- * <p>A high-level overview of a component semantic version.</p>
+ * <p>The defining characteristics of a specific version of an TOE component.</p>
  */
 export interface ComponentVersion {
   /**
    * <p>The Amazon Resource Name (ARN) of the component.</p>
+   * 		       <note>
+   * 			         <p>Semantic versioning is included in each object's Amazon Resource Name (ARN),
+   * 	at the level that applies to that object as follows:</p>
+   * 	           <ol>
+   *                <li>
+   * 			               <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are
+   * 				either left off entirely, or they are specified as wildcards, for example: x.x.x.</p>
+   * 		             </li>
+   *                <li>
+   * 			               <p>Version ARNs have only the first three nodes: <major>.<minor>.<patch></p>
+   * 		             </li>
+   *                <li>
+   * 			               <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p>
+   * 		             </li>
+   *             </ol>
+   * 		       </note>
    */
   arn?: string;
 
@@ -680,6 +696,24 @@ export interface ComponentVersion {
 
   /**
    * <p>The semantic version of the component.</p>
+   * 		       <note>
+   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   * 			         <p>
+   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
+   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   * 	build number, and that is not open for updates.</p>
+   * 			         <p>
+   *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
+   * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
+   * 	a date, such as 2021.01.01.</p>
+   * 			         <p>
+   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
+   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
+   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
+   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
+   * 	automatically uses a wildcard for that, if applicable.</p>
+   * 		       </note>
    */
   version?: string;
 
@@ -695,14 +729,14 @@ export interface ComponentVersion {
 
   /**
    * <p>he operating system (OS) version supported by the component. If the OS information is
-   *       available, a prefix match is performed against the parent image OS version during image recipe
-   *       creation.</p>
+   * 			available, a prefix match is performed against the parent image OS version during image recipe
+   * 			creation.</p>
    */
   supportedOsVersions?: string[];
 
   /**
    * <p>The type of the component denotes whether the component is used to build the image or only
-   *       to test it.</p>
+   * 			to test it.</p>
    */
   type?: ComponentType | string;
 
@@ -906,12 +940,12 @@ export namespace InstanceBlockDeviceMapping {
 
 /**
  * <p>Defines a custom source AMI and block device mapping configurations of an instance
- *       used for building and testing container images.</p>
+ * 			used for building and testing container images.</p>
  */
 export interface InstanceConfiguration {
   /**
    * <p>The AMI ID to use as the base image for a container build and test instance. If not specified,
-   *       Image Builder will use the appropriate ECS-optimized AMI as a base image.</p>
+   * 			Image Builder will use the appropriate ECS-optimized AMI as a base image.</p>
    */
   image?: string;
 
@@ -936,6 +970,22 @@ export namespace InstanceConfiguration {
 export interface ContainerRecipe {
   /**
    * <p>The Amazon Resource Name (ARN) of the container recipe.</p>
+   * 		       <note>
+   * 			         <p>Semantic versioning is included in each object's Amazon Resource Name (ARN),
+   * 	at the level that applies to that object as follows:</p>
+   * 	           <ol>
+   *                <li>
+   * 			               <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are
+   * 				either left off entirely, or they are specified as wildcards, for example: x.x.x.</p>
+   * 		             </li>
+   *                <li>
+   * 			               <p>Version ARNs have only the first three nodes: <major>.<minor>.<patch></p>
+   * 		             </li>
+   *                <li>
+   * 			               <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p>
+   * 		             </li>
+   *             </ol>
+   * 		       </note>
    */
   arn?: string;
 
@@ -965,7 +1015,25 @@ export interface ContainerRecipe {
   owner?: string;
 
   /**
-   * <p>The semantic version of the container recipe (<major>.<minor>.<patch>).</p>
+   * <p>The semantic version of the container recipe.</p>
+   * 		       <note>
+   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   * 			         <p>
+   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
+   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   * 	build number, and that is not open for updates.</p>
+   * 			         <p>
+   *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
+   * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
+   * 	a date, such as 2021.01.01.</p>
+   * 			         <p>
+   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
+   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
+   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
+   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
+   * 	automatically uses a wildcard for that, if applicable.</p>
+   * 		       </note>
    */
   version?: string;
 
@@ -1090,9 +1158,19 @@ export interface CreateComponentRequest {
   name: string | undefined;
 
   /**
-   * <p>The semantic version of the component. This version follows the semantic version syntax.
-   *       For example, major.minor.patch. This could be versioned like software (2.0.1) or like a date
-   *       (2019.12.01).</p>
+   * <p>The semantic version of the component. This version follows the semantic version syntax.</p>
+   * 		       <note>
+   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   * 			         <p>
+   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
+   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   * 	build number, and that is not open for updates.</p>
+   * 			         <p>
+   *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
+   * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
+   * 	a date, such as 2021.01.01.</p>
+   * 		       </note>
    */
   semanticVersion: string | undefined;
 
@@ -1103,7 +1181,7 @@ export interface CreateComponentRequest {
 
   /**
    * <p>The change description of the component. Describes what change has been made in this
-   *       version, or what makes this version different from other versions of this component.</p>
+   * 			version, or what makes this version different from other versions of this component.</p>
    */
   changeDescription?: string;
 
@@ -1114,22 +1192,22 @@ export interface CreateComponentRequest {
 
   /**
    * <p> The operating system (OS) version supported by the component. If the OS information is
-   *       available, a prefix match is performed against the parent image OS version during image recipe
-   *       creation.</p>
+   * 			available, a prefix match is performed against the parent image OS version during image recipe
+   * 			creation.</p>
    */
   supportedOsVersions?: string[];
 
   /**
    * <p>The data of the component. Used to specify the data inline. Either <code>data</code> or
-   *       <code>uri</code> can be used to specify the data within the component.</p>
+   * 			<code>uri</code> can be used to specify the data within the component.</p>
    */
   data?: string;
 
   /**
    * <p>The uri of the component. Must be an Amazon S3 URL and the requester must have permission to
-   *       access the Amazon S3 bucket. If you use Amazon S3, you can specify component content up to your service
-   *       quota. Either <code>data</code> or <code>uri</code> can be used to specify the data within the
-   *       component.</p>
+   * 			access the Amazon S3 bucket. If you use Amazon S3, you can specify component content up to your service
+   * 			quota. Either <code>data</code> or <code>uri</code> can be used to specify the data within the
+   * 			component.</p>
    */
   uri?: string;
 
@@ -1186,7 +1264,7 @@ export namespace CreateComponentResponse {
 
 /**
  * <p>You have specified two or more mutually exclusive parameters. Review the error message for
- *       details.</p>
+ * 			details.</p>
  */
 export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterCombinationException";
@@ -1256,7 +1334,19 @@ export interface CreateContainerRecipeRequest {
   description?: string;
 
   /**
-   * <p>The semantic version of the container recipe (<major>.<minor>.<patch>).</p>
+   * <p>The semantic version of the container recipe. This version follows the semantic version syntax.</p>
+   * 		       <note>
+   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   * 			         <p>
+   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
+   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   * 	build number, and that is not open for updates.</p>
+   * 			         <p>
+   *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
+   * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
+   * 	a date, such as 2021.01.01.</p>
+   * 		       </note>
    */
   semanticVersion: string | undefined;
 
@@ -1419,19 +1509,19 @@ export interface Distribution {
 
   /**
    * <p>Container distribution settings for encryption, licensing, and sharing
-   *       in a specific Region.</p>
+   * 			in a specific Region.</p>
    */
   containerDistributionConfiguration?: ContainerDistributionConfiguration;
 
   /**
    * <p>The License Manager Configuration to associate with the AMI in the specified
-   *       Region.</p>
+   * 			Region.</p>
    */
   licenseConfigurationArns?: string[];
 
   /**
    * <p>A group of launchTemplateConfiguration settings that apply to image distribution
-   *       for specified accounts.</p>
+   * 			for specified accounts.</p>
    */
   launchTemplateConfigurations?: LaunchTemplateConfiguration[];
 }
@@ -1494,7 +1584,7 @@ export interface CreateDistributionConfigurationResponse {
 
   /**
    * <p> The Amazon Resource Name (ARN) of the distribution configuration that was created by this
-   *       request.</p>
+   * 			request.</p>
    */
   distributionConfigurationArn?: string;
 }
@@ -1535,7 +1625,7 @@ export namespace ImageTestsConfiguration {
 export interface CreateImageRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the image recipe that defines how images are
-   *       configured, tested, and assessed.</p>
+   * 			configured, tested, and assessed.</p>
    */
   imageRecipeArn?: string;
 
@@ -1546,13 +1636,13 @@ export interface CreateImageRequest {
 
   /**
    * <p> The Amazon Resource Name (ARN) of the distribution configuration that defines and
-   *       configures the outputs of your pipeline.</p>
+   * 			configures the outputs of your pipeline.</p>
    */
   distributionConfigurationArn?: string;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the infrastructure configuration that defines the
-   *       environment in which your image will be built and tested.</p>
+   * 			environment in which your image will be built and tested.</p>
    */
   infrastructureConfigurationArn: string | undefined;
 
@@ -1563,8 +1653,8 @@ export interface CreateImageRequest {
 
   /**
    * <p> Collects additional information about the image being created, including the operating
-   *       system (OS) version and package list. This information is used to enhance the overall
-   *       experience of using EC2 Image Builder. Enabled by default.</p>
+   * 			system (OS) version and package list. This information is used to enhance the overall
+   * 			experience of using EC2 Image Builder. Enabled by default.</p>
    */
   enhancedImageMetadataEnabled?: boolean;
 
@@ -1625,29 +1715,29 @@ export enum PipelineExecutionStartCondition {
 export interface Schedule {
   /**
    * <p>The cron expression determines how often EC2 Image Builder evaluates your
-   *         <code>pipelineExecutionStartCondition</code>.</p>
-   *          <p>For information on how to format a cron expression in Image Builder, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html">Use cron
-   *         expressions in EC2 Image Builder</a>.</p>
+   * 			<code>pipelineExecutionStartCondition</code>.</p>
+   * 		       <p>For information on how to format a cron expression in Image Builder, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html">Use cron
+   * 			expressions in EC2 Image Builder</a>.</p>
    */
   scheduleExpression?: string;
 
   /**
    * <p>The timezone that applies to the scheduling expression. For example, "Etc/UTC",
-   *       "America/Los_Angeles" in the <a href="https://www.joda.org/joda-time/timezones.html">IANA
-   *         timezone format</a>. If not specified this defaults to UTC.</p>
+   * 			"America/Los_Angeles" in the <a href="https://www.joda.org/joda-time/timezones.html">IANA
+   * 				timezone format</a>. If not specified this defaults to UTC.</p>
    */
   timezone?: string;
 
   /**
    * <p>The condition configures when the pipeline should trigger a new image build. When the
-   *         <code>pipelineExecutionStartCondition</code> is set to
-   *         <code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>, and you use semantic version
-   *       filters on the source image or components in your image recipe, EC2 Image Builder will build a
-   *       new image only when there are new versions of the image or components in your recipe that
-   *       match the semantic version filter. When it is set to <code>EXPRESSION_MATCH_ONLY</code>, it
-   *       will build a new image every time the CRON expression matches the current time. For semantic
-   *       version syntax, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a> in the <i> EC2 Image Builder API
-   *       Reference</i>.</p>
+   * 			<code>pipelineExecutionStartCondition</code> is set to
+   * 			<code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>, and you use semantic version
+   * 			filters on the source image or components in your image recipe, EC2 Image Builder will build a
+   * 			new image only when there are new versions of the image or components in your recipe that
+   * 			match the semantic version filter. When it is set to <code>EXPRESSION_MATCH_ONLY</code>, it
+   * 			will build a new image every time the CRON expression matches the current time. For semantic
+   * 			version syntax, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a> in the <i> EC2 Image Builder API
+   * 					Reference</i>.</p>
    */
   pipelineExecutionStartCondition?: PipelineExecutionStartCondition | string;
 }
@@ -1679,7 +1769,7 @@ export interface CreateImagePipelineRequest {
 
   /**
    * <p> The Amazon Resource Name (ARN) of the image recipe that will be used to configure images
-   *       created by this image pipeline.</p>
+   * 			created by this image pipeline.</p>
    */
   imageRecipeArn?: string;
 
@@ -1690,13 +1780,13 @@ export interface CreateImagePipelineRequest {
 
   /**
    * <p> The Amazon Resource Name (ARN) of the infrastructure configuration that will be used to
-   *       build images created by this image pipeline.</p>
+   * 			build images created by this image pipeline.</p>
    */
   infrastructureConfigurationArn: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the distribution configuration that will be used to
-   *       configure and distribute images created by this image pipeline.</p>
+   * 			configure and distribute images created by this image pipeline.</p>
    */
   distributionConfigurationArn?: string;
 
@@ -1707,8 +1797,8 @@ export interface CreateImagePipelineRequest {
 
   /**
    * <p> Collects additional information about the image being created, including the operating
-   *       system (OS) version and package list. This information is used to enhance the overall
-   *       experience of using EC2 Image Builder. Enabled by default.</p>
+   * 			system (OS) version and package list. This information is used to enhance the overall
+   * 			experience of using EC2 Image Builder. Enabled by default.</p>
    */
   enhancedImageMetadataEnabled?: boolean;
 
@@ -1780,7 +1870,19 @@ export interface CreateImageRecipeRequest {
   description?: string;
 
   /**
-   * <p>The semantic version of the image recipe.</p>
+   * <p>The semantic version of the image recipe. This version follows the semantic version syntax.</p>
+   * 		       <note>
+   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   * 			         <p>
+   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
+   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   * 	build number, and that is not open for updates.</p>
+   * 			         <p>
+   *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
+   * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
+   * 	a date, such as 2021.01.01.</p>
+   * 		       </note>
    */
   semanticVersion: string | undefined;
 
@@ -1791,11 +1893,11 @@ export interface CreateImageRecipeRequest {
 
   /**
    * <p>The parent image of the image recipe. The value of the string can be the ARN of the parent
-   *       image or an AMI ID. The format for the ARN follows this example:
-   *     	<code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/x.x.x</code>.
-   *     	You can provide the specific version that you want to use, or you can use a wildcard in
-   *     	all of the fields. If you enter an AMI ID for the string value, you must have access to the AMI,
-   *     	and the AMI must be in the same Region in which you are using Image Builder.</p>
+   * 			image or an AMI ID. The format for the ARN follows this example:
+   * 			<code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/x.x.x</code>.
+   * 			You can provide the specific version that you want to use, or you can use a wildcard in
+   * 			all of the fields. If you enter an AMI ID for the string value, you must have access to the AMI,
+   * 			and the AMI must be in the same Region in which you are using Image Builder.</p>
    */
   parentImage: string | undefined;
 
@@ -1916,8 +2018,8 @@ export interface CreateInfrastructureConfigurationRequest {
 
   /**
    * <p>The instance types of the infrastructure configuration. You can specify one or more
-   *       instance types to use for this build. The service will pick one of these instance types based
-   *       on availability.</p>
+   * 			instance types to use for this build. The service will pick one of these instance types based
+   * 			on availability.</p>
    */
   instanceTypes?: string[];
 
@@ -1943,14 +2045,14 @@ export interface CreateInfrastructureConfigurationRequest {
 
   /**
    * <p>The key pair of the infrastructure configuration. This can be used to log on to and debug
-   *       the instance used to create your image.</p>
+   * 			the instance used to create your image.</p>
    */
   keyPair?: string;
 
   /**
    * <p>The terminate instance on failure setting of the infrastructure configuration. Set to
-   *       false if you want Image Builder to retain the instance used to configure your AMI if the build
-   *       or test phase of your workflow fails.</p>
+   * 			false if you want Image Builder to retain the instance used to configure your AMI if the build
+   * 			or test phase of your workflow fails.</p>
    */
   terminateInstanceOnFailure?: boolean;
 
@@ -1997,7 +2099,7 @@ export interface CreateInfrastructureConfigurationResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that was created by
-   *       this request.</p>
+   * 			this request.</p>
    */
   infrastructureConfigurationArn?: string;
 }
@@ -2050,7 +2152,7 @@ export namespace DeleteComponentResponse {
 
 /**
  * <p>You have attempted to mutate or delete a resource with a dependency that prohibits this
- *       action. See the error message for more details.</p>
+ * 			action. See the error message for more details.</p>
  */
 export interface ResourceDependencyException extends __SmithyException, $MetadataBearer {
   name: "ResourceDependencyException";
@@ -2310,7 +2412,7 @@ export interface DistributionConfiguration {
 
   /**
    * <p>The distribution objects that apply Region-specific
-   *       settings for the deployment of the image to targeted Regions.</p>
+   * 			settings for the deployment of the image to targeted Regions.</p>
    */
   distributions?: Distribution[];
 
@@ -2395,8 +2497,8 @@ export namespace DistributionConfigurationSummary {
 
 /**
  * <p>A filter name and value pair that is used to return a more specific list of results from a
- *       list operation. Filters can be used to match a set of resources by specific criteria, such as
- *       tags, attributes, or IDs.</p>
+ * 			list operation. Filters can be used to match a set of resources by specific criteria, such as
+ * 			tags, attributes, or IDs.</p>
  */
 export interface Filter {
   /**
@@ -2422,7 +2524,7 @@ export namespace Filter {
 export interface GetComponentRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the component that you want to retrieve. Regex requires
-   *       "/\d+$" suffix.</p>
+   * 			"/\d+$" suffix.</p>
    */
   componentBuildVersionArn: string | undefined;
 }
@@ -2589,7 +2691,7 @@ export namespace GetContainerRecipePolicyResponse {
 export interface GetDistributionConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration that you want to
-   *       retrieve.</p>
+   * 			retrieve.</p>
    */
   distributionConfigurationArn: string | undefined;
 }
@@ -2656,7 +2758,7 @@ export interface ImageRecipe {
 
   /**
    * <p>Specifies which type of image is created by the recipe - an AMI or a
-   *     	container image.</p>
+   * 			container image.</p>
    */
   type?: ImageType | string;
 
@@ -2717,9 +2819,9 @@ export interface ImageRecipe {
 
   /**
    * <p>Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to
-   *     	build and test your image configuration. Instance configuration adds a layer
-   *     	of control over those instances. You can define settings and add scripts to
-   *     	run when an instance is launched from your AMI.</p>
+   * 			build and test your image configuration. Instance configuration adds a layer
+   * 			of control over those instances. You can define settings and add scripts to
+   * 			run when an instance is launched from your AMI.</p>
    */
   additionalInstanceConfiguration?: AdditionalInstanceConfiguration;
 }
@@ -2784,7 +2886,7 @@ export interface InfrastructureConfiguration {
 
   /**
    * <p>The terminate instance on failure configuration of the infrastructure
-   *       configuration.</p>
+   * 			configuration.</p>
    */
   terminateInstanceOnFailure?: boolean;
 
@@ -2848,11 +2950,29 @@ export namespace OutputResources {
 }
 
 /**
- * <p>An image build version.</p>
+ * <p>An Image Builder image. You must specify exactly one recipe for the image – either
+ * 			a container recipe (<code>containerRecipe</code>), which creates a container
+ * 			image, or an image recipe (<code>imageRecipe</code>), which creates an AMI.</p>
  */
 export interface Image {
   /**
    * <p>The Amazon Resource Name (ARN) of the image.</p>
+   * 		       <note>
+   * 			         <p>Semantic versioning is included in each object's Amazon Resource Name (ARN),
+   * 	at the level that applies to that object as follows:</p>
+   * 	           <ol>
+   *                <li>
+   * 			               <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are
+   * 				either left off entirely, or they are specified as wildcards, for example: x.x.x.</p>
+   * 		             </li>
+   *                <li>
+   * 			               <p>Version ARNs have only the first three nodes: <major>.<minor>.<patch></p>
+   * 		             </li>
+   *                <li>
+   * 			               <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p>
+   * 		             </li>
+   *             </ol>
+   * 		       </note>
    */
   arn?: string;
 
@@ -2868,6 +2988,24 @@ export interface Image {
 
   /**
    * <p>The semantic version of the image.</p>
+   * 		       <note>
+   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   * 			         <p>
+   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
+   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   * 	build number, and that is not open for updates.</p>
+   * 			         <p>
+   *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
+   * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
+   * 	a date, such as 2021.01.01.</p>
+   * 			         <p>
+   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
+   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
+   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
+   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
+   * 	automatically uses a wildcard for that, if applicable.</p>
+   * 		       </note>
    */
   version?: string;
 
@@ -2878,14 +3016,14 @@ export interface Image {
 
   /**
    * <p> Collects additional information about the image being created, including the operating
-   *       system (OS) version and package list. This information is used to enhance the overall
-   *       experience of using EC2 Image Builder. Enabled by default.</p>
+   * 			system (OS) version and package list. This information is used to enhance the overall
+   * 			experience of using EC2 Image Builder. Enabled by default.</p>
    */
   enhancedImageMetadataEnabled?: boolean;
 
   /**
    * <p>The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or
-   *       Microsoft Windows Server 2019.</p>
+   * 			Microsoft Windows Server 2019.</p>
    */
   osVersion?: string;
 
@@ -2900,7 +3038,7 @@ export interface Image {
   imageRecipe?: ImageRecipe;
 
   /**
-   * <p>The container recipe used to create the container image type.</p>
+   * <p>The recipe that is used to create an Image Builder container image.</p>
    */
   containerRecipe?: ContainerRecipe;
 
@@ -3017,14 +3155,14 @@ export interface ImagePipeline {
 
   /**
    * <p> Collects additional information about the image being created, including the operating
-   *       system (OS) version and package list. This information is used to enhance the overall
-   *       experience of using EC2 Image Builder. Enabled by default.</p>
+   * 			system (OS) version and package list. This information is used to enhance the overall
+   * 			experience of using EC2 Image Builder. Enabled by default.</p>
    */
   enhancedImageMetadataEnabled?: boolean;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe associated with this image
-   *       pipeline.</p>
+   * 			pipeline.</p>
    */
   imageRecipeArn?: string;
 
@@ -3035,13 +3173,13 @@ export interface ImagePipeline {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration associated with this
-   *       image pipeline.</p>
+   * 			image pipeline.</p>
    */
   infrastructureConfigurationArn?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration associated with this
-   *       image pipeline.</p>
+   * 			image pipeline.</p>
    */
   distributionConfigurationArn?: string;
 
@@ -3233,7 +3371,7 @@ export namespace GetImageRecipePolicyResponse {
 export interface GetInfrastructureConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to
-   *       retrieve.</p>
+   * 			retrieve.</p>
    */
   infrastructureConfigurationArn: string | undefined;
 }
@@ -3278,9 +3416,17 @@ export interface ImportComponentRequest {
   name: string | undefined;
 
   /**
-   * <p>The semantic version of the component. This version follows the semantic version syntax.
-   *       For example, major.minor.patch. This could be versioned like software (2.0.1) or like a date
-   *       (2019.12.01).</p>
+   * <p>The semantic version of the component. This version follows the semantic version syntax.</p>
+   * 		       <note>
+   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   * 			         <p>
+   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
+   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
+   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
+   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
+   * 	automatically uses a wildcard for that, if applicable.</p>
+   * 		       </note>
    */
   semanticVersion: string | undefined;
 
@@ -3291,13 +3437,13 @@ export interface ImportComponentRequest {
 
   /**
    * <p>The change description of the component. Describes what change has been made in this
-   *       version, or what makes this version different from other versions of this component.</p>
+   * 			version, or what makes this version different from other versions of this component.</p>
    */
   changeDescription?: string;
 
   /**
-   * <p>The type of the component denotes whether the component is used to build the image or only
-   *       to test it.</p>
+   * <p>The type of the component denotes whether the component is used to build the image, or only
+   * 			to test it.</p>
    */
   type: ComponentType | string | undefined;
 
@@ -3313,15 +3459,15 @@ export interface ImportComponentRequest {
 
   /**
    * <p>The data of the component. Used to specify the data inline. Either <code>data</code> or
-   *         <code>uri</code> can be used to specify the data within the component.</p>
+   * 			<code>uri</code> can be used to specify the data within the component.</p>
    */
   data?: string;
 
   /**
    * <p>The uri of the component. Must be an Amazon S3 URL and the requester must have permission to
-   *       access the Amazon S3 bucket. If you use Amazon S3, you can specify component content up to your service
-   *       quota. Either <code>data</code> or <code>uri</code> can be used to specify the data within the
-   *       component.</p>
+   * 			access the Amazon S3 bucket. If you use Amazon S3, you can specify component content up to your service
+   * 			quota. Either <code>data</code> or <code>uri</code> can be used to specify the data within the
+   * 			component.</p>
    */
   uri?: string;
 
@@ -3407,7 +3553,7 @@ export interface ListComponentBuildVersionsRequest {
 
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   *       truncated response.</p>
+   * 			truncated response.</p>
    */
   nextToken?: string;
 }
@@ -3434,8 +3580,8 @@ export interface ListComponentBuildVersionsResponse {
 
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional
-   *       elements that the service has not included in this request. Use this token with the next
-   *       request to retrieve additional objects.</p>
+   * 			elements that the service has not included in this request. Use this token with the next
+   * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -3458,9 +3604,9 @@ export enum Ownership {
 export interface ListComponentsRequest {
   /**
    * <p>The owner defines which components you want to list. By default, this request will only
-   *       show components owned by your account. You can use this field to specify if you want to view
-   *       components owned by yourself, by Amazon, or those components that have been shared with you by
-   *       other customers.</p>
+   * 			show components owned by your account. You can use this field to specify if you want to view
+   * 			components owned by yourself, by Amazon, or those components that have been shared with you by
+   * 			other customers.</p>
    */
   owner?: Ownership | string;
 
@@ -3470,7 +3616,7 @@ export interface ListComponentsRequest {
   filters?: Filter[];
 
   /**
-   * <p>Returns the list of component build versions for the specified semantic version.</p>
+   * <p>Returns the list of component build versions for the specified name.</p>
    */
   byName?: boolean;
 
@@ -3481,7 +3627,7 @@ export interface ListComponentsRequest {
 
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   *       truncated response.</p>
+   * 			truncated response.</p>
    */
   nextToken?: string;
 }
@@ -3503,13 +3649,17 @@ export interface ListComponentsResponse {
 
   /**
    * <p>The list of component semantic versions.</p>
+   * 		       <note>
+   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   * 		       </note>
    */
   componentVersionList?: ComponentVersion[];
 
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional
-   *       elements that the service has not included in this request. Use this token with the next
-   *       request to retrieve additional objects.</p>
+   * 			elements that the service has not included in this request. Use this token with the next
+   * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -3583,11 +3733,11 @@ export namespace ListContainerRecipesResponse {
 export interface ListDistributionConfigurationsRequest {
   /**
    * <p>The filters.</p>
-   *          <ul>
+   * 		       <ul>
    *             <li>
-   *                <p>
-   *                   <code>name</code> - The name of this distribution configuration.</p>
-   *             </li>
+   * 				           <p>
+   * 					             <code>name</code> - The name of this distribution configuration.</p>
+   * 			         </li>
    *          </ul>
    */
   filters?: Filter[];
@@ -3599,7 +3749,7 @@ export interface ListDistributionConfigurationsRequest {
 
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   *       truncated response.</p>
+   * 			truncated response.</p>
    */
   nextToken?: string;
 }
@@ -3626,8 +3776,8 @@ export interface ListDistributionConfigurationsResponse {
 
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional
-   *       elements that the service has not included in this request. Use this token with the next
-   *       request to retrieve additional objects.</p>
+   * 			elements that the service has not included in this request. Use this token with the next
+   * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -3659,7 +3809,7 @@ export interface ListImageBuildVersionsRequest {
 
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   *       truncated response.</p>
+   * 			truncated response.</p>
    */
   nextToken?: string;
 }
@@ -3704,7 +3854,7 @@ export interface ImageSummary {
 
   /**
    * <p>The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or
-   *       Microsoft Windows Server 2019.</p>
+   * 			Microsoft Windows Server 2019.</p>
    */
   osVersion?: string;
 
@@ -3756,8 +3906,8 @@ export interface ListImageBuildVersionsResponse {
 
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional
-   *       elements that the service has not included in this request. Use this token with the next
-   *       request to retrieve additional objects.</p>
+   * 			elements that the service has not included in this request. Use this token with the next
+   * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -3865,7 +4015,7 @@ export interface ListImagePipelineImagesRequest {
 
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   *       truncated response.</p>
+   * 			truncated response.</p>
    */
   nextToken?: string;
 }
@@ -3892,8 +4042,8 @@ export interface ListImagePipelineImagesResponse {
 
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional
-   *       elements that the service has not included in this request. Use this token with the next
-   *       request to retrieve additional objects.</p>
+   * 			elements that the service has not included in this request. Use this token with the next
+   * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -3920,7 +4070,7 @@ export interface ListImagePipelinesRequest {
 
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   *       truncated response.</p>
+   * 			truncated response.</p>
    */
   nextToken?: string;
 }
@@ -3947,8 +4097,8 @@ export interface ListImagePipelinesResponse {
 
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional
-   *       elements that the service has not included in this request. Use this token with the next
-   *       request to retrieve additional objects.</p>
+   * 			elements that the service has not included in this request. Use this token with the next
+   * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -3965,9 +4115,9 @@ export namespace ListImagePipelinesResponse {
 export interface ListImageRecipesRequest {
   /**
    * <p>The owner defines which image recipes you want to list. By default, this request will only
-   *       show image recipes owned by your account. You can use this field to specify if you want to
-   *       view image recipes owned by yourself, by Amazon, or those image recipes that have been shared
-   *       with you by other customers.</p>
+   * 			show image recipes owned by your account. You can use this field to specify if you want to
+   * 			view image recipes owned by yourself, by Amazon, or those image recipes that have been shared
+   * 			with you by other customers.</p>
    */
   owner?: Ownership | string;
 
@@ -3983,7 +4133,7 @@ export interface ListImageRecipesRequest {
 
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   *       truncated response.</p>
+   * 			truncated response.</p>
    */
   nextToken?: string;
 }
@@ -4059,8 +4209,8 @@ export interface ListImageRecipesResponse {
 
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional
-   *       elements that the service has not included in this request. Use this token with the next
-   *       request to retrieve additional objects.</p>
+   * 			elements that the service has not included in this request. Use this token with the next
+   * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -4077,9 +4227,9 @@ export namespace ListImageRecipesResponse {
 export interface ListImagesRequest {
   /**
    * <p>The owner defines which images you want to list. By default, this request will only show
-   *       images owned by your account. You can use this field to specify if you want to view images
-   *       owned by yourself, by Amazon, or those images that have been shared with you by other
-   *       customers.</p>
+   * 			images owned by your account. You can use this field to specify if you want to view images
+   * 			owned by yourself, by Amazon, or those images that have been shared with you by other
+   * 			customers.</p>
    */
   owner?: Ownership | string;
 
@@ -4100,7 +4250,7 @@ export interface ListImagesRequest {
 
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   *       truncated response.</p>
+   * 			truncated response.</p>
    */
   nextToken?: string;
 
@@ -4120,47 +4270,81 @@ export namespace ListImagesRequest {
 }
 
 /**
- * <p>An image semantic version.</p>
+ * <p>The defining characteristics of a specific version of an Image Builder image.</p>
  */
 export interface ImageVersion {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image semantic version.</p>
+   * <p>The Amazon Resource Name (ARN) of a specific version of an Image Builder image.</p>
+   * 		       <note>
+   * 			         <p>Semantic versioning is included in each object's Amazon Resource Name (ARN),
+   * 	at the level that applies to that object as follows:</p>
+   * 	           <ol>
+   *                <li>
+   * 			               <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are
+   * 				either left off entirely, or they are specified as wildcards, for example: x.x.x.</p>
+   * 		             </li>
+   *                <li>
+   * 			               <p>Version ARNs have only the first three nodes: <major>.<minor>.<patch></p>
+   * 		             </li>
+   *                <li>
+   * 			               <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p>
+   * 		             </li>
+   *             </ol>
+   * 		       </note>
    */
   arn?: string;
 
   /**
-   * <p>The name of the image semantic version.</p>
+   * <p>The name of this specific version of an Image Builder image.</p>
    */
   name?: string;
 
   /**
-   * <p>Specifies whether this is an AMI or container image.</p>
+   * <p>Specifies whether this image is an AMI or a container image.</p>
    */
   type?: ImageType | string;
 
   /**
-   * <p>The semantic version of the image semantic version.</p>
+   * <p>Details for a specific version of an Image Builder image. This version follows the semantic version syntax.</p>
+   * 		       <note>
+   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   * 			         <p>
+   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
+   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   * 	build number, and that is not open for updates.</p>
+   * 			         <p>
+   *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
+   * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
+   * 	a date, such as 2021.01.01.</p>
+   * 			         <p>
+   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
+   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
+   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
+   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
+   * 	automatically uses a wildcard for that, if applicable.</p>
+   * 		       </note>
    */
   version?: string;
 
   /**
-   * <p>The platform of the image semantic version.</p>
+   * <p>The platform of the image version, for example "Windows" or "Linux".</p>
    */
   platform?: Platform | string;
 
   /**
-   * <p>The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or
-   *       Microsoft Windows Server 2019.</p>
+   * <p>The operating system version of the Amazon EC2 build instance. For example, Amazon Linux 2, Ubuntu 18, or
+   * 			Microsoft Windows Server 2019.</p>
    */
   osVersion?: string;
 
   /**
-   * <p>The owner of the image semantic version.</p>
+   * <p>The owner of the image version.</p>
    */
   owner?: string;
 
   /**
-   * <p>The date at which this image semantic version was created.</p>
+   * <p>The date on which this specific version of the Image Builder image was created.</p>
    */
   dateCreated?: string;
 }
@@ -4182,13 +4366,23 @@ export interface ListImagesResponse {
 
   /**
    * <p>The list of image semantic versions.</p>
+   * 		       <note>
+   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   * 			         <p>
+   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
+   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
+   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
+   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
+   * 	automatically uses a wildcard for that, if applicable.</p>
+   * 		       </note>
    */
   imageVersionList?: ImageVersion[];
 
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional
-   *       elements that the service has not included in this request. Use this token with the next
-   *       request to retrieve additional objects.</p>
+   * 			elements that the service has not included in this request. Use this token with the next
+   * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -4215,7 +4409,7 @@ export interface ListInfrastructureConfigurationsRequest {
 
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   *       truncated response.</p>
+   * 			truncated response.</p>
    */
   nextToken?: string;
 }
@@ -4301,8 +4495,8 @@ export interface ListInfrastructureConfigurationsResponse {
 
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional
-   *       elements that the service has not included in this request. Use this token with the next
-   *       request to retrieve additional objects.</p>
+   * 			elements that the service has not included in this request. Use this token with the next
+   * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -4318,7 +4512,7 @@ export namespace ListInfrastructureConfigurationsResponse {
 
 /**
  * <p>The specified parameter is invalid. Review the available parameters for the API
- *       request.</p>
+ * 			request.</p>
  */
 export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
@@ -4708,7 +4902,7 @@ export interface UpdateDistributionConfigurationResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration that was updated by this
-   *       request.</p>
+   * 			request.</p>
    */
   distributionConfigurationArn?: string;
 }
@@ -4735,7 +4929,7 @@ export interface UpdateImagePipelineRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe that will be used to configure images
-   *       updated by this image pipeline.</p>
+   * 			updated by this image pipeline.</p>
    */
   imageRecipeArn?: string;
 
@@ -4746,13 +4940,13 @@ export interface UpdateImagePipelineRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that will be used to
-   *       build images updated by this image pipeline.</p>
+   * 			build images updated by this image pipeline.</p>
    */
   infrastructureConfigurationArn: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration that will be used to
-   *       configure and distribute images updated by this image pipeline.</p>
+   * 			configure and distribute images updated by this image pipeline.</p>
    */
   distributionConfigurationArn?: string;
 
@@ -4763,8 +4957,8 @@ export interface UpdateImagePipelineRequest {
 
   /**
    * <p> Collects additional information about the image being created, including the operating
-   *       system (OS) version and package list. This information is used to enhance the overall
-   *       experience of using EC2 Image Builder. Enabled by default.</p>
+   * 			system (OS) version and package list. This information is used to enhance the overall
+   * 			experience of using EC2 Image Builder. Enabled by default.</p>
    */
   enhancedImageMetadataEnabled?: boolean;
 
@@ -4822,7 +5016,7 @@ export namespace UpdateImagePipelineResponse {
 export interface UpdateInfrastructureConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to
-   *       update.</p>
+   * 			update.</p>
    */
   infrastructureConfigurationArn: string | undefined;
 
@@ -4833,8 +5027,8 @@ export interface UpdateInfrastructureConfigurationRequest {
 
   /**
    * <p>The instance types of the infrastructure configuration. You can specify one or more
-   *       instance types to use for this build. The service will pick one of these instance types based
-   *       on availability.</p>
+   * 			instance types to use for this build. The service will pick one of these instance types based
+   * 			on availability.</p>
    */
   instanceTypes?: string[];
 
@@ -4860,14 +5054,14 @@ export interface UpdateInfrastructureConfigurationRequest {
 
   /**
    * <p>The key pair of the infrastructure configuration. This can be used to log on to and debug
-   *       the instance used to create your image.</p>
+   * 			the instance used to create your image.</p>
    */
   keyPair?: string;
 
   /**
    * <p>The terminate instance on failure setting of the infrastructure configuration. Set to
-   *       false if you want Image Builder to retain the instance used to configure your AMI if the build
-   *       or test phase of your workflow fails.</p>
+   * 			false if you want Image Builder to retain the instance used to configure your AMI if the build
+   * 			or test phase of your workflow fails.</p>
    */
   terminateInstanceOnFailure?: boolean;
 
@@ -4909,7 +5103,7 @@ export interface UpdateInfrastructureConfigurationResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that was updated by
-   *       this request.</p>
+   * 			this request.</p>
    */
   infrastructureConfigurationArn?: string;
 }

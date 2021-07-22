@@ -644,6 +644,153 @@ export namespace ServiceQuotaExceededException {
   });
 }
 
+/**
+ * <p>Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular
+ *             expression.</p>
+ */
+export interface ColumnSelector {
+  /**
+   * <p>A regular expression for selecting a column from a dataset.</p>
+   */
+  Regex?: string;
+
+  /**
+   * <p>The name of a column from a dataset.</p>
+   */
+  Name?: string;
+}
+
+export namespace ColumnSelector {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ColumnSelector): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Override of a particular evaluation for a profile job. </p>
+ */
+export interface StatisticOverride {
+  /**
+   * <p>The name of an evaluation</p>
+   */
+  Statistic: string | undefined;
+
+  /**
+   * <p>A map that includes overrides of an evaluation’s parameters.</p>
+   */
+  Parameters: { [key: string]: string } | undefined;
+}
+
+export namespace StatisticOverride {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StatisticOverride): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration of evaluations for a profile job. This configuration can be used to select
+ *             evaluations and override the parameters of selected evaluations.
+ *         </p>
+ */
+export interface StatisticsConfiguration {
+  /**
+   * <p>List of included evaluations. When the list is undefined, all supported
+   *             evaluations will be included.</p>
+   */
+  IncludedStatistics?: string[];
+
+  /**
+   * <p>List of overrides for evaluations.</p>
+   */
+  Overrides?: StatisticOverride[];
+}
+
+export namespace StatisticsConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StatisticsConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select
+ *             evaluations and override parameters of evaluations for particular columns.
+ *         </p>
+ */
+export interface ColumnStatisticsConfiguration {
+  /**
+   * <p>List of column selectors. Selectors can be used to select columns from the dataset.
+   *             When selectors are undefined, configuration will be applied to all supported columns.
+   *         </p>
+   */
+  Selectors?: ColumnSelector[];
+
+  /**
+   * <p>Configuration for evaluations. Statistics can be used to select evaluations and override
+   *             parameters of evaluations.
+   *         </p>
+   */
+  Statistics: StatisticsConfiguration | undefined;
+}
+
+export namespace ColumnStatisticsConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ColumnStatisticsConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration for profile jobs. Configuration can be used to select columns, do evaluations, and override default
+ *             parameters of evaluations. When configuration is undefined, the profile job will apply default settings to all
+ *             supported columns.
+ *         </p>
+ */
+export interface ProfileConfiguration {
+  /**
+   * <p>Configuration for inter-column evaluations. Configuration can be used to select evaluations and override
+   *             parameters of evaluations. When configuration is undefined, the profile job will run all supported
+   *             inter-column evaluations.
+   *         </p>
+   */
+  DatasetStatisticsConfiguration?: StatisticsConfiguration;
+
+  /**
+   * <p>List of column selectors. ProfileColumns can be used to select columns from the dataset. When
+   *             ProfileColumns is undefined, the profile job will profile all supported columns.
+   *         </p>
+   */
+  ProfileColumns?: ColumnSelector[];
+
+  /**
+   * <p>List of configurations for column evaluations. ColumnStatisticsConfigurations are used to
+   *             select evaluations and override parameters of evaluations for particular columns. When
+   *             ColumnStatisticsConfigurations is undefined,  the profile job will profile all supported columns
+   *             and run all supported  evaluations.
+   *         </p>
+   */
+  ColumnStatisticsConfigurations?: ColumnStatisticsConfiguration[];
+}
+
+export namespace ProfileConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProfileConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum EncryptionMode {
   SSEKMS = "SSE-KMS",
   SSES3 = "SSE-S3",
@@ -754,6 +901,13 @@ export interface CreateProfileJobRequest {
    *             input data, or write output from a job.</p>
    */
   OutputLocation: S3Location | undefined;
+
+  /**
+   * <p>Configuration for profile jobs. Used to select columns, do evaluations,
+   *             and override default parameters of evaluations. When configuration is null, the
+   *             profile job will run with default settings.</p>
+   */
+  Configuration?: ProfileConfiguration;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to
@@ -1080,8 +1234,44 @@ export namespace DatabaseTableOutputOptions {
   });
 }
 
+export enum DatabaseOutputMode {
+  NEW_TABLE = "NEW_TABLE",
+}
+
 /**
- * <p>Represents options that specify how and where DataBrew writes the S3 output generated by
+ * <p>Represents a JDBC database output object which defines the output destination for
+ *             a DataBrew recipe job to write into.</p>
+ */
+export interface DatabaseOutput {
+  /**
+   * <p>The Glue connection that stores the connection information for the
+   *             target database.</p>
+   */
+  GlueConnectionName: string | undefined;
+
+  /**
+   * <p>Represents options that specify how and where DataBrew writes the database output
+   *             generated by recipe jobs.</p>
+   */
+  DatabaseOptions: DatabaseTableOutputOptions | undefined;
+
+  /**
+   * <p>The output mode to write into the database. Currently supported option: NEW_TABLE.</p>
+   */
+  DatabaseOutputMode?: DatabaseOutputMode | string;
+}
+
+export namespace DatabaseOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatabaseOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents options that specify how and where DataBrew writes the Amazon S3 output generated by
  *             recipe jobs.</p>
  */
 export interface S3TableOutputOptions {
@@ -1102,12 +1292,12 @@ export namespace S3TableOutputOptions {
 }
 
 /**
- * <p>Represents options that specify how and where DataBrew writes the output generated by recipe
- *             jobs.</p>
+ * <p>Represents options that specify how and where in the Glue Data Catalog DataBrew
+ *             writes the output generated by recipe jobs.</p>
  */
 export interface DataCatalogOutput {
   /**
-   * <p>The unique identifier of the AWS account that holds the Data Catalog that stores the data.</p>
+   * <p>The unique identifier of the Amazon Web Services account that holds the Data Catalog that stores the data.</p>
    */
   CatalogId?: string;
 
@@ -1122,7 +1312,7 @@ export interface DataCatalogOutput {
   TableName: string | undefined;
 
   /**
-   * <p>Represents options that specify how and where DataBrew writes the S3 output generated
+   * <p>Represents options that specify how and where DataBrew writes the Amazon S3 output generated
    *             by recipe jobs.</p>
    */
   S3Options?: S3TableOutputOptions;
@@ -1172,7 +1362,8 @@ export enum OutputFormat {
 }
 
 /**
- * <p>Represents a set of options that define how DataBrew will write a comma-separated value (CSV) file.</p>
+ * <p>Represents a set of options that define how DataBrew will write a
+ *             comma-separated value (CSV) file.</p>
  */
 export interface CsvOutputOptions {
   /**
@@ -1211,7 +1402,7 @@ export namespace OutputFormatOptions {
 }
 
 /**
- * <p>Represents options that specify how and where DataBrew writes the output generated by
+ * <p>Represents options that specify how and where in Amazon S3 DataBrew writes the output generated by
  *             recipe jobs or profile jobs.</p>
  */
 export interface Output {
@@ -1336,9 +1527,15 @@ export interface CreateRecipeJobRequest {
   Outputs?: Output[];
 
   /**
-   * <p>One or more artifacts that represent the AWS Glue Data Catalog output from running the job.</p>
+   * <p>One or more artifacts that represent the Glue Data Catalog output from running the job.</p>
    */
   DataCatalogOutputs?: DataCatalogOutput[];
+
+  /**
+   * <p>Represents a list of JDBC database output objects which defines the output destination for
+   *             a DataBrew recipe job to write to. </p>
+   */
+  DatabaseOutputs?: DatabaseOutput[];
 
   /**
    * <p>Either the name of an existing project, or a combination of a recipe and a dataset to
@@ -1825,14 +2022,27 @@ export interface DescribeJobResponse {
   Outputs?: Output[];
 
   /**
-   * <p>One or more artifacts that represent the AWS Glue Data Catalog output from running the job.</p>
+   * <p>One or more artifacts that represent the Glue Data Catalog output from running the job.</p>
    */
   DataCatalogOutputs?: DataCatalogOutput[];
+
+  /**
+   * <p>Represents a list of JDBC database output objects which defines the output
+   *             destination for a DataBrew recipe job to write into.</p>
+   */
+  DatabaseOutputs?: DatabaseOutput[];
 
   /**
    * <p>The DataBrew project associated with this job.</p>
    */
   ProjectName?: string;
+
+  /**
+   * <p>Configuration for profile jobs. Used to select columns, do evaluations,
+   *             and override default parameters of evaluations. When configuration is null, the
+   *             profile job will run with default settings.</p>
+   */
+  ProfileConfiguration?: ProfileConfiguration;
 
   /**
    * <p>Represents the name and version of a DataBrew recipe.</p>
@@ -1940,6 +2150,13 @@ export interface DescribeJobRunResponse {
   JobName: string | undefined;
 
   /**
+   * <p>Configuration for profile jobs. Used to select columns, do evaluations,
+   *             and override default parameters of evaluations. When configuration is null, the
+   *             profile job will run with default settings.</p>
+   */
+  ProfileConfiguration?: ProfileConfiguration;
+
+  /**
    * <p>The unique identifier of the job run.</p>
    */
   RunId?: string;
@@ -1966,9 +2183,15 @@ export interface DescribeJobRunResponse {
   Outputs?: Output[];
 
   /**
-   * <p>One or more artifacts that represent the AWS Glue Data Catalog output from running the job.</p>
+   * <p>One or more artifacts that represent the Glue Data Catalog output from running the job.</p>
    */
   DataCatalogOutputs?: DataCatalogOutput[];
+
+  /**
+   * <p>Represents a list of JDBC database output objects which defines the output
+   *             destination for a DataBrew recipe job to write into.</p>
+   */
+  DatabaseOutputs?: DatabaseOutput[];
 
   /**
    * <p>Represents the name and version of a DataBrew recipe.</p>
@@ -2512,10 +2735,16 @@ export interface JobRun {
   Outputs?: Output[];
 
   /**
-   * <p>One or more artifacts that represent the AWS Glue Data Catalog output
+   * <p>One or more artifacts that represent the Glue Data Catalog output
    *             from running the job.</p>
    */
   DataCatalogOutputs?: DataCatalogOutput[];
+
+  /**
+   * <p>Represents a list of JDBC database output objects which defines the output
+   *             destination for a DataBrew recipe job to write into.</p>
+   */
+  DatabaseOutputs?: DatabaseOutput[];
 
   /**
    * <p>The set of steps processed by the job.</p>
@@ -2707,10 +2936,16 @@ export interface Job {
   Outputs?: Output[];
 
   /**
-   * <p>One or more artifacts that represent the AWS Glue Data Catalog output
+   * <p>One or more artifacts that represent the Glue Data Catalog output
    *             from running the job.</p>
    */
   DataCatalogOutputs?: DataCatalogOutput[];
+
+  /**
+   * <p>Represents a list of JDBC database output objects which defines the output
+   *             destination for a DataBrew recipe job to write into.</p>
+   */
+  DatabaseOutputs?: DatabaseOutput[];
 
   /**
    * <p>The name of the project that the job is associated with.</p>
@@ -3629,6 +3864,13 @@ export namespace UpdateDatasetResponse {
 
 export interface UpdateProfileJobRequest {
   /**
+   * <p>Configuration for profile jobs. Used to select columns, do evaluations,
+   *             and override default parameters of evaluations. When configuration is null, the
+   *             profile job will run with default settings.</p>
+   */
+  Configuration?: ProfileConfiguration;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of an encryption key that is used to protect the
    *             job.</p>
    */
@@ -3865,9 +4107,15 @@ export interface UpdateRecipeJobRequest {
   Outputs?: Output[];
 
   /**
-   * <p>One or more artifacts that represent the AWS Glue Data Catalog output from running the job.</p>
+   * <p>One or more artifacts that represent the Glue Data Catalog output from running the job.</p>
    */
   DataCatalogOutputs?: DataCatalogOutput[];
+
+  /**
+   * <p>Represents a list of JDBC database output objects which defines the output destination for a
+   *             DataBrew recipe job to write into.</p>
+   */
+  DatabaseOutputs?: DatabaseOutput[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to

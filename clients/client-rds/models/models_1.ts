@@ -1100,16 +1100,7 @@ export interface DescribeGlobalClustersMessage {
   GlobalClusterIdentifier?: string;
 
   /**
-   * <p>A filter that specifies one or more global DB clusters to describe.</p>
-   *          <p>Supported filters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
-   *               cluster Amazon Resource Names (ARNs). The results list will only include information about
-   *               the DB clusters identified by these ARNs.</p>
-   *             </li>
-   *          </ul>
+   * <p>This parameter isn't currently supported.</p>
    */
   Filters?: Filter[];
 

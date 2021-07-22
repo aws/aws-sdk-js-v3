@@ -3856,6 +3856,14 @@ const deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommandError = asyn
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceConflictException":
+    case "com.amazonaws.lambda#ResourceConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.lambda#ResourceNotFoundException":
       response = {
@@ -7300,6 +7308,14 @@ const deserializeAws_restJson1PutFunctionEventInvokeConfigCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceConflictException":
+    case "com.amazonaws.lambda#ResourceConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.lambda#ResourceNotFoundException":
       response = {
@@ -8699,6 +8715,14 @@ const deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommandError = asyn
     case "com.amazonaws.lambda#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceConflictException":
+    case "com.amazonaws.lambda#ResourceConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

@@ -192,6 +192,27 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateGeofenceCollectionCommand,
+  UpdateGeofenceCollectionCommandInput,
+  UpdateGeofenceCollectionCommandOutput,
+} from "./commands/UpdateGeofenceCollectionCommand";
+import { UpdateMapCommand, UpdateMapCommandInput, UpdateMapCommandOutput } from "./commands/UpdateMapCommand";
+import {
+  UpdatePlaceIndexCommand,
+  UpdatePlaceIndexCommandInput,
+  UpdatePlaceIndexCommandOutput,
+} from "./commands/UpdatePlaceIndexCommand";
+import {
+  UpdateRouteCalculatorCommand,
+  UpdateRouteCalculatorCommandInput,
+  UpdateRouteCalculatorCommandOutput,
+} from "./commands/UpdateRouteCalculatorCommand";
+import {
+  UpdateTrackerCommand,
+  UpdateTrackerCommandInput,
+  UpdateTrackerCommandOutput,
+} from "./commands/UpdateTrackerCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -201,7 +222,8 @@ export class Location extends LocationClient {
   /**
    * <p>Creates an association between a geofence collection and a tracker resource. This
    *             allows the tracker resource to communicate location data to the linked geofence
-   *             collection.</p>
+   *             collection. </p>
+   *         <p>You can associate up to five geofence collections to each tracker resource.</p>
    *         <note>
    *             <p>Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.</p>
    *         </note>
@@ -304,11 +326,25 @@ export class Location extends LocationClient {
 
   /**
    * <p>Evaluates device positions against the geofence geometries from a given geofence
-   *             collection. The evaluation determines if the device has entered or exited a geofenced
-   *             area, which publishes ENTER or EXIT geofence events to Amazon EventBridge.</p>
+   *             collection.</p>
+   *         <p>This operation always returns an empty response because geofences are asynchronously
+   *             evaluated. The evaluation determines if the device has entered or exited a geofenced
+   *             area, and then publishes one of the following events to Amazon EventBridge:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ENTER</code> if Amazon Location determines that the tracked device has entered
+   *                     a geofenced area.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>EXIT</code> if Amazon Location determines that the tracked device has exited a
+   *                     geofenced area.</p>
+   *             </li>
+   *          </ul>
    *         <note>
-   *             <p>The last geofence that a device was observed within, if any, is tracked for 30
-   *                 days after the most recent device position update</p>
+   *             <p>The last geofence that a device was observed within is tracked for 30 days after
+   *                 the most recent device position update.</p>
    *         </note>
    */
   public batchEvaluateGeofences(
@@ -341,7 +377,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>A batch request to retrieve all device positions.</p>
+   * <p>Lists the latest device positions for requested devices.</p>
    */
   public batchGetDevicePosition(
     args: BatchGetDevicePositionCommandInput,
@@ -447,8 +483,8 @@ export class Location extends LocationClient {
    * <p>
    *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters:
    *                 <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that
-   *             you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create
-   *                 aroute calculator resource</a>
+   *             you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a
+   *                 route calculator resource</a>
    *          </p>
    *         <p>By default, a request that doesn't specify a departure time uses the best time of day
    *             to travel with the best traffic conditions when calculating the route.</p>
@@ -467,8 +503,8 @@ export class Location extends LocationClient {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify additional
-   *                     route preference such as <code>CarModeOptions</code> if traveling by
+   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify an
+   *                     additional route preference such as <code>CarModeOptions</code> if traveling by
    *                         <code>Car</code>, or <code>TruckModeOptions</code> if traveling by
    *                         <code>Truck</code>.</p>
    *             </li>
@@ -1255,7 +1291,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Lists the latest device positions for requested devices.</p>
+   * <p>A batch request to retrieve all device positions.</p>
    */
   public listDevicePositions(
     args: ListDevicePositionsCommandInput,
@@ -1441,7 +1477,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Returns the tags for the specified Amazon Location Service resource.</p>
+   * <p>Returns a list of tags that are applied to the specified Amazon Location resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1641,18 +1677,13 @@ export class Location extends LocationClient {
    *             You can also use them to scope user permissions, by granting a user
    *             permission to access or change only resources with certain tag values.</p>
    *
-   *         <p>Tags don't have any semantic meaning to AWS and are interpreted
-   *             strictly as strings of characters.</p>
+   *         <p>You can use the <code>TagResource</code> operation with an Amazon Location Service
+   *             resource that already has tags. If you specify a new tag key for the resource, this tag
+   *             is appended to the tags already associated with the resource. If you specify a tag key
+   *             that's already associated with the resource, the new tag value that you specify replaces
+   *             the previous value for that tag. </p>
    *
-   *         <p>You can use the <code>TagResource</code> action with an Amazon
-   *             Location Service resource that already has tags. If you specify a new
-   *             tag key for the resource, this tag is appended to the tags already
-   *             associated with the resource. If you specify a tag key that is already
-   *             associated with the resource, the new tag value that you specify replaces
-   *             the previous value for that tag.
-   *         </p>
-   *
-   *         <p>You can associate as many as 50 tags with a resource.</p>
+   *         <p>You can associate up to 50 tags with a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1678,7 +1709,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Removes one or more tags from the specified Amazon Location Service resource.</p>
+   * <p>Removes one or more tags from the specified Amazon Location resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1699,6 +1730,160 @@ export class Location extends LocationClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the specified properties of a given geofence collection.</p>
+   */
+  public updateGeofenceCollection(
+    args: UpdateGeofenceCollectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGeofenceCollectionCommandOutput>;
+  public updateGeofenceCollection(
+    args: UpdateGeofenceCollectionCommandInput,
+    cb: (err: any, data?: UpdateGeofenceCollectionCommandOutput) => void
+  ): void;
+  public updateGeofenceCollection(
+    args: UpdateGeofenceCollectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGeofenceCollectionCommandOutput) => void
+  ): void;
+  public updateGeofenceCollection(
+    args: UpdateGeofenceCollectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGeofenceCollectionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateGeofenceCollectionCommandOutput) => void
+  ): Promise<UpdateGeofenceCollectionCommandOutput> | void {
+    const command = new UpdateGeofenceCollectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the specified properties of a given map resource.</p>
+   */
+  public updateMap(args: UpdateMapCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMapCommandOutput>;
+  public updateMap(args: UpdateMapCommandInput, cb: (err: any, data?: UpdateMapCommandOutput) => void): void;
+  public updateMap(
+    args: UpdateMapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMapCommandOutput) => void
+  ): void;
+  public updateMap(
+    args: UpdateMapCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMapCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMapCommandOutput) => void
+  ): Promise<UpdateMapCommandOutput> | void {
+    const command = new UpdateMapCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the specified properties of a given place index resource.</p>
+   */
+  public updatePlaceIndex(
+    args: UpdatePlaceIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePlaceIndexCommandOutput>;
+  public updatePlaceIndex(
+    args: UpdatePlaceIndexCommandInput,
+    cb: (err: any, data?: UpdatePlaceIndexCommandOutput) => void
+  ): void;
+  public updatePlaceIndex(
+    args: UpdatePlaceIndexCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePlaceIndexCommandOutput) => void
+  ): void;
+  public updatePlaceIndex(
+    args: UpdatePlaceIndexCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePlaceIndexCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePlaceIndexCommandOutput) => void
+  ): Promise<UpdatePlaceIndexCommandOutput> | void {
+    const command = new UpdatePlaceIndexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the specified properties for a given route calculator resource.</p>
+   */
+  public updateRouteCalculator(
+    args: UpdateRouteCalculatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRouteCalculatorCommandOutput>;
+  public updateRouteCalculator(
+    args: UpdateRouteCalculatorCommandInput,
+    cb: (err: any, data?: UpdateRouteCalculatorCommandOutput) => void
+  ): void;
+  public updateRouteCalculator(
+    args: UpdateRouteCalculatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRouteCalculatorCommandOutput) => void
+  ): void;
+  public updateRouteCalculator(
+    args: UpdateRouteCalculatorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRouteCalculatorCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRouteCalculatorCommandOutput) => void
+  ): Promise<UpdateRouteCalculatorCommandOutput> | void {
+    const command = new UpdateRouteCalculatorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the specified properties of a given tracker resource.</p>
+   */
+  public updateTracker(
+    args: UpdateTrackerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTrackerCommandOutput>;
+  public updateTracker(
+    args: UpdateTrackerCommandInput,
+    cb: (err: any, data?: UpdateTrackerCommandOutput) => void
+  ): void;
+  public updateTracker(
+    args: UpdateTrackerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTrackerCommandOutput) => void
+  ): void;
+  public updateTracker(
+    args: UpdateTrackerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrackerCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTrackerCommandOutput) => void
+  ): Promise<UpdateTrackerCommandOutput> | void {
+    const command = new UpdateTrackerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

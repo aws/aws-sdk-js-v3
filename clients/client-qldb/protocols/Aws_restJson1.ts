@@ -50,6 +50,7 @@ import {
   JournalKinesisStreamDescription,
   JournalS3ExportDescription,
   KinesisConfiguration,
+  LedgerEncryptionDescription,
   LedgerSummary,
   LimitExceededException,
   ResourceAlreadyExistsException,
@@ -126,6 +127,7 @@ export const serializeAws_restJson1CreateLedgerCommand = async (
   body = JSON.stringify({
     ...(input.DeletionProtection !== undefined &&
       input.DeletionProtection !== null && { DeletionProtection: input.DeletionProtection }),
+    ...(input.KmsKey !== undefined && input.KmsKey !== null && { KmsKey: input.KmsKey }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.PermissionsMode !== undefined &&
       input.PermissionsMode !== null && { PermissionsMode: input.PermissionsMode }),
@@ -704,6 +706,7 @@ export const serializeAws_restJson1UpdateLedgerCommand = async (
   body = JSON.stringify({
     ...(input.DeletionProtection !== undefined &&
       input.DeletionProtection !== null && { DeletionProtection: input.DeletionProtection }),
+    ...(input.KmsKey !== undefined && input.KmsKey !== null && { KmsKey: input.KmsKey }),
   });
   return new __HttpRequest({
     protocol,
@@ -834,6 +837,7 @@ export const deserializeAws_restJson1CreateLedgerCommand = async (
     Arn: undefined,
     CreationDateTime: undefined,
     DeletionProtection: undefined,
+    KmsKeyArn: undefined,
     Name: undefined,
     PermissionsMode: undefined,
     State: undefined,
@@ -847,6 +851,9 @@ export const deserializeAws_restJson1CreateLedgerCommand = async (
   }
   if (data.DeletionProtection !== undefined && data.DeletionProtection !== null) {
     contents.DeletionProtection = __expectBoolean(data.DeletionProtection);
+  }
+  if (data.KmsKeyArn !== undefined && data.KmsKeyArn !== null) {
+    contents.KmsKeyArn = __expectString(data.KmsKeyArn);
   }
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = __expectString(data.Name);
@@ -1134,6 +1141,7 @@ export const deserializeAws_restJson1DescribeLedgerCommand = async (
     Arn: undefined,
     CreationDateTime: undefined,
     DeletionProtection: undefined,
+    EncryptionDescription: undefined,
     Name: undefined,
     PermissionsMode: undefined,
     State: undefined,
@@ -1147,6 +1155,12 @@ export const deserializeAws_restJson1DescribeLedgerCommand = async (
   }
   if (data.DeletionProtection !== undefined && data.DeletionProtection !== null) {
     contents.DeletionProtection = __expectBoolean(data.DeletionProtection);
+  }
+  if (data.EncryptionDescription !== undefined && data.EncryptionDescription !== null) {
+    contents.EncryptionDescription = deserializeAws_restJson1LedgerEncryptionDescription(
+      data.EncryptionDescription,
+      context
+    );
   }
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = __expectString(data.Name);
@@ -1985,6 +1999,7 @@ export const deserializeAws_restJson1UpdateLedgerCommand = async (
     Arn: undefined,
     CreationDateTime: undefined,
     DeletionProtection: undefined,
+    EncryptionDescription: undefined,
     Name: undefined,
     State: undefined,
   };
@@ -1997,6 +2012,12 @@ export const deserializeAws_restJson1UpdateLedgerCommand = async (
   }
   if (data.DeletionProtection !== undefined && data.DeletionProtection !== null) {
     contents.DeletionProtection = __expectBoolean(data.DeletionProtection);
+  }
+  if (data.EncryptionDescription !== undefined && data.EncryptionDescription !== null) {
+    contents.EncryptionDescription = deserializeAws_restJson1LedgerEncryptionDescription(
+      data.EncryptionDescription,
+      context
+    );
   }
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = __expectString(data.Name);
@@ -2407,6 +2428,20 @@ const deserializeAws_restJson1KinesisConfiguration = (output: any, context: __Se
   return {
     AggregationEnabled: __expectBoolean(output.AggregationEnabled),
     StreamArn: __expectString(output.StreamArn),
+  } as any;
+};
+
+const deserializeAws_restJson1LedgerEncryptionDescription = (
+  output: any,
+  context: __SerdeContext
+): LedgerEncryptionDescription => {
+  return {
+    EncryptionStatus: __expectString(output.EncryptionStatus),
+    InaccessibleKmsKeyDateTime:
+      output.InaccessibleKmsKeyDateTime !== undefined && output.InaccessibleKmsKeyDateTime !== null
+        ? new Date(Math.round(output.InaccessibleKmsKeyDateTime * 1000))
+        : undefined,
+    KmsKeyArn: __expectString(output.KmsKeyArn),
   } as any;
 };
 

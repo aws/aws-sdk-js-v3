@@ -256,7 +256,7 @@ export interface S3DataConfig {
   path: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Key Management Service (KMS) key that Amazon Personalize uses to
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key that Amazon Personalize uses to
    *       encrypt or decrypt the input and output files of a batch inference job.</p>
    */
   kmsKeyArn?: string;
@@ -509,7 +509,7 @@ export interface CreateCampaignRequest {
    * <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
    *       Amazon Personalize will support.</p>
    */
-  minProvisionedTPS: number | undefined;
+  minProvisionedTPS?: number;
 
   /**
    * <p>The configuration details of a campaign.</p>
@@ -647,7 +647,7 @@ export interface CreateDatasetExportJobRequest {
   ingestionMode?: IngestionMode | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management service role that has permissions to add data to your
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that has permissions to add data to your
    *       output Amazon S3 bucket.</p>
    */
   roleArn: string | undefined;
@@ -690,13 +690,13 @@ export interface CreateDatasetGroupRequest {
   name: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that has permissions to access the KMS key. Supplying an IAM
+   * <p>The ARN of the Identity and Access Management (IAM) role that has permissions to access the Key Management Service (KMS) key. Supplying an IAM
    *       role is only valid when also specifying a KMS key.</p>
    */
   roleArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a KMS key used to encrypt the datasets.</p>
+   * <p>The Amazon Resource Name (ARN) of a Key Management Service (KMS) key used to encrypt the datasets.</p>
    */
   kmsKeyArn?: string;
 }
@@ -1971,7 +1971,7 @@ export interface DatasetExportJob {
   ingestionMode?: IngestionMode | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management service role that has permissions to add data to your
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that has permissions to add data to your
    *       output Amazon S3 bucket.</p>
    */
   roleArn?: string;
@@ -2073,7 +2073,7 @@ export namespace DescribeDatasetGroupRequest {
  *       dataset and add it to a dataset group by calling <a>CreateDataset</a>. The dataset
  *       group is used to create and train a solution by calling <a>CreateSolution</a>. A
  *       dataset group can contain only one of each type of dataset.</p>
- *          <p>You can specify an AWS Key Management Service (KMS) key to encrypt the datasets in the group.</p>
+ *          <p>You can specify an Key Management Service (KMS) key to encrypt the datasets in the group.</p>
  */
 export interface DatasetGroup {
   /**
@@ -2106,7 +2106,7 @@ export interface DatasetGroup {
   roleArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the datasets.</p>
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to encrypt the datasets.</p>
    */
   kmsKeyArn?: string;
 
@@ -2199,7 +2199,7 @@ export interface DatasetImportJob {
   dataSource?: DataSource;
 
   /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that has permissions to read from the Amazon S3 data
+   * <p>The ARN of the IAM role that has permissions to read from the Amazon S3 data
    *       source.</p>
    */
   roleArn?: string;
@@ -2302,7 +2302,7 @@ export interface EventTracker {
   eventTrackerArn?: string;
 
   /**
-   * <p>The Amazon AWS account that owns the event tracker.</p>
+   * <p>The Amazon Web Services account that owns the event tracker.</p>
    */
   accountId?: string;
 
