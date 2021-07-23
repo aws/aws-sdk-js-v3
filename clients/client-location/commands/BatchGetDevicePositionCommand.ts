@@ -21,7 +21,7 @@ export interface BatchGetDevicePositionCommandInput extends BatchGetDevicePositi
 export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePositionResponse, __MetadataBearer {}
 
 /**
- * <p>A batch request to retrieve all device positions.</p>
+ * <p>Lists the latest device positions for requested devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

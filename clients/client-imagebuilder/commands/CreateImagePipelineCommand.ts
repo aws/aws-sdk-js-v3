@@ -22,7 +22,7 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
 
 /**
  * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and
- *       distribution of images.</p>
+ * 			distribution of images.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

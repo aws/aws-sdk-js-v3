@@ -235,7 +235,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class Imagebuilder extends ImagebuilderClient {
   /**
    * <p>CancelImageCreation cancels the creation of Image. This operation can only be used on
-   *       images in a non-terminal state.</p>
+   * 			images in a non-terminal state.</p>
    */
   public cancelImageCreation(
     args: CancelImageCreationCommandInput,
@@ -268,7 +268,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p>Creates a new component that can be used to build, validate, test, and assess your
-   *       image.</p>
+   * 			image.</p>
    */
   public createComponent(
     args: CreateComponentCommandInput,
@@ -333,7 +333,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p>Creates a new distribution configuration. Distribution configurations define and configure
-   *       the outputs of your pipeline.</p>
+   * 			the outputs of your pipeline.</p>
    */
   public createDistributionConfiguration(
     args: CreateDistributionConfigurationCommandInput,
@@ -366,8 +366,8 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p> Creates a new image. This request will create a new image along with all of the
-   *       configured output resources defined in the distribution configuration. You must specify
-   *       exactly one recipe for your image, using either a ContainerRecipeArn or an ImageRecipeArn.</p>
+   * 			configured output resources defined in the distribution configuration. You must specify
+   * 			exactly one recipe for your image, using either a ContainerRecipeArn or an ImageRecipeArn.</p>
    */
   public createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
   public createImage(args: CreateImageCommandInput, cb: (err: any, data?: CreateImageCommandOutput) => void): void;
@@ -394,7 +394,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and
-   *       distribution of images.</p>
+   * 			distribution of images.</p>
    */
   public createImagePipeline(
     args: CreateImagePipelineCommandInput,
@@ -427,7 +427,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and
-   *       assessed.</p>
+   * 			assessed.</p>
    */
   public createImageRecipe(
     args: CreateImageRecipeCommandInput,
@@ -460,7 +460,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the
-   *       environment in which your image will be built and tested.</p>
+   * 			environment in which your image will be built and tested.</p>
    */
   public createInfrastructureConfiguration(
     args: CreateInfrastructureConfigurationCommandInput,
@@ -1086,6 +1086,16 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p> Returns the list of component build versions for the specified semantic version.</p>
+   * 		       <note>
+   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   * 			         <p>
+   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
+   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
+   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
+   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
+   * 	automatically uses a wildcard for that, if applicable.</p>
+   * 		       </note>
    */
   public listComponentBuildVersions(
     args: ListComponentBuildVersionsCommandInput,
@@ -1118,6 +1128,16 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p>Returns the list of component build versions for the specified semantic version.</p>
+   * 		       <note>
+   * 			         <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   * 			         <p>
+   *                <b>Filtering:</b> When you retrieve or reference a resource with a semantic version, you can use
+   * 	wildcards (x) to filter your results. When you use a wildcard in any node, all nodes to the right of the
+   * 	first wildcard must also be wildcards. For example, specifying "1.2.x", or "1.x.x" works to filter list
+   * 	results, but neither "1.x.2", nor "x.2.x" will work. You do not have to specify the build - Image Builder
+   * 	automatically uses a wildcard for that, if applicable.</p>
+   * 		       </note>
    */
   public listComponents(
     args: ListComponentsCommandInput,
@@ -1464,8 +1484,8 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p> Applies a policy to a component. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
-   *         <code>PutComponentPolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
-   *       all principals with whom the resource is shared.</p>
+   * 			<code>PutComponentPolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
+   * 			all principals with whom the resource is shared.</p>
    */
   public putComponentPolicy(
     args: PutComponentPolicyCommandInput,
@@ -1530,8 +1550,8 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p>Applies a policy to an image. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
-   *         <code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
-   *       all principals with whom the resource is shared.</p>
+   * 			<code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
+   * 			all principals with whom the resource is shared.</p>
    */
   public putImagePolicy(
     args: PutImagePolicyCommandInput,
@@ -1564,8 +1584,8 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p> Applies a policy to an image recipe. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
-   *         <code>PutImageRecipePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
-   *       all principals with whom the resource is shared.</p>
+   * 			<code>PutImageRecipePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
+   * 			all principals with whom the resource is shared.</p>
    */
   public putImageRecipePolicy(
     args: PutImageRecipePolicyCommandInput,
@@ -1688,7 +1708,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p> Updates a new distribution configuration. Distribution configurations define and
-   *       configure the outputs of your pipeline.</p>
+   * 			configure the outputs of your pipeline.</p>
    */
   public updateDistributionConfiguration(
     args: UpdateDistributionConfigurationCommandInput,
@@ -1721,11 +1741,11 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p> Updates an image pipeline. Image pipelines enable you to automate the creation and
-   *       distribution of images.</p>
-   *   	      <note>
+   * 			distribution of images.</p>
+   * 		       <note>
    *             <p>UpdateImagePipeline does not support selective updates for the pipeline.
-   *   		You must specify all of the required properties in the update request, not just
-   *   		the properties that have changed.</p>
+   * 			You must specify all of the required properties in the update request, not just
+   * 			the properties that have changed.</p>
    *          </note>
    */
   public updateImagePipeline(
@@ -1759,7 +1779,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the
-   *       environment in which your image will be built and tested.</p>
+   * 			environment in which your image will be built and tested.</p>
    */
   public updateInfrastructureConfiguration(
     args: UpdateInfrastructureConfigurationCommandInput,

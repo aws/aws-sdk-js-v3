@@ -134,7 +134,7 @@ import {
 } from "./commands/PutStorageLensConfigurationTaggingCommand";
 import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "./commands/UpdateJobPriorityCommand";
 import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "./commands/UpdateJobStatusCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -452,7 +452,7 @@ export interface S3ControlClientResolvedConfig extends S3ControlClientResolvedCo
 
 /**
  * <p>
- *          AWS S3 Control provides access to Amazon S3 control plane actions.
+ *          Amazon Web Services S3 Control provides access to Amazon S3 control plane actions.
  *
  *       </p>
  */
@@ -468,10 +468,7 @@ export class S3ControlClient extends __Client<
   readonly config: S3ControlClientResolvedConfig;
 
   constructor(configuration: S3ControlClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

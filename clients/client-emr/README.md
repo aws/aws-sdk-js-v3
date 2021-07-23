@@ -8,7 +8,7 @@
 AWS SDK for JavaScript EMR Client for Node.js, Browser and React Native.
 
 <p>Amazon EMR is a web service that makes it easier to process large amounts of data
-efficiently. Amazon EMR uses Hadoop processing combined with several AWS services to do
+efficiently. Amazon EMR uses Hadoop processing combined with several Amazon Web Services services to do
 tasks such as web indexing, data mining, log file analysis, machine learning, scientific
 simulation, and data warehouse management.</p>
 

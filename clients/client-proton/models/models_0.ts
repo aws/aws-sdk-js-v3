@@ -360,7 +360,7 @@ export interface Environment {
   arn: string | undefined;
 
   /**
-   * <p>The ARN of the environment template.</p>
+   * <p>The Amazon Resource Name (ARN) of the environment template.</p>
    */
   templateName: string | undefined;
 
@@ -385,7 +385,7 @@ export interface Environment {
   deploymentStatusMessage?: string;
 
   /**
-   * <p>The ARN of the AWS Proton service role that allows AWS Proton to make calls to other services on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton to make calls to other services on your behalf.</p>
    */
   protonServiceRoleArn?: string;
 
@@ -710,7 +710,7 @@ export namespace CreateEnvironmentAccountConnectionOutput {
 
 /**
  * <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-limits.html">AWS Proton
- *                 Quotas</a> in the <i>AWS Proton Administration Guide</i>.</p>
+ *                 Quotas</a> in the <i>AWS Proton Administrator Guide</i>.</p>
  */
 export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
@@ -1015,7 +1015,7 @@ export interface CreateEnvironmentInput {
   name: string | undefined;
 
   /**
-   * <p>The name of the environment template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-templates.html">Environment Templates</a> in the <i>AWS Proton Administration
+   * <p>The name of the environment template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment Templates</a> in the <i>AWS Proton Administrator
    *                 Guide</i>.</p>
    */
   templateName: string | undefined;
@@ -1037,14 +1037,14 @@ export interface CreateEnvironmentInput {
 
   /**
    * <p>A link to a YAML formatted spec file that provides inputs as defined in the environment template bundle schema file. For more
-   *             information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-managing-environments.html">Environments</a> in the
-   *                 <i>AWS Proton Administration Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> in the
+   *                 <i>AWS Proton Administrator Guide</i>.</p>
    */
   spec: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton to make calls to other services on your behalf. You must
-   *             include either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton to make calls to other services on your behalf. You
+   *             must include either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value.</p>
    */
   protonServiceRoleArn?: string;
 
@@ -1052,12 +1052,12 @@ export interface CreateEnvironmentInput {
    * <p>The ID of the environment account connection that you provide if you're provisioning your environment infrastructure resources to an
    *             environment account. You must include either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
    *             parameter and value. For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *                 connections</a> in the <i>AWS Proton Administration guide</i>.</p>
+   *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
    */
   environmentAccountConnectionId?: string;
 
   /**
-   * <p>Create tags for your environment. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
+   * <p>Create tags for your environment. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
    */
   tags?: Tag[];
 }
@@ -1267,7 +1267,8 @@ export interface EnvironmentSummary {
   deploymentStatusMessage?: string;
 
   /**
-   * <p>The ARN of the AWS Proton service role that allows AWS Proton to make calls to other services on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton to make calls to other services on your
+   *             behalf.</p>
    */
   protonServiceRoleArn?: string;
 
@@ -1357,7 +1358,7 @@ export interface UpdateEnvironmentInput {
   templateMinorVersion?: string;
 
   /**
-   * <p>The ARN of the AWS Proton service role that allows AWS Proton to make API calls to other services your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton to make API calls to other services your behalf.</p>
    */
   protonServiceRoleArn?: string;
 
@@ -1405,7 +1406,7 @@ export interface UpdateEnvironmentInput {
   /**
    * <p>The ID of the environment account connection.</p>
    *         <p>You can only update to a new environment account connection if it was created in the same environment account that the current
-   *             environment account connection was created in and associated with the current environment.</p>
+   *             environment account connection was created in and is associated with the current environment.</p>
    */
   environmentAccountConnectionId?: string;
 }
@@ -1465,7 +1466,7 @@ export interface CreateEnvironmentTemplateInput {
   provisioning?: Provisioning | string;
 
   /**
-   * <p>Create tags for your environment template. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
+   * <p>Create tags for your environment template. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
    */
   tags?: Tag[];
 }
@@ -1864,7 +1865,8 @@ export interface CreateEnvironmentTemplateVersionInput {
 
   /**
    * <p>To create a new minor version of the environment template, include a <code>majorVersion</code>.</p>
-   *         <p>To create a new major and minor version of the environment template, exclude <code>majorVersion</code>.</p>
+   *         <p>To create a new major and minor version of the environment template, <i>exclude</i>
+   *             <code>majorVersion</code>.</p>
    */
   majorVersion?: string;
 
@@ -2261,7 +2263,7 @@ export namespace UpdateEnvironmentTemplateVersionOutput {
 
 export interface ListTagsForResourceInput {
   /**
-   * <p>The ARN of the resource for the listed tags.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource for the listed tags.</p>
    */
   resourceArn: string | undefined;
 
@@ -2690,17 +2692,17 @@ export interface CreateServiceInput {
 
   /**
    * <p>A link to a spec file that provides inputs as defined in the service template bundle schema file. The spec file is in YAML format. Don’t
-   *             include pipeline inputs in the spec if your service template doesn’t include a service pipeline. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-svc.html.html">Create a service</a> in the <i>AWS Proton
-   *                 Administration Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-create.html">Create a
-   *                 service</a> in the <i>AWS Proton User Guide</i>.</p>
+   *             include pipeline inputs in the spec if your service template <i>doesn’t</i> include a service pipeline. For more
+   *             information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-svc.html.html">Create a service</a> in the
+   *                 <i>AWS Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-create.html">Create a service</a> in the <i>AWS Proton User Guide</i>.</p>
    */
   spec: string | undefined;
 
   /**
-   * <p>The ARN of the repository connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#settingSS-up-vcontrol">Set up repository connection</a> in the
-   *                 <i>AWS Proton Administration Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-getting-started.html#getting-started-step1">Getting started</a> in the <i>AWS Proton User
-   *                 Guide</i>. <i>Don't</i> include this parameter if your service template <i>doesn't</i> include a
-   *             service pipeline.</p>
+   * <p>The Amazon Resource Name (ARN) of the repository connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol">Set up repository connection</a> in the
+   *                 <i>AWS Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection">Setting up with AWS Proton</a> in the <i>AWS Proton
+   *                 User Guide</i>. <i>Don't</i> include this parameter if your service template <i>doesn't</i> include
+   *             a service pipeline.</p>
    */
   repositoryConnectionArn?: string;
 
@@ -2717,7 +2719,7 @@ export interface CreateServiceInput {
   branchName?: string;
 
   /**
-   * <p>Create tags for your service. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
+   * <p>Create tags for your service. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
    */
   tags?: Tag[];
 }
@@ -2805,9 +2807,9 @@ export interface Service {
   pipeline?: ServicePipeline;
 
   /**
-   * <p>The ARN of the repository connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol">Set up a repository connection</a> in the
-   *                 <i>AWS Proton Administration Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-getting-started.html#getting-started-step1">Getting started</a> in the <i>AWS Proton User
-   *                 Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the repository connection. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol">Set up a repository connection</a> in the
+   *                 <i>AWS Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection">Setting up with AWS Proton</a> in the <i>AWS Proton
+   *                 User Guide</i>.</p>
    */
   repositoryConnectionArn?: string;
 
@@ -3032,7 +3034,7 @@ export interface UpdateServiceInput {
   /**
    * <p>Lists the service instances to add and the existing service instances to remain. Omit the existing service instances to delete from the
    *             list. <i>Don't</i> include edits to the existing service instances or pipeline. For more information, see <i>Edit a
-   *                 service</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html">AWS Proton Administration
+   *                 service</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-update.html">AWS Proton Administrator
    *                 Guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-update.html">AWS Proton User Guide</a>.</p>
    */
   spec?: string;
@@ -3090,13 +3092,13 @@ export interface CreateServiceTemplateInput {
   /**
    * <p>AWS Proton includes a service pipeline for your service by default. When included, this parameter indicates that an AWS Proton service
    *             pipeline <i>won't</i> be included for your service. Once specified, this parameter <i>can't</i> be changed.
-   *             For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-template-bundles.html">Service template
-   *                 bundles</a> in the <i>AWS Proton Administration Guide</i>.</p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Service template
+   *                 bundles</a> in the <i>AWS Proton Administrator Guide</i>.</p>
    */
   pipelineProvisioning?: Provisioning | string;
 
   /**
-   * <p>Create tags for your service template. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
+   * <p>Create tags for your service template. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
    */
   tags?: Tag[];
 }

@@ -4260,6 +4260,11 @@ export interface DescribeWorldResponse {
    * <p>A map that contains tag keys and tag values that are attached to the world.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>Returns the JSON formatted string that describes the contents of your world.</p>
+   */
+  worldDescriptionBody?: string;
 }
 
 export namespace DescribeWorldResponse {
@@ -4696,6 +4701,11 @@ export interface DescribeWorldTemplateResponse {
    *          template.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The version of the world template that you're using.</p>
+   */
+  version?: string;
 }
 
 export namespace DescribeWorldTemplateResponse {
@@ -5902,6 +5912,11 @@ export interface TemplateSummary {
    * <p>The name of the template.</p>
    */
   name?: string;
+
+  /**
+   * <p>The version of the template that you're using.</p>
+   */
+  version?: string;
 }
 
 export namespace TemplateSummary {

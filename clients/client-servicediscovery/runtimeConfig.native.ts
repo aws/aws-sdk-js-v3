@@ -1,12 +1,16 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { ClientDefaults } from "./ServiceDiscoveryClient";
-import { ClientDefaultValues as BrowserDefaults } from "./runtimeConfig.browser";
+import { ServiceDiscoveryClientConfig } from "./ServiceDiscoveryClient";
+import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**
  * @internal
  */
-export const ClientDefaultValues: Required<ClientDefaults> = {
-  ...BrowserDefaults,
-  runtime: "react-native",
-  sha256: Sha256,
+export const getRuntimeConfig = (config: ServiceDiscoveryClientConfig = {}) => {
+  const browserDefaults = getBrowserRuntimeConfig(config);
+  return {
+    ...browserDefaults,
+    ...config,
+    runtime: "react-native",
+    sha256: config.sha256 ?? Sha256,
+  };
 };

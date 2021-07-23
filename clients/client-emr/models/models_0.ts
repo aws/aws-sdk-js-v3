@@ -115,7 +115,7 @@ export interface OnDemandCapacityReservationOptions {
   /**
    * <p>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.</p>
    *          <p>If you specify <code>use-capacity-reservations-first</code>, the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy (<code>lowest-price</code>) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy (<code>lowest-price</code>).</p>
-   *          <p>If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.</p>
+   *          <p>If you do not specify a value, the fleet fulfills the On-Demand capacity according to the chosen On-Demand allocation strategy.</p>
    */
   UsageStrategy?: OnDemandCapacityReservationUsageStrategy | string;
 
@@ -813,7 +813,7 @@ export namespace HadoopJarStepConfig {
 }
 
 /**
- * <p>Specification of a cluster (job flow) step.</p>
+ * <p>Specification for a cluster (job flow) step.</p>
  */
 export interface StepConfig {
   /**
@@ -822,9 +822,27 @@ export interface StepConfig {
   Name: string | undefined;
 
   /**
-   * <p>The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER,
-   *          CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility.
-   *          We recommend using TERMINATE_CLUSTER instead.</p>
+   * <p>The action to take when the step fails. Use one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TERMINATE_CLUSTER</code> - Shuts down the cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCEL_AND_WAIT</code> - Cancels any pending steps and returns the cluster to the <code>WAITING</code> state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONTINUE</code> - Continues to the next step in the queue.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TERMINATE_JOB_FLOW</code> - Shuts down the cluster. <code>TERMINATE_JOB_FLOW</code> is provided for backward compatibility. We recommend using <code>TERMINATE_CLUSTER</code> instead.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If a cluster's <code>StepConcurrencyLevel</code> is greater than <code>1</code>, do not use <code>AddJobFlowSteps</code> to submit a step with this parameter set to <code>CANCEL_AND_WAIT</code> or <code>TERMINATE_CLUSTER</code>. The step is not submitted and the action fails with a message that the <code>ActionOnFailure</code> setting is not valid.</p>
+   *          <p>If you change a cluster's <code>StepConcurrencyLevel</code> to be greater than 1 while a step is running, the <code>ActionOnFailure</code> parameter may not behave as you expect. In this case, for a step that fails with this parameter set to <code>CANCEL_AND_WAIT</code>, pending steps and the running step are not canceled; for a step that fails with this parameter set to <code>TERMINATE_CLUSTER</code>, the cluster does not terminate.</p>
    */
   ActionOnFailure?: ActionOnFailure | string;
 
@@ -888,8 +906,7 @@ export namespace AddJobFlowStepsOutput {
 }
 
 /**
- * <p>A key-value pair containing user-defined metadata that you can associate with an Amazon
- *          EMR resource. Tags make it easier to associate clusters in various ways, such as grouping
+ * <p>A key-value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping
  *          clusters to track your Amazon EMR resource allocation costs. For more information, see
  *             <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
  *             Clusters</a>. </p>
@@ -1135,7 +1152,7 @@ export namespace PortRange {
 }
 
 /**
- * <p>Properties that describe the AWS principal that created the
+ * <p>Properties that describe the Amazon Web Services principal that created the
  *             <code>BlockPublicAccessConfiguration</code> using the
  *             <code>PutBlockPublicAccessConfiguration</code> action as well as the date and time that
  *          the configuration was created. Each time a configuration for block public access is
@@ -1167,8 +1184,7 @@ export namespace BlockPublicAccessConfigurationMetadata {
  */
 export interface ScriptBootstrapActionConfig {
   /**
-   * <p>Location of the script to run during a bootstrap action. Can be either a location in
-   *          Amazon S3 or on a local file system.</p>
+   * <p>Location in Amazon S3 of the script to run during a bootstrap action.</p>
    */
   Path: string | undefined;
 
@@ -1824,7 +1840,7 @@ export interface CreateStudioInput {
 
   /**
    * <p>The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a
-   *          way for Amazon EMR Studio to interoperate with other AWS services.</p>
+   *          way for Amazon EMR Studio to interoperate with other Amazon Web Services services.</p>
    */
   ServiceRole: string | undefined;
 
@@ -1904,14 +1920,14 @@ export interface CreateStudioSessionMappingInput {
   StudioId: string | undefined;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group from the AWS SSO Identity
-   *          Store. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>AWS SSO Identity Store API Reference</i>.
+   * <p>The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity
+   *          Store. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
    */
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>AWS SSO Identity Store API Reference</i>.
+   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
    */
   IdentityName?: string;
@@ -1923,8 +1939,7 @@ export interface CreateStudioSessionMappingInput {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the session policy that will be applied to the user
-   *          or group. Session policies refine Studio user permissions without the need to use multiple
-   *          IAM user roles.</p>
+   *          or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html">Create an EMR Studio User Role with Session Policies</a>.</p>
    */
   SessionPolicyArn: string | undefined;
 }
@@ -1989,14 +2004,14 @@ export interface DeleteStudioSessionMappingInput {
 
   /**
    * <p>The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR
-   *          Studio. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>AWS SSO Identity Store API Reference</i>.
+   *          Studio. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
    */
   IdentityId?: string;
 
   /**
    * <p>The name of the user name or group to remove from the Amazon EMR Studio. For more information, see
-   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>AWS SSO Identity Store API Reference</i>.
+   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
    */
   IdentityName?: string;
@@ -2437,7 +2452,7 @@ export interface JobFlowDetail {
   LogUri?: string;
 
   /**
-   * <p>The AWS KMS customer master key (CMK) used for encrypting log files. This attribute is
+   * <p>The KMS key used for encrypting log files. This attribute is
    *          only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.</p>
    */
   LogEncryptionKmsKeyId?: string;
@@ -2476,13 +2491,10 @@ export interface JobFlowDetail {
   SupportedProducts?: string[];
 
   /**
-   * <p>Indicates whether the cluster is visible to all IAM users of the AWS account associated
-   *          with the cluster. The default value, <code>true</code>, indicates that all IAM users in the
-   *          AWS account can perform cluster actions if they have the proper IAM policy permissions. If
-   *          this value is <code>false</code>, only the IAM user that created the cluster can perform
-   *          actions. This value can be changed on a running cluster by using the <a>SetVisibleToAllUsers</a> action. You can override the default value of
-   *             <code>true</code> when you create a cluster by using the <code>VisibleToAllUsers</code>
-   *          parameter of the <code>RunJobFlow</code> action.</p>
+   * <p>Indicates whether the cluster is visible to IAM principals in the account associated
+   *          with the cluster. When <code>true</code>, IAM principals in the
+   *          account can perform EMR cluster actions that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the account root user can perform EMR actions, regardless of IAM permissions policies attached to other IAM principals.</p>
+   *          <p>The default value is <code>false</code> if a value is not provided when creating a cluster using the EMR API <a>RunJobFlow</a> command or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command. The default value is <code>true</code> when a cluster is created using the Management Console. IAM principals that are authorized to perform actions on the cluster can use the <a>SetVisibleToAllUsers</a> action to change the value on a running cluster. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMR Management Guide</i>.</p>
    */
   VisibleToAllUsers?: boolean;
 
@@ -2493,7 +2505,7 @@ export interface JobFlowDetail {
   JobFlowRole?: string;
 
   /**
-   * <p>The IAM role that is assumed by the Amazon EMR service to access AWS resources on your
+   * <p>The IAM role that is assumed by the Amazon EMR service to access Amazon Web Services resources on your
    *          behalf.</p>
    */
   ServiceRole?: string;
@@ -2773,6 +2785,82 @@ export namespace DescribeNotebookExecutionOutput {
   });
 }
 
+export interface DescribeReleaseLabelInput {
+  /**
+   * <p>The target release label to be described.</p>
+   */
+  ReleaseLabel?: string;
+
+  /**
+   * <p>The pagination token. Reserved for future use. Currently set to null.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Reserved for future use. Currently set to null.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeReleaseLabelInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReleaseLabelInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The returned release label application names or versions.</p>
+ */
+export interface SimplifiedApplication {
+  /**
+   * <p>The returned release label application name. For example, <code>hadoop</code>.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The returned release label application version. For example, <code>3.2.1</code>.</p>
+   */
+  Version?: string;
+}
+
+export namespace SimplifiedApplication {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SimplifiedApplication): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeReleaseLabelOutput {
+  /**
+   * <p>The target release label described in the response.</p>
+   */
+  ReleaseLabel?: string;
+
+  /**
+   * <p>The list of applications available for the target release label. <code>Name</code> is the name of the application. <code>Version</code> is the concise version of the application.</p>
+   */
+  Applications?: SimplifiedApplication[];
+
+  /**
+   * <p>The pagination token. Reserved for future use. Currently set to null.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeReleaseLabelOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReleaseLabelOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeSecurityConfigurationInput {
   /**
    * <p>The name of the security configuration.</p>
@@ -3033,9 +3121,11 @@ export interface Step {
   Config?: HadoopStepConfig;
 
   /**
-   * <p>The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER,
-   *          CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility.
-   *          We recommend using TERMINATE_CLUSTER instead.</p>
+   * <p>The action to take when the cluster step fails. Possible values are <code>TERMINATE_CLUSTER</code>,
+   *          <code>CANCEL_AND_WAIT</code>, and <code>CONTINUE</code>. <code>TERMINATE_JOB_FLOW</code> is provided for backward compatibility.
+   *          We recommend using <code>TERMINATE_CLUSTER</code> instead.</p>
+   *          <p>If a cluster's <code>StepConcurrencyLevel</code> is greater than <code>1</code>, do not use <code>AddJobFlowSteps</code> to submit a step with this parameter set to <code>CANCEL_AND_WAIT</code> or <code>TERMINATE_CLUSTER</code>. The step is not submitted and the action fails with a message that the <code>ActionOnFailure</code> setting is not valid.</p>
+   *          <p>If you change a cluster's <code>StepConcurrencyLevel</code> to be greater than 1 while a step is running, the <code>ActionOnFailure</code> parameter may not behave as you expect. In this case, for a step that fails with this parameter set to <code>CANCEL_AND_WAIT</code>, pending steps and the running step are not canceled; for a step that fails with this parameter set to <code>TERMINATE_CLUSTER</code>, the cluster does not terminate.</p>
    */
   ActionOnFailure?: ActionOnFailure | string;
 
@@ -3324,13 +3414,13 @@ export interface GetStudioSessionMappingInput {
 
   /**
    * <p>The globally unique identifier (GUID) of the user or group. For more information, see
-   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>AWS SSO Identity Store API Reference</i>.
+   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
    */
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group to fetch. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>AWS SSO Identity Store API Reference</i>.
+   * <p>The name of the user or group to fetch. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
    */
   IdentityName?: string;
@@ -3366,7 +3456,7 @@ export interface SessionMappingDetail {
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>AWS SSO Identity Store API
+   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API
    *          Reference</i>.</p>
    */
   IdentityName?: string;
@@ -3483,7 +3573,7 @@ export interface ListClustersInput {
   CreatedBefore?: Date;
 
   /**
-   * <p>The cluster state filters to apply when listing clusters.</p>
+   * <p>The cluster state filters to apply when listing clusters. Clusters that change state while this action runs may be not be returned as expected in the list of clusters.</p>
    */
   ClusterStates?: (ClusterState | string)[];
 
@@ -4083,7 +4173,7 @@ export interface Instance {
   InstanceType?: string;
 
   /**
-   * <p>The list of EBS volumes that are attached to this instance.</p>
+   * <p>The list of Amazon EBS volumes that are attached to this instance.</p>
    */
   EbsVolumes?: EbsVolume[];
 }
@@ -4213,7 +4303,7 @@ export namespace ListNotebookExecutionsInput {
 }
 
 /**
- * <p></p>
+ * <p>Details for a notebook execution. The details include information such as the unique ID and status of the notebook execution.</p>
  */
 export interface NotebookExecutionSummary {
   /**
@@ -4329,6 +4419,77 @@ export namespace ListNotebookExecutionsOutput {
   });
 }
 
+/**
+ * <p>The release label filters by application or version prefix.</p>
+ */
+export interface ReleaseLabelFilter {
+  /**
+   * <p>Optional release label version prefix filter. For example, <code>emr-5</code>.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>Optional release label application filter. For example, <code>spark@2.1.0</code>.</p>
+   */
+  Application?: string;
+}
+
+export namespace ReleaseLabelFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReleaseLabelFilter): any => ({
+    ...obj,
+  });
+}
+
+export interface ListReleaseLabelsInput {
+  /**
+   * <p>Filters the results of the request. <code>Prefix</code> specifies the prefix of release labels to return. <code>Application</code> specifies the application (with/without version) of release labels to return.</p>
+   */
+  Filters?: ReleaseLabelFilter;
+
+  /**
+   * <p>Specifies the next page of results. If <code>NextToken</code> is not specified, which is usually the case for the first request of ListReleaseLabels, the first page of results are determined by other filtering parameters or by the latest version. The <code>ListReleaseLabels</code> request fails if the identity (AWS AccountID) and all filtering parameters are different from the original request, or if the <code>NextToken</code> is expired or tampered with.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Defines the maximum number of release labels to return in a single response. The default is <code>100</code>.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListReleaseLabelsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListReleaseLabelsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListReleaseLabelsOutput {
+  /**
+   * <p>The returned release labels.</p>
+   */
+  ReleaseLabels?: string[];
+
+  /**
+   * <p>Used to paginate the next page of results if specified in the next <code>ListReleaseLabels</code> request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListReleaseLabelsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListReleaseLabelsOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface ListSecurityConfigurationsInput {
   /**
    * <p>The pagination token that indicates the set of results to retrieve.</p>
@@ -4414,7 +4575,7 @@ export interface ListStepsInput {
   StepIds?: string[];
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * <p>The maximum number of steps that a single <code>ListSteps</code> action returns is 50. To return a longer list of steps, use multiple <code>ListSteps</code> actions along with the <code>Marker</code> parameter, which is a pagination token that indicates the next set of results to retrieve.</p>
    */
   Marker?: string;
 }
@@ -4449,8 +4610,7 @@ export interface StepSummary {
 
   /**
    * <p>The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER,
-   *          CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward compatibility.
-   *          We recommend using TERMINATE_CLUSTER instead.</p>
+   *          CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward compatibility.</p>
    */
   ActionOnFailure?: ActionOnFailure | string;
 
@@ -4480,7 +4640,7 @@ export interface ListStepsOutput {
   Steps?: StepSummary[];
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * <p>The maximum number of steps that a single <code>ListSteps</code> action returns is 50. To return a longer list of steps, use multiple <code>ListSteps</code> actions along with the <code>Marker</code> parameter, which is a pagination token that indicates the next set of results to retrieve.</p>
    */
   Marker?: string;
 }
@@ -4616,13 +4776,13 @@ export interface SessionMappingSummary {
   StudioId?: string;
 
   /**
-   * <p>The globally unique identifier (GUID) of the user or group from the AWS SSO Identity
+   * <p>The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity
    *          Store.</p>
    */
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>AWS SSO Identity Store API
+   * <p>The name of the user or group. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API
    *          Reference</i>.</p>
    */
   IdentityName?: string;
@@ -4682,8 +4842,7 @@ export interface ModifyClusterInput {
   ClusterId: string | undefined;
 
   /**
-   * <p>The number of steps that can be executed concurrently. You can specify a minimum of 1 step and a maximum of 256
-   *          steps. </p>
+   * <p>The number of steps that can be executed concurrently. You can specify a minimum of 1 step and a maximum of 256 steps. We recommend that you do not change this parameter while steps are running or the <code>ActionOnFailure</code> setting may not behave as expected. For more information see <a>Step$ActionOnFailure</a>.</p>
    */
   StepConcurrencyLevel?: number;
 }
@@ -4755,7 +4914,7 @@ export interface ModifyInstanceFleetInput {
   ClusterId: string | undefined;
 
   /**
-   * <p>The unique identifier of the instance fleet.</p>
+   * <p>The configuration parameters of the instance fleet.</p>
    */
   InstanceFleet: InstanceFleetModifyConfig | undefined;
 }
@@ -5059,10 +5218,9 @@ export interface SetVisibleToAllUsersInput {
   JobFlowIds: string[] | undefined;
 
   /**
-   * <p>A value of <code>true</code> indicates that all IAM users in the AWS account can perform
-   *          cluster actions if they have the proper IAM policy permissions. This is the default. A
-   *          value of <code>false</code> indicates that only the IAM user who created the cluster can
-   *          perform actions.</p>
+   * <p>A value of <code>true</code> indicates that an IAM principal in the account can perform
+   *          EMR actions on the cluster that the IAM policies attached to the principal allow. A
+   *          value of <code>false</code> indicates that only the IAM principal that created the cluster and the Amazon Web Services root user can perform EMR actions on the cluster.</p>
    */
   VisibleToAllUsers: boolean | undefined;
 }
@@ -5234,13 +5392,13 @@ export interface UpdateStudioSessionMappingInput {
 
   /**
    * <p>The globally unique identifier (GUID) of the user or group. For more information, see
-   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>AWS SSO Identity Store API Reference</i>.
+   *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>Amazon Web Services SSO Identity Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
    */
   IdentityId?: string;
 
   /**
-   * <p>The name of the user or group to update. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>AWS SSO Identity Store API Reference</i>.
+   * <p>The name of the user or group to update. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName">UserName</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName">DisplayName</a> in the <i>Amazon Web Services SSO Identity Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
    */
   IdentityName?: string;
@@ -5397,7 +5555,7 @@ export interface Cluster {
   LogUri?: string;
 
   /**
-   * <p> The AWS KMS customer master key (CMK) used for encrypting log files. This attribute is
+   * <p> The KMS key used for encrypting log files. This attribute is
    *          only available with EMR version 5.30.0 and later, excluding EMR 6.0.0. </p>
    */
   LogEncryptionKmsKeyId?: string;
@@ -5436,13 +5594,10 @@ export interface Cluster {
   TerminationProtected?: boolean;
 
   /**
-   * <p>Indicates whether the cluster is visible to all IAM users of the AWS account associated
-   *          with the cluster. The default value, <code>true</code>, indicates that all IAM users in the
-   *          AWS account can perform cluster actions if they have the proper IAM policy permissions. If
-   *          this value is <code>false</code>, only the IAM user that created the cluster can perform
-   *          actions. This value can be changed on a running cluster by using the <a>SetVisibleToAllUsers</a> action. You can override the default value of
-   *             <code>true</code> when you create a cluster by using the <code>VisibleToAllUsers</code>
-   *          parameter of the <code>RunJobFlow</code> action.</p>
+   * <p>Indicates whether the cluster is visible to IAM principals in the account associated
+   *          with the cluster. When <code>true</code>, IAM principals in the
+   *          account can perform EMR cluster actions on the cluster that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the account root user can perform EMR actions, regardless of IAM permissions policies attached to other IAM principals.</p>
+   *          <p>The default value is <code>false</code> if a value is not provided when creating a cluster using the EMR API <a>RunJobFlow</a> command or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command. The default value is <code>true</code> when a cluster is created using the Management Console. IAM principals that are allowed to perform actions on the cluster can use the <a>SetVisibleToAllUsers</a> action to change the value on a running cluster. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMR Management Guide</i>.</p>
    */
   VisibleToAllUsers?: boolean;
 
@@ -5457,7 +5612,7 @@ export interface Cluster {
   Tags?: Tag[];
 
   /**
-   * <p>The IAM role that will be assumed by the Amazon EMR service to access AWS resources on
+   * <p>The IAM role that will be assumed by the Amazon EMR service to access Amazon Web Services resources on
    *          your behalf.</p>
    */
   ServiceRole?: string;
@@ -5677,8 +5832,7 @@ export namespace InstanceGroupModifyConfig {
 /**
  * <p>An instance type configuration for each instance type in an instance fleet, which
  *          determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot
- *          target capacities. There can be a maximum of five instance type configurations in a
- *          fleet.</p>
+ *          target capacities. When you use an allocation strategy, you can include a maximum of 30 instance type configurations for a fleet. For more information about how to use an allocation strategy, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html">Configure Instance Fleets</a>. Without an allocation strategy, you may specify a maximum of five instance type configurations for a fleet.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
  *             later, excluding 5.0.x versions.</p>
@@ -5715,7 +5869,7 @@ export interface InstanceTypeConfig {
   BidPriceAsPercentageOfOnDemandPrice?: number;
 
   /**
-   * <p>The configuration of Amazon Elastic Block Storage (Amazon EBS) attached to each instance
+   * <p>The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance
    *          as defined by <code>InstanceType</code>. </p>
    */
   EbsConfiguration?: EbsConfiguration;
@@ -5776,7 +5930,7 @@ export interface InstanceTypeSpecification {
   Configurations?: Configuration[];
 
   /**
-   * <p>The configuration of Amazon Elastic Block Storage (Amazon EBS) attached to each instance
+   * <p>The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance
    *          as defined by <code>InstanceType</code>.</p>
    */
   EbsBlockDevices?: EbsBlockDevice[];
@@ -5837,7 +5991,7 @@ export interface GetBlockPublicAccessConfigurationOutput {
   BlockPublicAccessConfiguration: BlockPublicAccessConfiguration | undefined;
 
   /**
-   * <p>Properties that describe the AWS principal that created the
+   * <p>Properties that describe the Amazon Web Services principal that created the
    *             <code>BlockPublicAccessConfiguration</code> using the
    *             <code>PutBlockPublicAccessConfiguration</code> action as well as the date and time that
    *          the configuration was created. Each time a configuration for block public access is
@@ -6001,8 +6155,7 @@ export interface InstanceFleet {
   ProvisionedSpotCapacity?: number;
 
   /**
-   * <p>The specification for the instance types that comprise an instance fleet. Up to five
-   *          unique instance specifications may be defined for each instance fleet. </p>
+   * <p>An array of specifications for the instance types that comprise an instance fleet.</p>
    */
   InstanceTypeSpecifications?: InstanceTypeSpecification[];
 
@@ -6204,7 +6357,7 @@ export interface InstanceGroup {
    * <note>
    *             <p>Amazon EMR releases 4.x or later.</p>
    *          </note>
-   *          <p>The list of configurations supplied for an EMR cluster instance group. You can specify a
+   *          <p>The list of configurations supplied for an Amazon EMR cluster instance group. You can specify a
    *          separate configuration for each instance group (master, core, and task).</p>
    */
   Configurations?: Configuration[];
@@ -6356,7 +6509,7 @@ export interface JobFlowInstancesConfig {
   Placement?: PlacementType;
 
   /**
-   * <p>Specifies whether the cluster should remain available after completing all steps.</p>
+   * <p>Specifies whether the cluster should remain available after completing all steps. Defaults to <code>true</code>. For more information about configuring cluster termination, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control Cluster Termination</a> in the <i>EMR Management Guide</i>.</p>
    */
   KeepJobFlowAliveWhenNoSteps?: boolean;
 
@@ -6396,12 +6549,12 @@ export interface JobFlowInstancesConfig {
   Ec2SubnetIds?: string[];
 
   /**
-   * <p>The identifier of the Amazon EC2 security group for the master node.</p>
+   * <p>The identifier of the Amazon EC2 security group for the master node. If you specify <code>EmrManagedMasterSecurityGroup</code>, you must also specify <code>EmrManagedSlaveSecurityGroup</code>.</p>
    */
   EmrManagedMasterSecurityGroup?: string;
 
   /**
-   * <p>The identifier of the Amazon EC2 security group for the core and task nodes.</p>
+   * <p>The identifier of the Amazon EC2 security group for the core and task nodes. If you specify <code>EmrManagedSlaveSecurityGroup</code>, you must also specify <code>EmrManagedMasterSecurityGroup</code>.</p>
    */
   EmrManagedSlaveSecurityGroup?: string;
 
@@ -6447,7 +6600,7 @@ export interface RunJobFlowInput {
   LogUri?: string;
 
   /**
-   * <p>The AWS KMS customer master key (CMK) used for encrypting log files. If a value is not
+   * <p>The KMS key used for encrypting log files. If a value is not
    *          provided, the logs remain encrypted by AES-256. This attribute is only available with
    *          Amazon EMR version 5.30.0 and later, excluding Amazon EMR 6.0.0.</p>
    */
@@ -6566,10 +6719,8 @@ export interface RunJobFlowInput {
   Configurations?: Configuration[];
 
   /**
-   * <p>A value of <code>true</code> indicates that all IAM users in the AWS account can perform
-   *          cluster actions if they have the proper IAM policy permissions. This is the default. A
-   *          value of <code>false</code> indicates that only the IAM user who created the cluster can
-   *          perform actions.</p>
+   * <p>Set this value to <code>true</code> so that IAM principals in the account associated with the cluster can perform EMR actions on the cluster that their IAM policies allow. This value defaults to <code>false</code> for clusters created using the EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p>
+   *          <p>When set to <code>false</code>, only the IAM principal that created the cluster and the account root user can perform EMR actions for the cluster, regardless of the IAM permissions policies attached to other IAM principals. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMR Management Guide</i>.</p>
    */
   VisibleToAllUsers?: boolean;
 
@@ -6582,7 +6733,7 @@ export interface RunJobFlowInput {
   JobFlowRole?: string;
 
   /**
-   * <p>The IAM role that will be assumed by the Amazon EMR service to access AWS resources on
+   * <p>The IAM role that will be assumed by the Amazon EMR service to access Amazon Web Services resources on
    *          your behalf.</p>
    */
   ServiceRole?: string;

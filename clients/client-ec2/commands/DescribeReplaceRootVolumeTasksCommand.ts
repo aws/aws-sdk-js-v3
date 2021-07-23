@@ -24,8 +24,7 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
 
 /**
  * <p>Describes a root volume replacement task. For more information, see
- *       <a href="https://docs.aws.amazon.com/">Replace a root volume</a> in the
- *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

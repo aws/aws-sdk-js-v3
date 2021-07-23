@@ -1,15 +1,16 @@
 import { defaultRegionInfoProvider } from "./endpoints";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
+import { SavingsplansClientConfig } from "./SavingsplansClient";
 
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const getRuntimeConfig = (config: SavingsplansClientConfig = {}) => ({
   apiVersion: "2019-06-28",
-  disableHostPrefix: false,
-  logger: {} as __Logger,
-  regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "savingsplans",
-  urlParser: parseUrl,
-};
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "savingsplans",
+  urlParser: config.urlParser ?? parseUrl,
+});

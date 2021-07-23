@@ -21,10 +21,10 @@ export interface ResetEbsDefaultKmsKeyIdCommandInput extends ResetEbsDefaultKmsK
 export interface ResetEbsDefaultKmsKeyIdCommandOutput extends ResetEbsDefaultKmsKeyIdResult, __MetadataBearer {}
 
 /**
- * <p>Resets the default customer master key (CMK) for EBS encryption for your account in this Region
- *       to the AWS managed CMK for EBS.</p>
- *          <p>After resetting the default CMK to the AWS managed CMK, you can continue to encrypt by a
- *       customer managed CMK by specifying it when you create the volume. For more information, see
+ * <p>Resets the default KMS key for EBS encryption for your account in this Region
+ *       to the Amazon Web Services managed KMS key for EBS.</p>
+ *          <p>After resetting the default KMS key to the Amazon Web Services managed KMS key, you can continue to encrypt by a
+ *       customer managed KMS key by specifying it when you create the volume. For more information, see
  *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
  *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example

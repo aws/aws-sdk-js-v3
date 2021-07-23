@@ -1,15 +1,16 @@
 import { defaultRegionInfoProvider } from "./endpoints";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
+import { ResourceGroupsTaggingAPIClientConfig } from "./ResourceGroupsTaggingAPIClient";
 
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const getRuntimeConfig = (config: ResourceGroupsTaggingAPIClientConfig = {}) => ({
   apiVersion: "2017-01-26",
-  disableHostPrefix: false,
-  logger: {} as __Logger,
-  regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "Resource Groups Tagging API",
-  urlParser: parseUrl,
-};
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "Resource Groups Tagging API",
+  urlParser: config.urlParser ?? parseUrl,
+});

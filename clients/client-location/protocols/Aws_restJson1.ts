@@ -110,6 +110,17 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateGeofenceCollectionCommandInput,
+  UpdateGeofenceCollectionCommandOutput,
+} from "../commands/UpdateGeofenceCollectionCommand";
+import { UpdateMapCommandInput, UpdateMapCommandOutput } from "../commands/UpdateMapCommand";
+import { UpdatePlaceIndexCommandInput, UpdatePlaceIndexCommandOutput } from "../commands/UpdatePlaceIndexCommand";
+import {
+  UpdateRouteCalculatorCommandInput,
+  UpdateRouteCalculatorCommandOutput,
+} from "../commands/UpdateRouteCalculatorCommand";
+import { UpdateTrackerCommandInput, UpdateTrackerCommandOutput } from "../commands/UpdateTrackerCommand";
+import {
   AccessDeniedException,
   BatchDeleteDevicePositionHistoryError,
   BatchDeleteGeofenceError,
@@ -146,6 +157,7 @@ import {
   SearchForTextResult,
   SearchPlaceIndexForPositionSummary,
   SearchPlaceIndexForTextSummary,
+  ServiceQuotaExceededException,
   Step,
   ThrottlingException,
   TruckDimensions,
@@ -2043,6 +2055,224 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateGeofenceCollectionCommand = async (
+  input: UpdateGeofenceCollectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/geofencing/v0/collections/{CollectionName}";
+  if (input.CollectionName !== undefined) {
+    const labelValue: string = input.CollectionName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CollectionName.");
+    }
+    resolvedPath = resolvedPath.replace("{CollectionName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CollectionName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.PricingPlan !== undefined && input.PricingPlan !== null && { PricingPlan: input.PricingPlan }),
+    ...(input.PricingPlanDataSource !== undefined &&
+      input.PricingPlanDataSource !== null && { PricingPlanDataSource: input.PricingPlanDataSource }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "geofencing." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateMapCommand = async (
+  input: UpdateMapCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps/{MapName}";
+  if (input.MapName !== undefined) {
+    const labelValue: string = input.MapName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MapName.");
+    }
+    resolvedPath = resolvedPath.replace("{MapName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MapName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.PricingPlan !== undefined && input.PricingPlan !== null && { PricingPlan: input.PricingPlan }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "maps." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdatePlaceIndexCommand = async (
+  input: UpdatePlaceIndexCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/indexes/{IndexName}";
+  if (input.IndexName !== undefined) {
+    const labelValue: string = input.IndexName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: IndexName.");
+    }
+    resolvedPath = resolvedPath.replace("{IndexName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: IndexName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.DataSourceConfiguration !== undefined &&
+      input.DataSourceConfiguration !== null && {
+        DataSourceConfiguration: serializeAws_restJson1DataSourceConfiguration(input.DataSourceConfiguration, context),
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.PricingPlan !== undefined && input.PricingPlan !== null && { PricingPlan: input.PricingPlan }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "places." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateRouteCalculatorCommand = async (
+  input: UpdateRouteCalculatorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/calculators/{CalculatorName}";
+  if (input.CalculatorName !== undefined) {
+    const labelValue: string = input.CalculatorName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CalculatorName.");
+    }
+    resolvedPath = resolvedPath.replace("{CalculatorName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CalculatorName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.PricingPlan !== undefined && input.PricingPlan !== null && { PricingPlan: input.PricingPlan }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "routes." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateTrackerCommand = async (
+  input: UpdateTrackerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/trackers/{TrackerName}";
+  if (input.TrackerName !== undefined) {
+    const labelValue: string = input.TrackerName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: TrackerName.");
+    }
+    resolvedPath = resolvedPath.replace("{TrackerName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: TrackerName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.PricingPlan !== undefined && input.PricingPlan !== null && { PricingPlan: input.PricingPlan }),
+    ...(input.PricingPlanDataSource !== undefined &&
+      input.PricingPlanDataSource !== null && { PricingPlanDataSource: input.PricingPlanDataSource }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "tracking." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const deserializeAws_restJson1AssociateTrackerConsumerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2097,6 +2327,14 @@ const deserializeAws_restJson1AssociateTrackerConsumerCommandError = async (
     case "com.amazonaws.location#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.location#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6189,6 +6427,481 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateGeofenceCollectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGeofenceCollectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateGeofenceCollectionCommandError(output, context);
+  }
+  const contents: UpdateGeofenceCollectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CollectionArn: undefined,
+    CollectionName: undefined,
+    UpdateTime: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CollectionArn !== undefined && data.CollectionArn !== null) {
+    contents.CollectionArn = __expectString(data.CollectionArn);
+  }
+  if (data.CollectionName !== undefined && data.CollectionName !== null) {
+    contents.CollectionName = __expectString(data.CollectionName);
+  }
+  if (data.UpdateTime !== undefined && data.UpdateTime !== null) {
+    contents.UpdateTime = new Date(data.UpdateTime);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateGeofenceCollectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGeofenceCollectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.location#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.location#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.location#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.location#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.location#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateMapCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMapCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateMapCommandError(output, context);
+  }
+  const contents: UpdateMapCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    MapArn: undefined,
+    MapName: undefined,
+    UpdateTime: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.MapArn !== undefined && data.MapArn !== null) {
+    contents.MapArn = __expectString(data.MapArn);
+  }
+  if (data.MapName !== undefined && data.MapName !== null) {
+    contents.MapName = __expectString(data.MapName);
+  }
+  if (data.UpdateTime !== undefined && data.UpdateTime !== null) {
+    contents.UpdateTime = new Date(data.UpdateTime);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateMapCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMapCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.location#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.location#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.location#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.location#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.location#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdatePlaceIndexCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePlaceIndexCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdatePlaceIndexCommandError(output, context);
+  }
+  const contents: UpdatePlaceIndexCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    IndexArn: undefined,
+    IndexName: undefined,
+    UpdateTime: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.IndexArn !== undefined && data.IndexArn !== null) {
+    contents.IndexArn = __expectString(data.IndexArn);
+  }
+  if (data.IndexName !== undefined && data.IndexName !== null) {
+    contents.IndexName = __expectString(data.IndexName);
+  }
+  if (data.UpdateTime !== undefined && data.UpdateTime !== null) {
+    contents.UpdateTime = new Date(data.UpdateTime);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdatePlaceIndexCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePlaceIndexCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.location#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.location#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.location#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.location#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.location#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateRouteCalculatorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRouteCalculatorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateRouteCalculatorCommandError(output, context);
+  }
+  const contents: UpdateRouteCalculatorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CalculatorArn: undefined,
+    CalculatorName: undefined,
+    UpdateTime: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CalculatorArn !== undefined && data.CalculatorArn !== null) {
+    contents.CalculatorArn = __expectString(data.CalculatorArn);
+  }
+  if (data.CalculatorName !== undefined && data.CalculatorName !== null) {
+    contents.CalculatorName = __expectString(data.CalculatorName);
+  }
+  if (data.UpdateTime !== undefined && data.UpdateTime !== null) {
+    contents.UpdateTime = new Date(data.UpdateTime);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateRouteCalculatorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRouteCalculatorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.location#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.location#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.location#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.location#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.location#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateTrackerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTrackerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateTrackerCommandError(output, context);
+  }
+  const contents: UpdateTrackerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    TrackerArn: undefined,
+    TrackerName: undefined,
+    UpdateTime: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.TrackerArn !== undefined && data.TrackerArn !== null) {
+    contents.TrackerArn = __expectString(data.TrackerArn);
+  }
+  if (data.TrackerName !== undefined && data.TrackerName !== null) {
+    contents.TrackerName = __expectString(data.TrackerName);
+  }
+  if (data.UpdateTime !== undefined && data.UpdateTime !== null) {
+    contents.UpdateTime = new Date(data.UpdateTime);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateTrackerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTrackerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.location#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.location#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.location#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.location#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.location#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6247,6 +6960,23 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.Message = __expectString(data.message);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const contents: ServiceQuotaExceededException = {
+    name: "ServiceQuotaExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,

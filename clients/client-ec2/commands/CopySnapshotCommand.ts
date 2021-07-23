@@ -28,9 +28,9 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *
  *          <p>When copying snapshots to a Region, copies of encrypted EBS snapshots remain encrypted.
  *     	Copies of unencrypted snapshots remain unencrypted, unless you enable encryption for the
- *     	snapshot copy operation. By default, encrypted snapshot copies use the default AWS Key Management Service (AWS KMS)
- *     	customer master key (CMK); however, you can specify a different CMK. To copy an encrypted
- *     	snapshot that has been shared from another account, you must have permissions for the CMK
+ *     	snapshot copy operation. By default, encrypted snapshot copies use the default Key Management Service (KMS)
+ *     	KMS key; however, you can specify a different KMS key. To copy an encrypted
+ *     	snapshot that has been shared from another account, you must have permissions for the KMS key
  *     	used to encrypt the snapshot.</p>
  *
  *   	      <p>Snapshots copied to an Outpost are encrypted by default using the default
@@ -40,7 +40,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *   			Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          <p>Snapshots created by copying another snapshot have an arbitrary volume ID that should not
  *       be used for any purpose.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying an Amazon EBS snapshot</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copy an Amazon EBS snapshot</a> in the
  *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

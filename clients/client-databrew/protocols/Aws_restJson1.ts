@@ -54,6 +54,8 @@ import { UpdateRecipeJobCommandInput, UpdateRecipeJobCommandOutput } from "../co
 import { UpdateScheduleCommandInput, UpdateScheduleCommandOutput } from "../commands/UpdateScheduleCommand";
 import {
   AccessDeniedException,
+  ColumnSelector,
+  ColumnStatisticsConfiguration,
   ConditionExpression,
   ConflictException,
   CsvOptions,
@@ -61,6 +63,7 @@ import {
   DataCatalogInputDefinition,
   DataCatalogOutput,
   DatabaseInputDefinition,
+  DatabaseOutput,
   DatabaseTableOutputOptions,
   Dataset,
   DatasetParameter,
@@ -78,6 +81,7 @@ import {
   Output,
   OutputFormatOptions,
   PathOptions,
+  ProfileConfiguration,
   Project,
   Recipe,
   RecipeAction,
@@ -90,6 +94,8 @@ import {
   Sample,
   Schedule,
   ServiceQuotaExceededException,
+  StatisticOverride,
+  StatisticsConfiguration,
   ValidationException,
   ViewFrame,
 } from "../models/models_0";
@@ -190,6 +196,10 @@ export const serializeAws_restJson1CreateProfileJobCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profileJobs";
   let body: any;
   body = JSON.stringify({
+    ...(input.Configuration !== undefined &&
+      input.Configuration !== null && {
+        Configuration: serializeAws_restJson1ProfileConfiguration(input.Configuration, context),
+      }),
     ...(input.DatasetName !== undefined && input.DatasetName !== null && { DatasetName: input.DatasetName }),
     ...(input.EncryptionKeyArn !== undefined &&
       input.EncryptionKeyArn !== null && { EncryptionKeyArn: input.EncryptionKeyArn }),
@@ -293,6 +303,10 @@ export const serializeAws_restJson1CreateRecipeJobCommand = async (
     ...(input.DataCatalogOutputs !== undefined &&
       input.DataCatalogOutputs !== null && {
         DataCatalogOutputs: serializeAws_restJson1DataCatalogOutputList(input.DataCatalogOutputs, context),
+      }),
+    ...(input.DatabaseOutputs !== undefined &&
+      input.DatabaseOutputs !== null && {
+        DatabaseOutputs: serializeAws_restJson1DatabaseOutputList(input.DatabaseOutputs, context),
       }),
     ...(input.DatasetName !== undefined && input.DatasetName !== null && { DatasetName: input.DatasetName }),
     ...(input.EncryptionKeyArn !== undefined &&
@@ -1199,6 +1213,10 @@ export const serializeAws_restJson1UpdateProfileJobCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.Configuration !== undefined &&
+      input.Configuration !== null && {
+        Configuration: serializeAws_restJson1ProfileConfiguration(input.Configuration, context),
+      }),
     ...(input.EncryptionKeyArn !== undefined &&
       input.EncryptionKeyArn !== null && { EncryptionKeyArn: input.EncryptionKeyArn }),
     ...(input.EncryptionMode !== undefined &&
@@ -1320,6 +1338,10 @@ export const serializeAws_restJson1UpdateRecipeJobCommand = async (
     ...(input.DataCatalogOutputs !== undefined &&
       input.DataCatalogOutputs !== null && {
         DataCatalogOutputs: serializeAws_restJson1DataCatalogOutputList(input.DataCatalogOutputs, context),
+      }),
+    ...(input.DatabaseOutputs !== undefined &&
+      input.DatabaseOutputs !== null && {
+        DatabaseOutputs: serializeAws_restJson1DatabaseOutputList(input.DatabaseOutputs, context),
       }),
     ...(input.EncryptionKeyArn !== undefined &&
       input.EncryptionKeyArn !== null && { EncryptionKeyArn: input.EncryptionKeyArn }),
@@ -2400,6 +2422,7 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
     CreateDate: undefined,
     CreatedBy: undefined,
     DataCatalogOutputs: undefined,
+    DatabaseOutputs: undefined,
     DatasetName: undefined,
     EncryptionKeyArn: undefined,
     EncryptionMode: undefined,
@@ -2411,6 +2434,7 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
     MaxRetries: undefined,
     Name: undefined,
     Outputs: undefined,
+    ProfileConfiguration: undefined,
     ProjectName: undefined,
     RecipeReference: undefined,
     ResourceArn: undefined,
@@ -2428,6 +2452,9 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
   }
   if (data.DataCatalogOutputs !== undefined && data.DataCatalogOutputs !== null) {
     contents.DataCatalogOutputs = deserializeAws_restJson1DataCatalogOutputList(data.DataCatalogOutputs, context);
+  }
+  if (data.DatabaseOutputs !== undefined && data.DatabaseOutputs !== null) {
+    contents.DatabaseOutputs = deserializeAws_restJson1DatabaseOutputList(data.DatabaseOutputs, context);
   }
   if (data.DatasetName !== undefined && data.DatasetName !== null) {
     contents.DatasetName = __expectString(data.DatasetName);
@@ -2461,6 +2488,9 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
   }
   if (data.Outputs !== undefined && data.Outputs !== null) {
     contents.Outputs = deserializeAws_restJson1OutputList(data.Outputs, context);
+  }
+  if (data.ProfileConfiguration !== undefined && data.ProfileConfiguration !== null) {
+    contents.ProfileConfiguration = deserializeAws_restJson1ProfileConfiguration(data.ProfileConfiguration, context);
   }
   if (data.ProjectName !== undefined && data.ProjectName !== null) {
     contents.ProjectName = __expectString(data.ProjectName);
@@ -2543,6 +2573,7 @@ export const deserializeAws_restJson1DescribeJobRunCommand = async (
     Attempt: undefined,
     CompletedOn: undefined,
     DataCatalogOutputs: undefined,
+    DatabaseOutputs: undefined,
     DatasetName: undefined,
     ErrorMessage: undefined,
     ExecutionTime: undefined,
@@ -2551,6 +2582,7 @@ export const deserializeAws_restJson1DescribeJobRunCommand = async (
     LogGroupName: undefined,
     LogSubscription: undefined,
     Outputs: undefined,
+    ProfileConfiguration: undefined,
     RecipeReference: undefined,
     RunId: undefined,
     StartedBy: undefined,
@@ -2566,6 +2598,9 @@ export const deserializeAws_restJson1DescribeJobRunCommand = async (
   }
   if (data.DataCatalogOutputs !== undefined && data.DataCatalogOutputs !== null) {
     contents.DataCatalogOutputs = deserializeAws_restJson1DataCatalogOutputList(data.DataCatalogOutputs, context);
+  }
+  if (data.DatabaseOutputs !== undefined && data.DatabaseOutputs !== null) {
+    contents.DatabaseOutputs = deserializeAws_restJson1DatabaseOutputList(data.DatabaseOutputs, context);
   }
   if (data.DatasetName !== undefined && data.DatasetName !== null) {
     contents.DatasetName = __expectString(data.DatasetName);
@@ -2590,6 +2625,9 @@ export const deserializeAws_restJson1DescribeJobRunCommand = async (
   }
   if (data.Outputs !== undefined && data.Outputs !== null) {
     contents.Outputs = deserializeAws_restJson1OutputList(data.Outputs, context);
+  }
+  if (data.ProfileConfiguration !== undefined && data.ProfileConfiguration !== null) {
+    contents.ProfileConfiguration = deserializeAws_restJson1ProfileConfiguration(data.ProfileConfiguration, context);
   }
   if (data.RecipeReference !== undefined && data.RecipeReference !== null) {
     contents.RecipeReference = deserializeAws_restJson1RecipeReference(data.RecipeReference, context);
@@ -4503,6 +4541,52 @@ const serializeAws_restJson1ColumnNameList = (input: string[], context: __SerdeC
     });
 };
 
+const serializeAws_restJson1ColumnSelector = (input: ColumnSelector, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Regex !== undefined && input.Regex !== null && { Regex: input.Regex }),
+  };
+};
+
+const serializeAws_restJson1ColumnSelectorList = (input: ColumnSelector[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ColumnSelector(entry, context);
+    });
+};
+
+const serializeAws_restJson1ColumnStatisticsConfiguration = (
+  input: ColumnStatisticsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Selectors !== undefined &&
+      input.Selectors !== null && { Selectors: serializeAws_restJson1ColumnSelectorList(input.Selectors, context) }),
+    ...(input.Statistics !== undefined &&
+      input.Statistics !== null && {
+        Statistics: serializeAws_restJson1StatisticsConfiguration(input.Statistics, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1ColumnStatisticsConfigurationList = (
+  input: ColumnStatisticsConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ColumnStatisticsConfiguration(entry, context);
+    });
+};
+
 const serializeAws_restJson1ConditionExpression = (input: ConditionExpression, context: __SerdeContext): any => {
   return {
     ...(input.Condition !== undefined && input.Condition !== null && { Condition: input.Condition }),
@@ -4549,6 +4633,30 @@ const serializeAws_restJson1DatabaseInputDefinition = (
         TempDirectory: serializeAws_restJson1S3Location(input.TempDirectory, context),
       }),
   };
+};
+
+const serializeAws_restJson1DatabaseOutput = (input: DatabaseOutput, context: __SerdeContext): any => {
+  return {
+    ...(input.DatabaseOptions !== undefined &&
+      input.DatabaseOptions !== null && {
+        DatabaseOptions: serializeAws_restJson1DatabaseTableOutputOptions(input.DatabaseOptions, context),
+      }),
+    ...(input.DatabaseOutputMode !== undefined &&
+      input.DatabaseOutputMode !== null && { DatabaseOutputMode: input.DatabaseOutputMode }),
+    ...(input.GlueConnectionName !== undefined &&
+      input.GlueConnectionName !== null && { GlueConnectionName: input.GlueConnectionName }),
+  };
+};
+
+const serializeAws_restJson1DatabaseOutputList = (input: DatabaseOutput[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1DatabaseOutput(entry, context);
+    });
 };
 
 const serializeAws_restJson1DatabaseTableOutputOptions = (
@@ -4798,6 +4906,29 @@ const serializeAws_restJson1PathParametersMap = (
   }, {});
 };
 
+const serializeAws_restJson1ProfileConfiguration = (input: ProfileConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.ColumnStatisticsConfigurations !== undefined &&
+      input.ColumnStatisticsConfigurations !== null && {
+        ColumnStatisticsConfigurations: serializeAws_restJson1ColumnStatisticsConfigurationList(
+          input.ColumnStatisticsConfigurations,
+          context
+        ),
+      }),
+    ...(input.DatasetStatisticsConfiguration !== undefined &&
+      input.DatasetStatisticsConfiguration !== null && {
+        DatasetStatisticsConfiguration: serializeAws_restJson1StatisticsConfiguration(
+          input.DatasetStatisticsConfiguration,
+          context
+        ),
+      }),
+    ...(input.ProfileColumns !== undefined &&
+      input.ProfileColumns !== null && {
+        ProfileColumns: serializeAws_restJson1ColumnSelectorList(input.ProfileColumns, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1RecipeAction = (input: RecipeAction, context: __SerdeContext): any => {
   return {
     ...(input.Operation !== undefined && input.Operation !== null && { Operation: input.Operation }),
@@ -4889,6 +5020,50 @@ const serializeAws_restJson1SheetNameList = (input: string[], context: __SerdeCo
     });
 };
 
+const serializeAws_restJson1StatisticList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1StatisticOverride = (input: StatisticOverride, context: __SerdeContext): any => {
+  return {
+    ...(input.Parameters !== undefined &&
+      input.Parameters !== null && { Parameters: serializeAws_restJson1ParameterMap(input.Parameters, context) }),
+    ...(input.Statistic !== undefined && input.Statistic !== null && { Statistic: input.Statistic }),
+  };
+};
+
+const serializeAws_restJson1StatisticOverrideList = (input: StatisticOverride[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1StatisticOverride(entry, context);
+    });
+};
+
+const serializeAws_restJson1StatisticsConfiguration = (
+  input: StatisticsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IncludedStatistics !== undefined &&
+      input.IncludedStatistics !== null && {
+        IncludedStatistics: serializeAws_restJson1StatisticList(input.IncludedStatistics, context),
+      }),
+    ...(input.Overrides !== undefined &&
+      input.Overrides !== null && { Overrides: serializeAws_restJson1StatisticOverrideList(input.Overrides, context) }),
+  };
+};
+
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -4933,6 +5108,54 @@ const deserializeAws_restJson1ColumnNameList = (output: any, context: __SerdeCon
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1ColumnSelector = (output: any, context: __SerdeContext): ColumnSelector => {
+  return {
+    Name: __expectString(output.Name),
+    Regex: __expectString(output.Regex),
+  } as any;
+};
+
+const deserializeAws_restJson1ColumnSelectorList = (output: any, context: __SerdeContext): ColumnSelector[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ColumnSelector(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ColumnStatisticsConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ColumnStatisticsConfiguration => {
+  return {
+    Selectors:
+      output.Selectors !== undefined && output.Selectors !== null
+        ? deserializeAws_restJson1ColumnSelectorList(output.Selectors, context)
+        : undefined,
+    Statistics:
+      output.Statistics !== undefined && output.Statistics !== null
+        ? deserializeAws_restJson1StatisticsConfiguration(output.Statistics, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ColumnStatisticsConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): ColumnStatisticsConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ColumnStatisticsConfiguration(entry, context);
     });
 };
 
@@ -4983,6 +5206,28 @@ const deserializeAws_restJson1DatabaseInputDefinition = (
         ? deserializeAws_restJson1S3Location(output.TempDirectory, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1DatabaseOutput = (output: any, context: __SerdeContext): DatabaseOutput => {
+  return {
+    DatabaseOptions:
+      output.DatabaseOptions !== undefined && output.DatabaseOptions !== null
+        ? deserializeAws_restJson1DatabaseTableOutputOptions(output.DatabaseOptions, context)
+        : undefined,
+    DatabaseOutputMode: __expectString(output.DatabaseOutputMode),
+    GlueConnectionName: __expectString(output.GlueConnectionName),
+  } as any;
+};
+
+const deserializeAws_restJson1DatabaseOutputList = (output: any, context: __SerdeContext): DatabaseOutput[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DatabaseOutput(entry, context);
+    });
 };
 
 const deserializeAws_restJson1DatabaseTableOutputOptions = (
@@ -5190,6 +5435,10 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
       output.DataCatalogOutputs !== undefined && output.DataCatalogOutputs !== null
         ? deserializeAws_restJson1DataCatalogOutputList(output.DataCatalogOutputs, context)
         : undefined,
+    DatabaseOutputs:
+      output.DatabaseOutputs !== undefined && output.DatabaseOutputs !== null
+        ? deserializeAws_restJson1DatabaseOutputList(output.DatabaseOutputs, context)
+        : undefined,
     DatasetName: __expectString(output.DatasetName),
     EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
     EncryptionMode: __expectString(output.EncryptionMode),
@@ -5258,6 +5507,10 @@ const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): J
     DataCatalogOutputs:
       output.DataCatalogOutputs !== undefined && output.DataCatalogOutputs !== null
         ? deserializeAws_restJson1DataCatalogOutputList(output.DataCatalogOutputs, context)
+        : undefined,
+    DatabaseOutputs:
+      output.DatabaseOutputs !== undefined && output.DatabaseOutputs !== null
+        ? deserializeAws_restJson1DatabaseOutputList(output.DatabaseOutputs, context)
         : undefined,
     DatasetName: __expectString(output.DatasetName),
     ErrorMessage: __expectString(output.ErrorMessage),
@@ -5393,6 +5646,23 @@ const deserializeAws_restJson1PathParametersMap = (
       [key]: deserializeAws_restJson1DatasetParameter(value, context),
     };
   }, {});
+};
+
+const deserializeAws_restJson1ProfileConfiguration = (output: any, context: __SerdeContext): ProfileConfiguration => {
+  return {
+    ColumnStatisticsConfigurations:
+      output.ColumnStatisticsConfigurations !== undefined && output.ColumnStatisticsConfigurations !== null
+        ? deserializeAws_restJson1ColumnStatisticsConfigurationList(output.ColumnStatisticsConfigurations, context)
+        : undefined,
+    DatasetStatisticsConfiguration:
+      output.DatasetStatisticsConfiguration !== undefined && output.DatasetStatisticsConfiguration !== null
+        ? deserializeAws_restJson1StatisticsConfiguration(output.DatasetStatisticsConfiguration, context)
+        : undefined,
+    ProfileColumns:
+      output.ProfileColumns !== undefined && output.ProfileColumns !== null
+        ? deserializeAws_restJson1ColumnSelectorList(output.ProfileColumns, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1Project = (output: any, context: __SerdeContext): Project => {
@@ -5628,6 +5898,54 @@ const deserializeAws_restJson1SheetNameList = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_restJson1StatisticList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1StatisticOverride = (output: any, context: __SerdeContext): StatisticOverride => {
+  return {
+    Parameters:
+      output.Parameters !== undefined && output.Parameters !== null
+        ? deserializeAws_restJson1ParameterMap(output.Parameters, context)
+        : undefined,
+    Statistic: __expectString(output.Statistic),
+  } as any;
+};
+
+const deserializeAws_restJson1StatisticOverrideList = (output: any, context: __SerdeContext): StatisticOverride[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StatisticOverride(entry, context);
+    });
+};
+
+const deserializeAws_restJson1StatisticsConfiguration = (
+  output: any,
+  context: __SerdeContext
+): StatisticsConfiguration => {
+  return {
+    IncludedStatistics:
+      output.IncludedStatistics !== undefined && output.IncludedStatistics !== null
+        ? deserializeAws_restJson1StatisticList(output.IncludedStatistics, context)
+        : undefined,
+    Overrides:
+      output.Overrides !== undefined && output.Overrides !== null
+        ? deserializeAws_restJson1StatisticOverrideList(output.Overrides, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {

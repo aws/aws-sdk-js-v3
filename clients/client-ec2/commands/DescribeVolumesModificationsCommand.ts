@@ -29,8 +29,7 @@ export interface DescribeVolumesModificationsCommandOutput
  *       recent modification request.</p>
  *          <p>You can also use CloudWatch Events to check the status of a modification to an EBS
  *       volume. For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon CloudWatch Events User Guide</a>. For more information, see
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring volume modifications</a> in the
- *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html">Monitor the progress of volume modifications</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

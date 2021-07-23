@@ -19,8 +19,8 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
 
 /**
  * <p>Provides a list of steps for the cluster in reverse order unless you specify
- *             <code>stepIds</code> with the request of filter by <code>StepStates</code>. You can
- *          specify a maximum of 10 <code>stepIDs</code>.</p>
+ *             <code>stepIds</code> with the request or filter by <code>StepStates</code>. You can
+ *          specify a maximum of 10 <code>stepIDs</code>. The CLI automatically paginates results to return a list greater than 50 steps. To return more than 50 steps using the CLI, specify a <code>Marker</code>, which is a pagination token that indicates the next set of steps to retrieve.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

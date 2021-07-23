@@ -27,7 +27,7 @@ export interface UpdateInfrastructureConfigurationCommandOutput
 
 /**
  * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the
- *       environment in which your image will be built and tested.</p>
+ * 			environment in which your image will be built and tested.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

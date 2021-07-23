@@ -28,6 +28,10 @@ import {
   DescribeNotebookExecutionCommandOutput,
 } from "./commands/DescribeNotebookExecutionCommand";
 import {
+  DescribeReleaseLabelCommandInput,
+  DescribeReleaseLabelCommandOutput,
+} from "./commands/DescribeReleaseLabelCommand";
+import {
   DescribeSecurityConfigurationCommandInput,
   DescribeSecurityConfigurationCommandOutput,
 } from "./commands/DescribeSecurityConfigurationCommand";
@@ -57,6 +61,7 @@ import {
   ListNotebookExecutionsCommandInput,
   ListNotebookExecutionsCommandOutput,
 } from "./commands/ListNotebookExecutionsCommand";
+import { ListReleaseLabelsCommandInput, ListReleaseLabelsCommandOutput } from "./commands/ListReleaseLabelsCommand";
 import {
   ListSecurityConfigurationsCommandInput,
   ListSecurityConfigurationsCommandOutput,
@@ -120,7 +125,7 @@ import {
   UpdateStudioSessionMappingCommandInput,
   UpdateStudioSessionMappingCommandOutput,
 } from "./commands/UpdateStudioSessionMappingCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -187,6 +192,7 @@ export type ServiceInputTypes =
   | DescribeClusterCommandInput
   | DescribeJobFlowsCommandInput
   | DescribeNotebookExecutionCommandInput
+  | DescribeReleaseLabelCommandInput
   | DescribeSecurityConfigurationCommandInput
   | DescribeStepCommandInput
   | DescribeStudioCommandInput
@@ -199,6 +205,7 @@ export type ServiceInputTypes =
   | ListInstanceGroupsCommandInput
   | ListInstancesCommandInput
   | ListNotebookExecutionsCommandInput
+  | ListReleaseLabelsCommandInput
   | ListSecurityConfigurationsCommandInput
   | ListStepsCommandInput
   | ListStudioSessionMappingsCommandInput
@@ -236,6 +243,7 @@ export type ServiceOutputTypes =
   | DescribeClusterCommandOutput
   | DescribeJobFlowsCommandOutput
   | DescribeNotebookExecutionCommandOutput
+  | DescribeReleaseLabelCommandOutput
   | DescribeSecurityConfigurationCommandOutput
   | DescribeStepCommandOutput
   | DescribeStudioCommandOutput
@@ -248,6 +256,7 @@ export type ServiceOutputTypes =
   | ListInstanceGroupsCommandOutput
   | ListInstancesCommandOutput
   | ListNotebookExecutionsCommandOutput
+  | ListReleaseLabelsCommandOutput
   | ListSecurityConfigurationsCommandOutput
   | ListStepsCommandOutput
   | ListStudioSessionMappingsCommandOutput
@@ -411,7 +420,7 @@ export interface EMRClientResolvedConfig extends EMRClientResolvedConfigType {}
 
 /**
  * <p>Amazon EMR is a web service that makes it easier to process large amounts of data
- *          efficiently. Amazon EMR uses Hadoop processing combined with several AWS services to do
+ *          efficiently. Amazon EMR uses Hadoop processing combined with several Amazon Web Services services to do
  *          tasks such as web indexing, data mining, log file analysis, machine learning, scientific
  *          simulation, and data warehouse management.</p>
  */
@@ -427,10 +436,7 @@ export class EMRClient extends __Client<
   readonly config: EMRClientResolvedConfig;
 
   constructor(configuration: EMRClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

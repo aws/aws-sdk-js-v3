@@ -1,12 +1,16 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { ClientDefaults } from "./AthenaClient";
-import { ClientDefaultValues as BrowserDefaults } from "./runtimeConfig.browser";
+import { AthenaClientConfig } from "./AthenaClient";
+import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**
  * @internal
  */
-export const ClientDefaultValues: Required<ClientDefaults> = {
-  ...BrowserDefaults,
-  runtime: "react-native",
-  sha256: Sha256,
+export const getRuntimeConfig = (config: AthenaClientConfig = {}) => {
+  const browserDefaults = getBrowserRuntimeConfig(config);
+  return {
+    ...browserDefaults,
+    ...config,
+    runtime: "react-native",
+    sha256: config.sha256 ?? Sha256,
+  };
 };

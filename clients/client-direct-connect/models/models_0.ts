@@ -482,12 +482,13 @@ export interface Connection {
   jumboFrameCapable?: boolean;
 
   /**
-   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
+   * <p>The Direct Connect endpoint that terminates the physical connection.</p>
    */
   awsDeviceV2?: string;
 
   /**
-   * <p>The Direct Connect endpoint that terminates a physical connection's BGP sessions.</p>
+   * <p>The Direct Connect endpoint that terminates the logical connection. This device might be
+   *       different than the device that terminates the physical connection.</p>
    */
   awsLogicalDeviceId?: string;
 
@@ -797,10 +798,14 @@ export interface BGPPeer {
   bgpStatus?: BGPStatus | string;
 
   /**
-   * <p>The Direct Connect endpoint on which the BGP peer terminates.</p>
+   * <p>The Direct Connect endpoint that terminates the BGP peer.</p>
    */
   awsDeviceV2?: string;
 
+  /**
+   * <p>The Direct Connect endpoint that terminates the logical connection. This device might be
+   *       different than the device that terminates the physical connection.</p>
+   */
   awsLogicalDeviceId?: string;
 }
 
@@ -978,12 +983,13 @@ export interface VirtualInterface {
   region?: string;
 
   /**
-   * <p>The Direct Connect endpoint on which the virtual interface terminates.</p>
+   * <p>The Direct Connect endpoint that terminates the physical connection.</p>
    */
   awsDeviceV2?: string;
 
   /**
-   * <p>The Direct Connect endpoint that terminates a physical connection's BGP sessions.</p>
+   * <p>The Direct Connect endpoint that terminates the logical connection. This device might be
+   *       different than the device that terminates the physical connection.</p>
    */
   awsLogicalDeviceId?: string;
 
@@ -2148,12 +2154,13 @@ export interface Interconnect {
   jumboFrameCapable?: boolean;
 
   /**
-   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
+   * <p>The Direct Connect endpoint that terminates the physical connection.</p>
    */
   awsDeviceV2?: string;
 
   /**
-   * <p>The Direct Connect endpoint that terminates a physical connection's BGP sessions.</p>
+   * <p>The Direct Connect endpoint that terminates the logical connection. This device might be
+   *       different than the device that terminates the physical connection.</p>
    */
   awsLogicalDeviceId?: string;
 
@@ -2339,7 +2346,8 @@ export interface Lag {
   awsDeviceV2?: string;
 
   /**
-   * <p>The Direct Connect endpoint that terminates a physical connection's BGP sessions.</p>
+   * <p>The Direct Connect endpoint that terminates the logical connection. This device might be
+   *       different than the device that terminates the physical connection.</p>
    */
   awsLogicalDeviceId?: string;
 

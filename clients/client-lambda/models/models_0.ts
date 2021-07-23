@@ -733,11 +733,12 @@ export enum EndPointType {
 }
 
 /**
- * <p>The Self-Managed Apache Kafka cluster for your event source.</p>
+ * <p>The self-managed Apache Kafka cluster for your event source.</p>
  */
 export interface SelfManagedEventSource {
   /**
-   * <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]</code>.</p>
+   * <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS":
+   *         ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]</code>.</p>
    */
   Endpoints?: { [key: string]: string[] };
 }
@@ -761,35 +762,39 @@ export enum SourceAccessType {
 }
 
 /**
- * <p>You can specify the authentication protocol, or the VPC components to secure access to your event source.</p>
+ * <p>To secure and define access to your event source, you can specify the authentication protocol, VPC components, or virtual host.</p>
  */
 export interface SourceAccessConfiguration {
   /**
-   * <p>The type of authentication protocol or the VPC components for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p>
+   * <p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>BASIC_AUTH</code> - (MQ) The Secrets Manager secret that stores your broker credentials.</p>
+   *                   <code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your Self-Managed Apache Kafka cluster.</p>
+   *                   <code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your Self-Managed Apache Kafka brokers.</p>
+   *                   <code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your Self-Managed Apache Kafka brokers.</p>
+   *                   <code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your Self-Managed Apache Kafka brokers.</p>
+   *                   <code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VIRTUAL_HOST</code> - The name of the virtual host in your RabbitMQ broker. Lambda will use this host as the event source.</p>
+   *                   <code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.</p>
    *             </li>
    *          </ul>
    */
@@ -960,7 +965,7 @@ export interface CreateEventSourceMappingRequest {
   Queues?: string[];
 
   /**
-   * <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
+   * <p>An array of authentication protocols or VPC components required to secure your event source.</p>
    */
   SourceAccessConfigurations?: SourceAccessConfiguration[];
 
@@ -985,7 +990,7 @@ export namespace CreateEventSourceMappingRequest {
 }
 
 /**
- * <p>A mapping between an Amazon Web Services resource and an Lambda function. See <a>CreateEventSourceMapping</a> for details.</p>
+ * <p>A mapping between an Amazon Web Services resource and a Lambda function. For details, see <a>CreateEventSourceMapping</a>.</p>
  */
 export interface EventSourceMappingConfiguration {
   /**
@@ -994,8 +999,8 @@ export interface EventSourceMappingConfiguration {
   UUID?: string;
 
   /**
-   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams
-   *       sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK stream sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis
+   *       streams.</p>
    */
   StartingPosition?: EventSourcePosition | string;
 
@@ -1011,12 +1016,12 @@ export interface EventSourceMappingConfiguration {
   BatchSize?: number;
 
   /**
-   * <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.</p>
+   * <p>(Streams and Amazon SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) The number of batches to process from each shard concurrently. The default value is 1.</p>
+   * <p>(Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
    */
   ParallelizationFactor?: number;
 
@@ -1031,25 +1036,24 @@ export interface EventSourceMappingConfiguration {
   FunctionArn?: string;
 
   /**
-   * <p>The date that the event source mapping was last updated, or its state changed.</p>
+   * <p>The date that the event source mapping was last updated or that its state changed.</p>
    */
   LastModified?: Date;
 
   /**
-   * <p>The result of the last Lambda invocation of your Lambda function.</p>
+   * <p>The result of the last Lambda invocation of your function.</p>
    */
   LastProcessingResult?: string;
 
   /**
    * <p>The state of the event source mapping. It can be one of the following: <code>Creating</code>,
-   *       <code>Enabling</code>, <code>Enabled</code>, <code>Disabling</code>, <code>Disabled</code>,
-   *       <code>Updating</code>, or <code>Deleting</code>.</p>
+   *         <code>Enabling</code>, <code>Enabled</code>, <code>Disabling</code>, <code>Disabled</code>,
+   *         <code>Updating</code>, or <code>Deleting</code>.</p>
    */
   State?: string;
 
   /**
-   * <p>Indicates whether the last change to the event source mapping was made by a user, or by the Lambda
-   *       service.</p>
+   * <p>Indicates whether a user or Lambda made the last change to the event source mapping.</p>
    */
   StateTransitionReason?: string;
 
@@ -1064,19 +1068,17 @@ export interface EventSourceMappingConfiguration {
   Topics?: string[];
 
   /**
-   * <p>
-   *       (MQ) The name of the Amazon MQ broker destination queue to consume.
-   *     </p>
+   * <p> (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.</p>
    */
   Queues?: string[];
 
   /**
-   * <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
+   * <p>An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.</p>
    */
   SourceAccessConfigurations?: SourceAccessConfiguration[];
 
   /**
-   * <p>The Self-Managed Apache Kafka cluster for your event source.</p>
+   * <p>The self-managed Apache Kafka cluster for your event source.</p>
    */
   SelfManagedEventSource?: SelfManagedEventSource;
 
@@ -1098,7 +1100,7 @@ export interface EventSourceMappingConfiguration {
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+   * <p>(Streams only) The duration in seconds of a processing window. The range is 1–900 seconds.</p>
    */
   TumblingWindowInSeconds?: number;
 
@@ -3917,7 +3919,8 @@ export interface ListEventSourceMappingsRequest {
   Marker?: string;
 
   /**
-   * <p>The maximum number of event source mappings to return.</p>
+   * <p>The maximum number of event source mappings to return. Note that ListEventSourceMappings returns
+   *       a maximum of 100 items in each response, even if you set the number higher.</p>
    */
   MaxItems?: number;
 }
@@ -5323,7 +5326,7 @@ export interface UpdateEventSourceMappingRequest {
   ParallelizationFactor?: number;
 
   /**
-   * <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
+   * <p>An array of authentication protocols or VPC components required to secure your event source.</p>
    */
   SourceAccessConfigurations?: SourceAccessConfiguration[];
 

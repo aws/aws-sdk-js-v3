@@ -22,7 +22,7 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
 
 /**
  * <p>Describes one or more of your DHCP options sets.</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the
  * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

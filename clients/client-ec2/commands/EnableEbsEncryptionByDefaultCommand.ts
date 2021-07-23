@@ -25,10 +25,10 @@ export interface EnableEbsEncryptionByDefaultCommandOutput
 /**
  * <p>Enables EBS encryption by default for your account in the current Region.</p>
  *          <p>After you enable encryption by default, the EBS volumes that you create are
- *       always encrypted, either using the default CMK or the CMK that you specified
+ *     	always encrypted, either using the default KMS key or the KMS key that you specified
  *       when you created each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
  *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          <p>You can specify the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
+ *   	      <p>You can specify the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
  *       or <a>ResetEbsDefaultKmsKeyId</a>.</p>
  *          <p>Enabling encryption by default has no effect on the encryption status of your
  *       existing volumes.</p>

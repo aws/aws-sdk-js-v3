@@ -109,7 +109,18 @@ import {
 } from "./commands/SearchPlaceIndexForTextCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import {
+  UpdateGeofenceCollectionCommandInput,
+  UpdateGeofenceCollectionCommandOutput,
+} from "./commands/UpdateGeofenceCollectionCommand";
+import { UpdateMapCommandInput, UpdateMapCommandOutput } from "./commands/UpdateMapCommand";
+import { UpdatePlaceIndexCommandInput, UpdatePlaceIndexCommandOutput } from "./commands/UpdatePlaceIndexCommand";
+import {
+  UpdateRouteCalculatorCommandInput,
+  UpdateRouteCalculatorCommandOutput,
+} from "./commands/UpdateRouteCalculatorCommand";
+import { UpdateTrackerCommandInput, UpdateTrackerCommandOutput } from "./commands/UpdateTrackerCommand";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -206,7 +217,12 @@ export type ServiceInputTypes =
   | SearchPlaceIndexForPositionCommandInput
   | SearchPlaceIndexForTextCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateGeofenceCollectionCommandInput
+  | UpdateMapCommandInput
+  | UpdatePlaceIndexCommandInput
+  | UpdateRouteCalculatorCommandInput
+  | UpdateTrackerCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateTrackerConsumerCommandOutput
@@ -253,7 +269,12 @@ export type ServiceOutputTypes =
   | SearchPlaceIndexForPositionCommandOutput
   | SearchPlaceIndexForTextCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateGeofenceCollectionCommandOutput
+  | UpdateMapCommandOutput
+  | UpdatePlaceIndexCommandOutput
+  | UpdateRouteCalculatorCommandOutput
+  | UpdateTrackerCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -409,10 +430,7 @@ export class LocationClient extends __Client<
   readonly config: LocationClientResolvedConfig;
 
   constructor(configuration: LocationClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

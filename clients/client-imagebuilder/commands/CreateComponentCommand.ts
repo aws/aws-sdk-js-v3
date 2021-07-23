@@ -22,7 +22,7 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
 
 /**
  * <p>Creates a new component that can be used to build, validate, test, and assess your
- *       image.</p>
+ * 			image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

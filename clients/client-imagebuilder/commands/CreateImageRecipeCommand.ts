@@ -22,7 +22,7 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
 
 /**
  * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and
- *       assessed.</p>
+ * 			assessed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

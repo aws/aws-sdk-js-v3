@@ -1,15 +1,16 @@
 import { defaultRegionInfoProvider } from "./endpoints";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
+import { FirehoseClientConfig } from "./FirehoseClient";
 
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const getRuntimeConfig = (config: FirehoseClientConfig = {}) => ({
   apiVersion: "2015-08-04",
-  disableHostPrefix: false,
-  logger: {} as __Logger,
-  regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "Firehose",
-  urlParser: parseUrl,
-};
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "Firehose",
+  urlParser: config.urlParser ?? parseUrl,
+});

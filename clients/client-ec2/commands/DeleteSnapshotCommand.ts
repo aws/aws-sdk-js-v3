@@ -26,7 +26,7 @@ export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
  *       to all the information needed to restore the volume.</p>
  *          <p>You cannot delete a snapshot of the root device of an EBS volume used by a registered AMI.
  *       You must first de-register the AMI before you can delete the snapshot.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html">Deleting an Amazon EBS snapshot</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html">Delete an Amazon EBS snapshot</a> in the
  *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

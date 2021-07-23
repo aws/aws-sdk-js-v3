@@ -202,15 +202,16 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>CodeBuild is a fully managed build service in the cloud. CodeBuild compiles your source
- *             code, runs unit tests, and produces artifacts that are ready to deploy. CodeBuild eliminates
- *             the need to provision, manage, and scale your own build servers. It provides prepackaged
+ * <fullname>AWS CodeBuild</fullname>
+ *         <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code,
+ *             runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the
+ *             need to provision, manage, and scale your own build servers. It provides prepackaged
  *             build environments for the most popular programming languages and build tools, such as
- *             Apache Maven, Gradle, and more. You can also fully customize build environments in CodeBuild
- *             to use your own build tools. CodeBuild scales automatically to meet peak build requests. You
- *             pay only for the build time you consume. For more information about CodeBuild, see the <i>
- *                 <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">CodeBuild
- *                     User Guide</a>.</i>
+ *             Apache Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild
+ *             to use your own build tools. AWS CodeBuild scales automatically to meet peak build requests. You
+ *             pay only for the build time you consume. For more information about AWS CodeBuild, see the <i>
+ *                 <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">AWS CodeBuild User
+ *                     Guide</a>.</i>
  *          </p>
  */
 export class CodeBuild extends CodeBuildClient {
@@ -477,15 +478,15 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p>For an existing CodeBuild build project that has its source code stored in a GitHub or
-   *       Bitbucket repository, enables CodeBuild to start rebuilding the source code every time a
+   * <p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or
+   *       Bitbucket repository, enables AWS CodeBuild to start rebuilding the source code every time a
    *       code change is pushed to the repository.</p>
    *          <important>
-   *             <p>If you enable webhooks for an CodeBuild project, and the project is used as a build
-   *         step in CodePipeline, then two identical builds are created for each commit. One build is
-   *         triggered through webhooks, and one through CodePipeline. Because billing is on a per-build
-   *         basis, you are billed for both builds. Therefore, if you are using CodePipeline, we
-   *         recommend that you disable webhooks in CodeBuild. In the CodeBuild console, clear the
+   *             <p>If you enable webhooks for an AWS CodeBuild project, and the project is used as a build
+   *         step in AWS CodePipeline, then two identical builds are created for each commit. One build is
+   *         triggered through webhooks, and one through AWS CodePipeline. Because billing is on a per-build
+   *         basis, you are billed for both builds. Therefore, if you are using AWS CodePipeline, we
+   *         recommend that you disable webhooks in AWS CodeBuild. In the AWS CodeBuild console, clear the
    *         Webhook box. For more information, see step 5 in <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console">Change a Build Project's Settings</a>.</p>
    *          </important>
    */
@@ -711,8 +712,8 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p>For an existing CodeBuild build project that has its source code stored in a GitHub or
-   *             Bitbucket repository, stops CodeBuild from rebuilding the source code every time a code
+   * <p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or
+   *             Bitbucket repository, stops AWS CodeBuild from rebuilding the source code every time a code
    *             change is pushed to the repository.</p>
    */
   public deleteWebhook(
@@ -875,7 +876,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p> Imports the source repository credentials for an CodeBuild project that has its
+   * <p> Imports the source repository credentials for an AWS CodeBuild project that has its
    *             source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. </p>
    */
   public importSourceCredentials(
@@ -1063,7 +1064,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p>Gets information about Docker images that are managed by CodeBuild.</p>
+   * <p>Gets information about Docker images that are managed by AWS CodeBuild.</p>
    */
   public listCuratedEnvironmentImages(
     args: ListCuratedEnvironmentImagesCommandInput,
@@ -1126,7 +1127,7 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>
-   *       Gets a list ARNs for the report groups in the current Amazon Web Services account.
+   *       Gets a list ARNs for the report groups in the current AWS account.
    *     </p>
    */
   public listReportGroups(
@@ -1160,7 +1161,7 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>
-   *       Returns a list of ARNs for the reports in the current Amazon Web Services account.
+   *       Returns a list of ARNs for the reports in the current AWS account.
    *     </p>
    */
   public listReports(args: ListReportsCommandInput, options?: __HttpHandlerOptions): Promise<ListReportsCommandOutput>;
@@ -1221,7 +1222,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p> Gets a list of projects that are shared with other Amazon Web Services accounts or users. </p>
+   * <p> Gets a list of projects that are shared with other AWS accounts or users. </p>
    */
   public listSharedProjects(
     args: ListSharedProjectsCommandInput,
@@ -1253,7 +1254,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p> Gets a list of report groups that are shared with other Amazon Web Services accounts or users.
+   * <p> Gets a list of report groups that are shared with other AWS accounts or users.
    *         </p>
    */
   public listSharedReportGroups(
@@ -1591,7 +1592,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p> Updates the webhook associated with an CodeBuild build project. </p>
+   * <p> Updates the webhook associated with an AWS CodeBuild build project. </p>
    *          <note>
    *             <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored.
    *       </p>

@@ -1,12 +1,16 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { ClientDefaults } from "./SignerClient";
-import { ClientDefaultValues as BrowserDefaults } from "./runtimeConfig.browser";
+import { SignerClientConfig } from "./SignerClient";
+import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**
  * @internal
  */
-export const ClientDefaultValues: Required<ClientDefaults> = {
-  ...BrowserDefaults,
-  runtime: "react-native",
-  sha256: Sha256,
+export const getRuntimeConfig = (config: SignerClientConfig = {}) => {
+  const browserDefaults = getBrowserRuntimeConfig(config);
+  return {
+    ...browserDefaults,
+    ...config,
+    runtime: "react-native",
+    sha256: config.sha256 ?? Sha256,
+  };
 };

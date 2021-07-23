@@ -23,8 +23,8 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
 /**
  * <p>Creates a job that imports training data from your data source (an Amazon S3 bucket) to an
  *       Amazon Personalize dataset. To allow Amazon Personalize to import the training data, you must specify an
- *       AWS Identity and Access Management (IAM) service role that has permission to read from the data source, as Amazon Personalize makes a
- *       copy of your data and processes it in an internal AWS system. For information on granting access
+ *       IAM service role that has permission to read from the data source, as Amazon Personalize makes a
+ *       copy of your data and processes it internally. For information on granting access
  *       to your Amazon S3 bucket, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html">Giving Amazon Personalize
  *       Access to Amazon S3 Resources</a>. </p>
  *          <important>

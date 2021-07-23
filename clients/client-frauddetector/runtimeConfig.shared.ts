@@ -1,15 +1,16 @@
 import { defaultRegionInfoProvider } from "./endpoints";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
+import { FraudDetectorClientConfig } from "./FraudDetectorClient";
 
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const getRuntimeConfig = (config: FraudDetectorClientConfig = {}) => ({
   apiVersion: "2019-11-15",
-  disableHostPrefix: false,
-  logger: {} as __Logger,
-  regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "FraudDetector",
-  urlParser: parseUrl,
-};
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "FraudDetector",
+  urlParser: config.urlParser ?? parseUrl,
+});

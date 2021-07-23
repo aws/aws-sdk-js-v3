@@ -1645,12 +1645,12 @@ export interface ConnectionConfiguration {
   TableName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of credentials stored in AWS
-   *             Secrets Manager. The credentials should be a user/password pair. For
+   * <p>The Amazon Resource Name (ARN) of credentials stored in Secrets Manager.
+   *             The credentials should be a user/password pair. For
    *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html">Using a
-   *                 Database Data Source</a>. For more information about AWS
-   *             Secrets Manager, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html"> What Is AWS
-   *                 Secrets Manager </a> in the <i> Secrets Manager
+   *                 Database Data Source</a>. For more information about
+   *             Secrets Manager, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html"> What Is
+   *                 Secrets Manager</a> in the <i> Secrets Manager
    *                 </i> user guide.</p>
    */
   SecretArn: string | undefined;
@@ -2630,14 +2630,14 @@ export interface SharePointConfiguration {
   Urls: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of credentials stored in AWS
+   * <p>The Amazon Resource Name (ARN) of credentials stored in
    *             Secrets Manager. The credentials should be a user/password pair.
-   *             If you use SharePoint Sever, you also need to provide the sever
+   *             If you use SharePoint Server, you also need to provide the sever
    *             domain name as part of the credentials. For
    *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html">Using a
    *                 Microsoft SharePoint Data Source</a>. For more information
-   *             about AWS Secrets Manager, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html"> What Is AWS
-   *                 Secrets Manager </a> in the <i>Secrets Manager
+   *             about Secrets Manager, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html"> What Is
+   *                 Secrets Manager</a> in the <i>Secrets Manager
    *                 </i> user guide.</p>
    */
   SecretArn: string | undefined;
@@ -2994,6 +2994,88 @@ export namespace WebCrawlerConfiguration {
 }
 
 /**
+ * <p>Provides the configuration information to connect to Amazon WorkDocs
+ *             as your data source.</p>
+ *         <p>Amazon WorkDocs connector is available in Oregon, North Virginia, Sydney, Singapore and Ireland
+ *             regions.</p>
+ */
+export interface WorkDocsConfiguration {
+  /**
+   * <p>The identifier of the directory corresponding to your
+   *             Amazon WorkDocs site repository.</p>
+   *         <p>You can find the organization ID in the
+   *             <a href="https://console.aws.amazon.com/directoryservicev2/">AWS Directory Service</a> by going to
+   *             <b>Active Directory</b>, then
+   *             <b>Directories</b>. Your Amazon WorkDocs site directory has an
+   *             ID, which is the organization ID. You can also set up a new Amazon WorkDocs
+   *             directory in the AWS Directory Service console and enable a Amazon WorkDocs site
+   *             for the directory in the Amazon WorkDocs console.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to include comments on documents
+   *             in your index. Including comments in your index means each comment
+   *             is a document that can be searched on.</p>
+   *         <p>The default is set to <code>FALSE</code>.</p>
+   */
+  CrawlComments?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to use the change logs to update documents in your
+   *             index instead of scanning all documents.</p>
+   *         <p>If you are syncing your Amazon WorkDocs data source with your index for the
+   *             first time, all documents are scanned. After your first sync, you can
+   *             use the change logs to update your documents in your index for
+   *             future syncs.</p>
+   *         <p>The default is set to <code>FALSE</code>.</p>
+   */
+  UseChangeLog?: boolean;
+
+  /**
+   * <p>A list of regular expression patterns to include certain files
+   *             in your Amazon WorkDocs site repository. Files that match the patterns
+   *             are included in the index. Files that don't match the patterns are
+   *             excluded from the index. If a file matches both an inclusion pattern
+   *             and an exclusion pattern, the exclusion pattern takes precedence and
+   *             the file isn’t included in the index.</p>
+   */
+  InclusionPatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to exclude certain files
+   *             in your Amazon WorkDocs site repository. Files that match the patterns
+   *             are excluded from the index. Files that don’t match the patterns
+   *             are included in the index. If a file matches both an inclusion
+   *             pattern and an exclusion pattern, the exclusion pattern takes
+   *             precedence and the file isn’t included in the index.</p>
+   */
+  ExclusionPatterns?: string[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map
+   *             Amazon WorkDocs field names to custom index field names in Amazon Kendra. You must first
+   *             create the custom index fields using the <code>UpdateIndex</code> operation before
+   *             you map to Amazon WorkDocs fields. For more information, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
+   *                 Data Source Fields</a>. The Amazon WorkDocs data source field names
+   *             need to exist in your Amazon WorkDocs custom metadata.</p>
+   */
+  FieldMappings?: DataSourceToIndexFieldMapping[];
+}
+
+export namespace WorkDocsConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WorkDocsConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Configuration information for a Amazon Kendra data source.</p>
  */
 export interface DataSourceConfiguration {
@@ -3050,6 +3132,12 @@ export interface DataSourceConfiguration {
    *             web crawler.</p>
    */
   WebCrawlerConfiguration?: WebCrawlerConfiguration;
+
+  /**
+   * <p>Provides the configuration information to connect to WorkDocs
+   *             as your data source.</p>
+   */
+  WorkDocsConfiguration?: WorkDocsConfiguration;
 }
 
 export namespace DataSourceConfiguration {
@@ -3100,6 +3188,7 @@ export enum DataSourceType {
   SERVICENOW = "SERVICENOW",
   SHAREPOINT = "SHAREPOINT",
   WEBCRAWLER = "WEBCRAWLER",
+  WORKDOCS = "WORKDOCS",
 }
 
 export interface CreateDataSourceRequest {
@@ -3447,9 +3536,11 @@ export interface CreateIndexRequest {
    *         <code>DEVELOPER_EDITION</code> for indexes intended for development,
    *       testing, or proof of concept. Use <code>ENTERPRISE_EDITION</code> for your
    *       production databases. Once you set the edition for an index, it can't be
-   *       changed. </p>
+   *       changed.</p>
    *          <p>The <code>Edition</code> parameter is optional. If you don't supply a
    *       value, the default is <code>ENTERPRISE_EDITION</code>.</p>
+   *          <p>For more information on quota limits for enterprise and developer editions,
+   *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</p>
    */
   Edition?: IndexEdition | string;
 
@@ -4081,9 +4172,9 @@ export namespace DescribeIndexRequest {
  */
 export interface CapacityUnitsConfiguration {
   /**
-   * <p>The amount of extra storage capacity for an index. A single capacity
-   *             unit for an index provides 150 GB of storage space or
-   *             500,000 documents, whichever is reached first.</p>
+   * <p>The amount of extra storage capacity for an index.
+   *             A single capacity unit provides 30 GB of storage space or 100,000 documents,
+   *             whichever is reached first.</p>
    */
   StorageCapacityUnits: number | undefined;
 
@@ -4091,14 +4182,16 @@ export interface CapacityUnitsConfiguration {
    * <p>The amount of extra query capacity for an index and
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html">GetQuerySuggestions</a>
    *             capacity.</p>
-   *         <p>A single extra capacity unit for an index provides 0.5 queries per second or
-   *             approximately 40,000 queries per day.</p>
+   *         <p>A single extra capacity unit for an index provides 0.1 queries per second or approximately
+   *             8,000 queries per day.</p>
    *         <p>
-   *             <code>GetQuerySuggestions</code> capacity is 5 times the provisioned query
-   *             capacity for an index. For example, the base capacity for an index is 0.5
-   *             queries per second, so GetQuerySuggestions capacity is 2.5 calls per second.
-   *             If adding another 0.5 queries per second to total 1 queries per second for an
-   *             index, the <code>GetQuerySuggestions</code> capacity is 5 calls per second.</p>
+   *             <code>GetQuerySuggestions</code> capacity is five times the
+   *             provisioned query capacity for an index, or the base capacity of 2.5 calls per second,
+   *             whichever is higher. For example, the base capacity for an index is 0.1 queries per
+   *             second, and <code>GetQuerySuggestions</code> capacity has a base of 2.5 calls per second.
+   *             If you add another 0.1 queries per second to total 0.2 queries per second for an index, the
+   *             <code>GetQuerySuggestions</code> capacity is 2.5 calls per second
+   *             (higher than five times 0.2 queries per second).</p>
    */
   QueryCapacityUnits: number | undefined;
 }
@@ -7081,6 +7174,9 @@ export namespace UpdateThesaurusRequest {
  *             <code>ValidationException</code> exception with the message
  *             "<code>AttributeFilter</code> cannot have a depth of more than
  *          2."</p>
+ *          <p>If you use more than 10 attribute filters, you receive a
+ *          <code>ValidationException</code> exception with the message
+ *          "<code>AttributeFilter</code> cannot have a length of more than 10".</p>
  */
 export interface AttributeFilter {
   /**

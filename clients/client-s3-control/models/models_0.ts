@@ -66,7 +66,7 @@ export interface AccessPoint {
   /**
    * <p>The virtual private cloud (VPC) configuration for this access point, if one exists.</p>
    *          <note>
-   *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other AWS services.</p>
+   *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other Amazon Web Services.</p>
    *          </note>
    */
   VpcConfiguration?: VpcConfiguration;
@@ -234,11 +234,11 @@ export namespace AccountLevel {
 }
 
 /**
- * <p>AWS Lambda function used to transform objects through an Object Lambda Access Point.</p>
+ * <p>Lambda function used to transform objects through an Object Lambda Access Point.</p>
  */
 export interface AwsLambdaTransformation {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function.</p>
    */
   FunctionArn: string | undefined;
 
@@ -305,7 +305,7 @@ export interface PublicAccessBlockConfiguration {
   /**
    * <p>Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account.
    *          Setting this element to <code>TRUE</code> restricts access to buckets with public policies
-   *          to only AWS service principals and authorized users within this account.</p>
+   *          to only Amazon Web Service principals and authorized users within this account.</p>
    *          <p>Enabling this setting doesn't affect previously stored bucket policies, except that public
    *          and cross-account access within any public bucket policy, including non-public delegation to
    *          specific accounts, is blocked.</p>
@@ -325,7 +325,7 @@ export namespace PublicAccessBlockConfiguration {
 
 export interface CreateAccessPointRequest {
   /**
-   * <p>The AWS account ID for the owner of the bucket for which you want to create an access point.</p>
+   * <p>The account ID for the owner of the bucket for which you want to create an access point.</p>
    */
   AccountId?: string;
 
@@ -337,7 +337,7 @@ export interface CreateAccessPointRequest {
   /**
    * <p>The name of the bucket that you want to associate this access point with.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 
@@ -404,7 +404,7 @@ export type ObjectLambdaContentTransformation =
 
 export namespace ObjectLambdaContentTransformation {
   /**
-   * <p>A container for an AWS Lambda function.</p>
+   * <p>A container for an Lambda function.</p>
    */
   export interface AwsLambdaMember {
     AwsLambda: AwsLambdaTransformation;
@@ -504,7 +504,7 @@ export namespace ObjectLambdaConfiguration {
 
 export interface CreateAccessPointForObjectLambdaRequest {
   /**
-   * <p>The AWS account ID for owner of the specified Object Lambda Access Point.</p>
+   * <p>The account ID for owner of the specified Object Lambda Access Point.</p>
    */
   AccountId?: string;
 
@@ -547,7 +547,7 @@ export namespace CreateAccessPointForObjectLambdaResult {
 
 /**
  * <p>The requested Outposts bucket name is not available. The bucket namespace is shared by
- *          all users of the AWS Outposts in this Region. Select a different name and try
+ *          all users of the Outposts in this Region. Select a different name and try
  *          again.</p>
  */
 export interface BucketAlreadyExists extends __SmithyException, $MetadataBearer {
@@ -721,7 +721,7 @@ export interface CreateBucketResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   BucketArn?: string;
 }
@@ -852,7 +852,7 @@ export namespace JobManifest {
  */
 export interface LambdaInvokeOperation {
   /**
-   * <p>The Amazon Resource Name (ARN) for the AWS Lambda function that the specified job will invoke on every object in the manifest.</p>
+   * <p>The Amazon Resource Name (ARN) for the Lambda function that the specified job will invoke on every object in the manifest.</p>
    */
   FunctionArn?: string;
 }
@@ -1309,7 +1309,7 @@ export interface S3CopyObjectOperation {
 
   /**
    * <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with
-   *          server-side encryption using AWS KMS (SSE-KMS). Setting this header to <code>true</code>
+   *          server-side encryption using Amazon Web Services KMS (SSE-KMS). Setting this header to <code>true</code>
    *          causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p>
    *          <p>Specifying this header with an <i>object</i> action doesn’t affect
    *          <i>bucket-level</i> settings for S3 Bucket Key.</p>
@@ -1460,7 +1460,7 @@ export namespace S3SetObjectTaggingOperation {
  */
 export interface JobOperation {
   /**
-   * <p>Directs the specified job to invoke an AWS Lambda function on every object in the manifest.</p>
+   * <p>Directs the specified job to invoke an Lambda function on every object in the manifest.</p>
    */
   LambdaInvoke?: LambdaInvokeOperation;
 
@@ -1569,7 +1569,7 @@ export namespace JobReport {
 
 export interface CreateJobRequest {
   /**
-   * <p>The AWS account ID that creates the job.</p>
+   * <p>The account ID that creates the job.</p>
    */
   AccountId?: string;
 
@@ -1611,7 +1611,7 @@ export interface CreateJobRequest {
   Priority: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role
+   * <p>The Amazon Resource Name (ARN) for the Identity and Access Management (IAM) role
    *          that Batch Operations will use to run this job's action on every object in the
    *          manifest.</p>
    */
@@ -1712,7 +1712,7 @@ export interface DeleteAccessPointRequest {
   /**
    * <p>The name of the access point you want to delete.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
    */
   Name: string | undefined;
 }
@@ -1756,7 +1756,7 @@ export interface DeleteAccessPointPolicyRequest {
   /**
    * <p>The name of the access point whose policy you want to delete.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
    */
   Name: string | undefined;
 }
@@ -1800,7 +1800,7 @@ export interface DeleteBucketRequest {
   /**
    * <p>Specifies the bucket being deleted.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -1823,7 +1823,7 @@ export interface DeleteBucketLifecycleConfigurationRequest {
   /**
    * <p>Specifies the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -1846,7 +1846,7 @@ export interface DeleteBucketPolicyRequest {
   /**
    * <p>Specifies the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -1862,14 +1862,14 @@ export namespace DeleteBucketPolicyRequest {
 
 export interface DeleteBucketTaggingRequest {
   /**
-   * <p>The AWS account ID of the Outposts bucket tag set to be removed.</p>
+   * <p>The account ID of the Outposts bucket tag set to be removed.</p>
    */
   AccountId?: string;
 
   /**
    * <p>The bucket ARN that has the tag set to be removed.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -1885,7 +1885,7 @@ export namespace DeleteBucketTaggingRequest {
 
 export interface DeleteJobTaggingRequest {
   /**
-   * <p>The AWS account ID associated with the S3 Batch Operations job.</p>
+   * <p>The account ID associated with the S3 Batch Operations job.</p>
    */
   AccountId?: string;
 
@@ -1935,7 +1935,7 @@ export namespace NotFoundException {
 
 export interface DeletePublicAccessBlockRequest {
   /**
-   * <p>The account ID for the AWS account whose <code>PublicAccessBlock</code> configuration you want
+   * <p>The account ID for the account whose <code>PublicAccessBlock</code> configuration you want
    *          to remove.</p>
    */
   AccountId?: string;
@@ -2005,7 +2005,7 @@ export namespace DeleteStorageLensConfigurationTaggingResult {
 
 export interface DescribeJobRequest {
   /**
-   * <p>The AWS account ID associated with the S3 Batch Operations job.</p>
+   * <p>The account ID associated with the S3 Batch Operations job.</p>
    */
   AccountId?: string;
 
@@ -2169,7 +2169,7 @@ export interface JobDescriptor {
   TerminationDate?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role
+   * <p>The Amazon Resource Name (ARN) for the Identity and Access Management (IAM) role
    *          assigned to run the tasks for this job.</p>
    */
   RoleArn?: string;
@@ -2220,7 +2220,7 @@ export interface GetAccessPointRequest {
   /**
    * <p>The name of the access point whose configuration information you want to retrieve.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
    */
   Name: string | undefined;
 }
@@ -2259,7 +2259,7 @@ export interface GetAccessPointResult {
   /**
    * <p>Contains the virtual private cloud (VPC) configuration for the specified access point.</p>
    *          <note>
-   *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other AWS services.</p>
+   *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other Amazon Web Services.</p>
    *          </note>
    */
   VpcConfiguration?: VpcConfiguration;
@@ -2381,7 +2381,7 @@ export interface GetAccessPointPolicyRequest {
   /**
    * <p>The name of the access point whose policy you want to retrieve.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
    */
   Name: string | undefined;
 }
@@ -2549,14 +2549,14 @@ export namespace GetAccessPointPolicyStatusForObjectLambdaResult {
 
 export interface GetBucketRequest {
   /**
-   * <p>The AWS account ID of the Outposts bucket.</p>
+   * <p>The account ID of the Outposts bucket.</p>
    */
   AccountId?: string;
 
   /**
    * <p>Specifies the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -2598,14 +2598,14 @@ export namespace GetBucketResult {
 
 export interface GetBucketLifecycleConfigurationRequest {
   /**
-   * <p>The AWS account ID of the Outposts bucket.</p>
+   * <p>The account ID of the Outposts bucket.</p>
    */
   AccountId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -2884,14 +2884,14 @@ export namespace GetBucketLifecycleConfigurationResult {
 
 export interface GetBucketPolicyRequest {
   /**
-   * <p>The AWS account ID of the Outposts bucket.</p>
+   * <p>The account ID of the Outposts bucket.</p>
    */
   AccountId?: string;
 
   /**
    * <p>Specifies the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -2923,14 +2923,14 @@ export namespace GetBucketPolicyResult {
 
 export interface GetBucketTaggingRequest {
   /**
-   * <p>The AWS account ID of the Outposts bucket.</p>
+   * <p>The account ID of the Outposts bucket.</p>
    */
   AccountId?: string;
 
   /**
    * <p>Specifies the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -2962,7 +2962,7 @@ export namespace GetBucketTaggingResult {
 
 export interface GetJobTaggingRequest {
   /**
-   * <p>The AWS account ID associated with the S3 Batch Operations job.</p>
+   * <p>The account ID associated with the S3 Batch Operations job.</p>
    */
   AccountId?: string;
 
@@ -2999,8 +2999,7 @@ export namespace GetJobTaggingResult {
 
 export interface GetPublicAccessBlockOutput {
   /**
-   * <p>The <code>PublicAccessBlock</code> configuration currently in effect for this AWS
-   *          account.</p>
+   * <p>The <code>PublicAccessBlock</code> configuration currently in effect for this account.</p>
    */
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
 }
@@ -3016,7 +3015,7 @@ export namespace GetPublicAccessBlockOutput {
 
 export interface GetPublicAccessBlockRequest {
   /**
-   * <p>The account ID for the AWS account whose <code>PublicAccessBlock</code> configuration you want
+   * <p>The account ID for the account whose <code>PublicAccessBlock</code> configuration you want
    *          to retrieve.</p>
    */
   AccountId?: string;
@@ -3072,11 +3071,11 @@ export namespace GetStorageLensConfigurationRequest {
 }
 
 /**
- * <p>The AWS organization for your S3 Storage Lens.</p>
+ * <p>The Amazon Web Services organization for your S3 Storage Lens.</p>
  */
 export interface StorageLensAwsOrg {
   /**
-   * <p>A container for the Amazon Resource Name (ARN) of the AWS organization.
+   * <p>A container for the Amazon Resource Name (ARN) of the Amazon Web Services organization.
    *          This property is read-only and follows the following format:
    *          <code> arn:aws:organizations:<i>us-east-1</i>:<i>example-account-id</i>:organization/<i>o-ex2l495dck</i>
    *             </code>
@@ -3317,7 +3316,7 @@ export interface StorageLensConfiguration {
   IsEnabled: boolean | undefined;
 
   /**
-   * <p>A container for the AWS organization for this S3 Storage Lens configuration.</p>
+   * <p>A container for the Amazon Web Services organization for this S3 Storage Lens configuration.</p>
    */
   AwsOrg?: StorageLensAwsOrg;
 
@@ -3419,14 +3418,14 @@ export namespace GetStorageLensConfigurationTaggingResult {
 
 export interface ListAccessPointsRequest {
   /**
-   * <p>The AWS account ID for owner of the bucket whose access points you want to list.</p>
+   * <p>The account ID for owner of the bucket whose access points you want to list.</p>
    */
   AccountId?: string;
 
   /**
    * <p>The name of the bucket whose associated access points you want to list.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket?: string;
 
@@ -3506,7 +3505,7 @@ export namespace ListAccessPointsForObjectLambdaRequest {
 }
 
 /**
- * <p>An access point with an attached AWS Lambda function used to access transformed data from an Amazon S3 bucket.</p>
+ * <p>An access point with an attached Lambda function used to access transformed data from an Amazon S3 bucket.</p>
  */
 export interface ObjectLambdaAccessPoint {
   /**
@@ -3590,7 +3589,7 @@ export namespace InvalidRequestException {
 
 export interface ListJobsRequest {
   /**
-   * <p>The AWS account ID associated with the S3 Batch Operations job.</p>
+   * <p>The account ID associated with the S3 Batch Operations job.</p>
    */
   AccountId?: string;
 
@@ -3709,7 +3708,7 @@ export namespace ListJobsResult {
 
 export interface ListRegionalBucketsRequest {
   /**
-   * <p>The AWS account ID of the Outposts bucket.</p>
+   * <p>The account ID of the Outposts bucket.</p>
    */
   AccountId?: string;
 
@@ -3724,7 +3723,7 @@ export interface ListRegionalBucketsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The ID of the AWS Outposts.</p>
+   * <p>The ID of the Outposts.</p>
    *          <note>
    *             <p>This is required by Amazon S3 on Outposts buckets.</p>
    *          </note>
@@ -3766,7 +3765,7 @@ export interface RegionalBucket {
   CreationDate: Date | undefined;
 
   /**
-   * <p>The AWS Outposts ID of the regional bucket.</p>
+   * <p>The Outposts ID of the regional bucket.</p>
    */
   OutpostId?: string;
 }
@@ -3915,14 +3914,14 @@ export namespace PutAccessPointConfigurationForObjectLambdaRequest {
 
 export interface PutAccessPointPolicyRequest {
   /**
-   * <p>The AWS account ID for owner of the bucket associated with the specified access point.</p>
+   * <p>The account ID for owner of the bucket associated with the specified access point.</p>
    */
   AccountId?: string;
 
   /**
    * <p>The name of the access point that you want to associate with the specified policy.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
    */
   Name: string | undefined;
 
@@ -3988,7 +3987,7 @@ export namespace LifecycleConfiguration {
 
 export interface PutBucketLifecycleConfigurationRequest {
   /**
-   * <p>The AWS account ID of the Outposts bucket.</p>
+   * <p>The account ID of the Outposts bucket.</p>
    */
   AccountId?: string;
 
@@ -4014,14 +4013,14 @@ export namespace PutBucketLifecycleConfigurationRequest {
 
 export interface PutBucketPolicyRequest {
   /**
-   * <p>The AWS account ID of the Outposts bucket.</p>
+   * <p>The account ID of the Outposts bucket.</p>
    */
   AccountId?: string;
 
   /**
    * <p>Specifies the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 
@@ -4069,14 +4068,14 @@ export namespace Tagging {
 
 export interface PutBucketTaggingRequest {
   /**
-   * <p>The AWS account ID of the Outposts bucket.</p>
+   * <p>The account ID of the Outposts bucket.</p>
    */
   AccountId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the AWS SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 
@@ -4097,7 +4096,7 @@ export namespace PutBucketTaggingRequest {
 
 export interface PutJobTaggingRequest {
   /**
-   * <p>The AWS account ID associated with the S3 Batch Operations job.</p>
+   * <p>The account ID associated with the S3 Batch Operations job.</p>
    */
   AccountId?: string;
 
@@ -4152,14 +4151,13 @@ export namespace TooManyTagsException {
 
 export interface PutPublicAccessBlockRequest {
   /**
-   * <p>The account ID for the AWS account whose <code>PublicAccessBlock</code> configuration you want
+   * <p>The account ID for the account whose <code>PublicAccessBlock</code> configuration you want
    *          to set.</p>
    */
   AccountId?: string;
 
   /**
-   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified AWS
-   *          account.</p>
+   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified account.</p>
    */
   PublicAccessBlockConfiguration: PublicAccessBlockConfiguration | undefined;
 }
@@ -4249,7 +4247,7 @@ export namespace PutStorageLensConfigurationTaggingResult {
 
 export interface UpdateJobPriorityRequest {
   /**
-   * <p>The AWS account ID associated with the S3 Batch Operations job.</p>
+   * <p>The account ID associated with the S3 Batch Operations job.</p>
    */
   AccountId?: string;
 
@@ -4319,7 +4317,7 @@ export enum RequestedJobStatus {
 
 export interface UpdateJobStatusRequest {
   /**
-   * <p>The AWS account ID associated with the S3 Batch Operations job.</p>
+   * <p>The account ID associated with the S3 Batch Operations job.</p>
    */
   AccountId?: string;
 

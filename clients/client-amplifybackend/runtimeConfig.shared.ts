@@ -1,15 +1,16 @@
 import { defaultRegionInfoProvider } from "./endpoints";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
+import { AmplifyBackendClientConfig } from "./AmplifyBackendClient";
 
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const getRuntimeConfig = (config: AmplifyBackendClientConfig = {}) => ({
   apiVersion: "2020-08-11",
-  disableHostPrefix: false,
-  logger: {} as __Logger,
-  regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "AmplifyBackend",
-  urlParser: parseUrl,
-};
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "AmplifyBackend",
+  urlParser: config.urlParser ?? parseUrl,
+});

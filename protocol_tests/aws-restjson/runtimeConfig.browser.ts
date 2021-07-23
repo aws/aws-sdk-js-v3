@@ -7,27 +7,30 @@ import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
-import { ClientDefaults } from "./RestJsonProtocolClient";
-import { ClientSharedValues } from "./runtimeConfig.shared";
+import { RestJsonProtocolClientConfig } from "./RestJsonProtocolClient";
+import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 
 /**
  * @internal
  */
-export const ClientDefaultValues: Required<ClientDefaults> = {
-  ...ClientSharedValues,
-  runtime: "browser",
-  base64Decoder: fromBase64,
-  base64Encoder: toBase64,
-  bodyLengthChecker: calculateBodyLength,
-  defaultUserAgentProvider: defaultUserAgent({
-    serviceId: ClientSharedValues.serviceId,
-    clientVersion: packageInfo.version,
-  }),
-  maxAttempts: DEFAULT_MAX_ATTEMPTS,
-  requestHandler: new FetchHttpHandler(),
-  retryModeProvider: () => Promise.resolve(DEFAULT_RETRY_MODE),
-  sha256: Sha256,
-  streamCollector,
-  utf8Decoder: fromUtf8,
-  utf8Encoder: toUtf8,
+export const getRuntimeConfig = (config: RestJsonProtocolClientConfig = {}) => {
+  const clientSharedValues = getSharedRuntimeConfig(config);
+  return {
+    ...clientSharedValues,
+    ...config,
+    runtime: "browser",
+    base64Decoder: config.base64Decoder ?? fromBase64,
+    base64Encoder: config.base64Encoder ?? toBase64,
+    bodyLengthChecker: config.bodyLengthChecker ?? calculateBodyLength,
+    defaultUserAgentProvider:
+      config.defaultUserAgentProvider ??
+      defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    maxAttempts: config.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
+    requestHandler: config.requestHandler ?? new FetchHttpHandler(),
+    retryModeProvider: config.retryModeProvider ?? (() => Promise.resolve(DEFAULT_RETRY_MODE)),
+    sha256: config.sha256 ?? Sha256,
+    streamCollector: config.streamCollector ?? streamCollector,
+    utf8Decoder: config.utf8Decoder ?? fromUtf8,
+    utf8Encoder: config.utf8Encoder ?? toUtf8,
+  };
 };

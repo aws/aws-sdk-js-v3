@@ -24,7 +24,7 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./command
 import { UpdateMemberCommandInput, UpdateMemberCommandOutput } from "./commands/UpdateMemberCommand";
 import { UpdateNodeCommandInput, UpdateNodeCommandOutput } from "./commands/UpdateNodeCommand";
 import { VoteOnProposalCommandInput, VoteOnProposalCommandOutput } from "./commands/VoteOnProposalCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -283,10 +283,7 @@ export class ManagedBlockchainClient extends __Client<
   readonly config: ManagedBlockchainClientResolvedConfig;
 
   constructor(configuration: ManagedBlockchainClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

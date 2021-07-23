@@ -4,7 +4,7 @@ import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "./comma
 import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "./commands/ListChangeSetsCommand";
 import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "./commands/ListEntitiesCommand";
 import { StartChangeSetCommandInput, StartChangeSetCommandOutput } from "./commands/StartChangeSetCommand";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -232,10 +232,7 @@ export class MarketplaceCatalogClient extends __Client<
   readonly config: MarketplaceCatalogClientResolvedConfig;
 
   constructor(configuration: MarketplaceCatalogClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

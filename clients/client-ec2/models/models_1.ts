@@ -3,12 +3,11 @@ import {
   ApplianceModeSupportValue,
   AttachmentStatus,
   CarrierGateway,
-  ClientVpnEndpointStatus,
-  ClientVpnRouteStatus,
   CurrencyCodeValues,
   DnsSupportValue,
   GatewayType,
-  InternetGateway,
+  InternetGatewayAttachment,
+  Ipv4PrefixSpecification,
   Ipv6SupportValue,
   ReservedInstancesListing,
   ResourceType,
@@ -29,6 +28,40 @@ import {
   _InstanceType,
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+/**
+ * <p>Describes an internet gateway.</p>
+ */
+export interface InternetGateway {
+  /**
+   * <p>Any VPCs attached to the internet gateway.</p>
+   */
+  Attachments?: InternetGatewayAttachment[];
+
+  /**
+   * <p>The ID of the internet gateway.</p>
+   */
+  InternetGatewayId?: string;
+
+  /**
+   * <p>The ID of the account that owns the internet gateway.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>Any tags assigned to the internet gateway.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace InternetGateway {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InternetGateway): any => ({
+    ...obj,
+  });
+}
 
 export interface CreateInternetGatewayResult {
   /**
@@ -159,7 +192,7 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
   Iops?: number;
 
   /**
-   * <p>The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for
+   * <p>The ARN of the symmetric Key Management Service (KMS) CMK used for
    *             encryption.</p>
    */
   KmsKeyId?: string;
@@ -417,13 +450,13 @@ export namespace LaunchTemplateElasticInferenceAccelerator {
 }
 
 /**
- * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information,
+ * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information,
  * 		see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">
- * 			What is AWS Nitro Enclaves?</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p>
+ * 			What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
  */
 export interface LaunchTemplateEnclaveOptionsRequest {
   /**
-   * <p>To enable the instance for AWS Nitro Enclaves, set this parameter to <code>true</code>.</p>
+   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to <code>true</code>.</p>
    */
   Enabled?: boolean;
 }
@@ -642,6 +675,26 @@ export namespace LaunchTemplatesMonitoringRequest {
 }
 
 /**
+ * <p>Describes the IPv4 Prefix Delegation option for a network interface.</p>
+ */
+export interface Ipv4PrefixSpecificationRequest {
+  /**
+   * <p>The IPv4 Prefix Delegation prefix. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation">Prefix Delegation</a> in the
+   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  Ipv4Prefix?: string;
+}
+
+export namespace Ipv4PrefixSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Ipv4PrefixSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes an IPv6 address.</p>
  */
 export interface InstanceIpv6AddressRequest {
@@ -656,6 +709,25 @@ export namespace InstanceIpv6AddressRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: InstanceIpv6AddressRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the IPv4 Prefix Delegation option for a network interface.</p>
+ */
+export interface Ipv6PrefixSpecificationRequest {
+  /**
+   * <p>The IPv6 Prefix Delegation prefix.</p>
+   */
+  Ipv6Prefix?: string;
+}
+
+export namespace Ipv6PrefixSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Ipv6PrefixSpecificationRequest): any => ({
     ...obj,
   });
 }
@@ -693,7 +765,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
    * <p>Associates a Carrier IP address with eth0 for a new network interface.</p>
    *         <p>Use this option when you launch an instance in a Wavelength Zone and want to associate
    *             a Carrier IP address with the network interface. For more information about Carrier IP
-   *             addresses, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip">Carrier IP addresses</a> in the <i>AWS Wavelength Developer
+   *             addresses, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip">Carrier IP addresses</a> in the <i>Wavelength Developer
    *                 Guide</i>.</p>
    */
   AssociateCarrierIpAddress?: boolean;
@@ -774,6 +846,30 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
    *             The default is network card index 0.</p>
    */
   NetworkCardIndex?: number;
+
+  /**
+   * <p>One or more IPv4 delegated prefixes to be assigned to the network interface. You cannot use
+   *             this option if you use the <code>Ipv4PrefixCount</code> option.</p>
+   */
+  Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[];
+
+  /**
+   * <p>The number of IPv4 delegated prefixes to be automatically assigned to the
+   *             network interface. You cannot use this option if you use the <code>Ipv4Prefix</code> option.</p>
+   */
+  Ipv4PrefixCount?: number;
+
+  /**
+   * <p>One or more IPv6 delegated prefixes to be assigned to the network interface. You cannot
+   *             use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
+   */
+  Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[];
+
+  /**
+   * <p>The number of IPv6 delegated prefixes to be automatically assigned to the network
+   *             interface. You cannot use this option if you use the <code>Ipv6Prefix</code> option.</p>
+   */
+  Ipv6PrefixCount?: number;
 }
 
 export namespace LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
@@ -1040,22 +1136,22 @@ export interface RequestLaunchTemplateData {
    * <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only
    *             if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
    *                 prerequisites</a>. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate Your Instance</a> in the
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   HibernationOptions?: LaunchTemplateHibernationOptionsRequest;
 
   /**
-   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
+   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
    *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   MetadataOptions?: LaunchTemplateInstanceMetadataOptionsRequest;
 
   /**
-   * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information,
+   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information,
    * 			see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">
-   * 				What is AWS Nitro Enclaves?</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p>
-   * 		       <p>You can't enable AWS Nitro Enclaves and hibernation on the same instance.</p>
+   * 				What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
+   * 		       <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
    */
   EnclaveOptions?: LaunchTemplateEnclaveOptionsRequest;
 }
@@ -1308,7 +1404,7 @@ export interface LaunchTemplateEbsBlockDevice {
   Iops?: number;
 
   /**
-   * <p>The ARN of the AWS Key Management Service (AWS KMS) CMK used for encryption.</p>
+   * <p>The ARN of the Key Management Service (KMS) CMK used for encryption.</p>
    */
   KmsKeyId?: string;
 
@@ -1531,12 +1627,12 @@ export namespace LaunchTemplateElasticInferenceAcceleratorResponse {
 }
 
 /**
- * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves.</p>
+ * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
  */
 export interface LaunchTemplateEnclaveOptions {
   /**
-   * <p>If this parameter is set to <code>true</code>, the instance is enabled for AWS Nitro Enclaves;
-   * 		otherwise, it is not enabled for AWS Nitro Enclaves.</p>
+   * <p>If this parameter is set to <code>true</code>, the instance is enabled for Amazon Web Services Nitro Enclaves;
+   * 		otherwise, it is not enabled for Amazon Web Services Nitro Enclaves.</p>
    */
   Enabled?: boolean;
 }
@@ -1745,6 +1841,26 @@ export namespace LaunchTemplatesMonitoring {
 }
 
 /**
+ * <p>Information about the IPv4 delegated prefixes assigned
+ *             to a network interface.</p>
+ */
+export interface Ipv4PrefixSpecificationResponse {
+  /**
+   * <p>One or more IPv4 delegated prefixes assigned to the network interface.</p>
+   */
+  Ipv4Prefix?: string;
+}
+
+export namespace Ipv4PrefixSpecificationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Ipv4PrefixSpecificationResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes an IPv6 address.</p>
  */
 export interface InstanceIpv6Address {
@@ -1764,6 +1880,26 @@ export namespace InstanceIpv6Address {
 }
 
 /**
+ * <p>Information about the IPv6 delegated prefixes assigned
+ *             to a network interface.</p>
+ */
+export interface Ipv6PrefixSpecificationResponse {
+  /**
+   * <p>One or more IPv6 delegated prefixes assigned to the network interface.</p>
+   */
+  Ipv6Prefix?: string;
+}
+
+export namespace Ipv6PrefixSpecificationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Ipv6PrefixSpecificationResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes a network interface.</p>
  */
 export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
@@ -1771,7 +1907,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
    * <p>Indicates whether to associate a Carrier IP address with eth0 for a new network interface.</p>
    *         <p>Use this option when you launch an instance in a Wavelength Zone and want to associate
    *             a Carrier IP address with the network interface. For more information about Carrier IP
-   *             addresses, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip">Carrier IP addresses</a> in the <i>AWS Wavelength Developer
+   *             addresses, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip">Carrier IP addresses</a> in the <i>Wavelength Developer
    *                     Guide</i>.</p>
    */
   AssociateCarrierIpAddress?: boolean;
@@ -1845,6 +1981,28 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
    * <p>The index of the network card.</p>
    */
   NetworkCardIndex?: number;
+
+  /**
+   * <p>One or more IPv4 delegated prefixes assigned to the network interface.</p>
+   */
+  Ipv4Prefixes?: Ipv4PrefixSpecificationResponse[];
+
+  /**
+   * <p>The number of IPv4 delegated prefixes that AWS automatically assigned to the
+   *             network interface.</p>
+   */
+  Ipv4PrefixCount?: number;
+
+  /**
+   * <p>One or more IPv6 delegated prefixes assigned to the network interface.</p>
+   */
+  Ipv6Prefixes?: Ipv6PrefixSpecificationResponse[];
+
+  /**
+   * <p>The number of IPv6 delegated prefixes that AWS automatically assigned to the network
+   *             interface.</p>
+   */
+  Ipv6PrefixCount?: number;
 }
 
 export namespace LaunchTemplateInstanceNetworkInterfaceSpecification {
@@ -2049,7 +2207,7 @@ export interface ResponseLaunchTemplateData {
   CreditSpecification?: CreditSpecification;
 
   /**
-   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing CPU Options</a> in the <i>Amazon Elastic Compute Cloud User
+   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing CPU options</a> in the <i>Amazon Elastic Compute Cloud User
    * 				Guide</i>.</p>
    */
   CpuOptions?: LaunchTemplateCpuOptions;
@@ -2067,18 +2225,18 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>Indicates whether an instance is configured for hibernation. For more information, see
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-   *                 Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                 your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   HibernationOptions?: LaunchTemplateHibernationOptions;
 
   /**
-   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
+   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
    *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   MetadataOptions?: LaunchTemplateInstanceMetadataOptions;
 
   /**
-   * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves.</p>
+   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
    */
   EnclaveOptions?: LaunchTemplateEnclaveOptions;
 }
@@ -2536,8 +2694,8 @@ export interface CreateNatGatewayRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure
-   * 				Idempotency</a>.</p>
+   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure
+   * 				idempotency</a>.</p>
    *          <p>Constraint: Maximum 64 ASCII characters.</p>
    */
   ClientToken?: string;
@@ -2714,7 +2872,8 @@ export interface NatGateway {
   NatGatewayId?: string;
 
   /**
-   * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+   * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through
+   *           the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
    */
   ProvisionedBandwidth?: ProvisionedBandwidth;
 
@@ -2997,7 +3156,7 @@ export interface NetworkAcl {
   VpcId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the network ACL.</p>
+   * <p>The ID of the account that owns the network ACL.</p>
    */
   OwnerId?: string;
 }
@@ -3104,22 +3263,22 @@ export type Protocol = "tcp" | "udp";
 
 export interface CreateNetworkInsightsPathRequest {
   /**
-   * <p>The IP address of the AWS resource that is the source of the path.</p>
+   * <p>The IP address of the Amazon Web Services resource that is the source of the path.</p>
    */
   SourceIp?: string;
 
   /**
-   * <p>The IP address of the AWS resource that is the destination of the path.</p>
+   * <p>The IP address of the Amazon Web Services resource that is the destination of the path.</p>
    */
   DestinationIp?: string;
 
   /**
-   * <p>The AWS resource that is the source of the path.</p>
+   * <p>The Amazon Web Services resource that is the source of the path.</p>
    */
   Source: string | undefined;
 
   /**
-   * <p>The AWS resource that is the destination of the path.</p>
+   * <p>The Amazon Web Services resource that is the destination of the path.</p>
    */
   Destination: string | undefined;
 
@@ -3147,7 +3306,7 @@ export interface CreateNetworkInsightsPathRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
-   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
 }
@@ -3181,22 +3340,22 @@ export interface NetworkInsightsPath {
   CreatedDate?: Date;
 
   /**
-   * <p>The AWS resource that is the source of the path.</p>
+   * <p>The Amazon Web Services resource that is the source of the path.</p>
    */
   Source?: string;
 
   /**
-   * <p>The AWS resource that is the destination of the path.</p>
+   * <p>The Amazon Web Services resource that is the destination of the path.</p>
    */
   Destination?: string;
 
   /**
-   * <p>The IP address of the AWS resource that is the source of the path.</p>
+   * <p>The IP address of the Amazon Web Services resource that is the source of the path.</p>
    */
   SourceIp?: string;
 
   /**
-   * <p>The IP address of the AWS resource that is the destination of the path.</p>
+   * <p>The IP address of the Amazon Web Services resource that is the destination of the path.</p>
    */
   DestinationIp?: string;
 
@@ -3302,6 +3461,26 @@ export interface CreateNetworkInterfaceRequest {
    *                 Instance Type</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   SecondaryPrivateIpAddressCount?: number;
+
+  /**
+   * <p>One or moreIPv4 Prefix Delegation prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
+   */
+  Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[];
+
+  /**
+   * <p>The number of IPv4 Prefix Delegation prefixes that AWS automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
+   */
+  Ipv4PrefixCount?: number;
+
+  /**
+   * <p>One or moreIPv6 Prefix Delegation prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
+   */
+  Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[];
+
+  /**
+   * <p>The number of IPv6 Prefix Delegation prefixes that AWS automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv6Prefixes</code> option.</p>
+   */
+  Ipv6PrefixCount?: number;
 
   /**
    * <p>Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify
@@ -3490,6 +3669,25 @@ export namespace NetworkInterfaceIpv6Address {
 }
 
 /**
+ * <p>Describes the IPv6 Prefix Delegation.</p>
+ */
+export interface Ipv6PrefixSpecification {
+  /**
+   * <p>The IPv6 Prefix Delegation prefix.</p>
+   */
+  Ipv6Prefix?: string;
+}
+
+export namespace Ipv6PrefixSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Ipv6PrefixSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes the private IPv4 address of a network interface.</p>
  */
 export interface NetworkInterfacePrivateIpAddress {
@@ -3598,6 +3796,20 @@ export interface NetworkInterface {
    * <p>The private IPv4 addresses associated with the network interface.</p>
    */
   PrivateIpAddresses?: NetworkInterfacePrivateIpAddress[];
+
+  /**
+   * <p>The IPv4 Prefix Delegation prefixes
+   *             that are
+   *             assigned to the network interface.</p>
+   */
+  Ipv4Prefixes?: Ipv4PrefixSpecification[];
+
+  /**
+   * <p>The IPv6 Prefix Delegation prefixes
+   *             that are
+   *             assigned to the network interface.</p>
+   */
+  Ipv6Prefixes?: Ipv6PrefixSpecification[];
 
   /**
    * <p>The alias or account ID of the principal or service that created the network interface.</p>
@@ -3921,7 +4133,7 @@ export interface CreateReplaceRootVolumeTaskRequest {
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
    *       If you do not specify a client token, a randomly generated token is used for the request
-   *       to ensure idempotency. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *       to ensure idempotency. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -4419,7 +4631,7 @@ export interface Route {
   DestinationIpv6CidrBlock?: string;
 
   /**
-   * <p>The prefix of the AWS service.</p>
+   * <p>The prefix of the Amazon Web Service.</p>
    */
   DestinationPrefixListId?: string;
 
@@ -4439,7 +4651,7 @@ export interface Route {
   InstanceId?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the instance.</p>
+   * <p>The ID of account that owns the instance.</p>
    */
   InstanceOwnerId?: string;
 
@@ -4544,7 +4756,7 @@ export interface RouteTable {
   VpcId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the route table.</p>
+   * <p>The ID of the account that owns the route table.</p>
    */
   OwnerId?: string;
 }
@@ -4647,7 +4859,7 @@ export interface CreateSnapshotRequest {
   Description?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Outpost on which to create a local
+   * <p>The Amazon Resource Name (ARN) of the Outpost on which to create a local
    *   	snapshot.</p>
    *   	      <ul>
    *             <li>
@@ -4665,14 +4877,12 @@ export interface CreateSnapshotRequest {
    *   			the same Outpost as the volume.</p>
    *   		        </li>
    *          </ul>
-   *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot">
-   *   		Creating local snapshots from volumes on an Outpost</a> in the
-   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot">Create local snapshots from volumes on an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   OutpostArn?: string;
 
   /**
-   * <p>The ID of the EBS volume.</p>
+   * <p>The ID of the Amazon EBS volume.</p>
    */
   VolumeId: string | undefined;
 
@@ -4724,13 +4934,13 @@ export interface Snapshot {
   Encrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to protect the
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS key that was used to protect the
    *       volume encryption key for the parent volume.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The AWS account ID of the EBS snapshot owner.</p>
+   * <p>The ID of the account that owns the EBS snapshot.</p>
    */
   OwnerId?: string;
 
@@ -4757,7 +4967,7 @@ export interface Snapshot {
 
   /**
    * <p>Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot copy operation fails
-   *       (for example, if the proper AWS Key Management Service (AWS KMS) permissions are not obtained) this field displays error
+   *       (for example, if the proper Key Management Service (KMS) permissions are not obtained) this field displays error
    *       state details to help you diagnose why the error occurred. This parameter is only returned by
    *       <a>DescribeSnapshots</a>.</p>
    */
@@ -4775,13 +4985,13 @@ export interface Snapshot {
   VolumeSize?: number;
 
   /**
-   * <p>The AWS owner alias, from an Amazon-maintained list (<code>amazon</code>). This is not
-   *       the user-configured AWS account alias set using the IAM console.</p>
+   * <p>The Amazon Web Services owner alias, from an Amazon-maintained list (<code>amazon</code>). This is not
+   *       the user-configured account alias set using the IAM console.</p>
    */
   OwnerAlias?: string;
 
   /**
-   * <p>The ARN of the AWS Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">EBS Local Snapshot on Outposts</a> in the
+   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
    *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   OutpostArn?: string;
@@ -4839,7 +5049,7 @@ export interface CreateSnapshotsRequest {
   InstanceSpecification: InstanceSpecification | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Outpost on which to create the local
+   * <p>The Amazon Resource Name (ARN) of the Outpost on which to create the local
    *   		snapshots.</p>
    *   	      <ul>
    *             <li>
@@ -4858,7 +5068,7 @@ export interface CreateSnapshotsRequest {
    *   		        </li>
    *          </ul>
    *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot">
-   *   		Creating multi-volume local snapshots from instances on an Outpost</a> in the
+   *   		Create multi-volume local snapshots from instances on an Outpost</a> in the
    *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   OutpostArn?: string;
@@ -4947,7 +5157,7 @@ export interface SnapshotInfo {
   SnapshotId?: string;
 
   /**
-   * <p>The ARN of the AWS Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">EBS Local Snapshot on Outposts</a> in the
+   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
    *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   OutpostArn?: string;
@@ -5185,7 +5395,7 @@ export interface CreateSubnetRequest {
 
   /**
    * <p>The Availability Zone or Local Zone for the subnet.</p>
-   *          <p>Default: AWS selects one for you. If you create more than one subnet in your VPC, we
+   *          <p>Default: Amazon Web Services selects one for you. If you create more than one subnet in your VPC, we
    *           do not necessarily select a different zone for each subnet.</p>
    *          <p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example
    *           <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones,
@@ -5199,11 +5409,6 @@ export interface CreateSubnetRequest {
    * <p>The AZ ID or the Local Zone ID of the subnet.</p>
    */
   AvailabilityZoneId?: string;
-
-  /**
-   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   */
-  CidrBlock: string | undefined;
 
   /**
    * <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a
@@ -5228,6 +5433,11 @@ export interface CreateSubnetRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   */
+  CidrBlock: string | undefined;
 }
 
 export namespace CreateSubnetRequest {
@@ -5251,6 +5461,143 @@ export namespace CreateSubnetResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateSubnetResult): any => ({
+    ...obj,
+  });
+}
+
+export enum SubnetCidrReservationType {
+  explicit = "explicit",
+  prefix = "prefix",
+}
+
+export interface CreateSubnetCidrReservationRequest {
+  /**
+   * <p>The tags to assign to the subnet CIDR reservation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>The IPv4 or IPV6 CIDR range to reserve.</p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The type of reservation.</p>
+   *         <p>The following are valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>prefix</code>: The Amazon EC2
+   *                     Prefix
+   *                     Delegation feature assigns the IP addresses to network interfaces that are
+   *                     associated with an instance. For information about Prefix
+   *                     Delegation,
+   *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation.html">Prefix Delegation
+   *                         for Amazon EC2 network interfaces</a> in the
+   *                         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>explicit</code>: You manually assign the IP addresses to resources that
+   *                     reside in your subnet. </p>
+   *             </li>
+   *          </ul>
+   */
+  ReservationType: SubnetCidrReservationType | string | undefined;
+
+  /**
+   * <p>The
+   *             description
+   *             to assign to the subnet CIDR reservation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace CreateSubnetCidrReservationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateSubnetCidrReservationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a subnet CIDR reservation.</p>
+ */
+export interface SubnetCidrReservation {
+  /**
+   * <p>The ID of the subnet CIDR reservation.</p>
+   */
+  SubnetCidrReservationId?: string;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The CIDR that has been reserved.</p>
+   */
+  Cidr?: string;
+
+  /**
+   * <p>The type of reservation. </p>
+   */
+  ReservationType?: SubnetCidrReservationType | string;
+
+  /**
+   * <p>The ID of the account that owns the subnet CIDR reservation. </p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The
+   *             description
+   *             assigned to the subnet CIDR
+   *             reservation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags assigned to the subnet CIDR reservation.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace SubnetCidrReservation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SubnetCidrReservation): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateSubnetCidrReservationResult {
+  /**
+   * <p>Information about the created subnet CIDR reservation.</p>
+   */
+  SubnetCidrReservation?: SubnetCidrReservation;
+}
+
+export namespace CreateSubnetCidrReservationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateSubnetCidrReservationResult): any => ({
     ...obj,
   });
 }
@@ -7169,8 +7516,9 @@ export interface CreateVolumeRequest {
    *                   <code>io2</code>: 100-64,000 IOPS</p>
    *             </li>
    *          </ul>
-   *          <p>For <code>io1</code> and <code>io2</code> volumes, we guarantee 64,000 IOPS only for
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a>. Other instance families guarantee performance
+   *          <p>
+   *             <code>io1</code> and <code>io2</code> volumes support up to 64,000 IOPS only on
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a>. Other instance families support performance
    *       up to 32,000 IOPS.</p>
    *          <p>This parameter is required for <code>io1</code> and <code>io2</code> volumes.
    *       The default for <code>gp3</code> volumes is 3,000 IOPS.
@@ -7179,10 +7527,10 @@ export interface CreateVolumeRequest {
   Iops?: number;
 
   /**
-   * <p>The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption.
-   *       If this parameter is not specified, your AWS managed CMK for EBS is used. If <code>KmsKeyId</code> is
+   * <p>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
+   *       If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is
    *       specified, the encrypted state must be <code>true</code>.</p>
-   *          <p>You can specify the CMK using any of the following:</p>
+   *          <p>You can specify the KMS key using any of the following:</p>
    *          <ul>
    *             <li>
    *                <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
@@ -7197,7 +7545,7 @@ export interface CreateVolumeRequest {
    *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
    *             </li>
    *          </ul>
-   *          <p>AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid,
+   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid,
    *       the action can appear to complete, but eventually fails.</p>
    */
   KmsKeyId?: string;
@@ -7296,6 +7644,13 @@ export interface CreateVolumeRequest {
    *   	      <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
    */
   Throughput?: number;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+   *       of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure
+   *         Idempotency</a>.</p>
+   */
+  ClientToken?: string;
 }
 
 export namespace CreateVolumeRequest {
@@ -7334,7 +7689,7 @@ export interface Volume {
   Encrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to protect the
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS key that was used to protect the
    *       volume encryption key for the volume.</p>
    */
   KmsKeyId?: string;
@@ -8163,8 +8518,8 @@ export interface CreateVpcPeeringConnectionRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The AWS account ID of the owner of the accepter VPC.</p>
-   *          <p>Default: Your AWS account ID</p>
+   * <p>The account ID of the owner of the accepter VPC.</p>
+   *          <p>Default: Your account ID</p>
    */
   PeerOwnerId?: string;
 
@@ -9326,230 +9681,6 @@ export namespace DeleteClientVpnEndpointRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteClientVpnEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteClientVpnEndpointResult {
-  /**
-   * <p>The current state of the Client VPN endpoint.</p>
-   */
-  Status?: ClientVpnEndpointStatus;
-}
-
-export namespace DeleteClientVpnEndpointResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClientVpnEndpointResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteClientVpnRouteRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint from which the route is to be deleted.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The ID of the target subnet used by the route.</p>
-   */
-  TargetVpcSubnetId?: string;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, of the route to be deleted.</p>
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteClientVpnRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClientVpnRouteRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteClientVpnRouteResult {
-  /**
-   * <p>The current state of the route.</p>
-   */
-  Status?: ClientVpnRouteStatus;
-}
-
-export namespace DeleteClientVpnRouteResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClientVpnRouteResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for DeleteCustomerGateway.</p>
- */
-export interface DeleteCustomerGatewayRequest {
-  /**
-   * <p>The ID of the customer gateway.</p>
-   */
-  CustomerGatewayId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteCustomerGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomerGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteDhcpOptionsRequest {
-  /**
-   * <p>The ID of the DHCP options set.</p>
-   */
-  DhcpOptionsId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteDhcpOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDhcpOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteEgressOnlyInternetGatewayRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the egress-only internet gateway.</p>
-   */
-  EgressOnlyInternetGatewayId: string | undefined;
-}
-
-export namespace DeleteEgressOnlyInternetGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEgressOnlyInternetGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteEgressOnlyInternetGatewayResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  ReturnCode?: boolean;
-}
-
-export namespace DeleteEgressOnlyInternetGatewayResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEgressOnlyInternetGatewayResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteFleetsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of the EC2 Fleets.</p>
-   */
-  FleetIds: string[] | undefined;
-
-  /**
-   * <p>Indicates whether to terminate the instances when the EC2 Fleet is deleted. The default is to
-   *          terminate the instances.</p>
-   *          <p>To let the instances continue to run after the EC2 Fleet is deleted, specify
-   *             <code>NoTerminateInstances</code>. Supported only for fleets of type
-   *             <code>maintain</code> and <code>request</code>.</p>
-   *          <p>For <code>instant</code> fleets, you cannot specify <code>NoTerminateInstances</code>. A
-   *          deleted <code>instant</code> fleet with running instances is not supported.</p>
-   */
-  TerminateInstances: boolean | undefined;
-}
-
-export namespace DeleteFleetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum FleetStateCode {
-  ACTIVE = "active",
-  DELETED = "deleted",
-  DELETED_RUNNING = "deleted_running",
-  DELETED_TERMINATING_INSTANCES = "deleted_terminating",
-  FAILED = "failed",
-  MODIFYING = "modifying",
-  SUBMITTED = "submitted",
-}
-
-/**
- * <p>Describes an EC2 Fleet that was successfully deleted.</p>
- */
-export interface DeleteFleetSuccessItem {
-  /**
-   * <p>The current state of the EC2 Fleet.</p>
-   */
-  CurrentFleetState?: FleetStateCode | string;
-
-  /**
-   * <p>The previous state of the EC2 Fleet.</p>
-   */
-  PreviousFleetState?: FleetStateCode | string;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   */
-  FleetId?: string;
-}
-
-export namespace DeleteFleetSuccessItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetSuccessItem): any => ({
     ...obj,
   });
 }

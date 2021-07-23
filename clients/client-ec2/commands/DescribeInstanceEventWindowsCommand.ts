@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeInstanceEventWindowsRequest, DescribeInstanceEventWindowsResult } from "../models/models_2";
+import { DescribeInstanceEventWindowsRequest, DescribeInstanceEventWindowsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeInstanceEventWindowsCommand,
   serializeAws_ec2DescribeInstanceEventWindowsCommand,
@@ -30,8 +30,8 @@ export interface DescribeInstanceEventWindowsCommandOutput
  *          the output includes information for all event windows, which can affect performance. We
  *          recommend that you use pagination to ensure that the operation returns quickly and
  *          successfully. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
- *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
+ *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,12 +1,16 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { ClientDefaults } from "./Route53DomainsClient";
-import { ClientDefaultValues as BrowserDefaults } from "./runtimeConfig.browser";
+import { Route53DomainsClientConfig } from "./Route53DomainsClient";
+import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 
 /**
  * @internal
  */
-export const ClientDefaultValues: Required<ClientDefaults> = {
-  ...BrowserDefaults,
-  runtime: "react-native",
-  sha256: Sha256,
+export const getRuntimeConfig = (config: Route53DomainsClientConfig = {}) => {
+  const browserDefaults = getBrowserRuntimeConfig(config);
+  return {
+    ...browserDefaults,
+    ...config,
+    runtime: "react-native",
+    sha256: config.sha256 ?? Sha256,
+  };
 };

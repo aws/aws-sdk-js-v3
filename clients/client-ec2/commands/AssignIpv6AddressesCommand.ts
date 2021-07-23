@@ -27,7 +27,10 @@ export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesRes
  *             You can assign as many IPv6 addresses to a network interface as you can assign private
  *             IPv4 addresses, and the limit varies per instance type. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP Addresses Per Network Interface Per Instance Type</a>
  *             in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *         <p>You must specify either the IPv6 addresses or the IPv6 address count in the request.</p>
+ *         <p>You must specify either the IPv6 addresses or the IPv6 address count in the request. </p>
+ *         <p>You can optionally use Prefix Delegation on the network interface. You must specify
+ *             either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For
+ *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation">Prefix Delegation</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

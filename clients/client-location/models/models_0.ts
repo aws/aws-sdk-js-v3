@@ -2,7 +2,7 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
- * <p>The request was denied due to insufficient access or permission. Check with an
+ * <p>The request was denied because of insufficient access or permissions. Check with an
  *       administrator to verify your permissions.</p>
  */
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
@@ -61,7 +61,7 @@ export namespace AssociateTrackerConsumerResponse {
 }
 
 /**
- * <p>The request was unsuccessful due to a conflict.</p>
+ * <p>The request was unsuccessful because of a conflict.</p>
  */
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
@@ -116,7 +116,29 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
+ *       set for Amazon Location Service.</p>
+ */
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
+  name: "ServiceQuotaExceededException";
+  $fault: "client";
+  /**
+   * <p>A message with the reason for the service quota exceeded exception error.</p>
+   */
+  Message: string | undefined;
+}
+
+export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request was denied because of request throttling.</p>
  */
 export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
@@ -1221,7 +1243,7 @@ export namespace Step {
 
 /**
  * <p>Contains the calculated route's details for each path between a pair of positions. The
- *             number of legs returned corresponds to one less than the total number of positions in
+ *             number of legs returned corresponds to one fewer than the total number of positions in
  *             the request. </p>
  *         <p>For example, a route with a departure position and destination position returns one
  *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>:</p>
@@ -1234,7 +1256,7 @@ export namespace Step {
  *             </li>
  *          </ul>
  *         <p>A route with a waypoint between the departure and destination position returns two
- *             legs with the positions snapped to a nearby road.:</p>
+ *             legs with the positions snapped to a nearby road:</p>
  *         <ul>
  *             <li>
  *                 <p>Leg 1: The <code>StartPosition</code> is the departure position . The
@@ -1316,8 +1338,7 @@ export namespace Leg {
 export interface CalculateRouteSummary {
   /**
    * <p>Specifies a geographical box surrounding a route. Used to zoom into a route when
-   *             displaying it in a map. For example, <code>[min x, min y, max x, max y]</code>
-   *          </p>
+   *             displaying it in a map. For example, <code>[min x, min y, max x, max y]</code>.</p>
    *         <p>The first 2 <code>bbox</code> parameters describe the lower southwest corner: </p>
    *         <ul>
    *             <li>
@@ -1405,7 +1426,7 @@ export interface CalculateRouteResponse {
    * <p>Contains details about each path between a pair of positions included along a route
    *             such as: <code>StartPosition</code>, <code>EndPosition</code>, <code>Distance</code>,
    *                 <code>DurationSeconds</code>, <code>Geometry</code>, and <code>Steps</code>. The
-   *             number of legs returned corresponds to one less than the total number of positions in
+   *             number of legs returned corresponds to one fewer than the total number of positions in
    *             the request. </p>
    *         <p>For example, a route with a departure position and destination position returns one
    *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>:</p>
@@ -1418,7 +1439,7 @@ export interface CalculateRouteResponse {
    *             </li>
    *          </ul>
    *         <p>A route with a waypoint between the departure and destination position returns two
-   *             legs with the positions snapped to a nearby road.:</p>
+   *             legs with the positions snapped to a nearby road:</p>
    *         <ul>
    *             <li>
    *                 <p>Leg 1: The <code>StartPosition</code> is the departure position . The
@@ -1435,8 +1456,7 @@ export interface CalculateRouteResponse {
   /**
    * <p>Contains information about the whole route, such as: <code>RouteBBox</code>,
    *                 <code>DataSource</code>, <code>Distance</code>, <code>DistanceUnit</code>, and
-   *                 <code>DurationSeconds</code>
-   *          </p>
+   *                 <code>DurationSeconds</code>.</p>
    */
   Summary: CalculateRouteSummary | undefined;
 }
@@ -1590,16 +1610,65 @@ export namespace CreateGeofenceCollectionResponse {
  */
 export interface MapConfiguration {
   /**
-   * <p>Specifies the map style selected from an available data provider.</p>
-   *         <p>Valid styles: <code>RasterEsriImagery</code>, <code>VectorEsriStreets</code>,
-   *                 <code>VectorEsriTopographic</code>, <code>VectorEsriNavigation</code>,
-   *                 <code>VectorEsriDarkGrayCanvas</code>, <code>VectorEsriLightGrayCanvas</code>,
-   *                 <code>VectorHereBerlin</code>.</p>
-   *         <note>
-   *             <p>When using HERE as your data provider, and selecting the Style
-   *                     <code>VectorHereBerlin</code>, you may not use HERE Maps for Asset Management.
-   *                 See the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon Location Service.</p>
-   *         </note>
+   * <p>Specifies the map style selected from an available data provider. For additional
+   *             information on each map style and to preview each map style, see <a href="location/latest/developerguide/esri.html#esri-map-styles">Esri map
+   *                 styles</a> and <a href="location/latest/developerguide/HERE.html#HERE-map-styles">HERE map
+   *                 styles</a>.</p>
+   *         <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A
+   *                     vector basemap with a dark gray, neutral background with minimal colors, labels,
+   *                     and features that's designed to draw attention to your thematic content. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RasterEsriImagery</code> – The Esri Imagery map style. A raster basemap
+   *                     that provides one meter or better satellite and aerial imagery in many parts of
+   *                     the world and lower resolution satellite imagery worldwide. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>VectorEsriLightGrayCanvas</code> – The Esri Light Gray Canvas map style,
+   *                     which provides a detailed vector basemap with a light gray, neutral background
+   *                     style with minimal colors, labels, and features that's designed to draw
+   *                     attention to your thematic content. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>VectorEsriTopographic</code> – The Esri Light map style, which provides
+   *                     a detailed vector basemap with a classic Esri map style.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>VectorEsriStreets</code> – The Esri World Streets map style, which
+   *                     provides a detailed vector basemap for the world symbolized with a classic Esri
+   *                     street map style. The vector tile layer is similar in content and style to the
+   *                     World Street Map raster map.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>VectorEsriNavigation</code> – The Esri World Navigation map style, which
+   *                     provides a detailed basemap for the world symbolized with a custom navigation
+   *                     map style that's designed for use during the day in mobile devices.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+   *                 Technologies</a> styles: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>VectorHereBerlin</code> – The HERE Berlin map style is a high contrast
+   *                     detailed base map of the world that blends 3D and 2D rendering.</p>
+   *                 <note>
+   *                     <p>When using HERE as your data provider, and selecting the Style
+   *                             <code>VectorHereBerlin</code>, you may not use HERE Technologies maps
+   *                         for Asset Management. See the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>
+   *                         for Amazon Location Service.</p>
+   *                 </note>
+   *             </li>
+   *          </ul>
    */
   Style: string | undefined;
 }
@@ -1692,8 +1761,8 @@ export interface CreateMapResponse {
   MapName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the map resource. Used when you need to specify a
-   *             resource across all AWS.</p>
+   * <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across
+   *             all AWS.</p>
    *         <ul>
    *             <li>
    *                 <p>Format example:
@@ -1724,6 +1793,23 @@ export type IntendedUse = "SingleUse" | "Storage";
 
 /**
  * <p>Specifies the data storage option chosen for requesting Places.</p>
+ *          <important>
+ *             <p>When using Amazon Location Places:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>If using HERE Technologies as a data provider, you can't store results for
+ *                   locations in Japan by setting <code>IntendedUse</code> to <code>Storage</code>.
+ *                   parameter.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Under the <code>MobileAssetTracking</code> or <code>MobilAssetManagement</code>
+ *                   pricing plan, you can't store results from your place index resources by setting <code>IntendedUse</code> to <code>Storage</code>. This
+ *                   returns a validation exception error.</p>
+ *                </li>
+ *             </ul>
+ *             <p>For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for
+ *             Amazon Location Service.</p>
+ *          </important>
  */
 export interface DataSourceConfiguration {
   /**
@@ -1737,11 +1823,6 @@ export interface DataSourceConfiguration {
    *             <li>
    *                <p>
    *                   <code>Storage</code> specifies that the result can be cached or stored in a database.</p>
-   *                <important>
-   *                   <p>Place index resources using HERE as a data provider can't be configured to
-   *                   store results for locations in Japan when choosing <code>Storage</code> for the
-   *                      <code>IntendedUse</code> parameter.</p>
-   *                </important>
    *             </li>
    *          </ul>
    *          <p>Default value:  <code>SingleUse</code>
@@ -1782,27 +1863,28 @@ export interface CreatePlaceIndexRequest {
    * <p>Specifies the data provider of geospatial data.</p>
    *          <note>
    *             <p>This field is case-sensitive. Enter the valid values as shown. For example, entering
-   *                <code>HERE</code> will return an error.</p>
+   *                <code>HERE</code> returns an error.</p>
    *          </note>
    *          <p>Valid values include:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Esri</code>
-   *                </p>
+   *                   <code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s coverage in your
+   *                region of interest, see <a href="https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm">Esri details on geocoding coverage</a>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Here</code>
-   *                </p>
+   *                   <code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a>'s
+   *                coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE details on goecoding coverage</a>.</p>
    *                <important>
-   *                   <p>Place index resources using HERE as a data provider can't be used to <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store</a>
-   *                   results for locations in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for
-   *                   Amazon Location Service.</p>
+   *                   <p>Place index resources using HERE Technologies as a data provider can't <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store results</a> for locations in Japan. For more information, see the
+   *                      <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>
+   *                   for Amazon Location Service.</p>
    *                </important>
    *             </li>
    *          </ul>
-   *          <p>For additional details on data providers, see the <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers page</a>.</p>
+   *          <p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data providers</a>
+   *          on the <i>Amazon Location Service Developer Guide</i>.</p>
    */
   DataSource: string | undefined;
 
@@ -1819,7 +1901,7 @@ export interface CreatePlaceIndexRequest {
   Description?: string;
 
   /**
-   * <p>Specifies the data storage option for requesting Places.</p>
+   * <p>Specifies the data storage option requesting Places.</p>
    */
   DataSourceConfiguration?: DataSourceConfiguration;
 
@@ -1868,7 +1950,7 @@ export interface CreatePlaceIndexResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource
-   *          across all AWS. </p>
+   *          across AWS. </p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -1920,9 +2002,20 @@ export interface CreateRouteCalculatorRequest {
    *             <p>This field is case-sensitive. Enter the valid values as shown. For example,
    *                 entering <code>HERE</code> returns an error.</p>
    *         </note>
-   *         <p>Valid Values: <code>Esri</code> | <code>Here</code>
-   *          </p>
-   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *         <p>Valid values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s coverage in your region of interest, see <a href="https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm">Esri details on street networks and traffic coverage</a>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+   *                         Technologies</a>'s coverage in your region of interest, see <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html">HERE car routing coverage</a> and <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html">HERE truck routing coverage</a>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
+   *                 providers</a> on the <i>Amazon Location Service Developer Guide</i>.</p>
    */
   DataSource: string | undefined;
 
@@ -2396,8 +2489,8 @@ export interface DescribeMapResponse {
   MapName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the map resource. Used when you need to specify a
-   *             resource across all AWS.</p>
+   * <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across
+   *             all AWS.</p>
    *         <ul>
    *             <li>
    *                 <p>Format example:
@@ -2482,7 +2575,7 @@ export interface DescribePlaceIndexResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource
-   *          across all AWS. </p>
+   *          across AWS. </p>
    *          <ul>
    *             <li>
    *                <p>Format example:
@@ -2787,6 +2880,12 @@ export namespace DisassociateTrackerConsumerResponse {
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   ResourceArn: string | undefined;
 }
@@ -2802,7 +2901,13 @@ export namespace ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The mapping from tag key to tag value for each tag associated with the specified resource.</p>
+   * <p>Tags that have been applied to the specified resource. Tags are mapped from the tag key to the tag value: <code>"TagKey" : "TagValue"</code>.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>Format example: <code>{"tag1" : "value1", "tag2" : "value2"} </code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Tags?: { [key: string]: string };
 }
@@ -2819,11 +2924,23 @@ export namespace ListTagsForResourceResponse {
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to update.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The mapping from tag key to tag value for each tag associated with the specified resource.</p>
+   * <p>Tags that have been applied to the specified resource. Tags are mapped from the tag key to the tag value: <code>"TagKey" : "TagValue"</code>.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>Format example: <code>{"tag1" : "value1", "tag2" : "value2"} </code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Tags: { [key: string]: string } | undefined;
 }
@@ -2851,11 +2968,17 @@ export namespace TagResourceResponse {
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The list of tag keys to remove from the resource.</p>
+   * <p>The list of tag keys to remove from the specified resource.</p>
    */
   TagKeys: string[] | undefined;
 }
@@ -3241,6 +3364,88 @@ export namespace PutGeofenceResponse {
   });
 }
 
+export interface UpdateGeofenceCollectionRequest {
+  /**
+   * <p>The name of the geofence collection to update.</p>
+   */
+  CollectionName: string | undefined;
+
+  /**
+   * <p>Updates the pricing plan for the geofence collection.</p>
+   *         <p>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service
+   *                 pricing</a>.</p>
+   */
+  PricingPlan?: PricingPlan | string;
+
+  /**
+   * <p>Updates the data provider for the geofence collection. </p>
+   *         <p>A required value for the following pricing plans: <code>MobileAssetTracking</code>|
+   *                 <code>MobileAssetManagement</code>
+   *         </p>
+   *         <p>For more information about <a href="https://aws.amazon.com/location/data-providers/">data providers</a> and
+   *                 <a href="https://aws.amazon.com/location/pricing/">pricing plans</a>, see the
+   *             Amazon Location Service product page.</p>
+   *         <note>
+   *             <p>This can only be updated when updating the <code>PricingPlan</code> in the same
+   *                 request.</p>
+   *             <p>Amazon Location Service uses <code>PricingPlanDataSource</code> to calculate
+   *                 billing for your geofence collection. Your data won't be shared with the data
+   *                 provider, and will remain in your AWS account and Region unless you move it.</p>
+   *         </note>
+   */
+  PricingPlanDataSource?: string;
+
+  /**
+   * <p>Updates the description for the geofence collection.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateGeofenceCollectionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateGeofenceCollectionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateGeofenceCollectionResponse {
+  /**
+   * <p>The name of the updated geofence collection.</p>
+   */
+  CollectionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a
+   *             resource across AWS.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  CollectionArn: string | undefined;
+
+  /**
+   * <p>The time when the geofence collection was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
+   *          </p>
+   */
+  UpdateTime: Date | undefined;
+}
+
+export namespace UpdateGeofenceCollectionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateGeofenceCollectionResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetDevicePositionRequest {
   /**
    * <p>The tracker resource receiving the position update.</p>
@@ -3385,8 +3590,47 @@ export interface GetMapGlyphsRequest {
   MapName: string | undefined;
 
   /**
-   * <p>A comma-separated list of fonts to load glyphs from in order of preference.. For
-   *             example, <code>Noto Sans, Arial Unicode</code>.</p>
+   * <p>A comma-separated list of fonts to load glyphs from in order of preference. For
+   *             example, <code>Noto Sans Regular, Arial Unicode</code>.</p>
+   *         <p>Valid fonts for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu
+   *                         Medium</code> | <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> |
+   *                         <code>Ubuntu Bold</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>VectorEsriLightGrayCanvas – <code>Ubuntu Italic</code> | <code>Ubuntu
+   *                         Regular</code> | <code>Ubuntu Light</code> | <code>Ubuntu Bold</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>VectorEsriTopographic – <code>Noto Sans Italic</code> | <code>Noto Sans
+   *                         Regular</code> | <code>Noto Sans Bold</code> | <code>Noto Serif
+   *                         Regular</code> | <code>Roboto Condensed Light Italic</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>VectorEsriStreets – <code>Arial Regular</code> | <code>Arial Italic</code> |
+   *                         <code>Arial Bold</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>VectorEsriNavigation – <code>Arial Regular</code> | <code>Arial Italic</code>
+   *                     | <code>Arial Bold</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>Valid fonts for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>VectorHereBerlin</code> – <code>Fira GO Regular</code> | <code>Fira GO
+   *                         Bold</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   FontStack: string | undefined;
 
@@ -4149,6 +4393,67 @@ export namespace ListTrackersResponse {
   });
 }
 
+export interface UpdateMapRequest {
+  /**
+   * <p>The name of the map resource to update.</p>
+   */
+  MapName: string | undefined;
+
+  /**
+   * <p>Updates the pricing plan for the map resource.</p>
+   *         <p>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   */
+  PricingPlan?: PricingPlan | string;
+
+  /**
+   * <p>Updates the description for the map resource.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateMapRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateMapRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateMapResponse {
+  /**
+   * <p>The name of the updated map resource.</p>
+   */
+  MapName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated map resource. Used to specify a resource
+   *             across AWS.</p>
+   *         <ul>
+   *             <li>
+   *                <p>Format example: <code>arn:aws:geo:region:account-id:maps/ExampleMap</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  MapArn: string | undefined;
+
+  /**
+   * <p>The timestamp for when the map resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  UpdateTime: Date | undefined;
+}
+
+export namespace UpdateMapResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateMapResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface SearchPlaceIndexForPositionRequest {
   /**
    * <p>The name of the place index resource you want to use for the search.</p>
@@ -4579,5 +4884,213 @@ export namespace SearchPlaceIndexForTextResponse {
     ...obj,
     ...(obj.Summary && { Summary: SearchPlaceIndexForTextSummary.filterSensitiveLog(obj.Summary) }),
     ...(obj.Results && { Results: obj.Results.map((item) => SearchForTextResult.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface UpdatePlaceIndexRequest {
+  /**
+   * <p>The name of the place index resource to update.</p>
+   */
+  IndexName: string | undefined;
+
+  /**
+   * <p>Updates the pricing plan for the place index resource.</p>
+   *          <p>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   */
+  PricingPlan?: PricingPlan | string;
+
+  /**
+   * <p>Updates the description for the place index resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Updates the data storage option for the place index resource.</p>
+   */
+  DataSourceConfiguration?: DataSourceConfiguration;
+}
+
+export namespace UpdatePlaceIndexRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePlaceIndexRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePlaceIndexResponse {
+  /**
+   * <p>The name of the updated place index resource.</p>
+   */
+  IndexName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the upated place index resource. Used to specify a
+   *          resource across AWS.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Format example: <code>arn:aws:geo:region:account-id:place-
+   *             index/ExamplePlaceIndex</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  IndexArn: string | undefined;
+
+  /**
+   * <p>The timestamp for when the place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a> format:
+   *             <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  UpdateTime: Date | undefined;
+}
+
+export namespace UpdatePlaceIndexResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePlaceIndexResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateRouteCalculatorRequest {
+  /**
+   * <p>The name of the route calculator resource to update.</p>
+   */
+  CalculatorName: string | undefined;
+
+  /**
+   * <p>Updates the pricing plan for the route calculator resource.</p>
+   *         <p>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location
+   *             Service pricing</a>.</p>
+   */
+  PricingPlan?: PricingPlan | string;
+
+  /**
+   * <p>Updates the description for the route calculator resource.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateRouteCalculatorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateRouteCalculatorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateRouteCalculatorResponse {
+  /**
+   * <p>The name of the updated route calculator resource.</p>
+   */
+  CalculatorName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated route calculator resource. Used to specify a resource
+   *             across AWS.</p>
+   *         <ul>
+   *             <li>
+   *                <p>Format example: <code>arn:aws:geo:region:account-id:route-
+   *                 calculator/ExampleCalculator</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  CalculatorArn: string | undefined;
+
+  /**
+   * <p>The timestamp for when the route calculator was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  UpdateTime: Date | undefined;
+}
+
+export namespace UpdateRouteCalculatorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateRouteCalculatorResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTrackerRequest {
+  /**
+   * <p>The name of the tracker resource to update.</p>
+   */
+  TrackerName: string | undefined;
+
+  /**
+   * <p>Updates the pricing plan for the tracker resource.</p>
+   *         <p>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service
+   *                 pricing</a>.</p>
+   */
+  PricingPlan?: PricingPlan | string;
+
+  /**
+   * <p>Updates the data provider for the tracker resource. </p>
+   *         <p>A required value for the following pricing plans: <code>MobileAssetTracking</code>| <code>MobileAssetManagement</code>
+   *             </p>
+   *         <p>For more information about <a href="https://aws.amazon.com/location/data-providers/">data providers</a> and <a href="https://aws.amazon.com/location/pricing/">pricing plans</a>, see the Amazon Location Service product
+   *             page</p>
+   *         <note>
+   *             <p>This can only be updated when updating the <code>PricingPlan</code> in the same
+   *                 request.</p>
+   *             <p>Amazon Location Service uses <code>PricingPlanDataSource</code> to calculate
+   *                 billing for your tracker resource. Your data won't be shared with the data provider,
+   *                 and will remain in your AWS account and Region unless you move it.</p>
+   *         </note>
+   */
+  PricingPlanDataSource?: string;
+
+  /**
+   * <p>Updates the description for the tracker resource.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateTrackerRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTrackerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTrackerResponse {
+  /**
+   * <p>The name of the updated tracker resource.</p>
+   */
+  TrackerName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated tracker resource. Used to specify a resource across
+   *             AWS.</p>
+   *             <ul>
+   *             <li>
+   *                <p>Format example: <code>arn:aws:geo:region:account-id:tracker/ExampleTracker</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  TrackerArn: string | undefined;
+
+  /**
+   * <p>The timestamp for when the tracker resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   */
+  UpdateTime: Date | undefined;
+}
+
+export namespace UpdateTrackerResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTrackerResponse): any => ({
+    ...obj,
   });
 }

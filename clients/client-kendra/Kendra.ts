@@ -1380,7 +1380,7 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Enables you to provide feedback to Amazon Kendra to improve the
-   *             performance of the service. </p>
+   *             performance of your index. </p>
    */
   public submitFeedback(
     args: SubmitFeedbackCommandInput,

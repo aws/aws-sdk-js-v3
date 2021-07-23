@@ -48,7 +48,7 @@ const {
       await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
       await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
 
-      emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+      // emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
       emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
 
       rmdirSync(TEMP_CODE_GEN_INPUT_DIR);

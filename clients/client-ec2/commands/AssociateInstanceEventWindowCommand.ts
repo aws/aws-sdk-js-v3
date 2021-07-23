@@ -25,8 +25,8 @@ export interface AssociateInstanceEventWindowCommandOutput
 /**
  * <p>Associates one or more targets with an event window. Only one type of target (instance IDs,
  *          Dedicated Host IDs, or tags) can be specified with an event window.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows
- *             for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
+ *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

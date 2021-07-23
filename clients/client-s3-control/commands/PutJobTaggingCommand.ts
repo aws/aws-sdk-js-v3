@@ -59,8 +59,7 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  *                         <p>The key and values are case sensitive.</p>
  *                      </li>
  *                      <li>
- *                         <p>For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>AWS Billing and
- *                            Cost Management User Guide</i>.</p>
+ *                         <p>For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>Billing and Cost Management User Guide</i>.</p>
  *                      </li>
  *                   </ul>
  *                </li>
