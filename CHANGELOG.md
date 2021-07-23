@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.23.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.22.0...v3.23.0) (2021-07-23)
+
+
+### Bug Fixes
+
+* **client-sts:** duplicate stripInternal entry in tsconfig ([#2545](https://github.com/aws/aws-sdk-js-v3/issues/2545)) ([e7bcbbc](https://github.com/aws/aws-sdk-js-v3/commit/e7bcbbcda632181c021b8a1e91185cee04a978b6))
+* **clients:** allow undefined configuration ([#2617](https://github.com/aws/aws-sdk-js-v3/issues/2617)) ([a004d15](https://github.com/aws/aws-sdk-js-v3/commit/a004d1569e0b213259c50f72fddfd209fff0d7a3))
+* **smithy-client:** export type explicitly ([#2598](https://github.com/aws/aws-sdk-js-v3/issues/2598)) ([e643735](https://github.com/aws/aws-sdk-js-v3/commit/e64373551195565fdde2a6cda494e3c53a1f20c3)), closes [#2597](https://github.com/aws/aws-sdk-js-v3/issues/2597)
+* bump up tslib to 2.3.0 ([#2601](https://github.com/aws/aws-sdk-js-v3/issues/2601)) ([7040faa](https://github.com/aws/aws-sdk-js-v3/commit/7040faac07976c1dcfd5240675b82a2f275b2a55))
+
+
+### Features
+
+* **clients:** change runtime config from constant to provider functions ([#2574](https://github.com/aws/aws-sdk-js-v3/issues/2574)) ([5eca565](https://github.com/aws/aws-sdk-js-v3/commit/5eca565b5237a31ee4f18a2ecb4608099ccd55ac))
+
+
+
+
+
 # [3.22.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.21.0...v3.22.0) (2021-07-16)
 
 
