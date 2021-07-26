@@ -13,11 +13,13 @@ import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 import { SageMakerA2IRuntimeClientConfig } from "./SageMakerA2IRuntimeClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
+import { emitWarningIfUnsupportedVersion } from "@aws-sdk/smithy-client";
 
 /**
  * @internal
  */
 export const getRuntimeConfig = (config: SageMakerA2IRuntimeClientConfig = {}) => {
+  emitWarningIfUnsupportedVersion(process.version);
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,

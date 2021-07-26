@@ -14,11 +14,13 @@ import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 import { TimestreamWriteClientConfig } from "./TimestreamWriteClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
+import { emitWarningIfUnsupportedVersion } from "@aws-sdk/smithy-client";
 
 /**
  * @internal
  */
 export const getRuntimeConfig = (config: TimestreamWriteClientConfig = {}) => {
+  emitWarningIfUnsupportedVersion(process.version);
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,
