@@ -22,7 +22,11 @@ function writeBody(
     // pipe automatically handles end
     body.pipe(httpRequest);
   } else if (body) {
-    httpRequest.end(Buffer.from(body));
+    if (Buffer.isBuffer(body) || typeof body === "string") {
+      httpRequest.end(body);
+    } else {
+      httpRequest.end(Buffer.from(body));
+    }
   } else {
     httpRequest.end();
   }
