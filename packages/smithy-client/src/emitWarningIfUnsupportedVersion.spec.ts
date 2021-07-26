@@ -33,6 +33,8 @@ describe("emitWarningIfUnsupportedVersion", () => {
     )(`%s`, async (unsupportedVersion) => {
       process.emitWarning = jest.fn();
       emitWarningIfUnsupportedVersion(unsupportedVersion);
+
+      // Verify that the warning was emitted.
       expect(process.emitWarning).toHaveBeenCalledTimes(1);
       expect(process.emitWarning).toHaveBeenCalledWith(
         `The AWS SDK for JavaScript (v3) will\n` +
@@ -42,6 +44,10 @@ describe("emitWarningIfUnsupportedVersion", () => {
           `More information can be found at: https://a.co/1l6FLnu`,
         `NodeDeprecationWarning`
       );
+
+      // Verify that the warning emits only once.
+      emitWarningIfUnsupportedVersion(unsupportedVersion);
+      expect(process.emitWarning).toHaveBeenCalledTimes(1);
     });
   });
 
