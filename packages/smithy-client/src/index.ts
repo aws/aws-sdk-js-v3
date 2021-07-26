@@ -1,5 +1,6 @@
 export * from "./client";
 export * from "./command";
+export * from "./emitWarningIfUnsupportedVersion";
 export * from "./extended-encode-uri-component";
 export * from "./get-array-if-single-item";
 export * from "./get-value-from-text-node";
