@@ -33,7 +33,7 @@ export interface AllQueryStringTypesInput {
   queryTimestampList?: Date[];
   queryEnum?: FooEnum | string;
   queryEnumList?: (FooEnum | string)[];
-  queryParamsMapOfStrings?: { [key: string]: string };
+  queryParamsMapOfStringList?: { [key: string]: string[] };
 }
 
 export namespace AllQueryStringTypesInput {

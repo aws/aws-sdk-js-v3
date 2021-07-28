@@ -168,7 +168,7 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AllQueryStringTypesInput";
   const query: any = {
-    ...(input.queryParamsMapOfStrings !== undefined && input.queryParamsMapOfStrings),
+    ...(input.queryParamsMapOfStringList !== undefined && input.queryParamsMapOfStringList),
     ...(input.queryString !== undefined && { String: input.queryString }),
     ...(input.queryStringList !== undefined && { StringList: (input.queryStringList || []).map((_entry) => _entry) }),
     ...(input.queryStringSet !== undefined && {
