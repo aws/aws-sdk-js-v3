@@ -50,7 +50,6 @@ export const getSignedUrl = async (
       },
     } as any;
   };
-
   const middlewareName = "presignInterceptMiddleware";
   try {
     client.middlewareStack.addRelativeTo(presignInterceptMiddleware, {
