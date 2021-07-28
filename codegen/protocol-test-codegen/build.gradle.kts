@@ -20,7 +20,7 @@ plugins {
 }
 
 dependencies {
-    implementation("software.amazon.smithy:smithy-aws-protocol-tests:[1.9.1, 1.10.0[")
+    implementation("software.amazon.smithy:smithy-aws-protocol-tests:[1.10.0, 1.11.0[")
     compile(project(":smithy-aws-typescript-codegen"))
 }
 

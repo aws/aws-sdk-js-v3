@@ -25,16 +25,16 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("software.amazon.smithy:smithy-model:[1.9.0, 1.10.0[")
+        classpath("software.amazon.smithy:smithy-model:[1.10.0, 1.11.0[")
     }
 }
 
 dependencies {
-    api("software.amazon.smithy:smithy-aws-cloudformation-traits:[1.9.0, 1.10.0[")
-    api("software.amazon.smithy:smithy-aws-traits:[1.9.0, 1.10.0[")
-    api("software.amazon.smithy:smithy-waiters:[1.9.0, 1.10.0[")
-    api("software.amazon.smithy:smithy-aws-iam-traits:[1.9.0, 1.10.0[")
-    api("software.amazon.smithy:smithy-protocol-test-traits:[1.9.0, 1.10.0[")
+    api("software.amazon.smithy:smithy-aws-cloudformation-traits:[1.10.0, 1.11.0[")
+    api("software.amazon.smithy:smithy-aws-traits:[1.10.0, 1.11.0[")
+    api("software.amazon.smithy:smithy-waiters:[1.10.0, 1.11.0[")
+    api("software.amazon.smithy:smithy-aws-iam-traits:[1.10.0, 1.11.0[")
+    api("software.amazon.smithy:smithy-protocol-test-traits:[1.10.0, 1.11.0[")
     api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.5.0")
 }
 
