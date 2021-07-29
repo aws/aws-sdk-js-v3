@@ -21,7 +21,12 @@ export interface UpdateDashboardCommandInput extends UpdateDashboardRequest {}
 export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a dashboard in an AWS account.</p>
+ * <p>Updates a dashboard in an Amazon Web Services account;.</p>
+ *         <note>
+ *             <p>Updating a Dashboard creates a new dashboard version but does not immediately publish
+ *                 the new version.  You can update the published version of a dashboard by
+ *                 using the <a>UpdateDashboardPublishedVersion</a> API operation.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

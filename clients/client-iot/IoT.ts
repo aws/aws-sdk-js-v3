@@ -1239,7 +1239,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Attaches a policy to the specified target.</p>
+   * <p>Attaches the specified policy to the specified principal (certificate or other
+   *          credential).</p>
    */
   public attachPolicy(
     args: AttachPolicyCommandInput,

@@ -21,13 +21,18 @@ export interface CreateAccountAssignmentCommandInput extends CreateAccountAssign
 export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssignmentResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns access to a principal for a specified AWS account using a specified permission
+ * <p>Assigns access to a principal for a specified Amazon Web Services account using a specified permission
  *       set.</p>
  *          <note>
- *             <p>The term <i>principal</i> here refers to a user or group that is defined in AWS SSO.</p>
+ *             <p>The term <i>principal</i> here refers to a user or group that is defined
+ *         in Amazon Web Services SSO.</p>
  *          </note>
  *          <note>
- *             <p>As part of a successful <code>CreateAccountAssignment</code> call, the specified permission set will automatically be provisioned to the account in the form of an IAM policy attached to the SSO-created IAM role. If the permission set is subsequently updated, the corresponding IAM policies attached to roles in your accounts will not be updated automatically. In this case, you will need to call <code>
+ *             <p>As part of a successful <code>CreateAccountAssignment</code> call, the specified
+ *         permission set will automatically be provisioned to the account in the form of an IAM
+ *         policy. That policy is attached to the SSO-created IAM role. If the permission set is
+ *         subsequently updated, the corresponding IAM policies attached to roles in your accounts will
+ *         not be updated automatically. In this case, you must call <code>
  *                   <a>ProvisionPermissionSet</a>
  *                </code> to make these updates.</p>
  *          </note>

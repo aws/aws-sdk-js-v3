@@ -23,8 +23,8 @@ export interface DescribeAccountCustomizationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the customizations associated with the provided AWS account and Amazon
- *             QuickSight namespace in an AWS Region. The QuickSight console evaluates which
+ * <p>Describes the customizations associated with the provided Amazon Web Services account; and Amazon
+ *             QuickSight namespace in an Region;. The QuickSight console evaluates which
  *             customizations to apply by running this API operation with the <code>Resolved</code> flag
  *             included. </p>
  *         <p>To determine what customizations display when you run this command, it can help to
@@ -32,20 +32,20 @@ export interface DescribeAccountCustomizationCommandOutput
  *         <ul>
  *             <li>
  *                 <p>
- *                   <code>AWS Account</code> - The AWS account exists at the top of the hierarchy.
- *                     It has the potential to use all of the AWS Regions and AWS Services. When you
- *                     subscribe to QuickSight, you choose one AWS Region to use as your home Region.
+ *                   <code>Amazon Web Services account;</code> - The Amazon Web Services account; exists at the top of the hierarchy.
+ *                     It has the potential to use all of the Regions; and AWS Services. When you
+ *                     subscribe to QuickSight, you choose one Region; to use as your home Region.
  *                     That's where your free SPICE capacity is located. You can use QuickSight in any
- *                     supported AWS Region. </p>
+ *                     supported Region;. </p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <code>AWS Region</code> - In each AWS Region where you sign in to QuickSight
+ *                   <code>Region;</code> - In each Region; where you sign in to QuickSight
  *                     at least once, QuickSight acts as a separate instance of the same service. If
  *                     you have a user directory, it resides in us-east-1, which is the US East (N.
- *                     Virginia). Generally speaking, these users have access to QuickSight in any AWS
- *                     Region, unless they are constrained to a namespace. </p>
- *                 <p>To run the command in a different AWS Region, you change your Region settings.
+ *                     Virginia). Generally speaking, these users have access to QuickSight in any
+ *                     Region;, unless they are constrained to a namespace. </p>
+ *                 <p>To run the command in a different Region;, you change your Region settings.
  *                     If you're using the AWS CLI, you can use one of the following options:</p>
  *                 <ul>
  *                   <li>
@@ -55,7 +55,7 @@ export interface DescribeAccountCustomizationCommandOutput
  *                         <p>Use <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html">named profiles</a>. </p>
  *                     </li>
  *                   <li>
- *                         <p>Run <code>aws configure</code> to change your default AWS Region. Use
+ *                         <p>Run <code>aws configure</code> to change your default Region;. Use
  *                             Enter to key the same settings for your keys. For more information, see
  *                             <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html">Configuring the AWS CLI</a>.</p>
  *                     </li>
@@ -67,17 +67,17 @@ export interface DescribeAccountCustomizationCommandOutput
  *                     users and assets (data sources, datasets, dashboards, and so on). To access
  *                     assets that are in a specific namespace, users and groups must also be part of
  *                     the same namespace. People who share a namespace are completely isolated from
- *                     users and assets in other namespaces, even if they are in the same AWS account
- *                     and AWS Region.</p>
+ *                     users and assets in other namespaces, even if they are in the same Amazon Web Services account;
+ *                     and Region;.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <code>Applied customizations</code> -  Within an AWS Region, a set of
- *                     QuickSight customizations can apply to an AWS account or to a namespace.
+ *                   <code>Applied customizations</code> -  Within an Region;, a set of
+ *                     QuickSight customizations can apply to an Amazon Web Services account; or to a namespace.
  *                     Settings that you apply to a namespace override settings that you apply to an
- *                     AWS account. All settings are isolated to a single AWS Region. To apply them in
- *                     other AWS Regions, run the <code>CreateAccountCustomization</code> command in
- *                     each AWS Region where you want to apply the same customizations. </p>
+ *                     Amazon Web Services account;. All settings are isolated to a single Region;. To apply them in
+ *                     other Regions;, run the <code>CreateAccountCustomization</code> command in
+ *                     each Region; where you want to apply the same customizations. </p>
  *             </li>
  *          </ul>
  * @example

@@ -1,3 +1,7 @@
+import {
+  BatchExecuteStatementCommandInput,
+  BatchExecuteStatementCommandOutput,
+} from "../commands/BatchExecuteStatementCommand";
 import { CancelStatementCommandInput, CancelStatementCommandOutput } from "../commands/CancelStatementCommand";
 import { DescribeStatementCommandInput, DescribeStatementCommandOutput } from "../commands/DescribeStatementCommand";
 import { DescribeTableCommandInput, DescribeTableCommandOutput } from "../commands/DescribeTableCommand";
@@ -9,6 +13,9 @@ import { ListStatementsCommandInput, ListStatementsCommandOutput } from "../comm
 import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
 import {
   ActiveStatementsExceededException,
+  BatchExecuteStatementException,
+  BatchExecuteStatementInput,
+  BatchExecuteStatementOutput,
   CancelStatementRequest,
   CancelStatementResponse,
   ColumnMetadata,
@@ -34,6 +41,7 @@ import {
   ResourceNotFoundException,
   SqlParameter,
   StatementData,
+  SubStatementData,
   TableMember,
   ValidationException,
 } from "../models/models_0";
@@ -52,6 +60,19 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+
+export const serializeAws_json1_1BatchExecuteStatementCommand = async (
+  input: BatchExecuteStatementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RedshiftData.BatchExecuteStatement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1BatchExecuteStatementInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_1CancelStatementCommand = async (
   input: CancelStatementCommandInput,
@@ -170,6 +191,76 @@ export const serializeAws_json1_1ListTablesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const deserializeAws_json1_1BatchExecuteStatementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchExecuteStatementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1BatchExecuteStatementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchExecuteStatementOutput(data, context);
+  const response: BatchExecuteStatementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1BatchExecuteStatementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchExecuteStatementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ActiveStatementsExceededException":
+    case "com.amazonaws.redshiftdata#ActiveStatementsExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ActiveStatementsExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BatchExecuteStatementException":
+    case "com.amazonaws.redshiftdata#BatchExecuteStatementException":
+      response = {
+        ...(await deserializeAws_json1_1BatchExecuteStatementExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.redshiftdata#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CancelStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -211,6 +302,14 @@ const deserializeAws_json1_1CancelStatementCommandError = async (
     case "com.amazonaws.redshiftdata#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.redshiftdata#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -767,6 +866,21 @@ const deserializeAws_json1_1ActiveStatementsExceededExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1BatchExecuteStatementExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BatchExecuteStatementException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1BatchExecuteStatementException(body, context);
+  const contents: BatchExecuteStatementException = {
+    name: "BatchExecuteStatementException",
+    $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ExecuteStatementExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -825,6 +939,22 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
     ...deserialized,
   };
   return contents;
+};
+
+const serializeAws_json1_1BatchExecuteStatementInput = (
+  input: BatchExecuteStatementInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClusterIdentifier !== undefined &&
+      input.ClusterIdentifier !== null && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.DbUser !== undefined && input.DbUser !== null && { DbUser: input.DbUser }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.Sqls !== undefined && input.Sqls !== null && { Sqls: serializeAws_json1_1SqlList(input.Sqls, context) }),
+    ...(input.StatementName !== undefined && input.StatementName !== null && { StatementName: input.StatementName }),
+    ...(input.WithEvent !== undefined && input.WithEvent !== null && { WithEvent: input.WithEvent }),
+  };
 };
 
 const serializeAws_json1_1CancelStatementRequest = (input: CancelStatementRequest, context: __SerdeContext): any => {
@@ -936,6 +1066,17 @@ const serializeAws_json1_1ListTablesRequest = (input: ListTablesRequest, context
   };
 };
 
+const serializeAws_json1_1SqlList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1SqlParameter = (input: SqlParameter, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
@@ -960,6 +1101,33 @@ const deserializeAws_json1_1ActiveStatementsExceededException = (
 ): ActiveStatementsExceededException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1BatchExecuteStatementException = (
+  output: any,
+  context: __SerdeContext
+): BatchExecuteStatementException => {
+  return {
+    Message: __expectString(output.Message),
+    StatementId: __expectString(output.StatementId),
+  } as any;
+};
+
+const deserializeAws_json1_1BatchExecuteStatementOutput = (
+  output: any,
+  context: __SerdeContext
+): BatchExecuteStatementOutput => {
+  return {
+    ClusterIdentifier: __expectString(output.ClusterIdentifier),
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    Database: __expectString(output.Database),
+    DbUser: __expectString(output.DbUser),
+    Id: __expectString(output.Id),
+    SecretArn: __expectString(output.SecretArn),
   } as any;
 };
 
@@ -1050,6 +1218,10 @@ const deserializeAws_json1_1DescribeStatementResponse = (
     ResultSize: __expectNumber(output.ResultSize),
     SecretArn: __expectString(output.SecretArn),
     Status: __expectString(output.Status),
+    SubStatements:
+      output.SubStatements !== undefined && output.SubStatements !== null
+        ? deserializeAws_json1_1SubStatementList(output.SubStatements, context)
+        : undefined,
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
         ? new Date(Math.round(output.UpdatedAt * 1000))
@@ -1251,11 +1423,16 @@ const deserializeAws_json1_1StatementData = (output: any, context: __SerdeContex
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
     Id: __expectString(output.Id),
+    IsBatchStatement: __expectBoolean(output.IsBatchStatement),
     QueryParameters:
       output.QueryParameters !== undefined && output.QueryParameters !== null
         ? deserializeAws_json1_1SqlParametersList(output.QueryParameters, context)
         : undefined,
     QueryString: __expectString(output.QueryString),
+    QueryStrings:
+      output.QueryStrings !== undefined && output.QueryStrings !== null
+        ? deserializeAws_json1_1StatementStringList(output.QueryStrings, context)
+        : undefined,
     SecretArn: __expectString(output.SecretArn),
     StatementName: __expectString(output.StatementName),
     Status: __expectString(output.Status),
@@ -1274,6 +1451,50 @@ const deserializeAws_json1_1StatementList = (output: any, context: __SerdeContex
         return null as any;
       }
       return deserializeAws_json1_1StatementData(entry, context);
+    });
+};
+
+const deserializeAws_json1_1StatementStringList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_json1_1SubStatementData = (output: any, context: __SerdeContext): SubStatementData => {
+  return {
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    Duration: __expectNumber(output.Duration),
+    Error: __expectString(output.Error),
+    HasResultSet: __expectBoolean(output.HasResultSet),
+    Id: __expectString(output.Id),
+    QueryString: __expectString(output.QueryString),
+    RedshiftQueryId: __expectNumber(output.RedshiftQueryId),
+    ResultRows: __expectNumber(output.ResultRows),
+    ResultSize: __expectNumber(output.ResultSize),
+    Status: __expectString(output.Status),
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? new Date(Math.round(output.UpdatedAt * 1000))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SubStatementList = (output: any, context: __SerdeContext): SubStatementData[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SubStatementData(entry, context);
     });
 };
 

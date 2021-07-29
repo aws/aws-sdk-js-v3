@@ -37,7 +37,7 @@ export interface DisassociateVPCFromHostedZoneCommandOutput
  * 				that created the hosted zone or the account that created the Amazon VPC.</p>
  *             </li>
  *             <li>
- *                <p>Some services, such as AWS Cloud Map and Amazon Elastic File System (Amazon EFS) automatically create hosted zones and associate
+ *                <p>Some services, such as Cloud Map and Amazon Elastic File System (Amazon EFS) automatically create hosted zones and associate
  * 				VPCs with the hosted zones. A service can create a hosted zone using your account or using its own account.
  * 				You can disassociate a VPC from a hosted zone only if the service created the hosted zone using your account.</p>
  * 				           <p>When you run <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByVPC.html">DisassociateVPCFromHostedZone</a>,

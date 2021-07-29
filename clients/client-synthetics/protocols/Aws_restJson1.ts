@@ -21,6 +21,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateCanaryCommandInput, UpdateCanaryCommandOutput } from "../commands/UpdateCanaryCommand";
 import {
+  BaseScreenshot,
   Canary,
   CanaryCodeInput,
   CanaryCodeOutput,
@@ -39,6 +40,8 @@ import {
   ResourceNotFoundException,
   RuntimeVersion,
   ValidationException,
+  VisualReferenceInput,
+  VisualReferenceOutput,
   VpcConfigInput,
   VpcConfigOutput,
 } from "../models/models_0";
@@ -455,6 +458,10 @@ export const serializeAws_restJson1UpdateCanaryCommand = async (
     ...(input.SuccessRetentionPeriodInDays !== undefined &&
       input.SuccessRetentionPeriodInDays !== null && {
         SuccessRetentionPeriodInDays: input.SuccessRetentionPeriodInDays,
+      }),
+    ...(input.VisualReference !== undefined &&
+      input.VisualReference !== null && {
+        VisualReference: serializeAws_restJson1VisualReferenceInput(input.VisualReference, context),
       }),
     ...(input.VpcConfig !== undefined &&
       input.VpcConfig !== null && { VpcConfig: serializeAws_restJson1VpcConfigInput(input.VpcConfig, context) }),
@@ -1445,6 +1452,39 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1BaseScreenshot = (input: BaseScreenshot, context: __SerdeContext): any => {
+  return {
+    ...(input.IgnoreCoordinates !== undefined &&
+      input.IgnoreCoordinates !== null && {
+        IgnoreCoordinates: serializeAws_restJson1BaseScreenshotIgnoreCoordinates(input.IgnoreCoordinates, context),
+      }),
+    ...(input.ScreenshotName !== undefined &&
+      input.ScreenshotName !== null && { ScreenshotName: input.ScreenshotName }),
+  };
+};
+
+const serializeAws_restJson1BaseScreenshotIgnoreCoordinates = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1BaseScreenshots = (input: BaseScreenshot[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1BaseScreenshot(entry, context);
+    });
+};
+
 const serializeAws_restJson1CanaryCodeInput = (input: CanaryCodeInput, context: __SerdeContext): any => {
   return {
     ...(input.Handler !== undefined && input.Handler !== null && { Handler: input.Handler }),
@@ -1525,6 +1565,17 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
   }, {});
 };
 
+const serializeAws_restJson1VisualReferenceInput = (input: VisualReferenceInput, context: __SerdeContext): any => {
+  return {
+    ...(input.BaseCanaryRunId !== undefined &&
+      input.BaseCanaryRunId !== null && { BaseCanaryRunId: input.BaseCanaryRunId }),
+    ...(input.BaseScreenshots !== undefined &&
+      input.BaseScreenshots !== null && {
+        BaseScreenshots: serializeAws_restJson1BaseScreenshots(input.BaseScreenshots, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1VpcConfigInput = (input: VpcConfigInput, context: __SerdeContext): any => {
   return {
     ...(input.SecurityGroupIds !== undefined &&
@@ -1534,6 +1585,38 @@ const serializeAws_restJson1VpcConfigInput = (input: VpcConfigInput, context: __
     ...(input.SubnetIds !== undefined &&
       input.SubnetIds !== null && { SubnetIds: serializeAws_restJson1SubnetIds(input.SubnetIds, context) }),
   };
+};
+
+const deserializeAws_restJson1BaseScreenshot = (output: any, context: __SerdeContext): BaseScreenshot => {
+  return {
+    IgnoreCoordinates:
+      output.IgnoreCoordinates !== undefined && output.IgnoreCoordinates !== null
+        ? deserializeAws_restJson1BaseScreenshotIgnoreCoordinates(output.IgnoreCoordinates, context)
+        : undefined,
+    ScreenshotName: __expectString(output.ScreenshotName),
+  } as any;
+};
+
+const deserializeAws_restJson1BaseScreenshotIgnoreCoordinates = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1BaseScreenshots = (output: any, context: __SerdeContext): BaseScreenshot[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BaseScreenshot(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Canaries = (output: any, context: __SerdeContext): Canary[] => {
@@ -1591,6 +1674,10 @@ const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): C
     Timeline:
       output.Timeline !== undefined && output.Timeline !== null
         ? deserializeAws_restJson1CanaryTimeline(output.Timeline, context)
+        : undefined,
+    VisualReference:
+      output.VisualReference !== undefined && output.VisualReference !== null
+        ? deserializeAws_restJson1VisualReferenceOutput(output.VisualReference, context)
         : undefined,
     VpcConfig:
       output.VpcConfig !== undefined && output.VpcConfig !== null
@@ -1762,6 +1849,16 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1VisualReferenceOutput = (output: any, context: __SerdeContext): VisualReferenceOutput => {
+  return {
+    BaseCanaryRunId: __expectString(output.BaseCanaryRunId),
+    BaseScreenshots:
+      output.BaseScreenshots !== undefined && output.BaseScreenshots !== null
+        ? deserializeAws_restJson1BaseScreenshots(output.BaseScreenshots, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1VpcConfigOutput = (output: any, context: __SerdeContext): VpcConfigOutput => {

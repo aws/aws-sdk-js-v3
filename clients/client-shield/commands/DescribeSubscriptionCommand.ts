@@ -21,7 +21,7 @@ export interface DescribeSubscriptionCommandInput extends DescribeSubscriptionRe
 export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Provides details about the AWS Shield Advanced subscription for an account.</p>
+ * <p>Provides details about the Shield Advanced subscription for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

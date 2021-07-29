@@ -23,7 +23,8 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Set default log level, or log levels by resource types, could be for wireless device log options or wireless gateways log options. This is to control the log messages that will be displayed in CloudWatch.</p>
+ * <p>Set default log level, or log levels by resource types. This can be for wireless device log options or
+ *             wireless gateways log options and is used to control the log messages that'll be displayed in CloudWatch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

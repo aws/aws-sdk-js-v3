@@ -21,7 +21,7 @@ export interface ListJobsCommandInput extends ListJobsRequest {}
 export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of AWS Batch jobs.</p>
+ * <p>Returns a list of Batch jobs.</p>
  *          <p>You must specify only one of the following items:</p>
  *          <ul>
  *             <li>

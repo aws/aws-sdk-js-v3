@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetVoiceConnectorGroupRequest, GetVoiceConnectorGroupResponse } from "../models/models_0";
+import { GetVoiceConnectorGroupRequest, GetVoiceConnectorGroupResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetVoiceConnectorGroupCommand,
   serializeAws_restJson1GetVoiceConnectorGroupCommand,

@@ -57,7 +57,7 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  *                            <p>You must create the log group in the us-east-1 region.</p>
  *                         </li>
  *                         <li>
- *                            <p>You must use the same AWS account to create the log group and the hosted zone that you want to
+ *                            <p>You must use the same account to create the log group and the hosted zone that you want to
  * 									configure query logging for.</p>
  *                         </li>
  *                         <li>
@@ -67,7 +67,7 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  *                               </code>
  *                            </p>
  * 									                  <p>In the next step, you'll create a resource policy, which controls access to one or more log groups and the associated
- * 										AWS resources, such as Route 53 hosted zones. There's a limit on the number of resource policies that you can create, so
+ * 										Amazon Web Services resources, such as Route 53 hosted zones. There's a limit on the number of resource policies that you can create, so
  * 										we recommend that you use a consistent prefix so you can use the same resource policy for all the log groups that you create
  * 										for query logging.</p>
  * 								                </li>
@@ -82,8 +82,8 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  *                         <code>arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*</code>
  *                      </p>
  * 							              <note>
- *                         <p>You can't use the CloudWatch console to create or edit a resource policy. You must use the CloudWatch API, one of the AWS SDKs,
- * 								or the AWS CLI.</p>
+ *                         <p>You can't use the CloudWatch console to create or edit a resource policy. You must use the CloudWatch API, one of the Amazon Web Services SDKs,
+ * 								or the CLI.</p>
  *                      </note>
  * 						            </li>
  *                </ol>

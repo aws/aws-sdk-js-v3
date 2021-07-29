@@ -24,13 +24,13 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          <p>After you attach an EBS volume, you must make it available. For more information, see
  *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Make an EBS volume available for use</a>.</p>
- *          <p>If a volume has an Marketplace product code:</p>
+ *          <p>If a volume has an Amazon Web Services Marketplace product code:</p>
  *          <ul>
  *             <li>
  *                <p>The volume can be attached only to a stopped instance.</p>
  *             </li>
  *             <li>
- *                <p>Marketplace product codes are copied from the volume to the instance.</p>
+ *                <p>Amazon Web Services Marketplace product codes are copied from the volume to the instance.</p>
  *             </li>
  *             <li>
  *                <p>You must be subscribed to the product.</p>

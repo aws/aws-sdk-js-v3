@@ -21,7 +21,8 @@ export interface SetTypeDefaultVersionCommandInput extends SetTypeDefaultVersion
 export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersionOutput, __MetadataBearer {}
 
 /**
- * <p>Specify the default version of an extension. The default version of an extension will be used in CloudFormation operations.</p>
+ * <p>Specify the default version of an extension. The default version of an extension will be
+ *          used in CloudFormation operations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -4020,6 +4020,9 @@ const serializeAws_queryMetricDataQuery = (input: MetricDataQuery, context: __Se
   if (input.Period !== undefined && input.Period !== null) {
     entries["Period"] = input.Period;
   }
+  if (input.AccountId !== undefined && input.AccountId !== null) {
+    entries["AccountId"] = input.AccountId;
+  }
   return entries;
 };
 
@@ -5931,6 +5934,7 @@ const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContex
     Label: undefined,
     ReturnData: undefined,
     Period: undefined,
+    AccountId: undefined,
   };
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
@@ -5949,6 +5953,9 @@ const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContex
   }
   if (output["Period"] !== undefined) {
     contents.Period = parseInt(output["Period"]);
+  }
+  if (output["AccountId"] !== undefined) {
+    contents.AccountId = __expectString(output["AccountId"]);
   }
   return contents;
 };

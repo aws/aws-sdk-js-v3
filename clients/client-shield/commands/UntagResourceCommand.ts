@@ -21,7 +21,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes tags from a resource in AWS Shield.</p>
+ * <p>Removes tags from a resource in Shield.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,7 +28,7 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  *     	Region as the volume. If you create a snapshot of a volume on an Outpost, the snapshot
  *     	can be stored on the same Outpost as the volume, or in the Region for that Outpost.</p>
  *
- *          <p>When a snapshot is created, any Marketplace product codes that are associated with the
+ *          <p>When a snapshot is created, any Amazon Web Services Marketplace product codes that are associated with the
  *       source volume are propagated to the snapshot.</p>
  *          <p>You can take a snapshot of an attached volume that is in use. However, snapshots only
  *       capture data that has been written to your Amazon EBS volume at the time the snapshot command is

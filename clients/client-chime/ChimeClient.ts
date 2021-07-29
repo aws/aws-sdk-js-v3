@@ -462,6 +462,14 @@ import {
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
 import { SendChannelMessageCommandInput, SendChannelMessageCommandOutput } from "./commands/SendChannelMessageCommand";
+import {
+  StartMeetingTranscriptionCommandInput,
+  StartMeetingTranscriptionCommandOutput,
+} from "./commands/StartMeetingTranscriptionCommand";
+import {
+  StopMeetingTranscriptionCommandInput,
+  StopMeetingTranscriptionCommandOutput,
+} from "./commands/StopMeetingTranscriptionCommand";
 import { TagAttendeeCommandInput, TagAttendeeCommandOutput } from "./commands/TagAttendeeCommand";
 import { TagMeetingCommandInput, TagMeetingCommandOutput } from "./commands/TagMeetingCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -736,6 +744,8 @@ export type ServiceInputTypes =
   | RestorePhoneNumberCommandInput
   | SearchAvailablePhoneNumbersCommandInput
   | SendChannelMessageCommandInput
+  | StartMeetingTranscriptionCommandInput
+  | StopMeetingTranscriptionCommandInput
   | TagAttendeeCommandInput
   | TagMeetingCommandInput
   | TagResourceCommandInput
@@ -926,6 +936,8 @@ export type ServiceOutputTypes =
   | RestorePhoneNumberCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
   | SendChannelMessageCommandOutput
+  | StartMeetingTranscriptionCommandOutput
+  | StopMeetingTranscriptionCommandOutput
   | TagAttendeeCommandOutput
   | TagMeetingCommandOutput
   | TagResourceCommandOutput

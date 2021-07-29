@@ -21,8 +21,8 @@ export interface CreateDatasetContentCommandInput extends CreateDatasetContentRe
 export interface CreateDatasetContentCommandOutput extends CreateDatasetContentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates the content of a data set by applying a <code>queryAction</code> (a SQL query) or
- *       a <code>containerAction</code> (executing a containerized application).</p>
+ * <p>Creates the content of a dataset by applying a <code>queryAction</code> (a SQL query) or a
+ *         <code>containerAction</code> (executing a containerized application).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

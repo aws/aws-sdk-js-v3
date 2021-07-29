@@ -1,5 +1,6 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetUserSettingsRequest, GetUserSettingsResponse } from "../models/models_0";
+import { GetUserSettingsRequest } from "../models/models_0";
+import { GetUserSettingsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetUserSettingsCommand,
   serializeAws_restJson1GetUserSettingsCommand,

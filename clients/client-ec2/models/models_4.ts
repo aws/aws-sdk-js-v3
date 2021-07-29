@@ -984,7 +984,7 @@ export interface DescribeVpcPeeringConnectionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>accepter-vpc-info.owner-id</code> - The ID of the account that owns the
+   *                     <code>accepter-vpc-info.owner-id</code> - The ID of the Amazon Web Services account that owns the
    *                     accepter VPC.</p>
    *             </li>
    *             <li>
@@ -1003,7 +1003,7 @@ export interface DescribeVpcPeeringConnectionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>requester-vpc-info.owner-id</code> - The ID of the account that owns the
+   *                   <code>requester-vpc-info.owner-id</code> - The ID of the Amazon Web Services account that owns the
    *                   requester VPC.</p>
    *             </li>
    *             <li>
@@ -1150,7 +1150,7 @@ export interface DescribeVpcsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>owner-id</code> - The ID of the account that owns the VPC.</p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the VPC.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1713,7 +1713,7 @@ export interface DisableFastSnapshotRestoreSuccessItem {
   StateTransitionReason?: string;
 
   /**
-   * <p>The ID of the account that enabled fast snapshot restores on the snapshot.</p>
+   * <p>The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot.</p>
    */
   OwnerId?: string;
 
@@ -2623,7 +2623,7 @@ export interface EnableFastSnapshotRestoresRequest {
 
   /**
    * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>. You can specify
-   *       a snapshot that was shared with you from another account.</p>
+   *       a snapshot that was shared with you from another Amazon Web Services account.</p>
    */
   SourceSnapshotIds: string[] | undefined;
 
@@ -2681,7 +2681,7 @@ export interface EnableFastSnapshotRestoreSuccessItem {
   StateTransitionReason?: string;
 
   /**
-   * <p>The ID of the account that enabled fast snapshot restores on the snapshot.</p>
+   * <p>The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot.</p>
    */
   OwnerId?: string;
 
@@ -3596,12 +3596,12 @@ export namespace GetCapacityReservationUsageRequest {
  */
 export interface InstanceUsage {
   /**
-   * <p>The ID of the account that is making use of the Capacity Reservation.</p>
+   * <p>The ID of the Amazon Web Services account that is making use of the Capacity Reservation.</p>
    */
   AccountId?: string;
 
   /**
-   * <p>The number of instances the account currently has in the Capacity Reservation.</p>
+   * <p>The number of instances the Amazon Web Services account currently has in the Capacity Reservation.</p>
    */
   UsedInstanceCount?: number;
 }
@@ -4204,7 +4204,7 @@ export interface CapacityReservationGroup {
   GroupArn?: string;
 
   /**
-   * <p>The ID of the account that owns the resource group.</p>
+   * <p>The ID of the Amazon Web Services account that owns the resource group.</p>
    */
   OwnerId?: string;
 }
@@ -8282,12 +8282,12 @@ export namespace ModifySecurityGroupRulesResult {
  */
 export interface CreateVolumePermissionModifications {
   /**
-   * <p>Adds the specified account ID or group to the list.</p>
+   * <p>Adds the specified Amazon Web Services account ID or group to the list.</p>
    */
   Add?: CreateVolumePermission[];
 
   /**
-   * <p>Removes the specified account ID or group from the list.</p>
+   * <p>Removes the specified Amazon Web Services account ID or group from the list.</p>
    */
   Remove?: CreateVolumePermission[];
 }

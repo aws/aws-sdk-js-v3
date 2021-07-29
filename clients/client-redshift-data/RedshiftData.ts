@@ -1,5 +1,10 @@
 import { RedshiftDataClient } from "./RedshiftDataClient";
 import {
+  BatchExecuteStatementCommand,
+  BatchExecuteStatementCommandInput,
+  BatchExecuteStatementCommandOutput,
+} from "./commands/BatchExecuteStatementCommand";
+import {
   CancelStatementCommand,
   CancelStatementCommandInput,
   CancelStatementCommandOutput,
@@ -40,12 +45,58 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>You can use the Amazon Redshift Data API to run queries on Amazon Redshift tables. You
- *       can run individual SQL statements, which are committed if the statement succeeds. </p>
+ *       can run SQL statements, which are committed if the statement succeeds. </p>
  *          <p>For more information about the Amazon Redshift Data API, see
  *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
  *        <i>Amazon Redshift Cluster Management Guide</i>. </p>
  */
 export class RedshiftData extends RedshiftDataClient {
+  /**
+   * <p>Runs one or more SQL statements, which can be data manipulation language (DML) or data definition
+   *       language (DDL).
+   *       Depending on the authorization
+   *       method, use one of the following combinations of request parameters: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Secrets Manager - specify the Amazon Resource Name (ARN) of the secret, the database name, and the
+   *         cluster identifier that matches the cluster in the secret. </p>
+   *             </li>
+   *             <li>
+   *                <p>Temporary credentials - specify the cluster identifier, the database name, and the
+   *           database user name. Permission to call the <code>redshift:GetClusterCredentials</code>
+   *           operation is required to use this method. </p>
+   *             </li>
+   *          </ul>
+   */
+  public batchExecuteStatement(
+    args: BatchExecuteStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchExecuteStatementCommandOutput>;
+  public batchExecuteStatement(
+    args: BatchExecuteStatementCommandInput,
+    cb: (err: any, data?: BatchExecuteStatementCommandOutput) => void
+  ): void;
+  public batchExecuteStatement(
+    args: BatchExecuteStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchExecuteStatementCommandOutput) => void
+  ): void;
+  public batchExecuteStatement(
+    args: BatchExecuteStatementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchExecuteStatementCommandOutput) => void),
+    cb?: (err: any, data?: BatchExecuteStatementCommandOutput) => void
+  ): Promise<BatchExecuteStatementCommandOutput> | void {
+    const command = new BatchExecuteStatementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Cancels a running query. To be canceled, a query must be running. </p>
    */
@@ -120,7 +171,7 @@ export class RedshiftData extends RedshiftDataClient {
    *       following combinations of request parameters: </p>
    *          <ul>
    *             <li>
-   *                <p>AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the
+   *                <p>Secrets Manager - specify the Amazon Resource Name (ARN) of the secret, the database name, and the
    *          cluster identifier that matches the cluster in the secret. </p>
    *             </li>
    *             <li>
@@ -166,7 +217,7 @@ export class RedshiftData extends RedshiftDataClient {
    *       method, use one of the following combinations of request parameters: </p>
    *          <ul>
    *             <li>
-   *                <p>AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the
+   *                <p>Secrets Manager - specify the Amazon Resource Name (ARN) of the secret, the database name, and the
    *          cluster identifier that matches the cluster in the secret. </p>
    *             </li>
    *             <li>
@@ -245,7 +296,7 @@ export class RedshiftData extends RedshiftDataClient {
    *       following combinations of request parameters: </p>
    *          <ul>
    *             <li>
-   *                <p>AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the
+   *                <p>Secrets Manager - specify the Amazon Resource Name (ARN) of the secret, the database name, and the
    *          cluster identifier that matches the cluster in the secret. </p>
    *             </li>
    *             <li>
@@ -291,7 +342,7 @@ export class RedshiftData extends RedshiftDataClient {
    *       following combinations of request parameters: </p>
    *          <ul>
    *             <li>
-   *                <p>AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the
+   *                <p>Secrets Manager - specify the Amazon Resource Name (ARN) of the secret, the database name, and the
    *          cluster identifier that matches the cluster in the secret. </p>
    *             </li>
    *             <li>
@@ -365,7 +416,7 @@ export class RedshiftData extends RedshiftDataClient {
    *       following combinations of request parameters: </p>
    *          <ul>
    *             <li>
-   *                <p>AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the
+   *                <p>Secrets Manager - specify the Amazon Resource Name (ARN) of the secret, the database name, and the
    *          cluster identifier that matches the cluster in the secret. </p>
    *             </li>
    *             <li>

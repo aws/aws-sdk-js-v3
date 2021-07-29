@@ -21,7 +21,7 @@ export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
 export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about data sets.</p>
+ * <p>Retrieves information about datasets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

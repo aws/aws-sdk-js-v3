@@ -21,7 +21,7 @@ export interface PutLoggingOptionsCommandInput extends PutLoggingOptionsRequest 
 export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets or updates the AWS IoT Analytics logging options.</p>
+ * <p>Sets or updates the IoT Analytics logging options.</p>
  *          <p>If you update the value of any <code>loggingOptions</code> field, it takes up to one
  *       minute for the change to take effect. Also, if you change the policy attached to the role you
  *       specified in the <code>roleArn</code> field (for example, to correct an invalid policy), it

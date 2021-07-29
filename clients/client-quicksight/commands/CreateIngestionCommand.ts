@@ -25,7 +25,7 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  *
  * 		       <p>Any ingestions operating on tagged datasets inherit the same tags automatically for use in
  * 			access control. For an example, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/">How do I create an IAM policy to control access to Amazon EC2 resources using
- * 				tags?</a> in the AWS Knowledge Center. Tags are visible on the tagged dataset, but not on the ingestion resource.</p>
+ * 				tags?</a> in the Amazon Web Services Knowledge Center. Tags are visible on the tagged dataset, but not on the ingestion resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

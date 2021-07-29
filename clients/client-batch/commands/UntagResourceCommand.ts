@@ -21,7 +21,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes specified tags from an AWS Batch resource.</p>
+ * <p>Deletes specified tags from an Batch resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

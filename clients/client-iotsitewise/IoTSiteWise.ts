@@ -1264,6 +1264,11 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Retrieves information about the storage configuration for IoT SiteWise.</p>
+   *          <note>
+   *             <p>Exporting data to Amazon S3 is currently in preview release and is subject to change. We
+   *         recommend that you use this feature only with test data, and not in production
+   *         environments.</p>
+   *          </note>
    */
   public describeStorageConfiguration(
     args: DescribeStorageConfigurationCommandInput,
@@ -1457,9 +1462,9 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Get interpolated values for an asset property for a specified time interval, during a period of time.
-   *       For example, you can use the this operation to return the interpolated temperature values for a wind turbine every 24 hours
-   *       over a duration of 7 days.</p>
+   * <p>Get interpolated values for an asset property for a specified time interval, during a
+   *       period of time. For example, you can use the this operation to return the interpolated
+   *       temperature values for a wind turbine every 24 hours over a duration of 7 days.</p>
    *          <p>To identify an asset property, you must specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -1926,6 +1931,11 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Configures storage settings for IoT SiteWise.</p>
+   *          <note>
+   *             <p>Exporting data to Amazon S3 is currently in preview release and is subject to change. We
+   *         recommend that you use this feature only with test data, and not in production
+   *         environments.</p>
+   *          </note>
    */
   public putStorageConfiguration(
     args: PutStorageConfigurationCommandInput,

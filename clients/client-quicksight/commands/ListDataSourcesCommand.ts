@@ -21,7 +21,7 @@ export interface ListDataSourcesCommandInput extends ListDataSourcesRequest {}
 export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists data sources in current AWS Region that belong to this AWS account.</p>
+ * <p>Lists data sources in current Region; that belong to this Amazon Web Services account;.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

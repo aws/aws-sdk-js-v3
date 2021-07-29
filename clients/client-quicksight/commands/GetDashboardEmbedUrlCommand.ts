@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { GetDashboardEmbedUrlRequest, GetDashboardEmbedUrlResponse } from "../models/models_0";
+import { GetDashboardEmbedUrlRequest, GetDashboardEmbedUrlResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetDashboardEmbedUrlCommand,
   serializeAws_restJson1GetDashboardEmbedUrlCommand,
@@ -43,6 +43,7 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  *          </ul>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded Analytics</a> in the <i>Amazon QuickSight User
  *             Guide</i>.</p>
+ *             <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,7 +28,7 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  *       following combinations of request parameters: </p>
  *          <ul>
  *             <li>
- *                <p>AWS Secrets Manager - specify the Amazon Resource Name (ARN) of the secret and the
+ *                <p>Secrets Manager - specify the Amazon Resource Name (ARN) of the secret, the database name, and the
  *          cluster identifier that matches the cluster in the secret. </p>
  *             </li>
  *             <li>

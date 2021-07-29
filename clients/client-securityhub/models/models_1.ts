@@ -3,7 +3,52 @@ import {
   Action,
   ActionTarget,
   AdminAccount,
+  AwsApiGatewayRestApiDetails,
+  AwsApiGatewayStageDetails,
+  AwsApiGatewayV2ApiDetails,
+  AwsApiGatewayV2StageDetails,
+  AwsAutoScalingAutoScalingGroupDetails,
+  AwsCertificateManagerCertificateDetails,
+  AwsCloudFrontDistributionDetails,
+  AwsCloudTrailTrailDetails,
+  AwsCodeBuildProjectDetails,
+  AwsDynamoDbTableDetails,
+  AwsEc2EipDetails,
+  AwsEc2InstanceDetails,
+  AwsEc2NetworkAclDetails,
+  AwsEc2NetworkInterfaceDetails,
+  AwsEc2SecurityGroupDetails,
+  AwsEc2SubnetDetails,
+  AwsEc2VolumeDetails,
+  AwsEc2VpcDetails,
+  AwsEcsClusterDetails,
+  AwsEcsServiceDetails,
+  AwsEcsTaskDefinitionDetails,
+  AwsElasticBeanstalkEnvironmentDetails,
+  AwsElasticsearchDomainDetails,
+  AwsElbLoadBalancerDetails,
+  AwsElbv2LoadBalancerDetails,
+  AwsIamAccessKeyDetails,
+  AwsIamGroupDetails,
+  AwsIamPolicyDetails,
+  AwsIamRoleDetails,
+  AwsIamUserDetails,
+  AwsKmsKeyDetails,
+  AwsLambdaFunctionDetails,
+  AwsLambdaLayerVersionDetails,
+  AwsRdsDbClusterDetails,
+  AwsRdsDbClusterSnapshotDetails,
+  AwsRdsDbInstanceDetails,
+  AwsRdsDbSnapshotDetails,
+  AwsRdsEventSubscriptionDetails,
+  AwsRedshiftClusterDetails,
+  AwsS3AccountPublicAccessBlockDetails,
+  AwsS3BucketDetails,
+  AwsS3ObjectDetails,
+  AwsSecretsManagerSecretDetails,
+  AwsSnsTopicSubscription,
   Compliance,
+  DataClassificationDetails,
   FindingProviderFields,
   Malware,
   Network,
@@ -14,10 +59,818 @@ import {
   RecordState,
   RelatedFinding,
   Remediation,
-  Resource,
   SeverityLabel,
 } from "./models_0";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+/**
+ * <p>A wrapper type for the topic's ARN.</p>
+ */
+export interface AwsSnsTopicDetails {
+  /**
+   * <p>The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SNS or a custom
+   *          CMK.</p>
+   */
+  KmsMasterKeyId?: string;
+
+  /**
+   * <p>Subscription is an embedded property that describes the subscription endpoints of an SNS topic.</p>
+   */
+  Subscription?: AwsSnsTopicSubscription[];
+
+  /**
+   * <p>The name of the topic.</p>
+   */
+  TopicName?: string;
+
+  /**
+   * <p>The subscription's owner.</p>
+   */
+  Owner?: string;
+}
+
+export namespace AwsSnsTopicDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsSnsTopicDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Data about a queue.</p>
+ */
+export interface AwsSqsQueueDetails {
+  /**
+   * <p>The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling KMS again.</p>
+   */
+  KmsDataKeyReusePeriodSeconds?: number;
+
+  /**
+   * <p>The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SQS or a custom
+   *          CMK.</p>
+   */
+  KmsMasterKeyId?: string;
+
+  /**
+   * <p>The name of the new queue.</p>
+   */
+  QueueName?: string;
+
+  /**
+   * <p>The ARN of the dead-letter queue to which Amazon SQS moves
+   *          messages after the value of <code>maxReceiveCount</code> is exceeded. </p>
+   */
+  DeadLetterTargetArn?: string;
+}
+
+export namespace AwsSqsQueueDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsSqsQueueDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the details about the compliance status for a patch.</p>
+ */
+export interface AwsSsmComplianceSummary {
+  /**
+   * <p>The current patch compliance status.</p>
+   *          <p>The possible status values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLIANT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NON_COMPLIANT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNSPECIFIED_DATA</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+
+  /**
+   * <p>For the patches that are compliant, the number that have a severity of
+   *             <code>CRITICAL</code>.</p>
+   */
+  CompliantCriticalCount?: number;
+
+  /**
+   * <p>For the patches that are compliant, the number that have a severity of
+   *          <code>HIGH</code>.</p>
+   */
+  CompliantHighCount?: number;
+
+  /**
+   * <p>For the patches that are compliant, the number that have a severity of
+   *             <code>MEDIUM</code>.</p>
+   */
+  CompliantMediumCount?: number;
+
+  /**
+   * <p>The type of execution that was used determine compliance.</p>
+   */
+  ExecutionType?: string;
+
+  /**
+   * <p>For the patch items that are noncompliant, the number of items that have a severity of
+   *             <code>CRITICAL</code>.</p>
+   */
+  NonCompliantCriticalCount?: number;
+
+  /**
+   * <p>For the patches that are compliant, the number that have a severity of
+   *             <code>INFORMATIONAL</code>.</p>
+   */
+  CompliantInformationalCount?: number;
+
+  /**
+   * <p>For the patches that are noncompliant, the number that have a severity of
+   *             <code>INFORMATIONAL</code>.</p>
+   */
+  NonCompliantInformationalCount?: number;
+
+  /**
+   * <p>For the patches that are compliant, the number that have a severity of
+   *             <code>UNSPECIFIED</code>.</p>
+   */
+  CompliantUnspecifiedCount?: number;
+
+  /**
+   * <p>For the patches that are noncompliant, the number that have a severity of
+   *             <code>LOW</code>.</p>
+   */
+  NonCompliantLowCount?: number;
+
+  /**
+   * <p>For the patches that are noncompliant, the number that have a severity of
+   *             <code>HIGH</code>.</p>
+   */
+  NonCompliantHighCount?: number;
+
+  /**
+   * <p>For the patches that are compliant, the number that have a severity of
+   *          <code>LOW</code>.</p>
+   */
+  CompliantLowCount?: number;
+
+  /**
+   * <p>The type of resource for which the compliance was determined. For
+   *             <code>AwsSsmPatchCompliance</code>, <code>ComplianceType</code> is <code>Patch</code>. </p>
+   */
+  ComplianceType?: string;
+
+  /**
+   * <p>The identifier of the patch baseline. The patch baseline lists the patches that are
+   *          approved for installation.</p>
+   */
+  PatchBaselineId?: string;
+
+  /**
+   * <p>The highest severity for the patches.</p>
+   */
+  OverallSeverity?: string;
+
+  /**
+   * <p>For the patches that are noncompliant, the number that have a severity of
+   *             <code>MEDIUM</code>.</p>
+   */
+  NonCompliantMediumCount?: number;
+
+  /**
+   * <p>For the patches that are noncompliant, the number that have a severity of
+   *             <code>UNSPECIFIED</code>.</p>
+   */
+  NonCompliantUnspecifiedCount?: number;
+
+  /**
+   * <p>The identifier of the patch group for which compliance was determined. A patch group
+   *          uses tags to group EC2 instances that should have the same patch compliance.</p>
+   */
+  PatchGroup?: string;
+}
+
+export namespace AwsSsmComplianceSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsSsmComplianceSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about the compliance for a patch.</p>
+ */
+export interface AwsSsmPatch {
+  /**
+   * <p>The compliance status details for the patch.</p>
+   */
+  ComplianceSummary?: AwsSsmComplianceSummary;
+}
+
+export namespace AwsSsmPatch {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsSsmPatch): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the state of a patch on an instance based on the patch
+ *          baseline that was used to patch the instance.</p>
+ */
+export interface AwsSsmPatchComplianceDetails {
+  /**
+   * <p>Information about the status of a patch.</p>
+   */
+  Patch?: AwsSsmPatch;
+}
+
+export namespace AwsSsmPatchComplianceDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsSsmPatchComplianceDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the action that CloudFront or WAF takes when a web request matches the
+ *          conditions in the rule. </p>
+ */
+export interface WafAction {
+  /**
+   * <p>Specifies how you want WAF to respond to requests that match the settings in a
+   *          rule.</p>
+   *          <p>Valid settings include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> - WAF allows requests</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> - WAF blocks requests</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COUNT</code> - WAF increments a counter of the requests that match all
+   *                of the conditions in the rule. WAF then continues to inspect the web request
+   *                based on the remaining rules in the web ACL. You can't specify <code>COUNT</code> for
+   *                the default action for a WebACL.</p>
+   *             </li>
+   *          </ul>
+   */
+  Type?: string;
+}
+
+export namespace WafAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WafAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about a rule to exclude from a rule group.</p>
+ */
+export interface WafExcludedRule {
+  /**
+   * <p>The unique identifier for the rule to exclude from the rule group.</p>
+   */
+  RuleId?: string;
+}
+
+export namespace WafExcludedRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WafExcludedRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about an override action for a rule.</p>
+ */
+export interface WafOverrideAction {
+  /**
+   * <p>
+   *             <code>COUNT</code> overrides the action specified by the individual rule within a
+   *             <code>RuleGroup</code> .</p>
+   *          <p>If set to <code>NONE</code>, the rule's action takes place.</p>
+   */
+  Type?: string;
+}
+
+export namespace WafOverrideAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WafOverrideAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details for a rule in an WAF WebACL.</p>
+ */
+export interface AwsWafWebAclRule {
+  /**
+   * <p>Specifies the action that CloudFront or WAF takes when a web request matches the
+   *          conditions in the rule. </p>
+   */
+  Action?: WafAction;
+
+  /**
+   * <p>Rules to exclude from a rule group.</p>
+   */
+  ExcludedRules?: WafExcludedRule[];
+
+  /**
+   * <p>Use the <code>OverrideAction</code> to test your RuleGroup.</p>
+   *          <p>Any rule in a RuleGroup can potentially block a request. If you set the
+   *             <code>OverrideAction</code> to <code>None</code>, the RuleGroup blocks a request if any
+   *          individual rule in the RuleGroup matches the request and is configured to block that
+   *          request.</p>
+   *          <p>However, if you first want to test the RuleGroup, set the <code>OverrideAction</code> to
+   *             <code>Count</code>. The RuleGroup then overrides any block action specified by
+   *          individual rules contained within the group. Instead of blocking matching requests, those
+   *          requests are counted.</p>
+   *          <p>
+   *             <code>ActivatedRule</code>|<code>OverrideAction</code> applies only when updating or
+   *          adding a RuleGroup to a WebACL. In this case you do not use
+   *             <code>ActivatedRule</code>|<code>Action</code>. For all other update requests,
+   *             <code>ActivatedRule</code>|<code>Action</code> is used instead of
+   *             <code>ActivatedRule</code>|<code>OverrideAction</code>. </p>
+   */
+  OverrideAction?: WafOverrideAction;
+
+  /**
+   * <p>Specifies the order in which the rules in a WebACL are evaluated. Rules with a lower
+   *          value for <code>Priority</code> are evaluated before rules with a higher value. The value
+   *          must be a unique integer. If you add multiple rules to a WebACL, the values do not need to
+   *          be consecutive.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The identifier for a rule.</p>
+   */
+  RuleId?: string;
+
+  /**
+   * <p>The rule type.</p>
+   *          <p>Valid values: <code>REGULAR</code> | <code>RATE_BASED</code> | <code>GROUP</code>
+   *          </p>
+   *          <p>The default is <code>REGULAR</code>.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsWafWebAclRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafWebAclRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about an WAF WebACL.</p>
+ */
+export interface AwsWafWebAclDetails {
+  /**
+   * <p>A friendly name or description of the WebACL. You can't change the name of a WebACL
+   *          after you create it.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The action to perform if none of the rules contained in the WebACL match.</p>
+   */
+  DefaultAction?: string;
+
+  /**
+   * <p>An array that contains the action for each rule in a WebACL, the priority of the rule,
+   *          and the ID of the rule.</p>
+   */
+  Rules?: AwsWafWebAclRule[];
+
+  /**
+   * <p>A unique identifier for a WebACL.</p>
+   */
+  WebAclId?: string;
+}
+
+export namespace AwsWafWebAclDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafWebAclDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Container details related to a finding.</p>
+ */
+export interface ContainerDetails {
+  /**
+   * <p>The name of the container related to a finding.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The identifier of the image related to a finding.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The name of the image related to a finding.</p>
+   */
+  ImageName?: string;
+
+  /**
+   * <p>Indicates when the container started.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  LaunchedAt?: string;
+}
+
+export namespace ContainerDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ContainerDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Additional details about a resource related to a finding.</p>
+ *          <p>To provide the details, use the object that corresponds to the resource type. For
+ *          example, if the resource type is <code>AwsEc2Instance</code>, then you use the
+ *             <code>AwsEc2Instance</code> object to provide the details.</p>
+ *          <p>If the type-specific object does not contain all of the fields you want to populate,
+ *          then you use the <code>Other</code> object to populate those additional fields.</p>
+ *          <p>You also use the <code>Other</code> object to populate the details when the selected
+ *          type does not have a corresponding object.</p>
+ */
+export interface ResourceDetails {
+  /**
+   * <p>Details for an autoscaling group.</p>
+   */
+  AwsAutoScalingAutoScalingGroup?: AwsAutoScalingAutoScalingGroupDetails;
+
+  /**
+   * <p>Details for an CodeBuild project.</p>
+   */
+  AwsCodeBuildProject?: AwsCodeBuildProjectDetails;
+
+  /**
+   * <p>Details about a CloudFront distribution.</p>
+   */
+  AwsCloudFrontDistribution?: AwsCloudFrontDistributionDetails;
+
+  /**
+   * <p>Details about an EC2 instance related to a finding.</p>
+   */
+  AwsEc2Instance?: AwsEc2InstanceDetails;
+
+  /**
+   * <p>Details for an EC2 network interface.</p>
+   */
+  AwsEc2NetworkInterface?: AwsEc2NetworkInterfaceDetails;
+
+  /**
+   * <p>Details for an EC2 security group.</p>
+   */
+  AwsEc2SecurityGroup?: AwsEc2SecurityGroupDetails;
+
+  /**
+   * <p>Details for an EC2 volume.</p>
+   */
+  AwsEc2Volume?: AwsEc2VolumeDetails;
+
+  /**
+   * <p>Details for an EC2 VPC.</p>
+   */
+  AwsEc2Vpc?: AwsEc2VpcDetails;
+
+  /**
+   * <p>Details about an Elastic IP address.</p>
+   */
+  AwsEc2Eip?: AwsEc2EipDetails;
+
+  /**
+   * <p>Details about a subnet in Amazon EC2.</p>
+   */
+  AwsEc2Subnet?: AwsEc2SubnetDetails;
+
+  /**
+   * <p>Details about an EC2 network access control list (ACL).</p>
+   */
+  AwsEc2NetworkAcl?: AwsEc2NetworkAclDetails;
+
+  /**
+   * <p>Details about a load balancer.</p>
+   */
+  AwsElbv2LoadBalancer?: AwsElbv2LoadBalancerDetails;
+
+  /**
+   * <p>Details about an Elastic Beanstalk environment.</p>
+   */
+  AwsElasticBeanstalkEnvironment?: AwsElasticBeanstalkEnvironmentDetails;
+
+  /**
+   * <p>Details for an Elasticsearch domain.</p>
+   */
+  AwsElasticsearchDomain?: AwsElasticsearchDomainDetails;
+
+  /**
+   * <p>Details about an S3 bucket related to a finding.</p>
+   */
+  AwsS3Bucket?: AwsS3BucketDetails;
+
+  /**
+   * <p>Details about the Amazon S3 Public Access Block configuration for an account.</p>
+   */
+  AwsS3AccountPublicAccessBlock?: AwsS3AccountPublicAccessBlockDetails;
+
+  /**
+   * <p>Details about an S3 object related to a finding.</p>
+   */
+  AwsS3Object?: AwsS3ObjectDetails;
+
+  /**
+   * <p>Details about a Secrets Manager secret.</p>
+   */
+  AwsSecretsManagerSecret?: AwsSecretsManagerSecretDetails;
+
+  /**
+   * <p>Details about an IAM access key related to a finding.</p>
+   */
+  AwsIamAccessKey?: AwsIamAccessKeyDetails;
+
+  /**
+   * <p>Details about an IAM user.</p>
+   */
+  AwsIamUser?: AwsIamUserDetails;
+
+  /**
+   * <p>Details about an IAM permissions policy.</p>
+   */
+  AwsIamPolicy?: AwsIamPolicyDetails;
+
+  /**
+   * <p>Provides information about a version 2 stage for Amazon API Gateway.</p>
+   */
+  AwsApiGatewayV2Stage?: AwsApiGatewayV2StageDetails;
+
+  /**
+   * <p>Provides information about a version 2 API in Amazon API Gateway.</p>
+   */
+  AwsApiGatewayV2Api?: AwsApiGatewayV2ApiDetails;
+
+  /**
+   * <p>Details about a DynamoDB table.</p>
+   */
+  AwsDynamoDbTable?: AwsDynamoDbTableDetails;
+
+  /**
+   * <p>Provides information about a version 1 Amazon API Gateway stage.</p>
+   */
+  AwsApiGatewayStage?: AwsApiGatewayStageDetails;
+
+  /**
+   * <p>Provides information about a REST API in version 1 of Amazon API Gateway.</p>
+   */
+  AwsApiGatewayRestApi?: AwsApiGatewayRestApiDetails;
+
+  /**
+   * <p>Provides details about a CloudTrail trail.</p>
+   */
+  AwsCloudTrailTrail?: AwsCloudTrailTrailDetails;
+
+  /**
+   * <p>Provides information about the state of a patch on an instance based on the patch baseline that was used to patch the instance.</p>
+   */
+  AwsSsmPatchCompliance?: AwsSsmPatchComplianceDetails;
+
+  /**
+   * <p>Provides details about an Certificate Manager certificate.</p>
+   */
+  AwsCertificateManagerCertificate?: AwsCertificateManagerCertificateDetails;
+
+  /**
+   * <p>Contains details about an Amazon Redshift cluster.</p>
+   */
+  AwsRedshiftCluster?: AwsRedshiftClusterDetails;
+
+  /**
+   * <p>contains details about a Classic Load Balancer.</p>
+   */
+  AwsElbLoadBalancer?: AwsElbLoadBalancerDetails;
+
+  /**
+   * <p>Contains details about an IAM group.</p>
+   */
+  AwsIamGroup?: AwsIamGroupDetails;
+
+  /**
+   * <p>Details about an IAM role.</p>
+   */
+  AwsIamRole?: AwsIamRoleDetails;
+
+  /**
+   * <p>Details about an KMS key.</p>
+   */
+  AwsKmsKey?: AwsKmsKeyDetails;
+
+  /**
+   * <p>Details about a Lambda function.</p>
+   */
+  AwsLambdaFunction?: AwsLambdaFunctionDetails;
+
+  /**
+   * <p>Details for a Lambda layer version.</p>
+   */
+  AwsLambdaLayerVersion?: AwsLambdaLayerVersionDetails;
+
+  /**
+   * <p>Details about an Amazon RDS database instance.</p>
+   */
+  AwsRdsDbInstance?: AwsRdsDbInstanceDetails;
+
+  /**
+   * <p>Details about an SNS topic.</p>
+   */
+  AwsSnsTopic?: AwsSnsTopicDetails;
+
+  /**
+   * <p>Details about an SQS queue.</p>
+   */
+  AwsSqsQueue?: AwsSqsQueueDetails;
+
+  /**
+   * <p>Details for an WAF WebACL.</p>
+   */
+  AwsWafWebAcl?: AwsWafWebAclDetails;
+
+  /**
+   * <p>Details about an Amazon RDS database snapshot.</p>
+   */
+  AwsRdsDbSnapshot?: AwsRdsDbSnapshotDetails;
+
+  /**
+   * <p>Details about an Amazon RDS database cluster snapshot.</p>
+   */
+  AwsRdsDbClusterSnapshot?: AwsRdsDbClusterSnapshotDetails;
+
+  /**
+   * <p>Details about an Amazon RDS database cluster.</p>
+   */
+  AwsRdsDbCluster?: AwsRdsDbClusterDetails;
+
+  /**
+   * <p>Details about an ECS cluster.</p>
+   */
+  AwsEcsCluster?: AwsEcsClusterDetails;
+
+  /**
+   * <p>Details about a task definition. A task definition describes the container and volume definitions of an Amazon Elastic Container Service task.</p>
+   */
+  AwsEcsTaskDefinition?: AwsEcsTaskDefinitionDetails;
+
+  /**
+   * <p>Details about a container resource related to a finding.</p>
+   */
+  Container?: ContainerDetails;
+
+  /**
+   * <p>Details about a resource that are not available in a type-specific details object. Use
+   *          the <code>Other</code> object in the following cases.</p>
+   *          <ul>
+   *             <li>
+   *                <p>The type-specific object does not contain all of the fields that you want to
+   *                populate. In this case, first use the type-specific object to populate those fields.
+   *                Use the <code>Other</code> object to populate the fields that are missing from the
+   *                type-specific object.</p>
+   *             </li>
+   *             <li>
+   *                <p>The resource type does not have a corresponding object. This includes resources
+   *                for which the type is <code>Other</code>. </p>
+   *             </li>
+   *          </ul>
+   */
+  Other?: { [key: string]: string };
+
+  /**
+   * <p>Details about an RDS event notification subscription.</p>
+   */
+  AwsRdsEventSubscription?: AwsRdsEventSubscriptionDetails;
+
+  /**
+   * <p>Details about a service within an ECS cluster.</p>
+   */
+  AwsEcsService?: AwsEcsServiceDetails;
+}
+
+export namespace ResourceDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceDetails): any => ({
+    ...obj,
+  });
+}
+
+export enum Partition {
+  AWS = "aws",
+  AWS_CN = "aws-cn",
+  AWS_US_GOV = "aws-us-gov",
+}
+
+/**
+ * <p>A resource related to a finding.</p>
+ */
+export interface Resource {
+  /**
+   * <p>The type of the resource that details are provided for. If possible, set
+   *             <code>Type</code> to one of the supported resource types. For example, if the resource
+   *          is an EC2 instance, then set <code>Type</code> to <code>AwsEc2Instance</code>.</p>
+   *          <p>If the resource does not match any of the provided types, then set <code>Type</code> to
+   *             <code>Other</code>. </p>
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>The canonical identifier for the given resource type.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The canonical Amazon Web Services partition name that the Region is assigned to.</p>
+   */
+  Partition?: Partition | string;
+
+  /**
+   * <p>The canonical Amazon Web Services external Region name where this resource is located.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>Identifies the role of the resource in the finding. A resource is either the actor or target of the finding activity,</p>
+   */
+  ResourceRole?: string;
+
+  /**
+   * <p>A list of Amazon Web Services tags associated with a resource at the time the finding was
+   *          processed.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>Contains information about sensitive data that was detected on the resource.</p>
+   */
+  DataClassification?: DataClassificationDetails;
+
+  /**
+   * <p>Additional details about the resource related to a finding.</p>
+   */
+  Details?: ResourceDetails;
+}
+
+export namespace Resource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Resource): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The severity of the finding.</p>
@@ -33,7 +886,7 @@ export interface Severity {
   /**
    * <p>Deprecated. This attribute is being deprecated. Instead of providing
    *             <code>Product</code>, provide <code>Original</code>.</p>
-   *          <p>The native severity as defined by the AWS service or integrated partner product that
+   *          <p>The native severity as defined by the Amazon Web Services service or integrated partner product that
    *          generated the finding.</p>
    */
   Product?: number;
@@ -445,11 +1298,10 @@ export enum WorkflowState {
 
 /**
  * <p>Provides consistent format for the contents of the Security Hub-aggregated findings.
- *             <code>AwsSecurityFinding</code> format enables you to share findings between AWS
+ *          <code>AwsSecurityFinding</code> format enables you to share findings between Amazon Web Services
  *          security services and third-party solutions, and security standards checks.</p>
  *          <note>
- *             <p>A finding is a potential security issue generated either by AWS services (Amazon
- *             GuardDuty, Amazon Inspector, and Amazon Macie) or by the integrated third-party
+ *             <p>A finding is a potential security issue generated either by Amazon Web Services services or by the integrated third-party
  *             solutions and standards checks.</p>
  *          </note>
  */
@@ -472,6 +1324,30 @@ export interface AwsSecurityFinding {
   ProductArn: string | undefined;
 
   /**
+   * <p>The name of the product that generated the finding.</p>
+   *          <p>Security Hub populates this attribute automatically for each finding. You cannot update it using <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>. The exception to this is when you use a custom integration.</p>
+   *          <p>When you use the Security Hub console to filter findings by product name, you use this attribute.</p>
+   *          <p>When you use the Security Hub API to filter findings by product name, you use the <code>aws/securityhub/ProductyName</code> attribute under <code>ProductFields</code>.</p>
+   *          <p>Security Hub does not synchronize those two attributes.</p>
+   */
+  ProductName?: string;
+
+  /**
+   * <p>The name of the company for the product that generated the finding.</p>
+   *          <p>Security Hub populates this attribute automatically for each finding. You cannot be updated using <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>. The exception to this is when you use a custom integration.</p>
+   *          <p>When you use the Security Hub console to filter findings by company name, you use this attribute.</p>
+   *          <p>When you use the Security Hub API to filter findings by company name, you use the <code>aws/securityhub/CompanyName</code> attribute under <code>ProductFields</code>.</p>
+   *          <p>Security Hub does not synchronize those two attributes.</p>
+   */
+  CompanyName?: string;
+
+  /**
+   * <p>The Region from which the finding was generated.</p>
+   *          <p>Security Hub populates this attribute automatically for each finding. You cannot update it using <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>.</p>
+   */
+  Region?: string;
+
+  /**
    * <p>The identifier for the solution-specific component (a discrete unit of logic) that
    *          generated a finding. In various security-findings providers' solutions, this generator can
    *          be called a rule, a check, a detector, a plugin, etc. </p>
@@ -479,7 +1355,7 @@ export interface AwsSecurityFinding {
   GeneratorId: string | undefined;
 
   /**
-   * <p>The AWS account ID that a finding is generated in.</p>
+   * <p>The Amazon Web Services account ID that a finding is generated in.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -576,6 +1452,7 @@ export interface AwsSecurityFinding {
   /**
    * <p>A data type where security-findings providers can include additional solution-specific
    *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
+   *          <p>Can contain up to 50 key-value pairs. For each key-value pair, the key can contain up to 128 characters, and the value can contain up to 2048 characters.</p>
    */
   ProductFields?: { [key: string]: string };
 
@@ -619,7 +1496,7 @@ export interface AwsSecurityFinding {
 
   /**
    * <p>This data type is exclusive to findings that are generated as the result of a check run
-   *          against a specific rule in a supported security standard, such as CIS AWS Foundations.
+   *          against a specific rule in a supported security standard, such as CIS Amazon Web Services Foundations.
    *          Contains security standard-related finding details.</p>
    */
   Compliance?: Compliance;
@@ -756,7 +1633,7 @@ export interface StringFilter {
    *          this way always returns an error, even if the provided filter values would return valid
    *          results.</p>
    *          <p>You can combine <code>PREFIX</code> filters with <code>NOT_EQUALS</code> or
-   *             <code>PREFIX_NOT_EQUALS</code> filters for the same field. Security Hub first processes the
+   *          <code>PREFIX_NOT_EQUALS</code> filters for the same field. Security Hub first processes the
    *             <code>PREFIX</code> filters, then the <code>NOT_EQUALS</code> or
    *             <code>PREFIX_NOT_EQUALS</code> filters.</p>
    *          <p> For example, for the following filter, Security Hub first identifies findings that have
@@ -996,7 +1873,7 @@ export interface AwsSecurityFindingFilters {
   ProductArn?: StringFilter[];
 
   /**
-   * <p>The AWS account ID that a finding is generated in.</p>
+   * <p>The Amazon Web Services account ID that a finding is generated in.</p>
    */
   AwsAccountId?: StringFilter[];
 
@@ -1011,6 +1888,11 @@ export interface AwsSecurityFindingFilters {
    *          be called a rule, a check, a detector, a plugin, etc.</p>
    */
   GeneratorId?: StringFilter[];
+
+  /**
+   * <p>The Region from which the finding was generated.</p>
+   */
+  Region?: StringFilter[];
 
   /**
    * <p>A finding type in the format of <code>namespace/category/classifier</code> that
@@ -1106,12 +1988,14 @@ export interface AwsSecurityFindingFilters {
 
   /**
    * <p>The name of the solution (product) that generates findings.</p>
+   *          <p>Note that this is a filter against the <code>aws/securityhub/ProductName</code> field in <code>ProductFields</code>. It is not a filter for the top-level <code>ProductName</code> field.</p>
    */
   ProductName?: StringFilter[];
 
   /**
    * <p>The name of the findings provider (company) that owns the solution (product) that
    *          generates findings.</p>
+   *          <p>Note that this is a filter against the <code>aws/securityhub/CompanyName</code> field in <code>ProductFields</code>. It is not a filter for the top-level <code>CompanyName</code> field.</p>
    */
   CompanyName?: StringFilter[];
 
@@ -1268,17 +2152,17 @@ export interface AwsSecurityFindingFilters {
   ResourceId?: StringFilter[];
 
   /**
-   * <p>The canonical AWS partition name that the Region is assigned to.</p>
+   * <p>The canonical Amazon Web Services partition name that the Region is assigned to.</p>
    */
   ResourcePartition?: StringFilter[];
 
   /**
-   * <p>The canonical AWS external Region name where this resource is located.</p>
+   * <p>The canonical Amazon Web Services external Region name where this resource is located.</p>
    */
   ResourceRegion?: StringFilter[];
 
   /**
-   * <p>A list of AWS tags associated with a resource at the time the finding was
+   * <p>A list of Amazon Web Services tags associated with a resource at the time the finding was
    *          processed.</p>
    */
   ResourceTags?: MapFilter[];
@@ -1339,9 +2223,16 @@ export interface AwsSecurityFindingFilters {
   ResourceAwsS3BucketOwnerName?: StringFilter[];
 
   /**
+   * @deprecated
+   *
    * <p>The user associated with the IAM access key related to a finding.</p>
    */
   ResourceAwsIamAccessKeyUserName?: StringFilter[];
+
+  /**
+   * <p>The name of the principal that is associated with an IAM access key.</p>
+   */
+  ResourceAwsIamAccessKeyPrincipalName?: StringFilter[];
 
   /**
    * <p>The status of the IAM access key related to a finding.</p>
@@ -1352,6 +2243,11 @@ export interface AwsSecurityFindingFilters {
    * <p>The creation date/time of the IAM access key related to a finding.</p>
    */
   ResourceAwsIamAccessKeyCreatedAt?: DateFilter[];
+
+  /**
+   * <p>The name of an IAM user.</p>
+   */
+  ResourceAwsIamUserUserName?: StringFilter[];
 
   /**
    * <p>The name of the container related to a finding.</p>
@@ -1381,7 +2277,7 @@ export interface AwsSecurityFindingFilters {
 
   /**
    * <p>Exclusive to findings that are generated as the result of a check run against a specific
-   *          rule in a supported standard, such as CIS AWS Foundations. Contains security
+   *          rule in a supported standard, such as CIS Amazon Web Services Foundations. Contains security
    *          standard-related finding details.</p>
    */
   ComplianceStatus?: StringFilter[];
@@ -1657,9 +2553,7 @@ export namespace BatchDisableStandardsResponse {
 export interface StandardsSubscriptionRequest {
   /**
    * <p>The ARN of the standard that you want to enable. To view the list of available standards
-   *          and their ARNs, use the <code>
-   *                <a>DescribeStandards</a>
-   *             </code> operation.</p>
+   *          and their ARNs, use the <code>DescribeStandards</code> operation.</p>
    */
   StandardsArn: string | undefined;
 
@@ -1713,7 +2607,7 @@ export namespace BatchEnableStandardsResponse {
 export interface BatchImportFindingsRequest {
   /**
    * <p>A list of findings to import. To successfully import a finding, it must follow the
-   *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">AWS Security Finding Format</a>. Maximum of 100 findings per request.</p>
+   *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">Amazon Web Services Security Finding Format</a>. Maximum of 100 findings per request.</p>
    */
   Findings: AwsSecurityFinding[] | undefined;
 }
@@ -1843,7 +2737,7 @@ export interface SeverityUpdate {
   Normalized?: number;
 
   /**
-   * <p>The native severity as defined by the AWS service or integrated partner product that
+   * <p>The native severity as defined by the Amazon Web Services service or integrated partner product that
    *          generated the finding.</p>
    */
   Product?: number;
@@ -2239,7 +3133,7 @@ export namespace CreateMembersRequest {
  */
 export interface Result {
   /**
-   * <p>An AWS account ID of the account that was not processed.</p>
+   * <p>An Amazon Web Services account ID of the account that was not processed.</p>
    */
   AccountId?: string;
 
@@ -2260,7 +3154,7 @@ export namespace Result {
 
 export interface CreateMembersResponse {
   /**
-   * <p>The list of AWS accounts that were not processed. For each account, the list includes
+   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
    *          the account ID and the email address.</p>
    */
   UnprocessedAccounts?: Result[];
@@ -2294,7 +3188,7 @@ export namespace DeclineInvitationsRequest {
 
 export interface DeclineInvitationsResponse {
   /**
-   * <p>The list of AWS accounts that were not processed. For each account, the list includes
+   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
    *          the account ID and the email address.</p>
    */
   UnprocessedAccounts?: Result[];
@@ -2391,7 +3285,7 @@ export namespace DeleteInvitationsRequest {
 
 export interface DeleteInvitationsResponse {
   /**
-   * <p>The list of AWS accounts for which the invitations were not deleted. For each account,
+   * <p>The list of Amazon Web Services accounts for which the invitations were not deleted. For each account,
    *          the list includes the account ID and the email address.</p>
    */
   UnprocessedAccounts?: Result[];
@@ -2424,7 +3318,7 @@ export namespace DeleteMembersRequest {
 
 export interface DeleteMembersResponse {
   /**
-   * <p>The list of AWS accounts that were not deleted. For each account, the list includes the
+   * <p>The list of Amazon Web Services accounts that were not deleted. For each account, the list includes the
    *          account ID and the email address.</p>
    */
   UnprocessedAccounts?: Result[];
@@ -2660,8 +3554,8 @@ export interface Product {
   IntegrationTypes?: (IntegrationType | string)[];
 
   /**
-   * <p>For integrations with AWS services, the AWS Console URL from which to activate the service.</p>
-   *          <p>For integrations with third-party products, the AWS Marketplace URL from which to subscribe to or purchase the product.</p>
+   * <p>For integrations with Amazon Web Services services, the Amazon Web Services Console URL from which to activate the service.</p>
+   *          <p>For integrations with third-party products, the Marketplace URL from which to subscribe to or purchase the product.</p>
    */
   MarketplaceUrl?: string;
 
@@ -2794,9 +3688,7 @@ export namespace DescribeStandardsResponse {
 export interface DescribeStandardsControlsRequest {
   /**
    * <p>The ARN of a resource that represents your subscription to a supported standard. To get
-   *          the subscription ARNs of the standards you have enabled, use the <code>
-   *                <a>GetEnabledStandards</a>
-   *             </code> operation.</p>
+   *          the subscription ARNs of the standards you have enabled, use the <code>GetEnabledStandards</code> operation.</p>
    */
   StandardsSubscriptionArn: string | undefined;
 
@@ -2881,7 +3773,7 @@ export interface StandardsControl {
 
   /**
    * <p>The severity of findings generated from this security standard control.</p>
-   *          <p>The finding severity is based on an assessment of how easy it would be to compromise AWS
+   *          <p>The finding severity is based on an assessment of how easy it would be to compromise Amazon Web Services
    *          resources if the issue is detected.</p>
    */
   SeverityRating?: SeverityRating | string;
@@ -2951,7 +3843,7 @@ export namespace DisableImportFindingsForProductResponse {
 
 export interface DisableOrganizationAdminAccountRequest {
   /**
-   * <p>The AWS account identifier of the Security Hub administrator account.</p>
+   * <p>The Amazon Web Services account identifier of the Security Hub administrator account.</p>
    */
   AdminAccountId: string | undefined;
 }
@@ -3103,7 +3995,7 @@ export namespace EnableImportFindingsForProductResponse {
 
 export interface EnableOrganizationAdminAccountRequest {
   /**
-   * <p>The AWS account identifier of the account to designate as the Security Hub administrator
+   * <p>The Amazon Web Services account identifier of the account to designate as the Security Hub administrator
    *          account.</p>
    */
   AdminAccountId: string | undefined;
@@ -3625,7 +4517,7 @@ export namespace GetMembersRequest {
  */
 export interface Member {
   /**
-   * <p>The AWS account ID of the member account.</p>
+   * <p>The Amazon Web Services account ID of the member account.</p>
    */
   AccountId?: string;
 
@@ -3638,12 +4530,12 @@ export interface Member {
    * @deprecated
    *
    * <p>This is replaced by <code>AdministratorID</code>.</p>
-   *          <p>The AWS account ID of the Security Hub administrator account associated with this member account.</p>
+   *          <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
    */
   MasterId?: string;
 
   /**
-   * <p>The AWS account ID of the Security Hub administrator account associated with this member account.</p>
+   * <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
    */
   AdministratorId?: string;
 
@@ -3683,6 +4575,10 @@ export interface Member {
    *                   <code>DELETED</code> - Indicates that the administrator account deleted the member
    *                account.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACCOUNT_SUSPENDED</code> - Indicates that an organization account was suspended from Amazon Web Services at the same time that the administrator account tried to enable the organization account as a member account.</p>
+   *             </li>
    *          </ul>
    */
   MemberStatus?: string;
@@ -3715,7 +4611,7 @@ export interface GetMembersResponse {
   Members?: Member[];
 
   /**
-   * <p>The list of AWS accounts that could not be processed. For each account, the list
+   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
    *          includes the account ID and the email address.</p>
    */
   UnprocessedAccounts?: Result[];
@@ -3732,7 +4628,7 @@ export namespace GetMembersResponse {
 
 export interface InviteMembersRequest {
   /**
-   * <p>The list of account IDs of the AWS accounts to invite to Security Hub as members. </p>
+   * <p>The list of account IDs of the Amazon Web Services accounts to invite to Security Hub as members. </p>
    */
   AccountIds: string[] | undefined;
 }
@@ -3748,7 +4644,7 @@ export namespace InviteMembersRequest {
 
 export interface InviteMembersResponse {
   /**
-   * <p>The list of AWS accounts that could not be processed. For each account, the list
+   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
    *          includes the account ID and the email address.</p>
    */
   UnprocessedAccounts?: Result[];

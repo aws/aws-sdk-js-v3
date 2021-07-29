@@ -21,8 +21,8 @@ export interface DeleteAccountCustomizationCommandInput extends DeleteAccountCus
 export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCustomizationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes all Amazon QuickSight customizations in this AWS Region for the specified AWS
- *             account and QuickSight namespace.</p>
+ * <p>Deletes all Amazon QuickSight customizations in this Region; for the specified
+ *             Amazon Web Services account; and QuickSight namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

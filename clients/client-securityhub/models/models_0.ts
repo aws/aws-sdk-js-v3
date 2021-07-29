@@ -92,7 +92,7 @@ export namespace InvalidInputException {
 }
 
 /**
- * <p>The request was rejected because it attempted to create resources beyond the current AWS
+ * <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  */
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
@@ -182,16 +182,16 @@ export namespace AccessDeniedException {
 }
 
 /**
- * <p>The details of an AWS account.</p>
+ * <p>The details of an Amazon Web Services account.</p>
  */
 export interface AccountDetails {
   /**
-   * <p>The ID of an AWS account.</p>
+   * <p>The ID of an Amazon Web Services account.</p>
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The email of an AWS account.</p>
+   * <p>The email of an Amazon Web Services account.</p>
    */
   Email?: string;
 }
@@ -379,7 +379,7 @@ export interface AwsApiCallAction {
   Api?: string;
 
   /**
-   * <p>The name of the AWS service that the API method belongs to.</p>
+   * <p>The name of the Amazon Web Services service that the API method belongs to.</p>
    */
   ServiceName?: string;
 
@@ -635,7 +635,7 @@ export namespace PortProbeAction {
  * <p>Provides details about one of the following actions that affects or that was taken on a resource:</p>
  *          <ul>
  *             <li>
- *                <p>A remote IP address issued an AWS API call</p>
+ *                <p>A remote IP address issued an Amazon Web Services API call</p>
  *             </li>
  *             <li>
  *                <p>A DNS request was received</p>
@@ -750,7 +750,7 @@ export enum AdminStatus {
  */
 export interface AdminAccount {
   /**
-   * <p>The AWS account identifier of the Security Hub administrator account.</p>
+   * <p>The Amazon Web Services account identifier of the Security Hub administrator account.</p>
    */
   AccountId?: string;
 
@@ -1120,7 +1120,7 @@ export interface AwsApiGatewayStageDetails {
   CanarySettings?: AwsApiGatewayCanarySettings;
 
   /**
-   * <p>Indicates whether active tracing with AWS X-Ray is enabled for the stage.</p>
+   * <p>Indicates whether active tracing with X-Ray is enabled for the stage.</p>
    */
   TracingEnabled?: boolean;
 
@@ -1506,8 +1506,7 @@ export namespace AwsCertificateManagerCertificateResourceRecord {
  *                   <code>RequestCertificate</code> request</p>
  *             </li>
  *             <li>
- *                <p>The validation of each domain name in the certificate, as it pertains to AWS
- *                Certificate Manager managed renewal</p>
+ *                <p>The validation of each domain name in the certificate, as it pertains to Certificate Manager managed renewal</p>
  *             </li>
  *          </ul>
  */
@@ -1523,13 +1522,13 @@ export interface AwsCertificateManagerCertificateDomainValidationOption {
   ResourceRecord?: AwsCertificateManagerCertificateResourceRecord;
 
   /**
-   * <p>The domain name that AWS Certificate Manager uses to send domain validation
+   * <p>The domain name that Certificate Manager uses to send domain validation
    *          emails.</p>
    */
   ValidationDomain?: string;
 
   /**
-   * <p>A list of email addresses that AWS Certificate Manager uses to send domain validation
+   * <p>A list of email addresses that Certificate Manager uses to send domain validation
    *          emails.</p>
    */
   ValidationEmails?: string[];
@@ -1621,19 +1620,19 @@ export namespace AwsCertificateManagerCertificateOptions {
 }
 
 /**
- * <p>Contains information about the AWS Certificate Manager managed renewal for an
+ * <p>Contains information about the Certificate Manager managed renewal for an
  *             <code>AMAZON_ISSUED</code> certificate.</p>
  */
 export interface AwsCertificateManagerCertificateRenewalSummary {
   /**
    * <p>Information about the validation of each domain name in the certificate, as it pertains
-   *          to AWS Certificate Manager managed renewal. Provided only when the certificate type is
+   *          to Certificate Manager managed renewal. Provided only when the certificate type is
    *             <code>AMAZON_ISSUED</code>.</p>
    */
   DomainValidationOptions?: AwsCertificateManagerCertificateDomainValidationOption[];
 
   /**
-   * <p>The status of the AWS Certificate Manager managed renewal of the certificate.</p>
+   * <p>The status of the Certificate Manager managed renewal of the certificate.</p>
    *          <p>Valid values: <code>PENDING_AUTO_RENEWAL</code> | <code>PENDING_VALIDATION</code> |
    *             <code>SUCCESS</code> | <code>FAILED</code>
    *          </p>
@@ -1673,7 +1672,7 @@ export namespace AwsCertificateManagerCertificateRenewalSummary {
 }
 
 /**
- * <p>Provides details about an AWS Certificate Manager certificate.</p>
+ * <p>Provides details about an Certificate Manager certificate.</p>
  */
 export interface AwsCertificateManagerCertificateDetails {
   /**
@@ -1734,7 +1733,7 @@ export interface AwsCertificateManagerCertificateDetails {
   ImportedAt?: string;
 
   /**
-   * <p>The list of ARNs for the AWS resources that use the certificate.</p>
+   * <p>The list of ARNs for the Amazon Web Services resources that use the certificate.</p>
    */
   InUseBy?: string[];
 
@@ -1796,7 +1795,7 @@ export interface AwsCertificateManagerCertificateDetails {
   RenewalEligibility?: string;
 
   /**
-   * <p>Information about the status of the AWS Certificate Manager managed renewal for the
+   * <p>Information about the status of the Certificate Manager managed renewal for the
    *          certificate. Provided only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
    */
   RenewalSummary?: AwsCertificateManagerCertificateRenewalSummary;
@@ -1836,7 +1835,7 @@ export interface AwsCertificateManagerCertificateDetails {
   SubjectAlternativeNames?: string[];
 
   /**
-   * <p>The source of the certificate. For certificates that AWS Certificate Manager provides,
+   * <p>The source of the certificate. For certificates that Certificate Manager provides,
    *             <code>Type</code> is <code>AMAZON_ISSUED</code>. For certificates that are imported with
    *             <code>ImportCertificate</code>, <code>Type</code> is <code>IMPORTED</code>.</p>
    *          <p>Valid values: <code>IMPORTED</code> | <code>AMAZON_ISSUED</code> |
@@ -1953,7 +1952,7 @@ export namespace AwsCloudFrontDistributionDefaultCacheBehavior {
  */
 export interface AwsCloudFrontDistributionLogging {
   /**
-   * <p>The Amazon S3 bucket to store the access logs in.</p>
+   * <p>The S3 bucket to store the access logs in.</p>
    */
   Bucket?: string;
 
@@ -2086,13 +2085,13 @@ export namespace AwsCloudFrontDistributionOriginS3OriginConfig {
 }
 
 /**
- * <p>A complex type that describes the Amazon S3 bucket, HTTP server (for example, a web
- *          server), Amazon Elemental MediaStore, or other server from which CloudFront gets your
+ * <p>A complex type that describes the S3 bucket, HTTP server (for example, a web
+ *          server), AWS Elemental MediaStore, or other server from which CloudFront gets your
  *          files.</p>
  */
 export interface AwsCloudFrontDistributionOriginItem {
   /**
-   * <p>Amazon S3 origins: The DNS name of the Amazon S3 bucket from which you want CloudFront to get objects for this origin.</p>
+   * <p>Amazon S3 origins: The DNS name of the S3 bucket from which you want CloudFront to get objects for this origin.</p>
    */
   DomainName?: string;
 
@@ -2202,7 +2201,7 @@ export interface AwsCloudFrontDistributionDetails {
   Status?: string;
 
   /**
-   * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution.</p>
+   * <p>A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution.</p>
    */
   WebAclId?: string;
 }
@@ -2226,7 +2225,7 @@ export interface AwsCloudTrailTrailDetails {
   CloudWatchLogsLogGroupArn?: string;
 
   /**
-   * <p>The ARN of the role that the CloudWatch Logs endpoint assumes when it writes to the log
+   * <p>The ARN of the role that the CloudWatch Events endpoint assumes when it writes to the log
    *          group.</p>
    */
   CloudWatchLogsRoleArn?: string;
@@ -2253,13 +2252,13 @@ export interface AwsCloudTrailTrailDetails {
   IsMultiRegionTrail?: boolean;
 
   /**
-   * <p>Whether the trail is created for all accounts in an organization in AWS Organizations,
-   *          or only for the current AWS account.</p>
+   * <p>Whether the trail is created for all accounts in an organization in Organizations,
+   *          or only for the current Amazon Web Services account.</p>
    */
   IsOrganizationTrail?: boolean;
 
   /**
-   * <p>The AWS KMS key ID to use to encrypt the logs.</p>
+   * <p>The KMS key ID to use to encrypt the logs.</p>
    */
   KmsKeyId?: string;
 
@@ -2314,18 +2313,17 @@ export namespace AwsCloudTrailTrailDetails {
  */
 export interface AwsCodeBuildProjectEnvironmentRegistryCredential {
   /**
-   * <p>The ARN or name of credentials created using AWS Secrets
-   *          Manager.</p>
+   * <p>The ARN or name of credentials created using Secrets Manager.</p>
    *          <note>
    *             <p>The credential can use the name of the credentials only if they exist in your current
-   *             AWS Region. </p>
+   *             Amazon Web Services Region. </p>
    *          </note>
    */
   Credential?: string;
 
   /**
    * <p>The service that created the credentials to access a private Docker registry.</p>
-   *          <p>The valid value,<code> SECRETS_MANAGER</code>, is for AWS Secrets Manager.</p>
+   *          <p>The valid value,<code> SECRETS_MANAGER</code>, is for Secrets Manager.</p>
    */
   CredentialProvider?: string;
 }
@@ -2349,23 +2347,23 @@ export interface AwsCodeBuildProjectEnvironment {
   Certificate?: string;
 
   /**
-   * <p>The type of credentials AWS CodeBuild uses to pull images in your build.</p>
+   * <p>The type of credentials CodeBuild uses to pull images in your build.</p>
    *          <p>Valid values:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CODEBUILD</code> specifies that AWS CodeBuild uses its own credentials. This
-   *                requires that you modify your ECR repository policy to trust the AWS CodeBuild
+   *                   <code>CODEBUILD</code> specifies that CodeBuild uses its own credentials. This
+   *                requires that you modify your ECR repository policy to trust the CodeBuild
    *                service principal.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SERVICE_ROLE</code> specifies that AWS CodeBuild uses your build project's
+   *                   <code>SERVICE_ROLE</code> specifies that CodeBuild uses your build project's
    *                service role.</p>
    *             </li>
    *          </ul>
    *          <p>When you use a cross-account or private registry image, you must use
-   *             <code>SERVICE_ROLE</code> credentials. When you use an AWS CodeBuild curated image, you
+   *             <code>SERVICE_ROLE</code> credentials. When you use an CodeBuild curated image, you
    *          must use <code>CODEBUILD</code> credentials.</p>
    */
   ImagePullCredentialsType?: string;
@@ -2420,13 +2418,13 @@ export interface AwsCodeBuildProjectSource {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CODECOMMIT</code> - The source code is in an AWS CodeCommit
+   *                   <code>CODECOMMIT</code> - The source code is in an CodeCommit
    *                repository.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>CODEPIPELINE</code> - The source code settings are specified in the source
-   *                action of a pipeline in AWS CodePipeline.</p>
+   *                action of a pipeline in CodePipeline.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2455,12 +2453,11 @@ export interface AwsCodeBuildProjectSource {
    *          <ul>
    *             <li>
    *                <p>For source code settings that are specified in the source action of a pipeline in
-   *                AWS CodePipeline, location should not be specified. If it is specified, AWS
-   *                CodePipeline ignores it. This is because AWS CodePipeline uses the settings in a
+   *                CodePipeline, location should not be specified. If it is specified, CodePipeline ignores it. This is because CodePipeline uses the settings in a
    *                pipeline's source action instead of this value.</p>
    *             </li>
    *             <li>
-   *                <p>For source code in an AWS CodeCommit repository, the HTTPS clone URL to the
+   *                <p>For source code in an CodeCommit repository, the HTTPS clone URL to the
    *                repository that contains the source code and the build spec file (for example,
    *                   <code>https://git-codecommit.region-ID.amazonaws.com/v1/repos/repo-name</code>
    *                ).</p>
@@ -2511,7 +2508,7 @@ export namespace AwsCodeBuildProjectSource {
 }
 
 /**
- * <p>Information about the VPC configuration that AWS CodeBuild accesses.</p>
+ * <p>Information about the VPC configuration that CodeBuild accesses.</p>
  */
 export interface AwsCodeBuildProjectVpcConfig {
   /**
@@ -2520,12 +2517,12 @@ export interface AwsCodeBuildProjectVpcConfig {
   VpcId?: string;
 
   /**
-   * <p>A list of one or more subnet IDs in your Amazon VPC.</p>
+   * <p>A list of one or more subnet IDs in your VPC.</p>
    */
   Subnets?: string[];
 
   /**
-   * <p>A list of one or more security group IDs in your Amazon VPC.</p>
+   * <p>A list of one or more security group IDs in your VPC.</p>
    */
   SecurityGroupIds?: string[];
 }
@@ -2540,11 +2537,11 @@ export namespace AwsCodeBuildProjectVpcConfig {
 }
 
 /**
- * <p>Information about an AWS CodeBuild project.</p>
+ * <p>Information about an CodeBuild project.</p>
  */
 export interface AwsCodeBuildProjectDetails {
   /**
-   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) used to encrypt the
+   * <p>The KMS customer master key (CMK) used to encrypt the
    *          build output artifacts.</p>
    *          <p>You can specify either the ARN of the CMK or, if available, the
    *          CMK alias (using the format alias/alias-name). </p>
@@ -2567,13 +2564,13 @@ export interface AwsCodeBuildProjectDetails {
   Source?: AwsCodeBuildProjectSource;
 
   /**
-   * <p>The ARN of the IAM role that enables AWS CodeBuild to interact with dependent AWS
-   *          services on behalf of the AWS account.</p>
+   * <p>The ARN of the IAM role that enables CodeBuild to interact with dependent Amazon Web Services
+   *          services on behalf of the Amazon Web Services account.</p>
    */
   ServiceRole?: string;
 
   /**
-   * <p>Information about the VPC configuration that AWS CodeBuild accesses.</p>
+   * <p>Information about the VPC configuration that CodeBuild accesses.</p>
    */
   VpcConfig?: AwsCodeBuildProjectVpcConfig;
 }
@@ -2886,7 +2883,7 @@ export interface AwsDynamoDbTableReplica {
   GlobalSecondaryIndexes?: AwsDynamoDbTableReplicaGlobalSecondaryIndex[];
 
   /**
-   * <p>The identifier of the AWS KMS customer master key (CMK) that will be used for AWS KMS
+   * <p>The identifier of the KMS customer master key (CMK) that will be used for KMS
    *          encryption for the replica.</p>
    */
   KmsMasterKeyId?: string;
@@ -2982,7 +2979,7 @@ export interface AwsDynamoDbTableSseDescription {
   SseType?: string;
 
   /**
-   * <p>The ARN of the AWS KMS customer master key (CMK) that is used for the AWS KMS
+   * <p>The ARN of the KMS customer master key (CMK) that is used for the KMS
    *          encryption.</p>
    */
   KmsMasterKeyArn?: string;
@@ -3148,7 +3145,7 @@ export interface AwsEc2EipDetails {
   PublicIp?: string;
 
   /**
-   * <p>The identifier that AWS assigns to represent the allocation of the Elastic IP address
+   * <p>The identifier that Amazon Web Services assigns to represent the allocation of the Elastic IP address
    *          for use with Amazon VPC.</p>
    */
   AllocationId?: string;
@@ -3183,7 +3180,7 @@ export interface AwsEc2EipDetails {
   NetworkInterfaceId?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the network interface.</p>
+   * <p>The Amazon Web Services account ID of the owner of the network interface.</p>
    */
   NetworkInterfaceOwnerId?: string;
 
@@ -3434,7 +3431,7 @@ export interface AwsEc2NetworkAclDetails {
   NetworkAclId?: string;
 
   /**
-   * <p>The identifier of the AWS account that owns the network ACL.</p>
+   * <p>The identifier of the Amazon Web Services account that owns the network ACL.</p>
    */
   OwnerId?: string;
 
@@ -3497,7 +3494,7 @@ export interface AwsEc2NetworkInterfaceAttachment {
   InstanceId?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the instance.</p>
+   * <p>The Amazon Web Services account ID of the owner of the instance.</p>
    */
   InstanceOwnerId?: string;
 
@@ -3721,7 +3718,7 @@ export interface AwsEc2SecurityGroupUserIdGroupPair {
   PeeringStatus?: string;
 
   /**
-   * <p>The ID of an AWS account.</p>
+   * <p>The ID of an Amazon Web Services account.</p>
    *          <p>For a referenced security group in another VPC, the account ID of the referenced
    *          security group is returned in the response. If the referenced security group is deleted,
    *          this value is not returned.</p>
@@ -3784,7 +3781,7 @@ export interface AwsEc2SecurityGroupIpPermission {
   ToPort?: number;
 
   /**
-   * <p>The security group and AWS account ID pairs.</p>
+   * <p>The security group and Amazon Web Services account ID pairs.</p>
    */
   UserIdGroupPairs?: AwsEc2SecurityGroupUserIdGroupPair[];
 
@@ -3799,7 +3796,7 @@ export interface AwsEc2SecurityGroupIpPermission {
   Ipv6Ranges?: AwsEc2SecurityGroupIpv6Range[];
 
   /**
-   * <p>[VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS
+   * <p>[VPC only] The prefix list IDs for an Amazon Web Services service. With outbound rules, this is the Amazon Web Services
    *          service to access through a VPC endpoint from instances associated with the security
    *          group.</p>
    */
@@ -3830,7 +3827,7 @@ export interface AwsEc2SecurityGroupDetails {
   GroupId?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the security group.</p>
+   * <p>The Amazon Web Services account ID of the owner of the security group.</p>
    */
   OwnerId?: string;
 
@@ -3889,7 +3886,7 @@ export namespace Ipv6CidrBlockAssociation {
 }
 
 /**
- * <p>Contains information about a subnet in EC2.</p>
+ * <p>Contains information about a subnet in Amazon EC2.</p>
  */
 export interface AwsEc2SubnetDetails {
   /**
@@ -3928,7 +3925,7 @@ export interface AwsEc2SubnetDetails {
   MapPublicIpOnLaunch?: boolean;
 
   /**
-   * <p>The identifier of the AWS account that owns the subnet.</p>
+   * <p>The identifier of the Amazon Web Services account that owns the subnet.</p>
    */
   OwnerId?: string;
 
@@ -3968,7 +3965,7 @@ export namespace AwsEc2SubnetDetails {
 }
 
 /**
- * <p>An attachment to an AWS EC2 volume.</p>
+ * <p>An attachment to an Amazon EC2 volume.</p>
  */
 export interface AwsEc2VolumeAttachment {
   /**
@@ -4034,7 +4031,7 @@ export interface AwsEc2VolumeDetails {
   Status?: string;
 
   /**
-   * <p>The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) that was
+   * <p>The ARN of the KMS customer master key (CMK) that was
    *          used to protect the volume encryption key for the volume.</p>
    */
   KmsKeyId?: string;
@@ -4291,6 +4288,437 @@ export namespace AwsEcsClusterDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsEcsClusterDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Strategy item for the capacity provider strategy that the service uses.</p>
+ */
+export interface AwsEcsServiceCapacityProviderStrategyDetails {
+  /**
+   * <p>The minimum number of tasks to run on the capacity provider. Only one strategy item can specify a value for <code>Base</code>.</p>
+   *          <p>The value must be between 0 and 100000.</p>
+   */
+  Base?: number;
+
+  /**
+   * <p>The short name of the capacity provider.</p>
+   */
+  CapacityProvider?: string;
+
+  /**
+   * <p>The relative percentage of the total number of tasks that should use the capacity provider.</p>
+   *          <p>If no weight is specified, the default value is 0. At least one capacity provider must have a weight greater than 0.</p>
+   *          <p>The value can be between 0 and 1000.</p>
+   */
+  Weight?: number;
+}
+
+export namespace AwsEcsServiceCapacityProviderStrategyDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsServiceCapacityProviderStrategyDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Determines whether a service deployment fails if a service cannot reach a steady state.</p>
+ */
+export interface AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails {
+  /**
+   * <p>Whether to enable the deployment circuit breaker logic for the service.</p>
+   */
+  Enable?: boolean;
+
+  /**
+   * <p>Whether to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.</p>
+   */
+  Rollback?: boolean;
+}
+
+export namespace AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Optional deployment parameters for the service.</p>
+ */
+export interface AwsEcsServiceDeploymentConfigurationDetails {
+  /**
+   * <p>Determines whether a service deployment fails if a service cannot reach a steady state.</p>
+   */
+  DeploymentCircuitBreaker?: AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails;
+
+  /**
+   * <p>For a service that uses the rolling update (<code>ECS</code>) deployment type, the maximum number of tasks in a service that are allowed in the <code>RUNNING</code> or <code>PENDING</code> state during a deployment, and for tasks that use the EC2 launch type, when any container instances are in the <code>DRAINING</code> state. Provided as a percentage of the desired number of tasks. The default value is 200%.</p>
+   *          <p>For a service that uses the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code> deployment types, and tasks that use the EC2 launch type, the maximum number of tasks in the service that remain in the <code>RUNNING</code> state while the container instances are in the <code>DRAINING</code> state.</p>
+   *          <p>For the Fargate launch type, the maximum percent value is not used.</p>
+   */
+  MaximumPercent?: number;
+
+  /**
+   * <p>For a service that uses the rolling update (<code>ECS</code>) deployment type, the minimum number of tasks in a service that must remain in the <code>RUNNING</code> state during a deployment, and while any container instances are in the <code>DRAINING</code> state if the service contains tasks using the EC2 launch type. Expressed as a percentage of the desired number of tasks. The default value is 100%.</p>
+   *          <p>For a service that uses the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code> deployment types and tasks that use the EC2 launch type, the minimum number of the tasks in the service that remain in the <code>RUNNING</code> state while the container instances are in the <code>DRAINING</code> state.</p>
+   *          <p>For the Fargate launch type, the minimum healthy percent value is not used.</p>
+   */
+  MinimumHealthyPercent?: number;
+}
+
+export namespace AwsEcsServiceDeploymentConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsServiceDeploymentConfigurationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the deployment controller type that the service uses.</p>
+ */
+export interface AwsEcsServiceDeploymentControllerDetails {
+  /**
+   * <p>The rolling update (<code>ECS</code>) deployment type replaces the current running version of the container with the latest version.</p>
+   *          <p>The blue/green (<code>CODE_DEPLOY</code>) deployment type uses the blue/green deployment model that is powered by CodeDeploy. This deployment model a new deployment of a service can be verified before production traffic is sent to it.</p>
+   *          <p>The external (<code>EXTERNAL</code>) deployment type allows the use of any third-party deployment controller for full control over the deployment process for an Amazon ECS service.</p>
+   *          <p>Valid values: <code>ECS</code> | <code>CODE_DEPLOY</code> | <code>EXTERNAL</code>
+   *          </p>
+   */
+  Type?: string;
+}
+
+export namespace AwsEcsServiceDeploymentControllerDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsServiceDeploymentControllerDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a load balancer that the service uses.</p>
+ */
+export interface AwsEcsServiceLoadBalancersDetails {
+  /**
+   * <p>The name of the container to associate with the load balancer.</p>
+   */
+  ContainerName?: string;
+
+  /**
+   * <p>The port on the container to associate with the load balancer. This port must correspond to a <code>containerPort</code> in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they are launched on must allow ingress traffic on the <code>hostPort</code> of the port mapping.</p>
+   */
+  ContainerPort?: number;
+
+  /**
+   * <p>The name of the load balancer to associate with the Amazon ECS service or task set.</p>
+   *          <p>Only specified when using a Classic Load Balancer. For an Application Load Balancer or a Network Load Balancer, the load balancer name is omitted.</p>
+   */
+  LoadBalancerName?: string;
+
+  /**
+   * <p>The ARN of the Elastic Load Balancing target group or groups associated with a service or task set.</p>
+   *          <p>Only specified when using an Application Load Balancer or a Network Load Balancer. For a Classic Load Balancer, the target group ARN is omitted.</p>
+   */
+  TargetGroupArn?: string;
+}
+
+export namespace AwsEcsServiceLoadBalancersDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsServiceLoadBalancersDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
+ */
+export interface AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails {
+  /**
+   * <p>Whether the task's elastic network interface receives a public IP address. The default value is <code>DISABLED</code>.</p>
+   *          <p>Valid values: <code>ENABLED</code> | <code>DISABLED</code>
+   *          </p>
+   */
+  AssignPublicIp?: string;
+
+  /**
+   * <p>The IDs of the security groups associated with the task or service.</p>
+   *          <p>You can provide up to five security groups.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>The IDs of the subnets associated with the task or service.</p>
+   *          <p>You can provide up to 16 subnets.</p>
+   */
+  Subnets?: string[];
+}
+
+export namespace AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
+ */
+export interface AwsEcsServiceNetworkConfigurationDetails {
+  /**
+   * <p>The VPC subnet and security group configuration.</p>
+   */
+  AwsVpcConfiguration?: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails;
+}
+
+export namespace AwsEcsServiceNetworkConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsServiceNetworkConfigurationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A placement constraint for the tasks in the service.</p>
+ */
+export interface AwsEcsServicePlacementConstraintsDetails {
+  /**
+   * <p>A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is <code>distinctInstance</code>.</p>
+   */
+  Expression?: string;
+
+  /**
+   * <p>The type of constraint. Use <code>distinctInstance</code> to run each task in a particular group on a different container instance. Use <code>memberOf</code> to restrict the selection to a group of valid candidates.</p>
+   *          <p>Valid values: <code>distinctInstance</code> | <code>memberOf</code>
+   *          </p>
+   */
+  Type?: string;
+}
+
+export namespace AwsEcsServicePlacementConstraintsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsServicePlacementConstraintsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A placement strategy that determines how to place the tasks for the service.</p>
+ */
+export interface AwsEcsServicePlacementStrategiesDetails {
+  /**
+   * <p>The field to apply the placement strategy against.</p>
+   *          <p>For the <code>spread</code> placement strategy, valid values are <code>instanceId</code> (or <code>host</code>, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as <code>attribute:ecs.availability-zone</code>.</p>
+   *          <p>For the <code>binpack</code> placement strategy, valid values are <code>cpu</code> and <code>memory</code>.</p>
+   *          <p>For the <code>random</code> placement strategy, this attribute is not used.</p>
+   */
+  Field?: string;
+
+  /**
+   * <p>The type of placement strategy.</p>
+   *          <p>The <code>random</code> placement strategy randomly places tasks on available candidates.</p>
+   *          <p>The <code>spread</code> placement strategy spreads placement across available candidates evenly based on the value of <code>Field</code>.</p>
+   *          <p>The <code>binpack</code> strategy places tasks on available candidates that have the least available amount of the resource that is specified in <code>Field</code>.</p>
+   *          <p>Valid values: <code>random</code> | <code>spread</code> | <code>binpack</code>
+   *          </p>
+   */
+  Type?: string;
+}
+
+export namespace AwsEcsServicePlacementStrategiesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsServicePlacementStrategiesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a service discovery registry to assign to the service.</p>
+ */
+export interface AwsEcsServiceServiceRegistriesDetails {
+  /**
+   * <p>The container name value to use for the service discovery service.</p>
+   *          <p>If the task definition uses the <code>bridge</code> or <code>host</code> network mode, you must specify <code>ContainerName</code> and <code>ContainerPort</code>.</p>
+   *          <p>If the task definition uses the <code>awsvpc</code> network mode and a type SRV DNS record, you must specify either <code>ContainerName</code> and <code>ContainerPort</code>, or <code>Port</code> , but not both.</p>
+   */
+  ContainerName?: string;
+
+  /**
+   * <p>The port value to use for the service discovery service.</p>
+   *          <p>If the task definition uses the <code>bridge</code> or <code>host</code> network mode, you must specify <code>ContainerName</code> and <code>ContainerPort</code>.</p>
+   *          <p>If the task definition uses the <code>awsvpc</code> network mode and a type SRV DNS record, you must specify either <code>ContainerName</code> and <code>ContainerPort</code>, or <code>Port</code> , but not both.</p>
+   */
+  ContainerPort?: number;
+
+  /**
+   * <p>The port value to use for a service discovery service that specifies an SRV record. This field can be used if both the <code>awsvpc</code>awsvpc network mode and SRV records are used.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The ARN of the service registry.</p>
+   */
+  RegistryArn?: string;
+}
+
+export namespace AwsEcsServiceServiceRegistriesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsServiceServiceRegistriesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about a service within an ECS cluster.</p>
+ */
+export interface AwsEcsServiceDetails {
+  /**
+   * <p>The capacity provider strategy that the service uses.</p>
+   */
+  CapacityProviderStrategy?: AwsEcsServiceCapacityProviderStrategyDetails[];
+
+  /**
+   * <p>The ARN of the cluster that hosts the service.</p>
+   */
+  Cluster?: string;
+
+  /**
+   * <p>Deployment parameters for the service. Includes the number of tasks that run and the order in which to start and stop tasks.</p>
+   */
+  DeploymentConfiguration?: AwsEcsServiceDeploymentConfigurationDetails;
+
+  /**
+   * <p>Contains the deployment controller type that the service uses.</p>
+   */
+  DeploymentController?: AwsEcsServiceDeploymentControllerDetails;
+
+  /**
+   * <p>The number of instantiations of the task definition to run on the service.</p>
+   */
+  DesiredCount?: number;
+
+  /**
+   * <p>Whether to enable Amazon ECS managed tags for the tasks in the service.</p>
+   */
+  EnableEcsManagedTags?: boolean;
+
+  /**
+   * <p>Whether the execute command functionality is enabled for the service.</p>
+   */
+  EnableExecuteCommand?: boolean;
+
+  /**
+   * <p>After a task starts, the amount of time in seconds that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks.</p>
+   */
+  HealthCheckGracePeriodSeconds?: number;
+
+  /**
+   * <p>The launch type that the service uses.</p>
+   *          <p>Valid values: <code>EC2</code> | <code>FARGATE</code> | <code>EXTERNAL</code>
+   *          </p>
+   */
+  LaunchType?: string;
+
+  /**
+   * <p>Information about the load balancers that the service uses.</p>
+   */
+  LoadBalancers?: AwsEcsServiceLoadBalancersDetails[];
+
+  /**
+   * <p>The name of the service.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
+   */
+  NetworkConfiguration?: AwsEcsServiceNetworkConfigurationDetails;
+
+  /**
+   * <p>The placement constraints for the tasks in the service.</p>
+   */
+  PlacementConstraints?: AwsEcsServicePlacementConstraintsDetails[];
+
+  /**
+   * <p>Information about how tasks for the service are placed.</p>
+   */
+  PlacementStrategies?: AwsEcsServicePlacementStrategiesDetails[];
+
+  /**
+   * <p>The platform version on which to run the service. Only specified for tasks that are hosted on Fargate. If a platform version is not specified, the <code>LATEST</code> platform version is used by default.</p>
+   */
+  PlatformVersion?: string;
+
+  /**
+   * <p>Indicates whether to propagate the tags from the task definition to the task or from the service to the task. If no value is provided, then tags are not propagated.</p>
+   *          <p>Valid values: <code>TASK_DEFINITION</code> | <code>SERVICE</code>
+   *          </p>
+   */
+  PropagateTags?: string;
+
+  /**
+   * <p>The ARN of the IAM role that is associated with the service. The role allows the Amazon ECS container agent to register container instances with an Elastic Load Balancing load balancer.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>The scheduling strategy to use for the service.</p>
+   *          <p>The <code>REPLICA</code> scheduling strategy places and maintains the desired number of tasks across the cluster. By default, the service scheduler spreads tasks across Availability Zones. Task placement strategies and constraints are used to customize task placement decisions.</p>
+   *          <p>The <code>DAEMON</code> scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that are specified in the cluster. The service scheduler also evaluates the task placement constraints for running tasks and stops tasks that do not meet the placement constraints.</p>
+   *          <p>Valid values: <code>REPLICA</code> | <code>DAEMON</code>
+   *          </p>
+   */
+  SchedulingStrategy?: string;
+
+  /**
+   * <p>The ARN of the service.</p>
+   */
+  ServiceArn?: string;
+
+  /**
+   * <p>The name of the service.</p>
+   *          <p>The name can contain up to 255 characters. It can use letters, numbers, underscores, and hyphens.</p>
+   */
+  ServiceName?: string;
+
+  /**
+   * <p>Information about the service discovery registries to assign to the service.</p>
+   */
+  ServiceRegistries?: AwsEcsServiceServiceRegistriesDetails[];
+
+  /**
+   * <p>The task definition to use for tasks in the service.</p>
+   */
+  TaskDefinition?: string;
+}
+
+export namespace AwsEcsServiceDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcsServiceDetails): any => ({
     ...obj,
   });
 }
@@ -5469,7 +5897,7 @@ export interface AwsEcsTaskDefinitionDetails {
   RequiresCompatibilities?: string[];
 
   /**
-   * <p>The short name or ARN of the IAM role that grants containers in the task permission to call AWS API operations on your behalf.</p>
+   * <p>The short name or ARN of the IAM role that grants containers in the task permission to call Amazon Web Services API operations on your behalf.</p>
    */
   TaskRoleArn?: string;
 
@@ -5707,6 +6135,76 @@ export namespace AwsElasticsearchDomainDomainEndpointOptions {
 }
 
 /**
+ * <p>Configuration options for zone awareness.</p>
+ */
+export interface AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails {
+  /**
+   * <p>he number of Availability Zones that the domain uses. Valid values are 2 and 3. The default is 2.</p>
+   */
+  AvailabilityZoneCount?: number;
+}
+
+export namespace AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>details about the configuration of an Elasticsearch cluster.</p>
+ */
+export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
+  /**
+   * <p>The number of instances to use for the master node. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
+   */
+  DedicatedMasterCount?: number;
+
+  /**
+   * <p>Whether to use a dedicated master node for the Elasticsearch domain. A dedicated master node performs cluster management tasks, but doesn't hold data or respond to data upload requests.</p>
+   */
+  DedicatedMasterEnabled?: boolean;
+
+  /**
+   * <p>The hardware configuration of the computer that hosts the dedicated master node. For example, <code>m3.medium.elasticsearch</code>. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
+   */
+  DedicatedMasterType?: string;
+
+  /**
+   * <p>The number of data nodes to use in the Elasticsearch domain.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>The instance type for your data nodes. For example, <code>m3.medium.elasticsearch</code>.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>Configuration options for zone awareness. Provided if <code>ZoneAwarenessEnabled</code> is <code>true</code>.</p>
+   */
+  ZoneAwarenessConfig?: AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails;
+
+  /**
+   * <p>Whether to enable zone awareness for the Elasticsearch domain. When zone awareness is enabled, Elasticsearch allocates the cluster's nodes and replica index shards across Availability Zones in the same Region. This prevents data loss and minimizes downtime if a node or data center fails.</p>
+   */
+  ZoneAwarenessEnabled?: boolean;
+}
+
+export namespace AwsElasticsearchDomainElasticsearchClusterConfigDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsElasticsearchDomainElasticsearchClusterConfigDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Details about the configuration for encryption at rest.</p>
  */
 export interface AwsElasticsearchDomainEncryptionAtRestOptions {
@@ -5770,6 +6268,11 @@ export interface AwsElasticsearchDomainLogPublishingOptions {
    *          publishing.</p>
    */
   SearchSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
+
+  /**
+   * <p>The log configuration.</p>
+   */
+  AuditLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
 }
 
 export namespace AwsElasticsearchDomainLogPublishingOptions {
@@ -5851,7 +6354,7 @@ export namespace AwsElasticsearchDomainServiceSoftwareOptions {
 }
 
 /**
- * <p>Information that Amazon ES derives based on <code>VPCOptions</code> for the
+ * <p>Information that Elasticsearch derives based on <code>VPCOptions</code> for the
  *          domain.</p>
  */
 export interface AwsElasticsearchDomainVPCOptions {
@@ -5886,11 +6389,11 @@ export namespace AwsElasticsearchDomainVPCOptions {
 }
 
 /**
- * <p>Information about an Elasticsearch domain.</p>
+ * <p>Information about an Amazon Elasticsearch Service domain.</p>
  */
 export interface AwsElasticsearchDomainDetails {
   /**
-   * <p>IAM policy document specifying the access policies for the new Amazon ES domain.</p>
+   * <p>IAM policy document specifying the access policies for the new Elasticsearch domain.</p>
    */
   AccessPolicies?: string;
 
@@ -5900,13 +6403,13 @@ export interface AwsElasticsearchDomainDetails {
   DomainEndpointOptions?: AwsElasticsearchDomainDomainEndpointOptions;
 
   /**
-   * <p>Unique identifier for an Amazon ES domain.</p>
+   * <p>Unique identifier for an Elasticsearch domain.</p>
    */
   DomainId?: string;
 
   /**
-   * <p>Name of an Amazon ES domain.</p>
-   *          <p>Domain names are unique across all domains owned by the same account within an AWS
+   * <p>Name of an Elasticsearch domain.</p>
+   *          <p>Domain names are unique across all domains owned by the same account within an Amazon Web Services
    *          Region.</p>
    *          <p>Domain names must start with a lowercase letter and must be between 3 and 28
    *          characters.</p>
@@ -5916,13 +6419,13 @@ export interface AwsElasticsearchDomainDetails {
 
   /**
    * <p>Domain-specific endpoint used to submit index, search, and data upload requests to an
-   *          Amazon ES domain.</p>
+   *          Elasticsearch domain.</p>
    *          <p>The endpoint is a service URL. </p>
    */
   Endpoint?: string;
 
   /**
-   * <p>The key-value pair that exists if the Amazon ES domain uses VPC endpoints.</p>
+   * <p>The key-value pair that exists if the Elasticsearch domain uses VPC endpoints.</p>
    */
   Endpoints?: { [key: string]: string };
 
@@ -5930,6 +6433,11 @@ export interface AwsElasticsearchDomainDetails {
    * <p>Elasticsearch version.</p>
    */
   ElasticsearchVersion?: string;
+
+  /**
+   * <p>Information about an Elasticsearch cluster configuration.</p>
+   */
+  ElasticsearchClusterConfig?: AwsElasticsearchDomainElasticsearchClusterConfigDetails;
 
   /**
    * <p>Details about the configuration for encryption at rest.</p>
@@ -5952,7 +6460,7 @@ export interface AwsElasticsearchDomainDetails {
   ServiceSoftwareOptions?: AwsElasticsearchDomainServiceSoftwareOptions;
 
   /**
-   * <p>Information that Amazon ES derives based on <code>VPCOptions</code> for the
+   * <p>Information that Elasticsearch derives based on <code>VPCOptions</code> for the
    *          domain.</p>
    */
   VPCOptions?: AwsElasticsearchDomainVPCOptions;
@@ -6646,7 +7154,7 @@ export interface AwsIamAccessKeySessionContextSessionIssuer {
   Arn?: string;
 
   /**
-   * <p>The identifier of the AWS account that created the session.</p>
+   * <p>The identifier of the Amazon Web Services account that created the session.</p>
    */
   AccountId?: string;
 
@@ -6737,7 +7245,7 @@ export interface AwsIamAccessKeyDetails {
   PrincipalName?: string;
 
   /**
-   * <p>The AWS account ID of the account for the key.</p>
+   * <p>The Amazon Web Services account ID of the account for the key.</p>
    */
   AccountId?: string;
 
@@ -7246,7 +7754,7 @@ export namespace AwsIamUserDetails {
  */
 export interface AwsKmsKeyDetails {
   /**
-   * <p>The twelve-digit account ID of the AWS account that owns the CMK.</p>
+   * <p>The twelve-digit account ID of the Amazon Web Services account that owns the CMK.</p>
    */
   AWSAccountId?: string;
 
@@ -7264,7 +7772,7 @@ export interface AwsKmsKeyDetails {
   KeyId?: string;
 
   /**
-   * <p>The manager of the CMK. CMKs in your AWS account are either customer managed or AWS managed.</p>
+   * <p>The manager of the CMK. CMKs in your Amazon Web Services account are either customer managed or Amazon Web Services managed.</p>
    */
   KeyManager?: string;
 
@@ -7275,11 +7783,10 @@ export interface AwsKmsKeyDetails {
 
   /**
    * <p>The source of the CMK's key material.</p>
-   *          <p>When this value is <code>AWS_KMS</code>, AWS KMS created the key material.</p>
+   *          <p>When this value is <code>AWS_KMS</code>, KMS created the key material.</p>
    *          <p>When this value is <code>EXTERNAL</code>, the key material was imported from your
    *          existing key management infrastructure or the CMK lacks key material.</p>
-   *          <p>When this value is <code>AWS_CLOUDHSM</code>, the key material was created in the AWS
-   *          CloudHSM cluster associated with a custom key store.</p>
+   *          <p>When this value is <code>AWS_CLOUDHSM</code>, the key material was created in the CloudHSM cluster associated with a custom key store.</p>
    */
   Origin?: string;
 
@@ -7303,7 +7810,7 @@ export namespace AwsKmsKeyDetails {
  */
 export interface AwsLambdaFunctionCode {
   /**
-   * <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
+   * <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
    */
   S3Bucket?: string;
 
@@ -7318,7 +7825,7 @@ export interface AwsLambdaFunctionCode {
   S3ObjectVersion?: string;
 
   /**
-   * <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.</p>
+   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
    */
   ZipFile?: string;
 }
@@ -7337,7 +7844,7 @@ export namespace AwsLambdaFunctionCode {
  */
 export interface AwsLambdaFunctionDeadLetterConfig {
   /**
-   * <p>The ARN of an Amazon SQS queue or Amazon SNS topic.</p>
+   * <p>The ARN of an SQS queue or SNS topic.</p>
    */
   TargetArn?: string;
 }
@@ -7400,7 +7907,7 @@ export namespace AwsLambdaFunctionEnvironment {
 }
 
 /**
- * <p>An AWS Lambda layer.</p>
+ * <p>An Lambda layer.</p>
  */
 export interface AwsLambdaFunctionLayer {
   /**
@@ -7424,7 +7931,7 @@ export namespace AwsLambdaFunctionLayer {
 }
 
 /**
- * <p>The function's AWS X-Ray tracing configuration.</p>
+ * <p>The function's X-Ray tracing configuration.</p>
  */
 export interface AwsLambdaFunctionTracingConfig {
   /**
@@ -7506,7 +8013,7 @@ export interface AwsLambdaFunctionDetails {
   Handler?: string;
 
   /**
-   * <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.</p>
+   * <p>The KMS key that is used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.</p>
    */
   KmsKeyArn?: string;
 
@@ -7554,7 +8061,7 @@ export interface AwsLambdaFunctionDetails {
   Timeout?: number;
 
   /**
-   * <p>The function's AWS X-Ray tracing configuration.</p>
+   * <p>The function's X-Ray tracing configuration.</p>
    */
   TracingConfig?: AwsLambdaFunctionTracingConfig;
 
@@ -7868,13 +8375,13 @@ export interface AwsRdsDbClusterDetails {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>The ARN of the AWS KMS master key that is used to encrypt the database instances in the
+   * <p>The ARN of the KMS master key that is used to encrypt the database instances in the
    *          DB cluster.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The identifier of the DB cluster. The identifier must be unique within each AWS Region
+   * <p>The identifier of the DB cluster. The identifier must be unique within each Amazon Web Services Region
    *          and is immutable.</p>
    */
   DbClusterResourceId?: string;
@@ -7924,7 +8431,7 @@ export interface AwsRdsDbClusterDetails {
   CopyTagsToSnapshot?: boolean;
 
   /**
-   * <p>Whether the DB cluster is a clone of a DB cluster owned by a different AWS
+   * <p>Whether the DB cluster is a clone of a DB cluster owned by a different Amazon Web Services
    *          account.</p>
    */
   CrossAccountClone?: boolean;
@@ -8058,7 +8565,7 @@ export interface AwsRdsDbClusterSnapshotDetails {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>The ARN of the AWS KMS master key that is used to encrypt the database instances in the
+   * <p>The ARN of the KMS master key that is used to encrypt the database instances in the
    *          DB cluster.</p>
    */
   KmsKeyId?: string;
@@ -8089,7 +8596,7 @@ export namespace AwsRdsDbClusterSnapshotDetails {
 }
 
 /**
- * <p>An AWS Identity and Access Management (IAM) role associated with the DB instance.</p>
+ * <p>An IAM role associated with the DB instance.</p>
  */
 export interface AwsRdsDbInstanceAssociatedRole {
   /**
@@ -8099,7 +8606,7 @@ export interface AwsRdsDbInstanceAssociatedRole {
   RoleArn?: string;
 
   /**
-   * <p>The name of the feature associated with the IAM)role.</p>
+   * <p>The name of the feature associated with the IAM role.</p>
    */
   FeatureName?: string;
 
@@ -8110,7 +8617,7 @@ export interface AwsRdsDbInstanceAssociatedRole {
    *             <li>
    *                <p>
    *                   <code>ACTIVE</code> - The IAM role ARN is associated with the DB instance and can
-   *                be used to access other AWS services on your behalf.</p>
+   *                be used to access other Amazon Web Services services on your behalf.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8120,7 +8627,7 @@ export interface AwsRdsDbInstanceAssociatedRole {
    *             <li>
    *                <p>
    *                   <code>INVALID</code> - The IAM role ARN is associated with the DB instance. But
-   *                the DB instance is unable to assume the IAM role in order to access other AWS
+   *                the DB instance is unable to assume the IAM role in order to access other Amazon Web Services
    *                services on your behalf. </p>
    *             </li>
    *          </ul>
@@ -8482,7 +8989,7 @@ export namespace AwsRdsDbStatusInfo {
  */
 export interface AwsRdsDbInstanceDetails {
   /**
-   * <p>The AWS Identity and Access Management (IAM) roles associated with the DB
+   * <p>The IAM roles associated with the DB
    *          instance.</p>
    */
   AssociatedRoles?: AwsRdsDbInstanceAssociatedRole[];
@@ -8516,8 +9023,8 @@ export interface AwsRdsDbInstanceDetails {
   DbInstancePort?: number;
 
   /**
-   * <p>The AWS Region-unique, immutable identifier for the DB instance. This identifier is
-   *          found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is
+   * <p>The Amazon Web Services Region-unique, immutable identifier for the DB instance. This identifier is
+   *          found in CloudTrail log entries whenever the KMS key for the DB instance is
    *          accessed. </p>
    */
   DbiResourceId?: string;
@@ -8560,7 +9067,7 @@ export interface AwsRdsDbInstanceDetails {
   EngineVersion?: string;
 
   /**
-   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database
+   * <p>True if mapping of IAM accounts to database
    *          accounts is enabled, and otherwise false.</p>
    *          <p>IAM database authentication can be enabled for the following database engines.</p>
    *          <ul>
@@ -8586,7 +9093,7 @@ export interface AwsRdsDbInstanceDetails {
   InstanceCreateTime?: string;
 
   /**
-   * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the encrypted
+   * <p>If <code>StorageEncrypted</code> is true, the KMS key identifier for the encrypted
    *          DB instance.</p>
    */
   KmsKeyId?: string;
@@ -8796,7 +9303,7 @@ export interface AwsRdsDbInstanceDetails {
   PerformanceInsightsEnabled?: boolean;
 
   /**
-   * <p>The identifier of the AWS KMS key used to encrypt the Performance Insights data.</p>
+   * <p>The identifier of the KMS key used to encrypt the Performance Insights data.</p>
    */
   PerformanceInsightsKmsKeyId?: string;
 
@@ -8806,8 +9313,7 @@ export interface AwsRdsDbInstanceDetails {
   PerformanceInsightsRetentionPeriod?: number;
 
   /**
-   * <p>A list of log types that this DB instance is configured to export to CloudWatch
-   *          Logs.</p>
+   * <p>A list of log types that this DB instance is configured to export to CloudWatch Logs.</p>
    */
   EnabledCloudWatchLogsExports?: string[];
 
@@ -8928,7 +9434,7 @@ export interface AwsRdsDbSnapshotDetails {
   PercentProgress?: number;
 
   /**
-   * <p>The AWS Region that the DB snapshot was created in or copied from.</p>
+   * <p>The Amazon Web Services Region that the DB snapshot was created in or copied from.</p>
    */
   SourceRegion?: string;
 
@@ -8953,7 +9459,7 @@ export interface AwsRdsDbSnapshotDetails {
   Encrypted?: boolean;
 
   /**
-   * <p>If <code>Encrypted</code> is <code>true</code>, the AWS KMS key identifier for the encrypted DB snapshot.</p>
+   * <p>If <code>Encrypted</code> is <code>true</code>, the KMS key identifier for the encrypted DB snapshot.</p>
    */
   KmsKeyId?: string;
 
@@ -8983,6 +9489,75 @@ export namespace AwsRdsDbSnapshotDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsRdsDbSnapshotDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about an Amazon RDS event notification subscription. The subscription allows Amazon RDS to post events to an SNS topic.</p>
+ */
+export interface AwsRdsEventSubscriptionDetails {
+  /**
+   * <p>The identifier of the account that is associated with the event notification subscription.</p>
+   */
+  CustSubscriptionId?: string;
+
+  /**
+   * <p>The identifier of the event notification subscription.</p>
+   */
+  CustomerAwsId?: string;
+
+  /**
+   * <p>Whether the event notification subscription is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The list of event categories for the event notification subscription.</p>
+   */
+  EventCategoriesList?: string[];
+
+  /**
+   * <p>The ARN of the event notification subscription.</p>
+   */
+  EventSubscriptionArn?: string;
+
+  /**
+   * <p>The ARN of the SNS topic to post the event notifications to.</p>
+   */
+  SnsTopicArn?: string;
+
+  /**
+   * <p>A list of source identifiers for the event notification subscription.</p>
+   */
+  SourceIdsList?: string[];
+
+  /**
+   * <p>The source type for the event notification subscription.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>The status of the event notification subscription.</p>
+   *          <p>Valid values: <code>creating</code> | <code>modifying</code> | <code>deleting</code> | <code>active</code> | <code>no-permission</code> | <code>topic-not-exist</code>
+   *          </p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The datetime when the event notification subscription was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  SubscriptionCreationTime?: string;
+}
+
+export namespace AwsRdsEventSubscriptionDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsEventSubscriptionDetails): any => ({
     ...obj,
   });
 }
@@ -9265,7 +9840,7 @@ export namespace AwsRedshiftClusterHsmStatus {
 }
 
 /**
- * <p>An IAM role that the cluster can use to access other AWS services.</p>
+ * <p>An IAM role that the cluster can use to access other Amazon Web Services services.</p>
  */
 export interface AwsRedshiftClusterIamRole {
   /**
@@ -9650,12 +10225,12 @@ export interface AwsRedshiftClusterDetails {
   HsmStatus?: AwsRedshiftClusterHsmStatus;
 
   /**
-   * <p>A list of IAM roles that the cluster can use to access other AWS services.</p>
+   * <p>A list of IAM roles that the cluster can use to access other Amazon Web Services services.</p>
    */
   IamRoles?: AwsRedshiftClusterIamRole[];
 
   /**
-   * <p>The identifier of the AWS KMS encryption key that is used to encrypt data in the
+   * <p>The identifier of the KMS encryption key that is used to encrypt data in the
    *          cluster.</p>
    */
   KmsKeyId?: string;
@@ -9791,7 +10366,7 @@ export interface AwsS3AccountPublicAccessBlockDetails {
   IgnorePublicAcls?: boolean;
 
   /**
-   * <p>Indicates whether to restrict access to an access point or S3 bucket that has a public policy to only AWS service principals and authorized users within the S3 bucket owner's account.</p>
+   * <p>Indicates whether to restrict access to an access point or S3 bucket that has a public policy to only Amazon Web Services service principals and authorized users within the S3 bucket owner's account.</p>
    */
   RestrictPublicBuckets?: boolean;
 }
@@ -10128,7 +10703,7 @@ export interface AwsS3BucketServerSideEncryptionByDefault {
   SSEAlgorithm?: string;
 
   /**
-   * <p>AWS KMS customer master key (CMK) ID to use for the default encryption.</p>
+   * <p>KMS customer master key (CMK) ID to use for the default encryption.</p>
    */
   KMSMasterKeyID?: string;
 }
@@ -10264,7 +10839,7 @@ export interface AwsS3ObjectDetails {
   ServerSideEncryption?: string;
 
   /**
-   * <p>The identifier of the AWS Key Management Service (AWS KMS) symmetric customer managed
+   * <p>The identifier of the KMS symmetric customer managed
    *          customer master key (CMK) that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
@@ -10299,7 +10874,7 @@ export namespace AwsSecretsManagerSecretRotationRules {
 }
 
 /**
- * <p>Details about an AWS Secrets Manager secret.</p>
+ * <p>Details about an Secrets Manager secret.</p>
  */
 export interface AwsSecretsManagerSecretDetails {
   /**
@@ -10313,7 +10888,7 @@ export interface AwsSecretsManagerSecretDetails {
   RotationOccurredWithinFrequency?: boolean;
 
   /**
-   * <p>The ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the
+   * <p>The ARN, Key ID, or alias of the KMS customer master key (CMK) used to encrypt the
    *             <code>SecretString</code> or <code>SecretBinary</code> values for versions of this
    *          secret.</p>
    */
@@ -10368,7 +10943,7 @@ export interface StatusReason {
   /**
    * <p>A code that represents a reason for the control status. For the list of status reason
    *          codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
-   *             <i>AWS Security Hub User Guide</i>. </p>
+   *             <i>Security Hub User Guide</i>. </p>
    */
   ReasonCode: string | undefined;
 
@@ -10416,9 +10991,9 @@ export interface Compliance {
    *                   <li>
    *                      <p>
    *                         <code>NOT_AVAILABLE</code> - Check could not be performed due to a service
-   *                      outage, API error, or because the result of the AWS Config evaluation was
-   *                         <code>NOT_APPLICABLE</code>. If the AWS Config evaluation result was
-   *                         <code>NOT_APPLICABLE</code>, then after 3 days, Security Hub automatically archives
+   *                      outage, API error, or because the result of the Config evaluation was
+   *                         <code>NOT_APPLICABLE</code>. If the Config evaluation result was
+   *                      <code>NOT_APPLICABLE</code>, then after 3 days, Security Hub automatically archives
    *                      the finding.</p>
    *                   </li>
    *                </ul>
@@ -10436,7 +11011,7 @@ export interface Compliance {
   /**
    * <p>For findings generated from controls, a list of reasons behind the value of
    *             <code>Status</code>. For the list of status reason codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
-   *             <i>AWS Security Hub User Guide</i>. </p>
+   *             <i>Security Hub User Guide</i>. </p>
    */
   StatusReasons?: StatusReason[];
 }
@@ -11400,805 +11975,6 @@ export namespace AwsSnsTopicSubscription {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsSnsTopicSubscription): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A wrapper type for the topic's ARN.</p>
- */
-export interface AwsSnsTopicDetails {
-  /**
-   * <p>The ID of an AWS managed customer master key (CMK) for Amazon SNS or a custom
-   *          CMK.</p>
-   */
-  KmsMasterKeyId?: string;
-
-  /**
-   * <p>Subscription is an embedded property that describes the subscription endpoints of an Amazon SNS topic.</p>
-   */
-  Subscription?: AwsSnsTopicSubscription[];
-
-  /**
-   * <p>The name of the topic.</p>
-   */
-  TopicName?: string;
-
-  /**
-   * <p>The subscription's owner.</p>
-   */
-  Owner?: string;
-}
-
-export namespace AwsSnsTopicDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSnsTopicDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Data about a queue.</p>
- */
-export interface AwsSqsQueueDetails {
-  /**
-   * <p>The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again.</p>
-   */
-  KmsDataKeyReusePeriodSeconds?: number;
-
-  /**
-   * <p>The ID of an AWS managed customer master key (CMK) for Amazon SQS or a custom
-   *          CMK.</p>
-   */
-  KmsMasterKeyId?: string;
-
-  /**
-   * <p>The name of the new queue.</p>
-   */
-  QueueName?: string;
-
-  /**
-   * <p>The ARN of the dead-letter queue to which Amazon SQS moves
-   *          messages after the value of <code>maxReceiveCount</code> is exceeded. </p>
-   */
-  DeadLetterTargetArn?: string;
-}
-
-export namespace AwsSqsQueueDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSqsQueueDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides the details about the compliance status for a patch.</p>
- */
-export interface AwsSsmComplianceSummary {
-  /**
-   * <p>The current patch compliance status.</p>
-   *          <p>The possible status values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLIANT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NON_COMPLIANT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNSPECIFIED_DATA</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: string;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *             <code>CRITICAL</code>.</p>
-   */
-  CompliantCriticalCount?: number;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *          <code>HIGH</code>.</p>
-   */
-  CompliantHighCount?: number;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *             <code>MEDIUM</code>.</p>
-   */
-  CompliantMediumCount?: number;
-
-  /**
-   * <p>The type of execution that was used determine compliance.</p>
-   */
-  ExecutionType?: string;
-
-  /**
-   * <p>For the patch items that are noncompliant, the number of items that have a severity of
-   *             <code>CRITICAL</code>.</p>
-   */
-  NonCompliantCriticalCount?: number;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *             <code>INFORMATIONAL</code>.</p>
-   */
-  CompliantInformationalCount?: number;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>INFORMATIONAL</code>.</p>
-   */
-  NonCompliantInformationalCount?: number;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *             <code>UNSPECIFIED</code>.</p>
-   */
-  CompliantUnspecifiedCount?: number;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>LOW</code>.</p>
-   */
-  NonCompliantLowCount?: number;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>HIGH</code>.</p>
-   */
-  NonCompliantHighCount?: number;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *          <code>LOW</code>.</p>
-   */
-  CompliantLowCount?: number;
-
-  /**
-   * <p>The type of resource for which the compliance was determined. For
-   *             <code>AwsSsmPatchCompliance</code>, <code>ComplianceType</code> is <code>Patch</code>. </p>
-   */
-  ComplianceType?: string;
-
-  /**
-   * <p>The identifier of the patch baseline. The patch baseline lists the patches that are
-   *          approved for installation.</p>
-   */
-  PatchBaselineId?: string;
-
-  /**
-   * <p>The highest severity for the patches.</p>
-   */
-  OverallSeverity?: string;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>MEDIUM</code>.</p>
-   */
-  NonCompliantMediumCount?: number;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>UNSPECIFIED</code>.</p>
-   */
-  NonCompliantUnspecifiedCount?: number;
-
-  /**
-   * <p>The identifier of the patch group for which compliance was determined. A patch group
-   *          uses tags to group EC2 instances that should have the same patch compliance.</p>
-   */
-  PatchGroup?: string;
-}
-
-export namespace AwsSsmComplianceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSsmComplianceSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides details about the compliance for a patch.</p>
- */
-export interface AwsSsmPatch {
-  /**
-   * <p>The compliance status details for the patch.</p>
-   */
-  ComplianceSummary?: AwsSsmComplianceSummary;
-}
-
-export namespace AwsSsmPatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSsmPatch): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information about the state of a patch on an instance based on the patch
- *          baseline that was used to patch the instance.</p>
- */
-export interface AwsSsmPatchComplianceDetails {
-  /**
-   * <p>Information about the status of a patch.</p>
-   */
-  Patch?: AwsSsmPatch;
-}
-
-export namespace AwsSsmPatchComplianceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSsmPatchComplianceDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about the action that CloudFront or AWS WAF takes when a web request matches the
- *          conditions in the rule. </p>
- */
-export interface WafAction {
-  /**
-   * <p>Specifies how you want AWS WAF to respond to requests that match the settings in a
-   *          rule.</p>
-   *          <p>Valid settings include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALLOW</code> - AWS WAF allows requests</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BLOCK</code> - AWS WAF blocks requests</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COUNT</code> - AWS WAF increments a counter of the requests that match all
-   *                of the conditions in the rule. AWS WAF then continues to inspect the web request
-   *                based on the remaining rules in the web ACL. You can't specify <code>COUNT</code> for
-   *                the default action for a WebACL.</p>
-   *             </li>
-   *          </ul>
-   */
-  Type?: string;
-}
-
-export namespace WafAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WafAction): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about a rule to exclude from a rule group.</p>
- */
-export interface WafExcludedRule {
-  /**
-   * <p>The unique identifier for the rule to exclude from the rule group.</p>
-   */
-  RuleId?: string;
-}
-
-export namespace WafExcludedRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WafExcludedRule): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about an override action for a rule.</p>
- */
-export interface WafOverrideAction {
-  /**
-   * <p>
-   *             <code>COUNT</code> overrides the action specified by the individual rule within a
-   *             <code>RuleGroup</code> .</p>
-   *          <p>If set to <code>NONE</code>, the rule's action takes place.</p>
-   */
-  Type?: string;
-}
-
-export namespace WafOverrideAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WafOverrideAction): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details for a rule in a WAF WebACL.</p>
- */
-export interface AwsWafWebAclRule {
-  /**
-   * <p>Specifies the action that CloudFront or AWS WAF takes when a web request matches the
-   *          conditions in the rule. </p>
-   */
-  Action?: WafAction;
-
-  /**
-   * <p>Rules to exclude from a rule group.</p>
-   */
-  ExcludedRules?: WafExcludedRule[];
-
-  /**
-   * <p>Use the <code>OverrideAction</code> to test your RuleGroup.</p>
-   *          <p>Any rule in a RuleGroup can potentially block a request. If you set the
-   *             <code>OverrideAction</code> to <code>None</code>, the RuleGroup blocks a request if any
-   *          individual rule in the RuleGroup matches the request and is configured to block that
-   *          request.</p>
-   *          <p>However, if you first want to test the RuleGroup, set the <code>OverrideAction</code> to
-   *             <code>Count</code>. The RuleGroup then overrides any block action specified by
-   *          individual rules contained within the group. Instead of blocking matching requests, those
-   *          requests are counted.</p>
-   *          <p>
-   *             <code>ActivatedRule</code>|<code>OverrideAction</code> applies only when updating or
-   *          adding a RuleGroup to a WebACL. In this case you do not use
-   *             <code>ActivatedRule</code>|<code>Action</code>. For all other update requests,
-   *             <code>ActivatedRule</code>|<code>Action</code> is used instead of
-   *             <code>ActivatedRule</code>|<code>OverrideAction</code>. </p>
-   */
-  OverrideAction?: WafOverrideAction;
-
-  /**
-   * <p>Specifies the order in which the rules in a WebACL are evaluated. Rules with a lower
-   *          value for <code>Priority</code> are evaluated before rules with a higher value. The value
-   *          must be a unique integer. If you add multiple rules to a WebACL, the values do not need to
-   *          be consecutive.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>The identifier for a rule.</p>
-   */
-  RuleId?: string;
-
-  /**
-   * <p>The rule type.</p>
-   *          <p>Valid values: <code>REGULAR</code> | <code>RATE_BASED</code> | <code>GROUP</code>
-   *          </p>
-   *          <p>The default is <code>REGULAR</code>.</p>
-   */
-  Type?: string;
-}
-
-export namespace AwsWafWebAclRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafWebAclRule): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about a WAF WebACL.</p>
- */
-export interface AwsWafWebAclDetails {
-  /**
-   * <p>A friendly name or description of the WebACL. You can't change the name of a WebACL
-   *          after you create it.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The action to perform if none of the rules contained in the WebACL match.</p>
-   */
-  DefaultAction?: string;
-
-  /**
-   * <p>An array that contains the action for each rule in a WebACL, the priority of the rule,
-   *          and the ID of the rule.</p>
-   */
-  Rules?: AwsWafWebAclRule[];
-
-  /**
-   * <p>A unique identifier for a WebACL.</p>
-   */
-  WebAclId?: string;
-}
-
-export namespace AwsWafWebAclDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafWebAclDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Container details related to a finding.</p>
- */
-export interface ContainerDetails {
-  /**
-   * <p>The name of the container related to a finding.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The identifier of the image related to a finding.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The name of the image related to a finding.</p>
-   */
-  ImageName?: string;
-
-  /**
-   * <p>Indicates when the container started.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  LaunchedAt?: string;
-}
-
-export namespace ContainerDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Additional details about a resource related to a finding.</p>
- *          <p>To provide the details, use the object that corresponds to the resource type. For
- *          example, if the resource type is <code>AwsEc2Instance</code>, then you use the
- *             <code>AwsEc2Instance</code> object to provide the details.</p>
- *          <p>If the type-specific object does not contain all of the fields you want to populate,
- *          then you use the <code>Other</code> object to populate those additional fields.</p>
- *          <p>You also use the <code>Other</code> object to populate the details when the selected
- *          type does not have a corresponding object.</p>
- */
-export interface ResourceDetails {
-  /**
-   * <p>Details for an autoscaling group.</p>
-   */
-  AwsAutoScalingAutoScalingGroup?: AwsAutoScalingAutoScalingGroupDetails;
-
-  /**
-   * <p>Details for an AWS CodeBuild project.</p>
-   */
-  AwsCodeBuildProject?: AwsCodeBuildProjectDetails;
-
-  /**
-   * <p>Details about a CloudFront distribution.</p>
-   */
-  AwsCloudFrontDistribution?: AwsCloudFrontDistributionDetails;
-
-  /**
-   * <p>Details about an EC2 instance related to a finding.</p>
-   */
-  AwsEc2Instance?: AwsEc2InstanceDetails;
-
-  /**
-   * <p>Details for an Amazon EC2 network interface.</p>
-   */
-  AwsEc2NetworkInterface?: AwsEc2NetworkInterfaceDetails;
-
-  /**
-   * <p>Details for an EC2 security group.</p>
-   */
-  AwsEc2SecurityGroup?: AwsEc2SecurityGroupDetails;
-
-  /**
-   * <p>Details for an EC2 volume.</p>
-   */
-  AwsEc2Volume?: AwsEc2VolumeDetails;
-
-  /**
-   * <p>Details for an EC2 VPC.</p>
-   */
-  AwsEc2Vpc?: AwsEc2VpcDetails;
-
-  /**
-   * <p>Details about an Elastic IP address.</p>
-   */
-  AwsEc2Eip?: AwsEc2EipDetails;
-
-  /**
-   * <p>Details about a subnet in EC2.</p>
-   */
-  AwsEc2Subnet?: AwsEc2SubnetDetails;
-
-  /**
-   * <p>Details about an EC2 network access control list (ACL).</p>
-   */
-  AwsEc2NetworkAcl?: AwsEc2NetworkAclDetails;
-
-  /**
-   * <p>Details about a load balancer.</p>
-   */
-  AwsElbv2LoadBalancer?: AwsElbv2LoadBalancerDetails;
-
-  /**
-   * <p>Details about an Elastic Beanstalk environment.</p>
-   */
-  AwsElasticBeanstalkEnvironment?: AwsElasticBeanstalkEnvironmentDetails;
-
-  /**
-   * <p>Details for an Elasticsearch domain.</p>
-   */
-  AwsElasticsearchDomain?: AwsElasticsearchDomainDetails;
-
-  /**
-   * <p>Details about an Amazon S3 bucket related to a finding.</p>
-   */
-  AwsS3Bucket?: AwsS3BucketDetails;
-
-  /**
-   * <p>Details about the Amazon S3 Public Access Block configuration for an account.</p>
-   */
-  AwsS3AccountPublicAccessBlock?: AwsS3AccountPublicAccessBlockDetails;
-
-  /**
-   * <p>Details about an Amazon S3 object related to a finding.</p>
-   */
-  AwsS3Object?: AwsS3ObjectDetails;
-
-  /**
-   * <p>Details about a Secrets Manager secret.</p>
-   */
-  AwsSecretsManagerSecret?: AwsSecretsManagerSecretDetails;
-
-  /**
-   * <p>Details about an IAM access key related to a finding.</p>
-   */
-  AwsIamAccessKey?: AwsIamAccessKeyDetails;
-
-  /**
-   * <p>Details about an IAM user.</p>
-   */
-  AwsIamUser?: AwsIamUserDetails;
-
-  /**
-   * <p>Details about an IAM permissions policy.</p>
-   */
-  AwsIamPolicy?: AwsIamPolicyDetails;
-
-  /**
-   * <p>Provides information about a version 2 stage for Amazon API Gateway.</p>
-   */
-  AwsApiGatewayV2Stage?: AwsApiGatewayV2StageDetails;
-
-  /**
-   * <p>Provides information about a version 2 API in Amazon API Gateway.</p>
-   */
-  AwsApiGatewayV2Api?: AwsApiGatewayV2ApiDetails;
-
-  /**
-   * <p>Details about a DynamoDB table.</p>
-   */
-  AwsDynamoDbTable?: AwsDynamoDbTableDetails;
-
-  /**
-   * <p>Provides information about a version 1 Amazon API Gateway stage.</p>
-   */
-  AwsApiGatewayStage?: AwsApiGatewayStageDetails;
-
-  /**
-   * <p>Provides information about a REST API in version 1 of Amazon API Gateway.</p>
-   */
-  AwsApiGatewayRestApi?: AwsApiGatewayRestApiDetails;
-
-  /**
-   * <p>Provides details about a CloudTrail trail.</p>
-   */
-  AwsCloudTrailTrail?: AwsCloudTrailTrailDetails;
-
-  /**
-   * <p>Provides information about the state of a patch on an instance based on the patch baseline that was used to patch the instance.</p>
-   */
-  AwsSsmPatchCompliance?: AwsSsmPatchComplianceDetails;
-
-  /**
-   * <p>Provides details about an AWS Certificate Manager (ACM) certificate.</p>
-   */
-  AwsCertificateManagerCertificate?: AwsCertificateManagerCertificateDetails;
-
-  /**
-   * <p>Contains details about an Amazon Redshift cluster.</p>
-   */
-  AwsRedshiftCluster?: AwsRedshiftClusterDetails;
-
-  /**
-   * <p>contains details about a Classic Load Balancer.</p>
-   */
-  AwsElbLoadBalancer?: AwsElbLoadBalancerDetails;
-
-  /**
-   * <p>Contains details about an IAM group.</p>
-   */
-  AwsIamGroup?: AwsIamGroupDetails;
-
-  /**
-   * <p>Details about an IAM role.</p>
-   */
-  AwsIamRole?: AwsIamRoleDetails;
-
-  /**
-   * <p>Details about a KMS key.</p>
-   */
-  AwsKmsKey?: AwsKmsKeyDetails;
-
-  /**
-   * <p>Details about a Lambda function.</p>
-   */
-  AwsLambdaFunction?: AwsLambdaFunctionDetails;
-
-  /**
-   * <p>Details for a Lambda layer version.</p>
-   */
-  AwsLambdaLayerVersion?: AwsLambdaLayerVersionDetails;
-
-  /**
-   * <p>Details about an Amazon RDS database instance.</p>
-   */
-  AwsRdsDbInstance?: AwsRdsDbInstanceDetails;
-
-  /**
-   * <p>Details about an SNS topic.</p>
-   */
-  AwsSnsTopic?: AwsSnsTopicDetails;
-
-  /**
-   * <p>Details about an SQS queue.</p>
-   */
-  AwsSqsQueue?: AwsSqsQueueDetails;
-
-  /**
-   * <p>Details for a WAF WebACL.</p>
-   */
-  AwsWafWebAcl?: AwsWafWebAclDetails;
-
-  /**
-   * <p>Details about an Amazon RDS database snapshot.</p>
-   */
-  AwsRdsDbSnapshot?: AwsRdsDbSnapshotDetails;
-
-  /**
-   * <p>Details about an Amazon RDS database cluster snapshot.</p>
-   */
-  AwsRdsDbClusterSnapshot?: AwsRdsDbClusterSnapshotDetails;
-
-  /**
-   * <p>Details about an Amazon RDS database cluster.</p>
-   */
-  AwsRdsDbCluster?: AwsRdsDbClusterDetails;
-
-  /**
-   * <p>Details about an ECS cluster.</p>
-   */
-  AwsEcsCluster?: AwsEcsClusterDetails;
-
-  /**
-   * <p>Details about a task definition. A task definition describes the container and volume definitions of an Amazon Elastic Container Service task.</p>
-   */
-  AwsEcsTaskDefinition?: AwsEcsTaskDefinitionDetails;
-
-  /**
-   * <p>Details about a container resource related to a finding.</p>
-   */
-  Container?: ContainerDetails;
-
-  /**
-   * <p>Details about a resource that are not available in a type-specific details object. Use
-   *          the <code>Other</code> object in the following cases.</p>
-   *          <ul>
-   *             <li>
-   *                <p>The type-specific object does not contain all of the fields that you want to
-   *                populate. In this case, first use the type-specific object to populate those fields.
-   *                Use the <code>Other</code> object to populate the fields that are missing from the
-   *                type-specific object.</p>
-   *             </li>
-   *             <li>
-   *                <p>The resource type does not have a corresponding object. This includes resources
-   *                for which the type is <code>Other</code>. </p>
-   *             </li>
-   *          </ul>
-   */
-  Other?: { [key: string]: string };
-}
-
-export namespace ResourceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDetails): any => ({
-    ...obj,
-  });
-}
-
-export enum Partition {
-  AWS = "aws",
-  AWS_CN = "aws-cn",
-  AWS_US_GOV = "aws-us-gov",
-}
-
-/**
- * <p>A resource related to a finding.</p>
- */
-export interface Resource {
-  /**
-   * <p>The type of the resource that details are provided for. If possible, set
-   *             <code>Type</code> to one of the supported resource types. For example, if the resource
-   *          is an EC2 instance, then set <code>Type</code> to <code>AwsEc2Instance</code>.</p>
-   *          <p>If the resource does not match any of the provided types, then set <code>Type</code> to
-   *             <code>Other</code>. </p>
-   */
-  Type: string | undefined;
-
-  /**
-   * <p>The canonical identifier for the given resource type.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The canonical AWS partition name that the Region is assigned to.</p>
-   */
-  Partition?: Partition | string;
-
-  /**
-   * <p>The canonical AWS external Region name where this resource is located.</p>
-   */
-  Region?: string;
-
-  /**
-   * <p>Identifies the role of the resource in the finding. A resource is either the actor or target of the finding activity,</p>
-   */
-  ResourceRole?: string;
-
-  /**
-   * <p>A list of AWS tags associated with a resource at the time the finding was
-   *          processed.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>Contains information about sensitive data that was detected on the resource.</p>
-   */
-  DataClassification?: DataClassificationDetails;
-
-  /**
-   * <p>Additional details about the resource related to a finding.</p>
-   */
-  Details?: ResourceDetails;
-}
-
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
 }

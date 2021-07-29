@@ -27,7 +27,10 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
     __MetadataBearer {}
 
 /**
- * <p>Returns the list of AWS SSO identity store attributes that have been configured to work with attributes-based access control (ABAC) for the specified AWS SSO instance. This will not return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.</p>
+ * <p>Returns the list of Amazon Web Services SSO identity store attributes that have been configured to
+ *       work with attributes-based access control (ABAC) for the specified Amazon Web Services SSO instance. This
+ *       will not return attributes configured and sent by an external identity provider.
+ *       For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>Amazon Web Services SSO User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

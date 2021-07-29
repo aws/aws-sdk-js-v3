@@ -21,7 +21,7 @@ export interface DescribeLoggingOptionsCommandInput extends DescribeLoggingOptio
 export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the current settings of the AWS IoT Analytics logging options.</p>
+ * <p>Retrieves the current settings of the IoT Analytics logging options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

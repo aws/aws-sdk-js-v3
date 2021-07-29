@@ -1,5 +1,6 @@
 export * from "./RedshiftDataClient";
 export * from "./RedshiftData";
+export * from "./commands/BatchExecuteStatementCommand";
 export * from "./commands/CancelStatementCommand";
 export * from "./commands/DescribeStatementCommand";
 export * from "./commands/DescribeTableCommand";

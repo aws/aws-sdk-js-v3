@@ -21,7 +21,7 @@ export interface DescribeDRTAccessCommandInput extends DescribeDRTAccessRequest 
 export interface DescribeDRTAccessCommandOutput extends DescribeDRTAccessResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the current role and list of Amazon S3 log buckets used by the DDoS Response Team (DRT) to access your AWS account while assisting with attack mitigation.</p>
+ * <p>Returns the current role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your Amazon Web Services account while assisting with attack mitigation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

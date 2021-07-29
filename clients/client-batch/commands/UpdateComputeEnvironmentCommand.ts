@@ -21,7 +21,7 @@ export interface UpdateComputeEnvironmentCommandInput extends UpdateComputeEnvir
 export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an AWS Batch compute environment.</p>
+ * <p>Updates an Batch compute environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

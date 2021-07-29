@@ -740,6 +740,16 @@ import {
   SendChannelMessageCommandInput,
   SendChannelMessageCommandOutput,
 } from "./commands/SendChannelMessageCommand";
+import {
+  StartMeetingTranscriptionCommand,
+  StartMeetingTranscriptionCommandInput,
+  StartMeetingTranscriptionCommandOutput,
+} from "./commands/StartMeetingTranscriptionCommand";
+import {
+  StopMeetingTranscriptionCommand,
+  StopMeetingTranscriptionCommandInput,
+  StopMeetingTranscriptionCommandOutput,
+} from "./commands/StopMeetingTranscriptionCommand";
 import { TagAttendeeCommand, TagAttendeeCommandInput, TagAttendeeCommandOutput } from "./commands/TagAttendeeCommand";
 import { TagMeetingCommand, TagMeetingCommandInput, TagMeetingCommandOutput } from "./commands/TagMeetingCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -6409,6 +6419,70 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: SendChannelMessageCommandOutput) => void
   ): Promise<SendChannelMessageCommandOutput> | void {
     const command = new SendChannelMessageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Start transcription for the specified <code>meetingId</code>. </p>
+   */
+  public startMeetingTranscription(
+    args: StartMeetingTranscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMeetingTranscriptionCommandOutput>;
+  public startMeetingTranscription(
+    args: StartMeetingTranscriptionCommandInput,
+    cb: (err: any, data?: StartMeetingTranscriptionCommandOutput) => void
+  ): void;
+  public startMeetingTranscription(
+    args: StartMeetingTranscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMeetingTranscriptionCommandOutput) => void
+  ): void;
+  public startMeetingTranscription(
+    args: StartMeetingTranscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMeetingTranscriptionCommandOutput) => void),
+    cb?: (err: any, data?: StartMeetingTranscriptionCommandOutput) => void
+  ): Promise<StartMeetingTranscriptionCommandOutput> | void {
+    const command = new StartMeetingTranscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops transcription for the specified <code>meetingId</code>.</p>
+   */
+  public stopMeetingTranscription(
+    args: StopMeetingTranscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopMeetingTranscriptionCommandOutput>;
+  public stopMeetingTranscription(
+    args: StopMeetingTranscriptionCommandInput,
+    cb: (err: any, data?: StopMeetingTranscriptionCommandOutput) => void
+  ): void;
+  public stopMeetingTranscription(
+    args: StopMeetingTranscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopMeetingTranscriptionCommandOutput) => void
+  ): void;
+  public stopMeetingTranscription(
+    args: StopMeetingTranscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopMeetingTranscriptionCommandOutput) => void),
+    cb?: (err: any, data?: StopMeetingTranscriptionCommandOutput) => void
+  ): Promise<StopMeetingTranscriptionCommandOutput> | void {
+    const command = new StopMeetingTranscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -19,7 +19,7 @@ export namespace AccessDeniedException {
 }
 
 /**
- * <p>In order to grant the necessary access to the DDoS Response Team (DRT), the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>
+ * <p>In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>
  */
 export interface AccessDeniedForDependencyException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedForDependencyException";
@@ -38,7 +38,7 @@ export namespace AccessDeniedForDependencyException {
 
 export interface AssociateDRTLogBucketRequest {
   /**
-   * <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>
+   * <p>The Amazon S3 bucket that contains the logs that you want to share.</p>
    */
   LogBucket: string | undefined;
 }
@@ -244,7 +244,7 @@ export namespace ResourceNotFoundException {
 
 export interface AssociateDRTRoleRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the role the DRT will use to access your AWS account.</p>
+   * <p>The Amazon Resource Name (ARN) of the role the SRT will use to access your Amazon Web Services account.</p>
    * 	        <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a> managed policy to this role.  For more information see <a href=" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Attaching and Detaching IAM Policies</a>.</p>
    */
   RoleArn: string | undefined;
@@ -303,7 +303,7 @@ export namespace AssociateHealthCheckResponse {
 }
 
 /**
- * <p>Contact information that the DRT can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
+ * <p>Contact information that the SRT can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
  */
 export interface EmergencyContact {
   /**
@@ -333,7 +333,7 @@ export namespace EmergencyContact {
 
 export interface AssociateProactiveEngagementDetailsRequest {
   /**
-   * <p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you for escalations to the DRT and to initiate proactive customer support. </p>
+   * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support. </p>
    *          <p>To enable proactive engagement, the contact list must include at least one phone number.</p>
    *          <note>
    *             <p>The contacts that you provide here replace any contacts that were already defined. If you already have contacts defined and want to use them, retrieve the list using <code>DescribeEmergencyContactSettings</code> and then provide it here.  </p>
@@ -454,35 +454,39 @@ export enum Unit {
 }
 
 /**
- * <p>Details of the described attack.</p>
+ * <p>Details of a Shield event. This is provided as part of an <a>AttackDetail</a>.</p>
  */
 export interface AttackProperty {
   /**
-   * <p>The type of distributed denial of service (DDoS) event that was observed.
-   *             <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code>
+   * <p>The type of Shield event that was observed. <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code>
    *          indicates layer 7 events.</p>
+   *          <p>For infrastructure
+   *   layer events (L3 and L4 events) after January 25, 2021, you can view metrics for top contributors in Amazon CloudWatch metrics.
+   *            For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms">Shield metrics and alarms</a>
+   *                in the <i>WAF Developer Guide</i>. </p>
    */
   AttackLayer?: AttackLayer | string;
 
   /**
-   * <p>Defines the DDoS attack property information that is provided. The
+   * <p>Defines the Shield event property information that is provided. The
    *             <code>WORDPRESS_PINGBACK_REFLECTOR</code> and <code>WORDPRESS_PINGBACK_SOURCE</code>
-   *          values are valid only for WordPress reflective pingback DDoS attacks.</p>
+   *          values are valid only for WordPress reflective pingback events.</p>
    */
   AttackPropertyIdentifier?: AttackPropertyIdentifier | string;
 
   /**
-   * <p>The array of contributor objects that includes the top five contributors to an attack. </p>
+   * <p>Contributor objects for the top five contributors to a Shield event. </p>
    */
   TopContributors?: Contributor[];
 
   /**
-   * <p>The unit of the <code>Value</code> of the contributions.</p>
+   * <p>The unit used for the <code>Contributor</code>
+   *             <code>Value</code> property. </p>
    */
   Unit?: Unit | string;
 
   /**
-   * <p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>
+   * <p>The total contributions made to this Shield event by all contributors.</p>
    */
   Total?: number;
 }
@@ -613,7 +617,11 @@ export interface AttackDetail {
   AttackCounters?: SummarizedCounter[];
 
   /**
-   * <p>The array of <a>AttackProperty</a> objects.</p>
+   * <p>The array of objects that provide details of the Shield event. </p>
+   *          <p>For infrastructure
+   *   layer events (L3 and L4 events) after January 25, 2021, you can view metrics for top contributors in Amazon CloudWatch metrics.
+   *            For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms">Shield metrics and alarms</a>
+   *                in the <i>WAF Developer Guide</i>. </p>
    */
   AttackProperties?: AttackProperty[];
 
@@ -824,7 +832,7 @@ export enum AutoRenew {
 }
 
 /**
- * <p>A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.</p>
+ * <p>A tag associated with an Amazon Web Services resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a resource.</p>
  */
 export interface Tag {
   /**
@@ -868,12 +876,12 @@ export interface CreateProtectionRequest {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an AWS CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i>
+   *                <p>For an Amazon CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an AWS Global Accelerator accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i>
+   *                <p>For an Global Accelerator accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i>
    *                   </code>
    *                </p>
    *             </li>
@@ -990,7 +998,7 @@ export interface CreateProtectionGroupRequest {
   ProtectionGroupId: string | undefined;
 
   /**
-   * <p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p>
+   * <p>Defines how Shield combines resource data for the group in order to detect, mitigate, and report events.</p>
    *          <ul>
    *             <li>
    *                <p>Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.</p>
@@ -999,7 +1007,7 @@ export interface CreateProtectionGroupRequest {
    *                <p>Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.</p>
    *             </li>
    *             <li>
-   *                <p>Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.</p>
+   *                <p>Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include Amazon CloudFront and origin resources for CloudFront distributions.</p>
    *             </li>
    *          </ul>
    */
@@ -1265,12 +1273,12 @@ export namespace DescribeDRTAccessRequest {
 
 export interface DescribeDRTAccessResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.</p>
+   * <p>The Amazon Resource Name (ARN) of the role the SRT used to access your Amazon Web Services account.</p>
    */
   RoleArn?: string;
 
   /**
-   * <p>The list of Amazon S3 buckets accessed by the DRT.</p>
+   * <p>The list of Amazon S3 buckets accessed by the SRT.</p>
    */
   LogBucketList?: string[];
 }
@@ -1297,7 +1305,7 @@ export namespace DescribeEmergencyContactSettingsRequest {
 
 export interface DescribeEmergencyContactSettingsResponse {
   /**
-   * <p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
+   * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
    */
   EmergencyContactList?: EmergencyContact[];
 }
@@ -1319,7 +1327,7 @@ export interface DescribeProtectionRequest {
   ProtectionId?: string;
 
   /**
-   * <p>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a> object that is
+   * <p>The ARN (Amazon Resource Name) of the Amazon Web Services resource for the <a>Protection</a> object that is
    *          described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
    */
   ResourceArn?: string;
@@ -1349,7 +1357,7 @@ export interface Protection {
   Name?: string;
 
   /**
-   * <p>The ARN (Amazon Resource Name) of the AWS resource that is protected.</p>
+   * <p>The ARN (Amazon Resource Name) of the Amazon Web Services resource that is protected.</p>
    */
   ResourceArn?: string;
 
@@ -1406,7 +1414,7 @@ export namespace DescribeProtectionGroupRequest {
 }
 
 /**
- * <p>A grouping of protected resources that you and AWS Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
+ * <p>A grouping of protected resources that you and Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
  */
 export interface ProtectionGroup {
   /**
@@ -1415,7 +1423,7 @@ export interface ProtectionGroup {
   ProtectionGroupId: string | undefined;
 
   /**
-   * <p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p>
+   * <p>Defines how Shield combines resource data for the group in order to detect, mitigate, and report events.</p>
    *          <ul>
    *             <li>
    *                <p>Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.</p>
@@ -1424,7 +1432,7 @@ export interface ProtectionGroup {
    *                <p>Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.</p>
    *             </li>
    *             <li>
-   *                <p>Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.</p>
+   *                <p>Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include Amazon CloudFront distributions and origin resources for CloudFront distributions.</p>
    *             </li>
    *          </ul>
    */
@@ -1463,7 +1471,7 @@ export namespace ProtectionGroup {
 
 export interface DescribeProtectionGroupResponse {
   /**
-   * <p>A grouping of protected resources that you and AWS Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
+   * <p>A grouping of protected resources that you and Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
    */
   ProtectionGroup: ProtectionGroup | undefined;
 }
@@ -1624,7 +1632,7 @@ export namespace SubscriptionLimits {
 }
 
 /**
- * <p>Information about the AWS Shield Advanced subscription for an account.</p>
+ * <p>Information about the Shield Advanced subscription for an account.</p>
  */
 export interface Subscription {
   /**
@@ -1638,7 +1646,7 @@ export interface Subscription {
   EndTime?: Date;
 
   /**
-   * <p>The length, in seconds, of the AWS Shield Advanced subscription for the account.</p>
+   * <p>The length, in seconds, of the Shield Advanced subscription for the account.</p>
    */
   TimeCommitmentInSeconds?: number;
 
@@ -1654,9 +1662,9 @@ export interface Subscription {
   Limits?: Limit[];
 
   /**
-   * <p>If <code>ENABLED</code>, the DDoS Response Team (DRT) will use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
+   * <p>If <code>ENABLED</code>, the Shield Response Team (SRT) will use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>
    *          <p>If <code>PENDING</code>, you have requested proactive engagement and the request is pending. The status changes to <code>ENABLED</code> when your request is fully processed.</p>
-   *          <p>If <code>DISABLED</code>, the DRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>
+   *          <p>If <code>DISABLED</code>, the SRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>
    */
   ProactiveEngagementStatus?: ProactiveEngagementStatus | string;
 
@@ -1682,7 +1690,7 @@ export namespace Subscription {
 
 export interface DescribeSubscriptionResponse {
   /**
-   * <p>The AWS Shield Advanced subscription details for an account.</p>
+   * <p>The Shield Advanced subscription details for an account.</p>
    */
   Subscription?: Subscription;
 }
@@ -1720,7 +1728,7 @@ export namespace DisableProactiveEngagementResponse {
 
 export interface DisassociateDRTLogBucketRequest {
   /**
-   * <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>
+   * <p>The Amazon S3 bucket that contains the logs that you want to share.</p>
    */
   LogBucket: string | undefined;
 }
@@ -1965,7 +1973,7 @@ export interface ListProtectionGroupsResponse {
   ProtectionGroups: ProtectionGroup[] | undefined;
 
   /**
-   * <p>If you specify a value for <code>MaxResults</code> and you have more protection groups than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>
+   * <p>If you specify a value for <code>MaxResults</code> and you have more protection groups than the value of MaxResults, Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>
    */
   NextToken?: string;
 }
@@ -2009,7 +2017,7 @@ export interface ListProtectionsResponse {
   Protections?: Protection[];
 
   /**
-   * <p>If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.</p>
+   * <p>If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.</p>
    *          <p>Shield Advanced might return the list of <a>Protection</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>Protection</a> objects to return, Shield Advanced will always also return a <code>NextToken</code>.</p>
    */
   NextToken?: string;
@@ -2059,7 +2067,7 @@ export interface ListResourcesInProtectionGroupResponse {
   ResourceArns: string[] | undefined;
 
   /**
-   * <p>If you specify a value for <code>MaxResults</code> and you have more resources in the protection group than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>
+   * <p>If you specify a value for <code>MaxResults</code> and you have more resources in the protection group than the value of MaxResults, Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>
    */
   NextToken?: string;
 }
@@ -2171,7 +2179,7 @@ export namespace UntagResourceResponse {
 
 export interface UpdateEmergencyContactSettingsRequest {
   /**
-   * <p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
+   * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
    *          <p>If you have proactive engagement enabled, the contact list must include at least one phone number.</p>
    */
   EmergencyContactList?: EmergencyContact[];
@@ -2204,7 +2212,7 @@ export interface UpdateProtectionGroupRequest {
   ProtectionGroupId: string | undefined;
 
   /**
-   * <p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p>
+   * <p>Defines how Shield combines resource data for the group in order to detect, mitigate, and report events.</p>
    *          <ul>
    *             <li>
    *                <p>Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.</p>
@@ -2213,7 +2221,7 @@ export interface UpdateProtectionGroupRequest {
    *                <p>Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.</p>
    *             </li>
    *             <li>
-   *                <p>Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.</p>
+   *                <p>Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include Amazon CloudFront distributions and origin resources for CloudFront distributions.</p>
    *             </li>
    *          </ul>
    */

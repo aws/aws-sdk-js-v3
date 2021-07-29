@@ -8031,6 +8031,7 @@ const deserializeAws_restJson1SidewalkAccountList = (
 
 const deserializeAws_restJson1SidewalkDevice = (output: any, context: __SerdeContext): SidewalkDevice => {
   return {
+    AmazonId: __expectString(output.AmazonId),
     DeviceCertificates:
       output.DeviceCertificates !== undefined && output.DeviceCertificates !== null
         ? deserializeAws_restJson1DeviceCertificateList(output.DeviceCertificates, context)

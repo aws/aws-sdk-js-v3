@@ -79,7 +79,7 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  *          <p>You can configure IAM policies to restrict access to fields and field values. For
  *          example, you might not want member accounts to be able to suppress findings or change the
  *          finding severity. See <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring access to BatchUpdateFindings</a> in the
- *             <i>AWS Security Hub User Guide</i>.</p>
+ *          <i>Security Hub User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

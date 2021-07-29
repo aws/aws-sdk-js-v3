@@ -187,6 +187,8 @@ export * from "./commands/RestorePhoneNumberCommand";
 export * from "./commands/SearchAvailablePhoneNumbersCommand";
 export * from "./pagination/SearchAvailablePhoneNumbersPaginator";
 export * from "./commands/SendChannelMessageCommand";
+export * from "./commands/StartMeetingTranscriptionCommand";
+export * from "./commands/StopMeetingTranscriptionCommand";
 export * from "./commands/TagAttendeeCommand";
 export * from "./commands/TagMeetingCommand";
 export * from "./commands/TagResourceCommand";

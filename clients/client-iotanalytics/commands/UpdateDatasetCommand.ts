@@ -21,7 +21,7 @@ export interface UpdateDatasetCommandInput extends UpdateDatasetRequest {}
 export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the settings of a data set.</p>
+ * <p>Updates the settings of a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

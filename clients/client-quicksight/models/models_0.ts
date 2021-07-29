@@ -12,7 +12,7 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   $fault: "client";
   Message?: string;
   /**
-   * <p>The AWS request ID for this request.</p>
+   * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
 }
@@ -27,7 +27,7 @@ export namespace AccessDeniedException {
 }
 
 /**
- * <p>The Amazon QuickSight customizations associated with your AWS account or a QuickSight namespace in a specific AWS Region.</p>
+ * <p>The Amazon QuickSight customizations associated with your Amazon Web Services account; or a QuickSight namespace in a specific Region;.</p>
  */
 export interface AccountCustomization {
   /**
@@ -51,13 +51,13 @@ export enum Edition {
 }
 
 /**
- * <p>The QuickSight settings associated with your AWS account.</p>
+ * <p>The QuickSight settings associated with your Amazon Web Services account;.</p>
  */
 export interface AccountSettings {
   /**
-   * <p>The "account name" you provided for the QuickSight subscription in your AWS account.
-   *             You create this name when you sign up for QuickSight. It is unique in all of AWS and
-   *             it appears only in the console when users sign in.</p>
+   * <p>The "account name" you provided for the QuickSight subscription in your Amazon Web Services account;.
+   *             You create this name when you sign up for QuickSight. It is unique in all of Amazon Web Services and
+   *             it appears only when users sign in.</p>
    */
   AccountName?: string;
 
@@ -68,7 +68,7 @@ export interface AccountSettings {
   Edition?: Edition | string;
 
   /**
-   * <p>The default QuickSight namespace for your AWS account. </p>
+   * <p>The default QuickSight namespace for your Amazon Web Services account;. </p>
    */
   DefaultNamespace?: string;
 
@@ -88,7 +88,7 @@ export namespace AccountSettings {
 }
 
 /**
- * <p>The active AWS Identity and Access Management (IAM) policy assignment.</p>
+ * <p>The active Identity and Access Management (IAM) policy assignment.</p>
  */
 export interface ActiveIAMPolicyAssignment {
   /**
@@ -193,7 +193,7 @@ export namespace AnalysisError {
 
 /**
  * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
- *             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+ *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
  *             contains at least one sheet. Each sheet contains at least one visualization widget, for
  *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
  *             components, such as controls, filters, and so on.</p>
@@ -417,8 +417,7 @@ export interface AnalysisSummary {
   AnalysisId?: string;
 
   /**
-   * <p>The name of the analysis. This name is displayed in the QuickSight console.
-   *             </p>
+   * <p>The name of the analysis. This name is displayed in the QuickSight console.</p>
    */
   Name?: string;
 
@@ -443,6 +442,45 @@ export namespace AnalysisSummary {
    * @internal
    */
   export const filterSensitiveLog = (obj: AnalysisSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the dashboard that you want to embed.</p>
+ */
+export interface AnonymousUserDashboardEmbeddingConfiguration {
+  /**
+   * <p>The dashboard ID for the dashboard that you want the user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders this dashboard.</p>
+   *         <p>The Amazon Resource Name (ARN) of this dashboard must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
+   */
+  InitialDashboardId: string | undefined;
+}
+
+export namespace AnonymousUserDashboardEmbeddingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnonymousUserDashboardEmbeddingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The type of experience you want to embed. For anonymous users, you can embed an Amazon QuickSight dashboard.</p>
+ */
+export interface AnonymousUserEmbeddingExperienceConfiguration {
+  /**
+   * <p>The type of embedding experience. In this case, an Amazon QuickSight dashboard.</p>
+   */
+  Dashboard?: AnonymousUserDashboardEmbeddingConfiguration;
+}
+
+export namespace AnonymousUserEmbeddingExperienceConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnonymousUserEmbeddingExperienceConfiguration): any => ({
     ...obj,
   });
 }
@@ -531,7 +569,7 @@ export namespace AuroraPostgreSqlParameters {
 }
 
 /**
- * <p>AWS IoT Analytics parameters.</p>
+ * <p>Amazon Web Services IoT Analytics parameters.</p>
  */
 export interface AwsIotAnalyticsParameters {
   /**
@@ -601,7 +639,7 @@ export namespace CalculatedColumn {
 
 export interface CancelIngestionRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account; ID.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -637,7 +675,7 @@ export interface CancelIngestionResponse {
   IngestionId?: string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -664,7 +702,7 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   $fault: "server";
   Message?: string;
   /**
-   * <p>The AWS request ID for this request.</p>
+   * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
 }
@@ -686,7 +724,7 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   $fault: "client";
   Message?: string;
   /**
-   * <p>The AWS request ID for this request.</p>
+   * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
 }
@@ -725,7 +763,7 @@ export interface ResourceExistsException extends __SmithyException, $MetadataBea
   ResourceType?: ExceptionResourceType | string;
 
   /**
-   * <p>The AWS request ID for this request.</p>
+   * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
 }
@@ -752,7 +790,7 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   ResourceType?: ExceptionResourceType | string;
 
   /**
-   * <p>The AWS request ID for this request.</p>
+   * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
 }
@@ -774,7 +812,7 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   $fault: "client";
   Message?: string;
   /**
-   * <p>The AWS request ID for this request.</p>
+   * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
 }
@@ -1063,7 +1101,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   $fault: "client";
   Message?: string;
   /**
-   * <p>The AWS request ID for this request.</p>
+   * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
 }
@@ -1104,7 +1142,7 @@ export namespace Tag {
 
 export interface CreateAccountCustomizationRequest {
   /**
-   * <p>The ID for the AWS account that you want to customize QuickSight for.</p>
+   * <p>The ID for the Amazon Web Services account; that you want to customize QuickSight for.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1114,8 +1152,8 @@ export interface CreateAccountCustomizationRequest {
   Namespace?: string;
 
   /**
-   * <p>The QuickSight customizations you're adding in the current AWS Region. You can add
-   *             these to an AWS account and a QuickSight namespace. </p>
+   * <p>The QuickSight customizations you're adding in the current Region;. You can add
+   *             these to an Amazon Web Services account; and a QuickSight namespace. </p>
    *         <p>For example, you can add a default theme by setting <code>AccountCustomization</code>
    *             to the midnight theme: <code>"AccountCustomization": { "DefaultTheme":
    *                 "arn:aws:quicksight::aws:theme/MIDNIGHT" }</code>. Or, you can add a custom theme by
@@ -1142,12 +1180,12 @@ export namespace CreateAccountCustomizationRequest {
 
 export interface CreateAccountCustomizationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for the customization that you created for this AWS account.</p>
+   * <p>The Amazon Resource Name (ARN) for the customization that you created for this Amazon Web Services account;.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The ID for the AWS account that you want to customize QuickSight for.</p>
+   * <p>The ID for the Amazon Web Services account; that you want to customize QuickSight for.</p>
    */
   AwsAccountId?: string;
 
@@ -1157,12 +1195,12 @@ export interface CreateAccountCustomizationResponse {
   Namespace?: string;
 
   /**
-   * <p>The QuickSight customizations you're adding in the current AWS Region. </p>
+   * <p>The QuickSight customizations you're adding in the current Region;. </p>
    */
   AccountCustomization?: AccountCustomization;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -1194,7 +1232,7 @@ export interface ResourceUnavailableException extends __SmithyException, $Metada
   ResourceType?: ExceptionResourceType | string;
 
   /**
-   * <p>The AWS request ID for this request.</p>
+   * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
 }
@@ -1353,8 +1391,8 @@ export interface ResourcePermission {
    *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
    *             </li>
    *             <li>
-   *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-   *                     ARN. Use this option only to share resources (templates) across AWS accounts.
+   *                 <p>The ARN of an Amazon Web Services account; root: This is an IAM ARN rather than a QuickSight
+   *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
    *                     (This is less common.) </p>
    *             </li>
    *          </ul>
@@ -1378,7 +1416,7 @@ export namespace ResourcePermission {
 
 export interface CreateAnalysisRequest {
   /**
-   * <p>The ID of the AWS account where you are creating an analysis.</p>
+   * <p>The ID of the Amazon Web Services account; where you are creating an analysis.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1403,7 +1441,7 @@ export interface CreateAnalysisRequest {
   /**
    * <p>A structure that describes the principals and the resource-level permissions on an
    *             analysis. You can use the <code>Permissions</code> structure to grant permissions by
-   *             providing a list of AWS Identity and Access Management (IAM) action information for each
+   *             providing a list of Identity and Access Management (IAM) action information for each
    *             principal listed by Amazon Resource Name (ARN). </p>
    *
    *         <p>To specify no permissions, omit <code>Permissions</code>.</p>
@@ -1460,7 +1498,7 @@ export interface CreateAnalysisResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -1485,7 +1523,7 @@ export interface UnsupportedUserEditionException extends __SmithyException, $Met
   $fault: "client";
   Message?: string;
   /**
-   * <p>The AWS request ID for this request.</p>
+   * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
 }
@@ -1636,7 +1674,7 @@ export namespace DashboardSourceEntity {
 
 export interface CreateDashboardRequest {
   /**
-   * <p>The ID of the AWS account where you want to create the dashboard.</p>
+   * <p>The ID of the Amazon Web Services account; where you want to create the dashboard.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -1673,8 +1711,8 @@ export interface CreateDashboardRequest {
    *             entity. If you need to create a dashboard from an analysis, first convert the analysis
    *             to a template by using the <a>CreateTemplate</a> API operation. For
    *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
-   *             template. The <code>SourceTemplate</code>ARN can contain any AWS Account and any
-   *             QuickSight-supported AWS Region. </p>
+   *             template. The <code>SourceTemplate</code>ARN can contain any Amazon Web Services account; and any
+   *             QuickSight-supported Region;. </p>
    *         <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
    *             list the replacement datasets for the placeholders listed in the original. The schema in
    *             each dataset must match its placeholder. </p>
@@ -1723,7 +1761,7 @@ export interface CreateDashboardRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
    *             you add a value for this field, it overrides the value that is used in the source
-   *             entity. The theme ARN must exist in the same AWS account where you create the
+   *             entity. The theme ARN must exist in the same Amazon Web Services account; where you create the
    *             dashboard.</p>
    */
   ThemeArn?: string;
@@ -1766,7 +1804,7 @@ export interface CreateDashboardResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -1883,9 +1921,9 @@ export interface TagColumnOperation {
   ColumnName: string | undefined;
 
   /**
-   * <p>The dataset column tag, currently only used for geospatial type tagging. .</p>
+   * <p>The dataset column tag, currently only used for geospatial type tagging.</p>
    *         <note>
-   *             <p>This is not tags for the AWS tagging feature. .</p>
+   *             <p>This is not tags for the Amazon Web Services tagging feature.</p>
    *         </note>
    */
   Tags: ColumnTag[] | undefined;
@@ -2453,6 +2491,11 @@ export enum RowLevelPermissionPolicy {
   GRANT_ACCESS = "GRANT_ACCESS",
 }
 
+export enum Status {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
 /**
  * <p>Information about a dataset that contains permissions for row-level security (RLS).
  *             The permissions dataset maps fields to users or groups. For more information, see
@@ -2483,6 +2526,11 @@ export interface RowLevelPermissionDataSet {
    *          <p>By default, <code>FormatVersion</code> is <code>VERSION_1</code>. When <code>FormatVersion</code> is <code>VERSION_1</code>, <code>UserName</code> and <code>GroupName</code> are required. When <code>FormatVersion</code> is <code>VERSION_2</code>, <code>UserARN</code> and <code>GroupARN</code> are required, and <code>Namespace</code> must not exist.</p>
    */
   FormatVersion?: RowLevelPermissionFormatVersion | string;
+
+  /**
+   * <p>The status of the row-level security permission dataset. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
+   */
+  Status?: Status | string;
 }
 
 export namespace RowLevelPermissionDataSet {
@@ -2494,14 +2542,74 @@ export namespace RowLevelPermissionDataSet {
   });
 }
 
+/**
+ * <p>A set of rules associated with a tag.</p>
+ */
+export interface RowLevelPermissionTagRule {
+  /**
+   * <p>The unique key for a tag.</p>
+   */
+  TagKey: string | undefined;
+
+  /**
+   * <p>The column name that a tag key is assigned to.</p>
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>A string that you want to use to delimit the values when you pass the values at run time. For example, you can delimit the values with a comma.</p>
+   */
+  TagMultiValueDelimiter?: string;
+
+  /**
+   * <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
+   */
+  MatchAllValue?: string;
+}
+
+export namespace RowLevelPermissionTagRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RowLevelPermissionTagRule): any => ({
+    ...obj,
+    ...(obj.MatchAllValue && { MatchAllValue: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The configuration of tags on a dataset to set row-level security. </p>
+ */
+export interface RowLevelPermissionTagConfiguration {
+  /**
+   * <p>The status of row-level security tags. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
+   */
+  Status?: Status | string;
+
+  /**
+   * <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
+   */
+  TagRules: RowLevelPermissionTagRule[] | undefined;
+}
+
+export namespace RowLevelPermissionTagConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RowLevelPermissionTagConfiguration): any => ({
+    ...obj,
+    ...(obj.TagRules && { TagRules: obj.TagRules.map((item) => RowLevelPermissionTagRule.filterSensitiveLog(item)) }),
+  });
+}
+
 export interface CreateDataSetRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account; ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>An ID for the dataset that you want to create. This ID is unique per Region; for each Amazon Web Services account;.</p>
    */
   DataSetId: string | undefined;
 
@@ -2546,6 +2654,11 @@ export interface CreateDataSetRequest {
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 
   /**
+   * <p>The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only.</p>
+   */
+  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
+
+  /**
    * <p>A set of one or more definitions of a <code>
    *                <a>ColumnLevelPermissionRule</a>
    *             </code>.</p>
@@ -2582,6 +2695,11 @@ export namespace CreateDataSetRequest {
         {}
       ),
     }),
+    ...(obj.RowLevelPermissionTagConfiguration && {
+      RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfiguration.filterSensitiveLog(
+        obj.RowLevelPermissionTagConfiguration
+      ),
+    }),
   });
 }
 
@@ -2592,7 +2710,7 @@ export interface CreateDataSetResponse {
   Arn?: string;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Region; for each Amazon Web Services account;.</p>
    */
   DataSetId?: string;
 
@@ -2609,7 +2727,7 @@ export interface CreateDataSetResponse {
   IngestionId?: string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -2641,7 +2759,7 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   ResourceType?: ExceptionResourceType | string;
 
   /**
-   * <p>The AWS request ID for this request.</p>
+   * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
 }
@@ -2910,7 +3028,7 @@ export namespace ManifestFileLocation {
 export interface S3Parameters {
   /**
    * <p>Location of the Amazon S3 manifest file. This is NULL if the manifest file was
-   *             uploaded in the console.</p>
+   *             uploaded into QuickSight.</p>
    */
   ManifestFileLocation: ManifestFileLocation | undefined;
 }
@@ -3216,7 +3334,7 @@ export namespace DataSourceParameters {
   }
 
   /**
-   * <p>AWS IoT Analytics parameters.</p>
+   * <p>Amazon Web Services IoT Analytics parameters.</p>
    */
   export interface AwsIotAnalyticsParametersMember {
     AmazonElasticsearchParameters?: never;
@@ -3912,12 +4030,12 @@ export namespace VpcConnectionProperties {
 
 export interface CreateDataSourceRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account; ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>An ID for the data source. This ID is unique per AWS Region for each AWS account. </p>
+   * <p>An ID for the data source. This ID is unique per Region; for each Amazon Web Services account;. </p>
    */
   DataSourceId: string | undefined;
 
@@ -3990,7 +4108,7 @@ export interface CreateDataSourceResponse {
   Arn?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>The ID of the data source. This ID is unique per Region; for each Amazon Web Services account;.</p>
    */
   DataSourceId?: string;
 
@@ -4000,7 +4118,7 @@ export interface CreateDataSourceResponse {
   CreationStatus?: ResourceStatus | string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -4205,8 +4323,8 @@ export interface CreateGroupRequest {
   Description?: string;
 
   /**
-   * <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
-   * 			account that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -4270,7 +4388,7 @@ export interface CreateGroupResponse {
   Group?: Group;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -4297,7 +4415,7 @@ export interface PreconditionNotMetException extends __SmithyException, $Metadat
   $fault: "client";
   Message?: string;
   /**
-   * <p>The AWS request ID for this request.</p>
+   * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
 }
@@ -4323,8 +4441,8 @@ export interface CreateGroupMembershipRequest {
   GroupName: string | undefined;
 
   /**
-   * <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
-   * 			account that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -4375,7 +4493,7 @@ export interface CreateGroupMembershipResponse {
   GroupMember?: GroupMember;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -4396,13 +4514,13 @@ export namespace CreateGroupMembershipResponse {
 
 export interface CreateIAMPolicyAssignmentRequest {
   /**
-   * <p>The ID of the AWS account where you want to assign an IAM policy to QuickSight users or
+   * <p>The ID of the Amazon Web Services account; where you want to assign an IAM policy to QuickSight users or
    * 			groups.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The name of the assignment, also called a rule. It must be unique within an AWS account.</p>
+   * <p>The name of the assignment, also called a rule. It must be unique within an Amazon Web Services account;.</p>
    */
   AssignmentName: string | undefined;
 
@@ -4455,7 +4573,7 @@ export namespace CreateIAMPolicyAssignmentRequest {
 
 export interface CreateIAMPolicyAssignmentResponse {
   /**
-   * <p>The name of the assignment. This name must be unique within the AWS account.</p>
+   * <p>The name of the assignment. This name must be unique within the Amazon Web Services account;.</p>
    */
   AssignmentName?: string;
 
@@ -4496,7 +4614,7 @@ export interface CreateIAMPolicyAssignmentResponse {
   Identities?: { [key: string]: string[] };
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -4527,7 +4645,7 @@ export interface CreateIngestionRequest {
   IngestionId: string | undefined;
 
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account; ID.</p>
    */
   AwsAccountId: string | undefined;
 }
@@ -4567,7 +4685,7 @@ export interface CreateIngestionResponse {
   IngestionStatus?: IngestionStatus | string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -4592,7 +4710,7 @@ export enum IdentityStore {
 
 export interface CreateNamespaceRequest {
   /**
-   * <p>The ID for the AWS account that you want to create the QuickSight namespace in.</p>
+   * <p>The ID for the Amazon Web Services account; that you want to create the QuickSight namespace in.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -4642,7 +4760,7 @@ export interface CreateNamespaceResponse {
   Name?: string;
 
   /**
-   * <p>The AWS Region that you want to use for the free SPICE capacity for the new namespace.
+   * <p>The Region; that you want to use for the free SPICE capacity for the new namespace.
    *             This is set to the region that you run CreateNamespace in. </p>
    */
   CapacityRegion?: string;
@@ -4663,7 +4781,7 @@ export interface CreateNamespaceResponse {
   IdentityStore?: IdentityStore | string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -4752,14 +4870,14 @@ export namespace TemplateSourceEntity {
 
 export interface CreateTemplateRequest {
   /**
-   * <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
-   * 			account that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>An ID for the template that you want to create. This template is unique per AWS Region in
-   * 			each AWS account.</p>
+   * <p>An ID for the template that you want to create. This template is unique per Region; in
+   * 			each Amazon Web Services account;.</p>
    */
   TemplateId: string | undefined;
 
@@ -4780,7 +4898,7 @@ export interface CreateTemplateRequest {
    * 			analysis. Both of these require an Amazon Resource Name (ARN). For
    * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
    * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
-   * 			ARN can contain any AWS Account and any QuickSight-supported AWS Region. </p>
+   * 			ARN can contain any Amazon Web Services account; and any QuickSight-supported Region;. </p>
    * 		       <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
    * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
    * 			in the original. The schema in each dataset must match its placeholder. </p>
@@ -4838,7 +4956,7 @@ export interface CreateTemplateResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -4854,7 +4972,7 @@ export namespace CreateTemplateResponse {
 
 export interface CreateTemplateAliasRequest {
   /**
-   * <p>The ID of the AWS account that contains the template that you creating an alias for.</p>
+   * <p>The ID of the Amazon Web Services account; that contains the template that you creating an alias for.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -4866,7 +4984,7 @@ export interface CreateTemplateAliasRequest {
   /**
    * <p>The name that you want to give to the template alias that you're creating. Don't start the
    * 			alias name with the <code>$</code> character. Alias names that start with <code>$</code>
-   * 			are reserved by QuickSight. </p>
+   * 			are reserved by Amazon QuickSight. </p>
    */
   AliasName: string | undefined;
 
@@ -4926,7 +5044,7 @@ export interface CreateTemplateAliasResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -5219,13 +5337,13 @@ export namespace ThemeConfiguration {
 
 export interface CreateThemeRequest {
   /**
-   * <p>The ID of the AWS account where you want to store the new theme. </p>
+   * <p>The ID of the Amazon Web Services account; where you want to store the new theme. </p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>An ID for the theme that you want to create. The theme ID is unique per AWS Region in
-   * 			each AWS account.</p>
+   * <p>An ID for the theme that you want to create. The theme ID is unique per Region; in
+   * 			each Amazon Web Services account;.</p>
    */
   ThemeId: string | undefined;
 
@@ -5304,7 +5422,7 @@ export interface CreateThemeResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -5320,7 +5438,7 @@ export namespace CreateThemeResponse {
 
 export interface CreateThemeAliasRequest {
   /**
-   * <p>The ID of the AWS account that contains the theme for the new theme alias.</p>
+   * <p>The ID of the Amazon Web Services account; that contains the theme for the new theme alias.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -5392,7 +5510,7 @@ export interface CreateThemeAliasResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -5790,6 +5908,11 @@ export interface DataSet {
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 
   /**
+   * <p>The element you can use to define tags for row-level security.</p>
+   */
+  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
+
+  /**
    * <p>A set of one or more definitions of a <code>
    *                <a>ColumnLevelPermissionRule</a>
    *             </code>.</p>
@@ -5819,6 +5942,11 @@ export namespace DataSet {
           [key]: LogicalTable.filterSensitiveLog(value),
         }),
         {}
+      ),
+    }),
+    ...(obj.RowLevelPermissionTagConfiguration && {
+      RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfiguration.filterSensitiveLog(
+        obj.RowLevelPermissionTagConfiguration
       ),
     }),
   });
@@ -5912,6 +6040,11 @@ export interface DataSetSummary {
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 
   /**
+   * <p>Whether or not the row level permission tags are applied.</p>
+   */
+  RowLevelPermissionTagConfigurationApplied?: boolean;
+
+  /**
    * <p>A value that indicates if the dataset has column level permission configured.</p>
    */
   ColumnLevelPermissionRulesApplied?: boolean;
@@ -5971,8 +6104,8 @@ export interface DataSource {
   Arn?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per AWS Region for each AWS
-   *             account.</p>
+   * <p>The ID of the data source. This ID is unique per Region; for each
+   *             Amazon Web Services account;.</p>
    */
   DataSourceId?: string;
 
@@ -6059,8 +6192,8 @@ export namespace DataSource {
 
 export interface DeleteAccountCustomizationRequest {
   /**
-   * <p>The ID for the AWS account that you want to delete QuickSight customizations from in
-   *             this AWS Region.</p>
+   * <p>The ID for the Amazon Web Services account; that you want to delete QuickSight customizations from in
+   *             this Region;.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6081,7 +6214,7 @@ export namespace DeleteAccountCustomizationRequest {
 
 export interface DeleteAccountCustomizationResponse {
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -6102,7 +6235,7 @@ export namespace DeleteAccountCustomizationResponse {
 
 export interface DeleteAnalysisRequest {
   /**
-   * <p>The ID of the AWS account where you want to delete an analysis.</p>
+   * <p>The ID of the Amazon Web Services account; where you want to delete an analysis.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6157,7 +6290,7 @@ export interface DeleteAnalysisResponse {
   DeletionTime?: Date;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -6173,7 +6306,7 @@ export namespace DeleteAnalysisResponse {
 
 export interface DeleteDashboardRequest {
   /**
-   * <p>The ID of the AWS account that contains the dashboard that you're
+   * <p>The ID of the Amazon Web Services account; that contains the dashboard that you're
    *             deleting.</p>
    */
   AwsAccountId: string | undefined;
@@ -6216,7 +6349,7 @@ export interface DeleteDashboardResponse {
   DashboardId?: string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -6232,12 +6365,12 @@ export namespace DeleteDashboardResponse {
 
 export interface DeleteDataSetRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account; ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Region; for each Amazon Web Services account;.</p>
    */
   DataSetId: string | undefined;
 }
@@ -6258,12 +6391,12 @@ export interface DeleteDataSetResponse {
   Arn?: string;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Region; for each Amazon Web Services account;.</p>
    */
   DataSetId?: string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -6284,12 +6417,12 @@ export namespace DeleteDataSetResponse {
 
 export interface DeleteDataSourceRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account; ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>The ID of the data source. This ID is unique per Region; for each Amazon Web Services account;.</p>
    */
   DataSourceId: string | undefined;
 }
@@ -6310,12 +6443,12 @@ export interface DeleteDataSourceResponse {
   Arn?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>The ID of the data source. This ID is unique per Region; for each Amazon Web Services account;.</p>
    */
   DataSourceId?: string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -6446,8 +6579,8 @@ export interface DeleteGroupRequest {
   GroupName: string | undefined;
 
   /**
-   * <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
-   * 			account that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6468,7 +6601,7 @@ export namespace DeleteGroupRequest {
 
 export interface DeleteGroupResponse {
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -6499,8 +6632,8 @@ export interface DeleteGroupMembershipRequest {
   GroupName: string | undefined;
 
   /**
-   * <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
-   * 			account that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6521,7 +6654,7 @@ export namespace DeleteGroupMembershipRequest {
 
 export interface DeleteGroupMembershipResponse {
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -6542,7 +6675,7 @@ export namespace DeleteGroupMembershipResponse {
 
 export interface DeleteIAMPolicyAssignmentRequest {
   /**
-   * <p>The AWS account ID where you want to delete the IAM policy assignment.</p>
+   * <p>The Amazon Web Services account; ID where you want to delete the IAM policy assignment.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6573,7 +6706,7 @@ export interface DeleteIAMPolicyAssignmentResponse {
   AssignmentName?: string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -6594,7 +6727,7 @@ export namespace DeleteIAMPolicyAssignmentResponse {
 
 export interface DeleteNamespaceRequest {
   /**
-   * <p>The ID for the AWS account that you want to delete the QuickSight namespace from.</p>
+   * <p>The ID for the Amazon Web Services account; that you want to delete the QuickSight namespace from.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6615,7 +6748,7 @@ export namespace DeleteNamespaceRequest {
 
 export interface DeleteNamespaceResponse {
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -6636,7 +6769,7 @@ export namespace DeleteNamespaceResponse {
 
 export interface DeleteTemplateRequest {
   /**
-   * <p>The ID of the AWS account that contains the template that you're deleting.</p>
+   * <p>The ID of the Amazon Web Services account; that contains the template that you're deleting.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6664,7 +6797,7 @@ export namespace DeleteTemplateRequest {
 
 export interface DeleteTemplateResponse {
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -6695,7 +6828,7 @@ export namespace DeleteTemplateResponse {
 
 export interface DeleteTemplateAliasRequest {
   /**
-   * <p>The ID of the AWS account that contains the item to delete.</p>
+   * <p>The ID of the Amazon Web Services account; that contains the item to delete.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6744,7 +6877,7 @@ export interface DeleteTemplateAliasResponse {
   Arn?: string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -6760,7 +6893,7 @@ export namespace DeleteTemplateAliasResponse {
 
 export interface DeleteThemeRequest {
   /**
-   * <p>The ID of the AWS account that contains the theme that you're deleting.</p>
+   * <p>The ID of the Amazon Web Services account; that contains the theme that you're deleting.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6794,7 +6927,7 @@ export interface DeleteThemeResponse {
   Arn?: string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -6820,7 +6953,7 @@ export namespace DeleteThemeResponse {
 
 export interface DeleteThemeAliasRequest {
   /**
-   * <p>The ID of the AWS account that contains the theme alias to delete.</p>
+   * <p>The ID of the Amazon Web Services account; that contains the theme alias to delete.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6856,7 +6989,7 @@ export interface DeleteThemeAliasResponse {
   Arn?: string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -6887,8 +7020,8 @@ export interface DeleteUserRequest {
   UserName: string | undefined;
 
   /**
-   * <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS
-   * 			account that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account; that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6909,7 +7042,7 @@ export namespace DeleteUserRequest {
 
 export interface DeleteUserResponse {
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -6938,8 +7071,8 @@ export interface DeleteUserByPrincipalIdRequest {
   PrincipalId: string | undefined;
 
   /**
-   * <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS
-   * 			account that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account; that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6960,7 +7093,7 @@ export namespace DeleteUserByPrincipalIdRequest {
 
 export interface DeleteUserByPrincipalIdResponse {
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -6981,7 +7114,7 @@ export namespace DeleteUserByPrincipalIdResponse {
 
 export interface DescribeAccountCustomizationRequest {
   /**
-   * <p>The ID for the AWS account that you want to describe QuickSight customizations
+   * <p>The ID for the Amazon Web Services account; that you want to describe QuickSight customizations
    *             for.</p>
    */
   AwsAccountId: string | undefined;
@@ -7013,12 +7146,12 @@ export namespace DescribeAccountCustomizationRequest {
 
 export interface DescribeAccountCustomizationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the customization that's associated with this AWS account.</p>
+   * <p>The Amazon Resource Name (ARN) of the customization that's associated with this Amazon Web Services account;.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The ID for the AWS account that you're describing.</p>
+   * <p>The ID for the Amazon Web Services account; that you're describing.</p>
    */
   AwsAccountId?: string;
 
@@ -7028,12 +7161,12 @@ export interface DescribeAccountCustomizationResponse {
   Namespace?: string;
 
   /**
-   * <p>The QuickSight customizations that exist in the current AWS Region. </p>
+   * <p>The QuickSight customizations that exist in the current Region;. </p>
    */
   AccountCustomization?: AccountCustomization;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -7054,7 +7187,7 @@ export namespace DescribeAccountCustomizationResponse {
 
 export interface DescribeAccountSettingsRequest {
   /**
-   * <p>The ID for the AWS account that contains the settings that you want to list.</p>
+   * <p>The ID for the Amazon Web Services account; that contains the settings that you want to list.</p>
    */
   AwsAccountId: string | undefined;
 }
@@ -7070,17 +7203,17 @@ export namespace DescribeAccountSettingsRequest {
 
 export interface DescribeAccountSettingsResponse {
   /**
-   * <p>The QuickSight settings for this AWS account. This information includes the edition of Amazon
+   * <p>The QuickSight settings for this Amazon Web Services account;. This information includes the edition of Amazon
    *             QuickSight that you subscribed to (Standard or Enterprise) and the notification email for the
    *             QuickSight subscription. In the QuickSight console, the QuickSight subscription is sometimes
    *             referred to as a QuickSight "account" even though it's technically not an account
-   *             by itself. Instead, it's a subscription to the QuickSight service for your AWS account. The
-   *             edition that you subscribe to applies to QuickSight in every AWS Region where you use it.</p>
+   *             by itself. Instead, it's a subscription to the QuickSight service for your Amazon Web Services account;. The
+   *             edition that you subscribe to applies to QuickSight in every Region; where you use it.</p>
    */
   AccountSettings?: AccountSettings;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -7101,8 +7234,8 @@ export namespace DescribeAccountSettingsResponse {
 
 export interface DescribeAnalysisRequest {
   /**
-   * <p>The ID of the AWS account that contains the analysis. You must be using the AWS
-   *             account that the analysis is in.</p>
+   * <p>The ID of the Amazon Web Services account; that contains the analysis. You must be using the
+   *             Amazon Web Services account; that the analysis is in.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -7135,7 +7268,7 @@ export interface DescribeAnalysisResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -7151,8 +7284,8 @@ export namespace DescribeAnalysisResponse {
 
 export interface DescribeAnalysisPermissionsRequest {
   /**
-   * <p>The ID of the AWS account that contains the analysis whose permissions you're
-   *             describing. You must be using the AWS account that the analysis is in.</p>
+   * <p>The ID of the Amazon Web Services account; that contains the analysis whose permissions you're
+   *             describing. You must be using the Amazon Web Services account; that the analysis is in.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -7196,7 +7329,7 @@ export interface DescribeAnalysisPermissionsResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -7212,7 +7345,7 @@ export namespace DescribeAnalysisPermissionsResponse {
 
 export interface DescribeDashboardRequest {
   /**
-   * <p>The ID of the AWS account that contains the dashboard that you're
+   * <p>The ID of the Amazon Web Services account; that contains the dashboard that you're
    *             describing.</p>
    */
   AwsAccountId: string | undefined;
@@ -7255,7 +7388,7 @@ export interface DescribeDashboardResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -7271,7 +7404,7 @@ export namespace DescribeDashboardResponse {
 
 export interface DescribeDashboardPermissionsRequest {
   /**
-   * <p>The ID of the AWS account that contains the dashboard that you're describing
+   * <p>The ID of the Amazon Web Services account; that contains the dashboard that you're describing
    *             permissions for.</p>
    */
   AwsAccountId: string | undefined;
@@ -7313,7 +7446,7 @@ export interface DescribeDashboardPermissionsResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -7329,12 +7462,12 @@ export namespace DescribeDashboardPermissionsResponse {
 
 export interface DescribeDataSetRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account; ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Region; for each Amazon Web Services account;.</p>
    */
   DataSetId: string | undefined;
 }
@@ -7355,7 +7488,7 @@ export interface DescribeDataSetResponse {
   DataSet?: DataSet;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -7377,12 +7510,12 @@ export namespace DescribeDataSetResponse {
 
 export interface DescribeDataSetPermissionsRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account; ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Region; for each Amazon Web Services account;.</p>
    */
   DataSetId: string | undefined;
 }
@@ -7403,7 +7536,7 @@ export interface DescribeDataSetPermissionsResponse {
   DataSetArn?: string;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Region; for each Amazon Web Services account;.</p>
    */
   DataSetId?: string;
 
@@ -7413,7 +7546,7 @@ export interface DescribeDataSetPermissionsResponse {
   Permissions?: ResourcePermission[];
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -7434,12 +7567,12 @@ export namespace DescribeDataSetPermissionsResponse {
 
 export interface DescribeDataSourceRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account; ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>The ID of the data source. This ID is unique per Region; for each Amazon Web Services account;.</p>
    */
   DataSourceId: string | undefined;
 }
@@ -7460,7 +7593,7 @@ export interface DescribeDataSourceResponse {
   DataSource?: DataSource;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -7482,12 +7615,12 @@ export namespace DescribeDataSourceResponse {
 
 export interface DescribeDataSourcePermissionsRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account; ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>The ID of the data source. This ID is unique per Region; for each Amazon Web Services account;.</p>
    */
   DataSourceId: string | undefined;
 }
@@ -7508,7 +7641,7 @@ export interface DescribeDataSourcePermissionsResponse {
   DataSourceArn?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>The ID of the data source. This ID is unique per Region; for each Amazon Web Services account;.</p>
    */
   DataSourceId?: string;
 
@@ -7518,7 +7651,7 @@ export interface DescribeDataSourcePermissionsResponse {
   Permissions?: ResourcePermission[];
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -7755,8 +7888,8 @@ export interface DescribeGroupRequest {
   GroupName: string | undefined;
 
   /**
-   * <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
-   * 			account that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account; that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -7782,7 +7915,7 @@ export interface DescribeGroupResponse {
   Group?: Group;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -7803,7 +7936,7 @@ export namespace DescribeGroupResponse {
 
 export interface DescribeIAMPolicyAssignmentRequest {
   /**
-   * <p>The ID of the AWS account that contains the assignment that you want to describe.</p>
+   * <p>The ID of the Amazon Web Services account; that contains the assignment that you want to describe.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -7828,11 +7961,11 @@ export namespace DescribeIAMPolicyAssignmentRequest {
 }
 
 /**
- * <p>An AWS Identity and Access Management (IAM) policy assignment.</p>
+ * <p>An Identity and Access Management (IAM) policy assignment.</p>
  */
 export interface IAMPolicyAssignment {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account; ID.</p>
    */
   AwsAccountId?: string;
 
@@ -7878,7 +8011,7 @@ export interface DescribeIAMPolicyAssignmentResponse {
   IAMPolicyAssignment?: IAMPolicyAssignment;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -7905,7 +8038,7 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   $fault: "client";
   Message?: string;
   /**
-   * <p>The AWS request ID for this request.</p>
+   * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
 }
@@ -7921,7 +8054,7 @@ export namespace InvalidNextTokenException {
 
 export interface DescribeIngestionRequest {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account; ID.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -8149,7 +8282,7 @@ export interface DescribeIngestionResponse {
   Ingestion?: Ingestion;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -8170,7 +8303,7 @@ export namespace DescribeIngestionResponse {
 
 export interface DescribeNamespaceRequest {
   /**
-   * <p>The ID for the AWS account that contains the QuickSight namespace that you want to describe.</p>
+   * <p>The ID for the Amazon Web Services account; that contains the QuickSight namespace that you want to describe.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -8233,7 +8366,7 @@ export interface NamespaceInfoV2 {
   Arn?: string;
 
   /**
-   * <p>The namespace AWS Region.</p>
+   * <p>The namespace Region;.</p>
    */
   CapacityRegion?: string;
 
@@ -8265,14 +8398,14 @@ export namespace NamespaceInfoV2 {
 export interface DescribeNamespaceResponse {
   /**
    * <p>The information about the namespace that you're describing. The response includes
-   *         the namespace ARN, name, AWS Region, creation status, and identity store. <code>DescribeNamespace</code> also
+   *         the namespace ARN, name, Region;, creation status, and identity store. <code>DescribeNamespace</code> also
    *         works for namespaces that are in the process of being created. For incomplete namespaces,
    *         this API operation lists the namespace error types and messages associated with the creation process.</p>
    */
   Namespace?: NamespaceInfoV2;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -8293,7 +8426,7 @@ export namespace DescribeNamespaceResponse {
 
 export interface DescribeTemplateRequest {
   /**
-   * <p>The ID of the AWS account that contains the template that you're describing.</p>
+   * <p>The ID of the Amazon Web Services account; that contains the template that you're describing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -8426,7 +8559,7 @@ export namespace TemplateVersion {
  *             dataset associated with an analysis. You can use templates to create dashboards by
  *             replacing dataset placeholders with datasets that follow the same schema that was used
  *             to create the source analysis and template.</p>
- *         <p>You can share templates across AWS accounts by allowing users in other AWS accounts to
+ *         <p>You can share templates across Amazon Web Services accounts by allowing users in other Amazon Web Services accounts to
  *             create a template or a dashboard from an existing template.</p>
  */
 export interface Template {
@@ -8446,7 +8579,7 @@ export interface Template {
   Version?: TemplateVersion;
 
   /**
-   * <p>The ID for the template. This is unique per AWS Region for each AWS account.</p>
+   * <p>The ID for the template. This is unique per Region; for each Amazon Web Services account;.</p>
    */
   TemplateId?: string;
 
@@ -8482,7 +8615,7 @@ export interface DescribeTemplateResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -8498,7 +8631,7 @@ export namespace DescribeTemplateResponse {
 
 export interface DescribeTemplateAliasRequest {
   /**
-   * <p>The ID of the AWS account that contains the template alias that you're
+   * <p>The ID of the Amazon Web Services account; that contains the template alias that you're
    * 			describing.</p>
    */
   AwsAccountId: string | undefined;
@@ -8538,7 +8671,7 @@ export interface DescribeTemplateAliasResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -8554,7 +8687,7 @@ export namespace DescribeTemplateAliasResponse {
 
 export interface DescribeTemplatePermissionsRequest {
   /**
-   * <p>The ID of the AWS account that contains the template that you're describing.</p>
+   * <p>The ID of the Amazon Web Services account; that contains the template that you're describing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -8590,7 +8723,7 @@ export interface DescribeTemplatePermissionsResponse {
   Permissions?: ResourcePermission[];
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -8611,7 +8744,7 @@ export namespace DescribeTemplatePermissionsResponse {
 
 export interface DescribeThemeRequest {
   /**
-   * <p>The ID of the AWS account that contains the theme that you're describing.</p>
+   * <p>The ID of the Amazon Web Services account; that contains the theme that you're describing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -8795,7 +8928,7 @@ export interface DescribeThemeResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -8811,7 +8944,7 @@ export namespace DescribeThemeResponse {
 
 export interface DescribeThemeAliasRequest {
   /**
-   * <p>The ID of the AWS account that contains the theme alias that you're
+   * <p>The ID of the Amazon Web Services account; that contains the theme alias that you're
    * 			describing.</p>
    */
   AwsAccountId: string | undefined;
@@ -8848,7 +8981,7 @@ export interface DescribeThemeAliasResponse {
   Status?: number;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 }
@@ -8864,7 +8997,7 @@ export namespace DescribeThemeAliasResponse {
 
 export interface DescribeThemePermissionsRequest {
   /**
-   * <p>The ID of the AWS account that contains the theme that you're describing.</p>
+   * <p>The ID of the Amazon Web Services account; that contains the theme that you're describing.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -8900,7 +9033,7 @@ export interface DescribeThemePermissionsResponse {
   Permissions?: ResourcePermission[];
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -8926,8 +9059,8 @@ export interface DescribeUserRequest {
   UserName: string | undefined;
 
   /**
-   * <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS
-   * 			account that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account; that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account; that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -9075,7 +9208,7 @@ export interface DescribeUserResponse {
   User?: User;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
@@ -9103,7 +9236,7 @@ export interface DomainNotWhitelistedException extends __SmithyException, $Metad
   $fault: "client";
   Message?: string;
   /**
-   * <p>The AWS request ID for this request.</p>
+   * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
 }
@@ -9220,202 +9353,6 @@ export namespace FolderSummary {
    * @internal
    */
   export const filterSensitiveLog = (obj: FolderSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface GetDashboardEmbedUrlRequest {
-  /**
-   * <p>The ID for the AWS account that contains the dashboard that you're embedding.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard, also added to the AWS Identity and Access Management (IAM)
-   *             policy.</p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The authentication method that the user uses to sign in.</p>
-   */
-  IdentityType: EmbeddingIdentityType | string | undefined;
-
-  /**
-   * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
-   */
-  SessionLifetimeInMinutes?: number;
-
-  /**
-   * <p>Remove the undo/redo button on the embedded dashboard. The default is FALSE, which enables
-   * 			the undo/redo button.</p>
-   */
-  UndoRedoDisabled?: boolean;
-
-  /**
-   * <p>Remove the reset button on the embedded dashboard. The default is FALSE, which enables the
-   * 			reset button.</p>
-   */
-  ResetDisabled?: boolean;
-
-  /**
-   * <p>Adds persistence of state for the user session in an embedded dashboard. Persistence
-   *             applies to the sheet and the parameter settings. These are control settings that the
-   *             dashboard subscriber (QuickSight reader) chooses while viewing the dashboard. If this is
-   *             set to <code>TRUE</code>, the settings are the same when the subscriber reopens the same
-   *             dashboard URL. The state is stored in QuickSight, not in a browser cookie. If this is
-   *             set to FALSE, the state of the user session is not persisted. The default is
-   *                 <code>FALSE</code>.</p>
-   */
-  StatePersistenceEnabled?: boolean;
-
-  /**
-   * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
-   * 			You can use this for any Amazon QuickSight users in your account (readers, authors, or
-   * 			admins) authenticated as one of the following:</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>Active Directory (AD) users or group members</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>Invited nonfederated users</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using
-   * 					SAML, OpenID Connect, or IAM federation.</p>
-   * 			         </li>
-   *          </ul>
-   *          <p>Omit this parameter for users in the third group – IAM users and IAM
-   *             role-based sessions.</p>
-   */
-  UserArn?: string;
-
-  /**
-   * <p>The QuickSight namespace that contains the dashboard IDs in this request.
-   *     	   If you're not using a custom namespace, set this to
-   *     	    "<code>default</code>".</p>
-   */
-  Namespace?: string;
-
-  /**
-   * <p>A list of one or more dashboard IDs that you want to add to a session that includes
-   *             anonymous users. The <code>IdentityType</code> parameter must be set to
-   *                 <code>ANONYMOUS</code> for this to work, because other identity types authenticate
-   *             as QuickSight or IAM users. For example, if you set "<code>--dashboard-id dash_id1
-   *                 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the session
-   *             can access all three dashboards. </p>
-   */
-  AdditionalDashboardIds?: string[];
-}
-
-export namespace GetDashboardEmbedUrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDashboardEmbedUrlRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Output returned from the <code>GetDashboardEmbedUrl</code> operation.</p>
- */
-export interface GetDashboardEmbedUrlResponse {
-  /**
-   * <p>A single-use URL that you can put into your server-side webpage to embed your
-   * 			dashboard. This URL is valid for 5 minutes. The API operation provides the URL with an
-   * 			<code>auth_code</code> value that enables one (and only one) sign-on to a user session
-   * 			that is valid for 10 hours. </p>
-   */
-  EmbedUrl?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace GetDashboardEmbedUrlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDashboardEmbedUrlResponse): any => ({
-    ...obj,
-    ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-  });
-}
-
-/**
- * <p>The identity type specified isn't supported. Supported identity types include
- * 				<code>IAM</code> and <code>QUICKSIGHT</code>.</p>
- */
-export interface IdentityTypeNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "IdentityTypeNotSupportedException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace IdentityTypeNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityTypeNotSupportedException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The user with the provided name isn't found. This error can happen in any operation
- * 			that requires finding a user based on a provided user name, such as
- * 				<code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
- */
-export interface QuickSightUserNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "QuickSightUserNotFoundException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace QuickSightUserNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QuickSightUserNotFoundException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The number of minutes specified for the lifetime of a session isn't valid. The session
- * 			lifetime must be 15-600 minutes.</p>
- */
-export interface SessionLifetimeInMinutesInvalidException extends __SmithyException, $MetadataBearer {
-  name: "SessionLifetimeInMinutesInvalidException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace SessionLifetimeInMinutesInvalidException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SessionLifetimeInMinutesInvalidException): any => ({
     ...obj,
   });
 }

@@ -21,9 +21,15 @@ export interface DeregisterTypeCommandInput extends DeregisterTypeInput {}
 export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Marks an extension or extension version as <code>DEPRECATED</code> in the CloudFormation registry, removing it from active use. Deprecated extensions or extension versions cannot be used in CloudFormation operations.</p>
- *          <p>To deregister an entire extension, you must individually deregister all active versions of that extension. If an extension has only a single active version, deregistering that version results in the extension itself being deregistered and marked as deprecated in the registry. </p>
- *          <p>You cannot deregister the default version of an extension if there are other active version of that extension. If you do deregister the default version of an extension, the textensionype itself is deregistered as well and marked as deprecated. </p>
+ * <p>Marks an extension or extension version as <code>DEPRECATED</code> in the CloudFormation registry, removing it from active use. Deprecated extensions or
+ *          extension versions cannot be used in CloudFormation operations.</p>
+ *          <p>To deregister an entire extension, you must individually deregister all active versions
+ *          of that extension. If an extension has only a single active version, deregistering that
+ *          version results in the extension itself being deregistered and marked as deprecated in the
+ *          registry. </p>
+ *          <p>You cannot deregister the default version of an extension if there are other active
+ *          version of that extension. If you do deregister the default version of an extension, the
+ *          textensionype itself is deregistered as well and marked as deprecated. </p>
  *          <p>To view the deprecation status of an extension or extension version, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

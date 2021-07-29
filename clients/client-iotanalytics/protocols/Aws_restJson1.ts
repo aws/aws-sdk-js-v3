@@ -85,6 +85,8 @@ import {
   DatasetTrigger,
   Datastore,
   DatastoreActivity,
+  DatastoreIotSiteWiseMultiLayerStorage,
+  DatastoreIotSiteWiseMultiLayerStorageSummary,
   DatastorePartition,
   DatastorePartitions,
   DatastoreStatistics,
@@ -102,6 +104,8 @@ import {
   InternalFailureException,
   InvalidRequestException,
   IotEventsDestinationConfiguration,
+  IotSiteWiseCustomerManagedDatastoreS3Storage,
+  IotSiteWiseCustomerManagedDatastoreS3StorageSummary,
   JsonConfiguration,
   LambdaActivity,
   LateDataRule,
@@ -4607,6 +4611,21 @@ const serializeAws_restJson1DatastoreActivity = (input: DatastoreActivity, conte
   };
 };
 
+const serializeAws_restJson1DatastoreIotSiteWiseMultiLayerStorage = (
+  input: DatastoreIotSiteWiseMultiLayerStorage,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.customerManagedS3Storage !== undefined &&
+      input.customerManagedS3Storage !== null && {
+        customerManagedS3Storage: serializeAws_restJson1IotSiteWiseCustomerManagedDatastoreS3Storage(
+          input.customerManagedS3Storage,
+          context
+        ),
+      }),
+  };
+};
+
 const serializeAws_restJson1DatastorePartition = (input: DatastorePartition, context: __SerdeContext): any => {
   return {
     ...(input.attributePartition !== undefined &&
@@ -4631,6 +4650,9 @@ const serializeAws_restJson1DatastoreStorage = (input: DatastoreStorage, context
   return DatastoreStorage.visit(input, {
     customerManagedS3: (value) => ({
       customerManagedS3: serializeAws_restJson1CustomerManagedDatastoreS3Storage(value, context),
+    }),
+    iotSiteWiseMultiLayerStorage: (value) => ({
+      iotSiteWiseMultiLayerStorage: serializeAws_restJson1DatastoreIotSiteWiseMultiLayerStorage(value, context),
     }),
     serviceManagedS3: (value) => ({
       serviceManagedS3: serializeAws_restJson1ServiceManagedDatastoreS3Storage(value, context),
@@ -4721,6 +4743,16 @@ const serializeAws_restJson1IotEventsDestinationConfiguration = (
   return {
     ...(input.inputName !== undefined && input.inputName !== null && { inputName: input.inputName }),
     ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
+  };
+};
+
+const serializeAws_restJson1IotSiteWiseCustomerManagedDatastoreS3Storage = (
+  input: IotSiteWiseCustomerManagedDatastoreS3Storage,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.bucket !== undefined && input.bucket !== null && { bucket: input.bucket }),
+    ...(input.keyPrefix !== undefined && input.keyPrefix !== null && { keyPrefix: input.keyPrefix }),
   };
 };
 
@@ -5635,6 +5667,33 @@ const deserializeAws_restJson1DatastoreActivity = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1DatastoreIotSiteWiseMultiLayerStorage = (
+  output: any,
+  context: __SerdeContext
+): DatastoreIotSiteWiseMultiLayerStorage => {
+  return {
+    customerManagedS3Storage:
+      output.customerManagedS3Storage !== undefined && output.customerManagedS3Storage !== null
+        ? deserializeAws_restJson1IotSiteWiseCustomerManagedDatastoreS3Storage(output.customerManagedS3Storage, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DatastoreIotSiteWiseMultiLayerStorageSummary = (
+  output: any,
+  context: __SerdeContext
+): DatastoreIotSiteWiseMultiLayerStorageSummary => {
+  return {
+    customerManagedS3Storage:
+      output.customerManagedS3Storage !== undefined && output.customerManagedS3Storage !== null
+        ? deserializeAws_restJson1IotSiteWiseCustomerManagedDatastoreS3StorageSummary(
+            output.customerManagedS3Storage,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1DatastorePartition = (output: any, context: __SerdeContext): DatastorePartition => {
   return {
     attributePartition:
@@ -5672,6 +5731,14 @@ const deserializeAws_restJson1DatastoreStorage = (output: any, context: __SerdeC
       customerManagedS3: deserializeAws_restJson1CustomerManagedDatastoreS3Storage(output.customerManagedS3, context),
     };
   }
+  if (output.iotSiteWiseMultiLayerStorage !== undefined && output.iotSiteWiseMultiLayerStorage !== null) {
+    return {
+      iotSiteWiseMultiLayerStorage: deserializeAws_restJson1DatastoreIotSiteWiseMultiLayerStorage(
+        output.iotSiteWiseMultiLayerStorage,
+        context
+      ),
+    };
+  }
   if (output.serviceManagedS3 !== undefined && output.serviceManagedS3 !== null) {
     return {
       serviceManagedS3: deserializeAws_restJson1ServiceManagedDatastoreS3Storage(output.serviceManagedS3, context),
@@ -5688,6 +5755,13 @@ const deserializeAws_restJson1DatastoreStorageSummary = (
     customerManagedS3:
       output.customerManagedS3 !== undefined && output.customerManagedS3 !== null
         ? deserializeAws_restJson1CustomerManagedDatastoreS3StorageSummary(output.customerManagedS3, context)
+        : undefined,
+    iotSiteWiseMultiLayerStorage:
+      output.iotSiteWiseMultiLayerStorage !== undefined && output.iotSiteWiseMultiLayerStorage !== null
+        ? deserializeAws_restJson1DatastoreIotSiteWiseMultiLayerStorageSummary(
+            output.iotSiteWiseMultiLayerStorage,
+            context
+          )
         : undefined,
     serviceManagedS3:
       output.serviceManagedS3 !== undefined && output.serviceManagedS3 !== null
@@ -5825,6 +5899,26 @@ const deserializeAws_restJson1IotEventsDestinationConfiguration = (
   return {
     inputName: __expectString(output.inputName),
     roleArn: __expectString(output.roleArn),
+  } as any;
+};
+
+const deserializeAws_restJson1IotSiteWiseCustomerManagedDatastoreS3Storage = (
+  output: any,
+  context: __SerdeContext
+): IotSiteWiseCustomerManagedDatastoreS3Storage => {
+  return {
+    bucket: __expectString(output.bucket),
+    keyPrefix: __expectString(output.keyPrefix),
+  } as any;
+};
+
+const deserializeAws_restJson1IotSiteWiseCustomerManagedDatastoreS3StorageSummary = (
+  output: any,
+  context: __SerdeContext
+): IotSiteWiseCustomerManagedDatastoreS3StorageSummary => {
+  return {
+    bucket: __expectString(output.bucket),
+    keyPrefix: __expectString(output.keyPrefix),
   } as any;
 };
 

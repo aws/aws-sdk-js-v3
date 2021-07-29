@@ -541,7 +541,7 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>owner-id</code> - The account ID of the instance owner.</p>
+   *                     <code>owner-id</code> - The Amazon Web Services account ID of the instance owner.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -591,7 +591,7 @@ export interface DescribeInstancesRequest {
    *             <li>
    *                 <p>
    *                     <code>requester-id</code> - The ID of the entity that launched the instance on
-   *                     your behalf (for example, Management Console, Auto Scaling, and so
+   *                     your behalf (for example, Amazon Web Services Management Console, Auto Scaling, and so
    *                     on).</p>
    *             </li>
    *             <li>
@@ -1172,7 +1172,7 @@ export interface InstanceNetworkInterface {
   NetworkInterfaceId?: string;
 
   /**
-   * <p>The ID of the account that created the network interface.</p>
+   * <p>The ID of the Amazon Web Services account that created the network interface.</p>
    */
   OwnerId?: string;
 
@@ -1603,13 +1603,13 @@ export interface Reservation {
   Instances?: Instance[];
 
   /**
-   * <p>The ID of the account that owns the reservation.</p>
+   * <p>The ID of the Amazon Web Services account that owns the reservation.</p>
    */
   OwnerId?: string;
 
   /**
    * <p>The ID of the requester that launched the instances on your behalf (for example,
-   *             Management Console or Auto Scaling).</p>
+   *             Amazon Web Services Management Console or Auto Scaling).</p>
    */
   RequesterId?: string;
 
@@ -3090,7 +3090,7 @@ export interface DescribeInternetGatewaysRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>owner-id</code> - The ID of the account that owns the internet gateway.</p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the internet gateway.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -4638,7 +4638,7 @@ export interface DescribeNetworkAclsRequest {
    * 		          </li>
    *             <li>
    * 		             <p>
-   *                   <code>owner-id</code> - The ID of the account that owns the network ACL.</p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the network ACL.</p>
    * 		          </li>
    *             <li>
    * 		             <p>
@@ -5661,7 +5661,7 @@ export interface DescribeNetworkInterfacePermissionsRequest {
    * 			         </li>
    *             <li>
    * 			            <p>
-   *                   <code>network-interface-permission.aws-account-id</code> - The account ID.</p>
+   *                   <code>network-interface-permission.aws-account-id</code> - The Amazon Web Services account ID.</p>
    * 			         </li>
    *             <li>
    * 			            <p>
@@ -5833,7 +5833,7 @@ export interface DescribeNetworkInterfacesRequest {
    * 		          </li>
    *             <li>
    * 		             <p>
-   *                   <code>owner-id</code> - The account ID of the network interface owner.</p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the network interface owner.</p>
    * 		          </li>
    *             <li>
    * 		             <p>
@@ -5846,12 +5846,12 @@ export interface DescribeNetworkInterfacesRequest {
    * 		          </li>
    *             <li>
    * 		             <p>
-   *                   <code>requester-id</code> - The alias or account ID of the principal or service that created the network interface.</p>
+   *                   <code>requester-id</code> - The alias or Amazon Web Services account ID of the principal or service that created the network interface.</p>
    * 		          </li>
    *             <li>
    * 		             <p>
    *                   <code>requester-managed</code> - Indicates whether the network interface is being managed by an Amazon Web Service
-   * 		               (for example, Management Console, Auto Scaling, and so on).</p>
+   * 		               (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p>
    * 		          </li>
    *             <li>
    * 		             <p>
@@ -7468,7 +7468,7 @@ export interface DescribeRouteTablesRequest {
    * 		          </li>
    *             <li>
    * 		             <p>
-   *                   <code>owner-id</code> - The ID of the account that owns the route table.</p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the route table.</p>
    * 		          </li>
    *             <li>
    * 		             <p>
@@ -8531,7 +8531,7 @@ export interface CreateVolumePermission {
   Group?: PermissionGroup | string;
 
   /**
-   * <p>The ID of the account to be added or removed.</p>
+   * <p>The ID of the Amazon Web Services account to be added or removed.</p>
    */
   UserId?: string;
 }
@@ -8589,12 +8589,12 @@ export interface DescribeSnapshotsRequest {
    *                <p>
    *                   <code>owner-alias</code> - The owner alias, from an Amazon-maintained list
    *           (<code>amazon</code>).
-   *           This is not the user-configured account alias set using the IAM console.
+   *           This is not the user-configured Amazon Web Services account alias set using the IAM console.
    *           We recommend that you use the related parameter instead of this filter.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-id</code> - The account ID of the owner. We recommend that
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that
    *           you use the related parameter instead of this filter.</p>
    *             </li>
    *             <li>
@@ -8660,12 +8660,12 @@ export interface DescribeSnapshotsRequest {
 
   /**
    * <p>Scopes the results to snapshots with the specified owners. You can specify a combination of
-   *       account IDs, <code>self</code>, and <code>amazon</code>.</p>
+   *       Amazon Web Services account IDs, <code>self</code>, and <code>amazon</code>.</p>
    */
   OwnerIds?: string[];
 
   /**
-   * <p>The IDs of the accounts that can create volumes from the snapshot.</p>
+   * <p>The IDs of the Amazon Web Services accounts that can create volumes from the snapshot.</p>
    */
   RestorableByUserIds?: string[];
 
@@ -10947,7 +10947,7 @@ export interface DescribeSubnetsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>owner-id</code> - The ID of the account that owns the subnet.</p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the subnet.</p>
    *             </li>
    *             <li>
    *                 <p>

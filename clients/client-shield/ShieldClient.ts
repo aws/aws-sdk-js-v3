@@ -353,10 +353,10 @@ type ShieldClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
 export interface ShieldClientResolvedConfig extends ShieldClientResolvedConfigType {}
 
 /**
- * <fullname>AWS Shield Advanced</fullname>
- *          <p>This is the <i>AWS Shield Advanced API Reference</i>. This guide is for developers who need detailed information about the AWS Shield Advanced API actions,
- *          data types, and errors. For detailed information about AWS WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs, see the
- *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF and AWS Shield Developer Guide</a>.</p>
+ * <fullname>Shield Advanced</fullname>
+ *          <p>This is the <i>Shield Advanced API Reference</i>. This guide is for developers who need detailed information about the Shield Advanced API actions,
+ *          data types, and errors. For detailed information about WAF and Shield Advanced features and an overview of how to use the WAF and Shield Advanced APIs, see the
+ *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">WAF and Shield Developer Guide</a>.</p>
  */
 export class ShieldClient extends __Client<
   __HttpHandlerOptions,

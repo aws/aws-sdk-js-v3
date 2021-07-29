@@ -31,7 +31,7 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * 				in the <i>Amazon Route 53 Developer Guide</i>.</p>
  * 		       </important>
  *
- * 		       <p>If you're using AWS Cloud Map and you configured Cloud Map to create a Route 53 health check when you register an instance,
+ * 		       <p>If you're using Cloud Map and you configured Cloud Map to create a Route 53 health check when you register an instance,
  * 			you can't use the Route 53 <code>DeleteHealthCheck</code> command to delete the health check. The health check is deleted
  * 			automatically when you deregister the instance; there can be a delay of several hours before the health check is deleted
  * 			from Route 53. </p>

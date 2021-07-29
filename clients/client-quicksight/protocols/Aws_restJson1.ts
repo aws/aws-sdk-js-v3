@@ -126,6 +126,14 @@ import {
 } from "../commands/DescribeThemePermissionsCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "../commands/DescribeUserCommand";
 import {
+  GenerateEmbedUrlForAnonymousUserCommandInput,
+  GenerateEmbedUrlForAnonymousUserCommandOutput,
+} from "../commands/GenerateEmbedUrlForAnonymousUserCommand";
+import {
+  GenerateEmbedUrlForRegisteredUserCommandInput,
+  GenerateEmbedUrlForRegisteredUserCommandOutput,
+} from "../commands/GenerateEmbedUrlForRegisteredUserCommand";
+import {
   GetDashboardEmbedUrlCommandInput,
   GetDashboardEmbedUrlCommandOutput,
 } from "../commands/GetDashboardEmbedUrlCommand";
@@ -251,6 +259,8 @@ import {
   AnalysisSourceEntity,
   AnalysisSourceTemplate,
   AnalysisSummary,
+  AnonymousUserDashboardEmbeddingConfiguration,
+  AnonymousUserEmbeddingExperienceConfiguration,
   AthenaParameters,
   AuroraParameters,
   AuroraPostgreSqlParameters,
@@ -305,7 +315,6 @@ import {
   GroupMember,
   GutterStyle,
   IAMPolicyAssignment,
-  IdentityTypeNotSupportedException,
   Ingestion,
   InputColumn,
   IntegerParameter,
@@ -333,7 +342,6 @@ import {
   PrestoParameters,
   ProjectOperation,
   QueueInfo,
-  QuickSightUserNotFoundException,
   RdsParameters,
   RedshiftParameters,
   RelationalTable,
@@ -344,10 +352,11 @@ import {
   ResourceUnavailableException,
   RowInfo,
   RowLevelPermissionDataSet,
+  RowLevelPermissionTagConfiguration,
+  RowLevelPermissionTagRule,
   S3Parameters,
   S3Source,
   ServiceNowParameters,
-  SessionLifetimeInMinutesInvalidException,
   Sheet,
   SheetControlsOption,
   SheetStyle,
@@ -385,6 +394,13 @@ import {
 } from "../models/models_0";
 import {
   IAMPolicyAssignmentSummary,
+  IdentityTypeNotSupportedException,
+  QuickSightUserNotFoundException,
+  RegisteredUserDashboardEmbeddingConfiguration,
+  RegisteredUserEmbeddingExperienceConfiguration,
+  RegisteredUserQuickSightConsoleEmbeddingConfiguration,
+  SessionLifetimeInMinutesInvalidException,
+  SessionTag,
   TemplateSummary,
   TemplateVersionSummary,
   ThemeSummary,
@@ -673,6 +689,13 @@ export const serializeAws_restJson1CreateDataSetCommand = async (
       input.RowLevelPermissionDataSet !== null && {
         RowLevelPermissionDataSet: serializeAws_restJson1RowLevelPermissionDataSet(
           input.RowLevelPermissionDataSet,
+          context
+        ),
+      }),
+    ...(input.RowLevelPermissionTagConfiguration !== undefined &&
+      input.RowLevelPermissionTagConfiguration !== null && {
+        RowLevelPermissionTagConfiguration: serializeAws_restJson1RowLevelPermissionTagConfiguration(
+          input.RowLevelPermissionTagConfiguration,
           context
         ),
       }),
@@ -3070,6 +3093,100 @@ export const serializeAws_restJson1DescribeUserCommand = async (
   });
 };
 
+export const serializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand = async (
+  input: GenerateEmbedUrlForAnonymousUserCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/embed-url/anonymous-user";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AuthorizedResourceArns !== undefined &&
+      input.AuthorizedResourceArns !== null && {
+        AuthorizedResourceArns: serializeAws_restJson1ArnList(input.AuthorizedResourceArns, context),
+      }),
+    ...(input.ExperienceConfiguration !== undefined &&
+      input.ExperienceConfiguration !== null && {
+        ExperienceConfiguration: serializeAws_restJson1AnonymousUserEmbeddingExperienceConfiguration(
+          input.ExperienceConfiguration,
+          context
+        ),
+      }),
+    ...(input.Namespace !== undefined && input.Namespace !== null && { Namespace: input.Namespace }),
+    ...(input.SessionLifetimeInMinutes !== undefined &&
+      input.SessionLifetimeInMinutes !== null && { SessionLifetimeInMinutes: input.SessionLifetimeInMinutes }),
+    ...(input.SessionTags !== undefined &&
+      input.SessionTags !== null && { SessionTags: serializeAws_restJson1SessionTagList(input.SessionTags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand = async (
+  input: GenerateEmbedUrlForRegisteredUserCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/embed-url/registered-user";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ExperienceConfiguration !== undefined &&
+      input.ExperienceConfiguration !== null && {
+        ExperienceConfiguration: serializeAws_restJson1RegisteredUserEmbeddingExperienceConfiguration(
+          input.ExperienceConfiguration,
+          context
+        ),
+      }),
+    ...(input.SessionLifetimeInMinutes !== undefined &&
+      input.SessionLifetimeInMinutes !== null && { SessionLifetimeInMinutes: input.SessionLifetimeInMinutes }),
+    ...(input.UserArn !== undefined && input.UserArn !== null && { UserArn: input.UserArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetDashboardEmbedUrlCommand = async (
   input: GetDashboardEmbedUrlCommandInput,
   context: __SerdeContext
@@ -4745,6 +4862,13 @@ export const serializeAws_restJson1UpdateDataSetCommand = async (
       input.RowLevelPermissionDataSet !== null && {
         RowLevelPermissionDataSet: serializeAws_restJson1RowLevelPermissionDataSet(
           input.RowLevelPermissionDataSet,
+          context
+        ),
+      }),
+    ...(input.RowLevelPermissionTagConfiguration !== undefined &&
+      input.RowLevelPermissionTagConfiguration !== null && {
+        RowLevelPermissionTagConfiguration: serializeAws_restJson1RowLevelPermissionTagConfiguration(
+          input.RowLevelPermissionTagConfiguration,
           context
         ),
       }),
@@ -11977,6 +12101,252 @@ const deserializeAws_restJson1DescribeUserCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateEmbedUrlForAnonymousUserCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommandError(output, context);
+  }
+  const contents: GenerateEmbedUrlForAnonymousUserCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    EmbedUrl: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.EmbedUrl !== undefined && data.EmbedUrl !== null) {
+    contents.EmbedUrl = __expectString(data.EmbedUrl);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateEmbedUrlForAnonymousUserCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SessionLifetimeInMinutesInvalidException":
+    case "com.amazonaws.quicksight#SessionLifetimeInMinutesInvalidException":
+      response = {
+        ...(await deserializeAws_restJson1SessionLifetimeInMinutesInvalidExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedPricingPlanException":
+    case "com.amazonaws.quicksight#UnsupportedPricingPlanException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedPricingPlanExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateEmbedUrlForRegisteredUserCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommandError(output, context);
+  }
+  const contents: GenerateEmbedUrlForRegisteredUserCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    EmbedUrl: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.EmbedUrl !== undefined && data.EmbedUrl !== null) {
+    contents.EmbedUrl = __expectString(data.EmbedUrl);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateEmbedUrlForRegisteredUserCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "QuickSightUserNotFoundException":
+    case "com.amazonaws.quicksight#QuickSightUserNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1QuickSightUserNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SessionLifetimeInMinutesInvalidException":
+    case "com.amazonaws.quicksight#SessionLifetimeInMinutesInvalidException":
+      response = {
+        ...(await deserializeAws_restJson1SessionLifetimeInMinutesInvalidExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedPricingPlanException":
+    case "com.amazonaws.quicksight#UnsupportedPricingPlanException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedPricingPlanExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetDashboardEmbedUrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -18428,6 +18798,39 @@ const serializeAws_restJson1AnalysisSourceTemplate = (input: AnalysisSourceTempl
   };
 };
 
+const serializeAws_restJson1AnonymousUserDashboardEmbeddingConfiguration = (
+  input: AnonymousUserDashboardEmbeddingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InitialDashboardId !== undefined &&
+      input.InitialDashboardId !== null && { InitialDashboardId: input.InitialDashboardId }),
+  };
+};
+
+const serializeAws_restJson1AnonymousUserEmbeddingExperienceConfiguration = (
+  input: AnonymousUserEmbeddingExperienceConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Dashboard !== undefined &&
+      input.Dashboard !== null && {
+        Dashboard: serializeAws_restJson1AnonymousUserDashboardEmbeddingConfiguration(input.Dashboard, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1ArnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1AthenaParameters = (input: AthenaParameters, context: __SerdeContext): any => {
   return {
     ...(input.WorkGroup !== undefined && input.WorkGroup !== null && { WorkGroup: input.WorkGroup }),
@@ -19207,6 +19610,44 @@ const serializeAws_restJson1RedshiftParameters = (input: RedshiftParameters, con
   };
 };
 
+const serializeAws_restJson1RegisteredUserDashboardEmbeddingConfiguration = (
+  input: RegisteredUserDashboardEmbeddingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InitialDashboardId !== undefined &&
+      input.InitialDashboardId !== null && { InitialDashboardId: input.InitialDashboardId }),
+  };
+};
+
+const serializeAws_restJson1RegisteredUserEmbeddingExperienceConfiguration = (
+  input: RegisteredUserEmbeddingExperienceConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Dashboard !== undefined &&
+      input.Dashboard !== null && {
+        Dashboard: serializeAws_restJson1RegisteredUserDashboardEmbeddingConfiguration(input.Dashboard, context),
+      }),
+    ...(input.QuickSightConsole !== undefined &&
+      input.QuickSightConsole !== null && {
+        QuickSightConsole: serializeAws_restJson1RegisteredUserQuickSightConsoleEmbeddingConfiguration(
+          input.QuickSightConsole,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1RegisteredUserQuickSightConsoleEmbeddingConfiguration = (
+  input: RegisteredUserQuickSightConsoleEmbeddingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InitialPath !== undefined && input.InitialPath !== null && { InitialPath: input.InitialPath }),
+  };
+};
+
 const serializeAws_restJson1RelationalTable = (input: RelationalTable, context: __SerdeContext): any => {
   return {
     ...(input.Catalog !== undefined && input.Catalog !== null && { Catalog: input.Catalog }),
@@ -19256,7 +19697,48 @@ const serializeAws_restJson1RowLevelPermissionDataSet = (
     ...(input.Namespace !== undefined && input.Namespace !== null && { Namespace: input.Namespace }),
     ...(input.PermissionPolicy !== undefined &&
       input.PermissionPolicy !== null && { PermissionPolicy: input.PermissionPolicy }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
   };
+};
+
+const serializeAws_restJson1RowLevelPermissionTagConfiguration = (
+  input: RowLevelPermissionTagConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.TagRules !== undefined &&
+      input.TagRules !== null && {
+        TagRules: serializeAws_restJson1RowLevelPermissionTagRuleList(input.TagRules, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1RowLevelPermissionTagRule = (
+  input: RowLevelPermissionTagRule,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ColumnName !== undefined && input.ColumnName !== null && { ColumnName: input.ColumnName }),
+    ...(input.MatchAllValue !== undefined && input.MatchAllValue !== null && { MatchAllValue: input.MatchAllValue }),
+    ...(input.TagKey !== undefined && input.TagKey !== null && { TagKey: input.TagKey }),
+    ...(input.TagMultiValueDelimiter !== undefined &&
+      input.TagMultiValueDelimiter !== null && { TagMultiValueDelimiter: input.TagMultiValueDelimiter }),
+  };
+};
+
+const serializeAws_restJson1RowLevelPermissionTagRuleList = (
+  input: RowLevelPermissionTagRule[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RowLevelPermissionTagRule(entry, context);
+    });
 };
 
 const serializeAws_restJson1S3Parameters = (input: S3Parameters, context: __SerdeContext): any => {
@@ -19286,6 +19768,24 @@ const serializeAws_restJson1ServiceNowParameters = (input: ServiceNowParameters,
   return {
     ...(input.SiteBaseUrl !== undefined && input.SiteBaseUrl !== null && { SiteBaseUrl: input.SiteBaseUrl }),
   };
+};
+
+const serializeAws_restJson1SessionTag = (input: SessionTag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1SessionTagList = (input: SessionTag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SessionTag(entry, context);
+    });
 };
 
 const serializeAws_restJson1SheetControlsOption = (input: SheetControlsOption, context: __SerdeContext): any => {
@@ -20161,6 +20661,10 @@ const deserializeAws_restJson1DataSet = (output: any, context: __SerdeContext): 
       output.RowLevelPermissionDataSet !== undefined && output.RowLevelPermissionDataSet !== null
         ? deserializeAws_restJson1RowLevelPermissionDataSet(output.RowLevelPermissionDataSet, context)
         : undefined,
+    RowLevelPermissionTagConfiguration:
+      output.RowLevelPermissionTagConfiguration !== undefined && output.RowLevelPermissionTagConfiguration !== null
+        ? deserializeAws_restJson1RowLevelPermissionTagConfiguration(output.RowLevelPermissionTagConfiguration, context)
+        : undefined,
   } as any;
 };
 
@@ -20231,6 +20735,7 @@ const deserializeAws_restJson1DataSetSummary = (output: any, context: __SerdeCon
       output.RowLevelPermissionDataSet !== undefined && output.RowLevelPermissionDataSet !== null
         ? deserializeAws_restJson1RowLevelPermissionDataSet(output.RowLevelPermissionDataSet, context)
         : undefined,
+    RowLevelPermissionTagConfigurationApplied: __expectBoolean(output.RowLevelPermissionTagConfigurationApplied),
   } as any;
 };
 
@@ -21052,7 +21557,47 @@ const deserializeAws_restJson1RowLevelPermissionDataSet = (
     FormatVersion: __expectString(output.FormatVersion),
     Namespace: __expectString(output.Namespace),
     PermissionPolicy: __expectString(output.PermissionPolicy),
+    Status: __expectString(output.Status),
   } as any;
+};
+
+const deserializeAws_restJson1RowLevelPermissionTagConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RowLevelPermissionTagConfiguration => {
+  return {
+    Status: __expectString(output.Status),
+    TagRules:
+      output.TagRules !== undefined && output.TagRules !== null
+        ? deserializeAws_restJson1RowLevelPermissionTagRuleList(output.TagRules, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RowLevelPermissionTagRule = (
+  output: any,
+  context: __SerdeContext
+): RowLevelPermissionTagRule => {
+  return {
+    ColumnName: __expectString(output.ColumnName),
+    MatchAllValue: __expectString(output.MatchAllValue),
+    TagKey: __expectString(output.TagKey),
+    TagMultiValueDelimiter: __expectString(output.TagMultiValueDelimiter),
+  } as any;
+};
+
+const deserializeAws_restJson1RowLevelPermissionTagRuleList = (
+  output: any,
+  context: __SerdeContext
+): RowLevelPermissionTagRule[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RowLevelPermissionTagRule(entry, context);
+    });
 };
 
 const deserializeAws_restJson1S3Parameters = (output: any, context: __SerdeContext): S3Parameters => {

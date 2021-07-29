@@ -35,6 +35,9 @@ export const serializeAws_restJson1CreateEndpointCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/S3Outposts/CreateEndpoint";
   let body: any;
   body = JSON.stringify({
+    ...(input.AccessType !== undefined && input.AccessType !== null && { AccessType: input.AccessType }),
+    ...(input.CustomerOwnedIpv4Pool !== undefined &&
+      input.CustomerOwnedIpv4Pool !== null && { CustomerOwnedIpv4Pool: input.CustomerOwnedIpv4Pool }),
     ...(input.OutpostId !== undefined && input.OutpostId !== null && { OutpostId: input.OutpostId }),
     ...(input.SecurityGroupId !== undefined &&
       input.SecurityGroupId !== null && { SecurityGroupId: input.SecurityGroupId }),
@@ -433,18 +436,23 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
+    AccessType: __expectString(output.AccessType),
     CidrBlock: __expectString(output.CidrBlock),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
+    CustomerOwnedIpv4Pool: __expectString(output.CustomerOwnedIpv4Pool),
     EndpointArn: __expectString(output.EndpointArn),
     NetworkInterfaces:
       output.NetworkInterfaces !== undefined && output.NetworkInterfaces !== null
         ? deserializeAws_restJson1NetworkInterfaces(output.NetworkInterfaces, context)
         : undefined,
     OutpostsId: __expectString(output.OutpostsId),
+    SecurityGroupId: __expectString(output.SecurityGroupId),
     Status: __expectString(output.Status),
+    SubnetId: __expectString(output.SubnetId),
+    VpcId: __expectString(output.VpcId),
   } as any;
 };
 

@@ -21,7 +21,7 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a dataset. A dataset stores data retrieved from a data store by applying a
+ * <p>Used to create a dataset. A dataset stores data retrieved from a data store by applying a
  *         <code>queryAction</code> (a SQL query) or a <code>containerAction</code> (executing a
  *       containerized application). This operation creates the skeleton of a dataset. The dataset can
  *       be populated manually by calling <code>CreateDatasetContent</code> or automatically according

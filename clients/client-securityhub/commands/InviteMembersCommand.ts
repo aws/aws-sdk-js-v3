@@ -21,13 +21,11 @@ export interface InviteMembersCommandInput extends InviteMembersRequest {}
 export interface InviteMembersCommandOutput extends InviteMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Invites other AWS accounts to become member accounts for the Security Hub administrator account that
+ * <p>Invites other Amazon Web Services accounts to become member accounts for the Security Hub administrator account that
  *          the invitation is sent from.</p>
  *          <p>This operation is only used to invite accounts that do not belong to an organization.
  *          Organization accounts do not receive invitations.</p>
- *          <p>Before you can use this action to invite a member, you must first use the <code>
- *                <a>CreateMembers</a>
- *             </code> action to create the member account in Security Hub.</p>
+ *          <p>Before you can use this action to invite a member, you must first use the <code>CreateMembers</code> action to create the member account in Security Hub.</p>
  *          <p>When the account owner enables Security Hub and accepts the invitation to become a member
  *          account, the administrator account can view the findings generated from the member account.</p>
  * @example

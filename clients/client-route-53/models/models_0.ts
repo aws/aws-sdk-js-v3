@@ -90,7 +90,9 @@ export type ChangeStatus = "INSYNC" | "PENDING";
  */
 export interface ChangeInfo {
   /**
-   * <p>The ID of the request.</p>
+   * <p>This element contains an ID that you use when performing a
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>
+   * 			action to get detailed information about the change.</p>
    */
   Id: string | undefined;
 
@@ -108,11 +110,7 @@ export interface ChangeInfo {
   SubmittedAt: Date | undefined;
 
   /**
-   * <p>A complex type that describes change information about changes made to your hosted
-   * 			zone.</p>
-   * 		       <p>This element contains an ID that you use when performing a
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>
-   * 			action to get detailed information about the change.</p>
+   * <p>A comment you can provide.</p>
    */
   Comment?: string;
 }
@@ -160,6 +158,27 @@ export namespace ConcurrentModification {
    * @internal
    */
   export const filterSensitiveLog = (obj: ConcurrentModification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input is not valid.</p>
+ */
+export interface InvalidInput extends __SmithyException, $MetadataBearer {
+  name: "InvalidInput";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace InvalidInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidInput): any => ({
     ...obj,
   });
 }
@@ -309,7 +328,7 @@ export namespace AlarmIdentifier {
 
 /**
  * <p>
- *             <i>Alias resource record sets only:</i> Information about the AWS resource, such as a CloudFront distribution or
+ *             <i>Alias resource record sets only:</i> Information about the Amazon Web Services resource, such as a CloudFront distribution or
  * 			an Amazon S3 bucket, that you want to route traffic to.</p>
  * 		       <p>When creating resource record sets for a private hosted zone, note the following:</p>
  * 		       <ul>
@@ -330,7 +349,7 @@ export interface AliasTarget {
    * 		       <dl>
    *             <dt>Amazon API Gateway custom regional APIs and edge-optimized APIs</dt>
    *             <dd>
-   *                <p>Specify the hosted zone ID for your API. You can get the applicable value using the AWS CLI command
+   *                <p>Specify the hosted zone ID for your API. You can get the applicable value using the CLI command
    * 					<a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html">get-domain-names</a>:</p>
    * 					          <ul>
    *                   <li>
@@ -344,7 +363,7 @@ export interface AliasTarget {
    *             <dt>Amazon Virtual Private Cloud interface VPC endpoint</dt>
    *             <dd>
    *                <p>Specify the hosted zone ID for your interface endpoint. You can get the value of <code>HostedZoneId</code>
-   * 					using the AWS CLI command
+   * 					using the CLI command
    * 					<a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html">describe-vpc-endpoints</a>.</p>
    * 				        </dd>
    *             <dt>CloudFront distribution</dt>
@@ -358,7 +377,7 @@ export interface AliasTarget {
    *             <dd>
    * 					          <p>Specify the hosted zone ID for the region that you created the environment in. The environment
    * 						must have a regionalized subdomain. For a list of regions and the corresponding hosted zone IDs, see
-   * 					    <a href="https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html">AWS Elastic Beanstalk endpoints and quotas</a> in the
+   * 					    <a href="https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html">Elastic Beanstalk endpoints and quotas</a> in the
    * 						 the <i>Amazon Web Services General Reference</i>.</p>
    * 				        </dd>
    *             <dt>ELB load balancer</dt>
@@ -374,7 +393,7 @@ export interface AliasTarget {
    *                   </li>
    *                   <li>
    * 							              <p>
-   *                         <b>AWS Management Console</b>: Go to the Amazon EC2 page, choose
+   *                         <b>Management Console</b>: Go to the Amazon EC2 page, choose
    * 								<b>Load Balancers</b> in the navigation pane, select the load balancer, and get the value of the
    * 								<b>Hosted zone</b> field on the <b>Description</b> tab.</p>
    * 						            </li>
@@ -397,7 +416,7 @@ export interface AliasTarget {
    * 						            </li>
    *                   <li>
    * 							              <p>
-   *                         <b>AWS CLI</b>: Use <code>describe-load-balancers</code> to get the applicable value.
+   *                         <b>CLI</b>: Use <code>describe-load-balancers</code> to get the applicable value.
    * 								For more information, see the applicable guide:</p>
    * 							              <ul>
    *                         <li>
@@ -414,7 +433,7 @@ export interface AliasTarget {
    * 						            </li>
    *                </ul>
    * 				        </dd>
-   *             <dt>AWS Global Accelerator accelerator</dt>
+   *             <dt>Global Accelerator accelerator</dt>
    *             <dd>
    *                <p>Specify <code>Z2BJ6XQ5FK7U4H</code>.</p>
    *             </dd>
@@ -440,7 +459,7 @@ export interface AliasTarget {
    * 		       <dl>
    *             <dt>Amazon API Gateway custom regional APIs and edge-optimized APIs</dt>
    *             <dd>
-   *                <p>Specify the applicable domain name for your API. You can get the applicable value using the AWS CLI command
+   *                <p>Specify the applicable domain name for your API. You can get the applicable value using the CLI command
    * 					<a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html">get-domain-names</a>:</p>
    * 					          <ul>
    *                   <li>
@@ -460,7 +479,7 @@ export interface AliasTarget {
    *             <dd>
    *                <p>Enter the API endpoint for the interface endpoint, such as
    * 					<code>vpce-123456789abcdef01-example-us-east-1a.elasticloadbalancing.us-east-1.vpce.amazonaws.com</code>. For edge-optimized APIs,
-   * 					this is the domain name for the corresponding CloudFront distribution. You can get the value of <code>DnsName</code> using the AWS CLI command
+   * 					this is the domain name for the corresponding CloudFront distribution. You can get the value of <code>DnsName</code> using the CLI command
    * 					<a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html">describe-vpc-endpoints</a>.</p>
    * 				        </dd>
    *             <dt>CloudFront distribution</dt>
@@ -495,34 +514,34 @@ export interface AliasTarget {
    * 					          <ul>
    *                   <li>
    * 							              <p>
-   *                         <i>AWS Management Console</i>: For information about how to get the value by using the console,
-   * 								see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html">Using Custom Domains with AWS Elastic Beanstalk</a> in the
-   * 								<i>AWS Elastic Beanstalk Developer Guide</i>.</p>
+   *                         <i>Management Console</i>: For information about how to get the value by using the console,
+   * 								see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html">Using Custom Domains with Elastic Beanstalk</a> in the
+   * 								<i>Elastic Beanstalk Developer Guide</i>.</p>
    * 						            </li>
    *                   <li>
    * 							              <p>
    *                         <i>Elastic Beanstalk API</i>: Use the <code>DescribeEnvironments</code> action to get
    * 								the value of the <code>CNAME</code> attribute. For more information, see
    * 								<a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html">DescribeEnvironments</a>
-   * 								in the <i>AWS Elastic Beanstalk API Reference</i>.</p>
+   * 								in the <i>Elastic Beanstalk API Reference</i>.</p>
    * 						            </li>
    *                   <li>
    * 							              <p>
-   *                         <i>AWS CLI</i>: Use the <code>describe-environments</code> command to get the value of the
+   *                         <i>CLI</i>: Use the <code>describe-environments</code> command to get the value of the
    * 								<code>CNAME</code> attribute. For more information, see
    * 								<a href="https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/describe-environments.html">describe-environments</a> in the
-   * 								<i>AWS CLI Command Reference</i>.</p>
+   * 								<i>CLI Command Reference</i>.</p>
    * 						            </li>
    *                </ul>
    * 				        </dd>
    *             <dt>ELB load balancer</dt>
    *             <dd>
-   *                <p>Specify the DNS name that is associated with the load balancer. Get the DNS name by using the AWS Management Console,
-   * 					the ELB API, or the AWS CLI. </p>
+   *                <p>Specify the DNS name that is associated with the load balancer. Get the DNS name by using the Management Console,
+   * 					the ELB API, or the CLI. </p>
    * 					          <ul>
    *                   <li>
    * 							              <p>
-   *                         <b>AWS Management Console</b>: Go to the EC2 page, choose <b>Load Balancers</b>
+   *                         <b>Management Console</b>: Go to the EC2 page, choose <b>Load Balancers</b>
    * 								in the navigation pane, choose the load balancer, choose the <b>Description</b> tab, and get the value
    * 								of the <b>DNS name</b> field. </p>
    * 							              <p>If you're routing traffic to a Classic Load Balancer, get the value that begins with <b>dualstack</b>.
@@ -547,7 +566,7 @@ export interface AliasTarget {
    * 						            </li>
    *                   <li>
    * 							              <p>
-   *                         <b>AWS CLI</b>: Use <code>describe-load-balancers</code> to get the value of <code>DNSName</code>.
+   *                         <b>CLI</b>: Use <code>describe-load-balancers</code> to get the value of <code>DNSName</code>.
    * 								For more information, see the applicable guide:</p>
    * 							              <ul>
    *                         <li>
@@ -564,7 +583,7 @@ export interface AliasTarget {
    * 						            </li>
    *                </ul>
    * 				        </dd>
-   *             <dt>AWS Global Accelerator accelerator</dt>
+   *             <dt>Global Accelerator accelerator</dt>
    *             <dd>
    *                <p>Specify the DNS name for your accelerator:</p>
    * 					          <ul>
@@ -575,7 +594,7 @@ export interface AliasTarget {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <b>AWS CLI:</b> To get the DNS name, use
+   *                         <b>CLI:</b> To get the DNS name, use
    * 							<a href="https://docs.aws.amazon.com/cli/latest/reference/globalaccelerator/describe-accelerator.html">describe-accelerator</a>.</p>
    *                   </li>
    *                </ul>
@@ -607,7 +626,7 @@ export interface AliasTarget {
   /**
    * <p>
    *             <i>Applies only to alias, failover alias, geolocation alias, latency alias, and weighted alias resource record sets:</i>
-   * 			When <code>EvaluateTargetHealth</code> is <code>true</code>, an alias resource record set inherits the health of the referenced AWS resource,
+   * 			When <code>EvaluateTargetHealth</code> is <code>true</code>, an alias resource record set inherits the health of the referenced Amazon Web Services resource,
    * 			such as an ELB load balancer or another resource record set in the hosted zone.</p>
    * 		       <p>Note the following:</p>
    *
@@ -666,7 +685,7 @@ export interface AliasTarget {
    *             </dd>
    *             <dt>Other records in the same hosted zone</dt>
    *             <dd>
-   *                <p>If the AWS resource that you specify in <code>DNSName</code> is a record or a group of records
+   *                <p>If the Amazon Web Services resource that you specify in <code>DNSName</code> is a record or a group of records
    * 					(for example, a group of weighted records) but is not another alias record, we recommend that you associate a health check
    * 					with all of the records in the alias target. For more information, see
    * 					<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html#dns-failover-complex-configs-hc-omitting">What Happens When You Omit Health Checks?</a>
@@ -830,27 +849,6 @@ export namespace ConflictingDomainExists {
 }
 
 /**
- * <p>The input is not valid.</p>
- */
-export interface InvalidInput extends __SmithyException, $MetadataBearer {
-  name: "InvalidInput";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-}
-
-export namespace InvalidInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInput): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.</p>
  */
 export interface InvalidVPCId extends __SmithyException, $MetadataBearer {
@@ -878,7 +876,7 @@ export namespace InvalidVPCId {
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>.
  * 			To get the current limit on the number of Amazon VPCs that you can associate with a private hosted zone, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneLimit.html">GetHostedZoneLimit</a>.
- * 			To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
+ * 			To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
  */
 export interface LimitsExceeded extends __SmithyException, $MetadataBearer {
   name: "LimitsExceeded";
@@ -1292,7 +1290,7 @@ export interface ResourceRecordSet {
   /**
    * <p>
    *             <i>Latency-based resource record sets only:</i> The Amazon EC2 Region where you created the resource that this
-   * 			resource record set refers to. The resource typically is an AWS resource, such as an EC2 instance or an ELB load balancer, and is
+   * 			resource record set refers to. The resource typically is an Amazon Web Services resource, such as an EC2 instance or an ELB load balancer, and is
    * 			referred to by an IP address or a DNS domain name, depending on the record type.</p>
    * 		       <note>
    * 			         <p>Although creating latency and latency alias resource record sets in a private hosted zone is allowed,
@@ -1464,7 +1462,7 @@ export interface ResourceRecordSet {
 
   /**
    * <p>
-   *             <i>Alias resource record sets only:</i> Information about the AWS resource, such as a CloudFront distribution or an
+   *             <i>Alias resource record sets only:</i> Information about the Amazon Web Services resource, such as a CloudFront distribution or an
    * 			Amazon S3 bucket, that you want to route traffic to. </p>
    * 		       <p>If you're creating resource records sets for a private hosted zone, note the following:</p>
    * 		       <ul>
@@ -1951,6 +1949,7 @@ export enum HealthCheckType {
   HTTPS = "HTTPS",
   HTTPS_STR_MATCH = "HTTPS_STR_MATCH",
   HTTP_STR_MATCH = "HTTP_STR_MATCH",
+  RECOVERY_CONTROL = "RECOVERY_CONTROL",
   TCP = "TCP",
 }
 
@@ -2064,6 +2063,12 @@ export interface HealthCheckConfig {
    * 					the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of
    * 					<code>HealthThreshold</code>. </p>
    * 			         </li>
+   *             <li>
+   *                <p>
+   *                   <b>RECOVERY_CONTROL</b>: The health check is assocated with a Route53 Application Recovery Controller routing control.
+   * 				If the routing control state is <code>ON</code>, the health check is considered healthy. If the state is <code>OFF</code>, the health check is considered unhealthy.
+   * 				</p>
+   *             </li>
    *          </ul>
    * 		       <p>For more information, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How Route 53
@@ -2157,7 +2162,7 @@ export interface HealthCheckConfig {
   FailureThreshold?: number;
 
   /**
-   * <p>Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint, and to
+   * <p>Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple Amazon Web Services regions and your endpoint, and to
    * 			display CloudWatch latency graphs on the <b>Health Checks</b> page in the Route 53 console.</p>
    * 		       <important>
    * 			         <p>You can't change the value of <code>MeasureLatency</code> after you create a health check.</p>
@@ -2278,6 +2283,11 @@ export interface HealthCheckConfig {
    *          </ul>
    */
   InsufficientDataHealthStatus?: InsufficientDataHealthStatus | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for Route53 Application Recovery Controller routing control.</p>
+   */
+  RoutingControlArn?: string;
 }
 
 export namespace HealthCheckConfig {
@@ -2452,7 +2462,7 @@ export namespace LinkedService {
 }
 
 /**
- * <p>A complex type that contains information about one health check that is associated with the current AWS account.</p>
+ * <p>A complex type that contains information about one health check that is associated with the current Amazon Web Services account.</p>
  */
 export interface HealthCheck {
   /**
@@ -2560,10 +2570,10 @@ export namespace HealthCheckAlreadyExists {
  * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
  * 		       <p>For information about how to get the current limit for an account, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>. To request a
- * 			higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
+ * 			higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
  *
- * 		       <p>You have reached the maximum number of active health checks for an AWS account. To request a higher limit,
- * 			<a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
+ * 		       <p>You have reached the maximum number of active health checks for an account. To request a higher limit,
+ * 			<a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
  */
 export interface TooManyHealthChecks extends __SmithyException, $MetadataBearer {
   name: "TooManyHealthChecks";
@@ -2906,7 +2916,7 @@ export namespace NoSuchDelegationSet {
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>.</p>
  * 		       <p>To get the current limit on hosted zones that can be associated with a reusable delegation set, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSetLimit.html">GetReusableDelegationSetLimit</a>.</p>
- * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
+ * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
  */
 export interface TooManyHostedZones extends __SmithyException, $MetadataBearer {
   name: "TooManyHostedZones";
@@ -2938,7 +2948,7 @@ export interface CreateKeySigningKeyRequest {
   HostedZoneId: string | undefined;
 
   /**
-   * <p>The Amazon resource name (ARN) for a customer managed customer master key (CMK) in AWS Key Management Service (AWS KMS).
+   * <p>The Amazon resource name (ARN) for a customer managed customer master key (CMK) in Key Management Service (KMS).
    * 			The <code>KeyManagementServiceArn</code> must be unique for each key-signing key (KSK) in a single hosted zone.
    * 			To see an example of <code>KeyManagementServiceArn</code> that grants the correct permissions for DNSSEC,
    * 			scroll down to <b>Example</b>. </p>
@@ -2975,14 +2985,14 @@ export interface CreateKeySigningKeyRequest {
    * 					          <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"Service": "dnssec.route53.aws.amazonaws.com"</code>
+   *                         <code>"Service": "dnssec-route53.amazonaws.com"</code>
    *                      </p>
    *                   </li>
    *                </ul>
    * 				        </dd>
    *          </dl>
-   * 		       <p>For more information about working with a customer managed CMK in AWS KMS, see
-   * 			<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS Key Management Service concepts</a>.</p>
+   * 		       <p>For more information about working with a customer managed CMK in KMS, see
+   * 			<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">Key Management Service concepts</a>.</p>
    */
   KeyManagementServiceArn: string | undefined;
 
@@ -3020,7 +3030,7 @@ export interface KeySigningKey {
   Name?: string;
 
   /**
-   * <p>The Amazon resource name (ARN) used to identify the customer managed customer master key (CMK) in AWS Key Management Service (AWS KMS).
+   * <p>The Amazon resource name (ARN) used to identify the customer managed customer master key (CMK) in Key Management Service (KMS).
    * 			The <code>KmsArn</code> must be unique for each key-signing key (KSK) in a single hosted zone.</p>
    * 		       <p>You must configure the CMK as follows:</p>
    * 		       <dl>
@@ -3055,14 +3065,14 @@ export interface KeySigningKey {
    * 					          <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"Service": "api-service.dnssec.route53.aws.internal"</code>
+   *                         <code>"Service": "dnssec-route53.amazonaws.com"</code>
    *                      </p>
    *                   </li>
    *                </ul>
    * 				        </dd>
    *          </dl>
-   * 		       <p>For more information about working with the customer managed CMK in AWS KMS, see
-   * 			<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS Key Management Service concepts</a>.</p>
+   * 		       <p>For more information about working with the customer managed CMK in KMS, see
+   * 			<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">Key Management Service concepts</a>.</p>
    */
   KmsArn?: string;
 
@@ -3303,7 +3313,7 @@ export interface CreateQueryLoggingConfigRequest {
    * 		       <p>To get the ARN for a log group, you can use the CloudWatch console, the
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html">DescribeLogGroups</a> API action,
    * 			the <a href="https://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html">describe-log-groups</a> command,
-   * 			or the applicable command in one of the AWS SDKs.</p>
+   * 			or the applicable command in one of the Amazon Web Services SDKs.</p>
    */
   CloudWatchLogsLogGroupArn: string | undefined;
 }
@@ -3381,6 +3391,10 @@ export namespace CreateQueryLoggingConfigResponse {
  *             </li>
  *             <li>
  *                <p>The resource policy hasn't finished propagating yet.</p>
+ *             </li>
+ *             <li>
+ *                <p>The Key management service (KMS) key you specified doesn’t exist or it can’t be used with the
+ * 				log group associated with query log. Update or provide a resource policy to grant permissions for the KMS key.</p>
  *             </li>
  *          </ul>
  */
@@ -3676,7 +3690,7 @@ export namespace InvalidTrafficPolicyDocument {
  * 		       <p>To get the current limit for an account, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>.
  * 		</p>
- * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
+ * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
  */
 export interface TooManyTrafficPolicies extends __SmithyException, $MetadataBearer {
   name: "TooManyTrafficPolicies";
@@ -3887,7 +3901,7 @@ export namespace NoSuchTrafficPolicy {
  * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
  * 		       <p>For information about how to get the current limit for an account, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>.</p>
- * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
+ * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
  */
 export interface TooManyTrafficPolicyInstances extends __SmithyException, $MetadataBearer {
   name: "TooManyTrafficPolicyInstances";
@@ -4531,18 +4545,18 @@ export namespace NoSuchTrafficPolicyInstance {
 
 /**
  * <p>A complex type that contains information about the request to remove authorization to associate a VPC
- * 			that was created by one AWS account with a hosted zone that was created with a different AWS account. </p>
+ * 			that was created by one account with a hosted zone that was created with a different account. </p>
  */
 export interface DeleteVPCAssociationAuthorizationRequest {
   /**
-   * <p>When removing authorization to associate a VPC that was created by one AWS account with a hosted zone
-   * 			that was created with a different AWS account, the ID of the hosted zone.</p>
+   * <p>When removing authorization to associate a VPC that was created by one account with a hosted zone
+   * 			that was created with a different account, the ID of the hosted zone.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
-   * <p>When removing authorization to associate a VPC that was created by one AWS account with a hosted zone
-   * 			that was created with a different AWS account, a complex type that includes the ID and region of the VPC.</p>
+   * <p>When removing authorization to associate a VPC that was created by one account with a hosted zone
+   * 			that was created with a different account, a complex type that includes the ID and region of the VPC.</p>
    */
   VPC: VPC | undefined;
 }
@@ -5231,7 +5245,7 @@ export namespace GetHealthCheckRequest {
 export interface GetHealthCheckResponse {
   /**
    * <p>A complex type that contains information about one health check that is associated with
-   * 			the current AWS account.</p>
+   * 			the current account.</p>
    */
   HealthCheck: HealthCheck | undefined;
 }
@@ -5264,7 +5278,7 @@ export namespace IncompatibleVersion {
 }
 
 /**
- * <p>A request for the number of health checks that are associated with the current AWS account.</p>
+ * <p>A request for the number of health checks that are associated with the current account.</p>
  */
 export interface GetHealthCheckCountRequest {}
 
@@ -5282,7 +5296,7 @@ export namespace GetHealthCheckCountRequest {
  */
 export interface GetHealthCheckCountResponse {
   /**
-   * <p>The number of health checks associated with the current AWS account.</p>
+   * <p>The number of health checks associated with the current account.</p>
    */
   HealthCheckCount: number | undefined;
 }
@@ -5488,7 +5502,7 @@ export namespace GetHostedZoneResponse {
 }
 
 /**
- * <p>A request to retrieve a count of all the hosted zones that are associated with the current AWS account.</p>
+ * <p>A request to retrieve a count of all the hosted zones that are associated with the current account.</p>
  */
 export interface GetHostedZoneCountRequest {}
 
@@ -5506,7 +5520,7 @@ export namespace GetHostedZoneCountRequest {
  */
 export interface GetHostedZoneCountResponse {
   /**
-   * <p>The total number of public and private hosted zones that are associated with the current AWS account.</p>
+   * <p>The total number of public and private hosted zones that are associated with the current account.</p>
    */
   HostedZoneCount: number | undefined;
 }
@@ -5872,7 +5886,7 @@ export namespace GetTrafficPolicyInstanceResponse {
 }
 
 /**
- * <p>Request to get the number of traffic policy instances that are associated with the current AWS account.</p>
+ * <p>Request to get the number of traffic policy instances that are associated with the current account.</p>
  */
 export interface GetTrafficPolicyInstanceCountRequest {}
 
@@ -5890,7 +5904,7 @@ export namespace GetTrafficPolicyInstanceCountRequest {
  */
 export interface GetTrafficPolicyInstanceCountResponse {
   /**
-   * <p>The number of traffic policy instances that are associated with the current AWS account.</p>
+   * <p>The number of traffic policy instances that are associated with the current account.</p>
    */
   TrafficPolicyInstanceCount: number | undefined;
 }
@@ -6000,7 +6014,7 @@ export namespace ListGeoLocationsResponse {
 }
 
 /**
- * <p>A request to retrieve a list of the health checks that are associated with the current AWS account.</p>
+ * <p>A request to retrieve a list of the health checks that are associated with the current account.</p>
  */
 export interface ListHealthChecksRequest {
   /**
@@ -6034,7 +6048,7 @@ export namespace ListHealthChecksRequest {
 export interface ListHealthChecksResponse {
   /**
    * <p>A complex type that contains one <code>HealthCheck</code> element for each health check that is associated with the current
-   * 			AWS account.</p>
+   * 			account.</p>
    */
   HealthChecks: HealthCheck[] | undefined;
 
@@ -6075,7 +6089,7 @@ export namespace ListHealthChecksResponse {
 }
 
 /**
- * <p>A request to retrieve a list of the public and private hosted zones that are associated with the current AWS account.</p>
+ * <p>A request to retrieve a list of the public and private hosted zones that are associated with the current account.</p>
  */
 export interface ListHostedZonesRequest {
   /**
@@ -6154,14 +6168,14 @@ export namespace ListHostedZonesResponse {
 }
 
 /**
- * <p>Retrieves a list of the public and private hosted zones that are associated with the current AWS account in ASCII order by domain
+ * <p>Retrieves a list of the public and private hosted zones that are associated with the current account in ASCII order by domain
  * 			name. </p>
  */
 export interface ListHostedZonesByNameRequest {
   /**
    * <p>(Optional) For your first request to <code>ListHostedZonesByName</code>, include the <code>dnsname</code> parameter only if you want to
    * 			specify the name of the first hosted zone in the response. If you don't include the <code>dnsname</code> parameter, Amazon Route 53 returns all of
-   * 			the hosted zones that were created by the current AWS account, in ASCII order. For subsequent requests, include both <code>dnsname</code> and
+   * 			the hosted zones that were created by the current account, in ASCII order. For subsequent requests, include both <code>dnsname</code> and
    * 			<code>hostedzoneid</code> parameters. For <code>dnsname</code>, specify the value of <code>NextDNSName</code> from the previous response.</p>
    */
   DNSName?: string;
@@ -6270,7 +6284,7 @@ export namespace InvalidPaginationToken {
 }
 
 /**
- * <p>Lists all the private hosted zones that a specified VPC is associated with, regardless of which AWS account created the hosted zones.</p>
+ * <p>Lists all the private hosted zones that a specified VPC is associated with, regardless of which account created the hosted zones.</p>
  */
 export interface ListHostedZonesByVPCRequest {
   /**
@@ -6279,7 +6293,7 @@ export interface ListHostedZonesByVPCRequest {
   VPCId: string | undefined;
 
   /**
-   * <p>For the Amazon VPC that you specified for <code>VPCId</code>, the AWS Region that you created the VPC in. </p>
+   * <p>For the Amazon VPC that you specified for <code>VPCId</code>, the Amazon Web Services Region that you created the VPC in. </p>
    */
   VPCRegion: VPCRegion | string | undefined;
 
@@ -6314,14 +6328,14 @@ export namespace ListHostedZonesByVPCRequest {
  */
 export interface HostedZoneOwner {
   /**
-   * <p>If the hosted zone was created by an AWS account, or was created by an AWS service that creates hosted zones using the current account,
-   * 			<code>OwningAccount</code> contains the account ID of that account. For example, when you use AWS Cloud Map to create a hosted zone, Cloud Map
-   * 			creates the hosted zone using the current AWS account. </p>
+   * <p>If the hosted zone was created by an account, or was created by an Amazon Web Services service that creates hosted zones using the current account,
+   * 			<code>OwningAccount</code> contains the account ID of that account. For example, when you use Cloud Map to create a hosted zone, Cloud Map
+   * 			creates the hosted zone using the current account. </p>
    */
   OwningAccount?: string;
 
   /**
-   * <p>If an AWS service uses its own account to create a hosted zone and associate the specified VPC with that hosted zone, <code>OwningService</code>
+   * <p>If an Amazon Web Services service uses its own account to create a hosted zone and associate the specified VPC with that hosted zone, <code>OwningService</code>
    * 			contains an abbreviation that identifies the service. For example, if Amazon Elastic File System (Amazon EFS) created a hosted zone and
    * 			associated a VPC with the hosted zone, the value of <code>OwningService</code> is <code>efs.amazonaws.com</code>.</p>
    */
@@ -6354,8 +6368,8 @@ export interface HostedZoneSummary {
   Name: string | undefined;
 
   /**
-   * <p>The owner of a private hosted zone that the specified VPC is associated with. The owner can be either an AWS account or
-   * 			an AWS service.</p>
+   * <p>The owner of a private hosted zone that the specified VPC is associated with. The owner can be either an account or
+   * 			an Amazon Web Services service.</p>
    */
   Owner: HostedZoneOwner | undefined;
 }
@@ -6382,7 +6396,7 @@ export interface ListHostedZonesByVPCResponse {
   MaxItems: number | undefined;
 
   /**
-   * <p>The value that you specified for <code>NextToken</code> in the most recent <code>ListHostedZonesByVPC</code> request.</p>
+   * <p>The value that you will use for <code>NextToken</code> in the next <code>ListHostedZonesByVPC</code> request.</p>
    */
   NextToken?: string;
 }
@@ -6401,12 +6415,12 @@ export interface ListQueryLoggingConfigsRequest {
    * <p>(Optional) If you want to list the query logging configuration that is associated with a hosted zone, specify the ID in
    * 			<code>HostedZoneId</code>. </p>
    * 		       <p>If you don't specify a hosted zone ID, <code>ListQueryLoggingConfigs</code> returns all of the configurations
-   * 			that are associated with the current AWS account.</p>
+   * 			that are associated with the current account.</p>
    */
   HostedZoneId?: string;
 
   /**
-   * <p>(Optional) If the current AWS account has more than <code>MaxResults</code> query logging configurations, use <code>NextToken</code>
+   * <p>(Optional) If the current account has more than <code>MaxResults</code> query logging configurations, use <code>NextToken</code>
    * 			to get the second and subsequent pages of results.</p>
    * 		       <p>For the first <code>ListQueryLoggingConfigs</code> request, omit this value.</p>
    * 		       <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value
@@ -6416,7 +6430,7 @@ export interface ListQueryLoggingConfigsRequest {
 
   /**
    * <p>(Optional) The maximum number of query logging configurations that you want Amazon Route 53 to return in response to the current request.
-   * 			If the current AWS account has more than <code>MaxResults</code> configurations, use the value of
+   * 			If the current account has more than <code>MaxResults</code> configurations, use the value of
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html#API_ListQueryLoggingConfigs_RequestSyntax">NextToken</a>
    * 			in the response to get the next page of results.</p>
    * 		       <p>If you don't specify a value for <code>MaxResults</code>, Route 53 returns up to 100 configurations.</p>
@@ -6437,12 +6451,12 @@ export interface ListQueryLoggingConfigsResponse {
   /**
    * <p>An array that contains one
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_QueryLoggingConfig.html">QueryLoggingConfig</a> element
-   * 			for each configuration for DNS query logging that is associated with the current AWS account.</p>
+   * 			for each configuration for DNS query logging that is associated with the current account.</p>
    */
   QueryLoggingConfigs: QueryLoggingConfig[] | undefined;
 
   /**
-   * <p>If a response includes the last of the query logging configurations that are associated with the current AWS account,
+   * <p>If a response includes the last of the query logging configurations that are associated with the current account,
    * 			<code>NextToken</code> doesn't appear in the response.</p>
    * 		       <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html">ListQueryLoggingConfigs</a>
@@ -6600,7 +6614,7 @@ export namespace ListResourceRecordSetsResponse {
 }
 
 /**
- * <p>A request to get a list of the reusable delegation sets that are associated with the current AWS account.</p>
+ * <p>A request to get a list of the reusable delegation sets that are associated with the current account.</p>
  */
 export interface ListReusableDelegationSetsRequest {
   /**
@@ -6629,12 +6643,12 @@ export namespace ListReusableDelegationSetsRequest {
 }
 
 /**
- * <p>A complex type that contains information about the reusable delegation sets that are associated with the current AWS account.</p>
+ * <p>A complex type that contains information about the reusable delegation sets that are associated with the current account.</p>
  */
 export interface ListReusableDelegationSetsResponse {
   /**
    * <p>A complex type that contains one <code>DelegationSet</code> element for each reusable delegation set that was created
-   * 			by the current AWS account.</p>
+   * 			by the current account.</p>
    */
   DelegationSets: DelegationSet[] | undefined;
 
@@ -6813,7 +6827,7 @@ export namespace ListTagsForResourcesResponse {
 
 /**
  * <p>A complex type that contains the information about the request to list the traffic policies that are associated
- * 			with the current AWS account.</p>
+ * 			with the current account.</p>
  */
 export interface ListTrafficPoliciesRequest {
   /**
@@ -6845,7 +6859,7 @@ export namespace ListTrafficPoliciesRequest {
 
 /**
  * <p>A complex type that contains information about the latest version of one traffic policy
- * 			that is associated with the current AWS account.</p>
+ * 			that is associated with the current account.</p>
  */
 export interface TrafficPolicySummary {
   /**
@@ -6870,7 +6884,7 @@ export interface TrafficPolicySummary {
   LatestVersion: number | undefined;
 
   /**
-   * <p>The number of traffic policies that are associated with the current AWS account.</p>
+   * <p>The number of traffic policies that are associated with the current account.</p>
    */
   TrafficPolicyCount: number | undefined;
 }
@@ -6889,7 +6903,7 @@ export namespace TrafficPolicySummary {
  */
 export interface ListTrafficPoliciesResponse {
   /**
-   * <p>A list that contains one <code>TrafficPolicySummary</code> element for each traffic policy that was created by the current AWS account.</p>
+   * <p>A list that contains one <code>TrafficPolicySummary</code> element for each traffic policy that was created by the current account.</p>
    */
   TrafficPolicySummaries: TrafficPolicySummary[] | undefined;
 
@@ -6923,7 +6937,7 @@ export namespace ListTrafficPoliciesResponse {
 }
 
 /**
- * <p>A request to get information about the traffic policy instances that you created by using the current AWS account.</p>
+ * <p>A request to get information about the traffic policy instances that you created by using the current account.</p>
  */
 export interface ListTrafficPolicyInstancesRequest {
   /**
@@ -7390,7 +7404,7 @@ export interface TestDNSAnswerRequest {
 
   /**
    * <p>If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver.
-   * 			If you omit this value, <code>TestDnsAnswer</code> uses the IP address of a DNS resolver in the AWS US East (N. Virginia) Region
+   * 			If you omit this value, <code>TestDnsAnswer</code> uses the IP address of a DNS resolver in the Amazon Web Services US East (N. Virginia) Region
    * 			(<code>us-east-1</code>).</p>
    */
   ResolverIP?: string;

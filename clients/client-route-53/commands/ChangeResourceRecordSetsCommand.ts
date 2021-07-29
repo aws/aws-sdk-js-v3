@@ -71,7 +71,7 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * 				        </li>
  *             <li>
  * 					          <p>
- *                   <code>UPSERT</code>: If a resource record set does not already exist, AWS creates it.
+ *                   <code>UPSERT</code>: If a resource record set does not already exist, Amazon Web Services creates it.
  * 						If a resource set does exist, Route 53 updates it with the values in the request. </p>
  * 				        </li>
  *          </ul>

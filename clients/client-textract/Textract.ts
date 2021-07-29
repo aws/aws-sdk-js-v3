@@ -5,6 +5,11 @@ import {
   AnalyzeDocumentCommandOutput,
 } from "./commands/AnalyzeDocumentCommand";
 import {
+  AnalyzeExpenseCommand,
+  AnalyzeExpenseCommandInput,
+  AnalyzeExpenseCommandOutput,
+} from "./commands/AnalyzeExpenseCommand";
+import {
   DetectDocumentTextCommand,
   DetectDocumentTextCommandInput,
   DetectDocumentTextCommandOutput,
@@ -89,6 +94,51 @@ export class Textract extends TextractClient {
     cb?: (err: any, data?: AnalyzeDocumentCommandOutput) => void
   ): Promise<AnalyzeDocumentCommandOutput> | void {
     const command = new AnalyzeDocumentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Analyzes an input document for financially related relationships between text.</p>
+   *          <p>Information is returned as <code>ExpenseDocuments</code> and seperated as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LineItemGroups</code>- A data set containing <code>LineItems</code> which
+   *          store information about the lines of text, such as an item purchased and its price on a receipt.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SummaryFields</code>- Contains all other information a receipt, such as header information
+   *          or the vendors name.</p>
+   *             </li>
+   *          </ul>
+   */
+  public analyzeExpense(
+    args: AnalyzeExpenseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AnalyzeExpenseCommandOutput>;
+  public analyzeExpense(
+    args: AnalyzeExpenseCommandInput,
+    cb: (err: any, data?: AnalyzeExpenseCommandOutput) => void
+  ): void;
+  public analyzeExpense(
+    args: AnalyzeExpenseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AnalyzeExpenseCommandOutput) => void
+  ): void;
+  public analyzeExpense(
+    args: AnalyzeExpenseCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AnalyzeExpenseCommandOutput) => void),
+    cb?: (err: any, data?: AnalyzeExpenseCommandOutput) => void
+  ): Promise<AnalyzeExpenseCommandOutput> | void {
+    const command = new AnalyzeExpenseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -21,7 +21,7 @@ export interface EnableProactiveEngagementCommandInput extends EnableProactiveEn
 export interface EnableProactiveEngagementCommandOutput extends EnableProactiveEngagementResponse, __MetadataBearer {}
 
 /**
- * <p>Authorizes the DDoS Response Team (DRT) to use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
+ * <p>Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
